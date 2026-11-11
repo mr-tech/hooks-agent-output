@@ -1,0 +1,42 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows no line for an empty Action Row in a classic message
+AssertionError: expected [ 'An Action Row has no buttons.' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "An Action Row has no buttons.",
++ ]
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:217:30
+    215|     await act(async () => {});
+    216|
+    217|     expect(errorLines(host)).toEqual([]);
+       |                              ^
+    218|   });
+    219|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > which messages the component checks apply to > leaves a classic message with a link button in every refused button shape as it was
+AssertionError: expected 'A link button has no URL.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A link button has no URL.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:69:109
+     67|     ];
+     68|     for (const button of buttons) {
+     69|       expect(validateMessage(withBody({ content: 'Hi', flags: 0, compo…
+       |                                                                                                             ^
+     70|     }
+     71|     expect(validateMessage(withBody({ content: 'Hi', flags: 0, compone…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

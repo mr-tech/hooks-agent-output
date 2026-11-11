@@ -1,0 +1,28 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-7
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (29 tests | 10 failed) 857ms
+     × shows no error at the limit: 40 flat components 33ms
+     × shows no error at the limit: a container holding 39 text displays 15ms
+     × shows the total and the limit with a red border above the limit: 41 flat components 24ms
+     × shows the total and the limit with a red border above the limit: a container holding 40 text displays 23ms
+     × shows the total and the limit with a red border above the limit: 11 containers of one section each 16ms
+     × drops the line and the border once the total is back to 40 19ms
+     × shows one line naming the Text Display, with a red border, for an empty Text Display 22ms
+     × drops the line once the Text Display is filled 33ms
+     × shows the line when the message is not being edited, as the send page preview does 15ms
+     × shows the total and the limit with a red border when validation is not hidden 9ms
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (62 tests | 7 failed) 2966ms
+     × shows no error line and no red border for a message with nothing in it 52ms
+     × shows no error line and no red border for embeds over 6000 characters 142ms
+     × shows no error line and no red border for Text Displays over 4000 characters 69ms
+     × shows no error line and no red border for 41 components 183ms
+     × shows no error line and no red border for a Text Display with nothing in it 48ms
+     × shows no error line and no red border for an empty username 36ms
+     × shows no error line and no red border for a username Discord does not allow 28ms
+
+ Test Files  2 failed | 73 passed (75)
+      Tests  17 failed | 1154 passed (1171)
+   Start at  12:07:26
+   Duration  8.55s (transform 22.18s, setup 865ms, import 76.06s, tests 8.79s, environment 29.74s)
+

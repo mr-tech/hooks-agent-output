@@ -1,0 +1,41 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > QA: aggregate displayable text — edge cases > does not count non-TextDisplay content fields
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.message-validation.test.ts:488:28
+    486|     ];
+    487|     const result = discordMessageShape.safeParse({ components });
+    488|     expect(result.success).toBe(true);
+       |                            ^
+    489|   });
+    490|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageShape description bound > saves a gallery item description longer than 1024 characters
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.message-validation.test.ts:575:28
+    573|   it('saves a gallery item description longer than 1024 characters', (…
+    574|     const result = discordMessageShape.safeParse({ components: [galler…
+    575|     expect(result.success).toBe(true);
+       |                            ^
+    576|   });
+    577| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

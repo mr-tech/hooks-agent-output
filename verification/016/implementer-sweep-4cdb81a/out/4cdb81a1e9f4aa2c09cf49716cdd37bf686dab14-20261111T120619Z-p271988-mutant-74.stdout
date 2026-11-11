@@ -1,0 +1,38 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-74
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (29 tests | 1 failed) 835ms
+     × shows the line for an empty Action Row when only the V2 flag makes the message V2 106ms
+ ❯ |node| src/utils/__tests__/limits.v2-send-validity.test.ts (331 tests | 24 failed) 133ms
+     × refuses a message Discord refused: 'Action Row with components [], beside…' 14ms
+     × refuses a message Discord refused: 'Container holding a Text Display and …' 1ms
+     × refuses a message Discord refused: 'Action Row with no components key, be…' 1ms
+     × sends a message Discord accepted: 'valid Action Row with one link button…' 2ms
+     × sends a message Discord accepted: 'V2 flag with only a valid Action Row' 1ms
+     × sends a message Discord accepted: 'link button with an emoji and no labe…' 1ms
+     × sends a message Discord accepted: '38 Text Displays plus an Action Row w…' 1ms
+     × sends a message Discord accepted: 'Container holding a Text Display and …' 1ms
+     × sends a message Discord accepted: 'link button label of one U+FEFF' 1ms
+     × records a message Discord refused as not valid: 'Action Row with components [], beside…' 3ms
+     × records a message Discord refused as not valid: 'Container holding a Text Display and …' 1ms
+     × records a message Discord refused as not valid: 'Action Row with no components key, be…' 2ms
+     × records a message Discord accepted as valid: 'valid Action Row with one link button…' 1ms
+     × records a message Discord accepted as valid: 'V2 flag with only a valid Action Row' 0ms
+     × records a message Discord accepted as valid: 'link button with an emoji and no labe…' 1ms
+     × records a message Discord accepted as valid: '38 Text Displays plus an Action Row w…' 0ms
+     × records a message Discord accepted as valid: 'Container holding a Text Display and …' 0ms
+     × records a message Discord accepted as valid: 'link button label of one U+FEFF' 1ms
+     × refuses an empty Action Row when only the V2 flag makes the message V2 0ms
+     × sends it when the emoji has an id 1ms
+     × sends it when the emoji has a name 0ms
+     × refuses a empty Action Row at top 1ms
+     × refuses a empty Action Row at container 1ms
+     × names the component type for a 'empty Action Row' 1ms
+ ❯ |node| src/utils/__tests__/limits.send-gate-partition.test.ts (36 tests | 1 failed) 49ms
+     × 'B4' — 'flag set, non-V2 components, no conte…' 27ms
+
+ Test Files  3 failed | 72 passed (75)
+      Tests  26 failed | 1145 passed (1171)
+   Start at  12:17:50
+   Duration  8.32s (transform 22.11s, setup 714ms, import 73.66s, tests 9.02s, environment 29.14s)
+

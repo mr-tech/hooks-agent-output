@@ -1,0 +1,209 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 63 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows the line for an empty Action Row when only the V2 flag makes the message V2
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:187:30
+    185|     const host = await mountWith([{ type: 1, components: [] }], 32768);
+    186|
+    187|     expect(errorLines(host)).toHaveLength(1);
+       |                              ^
+    188|     expect(errorLines(host)[0]).toContain('Action Row');
+    189|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/63]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Action Row with components [], beside…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button with url \'\', beside a T…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button with no label key, beside…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button with label \'\', beside a…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button with label of one space, …'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button url \'abc\''
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Container holding a Text Display and …'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button url \'ftp://example.com\''
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Container holding an Action Row whose…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Container holding an Action Row whose…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Container holding an Action Row whose…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Container holding an Action Row whose…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button with no label key and emo…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button with no label key and emo…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button with no url key'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Action Row with no components key, be…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button label of one no-break spa…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button label of one next-line U+…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button label of U+0085, a space,…'
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:32:56
+     30|
+     31|   it.each(refused)('refuses a message Discord refused: $shape', (membe…
+     32|     expect(validateMessage(withBody(member.body))).not.toBe('');
+       |                                                        ^
+     33|   });
+     34|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/63]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Action Row with components [], beside…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'link button with url \'\', beside a T…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'link button with no label key, beside…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'link button with label \'\', beside a…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'link button with label of one space, …'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'link button url \'abc\''
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Container holding a Text Display and …'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'link button url \'ftp://example.com\''
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Container holding an Action Row whose…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Container holding an Action Row whose…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Container holding an Action Row whose…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Container holding an Action Row whose…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'link button with no label key and emo…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'link button with no label key and emo…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'link button with no url key'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Action Row with no components key, be…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'link button label of one no-break spa…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'link button label of one next-line U+…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'link button label of U+0085, a space,…'
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:42:51
+     40| describe('isMessageValid over the shapes Discord was measured on', () …
+     41|   it.each(refused)('records a message Discord refused as not valid: $s…
+     42|     expect(isMessageValid(withBody(member.body))).toBe(false);
+       |                                                   ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/63]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > which messages the component checks apply to > refuses an empty Action Row when only the V2 flag makes the message V2
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:54:49
+     52|
+     53|   it('refuses an empty Action Row when only the V2 flag makes the mess…
+     54|     expect(validateMessage(v2([emptyRow]))).not.toBe('');
+       |                                                 ^
+     55|   });
+     56|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/63]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > whitespace in a Text Display and a link button label > refuses a link button labelled a space
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:93:83
+     91|     ['a space', ' '],
+     92|   ])('refuses a link button labelled %s', (_title, label) => {
+     93|     expect(validateMessage(v2([makeActionRow([makeLinkButton({ label }…
+       |                                                                                   ^
+     94|   });
+     95| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/63]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > a link button with an emoji and no label > refuses it for an empty emoji object
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > a link button with an emoji and no label > refuses it for an emoji with an empty name
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > a link button with an emoji and no label > refuses it for an emoji with an empty id and name
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:110:101
+    108|     ['an emoji with an empty id and name', { id: '', name: '' }],
+    109|   ])('refuses it for %s', (_title, emoji) => {
+    110|     expect(validateMessage(v2([makeActionRow([makeLinkButton({ label: …
+       |                                                                                                     ^
+    111|   });
+    112| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/63]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a empty Action Row at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a empty Action Row at container
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with no URL at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with no URL at container
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with the URL key absent at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with the URL key absent at container
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with an invalid URL at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with an invalid URL at container
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with an ftp URL at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with an ftp URL at container
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with no label or emoji at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with no label or emoji at container
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:243:76
+    241|
+    242|   it.each(cases)('refuses a %s at %s', (_name, where, fault) => {
+    243|     expect(validateMessage(v2(place(fault.kind, fault.piece, where))))…
+       |                                                                            ^
+    244|   });
+    245|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/63]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'empty Action Row'
+AssertionError: expected '' to contain 'Action Row'
+
+- Expected
++ Received
+
+- Action Row
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:27
+    267|
+    268|   it.each(faults)('names the component type for a $name', (fault) => {
+    269|     expect(reason(fault)).toContain(fault.word);
+       |                           ^
+    270|   });
+    271|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/63]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with no URL'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with the URL key absent'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with an invalid URL'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with an ftp URL'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with no label or emoji'
+AssertionError: expected '' to contain 'link button'
+
+- Expected
++ Received
+
+- link button
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:27
+    267|
+    268|   it.each(faults)('names the component type for a $name', (fault) => {
+    269|     expect(reason(fault)).toContain(fault.word);
+       |                           ^
+    270|   });
+    271|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/63]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > gives every fault a reason of its own, apart from the reasons already in use
+AssertionError: expected 15 to be 19 // Object.is equality
+
+- Expected
++ Received
+
+- 19
++ 15
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:277:35
+    275|         && f.name !== 'gallery item with no media' && f.name !== 'link…
+    276|       .map(reason);
+    277|     expect(new Set(reasons).size).toBe(reasons.length);
+       |                                   ^
+    278|     for (const r of reasons) expect(existing).not.toContain(r);
+    279|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/63]⎯
+

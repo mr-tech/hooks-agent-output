@@ -1,0 +1,213 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 59 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows one line naming the Text Display, with a red border, for an empty Text Display
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:179:30
+    177|     const host = await mountWith([makeTextDisplay('')]);
+    178|
+    179|     expect(errorLines(host)).toHaveLength(1);
+       |                              ^
+    180|     expect(errorLines(host)[0]).toContain('Text Display');
+    181|     expect(border(host)).toContain(styles.errorBorder);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/59]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows the line after the components-total line
+AssertionError: expected [ Array(1) ] to have a length of 2 but got 1
+
+- Expected
++ Received
+
+- 2
++ 1
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:208:19
+    206|
+    207|     const lines = errorLines(host);
+    208|     expect(lines).toHaveLength(2);
+       |                   ^
+    209|     expect(lines[0]).toBe('Message has 41 components; the limit is 40.…
+    210|     expect(lines[1]).toContain('Text Display');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/59]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > drops the line once the Text Display is filled
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:232:30
+    230|     const host = mountDom(<Host />);
+    231|     await act(async () => {});
+    232|     expect(errorLines(host)).toHaveLength(1);
+       |                              ^
+    233|
+    234|     await act(async () => { handle.setCount(3); });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/59]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows the line when the message is not being edited, as the send page preview does
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:250:30
+    248|     await act(async () => {});
+    249|
+    250|     expect(errorLines(host)).toHaveLength(1);
+       |                              ^
+    251|     expect(border(host)).toContain(styles.errorBorder);
+    252|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/59]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'only an empty Text Display (\'\')'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'only a Text Display of one space'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'only a Text Display of one newline'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'only a Text Display of one no-break s…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'only a Text Display with no content k…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'empty Text Display beside a non-empty…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'one-space Text Display beside a non-e…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Section holding only an empty Text Di…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Section holding only a one-space Text…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Container holding only an empty Text …'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Container holding only a one-space Te…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'only a Text Display of one tab'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'only a Text Display of CR LF'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'only a Text Display of one ideographi…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'only a Text Display of one em space U…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'only a Text Display of one next-line …'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'only a Text Display of one line separ…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Container holding a Section whose onl…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'only a Text Display of U+0085 then a …'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'only a Text Display of a space, U+008…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'only a Text Display of U+0085, a spac…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'only a Text Display of a space, U+008…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'only a Text Display of two U+0085'
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:32:56
+     30|
+     31|   it.each(refused)('refuses a message Discord refused: $shape', (membe…
+     32|     expect(validateMessage(withBody(member.body))).not.toBe('');
+       |                                                        ^
+     33|   });
+     34|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/59]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'only an empty Text Display (\'\')'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'only a Text Display of one space'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'only a Text Display of one newline'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'only a Text Display of one no-break s…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'only a Text Display with no content k…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'empty Text Display beside a non-empty…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'one-space Text Display beside a non-e…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Section holding only an empty Text Di…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Section holding only a one-space Text…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Container holding only an empty Text …'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Container holding only a one-space Te…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'only a Text Display of one tab'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'only a Text Display of CR LF'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'only a Text Display of one ideographi…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'only a Text Display of one em space U…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'only a Text Display of one next-line …'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'only a Text Display of one line separ…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Container holding a Section whose onl…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'only a Text Display of U+0085 then a …'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'only a Text Display of a space, U+008…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'only a Text Display of U+0085, a spac…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'only a Text Display of a space, U+008…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'only a Text Display of two U+0085'
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:42:51
+     40| describe('isMessageValid over the shapes Discord was measured on', () …
+     41|   it.each(refused)('records a message Discord refused as not valid: $s…
+     42|     expect(isMessageValid(withBody(member.body))).toBe(false);
+       |                                                   ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/59]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > which messages the component checks apply to > refuses an empty Text Display when only the component types make the message V2
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:58:68
+     56|
+     57|   it('refuses an empty Text Display when only the component types make…
+     58|     expect(validateMessage(structural([makeTextDisplay('')]))).not.toB…
+       |                                                                    ^
+     59|   });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/59]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > whitespace in a Text Display and a link button label > refuses a Text Display of a space
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > whitespace in a Text Display and a link button label > refuses a Text Display of U+0085 alone
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:80:65
+     78|     ['U+0085 alone', '\u0085'],
+     79|   ])('refuses a Text Display of %s', (_title, content) => {
+     80|     expect(validateMessage(v2([makeTextDisplay(content)]))).not.toBe('…
+       |                                                                 ^
+     81|   });
+     82|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/59]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a empty Text Display at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a empty Text Display at container
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a Text Display with no content at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a Text Display with no content at container
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:243:76
+    241|
+    242|   it.each(cases)('refuses a %s at %s', (_name, where, fault) => {
+    243|     expect(validateMessage(v2(place(fault.kind, fault.piece, where))))…
+       |                                                                            ^
+    244|   });
+    245|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/59]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'empty Text Display'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'Text Display with no content'
+AssertionError: expected '' to contain 'Text Display'
+
+- Expected
++ Received
+
+- Text Display
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:27
+    267|
+    268|   it.each(faults)('names the component type for a $name', (fault) => {
+    269|     expect(reason(fault)).toContain(fault.word);
+       |                           ^
+    270|   });
+    271|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/59]⎯
+

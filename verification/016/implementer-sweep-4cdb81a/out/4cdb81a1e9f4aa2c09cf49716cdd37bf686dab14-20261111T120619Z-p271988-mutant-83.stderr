@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.description-limit.test.tsx > MediaGalleryEditor description input > stops typing and pasting at 1024 characters
+AssertionError: expected -1 to be 1024 // Object.is equality
+
+- Expected
++ Received
+
+- 1024
++ -1
+
+ ❯ src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.description-limit.test.tsx:33:41
+     31| describe('MediaGalleryEditor description input', () => {
+     32|   it('stops typing and pasting at 1024 characters', () => {
+     33|     expect(openDescription().maxLength).toBe(1024);
+       |                                         ^
+     34|   });
+     35|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

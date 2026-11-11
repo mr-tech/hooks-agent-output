@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-1
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/__tests__/Author.username-error.test.tsx (6 tests | 2 failed) 123ms
+     × shows the username error in the cozy style 69ms
+     × shows the username error in the compact style 8ms
+
+ Test Files  1 failed | 74 passed (75)
+      Tests  2 failed | 1169 passed (1171)
+   Start at  12:06:29
+   Duration  7.89s (transform 17.87s, setup 917ms, import 67.01s, tests 8.66s, environment 28.52s)
+

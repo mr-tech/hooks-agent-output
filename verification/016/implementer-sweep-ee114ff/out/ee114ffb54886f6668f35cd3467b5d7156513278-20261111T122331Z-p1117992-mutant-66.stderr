@@ -1,0 +1,148 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 19 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Media Gallery with items []'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Media Gallery with no items key'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Container holding a Text Display and …'
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:32:56
+     30|
+     31|   it.each(refused)('refuses a message Discord refused: $shape', (membe…
+     32|     expect(validateMessage(withBody(member.body))).not.toBe('');
+       |                                                        ^
+     33|   });
+     34|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/19]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'valid Media Gallery: one item'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Media Gallery item description of one…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Container holding a valid Media Galle…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Media Gallery item description of 102…'
+AssertionError: expected 'A Media Gallery has no items.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Media Gallery has no items.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:36:52
+     34|
+     35|   it.each(accepted)('sends a message Discord accepted: $shape', (membe…
+     36|     expect(validateMessage(withBody(member.body))).toBe('');
+       |                                                    ^
+     37|   });
+     38| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/19]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Media Gallery with items []'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Media Gallery with no items key'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Container holding a Text Display and …'
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:42:51
+     40| describe('isMessageValid over the shapes Discord was measured on', () …
+     41|   it.each(refused)('records a message Discord refused as not valid: $s…
+     42|     expect(isMessageValid(withBody(member.body))).toBe(false);
+       |                                                   ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/19]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'valid Media Gallery: one item'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Media Gallery item description of one…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Container holding a valid Media Galle…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Media Gallery item description of 102…'
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:46:51
+     44|
+     45|   it.each(accepted)('records a message Discord accepted as valid: $sha…
+     46|     expect(isMessageValid(withBody(member.body))).toBe(true);
+       |                                                   ^
+     47|   });
+     48| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/19]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the description bound > sends a gallery item with a description of 1024 characters and refuses 1025
+AssertionError: expected 'A Media Gallery has no items.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Media Gallery has no items.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:124:60
+    122|     ['a gallery item', gallery],
+    123|   ])('sends %s with a description of 1024 characters and refuses 1025'…
+    124|     expect(validateMessage(v2([build('a'.repeat(1024))]))).toBe('');
+       |                                                            ^
+    125|     expect(validateMessage(v2([build('a'.repeat(1025))]))).not.toBe(''…
+    126|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/19]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the description bound > sends a gallery item with a one-space description and refuses an empty one
+AssertionError: expected 'A Media Gallery has no items.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Media Gallery has no items.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:132:47
+    130|     ['a gallery item', gallery],
+    131|   ])('sends %s with a one-space description and refuses an empty one',…
+    132|     expect(validateMessage(v2([build(' ')]))).toBe('');
+       |                                               ^
+    133|     expect(validateMessage(v2([build('')]))).not.toBe('');
+    134|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/19]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a empty Media Gallery at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a empty Media Gallery at container
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:243:76
+    241|
+    242|   it.each(cases)('refuses a %s at %s', (_name, where, fault) => {
+    243|     expect(validateMessage(v2(place(fault.kind, fault.piece, where))))…
+       |                                                                            ^
+    244|   });
+    245|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/19]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'empty Media Gallery'
+AssertionError: expected '' to contain 'Media Gallery'
+
+- Expected
++ Received
+
+- Media Gallery
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:27
+    267|
+    268|   it.each(faults)('names the component type for a $name', (fault) => {
+    269|     expect(reason(fault)).toContain(fault.word);
+       |                           ^
+    270|   });
+    271|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/19]⎯
+

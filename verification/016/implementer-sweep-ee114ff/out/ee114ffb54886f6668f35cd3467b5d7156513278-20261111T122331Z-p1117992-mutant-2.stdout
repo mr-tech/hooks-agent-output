@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T122331Z-p1117992/mutant-2
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (33 tests | 12 failed) 845ms
+     × shows the total and the limit with a red border above the limit: 41 flat components 28ms
+     × shows the total and the limit with a red border above the limit: a container holding 40 text displays 15ms
+     × shows the total and the limit with a red border above the limit: 11 containers of one section each 24ms
+     × shows the components line after the text-length line 20ms
+     × drops the line and the border once the total is back to 40 14ms
+     × shows one line naming the Text Display, with a red border, for an empty Text Display 23ms
+     × shows the line for an empty Action Row when only the V2 flag makes the message V2 25ms
+     × shows the line after the components-total line 15ms
+     × drops the line once the Text Display is filled 63ms
+     × shows the line when the message is not being edited, as the send page preview does 10ms
+     × shows the text-length line with a red border for Text Displays over 4000 characters 19ms
+     × shows the total and the limit with a red border when validation is not hidden 15ms
+
+ Test Files  1 failed | 74 passed (75)
+      Tests  12 failed | 1163 passed (1175)
+   Start at  12:23:51
+   Duration  8.14s (transform 19.39s, setup 789ms, import 71.54s, tests 9.07s, environment 28.66s)
+

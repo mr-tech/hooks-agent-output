@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-76
+
+
+ Test Files  75 passed (75)
+      Tests  1171 passed (1171)
+   Start at  12:18:09
+   Duration  7.92s (transform 16.39s, setup 683ms, import 67.00s, tests 8.49s, environment 29.98s)
+

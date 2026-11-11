@@ -1,0 +1,35 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows one line naming the Text Display, with a red border, for an empty Text Display
+AssertionError: expected 'discord-visualizer__accessories' to contain 'transition-all rounded ring !ring-red…'
+
+Expected: "transition-all rounded ring !ring-red-500"
+Received: "discord-visualizer__accessories"
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:197:26
+    195|     expect(errorLines(host)).toHaveLength(1);
+    196|     expect(errorLines(host)[0]).toContain('Text Display');
+    197|     expect(border(host)).toContain(styles.errorBorder);
+       |                          ^
+    198|   });
+    199|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows the line when the message is not being edited, as the send page preview does
+AssertionError: expected 'discord-visualizer__accessories' to contain 'transition-all rounded ring !ring-red…'
+
+Expected: "transition-all rounded ring !ring-red-500"
+Received: "discord-visualizer__accessories"
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:267:26
+    265|
+    266|     expect(errorLines(host)).toHaveLength(1);
+    267|     expect(border(host)).toContain(styles.errorBorder);
+       |                          ^
+    268|   });
+    269| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

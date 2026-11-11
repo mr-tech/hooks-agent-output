@@ -1,0 +1,38 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'Section with no accessory'
+AssertionError: expected 'A Thumbnail has no image URL.' to contain 'Section'
+
+Expected: "Section"
+Received: "A Thumbnail has no image URL."
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:27
+    267|
+    268|   it.each(faults)('names the component type for a $name', (fault) => {
+    269|     expect(reason(fault)).toContain(fault.word);
+       |                           ^
+    270|   });
+    271|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > gives every fault a reason of its own, apart from the reasons already in use
+AssertionError: expected 18 to be 19 // Object.is equality
+
+- Expected
++ Received
+
+- 19
++ 18
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:277:35
+    275|         && f.name !== 'gallery item with no media' && f.name !== 'link…
+    276|       .map(reason);
+    277|     expect(new Set(reasons).size).toBe(reasons.length);
+       |                                   ^
+    278|     for (const r of reasons) expect(existing).not.toContain(r);
+    279|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

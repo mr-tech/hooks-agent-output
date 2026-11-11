@@ -1,0 +1,198 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 13 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows one line naming the Text Display, with a red border, for an empty Text Display
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:195:30
+    193|     const host = await mountWith([makeTextDisplay('')]);
+    194|
+    195|     expect(errorLines(host)).toHaveLength(1);
+       |                              ^
+    196|     expect(errorLines(host)[0]).toContain('Text Display');
+    197|     expect(border(host)).toContain(styles.errorBorder);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/13]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows the line after the components-total line
+AssertionError: expected [ Array(1) ] to have a length of 2 but got 1
+
+- Expected
++ Received
+
+- 2
++ 1
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:224:19
+    222|
+    223|     const lines = errorLines(host);
+    224|     expect(lines).toHaveLength(2);
+       |                   ^
+    225|     expect(lines[0]).toBe('Message has 41 components; the limit is 40.…
+    226|     expect(lines[1]).toContain('Text Display');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/13]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > drops the line once the Text Display is filled
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:248:30
+    246|     const host = mountDom(<Host />);
+    247|     await act(async () => {});
+    248|     expect(errorLines(host)).toHaveLength(1);
+       |                              ^
+    249|
+    250|     await act(async () => { handle.setCount(3); });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/13]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows the line when the message is not being edited, as the send page preview does
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:266:30
+    264|     await act(async () => {});
+    265|
+    266|     expect(errorLines(host)).toHaveLength(1);
+       |                              ^
+    267|     expect(border(host)).toContain(styles.errorBorder);
+    268|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/13]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.import-validation.test.ts > validateContentRequirements > invalid messages — mutual exclusivity violation > returns error string when V2 components mixed with content
+AssertionError: expected 'undefined' to be 'string' // Object.is equality
+
+Expected: "string"
+Received: "undefined"
+
+ ❯ src/utils/__tests__/limits.import-validation.test.ts:253:29
+    251|         components: [makeTextDisplay()],
+    252|       });
+    253|       expect(typeof result).toBe('string');
+       |                             ^
+    254|       expect(result!.length).toBeGreaterThan(0);
+    255|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/13]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.import-validation.test.ts > validateContentRequirements > invalid messages — mutual exclusivity violation > returns error string when V2 components mixed with embeds
+AssertionError: expected 'undefined' to be 'string' // Object.is equality
+
+Expected: "string"
+Received: "undefined"
+
+ ❯ src/utils/__tests__/limits.import-validation.test.ts:263:29
+    261|         components: [makeSection()],
+    262|       });
+    263|       expect(typeof result).toBe('string');
+       |                             ^
+    264|       expect(result!.length).toBeGreaterThan(0);
+    265|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/13]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.import-validation.test.ts > validateContentRequirements > invalid messages — mutual exclusivity violation > returns error string when V2 components mixed with both content and embeds
+AssertionError: expected 'undefined' to be 'string' // Object.is equality
+
+Expected: "string"
+Received: "undefined"
+
+ ❯ src/utils/__tests__/limits.import-validation.test.ts:273:29
+    271|         components: [makeContainer()] as SupportedTopLevelComponent[],
+    272|       });
+    273|       expect(typeof result).toBe('string');
+       |                             ^
+    274|     });
+    275|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/13]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > send gate over the (flags-bit x structure x content-source) partition > 'A1' — 'structural-V2 disjunct is the sole ca…'
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > send gate over the (flags-bit x structure x content-source) partition > 'A2' — 'embeds is the sole carrier of hasCont…'
+AssertionError: expected 'ok' to be 'v2-exclusive' // Object.is equality
+
+Expected: "v2-exclusive"
+Received: "ok"
+
+ ❯ src/utils/__tests__/limits.send-gate-partition.test.ts:147:51
+    145| describe('send gate over the (flags-bit x structure x content-source) …
+    146|   it.each(PARTITION)('$id — $why', ({ input, expected }) => {
+    147|     expect(verdict(validateMessage(data(input)))).toBe(expected);
+       |                                                   ^
+    148|   });
+    149|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/13]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > gate copy — asserted once, so the classifier above cannot silently degrade > the mutual-exclusivity copy exists verbatim
+AssertionError: expected '' to be 'Components V2 messages cannot contain…' // Object.is equality
+
+- Expected
++ Received
+
+- Components V2 messages cannot contain embeds or content.
+
+ ❯ src/utils/__tests__/limits.send-gate-partition.test.ts:191:83
+    189| describe('gate copy — asserted once, so the classifier above cannot si…
+    190|   it('the mutual-exclusivity copy exists verbatim', () => {
+    191|     expect(validateMessage(data({ components: [textDisplay()], content…
+       |                                                                                   ^
+    192|   });
+    193|   it('the empty-message copy exists verbatim', () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/13]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > which messages the component checks apply to > refuses an empty Text Display when only the component types make the message V2
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:58:68
+     56|
+     57|   it('refuses an empty Text Display when only the component types make…
+     58|     expect(validateMessage(structural([makeTextDisplay('')]))).not.toB…
+       |                                                                    ^
+     59|   });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/13]⎯
+
+ FAIL  |node| src/utils/__tests__/utils.mutual-exclusivity.test.ts > validateMessage mutual exclusivity > returns error string for message with V2 components AND embeds
+AssertionError: expected 0 to be greater than 0
+ ❯ src/utils/__tests__/utils.mutual-exclusivity.test.ts:230:39
+    228|     const result = validateMessage(data);
+    229|     expect(typeof result).toBe('string');
+    230|     expect((result as string).length).toBeGreaterThan(0);
+       |                                       ^
+    231|   });
+    232|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/13]⎯
+
+ FAIL  |node| src/utils/__tests__/utils.mutual-exclusivity.test.ts > validateMessage mutual exclusivity > returns error string for message with V2 components AND content
+AssertionError: expected 0 to be greater than 0
+ ❯ src/utils/__tests__/utils.mutual-exclusivity.test.ts:242:39
+    240|     const result = validateMessage(data);
+    241|     expect(typeof result).toBe('string');
+    242|     expect((result as string).length).toBeGreaterThan(0);
+       |                                       ^
+    243|   });
+    244|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/13]⎯
+

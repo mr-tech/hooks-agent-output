@@ -1,0 +1,25 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/__tests__/Author.username-error.test.tsx > Author username error line > shows the username error in the cozy style
+ FAIL  |dom| src/components/DiscordMessageEditor/components/__tests__/Author.username-error.test.tsx > Author username error line > shows the username error in the compact style
+AssertionError: expected [] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+- [
+-   "This username is too short or too long.",
+- ]
++ []
+
+ ❯ src/components/DiscordMessageEditor/components/__tests__/Author.username-error.test.tsx:34:48
+     32| describe('Author username error line', () => {
+     33|   it.each(['cozy', 'compact'] as const)('shows the username error in t…
+     34|     expect(errorLines(mountAuthor(style, ''))).toEqual(['This username…
+       |                                                ^
+     35|   });
+     36|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+

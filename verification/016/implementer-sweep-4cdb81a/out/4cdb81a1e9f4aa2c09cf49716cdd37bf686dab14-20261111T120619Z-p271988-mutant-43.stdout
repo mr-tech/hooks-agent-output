@@ -1,0 +1,16 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-43
+
+ ❯ |node| src/utils/__tests__/limits.v2-send-validity.test.ts (331 tests | 6 failed) 118ms
+     × sends a message Discord accepted: 'Section whose Thumbnail description i…' 14ms
+     × sends a message Discord accepted: 'Media Gallery item description of 102…' 1ms
+     × records a message Discord accepted as valid: 'Section whose Thumbnail description i…' 3ms
+     × records a message Discord accepted as valid: 'Media Gallery item description of 102…' 6ms
+     × sends a Thumbnail with a description of 1024 characters and refuses 1025 1ms
+     × sends a gallery item with a description of 1024 characters and refuses 1025 1ms
+
+ Test Files  1 failed | 74 passed (75)
+      Tests  6 failed | 1165 passed (1171)
+   Start at  12:13:02
+   Duration  7.84s (transform 18.02s, setup 813ms, import 67.70s, tests 8.65s, environment 28.14s)
+

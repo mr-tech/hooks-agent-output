@@ -1,0 +1,162 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 23 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > accepts 10 containers each holding a section (40 in all)
+AssertionError: expected 'A Section has no Thumbnail or button.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Section has no Thumbnail or button.
+
+ ❯ src/utils/__tests__/limits.component-count.test.ts:37:51
+     35|     ['10 containers each holding a section (40 in all)', sectionContai…
+     36|   ])('accepts %s', (_title, components) => {
+     37|     expect(validateMessage(data({ components }))).toBe('');
+       |                                                   ^
+     38|   });
+     39|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/23]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'valid Section: one Text Display, vali…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Section whose accessory is a valid li…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Thumbnail description of one space'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Thumbnail media.url \'ftp://example.c…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: '13 Sections each with one Text Displa…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Container holding a valid Section wit…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Container holding a valid Section wit…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Section whose Thumbnail description i…'
+AssertionError: expected 'A Section has no Thumbnail or button.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Section has no Thumbnail or button.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:36:52
+     34|
+     35|   it.each(accepted)('sends a message Discord accepted: $shape', (membe…
+     36|     expect(validateMessage(withBody(member.body))).toBe('');
+       |                                                    ^
+     37|   });
+     38| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/23]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'valid Section: one Text Display, vali…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Section whose accessory is a valid li…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Thumbnail description of one space'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Thumbnail media.url \'ftp://example.c…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: '13 Sections each with one Text Displa…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Container holding a valid Section wit…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Container holding a valid Section wit…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Section whose Thumbnail description i…'
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:46:51
+     44|
+     45|   it.each(accepted)('records a message Discord accepted as valid: $sha…
+     46|     expect(isMessageValid(withBody(member.body))).toBe(true);
+       |                                                   ^
+     47|   });
+     48| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/23]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the description bound > sends a Thumbnail with a description of 1024 characters and refuses 1025
+AssertionError: expected 'A Section has no Thumbnail or button.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Section has no Thumbnail or button.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:124:60
+    122|     ['a gallery item', gallery],
+    123|   ])('sends %s with a description of 1024 characters and refuses 1025'…
+    124|     expect(validateMessage(v2([build('a'.repeat(1024))]))).toBe('');
+       |                                                            ^
+    125|     expect(validateMessage(v2([build('a'.repeat(1025))]))).not.toBe(''…
+    126|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/23]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the description bound > sends a Thumbnail with a one-space description and refuses an empty one
+AssertionError: expected 'A Section has no Thumbnail or button.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Section has no Thumbnail or button.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:132:47
+    130|     ['a gallery item', gallery],
+    131|   ])('sends %s with a one-space description and refuses an empty one',…
+    132|     expect(validateMessage(v2([build(' ')]))).toBe('');
+       |                                               ^
+    133|     expect(validateMessage(v2([build('')]))).not.toBe('');
+    134|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/23]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > sends a filled piece of each kind at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > sends a filled piece of each kind at container
+AssertionError: expected 'A Section has no Thumbnail or button.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Section has no Thumbnail or button.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:248:71
+    246|   it.each(placements)('sends a filled piece of each kind at %s', (wher…
+    247|     for (const kind of ['child', 'accessory', 'button', 'item'] as con…
+    248|       expect(validateMessage(v2(place(kind, okPieces[kind], where)))).…
+       |                                                                       ^
+    249|     }
+    250|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/23]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'Section with no accessory'
+AssertionError: expected 'A Thumbnail has no image URL.' to contain 'Section'
+
+Expected: "Section"
+Received: "A Thumbnail has no image URL."
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:27
+    267|
+    268|   it.each(faults)('names the component type for a $name', (fault) => {
+    269|     expect(reason(fault)).toContain(fault.word);
+       |                           ^
+    270|   });
+    271|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/23]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > gives every fault a reason of its own, apart from the reasons already in use
+AssertionError: expected 16 to be 19 // Object.is equality
+
+- Expected
++ Received
+
+- 19
++ 16
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:277:35
+    275|         && f.name !== 'gallery item with no media' && f.name !== 'link…
+    276|       .map(reason);
+    277|     expect(new Set(reasons).size).toBe(reasons.length);
+       |                                   ^
+    278|     for (const r of reasons) expect(existing).not.toContain(r);
+    279|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/23]⎯
+

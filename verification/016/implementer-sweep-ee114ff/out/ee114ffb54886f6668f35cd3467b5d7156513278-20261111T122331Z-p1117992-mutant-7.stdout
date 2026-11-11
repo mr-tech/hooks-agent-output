@@ -1,0 +1,29 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T122331Z-p1117992/mutant-7
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (33 tests | 11 failed) 888ms
+     × shows no error at the limit: 40 flat components 39ms
+     × shows no error at the limit: a container holding 39 text displays 11ms
+     × shows the total and the limit with a red border above the limit: 41 flat components 25ms
+     × shows the total and the limit with a red border above the limit: a container holding 40 text displays 14ms
+     × shows the total and the limit with a red border above the limit: 11 containers of one section each 13ms
+     × drops the line and the border once the total is back to 40 16ms
+     × shows one line naming the Text Display, with a red border, for an empty Text Display 23ms
+     × drops the line once the Text Display is filled 19ms
+     × shows the line when the message is not being edited, as the send page preview does 8ms
+     × shows the text-length line with a red border for Text Displays over 4000 characters 19ms
+     × shows the total and the limit with a red border when validation is not hidden 13ms
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (62 tests | 7 failed) 3055ms
+     × shows no error line and no red border for a message with nothing in it 56ms
+     × shows no error line and no red border for embeds over 6000 characters 152ms
+     × shows no error line and no red border for Text Displays over 4000 characters 95ms
+     × shows no error line and no red border for 41 components 210ms
+     × shows no error line and no red border for a Text Display with nothing in it 39ms
+     × shows no error line and no red border for an empty username 52ms
+     × shows no error line and no red border for a username Discord does not allow 53ms
+
+ Test Files  2 failed | 73 passed (75)
+      Tests  18 failed | 1157 passed (1175)
+   Start at  12:24:37
+   Duration  8.07s (transform 17.02s, setup 1.26s, import 68.24s, tests 8.98s, environment 29.41s)
+

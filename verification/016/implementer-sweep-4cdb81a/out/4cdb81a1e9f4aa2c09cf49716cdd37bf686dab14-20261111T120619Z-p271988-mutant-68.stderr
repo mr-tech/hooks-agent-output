@@ -1,0 +1,67 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Container with components []'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Container with no components key'
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:32:56
+     30|
+     31|   it.each(refused)('refuses a message Discord refused: $shape', (membe…
+     32|     expect(validateMessage(withBody(member.body))).not.toBe('');
+       |                                                        ^
+     33|   });
+     34|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Container with components []'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Container with no components key'
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:42:51
+     40| describe('isMessageValid over the shapes Discord was measured on', () …
+     41|   it.each(refused)('records a message Discord refused as not valid: $s…
+     42|     expect(isMessageValid(withBody(member.body))).toBe(false);
+       |                                                   ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a empty Container at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a empty Container at container
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:243:76
+    241|
+    242|   it.each(cases)('refuses a %s at %s', (_name, where, fault) => {
+    243|     expect(validateMessage(v2(place(fault.kind, fault.piece, where))))…
+       |                                                                            ^
+    244|   });
+    245|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'empty Container'
+AssertionError: expected '' to contain 'Container'
+
+- Expected
++ Received
+
+- Container
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:27
+    267|
+    268|   it.each(faults)('names the component type for a $name', (fault) => {
+    269|     expect(reason(fault)).toContain(fault.word);
+       |                           ^
+    270|   });
+    271|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+

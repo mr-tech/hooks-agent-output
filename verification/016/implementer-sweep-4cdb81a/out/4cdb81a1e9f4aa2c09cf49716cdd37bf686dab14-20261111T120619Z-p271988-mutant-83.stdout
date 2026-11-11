@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-83
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.description-limit.test.tsx (2 tests | 1 failed) 93ms
+     × stops typing and pasting at 1024 characters 74ms
+
+ Test Files  1 failed | 74 passed (75)
+      Tests  1 failed | 1170 passed (1171)
+   Start at  12:19:19
+   Duration  8.24s (transform 17.32s, setup 1.06s, import 69.51s, tests 9.35s, environment 29.25s)
+

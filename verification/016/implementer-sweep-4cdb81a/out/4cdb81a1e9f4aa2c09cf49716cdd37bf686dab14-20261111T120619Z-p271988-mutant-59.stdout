@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-59
+
+ ❯ |node| src/utils/__tests__/limits.v2-send-validity.test.ts (331 tests | 2 failed) 125ms
+     × names the component type for a 'Section with no accessory' 43ms
+     × gives every fault a reason of its own, apart from the reasons already in use 3ms
+
+ Test Files  1 failed | 74 passed (75)
+      Tests  2 failed | 1169 passed (1171)
+   Start at  12:15:29
+   Duration  7.74s (transform 17.85s, setup 747ms, import 65.45s, tests 8.34s, environment 28.84s)
+

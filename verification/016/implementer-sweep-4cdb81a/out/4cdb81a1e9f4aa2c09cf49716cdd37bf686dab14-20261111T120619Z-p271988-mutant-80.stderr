@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageShape description bound > saves a Thumbnail description longer than 1024 characters
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.message-validation.test.ts:570:28
+    568|       components: [makeSection({ ...makeThumbnail(), description: long…
+    569|     });
+    570|     expect(result.success).toBe(true);
+       |                            ^
+    571|   });
+    572|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

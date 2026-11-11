@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-56
+
+ ❯ |node| src/utils/__tests__/limits.v2-send-validity.test.ts (331 tests | 9 failed) 114ms
+     × refuses a message Discord refused: 'Section with components [] and a vali…' 23ms
+     × refuses a message Discord refused: 'Container holding a Section with comp…' 1ms
+     × refuses a message Discord refused: 'Section with no components key' 1ms
+     × records a message Discord refused as not valid: 'Section with components [] and a vali…' 3ms
+     × records a message Discord refused as not valid: 'Container holding a Section with comp…' 1ms
+     × records a message Discord refused as not valid: 'Section with no components key' 1ms
+     × refuses a Section with no text at top 1ms
+     × refuses a Section with no text at container 0ms
+     × names the component type for a 'Section with no text' 1ms
+
+ Test Files  1 failed | 74 passed (75)
+      Tests  9 failed | 1162 passed (1171)
+   Start at  12:15:01
+   Duration  7.92s (transform 18.35s, setup 618ms, import 69.02s, tests 8.46s, environment 29.01s)
+

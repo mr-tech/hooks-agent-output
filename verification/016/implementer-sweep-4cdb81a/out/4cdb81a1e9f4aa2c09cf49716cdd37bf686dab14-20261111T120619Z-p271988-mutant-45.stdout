@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-45
+
+ ❯ |node| src/utils/__tests__/limits.v2-send-validity.test.ts (331 tests | 4 failed) 120ms
+     × sends a message Discord accepted: 'link button with an emoji and no labe…' 24ms
+     × records a message Discord accepted as valid: 'link button with an emoji and no labe…' 2ms
+     × sends it when the emoji has an id 1ms
+     × sends it when the emoji has a name 3ms
+
+ Test Files  1 failed | 74 passed (75)
+      Tests  4 failed | 1167 passed (1171)
+   Start at  12:13:20
+   Duration  7.74s (transform 17.32s, setup 723ms, import 65.74s, tests 8.49s, environment 27.38s)
+

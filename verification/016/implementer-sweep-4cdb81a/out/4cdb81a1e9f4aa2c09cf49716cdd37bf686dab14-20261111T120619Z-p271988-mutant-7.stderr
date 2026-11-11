@@ -1,0 +1,155 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 17 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the validation chrome > shows no error line and no red border for a message with nothing in it
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the validation chrome > shows no error line and no red border for embeds over 6000 characters
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the validation chrome > shows no error line and no red border for Text Displays over 4000 characters
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the validation chrome > shows no error line and no red border for 41 components
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the validation chrome > shows no error line and no red border for a Text Display with nothing in it
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the validation chrome > shows no error line and no red border for an empty username
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the validation chrome > shows no error line and no red border for a username Discord does not allow
+AssertionError: expected 'discord-visualizer__accessories trans…' not to contain 'transition-all rounded ring !ring-red…'
+
+Expected: "transition-all rounded ring !ring-red-500"
+Received: "discord-visualizer__accessories transition-all rounded ring !ring-red-500"
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:161:28
+    159|     expect(`${el.innerHTML}`).toContain(shown);
+    160|     expect(lines(el)).toEqual([]);
+    161|     expect(border(el)).not.toContain(styles.errorBorder);
+       |                            ^
+    162|     expect(el.querySelector('[data-erroring-state]')).toBeNull();
+    163|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/17]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows no error at the limit: 40 flat components
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows no error at the limit: a container holding 39 text displays
+AssertionError: expected 'discord-visualizer__accessories trans…' not to contain 'transition-all rounded ring !ring-red…'
+
+Expected: "transition-all rounded ring !ring-red-500"
+Received: "discord-visualizer__accessories transition-all rounded ring !ring-red-500"
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:105:83
+    103|
+    104|     expect(errorLine(host)).toBeUndefined();
+    105|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+       |                                                                                   ^
+    106|   });
+    107|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/17]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: 41 flat components
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: a container holding 40 text displays
+AssertionError: expected 'discord-visualizer__accessories Messa…' to contain 'transition-all rounded ring !ring-red…'
+
+Expected: "transition-all rounded ring !ring-red-500"
+Received: "discord-visualizer__accessories Message has 41 components; the limit is 40."
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:116:79
+    114|
+    115|     expect(errorLine(host)).toBe(`Message has ${total} components; the…
+    116|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+       |                                                                               ^
+    117|   });
+    118| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/17]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: 11 containers of one section each
+AssertionError: expected 'discord-visualizer__accessories Messa…' to contain 'transition-all rounded ring !ring-red…'
+
+Expected: "transition-all rounded ring !ring-red-500"
+Received: "discord-visualizer__accessories Message has 44 components; the limit is 40."
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:116:79
+    114|
+    115|     expect(errorLine(host)).toBe(`Message has ${total} components; the…
+    116|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+       |                                                                               ^
+    117|   });
+    118| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/17]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit, the error line > drops the line and the border once the total is back to 40
+AssertionError: expected 'discord-visualizer__accessories Messa…' to contain 'transition-all rounded ring !ring-red…'
+
+Expected: "transition-all rounded ring !ring-red-500"
+Received: "discord-visualizer__accessories Message has 41 components; the limit is 40."
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:148:79
+    146|     await act(async () => {});
+    147|     expect(errorLine(host)).toBe('Message has 41 components; the limit…
+    148|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+       |                                                                               ^
+    149|
+    150|     await act(async () => { handle.setCount(40); });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/17]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows one line naming the Text Display, with a red border, for an empty Text Display
+AssertionError: expected 'discord-visualizer__accessories A Tex…' to contain 'transition-all rounded ring !ring-red…'
+
+Expected: "transition-all rounded ring !ring-red-500"
+Received: "discord-visualizer__accessories A Text Display is empty."
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:181:26
+    179|     expect(errorLines(host)).toHaveLength(1);
+    180|     expect(errorLines(host)[0]).toContain('Text Display');
+    181|     expect(border(host)).toContain(styles.errorBorder);
+       |                          ^
+    182|   });
+    183|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/17]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > drops the line once the Text Display is filled
+AssertionError: expected 'discord-visualizer__accessories trans…' not to contain 'transition-all rounded ring !ring-red…'
+
+Expected: "transition-all rounded ring !ring-red-500"
+Received: "discord-visualizer__accessories transition-all rounded ring !ring-red-500"
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:237:30
+    235|
+    236|     expect(errorLines(host)).toEqual([]);
+    237|     expect(border(host)).not.toContain(styles.errorBorder);
+       |                              ^
+    238|   });
+    239|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/17]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows the line when the message is not being edited, as the send page preview does
+AssertionError: expected 'discord-visualizer__accessories A Tex…' to contain 'transition-all rounded ring !ring-red…'
+
+Expected: "transition-all rounded ring !ring-red-500"
+Received: "discord-visualizer__accessories A Text Display is empty."
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:251:26
+    249|
+    250|     expect(errorLines(host)).toHaveLength(1);
+    251|     expect(border(host)).toContain(styles.errorBorder);
+       |                          ^
+    252|   });
+    253| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/17]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit when not editing > shows the total and the limit with a red border when validation is not hidden
+AssertionError: expected 'discord-visualizer__accessories Messa…' to contain 'transition-all rounded ring !ring-red…'
+
+Expected: "transition-all rounded ring !ring-red-500"
+Received: "discord-visualizer__accessories Message has 41 components; the limit is 40."
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:304:79
+    302|
+    303|     expect(errorLine(host)).toBe('Message has 41 components; the limit…
+    304|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+       |                                                                               ^
+    305|   });
+    306| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/17]⎯
+

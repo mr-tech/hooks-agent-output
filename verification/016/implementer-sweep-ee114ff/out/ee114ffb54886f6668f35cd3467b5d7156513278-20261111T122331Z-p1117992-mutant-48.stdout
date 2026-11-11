@@ -1,0 +1,17 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T122331Z-p1117992/mutant-48
+
+ ❯ |node| src/utils/__tests__/limits.v2-send-validity.test.ts (331 tests | 7 failed) 146ms
+     × refuses a message Discord refused: 'link button url \'ftp://example.com\'' 10ms
+     × refuses a message Discord refused: 'Container holding an Action Row whose…' 2ms
+     × records a message Discord refused as not valid: 'link button url \'ftp://example.com\'' 4ms
+     × records a message Discord refused as not valid: 'Container holding an Action Row whose…' 1ms
+     × refuses a link button with an ftp URL at top 2ms
+     × refuses a link button with an ftp URL at container 1ms
+     × names the component type for a 'link button with an ftp URL' 1ms
+
+ Test Files  1 failed | 74 passed (75)
+      Tests  7 failed | 1168 passed (1175)
+   Start at  12:30:52
+   Duration  7.95s (transform 17.45s, setup 870ms, import 67.18s, tests 8.80s, environment 29.35s)
+

@@ -1,0 +1,488 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 38 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Section accessory link button with no…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Section accessory link button with la…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Section accessory link button with la…'
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ hasEmoji src/utils/limits.tsx:181:11
+ ❯ linkButtonReason src/utils/limits.tsx:189:43
+ ❯ componentReason src/utils/limits.tsx:208:36
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:32:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button with no label key, beside…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button with label \'\', beside a…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button with label of one space, …'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button with no label key and emo…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button with no label key and emo…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button label of one no-break spa…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button label of one next-line U+…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button label of U+0085, a space,…'
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ hasEmoji src/utils/limits.tsx:181:11
+ ❯ linkButtonReason src/utils/limits.tsx:189:43
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:32:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Container holding an Action Row whose…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with no label or emoji at container
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ hasEmoji src/utils/limits.tsx:181:11
+ ❯ linkButtonReason src/utils/limits.tsx:189:43
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ componentReason src/utils/limits.tsx:217:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Container holding a Section whose lin…'
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ hasEmoji src/utils/limits.tsx:181:11
+ ❯ linkButtonReason src/utils/limits.tsx:189:43
+ ❯ componentReason src/utils/limits.tsx:208:36
+ ❯ componentReason src/utils/limits.tsx:217:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:32:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button with no url key'
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ urlReason src/utils/limits.tsx:166:7
+ ❯ linkButtonReason src/utils/limits.tsx:185:20
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:32:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Section whose Thumbnail media is {}'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Section whose Thumbnail has no media …'
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ urlReason src/utils/limits.tsx:166:7
+ ❯ imageReason src/utils/limits.tsx:194:10
+ ❯ componentReason src/utils/limits.tsx:208:66
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:32:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Media Gallery item with no media key'
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ urlReason src/utils/limits.tsx:166:7
+ ❯ imageReason src/utils/limits.tsx:194:10
+ ❯ src/utils/limits.tsx:213:34
+ ❯ componentReason src/utils/limits.tsx:213:20
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:32:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'link button with an emoji and no labe…'
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ hasEmoji src/utils/limits.tsx:181:11
+ ❯ linkButtonReason src/utils/limits.tsx:189:43
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:36:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'link button with an emoji and no labe…'
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:46:51
+     44|
+     45|   it.each(accepted)('records a message Discord accepted as valid: $sha…
+     46|     expect(isMessageValid(withBody(member.body))).toBe(true);
+       |                                                   ^
+     47|   });
+     48| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > whitespace in a Text Display and a link button label > refuses a link button labelled a space
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ hasEmoji src/utils/limits.tsx:181:11
+ ❯ linkButtonReason src/utils/limits.tsx:189:43
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:93:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > a link button with an emoji and no label > sends it when the emoji has a name
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ hasEmoji src/utils/limits.tsx:181:11
+ ❯ linkButtonReason src/utils/limits.tsx:189:43
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:102:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > a link button with an emoji and no label > refuses it for an empty emoji object
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > a link button with an emoji and no label > refuses it for an emoji with an empty name
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ hasEmoji src/utils/limits.tsx:181:11
+ ❯ linkButtonReason src/utils/limits.tsx:189:43
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:110:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > a link button with an emoji and no label > refuses it for an emoji with an empty id and name
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:110:101
+    108|     ['an emoji with an empty id and name', { id: '', name: '' }],
+    109|   ])('refuses it for %s', (_title, emoji) => {
+    110|     expect(validateMessage(v2([makeActionRow([makeLinkButton({ label: …
+       |                                                                                                     ^
+    111|   });
+    112| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a Thumbnail with no media at top
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ urlReason src/utils/limits.tsx:166:7
+ ❯ imageReason src/utils/limits.tsx:194:10
+ ❯ componentReason src/utils/limits.tsx:208:66
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:243:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a Thumbnail with no media at container
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ urlReason src/utils/limits.tsx:166:7
+ ❯ imageReason src/utils/limits.tsx:194:10
+ ❯ componentReason src/utils/limits.tsx:208:66
+ ❯ componentReason src/utils/limits.tsx:217:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:243:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a gallery item with no media at top
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ urlReason src/utils/limits.tsx:166:7
+ ❯ imageReason src/utils/limits.tsx:194:10
+ ❯ src/utils/limits.tsx:213:34
+ ❯ componentReason src/utils/limits.tsx:213:20
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:243:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a gallery item with no media at container
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ urlReason src/utils/limits.tsx:166:7
+ ❯ imageReason src/utils/limits.tsx:194:10
+ ❯ src/utils/limits.tsx:213:34
+ ❯ componentReason src/utils/limits.tsx:213:20
+ ❯ componentReason src/utils/limits.tsx:217:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with the URL key absent at top
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ urlReason src/utils/limits.tsx:166:7
+ ❯ linkButtonReason src/utils/limits.tsx:185:20
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:243:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with the URL key absent at container
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ urlReason src/utils/limits.tsx:166:7
+ ❯ linkButtonReason src/utils/limits.tsx:185:20
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ componentReason src/utils/limits.tsx:217:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with no label or emoji at top
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ hasEmoji src/utils/limits.tsx:181:11
+ ❯ linkButtonReason src/utils/limits.tsx:189:43
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:243:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'Thumbnail with no media'
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ urlReason src/utils/limits.tsx:166:7
+ ❯ imageReason src/utils/limits.tsx:194:10
+ ❯ componentReason src/utils/limits.tsx:208:66
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ reason src/utils/__tests__/limits.v2-send-validity.test.ts:254:36
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'gallery item with no media'
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ urlReason src/utils/limits.tsx:166:7
+ ❯ imageReason src/utils/limits.tsx:194:10
+ ❯ src/utils/limits.tsx:213:34
+ ❯ componentReason src/utils/limits.tsx:213:20
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ reason src/utils/__tests__/limits.v2-send-validity.test.ts:254:36
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with the URL key absent'
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ urlReason src/utils/limits.tsx:166:7
+ ❯ linkButtonReason src/utils/limits.tsx:185:20
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ reason src/utils/__tests__/limits.v2-send-validity.test.ts:254:36
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with no label or emoji'
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ hasEmoji src/utils/limits.tsx:181:11
+ ❯ linkButtonReason src/utils/limits.tsx:189:43
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ reason src/utils/__tests__/limits.v2-send-validity.test.ts:254:36
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > gives every fault a reason of its own, apart from the reasons already in use
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ hasEmoji src/utils/limits.tsx:181:11
+ ❯ linkButtonReason src/utils/limits.tsx:189:43
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ reason src/utils/__tests__/limits.v2-send-validity.test.ts:254:36
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/38]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > gives the absent form the same reason as the empty form
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ isMissing src/utils/limits.tsx:158:74
+    156|   Array.isArray(value) ? value.map(asObject) : []
+    157| );
+    158| const isMissing = (value: unknown) => typeof value !== 'string' && val…
+       |                                                                          ^
+    159|
+    160| function isWhitespaceEmpty(value: unknown): boolean {
+ ❯ urlReason src/utils/limits.tsx:166:7
+ ❯ imageReason src/utils/limits.tsx:194:10
+ ❯ componentReason src/utils/limits.tsx:208:66
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ reason src/utils/__tests__/limits.v2-send-validity.test.ts:254:36
+ ❯ byName src/utils/__tests__/limits.v2-send-validity.test.ts:282:35
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:284:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/38]⎯
+

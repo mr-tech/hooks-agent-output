@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > gives every fault a reason of its own, apart from the reasons already in use
+AssertionError: expected 16 to be 19 // Object.is equality
+
+- Expected
++ Received
+
+- 19
++ 16
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:277:35
+    275|         && f.name !== 'gallery item with no media' && f.name !== 'link…
+    276|       .map(reason);
+    277|     expect(new Set(reasons).size).toBe(reasons.length);
+       |                                   ^
+    278|     for (const r of reasons) expect(existing).not.toContain(r);
+    279|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,216 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 18 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'link button url \'abc\''
+ZodError: [
+  {
+    "validation": "url",
+    "code": "invalid_string",
+    "message": "Invalid url",
+    "path": []
+  }
+]
+ ❯ Object.get error [as error] node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:538:31
+ ❯ ZodString.parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:638:22
+ ❯ linkButtonReason src/utils/limits.tsx:187:44
+    185|   const urlError = urlReason(button.url, 'A link button', 'URL');
+    186|   if (urlError) return urlError;
+    187|   const { protocol } = new URL(requiredUrl.parse(button.url));
+       |                                            ^
+    188|   if (!LINK_BUTTON_SCHEMES.has(protocol)) return 'A link button URL mu…
+    189|   if (isWhitespaceEmpty(button.label) && !hasEmoji(button.emoji)) retu…
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:32:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/18]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Thumbnail media.url \'abc\''
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Media Gallery item media.url \'abc\''
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Container holding a Section whose Thu…'
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:32:56
+     30|
+     31|   it.each(refused)('refuses a message Discord refused: $shape', (membe…
+     32|     expect(validateMessage(withBody(member.body))).not.toBe('');
+       |                                                        ^
+     33|   });
+     34|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/18]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > refuses a message Discord refused: 'Container holding an Action Row whose…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with an invalid URL at container
+ZodError: [
+  {
+    "validation": "url",
+    "code": "invalid_string",
+    "message": "Invalid url",
+    "path": []
+  }
+]
+ ❯ Object.get error [as error] node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:538:31
+ ❯ ZodString.parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:638:22
+ ❯ linkButtonReason src/utils/limits.tsx:187:44
+    185|   const urlError = urlReason(button.url, 'A link button', 'URL');
+    186|   if (urlError) return urlError;
+    187|   const { protocol } = new URL(requiredUrl.parse(button.url));
+       |                                            ^
+    188|   if (!LINK_BUTTON_SCHEMES.has(protocol)) return 'A link button URL mu…
+    189|   if (isWhitespaceEmpty(button.label) && !hasEmoji(button.emoji)) retu…
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ componentReason src/utils/limits.tsx:217:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/18]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Thumbnail media.url \'abc\''
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Media Gallery item media.url \'abc\''
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord refused as not valid: 'Container holding a Section whose Thu…'
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:42:51
+     40| describe('isMessageValid over the shapes Discord was measured on', () …
+     41|   it.each(refused)('records a message Discord refused as not valid: $s…
+     42|     expect(isMessageValid(withBody(member.body))).toBe(false);
+       |                                                   ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/18]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a Thumbnail with an invalid URL at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a Thumbnail with an invalid URL at container
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a gallery item with an invalid URL at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a gallery item with an invalid URL at container
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:243:76
+    241|
+    242|   it.each(cases)('refuses a %s at %s', (_name, where, fault) => {
+    243|     expect(validateMessage(v2(place(fault.kind, fault.piece, where))))…
+       |                                                                            ^
+    244|   });
+    245|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/18]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with an invalid URL at top
+ZodError: [
+  {
+    "validation": "url",
+    "code": "invalid_string",
+    "message": "Invalid url",
+    "path": []
+  }
+]
+ ❯ Object.get error [as error] node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:538:31
+ ❯ ZodString.parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:638:22
+ ❯ linkButtonReason src/utils/limits.tsx:187:44
+    185|   const urlError = urlReason(button.url, 'A link button', 'URL');
+    186|   if (urlError) return urlError;
+    187|   const { protocol } = new URL(requiredUrl.parse(button.url));
+       |                                            ^
+    188|   if (!LINK_BUTTON_SCHEMES.has(protocol)) return 'A link button URL mu…
+    189|   if (isWhitespaceEmpty(button.label) && !hasEmoji(button.emoji)) retu…
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:243:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/18]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'Thumbnail with an invalid URL'
+AssertionError: expected '' to contain 'Thumbnail'
+
+- Expected
++ Received
+
+- Thumbnail
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:27
+    267|
+    268|   it.each(faults)('names the component type for a $name', (fault) => {
+    269|     expect(reason(fault)).toContain(fault.word);
+       |                           ^
+    270|   });
+    271|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/18]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'gallery item with an invalid URL'
+AssertionError: expected '' to contain 'Media Gallery item'
+
+- Expected
++ Received
+
+- Media Gallery item
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:27
+    267|
+    268|   it.each(faults)('names the component type for a $name', (fault) => {
+    269|     expect(reason(fault)).toContain(fault.word);
+       |                           ^
+    270|   });
+    271|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/18]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with an invalid URL'
+ZodError: [
+  {
+    "validation": "url",
+    "code": "invalid_string",
+    "message": "Invalid url",
+    "path": []
+  }
+]
+ ❯ Object.get error [as error] node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:538:31
+ ❯ ZodString.parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:638:22
+ ❯ linkButtonReason src/utils/limits.tsx:187:44
+    185|   const urlError = urlReason(button.url, 'A link button', 'URL');
+    186|   if (urlError) return urlError;
+    187|   const { protocol } = new URL(requiredUrl.parse(button.url));
+       |                                            ^
+    188|   if (!LINK_BUTTON_SCHEMES.has(protocol)) return 'A link button URL mu…
+    189|   if (isWhitespaceEmpty(button.label) && !hasEmoji(button.emoji)) retu…
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ reason src/utils/__tests__/limits.v2-send-validity.test.ts:254:36
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/18]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > gives every fault a reason of its own, apart from the reasons already in use
+ZodError: [
+  {
+    "validation": "url",
+    "code": "invalid_string",
+    "message": "Invalid url",
+    "path": []
+  }
+]
+ ❯ Object.get error [as error] node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:538:31
+ ❯ ZodString.parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:638:22
+ ❯ linkButtonReason src/utils/limits.tsx:187:44
+    185|   const urlError = urlReason(button.url, 'A link button', 'URL');
+    186|   if (urlError) return urlError;
+    187|   const { protocol } = new URL(requiredUrl.parse(button.url));
+       |                                            ^
+    188|   if (!LINK_BUTTON_SCHEMES.has(protocol)) return 'A link button URL mu…
+    189|   if (isWhitespaceEmpty(button.label) && !hasEmoji(button.emoji)) retu…
+ ❯ componentReason src/utils/limits.tsx:220:23
+ ❯ validateV2Components src/utils/limits.tsx:230:29
+ ❯ Module.validateMessage src/utils/limits.tsx:271:19
+ ❯ reason src/utils/__tests__/limits.v2-send-validity.test.ts:254:36
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/18]⎯
+

@@ -1,0 +1,122 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T122331Z-p1117992/mutant-30
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (33 tests | 6 failed) 869ms
+     × shows no error at the limit: 40 flat components 38ms
+     × shows no error at the limit: a container holding 39 text displays 28ms
+     × shows the components line after the text-length line 23ms
+     × drops the line and the border once the total is back to 40 22ms
+     × drops the line once the Text Display is filled 29ms
+     × shows the text-length line with a red border for Text Displays over 4000 characters 23ms
+ ❯ |node| src/utils/__tests__/limits.v2-send-validity.test.ts (331 tests | 87 failed) 181ms
+     × refuses a message Discord refused: 'only a Text Display with no content k…' 46ms
+     × refuses a message Discord refused: 'link button with no label key, beside…' 2ms
+     × refuses a message Discord refused: 'Container holding an Action Row whose…' 1ms
+     × refuses a message Discord refused: 'link button with no label key and emo…' 1ms
+     × refuses a message Discord refused: 'link button with no label key and emo…' 0ms
+     × sends a message Discord accepted: 'baseline: one Text Display \'hello\'' 4ms
+     × sends a message Discord accepted: 'website-shaped baseline: content \'\'…' 1ms
+     × sends a message Discord accepted: 'whitespace-only content \' \n \' besi…' 1ms
+     × sends a message Discord accepted: 'only a Text Display of one zero-width…' 0ms
+     × sends a message Discord accepted: 'valid Section: one Text Display, vali…' 1ms
+     × sends a message Discord accepted: 'Section whose accessory is a valid li…' 1ms
+     × sends a message Discord accepted: 'Thumbnail description of one space' 1ms
+     × sends a message Discord accepted: 'Separator beside a Text Display' 1ms
+     × sends a message Discord accepted: 'valid Container: one Text Display' 1ms
+     × sends a message Discord accepted: 'valid Action Row with one link button…' 1ms
+     × sends a message Discord accepted: 'V2 flag with only a valid Action Row' 1ms
+     × sends a message Discord accepted: 'only a Text Display of one U+FEFF' 0ms
+     × sends a message Discord accepted: 'Text Display \' hello \' with surroun…' 0ms
+     × sends a message Discord accepted: 'link button with an emoji and no labe…' 0ms
+     × sends a message Discord accepted: 'Thumbnail media.url \'ftp://example.c…' 1ms
+     × sends a message Discord accepted: '40 top-level Text Displays (site coun…' 8ms
+     × sends a message Discord accepted: 'Container holding 39 Text Displays (s…' 1ms
+     × sends a message Discord accepted: '13 Sections each with one Text Displa…' 0ms
+     × sends a message Discord accepted: '39 Text Displays plus a Media Gallery…' 1ms
+     × sends a message Discord accepted: '38 Text Displays plus an Action Row w…' 1ms
+     × sends a message Discord accepted: 'Container holding a Text Display and …' 0ms
+     × sends a message Discord accepted: 'Container holding a valid Section wit…' 1ms
+     × sends a message Discord accepted: 'Container holding a valid Section wit…' 1ms
+     × sends a message Discord accepted: 'Section whose Thumbnail description i…' 0ms
+     × sends a message Discord accepted: 'Media Gallery item description of 102…' 0ms
+     × sends a message Discord accepted: 'link button label of one U+FEFF' 0ms
+     × sends a message Discord accepted: 'only a Text Display of U+FEFF then a …' 1ms
+     × sends a message Discord accepted: 'only a Text Display of \'a\' then U+0…' 0ms
+     × sends a message Discord accepted: 'only a Text Display of U+200B then a …' 0ms
+     × records a message Discord accepted as valid: 'baseline: one Text Display \'hello\'' 2ms
+     × records a message Discord accepted as valid: 'website-shaped baseline: content \'\'…' 4ms
+     × records a message Discord accepted as valid: 'whitespace-only content \' \n \' besi…' 1ms
+     × records a message Discord accepted as valid: 'only a Text Display of one zero-width…' 0ms
+     × records a message Discord accepted as valid: 'valid Section: one Text Display, vali…' 1ms
+     × records a message Discord accepted as valid: 'Section whose accessory is a valid li…' 1ms
+     × records a message Discord accepted as valid: 'Thumbnail description of one space' 0ms
+     × records a message Discord accepted as valid: 'Separator beside a Text Display' 0ms
+     × records a message Discord accepted as valid: 'valid Container: one Text Display' 1ms
+     × records a message Discord accepted as valid: 'valid Action Row with one link button…' 1ms
+     × records a message Discord accepted as valid: 'V2 flag with only a valid Action Row' 0ms
+     × records a message Discord accepted as valid: 'only a Text Display of one U+FEFF' 1ms
+     × records a message Discord accepted as valid: 'Text Display \' hello \' with surroun…' 1ms
+     × records a message Discord accepted as valid: 'link button with an emoji and no labe…' 10ms
+     × records a message Discord accepted as valid: 'Thumbnail media.url \'ftp://example.c…' 0ms
+     × records a message Discord accepted as valid: '40 top-level Text Displays (site coun…' 0ms
+     × records a message Discord accepted as valid: 'Container holding 39 Text Displays (s…' 0ms
+     × records a message Discord accepted as valid: '13 Sections each with one Text Displa…' 1ms
+     × records a message Discord accepted as valid: '39 Text Displays plus a Media Gallery…' 1ms
+     × records a message Discord accepted as valid: '38 Text Displays plus an Action Row w…' 0ms
+     × records a message Discord accepted as valid: 'Container holding a Text Display and …' 2ms
+     × records a message Discord accepted as valid: 'Container holding a valid Section wit…' 0ms
+     × records a message Discord accepted as valid: 'Container holding a valid Section wit…' 1ms
+     × records a message Discord accepted as valid: 'Section whose Thumbnail description i…' 0ms
+     × records a message Discord accepted as valid: 'Media Gallery item description of 102…' 2ms
+     × records a message Discord accepted as valid: 'link button label of one U+FEFF' 1ms
+     × records a message Discord accepted as valid: 'only a Text Display of U+FEFF then a …' 0ms
+     × records a message Discord accepted as valid: 'only a Text Display of \'a\' then U+0…' 1ms
+     × records a message Discord accepted as valid: 'only a Text Display of U+200B then a …' 1ms
+     × sends a Text Display of U+FEFF beside a space 1ms
+     × sends a Text Display of text padded with spaces 1ms
+     × sends it when the emoji has an id 0ms
+     × sends it when the emoji has a name 0ms
+     × refuses it for an empty emoji object 1ms
+     × refuses it for an emoji with an empty name 0ms
+     × refuses it for an emoji with an empty id and name 0ms
+     × sends a Thumbnail with a description of 1024 characters and refuses 1025 0ms
+     × sends a Thumbnail with a one-space description and refuses an empty one 1ms
+     × refuses a Text Display with no content at top 0ms
+     × refuses a Text Display with no content at container 0ms
+     × refuses a link button with no label or emoji at top 1ms
+     × refuses a link button with no label or emoji at container 0ms
+     × sends a filled piece of each kind at top 0ms
+     × sends a filled piece of each kind at container 0ms
+     × names the component type for a 'Text Display with no content' 0ms
+     × names the component type for a 'Thumbnail with no image URL' 3ms
+     × names the component type for a 'Thumbnail with no media' 2ms
+     × names the component type for a 'Thumbnail with an invalid URL' 1ms
+     × names the component type for a 'Thumbnail with an empty description' 0ms
+     × names the component type for a 'Thumbnail with a 1025-character descr…' 0ms
+     × names the component type for a 'link button with no label or emoji' 0ms
+     × gives every fault a reason of its own, apart from the reasons already in use 0ms
+     × gives the absent form the same reason as the empty form 0ms
+ ❯ |node| src/utils/__tests__/utils.mutual-exclusivity.test.ts (49 tests | 2 failed) 30ms
+     × returns empty string for V2 components without content/embeds (valid) 6ms
+     × returns empty string for V2 message with aggregate text ≤ 4000 1ms
+ ❯ |node| src/utils/__tests__/limits.send-gate-partition.test.ts (36 tests | 7 failed) 35ms
+     × 'A3' — 'well-formed V2: components only. The …' 9ms
+     × 'B2' — 'POSITIVE CONTROL for the V2 class: ba…' 2ms
+     × 'B4' — 'flag set, non-V2 components, no conte…' 2ms
+     × a bare top-level Text Display carrying the V2 flag is sendable 2ms
+     × W1 — whitespace content + structurally-V2 components: gate PERMITS today 1ms
+     × W2 — tabs and newlines behave identically to spaces 1ms
+     × W4 — the residue-class change does not move any whitespace verdict: this is a content-truth-condition question, not a residue-class risk 1ms
+ ❯ |node| src/utils/__tests__/messageValidity.predicate.test.ts (11 tests | 2 failed) 785ms
+     × agrees with the Send gate over representative payloads (flag-set bare V2, unflagged bare V2 permitting; flag residue refusing) 15ms
+     × a bare top-level Text Display carrying the V2 flag computes true (owner-recorded HTTP 200) 1ms
+ ❯ |node| src/utils/__tests__/limits.component-count.test.ts (13 tests | 3 failed) 21ms
+     × accepts 40 flat text displays 9ms
+     × accepts a container holding 39 text displays (40 in all) 2ms
+     × accepts 10 containers each holding a section (40 in all) 1ms
+
+ Test Files  6 failed | 69 passed (75)
+      Tests  107 failed | 1068 passed (1175)
+   Start at  12:28:08
+   Duration  8.66s (transform 21.44s, setup 650ms, import 77.39s, tests 9.26s, environment 28.49s)
+

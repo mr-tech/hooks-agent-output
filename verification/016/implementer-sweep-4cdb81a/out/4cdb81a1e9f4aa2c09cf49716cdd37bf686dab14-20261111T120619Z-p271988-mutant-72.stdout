@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-72
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (29 tests | 1 failed) 827ms
+     × shows the line for an empty Action Row when only the V2 flag makes the message V2 37ms
+ ❯ |node| src/utils/__tests__/limits.v2-send-validity.test.ts (331 tests | 10 failed) 108ms
+     × refuses a message Discord refused: 'Action Row with components [], beside…' 8ms
+     × refuses a message Discord refused: 'Container holding a Text Display and …' 1ms
+     × refuses a message Discord refused: 'Action Row with no components key, be…' 1ms
+     × records a message Discord refused as not valid: 'Action Row with components [], beside…' 3ms
+     × records a message Discord refused as not valid: 'Container holding a Text Display and …' 1ms
+     × records a message Discord refused as not valid: 'Action Row with no components key, be…' 1ms
+     × refuses an empty Action Row when only the V2 flag makes the message V2 1ms
+     × refuses a empty Action Row at top 1ms
+     × refuses a empty Action Row at container 1ms
+     × names the component type for a 'empty Action Row' 1ms
+
+ Test Files  2 failed | 73 passed (75)
+      Tests  11 failed | 1160 passed (1171)
+   Start at  12:17:30
+   Duration  8.46s (transform 20.60s, setup 880ms, import 73.13s, tests 9.03s, environment 30.35s)
+

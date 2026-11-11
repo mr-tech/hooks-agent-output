@@ -1,0 +1,29 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-17
+
+ ❯ |node| src/utils/__tests__/limits.v2-send-validity.test.ts (331 tests | 15 failed) 133ms
+     × refuses a message Discord refused: 'Container holding a Media Gallery who…' 13ms
+     × refuses a message Discord refused: 'Section whose Thumbnail description i…' 1ms
+     × refuses a message Discord refused: 'Media Gallery item description of 102…' 2ms
+     × records a message Discord refused as not valid: 'Container holding a Media Gallery who…' 3ms
+     × records a message Discord refused as not valid: 'Section whose Thumbnail description i…' 2ms
+     × records a message Discord refused as not valid: 'Media Gallery item description of 102…' 1ms
+     × sends a Thumbnail with a description of 1024 characters and refuses 1025 1ms
+     × sends a gallery item with a description of 1024 characters and refuses 1025 1ms
+     × refuses a Thumbnail with a 1025-character description at top 1ms
+     × refuses a Thumbnail with a 1025-character description at container 2ms
+     × refuses a gallery item with a 1025-character description at top 1ms
+     × refuses a gallery item with a 1025-character description at container 0ms
+     × names the component type for a 'Thumbnail with a 1025-character descr…' 0ms
+     × names the component type for a 'gallery item with a 1025-character de…' 0ms
+     × gives every fault a reason of its own, apart from the reasons already in use 18ms
+ ❯ |dom| src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ThumbnailEditor.description-limit.test.tsx (2 tests | 1 failed) 81ms
+     × stops typing and pasting at 1024 characters 67ms
+ ❯ |dom| src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.description-limit.test.tsx (2 tests | 1 failed) 83ms
+     × stops typing and pasting at 1024 characters 66ms
+
+ Test Files  3 failed | 72 passed (75)
+      Tests  17 failed | 1154 passed (1171)
+   Start at  12:09:01
+   Duration  8.52s (transform 20.84s, setup 1.09s, import 74.85s, tests 9.41s, environment 30.58s)
+

@@ -1,0 +1,216 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 26 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows the line for an empty Action Row when only the V2 flag makes the message V2
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:203:30
+    201|     const host = await mountWith([{ type: 1, components: [] }], 32768);
+    202|
+    203|     expect(errorLines(host)).toHaveLength(1);
+       |                              ^
+    204|     expect(errorLines(host)[0]).toContain('Action Row');
+    205|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/26]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > send gate over the (flags-bit x structure x content-source) partition > 'B3' — 'RESIDUE: flag set, non-V2 components,…'
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > send gate over the (flags-bit x structure x content-source) partition > 'B5' — 'RESIDUE, and the shape of stored reco…'
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > send gate over the (flags-bit x structure x content-source) partition > 'B7' — 'RESIDUE: flag set, no components, emb…'
+AssertionError: expected 'ok' to be 'v2-exclusive' // Object.is equality
+
+Expected: "v2-exclusive"
+Received: "ok"
+
+ ❯ src/utils/__tests__/limits.send-gate-partition.test.ts:147:51
+    145| describe('send gate over the (flags-bit x structure x content-source) …
+    146|   it.each(PARTITION)('$id — $why', ({ input, expected }) => {
+    147|     expect(verdict(validateMessage(data(input)))).toBe(expected);
+       |                                                   ^
+    148|   });
+    149|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/26]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > sentinels — expectations sourced outside this codebase > stored record 5712 is unsendable
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.send-gate-partition.test.ts:173:45
+    171|       components: [],
+    172|     } as unknown as MessageData;
+    173|     expect(validateMessage(record5712)).not.toBe('');
+       |                                             ^
+    174|   });
+    175|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/26]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > recovering a stored record through composer controls alone > the record is unsendable as stored, and loads in CLASSIC mode
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.send-gate-partition.test.ts:249:97
+    247| describe('recovering a stored record through composer controls alone',…
+    248|   it('the record is unsendable as stored, and loads in CLASSIC mode', …
+    249|     expect(validateMessage({ ...STORED_5712, username: 'MOTM' } as unk…
+       |                                                                                                 ^
+    250|     expect(STORED_5712.components).toEqual([]);
+    251|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/26]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > which messages the component checks apply to > refuses an empty Action Row when only the V2 flag makes the message V2
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:54:49
+     52|
+     53|   it('refuses an empty Action Row when only the V2 flag makes the mess…
+     54|     expect(validateMessage(v2([emptyRow]))).not.toBe('');
+       |                                                 ^
+     55|   });
+     56|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/26]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > whitespace in a Text Display and a link button label > refuses a link button labelled a space
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:93:83
+     91|     ['a space', ' '],
+     92|   ])('refuses a link button labelled %s', (_title, label) => {
+     93|     expect(validateMessage(v2([makeActionRow([makeLinkButton({ label }…
+       |                                                                                   ^
+     94|   });
+     95| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/26]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > a link button with an emoji and no label > refuses it for an empty emoji object
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > a link button with an emoji and no label > refuses it for an emoji with an empty name
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > a link button with an emoji and no label > refuses it for an emoji with an empty id and name
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:110:101
+    108|     ['an emoji with an empty id and name', { id: '', name: '' }],
+    109|   ])('refuses it for %s', (_title, emoji) => {
+    110|     expect(validateMessage(v2([makeActionRow([makeLinkButton({ label: …
+       |                                                                                                     ^
+    111|   });
+    112| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/26]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a empty Action Row at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with no URL at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with the URL key absent at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with an invalid URL at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with an ftp URL at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with no label or emoji at top
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:243:76
+    241|
+    242|   it.each(cases)('refuses a %s at %s', (_name, where, fault) => {
+    243|     expect(validateMessage(v2(place(fault.kind, fault.piece, where))))…
+       |                                                                            ^
+    244|   });
+    245|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/26]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'empty Action Row'
+AssertionError: expected '' to contain 'Action Row'
+
+- Expected
++ Received
+
+- Action Row
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:27
+    267|
+    268|   it.each(faults)('names the component type for a $name', (fault) => {
+    269|     expect(reason(fault)).toContain(fault.word);
+       |                           ^
+    270|   });
+    271|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/26]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with no URL'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with the URL key absent'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with an invalid URL'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with an ftp URL'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with no label or emoji'
+AssertionError: expected '' to contain 'link button'
+
+- Expected
++ Received
+
+- link button
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:27
+    267|
+    268|   it.each(faults)('names the component type for a $name', (fault) => {
+    269|     expect(reason(fault)).toContain(fault.word);
+       |                           ^
+    270|   });
+    271|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/26]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > gives every fault a reason of its own, apart from the reasons already in use
+AssertionError: expected 15 to be 19 // Object.is equality
+
+- Expected
++ Received
+
+- 19
++ 15
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:277:35
+    275|         && f.name !== 'gallery item with no media' && f.name !== 'link…
+    276|       .map(reason);
+    277|     expect(new Set(reasons).size).toBe(reasons.length);
+       |                                   ^
+    278|     for (const r of reasons) expect(existing).not.toContain(r);
+    279|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/26]⎯
+
+ FAIL  |node| src/utils/__tests__/messageValidity.predicate.test.ts > parity by construction > agrees with the Send gate over representative payloads (flag-set bare V2, unflagged bare V2 permitting; flag residue refusing)
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/messageValidity.predicate.test.ts:23:48
+     21|     expect(isMessageValid(permitsBareV2)).toBe(true);
+     22|     expect(isMessageValid(permitsUnflaggedV2)).toBe(true);
+     23|     expect(isMessageValid(refusesFlagResidue)).toBe(false);
+       |                                                ^
+     24|   });
+     25|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/26]⎯
+
+ FAIL  |node| src/utils/__tests__/messageValidity.predicate.test.ts > sentinels — expectations sourced outside this codebase > stored record 5712 computes false (owner-recorded Discord 400/50035)
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/messageValidity.predicate.test.ts:65:40
+     63|       components: [],
+     64|     } as unknown as MessageData;
+     65|     expect(isMessageValid(record5712)).toBe(false);
+       |                                        ^
+     66|   });
+     67|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/26]⎯
+

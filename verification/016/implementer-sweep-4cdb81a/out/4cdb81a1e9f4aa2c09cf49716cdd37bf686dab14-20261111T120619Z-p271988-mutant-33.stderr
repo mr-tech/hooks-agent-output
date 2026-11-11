@@ -1,0 +1,486 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 89 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows no error at the limit: 40 flat components
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows no error at the limit: a container holding 39 text displays
+AssertionError: expected 'discord-visualizer__accessories trans…' not to contain 'transition-all rounded ring !ring-red…'
+
+Expected: "transition-all rounded ring !ring-red-500"
+Received: "discord-visualizer__accessories transition-all rounded ring !ring-red-500"
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:105:83
+    103|
+    104|     expect(errorLine(host)).toBeUndefined();
+    105|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+       |                                                                                   ^
+    106|   });
+    107|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/89]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit, the error line > shows the components line after the text-length line
+AssertionError: expected [ …(3) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+  [
+    "Components text exceeds 4000 characters.",
+    "Message has 41 components; the limit is 40.",
++   "A Text Display is empty.",
+  ]
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:124:90
+    122|     const host = await mountV2(Array.from({ length: 41 }, () => makeTe…
+    123|
+    124|     expect(Array.from(host.querySelectorAll('.text-error')).map((el) =…
+       |                                                                                          ^
+    125|       'Components text exceeds 4000 characters.',
+    126|       'Message has 41 components; the limit is 40.',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/89]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit, the error line > drops the line and the border once the total is back to 40
+AssertionError: expected 'discord-visualizer__accessories trans…' not to contain 'transition-all rounded ring !ring-red…'
+
+Expected: "transition-all rounded ring !ring-red-500"
+Received: "discord-visualizer__accessories transition-all rounded ring !ring-red-500"
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:153:83
+    151|
+    152|     expect(errorLine(host)).toBeUndefined();
+    153|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+       |                                                                                   ^
+    154|   });
+    155| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/89]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > drops the line once the Text Display is filled
+AssertionError: expected [ 'A Text Display is empty.' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "A Text Display is empty.",
++ ]
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:236:30
+    234|     await act(async () => { handle.setCount(3); });
+    235|
+    236|     expect(errorLines(host)).toEqual([]);
+       |                              ^
+    237|     expect(border(host)).not.toContain(styles.errorBorder);
+    238|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/89]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > accepts 40 flat text displays
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > accepts a container holding 39 text displays (40 in all)
+ FAIL  |node| src/utils/__tests__/limits.component-count.test.ts > validateMessage component total > accepts 10 containers each holding a section (40 in all)
+AssertionError: expected 'A Text Display is empty.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Text Display is empty.
+
+ ❯ src/utils/__tests__/limits.component-count.test.ts:37:51
+     35|     ['10 containers each holding a section (40 in all)', sectionContai…
+     36|   ])('accepts %s', (_title, components) => {
+     37|     expect(validateMessage(data({ components }))).toBe('');
+       |                                                   ^
+     38|   });
+     39|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/89]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > send gate over the (flags-bit x structure x content-source) partition > 'A3' — 'well-formed V2: components only. The …'
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > send gate over the (flags-bit x structure x content-source) partition > 'B2' — 'POSITIVE CONTROL for the V2 class: ba…'
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > send gate over the (flags-bit x structure x content-source) partition > 'B4' — 'flag set, non-V2 components, no conte…'
+AssertionError: expected 'other' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "other"
+
+ ❯ src/utils/__tests__/limits.send-gate-partition.test.ts:147:51
+    145| describe('send gate over the (flags-bit x structure x content-source) …
+    146|   it.each(PARTITION)('$id — $why', ({ input, expected }) => {
+    147|     expect(verdict(validateMessage(data(input)))).toBe(expected);
+       |                                                   ^
+    148|   });
+    149|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/89]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > sentinels — expectations sourced outside this codebase > a bare top-level Text Display carrying the V2 flag is sendable
+AssertionError: expected 'A Text Display is empty.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Text Display is empty.
+
+ ❯ src/utils/__tests__/limits.send-gate-partition.test.ts:185:37
+    183|       components: [{ type: 10, content: 'Congratulations {{user}}' }],
+    184|     } as unknown as MessageData;
+    185|     expect(validateMessage(bareV2)).toBe('');
+       |                                     ^
+    186|   });
+    187| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/89]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > EXT-1 — whitespace-only content: a class the original partition did not distinguish > W1 — whitespace content + structurally-V2 components: gate PERMITS today
+AssertionError: expected 'A Text Display is empty.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Text Display is empty.
+
+ ❯ src/utils/__tests__/limits.send-gate-partition.test.ts:286:84
+    284|
+    285|   it('W1 — whitespace content + structurally-V2 components: gate PERMI…
+    286|     expect(validateMessage(data({ content: '   ', components: [textDis…
+       |                                                                                    ^
+    287|   });
+    288|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/89]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > EXT-1 — whitespace-only content: a class the original partition did not distinguish > W2 — tabs and newlines behave identically to spaces
+AssertionError: expected 'A Text Display is empty.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Text Display is empty.
+
+ ❯ src/utils/__tests__/limits.send-gate-partition.test.ts:290:86
+    288|
+    289|   it('W2 — tabs and newlines behave identically to spaces', () => {
+    290|     expect(validateMessage(data({ content: '\n\t ', components: [textD…
+       |                                                                                      ^
+    291|   });
+    292|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/89]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > EXT-1 — whitespace-only content: a class the original partition did not distinguish > W4 — the residue-class change does not move any whitespace verdict: this is a content-truth-condition question, not a residue-class risk
+AssertionError: expected 'A Text Display is empty.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Text Display is empty.
+
+ ❯ src/utils/__tests__/limits.send-gate-partition.test.ts:303:84
+    301|     // gap in the residue enumeration. Both cells below are decided by…
+    302|     // which neither the residue-class change nor mode-switching touch…
+    303|     expect(validateMessage(data({ content: '   ', components: [textDis…
+       |                                                                                    ^
+    304|     expect(validateMessage(data({ content: '   ', flags: SET }))).toBe…
+    305|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/89]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'baseline: one Text Display \'hello\''
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'website-shaped baseline: content \'\'…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'whitespace-only content \' \n \' besi…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'only a Text Display of one zero-width…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'valid Section: one Text Display, vali…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Section whose accessory is a valid li…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Thumbnail description of one space'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Separator beside a Text Display'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'valid Container: one Text Display'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'valid Action Row with one link button…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'only a Text Display of one U+FEFF'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Text Display \' hello \' with surroun…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'link button with an emoji and no labe…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Thumbnail media.url \'ftp://example.c…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: '40 top-level Text Displays (site coun…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Container holding 39 Text Displays (s…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: '13 Sections each with one Text Displa…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: '39 Text Displays plus a Media Gallery…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: '38 Text Displays plus an Action Row w…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Container holding a Text Display and …'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Container holding a valid Section wit…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Container holding a valid Section wit…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Section whose Thumbnail description i…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Media Gallery item description of 102…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'link button label of one U+FEFF'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'only a Text Display of U+FEFF then a …'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'only a Text Display of \'a\' then U+0…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'only a Text Display of U+200B then a …'
+AssertionError: expected 'A Text Display is empty.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Text Display is empty.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:36:52
+     34|
+     35|   it.each(accepted)('sends a message Discord accepted: $shape', (membe…
+     36|     expect(validateMessage(withBody(member.body))).toBe('');
+       |                                                    ^
+     37|   });
+     38| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/89]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'V2 flag with only a valid Action Row'
+AssertionError: expected 'A link button has no label or emoji.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A link button has no label or emoji.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:36:52
+     34|
+     35|   it.each(accepted)('sends a message Discord accepted: $shape', (membe…
+     36|     expect(validateMessage(withBody(member.body))).toBe('');
+       |                                                    ^
+     37|   });
+     38| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/89]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'baseline: one Text Display \'hello\''
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'website-shaped baseline: content \'\'…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'whitespace-only content \' \n \' besi…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'only a Text Display of one zero-width…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'valid Section: one Text Display, vali…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Section whose accessory is a valid li…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Thumbnail description of one space'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Separator beside a Text Display'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'valid Container: one Text Display'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'valid Action Row with one link button…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'V2 flag with only a valid Action Row'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'only a Text Display of one U+FEFF'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Text Display \' hello \' with surroun…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'link button with an emoji and no labe…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Thumbnail media.url \'ftp://example.c…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: '40 top-level Text Displays (site coun…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Container holding 39 Text Displays (s…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: '13 Sections each with one Text Displa…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: '39 Text Displays plus a Media Gallery…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: '38 Text Displays plus an Action Row w…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Container holding a Text Display and …'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Container holding a valid Section wit…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Container holding a valid Section wit…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Section whose Thumbnail description i…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Media Gallery item description of 102…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'link button label of one U+FEFF'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'only a Text Display of U+FEFF then a …'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'only a Text Display of \'a\' then U+0…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'only a Text Display of U+200B then a …'
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:46:51
+     44|
+     45|   it.each(accepted)('records a message Discord accepted as valid: $sha…
+     46|     expect(isMessageValid(withBody(member.body))).toBe(true);
+       |                                                   ^
+     47|   });
+     48| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/89]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > whitespace in a Text Display and a link button label > sends a Text Display of U+FEFF beside a space
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > whitespace in a Text Display and a link button label > sends a Text Display of text padded with spaces
+AssertionError: expected 'A Text Display is empty.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Text Display is empty.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:87:61
+     85|     ['text padded with spaces', ' hello '],
+     86|   ])('sends a Text Display of %s', (_title, content) => {
+     87|     expect(validateMessage(v2([makeTextDisplay(content)]))).toBe('');
+       |                                                             ^
+     88|   });
+     89|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/89]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the description bound > sends a Thumbnail with a description of 1024 characters and refuses 1025
+AssertionError: expected 'A Text Display is empty.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Text Display is empty.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:124:60
+    122|     ['a gallery item', gallery],
+    123|   ])('sends %s with a description of 1024 characters and refuses 1025'…
+    124|     expect(validateMessage(v2([build('a'.repeat(1024))]))).toBe('');
+       |                                                            ^
+    125|     expect(validateMessage(v2([build('a'.repeat(1025))]))).not.toBe(''…
+    126|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/89]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the description bound > sends a Thumbnail with a one-space description and refuses an empty one
+AssertionError: expected 'A Text Display is empty.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Text Display is empty.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:132:47
+    130|     ['a gallery item', gallery],
+    131|   ])('sends %s with a one-space description and refuses an empty one',…
+    132|     expect(validateMessage(v2([build(' ')]))).toBe('');
+       |                                               ^
+    133|     expect(validateMessage(v2([build('')]))).not.toBe('');
+    134|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/89]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > sends a filled piece of each kind at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > sends a filled piece of each kind at container
+AssertionError: expected 'A Text Display is empty.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Text Display is empty.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:248:71
+    246|   it.each(placements)('sends a filled piece of each kind at %s', (wher…
+    247|     for (const kind of ['child', 'accessory', 'button', 'item'] as con…
+    248|       expect(validateMessage(v2(place(kind, okPieces[kind], where)))).…
+       |                                                                       ^
+    249|     }
+    250|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/89]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'Thumbnail with no image URL'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'Thumbnail with no media'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'Thumbnail with an invalid URL'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'Thumbnail with an empty description'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'Thumbnail with a 1025-character descr…'
+AssertionError: expected 'A Text Display is empty.' to contain 'Thumbnail'
+
+Expected: "Thumbnail"
+Received: "A Text Display is empty."
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:27
+    267|
+    268|   it.each(faults)('names the component type for a $name', (fault) => {
+    269|     expect(reason(fault)).toContain(fault.word);
+       |                           ^
+    270|   });
+    271|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/89]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > gives every fault a reason of its own, apart from the reasons already in use
+AssertionError: expected 12 to be 19 // Object.is equality
+
+- Expected
++ Received
+
+- 19
++ 12
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:277:35
+    275|         && f.name !== 'gallery item with no media' && f.name !== 'link…
+    276|       .map(reason);
+    277|     expect(new Set(reasons).size).toBe(reasons.length);
+       |                                   ^
+    278|     for (const r of reasons) expect(existing).not.toContain(r);
+    279|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/89]⎯
+
+ FAIL  |node| src/utils/__tests__/messageValidity.predicate.test.ts > parity by construction > agrees with the Send gate over representative payloads (flag-set bare V2, unflagged bare V2 permitting; flag residue refusing)
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/messageValidity.predicate.test.ts:21:43
+     19|     const refusesFlagResidue = data({ content: 'Hi', flags: 32768 });
+     20|
+     21|     expect(isMessageValid(permitsBareV2)).toBe(true);
+       |                                           ^
+     22|     expect(isMessageValid(permitsUnflaggedV2)).toBe(true);
+     23|     expect(isMessageValid(refusesFlagResidue)).toBe(false);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/89]⎯
+
+ FAIL  |node| src/utils/__tests__/messageValidity.predicate.test.ts > sentinels — expectations sourced outside this codebase > a bare top-level Text Display carrying the V2 flag computes true (owner-recorded HTTP 200)
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/messageValidity.predicate.test.ts:74:36
+     72|       components: [{ type: 10, content: 'Congratulations {{user}}' }],
+     73|     } as unknown as MessageData;
+     74|     expect(isMessageValid(bareV2)).toBe(true);
+       |                                    ^
+     75|   });
+     76| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/89]⎯
+
+ FAIL  |node| src/utils/__tests__/utils.mutual-exclusivity.test.ts > validateMessage mutual exclusivity > returns empty string for V2 components without content/embeds (valid)
+AssertionError: expected 'A Text Display is empty.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Text Display is empty.
+
+ ❯ src/utils/__tests__/utils.mutual-exclusivity.test.ts:253:20
+    251|     } as unknown as MessageData;
+    252|     const result = validateMessage(data);
+    253|     expect(result).toBe('');
+       |                    ^
+    254|   });
+    255|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/89]⎯
+
+ FAIL  |node| src/utils/__tests__/utils.mutual-exclusivity.test.ts > validateMessage aggregate text > returns empty string for V2 message with aggregate text ≤ 4000
+AssertionError: expected 'A Text Display is empty.' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Text Display is empty.
+
+ ❯ src/utils/__tests__/utils.mutual-exclusivity.test.ts:376:20
+    374|     } as unknown as MessageData;
+    375|     const result = validateMessage(data);
+    376|     expect(result).toBe('');
+       |                    ^
+    377|   });
+    378| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/89]⎯
+

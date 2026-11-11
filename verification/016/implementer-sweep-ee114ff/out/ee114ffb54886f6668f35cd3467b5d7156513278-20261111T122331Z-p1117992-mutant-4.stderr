@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor validation lines that precede the component lines > shows the text-length line with a red border for Text Displays over 4000 characters
+AssertionError: expected 'discord-visualizer__accessories' to contain 'transition-all rounded ring !ring-red…'
+
+Expected: "transition-all rounded ring !ring-red-500"
+Received: "discord-visualizer__accessories"
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:277:79
+    275|     const lines = Array.from(host.querySelectorAll('.text-error')).map…
+    276|     expect(lines).toEqual(['Components text exceeds 4000 characters.']…
+    277|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+       |                                                                               ^
+    278|   });
+    279| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

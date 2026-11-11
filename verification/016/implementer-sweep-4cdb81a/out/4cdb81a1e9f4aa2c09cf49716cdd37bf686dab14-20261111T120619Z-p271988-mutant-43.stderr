@@ -1,0 +1,95 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Section whose Thumbnail description i…'
+AssertionError: expected 'A Thumbnail description is over 1024 …' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Thumbnail description is over 1024 characters.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:36:52
+     34|
+     35|   it.each(accepted)('sends a message Discord accepted: $shape', (membe…
+     36|     expect(validateMessage(withBody(member.body))).toBe('');
+       |                                                    ^
+     37|   });
+     38| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > validateMessage over the shapes Discord was measured on > sends a message Discord accepted: 'Media Gallery item description of 102…'
+AssertionError: expected 'A Media Gallery item description is o…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Media Gallery item description is over 1024 characters.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:36:52
+     34|
+     35|   it.each(accepted)('sends a message Discord accepted: $shape', (membe…
+     36|     expect(validateMessage(withBody(member.body))).toBe('');
+       |                                                    ^
+     37|   });
+     38| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Section whose Thumbnail description i…'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > isMessageValid over the shapes Discord was measured on > records a message Discord accepted as valid: 'Media Gallery item description of 102…'
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:46:51
+     44|
+     45|   it.each(accepted)('records a message Discord accepted as valid: $sha…
+     46|     expect(isMessageValid(withBody(member.body))).toBe(true);
+       |                                                   ^
+     47|   });
+     48| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the description bound > sends a Thumbnail with a description of 1024 characters and refuses 1025
+AssertionError: expected 'A Thumbnail description is over 1024 …' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Thumbnail description is over 1024 characters.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:124:60
+    122|     ['a gallery item', gallery],
+    123|   ])('sends %s with a description of 1024 characters and refuses 1025'…
+    124|     expect(validateMessage(v2([build('a'.repeat(1024))]))).toBe('');
+       |                                                            ^
+    125|     expect(validateMessage(v2([build('a'.repeat(1025))]))).not.toBe(''…
+    126|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the description bound > sends a gallery item with a description of 1024 characters and refuses 1025
+AssertionError: expected 'A Media Gallery item description is o…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ A Media Gallery item description is over 1024 characters.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:124:60
+    122|     ['a gallery item', gallery],
+    123|   ])('sends %s with a description of 1024 characters and refuses 1025'…
+    124|     expect(validateMessage(v2([build('a'.repeat(1024))]))).toBe('');
+       |                                                            ^
+    125|     expect(validateMessage(v2([build('a'.repeat(1025))]))).not.toBe(''…
+    126|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+

@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-64
+
+ ❯ |node| src/utils/__tests__/limits.v2-send-validity.test.ts (331 tests | 9 failed) 125ms
+     × refuses a message Discord refused: 'Media Gallery with items []' 26ms
+     × refuses a message Discord refused: 'Media Gallery with no items key' 1ms
+     × refuses a message Discord refused: 'Container holding a Text Display and …' 1ms
+     × records a message Discord refused as not valid: 'Media Gallery with items []' 4ms
+     × records a message Discord refused as not valid: 'Media Gallery with no items key' 1ms
+     × records a message Discord refused as not valid: 'Container holding a Text Display and …' 1ms
+     × refuses a empty Media Gallery at top 1ms
+     × refuses a empty Media Gallery at container 0ms
+     × names the component type for a 'empty Media Gallery' 1ms
+
+ Test Files  1 failed | 74 passed (75)
+      Tests  9 failed | 1162 passed (1171)
+   Start at  12:16:14
+   Duration  7.72s (transform 17.09s, setup 916ms, import 66.66s, tests 8.76s, environment 28.13s)
+

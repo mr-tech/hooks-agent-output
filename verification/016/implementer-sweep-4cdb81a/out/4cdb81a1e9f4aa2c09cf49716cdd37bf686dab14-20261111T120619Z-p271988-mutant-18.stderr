@@ -1,0 +1,542 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 51 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows the line for an empty Action Row when only the V2 flag makes the message V2
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:187:30
+    185|     const host = await mountWith([{ type: 1, components: [] }], 32768);
+    186|
+    187|     expect(errorLines(host)).toHaveLength(1);
+       |                              ^
+    188|     expect(errorLines(host)[0]).toContain('Action Row');
+    189|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/51]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows no line for an empty Action Row in a classic message
+AssertionError: expected [ …(2) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "Components V2 messages cannot contain embeds or content.",
++   "An Action Row has no buttons.",
++ ]
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:201:30
+    199|     await act(async () => {});
+    200|
+    201|     expect(errorLines(host)).toEqual([]);
+       |                              ^
+    202|   });
+    203|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.import-validation.test.ts > validateContentRequirements > valid messages > returns undefined for classic message with content
+AssertionError: expected 'Components V2 messages cannot contain…' to be undefined
+
+- Expected:
+undefined
+
++ Received:
+"Components V2 messages cannot contain embeds or content."
+
+ ❯ src/utils/__tests__/limits.import-validation.test.ts:206:22
+    204|         components: [],
+    205|       });
+    206|       expect(result).toBeUndefined();
+       |                      ^
+    207|     });
+    208|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.import-validation.test.ts > validateContentRequirements > valid messages > returns undefined for classic message with embeds only
+AssertionError: expected 'Components V2 messages cannot contain…' to be undefined
+
+- Expected:
+undefined
+
++ Received:
+"Components V2 messages cannot contain embeds or content."
+
+ ❯ src/utils/__tests__/limits.import-validation.test.ts:215:22
+    213|         components: [],
+    214|       });
+    215|       expect(result).toBeUndefined();
+       |                      ^
+    216|     });
+    217|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.import-validation.test.ts > validateContentRequirements > valid messages > returns undefined for classic message with content + embeds + ActionRow
+AssertionError: expected 'Components V2 messages cannot contain…' to be undefined
+
+- Expected:
+undefined
+
++ Received:
+"Components V2 messages cannot contain embeds or content."
+
+ ❯ src/utils/__tests__/limits.import-validation.test.ts:224:22
+    222|         components: [makeActionRow()] as SupportedTopLevelComponent[],
+    223|       });
+    224|       expect(result).toBeUndefined();
+       |                      ^
+    225|     });
+    226|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.import-validation.test.ts > validateContentRequirements > edge cases > legacy ActionRow + embeds is NOT a V2 violation
+AssertionError: expected 'Components V2 messages cannot contain…' to be undefined
+
+- Expected:
+undefined
+
++ Received:
+"Components V2 messages cannot contain embeds or content."
+
+ ❯ src/utils/__tests__/limits.import-validation.test.ts:311:22
+    309|         components: [makeActionRow()] as SupportedTopLevelComponent[],
+    310|       });
+    311|       expect(result).toBeUndefined();
+       |                      ^
+    312|     });
+    313|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.import-validation.test.ts > validateContentRequirements > edge cases > legacy ActionRow + content is NOT a V2 violation
+AssertionError: expected 'Components V2 messages cannot contain…' to be undefined
+
+- Expected:
+undefined
+
++ Received:
+"Components V2 messages cannot contain embeds or content."
+
+ ❯ src/utils/__tests__/limits.import-validation.test.ts:320:22
+    318|         components: [makeActionRow()] as SupportedTopLevelComponent[],
+    319|       });
+    320|       expect(result).toBeUndefined();
+       |                      ^
+    321|     });
+    322|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > send gate over the (flags-bit x structure x content-source) partition > 'A4' — 'classic message with a legacy ActionR…'
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > send gate over the (flags-bit x structure x content-source) partition > 'A6' — 'plain classic content, no components'
+AssertionError: expected 'v2-exclusive' to be 'ok' // Object.is equality
+
+Expected: "ok"
+Received: "v2-exclusive"
+
+ ❯ src/utils/__tests__/limits.send-gate-partition.test.ts:147:51
+    145| describe('send gate over the (flags-bit x structure x content-source) …
+    146|   it.each(PARTITION)('$id — $why', ({ input, expected }) => {
+    147|     expect(verdict(validateMessage(data(input)))).toBe(expected);
+       |                                                   ^
+    148|   });
+    149|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > send gate over the (flags-bit x structure x content-source) partition > 'B3' — 'RESIDUE: flag set, non-V2 components,…'
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > send gate over the (flags-bit x structure x content-source) partition > 'B5' — 'RESIDUE, and the shape of stored reco…'
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > send gate over the (flags-bit x structure x content-source) partition > 'B7' — 'RESIDUE: flag set, no components, emb…'
+AssertionError: expected 'ok' to be 'v2-exclusive' // Object.is equality
+
+Expected: "v2-exclusive"
+Received: "ok"
+
+ ❯ src/utils/__tests__/limits.send-gate-partition.test.ts:147:51
+    145| describe('send gate over the (flags-bit x structure x content-source) …
+    146|   it.each(PARTITION)('$id — $why', ({ input, expected }) => {
+    147|     expect(verdict(validateMessage(data(input)))).toBe(expected);
+       |                                                   ^
+    148|   });
+    149|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > sentinels — expectations sourced outside this codebase > stored record 5712 is unsendable
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.send-gate-partition.test.ts:173:45
+    171|       components: [],
+    172|     } as unknown as MessageData;
+    173|     expect(validateMessage(record5712)).not.toBe('');
+       |                                             ^
+    174|   });
+    175|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > recovering a stored record through composer controls alone > the record is unsendable as stored, and loads in CLASSIC mode
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.send-gate-partition.test.ts:249:97
+    247| describe('recovering a stored record through composer controls alone',…
+    248|   it('the record is unsendable as stored, and loads in CLASSIC mode', …
+    249|     expect(validateMessage({ ...STORED_5712, username: 'MOTM' } as unk…
+       |                                                                                                 ^
+    250|     expect(STORED_5712.components).toEqual([]);
+    251|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.send-gate-partition.test.ts > recovering a stored record through composer controls alone > RECOVERY IS REACHABLE — but only via a round trip, and the outbound leg destroys the content
+AssertionError: expected 'Components V2 messages cannot contain…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Components V2 messages cannot contain embeds or content.
+
+ ❯ src/utils/__tests__/limits.send-gate-partition.test.ts:265:87
+    263|
+    264|     const step3 = { ...step2, content: STORED_5712.content };
+    265|     expect(validateMessage({ ...step3, username: 'MOTM' } as unknown a…
+       |                                                                                       ^
+    266|   });
+    267|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > which messages the component checks apply to > refuses an empty Action Row when only the V2 flag makes the message V2
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:54:49
+     52|
+     53|   it('refuses an empty Action Row when only the V2 flag makes the mess…
+     54|     expect(validateMessage(v2([emptyRow]))).not.toBe('');
+       |                                                 ^
+     55|   });
+     56|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > which messages the component checks apply to > leaves a classic message with a link button in every refused button shape as it was
+AssertionError: expected 'Components V2 messages cannot contain…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Components V2 messages cannot contain embeds or content.
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:69:109
+     67|     ];
+     68|     for (const button of buttons) {
+     69|       expect(validateMessage(withBody({ content: 'Hi', flags: 0, compo…
+       |                                                                                                             ^
+     70|     }
+     71|     expect(validateMessage(withBody({ content: 'Hi', flags: 0, compone…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > whitespace in a Text Display and a link button label > refuses a link button labelled a space
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:93:83
+     91|     ['a space', ' '],
+     92|   ])('refuses a link button labelled %s', (_title, label) => {
+     93|     expect(validateMessage(v2([makeActionRow([makeLinkButton({ label }…
+       |                                                                                   ^
+     94|   });
+     95| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > a link button with an emoji and no label > refuses it for an empty emoji object
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > a link button with an emoji and no label > refuses it for an emoji with an empty name
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > a link button with an emoji and no label > refuses it for an emoji with an empty id and name
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:110:101
+    108|     ['an emoji with an empty id and name', { id: '', name: '' }],
+    109|   ])('refuses it for %s', (_title, emoji) => {
+    110|     expect(validateMessage(v2([makeActionRow([makeLinkButton({ label: …
+       |                                                                                                     ^
+    111|   });
+    112| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a empty Action Row at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with no URL at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with the URL key absent at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with an invalid URL at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with an ftp URL at top
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > each refused component fault at every placement > refuses a link button with no label or emoji at top
+AssertionError: expected '' not to be '' // Object.is equality
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:243:76
+    241|
+    242|   it.each(cases)('refuses a %s at %s', (_name, where, fault) => {
+    243|     expect(validateMessage(v2(place(fault.kind, fault.piece, where))))…
+       |                                                                            ^
+    244|   });
+    245|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'empty Action Row'
+AssertionError: expected '' to contain 'Action Row'
+
+- Expected
++ Received
+
+- Action Row
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:27
+    267|
+    268|   it.each(faults)('names the component type for a $name', (fault) => {
+    269|     expect(reason(fault)).toContain(fault.word);
+       |                           ^
+    270|   });
+    271|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with no URL'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with the URL key absent'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with an invalid URL'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with an ftp URL'
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > names the component type for a 'link button with no label or emoji'
+AssertionError: expected '' to contain 'link button'
+
+- Expected
++ Received
+
+- link button
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:269:27
+    267|
+    268|   it.each(faults)('names the component type for a $name', (fault) => {
+    269|     expect(reason(fault)).toContain(fault.word);
+       |                           ^
+    270|   });
+    271|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/51]⎯
+
+ FAIL  |node| src/utils/__tests__/limits.v2-send-validity.test.ts > the reason a refusal gives > gives every fault a reason of its own, apart from the reasons already in use
+AssertionError: expected 15 to be 19 // Object.is equality
+
+- Expected
++ Received
+
+- 19
++ 15
+
+ ❯ src/utils/__tests__/limits.v2-send-validity.test.ts:277:35
+    275|         && f.name !== 'gallery item with no media' && f.name !== 'link…
+    276|       .map(reason);
+    277|     expect(new Set(reasons).size).toBe(reasons.length);
+       |                                   ^
+    278|     for (const r of reasons) expect(existing).not.toContain(r);
+    279|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/51]⎯
+
+ FAIL  |node| src/utils/__tests__/messageValidity.predicate.test.ts > parity by construction > agrees with the Send gate over representative payloads (flag-set bare V2, unflagged bare V2 permitting; flag residue refusing)
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/messageValidity.predicate.test.ts:23:48
+     21|     expect(isMessageValid(permitsBareV2)).toBe(true);
+     22|     expect(isMessageValid(permitsUnflaggedV2)).toBe(true);
+     23|     expect(isMessageValid(refusesFlagResidue)).toBe(false);
+       |                                                ^
+     24|   });
+     25|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/51]⎯
+
+ FAIL  |node| src/utils/__tests__/messageValidity.predicate.test.ts > sentinels — expectations sourced outside this codebase > stored record 5712 computes false (owner-recorded Discord 400/50035)
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/messageValidity.predicate.test.ts:65:40
+     63|       components: [],
+     64|     } as unknown as MessageData;
+     65|     expect(isMessageValid(record5712)).toBe(false);
+       |                                        ^
+     66|   });
+     67|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/51]⎯
+
+ FAIL  |node| src/utils/__tests__/messageValidity.predicate.test.ts > known asymmetry: absent username > control: the same record with a valid username computes true
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/messageValidity.predicate.test.ts:85:53
+     83|
+     84|   it('control: the same record with a valid username computes true', (…
+     85|     expect(isMessageValid(data({ content: 'Hi' }))).toBe(true);
+       |                                                     ^
+     86|   });
+     87| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/51]⎯
+
+ FAIL  |node| src/utils/__tests__/useApiMethods.json-editor-repair.test.ts > JSON-editor Load->save, executed end to end > and the repair is genuinely LOSSLESS for 5712 — the content survives
+AssertionError: expected 'Components V2 messages cannot contain…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Components V2 messages cannot contain embeds or content.
+
+ ❯ src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:94:92
+     92|     const { saved } = editorRoundTrip(STORED_5712_FULL);
+     93|     expect(saved.data.content).toBe(STORED_5712_FULL.data.content);
+     94|     expect(validateMessage({ ...saved.data, username: 'MOTM' } as unkn…
+       |                                                                                            ^
+     95|   });
+     96|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/51]⎯
+
+ FAIL  |node| src/utils/__tests__/utils.mutual-exclusivity.test.ts > validateMessage mutual exclusivity > returns empty string for classic message (embeds + content, no V2)
+AssertionError: expected 'Components V2 messages cannot contain…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Components V2 messages cannot contain embeds or content.
+
+ ❯ src/utils/__tests__/utils.mutual-exclusivity.test.ts:264:20
+    262|     } as unknown as MessageData;
+    263|     const result = validateMessage(data);
+    264|     expect(result).toBe('');
+       |                    ^
+    265|   });
+    266|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/51]⎯
+
+ FAIL  |node| src/utils/__tests__/utils.mutual-exclusivity.test.ts > validateMessage mutual exclusivity > returns empty string for legacy ActionRow + embeds (not V2)
+AssertionError: expected 'Components V2 messages cannot contain…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Components V2 messages cannot contain embeds or content.
+
+ ❯ src/utils/__tests__/utils.mutual-exclusivity.test.ts:275:20
+    273|     } as unknown as MessageData;
+    274|     const result = validateMessage(data);
+    275|     expect(result).toBe('');
+       |                    ^
+    276|   });
+    277|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/51]⎯
+
+ FAIL  |node| src/utils/__tests__/utils.rowd-load-disposition.test.ts > row D disposition — applyDisposition(rowD) is accepted by the floor > row D member — content only (record 5712's own shape) — resolves to something the floor accepts
+ FAIL  |node| src/utils/__tests__/utils.rowd-load-disposition.test.ts > row D disposition — applyDisposition(rowD) is accepted by the floor > row D member — embeds only — resolves to something the floor accepts
+ FAIL  |node| src/utils/__tests__/utils.rowd-load-disposition.test.ts > row D disposition — applyDisposition(rowD) is accepted by the floor > row D member — content AND embeds — resolves to something the floor accepts
+ FAIL  |node| src/utils/__tests__/utils.rowd-load-disposition.test.ts > row D disposition — applyDisposition(rowD) is accepted by the floor > row D member — content + a non-V2 action row — resolves to something the floor accepts
+ FAIL  |node| src/utils/__tests__/utils.rowd-load-disposition.test.ts > row D disposition — applyDisposition(rowD) is accepted by the floor > row D member — embeds + a non-V2 action row — resolves to something the floor accepts
+ FAIL  |node| src/utils/__tests__/utils.rowd-load-disposition.test.ts > row D disposition — applyDisposition(rowD) is accepted by the floor > row D member — whitespace-padded content — resolves to something the floor accepts
+ FAIL  |node| src/utils/__tests__/utils.rowd-load-disposition.test.ts > row D disposition — applyDisposition(rowD) is accepted by the floor > row D member — flag OR-ed with other bits (SUPPRESS_EMBEDS) — resolves to something the floor accepts
+ FAIL  |node| src/utils/__tests__/utils.rowd-load-disposition.test.ts > row D disposition — applyDisposition(rowD) is accepted by the floor > row D member — flag OR-ed with EPHEMERAL — resolves to something the floor accepts
+AssertionError: expected 'Components V2 messages cannot contain…' to be undefined
+
+- Expected:
+undefined
+
++ Received:
+"Components V2 messages cannot contain embeds or content."
+
+ ❯ src/utils/__tests__/utils.rowd-load-disposition.test.ts:35:60
+     33|
+     34|     const resolved = applyDisposition(draft as never);
+     35|     expect(validateContentRequirements(resolved as never)).toBeUndefin…
+       |                                                            ^
+     36|   });
+     37|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[27/51]⎯
+
+ FAIL  |node| src/utils/__tests__/utils.rowd-load-disposition.test.ts > row D disposition — record 5712 end to end > the repair now succeeds: resolved draft clears the floor
+AssertionError: expected 'Components V2 messages cannot contain…' to be undefined
+
+- Expected:
+undefined
+
++ Received:
+"Components V2 messages cannot contain embeds or content."
+
+ ❯ src/utils/__tests__/utils.rowd-load-disposition.test.ts:99:51
+     97|     const s = seeded();
+     98|     const resolved = applyDisposition(s);
+     99|     expect(validateContentRequirements(resolved)).toBeUndefined();
+       |                                                   ^
+    100|     expect(((resolved as { flags?: number }).flags ?? 0) & FLAG).toBe(…
+    101|     expect((resolved as { content?: string }).content).toBe(s.content);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[28/51]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-valid.test.ts > buildMessageValues computes `valid` from the predicate, never from the caller > a sendable payload computes valid: true
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shared.upsert-valid.test.ts:66:25
+     64|       'nonce',
+     65|     );
+     66|     expect(built.valid).toBe(true);
+       |                         ^
+     67|   });
+     68|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[29/51]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-valid.test.ts > buildMessageValues computes `valid` from the predicate, never from the caller > a caller-injected `data.valid` does not reach the computed value
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shared.upsert-valid.test.ts:89:25
+     87|       'nonce',
+     88|     );
+     89|     expect(built.valid).toBe(true);
+       |                         ^
+     90|   });
+     91| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[30/51]⎯
+

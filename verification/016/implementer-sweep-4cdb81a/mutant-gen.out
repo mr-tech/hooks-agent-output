@@ -1,0 +1,9 @@
+skipped src/app/preview/__tests__/page.invalid-data.test.tsx (test file)
+skipped src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (test file)
+skipped src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/MediaGalleryEditor.description-limit.test.tsx (test file)
+skipped src/components/DiscordMessageEditor/components/ComponentEditors/__tests__/ThumbnailEditor.description-limit.test.tsx (test file)
+skipped src/components/DiscordMessageEditor/components/__tests__/Author.username-error.test.tsx (test file)
+skipped src/server/api/utils/__tests__/shapes.message-validation.test.ts (test file)
+skipped src/utils/__tests__/helpers/discordV2SendCorpus.ts (test file)
+skipped src/utils/__tests__/limits.v2-send-validity.test.ts (test file)
+79 mutants written; dropped (not unique) 0

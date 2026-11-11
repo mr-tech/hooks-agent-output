@@ -1,0 +1,29 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-66
+
+ ❯ |node| src/utils/__tests__/limits.v2-send-validity.test.ts (331 tests | 19 failed) 134ms
+     × refuses a message Discord refused: 'Media Gallery with items []' 12ms
+     × refuses a message Discord refused: 'Media Gallery with no items key' 2ms
+     × refuses a message Discord refused: 'Container holding a Text Display and …' 2ms
+     × sends a message Discord accepted: 'valid Media Gallery: one item' 2ms
+     × sends a message Discord accepted: 'Media Gallery item description of one…' 1ms
+     × sends a message Discord accepted: 'Container holding a valid Media Galle…' 1ms
+     × sends a message Discord accepted: 'Media Gallery item description of 102…' 1ms
+     × records a message Discord refused as not valid: 'Media Gallery with items []' 2ms
+     × records a message Discord refused as not valid: 'Media Gallery with no items key' 6ms
+     × records a message Discord refused as not valid: 'Container holding a Text Display and …' 2ms
+     × records a message Discord accepted as valid: 'valid Media Gallery: one item' 1ms
+     × records a message Discord accepted as valid: 'Media Gallery item description of one…' 1ms
+     × records a message Discord accepted as valid: 'Container holding a valid Media Galle…' 2ms
+     × records a message Discord accepted as valid: 'Media Gallery item description of 102…' 1ms
+     × sends a gallery item with a description of 1024 characters and refuses 1025 1ms
+     × sends a gallery item with a one-space description and refuses an empty one 1ms
+     × refuses a empty Media Gallery at top 0ms
+     × refuses a empty Media Gallery at container 0ms
+     × names the component type for a 'empty Media Gallery' 1ms
+
+ Test Files  1 failed | 74 passed (75)
+      Tests  19 failed | 1152 passed (1171)
+   Start at  12:16:32
+   Duration  8.08s (transform 19.39s, setup 786ms, import 70.76s, tests 8.90s, environment 27.99s)
+

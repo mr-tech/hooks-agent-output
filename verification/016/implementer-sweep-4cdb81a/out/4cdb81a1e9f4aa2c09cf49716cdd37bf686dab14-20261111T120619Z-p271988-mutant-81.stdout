@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-81
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts (53 tests | 2 failed) 134ms
+     × does not count non-TextDisplay content fields 44ms
+     × saves a gallery item description longer than 1024 characters 2ms
+
+ Test Files  1 failed | 74 passed (75)
+      Tests  2 failed | 1169 passed (1171)
+   Start at  12:18:59
+   Duration  8.95s (transform 18.99s, setup 967ms, import 73.84s, tests 9.80s, environment 35.82s)
+

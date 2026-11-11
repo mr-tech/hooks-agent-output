@@ -1,0 +1,260 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T122331Z-p1117992/mutant-78
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (33 tests | 6 failed) 850ms
+     × shows one line naming the Text Display, with a red border, for an empty Text Display 51ms
+     × shows the line for an empty Action Row when only the V2 flag makes the message V2 29ms
+     × shows no line for an empty Action Row in a classic message 35ms
+     × shows the line after the components-total line 13ms
+     × drops the line once the Text Display is filled 16ms
+     × shows the line when the message is not being edited, as the send page preview does 16ms
+ ❯ |node| src/utils/__tests__/limits.v2-send-validity.test.ts (331 tests | 243 failed) 172ms
+     × refuses a message Discord refused: 'only an empty Text Display (\'\')' 13ms
+     × refuses a message Discord refused: 'only a Text Display of one space' 1ms
+     × refuses a message Discord refused: 'only a Text Display of one newline' 5ms
+     × refuses a message Discord refused: 'only a Text Display of one no-break s…' 2ms
+     × refuses a message Discord refused: 'only a Text Display with no content k…' 1ms
+     × refuses a message Discord refused: 'empty Text Display beside a non-empty…' 1ms
+     × refuses a message Discord refused: 'one-space Text Display beside a non-e…' 1ms
+     × refuses a message Discord refused: 'Section holding only an empty Text Di…' 0ms
+     × refuses a message Discord refused: 'Section holding only a one-space Text…' 0ms
+     × refuses a message Discord refused: 'Container holding only an empty Text …' 1ms
+     × refuses a message Discord refused: 'Container holding only a one-space Te…' 1ms
+     × refuses a message Discord refused: 'Section with components [] and a vali…' 0ms
+     × refuses a message Discord refused: 'Section whose Thumbnail media.url is …' 0ms
+     × refuses a message Discord refused: 'Section with no accessory key' 0ms
+     × refuses a message Discord refused: 'Section accessory link button with ur…' 0ms
+     × refuses a message Discord refused: 'Section accessory link button with no…' 0ms
+     × refuses a message Discord refused: 'Section accessory link button with la…' 0ms
+     × refuses a message Discord refused: 'Section accessory link button with la…' 0ms
+     × refuses a message Discord refused: 'Thumbnail description \'\'' 0ms
+     × refuses a message Discord refused: 'Media Gallery with items []' 1ms
+     × refuses a message Discord refused: 'Media Gallery item with media.url \'\'' 1ms
+     × refuses a message Discord refused: 'Media Gallery item description \'\'' 1ms
+     × refuses a message Discord refused: 'Media Gallery with no items key' 0ms
+     × refuses a message Discord refused: 'File with file.url \'\'' 0ms
+     × refuses a message Discord refused: 'File with an https file.url' 0ms
+     × refuses a message Discord refused: 'File with attachment://missing.png an…' 0ms
+     × refuses a message Discord refused: 'Container with components []' 0ms
+     × refuses a message Discord refused: 'Container with no components key' 0ms
+     × refuses a message Discord refused: 'Action Row with components [], beside…' 0ms
+     × refuses a message Discord refused: 'link button with url \'\', beside a T…' 0ms
+     × refuses a message Discord refused: 'link button with no label key, beside…' 0ms
+     × refuses a message Discord refused: 'link button with label \'\', beside a…' 0ms
+     × refuses a message Discord refused: 'link button with label of one space, …' 0ms
+     × refuses a message Discord refused: 'link button url \'abc\'' 0ms
+     × refuses a message Discord refused: 'Thumbnail media.url \'abc\'' 0ms
+     × refuses a message Discord refused: 'Media Gallery item media.url \'abc\'' 1ms
+     × refuses a message Discord refused: 'only a Text Display of one tab' 1ms
+     × refuses a message Discord refused: 'only a Text Display of CR LF' 0ms
+     × refuses a message Discord refused: 'only a Text Display of one ideographi…' 0ms
+     × refuses a message Discord refused: 'only a Text Display of one em space U…' 1ms
+     × refuses a message Discord refused: 'only a Text Display of one next-line …' 0ms
+     × refuses a message Discord refused: 'only a Text Display of one line separ…' 0ms
+     × refuses a message Discord refused: 'Container holding a Text Display and …' 0ms
+     × refuses a message Discord refused: 'Container holding a Text Display and …' 0ms
+     × refuses a message Discord refused: 'link button url \'ftp://example.com\'' 0ms
+     × refuses a message Discord refused: 'Container holding a Section whose onl…' 0ms
+     × refuses a message Discord refused: 'Container holding an Action Row whose…' 1ms
+     × refuses a message Discord refused: 'Container holding an Action Row whose…' 0ms
+     × refuses a message Discord refused: 'Container holding an Action Row whose…' 0ms
+     × refuses a message Discord refused: 'Container holding an Action Row whose…' 0ms
+     × refuses a message Discord refused: 'Container holding a Section whose lin…' 0ms
+     × refuses a message Discord refused: 'Container holding a Section whose lin…' 0ms
+     × refuses a message Discord refused: 'Container holding a Section whose Thu…' 0ms
+     × refuses a message Discord refused: 'Container holding a Section whose Thu…' 0ms
+     × refuses a message Discord refused: 'Container holding a Section whose Thu…' 0ms
+     × refuses a message Discord refused: 'Container holding a Media Gallery who…' 0ms
+     × refuses a message Discord refused: 'Container holding a Media Gallery who…' 1ms
+     × refuses a message Discord refused: 'Container holding a Media Gallery who…' 1ms
+     × refuses a message Discord refused: 'Container holding a Text Display and …' 0ms
+     × refuses a message Discord refused: 'Container holding a Section with comp…' 0ms
+     × refuses a message Discord refused: 'Section whose Thumbnail description i…' 0ms
+     × refuses a message Discord refused: 'Media Gallery item description of 102…' 0ms
+     × refuses a message Discord refused: 'Media Gallery whose first item is val…' 1ms
+     × refuses a message Discord refused: 'link button with no label key and emo…' 1ms
+     × refuses a message Discord refused: 'link button with no label key and emo…' 1ms
+     × refuses a message Discord refused: 'link button with no url key' 0ms
+     × refuses a message Discord refused: 'Section whose Thumbnail media is {}' 0ms
+     × refuses a message Discord refused: 'Section whose Thumbnail has no media …' 0ms
+     × refuses a message Discord refused: 'Media Gallery item with no media key' 0ms
+     × refuses a message Discord refused: 'File with no file key' 0ms
+     × refuses a message Discord refused: 'Section with no components key' 0ms
+     × refuses a message Discord refused: 'Action Row with no components key, be…' 4ms
+     × refuses a message Discord refused: 'link button label of one no-break spa…' 0ms
+     × refuses a message Discord refused: 'link button label of one next-line U+…' 0ms
+     × refuses a message Discord refused: 'only a Text Display of U+0085 then a …' 0ms
+     × refuses a message Discord refused: 'only a Text Display of a space, U+008…' 0ms
+     × refuses a message Discord refused: 'only a Text Display of U+0085, a spac…' 1ms
+     × refuses a message Discord refused: 'only a Text Display of a space, U+008…' 0ms
+     × refuses a message Discord refused: 'only a Text Display of two U+0085' 0ms
+     × refuses a message Discord refused: 'link button label of U+0085, a space,…' 0ms
+     × records a message Discord refused as not valid: 'only an empty Text Display (\'\')' 3ms
+     × records a message Discord refused as not valid: 'only a Text Display of one space' 1ms
+     × records a message Discord refused as not valid: 'only a Text Display of one newline' 1ms
+     × records a message Discord refused as not valid: 'only a Text Display of one no-break s…' 0ms
+     × records a message Discord refused as not valid: 'only a Text Display with no content k…' 0ms
+     × records a message Discord refused as not valid: 'empty Text Display beside a non-empty…' 1ms
+     × records a message Discord refused as not valid: 'one-space Text Display beside a non-e…' 2ms
+     × records a message Discord refused as not valid: 'Section holding only an empty Text Di…' 0ms
+     × records a message Discord refused as not valid: 'Section holding only a one-space Text…' 0ms
+     × records a message Discord refused as not valid: 'Container holding only an empty Text …' 0ms
+     × records a message Discord refused as not valid: 'Container holding only a one-space Te…' 0ms
+     × records a message Discord refused as not valid: 'Section with components [] and a vali…' 0ms
+     × records a message Discord refused as not valid: 'Section whose Thumbnail media.url is …' 0ms
+     × records a message Discord refused as not valid: 'Section with no accessory key' 0ms
+     × records a message Discord refused as not valid: 'Section accessory link button with ur…' 0ms
+     × records a message Discord refused as not valid: 'Section accessory link button with no…' 0ms
+     × records a message Discord refused as not valid: 'Section accessory link button with la…' 0ms
+     × records a message Discord refused as not valid: 'Section accessory link button with la…' 0ms
+     × records a message Discord refused as not valid: 'Thumbnail description \'\'' 0ms
+     × records a message Discord refused as not valid: 'Media Gallery with items []' 0ms
+     × records a message Discord refused as not valid: 'Media Gallery item with media.url \'\'' 0ms
+     × records a message Discord refused as not valid: 'Media Gallery item description \'\'' 0ms
+     × records a message Discord refused as not valid: 'Media Gallery with no items key' 0ms
+     × records a message Discord refused as not valid: 'File with file.url \'\'' 0ms
+     × records a message Discord refused as not valid: 'File with an https file.url' 0ms
+     × records a message Discord refused as not valid: 'File with attachment://missing.png an…' 0ms
+     × records a message Discord refused as not valid: 'Container with components []' 1ms
+     × records a message Discord refused as not valid: 'Container with no components key' 1ms
+     × records a message Discord refused as not valid: 'Action Row with components [], beside…' 0ms
+     × records a message Discord refused as not valid: 'link button with url \'\', beside a T…' 0ms
+     × records a message Discord refused as not valid: 'link button with no label key, beside…' 0ms
+     × records a message Discord refused as not valid: 'link button with label \'\', beside a…' 0ms
+     × records a message Discord refused as not valid: 'link button with label of one space, …' 11ms
+     × records a message Discord refused as not valid: 'link button url \'abc\'' 2ms
+     × records a message Discord refused as not valid: 'Thumbnail media.url \'abc\'' 0ms
+     × records a message Discord refused as not valid: 'Media Gallery item media.url \'abc\'' 1ms
+     × records a message Discord refused as not valid: 'only a Text Display of one tab' 0ms
+     × records a message Discord refused as not valid: 'only a Text Display of CR LF' 0ms
+     × records a message Discord refused as not valid: 'only a Text Display of one ideographi…' 0ms
+     × records a message Discord refused as not valid: 'only a Text Display of one em space U…' 0ms
+     × records a message Discord refused as not valid: 'only a Text Display of one next-line …' 0ms
+     × records a message Discord refused as not valid: 'only a Text Display of one line separ…' 0ms
+     × records a message Discord refused as not valid: 'Container holding a Text Display and …' 0ms
+     × records a message Discord refused as not valid: 'Container holding a Text Display and …' 0ms
+     × records a message Discord refused as not valid: 'link button url \'ftp://example.com\'' 0ms
+     × records a message Discord refused as not valid: 'Container holding a Section whose onl…' 0ms
+     × records a message Discord refused as not valid: 'Container holding an Action Row whose…' 0ms
+     × records a message Discord refused as not valid: 'Container holding an Action Row whose…' 0ms
+     × records a message Discord refused as not valid: 'Container holding an Action Row whose…' 0ms
+     × records a message Discord refused as not valid: 'Container holding an Action Row whose…' 0ms
+     × records a message Discord refused as not valid: 'Container holding a Section whose lin…' 0ms
+     × records a message Discord refused as not valid: 'Container holding a Section whose lin…' 0ms
+     × records a message Discord refused as not valid: 'Container holding a Section whose Thu…' 0ms
+     × records a message Discord refused as not valid: 'Container holding a Section whose Thu…' 0ms
+     × records a message Discord refused as not valid: 'Container holding a Section whose Thu…' 0ms
+     × records a message Discord refused as not valid: 'Container holding a Media Gallery who…' 1ms
+     × records a message Discord refused as not valid: 'Container holding a Media Gallery who…' 1ms
+     × records a message Discord refused as not valid: 'Container holding a Media Gallery who…' 0ms
+     × records a message Discord refused as not valid: 'Container holding a Text Display and …' 0ms
+     × records a message Discord refused as not valid: 'Container holding a Section with comp…' 0ms
+     × records a message Discord refused as not valid: 'Section whose Thumbnail description i…' 0ms
+     × records a message Discord refused as not valid: 'Media Gallery item description of 102…' 0ms
+     × records a message Discord refused as not valid: 'Media Gallery whose first item is val…' 0ms
+     × records a message Discord refused as not valid: 'link button with no label key and emo…' 0ms
+     × records a message Discord refused as not valid: 'link button with no label key and emo…' 0ms
+     × records a message Discord refused as not valid: 'link button with no url key' 0ms
+     × records a message Discord refused as not valid: 'Section whose Thumbnail media is {}' 0ms
+     × records a message Discord refused as not valid: 'Section whose Thumbnail has no media …' 0ms
+     × records a message Discord refused as not valid: 'Media Gallery item with no media key' 0ms
+     × records a message Discord refused as not valid: 'File with no file key' 0ms
+     × records a message Discord refused as not valid: 'Section with no components key' 0ms
+     × records a message Discord refused as not valid: 'Action Row with no components key, be…' 0ms
+     × records a message Discord refused as not valid: 'link button label of one no-break spa…' 0ms
+     × records a message Discord refused as not valid: 'link button label of one next-line U+…' 0ms
+     × records a message Discord refused as not valid: 'only a Text Display of U+0085 then a …' 0ms
+     × records a message Discord refused as not valid: 'only a Text Display of a space, U+008…' 0ms
+     × records a message Discord refused as not valid: 'only a Text Display of U+0085, a spac…' 0ms
+     × records a message Discord refused as not valid: 'only a Text Display of a space, U+008…' 0ms
+     × records a message Discord refused as not valid: 'only a Text Display of two U+0085' 1ms
+     × records a message Discord refused as not valid: 'link button label of U+0085, a space,…' 0ms
+     × refuses an empty Action Row when only the V2 flag makes the message V2 0ms
+     × refuses an empty Text Display when only the component types make the message V2 0ms
+     × leaves a classic message with a link button in every refused button shape as it was 1ms
+     × refuses a Text Display of a space 0ms
+     × refuses a Text Display of U+0085 alone 0ms
+     × refuses a link button labelled a space 0ms
+     × refuses it for an empty emoji object 1ms
+     × refuses it for an emoji with an empty name 1ms
+     × refuses it for an emoji with an empty id and name 2ms
+     × sends a Thumbnail with a description of 1024 characters and refuses 1025 1ms
+     × sends a gallery item with a description of 1024 characters and refuses 1025 0ms
+     × sends a Thumbnail with a one-space description and refuses an empty one 0ms
+     × sends a gallery item with a one-space description and refuses an empty one 0ms
+     × refuses a empty Text Display at top 1ms
+     × refuses a empty Text Display at container 0ms
+     × refuses a Text Display with no content at top 0ms
+     × refuses a Text Display with no content at container 0ms
+     × refuses a Section with no text at top 0ms
+     × refuses a Section with no text at container 0ms
+     × refuses a Section with no accessory at top 0ms
+     × refuses a Section with no accessory at container 0ms
+     × refuses a empty Media Gallery at top 0ms
+     × refuses a empty Media Gallery at container 0ms
+     × refuses a empty Container at top 0ms
+     × refuses a empty Container at container 1ms
+     × refuses a empty Action Row at top 0ms
+     × refuses a empty Action Row at container 0ms
+     × refuses a File at top 0ms
+     × refuses a File at container 0ms
+     × refuses a Thumbnail with no image URL at top 0ms
+     × refuses a Thumbnail with no image URL at container 1ms
+     × refuses a Thumbnail with no media at top 0ms
+     × refuses a Thumbnail with no media at container 0ms
+     × refuses a Thumbnail with an invalid URL at top 0ms
+     × refuses a Thumbnail with an invalid URL at container 1ms
+     × refuses a Thumbnail with an empty description at top 0ms
+     × refuses a Thumbnail with an empty description at container 0ms
+     × refuses a Thumbnail with a 1025-character description at top 0ms
+     × refuses a Thumbnail with a 1025-character description at container 0ms
+     × refuses a gallery item with no image URL at top 0ms
+     × refuses a gallery item with no image URL at container 0ms
+     × refuses a gallery item with no media at top 1ms
+     × refuses a gallery item with no media at container 0ms
+     × refuses a gallery item with an invalid URL at top 0ms
+     × refuses a gallery item with an invalid URL at container 0ms
+     × refuses a gallery item with an empty description at top 6ms
+     × refuses a gallery item with an empty description at container 1ms
+     × refuses a gallery item with a 1025-character description at top 0ms
+     × refuses a gallery item with a 1025-character description at container 0ms
+     × refuses a link button with no URL at top 0ms
+     × refuses a link button with no URL at container 0ms
+     × refuses a link button with the URL key absent at top 0ms
+     × refuses a link button with the URL key absent at container 0ms
+     × refuses a link button with an invalid URL at top 0ms
+     × refuses a link button with an invalid URL at container 0ms
+     × refuses a link button with an ftp URL at top 1ms
+     × refuses a link button with an ftp URL at container 0ms
+     × refuses a link button with no label or emoji at top 1ms
+     × refuses a link button with no label or emoji at container 0ms
+     × names the component type for a 'empty Text Display' 0ms
+     × names the component type for a 'Text Display with no content' 0ms
+     × names the component type for a 'Section with no text' 0ms
+     × names the component type for a 'Section with no accessory' 0ms
+     × names the component type for a 'empty Media Gallery' 0ms
+     × names the component type for a 'empty Container' 0ms
+     × names the component type for a 'empty Action Row' 0ms
+     × names the component type for a 'File' 1ms
+     × names the component type for a 'Thumbnail with no image URL' 0ms
+     × names the component type for a 'Thumbnail with no media' 0ms
+     × names the component type for a 'Thumbnail with an invalid URL' 1ms
+     × names the component type for a 'Thumbnail with an empty description' 0ms
+     × names the component type for a 'Thumbnail with a 1025-character descr…' 0ms
+     × names the component type for a 'gallery item with no image URL' 0ms
+     × names the component type for a 'gallery item with no media' 0ms
+     × names the component type for a 'gallery item with an invalid URL' 0ms
+     × names the component type for a 'gallery item with an empty description' 0ms
+     × names the component type for a 'gallery item with a 1025-character de…' 6ms
+     × names the component type for a 'link button with no URL' 0ms
+     × names the component type for a 'link button with the URL key absent' 0ms
+     × names the component type for a 'link button with an invalid URL' 0ms
+     × names the component type for a 'link button with an ftp URL' 0ms
+     × names the component type for a 'link button with no label or emoji' 0ms
+     × gives every fault a reason of its own, apart from the reasons already in use 1ms
+
+ Test Files  2 failed | 73 passed (75)
+      Tests  249 failed | 926 passed (1175)
+   Start at  12:35:29
+   Duration  8.57s (transform 21.88s, setup 746ms, import 78.50s, tests 9.37s, environment 29.51s)
+

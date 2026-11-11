@@ -1,0 +1,67 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the validation chrome > shows no error line and no red border for an empty username
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "This username is too short or too long.",
++ ]
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:160:23
+    158|     expect(editorShown(el)).toBe(true);
+    159|     expect(`${el.innerHTML}`).toContain(shown);
+    160|     expect(lines(el)).toEqual([]);
+       |                       ^
+    161|     expect(border(el)).not.toContain(styles.errorBorder);
+    162|     expect(el.querySelector('[data-erroring-state]')).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the validation chrome > shows no error line and no red border for a username Discord does not allow
+AssertionError: expected [ 'This username is not allowed.' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "This username is not allowed.",
++ ]
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:160:23
+    158|     expect(editorShown(el)).toBe(true);
+    159|     expect(`${el.innerHTML}`).toContain(shown);
+    160|     expect(lines(el)).toEqual([]);
+       |                       ^
+    161|     expect(border(el)).not.toContain(styles.errorBorder);
+    162|     expect(el.querySelector('[data-erroring-state]')).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/__tests__/Author.username-error.test.tsx > Author username error line > shows no username error in the cozy style when validation is hidden
+ FAIL  |dom| src/components/DiscordMessageEditor/components/__tests__/Author.username-error.test.tsx > Author username error line > shows no username error in the compact style when validation is hidden
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "This username is too short or too long.",
++ ]
+
+ ❯ src/components/DiscordMessageEditor/components/__tests__/Author.username-error.test.tsx:40:30
+     38|     const host = mountAuthor(style, '', true);
+     39|
+     40|     expect(errorLines(host)).toEqual([]);
+       |                              ^
+     41|     expect(host.querySelector('[data-erroring-state]')).toBeNull();
+     42|     expect(host.textContent).toContain('BOT');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+

@@ -1,0 +1,197 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: 41 flat components
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: a container holding 40 text displays
+AssertionError: expected undefined to be 'Message has 41 components; the limit …' // Object.is equality
+
+- Expected:
+"Message has 41 components; the limit is 40."
+
++ Received:
+undefined
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:115:29
+    113|     const host = await mountV2(components);
+    114|
+    115|     expect(errorLine(host)).toBe(`Message has ${total} components; the…
+       |                             ^
+    116|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit > shows the total and the limit with a red border above the limit: 11 containers of one section each
+AssertionError: expected undefined to be 'Message has 44 components; the limit …' // Object.is equality
+
+- Expected:
+"Message has 44 components; the limit is 40."
+
++ Received:
+undefined
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:115:29
+    113|     const host = await mountV2(components);
+    114|
+    115|     expect(errorLine(host)).toBe(`Message has ${total} components; the…
+       |                             ^
+    116|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+    117|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/11]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit, the error line > shows the components line after the text-length line
+AssertionError: expected [] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+- [
+-   "Components text exceeds 4000 characters.",
+-   "Message has 41 components; the limit is 40.",
+- ]
++ []
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:124:90
+    122|     const host = await mountV2(Array.from({ length: 41 }, () => makeTe…
+    123|
+    124|     expect(Array.from(host.querySelectorAll('.text-error')).map((el) =…
+       |                                                                                          ^
+    125|       'Components text exceeds 4000 characters.',
+    126|       'Message has 41 components; the limit is 40.',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/11]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit, the error line > drops the line and the border once the total is back to 40
+AssertionError: expected undefined to be 'Message has 41 components; the limit …' // Object.is equality
+
+- Expected:
+"Message has 41 components; the limit is 40."
+
++ Received:
+undefined
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:147:29
+    145|     const host = mountDom(<Host />);
+    146|     await act(async () => {});
+    147|     expect(errorLine(host)).toBe('Message has 41 components; the limit…
+       |                             ^
+    148|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+    149|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/11]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows one line naming the Text Display, with a red border, for an empty Text Display
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:179:30
+    177|     const host = await mountWith([makeTextDisplay('')]);
+    178|
+    179|     expect(errorLines(host)).toHaveLength(1);
+       |                              ^
+    180|     expect(errorLines(host)[0]).toContain('Text Display');
+    181|     expect(border(host)).toContain(styles.errorBorder);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/11]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows the line for an empty Action Row when only the V2 flag makes the message V2
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:187:30
+    185|     const host = await mountWith([{ type: 1, components: [] }], 32768);
+    186|
+    187|     expect(errorLines(host)).toHaveLength(1);
+       |                              ^
+    188|     expect(errorLines(host)[0]).toContain('Action Row');
+    189|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/11]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows the line after the components-total line
+AssertionError: expected [] to have a length of 2 but got +0
+
+- Expected
++ Received
+
+- 2
++ 0
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:208:19
+    206|
+    207|     const lines = errorLines(host);
+    208|     expect(lines).toHaveLength(2);
+       |                   ^
+    209|     expect(lines[0]).toBe('Message has 41 components; the limit is 40.…
+    210|     expect(lines[1]).toContain('Text Display');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/11]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > drops the line once the Text Display is filled
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:232:30
+    230|     const host = mountDom(<Host />);
+    231|     await act(async () => {});
+    232|     expect(errorLines(host)).toHaveLength(1);
+       |                              ^
+    233|
+    234|     await act(async () => { handle.setCount(3); });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/11]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component validity, the error line > shows the line when the message is not being edited, as the send page preview does
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:250:30
+    248|     await act(async () => {});
+    249|
+    250|     expect(errorLines(host)).toHaveLength(1);
+       |                              ^
+    251|     expect(border(host)).toContain(styles.errorBorder);
+    252|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/11]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit when not editing > shows the total and the limit with a red border when validation is not hidden
+AssertionError: expected undefined to be 'Message has 41 components; the limit …' // Object.is equality
+
+- Expected:
+"Message has 41 components; the limit is 40."
+
++ Received:
+undefined
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:303:29
+    301|     await act(async () => {});
+    302|
+    303|     expect(errorLine(host)).toBe('Message has 41 components; the limit…
+       |                             ^
+    304|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+    305|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/11]⎯
+

@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-62
+
+ ❯ |node| src/utils/__tests__/limits.v2-send-validity.test.ts (331 tests | 4 failed) 118ms
+     × sends a message Discord accepted: 'Section whose accessory is a valid li…' 24ms
+     × sends a message Discord accepted: 'Container holding a valid Section wit…' 1ms
+     × records a message Discord accepted as valid: 'Section whose accessory is a valid li…' 3ms
+     × records a message Discord accepted as valid: 'Container holding a valid Section wit…' 2ms
+
+ Test Files  1 failed | 74 passed (75)
+      Tests  4 failed | 1167 passed (1171)
+   Start at  12:15:56
+   Duration  7.57s (transform 16.20s, setup 745ms, import 64.36s, tests 8.42s, environment 27.95s)
+

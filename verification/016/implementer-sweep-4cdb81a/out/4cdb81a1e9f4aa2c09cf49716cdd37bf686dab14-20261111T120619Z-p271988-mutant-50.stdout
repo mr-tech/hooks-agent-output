@@ -1,0 +1,43 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-50
+
+ ❯ |node| src/utils/__tests__/limits.v2-send-validity.test.ts (331 tests | 33 failed) 103ms
+     × refuses a message Discord refused: 'Section accessory link button with no…' 24ms
+     × refuses a message Discord refused: 'Section accessory link button with la…' 1ms
+     × refuses a message Discord refused: 'Section accessory link button with la…' 1ms
+     × refuses a message Discord refused: 'link button with no label key, beside…' 1ms
+     × refuses a message Discord refused: 'link button with label \'\', beside a…' 0ms
+     × refuses a message Discord refused: 'link button with label of one space, …' 0ms
+     × refuses a message Discord refused: 'Container holding an Action Row whose…' 1ms
+     × refuses a message Discord refused: 'Container holding a Section whose lin…' 0ms
+     × refuses a message Discord refused: 'link button with no label key and emo…' 1ms
+     × refuses a message Discord refused: 'link button with no label key and emo…' 0ms
+     × refuses a message Discord refused: 'link button label of one no-break spa…' 0ms
+     × refuses a message Discord refused: 'link button label of one next-line U+…' 0ms
+     × refuses a message Discord refused: 'link button label of U+0085, a space,…' 1ms
+     × records a message Discord refused as not valid: 'Section accessory link button with no…' 3ms
+     × records a message Discord refused as not valid: 'Section accessory link button with la…' 0ms
+     × records a message Discord refused as not valid: 'Section accessory link button with la…' 1ms
+     × records a message Discord refused as not valid: 'link button with no label key, beside…' 0ms
+     × records a message Discord refused as not valid: 'link button with label \'\', beside a…' 0ms
+     × records a message Discord refused as not valid: 'link button with label of one space, …' 0ms
+     × records a message Discord refused as not valid: 'Container holding an Action Row whose…' 1ms
+     × records a message Discord refused as not valid: 'Container holding a Section whose lin…' 0ms
+     × records a message Discord refused as not valid: 'link button with no label key and emo…' 0ms
+     × records a message Discord refused as not valid: 'link button with no label key and emo…' 0ms
+     × records a message Discord refused as not valid: 'link button label of one no-break spa…' 0ms
+     × records a message Discord refused as not valid: 'link button label of one next-line U+…' 0ms
+     × records a message Discord refused as not valid: 'link button label of U+0085, a space,…' 0ms
+     × refuses a link button labelled a space 0ms
+     × refuses it for an empty emoji object 0ms
+     × refuses it for an emoji with an empty name 0ms
+     × refuses it for an emoji with an empty id and name 0ms
+     × refuses a link button with no label or emoji at top 0ms
+     × refuses a link button with no label or emoji at container 0ms
+     × names the component type for a 'link button with no label or emoji' 0ms
+
+ Test Files  1 failed | 74 passed (75)
+      Tests  33 failed | 1138 passed (1171)
+   Start at  12:14:05
+   Duration  7.68s (transform 15.67s, setup 789ms, import 63.42s, tests 8.40s, environment 28.77s)
+

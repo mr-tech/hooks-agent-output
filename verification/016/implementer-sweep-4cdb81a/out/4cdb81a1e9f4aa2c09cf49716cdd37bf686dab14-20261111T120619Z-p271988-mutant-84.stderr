@@ -1,0 +1,150 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the validation chrome > shows no error line and no red border for a message with nothing in it
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "Message must have content, embeds, or components.",
++ ]
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:160:23
+    158|     expect(editorShown(el)).toBe(true);
+    159|     expect(`${el.innerHTML}`).toContain(shown);
+    160|     expect(lines(el)).toEqual([]);
+       |                       ^
+    161|     expect(border(el)).not.toContain(styles.errorBorder);
+    162|     expect(el.querySelector('[data-erroring-state]')).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the validation chrome > shows no error line and no red border for embeds over 6000 characters
+AssertionError: expected [ 'Embeds exceed 6000 characters.' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "Embeds exceed 6000 characters.",
++ ]
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:160:23
+    158|     expect(editorShown(el)).toBe(true);
+    159|     expect(`${el.innerHTML}`).toContain(shown);
+    160|     expect(lines(el)).toEqual([]);
+       |                       ^
+    161|     expect(border(el)).not.toContain(styles.errorBorder);
+    162|     expect(el.querySelector('[data-erroring-state]')).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the validation chrome > shows no error line and no red border for Text Displays over 4000 characters
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "Components text exceeds 4000 characters.",
++ ]
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:160:23
+    158|     expect(editorShown(el)).toBe(true);
+    159|     expect(`${el.innerHTML}`).toContain(shown);
+    160|     expect(lines(el)).toEqual([]);
+       |                       ^
+    161|     expect(border(el)).not.toContain(styles.errorBorder);
+    162|     expect(el.querySelector('[data-erroring-state]')).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the validation chrome > shows no error line and no red border for 41 components
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "Message has 41 components; the limit is 40.",
++ ]
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:160:23
+    158|     expect(editorShown(el)).toBe(true);
+    159|     expect(`${el.innerHTML}`).toContain(shown);
+    160|     expect(lines(el)).toEqual([]);
+       |                       ^
+    161|     expect(border(el)).not.toContain(styles.errorBorder);
+    162|     expect(el.querySelector('[data-erroring-state]')).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the validation chrome > shows no error line and no red border for a Text Display with nothing in it
+AssertionError: expected [ 'A Text Display is empty.' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "A Text Display is empty.",
++ ]
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:160:23
+    158|     expect(editorShown(el)).toBe(true);
+    159|     expect(`${el.innerHTML}`).toContain(shown);
+    160|     expect(lines(el)).toEqual([]);
+       |                       ^
+    161|     expect(border(el)).not.toContain(styles.errorBorder);
+    162|     expect(el.querySelector('[data-erroring-state]')).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the validation chrome > shows no error line and no red border for an empty username
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "This username is too short or too long.",
++ ]
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:160:23
+    158|     expect(editorShown(el)).toBe(true);
+    159|     expect(`${el.innerHTML}`).toContain(shown);
+    160|     expect(lines(el)).toEqual([]);
+       |                       ^
+    161|     expect(border(el)).not.toContain(styles.errorBorder);
+    162|     expect(el.querySelector('[data-erroring-state]')).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx > preview page, the validation chrome > shows no error line and no red border for a username Discord does not allow
+AssertionError: expected [ 'This username is not allowed.' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "This username is not allowed.",
++ ]
+
+ ❯ src/app/preview/__tests__/page.invalid-data.test.tsx:160:23
+    158|     expect(editorShown(el)).toBe(true);
+    159|     expect(`${el.innerHTML}`).toContain(shown);
+    160|     expect(lines(el)).toEqual([]);
+       |                       ^
+    161|     expect(border(el)).not.toContain(styles.errorBorder);
+    162|     expect(el.querySelector('[data-erroring-state]')).toBeNull();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/7]⎯
+

@@ -1,0 +1,38 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-61
+
+ ❯ |node| src/utils/__tests__/limits.v2-send-validity.test.ts (331 tests | 26 failed) 104ms
+     × sends a message Discord accepted: 'valid Section: one Text Display, vali…' 7ms
+     × sends a message Discord accepted: 'Section whose accessory is a valid li…' 1ms
+     × sends a message Discord accepted: 'Thumbnail description of one space' 1ms
+     × sends a message Discord accepted: 'Thumbnail media.url \'ftp://example.c…' 1ms
+     × sends a message Discord accepted: '13 Sections each with one Text Displa…' 1ms
+     × sends a message Discord accepted: 'Container holding a valid Section wit…' 0ms
+     × sends a message Discord accepted: 'Container holding a valid Section wit…' 0ms
+     × sends a message Discord accepted: 'Section whose Thumbnail description i…' 0ms
+     × records a message Discord accepted as valid: 'valid Section: one Text Display, vali…' 2ms
+     × records a message Discord accepted as valid: 'Section whose accessory is a valid li…' 0ms
+     × records a message Discord accepted as valid: 'Thumbnail description of one space' 0ms
+     × records a message Discord accepted as valid: 'Thumbnail media.url \'ftp://example.c…' 1ms
+     × records a message Discord accepted as valid: '13 Sections each with one Text Displa…' 1ms
+     × records a message Discord accepted as valid: 'Container holding a valid Section wit…' 1ms
+     × records a message Discord accepted as valid: 'Container holding a valid Section wit…' 1ms
+     × records a message Discord accepted as valid: 'Section whose Thumbnail description i…' 1ms
+     × sends a Thumbnail with a description of 1024 characters and refuses 1025 1ms
+     × sends a Thumbnail with a one-space description and refuses an empty one 1ms
+     × sends a filled piece of each kind at top 1ms
+     × sends a filled piece of each kind at container 0ms
+     × names the component type for a 'Thumbnail with no image URL' 2ms
+     × names the component type for a 'Thumbnail with no media' 1ms
+     × names the component type for a 'Thumbnail with an invalid URL' 1ms
+     × names the component type for a 'Thumbnail with an empty description' 1ms
+     × names the component type for a 'Thumbnail with a 1025-character descr…' 2ms
+     × gives every fault a reason of its own, apart from the reasons already in use 3ms
+ ❯ |node| src/utils/__tests__/limits.component-count.test.ts (13 tests | 1 failed) 15ms
+     × accepts 10 containers each holding a section (40 in all) 8ms
+
+ Test Files  2 failed | 73 passed (75)
+      Tests  27 failed | 1144 passed (1171)
+   Start at  12:15:47
+   Duration  7.65s (transform 16.54s, setup 769ms, import 64.97s, tests 8.22s, environment 28.93s)
+

@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/1574d5ae-05e0-4035-8a6f-b2d3500cc76e/scratchpad/sweepwork/20261111T120619Z-p271988/mutant-87
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/__tests__/Author.username-error.test.tsx (6 tests | 2 failed) 141ms
+     × shows no username error in the cozy style when validation is hidden 25ms
+     × shows no username error in the compact style when validation is hidden 20ms
+ ❯ |dom| src/app/preview/__tests__/page.invalid-data.test.tsx (62 tests | 2 failed) 3540ms
+     × shows no error line and no red border for an empty username 47ms
+     × shows no error line and no red border for a username Discord does not allow 42ms
+
+ Test Files  2 failed | 73 passed (75)
+      Tests  4 failed | 1167 passed (1171)
+   Start at  12:19:57
+   Duration  8.80s (transform 23.61s, setup 798ms, import 80.07s, tests 9.80s, environment 29.05s)
+
