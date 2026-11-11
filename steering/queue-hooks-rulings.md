@@ -581,3 +581,66 @@ architect were read; the body was not read whole. `INDEX.md` rebuilt with `--tra
 - Its eight recommendations reach their files through pi, which runs on his word alone.
 - Nothing of this chain is left in flight for this thread. His two checks stay on
   `handoff/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md` and in `OWNER-QUEUE.md`.
+
+## 2026-11-11T10:30Z — selections 17 to 20: plan 016's four open questions (put 10:28Z, answered 10:30Z)
+
+Ledger: `steering/selection-ledger/2026-11-11.md`, block "2026-11-11T10:30Z — steering-queue-hooks".
+All four by selection; the option text around each label is this thread's. Source: plan 016
+revision 0 (`planning/016-send-check-validity.md`, record `0ae079d`, `Status: Active`), OQ-0 to
+OQ-3, lines 1 to 180 and 232 to 354 read this turn; relayed by the planner's message. No gate has
+read the plan, so no option cost a review round.
+
+**17. The plan's goal (OQ-0).** Options: *Agent: plan this goal (Recommended)* ("the planner builds
+revision 1 on the goal as written: the 52 shapes Discord was measured refusing in the test server,
+plus the 1024-character description limit, as your 09:09Z choice said") / *Agent: narrow to
+emptiness* (bad URLs, unlabeled link buttons, File components and over-long descriptions keep
+failing with the generic toast; reverses the 09:09Z choice) / *Agent: stop the chain* (plan closed
+unbuilt, the August handoff stays open). **Chosen: "Agent: plan this goal (Recommended)"**. The goal
+he was shown is the plan's value statement, quoted whole in the question.
+
+**18. Whitespace in a Text Display (OQ-1).** Options: *Agent: trim() plus 2 exceptions
+(Recommended)* ("the new check uses trim() and treats those two characters as Discord does, so it
+agrees with Discord on all 11 measured. This departs from the classic check in this one feature,
+against your mirror-the-siblings rule, which is why it is asked; the classic check is not changed")
+/ *Agent: mirror trim() exactly* (U+FEFF alone cannot be sent though Discord accepts it; U+0085
+alone passes and fails at Discord; both known limits). **Chosen: "Agent: trim() plus 2 exceptions
+(Recommended)"**. Premises and reads, this turn: the research document's F-2, lines 161 to 173
+(9 of 11, the two characters, Node 24); the classic check's `trim()`, website `0e3d903`
+`src/utils/limits.tsx` line 141 and `src/utils/index.ts` line 38 (`git grep -n`, read from code).
+The mirror rule was named from the plan's D-5, which quotes the planner definition; not read in his
+own words by this thread.
+
+**19. Whether Save refuses a description over 1024 (OQ-2).** Options: *Agent: cap input, allow save
+(Recommended)* ("both description boxes stop typing and pasting at 1024, and Send refuses over
+1024. Save does not refuse: a longer description arriving by pasted JSON saves, is recorded as not
+valid, and is refused at Send with the reason") / *Agent: refuse the save too* (the save schema
+also refuses over 1024; pasted JSON over 1024 refused on load, the planner's code read, not run; a
+stored longer description would fail the JSON load paths, existence unknown) / *Agent: Send check
+only* (no cap in the boxes). **Chosen: "Agent: cap input, allow save (Recommended)"**. Premises and
+reads, this turn, website `0e3d903` by `git grep -n`, read from code, not run:
+`src/server/api/utils/shapes.ts` lines 50 and 63 cap the button label and Text Display content,
+lines 131 to 149 and 190 cap embed fields and message content, lines 69 and 81 leave both
+descriptions `z.string().optional()`; `LinkButtonEditor.tsx` line 46 is the only `maxLength` under
+`src/components`. W-2's words, `architecture/website.md` line 50; A-4, lines 243 to 245.
+**This thread's error, kept:** the 09:17Z determination put the save schema in "as far as sibling
+per-field limits already go" and "any server-side refusal of a save" out, without reading
+`shapes.ts`; on the description fields the two clauses contradict. His selection settles it: the
+save schema is not edited for this bound.
+
+**20. A File component on an edit (OQ-3).** Options: *Agent: refuse File everywhere (Recommended)*
+("the check refuses any message holding a File, on a new send and on an edit. Risk: if Discord does
+accept a File naming an existing attachment on an edit, the site blocks an edit that would work;
+that is unmeasured") / *Agent: measure it first* (an analyst run in the test server before
+implementation) / *Agent: refuse on new sends only* (edits pass unmeasured). **Chosen: "Agent:
+refuse File everywhere (Recommended)"**. Premises and reads, this turn: the research document's F-7,
+lines 198 to 204, and N-5, line 399; that the website cannot attach a file to a V2 message is the
+researcher's code read, marked so in the option. Read by this thread and not put in the prompt: the
+File editor's url box is free text with the placeholder `attachment://filename.png`
+(`FileEditor.tsx` lines 66 and 77), so a user can type an existing attachment's name; this is the
+false-refusal case the option named.
+
+Not put, by the determination: Exclusion X-1 (the generic failure toast) goes to him with revision
+1's Exclusions register. The planner's own item (the `messageValidity.predicate` test file and its
+handoff) is its to settle in revision 1.
+
+Relayed to the planner by pointer to this block, his four chosen labels verbatim.
