@@ -251,3 +251,14 @@ each (14 files). SKIP 2: a `.yml` file outside the chain, another session's.
 ## Next Steps
 
 Code review (spawn cue to `steering-queue-hooks`), then QA Phase 2, UAT, devops.
+
+## Resumption State
+
+Written 2026-11-11T12:45Z by `implementer-hooks-016` at the hand-off seam. Read this first on resume.
+
+- **Done:** M1 `ae7c8fe`, M1b `44ecd05`, M2 `df0fc0b`; deweeder rounds 1 and 2 answered (`7a268dc`, `4cdb81a`, `ee114ff`); my test-only `7c66b68`; self-check sweeps at `4cdb81a` and `ee114ff` recorded with every non-kill dispositioned; suite, typecheck, lint counts and convention-check recorded. `Handoff-At: ee114ff — repos=website`. Spawn cue sent to `steering-queue-hooks`; the code reviewer is started on it.
+- **Next:** wait for the code review (`code-review/016-…`). On `REJECTED` or findings: fix round in the Class Sweep form (enumeration, hits, residual re-run), tests red first, another deweeder range before the next hand-off, the sweep over the round's diff, `Handoff-At` moved. Then QA Phase 2.
+- **Trees:** website on `chain/016-send-check-validity` at `ee114ff`, clean apart from `.playwright-mcp/` (another session's). Nothing uncommitted of mine. Scratch exports deleted; no process of mine left running.
+- **Questions sent:** planner-hooks-016 (answered: plan rev 6, X-12). No question open.
+- **Evidence kept:** `verification/016/implementer-sweep-4cdb81a/` and `…-ee114ff/` (mutants, tables, config).
+- **Cache-warm wake:** deleted at this checkpoint; re-arm on resume.
