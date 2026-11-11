@@ -2,8 +2,8 @@
 ID: 016
 Origin: 016
 UUID: 54673438
-Status: Active
-Status-Detail: "Revision 5, ready for the critic, the architect and QA Phase 1 to read again. It folds QAF-12 (QA's re-key on revision 4, record 96fbc66): AC1b-1 checks Author's line on /preview in the cozy style the route renders, and its compact branch at the Author component with the signal set as /preview sets it. QA's by-render enumeration settled M1b's seven members. Revision 4's approvals do not carry to it. No OPEN QUESTION remains."
+Status: In Progress
+Status-Detail: "Implementation started on revision 5 by implementer-hooks-016, chain branch chain/016-send-check-validity. Revision 5 was approved by the critic (88b0da9), the architect (1492d33) and QA Phase 1 (97343f0). Earlier text: Revision 5, ready for the critic, the architect and QA Phase 1 to read again. It folds QAF-12 (QA's re-key on revision 4, record 96fbc66): AC1b-1 checks Author's line on /preview in the cozy style the route renders, and its compact branch at the Author component with the signal set as /preview sets it. QA's by-render enumeration settled M1b's seven members. Revision 4's approvals do not carry to it. No OPEN QUESTION remains."
 Revision: 5
 Target Release: "website master → this chain's merge SHA (Vercel production on a push of master). The package carries no version artefact (package.json has no version field, CHANGELOG absent; read 2026-11-11T10:22Z)."
 Epic-Alignment: "none registered. The workspace has no roadmap, by the owner's standing instruction (brief). Source of the effort: research/closed/components-v2-send-validity-2026-11-11.md and research/closed/components-v2-description-text-limit-2026-11-11.md; opened by selection 14 (rulings block 2026-11-11T09:09Z)."
@@ -50,6 +50,7 @@ Owed re-verdicts:
 | 2026-11-11T11:40 | 5 | planner-hooks-016 | Folds QAF-12 LOW from QA's re-key on revision 4 (`qa/016-send-check-validity-qa.md`, record `96fbc66`), the one finding of the three gate reads of revision 4 (critic `01eeaad` and architect `47c7a4c` approved). AC1b-1's Author limb is checked on `/preview` in cozy, the only style the route renders, and in compact at the component, as QA asked; M1b's table records that QA's render settled the seven members. Scope delta: AC1b-1's wording only, no milestone added, removed or widened; the whitespace limb is not touched. Since approval of the value statement: five revisions and four gate rounds. Size against the original ask: unchanged from revision 3. |
 | 2026-11-11T11:41 | R-3 | planner-hooks-016 | Verdict: QA's Phase 1 re-key on revision 5 resolves QAF-12 and leaves no finding open (`qa/016-send-check-validity-qa.md`, record `97343f0`). Correction: the times on revision 5's row, the Resumption State and the page read were typed ahead of the clock; they now read the commit time, 11:40Z (QA's note). No requirement changed; the revision stays 5. |
 | 2026-11-11T11:43 | R-4 | planner-hooks-016 | Verdict: the architect's delta pass on revision 5 APPROVED with no finding (`architecture/016-send-check-validity-architecture-findings.md`, record `1492d33`, section "Verdict (rev 5 …)"). Its note on the typed 11:44 stamp was already corrected at R-3. No requirement changed; the revision stays 5. |
+| 2026-11-11T11:44 | R-5 | implementer-hooks-016 | Status set to In Progress: implementation starts on revision 5 at website `0e3d903`, chain branch `chain/016-send-check-validity`. Entry conditions recorded in the implementation document. No requirement changed. |
 
 ## Value Statement and Business Objective
 
