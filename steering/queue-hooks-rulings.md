@@ -290,3 +290,27 @@ with no prompt. The two JSON surfaces behave as at `6d78b19`.
 **This thread's error, kept:** prompt 7 and the first scope statement framed the defect as "no choice
 shown", which pointed the fixer at showing one. D17's principle was on record and unread by this
 thread when it wrote them.
+
+## 2026-11-11T09:10Z — selection 14: one send-check fix, 1024 included (put 09:08:56Z, answered 09:10Z)
+
+Ledger: `steering/selection-ledger/2026-11-11.md`, this thread's latest block. Read this turn:
+`research/closed/components-v2-send-validity-2026-11-11.md` (`c9f8e3a`, `Status: Answered`), its
+Answer section; the counts below are that document's (76 shapes sent, 52 refused by Discord; the
+website's `validateMessage`, executed over the same shapes at `6d78b19`, blocks 6 of the 52 and
+passes 46). The generic failure message is its code read (F-14).
+
+Options: *Agent: scope one fix, 1024 included (Recommended)* / *Agent: scope it, 1024 separate* (two
+changes to the same send check, two reviews, two releases) / *Agent: leave the code as is* /
+*Agent: close the handoff*. **Chosen: "Agent: scope one fix, 1024 included (Recommended)"**, put
+to him as: "I record one scoping decision for making the send check refuse what Discord refuses,
+folding in the 1024-character description limit you already chose, so the send check changes once.
+It is likely bigger than a small fixer chain (a plan, review, QA and your own check); the scoping
+says which, and whether the File component gap is in or out, and you can veto it from the record.
+It starts when the website tree is free."
+
+Effect: selection 11's separate queued fixer is superseded; its measurement and scope fold into
+this one. **The scoping determination is owed and not yet written** (carrier: `TODO.md`, "Website
+send-check validity fix"). It must state the pipeline, the families in scope from the research
+document, and the File component gap (its F-7) as in or out, before any stage starts.
+
+The researcher session's two documents are terminal; the session is stopped.

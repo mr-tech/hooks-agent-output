@@ -83,6 +83,15 @@ measured and being fixed separately: a Thumbnail or MediaGallery description ove
 refused (that document's F-6). Whether Discord refuses an empty-string description is its N-4,
 not measured. Nothing else in this handoff is changed or answered by this note.
 
+**Reconcile note, 2026-11-11, second (`steering-queue-hooks`).** The class is now measured:
+`research/closed/components-v2-send-validity-2026-11-11.md` (76 shapes sent in the test server, 52
+refused). It answers the "NOT established" list below except the count of stored records, which no
+agent reads. It also settles two older points: Discord accepts whitespace-only top-level content
+beside V2 components (plan 012 D14, QA R20; its F-8) and refuses an empty-string description (its
+F-6). The owner chose one send-check fix covering these and the 1024 bound
+(`steering/queue-hooks-rulings.md`, selection 14); this handoff stays open until that fix is
+released.
+
 ## What is established and what is not
 
 **Established:** the single instance, by the owner's own observation.

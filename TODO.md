@@ -16,12 +16,16 @@ stuff is planned after the existing items are handled" (`steering/queue-hooks-ru
 1 to 4, prompt 2). Do not put it to him while other work in this project is open; when none is, ask
 which items to plan, or none and the research closes.
 
-## Website fix: bound V2 description fields at 1024 characters
+## Website send-check validity fix (the 1024 description limit included)
 
-Lodged 2026-11-11 by `steering-queue-hooks` on the owner's selection ("Agent: scope a fix"). Scoping
-determination, scope and evidence: `steering/queue-hooks-rulings.md`, block "selection 11"; the
-measurement is F-6 of `research/components-v2-description-text-limit-2026-11-11.md`. A `fixer` chain,
-to start when the website tree is free of `fix/website-save-gate-embeds`.
+Lodged 2026-11-11 by `steering-queue-hooks` on the owner's selections 11 and 14
+(`steering/queue-hooks-rulings.md`). One change to the send check so it refuses what Discord
+refuses: the emptiness families measured in
+`research/closed/components-v2-send-validity-2026-11-11.md` and the 1024-character description
+bound (F-6 of `research/closed/components-v2-description-text-limit-2026-11-11.md`). **Owed first:
+the scoping determination**, recorded in the rulings file before any stage starts: the pipeline
+(likely more than a fixer), the families in scope, and the File component gap (F-7) in or out. It
+starts when the website tree is free of `fix/website-save-gate-embeds`.
 
 ## website lint debt in `src/utils/index.ts` and its resolver test
 
