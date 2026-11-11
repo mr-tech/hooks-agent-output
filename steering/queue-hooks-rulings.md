@@ -444,3 +444,24 @@ persisting writers, `saveMessage` and `commitSaveChoice`, share one save step th
 resolved data and sets the editor's message to it. Everything else in the 09:04Z statement stands.
 QA Phase 2 covers both paths; the reviewer's Assumption Not Checked (whether Pusher delivers the
 event to the saving client) is QA's, by a browser save.
+
+## 2026-11-11T09:27Z — fixer BLOCKED on the editor's mode after a Classic choice: answered from selection 15, not asked
+
+The fixer's question (by message, 09:26Z; checkpoint website `abdb71b`, not handed off): after
+"Save as Classic" on the choice dialog, does the editor's mode switch to Classic in the same step
+that writes the stored data back? Its options: (1) set the mode from the stored data in the shared
+step, (2) write the data back and leave the mode, (3) stop and leave `commitSaveChoice` as it was.
+
+**Decided by this thread: option 1.** His chosen option's words in selection 15 are "one shared
+save step that also updates the editor to what was stored". An editor left in V2 mode over
+classic-only data is not updated to what was stored, so (2) does not meet his words and (3)
+reverses his selection. Which setter carries it is a mechanism choice inside the agreed scope (the
+standing default in `references/escalation.md`): the fixer's, recorded as agent-authored. He is
+told in this turn's report and can veto from this record.
+
+Reads, this turn, at `abdb71b` (`git grep -n`, read from code, not run): `detectMessageMode`
+(`src/utils/messageMode.ts`) is what the provider's load path uses to set the mode
+(`MessageProvider/index.tsx` lines 122 to 123), and `JsonModalBody.tsx` line 89 sets the mode on a
+Load commit. The mismatch itself (V2 editing shown over classic data until a reload) is the
+fixer's code read, not this thread's. Scope: the setter passed into `useApiMethods` and its call
+site in `MessageProvider` are wiring the shared step requires.
