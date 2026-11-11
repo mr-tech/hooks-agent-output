@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-240 documents · 15 numbered chains · 101 unnumbered.
+246 documents · 15 numbered chains · 107 unnumbered.
 
 ---
 
@@ -244,12 +244,13 @@ they are the ID-less artifacts that root new efforts.
 | code review | `code-review/closed/fix-agent-comment-sweep-merge-code-review.md` | Released — Released 2026-11-10T10:13Z: website master = 6d78b19 on origin, the reviewed commit. Record: deployment/fix-agent-comment-sweep-merge-deployment.md. |
 | code review | `code-review/closed/fix-hooks-record-shared-engine-code-review.md` | Released — Released with the chain: verdict APPROVED_WITH_COMMENTS at fdab24b stands as recorded; on origin master at 1611473. |
 | code review | `code-review/closed/fix-v1-guild-messages-auth-code-review.md` | Committed |
-| code review | `code-review/fix-website-save-gate-embeds-code-review.md` | In Review |
+| code review | `code-review/closed/fix-website-save-gate-embeds-code-review.md` | Committed — Committed with the chain at website 0e3d903 (devops Stage 1, 2026-11-11T10:12Z); verdict APPROVED_WITH_COMMENTS unchanged. |
 | deployment | `deployment/closed/2026-04-07-plan-005.md` | Released |
 | deployment | `deployment/closed/2026-04-07-plan-006.md` | Released |
 | deployment | `deployment/closed/2026-04-07-plans-001-003-004.md` | Released |
 | deployment | `deployment/closed/fix-agent-comment-sweep-merge-deployment.md` | Released — Released 2026-11-10T10:13Z: website master = 6d78b19 on origin (push by devops, Mode A, on the owner's 'merge it' and 'Push now'). Fix branch merged and deleted. Phase 2D complete. |
 | deployment | `deployment/closed/fix-v1-guild-messages-auth-deployment.md` | Released — Released 2026-10-10: website master = ddbd750 on origin (move by steering, f4b7fb0); owner confirmed Vercel live. Every register row terminal: B-3 PASS (401, 16:52Z); B-4 PASS (owner's observation, 2026-11-10). Phase 2D complete. |
+| deployment | `deployment/closed/fix-website-save-gate-embeds-deployment.md` | Released — Released 2026-11-11T10:13Z: website master 6d78b19 -> 0e3d903 on origin (release-move.js exit 0; ls-remote read back). Fix branch merged and deleted. The owner's hooks.gg check and optional live-database read ride handoff/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md; they do not hold this record open. |
 | handoff | `handoff/architecture-record-reconciliation-owed-2026-11-10.md` | Open · priority normal — Six architecture items routed to the architect while no architect session was running: system-architecture.md is not reconciled to chains 012-014, the chain-013 findings document is still Active, and four record lines are stale or incomplete. Nothing blocks on them; a brief citing the architecture record reads stale text until they land. |
 | handoff | `handoff/backfill-valid-guard-has-no-db-backed-instrument-2026-08-26.md` | Open · priority normal — Two chain-012 items were each explicitly routed to "handoff material under D18" and no handoff was ever created, so both survived only inside documents that are now in `closed/`. This document is that destination, written after the fact. Both concern the same file - `src/scripts/backfillValid.ts` in `website` - and both are unclosed for the same underlying reason: **no DB-backed instrument exists in this environment**, so neither can be settled by the unit suite that closed everything else on chain 012. Neither is a defect in shipped behaviour; chain 012 released with both known, bounded and accepted on the record. Nothing here reopens chain 012 or amends any of its findings. A third item, from chain 013, was added on 2026-11-11 by owner selection (Item 3). |
 | handoff | `handoff/bug-evaluation-fixes-unclosed-assumptions-2026-11-08.md` | Open · priority normal — Eight Assumption Not Checked items from chain 015's QA and code-review documents that no later document closes and no other carrier holds, found by the Phase 2D sweep and re-read at their sources. Each names the instrument that would close it and the signature of its falsity. None gates anything shipped. |
@@ -272,6 +273,7 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/preview-image-generator-host-security-posture-2026-11-08.md` | Open · priority normal — Five host-posture findings on the preview-image-generator production host (H-001 to M-002 of security/015-preview-image-generator-security-audit.md), accepted by the owner as recorded on 2026-11-08 (rulings 09:43Z: no effort, no mitigation). This record carries them past chain 015's closure; nothing is owed until the trigger fires. |
 | handoff | `handoff/providers-query-params-header-decode-throws-2026-11-08.md` | Open · priority low — Providers.tsx decodes a client-reachable x-query-params header with decodeURIComponent; a malformed value throws during render. Outside plan 015's pool; nothing blocks on it. |
 | handoff | `handoff/qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md` | Open · priority normal — Two chain-014 leftovers with no running stage: QA register row BC-7/AC8 has its closing observation but not its terminal write, and the ID-less test inventory that chain 014 consumed is still Active. Nothing blocks on either. |
+| handoff | `handoff/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md` | Open · priority normal — Released 2026-11-11T10:13Z (website master 0e3d903). Owed: the owner's own check on hooks.gg of the Save flows, which closes QA's Assumption Not Checked (Pusher), and his optional live-database read. Neither blocks anything; no stage is waiting. |
 | handoff | `handoff/save-originating-tab-raises-its-own-update-prompt-2026-08-25.md` | Open · priority normal — Issued 2026-08-25 by steering-hooks-013-3 at the owner's explicit direction ("Route 10 to a handoff"), during chain 013's closeout. Found in PRODUCTION by the owner while executing release condition BC-14, which is the only instrument in chain 013 that reaches this surface - no automated test in that chain covers it. The defect is NOT chain 013's to fix: the owner ruled 013 complete in the same message, and this handoff is the route he chose for the finding rather than a reopening. Nothing here is derived: the symptom is his sentence verbatim, and the two limbs it does not cover are stated as uncovered rather than inferred. |
 | handoff | `handoff/unsaved-change-guards-disabled-for-unauthenticated-users-2026-08-24.md` | Open · priority normal — A pre-existing data-loss gap in `website`: every unsaved-changes guard in the message editor is gated on the user being authenticated, so for an unauthenticated user they are inert — one of them skips its confirmation dialog entirely and reloads. A fourth guard listed here is a SEPARATE defect that has never worked for anyone, and the predicate fix does not close it. Found by `code-reviewer-hooks-013-3` while breaking its own predicate during chain 013 round 12, in code chain 013 never touched. Written as a handoff on the owner's standing disposition for this class; nothing is built and no chain is minted. |
 | handoff | `handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` | Open · priority normal — On production hooks.gg, 'new message' → 'Upload Message' on the account folder page opens no dialog after a fresh page load. Cause: a portaled popover's first lazy load of FloatingPortal suspends to the layout boundary, which hides the open Headless UI Dialog, and the Dialog closes itself. The code dates from 2023, before chain 015, and lies outside its pool (D6). Nothing in chain 015 blocks on it. |
@@ -280,7 +282,7 @@ they are the ID-less artifacts that root new efforts.
 | implementation | `implementation/closed/fix-agent-comment-sweep-merge-implementation.md` | Released — Released 2026-11-10T10:13Z: website master = 6d78b19 on origin. Record: deployment/fix-agent-comment-sweep-merge-deployment.md. |
 | implementation | `implementation/closed/fix-hooks-record-shared-engine-implementation.md` | Released — Released: on origin master at 1611473. Code review approved at fdab24b, QA Phase 2 PASS at 0f09e6c (refresh over the REVIEW flip 05a4a05). The record check exits 0 with 256 baselined. |
 | implementation | `implementation/closed/fix-v1-guild-messages-auth-implementation.md` | Committed — Committed for release on website fix/v1-guild-messages-auth at ddbd750 (devops Stage 1, 2026-10-10). The owner's key check returned 'match'. Release (merge to master, push) awaits the owner's approval. |
-| implementation | `implementation/fix-website-save-gate-embeds-implementation.md` | Active — Re-handed off for the Round 1 re-review at website 4b9fadd. The revision adds 21 production lines against 6d78b19, so QA Phase 2 is now owed after review. Then the merge at release (devops, under the owner's approval). |
+| implementation | `implementation/closed/fix-website-save-gate-embeds-implementation.md` | Released — Released 2026-11-11T10:13Z: website master 6d78b19 -> 0e3d903ce98e108c7ca848b992ad89ac538f4b44 on origin; fix branch merged and deleted. Deployment record deployment/fix-website-save-gate-embeds-deployment.md. |
 | — | `INBOX.md` | — |
 | — | `OPEN_QUESTIONS.md` | — |
 | — | `OWNER-QUEUE.md` | — |
@@ -288,9 +290,11 @@ they are the ID-less artifacts that root new efforts.
 | process improvement | `process-improvement/closed/014-batch10-agent-instruction-updates.md` | Applied — Mirror ledger. The analysis and the full ledger live in the statbot record: /usr/local/bin/statbot/agent-output/process-improvement/closed/014-batch10-*.md. Retrospective 014 Processed and moved to closed/. Definitions ~/.claude/agents 96a3980; skill ~/.claude/agent-skills c6dd817. |
 | QA | `qa/closed/fix-hooks-record-shared-engine-qa.md` | Released — Released with the chain: Phase 2 PASS at c444457, refreshed at 0f09e6c over the REVIEW flip; on origin master at 1611473. |
 | QA | `qa/closed/fix-v1-guild-messages-auth-qa.md` | Committed — Production behaviour verified at website 7606149. QAF-1 discharged at ddbd750; release-tip verdict in qa/website-2026-10-10-release-tip-qa.md. B-1 and B-2 EXECUTED (deployment record). B-3 and B-4 carried by handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md. |
+| QA | `qa/closed/fix-website-save-gate-embeds-qa.md` | Committed — Phase 2 PASS at website 0e3d903, committed with the chain (devops Stage 1, 2026-11-11T10:12Z). QAF-1 resolved in the pass. Assumption Not Checked (Pusher on hooks.gg) is carried by deployment/fix-website-save-gate-embeds-deployment.md, Owner checks. |
 | QA | `qa/closed/release-4a7126b-tip-verification.md` | Released — Closed 2026-08-25 with chain 013. **This line previously read `Release Verified`. That was the verdict, it was correct when written, and it is NOT withdrawn** - `Status` carries lifecycle state, never the verdict, and the `Verified-At` above is untouched. The tip certified here reached production (`a151fb4` -> `4a7126b`, 04:14:02 UTC, deployment record §11) and was later superseded as the serving tip by `b56570d` (§16). **§5's process conditions were never this document's to waive and are terminal at their own authorities, which are not restated here**: the push was made, and `uat/closed/013-components-v2-editing-surfaces-uat.md` stands at rev 53 with the blocking-condition register closed and `NOT EXECUTED` nowhere. **BC-18/BC-19 reached that state AFTER the release act rather than before it**, which the deployment record records as a sequencing ruling by the owner, not a withdrawal - stated here so no reader takes this closure for the condition having been honoured in the order §5 wrote it. The `Assumption Not Checked` above is a standing suite-quality question and is **not** closed by this move. |
 | QA | `qa/closed/release-b56570d-tip-verification.md` | Released — Closed 2026-08-25 with chain 013. **This line previously read `Release Verified`. That was the verdict, it was correct when written, and it is NOT withdrawn** - `Status` carries lifecycle state, never the verdict, and the `Verified-At` and `Criteria-At` above are untouched. **The tip certified here IS the released tree**: `website` serving ref `master` `2d90e8a` -> `b56570d`, 20:30:01 UTC (deployment record §16), where deployed, verified and the UAT anchor are one object. **§6's three process conditions were never this document's to waive and are terminal at their own authorities, which are not restated here**: the push was made; `uat/closed/013-components-v2-editing-surfaces-uat.md` stands at rev 53 with the register closed and `NOT EXECUTED` nowhere; and **CR25-1/CR25-2 remain OPEN residual** under the standing *"record it, leave it"* ruling - unchanged by this closure and not closed by it. The `Assumption Not Checked` above was discharged by devops at the console immediately before the push (§16), which is where it was owed. |
 | QA | `qa/closed/website-2026-10-10-release-tip-qa.md` | Released — Released: website master moved to ddbd750, the tip this document verified (deployment/fix-v1-guild-messages-auth-deployment.md, changelog 2026-10-10T16:52). B-1 and B-2 are terminal; B-3 and B-4 ride handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md. The verdict of record stays 'Release Verified at ddbd750' in the Changelog. |
+| QA | `qa/closed/website-2026-11-11-release-tip-qa.md` | Released — Released 2026-11-11T10:13Z: website master 6d78b19 -> 0e3d903 on origin (devops, deployment/fix-website-save-gate-embeds-deployment.md). The Assumption Not Checked (remote master unmoved until the push) is closed there: ls-remote 6d78b19 at 10:13:23Z and release-move's fast-forward check passed. |
 | research | `research/closed/components-v2-description-text-limit-2026-11-11.md` | Answered — Answered by measurement: Thumbnail and MediaGallery item descriptions do not count toward Discord's 4000-character Components V2 displayable-text total (F-1 to F-4). The adjacent finding F-6 (Discord bounds each description at 1024 characters and the website bounds neither) is carried by steering/queue-hooks-rulings.md, block "2026-11-11T08:48Z — selection 11", and TODO.md, section "Website fix: bound V2 description fields at 1024 characters". |
 | research | `research/closed/components-v2-editing-flows-2026-08-23.md` | Answered — Determination reached and executable: the load-edit-save-send-preview loop is Components V2 capable; every secondary surface that re-serialises message data (Save As, JSON view/copy/Load, import from Discord URL / webhook URL / bot code, cross-tab change hash) is V2-blind through two 2023 helpers the V2 chain never touched. One seam, five sites, three of them silent. Ready for a planner to cite; incidence in production and one UI-level confirmation remain open (Gaps table). |
 | research | `research/closed/components-v2-send-validity-2026-11-11.md` | Answered — Measured on the agents' test server: 76 Components V2 shapes, 52 refused by Discord. The website's send check blocks 6 of the 52 and lets 46 through; it has no test for emptiness inside a component. Whether and how the send check should change is the owner's question (OQ-1), carried by handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md. |
@@ -308,7 +312,9 @@ they are the ID-less artifacts that root new efforts.
 | — | `steering/comment-sweep-briefs/comment-sweep-devops-brief.md` | — |
 | — | `steering/comment-sweep-briefs/comment-sweep-fixer-brief.md` | — |
 | — | `steering/queue-hooks-briefs/code-reviewer-save-gate-embeds-brief.md` | — |
+| — | `steering/queue-hooks-briefs/devops-save-gate-embeds-brief.md` | — |
 | — | `steering/queue-hooks-briefs/fixer-save-gate-embeds-brief.md` | — |
+| — | `steering/queue-hooks-briefs/qa-save-gate-embeds-brief.md` | — |
 | — | `steering/queue-hooks-briefs/researcher-text-limit-brief.md` | — |
 | — | `steering/queue-hooks-briefs/researcher-v2-validity-brief.md` | — |
 | — | `steering/queue-hooks-rulings.md` | — |
@@ -514,6 +520,7 @@ they are the ID-less artifacts that root new efforts.
 | `components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` | `handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` |
 | `components-v2-invariant-for-system-architecture-2026-08-24.md` | `handoff/components-v2-invariant-for-system-architecture-2026-08-24.md` |
 | `components-v2-send-validity-2026-11-11.md` | `research/closed/components-v2-send-validity-2026-11-11.md` |
+| `devops-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/devops-save-gate-embeds-brief.md` |
 | `disposition-table.md` | `verification/014/disposition-table.md` |
 | `fix-agent-comment-sweep-merge-code-review.md` | `code-review/closed/fix-agent-comment-sweep-merge-code-review.md` |
 | `fix-agent-comment-sweep-merge-deployment.md` | `deployment/closed/fix-agent-comment-sweep-merge-deployment.md` |
@@ -527,8 +534,10 @@ they are the ID-less artifacts that root new efforts.
 | `fix-v1-guild-messages-auth-implementation.md` | `implementation/closed/fix-v1-guild-messages-auth-implementation.md` |
 | `fix-v1-guild-messages-auth-post-deploy-2026-10-10.md` | `handoff/closed/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md` |
 | `fix-v1-guild-messages-auth-qa.md` | `qa/closed/fix-v1-guild-messages-auth-qa.md` |
-| `fix-website-save-gate-embeds-code-review.md` | `code-review/fix-website-save-gate-embeds-code-review.md` |
-| `fix-website-save-gate-embeds-implementation.md` | `implementation/fix-website-save-gate-embeds-implementation.md` |
+| `fix-website-save-gate-embeds-code-review.md` | `code-review/closed/fix-website-save-gate-embeds-code-review.md` |
+| `fix-website-save-gate-embeds-deployment.md` | `deployment/closed/fix-website-save-gate-embeds-deployment.md` |
+| `fix-website-save-gate-embeds-implementation.md` | `implementation/closed/fix-website-save-gate-embeds-implementation.md` |
+| `fix-website-save-gate-embeds-qa.md` | `qa/closed/fix-website-save-gate-embeds-qa.md` |
 | `fixer-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/fixer-save-gate-embeds-brief.md` |
 | `gap-dispositions.md` | `verification/015/effort-final/gap-dispositions.md` |
 | `handoffs-survey.md` | `verification/cleanup-2026-11-10/handoffs-survey.md` |
@@ -551,6 +560,7 @@ they are the ID-less artifacts that root new efforts.
 | `preview-image-generator.md` | `architecture/preview-image-generator.md` |
 | `providers-query-params-header-decode-throws-2026-11-08.md` | `handoff/providers-query-params-header-decode-throws-2026-11-08.md` |
 | `qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md` | `handoff/qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md` |
+| `qa-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/qa-save-gate-embeds-brief.md` |
 | `queue-hooks-rulings.md` | `steering/queue-hooks-rulings.md` |
 | `README-code-review-instruments.md` | `verification/013/README-code-review-instruments.md` |
 | `record-engine-code-reviewer-brief.md` | `steering/record-engine-briefs/record-engine-code-reviewer-brief.md` |
@@ -566,6 +576,7 @@ they are the ID-less artifacts that root new efforts.
 | `RUN.md` | `verification/013/probe-cr26-delimiter-class-eliminated/RUN.md` |
 | `RUN.md` | `verification/013/probe-cr27-settledmode-reachability/RUN.md` |
 | `RUN.md` | `verification/013/probe-cr28-oracle-arming/RUN.md` |
+| `save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md` | `handoff/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md` |
 | `save-originating-tab-raises-its-own-update-prompt-2026-08-25.md` | `handoff/save-originating-tab-raises-its-own-update-prompt-2026-08-25.md` |
 | `system-architecture.md` | `architecture/system-architecture.md` |
 | `test-inventory-2026-08-26.md` | `analysis/test-inventory-2026-08-26.md` |
@@ -577,6 +588,7 @@ they are the ID-less artifacts that root new efforts.
 | `v1-guild-messages-auth-rulings.md` | `steering/v1-guild-messages-auth-rulings.md` |
 | `v1-guild-messages-endpoints-unauthenticated-2026-08-24.md` | `handoff/closed/v1-guild-messages-endpoints-unauthenticated-2026-08-24.md` |
 | `website-2026-10-10-release-tip-qa.md` | `qa/closed/website-2026-10-10-release-tip-qa.md` |
+| `website-2026-11-11-release-tip-qa.md` | `qa/closed/website-2026-11-11-release-tip-qa.md` |
 | `website-api-handler-hardening-2026-10-10.md` | `handoff/website-api-handler-hardening-2026-10-10.md` |
 | `website-tests-not-beside-their-module-2026-11-08.md` | `handoff/website-tests-not-beside-their-module-2026-11-08.md` |
 | `website.md` | `architecture/website.md` |

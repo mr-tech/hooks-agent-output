@@ -526,3 +526,29 @@ sequence name `Messages_id_seq` and today's id range are QA's, from its document
 Done: the rule is in `CLAUDE.md`, section "Local builds of `website` — before the first save". The
 inbox entry is deleted. Not established by anyone: whether a production user saw a prompt from
 chain 015's walks.
+
+## 2026-11-11T10:17Z — chain `fix-website-save-gate-embeds` released; close-out
+
+Read this turn, at the mechanism: `git ls-remote origin master` on website =
+`0e3d903ce98e108c7ca848b992ad89ac538f4b44`; the tree on `master` at that commit, `git status
+--porcelain` empty; no `fix/*` branch locally or on origin. `deployment/closed/fix-website-save-gate-embeds-deployment.md`
+read whole (record `3af5f62`): `Status: Released`; his release answer was given in the devops
+session's own prompt ("Agent: push master to 0e3d903 (Recommended)"), not through this thread.
+
+- Stage documents, all in `closed/`: implementation Released, code review Committed, QA Phase 2
+  Committed, release-tip QA Released, deployment Released.
+- Handoffs: created by the chain, `handoff/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md`
+  (Open, his own checks; now `OWNER-QUEUE.md` items 1 and 2). Triggers fired and read during it:
+  `save-originating-tab-raises-its-own-update-prompt-2026-08-25.md` (note added, stays Open),
+  `website-tests-not-beside-their-module-2026-11-08.md` (row added, stays Open),
+  `newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` (devops's reconcile note, by its
+  deployment record; header read by this thread, the note not).
+- Forward items beyond the register: swept by devops's Phase 2D (its section "Forward items beyond
+  the register"); no architecture or roadmap obligation lodged, by its "Architecture lines" read.
+- Sessions stopped with `tmux-agent stop`: fixer, code reviewer, QA, devops (the researcher was
+  stopped at 09:10Z). On the box: no containers (`docker ps -a` empty); the `postgres:16` image is
+  6 days old and not this chain's. Scratch: the four stopped sessions' directories under
+  `/tmp/claude-1000/-usr-local-bin-hooks-website/` deleted (`du -s` 1232K before; `ls -d` fails for
+  all four after); no open handoff or docket cited a `/tmp/claude-` path (`grep -l`, exit 1).
+- The retrospective is started next, as this thread's subagent. The send-check validity chain may
+  start: the website tree is free.
