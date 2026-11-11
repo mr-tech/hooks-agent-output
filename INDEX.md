@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-288 documents · 16 numbered chains · 136 unnumbered.
+289 documents · 16 numbered chains · 137 unnumbered.
 
 ---
 
@@ -296,7 +296,7 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/preview-image-generator-host-security-posture-2026-11-08.md` | Open · priority normal — Five host-posture findings on the preview-image-generator production host (H-001 to M-002 of security/015-preview-image-generator-security-audit.md), accepted by the owner as recorded on 2026-11-08 (rulings 09:43Z: no effort, no mitigation). This record carries them past chain 015's closure; nothing is owed until the trigger fires. |
 | handoff | `handoff/providers-query-params-header-decode-throws-2026-11-08.md` | Open · priority low — Providers.tsx decodes a client-reachable x-query-params header with decodeURIComponent; a malformed value throws during render. Outside plan 015's pool; nothing blocks on it. |
 | handoff | `handoff/qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md` | Open · priority normal — Item 1 (BC-7/AC8's terminal write) discharged by QA 2026-11-11. Left: the ID-less test inventory that chain 014 consumed is still Active (the analyst's), and item 3's vocabulary note. Nothing blocks on either. |
-| handoff | `handoff/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md` | Open · priority normal — Released 2026-11-11T10:13Z (website master 0e3d903). Owed: the owner's own check on hooks.gg of the Save flows, which closes QA's Assumption Not Checked (Pusher), and his optional live-database read. Neither blocks anything; no stage is waiting. |
+| handoff | `handoff/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md` | Open · priority normal — Released 2026-11-11T10:13Z (website master 0e3d903). Check 1 (the Save flows on hooks.gg) is closed by the owner's selection of 2026-11-11T21:18Z on an agent's run: ordinary saves passed, the two named flows NOT EXECUTED because the live editor cannot build their shapes; they stay unobserved on hooks.gg. Owed: only his optional live-database read (check 2), which blocks nothing. |
 | handoff | `handoff/save-originating-tab-raises-its-own-update-prompt-2026-08-25.md` | Open · priority normal — Issued 2026-08-25 by steering-hooks-013-3 at the owner's explicit direction ("Route 10 to a handoff"), during chain 013's closeout. Found in PRODUCTION by the owner while executing release condition BC-14, which is the only instrument in chain 013 that reaches this surface - no automated test in that chain covers it. The defect is NOT chain 013's to fix: the owner ruled 013 complete in the same message, and this handoff is the route he chose for the finding rather than a reopening. Nothing here is derived: the symptom is his sentence verbatim, and the two limbs it does not cover are stated as uncovered rather than inferred. |
 | handoff | `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` | Open · priority normal — Two items plan 016 excludes and does not discharge: the generic failure toast on a refused send (research F-14), and a File component's upload path (with removing File from the add menu). Neither blocks plan 016. The owner is shown both with plan 016 revision 1's Exclusions register. |
 | handoff | `handoff/uat-local-stack-test-free-port-race-2026-11-11.md` | Open · priority normal — The free-port helper in tools/uatLocalStack.test.js picks a port, releases it, and listens on it again later with no 'error' handler. If another process takes the port in between, the file hangs on EADDRINUSE until the runner's cap. This was seen once, at code review of fix-uat-local-stack-id-sequence. Nothing blocks on it; a run that hangs is repeated. |
@@ -361,6 +361,7 @@ they are the ID-less artifacts that root new efforts.
 | — | `steering/queue-hooks-briefs/researcher-v2-validity-brief.md` | — |
 | — | `steering/queue-hooks-briefs/uat-016-brief.md` | — |
 | — | `steering/queue-hooks-briefs/uat-016-post-deploy-brief.md` | — |
+| — | `steering/queue-hooks-briefs/uat-save-gate-embeds-hooks-gg-check-brief.md` | — |
 | — | `steering/queue-hooks-rulings.md` | — |
 | — | `steering/record-engine-briefs/record-engine-code-reviewer-brief.md` | — |
 | — | `steering/record-engine-briefs/record-engine-fixer-brief.md` | — |
@@ -667,6 +668,7 @@ they are the ID-less artifacts that root new efforts.
 | `uat-016-post-deploy-brief.md` | `steering/queue-hooks-briefs/uat-016-post-deploy-brief.md` |
 | `uat-local-stack-test-free-port-race-2026-11-11.md` | `handoff/uat-local-stack-test-free-port-race-2026-11-11.md` |
 | `uat-local-stack-up-reuses-low-message-ids-2026-11-11.md` | `handoff/closed/uat-local-stack-up-reuses-low-message-ids-2026-11-11.md` |
+| `uat-save-gate-embeds-hooks-gg-check-brief.md` | `steering/queue-hooks-briefs/uat-save-gate-embeds-hooks-gg-check-brief.md` |
 | `unsaved-change-guards-disabled-for-unauthenticated-users-2026-08-24.md` | `handoff/unsaved-change-guards-disabled-for-unauthenticated-users-2026-08-24.md` |
 | `upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` | `handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` |
 | `v1-guild-messages-auth-devops-phase-2d-brief.md` | `steering/v1-guild-messages-auth-devops-phase-2d-brief.md` |
