@@ -28,6 +28,7 @@ thread" (`05582c6`), relayed in `steering/queue-hooks-briefs/code-reviewer-uat-l
 ## Scope, identity and inputs
 
 - **Sub-entry 1 tree**: agent-output `7d59233`. Files were read via `git show 7d59233:…`, and the runs used scratch exports. `HEAD` was `41199fc` at the start and at the end. The fixer's commits `7d59233` and `41199fc` touch only the tool, its test, `verification/fix-uat-local-stack-id-sequence/` and the fixer's document, all in the chain's set. `git diff --numstat 68d737f 7d59233 -- tools/uat-local-stack.sh` → `15 5`. The bullets below are the first pass, at `71b61b9`.
+- **Disclosure (sub-entry 1)**: I moved the handoff to `handoff/closed/` with `git mv`. That staged the rename in the shared index, against `~/.claude/CLAUDE.md` § Git ("do not stage at all"). I committed it at once by `git commit --only`, naming exactly those paths (`1f5b0c3`). Afterwards `git diff --cached` held nothing of this chain's.
 - **Tree**: agent-output `71b61b9`. Files were read via `git show 71b61b9:…`, and the runs used scratch
   exports, never the shared tree. `HEAD` was `cbfc8d7` at the start and at the end. The chain's paths
   have not changed since `71b61b9` (`git log -1 -- <chain paths>` → `71b61b9`), and the fixer's
