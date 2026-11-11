@@ -3,12 +3,12 @@ ID: 016
 Origin: 016
 UUID: 54673438
 Status: Active
-Status-Detail: "Revision 1, ready for critique and the architect's conformance pass, then QA Phase 1. No OPEN QUESTION remains. The Exclusions register (X-1 the generic toast, X-2 File upload) goes to the owner through steering."
-Revision: 1
+Status-Detail: "Revision 2, ready for the critic's re-read, the architect's re-read and QA Phase 1's re-key. It folds critique cycle 1 pass 1, architecture conformance on rev 1 and QA Phase 1's findings. No OPEN QUESTION remains. X-1 is settled by D-12."
+Revision: 2
 Target Release: "website master → this chain's merge SHA (Vercel production on a push of master). The package carries no version artefact (package.json has no version field, CHANGELOG absent; read 2026-11-11T10:22Z)."
 Epic-Alignment: "none registered. The workspace has no roadmap, by the owner's standing instruction (brief). Source of the effort: research/closed/components-v2-send-validity-2026-11-11.md and research/closed/components-v2-description-text-limit-2026-11-11.md; opened by selection 14 (rulings block 2026-11-11T09:09Z)."
 Lane: "standard. The scoping determination sets a full chain (rulings block 2026-11-11T09:17Z). The blast radius is a shared predicate: validateMessage feeds the send page, the stored valid column and the public v1 API, so this is not a leaf."
-Architectural-Surface: "none added. The plan stays inside the A-4 module and adds a validator beside the existing ones. Record lines touched: A-4 (its residue consequence is carried, § Stored rows and the public API); W-2 is applied to the description bound (D-10), which deviates from A-4's same-constant pattern; the architect decides whether A-4's line needs a note."
+Architectural-Surface: "none added. The plan stays inside the A-4 module and adds a validator beside the existing ones. Record lines touched: A-4 (its residue consequence is carried, § Stored rows and the public API); W-2 is applied to the description bound (D-10), which deviates from A-4's same-constant pattern. The architect corrected A-4's line at the conformance pass, and the D-10 clause lands at reconciliation after implementation (architect AF-4); the plan does not change for it."
 ---
 
 # Plan 016 — The send check refuses what Discord refuses (Components V2 validity, 1024 included)
@@ -20,6 +20,7 @@ Architectural-Surface: "none added. The plan stays inside the A-4 module and add
 | 2026-11-11T10:26 | 0 | planner-hooks-new | Created from the 09:17Z scoping determination and selection 14. Puts the value statement and OQ-1 to OQ-3 to the owner through steering-queue-hooks. Scope delta: none (first revision). Size against the original ask: one change to the send check, as selection 14 asked, plus the 1024 bound folded in by his choice. |
 | 2026-11-11T10:32 | 1 | planner-hooks-new | Folds selections 17 to 20 (rulings block "2026-11-11T10:30Z — selections 17 to 20", record `64cf040`) as D-8 to D-11, and resolves OQ-0 to OQ-3. X-1 and X-2 now have a carrier, `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md`, and X-9 and rider R1 are added. Scope delta: M2's AC2-3 is settled (the save schema is not edited); M1's L1, L9, AC1-1 and AC1-4 now carry his whitespace and File rulings, with no whitespace residue; rider R1 is added. Size against the original ask: unchanged, one send-check change plus the 1024 bound. |
 | 2026-11-11T10:38 | R-1 | steering-queue-hooks | Registration: D-12 (X-1, the generic toast, stays excluded: selection 21) and D-13 (rider R1 kept: selection 22). His words are in rulings block "2026-11-11T10:38Z — selections 21 and 22". No requirement changed; the revision stays 1. |
+| 2026-11-11T11:05 | 2 | planner-hooks-016 | Folds three gate reads of revision 1: critique cycle 1 pass 1, F-1 to F-10 (`2e26556`); architecture conformance, AF-1 to AF-5 and AF-7 (`c61a96f`); QA Phase 1, QAF-1 to QAF-8 (`803a97c`). The arguments live in those documents. Scope delta: M1's measured population is now the 116-member corpus (AC1-1, AC1-4), placement covers every limb (AC1-2), L5 and L6 cover absent forms, and L8 defines an emoji and takes D-9's whitespace rule by riding selection 18. M1 gains AC1-6p (post-deploy), AC1-9 (every other message keeps today's result), AC1-10 (env-free imports) and AC1-11 (lint). The reason line's `/preview` surface is stated. M2's AC2-2 is split into a suite half and B-2. Rider R1 is dropped (F-6, D-13). Size against the original ask: unchanged, one send-check change plus the 1024 bound, with tighter criteria and no new milestone. |
 
 ## Value Statement and Business Objective
 
@@ -55,7 +56,7 @@ asked for this wider class ("making the send check refuse what Discord refuses, 
 | D-10 | Both description inputs cap at 1024 and Send refuses over 1024; Save does not refuse, so the save schema is not edited | 2026-11-11 | "Agent: cap input, allow save (Recommended)". Selection 19, same blocks. The option text he saw: "both description boxes stop typing and pasting at 1024, and Send refuses over 1024. Save does not refuse: a longer description arriving by pasted JSON saves, is recorded as not valid, and is refused at Send with the reason". | Owner withdrawal only. Consequence: AC2-3; a deviation from A-4's same-constant pattern, by his ruling. |
 | D-11 | The check refuses any message holding a File component, on a new send and on an edit | 2026-11-11 | "Agent: refuse File everywhere (Recommended)". Selection 20, same blocks. The option text he saw named the risk: "if Discord does accept a File naming an existing attachment on an edit, the site blocks an edit that would work; that is unmeasured". | A measurement of research N-5 showing Discord accepts such an edit, or a user report of a blocked edit holding a File (RK-1). |
 | D-12 | The generic send-failure toast stays out of this plan (X-1), carried by `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` | 2026-11-11 | "Agent: keep it out (Recommended)". Selection-prompt answer (selection 21): ledger block "2026-11-11T10:37Z — steering-queue-hooks"; rulings block "2026-11-11T10:38Z — selections 21 and 22". The option text he saw (steering's): "I start the critic and the architect on revision 1 as it stands. The toast is carried for later by a handoff the planner already wrote (send-check-validity-excluded-toast-and-file-upload), which also carries the File upload path your earlier ruling put after the existing items. Nothing more is planned for the toast until that handoff is picked up." | Owner withdrawal only. |
-| D-13 | Rider R1 stays: if the chain edits `messageValidity.predicate.test.ts`, the same commit moves it beside its module | 2026-11-11 | "Agent: keep the rider (Recommended)". Selection 22, same ledger and rulings blocks. The option text he saw (steering's): "the plan goes to review with the rider. Cost by the plan: one extra line for code review and a check that the file's test count and pass set are identical before and after the move. It drops on its own if the critic or reviewer objects. The other five files stay on the handoff." | Owner withdrawal; or an objection from critique or review, on which the rider drops (the plan's "Riders yield"). |
+| D-13 | Rider R1 stays: if the chain edits `messageValidity.predicate.test.ts`, the same commit moves it beside its module | 2026-11-11 | "Agent: keep the rider (Recommended)". Selection 22, same ledger and rulings blocks. The option text he saw (steering's): "the plan goes to review with the rider. Cost by the plan: one extra line for code review and a check that the file's test count and pass set are identical before and after the move. It drops on its own if the critic or reviewer objects. The other five files stay on the handoff." | Owner withdrawal; or an objection from critique or review, on which the rider drops (the plan's "Riders yield"). **Fired:** critique F-6 (`critiques/016-send-check-validity-critique.md`, `2e26556`). R1 is dropped at revision 2, under the drop disposition he was shown. |
 
 ## Objective
 
@@ -72,6 +73,11 @@ Three things move with the predicate, because it has three production callers (`
    `src/server/api/utils/shared.ts` on upsert.
 3. What the public v1 API serves: `src/pages/api/v1/guilds/[guildId]/messages.ts` and `…/messages/[id].ts` serve the stored `valid`.
    The backfill (`src/scripts/backfillValid.ts`) also calls the predicate, but only over rows whose `valid` is NULL.
+
+The reason line moves a fourth surface: the `/preview` route (`src/app/preview/page.tsx` renders
+`DiscordMessageEditor` with no `editableState`; read at `0e3d903`, 11:01Z). The preview-image
+service screenshots that route (`system-architecture.md` D-003, by the critic's read, F-1). See
+Assumptions, "The reason line".
 
 ## Assumptions and open questions
 
@@ -96,8 +102,8 @@ edit (D-11). Research N-5 stays residue (RK-1).
 - *Unit*: the check runs on the whole message and returns one reason, the first failing one. This is
   the sibling's form (`validateMessage` returns one string). Listing every failure is not in scope.
 - *Reach*: V2 messages only, meaning structural V2 or the V2 flag (the `hasV2` of
-  `validateContentRequirements`). Empty Action Rows in classic messages are not measured and are
-  excluded (X-6).
+  `validateContentRequirements`). Classic messages are not measured and keep today's result
+  (AC1-9, X-6).
 - *Layer*: the front end and the shared predicate. No server-side refusal (D-4).
 - *Length unit*: UTF-16 code units (`.length`), as `sumDisplayableText` counts. Discord's count for
   non-ASCII text is unmeasured (description research N-1). That is residue.
@@ -111,45 +117,85 @@ recorded per the standing default in `references/escalation.md`):
   `newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` is not touched. Sibling:
   `website@0e3d903 src/utils/limits.tsx:validateDisplayableTextCount` and `:validateComponentCount`,
   added by plan 007 (`46cb70d`) in this same shape.
-- The reason is shown as one error line in `DiscordMessageEditor/index.tsx`, beside `v2TextError`
-  and `componentCountError` (sibling, same file). That line renders in edit mode and in preview, so
-  it reaches the send page through `MessagePreview` (`src/components/MessagePreview.tsx` renders
-  `DiscordMessageEditor`; read 10:23Z). As a consequence (research F-12), a freshly added component
-  other than a Separator shows the line until it is filled in. The sibling `noContentError` does the
-  same for a fresh empty message.
+- The validator imports its bounds only from `~/constants/messageLimits`, never from `~/constants`
+  or `~/server/api/utils/shapes`, and its URL helper imports `z` from `zod` directly (AC1-10). The
+  reason is architect AF-1: both of those modules reach `~/env.mjs`, which the backfill's ts-node
+  loader refuses with `ERR_REQUIRE_ESM`. The architect executed this
+  (`verification/016/architect-conformance/ts-node-import-probe.txt`).
+- The validator walks its input with structural types, as `sumDisplayableText` does (architect
+  AF-5, A-4), so it accepts editor drafts and stored `MessageData` alike.
+- **The reason line.** It is one error line in `DiscordMessageEditor/index.tsx`, beside
+  `v2TextError` and `componentCountError`, and it joins their `styles.errorBorder` union (sibling,
+  same file; architect AF-7). Like its siblings, it has no edit-mode condition, so it renders on
+  three surfaces. It shows in the editor, and on the send page through `MessagePreview`
+  (`src/components/MessagePreview.tsx` renders `DiscordMessageEditor`; read 10:23Z). It also shows
+  on `/preview` and therefore in a preview image generated from that route. As a consequence
+  (research F-12), a freshly added component other than a Separator shows the line until it is
+  filled in, and a draft saved in that state can get a preview image that carries the line. The
+  siblings do the same for their states (`noContentError` for a fresh empty message). Mirroring
+  them is D-5: whether error lines belong in preview images is a question about the shared
+  pattern, not about this line, so this plan does not gate one line alone. Stated limit, with an
+  observer: UAT records the `/preview` render of a draft with a fresh Text Display (B-1's walk).
+  The share of drafts whose image carries it is unknown (critic F-1: not checked when an image is
+  generated). This design choice is reported to the owner, who may veto it.
 
 ## Requirement ledger — the refusal class
 
-The class is "every V2 shape the research measured Discord refusing". Case ids point into the
-Evidence table of `research/closed/components-v2-send-validity-2026-11-11.md` (`c9f8e3a`). Where
-the ledger says "anywhere in the tree", it means top level, inside a Container, inside a Section,
-and inside a Section inside a Container: the research measured each of these placements (B7 to B12,
-X2, X3, X7).
+The class is "every V2 shape Discord was measured refusing". Its measured population is the
+**corpus**: QA Phase 1's 116-member fixture,
+`verification/016/corpus/fixture/discordV2SendCorpus.ts` (sha256 `2043a8a8…990a6d`, git blob
+`00c45ad`, record `803a97c`). It holds 82 refused and 34 accepted members. It is made of the
+research's 76 (`research/closed/components-v2-send-validity-2026-11-11.md`, `c9f8e3a`), re-sent by
+QA with 76 of 76 verdicts and 52 of 52 error bodies matching, plus 40 members QA measured first
+(`qa/016-send-check-validity-qa.md`, "Members beyond the research"). Case ids below are the
+research's. QA's members are cited by that table's rows.
 
-| L | Limb (the check refuses when …) | Measured refused | Measured accepted, must pass | Carried by |
+**Whitespace-empty**, used by L1 and L8: a string is whitespace-empty when, after `trim()`, every
+remaining character is U+0085, and the original string holds no U+FEFF. In plain terms, `trim()` with U+0085
+counted as whitespace and U+FEFF counted as content (D-9). L8 takes the same predicate. That
+rides selection 18: its option text was "the new check uses trim() and treats those two characters
+as Discord does", and Discord treats them the same way in a label (QA QAF-3: label U+0085 refused,
+U+FEFF accepted). This is reported to the owner, who may veto it.
+
+**Placement.** Every limb applies at every placement the save schema's nesting admits for its
+component (`shapes.ts`: `containerChildShape`, `sectionShape.components` and `.accessory`,
+`actionRowShape.components`, `mediaGalleryShape.items`). The placements are: top level; inside a
+Container; as a Section's child or accessory, at top level and inside a Container; as an Action
+Row's button, at top level and inside a Container; every item of a Media Gallery, not only the
+first. Measured placements: the research's (B7 to B12, X2, X3, X7) and QA's 14 nested faults and
+second-item member. A placement with no corpus member is **extended from the schema**, and QA marks
+each one at Phase 2.
+
+| L | Limb (the check refuses when, anywhere in the tree, …) | Measured refused | Measured accepted, must pass | Carried by |
 |---|---|---|---|---|
-| L1 | a Text Display's `content` is absent, or empty after whitespace removal (`trim()`, with U+0085 counted as whitespace and U+FEFF counted as content: D-9), anywhere in the tree | B1–B4, B6–B12, W1–W4, W6, W7, X7 | B5, W5, W8 | M1 |
-| L2 | a Section's `components` is empty or absent, or its `accessory` is absent | C2, C4 | C1, C5 | M1 |
-| L3 | a Media Gallery's `items` is empty or absent, anywhere in the tree | D2, D6, X3 | D1, N7 | M1 |
+| L1 | a Text Display's `content` is absent or whitespace-empty | B1–B4, B6–B12, W1–W4, W6, W7, X7; QA's `"\u0085 "`, `" \u0085\n"` | B5, W5, W8; QA's `"﻿ "`, `"a\u0085"`, `"​ "` | M1 |
+| L2 | a Section's `components` is empty or absent, or its `accessory` is absent | C2, C4; QA's Section no `components`; Section `[]` in a Container | C1, C5; QA's nested Section controls | M1 |
+| L3 | a Media Gallery's `items` is empty or absent | D2, D6, X3 | D1, N7; QA's nested gallery control | M1 |
 | L4 | a Container's `components` is empty or absent | G2, G3 | G1, X4 | M1 |
-| L5 | an Action Row's `components` is empty, anywhere in the tree | H2, X2 | H1, H7 | M1 |
-| L6 | a required URL is empty or absent: Thumbnail `media.url`, gallery item `media.url`, link button `url` | C3, C6, D3, H3 | — | M1 |
-| L7 | a required URL does not parse as an absolute URL (the save schema's predicate: sibling `shapes.ts:linkButtonShape.url`, `z.string().trim().url()`), or a link button's scheme is not http, https or discord | I1, I2, I3, X5 | X6 (an ftp Thumbnail URL is accepted, so L7's scheme limb is link buttons only) | M1 |
-| L8 | a link button has no emoji and its `label` is absent, empty, or empty after `trim()` | C7–C9, H4–H6 | X1 | M1 |
-| L9 | a File component is present, on a new send and on an edit (D-11) | E1, E2, E3 | — | M1 |
-| L10 | a Thumbnail or gallery item `description` is the empty string, or longer than 1024 | C10, D4; 1025 chars (description research F-6, requests 25–36) | C11, D5 (one space); 1024 chars | M1 (check), M2 (inputs, constant; the save schema is not edited, D-10) |
+| L5 | an Action Row's `components` is empty or absent | H2, X2; QA's Action Row no `components` | H1, H7; QA's nested Action Row control | M1 |
+| L6 | a required URL, or the object that holds it, is empty or absent: Thumbnail `media` / `media.url`, gallery item `media` / `media.url` (every item), link button `url` | C3, C6, D3, H3; QA's absent `url`, `media: {}`, no `media` (Thumbnail, gallery item), nested `''` members, second item `''` | — | M1 |
+| L7 | a required URL fails the save schema's URL predicate, or a link button's scheme is not http, https or discord | I1, I2, I3, X5; QA's nested `abc` and `ftp://` | X6 (an ftp Thumbnail URL is accepted, so the scheme limb is link buttons only) | M1 |
+| L8 | a link button has no emoji and its `label` is absent or whitespace-empty. A button **has an emoji** when `emoji` is present with a non-empty `id` or a non-empty `name` | C7–C9, H4–H6; QA's emoji `{}`, emoji `{name: ''}`, label U+00A0, U+0085, nested label absent and one space | X1; QA's label U+FEFF | M1 |
+| L9 | a File component is present, on a new send and on an edit (D-11) | E1, E2, E3; QA's no `file`, nested https | — | M1 |
+| L10 | a Thumbnail or gallery item `description` is the empty string, or longer than 1024 | C10, D4; QA's 1025 (Thumbnail, gallery item), nested `''` and 1025 | C11, D5 (one space); QA's 1024 (Thumbnail, gallery item) | M1 (check), M2 (inputs, constant; the save schema is not edited, D-10) |
 | L11 | already refused today, and must stay refused: no components; content beside V2; over 40 components | A3, A5, N2, N4, N6, N9 | A1, A2, A4, F1, F2, N1, N3, N5, N8 | unchanged; M1 must not regress them |
 
-The "must pass" cells together hold the research's 24 accepted shapes, and the "measured refused"
-cells hold its 52 refused shapes. This pass tallied the case ids by hand against the Evidence table
-at `c9f8e3a`, and the totals match the research's Answer (76 = 52 + 24). QA re-derives the tally
-by script at Phase 1.
+The research's 76 are tallied across these cells (52 refused, 24 accepted, each id once), checked
+by QA's script (`verification/016/corpus/tally-3b4205d.txt`, exit 0). QA's 40 are cited by its
+table rows and carried whole by the fixture, which is the enumerator.
 
-**Residue, bounded:** characters outside the 11 measured whitespace characters (N-3); URL forms
-other than empty, `abc` and `ftp://` (for example a `discord://` link, or an https URL with no dot,
-which the sibling `isValidUrl` refuses and which was not sent); over-cap values (N-8: label 80,
-Section 3, Action Row 5, gallery 10), which the editor and the schema already cap; non-ASCII length
-(description N-1); edit-path shapes beyond the research's 10 (N-6).
+**L7's predicate is the save schema's, written once.** The validator calls a named helper in
+`limits.tsx` that applies `z.string().trim().url()` from `zod` (sibling:
+`shapes.ts:linkButtonShape.url`, the same expression), never an import of `shapes.ts` (AC1-10), and
+never an inline `new URL` (architect AF-2, option a). Why not the in-module sibling `isValidUrl`:
+its pattern `^https?://[^ ]+\.[^ ]+$` admits only http and https, so it would refuse X6, an ftp
+Thumbnail URL Discord accepts. Its consequence is in RK-1.
+
+**Residue, bounded:** characters outside the measured whitespace members (research N-3); URL forms
+other than empty, `abc` and `ftp://` (for example `discord://`, or an https URL with no dot);
+an invalid emoji beside a label (unmeasured: QAF-2); over-cap values (N-8: label 80, Section 3,
+Action Row 5, gallery 10), which the editor and the schema already cap; non-ASCII length
+(description research N-1); edit-path shapes beyond the research's 10 (N-6).
 
 ## Plan
 
@@ -157,39 +203,70 @@ Section 3, Action Row 5, gallery 10), which the editor and the schema already ca
 
 **What changes (product behaviour):** a draft in any L1–L10 refused shape is refused at the send
 page (Send disabled), shows one reason line in the editor and the send-page preview, and is stored
-with `valid: false` at its next save. Nothing else changes in what is sent, saved or refused.
+with `valid: false` at its next save. Every other message keeps today's result (AC1-9).
 
 Acceptance criteria (properties):
-- **AC1-1 (agreement with Discord over the measured class).** For each of the research's 76 shapes,
-  `validateMessage({ username: 'Probe', ...body })` is non-empty exactly when Discord refused the
-  shape. The expected verdict is Discord's measured one, never a value the website computes
-  (expectations independence). No member may differ: under D-9 the whitespace members W5 and W6
-  follow Discord too. The corpus enumerator is a fixture QA builds at Phase 1
-  from the research's Appendix builders and Evidence-table descriptions. The research's own probe
-  files were deleted at its run end (its "Process facts"), so the bodies are a reconstruction. **The
-  reconstruction is confirmed against Discord before anything relies on it:** QA re-sends the
-  reconstructed bodies in the agents' test server (D-6) and records each status beside the
-  research's, under `verification/016/corpus/`. A member whose re-sent status differs from the
-  research's is resolved before the criterion is decided.
-- **AC1-2 (placement).** L1, L3 and L5 refuse in every placement the ledger names. L2 and L4 refuse
-  at top level and, for L2, inside a Container. Enumerated from the component types' nesting in the
-  save schema (`shapes.ts`: Container children, Section children and accessory).
-- **AC1-3 (absent equals empty).** For each field L1–L6 name, the key-absent form is refused the same
-  way as the empty form. This holds whether or not the absent form can be reached, since the save
-  schema rejects B6, C4, D6 and G3 (research F-13) and reachability is unestablished.
-- **AC1-4 (no false refusal over the measured accepted set).** Every one of the 24 accepted shapes
-  passes, U+FEFF alone (W5) included (D-9).
-- **AC1-5 (says which).** Each limb L1–L10 returns a reason distinct from every other limb's and from
-  the existing reasons. The reason names the component type and the fault, e.g. "A Text Display is
-  empty.". The reason text is agent-authored copy; the owner may edit it at UAT (P-1's principle).
-- **AC1-6 (human-observable).** On a local build of the chain tip (D-7's id offset applied before the
-  first save), a message with a freshly added Text Display shows the reason line in the editor and on
-  the send page, and Send is disabled. Filling the Text Display removes the line and enables Send,
-  and a send to the agents' test-server webhook returns success. Walked by UAT. The same walk records
-  N-2: whether one typed space in a Text Display reaches the message data as a space. Capture path:
-  `verification/016/uat/`.
-- **AC1-7 (stored `valid`).** `isMessageValid` returns `false` for every L1–L10 refused shape and
-  `true` for every accepted shape (AC1-1's corpus), because it calls the same predicate.
+- **AC1-1 (agreement with Discord over the measured class).** For every member of the corpus (116:
+  82 refused, 34 accepted), `validateMessage({ username: 'Probe', ...body })` is non-empty exactly
+  when Discord refused the member. The expected verdict is the member's measured `discord` field,
+  never a value the website computes (expectations independence). No member may differ. The
+  implementer copies the fixture byte-identical to `src/utils/__tests__/helpers/discordV2SendCorpus.ts`,
+  and Phase 2 checks its sha256 and blob. **When a later re-send differs from a member's recorded
+  verdict:** if the body was rebuilt wrongly, the fixture is corrected (QA decides, and the recorded
+  verdict stays the oracle). If Discord's answer has changed, that changes the ledger: it is a
+  planning revision, decided by the planner, and the owner's if it moves D-8's class. Until that
+  revision, the recorded verdict at `measuredOn` stays the oracle.
+- **AC1-2 (placement).** Each of L1 to L10 refuses at every placement the ledger's Placement
+  paragraph enumerates, and the corpus's nested accepted controls pass. A placement with no corpus
+  member is decided by a constructed member, marked as extended from the schema.
+- **AC1-3 (absent equals empty).** For each field L1 to L6 name, and for the objects that hold L6's
+  URLs, the key-absent form is refused the same way as the empty form. Measured members: B6, C4, D6,
+  G3, and QA's seven "not sent" forms (link button `url`, Thumbnail `media: {}` and no `media`,
+  gallery item no `media`, File no `file`, Section no `components`, Action Row no `components`).
+  Every absent form these limbs name is now measured.
+- **AC1-4 (no false refusal over the measured accepted set).** Every one of the corpus's 34 accepted
+  members passes: W5, QA's label U+FEFF, QA's `"﻿ "`, `"a\u0085"`, `"​ "`, the 1024
+  descriptions and the nested controls included.
+- **AC1-5 (says which).** The reason unit is the pair (limb, component type). For example, L6 has
+  three reasons: Thumbnail, gallery item, link button. Each pair returns a reason distinct from
+  every other pair's and from every existing reason (`validateContentRequirements`,
+  `validateComponentCount`, `validateDisplayableTextCount`, the username and embed reasons). Each
+  reason names its component type and fault, for example "A Text Display is empty.". The text is
+  agent-authored copy, which the owner may edit at UAT (P-1's principle).
+- **AC1-6 (human-observable, pre-release).** On a local build of the chain tip (D-7's id offset
+  applied before the first save), a message with a freshly added Text Display shows the reason line
+  in the editor and on the send page, and Send is disabled. Filling it removes the line and enables
+  Send, and a send to the agents' test-server webhook returns success. The walk also records N-2
+  (whether one typed space reaches the data as a space) and the `/preview` render of the same
+  draft. Carried by QA register row **B-1** (`qa/016-send-check-validity-qa.md`), walked by UAT.
+  Capture path: `verification/016/uat/`.
+- **AC1-6p (post-deploy, the owner's defect).** In production on hooks.gg, a new V2 message with
+  one fresh Text Display shows the Text Display reason line and Send is disabled. This tells fixed
+  from unfixed: at `0e3d903` no error line fires for one empty Text Display (by QA's code read). B-4
+  is its liveness pair: a filled V2 message still sends. Carried by QA register rows **B-3** and
+  **B-4**. Their carrier after Stage 1 is devops's post-deploy handoff, and the emptiness handoff
+  closes at the B-3 read, not at the push. B-3's unfixed value is read once against production
+  before release (B-3's state column).
+- **AC1-7 (stored `valid`).** `isMessageValid` returns `false` for every refused corpus member and
+  `true` for every accepted one, because it calls the same predicate.
+- **AC1-9 (every other message keeps today's result).** For every message outside the L1 to L10
+  refused classes, `validateMessage` at the chain tip returns the same string as at `0e3d903`. The
+  input classes, each named: (a) classic messages, meaning no V2 structure and the flag clear,
+  including classic Action Rows whose buttons are in an L5 to L8 shape; (b) every input the existing
+  `limits.*`, `utils.mutual-exclusivity` and `messageValidity.predicate` tests pass to the predicate;
+  (c) the corpus's accepted members. Instrument: QA's two-tree differential at Phase 2
+  (`verification/016/differential/`), run with `validateMessage` at `0e3d903` and at the tip.
+  Movement is allowed only on members of an L1 to L10 refused class. Residue: inputs outside (a) to
+  (c). A suite case pinning a classic shape as sendable is not the instrument, since Discord's
+  verdict on classic shapes is unmeasured (X-6).
+- **AC1-10 (the import closure stays env-free).** `src/utils/limits.tsx` imports bounds only from
+  `~/constants/messageLimits`, and its whole import closure excludes `~/env.mjs`. Instrument
+  (architect AF-1): `npx ts-node -r tsconfig-paths/register -T -e "require('~/utils/limits')"`,
+  run from `website/`, exits 0 at the tip. Its red member is the architect's probe capture. No
+  vitest case can see a breach, because every predicate test mocks `env.mjs`. QA places it.
+- **AC1-11 (lint).** The chain adds no eslint finding: for each file it changes, the finding count at
+  the tip does not exceed the count at `0e3d903`. The repository is red before the chain (§ Validation,
+  X-10).
 - **AC1-8 (the content-requirement check keeps its behaviour).** `validateContentRequirements`
   returns the same result as at `0e3d903` for every input in its existing test classes. Its three
   other callers therefore keep their behaviour; the design choice that keeps it so is under
@@ -214,10 +291,14 @@ input, and the bound lives in one constant, so the editor and the check read the
 That premise still holds against M1's behaviour.
 
 - **AC2-1.** One constant for the 1024 bound sits in `src/constants/messageLimits.ts` (sibling:
-  `MAX_EMBED_FIELD_VALUE_LENGTH`, same file). M1's L10 check and both inputs read it.
+  `MAX_EMBED_FIELD_VALUE_LENGTH`, same file). M1's L10 check and both inputs read it. It lives in
+  that file because `limits.tsx` reads it and that file is env-free (architect AF-3, AC1-10).
+  `~/constants` re-exports it for the inputs.
 - **AC2-2.** The Thumbnail and gallery-item description inputs (`ThumbnailEditor.tsx`,
   `MediaGalleryEditor.tsx`) cap typed and pasted input at that constant, mirroring
-  `LinkButtonEditor.tsx`'s `maxLength={MAX_BUTTON_LABEL_LENGTH}`.
+  `LinkButtonEditor.tsx`'s `maxLength={MAX_BUTTON_LABEL_LENGTH}`. Suite half: the rendered
+  `<input>` carries `maxLength` 1024. Browser half: typed and pasted input stops at 1024, carried by
+  QA register row **B-2**, walked by UAT. jsdom applies no `maxLength` to typing or paste (QAF-7).
 - **AC2-3 (Save does not refuse, D-10).** `src/server/api/utils/shapes.ts` is not edited: both
   description fields stay `z.string().optional()`. A message whose description is longer than 1024,
   arriving by pasted JSON or a stored row, saves and loads as at `0e3d903`, is recorded
@@ -237,8 +318,9 @@ production through Vercel (devops's earlier records, not re-read). Other heads (
 absent. `release-move.js /usr/local/bin/hooks/website master 0e3d903… --dry-run`, 10:21Z: exit 0,
 "ff-from-remote ok; sibling serving refs (none) on one line ok", "workflows none". No branch is
 shared with another chain.
-At release: the handoff `components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md` closes
-`Addressed` (its own words: "this handoff stays open until that fix is released").
+After release: the handoff `components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md`
+closes `Addressed` once B-3 reads fixed in production (AC1-6p). Its own words are "this handoff
+stays open until that fix is released".
 
 ## Stored rows and the public API (A-4's consequence)
 
@@ -255,35 +337,33 @@ A change to `validateMessage`'s refusal set changes stored `valid` only for rows
 The standard is the workspace's Test Conventions (`agent-output/CLAUDE.md`, "Test Conventions
 (`website`)"): vitest, tests beside the module under `__tests__/`, the process exit code beside the
 counters, `pnpm run typecheck` for both programs. Expected test types: pure-logic tests of the
-predicate over AC1-1's corpus and AC1-2's placements, and a DOM test of the editor's reason line
-(AC1-5). Before adding a test, extend the existing ones on this surface:
-`src/utils/__tests__/limits.send-gate-partition.test.ts`, `limits.component-count.test.ts` and
-`messageValidity.predicate.test.ts`. The last of these is a member of
-`handoff/website-tests-not-beside-their-module-2026-11-08.md`, and editing it fires that handoff's
-trigger (see Entry work).
+predicate over the corpus and AC1-2's placements, a DOM test of the editor's reason line (AC1-5),
+the two-tree differential (AC1-9, QA's at Phase 2) and the ts-node import probe (AC1-10), which
+runs outside vitest. Before adding a test, extend the existing ones on this surface:
+`src/utils/__tests__/limits.send-gate-partition.test.ts` and `limits.component-count.test.ts`.
+QA's strategy is `qa/016-send-check-validity-qa.md`, "Test Strategy (Pre-Implementation)", with
+its entry conditions for the implementer.
 
-**Rider R1 — move `messageValidity.predicate` beside its module, if the chain edits it.** If an
-M1 test edit touches `src/utils/__tests__/messageValidity.predicate.test.ts`, the same commit
-moves the file to `src/server/api/utils/__tests__/` (its module is
-`src/server/api/utils/messageValidity.ts`), with no change to any assertion beyond M1's own. Its
-criterion: the per-file case count and pass set are identical before the move and after it, at both
-trees (Test Conventions, the rename row's evidence). One code-review line and the shared QA pass.
-QA sequencing: QA Phase 1 runs before implementation. The stage set requires it (D-2), and
-AC1-1's corpus re-send is a Phase 1 act.
-At release, the handoff records the move in a dated row and stays Open for the other five files.
-**Riders yield:** if critique or review raises anything against R1, it drops. **Drop disposition,
-priced in advance:** the file is left unedited, AC1-7 is covered by the limits tests that call
-`isMessageValid`, and the handoff stays as it is. That costs nothing beyond a slightly wider limits
-test.
+**Rider R1 is dropped** (critique F-6: its criterion cannot hold when the move and M1's added cases
+share a commit; D-13's reopening class). The drop disposition priced in revision 1 applies.
+`src/utils/__tests__/messageValidity.predicate.test.ts` is not edited. AC1-7 is covered by limits
+tests that call `isMessageValid`. `handoff/website-tests-not-beside-their-module-2026-11-08.md`
+stays as it is (X-9).
 
-The browser walk is AC1-6, at UAT. Cases, fixtures and coverage are QA's.
+QA sequencing: QA Phase 1 ran before implementation (D-2) and read revision 1. Its findings are
+folded here, and it re-keys on revision 2. The browser walks are B-1 and B-2 (UAT, pre-release) and
+B-3 and B-4 (post-deploy). Cases, fixtures and coverage are QA's.
 
 ## Validation
 
 - Base tree `0e3d903`, 10:24Z: `npx vitest run --reporter=json`, exit 0; 1145 of 1145 cases passed,
-  118 file entries in `testResults`. `pnpm run typecheck`, exit 0. Nothing is red before the chain
-  opens.
-- Lint: 34 findings were already present at `6d78b19` (rulings block 08:46Z, item 3). Not re-run here.
+  118 file entries in `testResults`. `pnpm run typecheck`, exit 0. The suite is not red before the
+  chain opens.
+- Lint, base tree `0e3d903`, 11:03Z: `npx eslint src --format json` exit 1, with 312 errors and 364
+  warnings in 109 files (counted by `python3` over the JSON). Of the files this plan names, two test
+  files carry errors: `limits.import-validation.test.ts` and `limits.send-gate-partition.test.ts`.
+  The repository's `lint` script is `eslint --fix . --max-warnings=0`, which writes files, so it was
+  not run. The red is scoped out (X-10), and AC1-11 bounds what the chain adds.
 
 ## Risks
 
@@ -295,8 +375,14 @@ The browser walk is AC1-6, at UAT. Cases, fixtures and coverage are QA's.
   Falsifiers: AC1-4 over the accepted set; for the File member, a user report of a blocked edit
   holding a File. A report is recorded against D-11's reopening class, and its carrier after
   closure is `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` (Item 2).
-- **RK-2 — reconstruction drift.** A reconstructed corpus body differs from what the research sent,
-  so AC1-1 passes against the wrong shapes. Falsifier: AC1-1's re-send.
+- **RK-4 — the editor's URL marker and the send check disagree** (architect AF-2). The link-button
+  editor's "Invalid URL." line uses `isValidUrl`. L7 uses the save schema's predicate, which admits
+  more: for example a `discord://` URL, or an https URL whose host has no dot. Such a button shows
+  red in the editor while Send stays enabled. The marker is a sibling surface this chain does not
+  edit (D-5). Stated limit. A report of "the editor says invalid but it sent" is the signature.
+- **RK-2 — reconstruction drift.** **Falsified for the 76** at QA Phase 1: 76 of 76 verdicts, and 52
+  of 52 error bodies byte-identical (`verification/016/corpus/resend-results.json`). The 40 new
+  members are first measurements, so drift does not apply to them.
 - **RK-3 — stored `valid` stays stale** for rows saved before release (§ Stored rows). A stated
   limit, not a gate.
 
@@ -306,7 +392,8 @@ The browser walk is AC1-6, at UAT. Cases, fixtures and coverage are QA's.
 |---|---|---|---|
 | X-1 | The generic failure toast in `sendWebhook` (research F-14) | Determination 09:17Z, out-clause. Shown to the owner with this register. | `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md`, Item 1 |
 | X-2 | A File upload path; removing File from the add menu | New product work (D-3; D-2) | Same handoff, Item 2 |
-| X-9 | Relocating the other five files of `handoff/website-tests-not-beside-their-module-2026-11-08.md` | Not on this chain's surface; only `messageValidity.predicate` is (rider R1) | That handoff, which stays Open |
+| X-9 | Relocating the six files of `handoff/website-tests-not-beside-their-module-2026-11-08.md` | Rider R1 dropped (critique F-6); the chain edits none of the six | That handoff, which stays Open |
+| X-10 | The base tree's existing eslint findings | Red before the chain opens, on files the plan does not otherwise touch, apart from two test files (§ Validation) | Stated limit; AC1-11 |
 | X-3 | Any server-side refusal of a save | W-2 (D-4) | Stated limit |
 | X-4 | Counting or repairing stored rows | D-6. Research Recommendation 2 is out (determination). | Stated limit (§ Stored rows) |
 | X-5 | The add menu's default factories | Determination out-clause | Stated limit (AC1-6 records what the user sees) |
@@ -329,10 +416,11 @@ The browser walk is AC1-6, at UAT. Cases, fixtures and coverage are QA's.
     `validateContentRequirements` is not changed (Assumptions). Untouched.
   - `backfill-valid-guard-has-no-db-backed-instrument-2026-08-26.md`: does not fire, because
     `backfillValid.ts` is not modified. Its Item 3 bounds § Stored rows.
-  - `website-tests-not-beside-their-module-2026-11-08.md`: fires if `messageValidity.predicate` is
-    edited. **In scope for that one file, as rider R1** (Testing Strategy). The other five are X-9.
-  - `architecture-record-reconciliation-owed-2026-11-10.md`: fires at the architect's conformance
-    pass of this plan. It is the architect's to discharge there.
+  - `website-tests-not-beside-their-module-2026-11-08.md`: fires only if one of its six files is
+    edited, and the chain edits none of them (rider R1 dropped, X-9).
+  - `architecture-record-reconciliation-owed-2026-11-10.md`: **discharged.** The architect closed it
+    `Addressed` at this plan's conformance pass (now under `handoff/closed/`, `Status: Addressed`, read
+    11:05Z).
   - `bug-evaluation-fixes-unclosed-assumptions-2026-11-08.md`, `upload-message-dialog-closes-on-first-portal-load-2026-11-08.md`:
     fire on "the next website effort is scoped". Neither names the send check or a surface this plan
     edits (grep for `limits|validateMessage|send page|description`, no hit). Read and not in scope.
