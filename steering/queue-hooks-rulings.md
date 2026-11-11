@@ -465,3 +465,16 @@ Reads, this turn, at `abdb71b` (`git grep -n`, read from code, not run): `detect
 Load commit. The mismatch itself (V2 editing shown over classic data until a reload) is the
 fixer's code read, not this thread's. Scope: the setter passed into `useApiMethods` and its call
 site in `MessageProvider` are wiring the shared step requires.
+
+## 2026-11-11T09:42Z — code review APPROVED_WITH_COMMENTS at `963a25c`; QA Phase 2 started
+
+Read this turn: `code-review/fix-website-save-gate-embeds-code-review.md` (record `5849cb7`),
+`Verdict: APPROVED_WITH_COMMENTS`, `Reviewed-At: 963a25c — repos=website`, lines 51 to 137. Its
+spawn cue arrived by message (no QA session live for this chain). QA Phase 2 is owed: 44 added
+production lines against `6d78b19` (`git diff --numstat 6d78b19 HEAD -- src`, tests excluded:
+1 + 1 + 8 + 15 + 19, read 09:36Z at `963a25c`).
+
+Started `qa-fix-website-save-gate-embeds` with `tmux-agent spawn`, category
+`fix-website-save-gate-embeds`, cwd `/usr/local/bin/hooks/website`, brief
+`steering/queue-hooks-briefs/qa-save-gate-embeds-brief.md`. The reviewer's two INFO items and both
+Assumptions Not Checked name QA Phase 2 in the review document; no finding is left without a path.
