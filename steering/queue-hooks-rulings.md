@@ -970,3 +970,25 @@ Started with `tmux-agent spawn`, category `S016-sendcheck`, cwd `/usr/local/bin/
 `implementer-hooks-016` (brief `steering/queue-hooks-briefs/implementer-016-brief.md`) and
 `deweeder-hooks-016` (brief `steering/queue-hooks-briefs/deweeder-016-brief.md`). The
 implementer's pre-code flow questions come to him as prompts through this thread.
+
+## 2026-11-11T11:53Z — plan 016 revision 6 (first post-approval revision): delta read; no prompt; architect cued; V-101 trial pass started
+
+Read this turn at the commit: plan 016 revision 6 (record `07e2e41`, `Revision: 6`,
+`Status: In Progress`), as its whole diff against R-4 (`git diff 678c8b4 07e2e41`, `--numstat`
+18/19). The planner's message carried the same delta.
+
+- **Criterion-level, no milestone moved, no product behaviour changed; not put to him.** AC1-11
+  (the chain adds no eslint finding per changed file) now leaves out one file, the corpus fixture
+  `src/utils/__tests__/helpers/discordV2SendCorpus.ts`, because AC1-1 fixes that file's bytes to
+  QA's generated fixture. New Exclusions row X-12 states it as a limit. The figures in X-12 (7078
+  errors and 1 warning; the sha256) are the implementer's and the planner's, not read here. The
+  planner declined the implementer's lint-config options. For his sight: the repository's `lint`
+  script runs `eslint --fix .` and would rewrite that fixture (X-12's stated hazard).
+- **Conformance:** the planner did not cue the architect ("adds no architectural surface").
+  This thread cued `architect-hooks-016` for a delta pass, since the revision changes a criterion
+  (steering.md, Conformance). The critic (cycle 4) and QA are cued by the planner.
+- **Cap count for M1:** this is its first post-approval revision; the cap falls at the second.
+  By the plan's changelog: six revisions and five gate rounds since the value statement.
+- **V-101 trial** (row read this turn in `~/.claude/agents/TODO.md`: open, "0 of 3"): a critic
+  subagent on Opus (`critic-016`) is started over revision 6, briefed to write no file and not to
+  read the cycle 4 critique. Its findings are recorded here beside the cycle 4 pass's when both land.
