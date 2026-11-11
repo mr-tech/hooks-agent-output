@@ -2,10 +2,10 @@
 ID: 016
 Origin: 016
 UUID: 54673438
-Status: Open
-Status-Detail: "Cycle 2 pass 2 on plan revision 4: APPROVED. F-12, F-13 and F-14 are RESOLVED, each verified in the revision 4 diff. F-15 (LOW, the Reading Order's UAT row) is open for the Planner batch; this critique closes when that row is recorded in the plan."
-Artifact-Revision: 4 — read as the diff 21db6c8..c249af3 (117 added, 26 removed), against revision 3 read at pass 1
-Reviewed-At: "c249af3 — repos=agent-output; website code read at 0e3d903 (master)"
+Status: Resolved
+Status-Detail: "Cycle 2 closed on plan revision 4: APPROVED at pass 2 (c249af3). F-12, F-13 and F-14 are RESOLVED, verified in the revision 4 diff. F-15 is RESOLVED, verified in registration R-2 (5f95a30), which moved no criterion."
+Artifact-Revision: 4 — verdict read as the diff 21db6c8..c249af3; R-2 (5f95a30) read as a boundary line at closure
+Reviewed-At: "5f95a30 — repos=agent-output; verdict reached at c249af3; website code read at 0e3d903 (master)"
 Verdict: APPROVED
 ---
 
@@ -22,6 +22,7 @@ Verdict: APPROVED
 |---|---|---|---|
 | 2026-11-11T11:16 | planner-hooks-016 (message, 11:13Z) | cycle 2 pass 1: delta over `6b07655..21db6c8` (revision 3) | Delta-bounded pass: the new milestone M1b is wholly inside the diff (72/36, read whole), and the plan at `HEAD` is `21db6c8` (`git diff --quiet`, exit 0). Artifact changes: M1b added (D-14, the owner's selection 23); whitespace-empty restated per character; corpus re-pinned to 120 members. Findings addressed: cycle 1's F-11 is landed by revision 3's predicate. New findings: F-12 MEDIUM (closed by property under the stop authority; duplicates the architect's AF-12), F-13 LOW, F-14 LOW. Verdict APPROVED. Pricing: sized to the ask as D-14 extended it. |
 | 2026-11-11T11:21 | planner-hooks-016 (message, 11:19Z) | cycle 2 pass 2: delta over `21db6c8..c249af3` (revision 4) | Delta-bounded pass. The planner named `0c01944` as the base; the diff was taken from `21db6c8`, the last revision this critique read, and `0c01944` adds only the planner's Resumption State (18/0). The diff (117/26) was read whole and the plan at `HEAD` is `c249af3` (`git diff --quiet`, exit 0). Artifact changes: M1b's class is a property over the rendered `/preview` tree with seven members and a classification table; AC1b-3 takes the `showEdit` prop route; AC1b-4's post-deploy half uses the 41-component member; RK-5, X-11 and a Reading Order are added; M1's rollback is tied to M1b's. Findings addressed: F-12, F-13, F-14, all RESOLVED. New finding: F-15 LOW. Verdict APPROVED. Pricing: sized to the ask as D-14 extended it. |
+| 2026-11-11T11:23 | planner-hooks-016 (message, 11:22Z); steering-queue-hooks (wrap-up message, 11:23Z) | boundary line: `c249af3..5f95a30` (registration R-2) | The delta (9/7, read whole with `git diff -U0`) changes the Reading Order's UAT row, the owed re-verdicts table, one changelog row, a doubled sentence and the planner's Resumption State. It falls outside milestone scope, criterion text, instrument form and register effect, so no findings pass is owed; `Artifact-Revision` stays 4. F-15 verified landed. Steering's wrap-up for the weekly usage gate arrived in the same turn; no pass was in flight. Document closed, Status: Resolved. |
 
 ## Verdict
 
@@ -72,16 +73,7 @@ F-13 LOW cycle 2 pass 1 RESOLVED — the post-deploy read uses the 41-component 
 
 F-14 LOW cycle 2 pass 1 RESOLVED — the residue for images generated before release is a stated limit. Plan rev 4, RK-5.
 
-**F-15 LOW cycle 2 pass 2 — OPEN. The Reading Order's UAT row leaves out the milestones UAT walks.**
-- **Location**: plan § Reading Order, row "uat".
-- **Description**: the row names the Value Statement, the Decisions Register, M1b and Risks. UAT
-  walks AC1-6 and AC1-6p, which are in M1, and AC2-2's browser half, which is in M2. Neither
-  section is in its row, and the Reading Order says unnamed sections are read only when a named
-  one cites them.
-- **Impact**: UAT pays this on every read: it reaches its own criteria only through QA's register
-  rows. No criterion changes.
-- **Recommendation**: add M1 and M2 to the UAT row. Planner batch; it lands at the planner's next
-  revision, or as a batch row if there is none before UAT starts.
+F-15 LOW cycle 2 pass 2 RESOLVED — the Reading Order's UAT row now names M1, M1b and M2, where the criteria UAT walks live. Plan registration R-2 (`5f95a30`), § Reading Order.
 
 ### Carried from cycle 1
 
@@ -102,3 +94,10 @@ F-11 LOW cycle 1 pass 2 RESOLVED — the per-character definition removes the di
 ## Questions
 
 None for the owner.
+
+## Resumption State
+
+Closed 2026-11-11T11:23Z at steering's wrap-up (rulings block "2026-11-11T11:22Z — his command: the
+98% weekly gate is back in force"). Nothing is owed by the critic on plan revision 4. A later
+revision that changes a criterion, a milestone or an instrument opens cycle 3 in a new critique,
+read as `git diff 5f95a30 <new> -- planning/016-send-check-validity.md`.
