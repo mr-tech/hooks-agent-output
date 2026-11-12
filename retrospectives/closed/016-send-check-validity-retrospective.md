@@ -2,7 +2,7 @@
 ID: 016
 Origin: 016
 UUID: 54673438
-Status: Active
+Status: Processed
 ---
 
 # Retrospective 016: The send check refuses what Discord refuses (Components V2 validity, 1024 included)
@@ -16,6 +16,7 @@ Status: Active
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-11T19:37 | steering-queue-hooks → retrospective-016 | Retrospective for chain 016, after the close-out block "2026-11-11T18:45Z" (record `e5dd517`) | Written from the chain's documents at record `e5dd517`. Value delivered YES. Seven recommendations, each naming its file. No handoff owed. Nothing for the owner. |
+| 2026-11-12T08:33 | pi-batch | Document closed | Status: Processed. Improvements extracted by pi batch 35; each recommendation's status is in `statbot:process-improvement/closed/batch35-pi-second-batch-agent-instruction-updates.md`, § 4. |
 
 ## Summary
 
