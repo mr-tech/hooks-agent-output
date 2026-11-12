@@ -2,7 +2,7 @@
 ID: n/a
 Origin: fix-uat-local-stack-id-sequence
 UUID: 860d4569
-Status: Active
+Status: Processed
 ---
 
 # Retrospective: fix-uat-local-stack-id-sequence
@@ -15,6 +15,7 @@ Status: Active
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-11T20:15 | steering-queue-hooks (spawn brief) | Retrospective of the closed fixer chain | Written from the two stage documents, two handoffs, two briefs, five rulings blocks, the captures and the record history `68d737f..078383d`. Cost readout taken. Value delivered: YES. Eight recommendations, each naming a file. No handoff created (the brief asks for one document). One forward item has no record carrier and is put to steering (Handoff). |
+| 2026-11-12T06:40 | pi-batch | Document closed | Status: Processed. Improvements extracted by pi batch 34; each recommendation's disposition is in `statbot:process-improvement/closed/batch34-pi-fixer-route-agent-instruction-updates.md`. |
 
 ## Summary
 
