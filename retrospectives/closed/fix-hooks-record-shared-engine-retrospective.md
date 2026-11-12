@@ -2,7 +2,7 @@
 ID: n/a
 Origin: fix-hooks-record-shared-engine
 UUID: 2b33b8c9
-Status: Active
+Status: Processed
 ---
 
 # Retrospective: fix-hooks-record-shared-engine
@@ -15,6 +15,7 @@ Status: Active
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-10T09:35 | steering-cleanup-hooks (spawn brief) | Retrospective of the closed fixer chain | Written from the documents, commits and captures. Cost readout taken. Value delivered: YES. |
+| 2026-11-12T06:40 | pi-batch | Document closed | Status: Processed. Improvements extracted by pi batch 34; each recommendation's disposition is in `statbot:process-improvement/closed/batch34-pi-fixer-route-agent-instruction-updates.md`. |
 
 ## Summary
 
