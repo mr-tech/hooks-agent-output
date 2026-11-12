@@ -2,7 +2,7 @@
 ID: n/a
 Origin: fix-website-save-gate-embeds
 UUID: 07e578ce
-Status: Active
+Status: Processed
 ---
 
 # Retrospective: fix-website-save-gate-embeds
@@ -15,6 +15,7 @@ Status: Active
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-11T10:23 | steering-queue-hooks (spawn brief) | Retrospective of the released fixer chain | Written from the documents, briefs, ledger, commits and captures. Cost readout taken. Value delivered: YES, with the hooks.gg observation still the owner's. Eight recommendations, each naming a file. No handoff created. |
+| 2026-11-12T06:40 | pi-batch | Document closed | Status: Processed. Improvements extracted by pi batch 34; each recommendation's disposition is in `statbot:process-improvement/closed/batch34-pi-fixer-route-agent-instruction-updates.md`. |
 
 ## Summary
 
