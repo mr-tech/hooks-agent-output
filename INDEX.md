@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-289 documents · 16 numbered chains · 137 unnumbered.
+285 documents · 16 numbered chains · 133 unnumbered.
 
 ---
 
@@ -104,7 +104,7 @@ closed. A document's path changes when it closes; its name does not.
 | security | `security/closed/015-preview-image-generator-security-audit.md` | Review Complete — Review Complete 2026-11-08: targeted review of preview-image-generator 471578f..8de2b53 APPROVED (no finding above LOW in the five files). The reviewed tip is the SHA serving on prod: own git ls-remote refs/heads/prod = 8de2b53 at 22:16Z; deployment/closed/015-bug-evaluation-fixes-deployment.md § Release Execution (pushed 21:38:42Z, deployed 22:02Z, re-run 22:04:49Z). Host posture H-001 to M-002 accepted record-only (rulings 09:43Z), carried by handoff/preview-image-generator-host-security-posture-2026-11-08.md (Open) and dated past the deploy by verification/015/security-post-deploy-read-2026-11-08T2216Z.txt (unchanged). Nothing is owed by this document. |
 | UAT | `uat/closed/015-bug-evaluation-fixes-uat.md` | Committed — Committed with chain 015 (website b96e364 and preview-image-generator 8de2b53). Release-Decision APPROVED FOR RELEASE stands; post-deploy rows B-6, B-7 and B-8 ride handoff/bug-evaluation-fixes-post-deploy-2026-11-08.md. Earlier detail is in the body and changelog. |
 
-### 016 — 1 open, 12 closed
+### 016 — 0 open, 13 closed
 
 | Stage | Location | Status |
 |---|---|---|
@@ -119,7 +119,7 @@ closed. A document's path changes when it closes; its name does not.
 | implementation | `implementation/closed/016-send-check-validity-implementation.md` | Released — Committed at website chain/016-send-check-validity tip 395510e (devops Stage 1); released at devops Phase 2D (pushed 2026-11-11T18:29:46Z). |
 | plan | `planning/closed/016-send-check-validity.md` | Released — Released: website master -> 395510e97f82a5177d5edbb38b5d44858f745f3d, pushed 2026-11-11T18:29:46Z on the owner's release answer. Post-deploy rows B-3, B-4 and B-6 ride handoff/send-check-validity-post-deploy-2026-11-11.md. No OPEN QUESTION remains. |
 | QA | `qa/closed/016-send-check-validity-qa.md` | Released — Phase 2 PASS at website 395510e (plan revision 7), released at devops Phase 2D (pushed 2026-11-11T18:29:46Z). Effort-final sweep 120 of 128 mutants killed, every survivor dispositioned; QAF-13 LOW carried by handoff/editor-error-lines-render-text-unasserted-2026-11-11.md. Register: B-1, B-2, B-5 EXECUTED (UAT); B-3, B-4, B-6 post-deploy, carried by handoff/send-check-validity-post-deploy-2026-11-11.md. The Phase 3 release-tip record is a separate document. |
-| retrospective | `retrospectives/016-send-check-validity-retrospective.md` | Active |
+| retrospective | `retrospectives/closed/016-send-check-validity-retrospective.md` | Processed |
 | UAT | `uat/closed/016-send-check-validity-uat.md` | Released — APPROVED FOR RELEASE at website 395510e (plan revision 7), released at devops Phase 2D (pushed 2026-11-11T18:29:46Z). Pre-release rows B-1, B-2 and B-5 EXECUTED and PASS. Post-deploy rows B-3, B-4 and B-6 ride handoff/send-check-validity-post-deploy-2026-11-11.md with their unfixed values; UAT-1 LOW (B-6(b) is read on the red border, subject message 5996) is carried there. |
 
 ### 1 — 0 open, 8 closed
@@ -309,9 +309,6 @@ they are the ID-less artifacts that root new efforts.
 | implementation | `implementation/closed/fix-uat-local-stack-id-sequence-implementation.md` | Committed — Committed on the record repository's master at 7d59233; code review APPROVED at that tree (record 1f5b0c3). No QA Phase 2 (the tool is +15/-5 by git diff --numstat 68d737f). No deploy: the tool is a record tool. Closed by steering-queue-hooks. |
 | implementation | `implementation/closed/fix-v1-guild-messages-auth-implementation.md` | Committed — Committed for release on website fix/v1-guild-messages-auth at ddbd750 (devops Stage 1, 2026-10-10). The owner's key check returned 'match'. Release (merge to master, push) awaits the owner's approval. |
 | implementation | `implementation/closed/fix-website-save-gate-embeds-implementation.md` | Released — Released 2026-11-11T10:13Z: website master 6d78b19 -> 0e3d903ce98e108c7ca848b992ad89ac538f4b44 on origin; fix branch merged and deleted. Deployment record deployment/fix-website-save-gate-embeds-deployment.md. |
-| — | `INBOX.md` | — |
-| — | `OPEN_QUESTIONS.md` | — |
-| — | `OWNER-QUEUE.md` | — |
 | process improvement | `process-improvement/closed/012-013-batch7-agent-instruction-updates.md` | Applied — Mirror ledger. The analysis and the full ledger live in the statbot record: /usr/local/bin/statbot/agent-output/process-improvement/closed/023-012-013-batch7-*.md. First pi run over this repository; 012 and 013 retrospectives Processed and moved to closed/. |
 | process improvement | `process-improvement/closed/014-batch10-agent-instruction-updates.md` | Applied — Mirror ledger. The analysis and the full ledger live in the statbot record: /usr/local/bin/statbot/agent-output/process-improvement/closed/014-batch10-*.md. Retrospective 014 Processed and moved to closed/. Definitions ~/.claude/agents 96a3980; skill ~/.claude/agent-skills c6dd817. |
 | QA | `qa/closed/fix-hooks-record-shared-engine-qa.md` | Released — Released with the chain: Phase 2 PASS at c444457, refreshed at 0f09e6c over the REVIEW flip; on origin master at 1611473. |
@@ -329,48 +326,47 @@ they are the ID-less artifacts that root new efforts.
 | research | `research/closed/v1-guild-messages-auth-exposure-2026-10-10.md` | Answered — (a) ANSWERED, Proven: production answers the list endpoint with no key — one sanctioned GET returned HTTP 200 application/json from the Next.js handler (x-matched-path on the route, no 404 rewrite, no edge block). The deployed exposure is LIVE. (b) owner-needing: key equality (statbot HOOKS_API_KEY vs website STATBOT_API_KEY) cannot be established by any instrument available to this run without exposing a secret, and is additionally unobservable through the live system because the only code that compares the two keys is unreachable in production. The instrument that could settle it is named below and marked owner-needing. |
 | research | `research/codebase-bug-evaluation-2026-11-08.md` | Active — Sweep complete over website, project-utils and preview-image-generator at the SHAs in § Context. 50 rated findings (F-1–F-50), every one read at the code by the researcher; the two SQL-shape defects and the code-block regex were proven by execution. Eight editor hypotheses (H-1–H-8) need a running editor and are listed with their disconfirming tests, not counted. The owner answered all three intent questions on 2026-11-08 (username required by design, so no defect; get_message open to Manage Server; cap no stated preference). Nothing here is fixed; this is a research document, and it stays Active until the hypotheses H-1 to H-8 are run (G-5). |
 | research | `research/competitive-feature-landscape-2026-11-08.md` | Active — Landscape and scored feature list delivered (Findings F1–F15, Scored list S1–S33). Value now rests on a census of user demand: 1,098 forum posts / 10,734 forum messages and 3,438 channel messages across four Discord communities (ours included), checked post by post against Discord's own message counts. Owner ruled 2026-11-08: Q1 bot sending for interactive buttons ("sure"), Q2 no paid tier, ever ("a loss leader for Statbot"). Not Answered: no Hooks.gg usage data exists (G1), and the owner has not yet selected items to plan against. Stays Active until he does; the planner then cites this document and it closes Answered. |
-| retrospective | `retrospectives/fix-hooks-record-shared-engine-retrospective.md` | Active |
-| retrospective | `retrospectives/fix-uat-local-stack-id-sequence-retrospective.md` | Active |
-| retrospective | `retrospectives/fix-website-save-gate-embeds-retrospective.md` | Active |
-| — | `steering/014-rulings.md` | — |
-| — | `steering/015-rulings.md` | — |
-| — | `steering/015-security-brief.md` | — |
-| — | `steering/chore-agent-comment-sweep-rulings.md` | — |
-| — | `steering/cleanup-2026-11-10.md` | — |
-| — | `steering/comment-sweep-briefs/comment-sweep-code-reviewer-brief.md` | — |
-| — | `steering/comment-sweep-briefs/comment-sweep-devops-brief.md` | — |
-| — | `steering/comment-sweep-briefs/comment-sweep-fixer-brief.md` | — |
-| — | `steering/queue-hooks-briefs/architect-016-brief.md` | — |
-| — | `steering/queue-hooks-briefs/architect-016-respawn-brief.md` | — |
-| — | `steering/queue-hooks-briefs/code-reviewer-016-brief.md` | — |
-| — | `steering/queue-hooks-briefs/code-reviewer-save-gate-embeds-brief.md` | — |
-| — | `steering/queue-hooks-briefs/code-reviewer-uat-local-stack-brief.md` | — |
-| — | `steering/queue-hooks-briefs/critic-016-brief.md` | — |
-| — | `steering/queue-hooks-briefs/devops-016-brief.md` | — |
-| — | `steering/queue-hooks-briefs/devops-016-respawn-brief.md` | — |
-| — | `steering/queue-hooks-briefs/devops-save-gate-embeds-brief.md` | — |
-| — | `steering/queue-hooks-briefs/deweeder-016-brief.md` | — |
-| — | `steering/queue-hooks-briefs/fixer-save-gate-embeds-brief.md` | — |
-| — | `steering/queue-hooks-briefs/fixer-uat-local-stack-brief.md` | — |
-| — | `steering/queue-hooks-briefs/implementer-016-brief.md` | — |
-| — | `steering/queue-hooks-briefs/planner-016-respawn-brief.md` | — |
-| — | `steering/queue-hooks-briefs/planner-send-check-validity-brief.md` | — |
-| — | `steering/queue-hooks-briefs/qa-016-brief.md` | — |
-| — | `steering/queue-hooks-briefs/qa-save-gate-embeds-brief.md` | — |
-| — | `steering/queue-hooks-briefs/researcher-text-limit-brief.md` | — |
-| — | `steering/queue-hooks-briefs/researcher-v2-validity-brief.md` | — |
-| — | `steering/queue-hooks-briefs/uat-016-brief.md` | — |
-| — | `steering/queue-hooks-briefs/uat-016-post-deploy-brief.md` | — |
-| — | `steering/queue-hooks-briefs/uat-save-gate-embeds-hooks-gg-check-brief.md` | — |
-| — | `steering/queue-hooks-rulings.md` | — |
-| — | `steering/record-engine-briefs/record-engine-code-reviewer-brief.md` | — |
-| — | `steering/record-engine-briefs/record-engine-fixer-brief.md` | — |
-| — | `steering/record-engine-briefs/record-engine-qa-brief.md` | — |
-| — | `steering/record-tools-shared-engine-rulings.md` | — |
-| — | `steering/selection-ledger/2026-11-10.md` | — |
-| — | `steering/v1-guild-messages-auth-devops-phase-2d-brief.md` | — |
-| — | `steering/v1-guild-messages-auth-rulings.md` | — |
-| — | `TODO.md` | — |
+| retrospective | `retrospectives/closed/fix-hooks-record-shared-engine-retrospective.md` | Processed |
+| retrospective | `retrospectives/closed/fix-uat-local-stack-id-sequence-retrospective.md` | Processed |
+| retrospective | `retrospectives/closed/fix-website-save-gate-embeds-retrospective.md` | Processed |
+| steering | `steering/014-rulings.md` | — |
+| steering | `steering/015-rulings.md` | — |
+| steering | `steering/015-security-brief.md` | — |
+| steering | `steering/chore-agent-comment-sweep-rulings.md` | — |
+| steering | `steering/cleanup-2026-11-10.md` | — |
+| steering | `steering/comment-sweep-briefs/comment-sweep-code-reviewer-brief.md` | — |
+| steering | `steering/comment-sweep-briefs/comment-sweep-devops-brief.md` | — |
+| steering | `steering/comment-sweep-briefs/comment-sweep-fixer-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/architect-016-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/architect-016-respawn-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/code-reviewer-016-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/code-reviewer-save-gate-embeds-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/code-reviewer-uat-local-stack-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/critic-016-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/devops-016-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/devops-016-respawn-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/devops-save-gate-embeds-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/deweeder-016-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/fixer-save-gate-embeds-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/fixer-uat-local-stack-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/implementer-016-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/planner-016-respawn-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/planner-send-check-validity-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/qa-016-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/qa-save-gate-embeds-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/researcher-text-limit-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/researcher-v2-validity-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/uat-016-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/uat-016-post-deploy-brief.md` | — |
+| steering | `steering/queue-hooks-briefs/uat-save-gate-embeds-hooks-gg-check-brief.md` | — |
+| steering | `steering/queue-hooks-rulings.md` | — |
+| steering | `steering/record-engine-briefs/record-engine-code-reviewer-brief.md` | — |
+| steering | `steering/record-engine-briefs/record-engine-fixer-brief.md` | — |
+| steering | `steering/record-engine-briefs/record-engine-qa-brief.md` | — |
+| steering | `steering/record-tools-shared-engine-rulings.md` | — |
+| steering | `steering/selection-ledger/2026-11-10.md` | — |
+| steering | `steering/v1-guild-messages-auth-devops-phase-2d-brief.md` | — |
+| steering | `steering/v1-guild-messages-auth-rulings.md` | — |
 | UAT | `uat/closed/004-lazy-loading-preload-overhaul-uat.md` | — |
 | verification | `verification/012/backfill-report-1787522824426-i0womw.md` | — |
 | verification | `verification/012/backfill-report-1787522866564-i3s31k.md` | — |
@@ -546,7 +542,7 @@ they are the ID-less artifacts that root new efforts.
 | `016-send-check-validity-deployment.md` | `deployment/closed/016-send-check-validity-deployment.md` |
 | `016-send-check-validity-implementation.md` | `implementation/closed/016-send-check-validity-implementation.md` |
 | `016-send-check-validity-qa.md` | `qa/closed/016-send-check-validity-qa.md` |
-| `016-send-check-validity-retrospective.md` | `retrospectives/016-send-check-validity-retrospective.md` |
+| `016-send-check-validity-retrospective.md` | `retrospectives/closed/016-send-check-validity-retrospective.md` |
 | `016-send-check-validity-uat.md` | `uat/closed/016-send-check-validity-uat.md` |
 | `016-send-check-validity.md` | `planning/closed/016-send-check-validity.md` |
 | `2026-04-07-plan-005.md` | `deployment/closed/2026-04-07-plan-005.md` |
@@ -599,10 +595,10 @@ they are the ID-less artifacts that root new efforts.
 | `fix-hooks-record-shared-engine-code-review.md` | `code-review/closed/fix-hooks-record-shared-engine-code-review.md` |
 | `fix-hooks-record-shared-engine-implementation.md` | `implementation/closed/fix-hooks-record-shared-engine-implementation.md` |
 | `fix-hooks-record-shared-engine-qa.md` | `qa/closed/fix-hooks-record-shared-engine-qa.md` |
-| `fix-hooks-record-shared-engine-retrospective.md` | `retrospectives/fix-hooks-record-shared-engine-retrospective.md` |
+| `fix-hooks-record-shared-engine-retrospective.md` | `retrospectives/closed/fix-hooks-record-shared-engine-retrospective.md` |
 | `fix-uat-local-stack-id-sequence-code-review.md` | `code-review/closed/fix-uat-local-stack-id-sequence-code-review.md` |
 | `fix-uat-local-stack-id-sequence-implementation.md` | `implementation/closed/fix-uat-local-stack-id-sequence-implementation.md` |
-| `fix-uat-local-stack-id-sequence-retrospective.md` | `retrospectives/fix-uat-local-stack-id-sequence-retrospective.md` |
+| `fix-uat-local-stack-id-sequence-retrospective.md` | `retrospectives/closed/fix-uat-local-stack-id-sequence-retrospective.md` |
 | `fix-v1-guild-messages-auth-code-review.md` | `code-review/closed/fix-v1-guild-messages-auth-code-review.md` |
 | `fix-v1-guild-messages-auth-deployment.md` | `deployment/closed/fix-v1-guild-messages-auth-deployment.md` |
 | `fix-v1-guild-messages-auth-implementation.md` | `implementation/closed/fix-v1-guild-messages-auth-implementation.md` |
@@ -612,13 +608,12 @@ they are the ID-less artifacts that root new efforts.
 | `fix-website-save-gate-embeds-deployment.md` | `deployment/closed/fix-website-save-gate-embeds-deployment.md` |
 | `fix-website-save-gate-embeds-implementation.md` | `implementation/closed/fix-website-save-gate-embeds-implementation.md` |
 | `fix-website-save-gate-embeds-qa.md` | `qa/closed/fix-website-save-gate-embeds-qa.md` |
-| `fix-website-save-gate-embeds-retrospective.md` | `retrospectives/fix-website-save-gate-embeds-retrospective.md` |
+| `fix-website-save-gate-embeds-retrospective.md` | `retrospectives/closed/fix-website-save-gate-embeds-retrospective.md` |
 | `fixer-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/fixer-save-gate-embeds-brief.md` |
 | `fixer-uat-local-stack-brief.md` | `steering/queue-hooks-briefs/fixer-uat-local-stack-brief.md` |
 | `gap-dispositions.md` | `verification/015/effort-final/gap-dispositions.md` |
 | `handoffs-survey.md` | `verification/cleanup-2026-11-10/handoffs-survey.md` |
 | `implementer-016-brief.md` | `steering/queue-hooks-briefs/implementer-016-brief.md` |
-| `INBOX.md` | `INBOX.md` |
 | `json-editor-bad-configurations-2026-08-23.md` | `handoff/closed/json-editor-bad-configurations-2026-08-23.md` |
 | `json-editor-flag-mint-2026-08-23.md` | `research/closed/json-editor-flag-mint-2026-08-23.md` |
 | `local-walk-save-can-write-a-client-sent-low-message-id-2026-11-11.md` | `handoff/local-walk-save-can-write-a-client-sent-low-message-id-2026-11-11.md` |
@@ -627,9 +622,7 @@ they are the ID-less artifacts that root new efforts.
 | `message-valid-field-for-statbot-2026-08-23.md` | `handoff/closed/message-valid-field-for-statbot-2026-08-23.md` |
 | `newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` | `handoff/newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` |
 | `one-hooks-user-several-discord-accounts-2026-11-08.md` | `handoff/one-hooks-user-several-discord-accounts-2026-11-08.md` |
-| `OPEN_QUESTIONS.md` | `OPEN_QUESTIONS.md` |
 | `open-documents-survey.md` | `verification/cleanup-2026-11-10/open-documents-survey.md` |
-| `OWNER-QUEUE.md` | `OWNER-QUEUE.md` |
 | `planner-016-respawn-brief.md` | `steering/queue-hooks-briefs/planner-016-respawn-brief.md` |
 | `planner-send-check-validity-brief.md` | `steering/queue-hooks-briefs/planner-send-check-validity-brief.md` |
 | `preview-image-failure-shows-broken-not-stale-2026-08-24.md` | `handoff/preview-image-failure-shows-broken-not-stale-2026-08-24.md` |
@@ -663,7 +656,6 @@ they are the ID-less artifacts that root new efforts.
 | `send-check-validity-post-deploy-2026-11-11.md` | `handoff/closed/send-check-validity-post-deploy-2026-11-11.md` |
 | `system-architecture.md` | `architecture/system-architecture.md` |
 | `test-inventory-2026-08-26.md` | `analysis/test-inventory-2026-08-26.md` |
-| `TODO.md` | `TODO.md` |
 | `uat-016-brief.md` | `steering/queue-hooks-briefs/uat-016-brief.md` |
 | `uat-016-post-deploy-brief.md` | `steering/queue-hooks-briefs/uat-016-post-deploy-brief.md` |
 | `uat-local-stack-test-free-port-race-2026-11-11.md` | `handoff/uat-local-stack-test-free-port-race-2026-11-11.md` |
