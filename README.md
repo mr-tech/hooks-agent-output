@@ -114,7 +114,7 @@ approval even when every test passes.
 | `security/` | Threat models, code and dependency audits, pre-production gates. | security |
 | `uat/` | Business-value validation and the release decision. | uat |
 | `deployment/` | Release readiness, user confirmation, and execution record. | devops |
-| `retrospectives/` | Process lessons, written only after both QA and UAT complete. | retrospective |
+| `retrospectives/` | Process lessons, written once the chain's effort files are closed out (`steering.md`, Retrospective). | retrospective |
 | `process-improvement/` | Changes to the agent instructions themselves, extracted from retrospectives. | pi |
 | `handoff/` | Follow-up work seeded for later, often crossing chains or belonging to no chain. A first-class chain root. | any agent |
 | `verification/` | Runnable material — probes, generators, frozen artifacts. Chain-bound. See `verification/README.md`. | qa, implementer |
