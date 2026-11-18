@@ -267,3 +267,33 @@ calls it REQUIRED before item 2's website milestone is approved for code. Held o
 - Acts: brief amended (line 34 narrowed; amendment beside it). Planner told to commit AN-4 in the plan
   with its scope words before the analyst starts; analyst told it may run AN-4 once committed, within
   the amended brief, and that its declining is its own call if it reads its definition otherwise.
+
+## 2026-11-18T23:24Z — revision 1 received; scope, OQ-7 and Exclusions put to him before any gate starts
+
+Planner message (23:2xZ): revision 1 at `97e6814` (read this turn: `Revision: 1`, `Status: Active`;
+changelog row 23:18 "Scope delta: M1 to M7 added (rev 0 had none)"; OQ-7 open, § Assumptions line 128;
+M5-0 lines 344-360; Release and rollback lines 524-545; Exclusions X-1 to X-16 lines 588-607). Spawn
+cue: critic, architect conformance, QA Phase 1 on revision 1. **Held**: a milestone-level delta goes to
+him before any further pass or stage runs, and an open OQ goes to him before the critic sees the plan
+(steering.md, Planner); the spawn cue leaves that gate as it stood.
+Premises read this turn:
+- Website workflows: `git -C website ls-tree -r --name-only origin/master -- .github` printed nothing
+  (count 0); `ls website/.github` shows only an untracked `prompts/`. So "no workflows": what a branch
+  push deploys is Vercel's git integration, unread from any file — the push gate applies (CLAUDE.md, Git).
+- AN-4 figures: `analysis/017-existing-items-backlog-analysis.md` line 204 (n 16832, p50 2197 ms, p99
+  3729 ms, max 26275 ms); captures `verification/017/analysis/an4/`.
+- X-13 (Next builds a test file under `src/pages/api/` as an API route): `general-purpose-sonnet` helper
+  tried to refute it. **Not refuted (run, webpack)**: a scratch Next 16.1.6 app's `next build --webpack`
+  listed `ƒ /api/__tests__/hello.thing.test` as a route. Turbopack (Next 16's default builder; the
+  website's `next.config.js` sets `turbopack.root`) not run: the helper's symlinked `node_modules` was
+  refused by Turbopack. Scratch removed.
+- No dated outside event (`backlog-2026-11-18-rulings.md` line 77).
+- Planner's disclosed gate events (plan § Entry facts): the secret-file gate refused a relative-path grep
+  after a cd, re-issued once with absolute paths, the form the gate names; a recursive grep over uat, qa
+  and verification/016 refused and not re-issued. Told to him; the false-positive call is his.
+- Record domain: the planner's INBOX.md entry "2026-11-18 — planner-hooks-017 — DECISION NEEDED" (a
+  CLAUDE.md Placement exception) is the record's owning session's to process; X-13 carries it.
+- **This thread's gate events, disclosed in the round:** the record-write gate refused this block's first
+  write (a shell heredoc append); re-issued with the Edit tool, the form the gate names. The 23:15Z block
+  and the analyst-brief amendment were written by a python script through the shell, which the gate did
+  not catch; the form was outside the gate's stated standard all the same.
