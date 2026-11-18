@@ -1,0 +1,119 @@
+
+### NewMessageJsonInput (inline dynamic in NewMessageModal)  consumer=app/message/_components/NewMessageModal.tsx
+  host src/app/message/_components/NewMessageModal.tsx [PresetDialog]
+    chain: src/app/message/_components/NewMessageModal.tsx
+
+### JsonModalBody (inline dynamic in JsonMenu)  consumer=app/message/m/[id]/_components/JsonMenu.tsx
+  host src/app/message/m/[id]/_components/JsonMenu.tsx [PresetDialog]
+    chain: src/app/message/m/[id]/_components/JsonMenu.tsx
+
+### FloatingPortal (dynamic of @floating-ui, in AnchoredPopover/Child)  consumer=components/AnchoredPopover/Child.tsx
+  host src/components/AnchoredPopover/Child.tsx [FloatingPortal]
+    chain: src/components/AnchoredPopover/Child.tsx
+
+### Picker (inline dynamic in EmojiPicker/Root)  consumer=components/EmojiPicker/Root.tsx
+  host src/components/DiscordContentEditor/Mobile.tsx [BottomPortal]
+    chain: src/components/EmojiPicker/Root.tsx <- src/components/EmojiPicker/index.tsx <- src/components/DiscordContentEditor/Mobile.tsx
+  host src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx [WarningDialog]
+    chain: src/components/EmojiPicker/Root.tsx <- src/components/EmojiPicker/index.tsx <- src/components/DiscordContentEditor/Desktop.tsx <- src/components/DiscordContentEditor/index.tsx <- src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx
+  host src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx [WarningDialog]
+    chain: src/components/EmojiPicker/Root.tsx <- src/components/EmojiPicker/index.tsx <- src/components/DiscordContentEditor/Desktop.tsx <- src/components/DiscordContentEditor/index.tsx <- src/components/DiscordMessageEditor/components/ComponentEditors/TextDisplayEditor.tsx <- src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx
+  host src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx [WarningDialog]
+    chain: src/components/EmojiPicker/Root.tsx <- src/components/EmojiPicker/index.tsx <- src/components/DiscordContentEditor/Desktop.tsx <- src/components/DiscordContentEditor/index.tsx <- src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx <- src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx
+  host src/app/message/m/[id]/edit/page.tsx [ConfirmationDialog,PresetDialog]
+    chain: src/components/EmojiPicker/Root.tsx <- src/components/EmojiPicker/index.tsx <- src/components/DiscordContentEditor/Desktop.tsx <- src/components/DiscordContentEditor/index.tsx <- src/components/DiscordMessageEditor/components/ContentBody.tsx <- src/components/DiscordMessageEditor/index.tsx <- src/app/message/m/[id]/edit/page.tsx
+
+### dynamics/Calendar -> Calendar  consumer=components/dynamics/Calendar.tsx
+  host src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx [WarningDialog]
+    chain: src/components/dynamics/Calendar.tsx <- src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx <- src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx <- src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx
+  host src/app/message/m/[id]/edit/page.tsx [ConfirmationDialog,PresetDialog]
+    chain: src/components/dynamics/Calendar.tsx <- src/utils/markdown/components/MarkdownTimestamp.tsx <- src/utils/markdown/rules.tsx <- src/utils/markdown/index.tsx <- src/providers/MarkdownProvider.tsx <- src/app/message/m/[id]/edit/page.tsx
+  host src/components/DiscordContentEditor/Mobile.tsx [BottomPortal]
+    chain: src/components/dynamics/Calendar.tsx <- src/utils/markdown/components/MarkdownTimestamp.tsx <- src/utils/markdown/rules.tsx <- src/utils/markdown/index.tsx <- src/providers/MarkdownProvider.tsx <- src/components/DiscordContentEditor/Mobile.tsx
+  host src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx [WarningDialog]
+    chain: src/components/dynamics/Calendar.tsx <- src/utils/markdown/components/MarkdownTimestamp.tsx <- src/utils/markdown/rules.tsx <- src/utils/markdown/index.tsx <- src/providers/MarkdownProvider.tsx <- src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx
+  host src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx [WarningDialog]
+    chain: src/components/dynamics/Calendar.tsx <- src/utils/markdown/components/MarkdownTimestamp.tsx <- src/utils/markdown/rules.tsx <- src/utils/markdown/index.tsx <- src/providers/MarkdownProvider.tsx <- src/components/DiscordMessageEditor/components/ComponentEditors/TextDisplayEditor.tsx <- src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx
+  host src/app/message/_components/NewMessageModal.tsx [PresetDialog]
+    chain: src/components/dynamics/Calendar.tsx <- src/utils/markdown/components/MarkdownTimestamp.tsx <- src/utils/markdown/rules.tsx <- src/utils/markdown/index.tsx <- src/providers/MarkdownProvider.tsx <- src/components/MessagePreview.tsx <- src/app/message/_components/NewMessageModal.tsx
+
+### dynamics/DiscordMessageEditor -> DiscordMessageEditor  consumer=components/dynamics/DiscordMessageEditor.tsx
+  host src/app/message/m/[id]/edit/page.tsx [ConfirmationDialog,PresetDialog]
+    chain: src/components/dynamics/DiscordMessageEditor.tsx <- src/app/message/m/[id]/edit/page.tsx
+  host src/app/message/_components/NewMessageModal.tsx [PresetDialog]
+    chain: src/components/dynamics/DiscordMessageEditor.tsx <- src/components/MessagePreview.tsx <- src/app/message/_components/NewMessageModal.tsx
+
+### dynamics/ImageUploader -> ImageUploader  consumer=components/dynamics/ImageUploader.tsx
+  host src/app/message/m/[id]/edit/page.tsx [ConfirmationDialog,PresetDialog]
+    chain: src/components/dynamics/ImageUploader.tsx <- src/components/DiscordMessageEditor/components/Author.tsx <- src/components/DiscordMessageEditor/index.tsx <- src/app/message/m/[id]/edit/page.tsx
+  host src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx [WarningDialog]
+    chain: src/components/dynamics/ImageUploader.tsx <- src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx <- src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx <- src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx
+  host src/app/message/_components/NewMessageModal.tsx [PresetDialog]
+    chain: src/components/dynamics/ImageUploader.tsx <- src/components/DiscordMessageEditor/components/Author.tsx <- src/components/DiscordMessageEditor/index.tsx <- src/components/dynamics/DiscordMessageEditor.tsx <- src/components/MessagePreview.tsx <- src/app/message/_components/NewMessageModal.tsx
+  host src/app/message/_layout/Sidebar.tsx [Drawer]
+    chain: src/components/dynamics/ImageUploader.tsx <- src/components/DiscordMessageEditor/components/Author.tsx <- src/components/DiscordMessageEditor/index.tsx <- src/utils/limits.tsx <- src/utils/index.ts <- src/app/message/_layout/Sidebar.tsx
+  host src/app/message/m/[id]/_components/SaveAsMenu.tsx [PresetDialog]
+    chain: src/components/dynamics/ImageUploader.tsx <- src/components/DiscordMessageEditor/components/Author.tsx <- src/components/DiscordMessageEditor/index.tsx <- src/utils/limits.tsx <- src/utils/index.ts <- src/app/message/m/[id]/_components/SaveAsMenu.tsx
+  host src/components/AnchoredPopover/Child.tsx [FloatingPortal]
+    chain: src/components/dynamics/ImageUploader.tsx <- src/components/DiscordMessageEditor/components/Author.tsx <- src/components/DiscordMessageEditor/index.tsx <- src/utils/limits.tsx <- src/utils/index.ts <- src/components/AnchoredPopover/Child.tsx
+  (+12 more host branches)
+
+### dynamics/Markdown -> Markdown  consumer=components/dynamics/Markdown.tsx
+  host src/components/DiscordContentEditor/Mobile.tsx [BottomPortal]
+    chain: src/components/dynamics/Markdown.tsx <- src/components/DiscordContentEditor/Mobile.tsx
+  host src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx [WarningDialog]
+    chain: src/components/dynamics/Markdown.tsx <- src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx
+  host src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx [WarningDialog]
+    chain: src/components/dynamics/Markdown.tsx <- src/components/DiscordContentEditor/index.tsx <- src/components/DiscordMessageEditor/components/ComponentEditors/TextDisplayEditor.tsx <- src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx
+  host src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx [WarningDialog]
+    chain: src/components/dynamics/Markdown.tsx <- src/components/DiscordContentEditor/index.tsx <- src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx <- src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx
+  host src/app/message/m/[id]/edit/page.tsx [ConfirmationDialog,PresetDialog]
+    chain: src/components/dynamics/Markdown.tsx <- src/components/DiscordContentEditor/index.tsx <- src/components/DiscordMessageEditor/components/ContentBody.tsx <- src/components/DiscordMessageEditor/index.tsx <- src/app/message/m/[id]/edit/page.tsx
+  host src/app/message/_components/NewMessageModal.tsx [PresetDialog]
+    chain: src/components/dynamics/Markdown.tsx <- src/components/DiscordContentEditor/index.tsx <- src/components/DiscordMessageEditor/components/ContentBody.tsx <- src/components/DiscordMessageEditor/index.tsx <- src/components/dynamics/DiscordMessageEditor.tsx <- src/components/MessagePreview.tsx <- src/app/message/_components/NewMessageModal.tsx
+  (+6 more host branches)
+
+### dynamics/SlateEditor -> SlateEditor  consumer=components/dynamics/SlateEditor.tsx
+  host src/components/DiscordContentEditor/Mobile.tsx [BottomPortal]
+    chain: src/components/dynamics/SlateEditor.tsx <- src/components/DiscordContentEditor/Mobile.tsx
+  host src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx [WarningDialog]
+    chain: src/components/dynamics/SlateEditor.tsx <- src/components/DiscordContentEditor/Desktop.tsx <- src/components/DiscordContentEditor/index.tsx <- src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx
+  host src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx [WarningDialog]
+    chain: src/components/dynamics/SlateEditor.tsx <- src/components/DiscordContentEditor/Desktop.tsx <- src/components/DiscordContentEditor/index.tsx <- src/components/DiscordMessageEditor/components/ComponentEditors/TextDisplayEditor.tsx <- src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx
+  host src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx [WarningDialog]
+    chain: src/components/dynamics/SlateEditor.tsx <- src/components/DiscordContentEditor/Desktop.tsx <- src/components/DiscordContentEditor/index.tsx <- src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx <- src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx
+  host src/app/message/m/[id]/edit/page.tsx [ConfirmationDialog,PresetDialog]
+    chain: src/components/dynamics/SlateEditor.tsx <- src/components/DiscordContentEditor/Desktop.tsx <- src/components/DiscordContentEditor/index.tsx <- src/components/DiscordMessageEditor/components/ContentBody.tsx <- src/components/DiscordMessageEditor/index.tsx <- src/app/message/m/[id]/edit/page.tsx
+
+### dynamics/ToastContainerWrapper -> ToastContainerWrapper  consumer=components/dynamics/ToastContainerWrapper.tsx
+  no dialog host reachable by import chain (depth<=7)
+
+### dynamics/Tooltip -> Tooltip  consumer=components/dynamics/Tooltip.tsx
+  host src/app/message/_components/NewMessageModal.tsx [PresetDialog]
+    chain: src/components/dynamics/Tooltip.tsx <- src/components/Button.tsx <- src/app/message/_components/NewMessageModal.tsx
+  host src/app/message/_layout/Sidebar.tsx [Drawer]
+    chain: src/components/dynamics/Tooltip.tsx <- src/components/Button.tsx <- src/app/message/_layout/Sidebar.tsx
+  host src/app/message/m/[id]/_components/SaveAsMenu.tsx [PresetDialog]
+    chain: src/components/dynamics/Tooltip.tsx <- src/components/Button.tsx <- src/app/message/m/[id]/_components/SaveAsMenu.tsx
+  host src/app/message/m/[id]/edit/page.tsx [ConfirmationDialog,PresetDialog]
+    chain: src/components/dynamics/Tooltip.tsx <- src/components/Button.tsx <- src/app/message/m/[id]/edit/page.tsx
+  host src/components/BottomPortal.tsx [createPortal]
+    chain: src/components/dynamics/Tooltip.tsx <- src/components/Button.tsx <- src/components/BottomPortal.tsx
+  host src/components/ConfirmationDialog.tsx [PresetDialog]
+    chain: src/components/dynamics/Tooltip.tsx <- src/components/Button.tsx <- src/components/ConfirmationDialog.tsx
+  (+12 more host branches)
+
+### self-markers of wrapper consumers
+  app/message/_components/NewMessageModal.tsx: PresetDialog
+  app/message/m/[id]/_components/JsonMenu.tsx: PresetDialog
+  components/AnchoredPopover/Child.tsx: FloatingPortal
+  components/EmojiPicker/Root.tsx: (none)
+  components/dynamics/Calendar.tsx: (none)
+  components/dynamics/DiscordMessageEditor.tsx: (none)
+  components/dynamics/ImageUploader.tsx: (none)
+  components/dynamics/Markdown.tsx: (none)
+  components/dynamics/SlateEditor.tsx: (none)
+  components/dynamics/ToastContainerWrapper.tsx: (none)
+  components/dynamics/Tooltip.tsx: (none)
+
+prod files=303 test files=129

@@ -1,0 +1,16 @@
+app/message/_components/NewMessageModal.tsx:1
+app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:1
+app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx:1
+app/message/m/[id]/_components/SaveAsMenu.tsx:1
+app/message/m/[id]/_components/__tests__/SaveAsMenu.readable-mutation-error.test.tsx:1
+app/message/m/[id]/_layout/Navigation.tsx:1
+components/AnchoredPopover/Child.tsx:3
+components/BottomPortal.tsx:13
+components/Button.tsx:1
+components/DiscordMessageEditor/components/ActionsMenu.tsx:1
+components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx:1
+components/Dropdown.tsx:3
+components/EmojiPicker/Picker/components/CategoryList/CustomCategoryItem.tsx:1
+components/__tests__/BottomPortal.unmount-cleanup.test.tsx:5
+components/TextField.tsx:1
+components/Tooltip.tsx:5

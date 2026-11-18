@@ -1,0 +1,14 @@
+origin/master:src/app/message/_components/NewMessageModal.tsx:45:const NewMessageJsonInput = dynamic(() => import('./NewMessageJsonInput'), { ssr: false });
+origin/master:src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:41:// Tooltip is dynamic()-loaded and reads `useIsMobile()`, which needs an `IsMobileProvider`
+origin/master:src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:63:// `NewMessageJsonInput` is next/dynamic()-loaded (`ssr: false`) but is always present in the DOM —
+origin/master:src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx:41:// Tooltip is dynamic()-loaded and reads `useIsMobile()`, which needs an `IsMobileProvider`
+origin/master:src/app/message/m/[id]/_components/JsonMenu.tsx:10:const JsonModalBody = dynamic(() => import('./JsonModalBody'), {
+origin/master:src/components/AnchoredPopover/Child.tsx:22:const FloatingPortal = dynamic(() => import('@floating-ui/react').then((mod) => mod.FloatingPortal), { ssr: true });
+origin/master:src/components/EmojiPicker/Root.tsx:17:const Picker = dynamic(() => import('./Picker'), {
+origin/master:src/components/dynamics/Calendar.tsx:3:export default dynamic(() => import('~/components/Calendar'), { ssr: true, loading: () => null });
+origin/master:src/components/dynamics/DiscordMessageEditor.tsx:5:export default dynamic(() => import('~/components/DiscordMessageEditor'), {
+origin/master:src/components/dynamics/ImageUploader.tsx:3:export default dynamic(() => import('~/components/ImageUploader'), { ssr: true, loading: () => null });
+origin/master:src/components/dynamics/Markdown.tsx:3:export default dynamic(() => import('~/components/Markdown'), { ssr: false, loading: () => null });
+origin/master:src/components/dynamics/SlateEditor.tsx:3:export default dynamic(() => import('~/components/SlateEditor'), { ssr: true, loading: () => null });
+origin/master:src/components/dynamics/ToastContainerWrapper.tsx:3:export default dynamic(() => import('~/components/ToastContainerWrapper'), { ssr: true, loading: () => null });
+origin/master:src/components/dynamics/Tooltip.tsx:7:const Tooltip = dynamic(() => import('../Tooltip'), { ssr: true, loading: () => null });

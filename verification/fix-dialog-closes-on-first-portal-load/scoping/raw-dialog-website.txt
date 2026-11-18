@@ -1,0 +1,246 @@
+origin/master:package.json:16:    "update-headlessui": "npm i @headlessui/react@latest @headlessui/tailwindcss@latest"
+origin/master:package.json:26:    "@headlessui/react": "^2.2.9",
+origin/master:package.json:27:    "@headlessui/tailwindcss": "^0.2.2",
+origin/master:pnpm-lock.yaml:37:      '@headlessui/react':
+origin/master:pnpm-lock.yaml:40:      '@headlessui/tailwindcss':
+origin/master:pnpm-lock.yaml:867:  '@headlessui/react@2.2.9':
+origin/master:pnpm-lock.yaml:874:  '@headlessui/tailwindcss@0.2.2':
+origin/master:pnpm-lock.yaml:7849:  '@headlessui/react@2.2.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+origin/master:pnpm-lock.yaml:7859:  '@headlessui/tailwindcss@0.2.2(tailwindcss@3.2.4(postcss@8.4.31)(ts-node@10.9.1(@types/node@22.15.29)(typescript@5.9.3)))':
+origin/master:src/@types/global.d.ts:13:  APIMessageComponentInteractionData as MessageComponentDataBase, APIModalSubmission,
+origin/master:src/@types/global.d.ts:440:    MODAL_SUBMIT: InteractionType.ModalSubmit;
+origin/master:src/@types/global.d.ts:494:  interface RawModalSubmit extends RawInteraction<InteractionTypes['MODAL_SUBMIT']> {
+origin/master:src/@types/global.d.ts:495:    data: APIModalSubmission;
+origin/master:src/app/_components/CookieConsent.tsx:3:import { Transition } from '@headlessui/react';
+origin/master:src/app/_components/LandingCTA.tsx:3:import { Transition } from '@headlessui/react';
+origin/master:src/app/message/_components/NewMessageModal.tsx:3:import { Transition } from '@headlessui/react';
+origin/master:src/app/message/_components/NewMessageModal.tsx:30:import PresetDialog, { DialogFooter } from '~/components/PresetDialog';
+origin/master:src/app/message/_components/NewMessageModal.tsx:62:const NewMessageModal: FC<Props> = (props) => {
+origin/master:src/app/message/_components/NewMessageModal.tsx:199:    <PresetDialog
+origin/master:src/app/message/_components/NewMessageModal.tsx:229:          <DialogFooter>
+origin/master:src/app/message/_components/NewMessageModal.tsx:234:          </DialogFooter>
+origin/master:src/app/message/_components/NewMessageModal.tsx:432:            <DialogFooter>
+origin/master:src/app/message/_components/NewMessageModal.tsx:450:            </DialogFooter>
+origin/master:src/app/message/_components/NewMessageModal.tsx:454:    </PresetDialog>
+origin/master:src/app/message/_components/NewMessageModal.tsx:458:export default memo(NewMessageModal);
+origin/master:src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx:7:import NewMessageModal from '../NewMessageModal';
+origin/master:src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx:36:      <NewMessageModal open onClose={() => {}} />
+origin/master:src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx:54:describe('NewMessageModal, a failed webhook load', () => {
+origin/master:src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:2: * `NewMessageModal`'s Save button writes a loaded, non-conflicting draft through
+origin/master:src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:25:// JsonModalBody.load-settled-notice.test.tsx for why (vi.mock's hoist analysis rejects any
+origin/master:src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:42:// ancestor NewMessageModal doesn't provide on its own — irrelevant to the write path under test,
+origin/master:src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:46:import NewMessageModal from '../NewMessageModal';
+origin/master:src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:50:// `PresetDialog` (headlessui `Dialog`) renders into a portal on `document.body`, not into the
+origin/master:src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:57:      <NewMessageModal open onClose={() => {}} />
+origin/master:src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:98:describe('NewMessageModal — Save writes a loaded, non-conflicting draft', () => {
+origin/master:src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx:2: * `NewMessageModal` renders its own `message.upsert` mutation's error through
+origin/master:src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx:7: * `NewMessageModal` renders into a portal on `document.body` (`PresetDialog`/headlessui `Dialog`),
+origin/master:src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx:19:// See JsonModalBody.load-settled-notice.test.tsx for why each factory inlines its own dynamic
+origin/master:src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx:42:// ancestor NewMessageModal doesn't provide on its own — irrelevant to the error formatting under
+origin/master:src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx:46:import NewMessageModal from '../NewMessageModal';
+origin/master:src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx:54:      <NewMessageModal open onClose={() => {}} />
+origin/master:src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx:59:describe('NewMessageModal — renders the mutation error through formatMutationError, not raw', () => {
+origin/master:src/app/message/_layout/Sidebar.tsx:3:import { FocusTrap, Transition } from '@headlessui/react';
+origin/master:src/app/message/_layout/Sidebar.tsx:145:// <Drawer
+origin/master:src/app/message/_layout/Sidebar.tsx:151:// </Drawer>
+origin/master:src/app/message/f/[id]/__tests__/page.message-list.test.tsx:33:vi.mock('../../../_components/NewMessageModal', () => ({ default: () => null }));
+origin/master:src/app/message/f/[id]/page.tsx:23:import NewMessageModal from '../../_components/NewMessageModal';
+origin/master:src/app/message/f/[id]/page.tsx:92:  const [newMessageModalOpen,
+origin/master:src/app/message/f/[id]/page.tsx:93:    { setTrue: openNewMessageModal, setFalse: closeNewMessageModal },
+origin/master:src/app/message/f/[id]/page.tsx:354:                      onPress={() => { openNewMessageModal(); close(); }}
+origin/master:src/app/message/f/[id]/page.tsx:583:      <NewMessageModal
+origin/master:src/app/message/f/[id]/page.tsx:584:        open={newMessageModalOpen}
+origin/master:src/app/message/f/[id]/page.tsx:585:        onClose={closeNewMessageModal}
+origin/master:src/app/message/m/[id]/_components/JsonMenu.tsx:7:import PresetDialog from '~/components/PresetDialog';
+origin/master:src/app/message/m/[id]/_components/JsonMenu.tsx:10:const JsonModalBody = dynamic(() => import('./JsonModalBody'), {
+origin/master:src/app/message/m/[id]/_components/JsonMenu.tsx:28:    <PresetDialog
+origin/master:src/app/message/m/[id]/_components/JsonMenu.tsx:35:      <JsonModalBody
+origin/master:src/app/message/m/[id]/_components/JsonMenu.tsx:39:    </PresetDialog>
+origin/master:src/app/message/m/[id]/_components/JsonModalBody.tsx:11:import { DialogFooter } from '~/components/PresetDialog';
+origin/master:src/app/message/m/[id]/_components/JsonModalBody.tsx:20:  applyDisposition, computeLoadDiff, describeDropSet, describeLoadDiff, jsonModalSeed,
+origin/master:src/app/message/m/[id]/_components/JsonModalBody.tsx:50:const JsonModalBody: FC<Props> = ({ onClose, setAllowMenuClose }) => {
+origin/master:src/app/message/m/[id]/_components/JsonModalBody.tsx:55:    jsonModalSeed(message),
+origin/master:src/app/message/m/[id]/_components/JsonModalBody.tsx:193:        <DialogFooter>
+origin/master:src/app/message/m/[id]/_components/JsonModalBody.tsx:198:        </DialogFooter>
+origin/master:src/app/message/m/[id]/_components/JsonModalBody.tsx:257:      <DialogFooter>
+origin/master:src/app/message/m/[id]/_components/JsonModalBody.tsx:291:      </DialogFooter>
+origin/master:src/app/message/m/[id]/_components/JsonModalBody.tsx:296:export default JsonModalBody;
+origin/master:src/app/message/m/[id]/_components/SaveAsMenu.tsx:14:import PresetDialog, { DialogFooter } from '~/components/PresetDialog';
+origin/master:src/app/message/m/[id]/_components/SaveAsMenu.tsx:87:      <PresetDialog
+origin/master:src/app/message/m/[id]/_components/SaveAsMenu.tsx:109:        <DialogFooter>
+origin/master:src/app/message/m/[id]/_components/SaveAsMenu.tsx:114:        </DialogFooter>
+origin/master:src/app/message/m/[id]/_components/SaveAsMenu.tsx:115:      </PresetDialog>
+origin/master:src/app/message/m/[id]/_components/SaveAsMenu.tsx:120:    <PresetDialog
+origin/master:src/app/message/m/[id]/_components/SaveAsMenu.tsx:162:      <DialogFooter>
+origin/master:src/app/message/m/[id]/_components/SaveAsMenu.tsx:180:      </DialogFooter>
+origin/master:src/app/message/m/[id]/_components/SaveAsMenu.tsx:181:    </PresetDialog>
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx:20:import JsonModalBody from '../JsonModalBody';
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx:26:    <JsonModalBody onClose={onClose} setAllowMenuClose={() => {}} />,
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx:53:describe('JsonModalBody — choosing Classic/V2 rewrites the editor', () => {
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx:20:import JsonModalBody from '../JsonModalBody';
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx:26:    <JsonModalBody onClose={() => {}} setAllowMenuClose={setAllowMenuClose} />,
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx:41:describe('JsonModalBody — conflict resting state', () => {
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx:7:import JsonModalBody from '../JsonModalBody';
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx:31:    <JsonModalBody onClose={() => {}} setAllowMenuClose={() => {}} />,
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx:44:describe('JsonModalBody — Copy to Clipboard needs a draft that parses and conforms', () => {
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx:2: * `JsonModalBody`'s Load gate floors the RESOLVED draft (`applyDisposition(validatedDraft)`),
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx:20:// See JsonModalBody.load-settled-notice.test.tsx for why each factory inlines its own dynamic
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx:30:import JsonModalBody from '../JsonModalBody';
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx:39:    <JsonModalBody onClose={() => {}} setAllowMenuClose={() => {}} />,
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx:51:describe('JsonModalBody — Load floors the RESOLVED draft, not the unresolved one', () => {
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx:18:import JsonModalBody from '../JsonModalBody';
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx:24:    <JsonModalBody onClose={() => {}} setAllowMenuClose={() => {}} />,
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx:35:describe('JsonModalBody — Load-site settled notice', () => {
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx:7:import JsonModalBody from '../JsonModalBody';
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx:39:        <JsonModalBody
+origin/master:src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx:61:describe('JsonModalBody — the menu may close once the Load confirmation resolves', () => {
+origin/master:src/app/message/m/[id]/_components/__tests__/SaveAsMenu.readable-mutation-error.test.tsx:3: * not the raw server message. Mounted for real, not read as source text. `NewMessageModal`'s own
+origin/master:src/app/message/m/[id]/_components/__tests__/SaveAsMenu.readable-mutation-error.test.tsx:5: * `NewMessageModal.readable-mutation-error.test.tsx` — the two mount recipes differ (SaveAsMenu
+origin/master:src/app/message/m/[id]/_components/__tests__/SaveAsMenu.readable-mutation-error.test.tsx:9: * `SaveAsMenu` renders into a portal on `document.body` (`PresetDialog`/headlessui `Dialog`), not
+origin/master:src/app/message/m/[id]/_components/__tests__/SaveAsMenu.readable-mutation-error.test.tsx:16:// See JsonModalBody.load-settled-notice.test.tsx for why each factory inlines its own dynamic
+origin/master:src/app/message/m/[id]/edit/page.tsx:12:import { BottomPortalContainer, BottomPortalProvider } from '~/components/BottomPortal';
+origin/master:src/app/message/m/[id]/edit/page.tsx:14:import ConfirmationDialog from '~/components/ConfirmationDialog';
+origin/master:src/app/message/m/[id]/edit/page.tsx:17:import PresetDialog from '~/components/PresetDialog';
+origin/master:src/app/message/m/[id]/edit/page.tsx:120:      void import('~/components/Drawer');
+origin/master:src/app/message/m/[id]/edit/page.tsx:158:                    <BottomPortalProvider>
+origin/master:src/app/message/m/[id]/edit/page.tsx:172:                      <BottomPortalContainer />
+origin/master:src/app/message/m/[id]/edit/page.tsx:173:                    </BottomPortalProvider>
+origin/master:src/app/message/m/[id]/edit/page.tsx:175:                  <ConfirmationDialog />
+origin/master:src/app/message/m/[id]/edit/page.tsx:176:                  <PresetDialog
+origin/master:src/app/message/m/[id]/edit/page.tsx:197:                  </PresetDialog>
+origin/master:src/app/message/m/[id]/send/_components/EditMessageMenu.tsx:1:import { Transition } from '@headlessui/react';
+origin/master:src/app/message/page.tsx:19:import NewMessageModal from './_components/NewMessageModal';
+origin/master:src/app/message/page.tsx:52:  const [newMessageModalOpen,
+origin/master:src/app/message/page.tsx:53:    { setTrue: openNewMessageModal, setFalse: closeNewMessageModal },
+origin/master:src/app/message/page.tsx:132:                    onPress={() => { openNewMessageModal(); close(); }}
+origin/master:src/app/message/page.tsx:363:      <NewMessageModal
+origin/master:src/app/message/page.tsx:364:        open={newMessageModalOpen}
+origin/master:src/app/message/page.tsx:365:        onClose={closeNewMessageModal}
+origin/master:src/components/AnchoredPopover/Child.tsx:1:import { Transition } from '@headlessui/react';
+origin/master:src/components/AnchoredPopover/Child.tsx:14:import type { TransitionClasses, TransitionEvents } from '@headlessui/react';
+origin/master:src/components/AnchoredPopover/Child.tsx:22:const FloatingPortal = dynamic(() => import('@floating-ui/react').then((mod) => mod.FloatingPortal), { ssr: true });
+origin/master:src/components/AnchoredPopover/Child.tsx:26:function renderPortal(
+origin/master:src/components/AnchoredPopover/Child.tsx:29:  isPortal: string | boolean | undefined,
+origin/master:src/components/AnchoredPopover/Child.tsx:31:  if (isMounted && isPortal) {
+origin/master:src/components/AnchoredPopover/Child.tsx:32:    const root = document.querySelector(isPortal === true ? 'body' : isPortal);
+origin/master:src/components/AnchoredPopover/Child.tsx:33:    return root ? <FloatingPortal>{children}</FloatingPortal> : children;
+origin/master:src/components/AnchoredPopover/Child.tsx:169:  return renderPortal(
+origin/master:src/components/AnchoredPopover/Trigger.tsx:53:    'data-headlessui-state': state.open ? 'open' : 'closed',
+origin/master:src/components/BottomPortal.tsx:7:import { createPortal } from 'react-dom';
+origin/master:src/components/BottomPortal.tsx:25:interface BottomPortalContext {
+origin/master:src/components/BottomPortal.tsx:31:const BottomPortalContext = createContext<BottomPortalContext | null>(null);
+origin/master:src/components/BottomPortal.tsx:32:const useBottomPortalState = () => {
+origin/master:src/components/BottomPortal.tsx:33:  const context = use(BottomPortalContext);
+origin/master:src/components/BottomPortal.tsx:34:  if (!context) throw new Error('useBottomPortalState must be used within a BottomPortal');
+origin/master:src/components/BottomPortal.tsx:37:const useBottomPortalContext = () => {
+origin/master:src/components/BottomPortal.tsx:74:export const BottomPortalProvider: FC<PropsWithChildren> = ({ children }) => {
+origin/master:src/components/BottomPortal.tsx:75:  const value = useBottomPortalContext();
+origin/master:src/components/BottomPortal.tsx:78:    <BottomPortalContext.Provider value={value}>
+origin/master:src/components/BottomPortal.tsx:80:    </BottomPortalContext.Provider>
+origin/master:src/components/BottomPortal.tsx:92:  return !children ? null : createPortal(
+origin/master:src/components/BottomPortal.tsx:119:export const BottomPortalContainer: FC = () => {
+origin/master:src/components/BottomPortal.tsx:120:  const { childrenProps, portalRef } = useBottomPortalState();
+origin/master:src/components/BottomPortal.tsx:145:const BottomPortal: FC<PropsWithChildren<Props>> = (props) => {
+origin/master:src/components/BottomPortal.tsx:147:  const { setChildrenProps } = useBottomPortalState();
+origin/master:src/components/BottomPortal.tsx:188:export default memo(BottomPortal);
+origin/master:src/components/ConfirmationDialog.tsx:7:import PresetDialog, { DialogFooter } from '~/components/PresetDialog';
+origin/master:src/components/ConfirmationDialog.tsx:21:      <DialogFooter>
+origin/master:src/components/ConfirmationDialog.tsx:32:      </DialogFooter>
+origin/master:src/components/ConfirmationDialog.tsx:36:const WarningDialog: FC = () => {
+origin/master:src/components/ConfirmationDialog.tsx:41:    <PresetDialog
+origin/master:src/components/ConfirmationDialog.tsx:47:    </PresetDialog>
+origin/master:src/components/ConfirmationDialog.tsx:51:export default memo(WarningDialog);
+origin/master:src/components/DiscordContentEditor/Mobile.tsx:13:import BottomPortal from '~/components/BottomPortal';
+origin/master:src/components/DiscordContentEditor/Mobile.tsx:41:  const [open, { set: setOpen, setTrue: openDrawer }] = useToggleState(false);
+origin/master:src/components/DiscordContentEditor/Mobile.tsx:77:          openDrawer();
+origin/master:src/components/DiscordContentEditor/Mobile.tsx:91:      <BottomPortal open={open} setOpen={onOpenChange} title={title} level={1}>
+origin/master:src/components/DiscordContentEditor/Mobile.tsx:120:      </BottomPortal>
+origin/master:src/components/DiscordMessageEditor/components/ActionsMenu.tsx:4:  FloatingFocusManager, FloatingList, FloatingPortal,
+origin/master:src/components/DiscordMessageEditor/components/ActionsMenu.tsx:119:        <FloatingPortal>
+origin/master:src/components/DiscordMessageEditor/components/ActionsMenu.tsx:138:        </FloatingPortal>
+origin/master:src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx:24:import WarningDialog from '~/components/WarningDialog';
+origin/master:src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx:214:      <WarningDialog
+origin/master:src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx:5:} from '@headlessui/react';
+origin/master:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx:12:import WarningDialog from '~/components/WarningDialog';
+origin/master:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx:150:        <WarningDialog
+origin/master:src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx:18:import WarningDialog from '~/components/WarningDialog';
+origin/master:src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx:146:      <WarningDialog
+origin/master:src/components/DiscordMessageEditor/index.tsx:5:} from '@headlessui/react';
+origin/master:src/components/Drawer/index.tsx:3:import { Dialog } from '@headlessui/react';
+origin/master:src/components/Drawer/index.tsx:174:const Drawer: FC<PropsWithChildren<Props>> = (props) => {
+origin/master:src/components/Drawer/index.tsx:228:    <Dialog
+origin/master:src/components/Drawer/index.tsx:238:      <Dialog.Panel className="pointer-events-none relative h-full w-full max-w-full">
+origin/master:src/components/Drawer/index.tsx:251:              <Dialog.Title as="h2" className={classNames(styles.flex({ cy: true, gap: 2 }), 'font-semibold leading-none text-mute')}>
+origin/master:src/components/Drawer/index.tsx:254:              </Dialog.Title>
+origin/master:src/components/Drawer/index.tsx:257:              <Dialog.Description className="text-xs leading-tight text-mute">{description}</Dialog.Description>
+origin/master:src/components/Drawer/index.tsx:263:      </Dialog.Panel>
+origin/master:src/components/Drawer/index.tsx:264:    </Dialog>
+origin/master:src/components/Drawer/index.tsx:277:      <Drawer
+origin/master:src/components/EmojiPicker/Picker/index.tsx:1:import { Transition } from '@headlessui/react';
+origin/master:src/components/EmojiPicker/Picker/index.tsx:15:import BottomPortal from '~/components/BottomPortal';
+origin/master:src/components/EmojiPicker/Picker/index.tsx:89:      <BottomPortal
+origin/master:src/components/EmojiPicker/Picker/index.tsx:128:      </BottomPortal>
+origin/master:src/components/EmojiPicker/Root.tsx:89:            data-headlessui-state={showPicker ? 'open' : 'closed'}
+origin/master:src/components/EmojiPicker/Root.tsx:113:              data-headlessui-state={showPicker ? 'open' : 'closed'}
+origin/master:src/components/ImageUploader.tsx:14:import PresetDialog, { DialogFooter } from '~/components/PresetDialog';
+origin/master:src/components/ImageUploader.tsx:91:    <PresetDialog
+origin/master:src/components/ImageUploader.tsx:130:      <DialogFooter>
+origin/master:src/components/ImageUploader.tsx:154:      </DialogFooter>
+origin/master:src/components/ImageUploader.tsx:155:    </PresetDialog>
+origin/master:src/components/PresetDialog.tsx:3:import { Dialog, Transition } from '@headlessui/react';
+origin/master:src/components/PresetDialog.tsx:29:const Dialogue: FC<PropsWithChildren<Props>> = ({
+origin/master:src/components/PresetDialog.tsx:35:      <Dialog id={id} className="relative z-10" onClose={disableExternalClose || !onClose ? () => {} : onClose} unmount={unmount}>
+origin/master:src/components/PresetDialog.tsx:49:              <Dialog.Panel
+origin/master:src/components/PresetDialog.tsx:57:                  <Dialog.Title id={`${id}-title`} className="font-bold">{title}</Dialog.Title>
+origin/master:src/components/PresetDialog.tsx:65:              </Dialog.Panel>
+origin/master:src/components/PresetDialog.tsx:69:      </Dialog>
+origin/master:src/components/PresetDialog.tsx:74:export const DialogFooter: FC<PropsWithChildren> = ({ children }) => (
+origin/master:src/components/PresetDialog.tsx:80:export default memo(Dialogue);
+origin/master:src/components/RadioButtonGroup.tsx:65:      data-headlessui-state={isSelected ? 'checked' : 'unchecked'}
+origin/master:src/components/ToastContainerWrapper.tsx:3:import { Portal } from '@headlessui/react';
+origin/master:src/components/ToastContainerWrapper.tsx:22:    <Portal refName='toast-root'>
+origin/master:src/components/ToastContainerWrapper.tsx:34:    </Portal>
+origin/master:src/components/Toggle.tsx:3:import { Switch } from '@headlessui/react';
+origin/master:src/components/Tooltip.tsx:6:import { Transition } from '@headlessui/react';
+origin/master:src/components/Tooltip.tsx:11:import { createPortal } from 'react-dom';
+origin/master:src/components/Tooltip.tsx:20:const renderPortal = (node: React.JSX.Element, portal: boolean) => (portal ? createPortal(node, document.body) : node);
+origin/master:src/components/Tooltip.tsx:127:  const tooltip = !isOpen ? null : renderPortal(
+origin/master:src/components/WarningDialog.tsx:5:import PresetDialog, { DialogFooter } from '~/components/PresetDialog';
+origin/master:src/components/WarningDialog.tsx:16:const WarningDialog: FC<Props> = ({
+origin/master:src/components/WarningDialog.tsx:24:    <PresetDialog title={title} open={open} onClose={onClose}>
+origin/master:src/components/WarningDialog.tsx:27:        <DialogFooter>
+origin/master:src/components/WarningDialog.tsx:38:        </DialogFooter>
+origin/master:src/components/WarningDialog.tsx:40:    </PresetDialog>
+origin/master:src/components/WarningDialog.tsx:44:export default memo(WarningDialog);
+origin/master:src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx:6:import BottomPortal, { BottomPortalContainer, BottomPortalProvider } from '../BottomPortal';
+origin/master:src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx:18:    <BottomPortalProvider>
+origin/master:src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx:19:      <BottomPortalContainer />
+origin/master:src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx:21:        <BottomPortal open title="Pick one" level={0} setOpen={() => {}}>
+origin/master:src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx:23:        </BottomPortal>
+origin/master:src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx:25:    </BottomPortalProvider>
+origin/master:src/providers/GuildProvider.tsx:141:    // showAuthErrorModal,
+origin/master:src/providers/GuildProvider.tsx:142:    // hideAuthErrorModal,
+origin/master:src/providers/MessageProvider/SaveChoiceModal.tsx:6:import PresetDialog, { DialogFooter } from '~/components/PresetDialog';
+origin/master:src/providers/MessageProvider/SaveChoiceModal.tsx:16:const SaveChoiceModal: FC<Props> = ({ options, onChoose, onCancel }) => (
+origin/master:src/providers/MessageProvider/SaveChoiceModal.tsx:17:  <PresetDialog open title="Are you sure?" onClose={onCancel}>
+origin/master:src/providers/MessageProvider/SaveChoiceModal.tsx:35:    <DialogFooter>
+origin/master:src/providers/MessageProvider/SaveChoiceModal.tsx:40:    </DialogFooter>
+origin/master:src/providers/MessageProvider/SaveChoiceModal.tsx:41:  </PresetDialog>
+origin/master:src/providers/MessageProvider/SaveChoiceModal.tsx:44:export default SaveChoiceModal;
+origin/master:src/providers/MessageProvider/index.tsx:11:import SaveChoiceModal from './SaveChoiceModal';
+origin/master:src/providers/MessageProvider/index.tsx:326:        <SaveChoiceModal
+origin/master:src/styles/index.ts:3:import type { TransitionClasses } from '@headlessui/react';
+origin/master:src/utils/__tests__/discordResponseToMessage.rowE-persist-gate.test.ts:8: * `NewMessageModal`'s own wiring — whether its Save button actually lets a user act on a row-E
+origin/master:src/utils/__tests__/discordResponseToMessage.rowE-persist-gate.test.ts:10: * separately, in `NewMessageModal.persist-gate-wiring.test.tsx`.
+origin/master:src/utils/__tests__/formatMutationError.zod-issue-formatting.test.ts:6: * Whether the two `message.upsert` error surfaces (`SaveAsMenu.tsx`, `NewMessageModal.tsx`)
+origin/master:src/utils/__tests__/formatMutationError.zod-issue-formatting.test.ts:8: * `SaveAsMenu.readable-mutation-error.test.tsx` and `NewMessageModal.readable-mutation-error.test.tsx`.
+origin/master:src/utils/__tests__/loadDiff.mode-naming.test.ts:5: * `JsonModalBody` computes its Load confirmation from `computeLoadDiff`/`describeLoadDiff` over
+origin/master:src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:30:  stripKeys, jsonModalSeed, resolveContentLoss, applyDisposition,
+origin/master:src/utils/__tests__/useApiMethods.json-editor-repair.test.ts:63:    const displayed = jsonModalSeed(stored);
+origin/master:src/utils/__tests__/utils.rowd-load-disposition.test.ts:3:import { applyDisposition, jsonModalSeed, resolveContentLoss } from '~/utils';
+origin/master:src/utils/__tests__/utils.rowd-load-disposition.test.ts:94:  const seeded = () => JSON.parse(jsonModalSeed(STORED_5712_FULL as never));
+origin/master:src/utils/__tests__/utils.save-payload-and-seed.test.ts:7:import { saveAsPayload, jsonModalSeed } from '~/utils';
+origin/master:src/utils/__tests__/utils.save-payload-and-seed.test.ts:31:describe('jsonModalSeed (JsonModalBody seed)', () => {
+origin/master:src/utils/__tests__/utils.save-payload-and-seed.test.ts:39:    const seed = jsonModalSeed(message as never);
+origin/master:src/utils/index.ts:674:export function jsonModalSeed(message: null | undefined | ActiveMessage): string {
+origin/master:tailwind.config.js:119:    require('@headlessui/tailwindcss'),

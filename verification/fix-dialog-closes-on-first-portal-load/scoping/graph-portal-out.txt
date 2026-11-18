@@ -1,0 +1,45 @@
+
+### portal consumer: Navigation  consumer=app/message/m/[id]/_layout/Navigation.tsx
+  no dialog host reachable by import chain (depth<=7)
+
+### portal consumer: ColorPicker  consumer=components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx
+  host src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx [WarningDialog]
+    chain: src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx <- src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx
+  host src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx [WarningDialog]
+    chain: src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx <- src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx
+
+### portal consumer: SaveAsMenu  consumer=app/message/m/[id]/_components/SaveAsMenu.tsx
+  host src/app/message/m/[id]/_components/SaveAsMenu.tsx [PresetDialog]
+    chain: src/app/message/m/[id]/_components/SaveAsMenu.tsx
+
+### portal consumer: NewMessageModal  consumer=app/message/_components/NewMessageModal.tsx
+  host src/app/message/_components/NewMessageModal.tsx [PresetDialog]
+    chain: src/app/message/_components/NewMessageModal.tsx
+
+### non-portal AnchoredPopover consumer: Header  consumer=app/message/_layout/Header.tsx
+  no dialog host reachable by import chain (depth<=7)
+
+### non-portal AnchoredPopover consumer: NavMenu  consumer=app/_components/NavMenu.tsx
+  no dialog host reachable by import chain (depth<=7)
+
+### non-portal AnchoredPopover consumer: WebhookMenu  consumer=app/message/m/[id]/send/_components/WebhookMenu/index.tsx
+  no dialog host reachable by import chain (depth<=7)
+
+### non-portal AnchoredPopover consumer: f/[id] page  consumer=app/message/f/[id]/page.tsx
+  no dialog host reachable by import chain (depth<=7)
+
+### non-portal AnchoredPopover consumer: message page  consumer=app/message/page.tsx
+  no dialog host reachable by import chain (depth<=7)
+
+### self-markers of wrapper consumers
+  app/message/m/[id]/_layout/Navigation.tsx: (none)
+  components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx: (none)
+  app/message/m/[id]/_components/SaveAsMenu.tsx: PresetDialog
+  app/message/_components/NewMessageModal.tsx: PresetDialog
+  app/message/_layout/Header.tsx: (none)
+  app/_components/NavMenu.tsx: (none)
+  app/message/m/[id]/send/_components/WebhookMenu/index.tsx: (none)
+  app/message/f/[id]/page.tsx: (none)
+  app/message/page.tsx: (none)
+
+prod files=303 test files=129
