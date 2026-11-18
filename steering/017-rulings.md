@@ -76,3 +76,36 @@ absent, `ls -d`), with one `owner-wait` notice (chain `017`, key `017-rev0-stori
    the saving user** / **Agent: decide after the fix ships**.
 Recipients of his answers: `planner-hooks-017` (owns both); the analyst is not affected (AN scopes
 unchanged by either).
+
+## 2026-11-18T22:25Z — OQ-6 restated by the planner; put to him as a third question
+
+Planner message: OQ-6 restated at agent-output `53a438d`; it withdraws its earlier premise ("That
+error was mine"). Its new base count through the shared tree's install with `395510e` emulated
+(method `verification/017/entry/lint-base/README.md`): 314 errors, 368 warnings in 113 of 453 files
+before any fix; after the script's own fixes 50 errors, 365 warnings in 72 files. Gate disclosure
+(its): the record-write gate refused its shell heredoc; written with the Write tool; disclosed in
+the plan's R-1 row. It parked the `page.goto` candidate as a Planner batch row.
+
+Premises read by this thread before putting it, independent of the planner's capture:
+- 314 / 368 matches the steering helper's export count (`verification/017/steering-refute/c1-eslint4.json`);
+  50 errors / 364 warnings after fixes and **70 files rewritten** by the script's fixes — `python3`
+  over the helper's `c1-shared-dry.json` (454 files; `output` present in 70), a tree run carrying
+  chain A's rule edit.
+- **The record's 34 are still present at the base, in the same two files** (`c1-eslint4.json`):
+  `src/utils/__tests__/utils.disposition-resolver.test.ts` 28 errors, 4 warnings, all 32 fixable by
+  ESLint (`import/first`, `object-curly-newline`, `@typescript-eslint/no-non-null-assertion`);
+  `src/utils/index.ts` 2 errors, not auto-fixable (`import/no-cycle`, `no-nested-ternary`).
+
+**Put to him 22:25Z, plain-message form, as the third item beside the two of 22:18Z** (same
+owner-wait, key `017-rev0-stories-oq1`, not re-sent). Options — the planner's four, then one this
+thread composed from Recommendation 1's own words:
+- **Agent: record the base result as accepted, fix none** (the planner's recommendation).
+- **Agent: commit ESLint's own fixes as the last milestone (70 files, reviewed as code), record the
+  remaining 415**.
+- **Agent: as above, plus fix the 50 remaining errors**.
+- **Agent: fix everything so the lint script passes**.
+- **Agent: fix only the 34 the record names, in its two files** (this thread's; 32 by ESLint's own
+  fixes in one test file, 2 by hand in `src/utils/index.ts`, a file item 5 already changes).
+Recommendation (one place): the planner's.
+Recipients: `planner-hooks-017`; `fixer-fix-dialog-closes-on-first-portal-load` is not affected
+(its lint rule adds no finding beyond its own site — its claim, under review).
