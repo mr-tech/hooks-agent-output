@@ -184,3 +184,34 @@ Helper (`general-purpose-sonnet`, capped vitest runs in a `git archive 395510e` 
   listener and record the limit, adding no prompt** / **Agent: leave it as it is**.
 - Item 3 told, not asked: the plan fixes the in-flight-edit path as the planner's mechanism choice.
 Recipients: `planner-hooks-017`.
+
+## 2026-11-18T23:08Z — his six answers, by selection
+
+Put as two selection prompts at 23:0xZ, answered 23:08Z, all by selection (his words: none beyond
+the labels). Ledger: `steering/selection-ledger/2026-11-18.md`, blocks "2026-11-18T23:08Z —
+steering-roadmap" (line 32: questions 1 to 4; line 65: questions 5 and 6). Options as put are in the
+ledger and in the blocks above (22:18Z, 22:25Z, 22:27Z, 22:32Z); labels shortened for the prompt.
+- **Stories:** "Agent: proceed on all four (Recommended)" — the planner writes milestones for all
+  four stories as worded, in revision 1.
+- **Preview failure (OQ-1):** "Agent: website logs failures (Recommended)" — the website writes one
+  line per failed or unreachable preview to Vercel's logs; no user sees anything.
+- **Lint (OQ-6):** "Agent: accept, fix none (Recommended)" — today's result recorded as the known
+  baseline; no source files change for lint.
+- **Vercel read (G-1):** "Agent: read under hooks-gg (Recommended)" — the analyst runs
+  `vercel project inspect hooks-gg-website --scope hooks-gg`, read-only, and records both values.
+- **Signed-out edits (Q-A):** "Agent: fix at source + warnings (Recommended)" — fix the shared-draft
+  losses at their source (a draft survives sign-in, another tab and the expired-session sign-out)
+  and turn the existing warnings on for signed-out users; revision 1 prices it.
+- **Leave warning (Q-B):** "Agent: warn on link clicks (Recommended)" — warn on a link click away
+  from an editor with unsaved changes, for everyone (a new prompt signed-in users will see), and
+  record the navigations that cannot be stopped as a known limit.
+Recipients: `planner-hooks-017` (all six), `analyst-hooks-017` (the Vercel read). The owner-wait
+(key `017-rev0-stories-oq1`) is cleared.
+
+**This thread's error, recorded at his question "Why did you not provide that as a prompt to begin
+with?":** the plain-message form was the rule while chain A could move (22:18Z to 22:56Z). Once
+chain A closed out at 22:56Z, the next standing check (23:0xZ) was the first where nothing this
+thread steers could move, and steering.md says the ask is re-put then as a selection prompt; this
+thread re-asked in plain text instead and switched only after his "continue". The check that would
+have caught it: at each standing check, ask whether any chain can still move without him; if none
+can, put the open asks as a selection prompt in that turn.
