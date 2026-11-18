@@ -1,0 +1,15 @@
+Preparing worktree (detached HEAD 1ad625e)
+HEAD is now at 1ad625e fix(website): a portaled popover no longer closes the dialog it opens inside on its first load
+ src/components/AnchoredPopover/Child.tsx                       | 10 ++++------
+ .../__tests__/Child.portal-inside-open-dialog.test.tsx         |  1 -
+ 2 files changed, 4 insertions(+), 7 deletions(-)
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/cce5911b-dc86-4a5a-afe8-8296149d5257/scratchpad/wt-alias
+
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  22:17:13
+   Duration  1.82s (transform 227ms, setup 59ms, import 818ms, tests 244ms, environment 572ms)
+
+exit=0

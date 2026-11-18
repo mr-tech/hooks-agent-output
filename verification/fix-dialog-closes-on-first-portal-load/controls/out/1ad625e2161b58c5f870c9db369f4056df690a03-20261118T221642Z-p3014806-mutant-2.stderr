@@ -1,0 +1,130 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx > AnchoredPopover.Child with a portal, inside an open dialog > renders the popover into a portal outside the dialog panel
+AssertionError: expected <div class="relative z-10" …(11)>…(3)</div> to be null
+
+- Expected:
+null
+
++ Received:
+<div
+  aria-labelledby="react-aria-_r_d_-title"
+  aria-modal="true"
+  class="relative z-10"
+  data-closed=""
+  data-enter=""
+  data-headlessui-state="open"
+  data-open=""
+  data-transition=""
+  id="react-aria-_r_d_"
+  role="dialog"
+  style=""
+  tabindex="-1"
+>
+  <div
+    aria-hidden="true"
+    class="fixed inset-0 bg-black/60 transition-opacity opacity-0"
+    data-closed=""
+    data-enter=""
+    data-transition=""
+    style=""
+  />
+  <div
+    class="fixed inset-0 overflow-y-auto"
+  >
+    <div
+      class="flex justify-center items-center min-h-screen xs:p-4"
+    >
+      <div
+        class="flex flex-col gap-4 max-w-xl w-full rounded bg-secondary p-4 shadow drop-shadow dark:bg-primary xs:w-96 sm:w-3/4 transition ease-out duration-100 scale-95 opacity-0"
+        data-closed=""
+        data-enter=""
+        data-headlessui-state="open"
+        data-open=""
+        data-transition=""
+        id="headlessui-dialog-panel-_r_k_"
+        style=""
+      >
+        <div
+          class="flex justify-between w-full"
+        >
+          <h2
+            class="font-bold"
+            data-headlessui-state="open"
+            data-open=""
+            id="react-aria-_r_d_-title"
+          >
+            Dialog hosting a portaled dropdown
+          </h2>
+          <button
+            aria-label="close modal"
+            class="disabled:opacity-50"
+            data-react-aria-pressable="true"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="h-6 w-6 text-mute"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"
+              />
+            </svg>
+          </button>
+        </div>
+        <button
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          class="flex justify-center items-center gap-1 rounded pr-2 pl-3 rounded bg-secondary shadow drop-shadow dark:bg-tertiary transition-colors enabled:hover:bg-tertiary enabled:focus:bg-tertiary enabled:dark:hover:bg-zinc-700 enabled:dark:focus:bg-zinc-700 disabled:opacity-50"
+          data-headlessui-state="closed"
+          data-react-aria-pressable="true"
+          tabindex="0"
+          type="button"
+        >
+          Save To
+          <svg
+            aria-hidden="true"
+            class="h-6 w-6 transition-transform duration-75 opened:-scale-y-100"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    data-floating-ui-portal=""
+    id="_r_p_"
+  >
+    <div
+      data-floating-ui-focusable=""
+      id="react-aria-_r_o_"
+      role="dialog"
+      style="position: absolute; top: 0px; left: 0px; width: max-content; z-index: 10;"
+      tabindex="-1"
+    />
+  </div>
+</div>
+
+ ❯ src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx:70:51
+     68|     const portal = await waitForFloatingPortal();
+     69|
+     70|     expect(portal.closest('[aria-modal="true"]')).toBeNull();
+       |                                                   ^
+     71|     expect(portal.parentElement).toBe(document.body);
+     72|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

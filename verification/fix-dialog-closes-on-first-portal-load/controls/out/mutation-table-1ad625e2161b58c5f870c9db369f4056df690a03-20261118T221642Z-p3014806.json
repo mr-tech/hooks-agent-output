@@ -1,0 +1,125 @@
+{
+ "sha": "1ad625e2161b58c5f870c9db369f4056df690a03",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-dialog-closes-on-first-portal-load/controls/mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-dialog-closes-on-first-portal-load/controls/mutants.json",
+   "blob": "f344da8feee0aff2842747e3c136d1c652362921"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-dialog-closes-on-first-portal-load/controls/out/1ad625e2161b58c5f870c9db369f4056df690a03-20261118T221642Z-p3014806-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-dialog-closes-on-first-portal-load/controls/out/1ad625e2161b58c5f870c9db369f4056df690a03-20261118T221642Z-p3014806-control-1.stderr",
+   "seconds": 2.93,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 2,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "restore-lazy-floating-portal",
+   "run": "mutant-1",
+   "file": "src/components/AnchoredPopover/Child.tsx",
+   "tests": [],
+   "carried": {
+    "expect": "case 1 red: the dialog host is hidden"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2,
+   "control_tests_run": 2,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx > AnchoredPopover.Child with a portal, inside an open dialog > opening the dialog never hides it while the portaled popover renders for the first time"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.9,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-dialog-closes-on-first-portal-load/controls/out/1ad625e2161b58c5f870c9db369f4056df690a03-20261118T221642Z-p3014806-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-dialog-closes-on-first-portal-load/controls/out/1ad625e2161b58c5f870c9db369f4056df690a03-20261118T221642Z-p3014806-mutant-1.stderr"
+  },
+  {
+   "id": "portal-into-dialog-panel",
+   "run": "mutant-2",
+   "file": "src/components/AnchoredPopover/Child.tsx",
+   "tests": [],
+   "carried": {
+    "expect": "case 2 red: the popover portal sits inside the dialog"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2,
+   "control_tests_run": 2,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx > AnchoredPopover.Child with a portal, inside an open dialog > renders the popover into a portal outside the dialog panel"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.85,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-dialog-closes-on-first-portal-load/controls/out/1ad625e2161b58c5f870c9db369f4056df690a03-20261118T221642Z-p3014806-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-dialog-closes-on-first-portal-load/controls/out/1ad625e2161b58c5f870c9db369f4056df690a03-20261118T221642Z-p3014806-mutant-2.stderr"
+  },
+  {
+   "id": "no-portal",
+   "run": "mutant-3",
+   "file": "src/components/AnchoredPopover/Child.tsx",
+   "tests": [],
+   "carried": {
+    "expect": "both cases red: no floating portal renders"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2,
+   "control_tests_run": 2,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx > AnchoredPopover.Child with a portal, inside an open dialog > opening the dialog never hides it while the portaled popover renders for the first time",
+    "|dom| src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx > AnchoredPopover.Child with a portal, inside an open dialog > renders the popover into a portal outside the dialog panel"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.97,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-dialog-closes-on-first-portal-load/controls/out/1ad625e2161b58c5f870c9db369f4056df690a03-20261118T221642Z-p3014806-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-dialog-closes-on-first-portal-load/controls/out/1ad625e2161b58c5f870c9db369f4056df690a03-20261118T221642Z-p3014806-mutant-3.stderr"
+  }
+ ],
+ "score": "3 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob f344da8feee0aff2842747e3c136d1c652362921))"
+}

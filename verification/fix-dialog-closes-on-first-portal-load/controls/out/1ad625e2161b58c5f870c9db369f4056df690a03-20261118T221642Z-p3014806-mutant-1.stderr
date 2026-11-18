@@ -1,0 +1,24 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx > AnchoredPopover.Child with a portal, inside an open dialog > opening the dialog never hides it while the portaled popover renders for the first time
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "<div data-headlessui-portal style>",
++ ]
+
+ ❯ src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx:60:29
+     58|     recorder.stop();
+     59|
+     60|     expect(recorder.hidden).toEqual([]);
+       |                             ^
+     61|     expect(document.body.querySelector('[aria-modal="true"]')?.textCon…
+     62|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

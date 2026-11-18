@@ -1,0 +1,29 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx > AnchoredPopover.Child with a portal, inside an open dialog > opening the dialog never hides it while the portaled popover renders for the first time
+Error: the dropdown never rendered its floating portal
+ ❯ waitForFloatingPortal src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx:46:9
+     44|     await act(async () => { await import('@floating-ui/react'); });
+     45|   }
+     46|   throw new Error('the dropdown never rendered its floating portal');
+       |         ^
+     47| }
+     48|
+ ❯ src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx:57:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx > AnchoredPopover.Child with a portal, inside an open dialog > renders the popover into a portal outside the dialog panel
+Error: the dropdown never rendered its floating portal
+ ❯ waitForFloatingPortal src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx:46:9
+     44|     await act(async () => { await import('@floating-ui/react'); });
+     45|   }
+     46|   throw new Error('the dropdown never rendered its floating portal');
+       |         ^
+     47| }
+     48|
+ ❯ src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx:68:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

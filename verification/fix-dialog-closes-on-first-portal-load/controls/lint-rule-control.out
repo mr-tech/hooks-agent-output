@@ -1,0 +1,8 @@
+{"case":"base Child.tsx (395510e)","noRestrictedSyntaxLines":[22],"fatal":[]}
+{"case":"fixed Child.tsx (working tree)","noRestrictedSyntaxLines":[],"fatal":[]}
+{"case":"A no options","noRestrictedSyntaxLines":[3],"fatal":[]}
+{"case":"B ssr true, no loading","noRestrictedSyntaxLines":[3],"fatal":[]}
+{"case":"C ssr false","noRestrictedSyntaxLines":[],"fatal":[]}
+{"case":"D loading","noRestrictedSyntaxLines":[],"fatal":[]}
+{"case":"E loading only inside the loader","noRestrictedSyntaxLines":[3],"fatal":[]}
+exit=0

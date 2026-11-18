@@ -1,0 +1,176 @@
+import { Transition } from '@headlessui/react';
+import classNames from 'classnames';
+import dynamic from 'next/dynamic';
+import {
+  Fragment, isValidElement, memo, useCallback, useMemo,
+} from 'react';
+import { useId } from 'react-aria';
+
+import Arrow from '../Arrow';
+
+import renderTrap from './renderTrap';
+import { usePopoverState } from './utils';
+
+import type { TransitionClasses, TransitionEvents } from '@headlessui/react';
+import type {
+  ElementType, HTMLProps, ReactElement, ReactNode, Ref,
+} from 'react';
+
+import { extractKeys } from '~/utils';
+import { useMounted } from '~/utils/hooks';
+
+const FloatingPortal = dynamic(() => import('@floating-ui/react').then((mod) => mod.FloatingPortal), { ssr: true });
+
+const SHADOW_STYLE = 'shadow-md drop-shadow';
+
+function renderPortal(
+  children: ReactElement,
+  isMounted: boolean,
+  isPortal: string | boolean | undefined,
+) {
+  if (isMounted && isPortal) {
+    const root = document.querySelector(isPortal === true ? 'body' : isPortal);
+    return root ? <FloatingPortal>{children}</FloatingPortal> : children;
+  }
+  return children;
+}
+
+type TransitionProps = TransitionClasses & TransitionEvents & {
+  appear?: boolean;
+};
+
+interface Props extends Omit<HTMLProps<HTMLDivElement>, 'as' | 'children' | 'className'>, Omit<TransitionProps, 'children' | 'className'> {
+  transitionAs?: ElementType;
+  as?: ElementType;
+  forwardedRef?: Ref<HTMLElement> | ((instance: HTMLElement | null) => void);
+  portal?: boolean | string;
+  zIndex?: string | number;
+  children: ReactNode | ((props: { close: () => void }) => ReactElement);
+  className?: string;
+  trapFocus?: boolean;
+  focusContain?: boolean;
+  focusRestore?: boolean;
+}
+
+const AnchoredPopoverChild: FC<Props> = (props) => {
+  let [transitionProps, {
+    transitionAs = 'div', as: childAs, children, zIndex, portal, style,
+    trapFocus = false, focusContain = true, focusRestore = false,
+    autoFocus = true, className, forwardedRef,
+    ...floatProps
+  }] = extractKeys(props, [
+    'enter',
+    'enterFrom',
+    'enterTo',
+    'entered',
+    'leave',
+    'leaveFrom',
+    'leaveTo',
+    'beforeEnter',
+    'afterEnter',
+    'beforeLeave',
+    'afterLeave',
+    'appear',
+  ]);
+
+  const isMounted = useMounted();
+  const state = usePopoverState();
+
+  const {
+    x, y, strategy, middlewareData, placement, open, getFloatingProps,
+    refs: { setFloating: floating },
+    setOpen: stateSetOpen, arrowRef, arrow, dataState, flipped,
+  } = state;
+
+  const setOpen = useCallback(() => { stateSetOpen(true); }, [stateSetOpen]);
+  const setClose = useCallback(() => { stateSetOpen(false); }, [stateSetOpen]);
+
+  children = useMemo<ReactElement | ReactNode>(() => (typeof children === 'function' ? children({ close: setClose }) : children), [children, setClose]);
+
+  const stateProps: Record<string, string> = {};
+  if (dataState && state.open) stateProps[`data-${dataState}-state`] = 'true';
+  const floatingProps = {
+    ref: floating,
+    id: useId(),
+    style: {
+      position: strategy,
+      top: y ?? 0,
+      left: x ?? 0,
+      width: 'max-content',
+      zIndex: zIndex ?? 10,
+    },
+    ...stateProps,
+    suppressHydrationWarning: true,
+  };
+
+  const trapProps = trapFocus
+    ? { contain: focusContain, restoreFocus: focusRestore, autoFocus }
+    : undefined;
+  let child;
+  if (childAs === Fragment) {
+    if (!isValidElement(children)) throw Error('<AnchorPopover.Child as={Fragment} /> must have a single child.');
+    child = (
+      <Transition
+        as={transitionAs}
+        show={isMounted ? open : false}
+        data-flipped-state={flipped}
+        beforeEnter={setOpen}
+        beforeLeave={setClose}
+        {...transitionProps}
+        {...floatingProps}
+      >
+        {renderTrap(
+          <children.type
+            {...(children.props as Record<string, unknown>)}
+            key={(children.props as Record<string, unknown>).key as string}
+            style={style}
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+            className={classNames((children.props as Record<string, unknown>).className as string, SHADOW_STYLE, className)}
+            {...getFloatingProps(floatProps)}
+            ref={forwardedRef}
+          />,
+          trapProps,
+        )}
+      </Transition>
+    );
+  } else {
+    const FloatingWrapper = childAs ?? 'div';
+    child = (
+      <FloatingWrapper
+        {...getFloatingProps(floatProps)}
+        {...floatingProps}
+      >
+        <Transition
+          as={transitionAs}
+          show={isMounted ? open : false}
+          data-flipped-state={flipped}
+          beforeEnter={setOpen}
+          beforeLeave={setClose}
+          {...transitionProps}
+          style={style}
+          className={classNames(SHADOW_STYLE, className)}
+          ref={forwardedRef}
+        >
+          {!arrow ? null : (
+            <Arrow
+              arrow={middlewareData.arrow}
+              arrowRef={arrowRef}
+              placement={placement}
+              fill="var(--background-tertiary)"
+              size={60}
+            />
+          )}
+          {renderTrap(children, trapProps)}
+        </Transition>
+      </FloatingWrapper>
+    );
+  }
+
+  return renderPortal(
+    child,
+    isMounted,
+    portal,
+  );
+};
+
+export default memo(AnchoredPopoverChild);

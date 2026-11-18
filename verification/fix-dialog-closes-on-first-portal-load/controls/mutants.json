@@ -1,0 +1,14 @@
+[
+  {"id": "restore-lazy-floating-portal", "file": "src/components/AnchoredPopover/Child.tsx",
+   "old": "import { FloatingPortal } from '@floating-ui/react';",
+   "new": "import dynamic from 'next/dynamic';\n\nconst FloatingPortal = dynamic(() => import('@floating-ui/react').then((mod) => mod.FloatingPortal), { ssr: true });",
+   "expect": "case 1 red: the dialog host is hidden"},
+  {"id": "portal-into-dialog-panel", "file": "src/components/AnchoredPopover/Child.tsx",
+   "old": "return root ? <FloatingPortal>{children}</FloatingPortal> : children;",
+   "new": "return root ? <FloatingPortal root={document.querySelector('[aria-modal=\"true\"]') as HTMLElement}>{children}</FloatingPortal> : children;",
+   "expect": "case 2 red: the popover portal sits inside the dialog"},
+  {"id": "no-portal", "file": "src/components/AnchoredPopover/Child.tsx",
+   "old": "return root ? <FloatingPortal>{children}</FloatingPortal> : children;",
+   "new": "return children;",
+   "expect": "both cases red: no floating portal renders"}
+]
