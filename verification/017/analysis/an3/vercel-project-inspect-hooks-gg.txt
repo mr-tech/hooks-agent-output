@@ -1,0 +1,25 @@
+<claude-code-hint v="1" type="plugin" value="vercel@claude-plugins-official" />
+Vercel CLI 66.2.0
+> Found Project hooks-gg/hooks-gg-website [165ms]
+
+  General
+
+    ID				prj_nhlL7VUS0C9BzgD1Kvh3E1AUv72r
+    Name			hooks-gg-website
+    Owner			Hooks gg
+    Created At			09 November 2022 13:29:54 [1470d ago]
+    Root Directory		.
+    Node.js Version		24.x
+
+  Framework Settings
+
+    Framework Preset		Next.js
+    Build Command		`npm run build` or `next build`
+    Output Directory		Next.js default
+    Install Command		git config --global url."https://${GITHUB_USER}:${GITHUB_USER_ACCESS_TOKEN}@github.com/".insteadOf "git@github.com:" && pnpm install 1> /dev/null
+
+  Git
+
+    Git Repository		hooks-gg/website (GitHub)
+    Production Branch		master
+
