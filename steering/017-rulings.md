@@ -226,3 +226,24 @@ text; the 23:0xZ check repeated the miss. Defensible when written only as the ru
 trigger ("at the first check"); his reading — the moment the thread knows nothing can move — is the
 one that binds this thread from now on. The check that would have caught it: at any turn that ends
 with every chain waiting on him, the open asks go as a selection prompt in that turn.
+
+His command at 23:1xZ: *"lodge this in agents inbox"* — done: `~/.claude/agents/INBOX.md`, entry
+"2026-11-18 — steering-roadmap — FYI" (steering.md, Prompting the owner, the re-put trigger),
+uncommitted per the inbox rule.
+
+## 2026-11-18T23:12Z — G-1 read ran without the values; his selection: the API read
+
+Analyst message: `npx -y vercel@latest project inspect hooks-gg-website --scope hooks-gg` (CLI
+66.2.0, 23:09:20Z) exit 0; no Fluid-compute or Max Duration line (`grep -ciE
+"fluid|duration|memory|function"` = 0; capture
+`verification/017/analysis/an3/vercel-project-inspect-hooks-gg.txt`, agent-output `fee370c`).
+Mechanism read by this thread before the prompt: `npx -y vercel@latest --help` lists `api  Make
+authenticated HTTP requests to the Vercel API`; `vercel api --help` printed its usage (23:1xZ).
+
+Put as a selection prompt (every next act of 017 waited on this). Ledger: day file, block
+"2026-11-18T23:11Z — steering-roadmap". Options: **Agent: query Vercel's API (Recommended)** (one
+read-only GET of the project's record via `vercel api` under the hooks-gg team; unverified that the
+record carries both fields, and that `vercel api` takes the team scope the same way) / **You: read
+the dashboard** / **Agent: design without them**. **Chosen: "Agent: query Vercel's API
+(Recommended)"**, by selection. Sent to `analyst-hooks-017` with its description verbatim; one GET,
+no other method.
