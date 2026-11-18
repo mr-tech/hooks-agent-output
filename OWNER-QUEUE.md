@@ -25,3 +25,30 @@ commit message states what the deleted text carried and where it went. **The sam
 lines about items nobody is waiting on.** If it does not need the owner to act, it is not here.
 
 ---
+
+## Plan 017 (stale previews, the saving tab's notice, signed-out edits, clean-up) — six answers
+
+Reply to `steering-roadmap` in chat; each answer is one of the options below, or your own words.
+Nothing is coded until these are answered.
+
+1. **The four user stories** (previews keep the last good image; the saving tab is not told of its
+   own save; signed-out edits are not lost without a warning; clean-up with no behaviour change).
+   *Agent: proceed on all four as written (recommended)* / *You: change one* / *Agent: drop one*.
+   Do you approve them?
+2. **When a preview can't be made, should anyone be told?** *Agent: nothing new* / *Agent: the
+   website logs one line per failure, in Vercel's logs (recommended)* / *Agent: also tell the saving
+   user* / *Agent: decide after the fix ships*. Which?
+3. **Lint** (314 errors and 368 warnings site-wide; your record's 34 sit in two files). *Agent:
+   accept today's result, fix none (recommended)* / *Agent: apply ESLint's own fixes, 70 files* /
+   *Agent: that plus hand-fix the 50 left* / *Agent: fix everything* / *Agent: fix only the 34*.
+   Which?
+4. **Vercel's function settings** (Fluid compute, Max Duration for `hooks-gg-website`). *Agent: read
+   them under the `hooks-gg` team (recommended)* / *You: Dashboard → hooks-gg-website → Settings →
+   Functions, and tell me both values* / *Agent: design without them*. Which?
+5. **Signed-out edits.** Reload or close loses nothing; the real losses come from one stored draft
+   every message shares. *Agent: fix the losses at the source and turn the warnings on signed out
+   (recommended)* / *Agent: fix at the source only* / *Agent: warnings only* / *Agent: don't do
+   it*. Which?
+6. **The "leave with unsaved changes?" warning, which has never fired.** *Agent: warn on link
+   clicks for everyone, record what can't be stopped (recommended)* / *Agent: delete the dead
+   listener* / *Agent: leave it*. Which?
