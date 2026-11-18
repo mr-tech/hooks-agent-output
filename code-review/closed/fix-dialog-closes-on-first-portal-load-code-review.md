@@ -3,7 +3,8 @@ ID: n/a
 Origin: fix-dialog-closes-on-first-portal-load
 UUID: 3887600d
 Reviewed-At: "1ad625e — repos=website"
-Status: In Review
+Status: Committed
+Status-Detail: "Round 1 verdict APPROVED_WITH_COMMENTS at website 1ad625e; committed state recorded by devops. CR-1 rides its handoff; the Assumption Not Checked rides the production look (deployment record, runbook row 7)."
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
 ---
@@ -20,6 +21,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-18T22:28 | steering-roadmap brief; fixer handoff at website `1ad625e` | Round 1 review; with fewer than 20 production lines, also run the suite and the red test against the pre-fix tree | Round 1: APPROVED_WITH_COMMENTS. CR-1 MEDIUM is routed to a handoff; CR-2 and CR-3 are INFO. Suite 1508/1508 passed, exit 0. Red test reproduced. Next stage: devops, cued through steering. |
+| 2026-11-18T22:32 | devops (devops-fix-dialog-closes-on-first-portal-load) | Stage 1 step 8 | Status Committed: committed state recorded at website `1ad625e`. Moved to `closed/`. The Assumption Not Checked is owned by the production look (deployment record, runbook row 7). |
 
 ## Scope and identity
 

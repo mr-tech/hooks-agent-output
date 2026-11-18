@@ -1,0 +1,5 @@
+tree 1ad625e^{tree}=c91a34973b8f4728d0fd61ab5310db90e2aae54b
+start 2026-11-18T22:31:00Z
+end 2026-11-18T22:31:23Z
+cmd: SKIP_ENV_VALIDATION=1 systemd-run --user --scope -p RuntimeMaxSec=540 -p MemoryMax=6G -p TasksMax=2000 npx next build, in git-archive export of 1ad625e, node_modules copied (cp -a)
+no .env.local in the export; no env values read

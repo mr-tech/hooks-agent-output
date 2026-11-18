@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-dialog-closes-on-first-portal-load
 UUID: 3887600d
-Status: Active
-Status-Detail: "Handed off to code review at website 1ad625e. No QA Phase 2: 6 production lines added (git diff --numstat 395510e 1ad625e, Child.tsx), so the reviewer also runs the suite and the red test. Then devops for website master (production; the owner's word)."
+Status: Committed
+Status-Detail: "Committed on fix/dialog-closes-on-first-portal-load at website 1ad625e (code review APPROVED_WITH_COMMENTS at the same SHA). Not pushed; the push of master awaits the owner's release approval (deployment/fix-dialog-closes-on-first-portal-load-deployment.md)."
 Handoff-At: 1ad625e — repos=website
 Origin-Chain: none
 ---
@@ -268,3 +268,4 @@ each in its own export; control run 2 of 2 passing; table `controls/out/mutation
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-18T22:21 | fixer (fixer-fix-dialog-closes-on-first-portal-load) | Created. Diagnosis, red/green, controls and verification at website `1ad625e`; handed off to code review. |
+| 2026-11-18T22:32 | devops (devops-fix-dialog-closes-on-first-portal-load) | Status Committed (Stage 1 step 8): recorded at website `1ad625e` on `fix/dialog-closes-on-first-portal-load`; nothing pushed. Moved to `closed/`. |
