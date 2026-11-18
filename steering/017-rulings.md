@@ -247,3 +247,23 @@ record carries both fields, and that `vercel api` takes the team scope the same 
 the dashboard** / **Agent: design without them**. **Chosen: "Agent: query Vercel's API
 (Recommended)"**, by selection. Sent to `analyst-hooks-017` with its description verbatim; one GET,
 no other method.
+
+## 2026-11-18T23:15Z — analyst's AN-4 hold (generator render times from the host log): answered by the Standing Default, not asked
+
+Analyst message (23:1xZ): `planner-hooks-017` asked it by message for a new scope, AN-4 (G-3, the
+generator's render time) — the distribution of `Generated image for message <id> with nonce <nonce>
+in <N>ms` from the -prod (and -preview) out logs, through `ssh hooks-pig` as `claude-ro`; the planner
+calls it REQUIRED before item 2's website milestone is approved for code. Held on its brief's
+"Production: no host act" line, AN-4's absence from the plan, and its definition's owner approval.
+- Reads this turn: `grep -n "Revision\|AN-"` over `planning/017-existing-items-backlog.md` — Revision 0,
+  AN-1 to AN-3 only; brief line 34 read; `grep -n -i "host\|production\|claude-ro\|hooks-pig"` over
+  `017-brief-common.md`, `backlog-2026-11-18-rulings.md`, `017-rulings.md`: no ruling of his bars a host
+  read — the brief's line was this thread's composition. `verification/015/pig-host-read.sh` header read:
+  runs as `claude-ro` (refuses otherwise), reads `/etc/.pm2/logs`, no pm2 command, no writes.
+- Answer: escalation.md, Standing Defaults: "a read through the read-only host aliases … is made and
+  recorded, never asked of him". Acted on and cited, not put to him (steering.md, Prompting the owner).
+  AN-1 to AN-3 started on his commission ("Do all 5 in whatever order and group however you determine
+  best") with no separate scope prompt; AN-4 is the same commission.
+- Acts: brief amended (line 34 narrowed; amendment beside it). Planner told to commit AN-4 in the plan
+  with its scope words before the analyst starts; analyst told it may run AN-4 once committed, within
+  the amended brief, and that its declining is its own call if it reads its definition otherwise.

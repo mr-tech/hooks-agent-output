@@ -31,7 +31,15 @@ plan's own scope words; you work only on these. Document:
   it); that handoff is named here as the rule its trigger sets.
 - **AN-3:** a read of the Vercel deployment's own settings that no agent can make is an
   owner-needing item: send it to `steering-roadmap` with what you tried, never guess the setting.
-- Production: no host act and no hooks.gg save is part of this commission.
+- Production: no hooks.gg save, and no host act other than the one below, is part of this commission.
+- **Amended 23:15Z (steering-roadmap; `steering/017-rulings.md` block 23:15Z).** Once the plan commits an
+  AN-4 in its "Analysis commissioned" section, its read of the generator's render times runs through the
+  read-only alias `ssh hooks-pig` as `claude-ro`, in the way `verification/015/pig-host-read.sh` keeps:
+  fixed-shape greps only, printing numbers or bucket counts, never an id, a nonce or a whole line; no pm2
+  command and no write on the host. This rests on the lifecycle Standing Default (`document-lifecycle/
+  references/escalation.md`, Standing Defaults: a read through the read-only host aliases "is made and
+  recorded, never asked of him"); the earlier "no host act" line was this thread's composition, not
+  his ruling.
 
 ## Delivery
 
