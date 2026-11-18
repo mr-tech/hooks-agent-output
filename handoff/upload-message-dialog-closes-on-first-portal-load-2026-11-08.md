@@ -1,9 +1,9 @@
 ---
 UUID: 39f2d12f
 Status: Open
-Status-Detail: "On production hooks.gg, 'new message' → 'Upload Message' on the account folder page opens no dialog after a fresh page load. Cause: a portaled popover's first lazy load of FloatingPortal suspends to the layout boundary, which hides the open Headless UI Dialog, and the Dialog closes itself. The code dates from 2023, before chain 015, and lies outside its pool (D6). Nothing in chain 015 blocks on it."
-Owning-Stage: planner
-Review-Trigger: when src/components/AnchoredPopover/Child.tsx or NewMessageModal is next edited, or when the next website effort is scoped
+Status-Detail: "Fix released: website master 1ad625e (chain fix-dialog-closes-on-first-portal-load; push 2026-11-18T22:41Z). Owed: the production look, a fresh load of hooks.gg as the test account — new message, Upload Message, open Save To — dialog stays open. Not yet done: the devops session had no test-account browser. Closes Addressed on the look's pass."
+Owning-Stage: a session holding the test-account browser (qa or uat, or a role session launched with --browser), for the production look; steering closes the handoff Addressed on its pass
+Review-Trigger: when a session holding the discord-test-browser is next started for the website, or steering launches one for this look
 ---
 
 # Upload Message dialog closes itself on a portal's first lazy load
@@ -62,3 +62,4 @@ analyst-hooks-015 and the live check by uat-hooks-015. The handoff was written b
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-08T21:16 | planner (planner-hooks-015) | Created from the D39 analysis and UAT's D40 live check. |
+| 2026-11-18T22:41 | devops (devops-fix-dialog-closes-on-first-portal-load) | Reconcile: the fix shipped at website `master` `1ad625e` (push 22:41Z, `release-move.js` exit 0; deployment record `deployment/closed/fix-dialog-closes-on-first-portal-load-deployment.md`). The production look (code review Round 1, Assumption Not Checked; falsity: the dialog vanishes or the page flashes to LoadingDots) was not done by devops: its session has no `mcp__playwright__*` tools (ToolSearch, twice, none found). Owning-Stage and Review-Trigger re-routed to the session that can run it. Flows to look at: Upload Message → Save To; SaveAsMenu → Save To; Navigation top-bar menus; embed colour picker, each on a fresh page load. |

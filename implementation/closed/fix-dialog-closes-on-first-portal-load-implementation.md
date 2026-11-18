@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-dialog-closes-on-first-portal-load
 UUID: 3887600d
-Status: Committed
-Status-Detail: "Committed on fix/dialog-closes-on-first-portal-load at website 1ad625e (code review APPROVED_WITH_COMMENTS at the same SHA). Not pushed; the push of master awaits the owner's release approval (deployment/fix-dialog-closes-on-first-portal-load-deployment.md)."
+Status: Released
+Status-Detail: "Released 2026-11-18T22:41Z: website master 395510e -> 1ad625e on origin (deployment/closed/fix-dialog-closes-on-first-portal-load-deployment.md). Production look owed, carried by handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md."
 Handoff-At: 1ad625e — repos=website
 Origin-Chain: none
 ---
@@ -269,3 +269,4 @@ each in its own export; control run 2 of 2 passing; table `controls/out/mutation
 |---|---|---|
 | 2026-11-18T22:21 | fixer (fixer-fix-dialog-closes-on-first-portal-load) | Created. Diagnosis, red/green, controls and verification at website `1ad625e`; handed off to code review. |
 | 2026-11-18T22:32 | devops (devops-fix-dialog-closes-on-first-portal-load) | Status Committed (Stage 1 step 8): recorded at website `1ad625e` on `fix/dialog-closes-on-first-portal-load`; nothing pushed. Moved to `closed/`. |
+| 2026-11-18T22:42 | devops (devops-fix-dialog-closes-on-first-portal-load) | Status Released (Phase 2D): website `master` `395510e` -> `1ad625e` pushed 22:41Z. |
