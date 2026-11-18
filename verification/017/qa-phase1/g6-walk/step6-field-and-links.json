@@ -1,0 +1,8 @@
+[
+  "http://127.0.0.1:3000/message/m/900000000000001/edit",
+  "hello from the G-6 walk edited by walk again",
+  [
+    "/message/f/0",
+    "/message/m/900000000000001/send"
+  ]
+]

@@ -1,0 +1,59 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - link [ref=e58] [cursor=pointer]:
+          - /url: /message/f/0
+        - generic [ref=e5]:
+          - textbox "Message Name" [ref=e62]:
+            - /placeholder: New Message
+            - text: qa g6 walk New Message
+          - list [ref=e7]:
+            - listitem [ref=e8]:
+              - button "File" [ref=e9] [cursor=pointer]
+            - listitem [ref=e10]:
+              - button "Edit" [ref=e11] [cursor=pointer]
+            - listitem [ref=e12]:
+              - button "View" [ref=e13] [cursor=pointer]
+            - listitem [ref=e14]:
+              - button "Help" [ref=e15] [cursor=pointer]
+            - listitem [ref=e16]:
+              - link "Send" [ref=e17] [cursor=pointer]:
+                - /url: /message/m/900000000000001/send
+      - generic [ref=e18]:
+        - button "toggle site theme" [ref=e19] [cursor=pointer]
+        - button "user menu" [ref=e22] [cursor=pointer]:
+          - img "User Avatar" [ref=e23]
+        - dialog
+    - generic [ref=e32]:
+      - generic [ref=e67]:
+        - button "Classic Components V2" [ref=e69] [cursor=pointer]:
+          - generic [ref=e70]: Classic
+          - generic [ref=e71]: Components V2
+        - generic [ref=e72]:
+          - button "edit avatar icon" [ref=e73] [cursor=pointer]:
+            - img "user avatar" [ref=e74]
+          - generic [ref=e75]:
+            - generic [ref=e76]:
+              - generic "message username" [ref=e77]: Captain Hook
+              - generic [ref=e78]: BOT
+            - generic:
+              - time: Today at 11:36 PM
+          - generic [ref=e80]: This username is too short or too long.
+          - button "hello from the G-6 walk" [ref=e82] [cursor=pointer]
+        - button "Add Embed" [ref=e85] [cursor=pointer]
+      - button "toggle message view mode" [ref=e89] [cursor=pointer]
+  - button "Open Next.js Dev Tools" [ref=e53] [cursor=pointer]
+  - alert [ref=e57]
+  - generic [ref=e98]:
+    - generic [ref=e99]:
+      - paragraph [ref=e100]: This website uses cookies to ensure that you get the best experience.
+      - link "Learn more" [ref=e101] [cursor=pointer]:
+        - /url: /legal/privacy
+    - button "Ok, Got it." [ref=e102] [cursor=pointer]
+  - generic:
+    - generic:
+      - region "Notifications Alt+T"
+    - generic: https://example.com/image.png
+  - generic:
+    - dialog
