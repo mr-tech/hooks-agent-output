@@ -1,0 +1,7 @@
+30. [POST] https://hooks.gg/_vercel/speed-insights/vitals => [200] 
+31. [GET] https://hooks.gg/api/trpc/message.get?input=%7B%22json%22%3A%220%22%7D => [200] 
+69. [POST] https://hooks.gg/_vercel/speed-insights/vitals => [200] 
+70. [GET] https://hooks.gg/api/trpc/message.get?input=%7B%22json%22%3A%220%22%7D => [200] 
+81. [POST] https://hooks.gg/_vercel/speed-insights/vitals => [200] 
+
+Note: 76 static requests not shown, run with "static" option to see them.
