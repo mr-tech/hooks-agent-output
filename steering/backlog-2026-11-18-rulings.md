@@ -195,3 +195,18 @@ generator was swept only by `git show` of named files (its `git grep` was refuse
 semantics; next-auth and react-use internals. One helper inference was checked and not borne out:
 generator `src/config.ts:15` reads `API_KEY` from `process.env` (line classification by `awk`, no
 content printed, this thread).
+
+## 2026-11-18T22:03Z — acts performed: record committed, sessions started, check armed
+
+- Record: the commission, both determinations, the two brief-common files, two briefs and the four
+  sweeps committed at agent-output `6e7f1f7` (32 paths, `git commit --only`, each checked with
+  `git diff --quiet HEAD`).
+- Website tree: chain A's branch cut 22:00Z (its rulings file, block "branch cut").
+- Sessions started with `tmux-agent spawn`, both past their start in the pane at 22:03Z, reading
+  their briefs, no prompt open: `fixer-fix-dialog-closes-on-first-portal-load` (category
+  `fix-dialog-closes-on-first-portal-load`, cwd `/usr/local/bin/hooks/website`, effort medium as
+  printed); `planner-hooks-new` (category `S017-backlog`, cwd `/usr/local/bin/hooks`, effort medium
+  as printed).
+- Standing check armed as a one-shot, id `ba956504`, 22:34Z. Out-of-memory count at arming: 0
+  (`grep -c 'invoked oom-killer' /var/log/kern.log`). Usage at arming: `weekly_all` 72%, source
+  live (`plan-usage.py --json`).
