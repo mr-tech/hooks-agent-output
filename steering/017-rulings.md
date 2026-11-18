@@ -150,3 +150,37 @@ refuting him. Scope delta: none yet (Q-A's first option is priced at revision 1)
 Before putting them: a `general-purpose-sonnet` helper is trying to refute A1 to A5, B1 to B3 and C1
 (outputs `verification/017/steering-refute-2/`). Q-A and Q-B go to him after it reports, as a
 second message: the first message already holds four questions (escalation form, up to four).
+
+## 2026-11-18T22:32Z — refutation 2: nothing refuted; Q-A and Q-B put to him
+
+Helper (`general-purpose-sonnet`, capped vitest runs in a `git archive 395510e` export, outputs
+`verification/017/steering-refute-2/`, cleanup confirmed by `ps` count 0): **all nine NOT REFUTED.**
+- A1 (signed-out reload/close loses nothing), A2 (sign in → open a saved message → back to new: draft
+  replaced by the intro), A4 (a signed-in user's unsaved edits gone after the expired-session
+  redirect/sign-out), A5 (one stored key `message`, `useLocalStorage.ts:42`), B3 (signed in: edit
+  message 7, open 8, back to 7 shows the server copy): executed, `storage.out`, exit 0, 8/8.
+- A3 (two tabs overwrite): executed as a jsdom simulation of a second tab (`setItem` +
+  `StorageEvent`); not two real tabs.
+- B1 (the in-app leave warning never fired) and B2 (Next 16.1.6 lets a page stop only clicks on its
+  own `Link`, via `onNavigate`; `push`/`replace`/`back`, `redirect` and back/forward have no veto):
+  read from code, not run. Nuance: a page's own `popstate` listener or the browser Navigation API
+  sits outside Next.
+- C1 (item 3: no notice for any enumerated save; the in-flight edit raises it): executed with
+  `pusher-js` faked and the server's broadcast hash rebuilt per `shared.ts:290`, `pusher.out` 15/15,
+  `pusher-rich.out` 8/8, exit 0 both; a foreign hash raises it (the check discriminates). His August
+  report was on production `a74b9e2`; not re-run.
+
+**Put to him 22:32Z, plain-message form, second message** (same owner-wait, not re-sent):
+- *Q-A, signed-out edits — what to fix.* Options: **Agent: fix the three losses at their source and
+  turn the existing warnings on for signed-out users (Recommended — the planner's)** / **Agent: fix
+  the three losses at their source only** / **Agent: only turn the warnings on for signed-out users**
+  (losses stay) / **Agent: don't do item 4** (its handoff stays open). Told with it: the expired-session
+  loss is a signed-in user's; the shared stored copy also loses a signed-in user's edits when another
+  message is opened (B3), which a fix at the source would likely also stop — this thread's inference.
+  His answer can reshape story 3.
+- *Q-B, the in-app leave warning.* Options: **Agent: warn on link clicks away from an editor with
+  unsaved changes, for everyone, and record the navigations that cannot be stopped as a limit
+  (Recommended — the planner's; a new prompt signed-in users will see)** / **Agent: delete the dead
+  listener and record the limit, adding no prompt** / **Agent: leave it as it is**.
+- Item 3 told, not asked: the plan fixes the in-flight-edit path as the planner's mechanism choice.
+Recipients: `planner-hooks-017`.

@@ -1,0 +1,33 @@
+Running scope as unit: run-rb7415bdd58d04217a08e4db1ba27b6b2.scope
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/c585f1cc-46f7-4c7e-9544-cfd7f3c5726c/scratchpad/refute2/ex
+
+ ↓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > own-save broadcast vs client hash > classic: nothing changed -> no notice
+ ↓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > own-save broadcast vs client hash > classic: after edit -> no notice
+ ↓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > own-save broadcast vs client hash > classic: edit typed during in-flight save -> notice
+ ↓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > own-save broadcast vs client hash > v2: nothing changed -> no notice
+ ↓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > own-save broadcast vs client hash > v2: after edit -> no notice
+ ↓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > own-save broadcast vs client hash > v2: edit typed during in-flight save -> notice
+ ↓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > own-save broadcast vs client hash > not-valid(blank): nothing changed -> no notice
+ ↓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > own-save broadcast vs client hash > not-valid(blank): after edit -> no notice
+ ↓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > own-save broadcast vs client hash > not-valid(blank): edit typed during in-flight save -> notice
+ ↓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > own-save broadcast vs client hash > choice dialog (mixed draft) -> classic: no notice
+ ↓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > own-save broadcast vs client hash > choice dialog after an edit -> classic: no notice
+ ↓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > own-save broadcast vs client hash > choice dialog (mixed draft) -> v2: no notice
+ ↓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > own-save broadcast vs client hash > choice dialog after an edit -> v2: no notice
+ ↓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > own-save broadcast vs client hash > control: a foreign hash does raise the notice
+ ↓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > own-save broadcast vs client hash > not-valid (fails shape): server input parse rejects, so no broadcast
+ ✓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > richer drafts > embeds: nothing changed 21ms
+ ✓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > richer drafts > embeds: after harmless edit 6ms
+ ✓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > richer drafts > emptyEmbed: nothing changed 4ms
+ ✓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > richer drafts > emptyEmbed: after harmless edit 5ms
+ ✓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > richer drafts > v2rich: nothing changed 5ms
+ ✓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > richer drafts > v2rich: after harmless edit 5ms
+ ✓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > richer drafts > v2noflag: nothing changed 2ms
+ ✓ |dom| src/providers/MessageProvider/__tests__/zzrefute.pusher.test.tsx > richer drafts > v2noflag: after harmless edit 3ms
+
+ Test Files  1 passed (1)
+      Tests  8 passed | 15 skipped (23)
+   Start at  22:31:33
+   Duration  1.63s (transform 244ms, setup 21ms, import 832ms, tests 52ms, environment 597ms)
+
