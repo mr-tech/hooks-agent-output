@@ -245,3 +245,14 @@ Two scripts were streamed with `ssh hooks-pig 'bash -s' < <script>` and ran as `
 
 - G-1 is closed: every post-response design for item 2 is bounded by the 60 s function limit without Fluid compute (AN-3).
 - If item 3 becomes "pin the absence", the AN-1 probe's class (both orders, all members) and its outside-class member are a ready discriminating instrument. It was shown to fail at `a74b9e2` and to pass at `395510e`.
+
+## Resumption State
+
+Checkpoint 2026-11-18T23:31Z, on steering-roadmap's request (prefix past threshold), before a `/clear`.
+
+- **Done:** AN-1 to AN-4, every scope plan 017 commissions (plan `43129a3` § "Analysis commissioned"). Each was delivered to `planner-hooks-017` by SendMessage. Last results commit: `b7b4d08`. G-1 and G-3 are resolved.
+- **Open gaps, none in flight:** G-2 (the `waitUntil` preview-deployment probe; the planner says do not run it, because revision 1 makes it a milestone step behind his push approval), G-4, G-5 and G-6, as the gap table states.
+- **Next:** nothing queued. Resume only on a pipeline message, which will name this section. On resume: re-arm the cache-warm wake (`cache-warm.md` step 1), then re-read the plan as the `git diff` from `43129a3`.
+- **Branch / tree:** agent-output `master`; this run's paths are committed. No website or generator tree was touched. Scratch exports (`w395`, `wa74`, `poc-after`, `vcli`, the fixtures) are deleted. The scratchpad holds only install logs and `out/` captures, all copied into the record where cited. The raw `vercel api` response was deleted uncommitted, because it carries the project's `env` array.
+- **Nothing uncommitted, nothing mutated and unrestored, no evidence unrecorded.**
+- **Questions sent:** none outstanding. The G-1 and AN-4 owner items were answered (rulings 23:08Z, 23:15Z, and the ledger).
