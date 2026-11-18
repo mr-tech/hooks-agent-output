@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Status-Detail: "AN-1, AN-2 and AN-3 answered for the planner's revision 1, each finding labelled with its provenance. G-1 resolved at 23:13Z (Fluid compute off, function timeout 60 s). The generator's render time stays open (G-3: no record holds it). AN-4, the host read that would close it, is held: it is not in the committed plan and the brief excludes host acts, so it is with steering-roadmap for his word."
+Status-Detail: "AN-1, AN-2 and AN-3 answered for the planner's revision 1, each finding labelled with its provenance. G-1 resolved at 23:13Z (Fluid compute off, function timeout 60 s). G-3 resolved at 23:19Z by AN-4 (production render-plus-store p50 2197 ms, p99 3729 ms, max 26275 ms over n=16832)."
 ---
 
 # Analysis 017 — the existing-items backlog: AN-1 (item 3), AN-2 (item 4), AN-3 (item 2)
@@ -16,6 +16,7 @@ Status-Detail: "AN-1, AN-2 and AN-3 answered for the planner's revision 1, each 
 | 2026-11-18T23:09 | analyst-hooks-017 | G-1 read made on the owner's selection (`steering/017-rulings.md`, block 2026-11-18T23:08Z, "Agent: read under hooks-gg (Recommended)"). The output carries neither value; G-1 stays open (AN-3 "The deployment"). |
 | 2026-11-18T23:13 | analyst-hooks-017 | G-1 closed by one read-only `vercel api` GET of the project record, on the owner's selection "Agent: query Vercel's API (Recommended)" (`steering/selection-ledger/2026-11-18.md`, latest steering-roadmap block). Fluid compute off; function default timeout 60 s. |
 | 2026-11-18T23:14 | analyst-hooks-017 | AN-4 (G-3: production render-time distribution from the generator's out log on the host, via `ssh hooks-pig`) was requested by planner-hooks-017 by message. **Held, not started.** It is absent from the committed plan (`grep -n "AN-4"` at `bcb2e15`: no hit), and the brief excludes host acts ("Production: no host act and no hooks.gg save is part of this commission"). Put to steering-roadmap as an owner-needing item (msg `fb230ece`). G-2's preview-deployment probe: not to be run (planner). |
+| 2026-11-18T23:19 | analyst-hooks-017 | AN-4 run. Commissioned in the plan at `43129a3` (R-3); route per the steering ruling of 23:15Z and the brief amendment `6c17041`. Two read-only host reads over `ssh hooks-pig` as `claude-ro`. G-3 resolved: § AN-4. |
 
 ## Value Statement and Business Objective
 
@@ -183,9 +184,36 @@ The fix is website `963a25c` (2026-11-11, "Save and the choice save share one st
 
 **Throughput ceiling.** No rate-limiting mechanism was read in this commission. The ceiling a post-response task meets is the function's `maxDuration` per invocation, unknown until G-1 closes.
 
-**Generator render time (gap G-3).**
+**Generator render time (gap G-3). Superseded at 23:19Z by § AN-4, which measured it from the host log; the text below is what held before AN-4.**
 - No record in `agent-output` carries one: a `grep -rlE` over `architecture`, `verification`, `research`, `handoff` and `analysis` for render, generate or duration timings with a number. Its only preview-generator hits are the drain handoff's 1 ms idle drain and 12000 ms stop window, which are not render times.
 - Whether the generator's own log carries one is unestablished (refusal 2). Reading the host log is a production host act this commission excludes.
+
+### AN-4 — the production generator's render-plus-store time (item 2, G-3)
+
+**Route.** Plan `43129a3`, § "Analysis commissioned" AN-4. Steering ruling `steering/017-rulings.md` block 2026-11-18T23:15Z, and brief amendment `6c17041`.
+
+Two scripts were streamed with `ssh hooks-pig 'bash -s' < <script>` and ran as `claude-ro` on host `hooks-preview-image-generator`. Both keep `verification/015/pig-host-read.sh`'s rules: reads only, no pm2 command, nothing written on the host, fixed-shape greps, and output that is only numbers, ISO timestamps and file names. Each was tested first on a local fixture whose ids and nonces were fake: fixture tokens in output = 0, and the statistics were recomputed by a separate Python expression and matched exactly. In the host outputs, `grep -ciE "message [0-9]|nonce [0-9a-f]|SECRET"` = 0.
+- Scripts and captures: `verification/017/analysis/an4/pig-render-times.sh` → `run1-host.txt` (23:18:46Z), and `pig-generate-counts.sh` → `run2-host.txt` (23:19:22Z). Both exited 0.
+- **The measured quantity** (`src/server.ts` at `8de2b53`, `processImage`) runs from the end of the request body to `generateImage` resolving, i.e. render plus storage. It excludes the website's network leg.
+
+**Production instance (`hooks-image-preview-generator-prod`), Observed.**
+- One out log, 8996218 bytes, no rotated files. Its success lines run from 2023-08-22T01:58:24 to 2026-11-18T04:12:55, so the distribution spans every deploy since then and not only `8de2b53`'s code.
+
+| n | min | median | p95 | p99 | max | mean |
+|---|---|---|---|---|---|---|
+| 16832 | 1245 ms | 2197 ms | 2932 ms | 3729 ms | 26275 ms | 2221 ms |
+
+- Buckets: <1 s 0, 1–2 s 4667, 2–5 s 12067, 5–10 s 41, 10–30 s 57, 30–60 s 0, ≥60 s 0.
+- **Requests against successes:** `POST /generate` lines 16847 against 16832 successes, a **gap of 15**, about 0.089 %.
+- **Failures:** the error log (10825 bytes, mtime 2026-11-08T17:27:00Z) has **15** stack heads, of which 10 are `TimeoutError`, and 80 frame lines.
+- The two 15s match. But the error log has no timestamps, so its span is unknown, and the match is a coincidence check, not an alignment.
+- The 17554 other `POST` lines are to other paths, not `/generate`. The 131642 request lines of any method are mostly not the website's.
+- **Last 30 days** (by line timestamp, from 2026-10-19T23:19:22): 196 `POST /generate`, 195 successes, about 6.5 generations a day.
+- Starts (`Server running at`): 5.
+
+**Preview instance (`hooks-image-preview-generator-preview`): no render lines.** Its out log is 234 bytes, mtime 2023-08-20, with 6 start lines and 0 requests. Its error log is empty.
+
+**Against the 60 s function limit (AN-3).** Every one of the 16832 recorded renders finished under 30 s (max 26275 ms). A post-response wait on the generator would therefore have fitted inside the limit for every recorded success. That says nothing about requests that never answer (an unreachable generator). At the plan's population, 196 generations in 30 days, the limit is per invocation, not a throughput ceiling (Inference, the AN-3 model).
 
 ## Root Cause
 
@@ -208,7 +236,7 @@ The fix is website `963a25c` (2026-11-11, "Save and the choice save share one st
 |---|---|---|---|---|
 | G-1 | ~~Fluid compute on or off, and the function `maxDuration`~~ | **Resolved 23:13Z** — AN-3 "The deployment": Fluid off, 60 s (project record via `vercel api`) | — | — |
 | G-2 | `waitUntil` from a Pages API route on this project keeps a post-response promise alive (and H-2) | No preview deployment from this analysis | A preview-deployment probe (validation path above) | Planner to schedule if the design rests on it |
-| G-3 | Generator render time | No record holds it; refusal 2 left the generator's own logging unread | A count-form read the gate admits, or a local render timing against the generator at `8de2b53` | Planner / QA |
+| G-3 | ~~Generator render time~~ | **Resolved 23:19Z** — § AN-4 | — | — |
 | G-4 | Real Pusher delivery and ordering to the sender | No Pusher publish allowed from this box | None needed for revision 1; the hook-level determination covers both orders | — |
 | G-5 | Whether pre-013 code raised the own-tab notice on a nothing-changed save | Not executed | Run `an1/own-save-broadcast.probe.tsx` in an export of `c85945f` | Analyst, only if "still" must be settled beyond the class reading above |
 | G-6 | The in-app guard is dead under the App Router (two source reads, not run) | No browser walk | Real-browser walk per AN-2's validation path | QA at Phase 1, if a criterion rests on it |

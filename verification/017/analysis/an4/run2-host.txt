@@ -1,0 +1,6 @@
+=== pig-generate-counts.sh host=hooks-preview-image-generator at=2026-11-18T23:19:22Z as=claude-ro
+since (30 days) = 2026-10-19T23:19:22
+whole log: POST /generate=16847  other POST=17554  successes=16832
+last 30 days: POST /generate=196  other POST=415  successes=195
+=== end
+exit 0

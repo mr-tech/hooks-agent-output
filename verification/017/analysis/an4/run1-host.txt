@@ -1,0 +1,49 @@
+=== pig-render-times.sh  host=hooks-preview-image-generator  at=2026-11-18T23:18:46Z  as=claude-ro  logs=/etc/.pm2/logs
+--- no pm2 command is run; nothing is written; zcat=/usr/bin/zcat
+
+[0] generator log files (name size mtime):
+  hooks-image-preview-generator-preview-error.log  0  2023-08-20T07:20:39+0000
+  hooks-image-preview-generator-preview-out.log  234  2023-08-20T07:36:33+0000
+  hooks-image-preview-generator-prod-error.log  10825  2026-11-08T17:27:00+0000
+  hooks-image-preview-generator-prod-out.log  8996218  2026-11-18T23:12:49+0000
+
+== hooks-image-preview-generator-prod
+  out files read: hooks-image-preview-generator-prod-out.log
+  error files read: hooks-image-preview-generator-prod-error.log
+  [1] success lines and render-plus-store ms (n min p50 p95 p99 max mean):
+    n=16832 min=1245 p50=2197 p95=2932 p99=3729 max=26275 mean=2221
+  [2] buckets (ms):
+    <1000=0 1000-1999=4667 2000-4999=12067 5000-9999=41 10000-29999=57 30000-59999=0 >=60000=0
+  [3] span of success lines (first / last timestamp on a success line):
+    first=2023-08-22T01:58:24 last=2026-11-18T04:12:55 (timestamps matched: 16832)
+  [4] request lines over the same out files ('<ts> POST /' and any method):
+    POST lines: 34401
+    any-method request lines: 131642
+    success lines: 16832
+    'Server running at' (starts): 5
+  [5] error files, count-only (no timestamps exist in them):
+    stack heads (^<Name>Error or ^Error at line start): 15
+    '    at ' frame lines: 80
+    TimeoutError heads: 10
+
+== hooks-image-preview-generator-preview
+  out files read: hooks-image-preview-generator-preview-out.log
+  error files read: hooks-image-preview-generator-preview-error.log
+  [1] success lines and render-plus-store ms (n min p50 p95 p99 max mean):
+    n=0
+  [2] buckets (ms):
+    <1000=0 1000-1999=0 2000-4999=0 5000-9999=0 10000-29999=0 30000-59999=0 >=60000=0
+  [3] span of success lines (first / last timestamp on a success line):
+    none
+  [4] request lines over the same out files ('<ts> POST /' and any method):
+    POST lines: 0
+    any-method request lines: 0
+    success lines: 0
+    'Server running at' (starts): 6
+  [5] error files, count-only (no timestamps exist in them):
+    stack heads (^<Name>Error or ^Error at line start): 0
+    '    at ' frame lines: 0
+    TimeoutError heads: 0
+
+=== end
+exit 0
