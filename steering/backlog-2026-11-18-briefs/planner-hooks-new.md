@@ -2,7 +2,8 @@
 
 Duties negated: none.
 
-Common part: `/usr/local/bin/hooks/agent-output/steering/backlog-2026-11-18-brief-common.md`
+Common part: `/usr/local/bin/hooks/agent-output/steering/017-brief-common.md` (written as
+`backlog-2026-11-18-brief-common.md`; renamed at the ID's minting, 22:05Z)
 (determination, stage set, prohibitions, hazards). Read it, then the whole rulings file it names,
 before your first act.
 

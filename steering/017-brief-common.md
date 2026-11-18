@@ -1,8 +1,9 @@
-# Brief, common part — chain B (Hooks.gg backlog items 2 to 5; ID minted by the planner)
+# Brief, common part — chain 017 (Hooks.gg backlog items 2 to 5)
 
 From `steering-roadmap`, written 2026-11-18 at the determination. Every brief of this chain names
-this file second, after its `Duties negated:` line, and adds only what is its stage's own. Renamed
-to `steering/<ID>-brief-common.md` once the ID is minted.
+this file second, after its `Duties negated:` line, and adds only what is its stage's own. Written
+as `steering/backlog-2026-11-18-brief-common.md` and renamed here once the planner minted ID 017
+(agent-output `d7f6b2e`). Chain rulings file: `steering/017-rulings.md`.
 
 ## Determination and stage set
 
