@@ -1,0 +1,1 @@
+[BABEL] Note: The code generator has deoptimised the styling of /tmp/claude-1000/-usr-local-bin-hooks/0d9f0050-389e-43b1-b2e1-b45e900ad5c2/scratchpad/w395/src/constants/emoji.ts as it exceeds the max of 500KB.

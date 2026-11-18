@@ -1,0 +1,3 @@
+EXISTS src/utils/__tests__
+EXISTS src/server/api/__tests__
+EXISTS src/components/DiscordMessageEditor/__tests__

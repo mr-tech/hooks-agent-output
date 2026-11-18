@@ -1,0 +1,9 @@
+Disclosure (helper for planner-hooks-new, plan 017, read-only measurement at website 395510e)
+
+What was attempted: Bash `grep -rn enforceImportMutualExclusivity src > <entry>/grep-enforceImportMutualExclusivity.txt` and a `grep -rn isMessageV2 src | head -50` into a file, run from the scratch tree /tmp/claude-1000/-usr-local-bin-hooks/0d9f0050-389e-43b1-b2e1-b45e900ad5c2/scratchpad/w395.
+
+What blocked it: PreToolUse hook `secret-file-gate-hook` refused the Bash call. Its message says the record flags /usr/local/bin/hooks/preview-image-generator/.github/workflows/prod.yml as holding a plaintext secret, and that a grep Bash call can print its lines. The permitted forms it names are counts, listings and quiet checks (`grep -c|-l|-L|-q`, `wc`, `ls`, `test -e|-f`, `sha256sum`, `git ... --numstat|--stat|--name-only`), and no line-printing grep.
+
+What I think it caught: the grep targeted the scratch tree's src/ only; that tree does not contain prod.yml (it lives in preview-image-generator). I do not know why the hook matched it. This is my belief, not a determination; the owner decides whether the block was a false positive.
+
+What I did after the block: did not re-issue a line-printing grep in any other form. Re-ran only the forms the hook lists as permitted (`grep -rl`, `grep -rc`), which print counts and file names, not lines. Line-level content that needs grep (caller lines, definition lines, import lines, error-symbol lines) is therefore NOT produced by this helper, pending the owner's ruling.
