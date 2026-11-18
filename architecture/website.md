@@ -274,6 +274,42 @@ Two consequences a reader cannot derive from the tree:
 
 ---
 
+### A-7 — Browser storage goes through one shared helper over typed keys, and the draft key has one reader
+
+**Grade**: agent-designed. Read at website `1ad625e` by architect-hooks-017 (plan 017 conformance pass, AF-5). It
+records no intent of his. Re-verify against the code.
+
+**Mechanism.** `src/utils/withLocalStorage.ts` (`get`, `set`, `remove`) is the only module that calls
+`localStorage.getItem`, `setItem` or `removeItem` under `src`. `src/utils/hooks/useLocalStorage.ts` wraps it as a
+hook that re-reads its key on every `storage` event, so a write from another tab replaces this tab's value. Four keys
+are typed in `src/@types/global.d.ts` `LocalStorage`: `theme`, `frequentlyUsedEmojis`, `message` and
+`client_preferences`. The editor's draft is the one `message` key, shared by every message and every tab. Its only
+reader is `MessageProvider` through `useLocalMessageStore`. `set` does not catch a quota error.
+
+**Consequence a change must carry**: a change to the draft's storage is a change to the `message` member and its one
+reader, and it leaves the other three keys' cross-tab sync as it is unless it says otherwise. A form whose number of
+entries grows with the messages a browser opens states its bound, because `set` throws past the origin's quota.
+
+---
+
+### A-8 — The editor's providers sit below the message layout's header and sidebar
+
+**Grade**: agent-designed. Read at website `1ad625e` by architect-hooks-017 (plan 017 conformance pass, AF-4). It
+records no intent of his. Re-verify against the code.
+
+**Mechanism.** `src/app/message/layout.tsx` renders `Providers` (tRPC, session, guild, partial messages), `Redirects`
+and `_layout/Navigation`, which renders `Header` and `Sidebar`, around its children. `MessageProvider` and
+`ConfirmationProvider` are mounted one level down, in `src/app/message/m/[id]/layout.tsx`. So the header and sidebar,
+and every link in them, render outside the editor's state and its confirmation dialog. `useMessage` throws there
+(the provider formula, `system-architecture.md` Components). In-app links go through `src/components/StyledLink.tsx`,
+which wraps `next/link` and is also used outside `/message` (landing, footer, cookie consent).
+
+**Consequence a change must carry**: a behaviour of the header, the sidebar or `StyledLink` that depends on the
+editor reaches that state through a context mounted at or above `message/layout.tsx`, with a default for where no
+editor is mounted. It never calls `useMessage` from those components.
+
+---
+
 ## Addendum changelog
 
 | Date | Rev | Change |
@@ -287,3 +323,4 @@ Two consequences a reader cannot derive from the tree:
 | 2026-11-11T10:45 | 7 | architect-hooks-016 | `A-4` corrected and extended from the plan 016 conformance pass (re-read at website `0e3d903`): the old bounds sentence, "Bounds are constants in `~/constants`", described one home where the tree has two; it now names both and why, and adds the env-free import closure of `limits.tsx` with its executed check (plan 016 AF-1, AF-4). Agent-designed; no selection of his shaped it. |
 | 2026-11-11T10:50 | 8 | architect-hooks-016 | Added `A-6` (agent-designed): the editor persists its own message through one step, `useApiMethods` `persist`, which leaves the editor holding what it stored. Read at website `0e3d903`, routed by `retrospectives/fix-website-save-gate-embeds-retrospective.md`. Shaped by his selection 15, which is quoted as the option text he saw; the mode limb is steering's ruling. |
 | 2026-11-11T14:22 | 9 | architect-hooks-016 | `A-4` reconciled from the plan 016 implementation (release tree website `395510e`). Adds the one-sided-bound clause (plan 016 AF-4): `MAX_COMPONENT_DESCRIPTION_LENGTH` is read by the editor inputs and the send check and not by the schema. That is his selection 19, cited verbatim as its authority, and the clause states no intent of his beyond the option he chose. The env-free probe was re-run at `395510e` (exit 0). Agent-designed. |
+| 2026-11-18T23:33 | 10 | architect-hooks-017 | Added `A-7` (browser storage: one shared helper, four typed keys, one reader of the draft key) and `A-8` (the editor's providers sit below the message layout's header and sidebar), both agent-designed, read at website `1ad625e` in the plan 017 conformance pass (AF-4, AF-5). No selection of his shaped them. |
