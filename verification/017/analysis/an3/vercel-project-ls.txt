@@ -1,0 +1,9 @@
+(node:3063536) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Vercel CLI 29.1.1
+Fetching projects in blacklabel
+> Projects found under blacklabel [186ms]
+
+  Project Name       Latest Production URL   Updated
+  hooks-gg-website   https://hooks.gg        7d
+

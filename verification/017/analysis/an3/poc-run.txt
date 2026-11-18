@@ -1,0 +1,5 @@
+== pages api
+{"outcome":"after() threw: `after` was called outside a request scope. Read more: https://nextjs.org/docs/messages/next-dynamic-api-wrong-context","nextRequestContext":null,"vercelRequestContext":null}
+== app route
+{"outcome":"after() accepted"}
+server stopped

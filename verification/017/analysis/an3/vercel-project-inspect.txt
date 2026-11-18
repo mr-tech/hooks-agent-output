@@ -1,0 +1,49 @@
+<claude-code-hint v="1" type="plugin" value="vercel@claude-plugins-official" />
+Vercel CLI 66.2.0
+{
+  "status": "action_required",
+  "reason": "missing_scope",
+  "message": "Provide --scope explicitly. No default is applied in non-interactive mode.",
+  "userActionRequired": true,
+  "hint": "Ask the user which team to use, then run the matching command in next[]. Do not choose a team yourself.",
+  "choices": [
+    {
+      "id": "team_HDTPtsAcibkxDfAS4J4BsHVh",
+      "name": "blacklabels-projects"
+    },
+    {
+      "id": "team_N3nwdcYNpcmQWUXhmvBGLKBO",
+      "name": "hooks-gg"
+    },
+    {
+      "id": "team_eDwWY5IxGf5gsEk7FcblBycV",
+      "name": "statbot"
+    }
+  ],
+  "next": [
+    {
+      "command": "vercel link --scope blacklabels-projects",
+      "when": "Link first (then run any command without --scope)"
+    },
+    {
+      "command": "vercel project inspect hooks-gg-website --scope blacklabels-projects",
+      "when": "Run this command with scope (no link)"
+    },
+    {
+      "command": "vercel link --scope hooks-gg",
+      "when": "Link first (then run any command without --scope)"
+    },
+    {
+      "command": "vercel project inspect hooks-gg-website --scope hooks-gg",
+      "when": "Run this command with scope (no link)"
+    },
+    {
+      "command": "vercel link --scope statbot",
+      "when": "Link first (then run any command without --scope)"
+    },
+    {
+      "command": "vercel project inspect hooks-gg-website --scope statbot",
+      "when": "Run this command with scope (no link)"
+    }
+  ]
+}

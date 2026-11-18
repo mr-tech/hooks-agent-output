@@ -1,0 +1,172 @@
+[
+ {
+  "scenario": "S1",
+  "rows": [
+   {
+    "step": "first visit",
+    "path": "/message/m/0/edit",
+    "status": "unauthenticated",
+    "editorContent": "Welcome to **Hooks.gg**, the ultimate _f",
+    "editorId": null,
+    "storeContent": "Welcome to **Hooks.gg**, the ultimate _f",
+    "storeId": null,
+    "hasChanged": false
+   },
+   {
+    "step": "after edit",
+    "path": "/message/m/0/edit",
+    "status": "unauthenticated",
+    "editorContent": "SIGNED-OUT DRAFT",
+    "editorId": null,
+    "storeContent": "SIGNED-OUT DRAFT",
+    "storeId": null,
+    "hasChanged": false
+   },
+   {
+    "step": "after remount (reload)",
+    "path": "/message/m/0/edit",
+    "status": "unauthenticated",
+    "editorContent": "SIGNED-OUT DRAFT",
+    "editorId": null,
+    "storeContent": "SIGNED-OUT DRAFT",
+    "storeId": null,
+    "hasChanged": false
+   }
+  ]
+ },
+ {
+  "scenario": "S2",
+  "rows": [
+   {
+    "step": "signed-out draft",
+    "path": "/message/m/0/edit",
+    "status": "unauthenticated",
+    "editorContent": "SIGNED-OUT DRAFT",
+    "editorId": null,
+    "storeContent": "SIGNED-OUT DRAFT",
+    "storeId": null,
+    "hasChanged": false
+   },
+   {
+    "step": "opened saved message 42",
+    "path": "/message/m/42/edit",
+    "status": "authenticated",
+    "editorContent": "SAVED-42",
+    "editorId": "42",
+    "storeContent": "SAVED-42",
+    "storeId": "42",
+    "hasChanged": false
+   },
+   {
+    "step": "back at route 0 (new message)",
+    "path": "/message/m/0/edit",
+    "status": "authenticated",
+    "editorContent": "Welcome to **Hooks.gg**, the ultimate _f",
+    "editorId": null,
+    "storeContent": "Welcome to **Hooks.gg**, the ultimate _f",
+    "storeId": null,
+    "hasChanged": false
+   }
+  ]
+ },
+ {
+  "scenario": "S2b",
+  "rows": [
+   {
+    "step": "route 0 after sign-in",
+    "path": "/message/m/0/edit",
+    "status": "authenticated",
+    "editorContent": "SIGNED-OUT DRAFT",
+    "editorId": null,
+    "storeContent": "SIGNED-OUT DRAFT",
+    "storeId": null,
+    "hasChanged": false
+   }
+  ]
+ },
+ {
+  "scenario": "S3",
+  "rows": [
+   {
+    "step": "signed-in edit on 42",
+    "path": "/message/m/42/edit",
+    "status": "authenticated",
+    "editorContent": "UNSAVED EDIT OF 42",
+    "editorId": "42",
+    "storeContent": "UNSAVED EDIT OF 42",
+    "storeId": "42",
+    "hasChanged": true
+   },
+   {
+    "step": "after sign-out redirect to route 0",
+    "path": "/message/m/0/edit",
+    "status": "unauthenticated",
+    "editorContent": "Welcome to **Hooks.gg**, the ultimate _f",
+    "editorId": null,
+    "storeContent": "Welcome to **Hooks.gg**, the ultimate _f",
+    "storeId": null,
+    "hasChanged": false
+   },
+   {
+    "step": "signed in again, reopened 42",
+    "path": "/message/m/42/edit",
+    "status": "authenticated",
+    "editorContent": "SAVED-42",
+    "editorId": "42",
+    "storeContent": "SAVED-42",
+    "storeId": "42",
+    "hasChanged": false
+   }
+  ]
+ },
+ {
+  "scenario": "S4",
+  "rows": [
+   {
+    "step": "after reload of 42",
+    "path": "/message/m/42/edit",
+    "status": "authenticated",
+    "editorContent": "UNSAVED EDIT OF 42",
+    "editorId": "42",
+    "storeContent": "UNSAVED EDIT OF 42",
+    "storeId": "42",
+    "hasChanged": true
+   }
+  ]
+ },
+ {
+  "scenario": "S5",
+  "rows": [
+   {
+    "step": "tab A edited",
+    "path": "/message/m/0/edit",
+    "status": "unauthenticated",
+    "editorContent": "TAB A DRAFT",
+    "editorId": null,
+    "storeContent": "TAB A DRAFT",
+    "storeId": null,
+    "hasChanged": false
+   },
+   {
+    "step": "tab B wrote the store; tab A not reloaded",
+    "path": "/message/m/0/edit",
+    "status": "unauthenticated",
+    "editorContent": "TAB A DRAFT",
+    "editorId": null,
+    "storeContent": "TAB B DRAFT",
+    "storeId": null,
+    "hasChanged": false
+   },
+   {
+    "step": "tab A reloaded",
+    "path": "/message/m/0/edit",
+    "status": "unauthenticated",
+    "editorContent": "TAB B DRAFT",
+    "editorId": null,
+    "storeContent": "TAB B DRAFT",
+    "storeId": null,
+    "hasChanged": false
+   }
+  ]
+ }
+]

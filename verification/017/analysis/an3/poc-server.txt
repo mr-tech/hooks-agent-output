@@ -1,0 +1,7 @@
+▲ Next.js 16.1.6
+- Local:         http://localhost:3917
+
+✓ Starting...
+✓ Ready in 196ms
+POC app-route after() callback RAN
+POC app-route after() callback RAN
