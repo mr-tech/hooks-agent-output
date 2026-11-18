@@ -617,3 +617,17 @@ planner, 2026-11-18). Re-run at revision 1: unchanged.
 | Generator `page.goto` does not reject on an HTTP error status | steering-roadmap, `verification/017/steering-refute/` (c2) | Discharged at revision 1: M6-a, re-derived at puppeteer-core 21.1.0's published source. |
 | Nothing enforces lint (chain A CR-3) | `code-review/closed/fix-dialog-closes-on-first-portal-load-code-review.md` CR-3 | Discharged at revision 1: M7-c, X-12. |
 | Base moved to website `1ad625e` | steering-roadmap | Discharged at revision 1: every cited line re-read at `1ad625e`, or shown unchanged from `395510e` by `git diff --quiet`; suite and lint re-taken there. |
+
+## Resumption State
+
+Written 2026-11-18 at steering's /checkpoint request (planner-hooks-017).
+
+- **Done.** Revision 1 committed at `97e6814` (M1 to M7, D-7 to D-13, X-1 to X-16, RK-1 to RK-8, OQ-7 open). His 23:26Z selections are registered as D-14 to D-16 (R-4, `d84b192`). The spawn cue for revision 1 was acted on: `critic-hooks-017` (pass 1), `architect-hooks-017` (conformance) and `qa-hooks-017` (Phase 1) are reading revision 1 at `97e6814`.
+- **Next.** Wait for all three verdicts. Then fold every finding into one planning pass, revision 2, never one per finding, and re-cue the gates that read it. Before that pass: read each verdict document; `git diff 97e6814 -- planning/017-existing-items-backlog.md` to see anything another stage wrote; run the count sweep and the handoff-trigger re-check if a release milestone changes.
+- **Open items carried.**
+  - OQ-7: the `waitUntil` probe (M5-0 limb 2). A devops session asks him for the push before M5. Not approved yet (D-15).
+  - The INBOX.md entry "2026-11-18 — planner-hooks-017 — DECISION NEEDED" (X-13 placement exception) is deliberately uncommitted, for the record's owning session.
+- **Branches.** None cut for 017. Website is on `master` `1ad625e`, clean apart from foreign untracked `.playwright-mcp/`. The generator is on `prod` `8de2b53`.
+- **Uncommitted or mutated.** Nothing of this planner's beyond that INBOX entry. `verification/017/qa-phase1/` (untracked) is QA's.
+- **Evidence.** All committed under `verification/017/entry/`: `lint-base/` (`395510e`), `lint-1ad625e/`, `base-1ad625e/` (suite 1508/1508, exit 0; typecheck 0), `release/`.
+- **Messages sent.** All to steering-roadmap: the ID, the rev 0 items, the OQ-6 withdrawal and restatement, the item-4 questions, the rev 1 spawn cue and owner items. To analyst-hooks-017: AN-4 and its commit SHA. No reply is owed to this planner except the gate verdicts.
