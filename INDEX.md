@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-285 documents · 16 numbered chains · 133 unnumbered.
+307 documents · 17 numbered chains · 153 unnumbered.
 
 ---
 
@@ -121,6 +121,13 @@ closed. A document's path changes when it closes; its name does not.
 | QA | `qa/closed/016-send-check-validity-qa.md` | Released — Phase 2 PASS at website 395510e (plan revision 7), released at devops Phase 2D (pushed 2026-11-11T18:29:46Z). Effort-final sweep 120 of 128 mutants killed, every survivor dispositioned; QAF-13 LOW carried by handoff/editor-error-lines-render-text-unasserted-2026-11-11.md. Register: B-1, B-2, B-5 EXECUTED (UAT); B-3, B-4, B-6 post-deploy, carried by handoff/send-check-validity-post-deploy-2026-11-11.md. The Phase 3 release-tip record is a separate document. |
 | retrospective | `retrospectives/closed/016-send-check-validity-retrospective.md` | Processed |
 | UAT | `uat/closed/016-send-check-validity-uat.md` | Released — APPROVED FOR RELEASE at website 395510e (plan revision 7), released at devops Phase 2D (pushed 2026-11-11T18:29:46Z). Pre-release rows B-1, B-2 and B-5 EXECUTED and PASS. Post-deploy rows B-3, B-4 and B-6 ride handoff/send-check-validity-post-deploy-2026-11-11.md with their unfixed values; UAT-1 LOW (B-6(b) is read on the red border, subject message 5996) is carried there. |
+
+### 017 — 2 open, 0 closed
+
+| Stage | Location | Status |
+|---|---|---|
+| analysis | `analysis/017-existing-items-backlog-analysis.md` | Active — AN-1, AN-2 and AN-3 answered for the planner's revision 1, each finding labelled with its provenance. Two gaps remain open: the Vercel project's Fluid-compute and maxDuration settings (an owner read, sent to steering-roadmap) and the generator's render time (no record holds it). |
+| plan | `planning/017-existing-items-backlog.md` | Active — Revision 0: user stories and scope questions, put to the owner through steering-roadmap. No milestones yet. Planning of milestones (revision 1) waits on his approval of the four user stories and on analysis 017 (REQUIRED before revision 1 for items 3 and 4, and for item 2's mechanism). |
 
 ### 1 — 0 open, 8 closed
 
@@ -260,6 +267,7 @@ they are the ID-less artifacts that root new efforts.
 | code review | `code-review/closed/001-components-v2-state-management-code-review.md` | — |
 | code review | `code-review/closed/012-carry-forward-to-post-refresh-pass.md` | — |
 | code review | `code-review/closed/fix-agent-comment-sweep-merge-code-review.md` | Released — Released 2026-11-10T10:13Z: website master = 6d78b19 on origin, the reviewed commit. Record: deployment/fix-agent-comment-sweep-merge-deployment.md. |
+| code review | `code-review/closed/fix-dialog-closes-on-first-portal-load-code-review.md` | Committed — Round 1 verdict APPROVED_WITH_COMMENTS at website 1ad625e; committed state recorded by devops. CR-1 rides its handoff; the Assumption Not Checked rides the production look (deployment record, runbook row 7). |
 | code review | `code-review/closed/fix-hooks-record-shared-engine-code-review.md` | Released — Released with the chain: verdict APPROVED_WITH_COMMENTS at fdab24b stands as recorded; on origin master at 1611473. |
 | code review | `code-review/closed/fix-uat-local-stack-id-sequence-code-review.md` | Committed — Committed with the chain on the record repository's master at 7d59233; verdict APPROVED unchanged. Closed by steering-queue-hooks. |
 | code review | `code-review/closed/fix-v1-guild-messages-auth-code-review.md` | Committed |
@@ -268,8 +276,10 @@ they are the ID-less artifacts that root new efforts.
 | deployment | `deployment/closed/2026-04-07-plan-006.md` | Released |
 | deployment | `deployment/closed/2026-04-07-plans-001-003-004.md` | Released |
 | deployment | `deployment/closed/fix-agent-comment-sweep-merge-deployment.md` | Released — Released 2026-11-10T10:13Z: website master = 6d78b19 on origin (push by devops, Mode A, on the owner's 'merge it' and 'Push now'). Fix branch merged and deleted. Phase 2D complete. |
+| deployment | `deployment/closed/fix-dialog-closes-on-first-portal-load-deployment.md` | Released — Released 2026-11-18T22:41Z: website master 395510e -> 1ad625e on origin (release-move.js exit 0; ls-remote read back). Fix branch merged and deleted. The production look (the code review's Assumption Not Checked) was not done by this session, which had no test-account browser; it rides handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md and does not hold this record open. |
 | deployment | `deployment/closed/fix-v1-guild-messages-auth-deployment.md` | Released — Released 2026-10-10: website master = ddbd750 on origin (move by steering, f4b7fb0); owner confirmed Vercel live. Every register row terminal: B-3 PASS (401, 16:52Z); B-4 PASS (owner's observation, 2026-11-10). Phase 2D complete. |
 | deployment | `deployment/closed/fix-website-save-gate-embeds-deployment.md` | Released — Released 2026-11-11T10:13Z: website master 6d78b19 -> 0e3d903 on origin (release-move.js exit 0; ls-remote read back). Fix branch merged and deleted. The owner's hooks.gg check and optional live-database read ride handoff/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md; they do not hold this record open. |
+| handoff | `handoff/anchored-popover-first-load-test-is-order-dependent-2026-11-18.md` | Open · priority normal — The red test for a portaled popover's first load inside an open dialog discriminates only while its first case is the file's first render of Child.tsx. Owed: make every case a first load. Blocks nothing; the fix it guards is a static import. |
 | handoff | `handoff/backfill-valid-guard-has-no-db-backed-instrument-2026-08-26.md` | Open · priority normal — Two chain-012 items were each explicitly routed to "handoff material under D18" and no handoff was ever created, so both survived only inside documents that are now in `closed/`. This document is that destination, written after the fact. Both concern the same file - `src/scripts/backfillValid.ts` in `website` - and both are unclosed for the same underlying reason: **no DB-backed instrument exists in this environment**, so neither can be settled by the unit suite that closed everything else on chain 012. Neither is a defect in shipped behaviour; chain 012 released with both known, bounded and accepted on the record. Nothing here reopens chain 012 or amends any of its findings. A third item, from chain 013, was added on 2026-11-11 by owner selection (Item 3). |
 | handoff | `handoff/bug-evaluation-fixes-unclosed-assumptions-2026-11-08.md` | Open · priority normal — Eight Assumption Not Checked items from chain 015's QA and code-review documents that no later document closes and no other carrier holds, found by the Phase 2D sweep and re-read at their sources. Each names the instrument that would close it and the signature of its falsity. None gates anything shipped. |
 | handoff | `handoff/bug-evaluation-research-pm2-show-lines-2026-11-10.md` | Open · priority normal — The bug-evaluation research document still advises pm2 show for the F-31 host read in two places; pm2 show also prints environment values from the invoking shell. The lines are the researcher's to strike or re-point. Nothing runs that command today: the owner-side read is verification/015/pig-host-read.sh, which never calls it. |
@@ -284,6 +294,7 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/closed/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md` | Addressed · priority normal — Released 2026-11-11T10:13Z (website master 0e3d903). Check 1 (the Save flows on hooks.gg) is closed by the owner's selection of 2026-11-11T21:18Z on an agent's run: ordinary saves passed, the two named flows NOT EXECUTED because the live editor cannot build their shapes; they stay unobserved on hooks.gg. Check 2 (his optional live-database read) was dropped on his word the same day ('drop it'): not run, no count taken. Nothing is owed. |
 | handoff | `handoff/closed/send-check-validity-post-deploy-2026-11-11.md` | Addressed · priority normal — Addressed: B-3, B-4 and B-6 EXECUTED and PASS on hooks.gg at website master 395510e (uat, 18:35Z to 18:43Z; commit 798ecc6). Carried chain 016's three post-deploy-observable register rows from devops Stage 1, 2026-11-11T14:17Z. Released: website master read 395510e at 2026-11-11T18:29:49Z (Review-Trigger met); the rows are decidable now. UAT is cued through steering as a spawn cue. The reader is the UAT stage (a session, not a scheduled run); the owner is the fallback only. |
 | handoff | `handoff/closed/uat-local-stack-up-reuses-low-message-ids-2026-11-11.md` | Addressed · priority normal — Addressed 2026-11-11 by fix-uat-local-stack-id-sequence's third round at 7d59233 (steering's ruling 7cb07bc), and verified at code review Round 1 sub-entry 1. Original detail: tools/uat-local-stack.sh `up` exits 0 when it reuses its own container while \"Messages\" already holds an id below 900000000000001. Only `--seed` (fresh containers only) checks for low ids. Raised as CR-1 LOW in code-review/fix-uat-local-stack-id-sequence-code-review.md and routed here. |
+| handoff | `handoff/closed/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` | Addressed · priority normal — Fixed and verified on production: website master 1ad625e (chain fix-dialog-closes-on-first-portal-load, push 2026-11-18T22:41Z); the production look on hooks.gg as the test account passed all four flows (Upload Message and Save As with Save To, the top-bar menus, the colour picker) with hooks.gg serving 1ad625e's bundle (uat rows 22:53, agent-output efc6e21). Residue carried elsewhere: the red test's order dependence, handoff/anchored-popover-first-load-test-is-order-dependent-2026-11-18.md. |
 | handoff | `handoff/closed/v1-guild-messages-endpoints-unauthenticated-2026-08-24.md` | Addressed · priority normal — Addressed: both v1 guild-messages handlers require the Statbot key since website 1acffee, live since 2026-10-10 (unauthenticated request: 401, 0 bytes). The open questions are answered in steering/v1-guild-messages-auth-rulings.md, block 2026-11-10: the owner rules the key is not treated as compromised; of the other matchers, /message and /preview are live and /api/guilds is a dead pattern that guards nothing. The remaining post-deploy check (Statbot's own calls) rides handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md. |
 | handoff | `handoff/editor-error-lines-render-text-unasserted-2026-11-11.md` | Open · priority normal — No suite case asserts that DiscordMessageEditor's error lines, and the render around them, carry only their reason text. Five mutants survived plan 016's effort-final sweep on that surface (QAF-13 LOW). Plan 016 carries it as a stated limit under steering's M1 cap; this handoff carries it past that plan's closure. |
 | handoff | `handoff/local-walk-save-can-write-a-client-sent-low-message-id-2026-11-11.md` | Open · priority normal — Owed by the next UAT or QA browser walk on a stack built by tools/uat-local-stack.sh: record the first save's message id and the count of 'Messages' ids below 900000000000001 after it. Unchecked assumption of the fix-uat-local-stack-id-sequence code review; nothing blocks on it. |
@@ -301,10 +312,10 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` | Open · priority normal — Two items plan 016 excludes and does not discharge: the generic failure toast on a refused send (research F-14), and a File component's upload path (with removing File from the add menu). Neither blocks plan 016. The owner is shown both with plan 016 revision 1's Exclusions register. |
 | handoff | `handoff/uat-local-stack-test-free-port-race-2026-11-11.md` | Open · priority normal — The free-port helper in tools/uatLocalStack.test.js picks a port, releases it, and listens on it again later with no 'error' handler. If another process takes the port in between, the file hangs on EADDRINUSE until the runner's cap. This was seen once, at code review of fix-uat-local-stack-id-sequence. Nothing blocks on it; a run that hangs is repeated. |
 | handoff | `handoff/unsaved-change-guards-disabled-for-unauthenticated-users-2026-08-24.md` | Open · priority normal — A pre-existing data-loss gap in `website`: every unsaved-changes guard in the message editor is gated on the user being authenticated, so for an unauthenticated user they are inert — one of them skips its confirmation dialog entirely and reloads. A fourth guard listed here is a SEPARATE defect that has never worked for anyone, and the predicate fix does not close it. Found by `code-reviewer-hooks-013-3` while breaking its own predicate during chain 013 round 12, in code chain 013 never touched. Written as a handoff on the owner's standing disposition for this class; nothing is built and no chain is minted. |
-| handoff | `handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` | Open · priority normal — On production hooks.gg, 'new message' → 'Upload Message' on the account folder page opens no dialog after a fresh page load. Cause: a portaled popover's first lazy load of FloatingPortal suspends to the layout boundary, which hides the open Headless UI Dialog, and the Dialog closes itself. The code dates from 2023, before chain 015, and lies outside its pool (D6). Nothing in chain 015 blocks on it. |
 | handoff | `handoff/website-api-handler-hardening-2026-10-10.md` | Open · priority normal — Four open LOW items (2 to 5) in website's API handlers and tests, raised by the fix-v1-guild-messages-auth code review and kept out of that fix's owner-bound scope. Item 1 was discharged by owner rider 2 at website 7606149. Nothing blocks the v1 auth fix's release. |
 | handoff | `handoff/website-tests-not-beside-their-module-2026-11-08.md` | Open · priority normal — Six website test files that predate chain 015 likely sit in a __tests__/ directory other than the one beside their production module (Test Conventions, Placement). Each needs a read to confirm its module, then a rename with identical per-file case count and pass set. Outside plan 015's pool (D6); nothing blocks on it. |
 | implementation | `implementation/closed/fix-agent-comment-sweep-merge-implementation.md` | Released — Released 2026-11-10T10:13Z: website master = 6d78b19 on origin. Record: deployment/fix-agent-comment-sweep-merge-deployment.md. |
+| implementation | `implementation/closed/fix-dialog-closes-on-first-portal-load-implementation.md` | Released — Released 2026-11-18T22:41Z: website master 395510e -> 1ad625e on origin (deployment/closed/fix-dialog-closes-on-first-portal-load-deployment.md). Production look owed, carried by handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md. |
 | implementation | `implementation/closed/fix-hooks-record-shared-engine-implementation.md` | Released — Released: on origin master at 1611473. Code review approved at fdab24b, QA Phase 2 PASS at 0f09e6c (refresh over the REVIEW flip 05a4a05). The record check exits 0 with 256 baselined. |
 | implementation | `implementation/closed/fix-uat-local-stack-id-sequence-implementation.md` | Committed — Committed on the record repository's master at 7d59233; code review APPROVED at that tree (record 1f5b0c3). No QA Phase 2 (the tool is +15/-5 by git diff --numstat 68d737f). No deploy: the tool is a record tool. Closed by steering-queue-hooks. |
 | implementation | `implementation/closed/fix-v1-guild-messages-auth-implementation.md` | Committed — Committed for release on website fix/v1-guild-messages-auth at ddbd750 (devops Stage 1, 2026-10-10). The owner's key check returned 'match'. Release (merge to master, push) awaits the owner's approval. |
@@ -332,11 +343,22 @@ they are the ID-less artifacts that root new efforts.
 | steering | `steering/014-rulings.md` | — |
 | steering | `steering/015-rulings.md` | — |
 | steering | `steering/015-security-brief.md` | — |
+| steering | `steering/017-brief-common.md` | — |
+| steering | `steering/017-rulings.md` | — |
+| steering | `steering/backlog-2026-11-18-briefs/analyst-hooks-017.md` | — |
+| steering | `steering/backlog-2026-11-18-briefs/code-reviewer-fix-dialog-closes-on-first-portal-load.md` | — |
+| steering | `steering/backlog-2026-11-18-briefs/devops-fix-dialog-closes-on-first-portal-load.md` | — |
+| steering | `steering/backlog-2026-11-18-briefs/fixer-fix-dialog-closes-on-first-portal-load.md` | — |
+| steering | `steering/backlog-2026-11-18-briefs/planner-hooks-new.md` | — |
+| steering | `steering/backlog-2026-11-18-briefs/uat-fix-dialog-closes-on-first-portal-load.md` | — |
+| steering | `steering/backlog-2026-11-18-rulings.md` | — |
 | steering | `steering/chore-agent-comment-sweep-rulings.md` | — |
 | steering | `steering/cleanup-2026-11-10.md` | — |
 | steering | `steering/comment-sweep-briefs/comment-sweep-code-reviewer-brief.md` | — |
 | steering | `steering/comment-sweep-briefs/comment-sweep-devops-brief.md` | — |
 | steering | `steering/comment-sweep-briefs/comment-sweep-fixer-brief.md` | — |
+| steering | `steering/fix-dialog-closes-on-first-portal-load-brief-common.md` | — |
+| steering | `steering/fix-dialog-closes-on-first-portal-load-rulings.md` | — |
 | steering | `steering/queue-hooks-briefs/architect-016-brief.md` | — |
 | steering | `steering/queue-hooks-briefs/architect-016-respawn-brief.md` | — |
 | steering | `steering/queue-hooks-briefs/code-reviewer-016-brief.md` | — |
@@ -383,8 +405,13 @@ they are the ID-less artifacts that root new efforts.
 | verification | `verification/016/deweed.md` | — |
 | verification | `verification/016/uat/walk-brief-production.md` | — |
 | verification | `verification/016/uat/walk-brief.md` | — |
+| verification | `verification/backlog-2026-11-18/scoping/preview-failure-sweep.md` | — |
+| verification | `verification/backlog-2026-11-18/scoping/save-tab-notice-sweep.md` | — |
+| verification | `verification/backlog-2026-11-18/scoping/signed-out-guards-sweep.md` | — |
 | verification | `verification/cleanup-2026-11-10/handoffs-survey.md` | — |
 | verification | `verification/cleanup-2026-11-10/open-documents-survey.md` | — |
+| verification | `verification/fix-dialog-closes-on-first-portal-load/post-deploy/build-identity.md` | — |
+| verification | `verification/fix-dialog-closes-on-first-portal-load/scoping/sweep.md` | — |
 
 ## By name
 
@@ -545,6 +572,10 @@ they are the ID-less artifacts that root new efforts.
 | `016-send-check-validity-retrospective.md` | `retrospectives/closed/016-send-check-validity-retrospective.md` |
 | `016-send-check-validity-uat.md` | `uat/closed/016-send-check-validity-uat.md` |
 | `016-send-check-validity.md` | `planning/closed/016-send-check-validity.md` |
+| `017-brief-common.md` | `steering/017-brief-common.md` |
+| `017-existing-items-backlog-analysis.md` | `analysis/017-existing-items-backlog-analysis.md` |
+| `017-existing-items-backlog.md` | `planning/017-existing-items-backlog.md` |
+| `017-rulings.md` | `steering/017-rulings.md` |
 | `2026-04-07-plan-005.md` | `deployment/closed/2026-04-07-plan-005.md` |
 | `2026-04-07-plan-006.md` | `deployment/closed/2026-04-07-plan-006.md` |
 | `2026-04-07-plan-007.md` | `deployment/closed/2026-04-07-plan-007.md` |
@@ -553,6 +584,8 @@ they are the ID-less artifacts that root new efforts.
 | `2026-04-12-plan-009.md` | `deployment/closed/2026-04-12-plan-009.md` |
 | `2026-04-12-plan-010.md` | `deployment/closed/2026-04-12-plan-010.md` |
 | `2026-11-10.md` | `steering/selection-ledger/2026-11-10.md` |
+| `analyst-hooks-017.md` | `steering/backlog-2026-11-18-briefs/analyst-hooks-017.md` |
+| `anchored-popover-first-load-test-is-order-dependent-2026-11-18.md` | `handoff/anchored-popover-first-load-test-is-order-dependent-2026-11-18.md` |
 | `architect-016-brief.md` | `steering/queue-hooks-briefs/architect-016-brief.md` |
 | `architect-016-respawn-brief.md` | `steering/queue-hooks-briefs/architect-016-respawn-brief.md` |
 | `architecture-record-reconciliation-owed-2026-11-10.md` | `handoff/closed/architecture-record-reconciliation-owed-2026-11-10.md` |
@@ -561,13 +594,16 @@ they are the ID-less artifacts that root new efforts.
 | `backfill-report-1787644022885-3k0xp8.md` | `verification/012/backfill-report-1787644022885-3k0xp8.md` |
 | `backfill-report-1787644055925-ekngfa.md` | `verification/012/backfill-report-1787644055925-ekngfa.md` |
 | `backfill-valid-guard-has-no-db-backed-instrument-2026-08-26.md` | `handoff/backfill-valid-guard-has-no-db-backed-instrument-2026-08-26.md` |
+| `backlog-2026-11-18-rulings.md` | `steering/backlog-2026-11-18-rulings.md` |
 | `bug-evaluation-fixes-post-deploy-2026-11-08.md` | `handoff/closed/bug-evaluation-fixes-post-deploy-2026-11-08.md` |
 | `bug-evaluation-fixes-unclosed-assumptions-2026-11-08.md` | `handoff/bug-evaluation-fixes-unclosed-assumptions-2026-11-08.md` |
 | `bug-evaluation-research-pm2-show-lines-2026-11-10.md` | `handoff/bug-evaluation-research-pm2-show-lines-2026-11-10.md` |
+| `build-identity.md` | `verification/fix-dialog-closes-on-first-portal-load/post-deploy/build-identity.md` |
 | `chore-agent-comment-sweep-rulings.md` | `steering/chore-agent-comment-sweep-rulings.md` |
 | `CLAUDE.md` | `CLAUDE.md` |
 | `cleanup-2026-11-10.md` | `steering/cleanup-2026-11-10.md` |
 | `code-reviewer-016-brief.md` | `steering/queue-hooks-briefs/code-reviewer-016-brief.md` |
+| `code-reviewer-fix-dialog-closes-on-first-portal-load.md` | `steering/backlog-2026-11-18-briefs/code-reviewer-fix-dialog-closes-on-first-portal-load.md` |
 | `code-reviewer-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/code-reviewer-save-gate-embeds-brief.md` |
 | `code-reviewer-uat-local-stack-brief.md` | `steering/queue-hooks-briefs/code-reviewer-uat-local-stack-brief.md` |
 | `codebase-bug-evaluation-2026-11-08.md` | `research/codebase-bug-evaluation-2026-11-08.md` |
@@ -584,6 +620,7 @@ they are the ID-less artifacts that root new efforts.
 | `critic-016-brief.md` | `steering/queue-hooks-briefs/critic-016-brief.md` |
 | `devops-016-brief.md` | `steering/queue-hooks-briefs/devops-016-brief.md` |
 | `devops-016-respawn-brief.md` | `steering/queue-hooks-briefs/devops-016-respawn-brief.md` |
+| `devops-fix-dialog-closes-on-first-portal-load.md` | `steering/backlog-2026-11-18-briefs/devops-fix-dialog-closes-on-first-portal-load.md` |
 | `devops-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/devops-save-gate-embeds-brief.md` |
 | `deweed.md` | `verification/016/deweed.md` |
 | `deweeder-016-brief.md` | `steering/queue-hooks-briefs/deweeder-016-brief.md` |
@@ -592,6 +629,11 @@ they are the ID-less artifacts that root new efforts.
 | `fix-agent-comment-sweep-merge-code-review.md` | `code-review/closed/fix-agent-comment-sweep-merge-code-review.md` |
 | `fix-agent-comment-sweep-merge-deployment.md` | `deployment/closed/fix-agent-comment-sweep-merge-deployment.md` |
 | `fix-agent-comment-sweep-merge-implementation.md` | `implementation/closed/fix-agent-comment-sweep-merge-implementation.md` |
+| `fix-dialog-closes-on-first-portal-load-brief-common.md` | `steering/fix-dialog-closes-on-first-portal-load-brief-common.md` |
+| `fix-dialog-closes-on-first-portal-load-code-review.md` | `code-review/closed/fix-dialog-closes-on-first-portal-load-code-review.md` |
+| `fix-dialog-closes-on-first-portal-load-deployment.md` | `deployment/closed/fix-dialog-closes-on-first-portal-load-deployment.md` |
+| `fix-dialog-closes-on-first-portal-load-implementation.md` | `implementation/closed/fix-dialog-closes-on-first-portal-load-implementation.md` |
+| `fix-dialog-closes-on-first-portal-load-rulings.md` | `steering/fix-dialog-closes-on-first-portal-load-rulings.md` |
 | `fix-hooks-record-shared-engine-code-review.md` | `code-review/closed/fix-hooks-record-shared-engine-code-review.md` |
 | `fix-hooks-record-shared-engine-implementation.md` | `implementation/closed/fix-hooks-record-shared-engine-implementation.md` |
 | `fix-hooks-record-shared-engine-qa.md` | `qa/closed/fix-hooks-record-shared-engine-qa.md` |
@@ -609,6 +651,7 @@ they are the ID-less artifacts that root new efforts.
 | `fix-website-save-gate-embeds-implementation.md` | `implementation/closed/fix-website-save-gate-embeds-implementation.md` |
 | `fix-website-save-gate-embeds-qa.md` | `qa/closed/fix-website-save-gate-embeds-qa.md` |
 | `fix-website-save-gate-embeds-retrospective.md` | `retrospectives/closed/fix-website-save-gate-embeds-retrospective.md` |
+| `fixer-fix-dialog-closes-on-first-portal-load.md` | `steering/backlog-2026-11-18-briefs/fixer-fix-dialog-closes-on-first-portal-load.md` |
 | `fixer-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/fixer-save-gate-embeds-brief.md` |
 | `fixer-uat-local-stack-brief.md` | `steering/queue-hooks-briefs/fixer-uat-local-stack-brief.md` |
 | `gap-dispositions.md` | `verification/015/effort-final/gap-dispositions.md` |
@@ -624,7 +667,9 @@ they are the ID-less artifacts that root new efforts.
 | `one-hooks-user-several-discord-accounts-2026-11-08.md` | `handoff/one-hooks-user-several-discord-accounts-2026-11-08.md` |
 | `open-documents-survey.md` | `verification/cleanup-2026-11-10/open-documents-survey.md` |
 | `planner-016-respawn-brief.md` | `steering/queue-hooks-briefs/planner-016-respawn-brief.md` |
+| `planner-hooks-new.md` | `steering/backlog-2026-11-18-briefs/planner-hooks-new.md` |
 | `planner-send-check-validity-brief.md` | `steering/queue-hooks-briefs/planner-send-check-validity-brief.md` |
+| `preview-failure-sweep.md` | `verification/backlog-2026-11-18/scoping/preview-failure-sweep.md` |
 | `preview-image-failure-shows-broken-not-stale-2026-08-24.md` | `handoff/preview-image-failure-shows-broken-not-stale-2026-08-24.md` |
 | `preview-image-generator-api-key-in-workflow-files-2026-11-08.md` | `handoff/preview-image-generator-api-key-in-workflow-files-2026-11-08.md` |
 | `preview-image-generator-drain-under-load-unobserved-2026-11-08.md` | `handoff/preview-image-generator-drain-under-load-unobserved-2026-11-08.md` |
@@ -652,17 +697,21 @@ they are the ID-less artifacts that root new efforts.
 | `RUN.md` | `verification/013/probe-cr28-oracle-arming/RUN.md` |
 | `save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md` | `handoff/closed/save-gate-embeds-owner-checks-on-hooks-gg-2026-11-11.md` |
 | `save-originating-tab-raises-its-own-update-prompt-2026-08-25.md` | `handoff/save-originating-tab-raises-its-own-update-prompt-2026-08-25.md` |
+| `save-tab-notice-sweep.md` | `verification/backlog-2026-11-18/scoping/save-tab-notice-sweep.md` |
 | `send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` | `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` |
 | `send-check-validity-post-deploy-2026-11-11.md` | `handoff/closed/send-check-validity-post-deploy-2026-11-11.md` |
+| `signed-out-guards-sweep.md` | `verification/backlog-2026-11-18/scoping/signed-out-guards-sweep.md` |
+| `sweep.md` | `verification/fix-dialog-closes-on-first-portal-load/scoping/sweep.md` |
 | `system-architecture.md` | `architecture/system-architecture.md` |
 | `test-inventory-2026-08-26.md` | `analysis/test-inventory-2026-08-26.md` |
 | `uat-016-brief.md` | `steering/queue-hooks-briefs/uat-016-brief.md` |
 | `uat-016-post-deploy-brief.md` | `steering/queue-hooks-briefs/uat-016-post-deploy-brief.md` |
+| `uat-fix-dialog-closes-on-first-portal-load.md` | `steering/backlog-2026-11-18-briefs/uat-fix-dialog-closes-on-first-portal-load.md` |
 | `uat-local-stack-test-free-port-race-2026-11-11.md` | `handoff/uat-local-stack-test-free-port-race-2026-11-11.md` |
 | `uat-local-stack-up-reuses-low-message-ids-2026-11-11.md` | `handoff/closed/uat-local-stack-up-reuses-low-message-ids-2026-11-11.md` |
 | `uat-save-gate-embeds-hooks-gg-check-brief.md` | `steering/queue-hooks-briefs/uat-save-gate-embeds-hooks-gg-check-brief.md` |
 | `unsaved-change-guards-disabled-for-unauthenticated-users-2026-08-24.md` | `handoff/unsaved-change-guards-disabled-for-unauthenticated-users-2026-08-24.md` |
-| `upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` | `handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` |
+| `upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` | `handoff/closed/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` |
 | `v1-guild-messages-auth-devops-phase-2d-brief.md` | `steering/v1-guild-messages-auth-devops-phase-2d-brief.md` |
 | `v1-guild-messages-auth-exposure-2026-10-10.md` | `research/closed/v1-guild-messages-auth-exposure-2026-10-10.md` |
 | `v1-guild-messages-auth-rulings.md` | `steering/v1-guild-messages-auth-rulings.md` |
