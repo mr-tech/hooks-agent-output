@@ -21,6 +21,7 @@ Architectural-Surface: "To be declared at revision 1, after reading the Problem 
 | 2026-11-18T22:11 | 0 | planner-hooks-new | Created from the scoping determination (rulings block 2026-11-18T21:59Z) and the commission (block 21:53Z). User stories, inherited rulings, scope questions and the analysis commission; no milestones. Scope delta: none (first revision); sized against the ask, four items, no feature. |
 | 2026-11-18T22:24 | R-1 | planner-hooks-017 | OQ-6 restated by replacement: its premise, that the lint script exits 2 at the base, was refuted by steering-roadmap (`verification/017/steering-refute/`). The error was this planner's: a helper's run in an export was taken as the tree's. The base count was re-taken at `verification/017/entry/lint-base/`; the `eslint-395510e-*` captures beside it are the refuted export runs. Gate disclosed: the record-write gate refused a shell heredoc for `lint-base/README.md`, which was written with the Write tool. Scope delta: none. |
 | 2026-11-18T22:44 | R-2 | planner-hooks-017 | Registered for revision 1 (Planner batch): chain A's CR-3 INFO (`code-review/closed/fix-dialog-closes-on-first-portal-load-code-review.md`, CR-3) and the base moving to website `1ad625e` (chain A released 22:41Z), both relayed by steering-roadmap. |
+| 2026-11-18T23:17 | R-3 | planner-hooks-017 | Commissioned AN-4 (§ "Analysis commissioned"): the generator's production render times, read under steering's ruling `steering/017-rulings.md` block 2026-11-18T23:15Z. |
 
 ## Value Statement and Business Objective
 
@@ -171,6 +172,16 @@ to be created under `analysis/` as `017-existing-items-backlog-analysis.md`). Th
   of the installed Next and of Vercel's Node runtime; the deployment's own settings are the owner's
   to read if no agent can). Measure the generator's render time if any record or log the record
   already holds carries it.
+- **AN-4 (item 2, gap G-3; REQUIRED before item 2's website milestone is approved for code).** The
+  distribution of the production generator's render-and-store time, read from its own out log on its
+  host: n, min, median, p95, p99 and max of the `<N>` in `Generated image for message … in <N>ms`
+  (logged on each success, `src/server.ts` at `8de2b53`); the span the log covers; and a count of
+  failure stacks over the same span where a count-only form gives one. Do the same for the `-preview`
+  instance if it has lines. Route: the read-only alias `ssh hooks-pig` as `claude-ro`, the way
+  `verification/015/pig-host-read.sh` reads (steering ruling `steering/017-rulings.md` block
+  2026-11-18T23:15Z). Use fixed-shape greps that print only durations or bucket counts: no ids, no
+  nonces, no whole lines, no pm2 command, no write on the host. A refused read is recorded and not
+  re-issued. Purpose: it sets the save continuation's timeout against the 60 s function limit (G-1).
 
 ## Entry facts (per repository)
 
