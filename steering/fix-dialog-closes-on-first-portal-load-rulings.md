@@ -104,3 +104,20 @@ Same commit, so no lockfile difference across the switch.
   `next/dist/api/app-dynamic`).
 - The fixer lodged an `INBOX.md` entry (suite-wide `next/dynamic` under vitest), uncommitted per the
   inbox rule; this record's owning session processes it.
+
+## 2026-11-18T22:29Z — code review APPROVED_WITH_COMMENTS at `1ad625e`; devops started
+
+- Reviewer message (spawn cue). Review `code-review/fix-dialog-closes-on-first-portal-load-code-review.md`
+  at agent-output `6016a46`, header read: `Reviewed-At: "1ad625e — repos=website"`, `Status: In
+  Review`, `Round: 1`, `Verdict: APPROVED_WITH_COMMENTS`. Its Assumption Not Checked (Round 1): a real
+  browser keeps the dialog open on its first portaled popover; owner: devops's production look after
+  the deploy, on a fresh page load.
+- Non-gating finding CR-1 MEDIUM (the red test discriminates only as its file's first case) has a
+  destination: `handoff/anchored-popover-first-load-test-is-order-dependent-2026-11-18.md`
+  (tracked at `HEAD`, `git cat-file -e`).
+- `release-move.js /usr/local/bin/hooks/website master 1ad625e… --dry-run`, 22:29Z: exit 0,
+  "ff-from-remote ok; sibling serving refs (none)", "workflows none".
+- `devops-fix-dialog-closes-on-first-portal-load` started with `tmux-agent spawn` (category
+  `fix-dialog-closes-on-first-portal-load`, cwd website, effort high as printed); brief at `789d7ae`.
+  The production push is its Phase 2B ask to him in its own session; this thread puts no release
+  prompt while it is live.
