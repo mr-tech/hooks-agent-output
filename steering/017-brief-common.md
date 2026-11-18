@@ -18,10 +18,16 @@ release … Analyst: only where the plan commissions one."
 Repositories: `/usr/local/bin/hooks/website`, `/usr/local/bin/hooks/preview-image-generator`,
 `/usr/local/bin/hooks/project-utils` (read; a schema change is a scope delta), and
 `/usr/local/bin/hooks/agent-output` (record). `/usr/local/bin/hooks` is not a repository:
-`git -C <repo>` on every call. **The website tree is held by chain A**
-(`fix/dialog-closes-on-first-portal-load`) until that chain releases; read website code at
-`origin/master` (`git show origin/master:<path>`), not the checked-out tree, until steering records
-this chain's branch.
+`git -C <repo>` on every call. **Updated 23:26Z:** chain A released (`1ad625e`, 22:41Z) and closed out;
+the website tree is on `master` at `1ad625e` (`git -C website branch --show-current`, `log -1
+origin/master`, read 23:2xZ). This chain's branch is not cut yet: steering cuts it at implementation
+start. Until steering records it, read website code at `origin/master` (`git show
+origin/master:<path>`) and run nothing in the shared tree — a gate stage that needs a build or a run
+uses an isolated export with its own install.
+
+Revision 1 answers (his, by selection): `steering/017-rulings.md` block "2026-11-18T23:26Z" — scope
+M1–M7 confirmed; OQ-7 proceeds open (the probe push before M5 is a later ask, by devops); Exclusions
+X-1 to X-16 accepted.
 
 ## Standing prohibitions relied on (quoted whole)
 
@@ -88,8 +94,8 @@ preview-failure row; Recommendations 1, 4, 6; D-003), `/usr/local/bin/hooks/agen
    Router, unverified). Making it work changes behaviour for signed-in users too.
 6. **A generator deploy is a production stop** of a process that has served requests: it fires
    `handoff/preview-image-generator-drain-under-load-unobserved-2026-11-08.md`.
-7. **The website tree is shared with chain A** until A releases; nothing of this chain is committed
-   in `website` before steering records this chain's branch.
+7. Nothing of this chain is committed in `website` before steering records this chain's branch
+   (chain A, which held the tree, closed out at 22:56Z).
 
 ## Not checked by this thread
 

@@ -297,3 +297,23 @@ Premises read this turn:
   write (a shell heredoc append); re-issued with the Edit tool, the form the gate names. The 23:15Z block
   and the analyst-brief amendment were written by a python script through the shell, which the gate did
   not catch; the form was outside the gate's stated standard all the same.
+
+## 2026-11-18T23:26Z — his three answers on revision 1, by selection
+
+Put as one selection prompt at 23:24Z (every next act of 017 waited on him), answered 23:26Z, all by
+selection (his words: none beyond the labels). Ledger: `steering/selection-ledger/2026-11-18.md`, block
+"2026-11-18T23:26Z — steering-roadmap" (options and descriptions as put are there in full).
+- **Scope:** "Agent: confirm M1–M7 (Recommended)" — "The critic, the architect and QA Phase 1 start on
+  revision 1 now. Implementation waits until those three gates approve." (Other options: cut item 4
+  back; hold and discuss.)
+- **OQ-7:** "Agent: proceed with it open (Recommended)" — "The gates and M1–M4 and M7 go ahead. Before
+  M5 code, a devops session asks you for the probe push. If the probe fails, M5 and M6 stop and come
+  back to you with the fallback." (Other options: settle it first; use the fallback now; drop item 2.)
+  The probe push itself is not approved by this answer: a devops session asks him for it before M5.
+- **Exclusions:** "Agent: accept all 16 (Recommended)" — "The plan keeps X-1 to X-16 as written. X-13's
+  question about a test-placement exception in CLAUDE.md stays in the record's inbox for that record's
+  owner." (Other option: name ones to drop.)
+Recipients: `planner-hooks-017` (all three; registers them); the critic, the architect and QA Phase 1
+by brief pointer to this block. Owner-wait `017-rev1-scope-oq7-exclusions` cleared. Spawn cue acted on:
+`critic-hooks-017` (xhigh, first pass), `architect-hooks-017` (conformance), `qa-hooks-017` (Phase 1),
+category `S017-backlog`, cwd `/usr/local/bin/hooks`.
