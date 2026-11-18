@@ -22,7 +22,7 @@ AN-4), read whole. **Also read**: the commission and the scoping determination
 
 | Date | Handoff | Request | Summary |
 |---|---|---|---|
-| 2026-11-18T23:47 | steering-roadmap (brief `steering/backlog-2026-11-18-briefs/critic-hooks-017.md`) | cycle 1 pass 1: plan revision 1, whole-document read | First pass of the cycle, so the whole plan was read (615 lines at `d84b192`; a Reading Order is present). Boundary: revision 1 is `97e6814`. `97e6814..d84b192` is R-4, 4 lines added and none removed (`git diff --numstat`): three register rows and one changelog row, no criterion moved. `d84b192..a3c1e83` is the planner's Resumption State, 14 added and none removed; it touches no milestone scope, criterion text, instrument form or register effect. Artifact changes: none before this pass. New findings: F-1 and F-2 HIGH, F-3 to F-11 MEDIUM, F-12 to F-18 LOW, all OPEN. Findings addressed: none. Verdict REQUEST REVISION. Pricing: sized to the ask as he re-set it (D-11, D-12, D-14). |
+| 2026-11-18T23:47 | steering-roadmap (brief `steering/backlog-2026-11-18-briefs/critic-hooks-017.md`) | cycle 1 pass 1: plan revision 1, whole-document read | First pass of the cycle, so the whole plan was read (615 lines at `d84b192`; a Reading Order is present). Boundary: revision 1 is `97e6814`. `97e6814..d84b192` is R-4, 4 lines added and none removed (`git diff --numstat`): three register rows and one changelog row, no criterion moved. `d84b192..a3c1e83` is the planner's Resumption State, 14 added and none removed; it touches no milestone scope, criterion text, instrument form or register effect. Artifact changes: none before this pass. New findings: F-1 and F-2 HIGH, F-3 to F-11 MEDIUM, F-12 to F-18 LOW, all OPEN. Findings addressed: none. Verdict REQUEST REVISION. Pricing: sized to the ask as he re-set it (D-11, D-12, D-14). Seam read, after this critique's first commit (`8bc0488`): the architect's pass (`406b34a`) and QA Phase 1 (`d1add83`, `06511f1`) were committed before it. Eight findings repeat one of theirs and carry `Duplicates:` (F-1, F-3, F-4, F-5, F-7, F-8, F-14, F-15); F-5 and F-6 now cite QA's runtime-log read. Ten are this critique's alone: F-2, F-6, F-9 to F-13, F-16 to F-18. |
 
 ## Verdict
 
@@ -41,6 +41,12 @@ the sign-in button, which D-11's text did not show him) and F-1 (where it adds a
 
 No milestone is marked `PREMISE-STALE`. The token appears once, in the gate's own sentence in
 § Plan.
+
+The architect's conformance pass and QA Phase 1 read the same revision and were committed before
+this critique. Eight findings here repeat one of theirs and are marked `Duplicates:`; they were
+reached independently, and where the severity differs, each gate's stands as its own. On the
+two-save delete race (F-3; the architect's AF-1 and QA's QAF-1 are HIGH) this critique holds
+MEDIUM on the magnitude F-3 states.
 
 ## Value Statement Assessment
 
@@ -91,7 +97,11 @@ Premises run in this pass:
   1ad625e` names `src/utils/index.ts` and one test file.
 - **Vercel's runtime-log retention.** Vercel's Runtime Logs documentation
   (`https://vercel.com/docs/logs/runtime`, read 2026-11-18): 1 hour on Hobby, 1 day on Pro, 3 days
-  on Enterprise, 30 days with Observability Plus. The project's plan tier is unread.
+  on Enterprise, 30 days with Observability Plus. This pass did not read the project's tier. QA
+  Phase 1 did, at 23:43Z, and its capture was read here after this critique's first commit
+  (`verification/017/qa-phase1/vercel-runtime-logs/README.md`, record `06511f1`): a one-day window
+  is refused with "The pro plan does not retain runtime logs for the requested time range", and a
+  23-hour window is served, 246 records. So retention on this project is under one day.
 - **The chain-015 probe.** F-11 carries the read.
 
 Process fact of this run, lodged in the round: the secret-file gate refused one Bash call, a
@@ -131,7 +141,7 @@ is read, not whether to proceed.
 
 ## Findings
 
-F-1 HIGH cycle 1 pass 1 OPEN — M4-a: the guard's condition and its dialog do not reach the `/message` Header and Sidebar, which the class includes.
+F-1 HIGH cycle 1 pass 1 OPEN — M4-a: the guard's condition and its dialog do not reach the `/message` Header and Sidebar, which the class includes. Duplicates: AF-4 in architecture/017-existing-items-backlog-architecture-findings.md
 
 - **Location**: plan § M4, M4-a ("the surrounding `/message` layout's Header and Sidebar included";
   "the shared `StyledLink` wrapper carries the guard once"). Code at `1ad625e`:
@@ -187,7 +197,7 @@ F-2 HIGH cycle 1 pass 1 OPEN — M3-d: the unload class is collapsed to two memb
   M3 code, its options carrying the read above. This does not reopen D-11; the finding is on the
   criterion's enumeration.
 
-F-3 MEDIUM cycle 1 pass 1 OPEN — M5-e's table omits the interleaving of one save's delete with the other save's write and commit.
+F-3 MEDIUM cycle 1 pass 1 OPEN — M5-e's table omits the interleaving of one save's delete with the other save's write and commit. Duplicates: AF-1 in architecture/017-existing-items-backlog-architecture-findings.md
 
 - **Location**: plan § M5, M5-b, M5-c, M5-e; RK-5. Generator `src/getPool.ts` (`max: 1`),
   `src/generateImage.ts`.
@@ -210,7 +220,7 @@ F-3 MEDIUM cycle 1 pass 1 OPEN — M5-e's table omits the interleaving of one sa
   its signature. State the orphan residue over its class: every object whose 204 was never
   processed.
 
-F-4 MEDIUM cycle 1 pass 1 OPEN — M5-a and M5-e are stated over "upsert order", and nothing stored carries it.
+F-4 MEDIUM cycle 1 pass 1 OPEN — M5-a and M5-e are stated over "upsert order", and nothing stored carries it. Duplicates: AF-2 in architecture/017-existing-items-backlog-architecture-findings.md
 
 - **Location**: plan § M5, M5-a, M5-e; X-5. Code at `1ad625e`:
   `src/server/api/utils/shared.ts` `upsertMessage` (`genUuid().replace(/-/g, '')`),
@@ -228,36 +238,39 @@ F-4 MEDIUM cycle 1 pass 1 OPEN — M5-a and M5-e are stated over "upsert order",
   rule, from what the row and the nonce can carry. Or restate the table's outcome as one the
   existing columns decide, and say what that gives up. Re-aim X-5's reason at that read.
 
-F-5 MEDIUM cycle 1 pass 1 OPEN — M5-f and RK-2: the log instrument has no retention, window or non-zero read, and at the measured rate its count reads zero either way.
+F-5 MEDIUM cycle 1 pass 1 OPEN — M5-f and RK-2: the log instrument has no retention, window or non-zero read, and at the measured rate its count reads zero either way. Duplicates: QAF-9 in qa/017-existing-items-backlog-qa.md
 
 - **Location**: plan § M5, M5-f ("Instrument: Vercel's runtime logs for the production
   deployment"); RK-1, RK-2; D-8.
-- **Description**: Three things an observable criterion declares are absent. (1) Reset semantics:
-  Vercel keeps runtime logs for 1 hour to 30 days depending on the plan (Premises), and the
-  project's tier is unread. (2) The window RK-2's "count of 'no answer within T' lines" is read
-  over, and its reader. (3) The non-zero precedent: the plan hands it to QA Phase 1 ("or states
-  that none exists"), where planner.md has the criterion cite the read. Separately, T's model names
-  two terms and omits a queue on the measured path: the generator's pool is `max: 1`, so the k-th
-  concurrent request waits for k−1 renders.
+- **Description**: Three things an observable criterion declares are absent from the plan.
+  (1) Reset semantics. QA's read at 23:43Z found this project's retention is under one day
+  (Premises); QAF-9 carries that and the readable precedent. (2) The window RK-2's "count of 'no
+  answer within T' lines" is read over, and its reader. (3) The non-zero precedent in the
+  criterion's own text. What this finding adds to QAF-9 is the rate, under Impact. Separately, T's
+  model names two terms and omits a queue on the measured path: the generator's pool is `max: 1`,
+  so the k-th concurrent request waits for k−1 renders.
 - **Impact**: AN-4 records 15 non-successes in 16847 requests and 196 generations in the last 30
-  days, about one failure in 170 days. Against a retention of 30 days at most, a count read on any
-  day is expected to be zero whether the line works or not. D-8's "failures become countable", the
-  words he was shown, holds only for a reader inside the retention window.
-- **Recommendation**: State the retention beside M5-f (a read of the project's plan, like G-1's, or
-  his word). State the window RK-2's count is read over and its reader, as a carrier. Cite the
-  non-zero read in the criterion once QA has it. If the retention is shorter than the expected gap
-  between failures, state that to him as a limit of D-8 as selected; it is not a reopening. Add the
-  pool to T's model.
+  days, about one failure in 170 days. Against a retention under one day, a count read on any day
+  is expected to be zero whether the line works or not, and a failure line is gone a day after it
+  is written. D-8's "failures become countable", the words he was shown, holds only for a reader
+  that runs at least daily.
+- **Recommendation**: State the retention beside M5-f, citing QA's read. State the window RK-2's
+  count is read over and its reader, as a carrier; a daily read is a timed read, so it names its
+  reader as planner.md has timed reads named. Cite the non-zero read in the criterion. State to
+  him, as a limit of D-8 as selected, that a failure line lasts under a day; it is not a
+  reopening. Add the pool to T's model.
 
 F-6 MEDIUM cycle 1 pass 1 OPEN — M5-0 limb 2: "fails" has no control and no third outcome.
 
 - **Location**: plan § M5, M5-0 limb 2 and "If either limb fails"; D-15; OQ-7.
 - **Description**: The gate passes if one line from a `waitUntil` promise appears in the preview
   deployment's runtime logs. A missing line has four causes the criterion cannot tell apart:
-  `waitUntil` does not hold the work; the instrument does not show runtime output (`vercel logs` on
-  CLI 29.1.1 is named and has not been read for this project); the preview never built or could
-  not be reached (the plan itself says that what a branch push deploys is unread); the line aged
-  out (F-5). The run "without `waitUntil`" tests H-2, not the instrument. The probe also cannot be
+  `waitUntil` does not hold the work; the instrument does not show runtime output; the preview
+  never built or could not be reached (the plan itself says that what a branch push deploys is
+  unread); the line aged out (F-5). The second cause is measured: the plan names `vercel logs` on
+  CLI 29.1.1 as the instrument that "exists on this box", and QA's read at 23:43Z found that
+  command returns build-log lines only
+  (`verification/017/qa-phase1/vercel-runtime-logs/README.md`, command 1). The run "without `waitUntil`" tests H-2, not the instrument. The probe also cannot be
   "only a Pages API route": `@vercel/functions` is not installed at the base (AN-3), so the branch
   carries a manifest and a lockfile change. Who writes the probe and who requests the route are
   not named.
@@ -269,7 +282,7 @@ F-6 MEDIUM cycle 1 pass 1 OPEN — M5-0 limb 2: "fails" has no control and no th
   the same instrument, so that a missing post-response line means something. Name the probe's
   author, the party that requests the route, and what the branch carries.
 
-F-7 MEDIUM cycle 1 pass 1 OPEN — M3 puts the storage change in shared code that backs three other stores, and no limb covers them.
+F-7 MEDIUM cycle 1 pass 1 OPEN — M3 puts the storage change in shared code that backs three other stores, and no limb covers them. Duplicates: AF-5 in architecture/017-existing-items-backlog-architecture-findings.md
 
 - **Location**: plan § M3, Surfaces ("A change to how the draft is stored is made once in that
   shared code, never in one caller"). Code at `1ad625e`: `src/utils/hooks/useLocalStorage.ts`
@@ -288,7 +301,7 @@ F-7 MEDIUM cycle 1 pass 1 OPEN — M3 puts the storage change in shared code tha
   from `useLocalStorage.ts`'s exports, with literal stored strings as M3-e uses; or place the
   change where the single key is chosen and mark that as the sibling reading, with its reason.
 
-F-8 MEDIUM cycle 1 pass 1 OPEN — M3 changes what the browser stores and carries no write matrix; what ends a stored copy is not stated.
+F-8 MEDIUM cycle 1 pass 1 OPEN — M3 changes what the browser stores and carries no write matrix; what ends a stored copy is not stated. Duplicates: AF-5 in architecture/017-existing-items-backlog-architecture-findings.md
 
 - **Location**: plan § M3, M3-b, M3-c, M3-e, M3-f; planner.md, Milestones (write matrix). Code at
   `1ad625e`: `MessageProvider/index.tsx` `useValue` (the fetch effect's `localMessageStore.set`,
@@ -393,7 +406,7 @@ F-13 LOW cycle 1 pass 1 OPEN — M2's human-observable form has an unstated reac
 - **Recommendation**: State the condition. Say that his production look confirms tab 2's notice
   (M2-c) and cannot by itself confirm M2-b.
 
-F-14 LOW cycle 1 pass 1 OPEN — M2's residue names one cause of a record that never clears, and the code has two routine ones.
+F-14 LOW cycle 1 pass 1 OPEN — M2's residue names one cause of a record that never clears, and the code has two routine ones. Duplicates: AF-6 in architecture/017-existing-items-backlog-architecture-findings.md
 
 - **Location**: plan § M2, "Window"; RK-3. Code at `1ad625e`: `shared.ts` `upsertMessage`
   (`if (message.id)` before `pusher.trigger`).
@@ -406,7 +419,7 @@ F-14 LOW cycle 1 pass 1 OPEN — M2's residue names one cause of a record that n
 - **Recommendation**: Name both members in the bounded class, or say what ends a record whose save
   broadcast nothing.
 
-F-15 LOW cycle 1 pass 1 OPEN — The cross-repo contract skill is deferred to another stage.
+F-15 LOW cycle 1 pass 1 OPEN — The cross-repo contract skill is deferred to another stage. Duplicates: AF-9 in architecture/017-existing-items-backlog-architecture-findings.md
 
 - **Location**: plan § Release and rollback ("not read this revision; QA Phase 1 or the architect
   names whether it applies").
