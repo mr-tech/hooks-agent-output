@@ -109,3 +109,24 @@ thread composed from Recommendation 1's own words:
 Recommendation (one place): the planner's.
 Recipients: `planner-hooks-017`; `fixer-fix-dialog-closes-on-first-portal-load` is not affected
 (its lint rule adds no finding beyond its own site — its claim, under review).
+
+## 2026-11-18T22:27Z — analyst owner-needing item (AN-3, G-1): the Vercel function settings; put as a fourth question
+
+Analyst message: analysis committed at `f330a29` (`analysis/017-existing-items-backlog-analysis.md`,
+present, `ls -d`). Gap G-1: the Vercel project `hooks-gg-website`'s Fluid-compute setting and function
+`maxDuration` are unread, and they bound post-response work after a save (item 2's design, plan
+OQ-3). Attempts quoted by the analyst: `vercel.json` carries only a cron; CLI 29.1.1 has no
+`project inspect`; `npx vercel@latest project inspect hooks-gg-website` (66.2.0) exit 1,
+`missing_scope`, with the text "Ask the user which team to use … Do not choose a team yourself".
+
+Premise read by this thread: `vercel teams ls` (CLI 29.1.1, 22:27Z) lists four teams visible to the
+signed-in account — `blacklabel` (selected), `blacklabels-projects`, `statbot`, `hooks-gg`. That the
+deployment's alias names `hooks-gg` is the analyst's read (`hooks-gg-website-hooks-gg.vercel.app`),
+not re-read.
+
+**Put to him 22:27Z, plain-message form, as the fourth item** (same owner-wait, not re-sent).
+Options: **Agent: read it with the `hooks-gg` team (Recommended)** (the analyst runs `vercel project
+inspect hooks-gg-website --scope hooks-gg`, read-only) / **You: read it yourself** (Dashboard →
+hooks-gg-website → Settings → Functions: the Fluid compute toggle and Max Duration) / **Agent: go
+without it** (the plan designs item 2 without counting on post-response work). Recipients:
+`analyst-hooks-017` (performs the read on the first option), `planner-hooks-017`.
