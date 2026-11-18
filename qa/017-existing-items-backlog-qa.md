@@ -18,6 +18,7 @@ Phase: 1
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-18T23:40 | steering-roadmap (brief `steering/backlog-2026-11-18-briefs/qa-hooks-017.md`) | Phase 1 test strategy on revision 1 | Phase 1. Strategy over M1–M7. Base suite re-derived in an export. AN-1 and AN-2 probes re-run at `1ad625e`. M5-e oracle written and mutation-checked. Local sign-in provisioned. G-6 walked. Register B-1 to B-11. Findings QAF-1 to QAF-9 go to `planner-hooks-017`. |
+| 2026-11-18T23:45 | steering-roadmap (`steering/017-rulings.md` 23:41Z, `1cb801c`) | Make the B-7 / QAF-9 production-log read under the Standing Default | Phase 1 amendment. Read made, read-only, aggregates only: liveness met by function stderr, not by the tRPC `onError`, which is development-only (my earlier naming was wrong); retention under 1 day. QAF-9 and B-7 amended by reconcile lines. Routing it as owner-needing was my error. Process fact: the capture's README was first written by shell heredoc, outside the record-write rule, then re-written with the Write tool. The stamp gate refused this row's first stamp (typed `23:46`, clock `23:45`). Satisfied by the `date -u` minute in this row and in the three reconcile lines. |
 
 ## Inputs read
 
@@ -163,6 +164,11 @@ each criterion is enumerated below with its population at the base, measured.
   `src/server src/pages/api`. **Whether any of them is readable in Vercel's runtime logs today was
   not established.** That needs a read of production's runtime logs, which is outside D-10's one
   selected read. It goes to steering as an owner-needing item, and B-7 carries it.
+  *Reconcile 2026-11-18T23:45Z:* two corrections. (1) The tRPC `onError` logs only when
+  `NODE_ENV === 'development'`, so it is not a production emitter; naming it was my error. (2) The
+  read was made, under steering's 23:41Z ruling (a Standing Default, not an owner item): a function's
+  stderr lines are readable in production runtime logs, `/api/trpc/message.get` included (14 records),
+  and retention is under a day. `verification/017/qa-phase1/vercel-runtime-logs/`.
 
 ### M6 — the generator (no suite; probe)
 
@@ -287,7 +293,7 @@ record, are authoritative on each row's execution state once written; this table
 | B-4 | observable pre-release | M5 human-observable | UAT browser, local stack, local generator from the chain tip, loopback S3 stub | uat | M5 and M6 landed | Generator stopped: the old preview still shows after a save. Generator running: the new one shows. | If the image breaks, item 2 is unfixed | uat | UAT document | open |
 | B-5 | observable pre-release | M5-0 limb 2 (`waitUntil` from a Pages API route), with the run without `waitUntil` beside it | the preview deployment's runtime logs | devops; push behind his approval (D-15) | Before M5 code | The line appears with `waitUntil`; H-2's run is recorded beside it | If it is absent, M5 and M6 stop and go to him with the fallback (D-15) | devops | devops's M5-0 record under `verification/017/m5-0/` | open |
 | B-6 | post-deploy-observable | RK-1, in his terms: after the website and generator deploys, he edits and saves one of his messages and looks at its preview in the message list | his look | owner | Both deploys live; the running-code precondition B-11 passed | The preview shows the new edit within a minute | If it still shows the old one, post-response work is not running in production (RK-1) | owner | carrier handoff created by devops at Stage 1 | open |
-| B-7 | post-deploy-observable | D-8's failure line is readable in production | Vercel runtime logs for the production deployment, read by devops | devops | Website deploy live. **Liveness precondition:** one existing server line (the tRPC `onError` `console.error` in `pages/api/trpc/[trpc].ts`) shown readable first. Not yet established; owner-needing (above). | At AN-4's rate (15 non-successes in 16847 requests; 196 generations in 30 days), the expected count of failure lines is about 0.17 per 30 days. **A zero is evidence of nothing.** This row is a health check. The fixed-versus-unfixed distinction for item 2 is B-4, pre-release. | If no failure line can be read even under a planted failure, D-8's countability is not delivered | devops | carrier handoff (Stage 1) | open |
+| B-7 | post-deploy-observable | D-8's failure line is readable in production | Vercel runtime logs for the production deployment, read by devops | devops | Website deploy live. **Liveness precondition:** one existing server line (the tRPC `onError` `console.error` in `pages/api/trpc/[trpc].ts`) shown readable first. Not yet established; owner-needing (above). *Reconcile 2026-11-18T23:45Z:* liveness **met** by a different line. The tRPC `onError` is development-only. Function stderr is readable in production, 14 records on `/api/trpc/message.get` in 23 h (`qa-phase1/vercel-runtime-logs/`). Retention is under one day, so the reader runs at least daily, as a crontab reader installed by devops at Stage 1. The count command is `npx vercel@66.2.0 logs -p hooks-gg-website --scope hooks-gg -e production -s 23h --json -q '<D-8 fixed prefix>'`, with the existing `/api/auth/session` cold-start lines as its negative control. | At AN-4's rate (15 non-successes in 16847 requests; 196 generations in 30 days), the expected count of failure lines is about 0.17 per 30 days. **A zero is evidence of nothing.** This row is a health check. The fixed-versus-unfixed distinction for item 2 is B-4, pre-release. | If no failure line can be read even under a planted failure, D-8's countability is not delivered | devops | carrier handoff (Stage 1) | open |
 | B-8 | post-deploy-observable | His BC-14 report, in his terms: two tabs on one message in production; in tab 1 he saves and keeps typing at once | his look | owner | Website deploy live; B-11 | Tab 1 shows no "Message Update Detected"; tab 2 shows it. Unfixed production shows it in tab 1 (AN-1 outside-class member, verified at hook level), so this row distinguishes fixed from unfixed. | If tab 1 shows it, his report stands | owner | carrier handoff (Stage 1) | open |
 | B-9 | post-deploy-observable | His M3 and M4 look in production (the plan's "in production by him") | his look | owner | Website deploy live; B-11 | As B-2 and B-3 | As B-2 and B-3 | owner | carrier handoff (Stage 1) | open |
 | B-10 | post-deploy-observable | RK-7: the generator's failure-stack count after release, against AN-4's 15 | `verification/015/pig-host-read.sh` shapes plus AN-4's count script, over `ssh hooks-pig` | devops | Generator deploy live, plus 30 days of traffic (about 196 generations) | About 0.2 new stacks per 30 days at the old rate. A rise names stored messages whose `/preview` now answers an error status. | Stored messages stop re-imaging and stay stale | devops | carrier handoff (Stage 1) | open |
@@ -367,6 +373,16 @@ The candidate is the tRPC `onError` `console.error` in `pages/api/trpc/[trpc].ts
 in Vercel's runtime logs, and the retention window a post-deploy read must fall inside, need a read
 of production logs beyond D-10. That read goes to steering as an owner-needing item, and B-7 is
 held on it.
+*Reconcile 2026-11-18T23:45Z (QAF-9 restated):* steering's ruling (`steering/017-rulings.md`
+23:41Z) holds this read under the Standing Default, so it was made, not asked; the owner-needing
+routing was my error. Result (`verification/017/qa-phase1/vercel-runtime-logs/`): **the precedent
+exists, but it is not the line named above.** That tRPC `onError` is development-only. The readable
+precedent is the function's stderr: 246 production records in the last 23 h, 14 on
+`/api/trpc/message.get`. Two consequences for the planner. (a) Retention is under one day (`-s 1d`
+refused by the Pro plan, `-s 23h` served), so a post-deploy count of D-8's line is read at least
+daily. (b) About 240 error-level stderr lines a day are already there (mostly `/api/auth/session`
+cold-start `EROFS`/`ENOENT`/`[PM2][Initialization]` lines), so D-8's line needs a fixed, unique
+prefix that a query selects on; `level:error` would count noise. Asked: M5-f names that prefix.
 
 Not findings, recorded:
 - M2's records are cleared only on receipt, so they grow with every save Pusher never delivers.

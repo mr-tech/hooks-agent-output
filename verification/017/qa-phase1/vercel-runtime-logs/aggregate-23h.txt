@@ -1,0 +1,16 @@
+records 246 span 2026-11-18T00:45:04.674Z 2026-11-18T22:45:05.396Z
+summary keys ['excludedIntervals', 'pagination', 'recordsReturned', 'timeRange', 'type']
+deployments 2
+245 source/level/stream/system ('function', 'error', 'stderr', False)
+1 source/level/stream/system ('function', 'warn', 'stderr', False)
+non-system lines by level, path, masked 4-word prefix:
+99 ('error', '/api/auth/session', 'Error: EROFS: read-only file')
+66 ('error', '/api/auth/session', 'Error: ENOENT: no such')
+33 ('error', '/api/auth/session', '[PM#][Initialization] Defaulting to /etc/.pm#')
+33 ('error', '/api/auth/session', '[PM#][Initialization] Environment variable HOME')
+6 ('error', '/api/trpc/message.get', 'Error: EROFS: read-only file')
+4 ('error', '/api/trpc/message.get', 'Error: ENOENT: no such')
+2 ('error', '/api/trpc/message.get', '[PM#][Initialization] Defaulting to /etc/.pm#')
+2 ('error', '/api/trpc/message.get', '[PM#][Initialization] Environment variable HOME')
+1 ('warn', '/', 'Error: Failed to find')
+records on /api/trpc paths 14
