@@ -19,6 +19,7 @@ Architectural-Surface: "To be declared at revision 1, after reading the Problem 
 | Date | Rev | Author | Change |
 |---|---|---|---|
 | 2026-11-18T22:11 | 0 | planner-hooks-new | Created from the scoping determination (rulings block 2026-11-18T21:59Z) and the commission (block 21:53Z). User stories, inherited rulings, scope questions and the analysis commission; no milestones. Scope delta: none (first revision); sized against the ask, four items, no feature. |
+| 2026-11-18T22:24 | R-1 | planner-hooks-017 | OQ-6 restated by replacement: its premise, that the lint script exits 2 at the base, was refuted by steering-roadmap (`verification/017/steering-refute/`). The error was this planner's: a helper's run in an export was taken as the tree's. The base count was re-taken at `verification/017/entry/lint-base/`; the `eslint-395510e-*` captures beside it are the refuted export runs. Gate disclosed: the record-write gate refused a shell heredoc for `lint-base/README.md`, which was written with the Write tool. Scope delta: none. |
 
 ## Value Statement and Business Objective
 
@@ -120,29 +121,30 @@ whose enabling depends on sign-in is in scope (determination), and the measureme
 guards protect anything signed out.
 
 **OPEN QUESTION OQ-6 (his — item 5, lint; a line red before the chain opens).** Recommendation 1
-speaks of "the 34 known ESLint findings" (counted at website `6d78b19`). At `395510e` the repository's
-own lint script (`eslint --fix . --max-warnings=0`) does not start: ESLint 8.57.1 exits 2 with
-*"ESLint couldn't determine the plugin "react" uniquely"*, because `pnpm-lock.yaml` resolves two
-`eslint-plugin-react` versions (7.33.2 through the airbnb config, 7.37.5 through `eslint-config-next`;
-lockfile lines 3834 and 3840 at `395510e`). Run by a helper in an export of `395510e` against the
-shared install (lockfile and lint config identical to `395510e`, `git diff --quiet`), capture
-`verification/017/entry/eslint-395510e-run1-stdout-stderr.txt`; this planner re-read the capture and
-the lockfile lines. A substitute run with the conflict resolved by hand — not the script's result —
-reports 469 errors and 368 warnings in 152 of 452 files (`verification/017/entry/eslint-395510e-summary.txt`;
-largest rules `max-len` 286 warnings, `object-curly-newline` 132 errors,
-`react-hooks/preserve-manual-memoization` 72 errors). So "34 known findings" no longer describes the
-tree, and limb 1 is larger than the ask assumed. Options:
-- *Agent: make the lint script run again and record what it reports as accepted, fixing none*
-  (a lockfile change, taken as a deliberate step per Recommendation 3; no source file changes).
-- *Agent: make it run, then fix only what ESLint fixes mechanically* (whitespace and layout rules;
-  touches about 150 files, including every file items 2 to 4 change, so it lands last).
-- *Agent: make it run and fix every finding* (includes hook-rule findings that can change behaviour;
-  each needs review as code).
-- *Agent: leave lint as it is; record the count and the broken script as an Exclusions row.*
-Recommendation: make it run and record the count as accepted — it restores the instrument, which
-is what every later change needs, and keeps this chain's diff on its four items. Chain A is at this
-moment adding a rule to the same `.eslintrc.json` (uncommitted in the shared tree at 22:10Z), so
-this limb starts from chain A's release.
+speaks of "the 34 known ESLint findings". That count was taken at website `6d78b19` over two files, not
+the repository (`steering/queue-hooks-rulings.md` block 2026-11-11T08:46Z and `TODO.md`, as cited by
+steering-roadmap). Measured at `395510e` through the shared tree's own install by this planner
+(`verification/017/entry/lint-base/`, method in its README: the tree emulates `395510e` by turning off
+chain A's one added rule, ignoring chain A's two files, and linting `395510e`'s copy of the changed
+one from git): before any fix, 314 errors and 368 warnings in 113 of 453 files. ESLint itself can fix
+255 of those errors and 5 of the warnings, in 70 files (69 under `src/`). After its fixes, 50 errors
+and 365 warnings remain in 72 files. That is what the repository's lint script
+(`eslint --fix . --max-warnings=0`) leaves, so the script fails at the base. Largest remaining:
+`max-len` 288 warnings, `@typescript-eslint/no-non-null-assertion` 53 warnings,
+`@typescript-eslint/no-unused-vars` 18 errors, `@typescript-eslint/no-explicit-any` 13 warnings,
+`@typescript-eslint/no-unsafe-argument` 10 errors. ESLint's own fixes include moving imports
+(`import/first` 67, `import/order` 24), which is not layout-only in every file. Options:
+- *Agent: record what the lint script reports at the base as accepted, fixing none* (an Exclusions
+  row carrying the per-rule counts; the script stays red; no source file changes).
+- *Agent: commit ESLint's own fixes (70 files), each reviewed as code, as the chain's last milestone,
+  and record the 415 remaining findings as accepted* (overlaps every file items 2 to 4 change).
+- *Agent: as above, and also fix the 50 remaining errors* (leaves the 365 warnings, mostly line
+  length, recorded as accepted).
+- *Agent: fix everything, so the lint script passes* (adds 288 long lines and 53 non-null
+  assertions to the work).
+Recommendation: record the count as accepted. It keeps this chain's diff on its four items, and
+Recommendation 1 names recording as a way to close it. Chain A's commit `1ad625e` changes the same
+`.eslintrc.json` (one added rule), so whatever this limb does starts from chain A's release.
 
 ## Analysis commissioned
 
@@ -217,4 +219,4 @@ and mode-switch confirmations; Recommendations 2, 3 (binding any re-pin), 5; `TO
 
 | Item | Source row | Disposition |
 |---|---|---|
-| — | — | — |
+| Item 2 candidate, not run: generator `src/generateImage.ts` `page.goto` (8de2b53) does not reject on an HTTP error status, so an error page could be screenshotted and stored as the preview | steering-roadmap's message, notes in `verification/017/steering-refute/` (c2) | To revision 1: re-derived at the installed puppeteer source and dispositioned in item 2's criteria or Exclusions. |
