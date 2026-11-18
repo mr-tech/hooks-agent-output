@@ -1,0 +1,15 @@
+Running scope as unit: run-r788124fafd06465e81eeaec911dc013e.scope
+
+Oops! Something went wrong! :(
+
+ESLint: 8.57.1
+
+ESLint couldn't determine the plugin "import" uniquely.
+
+- /usr/local/bin/hooks/website/node_modules/.pnpm/eslint-plugin-import@2.32.0_@typescript-eslint+parser@5.62.0_eslint@8.57.1_typescript@5_59391034fb161c2ae41ff7f9a347e253/node_modules/eslint-plugin-import/lib/index.js (loaded in ".eslintrc.json » eslint-config-next")
+- /usr/local/bin/hooks/website/node_modules/.pnpm/eslint-plugin-import@2.29.0_@typescript-eslint+parser@5.62.0_eslint@8.57.1_typescript@5.9.3__eslint@8.57.1/node_modules/eslint-plugin-import/lib/index.js (loaded in ".eslintrc.json » eslint-config-airbnb-base » /usr/local/bin/hooks/website/node_modules/.pnpm/eslint-config-airbnb-base@15.0.0_eslint-plugin-import@2.29.0_@typescript-eslint+parser@_60f60890f0a7b43f6dd7cbac6dd7dc3f/node_modules/eslint-config-airbnb-base/rules/imports.js")
+
+Please remove the "plugins" setting from either config or remove either plugin installation.
+
+If you still can't figure out the problem, please stop by https://eslint.org/chat/help to chat with the team.
+

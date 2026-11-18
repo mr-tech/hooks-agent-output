@@ -1,0 +1,12 @@
+Running scope as unit: run-r55e51dfced0544be96e0969e4afe9100.scope
+
+Oops! Something went wrong! :(
+
+ESLint: 8.57.1
+
+ESLint couldn't find the config "airbnb" to extend from. Please check that the name of the config is correct.
+
+The config "airbnb" was referenced from the config file in "/tmp/claude-1000/-usr-local-bin-hooks/c585f1cc-46f7-4c7e-9544-cfd7f3c5726c/scratchpad/base-eslintrc.json".
+
+If you still have problems, please stop by https://eslint.org/chat/help to chat with the team.
+

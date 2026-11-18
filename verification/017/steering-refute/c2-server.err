@@ -1,0 +1,12 @@
+Error: stub render failure
+    at default (file:///tmp/claude-1000/-usr-local-bin-hooks/c585f1cc-46f7-4c7e-9544-cfd7f3c5726c/scratchpad/refute-gen/generateImage.ts:1:36)
+    at IncomingMessage.<anonymous> (file:///tmp/claude-1000/-usr-local-bin-hooks/c585f1cc-46f7-4c7e-9544-cfd7f3c5726c/scratchpad/refute-gen/server.ts:34:5)
+    at IncomingMessage.emit (node:events:508:28)
+    at endReadableNT (node:internal/streams/readable:1729:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+SyntaxError: Unexpected token 'o', "notjson" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (file:///tmp/claude-1000/-usr-local-bin-hooks/c585f1cc-46f7-4c7e-9544-cfd7f3c5726c/scratchpad/refute-gen/server.ts:24:25)
+    at IncomingMessage.emit (node:events:508:28)
+    at endReadableNT (node:internal/streams/readable:1729:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)

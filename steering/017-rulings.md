@@ -38,3 +38,41 @@ from the analysis, not his. Scope delta: none (first revision).
   lint script's failure and count; the failure-visibility facts; "the in-app navigation guard has
   never worked for anyone"), output under `verification/017/steering-refute/`. The questions go to
   him after it reports, in plain-message form (chain A can still move without his word).
+
+## 2026-11-18T22:18Z — refutation results; OQ-6 returned to the planner; two questions put to him
+
+Helper results (`general-purpose-sonnet`, capped probes, outputs `verification/017/steering-refute/`,
+cleanup confirmed by its `ps` count 0):
+- **Lint premise: refuted where it matters.** The repo's lint command starts in the shared tree's
+  install (`eslint --fix-dry-run . --max-warnings=0` exit 1, no plugin error, `c1-shared-dry.out`;
+  also the fixer's run, `verification/fix-dialog-closes-on-first-portal-load/lint-script-argv-dryrun.*`).
+  The exit 2 "couldn't determine the plugin "react" uniquely" reproduces only in a `git archive`
+  export with a symlinked `node_modules`, the tree's config included (`c1-eslint.out`,
+  `c1-exp-sharedcfg.out`). 469 / 152 files not reproduced: export with a hand-built resolution 314
+  errors, 368 warnings, 114 of 452 files (`c1-eslint4.json`); tree (with chain A's rule edit, not the
+  base) 50 errors, 364 warnings, 71 of 454 files. OQ-6 is returned to `planner-hooks-017` to restate
+  (message 22:1xZ); not put to him.
+- **Failure-visibility facts (OQ-1): not refuted.** (a) website `shared.ts:192-202` ignores the
+  response and swallows errors, read from code; (b) generator `server.ts:38-42` `console.error` and
+  500, read from code; (c) wrong key → 404, only `POST /generate` on stdout — executed against stubs
+  (`c2-probe.out`). New caveat, read from code: `generateImage.ts:28` `page.goto` does not reject on an
+  HTTP error status, so an error page can be stored as the preview — sent to the planner as a
+  candidate for item 2.
+- **"The in-app navigation guard has never worked for anyone": not refuted, read from code, not
+  run.** `useUnloadAlert.ts` listens on `next/router` `Router.events` `beforeHistoryChange`, emitted
+  only inside the Pages Router (`next/dist/shared/lib/router/router.js:1194`); the app's pages are all
+  under `src/app` since the guard's first commit `09effa4` (2023-03-22).
+- **Gate disclosure (the helper's):** the secret-file gate refused its first `git show` on the
+  generator, written with the ref in a shell variable; it re-issued with literal paths, the form the
+  brief named and the control's own target shown; no `.github` or `.env*` file printed.
+
+**Put to him 22:18Z, plain-message form** (chain A can move without him; prompt gate on — flag
+absent, `ls -d`), with one `owner-wait` notice (chain `017`, key `017-rev0-stories-oq1`):
+1. *User stories* — options: **Agent: proceed on all four as written (Recommended)** / **You: change
+   a story (say which and how)** / **Agent: drop an item from this chain (say which; its handoff stays
+   open)**.
+2. *Preview failure visibility (OQ-1)* — options: **Agent: nothing new** / **Agent: the website logs
+   one line per failed or unreachable generation (Recommended — the planner's)** / **Agent: also tell
+   the saving user** / **Agent: decide after the fix ships**.
+Recipients of his answers: `planner-hooks-017` (owns both); the analyst is not affected (AN scopes
+unchanged by either).
