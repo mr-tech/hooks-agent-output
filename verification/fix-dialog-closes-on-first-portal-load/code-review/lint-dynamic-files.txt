@@ -1,0 +1,12 @@
+src/app/message/_components/NewMessageModal.tsx
+src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx
+src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx
+src/app/message/m/[id]/_components/JsonMenu.tsx
+src/components/EmojiPicker/Root.tsx
+src/components/dynamics/Calendar.tsx
+src/components/dynamics/DiscordMessageEditor.tsx
+src/components/dynamics/ImageUploader.tsx
+src/components/dynamics/Markdown.tsx
+src/components/dynamics/SlateEditor.tsx
+src/components/dynamics/ToastContainerWrapper.tsx
+src/components/dynamics/Tooltip.tsx

@@ -1,0 +1,73 @@
+import { Suspense, act, useState } from 'react';
+import {
+  afterEach, describe, expect, it, vi,
+} from 'vitest';
+
+import press, { findButton } from '~/components/__tests__/helpers/press';
+import { mountDom, unmountDom } from '~/components/__tests__/helpers/dom';
+import Dropdown from '~/components/Dropdown';
+import PresetDialog from '~/components/PresetDialog';
+
+vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+vi.mock('next/dynamic', async () => import('next/dist/api/app-dynamic'));
+
+const TITLE = 'Dialog hosting a portaled dropdown';
+
+const Harness: FC = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <Suspense fallback={<div>boundary fallback</div>}>
+      <button type="button" onClick={() => { setOpen(true); }}>open dialog</button>
+      <PresetDialog open={open} title={TITLE} onClose={() => { setOpen(false); }}>
+        <Dropdown portal label="Save To" items={[{ label: 'Guild A' }]} />
+      </PresetDialog>
+    </Suspense>
+  );
+};
+
+function recordHiddenDialogHosts(): { hidden: string[], stop: () => void } {
+  const hidden: string[] = [];
+  const observer = new MutationObserver((records) => {
+    for (const record of records) {
+      const el = record.target as HTMLElement;
+      if (el.style.display === 'none' && el.textContent?.includes(TITLE)) hidden.push(`<${el.tagName.toLowerCase()} ${el.getAttributeNames().join(' ')}>`);
+    }
+  });
+  observer.observe(document.body, { subtree: true, attributes: true, attributeFilter: ['style'] });
+  return { hidden, stop: () => { observer.disconnect(); } };
+}
+
+async function waitForFloatingPortal(): Promise<Element> {
+  for (let flush = 0; flush < 50; flush++) {
+    const el = document.body.querySelector('[data-floating-ui-portal]');
+    if (el) return el;
+    await act(async () => { await import('@floating-ui/react'); });
+  }
+  throw new Error('the dropdown never rendered its floating portal');
+}
+
+afterEach(unmountDom);
+
+describe('AnchoredPopover.Child with a portal, inside an open dialog', () => {
+  it('renders the popover into a portal outside the dialog panel', async () => {
+    mountDom(<Harness />);
+
+    press(findButton(document.body, 'open dialog'));
+    const portal = await waitForFloatingPortal();
+
+    expect(portal.closest('[aria-modal="true"]')).toBeNull();
+    expect(portal.parentElement).toBe(document.body);
+  });
+  it('opening the dialog never hides it while the portaled popover renders for the first time', async () => {
+    mountDom(<Harness />);
+    const recorder = recordHiddenDialogHosts();
+
+    press(findButton(document.body, 'open dialog'));
+    await waitForFloatingPortal();
+    recorder.stop();
+
+    expect(recorder.hidden).toEqual([]);
+    expect(document.body.querySelector('[aria-modal="true"]')?.textContent).toContain(TITLE);
+  });
+
+});

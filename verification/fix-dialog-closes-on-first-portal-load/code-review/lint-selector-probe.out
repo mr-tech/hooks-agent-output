@@ -1,0 +1,11 @@
+base Child.tsx (395510e)	no-restricted-syntax lines: 22
+fixed Child.tsx (1ad625e)	no-restricted-syntax lines: none
+no options	no-restricted-syntax lines: 3
+ssr: true	no-restricted-syntax lines: 3
+ssr: false	no-restricted-syntax lines: none
+loading	no-restricted-syntax lines: none
+blind: renamed default import	no-restricted-syntax lines: none
+blind: options in a variable, no loading	no-restricted-syntax lines: 4
+false positive: options in a variable WITH loading	no-restricted-syntax lines: 4
+false positive: string-literal key loading	no-restricted-syntax lines: 3
+blind: React.lazy without Suspense	no-restricted-syntax lines: none
