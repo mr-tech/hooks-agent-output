@@ -317,3 +317,18 @@ Recipients: `planner-hooks-017` (all three; registers them); the critic, the arc
 by brief pointer to this block. Owner-wait `017-rev1-scope-oq7-exclusions` cleared. Spawn cue acted on:
 `critic-hooks-017` (xhigh, first pass), `architect-hooks-017` (conformance), `qa-hooks-017` (Phase 1),
 category `S017-backlog`, cwd `/usr/local/bin/hooks`.
+
+## 2026-11-18T23:41Z — QA's QAF-9 / B-7 (a read of Vercel production runtime logs): answered by the Standing Default, not asked
+
+QA message (23:4xZ), `qa/017-existing-items-backlog-qa.md` at `d1add83` (QAF-9 line 364; register row
+B-7 line 290, read this turn): M5-f's liveness precondition needs one read-only read of the production
+deployment's runtime logs (an existing tRPC `onError` `console.error` line shown readable) and the log
+retention window; QA held it as outside D-10's single selected read.
+- Answer: escalation.md, Standing Defaults — "a read or check an agent can make with the access it has
+  — … a database or monitoring read … — is made and recorded, never asked of him". D-10 was his choice
+  of *which team scope* the G-1 read used, not a bar on further read-only Vercel reads. Not put to him.
+- Bounds sent (this thread's guidance): read-only CLI under `--scope hooks-gg`; print only counts,
+  timestamps and the fixed line prefix — no request bodies, message content, user ids or tokens; no
+  redeploy, env, or settings change; a refused read recorded, not re-issued.
+- Other gates on revision 1 at 23:41Z: architect `406b34a` APPROVED_WITH_CHANGES (AF-1..AF-5); QA Phase 1
+  `d1add83` findings QAF-1..QAF-9 to the planner; critic pass 1 not yet committed.
