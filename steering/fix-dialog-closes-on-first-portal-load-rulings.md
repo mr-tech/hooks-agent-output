@@ -121,3 +121,30 @@ Same commit, so no lockfile difference across the switch.
   `fix-dialog-closes-on-first-portal-load`, cwd website, effort high as printed); brief at `789d7ae`.
   The production push is its Phase 2B ask to him in its own session; this thread puts no release
   prompt while it is live.
+
+## 2026-11-18T22:43Z — released on his selection; production look started
+
+- **His answer** (devops's Phase 2B selection prompt, in its session): "Agent: push master to 1ad625e
+  (Recommended)" — selection-ledger day file `steering/selection-ledger/2026-11-18.md`, block
+  "2026-11-18T22:41Z — devops-fix-dialog-closes-on-first-portal-load", `answer:` line 29; the question
+  quoted the fixer's User-visible flows (lines 12-16).
+- **Release read by this thread, 22:4xZ:** `git ls-remote origin master` → `1ad625e2161b…`; website
+  tree on `master` at `1ad625e`, 0 tracked changes; no `fix/dialog*` branch left. Deployment record
+  `deployment/closed/fix-dialog-closes-on-first-portal-load-deployment.md` `Status: Released`
+  (agent-output `31f5e75`). Implementation `Released`, code review `Committed`, both under `closed/`
+  (devops's statement; the review's `Committed` read at 22:34Z).
+- **Production look not done by devops:** that session holds no `mcp__playwright__*` tools. It
+  re-routed the handoff's `Owning-Stage` to a session holding the test-account browser. This thread
+  started `uat-fix-dialog-closes-on-first-portal-load` (`tmux-agent spawn`, category
+  `fix-dialog-closes-on-first-portal-load`, cwd website, effort medium as printed; brief at `9e6606e`,
+  duties negated: the UAT document). Its rows go in the handoff's changelog; this thread closes the
+  handoff Addressed on a pass. Precedent: the 2026-11-11 post-deploy check of
+  `fix-website-save-gate-embeds` (`steering/queue-hooks-rulings.md`). Grant file for the browser
+  exists (`ls -d ~/.claude/state/discord-test-browser.granted`).
+- **CR-3 INFO** (the lint rule fires only where ESLint is run): routed to `planner-hooks-017` by
+  message for plan 017's lint item (OQ-6); destination recorded in the review (line 145) and the
+  deployment record (line 130).
+- **Retrospective cue** (devops): counted toward this thread's fixer batch, not acted on alone. The
+  effort is not closed out while the handoff's post-deploy row is open. Chain sessions stay up until
+  the look's result (a FAIL brings the fixer back).
+- The website tree is free of chain A; chain 017's branch is cut at its implementation start.
