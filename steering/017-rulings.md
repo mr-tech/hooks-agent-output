@@ -215,3 +215,14 @@ thread steers could move, and steering.md says the ask is re-put then as a selec
 thread re-asked in plain text instead and switched only after his "continue". The check that would
 have caught it: at each standing check, ask whether any chain can still move without him; if none
 can, put the open asks as a selection prompt in that turn.
+
+## 2026-11-18T23:10Z — reconcile note on the error above (his clarification)
+
+His words: *"When I said "to begin with" I meant only after the chain stopped and you had known
+that it was blocked"*. The block above placed the first missed point at the 23:0xZ standing check.
+That was one step late: the first point was this thread's own closure turn at 22:56Z, in which it
+closed chain A out and knew every next act of chain 017 waited on him, and still ended in plain
+text; the 23:0xZ check repeated the miss. Defensible when written only as the rule's literal
+trigger ("at the first check"); his reading — the moment the thread knows nothing can move — is the
+one that binds this thread from now on. The check that would have caught it: at any turn that ends
+with every chain waiting on him, the open asks go as a selection prompt in that turn.
