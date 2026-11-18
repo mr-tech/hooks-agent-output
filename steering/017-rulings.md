@@ -130,3 +130,23 @@ inspect hooks-gg-website --scope hooks-gg`, read-only) / **You: read it yourself
 hooks-gg-website → Settings → Functions: the Fluid compute toggle and Max Duration) / **Agent: go
 without it** (the plan designs item 2 without counting on post-response work). Recipients:
 `analyst-hooks-017` (performs the read on the first option), `planner-hooks-017`.
+
+## 2026-11-18T22:28Z — planner: two item-4 questions (Q-A, Q-B) and an item-3 finding; refutation started
+
+Planner message, from analysis `f330a29` (AN-2, AN-1): **Q-A** what to fix for signed-out edits
+(reload/close loses nothing signed out — the draft is kept in the browser; three unwarned losses
+from one stored copy shared by every message: after sign-in, opening a saved message then
+returning; two signed-out tabs; a signed-in user's edits on the expired-session sign-out) — options:
+fix the three at their source and turn the warnings on signed out (its recommendation) / fix at
+source only / warnings only / don't do item 4. **Q-B** the in-app leave warning (never worked; Next
+16 lets a page stop only clicks on its own links) — options: warn on link clicks for everyone (its
+recommendation; a new prompt signed-in users see) / delete the dead listener and record the limit /
+leave it. **Item 3:** at `395510e` the saving tab is not told of its own save for any enumerated save;
+the one live path is an edit typed while the save is in flight; revision 1 fixes it as the
+planner's mechanism choice. This disagrees in form with his BC-14 observation (at `a74b9e2`,
+2026-08-25); the code has changed since (A-6, `963a25c`), so it is stated to him, not treated as
+refuting him. Scope delta: none yet (Q-A's first option is priced at revision 1).
+
+Before putting them: a `general-purpose-sonnet` helper is trying to refute A1 to A5, B1 to B3 and C1
+(outputs `verification/017/steering-refute-2/`). Q-A and Q-B go to him after it reports, as a
+second message: the first message already holds four questions (escalation form, up to four).
