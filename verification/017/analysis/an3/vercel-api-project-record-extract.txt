@@ -1,0 +1,42 @@
+command: npx -y vercel@latest api /v9/projects/hooks-gg-website --scope hooks-gg --raw (CLI 66.2.0, GET, read-only)
+2026-11-18T23:12:22Z
+exit 0
+raw response: 74996 bytes, not committed (carries the project's env array); fields below extracted by key-name match (fluid|duration|function*|resourceconfig|memory|region|concurrency), env/link/latestDeployments/targets/crons/security skipped
+count of the key "fluid" in the raw response: 1 (defaultResourceConfig); resourceConfig has no fluid key
+features keys: [webAnalytics]
+{
+ "defaultResourceConfig": {
+  "fluid": false,
+  "functionDefaultRegions": [
+   "cle1"
+  ],
+  "functionDefaultTimeout": 60,
+  "functionDefaultMemoryType": "standard_legacy",
+  "functionZeroConfigFailover": false,
+  "elasticConcurrencyEnabled": true
+ },
+ "defaultResourceConfig.fluid": false,
+ "defaultResourceConfig.functionDefaultRegions": [
+  "cle1"
+ ],
+ "defaultResourceConfig.functionDefaultTimeout": 60,
+ "defaultResourceConfig.functionDefaultMemoryType": "standard_legacy",
+ "defaultResourceConfig.elasticConcurrencyEnabled": true,
+ "resourceConfig": {
+  "functionDefaultRegions": [
+   "cle1"
+  ],
+  "functionDefaultMemoryType": "standard_legacy",
+  "functionDefaultTimeout": 60,
+  "elasticConcurrencyEnabled": true,
+  "buildMachineType": "enhanced",
+  "buildMachineSelection": "fixed"
+ },
+ "resourceConfig.functionDefaultRegions": [
+  "cle1"
+ ],
+ "resourceConfig.functionDefaultMemoryType": "standard_legacy",
+ "resourceConfig.functionDefaultTimeout": 60,
+ "resourceConfig.elasticConcurrencyEnabled": true,
+ "serverlessFunctionRegion": "cle1"
+}

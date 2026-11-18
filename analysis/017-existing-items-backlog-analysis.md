@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Status-Detail: "AN-1, AN-2 and AN-3 answered for the planner's revision 1, each finding labelled with its provenance. Two gaps remain open: the Vercel project's Fluid-compute and maxDuration settings (the owner-approved CLI read at 23:09Z prints neither; returned to steering-roadmap) and the generator's render time (no record holds it)."
+Status-Detail: "AN-1, AN-2 and AN-3 answered for the planner's revision 1, each finding labelled with its provenance. G-1 resolved at 23:13Z (Fluid compute off, function timeout 60 s). The generator's render time stays open (G-3: no record holds it)."
 ---
 
 # Analysis 017 — the existing-items backlog: AN-1 (item 3), AN-2 (item 4), AN-3 (item 2)
@@ -14,6 +14,7 @@ Status-Detail: "AN-1, AN-2 and AN-3 answered for the planner's revision 1, each 
 |---|---|---|
 | 2026-11-18T22:26 | analyst-hooks-017 | Created. Commission: plan `017-existing-items-backlog.md` revision 0 (agent-output `f2153bd`), "Analysis commissioned" AN-1 to AN-3; brief `steering/backlog-2026-11-18-briefs/analyst-hooks-017.md` (`270d885`). Plan diff to `53a438d` and rulings blocks up to 22:18Z re-read before this write: neither changes an AN scope. |
 | 2026-11-18T23:09 | analyst-hooks-017 | G-1 read made on the owner's selection (`steering/017-rulings.md`, block 2026-11-18T23:08Z, "Agent: read under hooks-gg (Recommended)"). The output carries neither value; G-1 stays open (AN-3 "The deployment"). |
+| 2026-11-18T23:13 | analyst-hooks-017 | G-1 closed by one read-only `vercel api` GET of the project record, on the owner's selection "Agent: query Vercel's API (Recommended)" (`steering/selection-ledger/2026-11-18.md`, latest steering-roadmap block). Fluid compute off; function default timeout 60 s. |
 
 ## Value Statement and Business Objective
 
@@ -167,7 +168,15 @@ The fix is website `963a25c` (2026-11-11, "Save and the choice save share one st
 **The deployment (Observed / gap).**
 - `vercel inspect https://hooks.gg` (CLI 29.1.1, read-only, `an3/vercel-inspect.txt`): production deployment `dpl_GtFCaEH5UDbaYGKmjY8fC8X8H7bU`, created 2026-11-11 18:29:46Z, the minute of the `395510e` push (`origin/master` reflog 18:29:45). Lambdas are in region `cle1`.
 - `vercel.json` holds only a cron (no `functions` block, no `maxDuration`).
-- **Fluid compute and the function `maxDuration` are still unread** (G-1). They set the ceiling a `waitUntil` promise lives under.
+- **Fluid compute and the function time limit, read 2026-11-18T23:12:22Z (Observed, the project record).**
+  - Command: `npx -y vercel@latest api /v9/projects/hooks-gg-website --scope hooks-gg --raw` (CLI 66.2.0, GET), exit 0.
+  - Extract: `an3/vercel-api-project-record-extract.txt`. The raw 74996-byte response was not committed and has been deleted, because it carries the project's `env` array.
+  - `defaultResourceConfig.fluid = false`. That is the only `fluid` key in the response (count 1), and `resourceConfig` carries none.
+  - `functionDefaultTimeout = 60` in both `defaultResourceConfig` and `resourceConfig`.
+  - `functionDefaultMemoryType = "standard_legacy"`, `functionDefaultRegions = ["cle1"]`, `elasticConcurrencyEnabled = true`.
+  - No route override: `vercel.json` has no `functions` block, and `src/pages/api/trpc/[trpc].ts` exports only its handler, with no `config` / `maxDuration` (both Observed).
+  - **So the tRPC function runs without Fluid compute, with a 60 s limit.** That `defaultResourceConfig.fluid` is the effective setting when `resourceConfig` omits the key is **Inference** from the field names.
+  - **Ceiling at the plan's population.** Per the Vercel reference quoted above, a `waitUntil` promise has "the same timeout as the function itself". Per save, then, post-response work is cut off 60 s after the invocation starts, save time included. Without Fluid compute, each invocation is its own instance, so post-response work holds that instance and does not delay another save's request (Inference from the documentation's model, not measured).
 - **The owner-approved read, 2026-11-18T23:09:20Z.** Command: `npx -y vercel@latest project inspect hooks-gg-website --scope hooks-gg` (CLI 66.2.0), exit 0. Capture: `an3/vercel-project-inspect-hooks-gg.txt`. It prints General (ID `prj_nhlL7VUS0C9BzgD1Kvh3E1AUv72r`, owner "Hooks gg", Node.js Version `24.x`, root `.`), Framework Settings (Next.js preset, default output) and Git (`hooks-gg/website`, production branch `master`). **It prints no Fluid-compute line and no Max Duration line** (`grep -ciE "fluid|duration|memory|function"` over the capture = 0). The selection covered this one read only, so no other Vercel read was made.
 
 **Throughput ceiling.** No rate-limiting mechanism was read in this commission. The ceiling a post-response task meets is the function's `maxDuration` per invocation, unknown until G-1 closes.
@@ -195,7 +204,7 @@ The fix is website `963a25c` (2026-11-11, "Save and the choice save share one st
 
 | # | Unknown | Blocker | Required action | Owner |
 |---|---|---|---|---|
-| G-1 | Fluid compute on or off, and the function `maxDuration`, for Vercel project `hooks-gg-website` | The owner-approved `vercel project inspect … --scope hooks-gg` read (23:09Z) succeeded but prints neither setting; his selection covered that one read only | Read Project Settings → Functions in the dashboard (Fluid compute toggle, Max Duration), or another read he sanctions. Returned to `steering-roadmap` | Owner |
+| G-1 | ~~Fluid compute on or off, and the function `maxDuration`~~ | **Resolved 23:13Z** — AN-3 "The deployment": Fluid off, 60 s (project record via `vercel api`) | — | — |
 | G-2 | `waitUntil` from a Pages API route on this project keeps a post-response promise alive (and H-2) | No preview deployment from this analysis | A preview-deployment probe (validation path above) | Planner to schedule if the design rests on it |
 | G-3 | Generator render time | No record holds it; refusal 2 left the generator's own logging unread | A count-form read the gate admits, or a local render timing against the generator at `8de2b53` | Planner / QA |
 | G-4 | Real Pusher delivery and ordering to the sender | No Pusher publish allowed from this box | None needed for revision 1; the hook-level determination covers both orders | — |
@@ -204,5 +213,5 @@ The fix is website `963a25c` (2026-11-11, "Save and the choice save share one st
 
 ## Analysis recommendations (investigative only)
 
-- Close G-1 before revision 1 sets a mechanism for item 2: every post-response design is bounded by it.
+- G-1 is closed: every post-response design for item 2 is bounded by the 60 s function limit without Fluid compute (AN-3).
 - If item 3 becomes "pin the absence", the AN-1 probe's class (both orders, all members) and its outside-class member are a ready discriminating instrument. It was shown to fail at `a74b9e2` and to pass at `395510e`.
