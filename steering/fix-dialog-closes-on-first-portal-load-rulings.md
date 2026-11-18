@@ -83,3 +83,24 @@ after `fix/dialog-closes-on-first-portal-load` at the same commit, no upstream
 (`rev-parse --abbrev-ref @{u}` → "no upstream configured"). `git status --porcelain` captured before
 and after: `cmp` identical; tracked changes 0 (`grep -c -v '^??'`), untracked entries left alone.
 Same commit, so no lockfile difference across the switch.
+
+## 2026-11-18T22:22Z — fixer handoff received; code reviewer started
+
+- Fixer message: handed off at website `1ad625e`; document
+  `implementation/fix-dialog-closes-on-first-portal-load-implementation.md` (record `4360a16`, header
+  read: `Status: Active`, `Handoff-At: 1ad625e — repos=website`). Branch HEAD `1ad625e`, 0 tracked
+  changes (`git status --porcelain`, `grep -c -v '^??'`).
+- `git diff --numstat 395510e 1ad625e`: `Child.tsx` 6/4, `.eslintrc.json` 7/1, one new test 73/0.
+  Production lines (GLOSSARY): 6, `Child.tsx` only; lint configuration is none. Route: code review
+  alone, the reviewer running the suite and the red test. No QA Phase 2.
+- Earlier the same round (22:1xZ), the fixer answered this thread's lint pointer: the lint command
+  starts in the shared tree's install (`verification/fix-dialog-closes-on-first-portal-load/lint-script-argv-dryrun.*`),
+  so its class catch has an instrument; independently confirmed by chain 017's refutation helper
+  (`steering/017-rulings.md`, block 22:18Z). This thread sent no reply.
+- `code-reviewer-fix-dialog-closes-on-first-portal-load` started with `tmux-agent spawn` (category
+  `fix-dialog-closes-on-first-portal-load`, cwd website, effort medium as printed); brief
+  `steering/backlog-2026-11-18-briefs/code-reviewer-fix-dialog-closes-on-first-portal-load.md` at
+  `7ec4f6c`, carrying the fixer's mock hazard (the red test maps `next/dynamic` to
+  `next/dist/api/app-dynamic`).
+- The fixer lodged an `INBOX.md` entry (suite-wide `next/dynamic` under vitest), uncommitted per the
+  inbox rule; this record's owning session processes it.
