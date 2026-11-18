@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Status-Detail: "AN-1, AN-2 and AN-3 answered for the planner's revision 1, each finding labelled with its provenance. G-1 resolved at 23:13Z (Fluid compute off, function timeout 60 s). The generator's render time stays open (G-3: no record holds it)."
+Status-Detail: "AN-1, AN-2 and AN-3 answered for the planner's revision 1, each finding labelled with its provenance. G-1 resolved at 23:13Z (Fluid compute off, function timeout 60 s). The generator's render time stays open (G-3: no record holds it). AN-4, the host read that would close it, is held: it is not in the committed plan and the brief excludes host acts, so it is with steering-roadmap for his word."
 ---
 
 # Analysis 017 — the existing-items backlog: AN-1 (item 3), AN-2 (item 4), AN-3 (item 2)
@@ -15,6 +15,7 @@ Status-Detail: "AN-1, AN-2 and AN-3 answered for the planner's revision 1, each 
 | 2026-11-18T22:26 | analyst-hooks-017 | Created. Commission: plan `017-existing-items-backlog.md` revision 0 (agent-output `f2153bd`), "Analysis commissioned" AN-1 to AN-3; brief `steering/backlog-2026-11-18-briefs/analyst-hooks-017.md` (`270d885`). Plan diff to `53a438d` and rulings blocks up to 22:18Z re-read before this write: neither changes an AN scope. |
 | 2026-11-18T23:09 | analyst-hooks-017 | G-1 read made on the owner's selection (`steering/017-rulings.md`, block 2026-11-18T23:08Z, "Agent: read under hooks-gg (Recommended)"). The output carries neither value; G-1 stays open (AN-3 "The deployment"). |
 | 2026-11-18T23:13 | analyst-hooks-017 | G-1 closed by one read-only `vercel api` GET of the project record, on the owner's selection "Agent: query Vercel's API (Recommended)" (`steering/selection-ledger/2026-11-18.md`, latest steering-roadmap block). Fluid compute off; function default timeout 60 s. |
+| 2026-11-18T23:14 | analyst-hooks-017 | AN-4 (G-3: production render-time distribution from the generator's out log on the host, via `ssh hooks-pig`) was requested by planner-hooks-017 by message. **Held, not started.** It is absent from the committed plan (`grep -n "AN-4"` at `bcb2e15`: no hit), and the brief excludes host acts ("Production: no host act and no hooks.gg save is part of this commission"). Put to steering-roadmap as an owner-needing item (msg `fb230ece`). G-2's preview-deployment probe: not to be run (planner). |
 
 ## Value Statement and Business Objective
 
@@ -35,6 +36,7 @@ Roadmap / Master Product Objective: not cited. The standing owner prohibition in
 2. **Secret-file gate, refusal 2.** `git -C preview-image-generator grep -c -E "<timing patterns>" 8de2b53 -- src` was refused. It was **not re-issued in any form.** As a result, whether the generator logs a render duration is unestablished (gap G-3).
 3. **Probe defects, corrected before any result was used.** In AN-1's first run, members leaked state into each other through `localStorage`: the provider prefers a newer local copy (`getMessage` in `MessageProvider/index.tsx`). Its rows were discarded, and the probe now clears the store and installs a fresh stored object per member. AN-2's first run hit an out-of-memory error: the mock returned a new object on every render, which looped the fetch effect. It was fixed to return a stable object. Only the corrected runs are cited.
 5. **Record-writing rule broken, 23:10Z.** The 23:09 changelog row was first written above the 22:26 row. Its order was then swapped with an ad-hoc `python3` script. Lifecycle `SKILL.md` § Document Header Format permits only the file-editing tools or `record-edit.js` for record documents. The result is the two rows in ascending order with no other byte changed (`git diff` read before commit). The rule was broken, not satisfied, and is recorded as such.
+6. **Stamp gate fired, satisfied, 23:14Z.** The AN-4 changelog row was first written with a typed stamp, `23:17`, ahead of the clock. `stamp-gate-hook` refused it ("future-dated or placeholder stamp"), and the stamp was replaced with the `date -u +%Y-%m-%dT%H:%M` value, `23:14`. The gate stated the standard and the row now meets it.
 4. **Vercel CLI.** The box's CLI (29.1.1, signed in) has no `project inspect`. `npx vercel@latest` (66.2.0) `project inspect hooks-gg-website` exited 1 with `missing_scope` and the instruction *"Ask the user which team to use … Do not choose a team yourself."* The team was not chosen (gap G-1).
 
 ## Findings
