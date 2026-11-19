@@ -2,17 +2,18 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Open
-Status-Detail: "Cycle 4 pass 1 on plan revision 10 (M2-d, the Pusher disconnect, and M2-c's exact string equality): APPROVED. F-29 MEDIUM is OPEN, with the planner for its fold of revision 10's gate verdicts: M2-d's walk step does not say how the second editor is opened, which decides whether it can fail. F-1 to F-28 RESOLVED. No open question is marked. SL-5 gained a third member (RK-3's record cell). The critique closes when F-29 lands."
-Artifact-Revision: 10 — the delta bcc23c6..fad6cd4 read whole; last whole read is revision 1 at d84b192
-Reviewed-At: "fad6cd4 — repos=agent-output; website code read at 42d15de (chain/017-existing-items-backlog) and 1ad625e"
+Status: Resolved
+Status-Detail: "Cycle 4 pass 2 on plan revision 11 (the fold of revision 10's gate findings): APPROVED, no finding. F-1 to F-29 RESOLVED. No open question is marked. SL-1 to SL-5 stand with their bearers named; SL-5's third member is fixed in the plan's text. A later revision that changes criterion text, milestone scope or an instrument's form opens cycle 5."
+Artifact-Revision: 11 — the delta fad6cd4..a971ed8 read whole; last whole read is revision 1 at d84b192
+Reviewed-At: "a971ed8 — repos=agent-output; website code read at 42d15de (chain/017-existing-items-backlog) and 1ad625e"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 017, the existing-items backlog
 
-**Artifact**: `planning/017-existing-items-backlog.md`, revision 10 (`fad6cd4`), read as the delta
-from revision 9 (`bcc23c6`), with M2 read whole beside it. **Read at cycle 4 pass 1**:
+**Artifact**: `planning/017-existing-items-backlog.md`, revision 11 (`a971ed8`), read as the delta
+from revision 10 (`fad6cd4`). **Read at cycle 4 pass 2**: the QA register's B-15 row. Revision 10
+was read as the delta from revision 9 (`bcc23c6`), with M2 read whole beside it. **Read at cycle 4 pass 1**:
 `steering/017-rulings.md` blocks 11:10Z, 17:49Z and 17:51Z, and the 2026-11-19 ledger's 17:49Z
 block. Revision 9 was read as the delta from revision 8 (`5e36106`); revision 8 was read as the delta from revision 7 (`6ade256`). **Read at
 cycle 3 pass 2**: `steering/017-rulings.md` block 04:14Z, the 2026-11-19 ledger's 08:41Z block, and
@@ -44,8 +45,31 @@ whole at pass 1. **Also read at pass 1**: the commission and the scoping determi
 | 2026-11-19T08:36 | steering-roadmap-hooks (brief `steering/backlog-2026-11-18-briefs/critic-hooks-017-resume.md`) | cycle 3 pass 1: plan revision 8, delta-bounded | A fresh session, resumed from this critique's Resumption State at `7744a42`; nothing was carried without its commit. Premise re-read at the mechanism: the plan header reads `Revision: 8` at `5e36106` (the Resumption State said 7, which was true at its write); the website chain branch is at `4b8db9c`, as it said; the plan is unchanged from `5e36106` to the record's tip `6c236f8` (`git diff --numstat` prints nothing). Depth: delta-bounded, because the delta `6ade256..5e36106` (75 added, 35 removed, `git diff --numstat`, 20 commits) is fully readable in the diff and adds, removes or reshapes no milestone; it was read whole from a file (177 lines). Eighteen of the 20 commits are other stages' rows R-27 to R-44 and one is the planner's checkpoint; none moves a criterion. Artifact changes: M3's matrix fetch cell, M4-a's second interception, six rows of M4-d's table, M6-c's class set closed at four, X-21 to X-23, the Planner batch dispositions. This is criterion text, so a findings pass was owed and not a boundary line. Findings addressed: none were open. New findings: none. Stop authority fired on two shapes, both closed as stated limits with no revision asked: SL-5 (F-28's shape, two members) and a third member of SL-3 (X-22's carrier label), sent to steering because X-22 is being put to him. State change: none; Verdict APPROVED, Status stays Resolved, and the file was edited in `closed/` without a move, since the pass opens and closes in one commit. Pricing: sized to the ask. Reconcile: pass 2's SL-2 member list was wrong in three places, the error this critique's (§ Stated limits, SL-2). One premise read was not completed. Trim: the Resumption State section is replaced by one closing line; it carried the plan for this pass, now run, and is in `7744a42`. |
 | 2026-11-19T09:17 | planner-hooks-017 (message naming revision 9 at `bcc23c6`) | cycle 3 pass 2: plan revision 9, delta-bounded | Depth: delta-bounded; the delta from this critique's last read, `5e36106..bcc23c6` (27 added, 11 removed, `git diff --numstat`, four commits: R-45 and R-46, R-47, R-48, revision 9), adds, removes or reshapes no milestone and was read whole (101 lines). The planner named `d74bf23..bcc23c6`; the three commits before it were read too. The plan is unchanged from `bcc23c6` to the record's tip. It is the same cycle: no criterion text, milestone scope or instrument form moves, and the pass is taken for the register effect (X-24, D-31, D-32). Artifact changes: X-24 with its Planner batch row; D-31 and D-32 registered and written into X-22 and X-21; QA's Status write to QA Complete (R-47); RK-8's record cell, the owed re-verdicts order and X-22's carrier corrected. Findings addressed: none were open; SL-3's third member and SL-5's two are fixed in the text. New findings: none. Stop authority did not fire. Verdict APPROVED; Status stays Resolved, edited in `closed/` as at pass 1. Pricing: sized to the ask. Record wording: three lines of this critique were shortened to say only that a read was not completed, under the owner's standing rule of 2026-11-19; each carried a process fact of its pass and no finding, and the earlier wording is in `56a602a`. |
 | 2026-11-19T17:55 | planner-hooks-017 (message naming revision 10 at `fad6cd4`) | cycle 4 pass 1: plan revision 10, delta-bounded | Reopened from `closed/` (Status `Open`): revision 10 changes criterion text on an open milestone, so a new cycle opens. Depth: delta-bounded, because the delta from this critique's last read, `bcc23c6..fad6cd4` (38 added, 10 removed, `git diff --numstat`, three commits: R-49, R-50 and R-51, revision 10), is fully readable in the diff and adds or removes no milestone; it was read whole (108 lines), with M2 read whole beside it. The planner named `61ce793..fad6cd4`; the two commits before it were read too. The plan is unchanged from `fad6cd4` to the record's tip. Artifact changes: M2-d (D-34), M2-c's equality sentence (D-33), M2's surfaces line, M2-d's walk step, D-33 to D-35, Status back to In Progress (R-51). Findings addressed: none were open. New findings: F-29 MEDIUM, OPEN. Stop authority: F-29 is a second instance of SL-4's shape, so no revision is asked on it; SL-5 gained a third member. Verdict APPROVED. Pricing: sized to the ask as he re-set it (D-34). |
+| 2026-11-19T18:03 | planner-hooks-017 (message naming revision 11 at `a971ed8`) | cycle 4 pass 2: plan revision 11, delta-bounded | Depth: delta-bounded; the delta from this critique's last read, `fad6cd4..a971ed8` (28 added, 11 removed, `git diff --numstat`, three commits: R-52, R-53, revision 11 with R-54 and R-55), adds, removes or reshapes no milestone and was read whole (92 lines). The planner named `39e1940..a971ed8`; the two commits before it were read too. The plan is unchanged from `a971ed8` to the record's tip. Artifact changes: M2-d's walk step, RK-3's record cell, four rows of § "Gate findings folded", the owed re-verdicts, R-52 to R-55. Findings addressed: F-29 RESOLVED and collapsed; SL-5's third member fixed in the text. New findings: none. Stop authority did not fire. Verdict APPROVED. Pricing: sized to the ask. Trim: F-29's body is replaced by its disposition line; it carried the argument for the finding, which is in `012ee2b`. |
+| 2026-11-19T18:03 | critic-hooks-017 | Document closed | Status: Resolved. Every finding F-1 to F-29 is RESOLVED, F-29 verified in the plan's text at `a971ed8`. SL-1 to SL-5 stand with their detection-cost bearers named. |
 
 ## Verdict
+
+**APPROVED — cycle 4, pass 2.**
+
+Pricing: sized to the ask. Revision 11 changes the wording of one walk step and one record cell,
+and moves no code, test or criterion.
+
+No finding is open and this pass raised none. F-29 is resolved: M2-d's walk step now requires a
+move by in-app links with no reload and no typed address, says why a page load cannot fail, and
+marks the unfixed tree's two sockets as a code read, not observed. QA's B-15 row exists and
+carries the step. RK-3's cell records CR-20's member and what closed it. AF-25's disposition adds
+an instrument to M2-c in QA's register and moves no criterion.
+
+No open question is marked (15 of 15 `[RESOLVED]`). The plan still has eight milestones and none
+is marked `PREMISE-STALE`. `Target-Release` is untouched. The stop authority did not fire, nor did
+the hard stop (pass 2 of 15). Routed to the owner: nothing.
+
+Still unobserved, and carried by pass 1's Assumption Not Checked: that an in-app move on the
+unfixed tree leaves two sockets open. The plan now says so itself; QA's B-15 and UAT's walk are
+where it is seen.
+
+## Cycle 4 verdict, pass 1 (`012ee2b`)
 
 **APPROVED — cycle 4, pass 1.**
 
@@ -294,6 +318,15 @@ holds no roadmap, so alignment is judged against the commission (D-1) and the ar
 
 ## Assumption Not Checked
 
+Cycle 4 pass 2: this pass assumes that QA's B-15 row voids a run whose document was replaced, as
+the plan's step says, and does not test it; the row's opening was read, not its void rule. If it
+is false, a QA or UAT run that loaded a page counts as a pass on M2-d. QA owns it, in its own
+register.
+
+Premises run in cycle 4 pass 2: `git diff --numstat fad6cd4 a971ed8 --
+planning/017-existing-items-backlog.md` gives 28 added, 11 removed, three commits. At `a971ed8`:
+`grep -c '^### M'` 8; `OPEN QUESTION` 15, `[RESOLVED]` 15.
+
 Cycle 4 pass 1: this pass assumes that, on the unfixed tree, moving inside the app from one
 message's editor to another leaves the first Pusher WebSocket open in a real browser, and does not
 test it. The record holds code reads only (`steering/017-rulings.md` block 11:10Z: "cleanup
@@ -502,28 +535,12 @@ agent-authored, by this critic. The selection is sent to steering for the ruling
 
 ## Findings
 
-One finding is open.
+No finding is open.
 
-F-29 MEDIUM cycle 4 pass 1
+Resolved at cycle 4 pass 2, by plan revision 11 (`a971ed8`); the argument is in this critique at
+`012ee2b`:
 
-- **Title**: M2-d's walk step does not say how the second editor is opened.
-- **State**: OPEN.
-- **Location**: plan § M2, "Human-observable form", the sentences opening "M2-d:".
-- **Description**: The step reads "open a message's editor, then open a second message's editor
-  in the same tab; the browser's network panel shows one open Pusher WebSocket, not two". A full
-  page load (a typed address, a reload) destroys the first page and its socket whatever the cleanup
-  does, so the panel shows one socket on the unfixed tree too. Only a move inside the app, with no
-  page load, keeps the page alive and reaches the cleanup: for example the user icon to the
-  message list, then another message. The same paragraph states this kind of condition for M2-b
-  ("a walk that stops typing at Save does not exercise M2-b"). The step also does not say what the
-  unfixed tree shows; two sockets there is a code read, never observed (Assumption Not Checked).
-- **Impact**: The suite's mock shows `disconnect` called, not a socket closing. This step is the
-  only place the plan looks at a real connection, and as written UAT can pass it on code that
-  never disconnects.
-- **Recommendation**: State that the second editor is reached by links inside the app with no
-  page load, and name what the unfixed tree shows, marked as read or as observed. Landing: the
-  planner's revision folding QA's re-key and the architect's delta read on revision 10; QA's
-  register row for the step takes the same wording.
+- F-29 MEDIUM cycle 4 pass 1 RESOLVED — M2-d's walk step names an in-app move with no page load, says why a page load cannot fail, and marks the unfixed tree's two sockets as a code read. M2 "Human-observable form". Folded with QA's QAF-26, which this pass did not read.
 
 Cycle 3 raised none.
 
@@ -648,5 +665,5 @@ answered by revision 4: such a listing deletes nothing (QAF-13).
   row. Its row order: SL-5 member 2.
 - **Steering-attributed rows.** None in the delta.
 
-Reopened at cycle 4 pass 1; F-29 is open. The cycle 2 assumption (a click on the update prompt's text leaves focus
+Closed at cycle 4 pass 2. The cycle 2 assumption (a click on the update prompt's text leaves focus
 inside its dialog in a real browser) stays UAT's, at QA's B-13. No message is owed or unanswered.
