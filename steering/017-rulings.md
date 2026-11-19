@@ -1035,3 +1035,21 @@ Sent to `planner-hooks-017` for disposition: the residue (two different hashes t
 the exact fix is a producer-side `JSON.stringify(hash)` in `shared.ts`, outside M2's surfaces) and a LOW (`usePusher` cleanup never
 disconnects). A disposition that needs code or widens a criterion comes here and goes to him as a scope delta. For UAT's re-walk: place each run
 by its frame hash, since only number-shaped hashes reach the fixed path (the implementer's item 3).
+
+## 2026-11-19T11:10Z — two M2 questions put to him in plain text (prompts off)
+
+Source: the planner's disposition by SendMessage 11:0xZ; it wrote nothing to the plan. Premise read this turn: a `general-purpose-sonnet` helper tried to
+refute the collision by execution (a node script copying `usePusher.ts` `asDelivered` at `42d15de` with JSON.parse as the stand-in for pusher-js's
+decodeMessage, which it read in `node_modules/pusher-js/src/core/connection/protocol/protocol.ts`): **not refuted**. Real `hashMessage` outputs `5e7`/`50000000`,
+`5e07`/`5e7` and `1e99999`/`2e99999` compare equal. The end-to-end effect (a suppressed notice) was read from code, not run. The frequencies (5.9% number-shaped,
+1.3% ±Infinity) are the planner's sample of every 997th 32-bit hash, not re-run here. Owner-wait key `m2-hash-residue`.
+1. "Hash collision": *(a) Exact fix in 017 (planner's recommendation)*. One more implementer round: `shared.ts` sends `JSON.stringify(hash)`, and
+   `usePusher.ts` drops `asDelivered` and goes back to string compares. M2-c's text is unchanged. Cost: code review and QA again on `usePusher.ts` plus
+   a scoped re-check of the `shared.ts` line, superseding the review of `42d15de` now running. Benefit: UAT's B-1 re-walk reaches the fixed path on every save. /
+   *(b) Stated limit*: a new residue class (3) in M2-c and M2's Window, with `42d15de` standing. Cost: a criterion change on an open milestone, with a planning
+   revision, critic, QA Phase 1 re-key and architect; UAT's walk meets the fixed path on only about 6% of saves.
+2. "Pusher disconnect": *(a) Exclusion X-25 (planner's recommendation)*, carried by a handoff to the implementer, with the next change to `usePusher.ts`'s effect as its
+   trigger. It predates 017 (`1ad625e`: cleanup unsubscribes only). / *(b) In 017*: add `pusher.disconnect()` to the cleanup, as new code (it could share item 1(a)'s
+   round on the same file).
+Recipients of the answer: `planner-hooks-017` (registration), `implementer-hooks-017` (a round if 1(a) or 2(b)), `code-reviewer-hooks-017` (its review
+of `42d15de` is superseded under 1(a)), and `uat-hooks-017` (the re-walk's scope).
