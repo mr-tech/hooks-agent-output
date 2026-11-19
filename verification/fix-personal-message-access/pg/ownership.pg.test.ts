@@ -5,6 +5,7 @@ import {
 } from 'vitest';
 
 import { appRouter } from '~/server/api/root';
+import * as shared from '~/server/api/utils/shared';
 import { updateRecentMessageData, upsertMessage } from '~/server/api/utils/shared';
 import { hydratedAuthOptions } from '~/server/auth';
 
@@ -176,6 +177,12 @@ describe('saving', () => {
     expect(mocks.channels).toEqual([`message-update-${A_ROW}`]);
   });
 
+  it('a save naming the owner\'s number with leading zeros updates that row and announces its canonical number', async () => {
+    await callerAs(A).upsert({ message: draft('A-zeros', `00${A_ROW}`) });
+    expect(await rowOf(A_ROW)).toMatchObject({ name: 'A-zeros' });
+    expect(mocks.channels).toEqual([`message-update-${A_ROW}`]);
+  });
+
   it('a server admin saves a server message another admin created', async () => {
     await callerAs(C).upsert({ message: draft('server-edited', SERVER_ROW, GUILD_DISCORD_ID) });
     expect(await rowOf(SERVER_ROW)).toMatchObject({ name: 'server-edited' });
@@ -208,6 +215,18 @@ describe('deleting', () => {
     await callerAs(A).delete({ id: `00${A_ROW}` });
     expect(await rowOf(A_ROW)).toBeUndefined();
     expect(mocks.s3Inputs[0]).toMatchObject({ Prefix: `previews/${A_ROW}/` });
+  });
+
+  it('the delete write leaves another user\'s row in place even past the router\'s check', async () => {
+    const deleteOwned = (shared as Record<string, unknown>).deleteOwnedMessage as (id: string, owner: object) => Promise<boolean>;
+    expect(typeof deleteOwned).toBe('function');
+    await deleteOwned(A_ROW, { dbUserId: B.dbUserId });
+    expect(await rowOf(A_ROW)).toBeDefined();
+  });
+
+  it('a server admin deletes a server message another admin created', async () => {
+    await callerAs(C).delete({ id: SERVER_ROW });
+    expect(await rowOf(SERVER_ROW)).toBeUndefined();
   });
 
   it('another user cannot delete a personal message', async () => {

@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-personal-message-access
 UUID: 1b613853
 Status: Active
-Status-Detail: "Fix committed on website chain/fix-personal-message-access at 2e50cd9; code review owed, then QA Phase 2 (83 production lines added), then security, then devops for website master on the owner's word."
-Handoff-At: 2e50cd9eb1dbfee2b88b003497012e0b280d267a — repos=website
+Status-Detail: "Fix committed on website chain/fix-personal-message-access at d597734 (round 2, amended scope of rulings block 22:59Z); code review owed, then QA Phase 2 (107 production lines added), then security, then devops for website master on the owner's word."
+Handoff-At: d597734859bb58e184cd7f218708382e46aa1589 — repos=website; round 1 2e50cd9
 Origin-Chain: none
 ---
 
@@ -21,6 +21,15 @@ determination". The bounded scope statement, quoted:
 
 The property, in his words (block 20:30Z): a signed-in user can get, change or delete only the personal messages (no guild) they own. A
 message number sent by the browser never lets a user read, create, claim, overwrite or delete a row that is not theirs.
+
+**Amended at 22:59Z** (rulings block "2026-11-19T22:59Z — fixer handoff at 2e50cd9; two members ruled in (this thread's error); code
+reviewer spawned", record `2af7391`). Steering found its statement had narrowed his chosen option's words ("puts the owner check inside
+the save/update/delete queries"; "cleans up oddly formatted message numbers"). Two members are added:
+- an owner term in the delete query of S8 (`message.delete`), as well as in S6a and S7;
+- a canonical id at the `message.upsert` input (S6a/S6b, `optionalIdMessageShape.id`), as well as at S7, S8 and S9.
+
+Out, each to a handoff steering writes: the hydrated recent list returning server-message rows, and `getOne`'s absent-number error. The
+production residue read is held by steering to the release seam.
 
 The S-numbers are the sweep's (`verification/access-defects/scoping/sweep.md`, website `787bec5`). The three handoffs for S14, S15 and
 S1b are steering's under that block. This document writes none of them.
@@ -52,8 +61,13 @@ time against a real postgres:16 (Test, "Real-database run").
   delete statement, and `deleteMessagePreviewImages` → `previewPrefix`.
 - `updateRecentMessageData`: `getMessage`, `authorizeUser` / `authorizeGuildUser`, and the update.
 
+- `upsert` (round 2): the router's pre-check (`authorizeUser` / `authorizeGuildUser`'s `in` lists), `buildUpdateOwnedMessageQuery`'s
+  `where id`, and the Pusher channel `genMessageChannelKey(message.id)`. Before round 2, a `0<id>` save updated the right row but
+  broadcast on `message-update-0<id>`.
+
 All of them now receive the canonical digits. Each guard that compared the raw text now compares the canonical text, and none is left on
-the raw text. Neither procedure returns the id, so no client compares it.
+the raw text. `delete` and `updateRecentMessageData` do not return the id. `upsert` returns the database's id, which the client compares
+with the number it holds (`MessageProvider`, `msg.id === message?.id`). The client holds a database-issued number, so the two agree.
 
 **Hazards from the common part, re-derived:**
 1. *Guild rows share the write path.* The save's owner term is `fk_guilds_id = <that server's row>` for a server message and
@@ -73,12 +87,14 @@ the raw text. Neither procedure returns the id, so no client compares it.
 4. *`/message/f/[id]` copy.* `getOne`'s callers are `MessageProvider` (`/message/m/[id]`, line 211) and `f/[id]/page.tsx:181` (copy). For
    another user's personal message both now get `NOT_FOUND`: the editor shows its load error, and the copy shows "Failed to copy message."
    The owner's own copy and guild messages are unchanged (guild branch untouched). The share code (S5, `getFromCode`) does not use `getOne`.
-5. *Canonical ids.* `messageIdShape` (`/^[0-9]+$/`, then `BigInt(id).toString()`) is applied once at the S7 and S8 inputs. Text that is
-   not digits (`' 900…'`, `'+900…'`) is refused with `BAD_REQUEST` before any query.
-6. *Check-then-write.* S6a and S7 now carry the owner term inside the write. **`delete` (S8) still checks in one query and deletes in
-   another**: the scope names an owner term for S6a and S7 only, and I did not add one. After this fix, no statement changes a row's
-   `fk_users_id` or `fk_guilds_id`, and no request can create a row at a chosen number. So the owner of a given number cannot change between
-   `delete`'s check and its delete. `getOne` checks then returns, which is a read with no write.
+5. *Canonical ids.* `messageIdShape` (`/^[0-9]+$/`, then `BigInt(id).toString()`) is applied once at the S7 and S8 inputs, and from
+   round 2 at `upsert`'s optional `id`. Text that is not digits (`' 900…'`, `'+900…'`) is refused with `BAD_REQUEST` before any query.
+   `optionalIdMessageShape` has no caller besides `message.upsert` (`git grep` over `src`: only `routers/message.ts`). Its other sibling,
+   `idMessageShape`, is used only in commented-out code.
+6. *Check-then-write.* S6a, S7 and, from round 2, S8 carry the owner term inside the write. `deleteOwnedMessage` deletes `where id = …
+   and` the same owner term as the recent-data write, and `returning id`. The preview images are cleared only when it removed a row, so a
+   delete that matched nothing leaves the owner's previews in place. No path now checks in one query and writes in another without the
+   owner term in the write. `getOne` checks then returns, which is a read with no write.
 7. *Production on push.* This is noted for devops and steering. The fix is on the chain branch only, with no upstream and no push.
 
 **Residue already in production** (read from the code path; S2 and S6b escaped):
@@ -101,9 +117,9 @@ the raw text. Neither procedure returns the id, so no client compares it.
 - `values.id = message.id`: first added at `98ecb0b`. `72a1755` (chain 017) touched that line but did not introduce it.
 - The cap's `!message.id &&`: present since `c0b59c3` / `4fe53b6`. `fadee3e` (chain 015) changed only the operator.
 
-**Observed outside the scope, not absorbed** (reported to steering; none is an ownership breach of a personal message):
-- `upsert`'s `id` is not canonicalised: `optionalIdMessageShape.id` is `z.string()`. A `0<id>` save updates the right row (bigint compare,
-  with the owner term), but it broadcasts on `message-update-0<id>`, a channel no subscriber holds (S15).
+**Observed outside the scope, not absorbed** (reported to steering at round 1; none is an ownership breach of a personal message). At
+22:59Z steering ruled the upsert canonical id and the delete owner term in scope, and they are fixed in round 2. The two items below
+stay out of scope, and steering writes a handoff for each:
 - The hydrated recent list still returns server-message rows for any server whose message number is stored (the `fk_guilds_id is not
   null` arm keeps the guild behaviour unchanged). This is guild-message metadata, in S1b's family.
 - `getOne` on a number no row holds still fails with `executeTakeFirstOrThrow`'s error, not `NOT_FOUND`, so "absent" and "not yours" can
@@ -111,7 +127,8 @@ the raw text. Neither procedure returns the id, so no client compares it.
 
 ## Change
 
-Production files (`git diff --numstat 787bec5 2e50cd9`, added/removed; **83 production lines added**):
+Production files. Round 1 is `git diff --numstat 787bec5 2e50cd9`, added/removed, with 83 production lines added. Round 2 and the
+totals follow in this list:
 - `src/server/api/routers/message.ts` (8/6): `getOne` passes the message id to `authorizeUser`; `updateRecentMessageData` passes the owner
   (`{ dbUserId }` or `{ guildId }`) into the write; `delete` and the recent-data input take `messageIdShape`.
 - `src/server/api/utils/shapes.ts` (3/1): `messageIdShape`; `recentMessageDataShape.id` uses it.
@@ -123,6 +140,12 @@ Production files (`git diff --numstat 787bec5 2e50cd9`, added/removed; **83 prod
     line is gone.
   - `updateRecentMessageData`: carries the owner term.
   - `getUserRecentMessages`: takes the caller's id; `fk_users_id = caller or fk_guilds_id is not null`.
+- Round 2 (`git diff --numstat 2e50cd9 d597734`):
+  - `routers/message.ts` (6/4): `delete` calls `deleteOwnedMessage` with `{ guildId }` or `{ dbUserId }`, and clears previews only when
+    it removed a row.
+  - `shapes.ts` (1/1): `optionalIdMessageShape.id` is `messageIdShape.optional()`.
+  - `shared.ts` (18/1): the `MessageOwner` type; `deleteOwnedMessage(id, owner)` with the owner term, `returning id`.
+- **Totals over `787bec5..d597734`: 107 production lines added** (message.ts 14, shapes.ts 4, shared.ts 88, auth.ts 1).
 - `src/server/auth.ts` (1/1): the hydrated callback passes `user.id` (the `Users` row id, from the adapter's `getSessionAndUser`,
   `kysely-adapter/index.ts:329-354`).
 
@@ -210,6 +233,39 @@ instead of `….message.getOne`. Every router case threw "No procedure found", s
 the path, tightened those three to assert the specific refusal code or message, and re-ran both SHAs. The results above are from that
 re-run.
 
+**Round 2** (amended scope, block 22:59Z). Six cases were added to `message.personal-ownership.test.ts`:
+- upsert: the leading-zero number is checked, written and broadcast canonically;
+- upsert: a number that is not digits is refused before any query;
+- delete: a personal message is deleted only where the caller owns it;
+- delete: a server message is deleted only where it belongs to that server;
+- delete: previews are left alone when the delete removed no row;
+- delete: the previews of the removed row are cleared.
+
+The fake database's delete responder matches like its update responder. `world.deleteMisses` invents a delete that matches nothing,
+which stands in for a row lost to the race. *If that is false*, the guard would never be exercised in production, and the case would
+still pass.
+
+- **Red run at `2e50cd9`** (the tree, with the new test file before the source change): `npx vitest run --reporter=json
+  src/server/api/routers/__tests__/message.personal-ownership.test.ts`. **18 cases, 5 failed, 13 passed, exit 1.** The 5 are the new
+  cases bar the "clears the previews" one. Captures: `red-2e50cd9.{json,log}`.
+- **Green, whole suite at `d597734`:** **1879 cases, 1879 passed, exit 0, 146 files.** Path membership against base: +2 files (the two
+  new ones), −0. Capture: `suite-d597734.{json,log}`.
+- **Negative controls** (`negative-controls-round2.mutants.json`, on `d597734`): **8 of 8 KILLED**, count `checked`
+  (`negative-controls-d597734/`). Each control and the case that went red:
+  - `delete-owner-term-user` and `-guild`: the two owner-term cases.
+  - `delete-call-site-user` (Discord id for db id) and `-guild`: the same two cases.
+  - `delete-previews-guard-dropped` and `delete-result-count` (`> 0` → `>= 0`): "leaves the previews alone…".
+  - `delete-previews-guard-inverted`: "clears the previews of the row it removed". This is the control for the case that passed at red.
+  - `upsert-input-shape`: both upsert number cases.
+- **Real-database run, round 2** (three cases added: the leading-zero save, the delete write past the router's check, and a server admin
+  deleting another admin's server message). Captures: `pg/out-round2/`; no container was left.
+  - `787bec5`: 17 cases, 10 failed, exit 1.
+  - `2e50cd9`: 17 cases, 2 failed (the leading-zero save broadcast on `message-update-00…`; the delete-write case), exit 1.
+  - `d597734`: 17 of 17 passed, exit 0.
+  - *Limit, disclosed:* at both earlier SHAs the delete-write case fails structurally, because `deleteOwnedMessage` does not exist there
+    ("expected 'undefined' to be 'function'"). Its behavioural red is the router test's owner-term case at `2e50cd9`, together with the
+    `delete-owner-term-*` controls. The real database shows the write refusing only at `d597734`.
+
 No time-based test enters the suite. The real-database driver's readiness loop is in the instrument, not the suite.
 
 ## Verification
@@ -229,6 +285,12 @@ No time-based test enters the suite. The real-database driver's readiness loop i
   - The first pass FAILed 12 times on `shared.upsert-valid.test.ts`'s pre-existing lint (26 errors at base on that file; 12 left after my
     edit). I fixed them with eslint's autofix on that one file. This is a gate satisfied, not a control.
 - **Source comments:** the diff adds none.
+- **Round 2, at `d597734`:**
+  - suite: 1879 cases, exit 0;
+  - `pnpm run typecheck`: exit 0 (`typecheck-d597734.txt`);
+  - `npx eslint --max-warnings=0` over every file changed `787bec5..d597734`: exit 0 (`eslint-changed-files-d597734.txt`). The first
+    pass warned on two lines over 100 characters, both mine; I wrapped them.
+  - convention check `--since=787bec5`: 0 FAIL, 0 CANDIDATE (`convention-check-d597734.txt`); the same SKIPs as round 1.
 
 ## User-visible flows
 
@@ -244,16 +306,20 @@ For the owner's own check on production after release; no UAT stage runs:
 - Deleting a message also clears its preview images when the number was sent with leading zeros. (The site's own UI always sends the
   canonical number, so this is not visible through it.)
 - At the per-user limit of 1000 messages, a save naming a number no row holds is refused with the limit message.
+- Deleting your own message, or a server message as that server's admin, works as before.
+- A save whose message number is not plain digits is refused. The site's own editor always sends the database's number, so this is not
+  visible through it.
 
 ## Handoff
 
-- **Handoff SHA:** website `2e50cd9eb1dbfee2b88b003497012e0b280d267a` on `chain/fix-personal-message-access` (no upstream; not pushed).
-- **Reviews:** code review (`code-reviewer-hooks-fix-personal-message-access`), then QA Phase 2 (83 production lines ≥ 20), then security
+- **Handoff SHA:** website `d597734859bb58e184cd7f218708382e46aa1589` on `chain/fix-personal-message-access` (no upstream; not pushed).
+  Round 1 was `2e50cd9`.
+- **Reviews:** code review (`code-reviewer-hooks-fix-personal-message-access`), then QA Phase 2 (107 production lines ≥ 20), then security
   on the change (rulings block 20:30Z).
 - **Merges:** devops, for website `master`, under the owner's release approval. The push deploys to production through Vercel (no beta),
   so it needs his word.
-- **Owner step at release:** the residue check on production data (Diagnosis, "Residue already in production"). This is carried to
-  steering as an owner-needing item.
+- **Owner step at release:** the residue check on production data (Diagnosis, "Residue already in production"). Steering holds it to
+  the release seam (block 22:59Z).
 
 ## Changelog
 
@@ -261,3 +327,5 @@ For the owner's own check on production after release; no UAT stage runs:
 |---|---|---|
 | 2026-11-19T22:51 | fixer | Fix committed on website `chain/fix-personal-message-access` at `2e50cd9` (commit time). Red run, green run, 20 negative controls and the real-database run recorded under `verification/fix-personal-message-access/` |
 | 2026-11-19T22:56 | fixer | Document created; `Handoff-At` `2e50cd9`; handed to code review |
+| 2026-11-19T23:01 | fixer | Round 2 committed at `d597734` (commit time), on the amended scope of rulings block 22:59Z (record `2af7391`): delete owner term, upsert canonical id. Red at `2e50cd9`, 8 controls, real-database run over three SHAs recorded |
+| 2026-11-19T23:04 | fixer | Scope statement, Diagnosis, Change, Test, Verification, flows and Handoff updated; `Handoff-At` moved to `d597734`; handed to code review |

@@ -1,0 +1,47 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert, the number the browser sends > updates and announces the canonical number when the browser sends leading zeros
+AssertionError: expected [ '00900000000000101' ] to not include '00900000000000101'
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:251:30
+    249|     expect(captured.queries.length).toBeGreaterThan(0);
+    250|     for (const { parameters } of captured.queries) {
+    251|       expect(parameters).not.toContain(`00${OWNED_ID}`);
+       |                              ^
+    252|     }
+    253|     expect(boundTo(writesOf('Messages')[0], 'id')).toBe(OWNED_ID);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert, the number the browser sends > refuses a number that is not digits before any query
+AssertionError: promise resolved "{ id: '900000000000101', …(8) }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "createdAt": 0,
++   "data": {
++     "content": "owner-only-content",
++   },
++   "id": "900000000000101",
++   "name": "owner-name",
++   "previewImageNonce": null,
++   "recentMessageId": null,
++   "recentThreadId": null,
++   "recentWebhookId": null,
++   "updatedAt": 0,
+  }
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:258:77
+    256|
+    257|   it('refuses a number that is not digits before any query', async () …
+    258|     await expect(callerAs(OWNER).upsert({ message: draft(` ${OWNED_ID}…
+       |                                                                             ^
+    259|
+    260|     expect(captured.queries).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

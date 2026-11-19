@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/b5afe525-3f83-48b3-a08e-9d337a51fe7f/scratchpad/mut-work2/20261119T230213Z-p645860/mutant-6
+
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (18 tests | 3 failed) 40ms
+     × checks, deletes and clears the previews of the canonical number when the browser sends leading zeros 6ms
+     × leaves the previews alone when the delete removed no row 3ms
+     × clears the previews of the row it removed 1ms
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 15 passed (18)
+   Start at  23:02:28
+   Duration  1.19s (transform 206ms, setup 0ms, import 1.02s, tests 40ms, environment 0ms)
+

@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/b5afe525-3f83-48b3-a08e-9d337a51fe7f/scratchpad/mut-work2/20261119T230213Z-p645860/mutant-8
+
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (18 tests | 2 failed) 37ms
+     × updates and announces the canonical number when the browser sends leading zeros 6ms
+     × refuses a number that is not digits before any query 4ms
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 16 passed (18)
+   Start at  23:02:33
+   Duration  1.17s (transform 206ms, setup 0ms, import 1.01s, tests 37ms, environment 0ms)
+

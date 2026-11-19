@@ -1,0 +1,61 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.delete > checks, deletes and clears the previews of the canonical number when the browser sends leading zeros
+AssertionError: expected undefined to match object { Prefix: 'previews/900000000000101/' }
+
+- Expected:
+{
+  "Prefix": "previews/900000000000101/",
+}
+
++ Received:
+undefined
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:332:31
+    330|     }
+    331|     expect(boundTo(writesOf('Messages')[0], 'id')).toBe(OWNED_ID);
+    332|     expect(mocks.s3Inputs[0]).toMatchObject({ Prefix: `previews/${OWNE…
+       |                               ^
+    333|   });
+    334|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.delete > deletes a personal message only where the caller still owns the row
+AssertionError: expected '100000000000000001' to be '900000000000001' // Object.is equality
+
+Expected: "900000000000001"
+Received: "100000000000000001"
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:347:47
+    345|     expect(writes).toHaveLength(1);
+    346|     expect(boundTo(writes[0], 'id')).toBe(OWNED_ID);
+    347|     expect(boundTo(writes[0], 'fk_users_id')).toBe(OWNER.dbUserId);
+       |                                               ^
+    348|   });
+    349|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.delete > clears the previews of the row it removed
+AssertionError: expected undefined to match object { Prefix: 'previews/900000000000101/' }
+
+- Expected:
+{
+  "Prefix": "previews/900000000000101/",
+}
+
++ Received:
+undefined
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:371:31
+    369|     await callerAs(OWNER).delete({ id: OWNED_ID });
+    370|
+    371|     expect(mocks.s3Inputs[0]).toMatchObject({ Prefix: `previews/${OWNE…
+       |                               ^
+    372|   });
+    373| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

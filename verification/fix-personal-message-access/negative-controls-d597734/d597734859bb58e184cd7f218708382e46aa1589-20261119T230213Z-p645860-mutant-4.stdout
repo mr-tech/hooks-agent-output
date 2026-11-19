@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/b5afe525-3f83-48b3-a08e-9d337a51fe7f/scratchpad/mut-work2/20261119T230213Z-p645860/mutant-4
+
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (18 tests | 1 failed) 37ms
+     × deletes a server message only where the row still belongs to that server 5ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 17 passed (18)
+   Start at  23:02:23
+   Duration  1.17s (transform 197ms, setup 0ms, import 1.00s, tests 37ms, environment 0ms)
+

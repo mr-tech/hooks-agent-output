@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/b5afe525-3f83-48b3-a08e-9d337a51fe7f/scratchpad/mut-work2/20261119T230213Z-p645860/mutant-7
+
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (18 tests | 1 failed) 38ms
+     × leaves the previews alone when the delete removed no row 7ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 17 passed (18)
+   Start at  23:02:30
+   Duration  1.19s (transform 210ms, setup 0ms, import 1.02s, tests 38ms, environment 0ms)
+
