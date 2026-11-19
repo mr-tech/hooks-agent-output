@@ -3,14 +3,14 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Status-Detail: "Stage 2, Phase 2A paused: QA's release-tip verdict at website 7293a35 and generator 8512a1d is Release Verification Failed (QAF-29, QAF-30, test-only remedies, with the implementer). The website tip will move, so every website-tip line here is re-derived at the new tip and a fresh Phase 3 is awaited; no approval is asked. No ref has moved and nothing is pushed."
+Status-Detail: "Stage 2, Phase 2A complete at website 787bec5 and generator 8512a1d: QA's release-tip record is Release Verified (agent-output c09fd41) and the architect's delta read is clear (eb46ec9). Phase 2B, his release approval, is next; no ref has moved and nothing is pushed."
 ---
 
 # Deployment Record: plan 017 — the existing-items backlog (Stage 1, then Stage 2)
 
 **Plan Reference**: `agent-output/planning/closed/017-existing-items-backlog.md`, `Revision: 11` (agent-output `a971ed8`), Status `Committed` at Stage 1 (R-62, `a1d670b`). The M5-0 probe record is the separate `deployment/017-existing-items-backlog-m5-0-probe-deployment.md` (`Active`; its closure is Phase 2D's, below).
 **Commission**: `steering/backlog-2026-11-18-briefs/devops-hooks-017-stage1.md` (`cd16832`), common part `steering/017-brief-common.md`, both read whole. Steering's brief arrived; its forward-item sweep is below.
-**Release Identifier**: not yet assigned. The identifier is the SHA on each serving ref the release moves (website `master`, generator `prod`); no tag, and neither package carries a `version` field (below).
+**Release Identifier**: proposed, assigned when each ref moves: website `master` `787bec5627702d2881b826e596ec2b8f8853c4fa`, generator `prod` `8512a1d003af7fdbce56b85ef27218dd885becd1`. The identifier is the SHA on each serving ref the release moves (website `master`, generator `prod`); no tag, and neither package carries a `version` field (below).
 **Release Date**: pending his approval.
 **Execution Mode**: not yet fixed (Phase 2A step 8). Website `master` and generator `prod` are serving branch moves by `release-move.js`, which Mode A runs in a session he sanctioned; this stage proposes Mode A for both, the generator's runner start being an owner step (plan § "Release and rollback").
 
@@ -23,6 +23,7 @@ Status-Detail: "Stage 2, Phase 2A paused: QA's release-tip verdict at website 72
 | 2026-11-19T19:55 | qa-hooks-017 → devops-hooks-017 (message, release-tip record `qa/website-7293a35-generator-8512a1d-release-tip-qa.md`, agent-output `4914aaa`) | Phase 3 verdict | **Release Verification Failed** (not passed to `release-move.js --qa-record`): QAF-29 MEDIUM, QAF-30 MEDIUM (test-only remedies, with `implementer-hooks-017`). Verdict section, runbook G9 and G10 rows and Next Actions updated. QAF-28 LOW (to devops): a read-only containment path exists (the deployed checkout's prod ref over `claude-ro`); instrument `verification/017/devops/read-generator-deployed-ref.sh`, baseline `read-generator-deployed-ref-live-baseline.txt` (exit 0, 1, 3, 0 as predicted), B-11 amended in the carrier. Nothing pushed; no ref moved. |
 | 2026-11-19T20:04 | qa-hooks-017 → devops-hooks-017 (message: fix code-review APPROVED at website 787bec5, agent-output `a081c89`) | Re-derive at the new tip; request the fresh Phase 3 | Tips, trees, refs and fix scope re-read; packaging, rollback patch check and dry runs re-run at website `787bec5` (section "Re-derived at the new website tip"); W2 and W5 commands carry the new tip. Phase 3 requested of QA naming the assembled tip. The architect's delta read is still owed (a prerequisite below). Nothing pushed. |
 | 2026-11-19T20:04 | architect-hooks-017 → devops-hooks-017 (message; delta read `eb46ec9`) | Architect gate at the release-tip fix | Gate clear at website `787bec5` (no finding, no production delta); recorded in "Re-derived at the new website tip", item (2). Open: QA's fresh Phase 3 only, then the readiness re-commit and Phase 2B. |
+| 2026-11-19T20:10 | qa-hooks-017 → devops-hooks-017 (message; record `c09fd41`) | Phase 3 successor verdict | **Release Verified** at website `787bec5`, generator `8512a1d` (verdict section). Phase 2A complete: every plan Committed (one), verdict at the assembled tip, consistency, populations, packaging, workspace, history unrewritten, mode A, serving-ref order, operational block, runbook. Phase 2B ask put to him next (readiness section "Phase 2B"). Nothing pushed. |
 
 ## Stage 1 verification (devops.md Stage 1, steps 2 to 7)
 
@@ -118,6 +119,8 @@ No history was rewritten between verification and release: each Verified-At SHA 
 
 **Release Verification Failed** at website `7293a35`, generator `8512a1d` (`qa/website-7293a35-generator-8512a1d-release-tip-qa.md`, agent-output `4914aaa`, `Phase` 3). It is not `Release Verified` and is never passed to `release-move.js --qa-record`. Blocking: QAF-29 MEDIUM (the share-code load's route-0 draft write has no failing assertion) and QAF-30 MEDIUM (the M8 dialogs' `contents` wrapper), both test-only remedies, handed to `implementer-hooks-017`. Holds at the tip per QA: fresh frozen-lockfile install equals the shared install (1490 of 1490, M1's assumption discharged), suite 1853 of 1853 exit 0, typecheck 0, M7-b 60 files 0 violations (plants 3 of 3), generator call-deletion 3 of 3. QA's step 1b: 22 open handoffs, 3 members; the drain handoff fires at the generator push (row G10). Step 2: no gated set exists.
 
+**Successor verdict: `Release Verified`** at website `787bec5` (tree `e4f7c052`) and generator `8512a1d`: `qa/website-787bec5-generator-8512a1d-release-tip-qa.md`, agent-output `c09fd41`, `Phase` 3, `Status` `Release Verified`, `Verified-At` "787bec5,8512a1d". Read at the commit by this stage, with both chain tips and trees and the remote refs re-read at that time (website `787bec5` / `e4f7c05…`, generator `8512a1d`; website `master` `1ad625e`, generator `prod` `8de2b53`, `master` `87dcb41`: all unmoved). It is the `--qa-record` for `release-move.js`. QA's read: fresh frozen-lockfile install, suite 1857 of 1857 exit 0, typecheck 0, only the fix's four cases differ from `7293a35`, the four survivors killed 4 of 4, M7-b 60 files 0 violations, step 1b byte-identical (22 open, the same three members), no gated set; QAF-28 resolved by G9 limb 2, with one residue QA names (`deploy.sh` has no `set -e`, so a partial `cp` could reload with the new ref; B-6 to B-9 and G10 would show it). The verdict expires on any later commit on either chain branch. The failed verdict above stays as the predecessor.
+
 **Consequences, re-derived on the new tip.** The website tip moves (test-only), which expires this record's website lines: the tip and tree, the packaging build, the rollback patch check, the `release-move.js` dry run, the W1 to W3 commands and the architect's closing pass (a delta read is owed, and a QA verdict at the new tip, after code review's scoped check of the test-only diff). The generator tip `8512a1d` is not touched by either remedy; its lines stand while it stays the tip. The readiness document is re-committed with those lines before any ref moves. **QA's Assumption Not Checked** (the 12 dependency build scripts pnpm 10 ignored): the packaging build above ran the same `pnpm install --frozen-lockfile` under pnpm 10.28.2 and then `next build`, exit 0, so the build half is covered at `7293a35` and is re-run at the new tip; the runtime half is B-11 and B-6's. **Request as first made** (kept): requested of `qa-hooks-017` at 2026-11-19T19:16Z (message `4cccfcec`; its Resumption State is agent-output `1925e56`). The tip's tree is a Phase 2 `Verified-At` tree (the same SHAs, `qa/closed/017-existing-items-backlog-qa.md`, `cf69ef1`), so the request is for QA's step 1b (the open-handoff sweep) and the gated time-based set, plus three carried items: the fresh install against the lockfile, M7-b re-read at the tip with `--plant`, and the call-deletion set. No ref moves, and no approval is asked, before the verdict is recorded here with its SHA.
 
 ### Re-derived at the new website tip (after the release-tip fix; QAF-29, QAF-30)
@@ -202,13 +205,17 @@ Results are blank until run. Each gate row carries its abort criterion with the 
 | G12 | `master` follows | `release-move.js /usr/local/bin/hooks/preview-image-generator master 8512a1d… --qa-record <…>` after G9 exits 0 (a push of a branch the workflow does not trigger on) | non-zero exit; the workflow summary lists a trigger on `master` | |
 | R | Rollback, if any abort criterion fires after a move | generator first: a revert commit through `release-move.js`, confirm deployed (G9's poller), then the website's; owner communicates (devops sends nothing) | | |
 
+## Phase 2B: user confirmation
+
+_The ask is recorded here as put, and his answer under it._
+
 ## Post-Release Status
 
 Not released. Post-release rows ride `handoff/017-existing-items-backlog-post-deploy-2026-11-19.md` (B-6 to B-11, F-1 to F-6); readers B7R and B10R are scheduled (`# plan 017 B7R` and `# plan 017 B10R` lines in the crontab, smoke OK).
 
 ## Next Actions
 
-Paused at Phase 2A step 3 on a failed release-tip verdict: wait for the implementer's test-only fix, code review's scoped check, the architect's delta read and a fresh Phase 3 at the new tip, then re-derive the website lines (tip, tree, packaging, rollback patch, dry run, W1 to W3) and ask for his approval. Stage 2 on his release approval. Routing: `steering-roadmap-hooks` (Stage 1 completion message, naming this document); `roadmap` subagent to record the plan as committed (release tracker).
+Phase 2A is complete at the Release Verified verdict (`c09fd41`); Phase 2B's ask is with him. On his yes: Phase 2C runbook rows W1 to G12 in order (his sanction taken in this session). On a no: mark Aborted, plans stay Committed. Stage 2 on his release approval. Routing: `steering-roadmap-hooks` (Stage 1 completion message, naming this document); `roadmap` subagent to record the plan as committed (release tracker).
 
 ## Resumption State
 
