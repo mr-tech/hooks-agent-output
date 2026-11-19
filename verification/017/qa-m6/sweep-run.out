@@ -1,0 +1,23 @@
+control 16 0
+generateImage.ts:36:num SURVIVED 16 0
+generateImage.ts:37:if-false KILLED 16 2
+generateImage.ts:37:< KILLED 16 3
+generateImage.ts:37:num KILLED 16 3
+generateImage.ts:37:|| KILLED 16 5
+generateImage.ts:37:> KILLED 16 1
+generateImage.ts:37:num:2 KILLED 16 1
+server.ts:39:if-false KILLED 16 9
+NM-18a-300-accepted KILLED 16 1
+NM-18b-null-response-accepted KILLED 16 1
+NM-19-generator-lists-again KILLED 16 12
+NM-20-qa-204-before-put-settles KILLED None None
+qa-put-failure-swallowed KILLED 16 1
+qa-lower-bound-dropped KILLED 16 2
+qa-upper-bound-dropped KILLED 16 3
+qa-goto-rejection-unclassed KILLED 16 2
+qa-screenshot-rejection-unclassed KILLED 16 1
+qa-put-labelled-screenshot KILLED 16 1
+qa-line-for-every-error KILLED 16 1
+qa-line-names-nonce KILLED 16 9
+qa-put-key-always-dev KILLED 16 2
+20 of 21 mutants killed (denominator: mutants applied under a passing control)

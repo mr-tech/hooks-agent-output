@@ -1,0 +1,28 @@
+PASS ok status=204 puts=1 other=- lines=0
+PASS goto-404 status=500 puts=0 other=- lines=1
+PASS goto-500 status=500 puts=0 other=- lines=1
+PASS goto-300 status=500 puts=0 other=- lines=1
+PASS goto-204 status=500 puts=0 other=- lines=1
+PASS goto-299 status=204 puts=1 other=- lines=0
+PASS goto-null status=500 puts=0 other=- lines=1
+PASS goto-199 status=500 puts=0 other=- lines=1
+PASS setup-rejects status=500 puts=0 other=- lines=0
+PASS goto-reset status=500 puts=0 other=- lines=1
+PASS screenshot status=500 puts=0 other=- lines=1
+FAIL put status=204 puts=3 other=- lines=0 :: status 204, want 500; 0 failure lines, want 1
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+[TypeError: fetch failed] {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:38097
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 38097
+  }
+}
+
+Node.js v24.14.0

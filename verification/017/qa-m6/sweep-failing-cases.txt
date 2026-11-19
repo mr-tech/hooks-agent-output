@@ -1,0 +1,21 @@
+control: 
+generateImage.ts_36_num: 
+generateImage.ts_37_if-false: goto-null goto-199 
+generateImage.ts_37_num_2: goto-300 
+generateImage.ts_37_num: ok screenshot put 
+generateImage.ts_37__: goto-299 
+generateImage.ts_37___: goto-404 goto-500 goto-300 goto-null goto-199 
+NM-18a-300-accepted: goto-300 
+NM-18b-null-response-accepted: goto-null 
+NM-19-generator-lists-again: ok goto-404 goto-500 goto-300 goto-204 goto-299 goto-null goto-199 setup-rejects goto-reset screenshot put 
+NM-20-qa-204-before-put-settles: put 
+qa-goto-rejection-unclassed: goto-204 goto-reset 
+qa-line-for-every-error: setup-rejects 
+qa-line-names-nonce: goto-404 goto-500 goto-300 goto-204 goto-null goto-199 goto-reset screenshot put 
+qa-lower-bound-dropped: goto-null goto-199 
+qa-put-failure-swallowed: put 
+qa-put-key-always-dev: ok goto-299 
+qa-put-labelled-screenshot: put 
+qa-screenshot-rejection-unclassed: screenshot 
+qa-upper-bound-dropped: goto-404 goto-500 goto-300 
+server.ts_39_if-false: goto-404 goto-500 goto-300 goto-204 goto-null goto-199 goto-reset screenshot put 

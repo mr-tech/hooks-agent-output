@@ -1,0 +1,128 @@
+[
+ {
+  "id": "generateImage.ts:36:num",
+  "file": "src/generateImage.ts",
+  "old": " 0;",
+  "new": " 1;"
+ },
+ {
+  "id": "generateImage.ts:37:if-false",
+  "file": "src/generateImage.ts",
+  "old": "if (",
+  "new": "if (false && "
+ },
+ {
+  "id": "generateImage.ts:37:<",
+  "file": "src/generateImage.ts",
+  "old": " < ",
+  "new": " <= "
+ },
+ {
+  "id": "generateImage.ts:37:num",
+  "file": "src/generateImage.ts",
+  "old": "200",
+  "new": "201"
+ },
+ {
+  "id": "generateImage.ts:37:||",
+  "file": "src/generateImage.ts",
+  "old": "||",
+  "new": "&&"
+ },
+ {
+  "id": "generateImage.ts:37:>",
+  "file": "src/generateImage.ts",
+  "old": " > ",
+  "new": " >= "
+ },
+ {
+  "id": "generateImage.ts:37:num:2",
+  "file": "src/generateImage.ts",
+  "old": "299",
+  "new": "300"
+ },
+ {
+  "id": "server.ts:39:if-false",
+  "file": "src/server.ts",
+  "old": " if (e",
+  "new": " if (false && e"
+ },
+ {
+  "id": "NM-18a-300-accepted",
+  "file": "src/generateImage.ts",
+  "old": "if (status < 200 || status > 299)",
+  "new": "if (status < 200 || status > 399)"
+ },
+ {
+  "id": "NM-18b-null-response-accepted",
+  "file": "src/generateImage.ts",
+  "old": "response?.status() ?? 0;",
+  "new": "response?.status() ?? 200;"
+ },
+ {
+  "id": "NM-19-generator-lists-again",
+  "file": "src/generateImage.ts",
+  "old": "  const image = await getPool().use((p) => generateMessagePreviewImage(p, message));",
+  "new": "  await getS3().send(new (require('@aws-sdk/client-s3').ListObjectsCommand)({ Bucket: config.CDN_BUCKET, Prefix: `previews/${messageId}/` }));\n  const image = await getPool().use((p) => generateMessagePreviewImage(p, message));"
+ },
+ {
+  "id": "NM-20-qa-204-before-put-settles",
+  "file": "src/generateImage.ts",
+  "old": "  await getS3().send(new PutObjectCommand({",
+  "new": "  void getS3().send(new PutObjectCommand({"
+ },
+ {
+  "id": "qa-put-failure-swallowed",
+  "file": "src/generateImage.ts",
+  "old": ".catch((err) => { throw new PreviewFailure('put', err); });",
+  "new": ".catch(() => undefined);"
+ },
+ {
+  "id": "qa-lower-bound-dropped",
+  "file": "src/generateImage.ts",
+  "old": "if (status < 200 || status > 299)",
+  "new": "if (status > 299)"
+ },
+ {
+  "id": "qa-upper-bound-dropped",
+  "file": "src/generateImage.ts",
+  "old": "if (status < 200 || status > 299)",
+  "new": "if (status < 200)"
+ },
+ {
+  "id": "qa-goto-rejection-unclassed",
+  "file": "src/generateImage.ts",
+  "old": ".catch((err) => { throw new PreviewFailure('goto-rejected', err); });",
+  "new": ".catch((err) => { throw err; });"
+ },
+ {
+  "id": "qa-screenshot-rejection-unclassed",
+  "file": "src/generateImage.ts",
+  "old": ".catch((err) => { throw new PreviewFailure('screenshot', err); });",
+  "new": ".catch((err) => { throw err; });"
+ },
+ {
+  "id": "qa-put-labelled-screenshot",
+  "file": "src/generateImage.ts",
+  "old": "throw new PreviewFailure('put', err);",
+  "new": "throw new PreviewFailure('screenshot', err);"
+ },
+ {
+  "id": "qa-line-for-every-error",
+  "file": "src/server.ts",
+  "old": "if (err instanceof PreviewFailure) console.error(",
+  "new": "if (err) console.error("
+ },
+ {
+  "id": "qa-line-names-nonce",
+  "file": "src/server.ts",
+  "old": "class=${err.failureClass} elapsedMs=",
+  "new": "class=${err.failureClass} nonce=${nonce} elapsedMs="
+ },
+ {
+  "id": "qa-put-key-always-dev",
+  "file": "src/generateImage.ts",
+  "old": "${config.ENV === 'development' ? 'dev/' : ''}previews/",
+  "new": "dev/previews/"
+ }
+]

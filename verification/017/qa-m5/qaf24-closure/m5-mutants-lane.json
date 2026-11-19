@@ -1,0 +1,8 @@
+[
+  {"id": "qa-clock-now", "file": "src/server/api/utils/shared.ts", "old": "extract(epoch from clock_timestamp())", "new": "extract(epoch from now())"},
+  {"id": "qa-clock-statement-timestamp", "file": "src/server/api/utils/shared.ts", "old": "extract(epoch from clock_timestamp())", "new": "extract(epoch from statement_timestamp())"},
+  {"id": "qa-clock-transaction-timestamp", "file": "src/server/api/utils/shared.ts", "old": "extract(epoch from clock_timestamp())", "new": "extract(epoch from transaction_timestamp())"},
+  {"id": "NM-22-replaced-read-unlocked", "file": "src/server/api/utils/previewImage.ts", "old": "    .where('id', '=', id)\n    .forUpdate())", "new": "    .where('id', '=', id))"},
+  {"id": "qa-collate-dropped", "file": "src/server/api/utils/previewImage.ts", "old": "\"Messages\".\"previewImageNonce\" collate \"C\" < ${nonce}", "new": "\"Messages\".\"previewImageNonce\" < ${nonce}"},
+  {"id": "NM-11-commit-unconditional", "file": "src/server/api/utils/previewImage.ts", "old": "  .where((eb) => eb.or([\n    eb('Messages.previewImageNonce', 'is', null),\n    sql<boolean>`\"Messages\".\"previewImageNonce\" collate \"C\" < ${nonce}`,\n  ]))\n", "new": ""}
+]

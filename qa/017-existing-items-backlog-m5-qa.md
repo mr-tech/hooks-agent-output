@@ -4,7 +4,7 @@ Origin: 017
 UUID: 5c3e9a71
 Verified-At: "4b8db9c — repos=website; M5 only. Suite, typecheck, Node sweep, shape set and the real-Postgres lane each ran in an isolated git archive export of 4b8db9c (blobs checked), network-isolated. 4b8db9c is f83f2ca plus one test title (code review Round 6 sub-entry)."
 Status: QA Complete
-Status-Detail: "M5 passes at website 4b8db9c, milestone-scoped, so plan Status is unmoved. QAF-24 LOW (the lane's P1 cannot tell a lock-order clock from a statement-start clock) is a comment for the implementer's next write. Suite 1814 of 1814, exit 0. The effort-final sweep is owed."
+Status-Detail: "M5 passes at website 4b8db9c, milestone-scoped, so plan Status is unmoved. QAF-24 LOW is RESOLVED (the lane's fixed P1, closure run qaf24-closure/). Suite 1814 of 1814, exit 0. The effort-final sweep is owed."
 Phase: 2
 ---
 
@@ -26,7 +26,8 @@ are inherited.
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
-| 2026-11-19T07:31 | steering-roadmap-hooks (brief `qa-hooks-017-resume.md`, after the park and resume) | QA Phase 2 for M5 at website `4b8db9c` | Phase 2, M5 only. Premises re-read and holding. Suite 1814 of 1814, exit 0, reproduced this session. Node sweep 66 of 67 killed, with the one survivor equivalent. A shape set of 8 written this session: 8 of 8 killed. Lane 11 of 11, its sweep 3 of 4 killed. Oracle 0 of 3120. **QA Complete**, milestone-scoped. QAF-24 LOW. Process fact: my first write of plan row R-37 carried a typed stamp (07:36). `stamp-gate-hook` refused it as future-dated. I re-stamped it with `record-edit.js` `{now}` (07:33), which is the gate's stated remedy. Process fact: `record-write-gate-hook` refused my shell append of an `INBOX.md` entry (the code-review link failure from `check-repo.js`). I re-issued it as `record-edit.js` `append_file`, which is the gate's stated remedy. |
+| 2026-11-19T07:31 | steering-roadmap-hooks (brief `qa-hooks-017-resume.md`, after the park and resume) | QA Phase 2 for M5 at website `4b8db9c` | Phase 2, M5 only. Premises re-read and holding. Suite 1814 of 1814, exit 0, reproduced this session. Node sweep 66 of 67 killed, with the one survivor equivalent. A shape set of 8 written this session: 8 of 8 killed. Lane 11 of 11, its sweep 3 of 4 killed. Oracle 0 of 3120. **QA Complete**, milestone-scoped. QAF-24 LOW. Process fact: my first write of plan row R-37 carried a typed stamp (07:36). `stamp-gate-hook` refused it as future-dated. I re-stamped it with `record-edit.js` `2026-11-19T07:55` (07:33), which is the gate's stated remedy. Process fact: `record-write-gate-hook` refused my shell append of an `INBOX.md` entry (the code-review link failure from `check-repo.js`). I re-issued it as `record-edit.js` `append_file`, which is the gate's stated remedy. |
+| 2026-11-19T07:55 | code-reviewer-hooks-017 (cross-session message; `c3fa457`, R-40) | QAF-24 closure | QAF-24 RESOLVED by QA's own lane run over the fixed P1 (`verification/017/qa-m5/qaf24-closure/`): control 11 of 11; the three statement- and transaction-start clocks each fail P1 alone; the other lane mutants still killed. Verdict unmoved. |
 
 ## Premise re-read (the brief's first deliverable)
 
@@ -111,7 +112,7 @@ and `qa-m5/resume/shape-sweep/mutation-table-…072928Z….json` (the shape set,
 
 | Member | Cases | Reddened by |
 |---|---|---|
-| M5-a (1), lock order, the database's clock | "returns the message id and the database clock, read in the same statement"; lane P1 | `qa-clock-now` (Node shape case only; the lane's P1 does **not** kill it: QAF-24) |
+| M5-a (1), lock order, the database's clock | "returns the message id and the database clock, read in the same statement"; lane P1 | `qa-clock-now` (Node shape case only at 4b8db9c's lane; since the P1 fix, also the lane's P1 with `statement_timestamp()` and `transaction_timestamp()`: QAF-24 RESOLVED) |
 | M5-a (2), new above old, collation-independent | "sorts above every 32-character hex nonce…", "sorts a later clock above…", "pads a short clock…"; lane P2 and the nB/na case | `qa-nonce-leads-0`, `qa-nonce-pad-15`, `qa-nonce-random-4-bytes`; lane `qa-collate-dropped` |
 | The upsert writes no nonce | "names no nonce column in its insert or its conflict update"; lane "writes no preview nonce…" | `sr-upsert-writes-nonce-on-conflict` |
 | The commit: conditional, null or below | "moves the nonce only where the row has none or one that orders below, under collation C" | NM-11, `qa-commit-null-disjunct-dropped`, `qa-commit-order-disjunct-dropped`; lane NM-11 (2 cases) |
@@ -228,26 +229,7 @@ delete the committed object.
 
 ## Findings
 
-QAF-24 LOW Phase 2 — the real-Postgres lane cannot tell the order token's clock from a statement-start clock.
-- **Defect.** M5-a (1) says two saves are ordered "as their upserts on its row are, with no clock other than the
-  database's". The shipped statement returns `clock_timestamp()`, read after the row lock. The lane's P1
-  (`verification/017/m5-pg/pg-lane.test.ts`, blob at `521a89f`):
-  1. session A's transaction runs the upsert and so takes its clock first;
-  2. A sleeps, and session B's upsert starts 700 ms after A's statement and blocks on the lock.
-
-  Because B's statement also starts after A has its clock, `now()` (statement or transaction start) orders them the same
-  way. The lane's mutant `qa-clock-now` (`clock_timestamp()` → `now()`) passes 11 of 11 (`lane-sweep/qa-clock-now/`).
-- **Failure scenario.** A later edit swaps in `now()` or `current_timestamp`. Then a save whose transaction began first but
-  reached the row lock second gets the smaller token. Its commit is refused against the earlier save's, and the row
-  keeps the older image. The only case that would notice is the Node compiled-SQL match "returns the message id and the
-  database clock, read in the same statement". It matches text, not order.
-- **Why LOW and not the severity floor.** An assertion does fail when the property is lost. It is the text case, seen red
-  under `qa-clock-now` in the Node sweep.
-- **Remedy.** In P1, session A begins its transaction first, B runs its upsert, then A takes the row lock and upserts.
-  This is the order in which `now()` and `clock_timestamp()` disagree. Assert A's token above B's, and record it red
-  under `qa-clock-now`.
-- **Route.** `implementer-hooks-017`'s next write. No M5 cap is recorded, and the finding does not block this verdict.
-  The implementer session is not live (`ListAgents`, 07:2xZ), so it goes to `steering-roadmap-hooks` per the brief.
+QAF-24 LOW Phase 2 RESOLVED — the lane's P1 now has A's transaction and statement begin first and take the row lock second (agent-output `008468b`, `pg-lane.test.ts` blob `d741220`). QA's closure run `qaf24-closure/` (driver copy blob `29c5e34`, set `6ec8785`): control 11 of 11; `now()`, `statement_timestamp()` and `transaction_timestamp()` each fail exactly P1; NM-22, `qa-collate-dropped` and NM-11 are still killed. Code review's scoped check agrees (`c3fa457`, R-40). Website unchanged at `4b8db9c`; the verdict is unmoved. Argument at agent-output `10e4627`.
 
 ## Verdict
 
@@ -256,7 +238,7 @@ QAF-24 LOW Phase 2 — the real-Postgres lane cannot tell the order token's cloc
 - Every guard in E-1 and E-2 is reddened by a mutant, or its survivor is shown equivalent.
 - The M5-e oracle and the test agree on all 3120 interleavings by membership, with 0 violating.
 - The suite is 1814 of 1814, exit 0. The typecheck exits 0.
-- QAF-24 LOW is a comment, not a blocker.
+- QAF-24 LOW was a comment, not a blocker; RESOLVED since (Findings).
 
 The plan's Status is unmoved. The effort-final sweep is owed. Rows inherited and not discharged: B-4 (UAT); B-6, B-7 and
 B-11 (post-deploy, carrier handoff created by devops at Stage 1).
@@ -275,7 +257,7 @@ does not test it.
 
 ## Handoff
 
-- **QAF-24** goes to `steering-roadmap-hooks` for the implementer's next write. The implementer session is not live.
+- **QAF-24** went to `steering-roadmap-hooks` for the implementer's next write. It was fixed (`008468b`) and is RESOLVED by QA's closure run.
 - **To devops (Stage 1)**: this pass's assumption, with B-6.
 - **To UAT**, when the chain reaches it: B-4, with the rig at `verification/017/m5-rig/`.
 - **Next for QA**: M6 Phase 2 when code review's Round 7 delivers it, then M7, then the effort-final sweep.

@@ -1,0 +1,6 @@
+PASS "Server running at" count=1 want=1
+PASS "Created instance" count=2 want=2
+PASS "POST /generate" count=15 want=15
+PASS "Server received" count=1 want=1
+unchanged-lines failed 0
+base-8de2b53 exit=0

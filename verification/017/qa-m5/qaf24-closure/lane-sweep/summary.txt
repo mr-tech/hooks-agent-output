@@ -1,0 +1,8 @@
+control exit 0 total 11 failed 0 | 
+qa-clock-now exit 1 total 11 failed 1 | P1: the clock is read after the row lock, so the save that takes the lock second holds the larger clock, though its transaction and its statement began first
+qa-clock-statement-timestamp exit 1 total 11 failed 1 | P1: the clock is read after the row lock, so the save that takes the lock second holds the larger clock, though its transaction and its statement began first
+qa-clock-transaction-timestamp exit 1 total 11 failed 1 | P1: the clock is read after the row lock, so the save that takes the lock second holds the larger clock, though its transaction and its statement began first
+NM-22-replaced-read-unlocked exit 1 total 11 failed 1 | P3: under a concurrent commit it learns the nonce actually replaced
+qa-collate-dropped exit 1 total 11 failed 1 | orders by byte value whatever the database collation: a stored nB is below a new na
+NM-11-commit-unconditional exit 1 total 11 failed 2 | refuses a nonce that orders below the stored one, and changes nothing || refuses the same nonce a second time
+0

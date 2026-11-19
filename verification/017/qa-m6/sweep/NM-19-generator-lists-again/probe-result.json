@@ -1,0 +1,596 @@
+{
+ "results": [
+  {
+   "case": "ok",
+   "observed": {
+    "status": 204,
+    "ms": 1517,
+    "puts": 1,
+    "otherS3": [
+     "list"
+    ],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "1 list/delete/other requests, want 0"
+   ]
+  },
+  {
+   "case": "goto-404",
+   "observed": {
+    "status": 500,
+    "ms": 1061,
+    "puts": 0,
+    "otherS3": [
+     "list"
+    ],
+    "failureLines": [
+     "preview-image-failure id=42 class=error-status elapsedMs=1057"
+    ]
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "1 list/delete/other requests, want 0"
+   ]
+  },
+  {
+   "case": "goto-500",
+   "observed": {
+    "status": 500,
+    "ms": 1066,
+    "puts": 0,
+    "otherS3": [
+     "list"
+    ],
+    "failureLines": [
+     "preview-image-failure id=42 class=error-status elapsedMs=1063"
+    ]
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "1 list/delete/other requests, want 0"
+   ]
+  },
+  {
+   "case": "goto-300",
+   "observed": {
+    "status": 500,
+    "ms": 1050,
+    "puts": 0,
+    "otherS3": [
+     "list"
+    ],
+    "failureLines": [
+     "preview-image-failure id=42 class=error-status elapsedMs=1047"
+    ]
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "1 list/delete/other requests, want 0"
+   ]
+  },
+  {
+   "case": "goto-204",
+   "observed": {
+    "status": 500,
+    "ms": 60,
+    "puts": 0,
+    "otherS3": [
+     "list"
+    ],
+    "failureLines": [
+     "preview-image-failure id=42 class=goto-rejected elapsedMs=58"
+    ]
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "1 list/delete/other requests, want 0"
+   ]
+  },
+  {
+   "case": "goto-299",
+   "observed": {
+    "status": 204,
+    "ms": 1078,
+    "puts": 1,
+    "otherS3": [
+     "list"
+    ],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "1 list/delete/other requests, want 0"
+   ]
+  },
+  {
+   "case": "goto-null",
+   "observed": {
+    "status": 500,
+    "ms": 45,
+    "puts": 0,
+    "otherS3": [
+     "list"
+    ],
+    "failureLines": [
+     "preview-image-failure id=42 class=error-status elapsedMs=43"
+    ]
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "1 list/delete/other requests, want 0"
+   ]
+  },
+  {
+   "case": "goto-199",
+   "observed": {
+    "status": 500,
+    "ms": 53,
+    "puts": 0,
+    "otherS3": [
+     "list"
+    ],
+    "failureLines": [
+     "preview-image-failure id=42 class=error-status elapsedMs=51"
+    ]
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "1 list/delete/other requests, want 0"
+   ]
+  },
+  {
+   "case": "setup-rejects",
+   "observed": {
+    "status": 500,
+    "ms": 39,
+    "puts": 0,
+    "otherS3": [
+     "list"
+    ],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "1 list/delete/other requests, want 0"
+   ]
+  },
+  {
+   "case": "goto-reset",
+   "observed": {
+    "status": 500,
+    "ms": 67,
+    "puts": 0,
+    "otherS3": [
+     "list"
+    ],
+    "failureLines": [
+     "preview-image-failure id=42 class=goto-rejected elapsedMs=64"
+    ]
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "1 list/delete/other requests, want 0"
+   ]
+  },
+  {
+   "case": "screenshot",
+   "observed": {
+    "status": 500,
+    "ms": 1064,
+    "puts": 0,
+    "otherS3": [
+     "list"
+    ],
+    "failureLines": [
+     "preview-image-failure id=42 class=screenshot elapsedMs=1063"
+    ]
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "1 list/delete/other requests, want 0"
+   ]
+  },
+  {
+   "case": "put",
+   "observed": {
+    "status": 500,
+    "ms": 1137,
+    "puts": 3,
+    "otherS3": [
+     "list"
+    ],
+    "failureLines": [
+     "preview-image-failure id=42 class=put elapsedMs=1136"
+    ]
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "1 list/delete/other requests, want 0"
+   ]
+  }
+ ],
+ "unchanged": [
+  {
+   "case": "bad body",
+   "want": 500,
+   "got": 500
+  },
+  {
+   "case": "wrong key",
+   "want": 404,
+   "got": 404
+  },
+  {
+   "case": "wrong path",
+   "want": 404,
+   "got": 404
+  },
+  {
+   "case": "wrong method",
+   "want": 404,
+   "got": 404
+  }
+ ],
+ "createdInstance": 2,
+ "posts": 14,
+ "closing": [
+  "2026-11-19T07:49:50.926Z Server received SIGINT. Closing server."
+ ],
+ "s3Log": [
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-01.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-01.jpeg",
+   "type": "image/jpeg",
+   "acl": "public-read",
+   "bytes": 1415,
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-10.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-10.jpeg",
+   "type": "image/jpeg",
+   "acl": "public-read",
+   "bytes": 1415,
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-nfail.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-nfail.jpeg",
+   "status": 500
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-nfail.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-nfail.jpeg",
+   "status": 500
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-nfail.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-nfail.jpeg",
+   "status": 500
+  }
+ ],
+ "generatorLines": [
+  "2026-11-19T07:49:36.601Z Server running at http://127.0.0.1:38694/",
+  "2026-11-19T07:49:36.685Z POST /generate",
+  "2026-11-19T07:49:37.055Z Created instance 1. Active instances: 2.",
+  "2026-11-19T07:49:37.056Z Acquired instance 1.",
+  "2026-11-19T07:49:37.061Z Created instance 2. Active instances: 2.",
+  "2026-11-19T07:49:38.173Z Releasing instance 1.",
+  "2026-11-19T07:49:38.181Z Generated image for message 42 with nonce vprobe-01 in 1495ms",
+  "2026-11-19T07:49:38.688Z POST /generate",
+  "2026-11-19T07:49:38.693Z Acquired instance 2.",
+  "2026-11-19T07:49:39.745Z Releasing instance 2.",
+  "preview-image-failure id=42 class=error-status elapsedMs=1057",
+  "PreviewFailure [Error]: Preview render failed: error-status",
+  "    at generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:37:45)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:54:17) {",
+  "  failureClass: 'error-status',",
+  "  original: undefined",
+  "}",
+  "2026-11-19T07:49:40.252Z POST /generate",
+  "2026-11-19T07:49:40.257Z Acquired instance 1.",
+  "2026-11-19T07:49:41.315Z Releasing instance 1.",
+  "preview-image-failure id=42 class=error-status elapsedMs=1063",
+  "PreviewFailure [Error]: Preview render failed: error-status",
+  "    at generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:37:45)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:54:17) {",
+  "  failureClass: 'error-status',",
+  "  original: undefined",
+  "}",
+  "2026-11-19T07:49:41.819Z POST /generate",
+  "2026-11-19T07:49:41.822Z Acquired instance 2.",
+  "2026-11-19T07:49:42.866Z Releasing instance 2.",
+  "preview-image-failure id=42 class=error-status elapsedMs=1047",
+  "PreviewFailure [Error]: Preview render failed: error-status",
+  "    at generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:37:45)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:54:17) {",
+  "  failureClass: 'error-status',",
+  "  original: undefined",
+  "}",
+  "2026-11-19T07:49:43.370Z POST /generate",
+  "2026-11-19T07:49:43.374Z Acquired instance 1.",
+  "2026-11-19T07:49:43.428Z Releasing instance 1.",
+  "preview-image-failure id=42 class=goto-rejected elapsedMs=58",
+  "PreviewFailure [Error]: Preview render failed: goto-rejected",
+  "    at /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:35:31",
+  "    at async generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:34:22)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:54:17) {",
+  "  failureClass: 'goto-rejected',",
+  "  original: Error: net::ERR_ABORTED at http://127.0.0.1:43807/preview?data=%7B%22mode%22%3A%22status-204%22%2C%22marker%22%3A%22PLANTED-MESSAGE-CONTENT%22%7D",
+  "      at navigate (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/puppeteer-core/src/common/Frame.ts:175:13)",
+  "      at async Deferred.race (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/puppeteer-core/src/util/Deferred.ts:102:14)",
+  "      at async Frame.goto (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/puppeteer-core/src/common/Frame.ts:128:17)",
+  "      at async CDPPage.goto (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/puppeteer-core/src/common/Page.ts:923:12)",
+  "      at async generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:34:22)",
+  "      at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/getPool.ts:88:14)",
+  "      at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:54:17)",
+  "}",
+  "2026-11-19T07:49:43.933Z POST /generate",
+  "2026-11-19T07:49:43.936Z Acquired instance 2.",
+  "2026-11-19T07:49:45.004Z Releasing instance 2.",
+  "2026-11-19T07:49:45.009Z Generated image for message 42 with nonce vprobe-10 in 1076ms",
+  "2026-11-19T07:49:45.511Z POST /generate",
+  "2026-11-19T07:49:45.516Z Acquired instance 1.",
+  "2026-11-19T07:49:45.554Z Releasing instance 1.",
+  "preview-image-failure id=42 class=error-status elapsedMs=43",
+  "PreviewFailure [Error]: Preview render failed: error-status",
+  "    at generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:37:45)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:54:17) {",
+  "  failureClass: 'error-status',",
+  "  original: undefined",
+  "}",
+  "2026-11-19T07:49:46.056Z POST /generate",
+  "2026-11-19T07:49:46.061Z Acquired instance 2.",
+  "2026-11-19T07:49:46.107Z Releasing instance 2.",
+  "preview-image-failure id=42 class=error-status elapsedMs=51",
+  "PreviewFailure [Error]: Preview render failed: error-status",
+  "    at generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:37:45)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:54:17) {",
+  "  failureClass: 'error-status',",
+  "  original: undefined",
+  "}",
+  "2026-11-19T07:49:46.609Z POST /generate",
+  "2026-11-19T07:49:46.614Z Acquired instance 1.",
+  "2026-11-19T07:49:46.646Z Releasing instance 1.",
+  "Error: shim: setViewport rejected",
+  "    at CDPPage.setViewport (/usr/local/bin/hooks/agent-output/verification/017/m6-probe/shim-screenshot.cjs:25:107)",
+  "    at CDPPage._create (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/puppeteer-core/src/common/Page.ts:116:20)",
+  "    at async PageTarget.page (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/puppeteer-core/src/common/Target.ts:274:13)",
+  "    at async CDPBrowser._createPageInContext (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/puppeteer-core/src/common/Browser.ts:455:18)",
+  "    at async generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:26:16)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:54:17)",
+  "2026-11-19T07:49:47.149Z POST /generate",
+  "2026-11-19T07:49:47.153Z Acquired instance 2.",
+  "2026-11-19T07:49:47.214Z Releasing instance 2.",
+  "preview-image-failure id=42 class=goto-rejected elapsedMs=64",
+  "PreviewFailure [Error]: Preview render failed: goto-rejected",
+  "    at /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:35:31",
+  "    at async generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:34:22)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:54:17) {",
+  "  failureClass: 'goto-rejected',",
+  "  original: Error: net::ERR_EMPTY_RESPONSE at http://127.0.0.1:43807/preview?data=%7B%22mode%22%3A%22reset%22%2C%22marker%22%3A%22PLANTED-MESSAGE-CONTENT%22%7D",
+  "      at navigate (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/puppeteer-core/src/common/Frame.ts:175:13)",
+  "      at async Deferred.race (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/puppeteer-core/src/util/Deferred.ts:102:14)",
+  "      at async Frame.goto (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/puppeteer-core/src/common/Frame.ts:128:17)",
+  "      at async CDPPage.goto (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/puppeteer-core/src/common/Page.ts:923:12)",
+  "      at async generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:34:22)",
+  "      at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/getPool.ts:88:14)",
+  "      at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:54:17)",
+  "}",
+  "2026-11-19T07:49:47.717Z POST /generate",
+  "2026-11-19T07:49:47.721Z Acquired instance 1.",
+  "2026-11-19T07:49:48.779Z Releasing instance 1.",
+  "preview-image-failure id=42 class=screenshot elapsedMs=1063",
+  "PreviewFailure [Error]: Preview render failed: screenshot",
+  "    at /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:42:31",
+  "    at async generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:39:12)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:54:17) {",
+  "  failureClass: 'screenshot',",
+  "  original: Error: shim: screenshot rejected",
+  "      at CDPPage.screenshot (/usr/local/bin/hooks/agent-output/verification/017/m6-probe/shim-screenshot.cjs:9:93)",
+  "      at generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:39:23)",
+  "      at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/getPool.ts:88:14)",
+  "      at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:54:17)",
+  "}",
+  "2026-11-19T07:49:49.283Z POST /generate",
+  "2026-11-19T07:49:49.286Z Acquired instance 2.",
+  "2026-11-19T07:49:50.354Z Releasing instance 2.",
+  "preview-image-failure id=42 class=put elapsedMs=1136",
+  "PreviewFailure [Error]: Preview render failed: put",
+  "    at /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:62:30",
+  "    at processTicksAndRejections (node:internal/process/task_queues:104:5)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:56:3) {",
+  "  failureClass: 'put',",
+  "  original: S3ServiceException [InternalError]: stub",
+  "      at throwDefaultError (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:8:22)",
+  "      at /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:18:39",
+  "      at de_PutObjectCommandError (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/@aws-sdk/client-s3/dist-cjs/protocols/Aws_restXml.js:5721:12)",
+  "      at processTicksAndRejections (node:internal/process/task_queues:104:5)",
+  "      at async /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/@smithy/middleware-serde/dist-cjs/deserializerMiddleware.js:7:24",
+  "      at async /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/@aws-sdk/middleware-signing/dist-cjs/awsAuthMiddleware.js:14:20",
+  "      at async /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/@smithy/middleware-retry/dist-cjs/retryMiddleware.js:27:46",
+  "      at async /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/@aws-sdk/middleware-flexible-checksums/dist-cjs/flexibleChecksumsMiddleware.js:58:20",
+  "      at async /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-8512a1d/node_modules/@aws-sdk/middleware-logger/dist-cjs/loggerMiddleware.js:7:26",
+  "      at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/generateImage.ts:56:3) {",
+  "    '$fault': 'client',",
+  "    '$metadata': {",
+  "      httpStatusCode: 500,",
+  "      requestId: undefined,",
+  "      extendedRequestId: undefined,",
+  "      cfId: undefined,",
+  "      attempts: 3,",
+  "      totalRetryDelay: 54",
+  "    },",
+  "    Code: 'InternalError'",
+  "  }",
+  "}",
+  "2026-11-19T07:49:50.922Z POST /generate",
+  "SyntaxError: Unexpected token 'o', \"not json\" is not valid JSON",
+  "    at JSON.parse (<anonymous>)",
+  "    at IncomingMessage.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/gen-sweep-work/m11/src/server.ts:24:25)",
+  "    at IncomingMessage.emit (node:events:508:28)",
+  "    at IncomingMessage.emit (node:domain:489:12)",
+  "    at endReadableNT (node:internal/streams/readable:1729:12)",
+  "    at processTicksAndRejections (node:internal/process/task_queues:90:21)",
+  "2026-11-19T07:49:50.924Z POST /generate",
+  "2026-11-19T07:49:50.925Z POST /other",
+  "2026-11-19T07:49:50.925Z GET /generate",
+  "2026-11-19T07:49:50.926Z Server received SIGINT. Closing server."
+ ]
+}
