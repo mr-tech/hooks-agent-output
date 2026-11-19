@@ -1,0 +1,73 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/44f411da-305d-4350-b0d5-c27d94aebf0c/scratchpad/exp-60252be
+
+ ❯ |node| src/server/api/utils/__tests__/shared.wire-decode-probe.test.ts (4 tests | 3 failed) 19ms
+     × decodes to the producer's exact hash string (digits, an e and 00) 6ms
+     × decodes to the producer's exact hash string (a minus sign, digits, an e and 02) 2ms
+     × decodes to the producer's exact hash string (an exponent past a double) 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.wire-decode-probe.test.ts > the save broadcast as a subscriber decodes it > decodes to the producer's exact hash string (digits, an e and 00)
+AssertionError: expected 51354 to be '51354e00' // Object.is equality
+
+- Expected:
+"51354e00"
+
++ Received:
+51354
+
+ ❯ src/server/api/utils/__tests__/shared.wire-decode-probe.test.ts:69:24
+     67|     expect(event.event).toBe('message-update');
+     68|     expect(event.channel).toBe('message-update-42');
+     69|     expect(event.data).toBe(hash);
+       |                        ^
+     70|   });
+     71| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.wire-decode-probe.test.ts > the save broadcast as a subscriber decodes it > decodes to the producer's exact hash string (a minus sign, digits, an e and 02)
+AssertionError: expected -10700 to be '-107e02' // Object.is equality
+
+- Expected:
+"-107e02"
+
++ Received:
+-10700
+
+ ❯ src/server/api/utils/__tests__/shared.wire-decode-probe.test.ts:69:24
+     67|     expect(event.event).toBe('message-update');
+     68|     expect(event.channel).toBe('message-update-42');
+     69|     expect(event.data).toBe(hash);
+       |                        ^
+     70|   });
+     71| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.wire-decode-probe.test.ts > the save broadcast as a subscriber decodes it > decodes to the producer's exact hash string (an exponent past a double)
+AssertionError: expected Infinity to be '7181e724' // Object.is equality
+
+- Expected:
+"7181e724"
+
++ Received:
+Infinity
+
+ ❯ src/server/api/utils/__tests__/shared.wire-decode-probe.test.ts:69:24
+     67|     expect(event.event).toBe('message-update');
+     68|     expect(event.channel).toBe('message-update-42');
+     69|     expect(event.data).toBe(hash);
+       |                        ^
+     70|   });
+     71| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 1 passed (4)
+   Start at  17:57:29
+   Duration  969ms (transform 167ms, setup 0ms, import 829ms, tests 19ms, environment 0ms)
+

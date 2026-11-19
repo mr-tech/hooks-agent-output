@@ -3,14 +3,14 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Verified-At: "4b8db9c,8512a1d — repos=website,preview-image-generator; the effort-final pass: the website sweep ran in git archive exports of 4b8db9c; the generator's whole diff was swept at M6 in exports of 8512a1d. Milestone verdicts are in the -m<n>-qa documents at their own SHAs. Phase 1 read the base trees 1ad625e,8de2b53."
-Status: QA Complete
-Status-Detail: "Plan-level QA Complete at website 4b8db9c and generator 8512a1d: M1 to M8 each QA Complete in its own document; effort-final sweep 124 of 140 killed, every survivor dispositioned (equivalent, whitespace-only, or no criterion member), plus QAF-25 LOW to the Planner batch under the M4 cap. Revision 8 moves no verified criterion. Next: UAT (B-1 to B-4, B-12, B-13)."
-Phase: 2
+Status: Awaiting Implementation
+Status-Detail: "The plan-level QA Complete at website 4b8db9c is expired by M2's fix round 3 (website 8e1ccef, 42d15de, 60252be); the other milestones' verdicts stand in their own documents. Phase 1 is re-keyed to revision 10: EC-5 and EC-6, NM-39 to NM-45, B-15, and QAF-26 LOW, which does not hold the disconnect code. Next: QA Phase 2 for M2 at code review's hand-off of the new tip, with the plan-level verdict re-issued."
+Phase: 1
 ---
 
 # QA Report: Plan 017 — the existing-items backlog
 
-**Plan Reference**: `agent-output/planning/017-existing-items-backlog.md`, revision 8 (agent-output `36a842f`)
+**Plan Reference**: `agent-output/planning/017-existing-items-backlog.md`, revision 10 (agent-output `fad6cd4`)
 for the effort-final pass (its delta read whole, § Implementation Review); Phase 1 read revision 7 (agent-output
 `6ade256`), re-keyed in § "Phase 1 re-key on plan revision 7" (earlier: §§ "… revision 6", "… revision 4",
 "… revision 3" and "… revision 2"; revision 5 was never routed and is read inside revision 6's diff). The first pass read revision 1
@@ -29,6 +29,7 @@ for the effort-final pass (its delta read whole, § Implementation Review); Phas
 | 2026-11-19T05:12 | steering-roadmap (cross-session brief; plan revision 6, agent-output `21e61eb`) | Phase 1 re-key: M8 and M5-0 limb 3 | Phase 1 re-key. M8-a's listings and M8-d's counts re-run at `1ad625e`, `a5dd76f` and `5c3d03f`: the plan's figures hold. Limb 2's capture: 3 prefix members and 1 non-member. The 05:01Z focus capture preserved under `qa-phase1-r6/`. New: QAF-20 MEDIUM (M8's focus positions never reach the changed hotkey; the human-observable form reads the same on both trees) and QAF-21 MEDIUM (limb 3 cannot tell a kept-alive function from a resumed one; its outcomes do not cover every subset of the lines). NM-30 to NM-38; B-13 and B-14 appended; B-5 reconciled. The brief's two premises (Resumption State at `84cad8d`; the stamp at line 643) were stale, both already settled at `de8d171`. |
 | 2026-11-19T05:18 | planner-hooks-017 (revision 7, agent-output `6ade256`) | Phase 1 re-key | Phase 1 re-key. QAF-20 and QAF-21 RESOLVED at the plan text. Limb 3 re-read from its committed capture: 6 lines, one `requestId`, timestamps within 1 ms of `elapsedMs`, one request in the request log, so **Lasts** holds by revision 7's read rule. M8-a's third listing: 1 non-member hit. NM-30 to NM-38 keyed to revision 7's rows; EC-3 and EC-4 added so NM-33 and NM-35 have a killing case. B-14 executed. No finding on revision 7. |
 | 2026-11-19T09:14 | steering-roadmap-hooks (brief `qa-hooks-017-resume.md`, work item 3); plan revision 8 (`36a842f`) | Effort-final sweep and plan-level verdict | Phase 2, effort-final. Website `1ad625e..4b8db9c`: 175 generated, 34 identical to M5's run at this tip, 141 run: 124 of 140 KILLED, 16 SURVIVED, 1 ABORTED (heap out of memory, not credited). Every survivor dispositioned. QAF-25 LOW (`StyledLink`'s `prefetch: false` unasserted) to the Planner batch under the M4 cap. The generator was swept whole at M6. Revision 8 read whole: no verified criterion moved. **QA Complete**, plan-level. |
+| 2026-11-19T18:00 | steering-roadmap-hooks (cross-session brief, delta `61ce793..fad6cd4`); planner-hooks-017 (AF-25 to key) | Phase 1 re-key: M2-c's wire form, M2-d | Phase 1 re-key on revision 10, which also folds revision 9 (X-24; QAF-25 dispositioned as a stated limit). AF-25's instrument is shown feasible in an export of `60252be`: real `upsertMessage`, `pusher` 5.1.3 and pusher-js 8.3.0 `decodeMessage`, 4 of 4 green; against `4b8db9c`'s bare trigger line 3 of 4 red, and the ordinary hash stays green. Number-shape predicate checked exhaustively: 0 disagreements in 111,972 strings. EC-5 (M2-d's three members; all four `pusher-js` mocks lack `disconnect`), EC-6, NM-39 to NM-45, B-15. QAF-26 LOW (M2-d's step does not name an in-app switch). The plan-level verdict at `4b8db9c` is expired by M2's fix round 3. |
 
 ## Inputs read
 
@@ -311,6 +312,7 @@ record, are authoritative on each row's execution state once written; this table
 | B-12 | observable pre-release | M4-b's "both stay open and each is answered on its own", in a real browser and with Enter. This is CR-9's and the Round 4 review's Assumption Not Checked, which B-3 as written does not observe. Added at M4's Phase 2 (`qa/017-existing-items-backlog-m4-qa.md`). | UAT stage browser, local stack, two tabs on one message, real Pusher app (B-1's set-up; depends on B-1's id move and the E-9 stub). **Limb 1:** in tab 1, with unsaved edits, click the user icon so the link prompt opens. Then save the same message in tab 2, so "Message Update Detected" opens in tab 1 above it. Count the open `[role="dialog"]` elements and note which one holds `document.activeElement`. Press Enter once. Record which prompt answered and whether the other is still open, then answer the other with a click. **Limb 2:** with a lone link prompt open, press Enter once. | uat; fallback subject the owner | M4 landed; B-1's two-tab set-up working | **Limb 1:** two dialogs open. One Enter answers only the focused one; the other stays open and is answered on its own. **Limb 2:** Enter answers the link prompt and the page navigates. | **Limb 1:** if one Enter answers both, a user who presses Enter to dismiss the update notice also leaves the page and loses his edits. If the link prompt vanishes when the update prompt arrives, his pending answer was dropped (NM-25 in a real browser). **Limb 2:** if Enter leaves a lone prompt open, a keyboard user cannot answer it (M4's Assumption Not Checked). | uat | the chain's UAT document (pass to be briefed) | open |
 | B-13 | observable pre-release | M8's human-observable form, M8-b and M8-c, in a real browser. Settles M8-b, M8-c and RK-11. Added at the revision 6 re-key. | UAT stage browser, local stack, two tabs A and B on one saved message, signed in (B-1's set-up and id move; the E-9 stub). Before every Enter, record `document.activeElement` (tag, text, and the dialog holding it). **Limb 1, distinguishing:** in A, open a field's "Delete Field?". Save from B so "Message Update Detected" opens in A over it. Click U's message text, so focus lies in U off its buttons. Press Enter once. Record which dialogs answered: did the field go, and did Reload run? **Limb 2:** the same with the image dialog (an image loaded) in place of W. **Limb 3, RK-11:** the same set-up as limb 1, but Enter straight after U opens, with no click. **Limb 4, M8-c:** W alone. Click its text, then press Enter once. | uat; fallback subject the owner | M8 landed; B-1's two-tab set-up working | **Limbs 1 and 2:** Reload only; W or I stays open and is answered on its own. At website `5c3d03f` (unfixed), the helper's jsdom capture predicts W's confirm (or I's set) and Reload together. One observation of two answers refutes the fix by construction. **Limb 3:** Reload only on both trees, if U focuses its autofocused Reload. That makes it a health check and RK-11's reading, not the distinguishing limb. **Limb 4:** the field is deleted, as at `1ad625e`. | **Limbs 1 and 2:** if one Enter answers both, a user who presses Enter to take the update notice also deletes the field, or sets the image, in the dialog underneath. **Limb 3:** if the active element after U opens is in W or I, RK-11's premise is wrong, and the plan learns which dialog a browser focuses. **Limb 4:** if a lone W no longer answers Enter with focus on its text, M8 changed the lone dialog (M8-c, NM-33). If, in limb 1 or 2, the click leaves focus on a button or outside every dialog, the limb read nothing: say so, and do not record a pass. | uat | the chain's UAT document (pass to be briefed) | open |
 | B-14 | observable pre-release | M5-0 limb 3, post-response life across T (OQ-15 option a). Settles M5-f's T = 40 s premise and RK-2's platform cut. Depends on OQ-15. Added at the revision 6 re-key. | **Primary:** the probe deployment's runtime logs, `npx vercel@66.2.0 logs … --deployment <probe URL> --json` (limb 2's instrument; the records carry `timestamp`, `requestId` and `message`). Read with QAF-21's checks: every line carries the probing request's `requestId`; each line's `timestamp` minus the request's start agrees with its `elapsedMs` within a stated tolerance; no other request reaches the deployment until 60 s after the probing request starts. | devops; his push (OQ-15) | His OQ-15 answer is (a). The limb 3 branch is built. E-6 (what the preview connects to) is established before the push. The project's protection-bypass entries are counted before the run and restored after it (D-28). | **Lasts:** five lines, at 5, 15, 30, 45 and 55 s, under one `requestId`, each timestamp agreeing with its `elapsedMs`. That is the platform documentation's reading (Inference), and limb 2 saw 5 s. **Cut at L:** an unbroken run from the 5 s line, ending at L < 55 s. **Not readable:** no control line, no deployment, or an absent line with a later one present (QAF-21). | If the read is **Cut at L**, M5 and M6 code stop and a revision re-derives T against L (the plan's limb 3). If lines appear late, or under a second request's `requestId`, the run measured a resumed function, not one kept alive, and is **not readable**, never Lasts. If he answers (b), the row closes **dropped** by the pre-declared disposition: RK-2 carries 5 s to 55 s as Inference, and no instrument, before or after release, sees a cut. | devops | devops's M5-0 record (`deployment/017-existing-items-backlog-m5-0-probe-deployment.md`), capture under `verification/017/m5-0/limb3/` | executed: **Lasts**. *Reconcile 2026-11-19T05:18Z:* deployment record `8f26f37` (authoritative on this row) records the run and its result. This document's re-read of the capture agrees: 6 lines, one `requestId`, timestamps within 1 ms of `elapsedMs`, and one request in the request log (`qa-phase1-r7/limb3-read-check.out`). |
+| B-15 | observable pre-release | M2-d's human-observable step: in one tab, a switch between two messages' editors leaves one Pusher socket open. Settles M2-d's human form. Added at the revision 10 re-key. | Stage browser, local stack, signed in, two saved messages with ids at or above 900000000000001. They are seeded by SQL insert for QA's run, so no save triggers Pusher; UAT may use B-1's saves. Record every WebSocket whose host is the Pusher cluster's, with its close event (Playwright `page.on('websocket')`, or the network panel's WS filter). (1) Open message A's editor and wait for the socket. (2) Set `window.__qaDoc = 1`. (3) Open message B's editor through an in-app link, the header's message list or the message list page, never the address bar. (4) Read `window.__qaDoc` and count the open Pusher sockets. | QA's executor at Phase 2 for M2 (`browser-walker`), then uat; the owner is the fallback subject | M2-d landed. The local stack is up, and the Pusher app in `.env.local` is reachable (subscribe only). | **Liveness:** after (1), exactly 1 open Pusher socket. **After (4), the marker must be present.** If it is absent, the switch reloaded the document and the run is void. Unfixed (`60252be`): 2 open. Fixed: 1 open, and A's socket closed at the switch. One run refutes either way. | If two sockets stay open, every message a user switches to in a tab leaves another connection open, which is what D-34 closes. | uat | QA's first run: `qa/017-existing-items-backlog-m2-qa.md` (M2's Phase 2 pass, at `60252be` and at the fix tip); execution: UAT document | open |
 
 G-6 (M4-c's browser red) was executed in this pass and is not a row: `g6-walk/`, result above.
 
@@ -857,7 +859,135 @@ assumption.
   stale, on saves whose render was quick.
 - **Owner.** devops at Stage 1, through B-7's carrier. Named again in the hand-off.
 
+## Phase 1 re-key on plan revision 10 (agent-output `fad6cd4`)
+
+**Brief**: `steering-roadmap-hooks`, cross-session message, 2026-11-19T17:5xZ: re-key to revision 10, bounded to its
+delta `61ce793..fad6cd4`. The rulings are D-33 and D-34 (plan R-51; `steering/017-rulings.md` blocks 17:49Z and 17:51Z).
+The architect's AF-25 LOW came through `planner-hooks-017` for this pass to key
+(`architecture/017-existing-items-backlog-architecture-findings.md` § "Findings on revision 10", `410044e`).
+**Read**: the diff `61ce793..fad6cd4`, whole. `git diff --numstat` gives 29 added and 7 removed lines in the plan, and 16
+added lines in the rulings file. Also read: revision 9's commit (`bcc23c6`, 10 added and 5 removed lines), which adds X-24
+only, so QAF-25 LOW Phase 2 is dispositioned as stated limit X-24 (revision 9, critic `5f892f5`). Read at source: website
+`42d15de` and the new tip `60252be` (the D-33 hash fix, committed during this pass): `usePusher.ts`, `shared.ts`
+`upsertMessage`, `MessageProvider/index.tsx`, and the `pusher-js` mocks. Libraries read as installed: `pusher` 5.1.3
+`lib/events.js` `ensureJSON`, and `pusher-js` 8.3.0 `src/core/connection/protocol/protocol.ts` `decodeMessage`. The same
+`JSON.parse` of string data is in `dist/node/pusher.js` and `dist/web/pusher.js` (`grep -n`, one line each).
+
+Criteria this pass keys: M2-c's exact equality and its wire instrument (AF-25); M2-d's three members; M2-d's
+human-observable step. Nothing else in revision 10 changes a criterion this gate keyed.
+
+### New measurements (captures under `verification/017/qa-phase1-r10/`)
+
+- **AF-25's instrument runs in this suite.** I ran `wire-decode-probe.test.ts` in a `git archive` export of `60252be`.
+  `shared.ts`'s blob was `a1e99c8…` in both the tree and the export, `node_modules` was linked, and the run used
+  `unshare -rn`. The probe goes through the real `upsertMessage` and the real `pusher` 5.1.3. Only `Pusher.prototype.post`
+  is replaced, after `ensureJSON` has run. The probe builds the frame Pusher's service relays (`event`, `channel`, and the
+  posted `data` string), and decodes it with pusher-js's own `Protocol.decodeMessage`, imported from the package's
+  TypeScript source. Vitest inlines that file.
+  - At `60252be`: 4 of 4 passed, exit 0 (`probe-tip-60252be.out`, `.exit`).
+  - **Red control.** I swapped in `4b8db9c`'s bare-hash trigger line. One `grep -c` match confirmed it in the export and
+    one in `4b8db9c`'s blob. The number-shaped cases (`51354e00`, `-107e02`, `7181e724`) failed, 3 of 4, with exit 1. The
+    ordinary hash `2cf29ca1` stayed green (`probe-bare-producer.out`). Afterwards the export's file was restored to its blob
+    `a1e99c8…`.
+- **What "number-shaped" covers** (`number-shape-predicate.mjs`, `.out`). `hashMessage` returns `-?[0-9a-f]+`.
+  pusher-js turns a string into something else exactly when the string matches `^-?(0|[1-9][0-9]*)(e[0-9]+)?$`. I checked
+  this exhaustively: 111,972 strings matching `-?[019aef]{1,6}`, 3,402 of them members, 0 disagreements with `JSON.parse`.
+  As a positive control, a wrong predicate without the exponent disagrees on 2 of 4 planted strings. The class has these
+  sub-classes:
+  - digits only;
+  - a minus sign and digits;
+  - digits, `e` and digits that stay finite;
+  - an exponent that overflows to ±Infinity.
+
+  The near non-member is a leading `0` followed by digits (`012`), which fails to parse and stays a string.
+- **M2-d's population.** At `60252be`, `git grep -n "from 'pusher-js'"` outside `__tests__` finds one file, `usePusher.ts`,
+  with one `new Pusher(…)`, inside the effect. The cleanup is `channel.unbind()` and `pusher.unsubscribe(…)`, with no
+  `disconnect` (`git grep -n disconnect` over `src`: only `ResizeObserver` and `MutationObserver` stubs in tests). So
+  M2-d is red at `60252be` as well as at the plan's `1ad625e` and `42d15de`.
+  - The effect's dependency is `isApiMessage(message) && message.id`. `paramMessageId` comes from `useParsePathname()`
+    (`index.tsx`).
+  - So the three members are reachable in a mounted provider only if the navigation mock's pathname can change while the
+    provider stays mounted. The shared `navigationMock(pathname)` in `__tests__/helpers/messageProviderDeps.ts` returns a
+    fixed pathname, so the harness cannot do that today.
+  - **Four `vi.mock('pusher-js'` sites** (`git grep -c`, one each): `layout.navigation-guard`,
+    `MessageProvider.own-save-notice`, `MessageProvider.stored-draft` and `usePusher.update-prompt`. None defines
+    `disconnect`, so once the fix lands, every cleanup in those files calls a missing method.
+- **The production `MessageProvider` mounts in `src/app/message/m/[id]/layout.tsx`.** The in-app links to another
+  message's editor are `StyledLink`, which wraps `next/link`: `_layout/Header.tsx`, `message/page.tsx` and `f/[id]/page.tsx`.
+  An in-app switch is therefore a client-side navigation that keeps the document, while an address-bar entry loads a new
+  document. I did not establish whether the App Router remounts the `[id]` layout (member 1) or keeps it mounted with a new
+  id (member 2). Either is a member. B-15 does not depend on which.
+
+### Entry conditions added (to the implementer; EC-2 to EC-4 stand)
+
+- **EC-5 (M2-d).** One case per member, in a mounted `MessageProvider`. Each `new Pusher` returns its own object, with its
+  own `disconnect`, `subscribe` and `unsubscribe` spies, recorded in construction order.
+  - **Unmount.** The case asserts the instance is not disconnected while mounted, and is disconnected once after unmount.
+  - **The id changes.** The pathname changes from one message to another while mounted, and the case rerenders. Instance 1
+    is disconnected once. Instance 2 exists and is not disconnected.
+  - **The message stops being an `ApiMessage`.** The pathname goes to `/message/m/0/edit`. Instance 1 is disconnected once,
+    and no further instance is constructed.
+  - The harness needs a pathname that can change while mounted, for example a hoisted mutable value read by the mock's
+    `usePathname`. Per the helper policy, it is an extension of `navigationMock`, not a third copy.
+  - Before adding a test: the plan names `usePusher.update-prompt.test.tsx` as the surface's existing test. Extend it, or
+    say why the mounted-provider file is the place.
+  - All four `pusher-js` mocks gain `disconnect`. Every file's case count and pass set must stay the same, exit 0.
+- **EC-6 (M2-c, AF-25).** One case in `shared.upsert-broadcast.test.ts` uses the probe's form: the real `pusher`, with only
+  `post` replaced, and the frame decoded by pusher-js's `Protocol.decodeMessage`. It asserts the exact hash string for an
+  ordinary hash and for one member of each number-shaped sub-class above.
+  - Its red is recorded against `4b8db9c`'s bare trigger line.
+  - That file's `deliveredToSubscribers`, at `60252be`, is the test's own copy of the two library steps. This case replaces
+    it. Leaving it beside the case is the Phase 2 audit's question.
+  - The consumer's cases in `MessageProvider.own-save-notice` keep handing the handler strings. That is sound once the wire
+    case holds, because the two cases join at the decoded string.
+
+### Named mutants added
+
+| Mutant | The row that kills it |
+|---|---|
+| NM-39, the producer sends the bare hash (`4b8db9c`'s line) | EC-6, the number-shaped members (shown red in this pass's probe) |
+| NM-40, the producer encodes twice (`JSON.stringify(JSON.stringify(…))`) | EC-6, the ordinary member (the decoded value carries quotes) |
+| NM-41, the consumer parses one side of a comparison (record or shown hash) | `own-save-notice`'s number-shaped cases at `60252be` |
+| NM-42, no `disconnect` (the tree before M2-d) | EC-5, all three members |
+| NM-43, `disconnect` only in a separate unmount-only effect | EC-5, the id-change and the stops-being-`ApiMessage` members |
+| NM-44, `disconnect` on the latest instance (a ref or module variable) instead of this run's | EC-5, the id-change member: instance 2 not disconnected, instance 1 disconnected |
+| NM-45, `disconnect` in the effect body instead of its cleanup | EC-5, the unmount member's "not disconnected while mounted" |
+
+### Findings on revision 10 (to `planner-hooks-017`)
+
+QAF-26 LOW Phase 1
+- **What is missing.** M2-d's human-observable step does not say how the second message's editor is opened ("open a second
+  message's editor in the same tab").
+- **The consequence.** Entered in the address bar, the second editor loads a new document, which closes every socket on
+  both trees. The step then reads "one open Pusher WebSocket" before the fix as well as after it, so it cannot fail. Only
+  an in-app link (the header's message list, `StyledLink`) keeps the document, so the old socket can stay open.
+- **Remedy.** Name the in-app link in the step, and require that the page was not reloaded. B-15 already does this, so the
+  finding does not hold the disconnect code.
+
+### Register amendments
+
+- **B-15** appended (M2-d's human-observable step).
+- Check predicate for the other rows: "a row whose instrument, premise or prediction reads M2's broadcast or its hash
+  form". It matched B-1, B-8 and B-12.
+  - **B-1.** Re-read. It walks through the real Pusher app, so after D-33 its tab 2 notice reads the JSON-encoded frame
+    end to end. Nothing to re-specify. Steering's 17:49Z block tells UAT it need not place runs by frame hash.
+  - **B-8.** Its "unfixed production shows it in tab 1" prediction stays as worded: production runs `1ad625e`.
+  - **B-12.** It depends on B-1's set-up only.
+- Nothing else moved.
+
+### Assumption Not Checked (this pass)
+
+This pass assumes something about a real browser that it does not test. On a tree without M2-d, an in-app switch between
+two messages' editors leaves the first message's pusher-js socket open. Nothing else closes it: not React's unmount, not
+the `unsubscribe` of its only channel, and not garbage collection.
+- **Falsifier.** B-15's first run at the unfixed tree shows one open Pusher socket after the switch, with the document
+  marker still present. B-15 would then not discriminate, and M2-d would be a resource fix that no user can observe.
+- **Owner.** QA Phase 2 for M2 runs B-15 once at `60252be` (unfixed) and once at the fix tip before UAT executes it. It is
+  named again in the hand-off.
+
 ## Resumption State (2026-11-19T09:17Z, checkpoint on steering's word at the context threshold)
+
+*Reconcile 2026-11-19T18:00:* stale from M2's fix round 3. The revision 10 re-key above, and this header's Status-Detail, are current. The next QA act is Phase 2 for M2.
 
 - **Done.** Every QA act this chain owes before release is written and committed.
   - Phase 1 and its re-keys: revisions 1 to 4, 6 and 7. Revision 8 was read whole at the effort-final pass and moves no
