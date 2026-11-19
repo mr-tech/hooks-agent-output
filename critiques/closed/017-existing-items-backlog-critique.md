@@ -2,17 +2,18 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Open
-Status-Detail: "Cycle 2 pass 1 on plan revision 6: APPROVED. No open question. Three LOW findings (F-26 to F-28) are open until the plan's Planner batch carries them. Stated limit SL-4 (M8's focus position) is carried by QA Phase 1's re-key, the implementer and UAT. SL-1 to SL-3 stand."
-Artifact-Revision: 6 — the delta a97628d..c8e7ccd read whole (revisions 5 and 6, R-6 to R-26); last whole read is revision 1 at d84b192
-Reviewed-At: "c8e7ccd — repos=agent-output; website code read at 5c3d03f (chain/017-existing-items-backlog) and 1ad625e"
+Status: Resolved
+Status-Detail: "Cycle 2 pass 2 on plan revision 7: APPROVED. F-1 to F-28 RESOLVED. No open question. SL-4's three members are fixed in the plan's text; SL-1 to SL-4 stand as properties with their bearers named. A later revision that changes criterion text, milestone scope or an instrument's form opens cycle 3."
+Artifact-Revision: 7 — the delta 21e61eb..6ade256 read whole; last whole read is revision 1 at d84b192
+Reviewed-At: "6ade256 — repos=agent-output; website code read at 5c3d03f (chain/017-existing-items-backlog) and 1ad625e"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 017, the existing-items backlog
 
-**Artifact**: `planning/017-existing-items-backlog.md`, revision 6 (`21e61eb`, with R-25 and R-26 to
-`c8e7ccd`), read as the delta from revision 4 (`a97628d`). **Read at cycle 2 pass 1**:
+**Artifact**: `planning/017-existing-items-backlog.md`, revision 7 (`6ade256`), read as the delta
+from revision 6 (`21e61eb`); revision 6 was read as the delta from revision 4 (`a97628d`). **Read at
+cycle 2 pass 2**: the deployment record at `8f26f37` (limb 3's rows). **Read at cycle 2 pass 1**:
 `steering/017-rulings.md` blocks 04:50Z, 05:01Z (two) and 05:06Z, and
 `steering/selection-ledger/2026-11-19.md` blocks 04:50Z to 05:06Z. **Analysis**: `analysis/017-existing-items-backlog-analysis.md` (AN-1 to AN-4), read
 whole at pass 1. **Also read at pass 1**: the commission and the scoping determination
@@ -31,26 +32,22 @@ whole at pass 1. **Also read at pass 1**: the commission and the scoping determi
 | 2026-11-19T00:28 | planner-hooks-017 (message naming revision 4 at `a97628d`) | cycle 1 pass 4: plan revision 4, delta-bounded | Depth: delta-bounded; the delta `b3d811e..a97628d` (48 added, 17 removed, `git diff --numstat`, one commit) adds or removes no milestone and was read whole. Artifact changes: a four-pair table under OQ-12 with OQ-11 (b) and M3-h reading from it, M4-a's dialog reach, M5-c form 3's missing-reference rule, M5-g's falsifier, RK-7's liveness precondition. Findings addressed: F-24 and F-25 RESOLVED and collapsed. New findings: none. Stop authority fired on one shape (an option's stated consequence is not what the code does); closed as stated limit SL-3, two members, no revision asked. State change: Verdict APPROVED, on his selection at this pass to approve with OQ-7 and OQ-11 to OQ-13 unresolved (selection prompt from this session; his label and the shown text are under Unresolved Open Questions). Pricing: sized to the ask. Trim: pass 3's Verdict text and F-24's and F-25's bodies are replaced; they carried the argument for both findings, which is in `97b96e3`. |
 | 2026-11-19T00:28 | critic-hooks-017 | Document closed | Status: Resolved. Every finding F-1 to F-25 is RESOLVED at the approving pass; SL-1 to SL-3 stand as stated limits with their detection-cost bearers named. A later revision that changes criterion text, milestone scope or an instrument's form opens cycle 2. |
 | 2026-11-19T05:11 | steering-roadmap (message naming revision 6 at `21e61eb`) | cycle 2 pass 1: plan revisions 5 and 6, delta-bounded | Reopened from `closed/` (Status `Open`), resumed after a `/clear` from this critique's Resumption State at `77dfec4`; nothing from cycle 1 was carried without its commit. Depth: delta-bounded. The delta `a97628d..21e61eb` (264 added, 45 removed, `git diff --numstat`, 22 commits) adds M8 and M5-0 limb 3 whole inside the diff and reshapes no approved milestone; it was read whole, with M5-0's limbs 1 and 2 read beside limb 3. Boundary: `21e61eb..c8e7ccd` (6 added, 9 removed) is R-25 and R-26, registrations that resolve OQ-15 by D-30 and record the architect's read; no criterion text moved. Artifact changes: M8 (D-26), value statement 5 (D-29), M5-0 limb 3 (D-30), D-22 to D-30, X-7 retired, X-20, RK-11, RK-2's falsifier, M5-f's first real member, R-6 to R-26. Findings addressed: none were open. New findings: F-26 to F-28 LOW, OPEN. Stop authority fired on one shape (SL-1's: a limb and a mechanism sentence disagree); closed as stated limit SL-4, three members, no revision asked. Verdict APPROVED. Pricing: sized to the ask as he re-set it (D-26, D-30). Trim: the Resumption State section is removed; it carried the plan for this pass, now run. Cycle 1's verdict and its open-questions record stay, under their own labels. |
+| 2026-11-19T05:17 | planner-hooks-017 (message naming revision 7 at `6ade256`) | cycle 2 pass 2: plan revision 7, delta-bounded | Depth: delta-bounded; the delta `21e61eb..6ade256` (112 added, 64 removed, `git diff --numstat`; R-25, R-26 and revision 7) adds or removes no milestone and was read whole. Artifact changes: M8-a's third listing, M8-b's table and M8-c's lists with focus positions, the walk's focus step, M8's form (AF-23), M5-0 limb 3's read rule, outcome rule and result (lasts), D-30, two labels. Findings addressed: F-26 to F-28 RESOLVED and collapsed; SL-4's three members fixed in the text. New findings: none. Stop authority did not fire. Verdict APPROVED. Pricing: sized to the ask. Trim: pass 1's Verdict text, F-26 to F-28's bodies and SL-4's member list are replaced; they carried the argument for the three findings and the three members, which is in `6d55bfc`. |
+| 2026-11-19T05:17 | critic-hooks-017 | Document closed | Status: Resolved. Every finding F-1 to F-28 is RESOLVED, each verified in the plan's text at `6ade256`. SL-1 to SL-4 stand with their detection-cost bearers named. |
 
 ## Verdict
 
-**APPROVED — cycle 2, pass 1.**
+**APPROVED — cycle 2, pass 2.**
 
-Pricing: sized to the ask as he re-set it. M8 is his D-26 selection, and the option he chose showed
-its cost: one plan revision, its gate reads and one fix round. M5-0 limb 3 is his D-30 selection.
-Neither adds a mechanism he was not shown. M8 takes a milestone number and not a rider's line
-because its two files are outside every approved milestone's diff; the plan says so.
+Pricing: sized to the ask as he re-set it (D-26, D-30). Revision 7 adds no mechanism: it says where
+focus sits in M8's criteria, states how limb 3's logs are read, and records limb 3's result.
 
-No open question remains: OQ-15 was resolved by D-30 at R-25 (`6daa353`). No milestone is marked
-`PREMISE-STALE`; M8 is argued against M1 to M4's landed behaviour at website `5c3d03f`.
+No finding is open. F-26 to F-28 are resolved by revision 7, and SL-4's three members are fixed in
+the text. No open question remains (15 of 15 marked `[RESOLVED]`). No milestone is marked
+`PREMISE-STALE`. M5-0 is met: limb 3 lasted to 55 s (deployment record `8f26f37`).
 
-**The stop authority fired, on one shape**: a criterion limb disagrees with the mechanism the plan
-itself records. It is SL-1's shape, folded at revisions 2 and 3, and M8 holds three more members. No
-revision is asked on them; they are SL-4 below, with who bears each. The hard stop did not fire
-(pass 1 of 15). Routed to the owner: nothing.
-
-Three LOW findings are open (F-26 to F-28). None blocks M8, M5 or M6 code. Each goes to the plan's
-Planner batch; this critique stays `Open` until the batch carries them.
+The stop authority did not fire: no new member of SL-1's shape was found in the delta. The hard
+stop did not fire (pass 2 of 15). Routed to the owner: nothing.
 
 ## Cycle 1 verdict (pass 4, `77dfec4`)
 
@@ -89,29 +86,16 @@ dialogs answer only with focus in "Message Update Detected" off its buttons, and
 react-aria `Button` Enter never reaches the document. Read at `5c3d03f` this pass: the confirm
 button has `autoFocus` in both `ConfirmationDialog.tsx` `Inner` and `WarningDialog.tsx`; every
 control in the three dialogs is a `Button` (`PresetDialog.tsx`'s close button and each footer) or
-the image dialog's `TextField`. Statement 5 and the direction bullets hold the property. Members
-that do not, recorded as limits and not as findings:
+the image dialog's `TextField`. Statement 5 and the direction bullets held the property at
+revision 6. Three members did not: the human-observable form, M8-b's two-dialog rows and M8-c's
+position lists.
 
-1. **The human-observable form.** Its three steps name no focus position. In both of RK-11's
-   branches focus rests on an auto-focused `Button` (Reload, or the warning's confirm), where by
-   the plan's own bullet one Enter presses that button alone. So the walk shows one dialog
-   answering at `5c3d03f`, before M8, and cannot tell fixed from unfixed. The position that
-   carries the defect, focus in the prompt off its buttons, is not a step.
-2. **M8-b's table**, rows "W and U" and "I and U". The Focus column names a dialog only, and the
-   text leaves the position to the DOM. A case built from a row as written lands on the same
-   auto-focused button.
-3. **M8-c's position lists.** "Every focus position inside its panel" lists the close button,
-   Cancel and confirm for W, and the close button, the URL field, Cancel, Clear and Save for I.
-   Each is a `Button` or the field, where the hotkey does not run at `1ad625e`. The one position
-   at which the handler M8 changes does run, inside the dialog off every control, is not listed,
-   so a handler that never fires satisfies the limb.
-
-Who bears the detection cost. QA, at its Phase 1 re-key of revision 6, keys M8-b and M8-c with the
-position stated and writes the human-observable row with the step that puts focus in the prompt
-off its buttons. The implementer bears it at M8's first red run: by the workspace's axiom (A) a
-case that cannot go red at `5c3d03f` is a member, and its focus position is the thing to change.
-UAT bears it at the walk: a walk that passes at the unfixed tree is a member, reported to QA. The
-planner may bring the three texts into line in the fold it already holds for AF-23.
+Pass 2: all three are fixed in the text at revision 7 (`6ade256`). M8-b's table names the position
+in every row and marks which rows fail at `5c3d03f`; M8-c lists the off-button position with its
+`1ad625e` answer; the walk's third step puts focus in the prompt off its buttons and says a
+button-focused walk does not count. QA raised the same subject as QAF-20. The property stands. The
+implementer bears the detection cost at M8's first red run (a case that cannot go red at `5c3d03f`
+is a member), and UAT at the walk (QA's B-13).
 
 **SL-3 (pass 4). An option's stated consequence is not what the code does.** Property: every
 option of an open question states, for what the code does, only what a read at source shows, and
@@ -156,6 +140,25 @@ assessment stands: four user stories, each checkable, none deferred, D-7 his app
 holds no roadmap, so alignment is judged against the commission (D-1) and the architecture record.
 
 ## Assumption Not Checked
+
+Cycle 2 pass 2: this pass assumes that a click on the update prompt's text in a real browser leaves
+focus inside that prompt's dialog element, and does not test it. The walk's third step rests on it.
+Read this pass: headlessui 2.2.9's installed `dialog.js` gives the dialog element `tabIndex:-1`, so
+it can take focus; no browser was run. If it is false, focus falls to the page body and the walk
+after M8 shows no dialog answering, where the plan expects Reload. UAT owns closing it, at QA's
+B-13.
+
+Premises run in cycle 2 pass 2:
+
+- **Boundary.** `git diff --numstat 21e61eb 6ade256 -- planning/017-existing-items-backlog.md`: 112
+  added, 64 removed, three commits. The diff (310 lines) was read whole from a file. At `6ade256`:
+  `grep -c '^### M'` 8; `OPEN QUESTION` 15, `[RESOLVED]` 15.
+- **F-26's listing.** `git grep -c "useDocumentEventListener('keydown'"` at website `5c3d03f`: one
+  file, `EmojiPicker/Root.tsx`, as the plan says.
+- **Limb 3's result.** The deployment record at `8f26f37` gives the request at 05:11:02.387Z, the
+  read at 05:12:31Z, 6 records, and the 55 s line with `elapsedMs` 55015, as the plan says.
+- **Limb 3's outcome rule.** It names no outcome for the control line with none of the five lines.
+  The limb is closed as met with all five present, so no finding.
 
 Cycle 2 pass 1: this pass assumes that Enter on a focused react-aria `Button` never reaches the
 document in a real browser, as steering's jsdom run showed and M8's third direction bullet says,
@@ -279,50 +282,14 @@ agent-authored, by this critic. The selection is sent to steering for the ruling
 
 ## Findings
 
-Three are open, all LOW, raised at cycle 2 pass 1. None is Critical or Medium.
+No finding is open.
 
-F-26 LOW cycle 2 pass 1
-- **Title**: M8-a's second locating instrument cannot match this repository's listener form.
-- **State**: OPEN.
-- **Description**: M8-a looks for a raw listener with `git grep -n "addEventListener('keydown'"`
-  and reports 0 hits. Document listeners here go through `src/utils/hooks/index.ts`
-  `useDocumentEventListener`, which calls `document.addEventListener(event, cb, options)` with a
-  variable. The one keydown site, `src/components/EmojiPicker/Root.tsx`
-  (`useDocumentEventListener('keydown', …)`), tracks Shift and is a non-member. So the zero is not
-  a reading of the class, and the predicate has no real member to be exercised against.
-- **Impact**: the member list is right today (this pass's own listing, under Premises). M8's first
-  step re-runs the same two greps at the tip, so a document-level Enter listener added through the
-  wrapper would not be located.
-- **Recommendation**: name the wrapper's call form among M8-a's locating instruments, with
-  `EmojiPicker/Root.tsx` as its real non-member.
-- **Landing**: a Planner batch row; folded with AF-23.
+Resolved at cycle 2 pass 2, each by plan revision 7 (`6ade256`); the arguments are in this critique
+at `6d55bfc`:
 
-F-27 LOW cycle 2 pass 1
-- **Title**: M5-0 limb 3's "Cut at L" names no boundary for the read it is classified from.
-- **State**: OPEN.
-- **Description**: the outcome is read off Vercel's runtime logs "as for limb 2". Limb 2's first
-  read was taken 22 s after its request began (deployment record `d61f445`, step 6). Limb 3's last
-  line is written 55 s after the request starts. A read taken before that, or before the line is
-  delivered, shows the control line and a last line at L < 55 s, which is the Cut outcome's own
-  signature.
-- **Impact**: a false Cut stops M5 and M6 code and asks for a revision of T. A later re-read would
-  correct it, so the cost is one round, not a wrong design.
-- **Recommendation**: Cut is classified only from a read taken after the function's 60 s limit has
-  passed for that request, with the read's time recorded beside the request's.
-- **Landing**: limb 3 is being run now, so devops's limb 3 record carries it first (its read times
-  against the request's start); a Planner batch row carries the limb's text.
-
-F-28 LOW cycle 2 pass 1
-- **Title**: two labels still say revision 5.
-- **State**: OPEN.
-- **Description**: § Release and rollback's QA sequencing line says the re-key "to revision 5 runs
-  before M8 code", and M8's Order line says revision 6. The plan's Resumption State is headed
-  "Written 2026-11-19T04:57Z … at revision 5" over a body that describes revision 6.
-- **Impact**: a reader taking the gate's revision from either line reads the unrouted one.
-- **Recommendation**: both lines name revision 6.
-- **Landing**: a Planner batch row; folded with AF-23.
-
-Cycle 1's findings, F-1 to F-25, are all RESOLVED.
+- F-26 LOW cycle 2 pass 1 RESOLVED — a third listing for the repository's own wrapper, with its real non-member. M8-a.
+- F-27 LOW cycle 2 pass 1 RESOLVED — the read is taken after 60 s from the request's start, its time recorded; the run read at 89 s. M5-0 limb 3.
+- F-28 LOW cycle 2 pass 1 RESOLVED — the QA sequencing line and M8's Order line name revision 7; the Resumption State is rewritten.
 
 Resolved at pass 4, each by plan revision 4 (`a97628d`); the arguments are in this critique at
 `97b96e3`:
