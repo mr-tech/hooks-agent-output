@@ -1,0 +1,5 @@
+7293a35 1853 144 success True | 787bec5 1857 144 success True
+files only_old [] only_new []
+DIFF /src/components/__tests__/ImageUploader.enter-scope.test.tsx removed [] added [("ImageUploader, the body inside the panel keeps its URL field and its footer in one wrapper that takes no box of its own, so the panel's layout spaces them", 'passed')] status_changed []
+DIFF /src/components/__tests__/WarningDialog.enter-scope.test.tsx removed [] added [("WarningDialog and ConfirmationDialog, the body inside the panel WarningDialog keeps its message and its footer in one wrapper that takes no box of its own, so the panel's layout spaces them", 'passed'), ("WarningDialog and ConfirmationDialog, the body inside the panel ConfirmationDialog keeps its message and its footer in one wrapper that takes no box of its own, so the panel's layout spaces them", 'passed')] status_changed []
+DIFF /src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx removed [] added [("MessageProvider, a share code opened at route 0 becomes this tab's route-0 draft, shown when route 0 is opened again without the code", 'passed')] status_changed []

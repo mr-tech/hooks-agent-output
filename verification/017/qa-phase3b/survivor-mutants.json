@@ -1,0 +1,38 @@
+[
+ {
+  "id": "ConfirmationDialog.tsx:17:attr:2",
+  "file": "src/components/ConfirmationDialog.tsx",
+  "old": "className=\"contents\"",
+  "new": "",
+  "op": "attr",
+  "line": 17,
+  "text": "className=\"contents\""
+ },
+ {
+  "id": "ImageUploader.tsx:96:attr:2",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "className=\"contents\"",
+  "new": "",
+  "op": "attr",
+  "line": 96,
+  "text": "className=\"contents\""
+ },
+ {
+  "id": "WarningDialog.tsx:23:attr:2",
+  "file": "src/components/WarningDialog.tsx",
+  "old": "className=\"contents\"",
+  "new": "",
+  "op": "attr",
+  "line": 23,
+  "text": "className=\"contents\""
+ },
+ {
+  "id": "index.tsx:153:stmt",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "writeRouteZeroDraft(tmp);",
+  "new": ";",
+  "op": "stmt",
+  "line": 153,
+  "text": "writeRouteZeroDraft(tmp);"
+ }
+]
