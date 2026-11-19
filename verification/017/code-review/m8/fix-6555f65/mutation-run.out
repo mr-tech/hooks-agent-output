@@ -1,0 +1,5 @@
+warning-enabled-dropped KILLED 4.42
+image-enabled-dropped KILLED 4.59
+warning-enabled-inverted-late KILLED 4.36
+hook-enabled-ignored KILLED 4.45
+4 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob 571b7589611f6246a938111ead5004844a75ae02))

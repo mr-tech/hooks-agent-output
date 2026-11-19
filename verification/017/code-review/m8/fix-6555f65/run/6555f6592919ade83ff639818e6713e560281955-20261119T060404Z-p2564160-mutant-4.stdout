@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/e0020673-6e57-4ff1-90d8-a95a22085569/scratchpad/mr2/20261119T060404Z-p2564160/mutant-4
+
+ ❯ |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx (13 tests | 1 failed) 647ms
+       × answers nothing while its panel is still leaving after it is closed 48ms
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (20 tests | 2 failed) 752ms
+       × answers nothing, with focus still inside the visible panel 44ms
+       × answers nothing from a closed instance, even with focus resting in its hidden dialog 31ms
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  3 failed | 63 passed (66)
+   Start at  06:04:23
+   Duration  3.74s (transform 850ms, setup 43ms, import 3.04s, tests 2.97s, environment 1.85s)
+

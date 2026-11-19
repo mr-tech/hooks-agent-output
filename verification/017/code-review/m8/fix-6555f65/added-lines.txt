@@ -1,0 +1,56 @@
++import { act, useState } from 'react';
++let setOpen: (open: boolean) => void = () => undefined;
++
++const ClosableUploader = () => {
++  const [open, set] = useState(true);
++  setOpen = set;
++  return (
++    <ImageUploader isOpen={open} image={URL_A} onClose={calls.close} setImage={calls.setImage} />
++  );
++};
++
++  describe('while its panel is still leaving after it is closed', () => {
++    it('answers nothing, with focus still inside the visible panel', async () => {
++      mountDom(<ClosableUploader />);
++      await act(async () => {});
++      await act(async () => {});
++      focusAndCheck(dialogOf(IMAGE_TITLE));
++      act(() => { setOpen(false); });
++      expect(dialogOf(IMAGE_TITLE).contains(document.activeElement)).toBe(true);
++
++      enter();
++
++      expect(counts()).toEqual(NOTHING);
++    });
++  });
++
++import { act, useState } from 'react';
++let setOpen: (open: boolean) => void = () => undefined;
++
++const ClosableWarning = () => {
++  const [open, set] = useState(true);
++  setOpen = set;
++  return (
++    <WarningDialog
++      title={WARNING}
++      message="This will delete the field."
++      open={open}
++      confirmText="Delete"
++      onClose={calls.warnClose}
++      onConfirm={calls.warnConfirm}
++    />
++  );
++};
++
++    it('answers nothing while its panel is still leaving after it is closed', async () => {
++      mountDom(<ClosableWarning />);
++      await act(async () => {});
++      focusAndCheck(dialogOf(WARNING));
++      act(() => { setOpen(false); });
++      expect(dialogOf(WARNING).contains(document.activeElement)).toBe(true);
++
++      enter();
++
++      expect(counts()).toEqual({ warnConfirm: 0, warnClose: 0, updateConfirm: 0 });
++    });
++

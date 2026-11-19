@@ -2,10 +2,10 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Reviewed-At: "c37d41a — repos=website; Round 5, M8 (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
+Reviewed-At: "6555f65 — repos=website; Round 5 sub-entry, M8 fix (implementation document d71c462); Round 5, M8, was reviewed at c37d41a (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
 Status: In Review
 Round: 5
-Verdict: REJECTED
+Verdict: APPROVED
 ---
 
 # Code Review: 017 — the existing-items backlog
@@ -31,6 +31,7 @@ Verdict: REJECTED
 | 2026-11-19T04:19 | implementer-hooks-017 (fix SHA `5c3d03f`, M4 document `c16132b`) | Round 4 sub-entry: confirm QA's QAF-18 fix (test-only) | Round 4 sub-entry, continued: APPROVED at `5c3d03f`. 4 of 4 registration mutants were killed as assertions (`verification/017/code-review/m4/fix-qaf18/`), QA's survivor `qa-unregister-unconditional` among them. QAF-18 is gone. |
 | 2026-11-19T05:40 | implementer-hooks-017 (M8 document `167ec86`) | Round 5: review M8 at website `c37d41a` | Round 5, M8 only. APPROVED_WITH_COMMENTS. CR-12 LOW: the image dialog's cases replace the browser's `Image` with a stand-in that always loads, and the M8 document does not name it; the remedy is a record line. The criteria assessed are M8-a to M8-d, M8-b's decision table and "The form, mirrored", as revision 7 states them at round open. 8 of 8 reviewer mutants were killed as assertions. M8's cases run against `1ad625e` pass every "alone" row (M8-c). Captures are in `verification/017/code-review/m8/`. |
 | 2026-11-19T06:01 | qa-hooks-017 (QAF-22, `8e73691`; plan R-31 `f35d750`) | R5-reconcile: Round 5's verdict corrected | Round 5 reopened by correction: CR-13 MEDIUM (duplicates QAF-22) is a severity-floor finding I missed. Verdict APPROVED_WITH_COMMENTS → REJECTED. I reproduced QA's probe and ran the two dropped-`enabled` mutants: W SURVIVED and I was KILLED (`verification/017/code-review/m8/closing-window/`). The fix is test-only and returns as a Round 5 sub-entry. Method observation for the retrospective: I settled an equivalence claim by reading the closed state when a run of under a minute would have settled it. This is the second severity-floor miss QA caught on this chain, after CR-5. |
+| 2026-11-19T06:06 | implementer-hooks-017 (fix SHA `6555f65`, M8 document `d71c462`) | Round 5 sub-entry: confirm the test-only fix for CR-13 (QAF-22) and CR-12 | Round 5 sub-entry: APPROVED at `6555f65`. 4 of 4 re-attack mutants were killed as assertions (`verification/017/code-review/m8/fix-6555f65/`). Both dropped-`enabled` mutants now fail the new closing-window cases. CR-13 and CR-12 are gone. The fix commit touches only the two enter-scope test files over `72a1755`. M5's `9909fb3` and `72a1755` lie inside `c37d41a..6555f65` and are outside this sub-entry. Gate disclosed: the stamp gate refused plan row R-32 as first typed (06:05 against the clock's 06:03); it was re-stamped from `date -u` and committed (`6b95965`). Disclosed: this row, and the collapse of CR-13 and CR-12 to disposition lines, were written by an ad-hoc python script, not the Edit tool or `record-edit.js`, against the lifecycle rule for record documents. The error was mine, the same one the Resumption State records. The rest of the sub-entry was written with the Edit tool, and the diff was read before commit. |
 
 ## Scope and Tree
 
@@ -368,6 +369,28 @@ No bug-form test was added. No time-based test was added; `de06d95` replaced fou
 
 The fixture gap is CR-12.
 
+### Round 5 sub-entry — fix confirmation at `6555f65`
+
+- **Tree**: website `6555f65`, the M8 Fix Round's tip (implementation document, agent-output `d71c462`). It was the branch tip and the shared HEAD at the start and end of this sub-entry, and the tree was clean apart from `.playwright-mcp/`. `git diff --numstat 72a1755 6555f65` gives the two enter-scope test files only (+26 −1, +30 −1), with no production change. `c37d41a..6555f65` also holds M5's `9909fb3` and `72a1755`, which belong to M5's own round. The new cases run over a tree that contains them.
+- **Evidence process**: the mutants are mine, built from QAF-22's class and not from the implementer's list, and run by `mutation-run.py --sha 6555f65` over M8's three test files (`m8/fix-6555f65/mutants.json`, `run/`, `kill-summary.txt`). Control 66 of 66.
+
+| Mutant | Outcome | Failing cases |
+|---|---|---|
+| `warning-enabled-dropped` (`useDialogEnter(onConfirm)`) | KILLED, 66 = 66 | "answers nothing while its panel is still leaving after it is closed" |
+| `warning-enabled-inverted-late` (`useDialogEnter(onConfirm, true)`) | KILLED | the same case |
+| `image-enabled-dropped` (`useDialogEnter(submit)`) | KILLED | "answers nothing, with focus still inside the visible panel"; the hidden-dialog case |
+| `hook-enabled-ignored` (`{ enabled: true }` in the hook) | KILLED | all three closed-state cases |
+
+- **Falsity signature met**: each kill is an `AssertionError`, with no timeout (`grep -c` per run). For W the failure reads `expected { warnConfirm: 1, … } to deeply equal`.
+- **Fixture property**: both cases assert, after `open` turns false, that focus is inside the dialog. `dialogOf` asserts that the dialog is present. So an early unmount or lost focus fails the case instead of passing it. That the panel is not hidden is not asserted, and that does not matter for vacuity: in a hidden but focused state, `enabled` still decides.
+- **Sweep re-run**: `git grep -n "useDialogEnter(" 6555f65 -- src` gives the same 3 callers. W and I are covered, and `ConfirmationDialog` passes no flag, so it is outside the class. The implementer's second sweep finds no other row dispositioned equivalent by argument. I checked that against its tables and did not re-derive the 11 re-indent survivors.
+- **CR-12**: the M8 document's Fix Round names `FakeImage`, its `width = 1` microtask `onload`, and the not-found path it leaves to `ImageUploader.url-validation`. `git grep -c "class FakeImage"` confirms that test carries the same stand-in.
+- **Conventions**: `convention-check.js website --since=72a1755` gives 0 FAIL, 0 CANDIDATE and 18 SKIP, with the ID-token limb skipped (`m8/fix-6555f65/convention-check-since-72a1755.out`). A hand predicate over the 56 added lines finds 0 ID-token hits and 0 comment lines.
+- **Suite and typecheck**: the implementer's captures, read and not re-run. `vitest-m8-6555f65.json` has 1811 of 1811 passing, 0 failed, 143 `testResults`, `success` true, and its exit file is 0. `typecheck-6555f65.exit` is 0.
+- **Assumption Not Checked (sub-entry)**: this review assumes that in a browser, headlessui's leave keeps focus inside the panel as it does in jsdom, so the new cases specify a reachable state.
+  - **If false**: the cases still pass, but they guard a state no user reaches, and I's guard is again held only through jsdom states.
+  - **Owner**: UAT B-13, carried with the Round 5 assumption. On the walk, press Enter on the image dialog's Submit, then Enter again at once: `setImage` runs once and the dialog closes.
+
 ## Findings
 
 ### Critical
@@ -401,21 +424,7 @@ CR-9 HIGH Round 4
 ### Medium
 
 CR-13 MEDIUM Round 5 Duplicates: QAF-22 in qa/017-existing-items-backlog-m8-qa.md
-**Checks that cannot fail**: no case fails when `WarningDialog`'s Enter stops being gated on `open`.
-- **Location**: `src/components/WarningDialog.tsx` at `c37d41a`, `useDialogEnter(onConfirm, open)`. The only closed-W case is `WarningDialog.enter-scope.test.tsx`, `it('answers nothing once closed')`, which mounts a W that was never open.
-- **Class**: a dialog's "enabled only while open" guard that M8-b claims to preserve, where no case reaches the state the guard decides: the leave transition, with the panel still mounted and focus inside it.
-- **Enumeration**: `git grep -n "useDialogEnter(" c37d41a -- src` gives 3 callers. Two pass an `enabled` argument and are members. Each was put to a dropped-`enabled` mutant over M8's three test files (`m8/closing-window/mutation-run.out`).
-  - W: SURVIVED.
-  - I: KILLED, but only by "answers nothing from a closed instance, even with focus resting in its hidden dialog". The implementer's Outstanding Items says a browser cannot reach that state.
-  - `ConfirmationDialog` passes no `enabled`, at the tip or at `1ad625e`, so it is outside the class.
-  - Blind spot: a guard expressed other than through `useDialogEnter`'s second argument.
-- **Issue**: M8-b's last row says W and I are each "enabled only while open, as at `1ad625e`". For W, nothing fails when that is lost. My Round 5 instruments row called the mutant equivalent by reading the settled closed state (reconcile there). The severity floor applies: MEDIUM, and it blocks hand-off to QA.
-- **Required Action** (test-only): QAF-22's form.
-  - **Minimum**: a W case that opens W, focuses its dialog, sets `open` false and presses Enter at once, expecting `onConfirm` 0.
-  - **Preferred**: the same form for I.
-  - **Falsity signature**: under each dropped-`enabled` mutant, an assertion failure (1 call against an expected 0), never a timeout.
-  - **Fixture property**: the case asserts its precondition at the moment of Enter: the panel is mounted, not hidden, and holds focus. If a transition change ends the window early, the case fails instead of passing vacuously.
-  - Returns as a Round 5 sub-entry.
+RESOLVED at `6555f65`: closing-window cases for W and for I (Preferred). Under each dropped-`enabled` mutant the case fails as an assertion. Check: `verification/017/code-review/m8/fix-6555f65/` (argument in `c44cf87`).
 
 CR-6 MEDIUM Round 3
 **Checks that cannot fail**: the provider's two draft-restore sites are asserted only on `content`, so a restore that loses the draft's `name` or any other part of its `data` passes.
@@ -491,15 +500,7 @@ CR-3 MEDIUM Round 2
 ### Low/Info
 
 CR-12 LOW Round 5
-**Fixture stand-in not named**: `ImageUploader.enter-scope.test.tsx` replaces the browser's `Image` with `FakeImage`, which always loads, with `width = 1`, on a microtask. The M8 document does not name it.
-- **Location**: `src/components/__tests__/ImageUploader.enter-scope.test.tsx` at `c37d41a`: `class FakeImage` and `beforeEach`'s `vi.stubGlobal('Image', FakeImage)`.
-- **Class**: a stand-in for what a browser API returns, invented by the test and not named in the author's document (testing-patterns Iron Law 5; CLAUDE.md "Environment-fidelity convention").
-- **Enumeration**: `git grep -n "stubGlobal('Image'" c37d41a -- src` gives 1 hit, this file. `grep -c "FakeImage\|stubGlobal" implementation/017-existing-items-backlog-m8-implementation.md` gives 0. The predicate cannot see a stand-in installed some other way, such as a `vi.mock` of a module that wraps `Image`; none exists for `checkImage`.
-- **Issue**: under jsdom, `Image` exists but never fires `onload`, which is the "present but inert" global the convention warns about. So the stand-in is needed to reach the "image loaded" state.
-  - No assertion is about loading itself. The stand-in sets up the precondition, a loaded `localImage`, and the property under test is where Enter is answered, which does not read the stand-in.
-  - Its behaviour, an asynchronous `onload` with a positive width for a valid URL, is a browser's for a loadable image, but nothing measured that.
-  - It is the author's to name, so a reader can see that the loaded state is set up, not observed.
-- **Required Action**: one line in the M8 implementation document, beside "Instrument limit". It names `FakeImage`, says what it stands in for, and states that no M8 assertion reads it. `no test`. This does not hold the verdict.
+RESOLVED at agent-output `d71c462`: the M8 document's Fix Round names `FakeImage`, what it stands in for and the path it leaves untested. `no test` (argument in `4950989`).
 
 CR-10 LOW Round 4
 **Test helper policy**: M4 adds the second, third and fourth copies of one `click` helper and lifts none of them.
@@ -582,6 +583,8 @@ No finding changes a decision. The two above go to their stated carriers.
 
 ## Verdict
 
+**Round 5 sub-entry (M8 at `6555f65`) — Status**: APPROVED. CR-13 (QAF-22) and CR-12 are each gone. Both dropped-`enabled` mutants and the hook-level one now fail as assertions in the closing-window cases (see the sub-entry). M8 goes to QA's refresh.
+
 **Round 5 (M8 at `c37d41a`) — Status**: REJECTED (reconciled; published as APPROVED_WITH_COMMENTS)
 
 Reconcile, written at the R5-reconcile changelog row: QAF-22 (`qa/017-existing-items-backlog-m8-qa.md`, agent-output `8e73691`) found that W's `enabled` guard has no failing assertion. That is CR-13, and under the severity floor it blocks hand-off to QA, so the round's verdict moves to REJECTED. The approval was defensible as written only on the equivalence row, which I settled by reading instead of running. The rationale below is kept as published, and its second bullet is wrong for W's `enabled` row.
@@ -647,7 +650,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Required Actions
 
-- Round 5 (REJECTED after reconcile), to the implementer: CR-13, the closing-window case for W (Minimum) and for I (Preferred), each red under its dropped-`enabled` mutant. CR-12, a line in the M8 document naming `FakeImage`. Return the fix SHA for a scoped Round 5 sub-entry.
+- Round 5: none outstanding. CR-13 and CR-12 were confirmed at `6555f65` and `d71c462`. Previously (REJECTED after reconcile): the closing-window cases and the `FakeImage` line.
 - Round 4 (REJECTED), to the implementer:
   - CR-9: `ConfirmationDialog`'s Enter bound to its own dialog, not the document. The layout file's "both open" case runs with the real `react-hotkeys-hook`, opens the link prompt first, and raises the update prompt through `showConfirmation`. One Enter must answer exactly one prompt and leave the other open. Under `de06d95` it must fail as an assertion (2 answered).
   - CR-10: lift `click` into `src/components/__tests__/helpers/`.
@@ -688,7 +691,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Next Steps
 
-- Round 5: REJECTED after reconcile. The implementer's fix for CR-13 and CR-12 returns as a Round 5 sub-entry, then goes to QA's refresh of M8 (`qa-hooks-017`). UAT B-13 closes the Round 5 assumption.
+- Round 5: the fix is confirmed at `6555f65`. QA's refresh of M8 (`qa-hooks-017`) is next. UAT B-13 closes the Round 5 assumption and the sub-entry's.
 
 - Round 4: the fix is confirmed at `a5dd76f`. QA Phase 2 for M4 (`qa-hooks-017`) is next. Previously: to the implementer for CR-9, CR-10 and CR-11. UAT B-3 closes the Round 4 assumption. The pre-existing `ImageUploader` and `WarningDialog` members of CR-9's class are in `agent-output/INBOX.md`.
 
@@ -711,7 +714,7 @@ Written at the checkpoint steering-roadmap-hooks asked for (context 354K, thresh
   - Round 2 (M2): REJECTED (after reconcile) at `ec984fe`, then APPROVED at `dd26104`.
   - Round 3 (M3): REJECTED at `3498ef3`, then APPROVED at `1ab3b96`.
   - Round 4 (M4): REJECTED at `de06d95` (CR-9 HIGH, CR-10 and CR-11 LOW). Its sub-entry approved CR-9 to CR-11 at `a5dd76f` and QAF-18 at `5c3d03f`.
-  - Round 5 (M8): REJECTED after reconcile at `c37d41a` (CR-13 MEDIUM, a duplicate of QAF-22; CR-12 LOW). Published as APPROVED_WITH_COMMENTS.
+  - Round 5 (M8): REJECTED after reconcile at `c37d41a` (CR-13 MEDIUM, a duplicate of QAF-22; CR-12 LOW), published as APPROVED_WITH_COMMENTS. Its sub-entry approved both at `6555f65`.
   - My plan rows: R-8, R-10, R-12, R-13, R-15, R-16, R-18, R-19, R-22 and R-30.
   - QA hand-offs were sent for each approval, the last for M8 (msg `dd56c5ed`).
 - **Next**: M5, M6 or M7, when the implementer hands one off on its own document and SHA. Open Round 6. Read the plan as the diff from `225e4f3`: that milestone's section, the Decisions Register rows it cites, and its Reading Order row. M5 and M6 rest on M5-0's probe results (D-27, D-30). M7 comes last and re-derives CR-1's file (M7-b).

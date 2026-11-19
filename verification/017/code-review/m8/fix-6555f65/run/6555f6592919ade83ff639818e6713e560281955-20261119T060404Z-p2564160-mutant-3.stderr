@@ -1,0 +1,26 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > alone > answers nothing while its panel is still leaving after it is closed
+AssertionError: expected { warnConfirm: 1, warnClose: +0, …(1) } to deeply equal { Object (warnConfirm, warnClose, ...) }
+
+- Expected
++ Received
+
+  {
+    "updateConfirm": 0,
+    "warnClose": 0,
+-   "warnConfirm": 0,
++   "warnConfirm": 1,
+  }
+
+ ❯ src/components/__tests__/WarningDialog.enter-scope.test.tsx:141:24
+    139|       enter();
+    140|
+    141|       expect(counts()).toEqual({ warnConfirm: 0, warnClose: 0, updateC…
+       |                        ^
+    142|     });
+    143|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

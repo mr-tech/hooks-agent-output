@@ -1,0 +1,12 @@
+controls {"[\"src/components/__tests__/WarningDialog.enter-scope.test.tsx\", \"src/components/__tests__/ImageUploader.enter-scope.test.tsx\", \"src/app/message/__tests__/layout.navigation-guard.test.tsx\"]": {"id": "control-1", "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/fix-
+warning-enabled-dropped KILLED 66 66 checked
+    answers nothing while its panel is still leaving after it is closed
+image-enabled-dropped KILLED 66 66 checked
+    answers nothing, with focus still inside the visible panel
+    answers nothing from a closed instance, even with focus resting in its hidden dialog
+warning-enabled-inverted-late KILLED 66 66 checked
+    answers nothing while its panel is still leaving after it is closed
+hook-enabled-ignored KILLED 66 66 checked
+    answers nothing, with focus still inside the visible panel
+    answers nothing from a closed instance, even with focus resting in its hidden dialog
+    answers nothing while its panel is still leaving after it is closed
