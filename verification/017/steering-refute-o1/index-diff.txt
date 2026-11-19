@@ -1,0 +1,32 @@
+diff --git a/src/utils/index.ts b/src/utils/index.ts
+index 024928f..f08a485 100644
+--- a/src/utils/index.ts
++++ b/src/utils/index.ts
+@@ -54,27 +54,6 @@ export function hasV2Content(
+   return hasV2Components(components);
+ }
+ 
+-/**
+- * Enforce mutual exclusivity for imported/pasted JSON data.
+- * If V2 components detected, strip content/embeds. Otherwise strip V2 components.
+- * Mode detection runs on the raw data BEFORE any schema filtering.
+- */
+-export function enforceImportMutualExclusivity<
+-  T extends { content?: string, embeds?: unknown[], components?: { type: number }[] },
+->(data: T): { data: T, detectedMode: MessageMode } {
+-  const isV2 = hasV2Components(data.components);
+-  const cleaned = { ...data };
+-  if (isV2) {
+-    delete cleaned.content;
+-    delete cleaned.embeds;
+-  } else if (Array.isArray(cleaned.components)) {
+-    cleaned.components = cleaned.components.filter(
+-      (c) => !V2_COMPONENT_TYPES.has(c.type),
+-    ) as T['components'];
+-  }
+-  return { data: cleaned, detectedMode: isV2 ? 'v2' : 'classic' };
+-}
+-
+ export interface ContentLossOption {
+   mode: MessageMode;
+   dropSet: readonly string[];

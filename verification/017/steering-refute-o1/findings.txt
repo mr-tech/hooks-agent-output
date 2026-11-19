@@ -1,0 +1,1 @@
+C1 partly refuted (500 is generator->website status; /preview status not recorded, only "non-2xx"). C2 NOT REFUTED for page.tsx; C3 not refuted from code (not run). See final message.
