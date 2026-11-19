@@ -1,0 +1,300 @@
+[
+ {
+  "name": "surv-index.tsx_41_gt",
+  "edits": [
+   {
+    "file": "src/providers/MessageProvider/index.tsx",
+    "old": " > ",
+    "new": " >= "
+   }
+  ],
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx"
+  ]
+ },
+ {
+  "name": "surv-index.tsx_174_if-false",
+  "edits": [
+   {
+    "file": "src/providers/MessageProvider/index.tsx",
+    "old": "e if (ty",
+    "new": "e if (false && ty"
+   }
+  ],
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx"
+  ]
+ },
+ {
+  "name": "surv-SessionProvider.tsx_15_if-false",
+  "edits": [
+   {
+    "file": "src/providers/SessionProvider.tsx",
+    "old": "if (",
+    "new": "if (false && "
+   }
+  ],
+  "tests": [
+   "src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx"
+  ]
+ },
+ {
+  "name": "surv-SessionProvider.tsx_15_andand",
+  "edits": [
+   {
+    "file": "src/providers/SessionProvider.tsx",
+    "old": "&&",
+    "new": "||"
+   }
+  ],
+  "tests": [
+   "src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx"
+  ]
+ },
+ {
+  "name": "surv-SessionProvider.tsx_15_not",
+  "edits": [
+   {
+    "file": "src/providers/SessionProvider.tsx",
+    "old": " !s",
+    "new": " s"
+   }
+  ],
+  "tests": [
+   "src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx"
+  ]
+ },
+ {
+  "name": "surv-leaveWithoutAlert.ts_1_num",
+  "edits": [
+   {
+    "file": "src/utils/leaveWithoutAlert.ts",
+    "old": "2000",
+    "new": "2001"
+   }
+  ],
+  "tests": [
+   "src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx",
+   "src/app/_components/__tests__/NavMenu.sign-in-and-out.test.tsx"
+  ]
+ },
+ {
+  "name": "surv-messageDrafts.ts_19_num_2",
+  "edits": [
+   {
+    "file": "src/utils/messageDrafts.ts",
+    "old": "(2,",
+    "new": "(3,"
+   }
+  ],
+  "tests": [
+   "src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx",
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx"
+  ]
+ },
+ {
+  "name": "surv-messageDrafts.ts_19_num_3",
+  "edits": [
+   {
+    "file": "src/utils/messageDrafts.ts",
+    "old": "12",
+    "new": "13"
+   }
+  ],
+  "tests": [
+   "src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx",
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx"
+  ]
+ },
+ {
+  "name": "surv-messageDrafts.ts_38_walk-first",
+  "edits": [
+   {
+    "file": "src/utils/messageDrafts.ts",
+    "old": "> Object.keys(drafts)\n ",
+    "new": "> (Array.isArray(Object.keys(drafts)) ? Object.keys(drafts).slice(0, 1) : Object.keys(drafts))\n "
+   }
+  ],
+  "tests": [
+   "src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx",
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx"
+  ]
+ },
+ {
+  "name": "surv-messageDrafts.ts_45_gt",
+  "edits": [
+   {
+    "file": "src/utils/messageDrafts.ts",
+    "old": "ts).length > MAX_DRAFT_",
+    "new": "ts).length >= MAX_DRAFT_"
+   }
+  ],
+  "tests": [
+   "src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx",
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx"
+  ]
+ },
+ {
+  "name": "surv-messageDrafts.ts_67_walk-last",
+  "edits": [
+   {
+    "file": "src/utils/messageDrafts.ts",
+    "old": "= Object.keys(drafts)\n ",
+    "new": "= (Array.isArray(Object.keys(drafts)) ? Object.keys(drafts).slice(-1) : Object.keys(drafts))\n "
+   }
+  ],
+  "tests": [
+   "src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx",
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx"
+  ]
+ },
+ {
+  "name": "surv-withLocalStorage.ts_13_if-false",
+  "edits": [
+   {
+    "file": "src/utils/withLocalStorage.ts",
+    "old": "]) {\n    if (typeof wi",
+    "new": "]) {\n    if (false && typeof wi"
+   }
+  ],
+  "tests": [
+   "src/utils/__tests__/withLocalStorage.stored-keys.test.tsx",
+   "src/utils/__tests__/withLocalStorage.server-render.test.ts"
+  ]
+ },
+ {
+  "name": "surv-withLocalStorage.ts_13_false",
+  "edits": [
+   {
+    "file": "src/utils/withLocalStorage.ts",
+    "old": "return false;\n    t",
+    "new": "return true;\n    t"
+   }
+  ],
+  "tests": [
+   "src/utils/__tests__/withLocalStorage.stored-keys.test.tsx",
+   "src/utils/__tests__/withLocalStorage.server-render.test.ts"
+  ]
+ },
+ {
+  "name": "surv-withLocalStorage.ts_19_true",
+  "edits": [
+   {
+    "file": "src/utils/withLocalStorage.ts",
+    "old": " true ",
+    "new": " false "
+   }
+  ],
+  "tests": [
+   "src/utils/__tests__/withLocalStorage.stored-keys.test.tsx",
+   "src/utils/__tests__/withLocalStorage.server-render.test.ts"
+  ]
+ },
+ {
+  "name": "NM-6-reencode-other-keys",
+  "edits": [
+   {
+    "file": "src/utils/withLocalStorage.ts",
+    "old": "typeof value === 'object' ? JSON.stringify(value) : String(value)",
+    "new": "JSON.stringify(value)"
+   }
+  ],
+  "tests": [
+   "src/utils/__tests__/withLocalStorage.stored-keys.test.tsx"
+  ]
+ },
+ {
+  "name": "NM-7-hasChanged-needs-loading",
+  "edits": [
+   {
+    "file": "src/providers/MessageProvider/index.tsx",
+    "old": "import { detectMessageMode } from '~/utils/messageMode';",
+    "new": "import { useSession } from 'next-auth/react';\nimport { detectMessageMode } from '~/utils/messageMode';"
+   },
+   {
+    "file": "src/providers/MessageProvider/index.tsx",
+    "old": "() => !typedDeepEqual(savedMessage?.data, message?.data),",
+    "new": "() => useSession().status !== 'loading' && !typedDeepEqual(savedMessage?.data, message?.data),"
+   }
+  ],
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx"
+  ]
+ },
+ {
+  "name": "NM-7-hasChanged-needs-unauthenticated",
+  "edits": [
+   {
+    "file": "src/providers/MessageProvider/index.tsx",
+    "old": "import { detectMessageMode } from '~/utils/messageMode';",
+    "new": "import { useSession } from 'next-auth/react';\nimport { detectMessageMode } from '~/utils/messageMode';"
+   },
+   {
+    "file": "src/providers/MessageProvider/index.tsx",
+    "old": "() => !typedDeepEqual(savedMessage?.data, message?.data),",
+    "new": "() => useSession().status !== 'unauthenticated' && !typedDeepEqual(savedMessage?.data, message?.data),"
+   }
+  ],
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx"
+  ]
+ },
+ {
+  "name": "NM-7-hasChanged-needs-authenticated",
+  "edits": [
+   {
+    "file": "src/providers/MessageProvider/index.tsx",
+    "old": "import { detectMessageMode } from '~/utils/messageMode';",
+    "new": "import { useSession } from 'next-auth/react';\nimport { detectMessageMode } from '~/utils/messageMode';"
+   },
+   {
+    "file": "src/providers/MessageProvider/index.tsx",
+    "old": "() => !typedDeepEqual(savedMessage?.data, message?.data),",
+    "new": "() => useSession().status !== 'authenticated' && !typedDeepEqual(savedMessage?.data, message?.data),"
+   }
+  ],
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx"
+  ]
+ },
+ {
+  "name": "NM-27-log-out-also-leaves-without-prompt",
+  "edits": [
+   {
+    "file": "src/app/_components/NavMenu.tsx",
+    "old": "if (sessionData?.user) await signOut();",
+    "new": "if (sessionData?.user) await leaveWithoutAlert(() => signOut());"
+   }
+  ],
+  "tests": [
+   "src/app/_components/__tests__/NavMenu.sign-in-and-out.test.tsx"
+  ]
+ },
+ {
+  "name": "NM-28-flag-never-re-armed",
+  "edits": [
+   {
+    "file": "src/utils/leaveWithoutAlert.ts",
+    "old": "setTimeout(() => { leaving = false; }, REARM_MS);",
+    "new": "void REARM_MS;"
+   }
+  ],
+  "tests": [
+   "src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx",
+   "src/app/_components/__tests__/NavMenu.sign-in-and-out.test.tsx"
+  ]
+ },
+ {
+  "name": "NM-28-flag-stays-after-failed-exit",
+  "edits": [
+   {
+    "file": "src/utils/leaveWithoutAlert.ts",
+    "old": "  } catch (error) {\n    leaving = false;",
+    "new": "  } catch (error) {"
+   }
+  ],
+  "tests": [
+   "src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx"
+  ]
+ }
+]

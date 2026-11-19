@@ -1,0 +1,20 @@
+{
+ "mutant": {
+  "name": "surv-index.tsx_174_if-false",
+  "edits": [
+   {
+    "file": "src/providers/MessageProvider/index.tsx",
+    "old": "e if (ty",
+    "new": "e if (false && ty"
+   }
+  ],
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "MessageProvider, unsaved edits on a saved message when the session is lost leave no stored draft once they are typed back to the saved copy"
+ ],
+ "verdict": "killed"
+}

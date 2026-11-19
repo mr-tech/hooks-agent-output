@@ -1,0 +1,21 @@
+{
+ "mutant": {
+  "name": "surv-messageDrafts.ts_45_gt",
+  "edits": [
+   {
+    "file": "src/utils/messageDrafts.ts",
+    "old": "ts).length > MAX_DRAFT_",
+    "new": "ts).length >= MAX_DRAFT_"
+   }
+  ],
+  "tests": [
+   "src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx",
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "messageDrafts, the bound keeps every entry when the serialised map is exactly one megabyte, and drops the oldest one character over"
+ ],
+ "verdict": "killed"
+}

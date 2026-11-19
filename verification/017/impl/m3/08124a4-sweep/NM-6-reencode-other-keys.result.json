@@ -1,0 +1,20 @@
+{
+ "mutant": {
+  "name": "NM-6-reencode-other-keys",
+  "edits": [
+   {
+    "file": "src/utils/withLocalStorage.ts",
+    "old": "typeof value === 'object' ? JSON.stringify(value) : String(value)",
+    "new": "JSON.stringify(value)"
+   }
+  ],
+  "tests": [
+   "src/utils/__tests__/withLocalStorage.stored-keys.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "withLocalStorage, the keys stored as before writes a theme as the bare string"
+ ],
+ "verdict": "killed"
+}

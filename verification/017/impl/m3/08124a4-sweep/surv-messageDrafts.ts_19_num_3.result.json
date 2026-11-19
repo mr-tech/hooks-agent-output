@@ -1,0 +1,19 @@
+{
+ "mutant": {
+  "name": "surv-messageDrafts.ts_19_num_3",
+  "edits": [
+   {
+    "file": "src/utils/messageDrafts.ts",
+    "old": "12",
+    "new": "13"
+   }
+  ],
+  "tests": [
+   "src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx",
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx"
+  ]
+ },
+ "exit": 0,
+ "failed": [],
+ "verdict": "SURVIVED"
+}

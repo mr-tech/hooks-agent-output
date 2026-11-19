@@ -1,0 +1,273 @@
+diff --git a/src/@types/global.d.ts b/src/@types/global.d.ts
+index d9139f9..b5f0f2d 100644
+--- a/src/@types/global.d.ts
++++ b/src/@types/global.d.ts
+@@ -161,0 +162 @@ declare global {
++    messageDrafts: MessageDrafts;
+@@ -164,0 +166,3 @@ declare global {
++  type MessageDraft = { data: EditableMessageData, name: string, editedAt: number };
++  type MessageDrafts = Record<string, MessageDraft>;
++
+diff --git a/src/app/_components/NavMenu.tsx b/src/app/_components/NavMenu.tsx
+index 163d0ee..4c41177 100644
+--- a/src/app/_components/NavMenu.tsx
++++ b/src/app/_components/NavMenu.tsx
+@@ -17,0 +18 @@ import { voided } from '~/utils';
++import { leaveWithoutAlert } from '~/utils/leaveWithoutAlert';
+@@ -141 +142 @@ const Nav: FC = () => {
+-                else await signIn('discord', { callbackUrl: '/message' });
++                else await leaveWithoutAlert(() => signIn('discord', { callbackUrl: '/message' }));
+diff --git a/src/app/message/m/[id]/edit/page.tsx b/src/app/message/m/[id]/edit/page.tsx
+index 7a4155b..21e8953 100644
+--- a/src/app/message/m/[id]/edit/page.tsx
++++ b/src/app/message/m/[id]/edit/page.tsx
+@@ -28,0 +29 @@ import useUnloadAlert from '~/utils/hooks/useUnloadAlert';
++import { leaveWithoutAlert } from '~/utils/leaveWithoutAlert';
+@@ -154 +155 @@ const Page = () => {
+-                    onContinue={() => signIn('discord', { callbackUrl: '/message' })}
++                    onContinue={() => leaveWithoutAlert(() => signIn('discord', { callbackUrl: '/message' }))}
+diff --git a/src/providers/MessageProvider/index.tsx b/src/providers/MessageProvider/index.tsx
+index 5420ab0..6e796fa 100644
+--- a/src/providers/MessageProvider/index.tsx
++++ b/src/providers/MessageProvider/index.tsx
+@@ -3 +2,0 @@
+-import { useSession } from 'next-auth/react';
+@@ -25 +24 @@ import {
+-  isApiMessage, makeEditable, timestampFromSnowflake, typedDeepEqual,
++  isApiMessage, makeEditable, stripKeys, timestampFromSnowflake, typedDeepEqual,
+@@ -29 +28,5 @@ import copyIntroMessage from '~/utils/copyIntroMessage';
+-import { useLocalMessageStore, useParsePathname, useToggleState } from '~/utils/hooks';
++import { useParsePathname, useToggleState } from '~/utils/hooks';
++import {
++  readDrafts, removeDraft, removeRouteZeroDraft, routeZeroDraftFor, sameJson, tabId, writeDraft,
++  writeRouteZeroDraft,
++} from '~/utils/messageDrafts';
+@@ -34 +36,0 @@ function getMessage(
+-  localMessageStore: LocalStore<'message'>,
+@@ -37 +39 @@ function getMessage(
+-  const localMessage = localMessageStore.current;
++  const draft = readDrafts()[message.id];
+@@ -39,5 +41,4 @@ function getMessage(
+-  if (!ignoreLocalRef.current
+-    && localMessage.id === message.id
+-    && localMessage.updatedAt > message.updatedAt
+-  ) {
+-    return localMessage;
++  if (!ignoreLocalRef.current && draft && draft.editedAt > message.updatedAt) {
++    return {
++      ...message, data: draft.data, name: draft.name, updatedAt: draft.editedAt,
++    };
+@@ -100 +100,0 @@ function useValue() {
+-  const { status } = useSession();
+@@ -105 +105 @@ function useValue() {
+-  const localMessageStore = useLocalMessageStore();
++  const loadedRef = useRef<null | ActiveMessage>(null);
+@@ -113 +113 @@ function useValue() {
+-    () => status === 'authenticated' && !typedDeepEqual(savedMessage?.data, message?.data),
++    () => !typedDeepEqual(savedMessage?.data, message?.data),
+@@ -140 +140,2 @@ function useValue() {
+-      localMessageStore.set(tmp);
++      writeRouteZeroDraft(tmp);
++      loadedRef.current = tmp;
+@@ -153,2 +154,5 @@ function useValue() {
+-      const local = localMessageStore.current;
+-      const tmp = local.id ? copyIntroMessage() : local;
++      const draft = routeZeroDraftFor(tabId());
++      const tmp = draft
++        ? makeEditable({ name: draft.name, data: draft.data, updatedAt: draft.editedAt })
++        : copyIntroMessage();
++      loadedRef.current = tmp;
+@@ -166,2 +170,8 @@ function useValue() {
+-    if (message?.name) {
+-      localMessageStore.set({ ...message, name: savedMessage?.name ?? message.name });
++    if (!message?.name || message === loadedRef.current) return;
++    const name = savedMessage?.name ?? message.name;
++    if (!message.id) {
++      writeRouteZeroDraft({ ...message, name });
++    } else if (typedDeepEqual(savedMessage?.data, message.data)) {
++      removeDraft(message.id);
++    } else {
++      writeDraft(message.id, { data: message.data, name, editedAt: Date.now() });
+@@ -198 +208 @@ function useValue() {
+-      const mostRecent = getMessage(fetchedMessage, localMessageStore, ignoreLocalRef);
++      const mostRecent = getMessage(fetchedMessage, ignoreLocalRef);
+@@ -201 +211,2 @@ function useValue() {
+-        localMessageStore.set(tmp);
++        removeDraft(fetchedMessage.id);
++        loadedRef.current = tmp;
+@@ -206,0 +218 @@ function useValue() {
++        loadedRef.current = tmp;
+@@ -232 +244,6 @@ function useValue() {
+-    onSuccess: (msg) => {
++    onSuccess: (msg, { message: sent }) => {
++      if (msg.id === message?.id) {
++        removeDraft(msg.id, (draft) => sameJson(stripKeys({ name: draft.name, data: draft.data }).data, sent.data));
++      } else if (!message?.id) {
++        removeRouteZeroDraft(message?.data as ActiveMessage['data']);
++      }
+diff --git a/src/providers/SessionProvider.tsx b/src/providers/SessionProvider.tsx
+index b4e84d9..c649737 100644
+--- a/src/providers/SessionProvider.tsx
++++ b/src/providers/SessionProvider.tsx
+@@ -9,0 +10 @@ import getClientSessionCookie from '~/utils/getClientSessionCookie';
++import { leaveWithoutAlert } from '~/utils/leaveWithoutAlert';
+@@ -14 +15 @@ const SessionWrapper: FC<SessionProviderProps> = (props) => {
+-    if (getClientSessionCookie() && !session) voided(signOut)();
++    if (getClientSessionCookie() && !session) voided(() => leaveWithoutAlert(() => signOut()))();
+diff --git a/src/utils/hooks/useLocalStorage.ts b/src/utils/hooks/useLocalStorage.ts
+index 20979be..1f26076 100644
+--- a/src/utils/hooks/useLocalStorage.ts
++++ b/src/utils/hooks/useLocalStorage.ts
+@@ -9,2 +8,0 @@ import useWindowEventListener from './useWindowEventListener';
+-import copyIntroMessage from '~/utils/copyIntroMessage';
+-
+@@ -42 +39,0 @@ export const useTheme = () => useLocalStorage('theme', 'dark');
+-export const useLocalMessageStore = () => useLocalStorage('message', copyIntroMessage());
+diff --git a/src/utils/hooks/useUnloadAlert.ts b/src/utils/hooks/useUnloadAlert.ts
+index c9c98ec..0962897 100644
+--- a/src/utils/hooks/useUnloadAlert.ts
++++ b/src/utils/hooks/useUnloadAlert.ts
+@@ -6,0 +7,2 @@ import { useBeforeUnload } from 'react-use';
++import { isLeavingWithoutAlert } from '../leaveWithoutAlert';
++
+@@ -8 +10 @@ export default (block: boolean) => {
+-  useBeforeUnload(block, 'Changes you made may not be saved.');
++  useBeforeUnload(block && (() => !isLeavingWithoutAlert()), 'Changes you made may not be saved.');
+diff --git a/src/utils/leaveWithoutAlert.ts b/src/utils/leaveWithoutAlert.ts
+new file mode 100644
+index 0000000..09978e8
+--- /dev/null
++++ b/src/utils/leaveWithoutAlert.ts
+@@ -0,0 +1,17 @@
++const REARM_MS = 2000;
++
++let leaving = false;
++
++export const isLeavingWithoutAlert = () => leaving;
++
++export async function leaveWithoutAlert<T>(exit: () => Promise<T>) {
++  leaving = true;
++  try {
++    const result = await exit();
++    setTimeout(() => { leaving = false; }, REARM_MS);
++    return result;
++  } catch (error) {
++    leaving = false;
++    throw error;
++  }
++}
+diff --git a/src/utils/messageDrafts.ts b/src/utils/messageDrafts.ts
+new file mode 100644
+index 0000000..8d89e52
+--- /dev/null
++++ b/src/utils/messageDrafts.ts
+@@ -0,0 +1,94 @@
++import withLocalStorage from './withLocalStorage';
++
++import { typedDeepEqual } from '~/utils';
++
++export const MAX_DRAFTS = 20;
++export const MAX_DRAFT_CHARS = 1024 * 1024;
++
++const TAB_KEY = 'messageDraftTab';
++
++const store = () => withLocalStorage('messageDrafts', {});
++const legacyStore = () => withLocalStorage('message', undefined as unknown as ActiveMessage);
++
++export const routeZeroKey = (tab: string) => `0:${tab}`;
++
++export function tabId() {
++  try {
++    const existing = window.sessionStorage.getItem(TAB_KEY);
++    if (existing) return existing;
++    const made = Math.random().toString(36).slice(2, 12);
++    window.sessionStorage.setItem(TAB_KEY, made);
++    return made;
++  } catch {
++    return 'no-session-storage';
++  }
++}
++
++export function readDrafts(): MessageDrafts {
++  if (window.localStorage.getItem('messageDrafts') !== null) return store().get();
++  if (window.localStorage.getItem('message') === null) return {};
++  const legacy = legacyStore().get();
++  return {
++    [legacy.id ?? routeZeroKey(tabId())]: {
++      data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
++    },
++  };
++}
++
++const oldestOtherThan = (drafts: MessageDrafts, key: string) => Object.keys(drafts)
++  .filter((k) => k !== key)
++  .sort((a, b) => drafts[a].editedAt - drafts[b].editedAt)[0];
++
++export function writeDraft(key: string, draft: MessageDraft) {
++  const drafts = { ...readDrafts(), [key]: draft };
++  const tooBig = () => Object.keys(drafts).length > MAX_DRAFTS
++    || JSON.stringify(drafts).length > MAX_DRAFT_CHARS;
++  while (tooBig() && Object.keys(drafts).length > 1) delete drafts[oldestOtherThan(drafts, key)];
++
++  while (!store().set(drafts)) {
++    const oldest = oldestOtherThan(drafts, key);
++    if (oldest === undefined) return false;
++    delete drafts[oldest];
++  }
++  return true;
++}
++
++export function removeDraft(key: string, only?: (draft: MessageDraft) => boolean) {
++  const drafts = readDrafts();
++  if (!(key in drafts) || (only && !only(drafts[key]))) return;
++  delete drafts[key];
++  store().set(drafts);
++}
++
++export function routeZeroDraftFor(tab: string): MessageDraft | undefined {
++  const drafts = readDrafts();
++  const own = drafts[routeZeroKey(tab)];
++  if (own) return own;
++  const newest = Object.keys(drafts)
++    .filter((k) => k.startsWith('0:'))
++    .sort((a, b) => drafts[b].editedAt - drafts[a].editedAt)[0];
++  if (newest === undefined) return undefined;
++  writeDraft(routeZeroKey(tab), drafts[newest]);
++  return drafts[newest];
++}
++
++export function writeRouteZeroDraft(message: ActiveMessage) {
++  writeDraft(routeZeroKey(tabId()), {
++    data: message.data, name: message.name, editedAt: Date.now(),
++  });
++  legacyStore().set(message);
++}
++
++export const sameJson = (a: unknown, b: unknown) => typedDeepEqual(
++  JSON.parse(JSON.stringify(a ?? null)) as unknown,
++  JSON.parse(JSON.stringify(b ?? null)) as unknown,
++);
++
++export function removeRouteZeroDraft(savedData: ActiveMessage['data']) {
++  removeDraft(routeZeroKey(tabId()));
++  const holdsIt = window.localStorage.getItem('message') !== null
++    && sameJson(legacyStore().get().data, savedData);
++  if (holdsIt) {
++    legacyStore().remove();
++  }
++}
+diff --git a/src/utils/withLocalStorage.ts b/src/utils/withLocalStorage.ts
+index 42ff8cb..752a815 100644
+--- a/src/utils/withLocalStorage.ts
++++ b/src/utils/withLocalStorage.ts
+@@ -13 +13,2 @@ export default function withLocalStorage<K extends keyof LocalStorage>(key: K, d
+-    if (typeof window !== 'undefined') {
++    if (typeof window === 'undefined') return false;
++    try {
+@@ -15 +16,2 @@ export default function withLocalStorage<K extends keyof LocalStorage>(key: K, d
+-      window.dispatchEvent(new Event('storage', { bubbles: true }));
++    } catch {
++      return false;
+@@ -16,0 +19,2 @@ export default function withLocalStorage<K extends keyof LocalStorage>(key: K, d
++    window.dispatchEvent(new Event('storage', { bubbles: true }));
++    return true;

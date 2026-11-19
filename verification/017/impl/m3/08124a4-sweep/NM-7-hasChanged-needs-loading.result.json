@@ -1,0 +1,25 @@
+{
+ "mutant": {
+  "name": "NM-7-hasChanged-needs-loading",
+  "edits": [
+   {
+    "file": "src/providers/MessageProvider/index.tsx",
+    "old": "import { detectMessageMode } from '~/utils/messageMode';",
+    "new": "import { useSession } from 'next-auth/react';\nimport { detectMessageMode } from '~/utils/messageMode';"
+   },
+   {
+    "file": "src/providers/MessageProvider/index.tsx",
+    "old": "() => !typedDeepEqual(savedMessage?.data, message?.data),",
+    "new": "() => useSession().status !== 'loading' && !typedDeepEqual(savedMessage?.data, message?.data),"
+   }
+  ],
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "MessageProvider, hasChanged for every session status is true for an edited message when loading"
+ ],
+ "verdict": "killed"
+}

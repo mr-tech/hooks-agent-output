@@ -1,0 +1,21 @@
+{
+ "mutant": {
+  "name": "surv-messageDrafts.ts_38_walk-first",
+  "edits": [
+   {
+    "file": "src/utils/messageDrafts.ts",
+    "old": "> Object.keys(drafts)\n ",
+    "new": "> (Array.isArray(Object.keys(drafts)) ? Object.keys(drafts).slice(0, 1) : Object.keys(drafts))\n "
+   }
+  ],
+  "tests": [
+   "src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx",
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "messageDrafts, the bound holds at most 20 entries, dropping the least recently edited first, whatever order they were written in"
+ ],
+ "verdict": "killed"
+}

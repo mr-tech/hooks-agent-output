@@ -1,0 +1,19 @@
+{
+ "mutant": {
+  "name": "surv-withLocalStorage.ts_13_if-false",
+  "edits": [
+   {
+    "file": "src/utils/withLocalStorage.ts",
+    "old": "]) {\n    if (typeof wi",
+    "new": "]) {\n    if (false && typeof wi"
+   }
+  ],
+  "tests": [
+   "src/utils/__tests__/withLocalStorage.stored-keys.test.tsx",
+   "src/utils/__tests__/withLocalStorage.server-render.test.ts"
+  ]
+ },
+ "exit": 0,
+ "failed": [],
+ "verdict": "SURVIVED"
+}

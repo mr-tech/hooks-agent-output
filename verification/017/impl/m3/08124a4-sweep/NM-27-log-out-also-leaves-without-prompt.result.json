@@ -1,0 +1,20 @@
+{
+ "mutant": {
+  "name": "NM-27-log-out-also-leaves-without-prompt",
+  "edits": [
+   {
+    "file": "src/app/_components/NavMenu.tsx",
+    "old": "if (sessionData?.user) await signOut();",
+    "new": "if (sessionData?.user) await leaveWithoutAlert(() => signOut());"
+   }
+  ],
+  "tests": [
+   "src/app/_components/__tests__/NavMenu.sign-in-and-out.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "NavMenu, the log in and log out item signs out with the unsaved-changes prompt when signed in"
+ ],
+ "verdict": "killed"
+}

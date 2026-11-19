@@ -1,0 +1,20 @@
+{
+ "mutant": {
+  "name": "surv-SessionProvider.tsx_15_if-false",
+  "edits": [
+   {
+    "file": "src/providers/SessionProvider.tsx",
+    "old": "if (",
+    "new": "if (false && "
+   }
+  ],
+  "tests": [
+   "src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "SessionProvider, a page loaded with a session cookie the server did not accept signs out, leaving without the unsaved-changes prompt"
+ ],
+ "verdict": "killed"
+}

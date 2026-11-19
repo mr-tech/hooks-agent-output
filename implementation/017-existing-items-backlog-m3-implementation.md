@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Handoff-At: 536b8e6 — repos=website; M3 built, sweep dispositions and hand-off owed, not yet handed to code review
+Handoff-At: 3498ef3 — repos=website; M3 built, self-check survivors dispositioned, handed to code review
 ---
 
 # Implementation 017 — M3: a stored draft survives sign-in, another tab and an expired-session sign-out (item 4, D-11)
@@ -11,7 +11,8 @@ Handoff-At: 536b8e6 — repos=website; M3 built, sweep dispositions and hand-off
 ## Plan Reference
 
 `agent-output/planning/017-existing-items-backlog.md`, revision 4, milestone M3 (M3-a to M3-h). Website chain
-branch `chain/017-existing-items-backlog`; M2 is `ec984fe` (`implementation/017-existing-items-backlog-m2-implementation.md`).
+branch `chain/017-existing-items-backlog`; M2 is `ec984fe` (`implementation/017-existing-items-backlog-m2-implementation.md`),
+whose fix round `dd26104` is APPROVED (code review round 2 sub-entry, `fb4c5f3`) and QA Complete (`b77fb74`).
 
 ## Date
 
@@ -22,15 +23,41 @@ branch `chain/017-existing-items-backlog`; M2 is `ec984fe` (`implementation/017-
 | Date | Agent | Change |
 |---|---|---|
 | 2026-11-19T01:12 | implementer-hooks-017 | Document opened with the design read from the plan and the flows below; no code yet. |
+| 2026-11-19T02:17 | implementer-hooks-017 | Resumed after the checkpoint. The 14 self-check survivors dispositioned (9 closed by cases at `08124a4`, 5 stated equivalent), QA's NM-6, NM-7, NM-27 and NM-28 run against the built code, a mounted test added for the edit page's Log in (`3498ef3`), convention-check FAILs that were M3's removed, full suite and typecheck at `3498ef3`. Handed to code review at `3498ef3`; Resumption State removed. |
+
+## Implementation Summary
+
+A draft is no longer one `message` key shared by every tab. `LocalStorage.messageDrafts` maps an entry key to
+`{ data, name, editedAt }`: `0:<tab id>` for a tab's route-0 draft, the message id for unsaved edits on a saved
+message. `src/utils/messageDrafts.ts` holds the rules over it (the bound of 20 entries and 1 MiB serialised, evict
+the least recently edited other entry and retry on a refused write, the route-0 copy-in for a new tab, migration of
+the old `message` key, the tab id in `sessionStorage`). `withLocalStorage.set` returns whether the write landed and
+no longer throws on a refused `setItem`. `MessageProvider` reads and writes by those keys, so a draft survives
+sign-in (route 0 restores the tab's own draft), another tab (a new tab at route 0 gets the most recently edited
+route-0 draft) and an expired-session sign-out (unsaved edits on message *n* come back when *n* is opened).
+`hasChanged` loses its session condition, so the browser's unload prompt now shows signed out too; the three exits
+that lose nothing (`InfoPanel` Log in, `NavMenu` sign-in, the `SessionProvider` sign-out on a stale cookie) leave
+through `leaveWithoutAlert`, which lowers the prompt for the act only (D-18).
+
+## Milestones Completed
+
+M3-a to M3-h, built in four slices: (1) shared quota behaviour (M3-g, M3-h/OQ-12) at `d9ebe97`; (2) the draft rules
+module (M3-h bound, M3-c rule, M3-e migration, M3-f legacy write) at `d9ebe97`; (3) provider wiring (M3-a, M3-b, M3-c,
+M3-e, M3-f) at `79144cb`; (4) `hasChanged` and the D-18 suppression (M3-d, NM-7, NM-27, NM-28) at `536b8e6`. The
+self-check round is `08124a4` and `3498ef3`, tests and lint only; no production line moved after `536b8e6`.
 
 ## Entry Conditions
 
 | Condition | Where satisfied | Pinned by |
 |---|---|---|
-| Stage start | `steering/017-rulings.md` block 2026-11-19T00:29Z; M3 follows M2 in the plan's order | not owed |
+| Stage start | `steering/017-rulings.md` block 2026-11-19T00:29Z; M3 follows M2 in the plan's order; resumed on `steering-roadmap`'s message after the M2 re-verdicts | not owed |
 | QA Phase 1 covering M3 | `qa/017-existing-items-backlog-qa.md` at `3af80aa`, § M3, QAF-6, NM-6, NM-7, NM-27, NM-28 | not owed |
 | Open questions | none open that M3 depends on: OQ-8 (D-18), OQ-11 (D-22), OQ-12 (D-23), D-25 are answered | not owed |
 | Flows holding a decision | none: each flow below is covered by a recorded decision, so no ask goes to `steering-roadmap` | not owed |
+| QAF-6, shared-code reach of the storage change | `theme`, `frequentlyUsedEmojis`, `client_preferences` and the list-view keys read and write exactly as before | `withLocalStorage.stored-keys.test.tsx` ("the keys stored as before"); NM-6 killed |
+| M3-d, `hasChanged` over three statuses by two cells | each status is the sole carrier in at least one cell | `MessageProvider.stored-draft.test.tsx` ("hasChanged for every session status"); NM-7 killed for each of the three statuses |
+| D-18 exits, X-8 Log out keeps its prompt | sign-in and stale-cookie sign-out lower the prompt, Log out does not | `NavMenu.sign-in-and-out.test.tsx`, `SessionProvider.stale-cookie-sign-out.test.tsx`, `page.sign-in-exit.test.tsx`; NM-27 killed |
+| Code review CR-4 (M2-a's eleventh member, carried to this document) | disposition recorded under Outstanding Items | not owed (the code review: "no test is owed") |
 
 ## User-visible flows (derived from the codebase, no ask owed)
 
@@ -47,69 +74,184 @@ No new view, input or trigger exists; no flow holds an undecided choice.
 | Browser prompt on close/reload, signed out | the page unload | `hasChanged` true | "Changes you made may not be saved." | rung 1: `useUnloadAlert`, unchanged for signed in |
 | Sign-in exits leave without the prompt | `InfoPanel` Log in, `NavMenu` sign-in, `SessionProvider` sign-out | the act | no prompt (D-18) | none exists; one act-keyed suppression (NM-27, NM-28) |
 
-## Design read at `ec984fe` (to be refined as built)
+## Files Modified
 
-- `withLocalStorage.set` returns whether the write landed and no longer throws on a refused `setItem`; no `storage`
-  event on a refusal. `useLocalStorage` gains a `get` that reads at call time and `set` returns that result.
-- New `LocalStorage.messageDrafts`: map of entry key (`0:<tab id>` or message id) to `{ data, name, editedAt }`.
-  A new module `src/utils/messageDrafts.ts` holds the pure draft rules (bound, evict-and-retry, most-recent,
-  migration, tab id) over a `{ get, set }` store, so they are tested without a DOM.
-- `MessageProvider` index: loads (route-0 effect, fetch effect, share code) are not edits and write no draft
-  except the share code and the copy-in at route 0; the `message` effect writes only for an edit.
-- `hasChanged` loses its session condition (M3-d); the suppression for the D-18 exits is keyed on the act.
+| Path | Changes | Lines |
+|---|---|---|
+| `src/utils/withLocalStorage.ts` | `set` returns whether the write landed, catches a refused `setItem`, dispatches `storage` only on success | +6 −2 |
+| `src/utils/hooks/useLocalStorage.ts` | the unused `useLocalMessageStore` removed | −3 |
+| `src/@types/global.d.ts` | `LocalStorage.messageDrafts`, `MessageDraft`, `MessageDrafts` | +4, then a comma delimiter (+1 −1) |
+| `src/providers/MessageProvider/index.tsx` | draft reads and writes by entry key; `hasChanged` without a session condition; creating-save removal | +38 −21 |
+| `src/utils/hooks/useUnloadAlert.ts` | the prompt callback returns `!isLeavingWithoutAlert()` | +3 −1 |
+| `src/app/_components/NavMenu.tsx` | the signed-out `signIn` goes through `leaveWithoutAlert` | +2 −1 |
+| `src/app/message/m/[id]/edit/page.tsx` | `InfoPanel` `onContinue` goes through `leaveWithoutAlert` | +2 −1 |
+| `src/providers/SessionProvider.tsx` | the stale-cookie `signOut` goes through `leaveWithoutAlert` | +2 −1 |
+| `src/providers/MessageProvider/__tests__/helpers/messageProviderDeps.ts` | `buildApiMock` runs the latest mutation options, as react-query does | +10 −5, then −1 (a comment the gate rejects) |
+| `src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx` | `onSuccess` is given its variables | +4 −1 |
+| `src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx` | storage cleared between cases | +1 |
+| `src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx`, `src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx` | cases added or tightened at `08124a4` (below) | +21 −3, +19 |
+
+## Files Created
+
+| Path | Purpose |
+|---|---|
+| `src/utils/messageDrafts.ts` | the draft rules over the store: bound, evict-and-retry, most-recent route-0 draft, migration, tab id |
+| `src/utils/leaveWithoutAlert.ts` | the act-keyed suppression of the unload prompt, re-armed after the exit |
+| `src/utils/__tests__/withLocalStorage.stored-keys.test.tsx` | the keys stored as before; a refused write (9 cases) |
+| `src/utils/__tests__/withLocalStorage.server-render.test.ts` | no browser: reads the default, a write reports it did not land (Node environment, hence `.ts`) |
+| `src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx` | the draft rules (23 cases) |
+| `src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx` | the provider's restore, save, reload and `hasChanged` behaviour (27 cases) |
+| `src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx` | the prompt, its suppression for an exit and its re-arm (6 cases) |
+| `src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx` | the stale-cookie sign-out leaves without the prompt; nothing else signs out (3 cases) |
+| `src/app/_components/__tests__/NavMenu.sign-in-and-out.test.tsx` | sign-in leaves without the prompt, Log out keeps it (2 cases) |
+| `src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx` | the edit page prompts on unload and its Log in leaves without it (2 cases) |
+
+## Patterns Extended
+
+| Surface | Pattern extended | Rung |
+|---|---|---|
+| `MessageProvider/index.tsx` `getMessage`, the route-0 effect | the newer-local preference and the route-0 restore, keyed per entry now | in-file |
+| `withLocalStorage` / `useLocalStorage` | the existing `{ get, set, remove }` factory; `set` gains a return value | in-file |
+| `useUnloadAlert` | `useBeforeUnload`'s function form for the flag | in-file |
+| `leaveWithoutAlert`, `messageDrafts` | none exists: the plan states the rules (D-18, D-22, D-23, D-25) | none |
+| `MessageProvider` tests | `mountInMessageProvider`, `buildApiMock` helpers | in-repo |
+| `NavMenu`, `edit/page`, `SessionProvider` tests | none mounted these before; they mount through `mountDom` and `press` and mock `next-auth/react`, `~/env.mjs` and, for `NavMenu`, `~/components/Dropdown` (rendered as buttons for each item with an `onPress` function) | in-repo helpers, no prior test on these surfaces |
+
+Sibling sweep (rule: a shared pattern is fixed once, in the shared code): predicate 1, text: the wrap
+`leaveWithoutAlert(` over `src` excluding tests gives 3 call sites (`NavMenu.tsx:142`, `edit/page.tsx:155`,
+`SessionProvider.tsx:15`; `class-sweep-leave-sites.out`), the plan's three rows. Predicate 2, reference query: the
+exits that leave by `signIn(` or `signOut(` outside tests are those three plus `NavMenu.tsx:141` (`signOut`, the Log out
+row, which must keep its prompt: X-8). The Serena `find_referencing_symbols` instrument is not available in this session, so the reference query
+was not run; the text predicate was read at `3498ef3` and the plan's table enumerates the same four rows.
+
+## TDD Compliance
+
+Slices 1 to 4 were test-first; the red captures are under `verification/017/impl/m3/`. The first row of each new
+module is the compile-time red (module not found); every other row is an assertion-level red against pre-change
+code, or a named mutant of a single guard in the sweep below. Rows added in the self-check round (`08124a4`,
+`3498ef3`) are written after the code they cover, for survivors the sweep exposed: their "Written first" cell is No,
+closed by the named mutant (a one-change body-level stub of the guard) failing the case, and the green at the real code.
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| `withLocalStorage.set` returns the write result, no throw, no `storage` event on refusal (4 cases) | `withLocalStorage.stored-keys.test.tsx` | Yes | Yes, `m3/red-quota.out` | AssertionError (`DOMException` thrown; return value) | Yes |
+| keys other than `message` read and written as before (5 cases) | same | Yes | NM-6 (`JSON.stringify` for every key) killed, `m3/08124a4-sweep/NM-6-reencode-other-keys.result.json` | AssertionError | Yes |
+| `messageDrafts` module: `writeDraft`, `readDrafts`, `removeDraft`, `routeZeroDraftFor`, `writeRouteZeroDraft`, `removeRouteZeroDraft`, `tabId` (first row) | `messageDrafts.bound-and-recency.test.tsx` | Yes | Yes, `m3/red-drafts.out` | Failed to resolve import `../messageDrafts` (first row of a new module) | Yes |
+| the 20-entry and 1 MiB bound; eviction by recency whatever the write order | same | Yes (order-independence added at `08124a4`) | mutants `messageDrafts.ts:44:>`, `:46:&&`, `:46:>`, `:38:walk-last` killed in the first sweep; `:38:walk-first` survived `536b8e6`, killed `08124a4` | AssertionError | Yes |
+| the 1 MiB boundary pair (exactly the limit kept, one character over drops the oldest) | same | No (added at `08124a4`) | mutant `messageDrafts.ts:45:>` (`>=`) survived `536b8e6`, killed `08124a4` | AssertionError | Yes |
+| evict-and-retry on a refused write; a write that no entry can make room for returns false | same | Yes | mutants `:50:===`, `:50:false`, `:53:true` killed | AssertionError | Yes |
+| most recently edited route-0 draft copied in for a new tab, regardless of insertion order | same | Yes (order made non-confounding at `08124a4`) | mutant `:67:walk-first` killed; `:67:walk-last` survived `536b8e6`, killed `08124a4` | AssertionError | Yes |
+| migration of the old `message` key (2 cases of legacy shapes, no migration once the map exists) | same | Yes | mutants `:28`, `:29` (4) killed | AssertionError | Yes |
+| provider: route-0 restore after sign-in, per-tab drafts, saved-message edits, creating-save removal, reload discards, `hasChanged` 3×2 (8 of 25 red at first) | `MessageProvider.stored-draft.test.tsx` | Yes | Yes, `m3/red-provider.json` (8 of 25 failing at assertion level; the failing case names are in the JSON) | AssertionError | Yes |
+| a stored copy exactly as new as the saved copy is not preferred | same | No (added at `08124a4`) | mutant `index.tsx:41:>` (`>=`) survived `536b8e6`, killed `08124a4` | AssertionError | Yes |
+| edits typed back to the saved copy leave no stored draft | same | No (added at `08124a4`) | mutant `index.tsx:174:if-false` survived `536b8e6`, killed `08124a4` | AssertionError | Yes |
+| `hasChanged` without a session condition, over three statuses | same | Yes | NM-7 killed for `loading`, `unauthenticated` and `authenticated` | AssertionError | Yes |
+| `leaveWithoutAlert` / `useUnloadAlert` (first row of a new module: prompt raised, suppressed during the exit, re-armed, lowered on failure) | `useUnloadAlert.act-suppression.test.tsx` | Yes | Yes, `m3/red-unload.out` | Failed to resolve import `~/utils/leaveWithoutAlert` | Yes |
+| the flag re-arms after a successful exit; is lowered at once on failure | same | Yes | NM-28 both forms killed (`NM-28-flag-never-re-armed`, `NM-28-flag-stays-after-failed-exit`) | AssertionError | Yes |
+| stale cookie and no session signs out through `leaveWithoutAlert`; a session or no cookie does not | `SessionProvider.stale-cookie-sign-out.test.tsx` | No (added at `08124a4`) | mutants `SessionProvider.tsx:15:if-false`, `:&&`, `:not` survived `536b8e6`, killed `08124a4` (1, 2, 2 cases) | AssertionError | Yes |
+| `NavMenu` Log in leaves without the prompt, Log out keeps it | `NavMenu.sign-in-and-out.test.tsx` | No (added at `08124a4`) | NM-27 killed | AssertionError | Yes |
+| the edit page's Log in leaves without the prompt | `page.sign-in-exit.test.tsx` | No (added at `3498ef3`) | mutant `NM-InfoPanel-log-in-keeps-prompt` (drops the wrap at `edit/page.tsx`) killed, `m3/3498ef3-sweep/` | AssertionError (`leavingDuring` false) | Yes |
+| `withLocalStorage` with no browser: default read, write reports false | `withLocalStorage.server-render.test.ts` | No (added at `08124a4`) | mutant `withLocalStorage.ts:13:false` (`return true`) survived `536b8e6`, killed `08124a4` | AssertionError | Yes |
+
+`tdd-check.py` refuses JavaScript and TypeScript, so the rows above are read, not tool-checked.
+
+## Class Sweep
+
+First delivery: the survivors are gaps the self-check sweep exposed in the code as first delivered, so each class gets
+its enumeration (the sweep's own instrument sampled one site per class; the class is stated by effect).
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| Class A, an ordering or comparison rule asserted only on an input where a wrong rule gives the same answer (`index.tsx:41`, `messageDrafts.ts:38`, `:45`, `:67`) | `grep -n -E '^\+.*(\.sort\(\| > \| < \| >= \| <= \|slice\(\|\.length\|Object\.keys\|startsWith)'` over `git diff -U0 ec984fe 3498ef3 -- src ':!**/__tests__/**'` (`m3/class-sweep-ordering-sites.out`) | 9 hits: `index.tsx` `draft.editedAt > message.updatedAt`; `messageDrafts.ts` `slice(2, 12)`; `oldestOtherThan` keys and sort; `tooBig` count and size comparisons; the `length > 1` loop guard; `newest` keys, filter, sort | `editedAt >`: equal-timestamp case, mutant `>=` killed. `slice(2, 12)`: not applicable, the tab id is an opaque key (see Outstanding Items, survivors 6 and 7). `oldestOtherThan`: write-order case, `walk-first` killed. `tooBig` count: killed in the first sweep (`:44:>`); size: boundary pair, `>=` killed; `length > 1`: `:46:>` killed in the first sweep. `newest`: insertion order against recency, `walk-last` killed. Residual unkilled mutants over these sites after the fix: 2, both `slice(2, 12)`. |
+| Class B, an exit wrapped by `leaveWithoutAlert` with no mounted test (`SessionProvider.tsx:15`) | `git grep -n "leaveWithoutAlert" -- src ':!**/__tests__/**'` (`m3/class-sweep-leave-sites.out`) | 3 call sites (`NavMenu.tsx:142`, `edit/page.tsx:155`, `SessionProvider.tsx:15`), 1 definition, 1 reader (`useUnloadAlert.ts`) | Each call site has a mounted test: `NavMenu.sign-in-and-out`, `page.sign-in-exit`, `SessionProvider.stale-cookie-sign-out`; mutants dropping the wrap at each killed (NM-27 for the Log out side; `NM-InfoPanel-log-in-keeps-prompt`; `SessionProvider.tsx:15` x3). Residual: 0 |
+| Class C, a branch that only a Node-environment run reaches (`withLocalStorage.ts:13`) | `git grep -n "typeof window" -- src/utils/withLocalStorage.ts` | 3 hits (`get`, `set`, `remove`) | `get` and `set` are asserted in the Node file; `remove` is unchanged base code, not claimed. `set`'s `if (false && …)` mutant survives by construction: with no `window`, `localStorage.setItem` throws a `ReferenceError` that the `catch` turns into `return false`, the same answer (probe: `m3/08124a4-sweep/surv-withLocalStorage.ts_13_if-false.out`, the Node case passes with the guard disabled). The guard is kept for symmetry with `get`; no guard is removed. Residual: 1 equivalent mutant |
+
+## Test Execution Results
+
+Environment: website `chain/017-existing-items-backlog`, vitest 4.1.2; network-isolated (`unshare -rn`) for every
+mutation run; mutations in `git archive` exports of the named SHA under the session scratchpad (`exp-m3`, `exp-m3b`),
+node_modules linked read-only from the shared install, the shared tree never mutated.
+
+| Command | Result |
+|---|---|
+| `npx vitest run --reporter=json` at `3498ef3` | 1618 of 1618 passed, 133 test files, 0 failed; process exit code 0 (`m3/vitest-m3-3498ef3.{json,out,exit}`); count method: the reporter's `numTotalTests`/`numPassedTests`/`numFailedTests`, file count from `testResults` length |
+| `pnpm run typecheck` at `3498ef3` (both programs) | exit 0 (`m3/typecheck-m3-final.{out,exit}`) |
+| `node ~/.claude/tools/convention-check.js website --since=1ad625e` at `08124a4` (`m3/convention-check-08124a4.out`) | 65 FAIL, 0 CANDIDATE, 20 SKIP. M3's own FAIL lines: 3 (`messageProviderDeps.ts:70`, a comment outside the allowlist; `global.d.ts:166` `member-delimiter-style`, reported twice), fixed at `3498ef3`. The other 62 are base and D-9's (accept, fix none): 42 in `useApiMethods.json-editor-repair.test.ts`, 5 in `limits.import-validation.test.ts` (M1), 14 in `global.d.ts` (lines 4 to 28: 13 unused type imports and one long line, already in the base file), 1 `withLocalStorage.ts:1` max-len (the base line, unchanged); 3 + 42 + 5 + 14 + 1 = 65. The SKIPs: `.playwright-mcp/*.png` (held, not examined), two files with no added lines, and the checker's own note that it does not implement the ID-token class verbatim, so basename and title ID tokens were not checked by it; my new file names carry none by reading (`NavMenu.sign-in-and-out`, `page.sign-in-exit`, `SessionProvider.stale-cookie-sign-out`, `withLocalStorage.server-render`). After the fix `npx eslint` on the two touched M3 files and on every new test file gives 0 findings besides `global.d.ts`'s base 14. |
+| Self-check sweep over `ec984fe..536b8e6` (`mutant-gen.js`, `m3/536b8e6-mutants-gen.json`, `m3/536b8e6-sweep.out`) | 58 of 72 killed; 14 survivors, dispositioned below |
+| Survivors re-run at `08124a4` plus QA's NM-6, NM-7 (3 forms), NM-27, NM-28 (2 forms) (`m3/08124a4-mutants-edits.json`, `m3/08124a4-sweep.out`, `m3/mutate-edits.py`, a copy of `../mutate.py` for mutants of more than one edit) | 9 survivors killed, 5 survive and are equivalent (below); NM-6, NM-7 x3, NM-27, NM-28 x2: 7 of 7 killed |
+| `NM-InfoPanel-log-in-keeps-prompt` at `3498ef3` (`m3/3498ef3-sweep.out`) | killed |
+
+Survivor dispositions (the 14 of `536b8e6`):
+
+| # | Mutant | Disposition |
+|---|---|---|
+| 1 | `index.tsx:41:>` | closed: "shows the saved copy when the stored copy is exactly as new" (`08124a4`); killed |
+| 2 | `index.tsx:174:if-false` | closed: "leave no stored draft once they are typed back to the saved copy"; killed |
+| 3 to 5 | `SessionProvider.tsx:15:if-false`, `&&`, `not` | closed: `SessionProvider.stale-cookie-sign-out.test.tsx`; killed (1, 2, 2 cases) |
+| 6 | `leaveWithoutAlert.ts:1:num` (2000 to 2001) | equivalent under the criterion: the plan (M3-d, D-18) states the suppression is for the act and that it re-arms, not a delay; "prompts again once the exit has had time" is asserted at 5000 ms and the failure path at once. A test of the constant's value would restate the constant. Survives at `08124a4` (`surv-leaveWithoutAlert.ts_1_num.result.json`) |
+| 7, 8 | `messageDrafts.ts:19:num:2`, `:num:3` (the tab id's `slice` bounds) | equivalent: the id is an opaque key; the contract is "one id for the life of the tab, a different one for a tab with no session storage" (both asserted), and a mutant that empties the id (`slice(2, 2)`) would fail the first. Survive |
+| 9 | `messageDrafts.ts:38:walk-first` | closed: write-order case; killed |
+| 10 | `messageDrafts.ts:45:>` | closed: the 1 MiB boundary pair; killed |
+| 11 | `messageDrafts.ts:67:walk-last` | closed: insertion order against recency; killed |
+| 12 | `withLocalStorage.ts:13:if-false` | equivalent by construction, see Class C. Survives |
+| 13 | `withLocalStorage.ts:13:false` (`return true` with no window) | closed: `withLocalStorage.server-render.test.ts`; killed |
+| 14 | `withLocalStorage.ts:19:true` (`bubbles: true` to `false`) | equivalent: the event is dispatched on `window`, which is the target, so `bubbles` has no listener to reach; no behaviour of the page reads it. Survives |
+
+Named mutants from QA's Phase 1 (`qa/017-existing-items-backlog-qa.md`, § Named mutants), each made by hand as one
+change set in the `08124a4` export (`m3/08124a4-mutants-edits.json`):
+
+| Named mutant | Made as | Result |
+|---|---|---|
+| NM-6, re-encode keys other than `message` | `set` stores `JSON.stringify(value)` for every key | killed by `withLocalStorage.stored-keys` ("writes a theme as the bare string") |
+| NM-7, `hasChanged` keeps a session condition for one status | `useSession().status !== '<status>' && …` (import plus use) for each of `loading`, `unauthenticated`, `authenticated` | killed in all three by "hasChanged for every session status" |
+| NM-27, the suppression keyed on `NavMenu`'s button so Log out is silenced too | `signOut()` wrapped in `leaveWithoutAlert` | killed by `NavMenu.sign-in-and-out` ("signs out with the unsaved-changes prompt when signed in") |
+| NM-28, the flag left lowered when the sign-in does not leave | the re-arm timer removed; and the failure path's lowering removed | both killed by `useUnloadAlert.act-suppression` |
+
+Test classes walked on the built tip, member by member (the criterion enumerates states): the M3-d table's rows are
+each a mounted case: Close/reload signed out and signed in (`useUnloadAlert` and `hasChanged` cases), `InfoPanel`
+Log in (`page.sign-in-exit`), `NavMenu` sign-in and Log out (`NavMenu.sign-in-and-out`), `SessionProvider` sign-out
+(`SessionProvider.stale-cookie-sign-out`); the raw anchors row has no unload and no case is owed. The M3-c decision
+table (4 rows) is the "two tabs" and "restore" describe blocks of `MessageProvider.stored-draft`.
+
+No timeout or time-based test was added to the standing suite beyond fake-timer cases (`vi.useFakeTimers`), which
+are deterministic and carry no real wait.
 
 ## Outstanding Items
 
-M3 is built (slices 1 to 4); what is owed is in the Resumption State.
+- **CR-4 (code review, M2-a's eleventh member), disposition recorded here as the review's carrier asks.** The member
+  "not-valid (fails shape) / nothing changed" has no case in M2's `own-save-notice` file. A shape-failing payload is
+  rejected by the router before `upsertMessage` runs, so no broadcast exists (AN-1's row: `broadcast: none`) and the
+  absence of a notice holds trivially in production; the one thing M2 adds for it, the failed save's record, is
+  asserted by "raises the notice for a later save of the content of a save that failed". Unobservable at the client; no
+  test is owed.
+- **Known design notes (no open question):** the draft entry carries `data`, `name`, `editedAt` only, as the plan states
+  it, so a route-0 draft restored from the store no longer carries the `guildId` and `recent*` ids the old single key kept
+  for a share-code message; the draft hook reads through `withLocalStorage` directly (`useLocalStorage` exposes no
+  read-at-call-time) and `useLocalMessageStore` was removed as unused; the tab id lives in `sessionStorage` key
+  `messageDraftTab` (a plan deviation the plan states); the creating-save removal uses the closure's `message`; the
+  reload path removes the stored entry whenever the fetched copy is shown.
+- **Five equivalent mutants survive** (survivors 6, 7, 8, 12, 14 above), each with its reason; none is a missing case
+  under the plan's criteria. If the reviewer reads the re-arm delay (survivor 6) as a criterion, that is a plan question
+  (a lower bound on a delay the plan does not state), not an implementation gap.
+- **Unmounted, base, not claimed:** `withLocalStorage.remove`'s SSR guard (unchanged base code).
+- **Instrument limits:** the three D-18 call-site tests mock `next-auth/react`, `~/env.mjs` and, for the edit page,
+  every collaborator of the page (editor, dialogs, hotkeys, `MessageProvider`); `NavMenu` renders its `Dropdown` items
+  as plain buttons. They assert the wrap and the suppression's lifetime, not the real OAuth redirect (`signIn` leaving
+  by `window.location.href` is the dependency's, read in the plan, not run here).
+- **Self-diagnosis, for the retrospective:** the first delivery asserted the behaviours and not the boundaries and
+  orderings they turn on: seven of the fourteen survivors were an equal-input boundary or an insertion order that
+  coincided with recency in my fixtures, and three were an exit that no test mounted. I tested the plan's example
+  inputs rather than the property that separates the rule from its near-miss; the self-check sweep found them, not the
+  cases. Class A and B above are the repair.
+- **Process facts:** the stamp gate refused a changelog stamp I typed ahead of the clock on the M3 and M2 documents
+  (corrected from `date -u`); the record-write gate refused a `sed -i` on a record document (re-issued with the editing
+  tools; satisfied, not worked around). Both disclosed at the checkpoint, repeated here for the record.
+- **Downstream:** the browser's unload prompt now appears signed out on the edit page (D-11, shown to the owner). M4's
+  premise (links away from the editor) reads `hasChanged`; it now holds signed out as well as signed in.
 
 ## Next Steps
 
-Slice order: (1) shared quota behaviour (M3-g, M3-h/OQ-12); (2) the draft rules module (M3-h bound, M3-c rule,
-M3-e migration, M3-f legacy write); (3) provider wiring (M3-a, M3-b, M3-c, M3-e, M3-f); (4) `hasChanged` and the
-D-18 suppression (M3-d, NM-7, NM-27, NM-28).
-
-## Resumption State
-
-Written 2026-11-19T01:46Z at the M3 seam after the M2 fix round (context past 225K, checkpoint). Website branch
-`chain/017-existing-items-backlog`, HEAD `dd26104` (M3: `d9ebe97` storage + draft rules, the
-provider wiring commit, `536b8e6` the unload suppression; M2 fix round `442059d`, `bce3119`, `dd26104`). Tree clean apart from
-the held `.playwright-mcp/`. Record: M2 document and `verification/017/impl/{m2,m3}/` committed at `e088937`.
-
-- Built and green (full suite at `536b8e6`: 1604 of 1604, 128 files, exit 0, `m3/vitest-m3-536b8e6.*`; at `dd26104`: 1606 of 1606,
-  129 files, exit 0, typecheck 0, `m2/vitest-m2-dd26104.*`): M3-a, M3-b, M3-c, M3-d (hasChanged without session; D-18 suppression via
-  `src/utils/leaveWithoutAlert.ts`), M3-e, M3-f, M3-g, M3-h. New tests: `utils/__tests__/withLocalStorage.stored-keys.test.tsx` (9),
-  `utils/__tests__/messageDrafts.bound-and-recency.test.tsx` (22), `providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx`
-  (25), `utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx` (6). Shared mock `buildApiMock` now runs the latest mutation options
-  (react-query behaviour); `own-save-notice` and `save-step` test helpers adjusted (onSuccess gets variables; storage cleared).
-  Red runs captured: `m3/red-quota.out`, `m3/red-drafts.out`, `m3/red-provider.json` (8 of 25 red, assertion level), `m3/red-unload.out`.
-- Self-check sweep over `ec984fe..536b8e6` (`m3/536b8e6-mutants-gen.json`, `m3/536b8e6-sweep.out`): 58 of 72 killed; 14 SURVIVORS to
-  disposition, none yet: `index.tsx:41:>` (getMessage `editedAt > updatedAt` boundary: needs an equal-timestamp case), `index.tsx:174:if-false`,
-  `SessionProvider.tsx:15` x3 (no test mounts SessionWrapper; needs a case: stale cookie and no session signs out through `leaveWithoutAlert`),
-  `leaveWithoutAlert.ts:1:num` (re-arm delay 2000: equivalent unless a case pins a lower bound), `messageDrafts.ts:19:num:2/3` (random id
-  slice/radix, likely equivalent), `:38:walk-first`, `:45:>` (size bound boundary), `:67:walk-last`, `withLocalStorage.ts:13:if-false/false` and
-  `:19:true` (the SSR `typeof window` branches; likely unreachable in the DOM env, name the equivalence). Close each with a spec-form case in
-  the existing file or a stated equivalence, re-run those mutants, record in the Test Execution Results.
-- Owed before hand-off of M3: (1) the survivor dispositions above; (2) QA's hand-made named mutants against the built code: NM-6 (re-encode
-  other keys; killed by `withLocalStorage.stored-keys` bare-theme case, to run), NM-7 (`hasChanged` keeps a `loading` condition; the 3x2 cases),
-  NM-27 (suppression keyed on NavMenu's button so Log out is also silenced: no test mounts `NavMenu`; either add one or record it unplaced with the
-  reason), NM-28 (flag left lowered when sign-in does not leave: killed by the re-arm case, to run); (3) `convention-check.js website
-  --since=1ad625e` with FAILs fixed or dispositioned (M1's 5 and the 42 in `useApiMethods.json-editor-repair.test.ts` are base, D-9);
-  (4) full suite and typecheck at the final M3 tip; (5) Patterns Extended, TDD Compliance table (rows for the four new test files; the
-  first row of each new module is the compile-time red, the rest need a mutant per row from the sweep), Files Modified/Created, Class Sweep
-  (none owed first delivery), Test Execution Results, Outstanding Items; set `Handoff-At` to the final SHA and send the hand-off to
-  `code-reviewer-hooks-017` (document path + SHA).
-- Known design notes to record in Outstanding Items: the draft entry carries `data`, `name`, `editedAt` only (plan form), so a route-0 draft
-  restored from the store no longer carries `guildId`/`recent*` ids the old single key kept for a share-code message; the draft hook is
-  read through `withLocalStorage` directly (the `useLocalStorage` hook exposes no read-at-call-time), `useLocalMessageStore` was removed as
-  unused; tab id in `sessionStorage` key `messageDraftTab` (plan deviation, stated in the plan); the creating-save removal uses the closure's
-  `message`; the reload path removes the stored entry whenever the fetched copy is shown.
-- Messages: M2 fix-round hand-backs sent to `qa-hooks-017` and `code-reviewer-hooks-017` (fix SHA `dd26104`); nothing awaited from me except their
-  re-verdicts. M2 QA Phase 2 was FAILED at `ec984fe` (QAF-17) and the code review REJECTED (CR-5): both addressed by test-only commits.
-- After M3: M4 (read plan M4 and QA § M4 first; user-visible: send `steering-roadmap` only flows holding a decision). After M4 tell
-  `steering-roadmap` that M1 to M4 are through (devops probe push for OQ-7). M5/M6 wait on OQ-7 and gate M5-0; M7 last.
-- Scratch to remove at run end under `/tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/`: `clone-m2`
-  (gone), `clone-m3`, `work-*`, mutants-*.json; older session scratch `/tmp/claude-1000/-usr-local-bin-hooks/4fc9969e-4c4a-48ea-8512-e0b69da51295/scratchpad/`
-  (`base-limits.test.ts`, outputs). No process left running.
-- Process facts for the final report: stamp-gate refusal (typed a future stamp on the M3 document; corrected from the clock; the M2 row too),
-  record-write-gate refused a `sed -i` on a record document (re-issued with the Edit tool / `record-edit.js`; satisfied, not worked around).
-- Cache-warm wake `253f9e74` deleted at this checkpoint; re-arm on the next briefed turn.
+Code review (`code-reviewer-hooks-017`) at website `3498ef3` (the M3 range is `d9ebe97`, `79144cb`, `536b8e6`,
+`08124a4`, `3498ef3`; `ec984fe..dd26104` is M2's fix round and outside it), then QA Phase 2 for M3, then M4 (read
+plan M4 and QA § M4 first). After M4: tell `steering-roadmap` that M1 to M4 are through (devops probe push for OQ-7).
+M5 and M6 wait on OQ-7 and gate M5-0; M7 last.

@@ -1,0 +1,21 @@
+{
+ "mutant": {
+  "name": "surv-messageDrafts.ts_67_walk-last",
+  "edits": [
+   {
+    "file": "src/utils/messageDrafts.ts",
+    "old": "= Object.keys(drafts)\n ",
+    "new": "= (Array.isArray(Object.keys(drafts)) ? Object.keys(drafts).slice(-1) : Object.keys(drafts))\n "
+   }
+  ],
+  "tests": [
+   "src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx",
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "messageDrafts, a tab at route 0 with none of its own, copies the route-0 entry edited most recently under its own key"
+ ],
+ "verdict": "killed"
+}

@@ -1,0 +1,10 @@
+56:+  if (!ignoreLocalRef.current && draft && draft.editedAt > message.updatedAt) {
+183:+    const made = Math.random().toString(36).slice(2, 12);
+202:+const oldestOtherThan = (drafts: MessageDrafts, key: string) => Object.keys(drafts)
+204:+  .sort((a, b) => drafts[a].editedAt - drafts[b].editedAt)[0];
+208:+  const tooBig = () => Object.keys(drafts).length > MAX_DRAFTS
+209:+    || JSON.stringify(drafts).length > MAX_DRAFT_CHARS;
+210:+  while (tooBig() && Object.keys(drafts).length > 1) delete drafts[oldestOtherThan(drafts, key)];
+231:+  const newest = Object.keys(drafts)
+232:+    .filter((k) => k.startsWith('0:'))
+233:+    .sort((a, b) => drafts[b].editedAt - drafts[a].editedAt)[0];

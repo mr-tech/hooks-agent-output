@@ -1,0 +1,22 @@
+surv-index.tsx_41_gt exit 1 failed cases 1 killed
+surv-index.tsx_174_if-false exit 1 failed cases 1 killed
+surv-SessionProvider.tsx_15_if-false exit 1 failed cases 1 killed
+surv-SessionProvider.tsx_15_andand exit 1 failed cases 2 killed
+surv-SessionProvider.tsx_15_not exit 1 failed cases 2 killed
+surv-leaveWithoutAlert.ts_1_num exit 0 failed cases 0 SURVIVED
+surv-messageDrafts.ts_19_num_2 exit 0 failed cases 0 SURVIVED
+surv-messageDrafts.ts_19_num_3 exit 0 failed cases 0 SURVIVED
+surv-messageDrafts.ts_38_walk-first exit 1 failed cases 1 killed
+surv-messageDrafts.ts_45_gt exit 1 failed cases 1 killed
+surv-messageDrafts.ts_67_walk-last exit 1 failed cases 1 killed
+surv-withLocalStorage.ts_13_if-false exit 0 failed cases 0 SURVIVED
+surv-withLocalStorage.ts_13_false exit 1 failed cases 1 killed
+surv-withLocalStorage.ts_19_true exit 0 failed cases 0 SURVIVED
+NM-6-reencode-other-keys exit 1 failed cases 1 killed
+NM-7-hasChanged-needs-loading exit 1 failed cases 1 killed
+NM-7-hasChanged-needs-unauthenticated exit 1 failed cases 1 killed
+NM-7-hasChanged-needs-authenticated exit 1 failed cases 1 killed
+NM-27-log-out-also-leaves-without-prompt exit 1 failed cases 1 killed
+NM-28-flag-never-re-armed exit 1 failed cases 2 killed
+NM-28-flag-stays-after-failed-exit exit 1 failed cases 1 killed
+done 0

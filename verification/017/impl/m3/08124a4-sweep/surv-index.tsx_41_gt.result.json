@@ -1,0 +1,20 @@
+{
+ "mutant": {
+  "name": "surv-index.tsx_41_gt",
+  "edits": [
+   {
+    "file": "src/providers/MessageProvider/index.tsx",
+    "old": " > ",
+    "new": " >= "
+   }
+  ],
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "MessageProvider, the store a browser holds from before shows the saved copy when the stored copy is exactly as new"
+ ],
+ "verdict": "killed"
+}

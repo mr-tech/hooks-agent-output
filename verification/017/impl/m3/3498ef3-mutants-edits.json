@@ -1,0 +1,1 @@
+[{"name":"NM-InfoPanel-log-in-keeps-prompt","edits":[{"file":"src/app/message/m/[id]/edit/page.tsx","old":"onContinue={() => leaveWithoutAlert(() => signIn('discord', { callbackUrl: '/message' }))}","new":"onContinue={() => signIn('discord', { callbackUrl: '/message' })}"}],"tests":["src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx"]}]

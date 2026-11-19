@@ -1,0 +1,8 @@
+src/app/_components/NavMenu.tsx:18:import { leaveWithoutAlert } from '~/utils/leaveWithoutAlert';
+src/app/_components/NavMenu.tsx:142:                else await leaveWithoutAlert(() => signIn('discord', { callbackUrl: '/message' }));
+src/app/message/m/[id]/edit/page.tsx:29:import { leaveWithoutAlert } from '~/utils/leaveWithoutAlert';
+src/app/message/m/[id]/edit/page.tsx:155:                    onContinue={() => leaveWithoutAlert(() => signIn('discord', { callbackUrl: '/message' }))}
+src/providers/SessionProvider.tsx:10:import { leaveWithoutAlert } from '~/utils/leaveWithoutAlert';
+src/providers/SessionProvider.tsx:15:    if (getClientSessionCookie() && !session) voided(() => leaveWithoutAlert(() => signOut()))();
+src/utils/hooks/useUnloadAlert.ts:7:import { isLeavingWithoutAlert } from '../leaveWithoutAlert';
+src/utils/leaveWithoutAlert.ts:7:export async function leaveWithoutAlert<T>(exit: () => Promise<T>) {

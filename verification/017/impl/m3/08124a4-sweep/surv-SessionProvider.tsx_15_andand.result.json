@@ -1,0 +1,21 @@
+{
+ "mutant": {
+  "name": "surv-SessionProvider.tsx_15_andand",
+  "edits": [
+   {
+    "file": "src/providers/SessionProvider.tsx",
+    "old": "&&",
+    "new": "||"
+   }
+  ],
+  "tests": [
+   "src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "SessionProvider, a page loaded with a session cookie the server did not accept does not sign out when the server gave a session",
+  "SessionProvider, a page loaded with a session cookie the server did not accept does not sign out when there is no cookie"
+ ],
+ "verdict": "killed"
+}

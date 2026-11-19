@@ -1,0 +1,19 @@
+{
+ "mutant": {
+  "name": "surv-withLocalStorage.ts_19_true",
+  "edits": [
+   {
+    "file": "src/utils/withLocalStorage.ts",
+    "old": " true ",
+    "new": " false "
+   }
+  ],
+  "tests": [
+   "src/utils/__tests__/withLocalStorage.stored-keys.test.tsx",
+   "src/utils/__tests__/withLocalStorage.server-render.test.ts"
+  ]
+ },
+ "exit": 0,
+ "failed": [],
+ "verdict": "SURVIVED"
+}

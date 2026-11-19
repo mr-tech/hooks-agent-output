@@ -1,0 +1,20 @@
+{
+ "mutant": {
+  "name": "NM-28-flag-stays-after-failed-exit",
+  "edits": [
+   {
+    "file": "src/utils/leaveWithoutAlert.ts",
+    "old": "  } catch (error) {\n    leaving = false;",
+    "new": "  } catch (error) {"
+   }
+  ],
+  "tests": [
+   "src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "useUnloadAlert and the exits that lose nothing prompts again at once when the exit fails"
+ ],
+ "verdict": "killed"
+}
