@@ -1024,3 +1024,14 @@ carrying a message number that can claim another user's row. Owner-wait `website
   response. **This thread's ruling:** an M2 fix round within M2's criteria, with a red test reproducing the frame-before-response order, briefed to
   `implementer-hooks-017` from its Resumption State. A fix that would change what M2 specifies stops and comes here for the planner. After the fix,
   the sequence is code review, QA (from `7665d67`), an architect delta read, a UAT re-walk of B-1, then devops Stage 1.
+
+## 2026-11-19T11:06Z — UAT-1 fixed at website 42d15de; residue to the planner
+
+The implementer's fix round 3 is in `implementation/017-existing-items-backlog-m2-implementation.md` § "Fix Round 3", agent-output `9a950f3`, Handoff-At `42d15de`.
+The website tip moved `4b8db9c` → `8e1ccef` (fix, `usePusher.ts`) → `42d15de` (test), read with `git -C website log 4b8db9c..HEAD`. The implementer gives the cause as
+pusher-js parsing a number-shaped hash string into a number, so the string compare missed; its frame-before-response reading was wrong. These are the implementer's findings, for code review to re-derive. No M2 criterion or
+`forgetOwnSave` contract changed (its claim), so it went straight to `code-reviewer-hooks-017`. Every gate at `4b8db9c` on the website is expired.
+Sent to `planner-hooks-017` for disposition: the residue (two different hashes that read as the same number go unnoticed while in flight;
+the exact fix is a producer-side `JSON.stringify(hash)` in `shared.ts`, outside M2's surfaces) and a LOW (`usePusher` cleanup never
+disconnects). A disposition that needs code or widens a criterion comes here and goes to him as a scope delta. For UAT's re-walk: place each run
+by its frame hash, since only number-shaped hashes reach the fixed path (the implementer's item 3).
