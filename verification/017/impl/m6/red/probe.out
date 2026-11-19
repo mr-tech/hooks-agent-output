@@ -1,0 +1,20 @@
+FAIL ok status=204 puts=1 other=list lines=0 :: 1 list/delete/other requests, want 0
+FAIL goto-404 status=204 puts=1 other=list,delete lines=0 :: status 204, want 500; 1 puts, want 0; 2 list/delete/other requests, want 0; 0 failure lines, want 1
+FAIL goto-500 status=204 puts=1 other=list,delete lines=0 :: status 204, want 500; 1 puts, want 0; 2 list/delete/other requests, want 0; 0 failure lines, want 1
+FAIL goto-300 status=204 puts=1 other=list,delete lines=0 :: status 204, want 500; 1 puts, want 0; 2 list/delete/other requests, want 0; 0 failure lines, want 1
+FAIL goto-204 status=500 puts=0 other=list,delete lines=0 :: 2 list/delete/other requests, want 0; 0 failure lines, want 1
+FAIL goto-299 status=204 puts=1 other=list lines=0 :: 1 list/delete/other requests, want 0
+FAIL goto-null status=204 puts=1 other=list,delete lines=0 :: status 204, want 500; 1 puts, want 0; 2 list/delete/other requests, want 0; 0 failure lines, want 1
+FAIL goto-199 status=204 puts=1 other=list,delete lines=0 :: status 204, want 500; 1 puts, want 0; 2 list/delete/other requests, want 0; 0 failure lines, want 1
+FAIL setup-rejects status=500 puts=0 other=list,delete lines=0 :: 2 list/delete/other requests, want 0
+FAIL goto-reset status=500 puts=0 other=list lines=0 :: 1 list/delete/other requests, want 0; 0 failure lines, want 1
+FAIL screenshot status=500 puts=0 other=list lines=0 :: 1 list/delete/other requests, want 0; 0 failure lines, want 1
+FAIL put status=500 puts=3 other=list lines=0 :: 1 list/delete/other requests, want 0; 0 failure lines, want 1
+FAIL goto-hang status=500 puts=0 other=list lines=0 :: 1 list/delete/other requests, want 0; 0 failure lines, want 1
+PASS bad body status=500 want=500
+PASS wrong key status=404 want=404
+PASS wrong path status=404 want=404
+PASS wrong method status=404 want=404
+unchanged lines: Server running 1, Created instance 2, POST /generate 15
+closing lines: 1
+cases 17, failed 13

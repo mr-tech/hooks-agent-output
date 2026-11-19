@@ -1,0 +1,50 @@
+[
+ {
+  "id": "NM-18a-accepts-300",
+  "file": "src/generateImage.ts",
+  "old": "status > 299",
+  "new": "status > 399"
+ },
+ {
+  "id": "NM-18b-null-response-accepted",
+  "file": "src/generateImage.ts",
+  "old": "response?.status() ?? 0",
+  "new": "response?.status() ?? 200"
+ },
+ {
+  "id": "NM-19-generator-lists-the-prefix",
+  "file": "src/generateImage.ts",
+  "old": "  await getS3().send(new PutObjectCommand({",
+  "new": "  await getS3().send(new (require('@aws-sdk/client-s3').ListObjectsCommand)({ Bucket: config.CDN_BUCKET, Prefix: 'previews/' }));\n  await getS3().send(new PutObjectCommand({"
+ },
+ {
+  "id": "NM-20-204-before-the-put-resolves",
+  "file": "src/generateImage.ts",
+  "old": "  await getS3().send(new PutObjectCommand({",
+  "new": "  void getS3().send(new PutObjectCommand({"
+ },
+ {
+  "id": "row-put-class-labelled-screenshot",
+  "file": "src/generateImage.ts",
+  "old": "throw new PreviewFailure('put', err)",
+  "new": "throw new PreviewFailure('screenshot', err)"
+ },
+ {
+  "id": "row-goto-class-labelled-error-status",
+  "file": "src/generateImage.ts",
+  "old": "throw new PreviewFailure('goto-rejected', err)",
+  "new": "throw new PreviewFailure('error-status', err)"
+ },
+ {
+  "id": "row-line-written-for-every-error",
+  "file": "src/server.ts",
+  "old": "if (err instanceof PreviewFailure) console.error",
+  "new": "console.error"
+ },
+ {
+  "id": "row-line-names-the-nonce",
+  "file": "src/server.ts",
+  "old": "id=${id} class=",
+  "new": "id=${id} nonce=${nonce} class="
+ }
+]

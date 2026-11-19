@@ -253,4 +253,21 @@ else
   done < <(printf '%s\n' "$STOPS")   # process substitution: a pipe, no here-doc temp file
 fi
 
+# --- [7] preview failure lines (plan 017 M6-c; RK-7, B-10) ---------------------------------------------------------
+# The generator writes one 'preview-image-failure id=<id> class=<class> elapsedMs=<n>' line per render-path failure to
+# stderr (the PROD app's error log) and 'Generated image for message <id> with nonce <n> in <N>ms' to stdout (its out log).
+# Counts only; no line is printed. Liveness (QAF-14): a zero failure count says nothing unless the generated-image count
+# since the same deploy is above zero. The fixture run is verification/017/m6-probe/pig-host-read-fixture.sh.
+echo; echo "[7] preview failure lines for $PROD (counts only):"
+ERRF="$H/logs/$PROD-error.log"
+if [ -r "$ERRF" ] && [ -r "$OUT" ]; then
+  for CLS in goto-rejected error-status screenshot put; do
+    echo "  class=$CLS: $("$GREP" -c "preview-image-failure id=[0-9]* class=$CLS elapsedMs=[0-9]*\$" "$ERRF")"
+  done
+  echo "  all classes: $("$GREP" -c 'preview-image-failure id=[0-9]* class=[a-z-]* elapsedMs=[0-9]*$' "$ERRF")"
+  echo "  'Generated image for message' lines in the out log (liveness for a zero): $("$GREP" -c 'Generated image for message [0-9]* with nonce .* in [0-9]*ms$' "$OUT")"
+else
+  echo "  $ERRF or $OUT not readable"
+fi
+
 echo; echo "=== end"

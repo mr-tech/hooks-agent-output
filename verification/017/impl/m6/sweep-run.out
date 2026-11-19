@@ -1,0 +1,19 @@
+control 16 0
+generateImage.ts:36:num SURVIVED 16 0
+generateImage.ts:37:if-false KILLED 16 2
+generateImage.ts:37:< KILLED 16 3
+generateImage.ts:37:num KILLED 16 3
+generateImage.ts:37:|| KILLED 16 5
+generateImage.ts:37:> KILLED 16 1
+generateImage.ts:37:num:2 KILLED 16 1
+server.ts:39:if-false KILLED 16 9
+NM-18a-accepts-300 KILLED 16 1
+NM-18b-null-response-accepted KILLED 16 1
+NM-19-generator-lists-the-prefix KILLED 16 3
+NM-20-204-before-the-put-resolves KILLED None None
+row-put-class-labelled-screenshot KILLED 16 1
+row-goto-class-labelled-error-status KILLED 16 2
+row-line-written-for-every-error KILLED 16 1
+row-line-names-the-nonce KILLED 16 9
+15 of 16 mutants killed (denominator: mutants applied under a passing control)
+exit 0
