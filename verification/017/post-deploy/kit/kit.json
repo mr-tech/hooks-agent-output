@@ -1,0 +1,25 @@
+{
+  "carrier": "handoff/017-existing-items-backlog-post-deploy-2026-11-19.md",
+  "agent": "devops",
+  "allowedTools": [
+    "Bash(bash verification/017/post-deploy/kit/b7-read.sh:*)",
+    "Bash(bash verification/017/post-deploy/kit/b10-read.sh:*)",
+    "Bash(git commit --only:*)",
+    "Bash(git add --intent-to-add:*)",
+    "Bash(git diff:*)",
+    "Bash(git status:*)",
+    "Bash(git log:*)",
+    "Bash(date:*)",
+    "Bash(ls:*)",
+    "Bash(grep:*)",
+    "Bash(mkdir:*)",
+    "Bash(node tools/check-repo.js:*)",
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob"
+  ],
+  "timeoutSeconds": 1200,
+  "lock": "017-post-deploy"
+}

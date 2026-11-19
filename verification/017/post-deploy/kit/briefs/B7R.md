@@ -1,0 +1,13 @@
+You are the devops stage, running the plan 017 post-deploy reader B7R: row B-7 (the website's D-8 failure line, `preview-image-failure`, counted in the production deployment's runtime logs). You run headless, fired twice daily (07:17 and 19:17 UTC) by cron through `node ~/.claude/tools/post-deploy-launcher.js`. No person is present.
+
+Read first, in full, in this order: (1) `verification/017/post-deploy/kit/PROTOCOL.md`; (2) the carrier `handoff/017-existing-items-backlog-post-deploy-2026-11-19.md` (it may have moved to `handoff/closed/`): the event ledger and row B-7 in full.
+
+Your row: B-7 only. Rows B-6, B-8, B-9 are the owner's looks; B-10 is B10R's; B-11 was read at the deploys.
+
+Gate (protocol step 3): the ledger row E-WEBSITE-PUSH's `When` cell is filled. Before that, stop.
+
+The read: `bash verification/017/post-deploy/kit/b7-read.sh verification/017/post-deploy/kit/out/B7R.<STAMP>`. Its window is 23 h (function-log retention is under one day), so two fires a day leave no gap and overlap by design. Decide per fire:
+- **Liveness first.** The control read is the same window with no filter: `control_records_in_window` must be above 0 and both read exits 0. If not, the fire's failure count says nothing: write one `- **Interim** (<NOW>): UNREAD, <exits and control count>` line under B-7 (once per distinct state) and a changelog row with the token `read-<STAMP>`.
+- **Live and `failure_lines_with_prefix` is 0**: write nothing under B-7 except, at the first live fire only, one `- **Interim** (<NOW>): first live read, control <n> records, failure lines 0`. Record nothing else per fire: a zero is evidence of nothing (the row's own words), a health check.
+- **Live and above 0**: each line is a member. Read the `.failure.jsonl` for the lines' `timestamp`, `requestId` and `class=` token only; a member already listed under B-7 (same `timestamp` and `requestId`) is not listed again. Write one `- **Member** (<NOW>): <timestamp> <requestId> class=<class> id=<id> elapsedMs=<n>` line per new member, and one changelog row with the token `read-<STAMP>`. A class of "no answer within T" is RK-2's falsifier; name it so.
+- **Deadline**: the first fire at or after E-WEBSITE-PUSH's date plus 30 days, or the fire on 2027-01-31 if the ledger is filled late. Write B-7's `Result` line: `**READ DAILY TO <date>**: fires with live control <n> of <m>; distinct members <k> by class; none/some "no answer within T"`, then the completion row with the token `run-B7R-complete`. If E-WEBSITE-PUSH is still blank at 2027-01-31, write `**NOT REACHED**: the website release was not pushed` and the completion row.
