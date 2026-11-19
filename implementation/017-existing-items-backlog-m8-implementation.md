@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Handoff-At: c37d41a — repos=website; M8 first delivery (a5069d6 production and the first cases; 7780dac and c37d41a add one test case each)
+Handoff-At: 6555f65 — repos=website; M8 fix round on QAF-22 (test-only, 6555f65); first delivery was c37d41a (production at a5069d6)
 ---
 
 # Implementation 017 — M8: One Enter answers only the dialog that holds focus (D-26, D-29)
@@ -24,6 +24,7 @@ Start: `steering/017-rulings.md` block 2026-11-19T05:19Z (`04a5e55`); QA Phase 1
 |---|---|---|
 | 2026-11-19T05:24 | implementer-hooks-017 | Resumed chain 017 on `steering-roadmap-hooks`'s message; M8 opened first (smallest, no shared file with M5 or M6). Plan Status stays In Progress; Status-Detail current (plan R-29, agent-output `98017a5`). |
 | 2026-11-19T05:35 | implementer-hooks-017 | M8 built and committed at website `a5069d6` (production and 29 cases), `7780dac` (one case), `c37d41a` (one case). Full suite 1724 of 1724, exit 0; typecheck exit 0. Handed to code review at `c37d41a`. |
+| 2026-11-19T06:01 | implementer-hooks-017 | Fix round on QA Phase 2 (QA Failed at `c37d41a`, QAF-22 MEDIUM, QAF-23 LOW) and code review Round 5 (CR-12 LOW). Test-only at website `6555f65`; full suite 1811 of 1811 exit 0 (the tree now holds M5's tests too); typecheck exit 0. Section `## Fix Round (QAF-22, QAF-23, CR-12)` below. The 05:35 row's claim that `row-warning-enabled-dropped` is equivalent was false and is corrected in place. |
 
 ## Implementation Summary
 
@@ -174,7 +175,7 @@ Row mutants (one per guard of the hook and the wiring; `a5069d6-named-sweep.out`
 | `row-hook-gate-negated` | killed, 17 failing |
 | `row-hook-gate-removed` | killed, 10 failing |
 | `row-warning-ref-unattached`, `row-image-ref-unattached`, `row-confirmation-ref-unattached` | killed, 5, 6 and 7 failing |
-| `row-warning-enabled-dropped` (`useDialogEnter(onConfirm)`) | SURVIVES at `a5069d6` and at `c37d41a`: equivalent. A closed `WarningDialog` renders no panel (`PresetDialog` unmounts it), so its ref is null and its gate is false whatever `enabled` is; no focus position can reach it. The argument is kept (the plan keeps `enabled` as at `1ad625e`); the case "answers nothing once closed" drives the path and passes under the mutant for that reason |
+| `row-warning-enabled-dropped` (`useDialogEnter(onConfirm)`) | SURVIVED at `a5069d6` and `c37d41a`. **My first disposition ("equivalent: a closed `WarningDialog` renders no panel") was false** and is withdrawn: `PresetDialog` unmounts the panel only after its 75 ms leave transition, so for that window the panel is mounted and visible with focus inside it and `enabled` alone stops the answer (QA's probe, `verification/017/qa-m8/probe-closing-window/`). Killed at `6555f65` by the leave-window case; see the Fix Round |
 
 Survivors of the self-check sweep (11, all in `ImageUploader.tsx` at lines 97, 101, 110, 116, 121, 147, none a line M8 wrote): the lines hold pre-existing JSX that the lint's indentation rule moved one level
 when the wrapper `div.contents` was added, so the generator reads them as added. `git diff -w 5c3d03f c37d41a -- src/components/ImageUploader.tsx` shows four changed lines (the removed import,
@@ -189,12 +190,44 @@ with focus in its hidden dialog. M8-b's rows for W or I with the link prompt, an
 
 No timeout or time-based test was added; the closing transition of U is awaited by condition (`vi.waitFor`).
 
+## Fix Round (QAF-22, QAF-23, CR-12)
+
+Base `c37d41a`, tip `6555f65` (one commit, tests only: `git diff --numstat c37d41a 6555f65` over the two enter-scope files). Captures under `verification/017/impl/m8/` (`fix1-green.*`, `6555f65-fix-*`).
+No production change, no new user-visible flow, no plan change.
+
+TDD Compliance (this round):
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| `WarningDialog` answers no Enter while its panel is leaving after `open` turns false (focus on its dialog element, panel still mounted) | `WarningDialog.enter-scope.test.tsx` "answers nothing while its panel is still leaving after it is closed" | Yes (QA's probe is the red case; no production change owed) | Yes, against `useDialogEnter(onConfirm)` in an export of `6555f65` (`6555f65-fix-out/row-warning-enabled-dropped.result.json`): 1 failing, exactly this case | AssertionError (`onConfirm` ran once) | Yes, `fix1-green.json` (33 of 33 in the two files) |
+| `ImageUploader` answers no Enter in the same window (its own Enter, `submit` then `onClose`, starts it) | `ImageUploader.enter-scope.test.tsx` "while its panel is still leaving after it is closed" | Yes | Yes, against `useDialogEnter(submit)` (NM-34, `6555f65-fix-out/NM-34-image-enabled-while-closed.result.json`): 2 failing, this case and the hidden-dialog case | AssertionError (`setImage` ran) | Yes |
+
+Both cases assert that focus still lies inside the dialog after `open` is set false, so a vacuous pass (panel already gone) is excluded by the case itself. The existing "answers nothing once closed" and the hidden-dialog case are kept: the first covers a dialog never opened, the second a closed instance that stays mounted.
+
+Class Sweep:
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| QAF-22, a dialog whose Enter answer is gated on an open flag, with no case holding focus in its still-mounted panel during the leave | `git grep -n "useDialogEnter(" -- src ':!**/__tests__/**'` at `6555f65` | 3 hits: `ConfirmationDialog.tsx:14` (no flag: it renders only while a confirmation is set, `props &&`), `ImageUploader.tsx:86` (`isOpen`), `WarningDialog.tsx:19` (`open`) | `ImageUploader` and `WarningDialog`: covered by the two cases above, both mutants killed. `ConfirmationDialog` has no `enabled` argument to drop: the reachable analogue is its content unmounting at once on answer (`props && <Inner …>`), and M4's cases with both prompts open cover its single answer. Residual 0 |
+| QAF-22, a mutant I called equivalent by argument without a case driving its path | the Test Execution Results tables of this document | 1: `row-warning-enabled-dropped` | withdrawn above and killed. No other row of the tables is dispositioned equivalent by argument: the sweep's 11 survivors are re-indented lines, each shown by `git diff -w`. Residual 0 |
+
+CR-12 / QAF-23, `FakeImage`: the image dialog's cases replace the global `Image` with `FakeImage` (in `ImageUploader.enter-scope.test.tsx`; the same stand-in the existing `ImageUploader.url-validation` test uses),
+which sets `width = 1` and fires `onload` from a microtask when `src` is set, never `onerror`. Its fidelity: `checkImage` in `ImageUploader.tsx` reads only `onload`, `onerror` and `width > 0`, so
+every URL the cases enter "loads"; the cases do not test the not-found path (`Invalid url.` / `Image not found.` are covered by `ImageUploader.url-validation`).
+
+Test Execution Results (this round): `npx vitest run --reporter=json` over the whole suite at `6555f65` (`vitest-m8-6555f65.{json,out,exit}`): 1811 of 1811 passed, 143 test files, exit 0; count method: the reporter's counters
+and `testResults` length. The tree also holds M5's committed tests (1724 at `c37d41a` plus 87). `pnpm run typecheck` exit 0 (`typecheck-6555f65.exit`). `convention-check.js website --since=c37d41a`: 0 FAIL, 0 CANDIDATE (`convention-check-6555f65.out`).
+
+Process fact: the record-write gate refused one `sed -i` on this document (a changelog stamp); re-issued with the Edit tool, satisfied and not worked around.
+
+Self-diagnosis, for the retrospective: I declared a surviving mutant equivalent from the component's mount structure ("the panel is unmounted when closed") without driving a closing state, and the transition keeps the panel mounted
+for 75 ms. A disposition by argument needs the case or probe that drives the argued path; the rule I applied to removing a guard I did not apply to a survivor.
+
 ## Outstanding Items
 
 - **For UAT (B-13):** which element a real browser focuses when "Message Update Detected" opens over an open dialog, and that Enter on a focused `Button` stays off the document there, are RK-11's and the plan's
   Assumption Not Checked; jsdom cannot show them. The tests hold either way (exactly one dialog answers, the focused one).
-- **Instrument limit:** the closed-instance case focuses an element inside a `display: none` dialog, which jsdom allows and a browser does not; it holds the `enabled` guard as a spec ("a closed instance answers nothing"),
-  not as a reachable browser state.
+- **Instrument limit:** the closed-instance case focuses an element inside a `display: none` dialog, which jsdom allows and a browser does not. NM-34's kill no longer rests on it alone: the leave-window case (Fix Round) puts focus in a visible panel.
 - **The sweep's 11 survivors** are on re-indented existing lines (above), not M8 guards. If the code reviewer prefers the diff to carry no re-indent, the wrapper would have to sit inside
   `PresetDialog` (a change to the shared component); not done.
 - **Downstream:** M8 changes product behaviour observable outside the service's source: with the update prompt open over a delete warning or the image dialog, one Enter no longer answers both. M5 to M7 do not read this surface; UAT's B-13 is the milestone whose premise it sets.
@@ -203,4 +236,4 @@ No timeout or time-based test was added; the closing transition of U is awaited 
 
 ## Next Steps
 
-Code review at website `c37d41a` (M8 range `5c3d03f..c37d41a`), then QA Phase 2 for M8. Next in the implementer's order: M5 (website), M6 (generator), M7 last.
+Back to `code-reviewer-hooks-017` for a scoped check of the test-only round at `6555f65` (range `c37d41a..6555f65`), then QA's refresh (`qa-hooks-017`). Next in the implementer's order: M5 (website), M6 (generator), M7 last.

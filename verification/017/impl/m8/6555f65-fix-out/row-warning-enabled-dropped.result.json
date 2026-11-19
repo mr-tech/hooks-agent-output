@@ -1,0 +1,21 @@
+{
+ "mutant": {
+  "name": "row-warning-enabled-dropped",
+  "edits": [
+   {
+    "file": "src/components/WarningDialog.tsx",
+    "old": "useDialogEnter(onConfirm, open)",
+    "new": "useDialogEnter(onConfirm)"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "WarningDialog, the Enter key alone answers nothing while its panel is still leaving after it is closed"
+ ],
+ "verdict": "killed"
+}
