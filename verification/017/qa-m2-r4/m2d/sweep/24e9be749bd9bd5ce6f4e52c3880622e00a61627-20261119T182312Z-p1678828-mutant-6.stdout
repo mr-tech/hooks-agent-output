@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/44f411da-305d-4350-b0d5-c27d94aebf0c/scratchpad/m2d-work/20261119T182312Z-p1678828/mutant-6
+
+ ❯ |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts (12 tests | 2 failed) 559ms
+     × carries the exact hash string of the saved message when the hash has digits only 15ms
+     × carries the exact hash string of the saved message when the hash has a minus sign and digits only 23ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  2 failed | 1849 passed (1851)
+   Start at  18:25:29
+   Duration  18.38s (transform 26.64s, setup 1.35s, import 142.70s, tests 38.94s, environment 82.95s)
+

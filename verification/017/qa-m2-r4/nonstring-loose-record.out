@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/44f411da-305d-4350-b0d5-c27d94aebf0c/scratchpad/exp2
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (60 tests | 1 failed | 58 skipped) 33ms
+     × raises the notice when a payload that is not a string arrives while this tab holds a record of a save with the same digits 28ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when a payload that is not a string arrives while this tab holds a record of a save with the same digits
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:404:27
+    402|     act(() => { hoisted.handler?.(Number(sentHash(0))); });
+    403|
+    404|     expect(noticeShown()).toBe(true);
+       |                           ^
+    405|   });
+    406|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed | 58 skipped (60)
+   Start at  18:17:13
+   Duration  1.87s (transform 300ms, setup 23ms, import 1.05s, tests 33ms, environment 631ms)
+

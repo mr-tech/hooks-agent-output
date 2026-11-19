@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/44f411da-305d-4350-b0d5-c27d94aebf0c/scratchpad/sweep-work/20261119T180324Z-p1417110/mutant-4
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (58 tests | 15 failed) 613ms
+     × raises the notice when another tab saves content this tab never sent 31ms
+     × raises the notice when another tab saves while this tab has unsaved edits, naming the loss 4ms
+     × raises the notice when another tab saves content whose broadcast hash is digits only 3ms
+     × raises the notice when another tab saves content whose hash is digits and an e, beside a held record of different content 5ms
+     × raises the notice when another tab saves content whose hash differs from the shown content's although both would read as one finite value 6ms
+     × raises the notice when another tab saves content whose hash differs from the shown content's although both would read as Infinity 5ms
+     × raises the notice when another tab saves content whose hash differs from the shown content's although both would read as -Infinity 5ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as one finite value 7ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as Infinity 6ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as -Infinity 9ms
+     × raises the notice when another tab saves a component-only edit 3ms
+     × raises the notice when another tab saves while this tab's own save is in flight 5ms
+     × raises the notice when another tab saves content this tab sent earlier and has already seen broadcast 6ms
+     × raises the notice for a later save of the content of a save that failed 5ms
+     × raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows 5ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx (4 tests | 4 failed) 36ms
+     × names the loss when the composer already had changes at subscription 24ms
+     × names the loss when the composer changed after the subscription was made 5ms
+     × does not name the loss when the composer has no changes 3ms
+     × does not name the loss when the composer returned to no changes after the subscription was made 3ms
+
+ Test Files  2 failed | 142 passed (144)
+      Tests  19 failed | 1827 passed (1846)
+   Start at  18:05:00
+   Duration  21.54s (transform 35.33s, setup 2.06s, import 172.26s, tests 48.29s, environment 92.59s)
+

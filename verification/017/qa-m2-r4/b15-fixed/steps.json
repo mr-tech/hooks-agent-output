@@ -1,0 +1,77 @@
+{
+ "reads": {
+  "1": {
+   "path": "/message/m/900000000000001/edit",
+   "socks": [
+    {
+     "host": "ws-us2.pusher.com",
+     "state": 1
+    }
+   ]
+  },
+  "3": {
+   "qaDoc": 1,
+   "path": "/message",
+   "socks": [
+    {
+     "host": "ws-us2.pusher.com",
+     "state": 3
+    }
+   ]
+  },
+  "4": {
+   "qaDoc": 1,
+   "path": "/message/f/0",
+   "socks": [
+    {
+     "host": "ws-us2.pusher.com",
+     "state": 3
+    }
+   ]
+  },
+  "5": {
+   "qaDoc": 1,
+   "path": "/message/m/900000000000002/edit",
+   "socks": [
+    {
+     "host": "ws-us2.pusher.com",
+     "state": 3
+    },
+    {
+     "host": "ws-us2.pusher.com",
+     "state": 1
+    }
+   ]
+  },
+  "6": {
+   "qaDoc": 1,
+   "path": "/message/m/900000000000002/edit",
+   "socks": [
+    {
+     "host": "ws-us2.pusher.com",
+     "state": 3
+    },
+    {
+     "host": "ws-us2.pusher.com",
+     "state": 1
+    }
+   ]
+  }
+ },
+ "clicks": [
+  "user menu",
+  "Servers /message",
+  "My Account /message/f/0",
+  "anchor to B edit"
+ ],
+ "anchors": [
+  [
+   "",
+   "/message/m/900000000000002/edit"
+  ],
+  [
+   "",
+   "/message/m/900000000000001/edit"
+  ]
+ ]
+}

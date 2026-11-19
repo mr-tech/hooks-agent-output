@@ -2,9 +2,9 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Verified-At: "dd26104 — repos=website; M2 refresh, scoped to M2 (usePusher.ts and useApiMethods.ts unchanged since ec984fe; index.tsx's M2 lines unchanged). The suite, the typecheck, the 14-mutant run and the AN-1 re-run ran in isolated git archive exports. The earlier anchor ec984fe (QA Failed) is superseded."
-Status: QA Complete
-Status-Detail: "M2 passes at website dd26104: QAF-17 and QAF-16 are resolved, and 14 of 14 mutants are killed. Milestone-scoped, so plan Status is unmoved. M3's changes in the tree are outside this verdict. The effort-final mutation sweep is owed."
+Verified-At: "24e9be7 — repos=website; M2's fix rounds 3 to 6 (range 4b8db9c..24e9be7), suites, typecheck, lint and sweeps in isolated git archive exports; B-15 walked on dev servers of 60252be and 24e9be7. The dd26104 anchor (QA Complete) is superseded."
+Status: QA Failed
+Status-Detail: "M2 fails at website 24e9be7 on QAF-27 MEDIUM, a severity-floor finding that keeps its round under the 18:13Z cap: a payload that is not a string is never asserted to raise the notice, so loose compares survive. Fix is test-only, and two cases are shown to kill both. Everything else holds: M2-c's four sub-classes on the real wire, M2-d's members, B-15 on both trees (2 open unfixed, 1 fixed), suite 1851/1851 with exit 0, typecheck 0, M7-b 0 above base. The plan-level verdict is re-issued at the fix tip."
 Phase: 2
 ---
 
@@ -17,7 +17,7 @@ changelog rows only: no hunk lands in `### M2`, the Testing Strategy, Validation
 **Stage start**: code review round 2, APPROVED_WITH_COMMENTS, `Reviewed-At: ec984fe`
 (`code-review/017-existing-items-backlog-code-review.md`, agent-output `45d2c8d`; plan row R-10 `3203afa`). Re-derived at
 the record.
-**Blocking-condition register**: `qa/017-existing-items-backlog-qa.md`. This pass appends no row. B-1 (UAT's two-tab walk)
+**Blocking-condition register**: `qa/017-existing-items-backlog-qa.md`. The first pass appended no row; the fix-round pass below executes and reconciles B-15 there. B-1 (UAT's two-tab walk)
 is M2's operator-observed row and is unchanged.
 
 ## Changelog
@@ -26,6 +26,7 @@ is M2's operator-observed row and is unchanged.
 |------|---------------|---------|---------|
 | 2026-11-19T01:24 | code-reviewer-hooks-017 (cross-session message; review round 2 `45d2c8d`) | QA Phase 2 for M2 at website `ec984fe`, with CR-3 inside QAF-16's disposition | Phase 2, M2 only. No steering brief arrived; I read the Decisions Register and both Assumption Not Checked sections myself. Suite 1542 of 1542, exit 0; typecheck 0. The AN-1 probe re-run at `8147661` and `ec984fe`: the outside-class member raises the notice at `8147661` and no member does at `ec984fe`. QA's 12 mutants: 11 killed, 1 survived. **QA Failed**: QAF-17 MEDIUM (the survivor's case, written and shown red and green). QAF-16 dispositioned together with CR-3 (fix seen at `442059d`, re-read at the refresh). Gate disclosed: record-write-gate-hook refused a shell heredoc append to `INBOX.md`; the entry was re-issued through `record-edit.js` `append_file`. |
 | 2026-11-19T01:48 | implementer-hooks-017 (cross-session message: QAF-17 at `bce3119`, tip `dd26104`) | Scoped refresh of M2 at website `dd26104` | Refresh. Suite 1606 of 1606, exit 0; typecheck 0. The M2 mutant set was re-anchored and run, plus two new mutants: 14 of 14 killed. QAF-17 and QAF-16 (CR-3) are RESOLVED. The committed AN-1 probe is out of date for M3's `onSuccess`; a copy that passes the mutation variables shows all 24 rows `notice: false`. **QA Complete** (M2-scoped), superseding the `ec984fe` QA Failed. |
+| 2026-11-19T18:30 | code-reviewer-hooks-017 (Round 9 sub-entry `f5f3346` at `60252be`; Round 10 sub-entry `4e1b43b` at `24e9be7`); steering-roadmap-hooks (tip moved; M2 cap, 18:13Z) | QA Phase 2 for M2's fix rounds 3 to 6, with M7-b re-read | Phase 2, M2-scoped, range `4b8db9c..24e9be7`. Sweeps: 17 of 19 at `60252be` and 5 of 8 at `24e9be7`; survivors are the two loose compares (QAF-27 MEDIUM, severity floor) and `channel.unbind()` (equivalent, an unchanged line). B-15 walked on both trees: 2 open sockets unfixed, 1 open and 1 closed fixed. Suite 1851/1851 with exit 0 on a quiet re-run (the first run's one failure was a load timeout in M1's file); typecheck 0; M7-b 0 above base. **QA Failed** on QAF-27. |
 
 ## Criteria assessed (recorded before execution)
 
@@ -256,3 +257,161 @@ Owner: UAT at B-1, which runs on the real Pusher client.
 - **UAT**: M2 is ready for B-1 once the chain reaches UAT. Its brief comes from steering.
 - **`implementer-hooks-017`**: nothing owed for M2.
 - **Steering**: no owner-needing item.
+
+## Phase 2 on M2's fix rounds 3 to 6 at website `24e9be7` (D-33, M2-d)
+
+**Stage start**: code review Round 10 sub-entry, APPROVED, `Reviewed-At` website `24e9be7`
+(`code-review/017-existing-items-backlog-code-review.md`, agent-output `4e1b43b`; plan row R-57 `ce22822`). I re-derived it
+at the record. The earlier sub-entry at `60252be` (`f5f3346`, R-54) began this pass. Steering then reported the tip had
+moved, so no verdict was written at `60252be`, and the work done there carries into this one. Steering's brief is this
+session's 17:5xZ message. Since 18:13Z M2 is capped: a gap below HIGH goes to the Planner batch, and a severity-floor finding
+keeps its round (`steering/017-rulings.md` block 2026-11-19T18:13Z, `54f62fe`).
+**Plan**: revision 11 (agent-output `a971ed8`). Its delta over revision 10 changes only the wording of M2-d's walk step
+and RK-3's record cell; it moves no criterion this pass verifies.
+**Implementation**: M2 § Fix Rounds 3 to 6 (`implementation/017-existing-items-backlog-m2-implementation.md`, `b7d0a2a`).
+`Handoff-At` is `24e9be7`.
+**Range**: website `4b8db9c..24e9be7`. QA's last sweep was the effort-final one at `4b8db9c`, and fix round 3 never reached
+QA. Production paths: `usePusher.ts` (the compare and the cleanup's `disconnect`) and `shared.ts` (the one trigger line).
+**Register**: `qa/017-existing-items-backlog-qa.md`. B-15 is executed and reconciled there.
+
+### Criteria assessed (recorded before execution)
+
+- M2-c with revision 10's exact string equality. Its class is number-shaped hashes, in four sub-classes: digits only; a
+  minus sign and digits; an exponent that stays finite; an exponent that overflows to ±Infinity (the Phase 1 re-key's
+  predicate). Each sub-class is verified on the producer's wire, and the consumer is verified on exact strings, including a
+  payload that is not a string.
+- M2-d's three members (unmount; the id changes; the message stops being an `ApiMessage`), and its "touches no other
+  instance". Each member is verified by case and by mutant.
+- M2-d's human-observable form (B-15), on the unfixed and on the fixed tree.
+- M2-a and M2-b: re-run through the suite only. Their guards are untouched since `dd26104`, apart from the compare
+  (M2-c's).
+- M7-b re-read at `24e9be7` (steering's brief).
+
+### TDD compliance gate
+
+Passed. The Fix Round 4, 5 and 6 tables give a row per case. Each guard was seen red, either in the red run against the
+prior tree or under a named mutant (`trigger-raw`, `record-decoded`, `shown-decoded`, `nm39` to `nm45`). Code review
+accepted Round 4's departure for the six colliding-pair cases (R-54). Round 5's "equivalent" disposition of `nm44` was
+withdrawn in Round 6 and killed by a case.
+
+### Test Execution Results
+
+| Command (`git archive` exports, `unshare -rn`) | Result |
+|---|---|
+| Full suite at `60252be` | 1846 of 1846, 144 files, exit 0 (`verification/017/qa-m2-r4/full-suite.{json,exit}`) |
+| `pnpm run typecheck` at `60252be` | exit 0, both programs (`typecheck.exit`) |
+| Full suite at `24e9be7`, first run | 1850 of 1851, exit 1 (`m2d/full-suite-24e9be7.*`). The one failure is `messageValidity.predicate`'s "parity by construction imports the gate directly…", which reached the 5 s default timeout (5006 ms) at a load average of 23, while this pass's sweep and a walk ran beside it. Alone it passes 11 of 11, exit 0 (`m2d/rerun-messageValidity.*`). The file is M1's and outside this range. |
+| Full suite at `24e9be7`, re-run at load 4 | **1851 of 1851, 144 files, exit 0** (`m2d/full-suite-24e9be7-quiet.*`) |
+| `pnpm run typecheck` at `24e9be7` (the reviewer's routed assumption: `Harness`'s `source` prop) | **exit 0**, both programs (`m2d/typecheck-24e9be7.exit`) |
+| M7-b at `24e9be7`: `eslint . -f json` in an export with its own offline install, then QA's `qa-m7/m7b-check.py` against `nofix-1ad625e-export.json` | 60 changed lintable files (M 25, A 31, R 4), **0** rule counts above `1ad625e`. `--plant`: 3 of 3 plants found (`m7b/`) |
+
+### Mutation sweep: range `4b8db9c..24e9be7`, production paths `usePusher.ts` and `shared.ts`
+
+Two runs of `mutation-run.py`, each a `general-purpose` helper over `git archive` exports. The full suite ran, with the
+control passing on the same run.
+- **At `60252be`** (`verification/017/qa-m2-r4/mutants.json`, kill table
+  `sweep/mutation-table-60252be…-20261119T180324Z-p1417110.json`; control 1846, exit 0). `mutant-gen.js --range 4b8db9c..60252be`
+  generated 8 operator mutants on `usePusher.ts`. QA added 11 of its own: NM-39, NM-40, a producer object, the event name,
+  the channel, NM-41a and NM-41b, two loose compares and two coupling mutants. **17 of 19 killed**, every count checked.
+- **At `24e9be7`**, for fix rounds 5 and 6, whose one production line has no operator mutant (`m2d/mutants-24e9be7.json`,
+  kill table `m2d/sweep/mutation-table-24e9be7…-20261119T182312Z-p1678828.json`; control 1851, exit 0). The set was
+  NM-42 to NM-45, the `channel.unbind()` drop, the class-gap mutant and the two loose compares. **5 of 8 killed**, every
+  count checked.
+  - NM-44 (disconnect the latest instance) is killed by "closes only the connection of the hook that unmounts when two
+    hooks are mounted at once" alone.
+  - NM-43 by 3 cases; NM-42 and NM-45 by 4 each.
+  - The class-gap mutant (the producer encodes only hashes containing `e`) is killed by the digits-only and minus-digits
+    members alone. At `60252be` it survived 122 of 122 (`class-gap-mutant.*`), and the extended wire probe showed exactly
+    those two members red under it (`probe-all-class-gap.*`). `24e9be7`'s rewrite of the wire file added both members.
+
+Survivors, each dispositioned:
+- **Loose record compare (`record == hash`) and loose shown compare (`hash != shownHash`)**, in both runs. They are not
+  equivalent. They differ from the shipped compares whenever the payload is not a string. AF-26 names a live member: during
+  a deploy, a new tab can receive the old build's bare frame, which pusher-js decodes to a number, and `'51354e00' == 51354`
+  is true. **QAF-27.**
+- **`channel.unbind()` dropped.** Equivalent at `24e9be7`: the same cleanup disconnects the instance the binding lives on,
+  so no event reaches a dropped binding. The line also predates the effort (`1ad625e`) and lies outside the sweep's
+  production diff. No finding.
+
+### B-15, QA's runs (`verification/017/qa-m2-r4/b15-unfixed/`, `b15-fixed/`)
+
+Local stack from `tools/uat-local-stack.sh` (next id 900000000000001). Messages A = 900000000000001 and
+B = 900000000000002 were seeded by SQL insert (`seed.sql`, `seed.out`), so no save ran and nothing was published to Pusher.
+**Ids written: 900000000000001 and 900000000000002, none below 900000000000001.** Sign-in went through Discord's authorize
+screen on the kept profile, and `/api/auth/session` returned `signedIn: true`. A `next dev` server ran from each tree's
+export. The walks were driven by `browser-walker`, with the socket recorder `ws-recorder.js` injected before load. The
+drivers are copied beside the evidence.
+- **Route.** No link leads from A's editor straight to B (walk 1). The header has no search control, and `/message` lists
+  only A (walk 2). The in-app route is: user menu → Servers (`/message`) → My Account (`/message/f/0`) → B. B-15 is
+  re-specified to it in the register.
+- **Readings** (`b15-reads.out`; `__qaDoc` stayed 1 at every hop, so the document was never replaced):
+
+  | Read | Unfixed `60252be`: open / closed | Fixed `24e9be7`: open / closed |
+  |---|---|---|
+  | A's editor | 1 / 0 | 1 / 0 |
+  | `/message` | 1 / 0 | 0 / 1 |
+  | `/message/f/0` | 1 / 0 | 0 / 1 |
+  | B's editor, +10 s | **2 / 0** | **1 / 1** |
+  | B's editor, +30 s | 2 / 0 | 1 / 1 |
+
+  The prediction holds on both trees, and one run separates them. This discharges the re-key's Assumption Not Checked: on
+  the unfixed tree the first socket stays open across in-app moves. Revision 11's "two open: a code read, not observed" is
+  now observed.
+- **Torn down.** Both dev servers' process groups were killed: `:3000` has no listener, and `ps -g` shows nothing.
+  `uat-local-stack.sh down` removed the container. The exports are deleted. The `browser-walker` closed each context and
+  emptied the profile caches.
+- **Disclosed.** The built-in removal check refused my first seed command, an `insert` that removes nothing, because it
+  could not parse the SQL's `$$` quoting. I re-issued it in plain syntax, with the SQL in a file. No removal was involved.
+
+### Findings
+
+QAF-27 MEDIUM Phase 2 (severity floor: a behaviour the change relies on, with no assertion that fails when it is lost)
+- **What is missing.** Nothing asserts that a payload which is not a string raises the notice.
+  - Fix Round 4 states the behaviour: "a non-string payload is 'equal to neither' and raises the notice, which is the
+    criterion's wording".
+  - AF-26's deploy-order argument relies on it: the exact compare "fails toward raising the notice … never toward
+    suppressing another tab's".
+  - Every consumer case hands the handler a string, so `==` and `!=` survive.
+- **Consequence if it is lost.** A loose compare would make a tab on the new build treat an old-build frame `51354` as
+  the record `'51354e00'` and suppress another tab's notice. That is CR-20's direction, for the length of a deploy.
+- **Remedy, shown to work.** I appended two cases to `MessageProvider.own-save-notice.test.tsx` in an export of `33e59f7`;
+  the file is unchanged at `24e9be7` apart from the mock's `disconnect`. The text is in
+  `verification/017/qa-m2-r4/nonstring-payload-cases.txt`.
+  - Case 1: a held record whose hash is digits only. After an edit, the payload is that hash as a number, and the notice is
+    raised.
+  - Case 2: the shown content's digits-only hash, delivered as a number, and the notice is raised.
+  - Both pass at the tree (`nonstring-tip.*`). The loose record mutant fails case 1 alone, and the loose shown mutant fails
+    case 2 alone (`nonstring-loose-{record,shown}.*`). The file was restored to blob `fc510f7` afterwards.
+- **Owner.** `implementer-hooks-017`: a test-only round. Under the 18:13Z cap it keeps its round, as a severity-floor finding.
+
+### Verdict
+
+**QA Failed at website `24e9be7`**, M2-scoped, on QAF-27 alone. Everything else this pass assessed holds:
+- M2-c's four sub-classes on the real wire;
+- M2-d's three members and its no-other-instance property, by case and by mutant;
+- B-15 on both trees;
+- the suite (1851 of 1851, exit 0) and the typecheck (exit 0);
+- M7-b (0 above the base).
+
+The fix round is test-only. Its refresh re-runs the two loose-compare mutants it closes, the suite and the typecheck. It
+re-reads M7-b at the new tip and re-issues the plan-level verdict there (R-47 is expired). B-15's readings carry over,
+because no production line changes. A later production change to `usePusher.ts` or `shared.ts` expires this pass.
+
+Rows inherited and not discharged: B-1 and B-12 (UAT's); B-15's execution by UAT.
+
+### Assumption Not Checked (this pass)
+
+This pass assumes something it does not test: that a production build (`next build`, then `next start`) opens and closes
+the editor's Pusher sockets as the `next dev` builds here did. React's development-only behaviours, such as Strict Mode's
+second effect run, could change the count in either direction, and B-15 ran on dev servers only.
+- **Falsifier.** On a production build, B-15 reads differently on the fixed tree: more than one open socket at B, or A's
+  socket still open on `/message`.
+- **Owner.** UAT, which executes B-15. It runs it on a production build if its local build is one; otherwise it states the
+  build kind. Named again in the hand-off.
+
+### Handoff
+
+- **`implementer-hooks-017`**: QAF-27, a test-only round. The two cases' text and both runs are under
+  `verification/017/qa-m2-r4/`.
+- **UAT**: B-15 is re-specified to the route above, with this pass's readings as the reference. It also carries the
+  build-kind assumption.

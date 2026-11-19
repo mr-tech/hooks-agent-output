@@ -1,0 +1,50 @@
+[
+ {
+  "id": "NM-42 no disconnect",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "      pusher.disconnect();\n    };",
+  "new": "    };"
+ },
+ {
+  "id": "NM-43 disconnect only in an unmount-only effect",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "    const pusher = new Pusher(env.NEXT_PUBLIC_PUSHER_KEY, {\n      cluster: env.NEXT_PUBLIC_PUSHER_CLUSTER,\n    });\n\n    const channel = pusher.subscribe(genMessageChannelKey(messageRef.current.id));\n    channel.bind('message-update', (hash: unknown) => {\n      if (!messageRef.current) return;\n      const ownSaveIndex = ownSaveRecordsRef.current\n        .findIndex((record) => record === hash);\n      if (ownSaveIndex >= 0) ownSaveRecordsRef.current.splice(ownSaveIndex, 1);\n      const shownHash = hashMessage(normalizeForHash(messageRef.current));\n      if (ownSaveIndex < 0 && hash !== shownHash) {\n        showConfirmation({\n          enabled: true,\n          title: 'Message Update Detected',\n          confirmText: 'Reload',\n          onConfirm: reloadMessage,\n          message: `The message you are viewing has been updated. Would you like to reload it?${hasChangedRef.current ? ' Any changes you have made will be lost.' : ''}`,\n        });\n      }\n    });\n\n    return () => {\n      channel.unbind();\n      pusher.unsubscribe(genMessageChannelKey(id));\n      pusher.disconnect();\n    };\n  }, [messageRef.current && isApiMessage(messageRef.current) && messageRef.current.id]);\n};\n",
+  "new": "    const pusher = new Pusher(env.NEXT_PUBLIC_PUSHER_KEY, {\n      cluster: env.NEXT_PUBLIC_PUSHER_CLUSTER,\n    });\n    (globalThis as unknown as { qaLatest?: { disconnect: () => void } }).qaLatest = pusher;\n\n    const channel = pusher.subscribe(genMessageChannelKey(messageRef.current.id));\n    channel.bind('message-update', (hash: unknown) => {\n      if (!messageRef.current) return;\n      const ownSaveIndex = ownSaveRecordsRef.current\n        .findIndex((record) => record === hash);\n      if (ownSaveIndex >= 0) ownSaveRecordsRef.current.splice(ownSaveIndex, 1);\n      const shownHash = hashMessage(normalizeForHash(messageRef.current));\n      if (ownSaveIndex < 0 && hash !== shownHash) {\n        showConfirmation({\n          enabled: true,\n          title: 'Message Update Detected',\n          confirmText: 'Reload',\n          onConfirm: reloadMessage,\n          message: `The message you are viewing has been updated. Would you like to reload it?${hasChangedRef.current ? ' Any changes you have made will be lost.' : ''}`,\n        });\n      }\n    });\n\n    return () => {\n      channel.unbind();\n      pusher.unsubscribe(genMessageChannelKey(id));\n    };\n  }, [messageRef.current && isApiMessage(messageRef.current) && messageRef.current.id]);\n  useEffect(() => () => { (globalThis as unknown as { qaLatest?: { disconnect: () => void } }).qaLatest?.disconnect(); }, []);\n};\n"
+ },
+ {
+  "id": "NM-44 disconnect the latest instance",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "    const pusher = new Pusher(env.NEXT_PUBLIC_PUSHER_KEY, {\n      cluster: env.NEXT_PUBLIC_PUSHER_CLUSTER,\n    });\n\n    const channel = pusher.subscribe(genMessageChannelKey(messageRef.current.id));\n    channel.bind('message-update', (hash: unknown) => {\n      if (!messageRef.current) return;\n      const ownSaveIndex = ownSaveRecordsRef.current\n        .findIndex((record) => record === hash);\n      if (ownSaveIndex >= 0) ownSaveRecordsRef.current.splice(ownSaveIndex, 1);\n      const shownHash = hashMessage(normalizeForHash(messageRef.current));\n      if (ownSaveIndex < 0 && hash !== shownHash) {\n        showConfirmation({\n          enabled: true,\n          title: 'Message Update Detected',\n          confirmText: 'Reload',\n          onConfirm: reloadMessage,\n          message: `The message you are viewing has been updated. Would you like to reload it?${hasChangedRef.current ? ' Any changes you have made will be lost.' : ''}`,\n        });\n      }\n    });\n\n    return () => {\n      channel.unbind();\n      pusher.unsubscribe(genMessageChannelKey(id));\n      pusher.disconnect();\n    };\n  }, [messageRef.current && isApiMessage(messageRef.current) && messageRef.current.id]);\n};\n",
+  "new": "    const pusher = new Pusher(env.NEXT_PUBLIC_PUSHER_KEY, {\n      cluster: env.NEXT_PUBLIC_PUSHER_CLUSTER,\n    });\n    (globalThis as unknown as { qaLatest?: { disconnect: () => void } }).qaLatest = pusher;\n\n    const channel = pusher.subscribe(genMessageChannelKey(messageRef.current.id));\n    channel.bind('message-update', (hash: unknown) => {\n      if (!messageRef.current) return;\n      const ownSaveIndex = ownSaveRecordsRef.current\n        .findIndex((record) => record === hash);\n      if (ownSaveIndex >= 0) ownSaveRecordsRef.current.splice(ownSaveIndex, 1);\n      const shownHash = hashMessage(normalizeForHash(messageRef.current));\n      if (ownSaveIndex < 0 && hash !== shownHash) {\n        showConfirmation({\n          enabled: true,\n          title: 'Message Update Detected',\n          confirmText: 'Reload',\n          onConfirm: reloadMessage,\n          message: `The message you are viewing has been updated. Would you like to reload it?${hasChangedRef.current ? ' Any changes you have made will be lost.' : ''}`,\n        });\n      }\n    });\n\n    return () => {\n      channel.unbind();\n      pusher.unsubscribe(genMessageChannelKey(id));\n      (globalThis as unknown as { qaLatest?: { disconnect: () => void } }).qaLatest?.disconnect();\n    };\n  }, [messageRef.current && isApiMessage(messageRef.current) && messageRef.current.id]);\n};\n"
+ },
+ {
+  "id": "NM-45 disconnect in the effect body",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "    const channel = pusher.subscribe(",
+  "new": "    pusher.disconnect();\n    const channel = pusher.subscribe("
+ },
+ {
+  "id": "channel.unbind dropped (unchanged line)",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "      channel.unbind();\n",
+  "new": ""
+ },
+ {
+  "id": "class gap: producer encodes only e-forms",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "'message-update', JSON.stringify(hashMessage(message)))",
+  "new": "'message-update', ((h: string) => (h.includes('e') ? JSON.stringify(h) : h))(hashMessage(message)))"
+ },
+ {
+  "id": "loose record compare",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "(record) => record === hash",
+  "new": "(record) => record == hash"
+ },
+ {
+  "id": "loose shown compare",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "hash !== shownHash",
+  "new": "hash != shownHash"
+ }
+]

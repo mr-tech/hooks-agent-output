@@ -1,0 +1,140 @@
+[
+ {
+  "id": "usePusher.ts:64:walk-first",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": " ownSaveRecordsRef.current\n",
+  "new": " (Array.isArray(ownSaveRecordsRef.current) ? ownSaveRecordsRef.current.slice(0, 1) : ownSaveRecordsRef.current)\n",
+  "op": "walk-first",
+  "line": 64,
+  "text": "const ownSaveIndex = ownSaveRecordsRef.current"
+ },
+ {
+  "id": "usePusher.ts:64:walk-last",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": " ownSaveRecordsRef.current\n",
+  "new": " (Array.isArray(ownSaveRecordsRef.current) ? ownSaveRecordsRef.current.slice(-1) : ownSaveRecordsRef.current)\n",
+  "op": "walk-last",
+  "line": 64,
+  "text": "const ownSaveIndex = ownSaveRecordsRef.current"
+ },
+ {
+  "id": "usePusher.ts:65:===",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "===",
+  "new": "!==",
+  "op": "===",
+  "line": 65,
+  "text": ".findIndex((record) => record === hash);"
+ },
+ {
+  "id": "usePusher.ts:68:if-false",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "));\n      if (ownSaveInd",
+  "new": "));\n      if (false && ownSaveInd",
+  "op": "if-false",
+  "line": 68,
+  "text": "if (ownSaveIndex < 0 && hash !== shownHash) {"
+ },
+ {
+  "id": "usePusher.ts:68:<",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": " < ",
+  "new": " <= ",
+  "op": "<",
+  "line": 68,
+  "text": "if (ownSaveIndex < 0 && hash !== shownHash) {"
+ },
+ {
+  "id": "usePusher.ts:68:num",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": " 0 ",
+  "new": " 1 ",
+  "op": "num",
+  "line": 68,
+  "text": "if (ownSaveIndex < 0 && hash !== shownHash) {"
+ },
+ {
+  "id": "usePusher.ts:68:&&",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "0 && h",
+  "new": "0 || h",
+  "op": "&&",
+  "line": 68,
+  "text": "if (ownSaveIndex < 0 && hash !== shownHash) {"
+ },
+ {
+  "id": "usePusher.ts:68:!==",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "!==",
+  "new": "===",
+  "op": "!==",
+  "line": 68,
+  "text": "if (ownSaveIndex < 0 && hash !== shownHash) {"
+ },
+ {
+  "id": "NM-39 producer bare hash",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "'message-update', JSON.stringify(hashMessage(message)))",
+  "new": "'message-update', hashMessage(message))"
+ },
+ {
+  "id": "NM-40 producer encodes twice",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "'message-update', JSON.stringify(hashMessage(message)))",
+  "new": "'message-update', JSON.stringify(JSON.stringify(hashMessage(message))))"
+ },
+ {
+  "id": "producer sends an object",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "'message-update', JSON.stringify(hashMessage(message)))",
+  "new": "'message-update', { hash: hashMessage(message) })"
+ },
+ {
+  "id": "producer event name",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "'message-update', JSON.stringify(hashMessage(message)))",
+  "new": "'message-updated', JSON.stringify(hashMessage(message)))"
+ },
+ {
+  "id": "producer channel",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "pusher.trigger(genMessageChannelKey(message.id),",
+  "new": "pusher.trigger(genMessageChannelKey(String(message.id) + '0'),"
+ },
+ {
+  "id": "NM-41a consumer decodes the record",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": ".findIndex((record) => record === hash);",
+  "new": ".findIndex((record) => (() => { try { return JSON.parse(record) as unknown; } catch { return record; } })() === hash);"
+ },
+ {
+  "id": "NM-41b consumer decodes the shown hash",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "hash !== shownHash",
+  "new": "hash !== (() => { try { return JSON.parse(shownHash) as unknown; } catch { return shownHash; } })()"
+ },
+ {
+  "id": "loose record compare",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "(record) => record === hash",
+  "new": "(record) => record == hash"
+ },
+ {
+  "id": "loose shown compare",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "hash !== shownHash",
+  "new": "hash != shownHash"
+ },
+ {
+  "id": "coupling: record kept unless shown differs",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "if (ownSaveIndex >= 0) ownSaveRecordsRef",
+  "new": "if (ownSaveIndex >= 0 && hash !== hashMessage(normalizeForHash(messageRef.current))) ownSaveRecordsRef"
+ },
+ {
+  "id": "coupling: shown clause only while records held",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "if (ownSaveIndex < 0 && hash !== shownHash)",
+  "new": "if (ownSaveIndex < 0 && (ownSaveRecordsRef.current.length === 0 || hash !== shownHash))"
+ }
+]

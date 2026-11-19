@@ -1,0 +1,122 @@
+{
+ "landing": [
+  "http://127.0.0.1:3000/message/m/900000000000001/edit",
+  "Hooks.gg - The Ultimate Messaging Tool for Discord Community Builders"
+ ],
+ "step1": {
+  "socks": [
+   {
+    "host": "ws-us2.pusher.com",
+    "state": 1
+   }
+  ],
+  "byState": {
+   "1": 1
+  }
+ },
+ "step2": "set",
+ "clicks": [
+  {
+   "route": "b",
+   "what": "user menu",
+   "qaDoc": 1
+  },
+  {
+   "route": "b",
+   "text": "Servers",
+   "href": "/message",
+   "qaDoc": 1
+  },
+  {
+   "route": "b",
+   "what": "expand 0",
+   "qaDoc": 1
+  },
+  {
+   "route": "b",
+   "what": "expand 1",
+   "qaDoc": 1
+  },
+  {
+   "route": "b",
+   "what": "expand 2",
+   "qaDoc": 1
+  }
+ ],
+ "anchorsInitial": [
+  [
+   "",
+   "/message/f/0"
+  ],
+  [
+   "Send",
+   "/message/m/900000000000001/send"
+  ]
+ ],
+ "headerButtons": [
+  "File|",
+  "Edit|",
+  "View|",
+  "Help|",
+  "toggle site theme|svg",
+  "user menu|svg",
+  "ClassicComponents V2|",
+  "edit avatar icon|",
+  "B-15 message A|",
+  "Add Embed|svg",
+  "toggle message view mode|svg",
+  "close modal|svg",
+  "Cancel|",
+  "Clear|",
+  "Save|svg"
+ ],
+ "routeAerr": "TimeoutError: locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button[aria-label*=\"earch\" i], [role=button][aria-label*=\"earch\" i], [title*=\"earch\" i]').first()\u001b[22m\n",
+ "route": "b",
+ "userMenuCands": [],
+ "messageAnchors": [
+  [
+   "QA B-15 message AMy Account",
+   "/message/m/900000000000001/edit"
+  ],
+  [
+   "My Account",
+   "/message/f/0"
+  ],
+  [
+   "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+   "/message/f/1"
+  ],
+  [
+   "Claude",
+   "/message/f/1566742402180456559"
+  ],
+  [
+   "statbot-065-install-test",
+   "/message/f/1566365268437893141"
+  ]
+ ],
+ "expandables": 4,
+ "messageAnchorsAfter": [
+  [
+   "QA B-15 message AMy Account",
+   "/message/m/900000000000001/edit"
+  ],
+  [
+   "My Account",
+   "/message/f/0"
+  ],
+  [
+   "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+   "/message/f/1"
+  ],
+  [
+   "Claude",
+   "/message/f/1566742402180456559"
+  ],
+  [
+   "statbot-065-install-test",
+   "/message/f/1566365268437893141"
+  ]
+ ],
+ "routeBerr": "TimeoutError: locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a[href$=\"/message/m/900000000000002/edit\"]').first() to be visible\u001b[22m\n"
+}

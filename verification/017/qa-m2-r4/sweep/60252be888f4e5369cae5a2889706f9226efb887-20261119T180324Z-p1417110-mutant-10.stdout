@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/44f411da-305d-4350-b0d5-c27d94aebf0c/scratchpad/sweep-work/20261119T180324Z-p1417110/mutant-10
+
+ ❯ |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts (11 tests | 9 failed) 50ms
+     × reaches subscribers as the exact hash of the saved message when the hash is not number-shaped 14ms
+     × reaches subscribers as the hash string when the hash has digits, an e and 00 2ms
+     × reaches subscribers as the hash string when the hash has digits, an e and 0 2ms
+     × reaches subscribers as the hash string when the hash has a minus sign, digits, an e and 02 1ms
+     × reaches subscribers as the hash string when the hash has an exponent past what a double holds 2ms
+     × reaches subscribers as the hash string when the hash has a minus sign and an exponent past what a double holds 1ms
+     × keeps two saves apart whose hashes would both read as one finite value 4ms
+     × keeps two saves apart whose hashes would both read as Infinity 4ms
+     × keeps two saves apart whose hashes would both read as -Infinity 3ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  9 failed | 1837 passed (1846)
+   Start at  18:07:23
+   Duration  20.51s (transform 29.61s, setup 2.17s, import 157.77s, tests 40.31s, environment 95.11s)
+

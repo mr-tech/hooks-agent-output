@@ -1,0 +1,30 @@
+{
+ "step1": {
+  "url": "/message/m/900000000000001/edit",
+  "total": 2,
+  "pusherCount": 1,
+  "byState": {
+   "1": 1
+  },
+  "hosts": [
+   [
+    "ws-us2.pusher.com",
+    1
+   ]
+  ]
+ },
+ "step2": "set",
+ "anchorCountInitial": 0,
+ "menuClicked": null,
+ "menusTried": [
+  "File:anchors=0",
+  "Edit:anchors=0",
+  "View:anchors=0",
+  "Help:anchors=0",
+  "user menu:anchors=0"
+ ],
+ "linkText": "",
+ "linkHref": null,
+ "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a[href$=\"/message/m/900000000000002/edit\"]').first()\u001b[22m\n",
+ "step3": "NOT RUN: no anchor with href ending /message/m/900000000000002/edit in page, File/Edit/View/Help menus or user menu. user menu anchors: /message/m/new, Discord invite, /support, /message (Servers). File: /message/m/new, Send /message/m/900000000000001/send."
+}

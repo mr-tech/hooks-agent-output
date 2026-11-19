@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/44f411da-305d-4350-b0d5-c27d94aebf0c/scratchpad/sweep-work/20261119T180324Z-p1417110/mutant-19
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (58 tests | 2 failed) 607ms
+     × raises no notice when another tab saves what this tab already shows, under a digits-only hash 27ms
+     × raises no notice when another tab saves what this tab already shows 15ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  2 failed | 1844 passed (1846)
+   Start at  18:10:23
+   Duration  18.41s (transform 27.93s, setup 2.40s, import 141.30s, tests 39.51s, environment 83.70s)
+

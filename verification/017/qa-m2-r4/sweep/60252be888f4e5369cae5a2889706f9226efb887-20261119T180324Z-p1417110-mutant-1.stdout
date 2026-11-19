@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/44f411da-305d-4350-b0d5-c27d94aebf0c/scratchpad/sweep-work/20261119T180324Z-p1417110/mutant-1
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (58 tests | 2 failed) 641ms
+       × raises no notice for either of two saves in flight, delivered in the reverse order, when edits follow the second 30ms
+       × raises no notice for either of two saves in flight, delivered in the reverse order, when edits follow the second 8ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  2 failed | 1844 passed (1846)
+   Start at  18:03:58
+   Duration  19.07s (transform 30.68s, setup 1.78s, import 151.55s, tests 41.24s, environment 81.41s)
+

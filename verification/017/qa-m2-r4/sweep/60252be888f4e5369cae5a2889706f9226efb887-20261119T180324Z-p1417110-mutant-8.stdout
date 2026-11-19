@@ -1,0 +1,32 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/44f411da-305d-4350-b0d5-c27d94aebf0c/scratchpad/sweep-work/20261119T180324Z-p1417110/mutant-8
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (58 tests | 17 failed) 814ms
+     × raises the notice when another tab saves content this tab never sent 15ms
+     × raises the notice when another tab saves while this tab has unsaved edits, naming the loss 3ms
+     × raises the notice when another tab saves content whose broadcast hash is digits only 3ms
+     × raises the notice when another tab saves content whose hash is digits and an e, beside a held record of different content 3ms
+     × raises the notice when another tab saves content whose hash differs from the shown content's although both would read as one finite value 6ms
+     × raises the notice when another tab saves content whose hash differs from the shown content's although both would read as Infinity 4ms
+     × raises the notice when another tab saves content whose hash differs from the shown content's although both would read as -Infinity 4ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as one finite value 5ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as Infinity 5ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as -Infinity 11ms
+     × raises no notice when another tab saves what this tab already shows, under a digits-only hash 6ms
+     × raises the notice when another tab saves a component-only edit 3ms
+     × raises the notice when another tab saves while this tab's own save is in flight 2ms
+     × raises the notice when another tab saves content this tab sent earlier and has already seen broadcast 4ms
+     × raises no notice when another tab saves what this tab already shows 7ms
+     × raises the notice for a later save of the content of a save that failed 4ms
+     × raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows 5ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx (4 tests | 4 failed) 36ms
+     × names the loss when the composer already had changes at subscription 23ms
+     × names the loss when the composer changed after the subscription was made 4ms
+     × does not name the loss when the composer has no changes 4ms
+     × does not name the loss when the composer returned to no changes after the subscription was made 3ms
+
+ Test Files  2 failed | 142 passed (144)
+      Tests  21 failed | 1825 passed (1846)
+   Start at  18:06:38
+   Duration  20.54s (transform 38.29s, setup 1.42s, import 162.42s, tests 44.40s, environment 88.55s)
+

@@ -1,0 +1,53 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/44f411da-305d-4350-b0d5-c27d94aebf0c/scratchpad/exp
+
+ ❯ |node| src/server/api/utils/__tests__/shared.wire-decode-probe.test.ts (6 tests | 2 failed) 44ms
+     × decodes to the producer's exact hash string (digits only) 8ms
+     × decodes to the producer's exact hash string (a minus sign and digits) 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.wire-decode-probe.test.ts > the save broadcast as a subscriber decodes it > decodes to the producer's exact hash string (digits only)
+AssertionError: expected 10942554 to be '10942554' // Object.is equality
+
+- Expected:
+"10942554"
+
++ Received:
+10942554
+
+ ❯ src/server/api/utils/__tests__/shared.wire-decode-probe.test.ts:71:24
+     69|     expect(event.event).toBe('message-update');
+     70|     expect(event.channel).toBe('message-update-42');
+     71|     expect(event.data).toBe(hash);
+       |                        ^
+     72|   });
+     73| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.wire-decode-probe.test.ts > the save broadcast as a subscriber decodes it > decodes to the producer's exact hash string (a minus sign and digits)
+AssertionError: expected -47974433 to be '-47974433' // Object.is equality
+
+- Expected:
+"-47974433"
+
++ Received:
+-47974433
+
+ ❯ src/server/api/utils/__tests__/shared.wire-decode-probe.test.ts:71:24
+     69|     expect(event.event).toBe('message-update');
+     70|     expect(event.channel).toBe('message-update-42');
+     71|     expect(event.data).toBe(hash);
+       |                        ^
+     72|   });
+     73| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 4 passed (6)
+   Start at  18:06:12
+   Duration  1.76s (transform 382ms, setup 0ms, import 1.47s, tests 44ms, environment 0ms)
+

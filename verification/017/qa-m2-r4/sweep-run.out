@@ -1,0 +1,20 @@
+usePusher.ts:64:walk-first KILLED 20.25
+usePusher.ts:64:walk-last KILLED 21.09
+usePusher.ts:65:=== KILLED 20.59
+usePusher.ts:68:if-false KILLED 22.8
+usePusher.ts:68:< KILLED 24.63
+usePusher.ts:68:num KILLED 30.01
+usePusher.ts:68:&& KILLED 18.93
+usePusher.ts:68:!== KILLED 21.73
+NM-39 producer bare hash KILLED 23.58
+NM-40 producer encodes twice KILLED 21.99
+producer sends an object KILLED 21.18
+producer event name KILLED 19.53
+producer channel KILLED 19.76
+NM-41a consumer decodes the record KILLED 18.68
+NM-41b consumer decodes the shown hash KILLED 19.09
+loose record compare SURVIVED 19.75
+loose shown compare SURVIVED 18.96
+coupling: record kept unless shown differs KILLED 19.22
+coupling: shown clause only while records held KILLED 19.57
+17 of 19 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob f58da303807c8e3784b1716e334c20915fc76226))

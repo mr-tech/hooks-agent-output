@@ -1,0 +1,22 @@
+
+  it('raises the notice when a payload that is not a string arrives while this tab holds a record of a save with the same digits', () => {
+    mountStored(CLASSIC);
+    edit({ content: 'c24' });
+    save();
+    edit({ content: 'typed later' });
+    expect(sentHash(0)).toMatch(/^[1-9][0-9]*$/);
+
+    act(() => { hoisted.handler?.(Number(sentHash(0))); });
+
+    expect(noticeShown()).toBe(true);
+  });
+
+  it('raises the notice when a payload that is not a string arrives with the digits of the shown content\'s hash', () => {
+    mountStored(CLASSIC);
+    edit({ content: 'c24' });
+    expect(remoteHash({ content: 'c24' })).toMatch(/^[1-9][0-9]*$/);
+
+    act(() => { hoisted.handler?.(Number(remoteHash({ content: 'c24' }))); });
+
+    expect(noticeShown()).toBe(true);
+  });

@@ -1,0 +1,9 @@
+NM-42 no disconnect KILLED 20.01
+NM-43 disconnect only in an unmount-only effect KILLED 19.48
+NM-44 disconnect the latest instance KILLED 20.99
+NM-45 disconnect in the effect body KILLED 18.96
+channel.unbind dropped (unchanged line) SURVIVED 20.27
+class gap: producer encodes only e-forms KILLED 19.51
+loose record compare SURVIVED 20.17
+loose shown compare SURVIVED 19.0
+5 of 8 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-24e9be7.json (blob 1ba7dcbbfaab18a705fd8852a75eba27116c76f7))

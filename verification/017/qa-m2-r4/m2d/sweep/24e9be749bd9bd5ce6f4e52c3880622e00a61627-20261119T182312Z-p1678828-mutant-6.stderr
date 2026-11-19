@@ -1,0 +1,31 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message, as a subscriber decodes it > carries the exact hash string of the saved message when the hash has digits only
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message, as a subscriber decodes it > carries the exact hash string of the saved message when the hash has a minus sign and digits only
+AssertionError: expected 'number' to be 'string' // Object.is equality
+
+Expected: "string"
+Received: "number"
+
+ ❯ src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts:89:25
+     87|     const { data } = await receivedBySubscriber(content);
+     88|
+     89|     expect(typeof data).toBe('string');
+       |                         ^
+     90|     expect(data).toBe(hash);
+     91|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+

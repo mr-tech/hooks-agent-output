@@ -1,0 +1,91 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message > reaches subscribers as the hash string when the hash has digits, an e and 00
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message > reaches subscribers as the hash string when the hash has digits, an e and 0
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message > reaches subscribers as the hash string when the hash has a minus sign, digits, an e and 02
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message > reaches subscribers as the hash string when the hash has an exponent past what a double holds
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message > reaches subscribers as the hash string when the hash has a minus sign and an exponent past what a double holds
+AssertionError: expected 'number' to be 'string' // Object.is equality
+
+Expected: "string"
+Received: "number"
+
+ ❯ src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts:86:26
+     84|     const value = await delivered(content);
+     85|
+     86|     expect(typeof value).toBe('string');
+       |                          ^
+     87|     expect(value).toBe(hash);
+     88|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message > keeps two saves apart whose hashes would both read as one finite value
+AssertionError: expected 51354 to be '51354e00' // Object.is equality
+
+- Expected:
+"51354e00"
+
++ Received:
+51354
+
+ ❯ src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts:98:15
+     96|     const b = await delivered(contentB);
+     97|
+     98|     expect(a).toBe(hashA);
+       |               ^
+     99|     expect(b).toBe(hashB);
+    100|     expect(a).not.toBe(b);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message > keeps two saves apart whose hashes would both read as Infinity
+AssertionError: expected Infinity to be '7181e724' // Object.is equality
+
+- Expected:
+"7181e724"
+
++ Received:
+Infinity
+
+ ❯ src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts:98:15
+     96|     const b = await delivered(contentB);
+     97|
+     98|     expect(a).toBe(hashA);
+       |               ^
+     99|     expect(b).toBe(hashB);
+    100|     expect(a).not.toBe(b);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message > keeps two saves apart whose hashes would both read as -Infinity
+AssertionError: expected -Infinity to be '-16e61940' // Object.is equality
+
+- Expected:
+"-16e61940"
+
++ Received:
+-Infinity
+
+ ❯ src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts:98:15
+     96|     const b = await delivered(contentB);
+     97|
+     98|     expect(a).toBe(hashA);
+       |               ^
+     99|     expect(b).toBe(hashB);
+    100|     expect(a).not.toBe(b);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+

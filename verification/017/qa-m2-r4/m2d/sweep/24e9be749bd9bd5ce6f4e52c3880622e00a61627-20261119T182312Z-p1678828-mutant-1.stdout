@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/44f411da-305d-4350-b0d5-c27d94aebf0c/scratchpad/m2d-work/20261119T182312Z-p1678828/mutant-1
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx (8 tests | 4 failed) 80ms
+     × keeps the connection open while mounted and closes it once when unmounted 12ms
+     × closes the connection of the message it leaves and keeps the one it opens when the message id changes 5ms
+     × closes the connection and opens none when the message stops being an API message 9ms
+     × closes only the connection of the hook that unmounts when two hooks are mounted at once 7ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  4 failed | 1847 passed (1851)
+   Start at  18:23:49
+   Duration  18.85s (transform 30.68s, setup 1.70s, import 147.01s, tests 40.11s, environment 83.93s)
+

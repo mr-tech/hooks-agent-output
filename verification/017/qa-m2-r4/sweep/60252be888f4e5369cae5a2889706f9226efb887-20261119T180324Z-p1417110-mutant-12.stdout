@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/44f411da-305d-4350-b0d5-c27d94aebf0c/scratchpad/sweep-work/20261119T180324Z-p1417110/mutant-12
+
+ ❯ |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts (11 tests | 1 failed) 44ms
+     × goes out once, on the message's channel, as a message-update event 19ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  1 failed | 1845 passed (1846)
+   Start at  18:08:07
+   Duration  18.42s (transform 30.76s, setup 2.08s, import 144.06s, tests 38.81s, environment 81.88s)
+
