@@ -207,7 +207,9 @@ Results are blank until run. Each gate row carries its abort criterion with the 
 
 ## Phase 2B: user confirmation
 
-_The ask is recorded here as put, and his answer under it._
+**Ask put** as a selection prompt in this session (prompt gate flag `~/.claude/state/prompt-gate-off` absent, read before the ask) at 2026-11-19T20:10Z, after Phase 2A completed (QA `c09fd41`, architect `eb46ec9`, readiness `c6c6ad8`). Options: release both, website then generator (recommended); release the website only; do not release now. The question stated: what ships (the plan's five value items), the order and why, the two refs and SHAs, QA's verdict, that the generator's runner liveness is his to confirm with the yes, the stop of a process that has served requests and the one host read after it, the rollback form, and O-1 as he decided it.
+
+**His answer** (selection, same session): "Agent: release both, website then generator (Recommended)", recorded at 2026-11-19T20:11. Mode A for both moves; the sanction covers this session's `release-move.js` runs for website `master` and generator `prod` (and `master` following, G12) at the SHAs above, and nothing else.
 
 ## Post-Release Status
 
