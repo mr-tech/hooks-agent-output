@@ -2,8 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Active
-Status-Detail: "M5-0 limb 2 probe run 2026-11-19T04:55Z–04:59Z on his approval (D-15): outcome kept alive; limb 3 probe run 05:09Z–05:13Z on his 05:06Z selection: outcome lasts (all five lines to 55 s); both branches deleted; scope these probes only. Not a Stage 1 or Stage 2 record; the plan's release record is a separate document."
+Status: Released
+Status-Detail: "M5-0 limb 2 probe run 2026-11-19T04:55Z–04:59Z on his approval (D-15): outcome kept alive; limb 3 probe run 05:09Z–05:13Z on his 05:06Z selection: outcome lasts (all five lines to 55 s); both branches deleted; scope these probes only. Not a Stage 1 or Stage 2 record; the plan's release record is a separate document. Closed Released at devops Phase 2D with the plan 017 deployment record (website master 787bec5, generator prod 8512a1d, 2026-11-19)."
 ---
 
 # Deployment Record: plan 017, gate M5-0 limb 2 — the `waitUntil` probe push
@@ -21,6 +21,7 @@ Status-Detail: "M5-0 limb 2 probe run 2026-11-19T04:55Z–04:59Z on his approval
 | 2026-11-19T04:52 | steering-roadmap → devops-hooks-017 (brief) | M5-0 limb 2 probe push | Brief, common part, plan § M5-0 and D-15/D-17/D-19 read. Pre-push work: E-6 and the deploy mechanism established (below). The first probe tip `d9030b9` would not build on Preview; the repair came as `aca8cb3` from implementer-hooks-017. Approval not yet asked at this row. Disclosed in this round: the record repository ignores `*.log`, so the captures are `.txt`; and a `sed -i` of this document in a shell line was refused by `record-write-gate-hook`, re-issued with the Edit tool (not retried in the refused form). |
 | 2026-11-19T04:59 | owner → devops-hooks-017 (selection prompts, 04:55Z and ~04:58Z) | Push approval; bypass-secret revocation | Pushed `aca8cb3` to `probe/017-waituntil` 04:55:17Z; Preview Ready 04:56:07Z; both requests; logs read twice; outcome **kept alive**; branch deleted local and remote 04:57:41Z. `vercel curl` created a project bypass secret, disclosed to him and revoked at his word (0 entries read back 04:59Z). Record `42ccf5f` carried the pre-push state; this row and the sections below completed it. |
 | 2026-11-19T05:13 | steering-roadmap → devops-hooks-017 (message; his 05:06Z selection, rulings `3c24ead`); implementer-hooks-017 → devops-hooks-017 (branch, SHA) | M5-0 limb 3 probe | Pushed `8c13d1c` to `probe/017-waituntil-span` 05:09:55Z; Ready 05:10:45Z; plain `curl` 05:11:02Z HTTP 200; logs read 05:12:31Z: control plus lines at 5, 15, 30, 45, 55 s. Outcome **lasts**. Branch deleted 05:12:4xZ. Bypass count 0 before and after (no `vercel curl` used). Section "Limb 3" above. |
+| 2026-11-19T20:20 | devops-hooks-017 (Phase 2D) | Record closed | Status: Released. Closed with the plan 017 deployment record: plan 017 released 2026-11-19 (website master 787bec5, generator prod 8512a1d); the probes stay as recorded and ship nothing. |
 
 ## The probe under push
 
@@ -164,15 +165,7 @@ Asked by `steering-roadmap` (message 05:2xZ; rulings `04a5e55`): M5, M6 and M8 s
 
 ## Resumption State
 
-Written 2026-11-19T07:17Z at steering's `/checkpoint` (chain parked on the owner's word, rulings `cffd802`).
-- **Done**: gate M5-0 limb 2 (kept alive) and limb 3 (lasts to 55 s, QAF-21's five checks answered from the capture) are run, recorded and committed; both probe branches are deleted (`ls-remote --heads origin 'probe/*'` count 0 at 07:16Z). The generator branch name `chain/017-existing-items-backlog` was given to steering, who cut it at `8de2b53`.
-- **Next**: nothing is owed by this session on the probes. Stage 1 and Stage 2 of plan 017 are a later, separate brief (my first brief negated them); a respawn reads that brief, the plan's Decisions Register and the rulings file first. At a release, Phase 2A step 10 and the push gate apply as written; the generator's `prod.yml` deploys on a push to `prod` (its lines are not read by me: `secret-file-gate-hook` refuses it).
-- **Branch and HEAD**: website shared tree on `chain/017-existing-items-backlog` (read 07:16Z; I never switched it); record HEAD `cffd802` at the read before this commit. Nothing of mine uncommitted in `deployment/` or `verification/017/m5-0/`.
-- **Not restored / left on hosts**: the Preview deployments `dpl_3uSQzQSbhHnwacfAMut5PQggNfv5` (limb 2) and `dpl_DAPQmKvKyG6X9nhpKQXkJqtjuw5R` (limb 3) remain until Vercel expires them. Vercel project settings: the bypass entry limb 2's `vercel curl` created is revoked (0 entries at 04:59Z, 05:11Z and 05:12:51Z); no other setting was written. Local scratch commits `d9030b9`, `aca8cb3`, `8c13d1c` are unreachable from any ref.
-- **Evidence run but unrecorded**: none.
-- **Processes**: none started by this session remain (`pstree -ap $PPID` at checkpoint).
-- **Questions sent**: none awaiting an answer. Messages sent: to `implementer-hooks-017` (limb outcomes), `planner-hooks-017` (QAF-21 checks), `steering-roadmap-hooks` (generator branch name). Steering's session name is `steering-roadmap-hooks` (was `steering-roadmap`); `steering-roadmap-statbot` is another chain's and is not messaged.
-- **On resume**: arm the cache-warm wake; re-read this document, the plan's Decisions Register and `steering/017-rulings.md`; check whether the website tree moved past its HEAD; state in one line what is resumed from which SHA.
+Closed at devops Phase 2D; nothing resumes from this document.
 
 ## Post-Release Status
 
