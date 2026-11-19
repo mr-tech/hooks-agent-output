@@ -1,0 +1,24 @@
+{
+ "mutant": {
+  "name": "p4-saved-message-restore-drops-embeds",
+  "edits": [
+   {
+    "file": "src/providers/MessageProvider/index.tsx",
+    "old": "...message, data: draft.data, name: draft.name, updatedAt: draft.editedAt,",
+    "new": "...message, data: { ...draft.data, embeds: [] }, name: draft.name, updatedAt: draft.editedAt,"
+   }
+  ],
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx",
+   "src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "MessageProvider, unsaved edits on a saved message when the session is lost are shown again after signing in and opening the message",
+  "MessageProvider, unsaved edits on a saved message when the session is lost are shown after a reload, as before",
+  "MessageProvider, the store a browser holds from before restores a stored copy of message 42 that is newer than its saved copy",
+  "MessageProvider, a stored draft of a saved message is shown with its own data and name when it is newer than the saved copy"
+ ],
+ "verdict": "killed"
+}

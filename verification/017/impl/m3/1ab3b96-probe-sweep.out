@@ -1,0 +1,7 @@
+p1-route-zero-restore-drops-name exit 1 failed cases 2 killed
+p2-route-zero-restore-drops-embeds exit 1 failed cases 8 killed
+p3-legacy-write-carries-an-id exit 1 failed cases 1 killed
+p4-saved-message-restore-drops-embeds exit 1 failed cases 4 killed
+p5-migration-drops-embeds exit 1 failed cases 4 killed
+p6-migration-drops-name exit 1 failed cases 4 killed
+p7-copy-in-drops-embeds exit 1 failed cases 4 killed

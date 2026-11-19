@@ -1,0 +1,22 @@
+{
+ "mutant": {
+  "name": "p1-route-zero-restore-drops-name",
+  "edits": [
+   {
+    "file": "src/providers/MessageProvider/index.tsx",
+    "old": "makeEditable({ name: draft.name, data: draft.data, updatedAt: draft.editedAt })",
+    "new": "makeEditable({ name: 'New Message', data: draft.data, updatedAt: draft.editedAt })"
+   }
+  ],
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx",
+   "src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "MessageProvider, the store a browser holds from before restores a stored route-0 draft that has no id",
+  "MessageProvider, a stored route-0 draft is shown with its own data and name"
+ ],
+ "verdict": "killed"
+}

@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Handoff-At: 3498ef3 — repos=website; M3 built, self-check survivors dispositioned, handed to code review
+Handoff-At: 1ab3b96 — repos=website; fix round 1 (CR-6, CR-7, CR-8), test-only
 ---
 
 # Implementation 017 — M3: a stored draft survives sign-in, another tab and an expired-session sign-out (item 4, D-11)
@@ -25,6 +25,7 @@ whose fix round `dd26104` is APPROVED (code review round 2 sub-entry, `fb4c5f3`)
 | 2026-11-19T01:12 | implementer-hooks-017 | Document opened with the design read from the plan and the flows below; no code yet. |
 | 2026-11-19T02:17 | implementer-hooks-017 | Resumed after the checkpoint. The 14 self-check survivors dispositioned (9 closed by cases at `08124a4`, 5 stated equivalent), QA's NM-6, NM-7, NM-27 and NM-28 run against the built code, a mounted test added for the edit page's Log in (`3498ef3`), convention-check FAILs that were M3's removed, full suite and typecheck at `3498ef3`. Handed to code review at `3498ef3`; Resumption State removed. |
 | 2026-11-19T02:19 | implementer-hooks-017 | Checkpoint at the hand-off seam (context 212K) before M4: Resumption State written; no change to the handed-over tree. |
+| 2026-11-19T02:29 | implementer-hooks-017 | Fix round 1 on code review Round 3 (REJECTED at `3498ef3`: CR-6, CR-7, CR-8), tests only: the provider's restore cases compare name and data whole, the legacy key's form is asserted as literals, the `1ad625e` reader is run on the tip's string, CR-8 recorded as a deviation. Handoff-At moved to `1ab3b96`. |
 
 ## Implementation Summary
 
@@ -153,6 +154,11 @@ closed by the named mutant (a one-change body-level stub of the guard) failing t
 | `NavMenu` Log in leaves without the prompt, Log out keeps it | `NavMenu.sign-in-and-out.test.tsx` | No (added at `08124a4`) | NM-27 killed | AssertionError | Yes |
 | the edit page's Log in leaves without the prompt | `page.sign-in-exit.test.tsx` | No (added at `3498ef3`) | mutant `NM-InfoPanel-log-in-keeps-prompt` (drops the wrap at `edit/page.tsx`) killed, `m3/3498ef3-sweep/` | AssertionError (`leavingDuring` false) | Yes |
 | `withLocalStorage` with no browser: default read, write reports false | `withLocalStorage.server-render.test.ts` | No (added at `08124a4`) | mutant `withLocalStorage.ts:13:false` (`return true`) survived `536b8e6`, killed `08124a4` | AssertionError | Yes |
+| the route-0 restore shows the stored draft's own `name` and whole `data` (CR-6) | `MessageProvider.stored-draft.test.tsx` | No (tightened at `1ab3b96`) | probe mutants `p1-route-zero-restore-drops-name` and `p2-route-zero-restore-drops-embeds` survived `3498ef3` (review Round 3), killed `1ab3b96` as assertions (`m3/1ab3b96-probe-sweep/`) | AssertionError (`toEqual` of name and data) | Yes |
+| the saved-message restore (`getMessage`) shows the draft's own `name` and whole `data` (CR-6) | same | No (tightened and a seeded case added at `1ab3b96`) | probe mutant `p4-saved-message-restore-drops-embeds` survived `3498ef3`, killed `1ab3b96` | AssertionError | Yes |
+| migration and copy-in keep name and embeds (CR-6 class) | `messageDrafts.bound-and-recency.test.tsx`, same provider file | Yes (unchanged) | probe mutants p5, p6, p7 killed at `3498ef3` and again at `1ab3b96` | AssertionError | Yes |
+| the legacy `message` key holds `{ name, updatedAt, data }` and no `id`, as literals (CR-7 part 1) | same provider file | No (tightened at `1ab3b96`) | probe mutant `p3-legacy-write-carries-an-id` survived `3498ef3`, killed `1ab3b96` | AssertionError (keys and `toEqual`) | Yes |
+| the `1ad625e` provider reads the tip's legacy string at route 0 (CR-7 part 2, M3-f's named instrument) | `verification/017/impl/m3/old-reader.route-zero-legacy.probe.test.tsx`, run in a `git archive 1ad625e` export, not in the suite | not owed (an instrument run, not a suite case) | positive: passes on the string a tip run wrote (`old-reader-1ad625e.out`, exit 0); negative control: the same string with an `id` shows the intro message and fails (`old-reader-1ad625e-control-with-id.out`, exit 1) | AssertionError in the control | Yes |
 
 `tdd-check.py` refuses JavaScript and TypeScript, so the rows above are read, not tool-checked.
 
@@ -217,6 +223,56 @@ table (4 rows) is the "two tabs" and "restore" describe blocks of `MessageProvid
 No timeout or time-based test was added to the standing suite beyond fake-timer cases (`vi.useFakeTimers`), which
 are deterministic and carry no real wait.
 
+## Fix Round 1 (code review Round 3, REJECTED at `3498ef3`; website `1ab3b96`, tests only)
+
+No production line changed: `git diff --name-only 3498ef3 1ab3b96` lists only `MessageProvider.stored-draft.test.tsx`.
+
+- **CR-6.** The provider's restore cases now compare the restored `message.data` and `message.name` whole (`toEqual`) with
+  fixtures whose data carries an embed and whose name differs from every default: the route-0 cases (sign-in, reload,
+  two tabs, a seeded `0:A` entry, the old no-id key), the saved-message cases (typed edits, a seeded entry for 42, the old
+  copy of 42). The editor assigns each embed a `_key` on restore, so the expectation holds `expect.any(String)` there and
+  nothing else is loosened. A route-0 draft typed in the UI keeps the loaded copy's name (`New Message`, because the
+  effect writes `savedMessage?.name ?? message.name`), so the name-differs property is carried by the seeded cases. A case
+  that edits `content` back to the saved copy sets the data whole, since the typing helper keeps non-content fields.
+  Blind spot, as the review states it: a field the fixtures do not carry (components, flags) is covered by the same
+  whole-data comparison only if a fixture carries it.
+- **CR-7.** Part 1: "holds the route-0 draft last written, for the code that reads it" parses the legacy string and
+  asserts its keys are exactly `data`, `name`, `updatedAt` and its value equals `{ name: 'New Message', updatedAt:
+  1700000000000, data: … }` under a frozen `Date`. Part 2, the named instrument: `legacy-string-tip-1ab3b96.json` is the
+  string a tip run wrote (captured by a throw-away case in a `git archive 1ab3b96` export, `legacy-capture-tip-1ab3b96.out`);
+  `old-reader.route-zero-legacy.probe.test.tsx` mounts the `1ad625e` `MessageProvider` at route 0 in a `git archive 1ad625e`
+  export (that tree's own helpers), seeds `localStorage.message` with that string and asserts the old reader shows the
+  draft's name and content and its embed: exit 0 (`old-reader-1ad625e.out`). Negative control: the same string with an `id`
+  makes the old reader show the intro message and the case fails (`old-reader-1ad625e-control-with-id.out`, exit 1), so
+  the instrument discriminates what P3 changed. Both exports were removed after the runs.
+- **CR-8, a deviation from the plan's Write matrix, recorded for the planner.** The plan's M3 Write matrix, row "Message *n*
+  opened (fetch)", says the `Sn` cell is "nothing written". The fetch effect's branch `mostRecent === fetchedMessage`
+  calls `removeDraft(fetchedMessage.id)` when the fetched copy is the one shown. Reason: at `1ad625e` the fetch
+  overwrote the one `message` key, so the outcome equals base; an `Sn` older than the fetched copy is never shown again
+  under `getMessage`'s rule (the newer side wins), so removing it loses nothing reachable; the Reload confirmation relies
+  on it to discard edits ("discards the stored edits and shows the saved copy"); writing nothing would leave unreachable
+  entries to the eviction path. Consequence for the matrix: the row "Another tab saves *n*: a diverged `Sn` stays" holds only
+  until this tab next opens *n*. Code kept; no test beyond the existing reload case. For the planner to fold into the
+  matrix at the next revision.
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| CR-6, a restore of a stored draft into the editor with no assertion that `data` and `name` equal the stored ones | the reviewer's predicate, re-run at the tip: `git grep -nE "draft\.data\|legacy\.data\|drafts\[newest\]" 1ab3b96 -- src ':!**/__tests__/**'` (`m3/class-sweep-restore-sites-1ab3b96.out`) | 9 hits: `index.tsx` :43 (`getMessage`), :156 (route-0 effect), :246 (removal predicate); `useApiMethods.ts` :68, :85, :97; `messageDrafts.ts` :33 (migration), :71 and :72 (copy-in). The reviewer counts 10 (6 in the class); this run gives 9 (5 in the class) over the same 4 class sites. I did not trace the one-hit difference; the sites agree | outside the class (4): `useApiMethods.ts` :68, :85, :97 (`persist`'s local payload) and `index.tsx` :246 (a removal predicate). In the class (5 lines, 4 sites): :43 `getMessage` (P4 killed), :156 route-0 effect (P1, P2 killed), :33 migration (P5, P6 killed), :71 and :72 copy-in (P7 killed). Residual unkilled probe mutants: 0 of 7 (`m3/1ab3b96-probe-sweep.out`) |
+| CR-7, a revert-safety property whose stated instrument was replaced by a partial transcription | `git grep -n "legacyStore()" 1ab3b96 -- src` | `messageDrafts.ts`: `readDrafts` (read), `writeRouteZeroDraft` (the one writer), `removeRouteZeroDraft` (reads and removes) | the writer's form is asserted as literals and the old reader is run; the read and the removal do not feed the old reader. Residual: 0 |
+| CR-8, a write the matrix rules out, made without a recorded deviation | `git grep -nE "removeDraft\|writeDraft\|RouteZeroDraft" 1ab3b96 -- src/providers/MessageProvider/index.tsx` compared with the matrix | the review's 7 call sites, 1 departing | the departure is recorded above; the other 6 match the matrix. Residual: 1, recorded |
+
+Test results at `1ab3b96`: full suite 1620 of 1620 passed, 133 files, exit 0 (`m3/vitest-m3-1ab3b96.{json,out,exit}`; count
+method: the reporter's `numTotalTests`, files from `testResults`); `pnpm run typecheck` exit 0
+(`m3/typecheck-m3-fix-1ab3b96.{out,exit}`); `convention-check.js website --since=1ad625e` 62 FAIL, 0 CANDIDATE, all base
+and D-9's (42 + 5 + 14 + 1; `m3/convention-check-1ab3b96.out`); eslint on the changed test file 0 findings. Probe mutants
+P1 to P7 (`m3/1ab3b96-probe-mutants-edits.json`, run with `m3/mutate-edits.py`, network-isolated, in a `git archive 1ab3b96`
+export): 7 of 7 killed, each by assertion failures (`m3/1ab3b96-probe-sweep.out`). The named mutants' last results
+stand: the fix diff touches no guard (tests only).
+
+Process fact: after committing, I ran `git reset -q src` to clear what I had added to the index; it was unnecessary,
+touched no working-tree file, and the tree held no other session's staged work (the status before and after listed only the
+held `.playwright-mcp/`). I do not repeat it.
+
 ## Outstanding Items
 
 - **CR-4 (code review, M2-a's eleventh member), disposition recorded here as the review's carrier asks.** The member
@@ -252,21 +308,23 @@ are deterministic and carry no real wait.
 
 ## Next Steps
 
-Code review (`code-reviewer-hooks-017`) at website `3498ef3` (the M3 range is `d9ebe97`, `79144cb`, `536b8e6`,
-`08124a4`, `3498ef3`; `ec984fe..dd26104` is M2's fix round and outside it), then QA Phase 2 for M3, then M4 (read
+Code review (`code-reviewer-hooks-017`): a scoped Round 3 sub-entry on the fix at website `1ab3b96` (the M3 range is
+`d9ebe97`, `79144cb`, `536b8e6`, `08124a4`, `3498ef3`, `1ab3b96`; `ec984fe..dd26104` is M2's fix round and outside it),
+then QA Phase 2 for M3, then M4 (read
 plan M4 and QA § M4 first). After M4: tell `steering-roadmap` that M1 to M4 are through (devops probe push for OQ-7).
 M5 and M6 wait on OQ-7 and gate M5-0; M7 last.
 
 ## Resumption State
 
-Written 2026-11-19T02:19Z at the M3 hand-off seam (context 212K, taken ahead of M4 so M4 starts clean). Website
-branch `chain/017-existing-items-backlog`, HEAD `3498ef3`; the tree is clean apart from the held `.playwright-mcp/`.
-Record: this document and `verification/017/impl/m3/` committed at `e6588c0`.
+Rewritten at the M3 fix-round seam (code review Round 3 REJECTED `3498ef3`; fix `1ab3b96`). Website branch
+`chain/017-existing-items-backlog`, HEAD `1ab3b96`; the tree is clean apart from the held `.playwright-mcp/`. The record
+commit that carries this text is the one the hand-off message names. M3's first checkpoint (2026-11-19T02:19Z, context
+212K) preceded the review message.
 
-- Done: M3 handed to `code-reviewer-hooks-017` by message (document path and `3498ef3`); `steering-roadmap` told M3 is
-  built and M4 starts (it replied: status lives in the documents, message it only for an owner decision or a spawn cue).
-  Nothing is awaited from me except the M3 code review and the later QA Phase 2 for M3; a finding on M3 comes back as a
-  fix round on this document.
+- Done: M3 built, handed to `code-reviewer-hooks-017` at `3498ef3`; REJECTED on CR-6, CR-7, CR-8; fixed at `1ab3b96`
+  (tests only, Fix Round 1 above); the fix SHA is handed back to `code-reviewer-hooks-017` for a scoped Round 3 sub-entry,
+  then QA Phase 2 for M3. Awaited: that sub-entry and QA's verdict; a further finding comes back as another fix round on
+  this document. `steering-roadmap` was told M3 was built and M4 starts; it asked for no further status messages.
 - Next: M4. Read plan M4 (`planning/017-existing-items-backlog.md`, § M4, M4-a to M4-d, X-14) and QA § M4 (`qa/017-existing-items-backlog-qa.md`,
   NM-8, NM-9, NM-24, NM-25) first, then open the M4 implementation document under the `-m4-implementation` name (copy ID, Origin, UUID from the
   plan; stage start is covered by the rulings block for M1 to M4, D-12 and D-20). M4 is user-visible: record one line per
@@ -278,4 +336,5 @@ Record: this document and `verification/017/impl/m3/` committed at `e6588c0`.
   M5 and M6 wait on OQ-7 and gate M5-0; M7 last.
 - Scratch: this session's exports and the older sessions' loose files and clones are removed. No process of mine is left
   running (`pstree` shows only the claude process). Nothing locally mutated and unrestored.
-- Cache-warm wake `d27f4c05` deleted at this checkpoint; arm again on the next briefed turn.
+- Cache-warm wake: `d27f4c05` was deleted at the first checkpoint; `dc5b1602` (fires 03:19 local) was armed on the review
+  message and stays armed while M4 work proceeds.

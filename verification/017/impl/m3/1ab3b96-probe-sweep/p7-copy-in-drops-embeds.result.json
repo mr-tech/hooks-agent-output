@@ -1,0 +1,24 @@
+{
+ "mutant": {
+  "name": "p7-copy-in-drops-embeds",
+  "edits": [
+   {
+    "file": "src/utils/messageDrafts.ts",
+    "old": "  writeDraft(routeZeroKey(tab), drafts[newest]);\n  return drafts[newest];",
+    "new": "  writeDraft(routeZeroKey(tab), drafts[newest]);\n  return { ...drafts[newest], data: { ...drafts[newest].data, embeds: [] } };"
+   }
+  ],
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx",
+   "src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "messageDrafts, a tab at route 0 with none of its own, copies the route-0 entry edited most recently under its own key",
+  "MessageProvider, a signed-out draft at route 0 is restored in a tab opened later, when it was the last edited",
+  "MessageProvider, two tabs at route 0 shows a new tab the draft edited most recently",
+  "MessageProvider, two tabs at route 0 shows a new tab a draft whose tab has closed"
+ ],
+ "verdict": "killed"
+}

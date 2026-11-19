@@ -1,0 +1,9 @@
+1ab3b96:src/providers/MessageProvider/index.tsx:43:      ...message, data: draft.data, name: draft.name, updatedAt: draft.editedAt,
+1ab3b96:src/providers/MessageProvider/index.tsx:156:        ? makeEditable({ name: draft.name, data: draft.data, updatedAt: draft.editedAt })
+1ab3b96:src/providers/MessageProvider/index.tsx:246:        removeDraft(msg.id, (draft) => sameJson(stripKeys({ name: draft.name, data: draft.data }).data, sent.data));
+1ab3b96:src/providers/MessageProvider/useApiMethods.ts:68:    if (data !== draft.data) {
+1ab3b96:src/providers/MessageProvider/useApiMethods.ts:85:      const gate = gateBeforePersist(draft.data);
+1ab3b96:src/providers/MessageProvider/useApiMethods.ts:97:      pendingSaveChoice.draft.data,
+1ab3b96:src/utils/messageDrafts.ts:33:      data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+1ab3b96:src/utils/messageDrafts.ts:71:  writeDraft(routeZeroKey(tab), drafts[newest]);
+1ab3b96:src/utils/messageDrafts.ts:72:  return drafts[newest];

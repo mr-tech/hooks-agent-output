@@ -1,0 +1,83 @@
+FAIL eslint src/@types/global.d.ts:4 — @typescript-eslint/no-unused-vars: 'APIActionRowComponent' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:12 — max-len: This line has a length of 119. Maximum allowed is 100.
+FAIL eslint src/@types/global.d.ts:15 — @typescript-eslint/no-unused-vars: 'APIComponentInMessageActionRow' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:17 — @typescript-eslint/no-unused-vars: 'APIButtonComponentWithURL' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:19 — @typescript-eslint/no-unused-vars: 'APIContainerComponent' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:20 — @typescript-eslint/no-unused-vars: 'APISectionComponent' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:21 — @typescript-eslint/no-unused-vars: 'APITextDisplayComponent' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:22 — @typescript-eslint/no-unused-vars: 'APIThumbnailComponent' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:23 — @typescript-eslint/no-unused-vars: 'APIMediaGalleryComponent' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:24 — @typescript-eslint/no-unused-vars: 'APIMediaGalleryItem' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:25 — @typescript-eslint/no-unused-vars: 'APIFileComponent' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:26 — @typescript-eslint/no-unused-vars: 'APISeparatorComponent' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:27 — @typescript-eslint/no-unused-vars: 'APIComponentInContainer' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:28 — @typescript-eslint/no-unused-vars: 'APIUnfurledMediaItem' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:1 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:1 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:28 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:29 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:30 — @typescript-eslint/no-unused-vars: 'stripKeys' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:32 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:33 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:34 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:35 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:37 — max-len: This line has a length of 103. Maximum allowed is 100.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:37 — @typescript-eslint/member-delimiter-style: Expected a comma.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:37 — @typescript-eslint/member-delimiter-style: Expected a comma.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:37 — @typescript-eslint/member-delimiter-style: Expected a comma.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:40 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:41 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:42 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:43 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:43 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:44 — @typescript-eslint/no-unsafe-call: Unsafe call of an `any` typed value.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:47 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:48 — react-hooks/rules-of-hooks: React Hook "useApiMethods" is called in function "loadAndSaveViaShippedProvider" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use".
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:49 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `MutableRefObject<ActiveMessage | null>`.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:50 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `MutableRefObject<boolean>`.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:50 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:51 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `StateSetter<ActiveMessage | null>`.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:53 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:57 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `Partial<ApiMessage | ActiveMessage>`.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:57 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:60 — @typescript-eslint/no-unsafe-return: Unsafe return of an `any` typed value.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:63 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:64 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `ActiveMessage | null | undefined`.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:66 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:67 — function-paren-newline: Unexpected newline after '('.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:68 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `number | undefined`.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:68 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `{ type: number; }[] | undefined`.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:68 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `string | undefined`.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:68 — @typescript-eslint/no-unsafe-argument: Unsafe argument of type `any` assigned to a parameter of type `unknown[] | undefined`.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:69 — function-paren-newline: Unexpected newline before ')'.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:119 — object-curly-newline: Expected a line break after this opening brace.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:119 — object-curly-newline: Expected a line break before this closing brace.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:129 — @typescript-eslint/no-explicit-any: Unexpected any. Specify a different type.
+FAIL eslint src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:138 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/limits.import-validation.test.ts:6 — import/order: There should be no empty line within import group
+FAIL eslint src/utils/__tests__/limits.import-validation.test.ts:19 — import/first: Import in body of module; reorder to top.
+FAIL eslint src/utils/__tests__/limits.import-validation.test.ts:84 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/limits.import-validation.test.ts:94 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/__tests__/limits.import-validation.test.ts:115 — @typescript-eslint/no-non-null-assertion: Forbidden non-null assertion.
+FAIL eslint src/utils/withLocalStorage.ts:1 — max-len: This line has a length of 111. Maximum allowed is 100.
+SKIP .playwright-mcp/a2-empty-textdisplay.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a2-v2b.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a4-send-empty.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a6-state.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a7-send-filled.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b1-section.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b2-thumb.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b3-gallery-alt.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b3-gallery.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-41-text-displays-base.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-41-text-displays-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-content-2100-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-control-valid-v2-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-embed-description-4097-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-empty-username-base.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-empty-username-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-fresh-text-display-tip.png: not examined — extension .png is outside the examined set
+SKIP src/utils/hooks/useLocalStorage.ts: not examined — no added lines
+SKIP src/utils/index.ts: not examined — no added lines
+SKIP id-token, basename: /usr/local/bin/hooks/agent-output/CLAUDE.md states an ID-token class this checker does not implement verbatim (the hooks line at cca22fd) — the checks did not run
+convention-check: 30 file(s) examined, 19 not examined, 19 test file(s); 62 FAIL, 0 CANDIDATE, 20 SKIP

@@ -1,0 +1,28 @@
+{
+ "mutant": {
+  "name": "p2-route-zero-restore-drops-embeds",
+  "edits": [
+   {
+    "file": "src/providers/MessageProvider/index.tsx",
+    "old": "makeEditable({ name: draft.name, data: draft.data, updatedAt: draft.editedAt })",
+    "new": "makeEditable({ name: draft.name, data: { ...draft.data, embeds: [] }, updatedAt: draft.editedAt })"
+   }
+  ],
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx",
+   "src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "MessageProvider, a signed-out draft at route 0 is restored after sign-in, opening a saved message, and returning to route 0",
+  "MessageProvider, a signed-out draft at route 0 is restored after sign-in and a reload",
+  "MessageProvider, a signed-out draft at route 0 is restored in a tab opened later, when it was the last edited",
+  "MessageProvider, two tabs at route 0 shows each tab its own last draft after a reload",
+  "MessageProvider, two tabs at route 0 shows a new tab the draft edited most recently",
+  "MessageProvider, two tabs at route 0 shows a new tab a draft whose tab has closed",
+  "MessageProvider, the store a browser holds from before restores a stored route-0 draft that has no id",
+  "MessageProvider, a stored route-0 draft is shown with its own data and name"
+ ],
+ "verdict": "killed"
+}

@@ -1,0 +1,43 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/ab88c13d-ab04-4efe-acad-c6babea93826/scratchpad/exp-old
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.old-reader-legacy.test.tsx (1 test | 1 failed) 26ms
+     × shows the draft 25ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.old-reader-legacy.test.tsx > the 1ad625e provider at route 0, reading the legacy key a tip run wrote > shows the draft
+AssertionError: expected { name: 'New Message', …(1) } to deeply equal { name: 'New Message', …(1) }
+
+- Expected
++ Received
+
+  {
+-   "content": "revert-safe",
++   "content": "Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _",
+    "name": "New Message",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.old-reader-legacy.test.tsx:41:8
+     39|     const seeded = JSON.parse(written) as { name: string, data: { cont…
+     40|     expect({ name: ctx?.message?.name, content: (ctx?.message?.data as…
+     41|       .toEqual({ name: seeded.name, content: seeded.data.content });
+       |        ^
+     42|     expect((ctx?.message?.data as { embeds: unknown[] }).embeds).toHav…
+     43|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  02:28:26
+   Duration  1.69s (transform 245ms, setup 20ms, import 887ms, tests 26ms, environment 616ms)
+

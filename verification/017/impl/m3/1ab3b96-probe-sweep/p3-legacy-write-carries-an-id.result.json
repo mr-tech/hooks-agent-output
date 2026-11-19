@@ -1,0 +1,21 @@
+{
+ "mutant": {
+  "name": "p3-legacy-write-carries-an-id",
+  "edits": [
+   {
+    "file": "src/utils/messageDrafts.ts",
+    "old": "  legacyStore().set(message);",
+    "new": "  legacyStore().set({ ...message, id: 'x' } as ActiveMessage);"
+   }
+  ],
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx",
+   "src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "MessageProvider, the legacy message key holds the route-0 draft last written, for the code that reads it"
+ ],
+ "verdict": "killed"
+}

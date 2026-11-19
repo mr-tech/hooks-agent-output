@@ -1,0 +1,24 @@
+{
+ "mutant": {
+  "name": "p6-migration-drops-name",
+  "edits": [
+   {
+    "file": "src/utils/messageDrafts.ts",
+    "old": "data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,",
+    "new": "data: legacy.data, name: 'New Message', editedAt: legacy.updatedAt,"
+   }
+  ],
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx",
+   "src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "messageDrafts, the store a browser holds from before turns a stored message with no id into this tab's route-0 entry, dated by its own timestamp",
+  "messageDrafts, the store a browser holds from before turns a stored copy of saved message 42 into the entry for 42",
+  "MessageProvider, the store a browser holds from before restores a stored route-0 draft that has no id",
+  "MessageProvider, the store a browser holds from before restores a stored copy of message 42 that is newer than its saved copy"
+ ],
+ "verdict": "killed"
+}
