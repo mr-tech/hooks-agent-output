@@ -986,3 +986,16 @@ the local run (block 08:12Z, `bafdbdb`) for the save-with-number defect, not tri
 Effect: once 017 is released, this thread runs a scoping determination (with the scope sweep) for one fixer chain
 covering both defects: personal-message reads limited to the owner (block 08:41Z, "No, owner only"), and a save
 carrying a message number that can claim another user's row. Owner-wait `website-access-defects` cleared.
+
+## 2026-11-19T09:16Z — UAT started; QAF-25 fold commissioned
+
+- QA reported its plan-level verdict and a spawn cue: `qa/017-existing-items-backlog-qa.md` Status QA Complete, Verified-At
+  `4b8db9c,8512a1d` (agent-output `1a8edce`; plan R-47 `4c49b11`). `uat-hooks-017` was spawned (category `S017-backlog`,
+  brief `backlog-2026-11-18-briefs/uat-hooks-017.md`, `164f206`) for pre-release rows B-1 to B-4, B-12 and B-13.
+- The planner parked QAF-25 LOW as batch row R-48 (`d74bf23`, under the M4 cap). This thread briefed the planner to fold it now,
+  as an Exclusions row in X-23's form, and deliver the fold to `critic-hooks-017`. The architect's closing pass on the fold follows the
+  critic's read, before devops Stage 1's message.
+- The planner asked whether his 08:5xZ rule on recording blocks covers its two format-gate disclosures (the record-write gate and the stamp gate).
+  This thread's reading of his words ("safeguard and other security blocks"): format gates fall outside the rule, so they stay
+  disclosed. This is a reading, not his ruling; he can overrule it.
+- QA is at 393K, past its threshold. Subscribed for its next idle; on it, `/checkpoint`, then clear.
