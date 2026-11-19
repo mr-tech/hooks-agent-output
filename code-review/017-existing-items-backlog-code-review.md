@@ -5,7 +5,7 @@ UUID: 5c3e9a71
 Reviewed-At: "ec984fe — repos=website; Round 2, M2 (implementation document 057109c); Round 1, M1, was reviewed at 8147661"
 Status: In Review
 Round: 2
-Verdict: APPROVED_WITH_COMMENTS
+Verdict: REJECTED
 ---
 
 # Code Review: 017 — the existing-items backlog
@@ -22,6 +22,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-19T00:44 | steering-roadmap (brief `steering/backlog-2026-11-18-briefs/code-reviewer-hooks-017.md`, `7655982`) | Round 1: review M1 at website `8147661` | Round 1, M1 only. APPROVED_WITH_COMMENTS: CR-1 LOW (the 5 eslint FAILs left in `limits.import-validation.test.ts` are covered by D-9), CR-2 INFO (comments in two moved files fail the allowlist; out of the change's lines and owed elsewhere). The criteria assessed are M1-a, M1-b and M1-c as revision 4 states them at round open. Captures are in `verification/017/code-review/m1/`. Handed to `qa-hooks-017`. Gate disclosed: the stamp gate refused this row as first written (typed 00:47 against the clock's 00:44); it was re-stamped with `record-edit.js` `2026-11-19T00:44`. |
 | 2026-11-19T00:58 | qa-hooks-017 (QAF-15) | Reconcile CR-1's base lint figure | Round 1 reconcile: CR-1's base figure of 21 corrected to 7 (base-tree lint); 7 → 5, so M7-b holds and the verdict does not move. CR-2 re-checked on the 8147661 export and holds. |
 | 2026-11-19T01:17 | implementer-hooks-017 (cross-session hand-off; M2 document `057109c`) | Round 2: review M2 at website `ec984fe` | Round 2, M2 only. APPROVED_WITH_COMMENTS: CR-3 MEDIUM (`useSaveWith`'s hook-style name hides a hook called outside a render from `rules-of-hooks`; positive control at line 160; routed to QAF-16's disposition at QA Phase 2), CR-4 LOW (M2-a's eleventh member, "fails shape", has no case and no recorded disposition; it is unobservable at the client). The criteria assessed are M2-a, M2-b, M2-c and the Window, as revision 4 states them at round open. Captures are in `verification/017/code-review/m2/`. Gate disclosed: the record-write gate refused a shell heredoc that drafted this round's section into a scratch file, reading it as a shell write to a record document; the section was then written into this document with the Edit tool. |
+| 2026-11-19T01:27 | qa-hooks-017 (QAF-17, `5630f1b`) | R2-reconcile: Round 2's verdict corrected | Round 2 reopened by correction: CR-5 MEDIUM (duplicates QAF-17) is a severity-floor finding I missed. Verdict APPROVED_WITH_COMMENTS → REJECTED; the fix is test-only and returns as a Round 2 sub-entry. Method observation for the retrospective: the reviewer checked the implementer's mutant list for coverage instead of enumerating the criterion's interleavings itself. |
 
 ## Scope and Tree
 
@@ -152,6 +153,21 @@ None
 
 ### Medium
 
+CR-5 MEDIUM Round 2 Duplicates: QAF-17 in qa/017-existing-items-backlog-m2-qa.md
+**Checks that cannot fail**: the guard that lets only a matching broadcast consume a record was never seen red.
+- **Location**: `src/providers/MessageProvider/usePusher.ts` at `ec984fe`, the `message-update` handler, `if (ownSaveIndex >= 0) ownSaveRecordsRef.current.splice(ownSaveIndex, 1);`. The missing case belongs in `__tests__/MessageProvider.own-save-notice.test.tsx`.
+- **Class**: a branch M2 relies on (a broadcast whose hash matches no record leaves every record in place) with no assertion that fails when the branch is lost.
+- **Enumeration**: QA's mutant `qa-coupling-any-broadcast-consumes-a-record` (`verification/017/qa-m2/m2-mutants-qa.json`) survives the `MessageProvider/__tests__` folder at `ec984fe`. QA's case reddens it (`qa-m2/survivor-close/red-mutant.exit` 1; `green-ec984fe.exit` 0). I read both captures; I did not re-run them.
+  - Members of the class I can name: the consume-on-non-match branch above. Its sibling `qa-coupling-any-record-suppresses` was killed (QA's table).
+  - Blind spot: a mutant list covers only the guards someone thought to mutate.
+- **Issue**: in M2-b's own scenario (T saves, then keeps editing), a broadcast from another tab arriving inside T's window consumes T's record under the mutant. T's own broadcast then raises "Message Update Detected" in the saving tab, which is the defect M2 exists to remove.
+
+  My Round 2 rationale said "M2-b, M2-c and the Window each have a case that a named mutant reddens". That was true of the named mutants and false of this interleaving, which I did not enumerate. This is the severity floor (MEDIUM; it blocks hand-off to QA), so the published APPROVED_WITH_COMMENTS was wrong (reconcile below).
+- **Required Action**: the case QA supplied, in the existing file, spec-form.
+  - **Falsity signature**: under `qa-coupling-any-broadcast-consumes-a-record`, an assertion failure (notice shown), not a timeout.
+  - **Fixture property**: the foreign broadcast sits strictly between T's send and T's own broadcast, neither first nor last in the delivery order.
+  - Test-only, so the confirmation is a scoped sub-entry of this round (Fix Confirmation rule), not a new round.
+
 CR-3 MEDIUM Round 2
 **Checks that cannot fail**: a test helper's hook-style name hides a hook called outside a render from `react-hooks/rules-of-hooks`.
 - **Location**: `src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts` at `ec984fe`, `describe('useApiMethods saveMessage, the record of the tab\'s own save')`, `function useSaveWith`.
@@ -220,7 +236,15 @@ No finding changes a decision. The two above go to their stated carriers.
 
 ## Verdict
 
-**Round 2 (M2 at `ec984fe`) — Status**: APPROVED_WITH_COMMENTS
+**Round 2 (M2 at `ec984fe`) — Status**: REJECTED (reconciled; published as APPROVED_WITH_COMMENTS)
+
+Reconcile, written at the R2-reconcile changelog row: QAF-17 (`qa/017-existing-items-backlog-m2-qa.md`, agent-output `5630f1b`) found a relied-on guard with no failing assertion. That is CR-5, and under the severity floor it blocks hand-off to QA, so the round's verdict moves to REJECTED.
+
+The approval was defensible as written only on the claim that every M2-b limb had a reddening case. I checked that against the implementer's named and sweep mutants. I did not enumerate the interleavings myself, and the gap was mine.
+
+The rationale below is kept as published. Its first sentence is wrong about M2-b.
+
+The fix is test-only. It returns here as a scoped sub-entry, then goes to QA's refresh. CR-3 is dispositioned by QA in the Preferred form (QAF-16, real render); I will check the implementer's `442059d` against CR-3's two falsity signatures in the same sub-entry.
 **Rationale**: M2-b, M2-c and the Window each have a case that a named mutant reddens. The record has exactly one writer and two removers, and no other client save can produce a broadcast. The test's broadcast hash is the router's own parse and hash. The `onError` semantics M2 relies on hold in the installed `query-core`. M2-a is met for 10 of its 11 members; the eleventh is unobservable, which the record must say (CR-4). CR-3 is a lint control blinded in test code, routed to QAF-16's disposition at QA Phase 2. Neither finding changes product behaviour or a criterion's outcome.
 
 **Round 1 (M1 at `8147661`) — Status**: APPROVED_WITH_COMMENTS
@@ -233,7 +257,11 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Required Actions
 
-- Round 2: CR-3, via QAF-16's disposition (Preferred: a real render; no `use` rename). CR-4: a disposition line in the M2 document. Neither blocks QA.
+- Round 2 (REJECTED after reconcile):
+  - CR-5 must be fixed: QA's QAF-17 case.
+  - CR-3, via QAF-16's disposition (Preferred: a real render; no `use` rename); QA ruled it.
+  - CR-4: a disposition line in the M2 document.
+  - All three return in one scoped sub-entry at the fix SHA, then QA's refresh.
 - Round 1: none beyond CR-1's M7-b re-derivation, which is already a criterion.
 
 ## Assumption Not Checked
