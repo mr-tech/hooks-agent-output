@@ -542,3 +542,26 @@ Premises, with the read that established each this turn:
 The cap notice for M4 ($21.15, ≈1.5 h, block 04:14Z) was told to him in the same turn, before the prompt.
 Recipients: `planner-hooks-017` (revision 5); the critic, architect and QA read it as the plan's
 revision delta; `implementer-hooks-017` and `code-reviewer-hooks-017` (the reviewer's FYI dispositioned).
+
+## 2026-11-19T05:01Z — M5-0 probe kept alive; M5 and M6 start held for revision 5's gates
+
+Read this turn: `deployment/017-existing-items-backlog-m5-0-probe-deployment.md` (`d61f445`, Status Active,
+a probe record): his approval by selection in `devops-hooks-017`'s session (ledger
+`steering/selection-ledger/2026-11-19.md` blocks "2026-11-19T04:55Z — devops-hooks-017" and
+"2026-11-19T04:58Z — devops-hooks-017"); outcome **kept alive** (both lines under one request id, 5006 ms
+apart; `mode=without` wrote the control line alone); probe branch deleted; master unmoved at `1ad625e`.
+Under D-15 and D-19 M5 and M6 are not stopped. The record's own limit: the probe's post-response
+promise was 5 s, not T = 40 s, and made no generator call (its "What this does not establish" line);
+the implementer raised the same point.
+- Plan read this turn: `Revision: 5` (`5155e68`), Status-Detail "Revision 5 at the gates (critic,
+  architect, QA Phase 1 re-key)"; § Plan order adds M8 beside M5 and M6. No pre-code gate has read
+  revision 5.
+- **Hold (this thread's, steering.md Implementer: implementation starts once every pre-code gate has
+  approved the current revision):** M5, M6 and M8 code wait for the critic's, the architect's and QA
+  Phase 1's approval of revision 5 (or of the revision that follows it). M8 also waits on OQ-14.
+  The start is recorded here when they land, naming the revision and the QA Phase 1 SHA.
+- To the planner: register the M5-0 limb 2 outcome (OQ-7) from the deployment record, and weigh the
+  5 s versus T = 40 s limit for M5's criteria. If it changes a criterion, the change rides the next
+  revision for the gates to read.
+- Revision 5 is not yet routed to the gates: OQ-14 goes to him first (steering.md, Planner). A
+  refuting helper is running the focus cases behind statement 5's wording.
