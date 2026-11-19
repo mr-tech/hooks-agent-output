@@ -1096,3 +1096,19 @@ that a criterion change on an open milestone costs a planning revision and three
 steering.md (Planner) requires a prompt on a criterion change to an open milestone to state the rounds each option triggers.
 The check that would have caught it: before putting an option that adds code to an open milestone, ask the planner whether it
 needs a criterion. Told to him in this turn, with the choice to switch to X-25.
+
+## 2026-11-19T17:54Z — revision 10 (M2-d) confirmed (his selection)
+
+Revision 10 at `fad6cd4` (17:52:25Z; read this turn: `Revision: 10`, changelog row line 82). The planner's row calls it a
+milestone-level delta on an open milestone. It delivered the revision to `critic-hooks-017` (new cycle) and `architect-hooks-017`
+before this prompt was put. steering.md (Planner) puts such a delta to him before any further pass, and this thread's 17:51Z go
+skipped that. The passes it started are recorded here, not stopped. Selection put and answered 17:54Z; ledger day file block
+"2026-11-19T17:54Z — steering-roadmap-hooks".
+- **Agent: confirm M2-d (Recommended)**: CHOSEN. "The critic, QA and the architect read revision 10 (already started). Then the
+  implementer codes the disconnect, and it goes through code review and QA with the hash fix, or in its own small round if the
+  hash fix is handed off first. UAT adds one browser check: after opening a second message, one live connection, not two."
+- Not chosen: "Agent: leave disconnect out" (X-25; revision 11 removes M2-d) and "You: discuss first".
+Correction to the question text: it said revisions 8, 9 and 10 were "each read by the critic and the architect". Revisions 8 and
+9 were (`56a602a`, `5f892f5`; closing passes). Revision 10's reads are owed. The option text said so correctly.
+Next: `qa-hooks-017` briefed for the Phase 1 re-key on revision 10. When the critic, architect and QA have all passed it, the
+implementer codes the disconnect.
