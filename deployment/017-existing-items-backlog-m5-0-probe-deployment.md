@@ -157,6 +157,11 @@ Under the plan's limb 3 outcomes, "lasts (all five lines present): T = 40 s stan
 
 The `without` control was not requested (limb 3 does not ask for it). The preview `dpl_DAPQmKvKyG6X9nhpKQXkJqtjuw5R` remains until Vercel expires it; local objects `8c13d1c` remain in the object store, unreachable from any ref, named here and in `verification/017/m5-0/limb3/README.md`.
 
+## Generator branch name (plan § Plan, "devops names it"; added 2026-11-19T05:21)
+
+Asked by `steering-roadmap` (message 05:2xZ; rulings `04a5e55`): M5, M6 and M8 start on plan revision 7. **Name: `chain/017-existing-items-backlog`**, in `preview-image-generator`, to be cut from `origin/prod` (`8de2b53` as steering read it; not re-read here, see below). It is the website branch's name, so one chain has one name in both repositories (plan § Plan: "one branch per repository … `chain/017-…` off `prod`"). No collision: `git branch --list` shows local `master` and `prod`; `git branch -r` shows `origin/master` and `origin/prod`. Nothing here cuts, pushes or switches it; steering cuts it.
+- Not read: the generator's `origin/prod` SHA by me. A `git log` in that repository was refused by `secret-file-gate-hook` (the record flags `.github/workflows/prod.yml` as holding a plaintext secret, and the hook could not rule out `git log` printing its lines). I did not re-issue it in another form; the SHA is steering's read and I do not need it for the name.
+
 ## Post-Release Status
 
 Status Active (a probe record, not a plan release). Known issues: the Preview deployment `dpl_3uSQzQSbhHnwacfAMut5PQggNfv5` remains until Vercel expires it (deleting a deployment was not asked; the route is live at its URL, protected state not established). Rollback: nothing to revert; the branch is deleted. Scratch removed: the two exports and the install under the session scratchpad, the `vc` working directory. Local scratch commits `d9030b9` and `aca8cb3` are now unreachable from any ref (the branch was deleted as the plan requires); they are named here and in `verification/017/m5-0/README.md` and remain in the object store until git prunes.
