@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Status-Detail: "Revision 4: critique pass 3 (F-24, F-25), the architect's delta read (AF-22) and QA's re-key on revision 3 (QAF-13, QAF-14) folded. Ready for critique pass 4 and QA's re-key; the architect reads it at its closing pass. Blocks before code: OQ-11 and OQ-12 (his, before M3 code), OQ-13 (his, before M5 code), OQ-7 (the waitUntil probe, before M5 and M6 code). M1, M2 and M7 wait only on the gates and the chain branch."
+Status-Detail: "Revision 4: critique pass 3 (F-24, F-25), the architect's delta read (AF-22) and QA's re-key on revision 3 (QAF-13, QAF-14) folded. QA's re-key passed it with no finding (3af80aa). Waiting on critique pass 4 and the architect's conformance read. OQ-11 to OQ-13 and X-18's third case answered by him (D-22 to D-25, R-6). Blocks before code: OQ-7 (the waitUntil probe, before M5 and M6 code). M1, M2 and M7 wait only on the gates and the chain branch."
 Revision: 4
 Plan-ID: 017
 Target-Release: "website master (Vercel production) first, then preview-image-generator prod (prod.yml), each push his word, run by devops. Order and reason: § Release and rollback. Neither package.json carries a version field (git show 1ad625e:package.json, 8de2b53:package.json), so no version artifact moves."
@@ -28,6 +28,7 @@ Architectural-Surface: "Yes; the architect's conformance pass is a named step (s
 | 2026-11-19T00:12 | R-5 | planner-hooks-017 | Registered D-18 to D-21, his four selections on revision 2 (OQ-8, OQ-9, OQ-10, X-17 to X-19); words in `steering/selection-ledger/2026-11-19.md` block "2026-11-19T00:10Z — steering-roadmap" and `steering/017-rulings.md` block 2026-11-19T00:11Z (`7c14195`). Scope delta: none — registration only. |
 | 2026-11-19T00:15 | 3 | planner-hooks-017 | Folds critique cycle 1 pass 2 (`51805f4`: F-19 to F-23; SL-1 and SL-2 members fixed), the architect's delta approval (`5ee7b89`: AF-16 to AF-18), QA's Phase 1 re-key (`df45dde`: QAF-10 to QAF-12, EC-1, EC-2, NM-22 to NM-25), his D-18 to D-21 into the criteria, and steering's two candidates (`steering/017-rulings.md` block 00:06Z), each re-derived. M4's dialog form now rides D-20 (its own provider instance at the layout instead of moving the editor's); disposition table § "Gate findings folded". OQ-11 to OQ-13 opened for him (F-19). Scope delta: no milestone added or removed; M3 gains a byte bound and a matrix row; M4's dialog form changes inside D-20; M5 gains a lock-read statement form, a real-Postgres lane, an age reference on the committed object and a 12-hour reader. Against the original ask: what each item delivers is unchanged. |
 | 2026-11-19T00:23 | 4 | planner-hooks-017 | Folds critique cycle 1 pass 3 (`97b96e3`: F-24, F-25), the architect's delta read (`26f648e`: AF-22) and QA's re-key on revision 3 (`0137fa0`: QAF-13, QAF-14, NM-26 to NM-28, and its LastModified assumption); disposition table § "Gate findings folded". OQ-11 and OQ-12 reworded from a four-pair table, while both are with him unanswered (put 00:21Z). Scope delta: none in milestones or delivery; M3-h reads from the table; M4-a names how the guard reaches its dialog; M5-c form 3 deletes nothing when its own object is missing; M5-g's falsifier is B-6; RK-7 gains a liveness precondition. |
+| 2026-11-19T00:28 | R-6 | planner-hooks-017 | Registered D-22 to D-25, his four selections on revision 3 (OQ-11, OQ-12, OQ-13 all option a; X-18's third case); words in `steering/selection-ledger/2026-11-19.md` block "2026-11-19T00:26Z — steering-roadmap" and `steering/017-rulings.md` block 2026-11-19T00:27Z (`a9e2ed3`). OQ-11 to OQ-13 marked resolved, OQ-13's withdrawn option-(b) figure noted, QA's revision-4 verdict (`3af80aa`) and steering's architect routing recorded in the owed re-verdicts. Scope delta: none — registration only. |
 
 ## Reading Order
 
@@ -44,8 +45,8 @@ Owed re-verdicts:
 | Limb | Decidable since | Owning gate | State |
 |---|---|---|---|
 | Revision 4 delta (OQ-11/OQ-12 table, M3-h, M4-a dialog reach, M5-c missing-reference rule, M5-g falsifier, RK-7 liveness) | revision 4 commit | critic, cycle 1 pass 4 | owed |
-| M5-c's missing-reference rule (QAF-13) in the oracle; M4-b's two-level layout member; B-10's liveness rows | revision 4 commit | QA Phase 1 re-key | owed |
-| Everything folded after revision 3 | revision 4 commit | architect, closing pass (no later than devops Stage 1) | owed |
+| M5-c's missing-reference rule (QAF-13) in the oracle; M4-b's two-level layout member; B-10's liveness rows | revision 4 commit | QA Phase 1 re-key | passed, no finding (`3af80aa`) |
+| Revision 4 delta, as a conformance read (steering's routing, 00:27Z block) | revision 4 commit | architect, conformance read | owed |
 
 ## Value Statement and Business Objective
 
@@ -117,6 +118,10 @@ steering-roadmap from option text this planner drafted.
 | D-19 | OQ-9: D-15's "fails" means not kept alive; a not-readable run is repaired and re-run once by devops under the same push, and a second not-readable run goes to him | 2026-11-19 | Selected: "Agent: fails = didn't keep running (Recommended)". Shown: "Only a clean 'not kept running' stops M5 and M6. An unreadable run is repaired and re-run once by devops under the same push you approve; a second unreadable run comes to you." Same ledger block (question 2) and rulings block; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. Stop condition, verbatim: "a second unreadable run comes to you." Criteria: M5-0 limb 2. |
 | D-20 | OQ-10: M4 adds the navigation-guard context and moves the confirmation dialog up to the /message layout | 2026-11-19 | Selected: "Agent: accept the guard (Recommended)". Shown: "M4 adds the guard and moves the dialog up a layout, so the send page's Header and Sidebar links warn too. What you chose is unchanged; the mechanism is larger." Same ledger block (question 3) and rulings block; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. Criteria: M4-a, M4-d. |
 | D-21 | Exclusions X-17 to X-19 accepted as written | 2026-11-19 | Selected: "Agent: accept X-17 to X-19 (Recommended)". Shown: "The plan keeps all three as written, as stated limits." Same ledger block (question 4) and rulings block; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. |
+| D-22 | OQ-11: the draft store holds at most 20 drafts and 1 MB, the least recently edited dropped silently past it | 2026-11-19 | Selected: "Agent: cap 20 drafts / 1 MB (Recommended)". Shown: "At most 20 drafts and 1 MB. When it's full, the least recently edited draft is dropped, silently." Selection-prompt answer, 2026-11-19T00:26Z; ledger `steering/selection-ledger/2026-11-19.md` block "2026-11-19T00:26Z — steering-roadmap" (question 1); rulings block `steering/017-rulings.md` 2026-11-19T00:27Z (`a9e2ed3`); option text agent-authored (steering-roadmap, from this plan). The option was worded before revision 4's four-pair table (F-24); with D-23 his pair is (a)·(a), whose outcome the table states, recorded beside his selection in the rulings block. | Owner withdrawal only. Criteria: M3 "Storage form" (Bound), M3-h. |
+| D-23 | OQ-12: the shared storage code stops throwing on a full store for every key, and the draft store drops an old draft and retries | 2026-11-19 | Selected: "Agent: fix in shared code (Recommended)". Shown: "The shared storage code stops throwing for every stored setting, and the draft store drops an old draft and retries. This fixes the shared bug once, where it lives." Same ledger block (question 2) and rulings block; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. Criteria: M3 "Storage form" (Quota), M3-g, M3-h. |
+| D-24 | OQ-13: each successful save sweeps that message's leftover images more than 120 s older than the committed one | 2026-11-19 | Selected: "Agent: sweep after each save (Recommended)". Shown: "After each successful save, delete that message's leftover images more than 120 s older than the current one. Only the latest image is kept again; it costs one storage listing per save." Same ledger block (question 3) and rulings block; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. Criteria: M5-c form 3. |
+| D-25 | X-18's third case accepted: two tabs on one saved message share one stored draft | 2026-11-19 | Selected: "Agent: accept it (Recommended)". Shown: "X-18 keeps its third case as a known limit. Two tabs on one message overwrite each other's draft, as they do today." Same ledger block (question 4) and rulings block; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. |
 
 ## Assumptions and open questions
 
@@ -152,22 +157,14 @@ OPEN QUESTION [RESOLVED]: OQ-9, the probe's "fails". Answered by D-19 (M5-0).
 
 OPEN QUESTION [RESOLVED]: OQ-10, the send page's links. Answered by D-20 (M4-a).
 
-**OPEN QUESTION OQ-11 (his; blocks M3 code; F-19 item 1, AF-16).** The draft store's bound. Each
-option's cost: (a) **at most 20 entries and at most 1 MB serialised, evicting the least recently
-edited entry** (Recommended): the store and its per-keystroke cost stay small (the architect measured
-17.2 ms to serialise and 5.1 ms to parse a 7.4 MB map, `verification/017/architect-delta/`); what it
-gives up is a silent loss, the oldest draft, for a browser past the bound, which D-11's text did not
-show him. (b) **No bound of the chain's own**: what it gives up is the per-keystroke cost growing
-with the store; what happens when the browser's storage fills is OQ-12's answer (table below).
+OPEN QUESTION [RESOLVED]: OQ-11, the draft store's bound. Answered by D-22: option (a), at most 20
+entries and 1 MB.
 
-**OPEN QUESTION OQ-12 (his; blocks M3 code; F-19 item 2).** The quota error. (a) **The shared `set`
-stops throwing for every stored key, and the draft store evicts and retries** (Recommended; his
-standing rule fixes a shared bug once, in the shared code). (b) **Stated limit**: no code changes on
-the quota path; a full origin storage makes every later edit throw inside the editor's store effect,
-as it can today, and the same for theme and preferences writes.
+OPEN QUESTION [RESOLVED]: OQ-12, the quota error. Answered by D-23: option (a), the shared `set`
+stops throwing and the draft store evicts and retries.
 
-The two answers combine (F-24). What each of the four pairs does, the options' text being readings
-of this table:
+The two answers combined (F-24); his pair is (a) · (a). What each of the four pairs does, kept as
+the record of what the options meant (steering's 00:27Z block):
 
 | OQ-11 · OQ-12 | Past 20 entries or 1 MB | Browser storage full |
 |---|---|---|
@@ -176,12 +173,10 @@ of this table:
 | (b) · (a) | nothing happens; no bound | the least recently edited draft is evicted and the write retried, as (a) · (a): a silent loss, but only at the browser's quota |
 | (b) · (b) | nothing happens; no bound | the write throws inside the editor's store effect, on every later edit, as it can today |
 
-**OPEN QUESTION OQ-13 (his; blocks M5 code; F-19 item 3).** The leftover-object sweep (M5-c form 3).
-(a) **After each commit, delete the message's leftover objects at least 120 s older than the
-committed one** (Recommended): keep-only-latest (D-3) is restored at the next save; it costs one
-listing per successful save. (b) **Stated limit, no sweep**: forms 1 and 2 still remove every object a
-continuation processed; an object whose 204 no continuation processed stays for good. At AN-4's
-rate (15 non-successes in 16847 requests, most of them timeouts) that is a few objects a year.
+OPEN QUESTION [RESOLVED]: OQ-13, the leftover-object sweep. Answered by D-24: option (a), M5-c
+form 3. (Revision 3's "a few objects a year" for option (b) is withdrawn: it was taken from the
+generator's failures, a different event from a lost continuation, whose rate is unmeasured;
+steering's correction in the question put at 00:2xZ.)
 
 Revision 0's scope assumptions, each now stated as a criterion: unit and reach (M5-a), layer (both
 repositories, M5 and M6), whether item 3 is live (M2), and severity (M3).
