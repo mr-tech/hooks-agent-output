@@ -1,0 +1,26 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx > the edit page, signed out with unsaved changes > signs in through the Log in button without the unsaved-changes prompt
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx:98:28
+     96|     await act(async () => { await Promise.resolve(); });
+     97|
+     98|     expect(hoisted.signIn).toHaveBeenCalledTimes(1);
+       |                            ^
+     99|     expect(hoisted.leavingDuring).toBe(true);
+    100|     expect(unloadIsPrompted()).toBe(false);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

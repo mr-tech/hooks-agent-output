@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-55
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 1 failed) 212ms
+     × holds the route-0 draft last written, for the code that reads it 20ms
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 2 failed) 96ms
+     × writes the draft under its own key and also under the legacy message key 17ms
+     × leaves the legacy key when it holds a different draft 11ms
+
+ Test Files  2 failed | 142 passed (144)
+      Tests  3 failed | 1850 passed (1853)
+   Start at  19:47:35
+   Duration  17.94s (transform 25.73s, setup 2.69s, import 135.83s, tests 39.06s, environment 78.51s)
+

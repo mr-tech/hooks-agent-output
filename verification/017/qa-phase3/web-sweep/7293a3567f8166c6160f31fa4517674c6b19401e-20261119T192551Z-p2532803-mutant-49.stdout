@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-49
+
+ ❯ |dom| src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx (2 tests | 1 failed) 194ms
+     × prompts on unload 118ms
+ ❯ |dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx (7 tests | 3 failed) 95ms
+     × prompts on unload while there are unsaved changes 14ms
+     × prompts again once the exit has had time to leave and the page is still here 8ms
+     × prompts again at once when the exit fails 7ms
+
+ Test Files  2 failed | 142 passed (144)
+      Tests  4 failed | 1849 passed (1853)
+   Start at  19:45:44
+   Duration  16.80s (transform 24.16s, setup 1.89s, import 125.59s, tests 36.76s, environment 76.16s)
+

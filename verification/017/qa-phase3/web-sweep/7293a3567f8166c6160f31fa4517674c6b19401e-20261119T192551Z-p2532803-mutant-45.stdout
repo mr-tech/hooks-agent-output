@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-45
+
+ ❯ |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts (9 tests | 2 failed) 52ms
+     × hands the platform one promise that outlives the reply 9ms
+     × settles its promise without rejecting when the storage fails after a 204 3ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  2 failed | 1851 passed (1853)
+   Start at  19:44:27
+   Duration  17.71s (transform 25.93s, setup 2.78s, import 131.73s, tests 37.70s, environment 80.85s)
+

@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-19
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 1 failed) 244ms
+     × is removed from route 0 when a creating save succeeds 30ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  1 failed | 1852 passed (1853)
+   Start at  19:31:40
+   Duration  16.73s (transform 22.13s, setup 2.46s, import 125.77s, tests 36.37s, environment 75.73s)
+

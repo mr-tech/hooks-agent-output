@@ -1,0 +1,27 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-42
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.interleavings.test.ts (38 tests | 13 failed) 960ms
+     × s1 'ok', s2 'ok', delete false, orphan false: every interleaving holds the invariants 57ms
+     × s1 'ok', s2 'ok', delete false, orphan true: every interleaving holds the invariants 13ms
+     × s1 'ok', s2 'ok', delete true, orphan false: every interleaving holds the invariants 230ms
+     × s1 'ok', s2 'ok', delete true, orphan true: every interleaving holds the invariants 162ms
+     × s1 'ok', s2 'fail', delete false, orphan true: every interleaving holds the invariants 3ms
+     × s1 'ok', s2 'fail', delete true, orphan true: every interleaving holds the invariants 16ms
+     × s1 'ok', s2 'late', delete false, orphan true: every interleaving holds the invariants 6ms
+     × s1 'ok', s2 'late', delete true, orphan true: every interleaving holds the invariants 73ms
+     × s1 'fail', s2 'ok', delete false, orphan true: every interleaving holds the invariants 1ms
+     × s1 'fail', s2 'ok', delete true, orphan true: every interleaving holds the invariants 25ms
+     × s1 'late', s2 'ok', delete false, orphan true: every interleaving holds the invariants 6ms
+     × s1 'late', s2 'ok', delete true, orphan true: every interleaving holds the invariants 61ms
+     × leaves the later save's image committed and present 4ms
+ ❯ |node| src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts (15 tests | 3 failed) 63ms
+     × lists the message's prefix with its trailing slash 31ms
+     × an object 120000 ms older than the committed one is deleted: true 3ms
+     × lists and deletes under dev/ when the website runs as development 1ms
+
+ Test Files  2 failed | 142 passed (144)
+      Tests  16 failed | 1837 passed (1853)
+   Start at  19:43:32
+   Duration  17.20s (transform 23.74s, setup 2.17s, import 129.44s, tests 37.67s, environment 78.30s)
+

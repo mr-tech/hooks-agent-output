@@ -1,0 +1,83 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-32
+
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 34 failed) 150ms
+     × navigates with no prompt when no guard is registered 26ms
+     × navigates with no prompt when the registered guard lets the destination through 6ms
+     × asks first, and does not navigate, when the guard holds the destination 5ms
+     × hands the guard the destination of the clicked link 4ms
+     × asks for a link activated from the keyboard, a click with no pointer detail 4ms
+     × keeps the user on the page when the prompt is cancelled 3ms
+     × navigates to the clicked destination when the prompt is confirmed 2ms
+     × replaces the history entry on confirm for a link that replaces 2ms
+     × leaves a ctrl-click to the browser, with no prompt 2ms
+     × leaves a meta-click to the browser, with no prompt 2ms
+     × leaves a shift-click to the browser, with no prompt 2ms
+     × leaves a alt-click to the browser, with no prompt 2ms
+     × leaves a link that opens a new tab to the browser, with no prompt 3ms
+     × stops holding once the registering component has unmounted 2ms
+     × keeps the newer guard when an older registration is withdrawn 3ms
+     × hands the guard its path, query string and fragment 3ms
+     × asks first, and does not leave, when the guard holds a link to another site 2ms
+     × hands the guard the full address of a link to another site 2ms
+     × leaves for the address, in this tab and with no second browser prompt, once confirmed 2ms
+     × replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed 2ms
+     × stays when the prompt for a link to another site is cancelled 2ms
+     × lets the browser follow a link to another site when nothing is held 3ms
+     × leaves a ctrl-click on a link to another site to the browser, with no prompt 2ms
+     × leaves a meta-click on a link to another site to the browser, with no prompt 2ms
+     × leaves a shift-click on a link to another site to the browser, with no prompt 3ms
+     × leaves a alt-click on a link to another site to the browser, with no prompt 3ms
+     × leaves a link to another site that opens a new tab to the browser, with no prompt 2ms
+     × reads a URL object as the address it holds 3ms
+     × asks for a link to another site that names this tab as its target 2ms
+     × leaves a link to another site that downloads to the browser, with no prompt 2ms
+     × leaves a middle-click on a link to another site to the browser, with no prompt 2ms
+     × leaves a link to another site alone when its own click handler has already handled the click 3ms
+     × treats an absolute address on this site as a link on this site 3ms
+     × keeps both prompts open when they are raised together, each answered on its own 3ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 33 failed) 476ms
+     × asks before the avatar link leaves the editor, and Cancel keeps the edits 86ms
+     × navigates to the avatar link when the prompt is confirmed 10ms
+     × asks the same for a link rendered inside the editor's own providers 13ms
+     × asks for a link activated from the keyboard 12ms
+     × does not ask while nothing has changed 17ms
+     × does not ask for the link to the same message's send page 10ms
+     × link to /message/m/4/edit/: asks is false 7ms
+     × link to /message/m/4/edit?tab=1: asks is false 9ms
+     × link to http://localhost:3000/message/m/4/send: asks is false 10ms
+     × link to https://other.example/message/m/4/edit: asks is true 6ms
+     × link to /message/m/4/edit/extra: asks is true 6ms
+     × link to /message/m/new: asks is true 7ms
+     × stops asking once the editor has unmounted 8ms
+     × asks before the sidebar logo leaves the page 33ms
+     × asks before the sidebar edit link leaves the page 15ms
+     × asks before the sidebar terms link leaves the page 14ms
+     × asks before the sidebar privacy link leaves the page 14ms
+     × asks before the sidebar servers link leaves the page 21ms
+     × asks before the sidebar account link leaves the page 14ms
+     × does not ask for a sidebar link when nothing has changed 14ms
+     × search result to another message whose id starts with this one: asks is 4 15ms
+     × search result to another message whose id is a prefix of this one: asks is 42 25ms
+     × search result to this message: asks is 4 18ms
+     × search result to this message, with a long id: asks is 42 10ms
+     × does not ask for the sidebar's edit link on the unsaved route 7ms
+     × asks before the crumb to the server's folder leaves the page 17ms
+     × asks before either crumb to the user's folder leaves the page 10ms
+     × does not ask for the links back to this message's editor 8ms
+     × asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed 11ms
+     × keeps both open when raised together, each answered on its own, with a link inside the editor 6ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 4ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 5ms
+     × renders no editor prompt on the send page, and still asks for its links 9ms
+ ❯ |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx (4 tests | 4 failed) 84ms
+     × asks before Create Message leaves the page 65ms
+     × asks before Servers leaves the page 6ms
+     × asks before Invite Bot, a link to another site, leaves the page 5ms
+     × does not ask for Support, which opens a new tab 6ms
+
+ Test Files  3 failed | 141 passed (144)
+      Tests  71 failed | 1782 passed (1853)
+   Start at  19:35:43
+   Duration  19.17s (transform 36.97s, setup 3.10s, import 148.49s, tests 29.33s, environment 77.04s)
+

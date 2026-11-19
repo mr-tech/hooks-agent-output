@@ -1,0 +1,21 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-46
+
+ ❯ |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts (12 tests | 11 failed) 307ms
+     × arrives once, on the message's channel, as a message-update event 106ms
+     × carries the exact hash string of the saved message when the hash has letters and digits 41ms
+     × carries the exact hash string of the saved message when the hash has digits only 14ms
+     × carries the exact hash string of the saved message when the hash has a minus sign and digits only 6ms
+     × carries the exact hash string of the saved message when the hash has digits, an e and 00 23ms
+     × carries the exact hash string of the saved message when the hash has a minus sign, digits, an e and 02 54ms
+     × carries the exact hash string of the saved message when the hash has an exponent past what a double holds 19ms
+     × carries the exact hash string of the saved message when the hash has a minus sign and an exponent past what a double holds 10ms
+     × keeps two saves apart whose hashes would both read as one finite value 7ms
+     × keeps two saves apart whose hashes would both read as Infinity 15ms
+     × keeps two saves apart whose hashes would both read as -Infinity 8ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  11 failed | 1842 passed (1853)
+   Start at  19:44:46
+   Duration  18.11s (transform 26.69s, setup 2.38s, import 135.19s, tests 39.10s, environment 81.65s)
+

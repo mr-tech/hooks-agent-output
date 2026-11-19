@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-39
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts (13 tests | 9 failed) 40ms
+     × answer 500 writes one line and leaves the stored nonce alone 8ms
+     × answer 404 writes one line and leaves the stored nonce alone 2ms
+     × answer 200 writes one line and leaves the stored nonce alone 2ms
+     × answer 302 writes one line and leaves the stored nonce alone 1ms
+     × answer 503 writes one line and leaves the stored nonce alone 1ms
+     × answer a refused connection writes one line and leaves the stored nonce alone 1ms
+     × names no nonce, no message content, no object key and no credential 1ms
+     × writes exactly one line of class no-answer-within-T at 40 seconds, and no commit 3ms
+     × stops waiting once the generator has answered 500: one line, not two 1ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  9 failed | 1844 passed (1853)
+   Start at  19:37:57
+   Duration  16.37s (transform 19.90s, setup 2.33s, import 118.78s, tests 35.41s, environment 77.53s)
+

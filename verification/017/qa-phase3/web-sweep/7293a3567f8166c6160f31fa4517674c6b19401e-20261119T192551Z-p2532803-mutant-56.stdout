@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-56
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 1 failed) 262ms
+     × is removed from route 0 when a creating save succeeds 38ms
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 1 failed) 72ms
+     × removes its own entry, and the legacy key when it holds that draft 10ms
+
+ Test Files  2 failed | 142 passed (144)
+      Tests  2 failed | 1851 passed (1853)
+   Start at  19:47:54
+   Duration  17.44s (transform 26.56s, setup 2.31s, import 131.47s, tests 37.49s, environment 77.64s)
+

@@ -1,0 +1,97 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the tab > has one id for the life of the tab
+AssertionError: expected 'cwx2z0ezpu' to be 'b46dd9520p' // Object.is equality
+
+Expected: "b46dd9520p"
+Received: "cwx2z0ezpu"
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:143:21
+    141| describe('messageDrafts, the tab', () => {
+    142|   it('has one id for the life of the tab', () => {
+    143|     expect(tabId()).toBe(tabId());
+       |                     ^
+    144|   });
+    145|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > writes the draft under its own key and also under the legacy message key
+AssertionError: expected [ '0:tn3uq1vtfy' ] to deeply equal [ '0:c9gr3gm3j3' ]
+
+- Expected
++ Received
+
+  [
+-   "0:c9gr3gm3j3",
++   "0:tn3uq1vtfy",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:185:35
+    183|     writeRouteZeroDraft(draft('legacy too', 5));
+    184|
+    185|     expect(Object.keys(stored())).toEqual([`0:${tabId()}`]);
+       |                                   ^
+    186|     expect(JSON.parse(window.localStorage.getItem('message') as string…
+    187|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > removes its own entry, and the legacy key when it holds that draft
+AssertionError: expected [ '0:9zbayzj5v2' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "0:9zbayzj5v2",
++ ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:194:35
+    192|     removeRouteZeroDraft({ content: 'gone' });
+    193|
+    194|     expect(Object.keys(stored())).toEqual([]);
+       |                                   ^
+    195|     expect(window.localStorage.getItem('message')).toBeNull();
+    196|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > turns a stored message with no id into this tab's route-0 entry, dated by its own timestamp
+AssertionError: expected undefined to deeply equal { Object (data, name, ...) }
+
+- Expected:
+{
+  "data": {
+    "content": "old draft",
+  },
+  "editedAt": 5,
+  "name": "Draft",
+}
+
++ Received:
+undefined
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:213:36
+    211|     window.localStorage.setItem('message', '{"name":"Draft","updatedAt…
+    212|
+    213|     expect(readDrafts()[tabKey()]).toEqual({ data: { content: 'old dra…
+       |                                    ^
+    214|   });
+    215|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+

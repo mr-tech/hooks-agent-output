@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-54
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 1 failed) 190ms
+     × shows each tab its own last draft after a reload 25ms
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 1 failed) 96ms
+     × writes the draft under its own key and also under the legacy message key 28ms
+
+ Test Files  2 failed | 142 passed (144)
+      Tests  2 failed | 1851 passed (1853)
+   Start at  19:47:17
+   Duration  16.97s (transform 23.81s, setup 1.96s, import 125.00s, tests 37.52s, environment 78.75s)
+

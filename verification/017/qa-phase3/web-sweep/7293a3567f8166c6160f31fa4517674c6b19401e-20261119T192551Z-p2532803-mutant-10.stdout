@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-10
+
+ ❯ |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx (13 tests | 5 failed) 985ms
+       × with focus on its dialog element runs only what that control does 120ms
+       × with focus on its message text runs only what that control does 44ms
+       × answers only the warning with focus on its dialog element 68ms
+       × answers only the warning with focus on its message text 78ms
+       × leaves the warning answerable on its own after the update prompt is answered 164ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  5 failed | 1848 passed (1853)
+   Start at  19:28:56
+   Duration  16.93s (transform 21.30s, setup 2.51s, import 122.60s, tests 36.77s, environment 79.29s)
+

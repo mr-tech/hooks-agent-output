@@ -1,0 +1,26 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/_components/__tests__/NavMenu.sign-in-and-out.test.tsx > NavMenu, the log in and log out item > signs in without the unsaved-changes prompt when signed out
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/app/_components/__tests__/NavMenu.sign-in-and-out.test.tsx:70:28
+     68|     await pressLog();
+     69|
+     70|     expect(hoisted.signIn).toHaveBeenCalledTimes(1);
+       |                            ^
+     71|     expect(hoisted.leavingDuring).toBe(true);
+     72|     await act(async () => { finish(); });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,75 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-23
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (60 tests | 48 failed) 628ms
+       × raises no notice in the saving tab: a classic message, nothing changed 65ms
+       × raises no notice in the saving tab: a classic message after an edit 12ms
+       × raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace 9ms
+       × raises no notice in the saving tab: a V2 message, nothing changed 10ms
+       × raises no notice in the saving tab: a V2 message after an edit 16ms
+       × raises no notice in the saving tab: a V2 message beside an empty embed 7ms
+       × raises no notice in the saving tab: a message not valid for sending, nothing changed 4ms
+       × raises no notice in the saving tab: a message not valid for sending, after an edit 3ms
+       × raises no notice after the content-loss dialog chose Classic 113ms
+       × raises no notice after the content-loss dialog chose V2 46ms
+       × raises no notice for a save whose broadcast hash is digits only, when an edit follows Save 8ms
+       × raises no notice for a save whose broadcast hash is a minus sign and digits only, when an edit follows Save 7ms
+       × raises no notice for a save whose broadcast hash is digits, an e and digits, when an edit follows Save 5ms
+       × raises no notice for a save whose broadcast hash is an exponent past what a double holds, when an edit follows Save 4ms
+       × raises no notice for a save whose broadcast hash is a minus sign and an exponent past what a double holds, when an edit follows Save 5ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 7ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 5ms
+       × raises no notice for either of two saves in flight, delivered in the order sent, when edits follow the second 5ms
+       × raises no notice for either of two saves in flight, delivered in the reverse order, when edits follow the second 5ms
+       × raises no notice in the saving tab: a classic message, nothing changed 3ms
+       × raises no notice in the saving tab: a classic message after an edit 3ms
+       × raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace 4ms
+       × raises no notice in the saving tab: a V2 message, nothing changed 3ms
+       × raises no notice in the saving tab: a V2 message after an edit 3ms
+       × raises no notice in the saving tab: a V2 message beside an empty embed 43ms
+       × raises no notice in the saving tab: a message not valid for sending, nothing changed 3ms
+       × raises no notice in the saving tab: a message not valid for sending, after an edit 3ms
+       × raises no notice after the content-loss dialog chose Classic 51ms
+       × raises no notice after the content-loss dialog chose V2 37ms
+       × raises no notice for a save whose broadcast hash is digits only, when an edit follows Save 3ms
+       × raises no notice for a save whose broadcast hash is a minus sign and digits only, when an edit follows Save 3ms
+       × raises no notice for a save whose broadcast hash is digits, an e and digits, when an edit follows Save 5ms
+       × raises no notice for a save whose broadcast hash is an exponent past what a double holds, when an edit follows Save 4ms
+       × raises no notice for a save whose broadcast hash is a minus sign and an exponent past what a double holds, when an edit follows Save 4ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 4ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 3ms
+       × raises no notice for either of two saves in flight, delivered in the order sent, when edits follow the second 6ms
+       × raises no notice for either of two saves in flight, delivered in the reverse order, when edits follow the second 4ms
+     × raises no notice for two identical saves, their broadcasts, and an edit after the second 5ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as one finite value 3ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as Infinity 5ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as -Infinity 5ms
+     × raises the notice when another tab saves content this tab sent earlier and has already seen broadcast 5ms
+     × raises the notice for a later save of the content of a save that failed 3ms
+     × raises no notice for the broadcast of an identical save still in flight when one of two failed 3ms
+     × raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows 5ms
+     × raises no notice for a later save in flight when an earlier save, already broadcast, then reports failure 6ms
+     × raises the notice when a payload that is not a string arrives while this tab holds a record of a save with the same digits 4ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx (3 tests | 3 failed) 238ms
+     × writes it as V2 without the embed, and the editor holds exactly what was written 80ms
+     × Save as Classic: the editor holds the classic message that was written, in Classic mode 104ms
+     × Save as Components V2: the editor holds the V2 message that was written, in V2 mode 50ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 3 failed) 219ms
+     × is removed from route 0 when a creating save succeeds 29ms
+     × of a saved message is removed when this tab saves what the draft holds 8ms
+     × of a saved message stays when an edit was typed after Save 7ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx (2 tests | 1 failed) 55ms
+     × an in-flight save toasts (toast.loading) 10ms
+ ❯ |node| src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts (7 tests | 6 failed) 34ms
+     × THE FALSITY SIGNATURE ITSELF — 5712 does NOT still carry flags 32768 after Load and save 15ms
+     × and the repair is genuinely LOSSLESS for 5712 — the content survives 1ms
+     × the flag DOES now reach the textarea (the silent strip is retired) 3ms
+     × ...and the repair is what clears it: row D resolves to classic, and Load applies that 5ms
+     × B3 class: the editor path is now LOSSLESS — flag cleared, content AND Action Row survive 2ms
+     × the editor path is now lossless; the toggle path still is not 2ms
+
+ Test Files  5 failed | 139 passed (144)
+      Tests  61 failed | 1792 passed (1853)
+   Start at  19:32:55
+   Duration  17.49s (transform 23.99s, setup 2.71s, import 131.31s, tests 37.44s, environment 79.11s)
+

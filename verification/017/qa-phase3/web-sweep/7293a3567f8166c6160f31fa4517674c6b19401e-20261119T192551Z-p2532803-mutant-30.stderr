@@ -1,0 +1,71 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves for the address, in this tab and with no second browser prompt, once confirmed
+AssertionError: expected "vi.fn()" to be called once with arguments: [ Array(1) ]
+
+Number of calls: 0
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:300:22
+    298|     press(dialogButton('Leave Page'));
+    299|
+    300|     expect(assigned).toHaveBeenCalledExactlyOnceWith(OUTSIDE);
+       |                      ^
+    301|     expect(leavingAtAssign).toHaveBeenCalledExactlyOnceWith(true);
+    302|     expect(hoisted.push).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed
+AssertionError: expected "vi.fn()" to be called once with arguments: [ Array(1) ]
+
+Number of calls: 0
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:311:22
+    309|     press(dialogButton('Leave Page'));
+    310|
+    311|     expect(replaced).toHaveBeenCalledExactlyOnceWith(OUTSIDE);
+       |                      ^
+    312|     expect(leavingAtReplace).toHaveBeenCalledExactlyOnceWith(true);
+    313|     expect(assigned).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > reads a URL object as the address it holds
+AssertionError: expected "vi.fn()" to be called once with arguments: [ Array(1) ]
+
+Number of calls: 0
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:378:22
+    376|     press(dialogButton('Leave Page'));
+    377|
+    378|     expect(assigned).toHaveBeenCalledExactlyOnceWith(OUTSIDE);
+       |                      ^
+    379|     expect(hoisted.push).not.toHaveBeenCalled();
+    380|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:455:28
+    453|     press(dialogButton('Leave Page', TITLE));
+    454|
+    455|     expect(hoisted.assign).toHaveBeenCalledTimes(1);
+       |                            ^
+    456|     expect(hoisted.assign.mock.calls[0][0]).toContain('guild_id=123');
+    457|     expect(hoisted.push).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+

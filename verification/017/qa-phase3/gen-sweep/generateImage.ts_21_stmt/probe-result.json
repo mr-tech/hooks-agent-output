@@ -1,0 +1,362 @@
+{
+ "results": [
+  {
+   "case": "ok",
+   "observed": {
+    "status": 204,
+    "ms": 1442,
+    "puts": 1,
+    "otherS3": [],
+    "failureLines": []
+   },
+   "verdict": "PASS",
+   "reasons": []
+  },
+  {
+   "case": "goto-404",
+   "observed": {
+    "status": 500,
+    "ms": 1058,
+    "puts": 0,
+    "otherS3": [],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "0 failure lines, want 1"
+   ]
+  },
+  {
+   "case": "goto-500",
+   "observed": {
+    "status": 500,
+    "ms": 1054,
+    "puts": 0,
+    "otherS3": [],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "0 failure lines, want 1"
+   ]
+  },
+  {
+   "case": "goto-300",
+   "observed": {
+    "status": 500,
+    "ms": 1052,
+    "puts": 0,
+    "otherS3": [],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "0 failure lines, want 1"
+   ]
+  },
+  {
+   "case": "goto-204",
+   "observed": {
+    "status": 500,
+    "ms": 50,
+    "puts": 0,
+    "otherS3": [],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "0 failure lines, want 1"
+   ]
+  },
+  {
+   "case": "goto-299",
+   "observed": {
+    "status": 204,
+    "ms": 1088,
+    "puts": 1,
+    "otherS3": [],
+    "failureLines": []
+   },
+   "verdict": "PASS",
+   "reasons": []
+  },
+  {
+   "case": "goto-null",
+   "observed": {
+    "status": 500,
+    "ms": 42,
+    "puts": 0,
+    "otherS3": [],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "0 failure lines, want 1"
+   ]
+  },
+  {
+   "case": "goto-199",
+   "observed": {
+    "status": 500,
+    "ms": 40,
+    "puts": 0,
+    "otherS3": [],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "0 failure lines, want 1"
+   ]
+  },
+  {
+   "case": "setup-rejects",
+   "observed": {
+    "status": 500,
+    "ms": 35,
+    "puts": 0,
+    "otherS3": [],
+    "failureLines": []
+   },
+   "verdict": "PASS",
+   "reasons": []
+  },
+  {
+   "case": "goto-reset",
+   "observed": {
+    "status": 500,
+    "ms": 59,
+    "puts": 0,
+    "otherS3": [],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "0 failure lines, want 1"
+   ]
+  },
+  {
+   "case": "screenshot",
+   "observed": {
+    "status": 500,
+    "ms": 1051,
+    "puts": 0,
+    "otherS3": [],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "0 failure lines, want 1"
+   ]
+  },
+  {
+   "case": "put",
+   "observed": {
+    "status": 500,
+    "ms": 1175,
+    "puts": 3,
+    "otherS3": [],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "0 failure lines, want 1"
+   ]
+  }
+ ],
+ "unchanged": [
+  {
+   "case": "bad body",
+   "want": 500,
+   "got": 500
+  },
+  {
+   "case": "wrong key",
+   "want": 404,
+   "got": 404
+  },
+  {
+   "case": "wrong path",
+   "want": 404,
+   "got": 404
+  },
+  {
+   "case": "wrong method",
+   "want": 404,
+   "got": 404
+  }
+ ],
+ "createdInstance": 2,
+ "posts": 14,
+ "closing": [
+  "2026-11-19T19:49:34.228Z Server received SIGINT. Closing server."
+ ],
+ "s3Log": [
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-01.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-01.jpeg",
+   "type": "image/jpeg",
+   "acl": "public-read",
+   "bytes": 1415,
+   "status": 200
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-10.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-10.jpeg",
+   "type": "image/jpeg",
+   "acl": "public-read",
+   "bytes": 1415,
+   "status": 200
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-nfail.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-nfail.jpeg",
+   "status": 500
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-nfail.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-nfail.jpeg",
+   "status": 500
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-nfail.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-nfail.jpeg",
+   "status": 500
+  }
+ ],
+ "generatorLines": [
+  "2026-11-19T19:49:19.998Z Server running at http://127.0.0.1:38196/",
+  "2026-11-19T19:49:20.073Z POST /generate",
+  "2026-11-19T19:49:20.374Z Created instance 1. Active instances: 2.",
+  "2026-11-19T19:49:20.375Z Acquired instance 1.",
+  "2026-11-19T19:49:20.386Z Created instance 2. Active instances: 2.",
+  "2026-11-19T19:49:21.482Z Releasing instance 1.",
+  "2026-11-19T19:49:21.500Z Generated image for message 42 with nonce vprobe-01 in 1426ms",
+  "2026-11-19T19:49:22.008Z POST /generate",
+  "2026-11-19T19:49:22.011Z Acquired instance 2.",
+  "2026-11-19T19:49:23.062Z Releasing instance 2.",
+  "ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor",
+  "    at new PreviewFailure (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:20:22)",
+  "    at generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:37:45)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:53:17)",
+  "2026-11-19T19:49:23.568Z POST /generate",
+  "2026-11-19T19:49:23.568Z Acquired instance 1.",
+  "2026-11-19T19:49:24.620Z Releasing instance 1.",
+  "ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor",
+  "    at new PreviewFailure (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:20:22)",
+  "    at generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:37:45)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:53:17)",
+  "2026-11-19T19:49:25.121Z POST /generate",
+  "2026-11-19T19:49:25.121Z Acquired instance 2.",
+  "2026-11-19T19:49:26.171Z Releasing instance 2.",
+  "ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor",
+  "    at new PreviewFailure (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:20:22)",
+  "    at generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:37:45)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:53:17)",
+  "2026-11-19T19:49:26.676Z POST /generate",
+  "2026-11-19T19:49:26.676Z Acquired instance 1.",
+  "2026-11-19T19:49:26.724Z Releasing instance 1.",
+  "ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor",
+  "    at new PreviewFailure (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:20:22)",
+  "    at /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:35:31",
+  "    at async generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:34:22)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:53:17)",
+  "2026-11-19T19:49:27.227Z POST /generate",
+  "2026-11-19T19:49:27.227Z Acquired instance 2.",
+  "2026-11-19T19:49:28.304Z Releasing instance 2.",
+  "2026-11-19T19:49:28.312Z Generated image for message 42 with nonce vprobe-10 in 1085ms",
+  "2026-11-19T19:49:28.815Z POST /generate",
+  "2026-11-19T19:49:28.815Z Acquired instance 1.",
+  "2026-11-19T19:49:28.855Z Releasing instance 1.",
+  "ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor",
+  "    at new PreviewFailure (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:20:22)",
+  "    at generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:37:45)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:53:17)",
+  "2026-11-19T19:49:29.356Z POST /generate",
+  "2026-11-19T19:49:29.356Z Acquired instance 2.",
+  "2026-11-19T19:49:29.394Z Releasing instance 2.",
+  "ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor",
+  "    at new PreviewFailure (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:20:22)",
+  "    at generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:37:45)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:53:17)",
+  "2026-11-19T19:49:29.897Z POST /generate",
+  "2026-11-19T19:49:29.898Z Acquired instance 1.",
+  "2026-11-19T19:49:29.930Z Releasing instance 1.",
+  "Error: shim: setViewport rejected",
+  "    at CDPPage.setViewport (/usr/local/bin/hooks/agent-output/verification/017/m6-probe/shim-screenshot.cjs:25:107)",
+  "    at CDPPage._create (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/node_modules/puppeteer-core/src/common/Page.ts:116:20)",
+  "    at async PageTarget.page (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/node_modules/puppeteer-core/src/common/Target.ts:274:13)",
+  "    at async CDPBrowser._createPageInContext (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/node_modules/puppeteer-core/src/common/Browser.ts:455:18)",
+  "    at async generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:26:16)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:53:17)",
+  "2026-11-19T19:49:30.436Z POST /generate",
+  "2026-11-19T19:49:30.437Z Acquired instance 2.",
+  "2026-11-19T19:49:30.493Z Releasing instance 2.",
+  "ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor",
+  "    at new PreviewFailure (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:20:22)",
+  "    at /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:35:31",
+  "    at async generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:34:22)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:53:17)",
+  "2026-11-19T19:49:30.995Z POST /generate",
+  "2026-11-19T19:49:30.996Z Acquired instance 1.",
+  "2026-11-19T19:49:32.044Z Releasing instance 1.",
+  "ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor",
+  "    at new PreviewFailure (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:20:22)",
+  "    at /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:42:31",
+  "    at async generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:39:12)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/getPool.ts:88:14)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:53:17)",
+  "2026-11-19T19:49:32.548Z POST /generate",
+  "2026-11-19T19:49:32.548Z Acquired instance 2.",
+  "2026-11-19T19:49:33.615Z Releasing instance 2.",
+  "ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor",
+  "    at new PreviewFailure (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:20:22)",
+  "    at /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:61:30",
+  "    at processTicksAndRejections (node:internal/process/task_queues:104:5)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/generateImage.ts:55:3)",
+  "2026-11-19T19:49:34.224Z POST /generate",
+  "SyntaxError: Unexpected token 'o', \"not json\" is not valid JSON",
+  "    at JSON.parse (<anonymous>)",
+  "    at IncomingMessage.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/gen-work/m1/src/server.ts:24:25)",
+  "    at IncomingMessage.emit (node:events:508:28)",
+  "    at IncomingMessage.emit (node:domain:489:12)",
+  "    at endReadableNT (node:internal/streams/readable:1729:12)",
+  "    at processTicksAndRejections (node:internal/process/task_queues:90:21)",
+  "2026-11-19T19:49:34.225Z POST /generate",
+  "2026-11-19T19:49:34.226Z POST /other",
+  "2026-11-19T19:49:34.227Z GET /generate",
+  "2026-11-19T19:49:34.228Z Server received SIGINT. Closing server."
+ ]
+}

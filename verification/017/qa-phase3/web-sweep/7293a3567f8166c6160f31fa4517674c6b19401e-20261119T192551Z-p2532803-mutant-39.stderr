@@ -1,0 +1,88 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > one failure line per failed generation > answer 500 writes one line and leaves the stored nonce alone
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > one failure line per failed generation > answer 404 writes one line and leaves the stored nonce alone
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > one failure line per failed generation > answer 200 writes one line and leaves the stored nonce alone
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > one failure line per failed generation > answer 302 writes one line and leaves the stored nonce alone
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > one failure line per failed generation > answer 503 writes one line and leaves the stored nonce alone
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > one failure line per failed generation > answer a refused connection writes one line and leaves the stored nonce alone
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts:82:28
+     80|     await done;
+     81|
+     82|     expect(failureLines()).toHaveLength(1);
+       |                            ^
+     83|     expect(failureLines()[0]).toMatch(new RegExp(`^preview-image-failu…
+     84|     expect(world.row.nonce).toBe(OLD_NONCE);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > one failure line per failed generation > names no nonce, no message content, no object key and no credential
+TypeError: Cannot read properties of undefined (reading 'includes')
+ ❯ src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts:95:17
+     93|
+     94|     const line = failureLines()[0];
+     95|     expect(line.includes(NEW_NONCE)).toBe(false);
+       |                 ^
+     96|     expect(line.includes(CONTENT)).toBe(false);
+     97|     expect(line.includes('previews/')).toBe(false);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > a generator that does not answer within 40 seconds > writes exactly one line of class no-answer-within-T at 40 seconds, and no commit
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts:122:28
+    120|     await done;
+    121|
+    122|     expect(failureLines()).toHaveLength(1);
+       |                            ^
+    123|     expect(failureLines()[0]).toBe('preview-image-failure id=42 class=…
+    124|     expect(world.commits).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/9]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > a generator that does not answer within 40 seconds > stops waiting once the generator has answered 500: one line, not two
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts:147:28
+    145|     await vi.advanceTimersByTimeAsync(120_000);
+    146|
+    147|     expect(failureLines()).toHaveLength(1);
+       |                            ^
+    148|     expect(failureLines()[0]).toMatch(/class=status-500 elapsedMs=1000…
+    149|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/9]⎯
+

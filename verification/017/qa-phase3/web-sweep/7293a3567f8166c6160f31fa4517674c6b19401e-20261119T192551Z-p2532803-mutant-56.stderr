@@ -1,0 +1,56 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > removes its own entry, and the legacy key when it holds that draft
+AssertionError: expected [ '0:q0lyw64wo6' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "0:q0lyw64wo6",
++ ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:194:35
+    192|     removeRouteZeroDraft({ content: 'gone' });
+    193|
+    194|     expect(Object.keys(stored())).toEqual([]);
+       |                                   ^
+    195|     expect(window.localStorage.getItem('message')).toBeNull();
+    196|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds
+AssertionError: expected [ '0:A' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "0:A",
++ ]
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:346:25
+    344|     respond(0, '55');
+    345|
+    346|     expect(draftKeys()).toEqual([]);
+       |                         ^
+    347|     expect(window.localStorage.getItem('message')).toBeNull();
+    348|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

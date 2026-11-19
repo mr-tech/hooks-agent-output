@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-2
+
+ ❯ |dom| src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx (2 tests | 1 failed) 105ms
+     × signs in through the Log in button without the unsaved-changes prompt 39ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  1 failed | 1852 passed (1853)
+   Start at  19:26:27
+   Duration  16.58s (transform 21.02s, setup 2.32s, import 121.31s, tests 35.91s, environment 77.43s)
+

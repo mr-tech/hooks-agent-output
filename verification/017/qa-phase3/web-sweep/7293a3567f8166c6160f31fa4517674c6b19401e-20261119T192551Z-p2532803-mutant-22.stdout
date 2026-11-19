@@ -1,0 +1,34 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-22
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (60 tests | 22 failed) 801ms
+       × raises no notice for a save whose broadcast hash is digits only, when an edit follows Save 33ms
+       × raises no notice for a save whose broadcast hash is a minus sign and digits only, when an edit follows Save 8ms
+       × raises no notice for a save whose broadcast hash is digits, an e and digits, when an edit follows Save 7ms
+       × raises no notice for a save whose broadcast hash is an exponent past what a double holds, when an edit follows Save 27ms
+       × raises no notice for a save whose broadcast hash is a minus sign and an exponent past what a double holds, when an edit follows Save 9ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 6ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 5ms
+       × raises no notice for either of two saves in flight, delivered in the order sent, when edits follow the second 17ms
+       × raises no notice for either of two saves in flight, delivered in the reverse order, when edits follow the second 9ms
+       × raises no notice for a save whose broadcast hash is digits only, when an edit follows Save 6ms
+       × raises no notice for a save whose broadcast hash is a minus sign and digits only, when an edit follows Save 5ms
+       × raises no notice for a save whose broadcast hash is digits, an e and digits, when an edit follows Save 5ms
+       × raises no notice for a save whose broadcast hash is an exponent past what a double holds, when an edit follows Save 8ms
+       × raises no notice for a save whose broadcast hash is a minus sign and an exponent past what a double holds, when an edit follows Save 6ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 7ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 6ms
+       × raises no notice for either of two saves in flight, delivered in the order sent, when edits follow the second 11ms
+       × raises no notice for either of two saves in flight, delivered in the reverse order, when edits follow the second 8ms
+     × raises no notice for two identical saves, their broadcasts, and an edit after the second 7ms
+     × raises no notice for the broadcast of an identical save still in flight when one of two failed 5ms
+     × raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows 6ms
+     × raises no notice for a later save in flight when an earlier save, already broadcast, then reports failure 7ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/useApiMethods.own-save-record.test.tsx (2 tests | 1 failed) 43ms
+     × records one hash for a message that has an id 35ms
+
+ Test Files  2 failed | 142 passed (144)
+      Tests  23 failed | 1830 passed (1853)
+   Start at  19:32:35
+   Duration  18.07s (transform 25.93s, setup 2.72s, import 131.03s, tests 39.68s, environment 78.70s)
+

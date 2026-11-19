@@ -1,0 +1,27 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-21
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (60 tests | 17 failed) 643ms
+     × raises the notice when another tab saves content this tab never sent 39ms
+     × raises the notice when another tab saves while this tab has unsaved edits, naming the loss 3ms
+     × raises the notice when another tab saves content whose broadcast hash is digits only 2ms
+     × raises the notice when another tab saves content whose hash is digits and an e, beside a held record of different content 6ms
+     × raises the notice when another tab saves content whose hash differs from the shown content's although both would read as one finite value 4ms
+     × raises the notice when another tab saves content whose hash differs from the shown content's although both would read as Infinity 5ms
+     × raises the notice when another tab saves content whose hash differs from the shown content's although both would read as -Infinity 3ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as one finite value 3ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as Infinity 3ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as -Infinity 6ms
+     × raises the notice when another tab saves a component-only edit 2ms
+     × raises the notice when another tab saves while this tab's own save is in flight 4ms
+     × raises the notice when another tab saves content this tab sent earlier and has already seen broadcast 6ms
+     × raises the notice for a later save of the content of a save that failed 5ms
+     × raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows 3ms
+     × raises the notice when a payload that is not a string arrives while this tab holds a record of a save with the same digits 7ms
+     × raises the notice when a payload that is not a string arrives with the digits of the shown content's hash 4ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  17 failed | 1836 passed (1853)
+   Start at  19:32:17
+   Duration  17.06s (transform 23.52s, setup 1.85s, import 128.22s, tests 36.89s, environment 77.35s)
+

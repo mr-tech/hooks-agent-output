@@ -1,0 +1,109 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message
+AssertionError: expected { …(2) } to deeply equal { data: { …(2) }, name: 'Stored' }
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "unsaved edits on 42",
+-     "embeds": [
+-       {
+-         "_key": Any<String>,
+-         "description": "An embed body",
+-         "title": "An embed title",
+-       },
+-     ],
++     "content": "saved copy",
+    },
+    "name": "Stored",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:156:21
+    154|     visit('/message/m/42/edit', 'authenticated');
+    155|
+    156|     expect(shown()).toEqual(unsavedEdits);
+       |                     ^
+    157|   });
+    158|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before
+AssertionError: expected { …(2) } to deeply equal { data: { …(2) }, name: 'Stored' }
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "unsaved edits on 42",
+-     "embeds": [
+-       {
+-         "_key": Any<String>,
+-         "description": "An embed body",
+-         "title": "An embed title",
+-       },
+-     ],
++     "content": "saved copy",
+    },
+    "name": "Stored",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:173:21
+    171|     mount();
+    172|
+    173|     expect(shown()).toEqual(unsavedEdits);
+       |                     ^
+    174|   });
+    175|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > leave no stored draft once they are typed back to the saved copy
+TypeError: Cannot convert undefined or null to object
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:178:19
+    176|   it('leave no stored draft once they are typed back to the saved copy…
+    177|     edited();
+    178|     expect(Object.keys(JSON.parse(window.localStorage.getItem('message…
+       |                   ^
+    179|
+    180|     act(() => { cur().updateMessage({ data: { content: 'saved copy' } …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message stays when an edit was typed after Save
+AssertionError: expected [] to deeply equal [ '42' ]
+
+- Expected
++ Received
+
+- [
+-   "42",
+- ]
++ []
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:372:25
+    370|     respond(0, '42');
+    371|
+    372|     expect(draftKeys()).toEqual(['42']);
+       |                         ^
+    373|   });
+    374| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+

@@ -1,0 +1,62 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > writes the draft under its own key and also under the legacy message key
+AssertionError: expected [] to deeply equal [ '0:dfqnwyq3vh' ]
+
+- Expected
++ Received
+
+- [
+-   "0:dfqnwyq3vh",
+- ]
++ []
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:185:35
+    183|     writeRouteZeroDraft(draft('legacy too', 5));
+    184|
+    185|     expect(Object.keys(stored())).toEqual([`0:${tabId()}`]);
+       |                                   ^
+    186|     expect(JSON.parse(window.localStorage.getItem('message') as string…
+    187|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload
+AssertionError: expected { …(2) } to deeply equal { …(2) }
+
+- Expected
++ Received
+
+@@ -1,8 +1,8 @@
+  {
+    "data": {
+-     "content": "from A",
++     "content": "from B",
+      "embeds": [
+        {
+          "_key": "b76f3dcc-5f4b-4d84-a7e0-3cd5cc497c8c",
+          "description": "An embed body",
+          "title": "An embed title",
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:209:21
+    207|     openTab('A');
+    208|     mount();
+    209|     expect(shown()).toEqual({ data: restoredData('from A'), name: 'New…
+       |                     ^
+    210|     unmountDom();
+    211|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-51
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 4 failed) 107ms
+     × has one id for the life of the tab 26ms
+     × writes the draft under its own key and also under the legacy message key 7ms
+     × removes its own entry, and the legacy key when it holds that draft 3ms
+     × turns a stored message with no id into this tab's route-0 entry, dated by its own timestamp 2ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  4 failed | 1849 passed (1853)
+   Start at  19:46:20
+   Duration  16.66s (transform 22.24s, setup 2.45s, import 123.18s, tests 36.17s, environment 75.82s)
+

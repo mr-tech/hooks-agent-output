@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-15
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 1 failed) 231ms
+     × leave no stored draft once they are typed back to the saved copy 39ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  1 failed | 1852 passed (1853)
+   Start at  19:30:26
+   Duration  17.78s (transform 26.08s, setup 2.50s, import 135.69s, tests 37.48s, environment 78.78s)
+

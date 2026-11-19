@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-27
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (60 tests | 1 failed) 777ms
+     × raises the notice when another tab saves content this tab sent earlier and has already seen broadcast 16ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  1 failed | 1852 passed (1853)
+   Start at  19:34:07
+   Duration  16.77s (transform 23.08s, setup 2.28s, import 125.74s, tests 36.29s, environment 75.61s)
+

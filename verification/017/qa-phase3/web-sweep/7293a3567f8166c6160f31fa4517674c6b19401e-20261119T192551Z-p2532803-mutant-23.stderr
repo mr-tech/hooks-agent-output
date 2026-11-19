@@ -1,0 +1,609 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 61 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message after an edit
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message after an edit
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message beside an empty embed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a message not valid for sending, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a message not valid for sending, after an edit
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message after an edit
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message after an edit
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message beside an empty embed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a message not valid for sending, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a message not valid for sending, after an edit
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:135:30
+    133|       if (Object.keys(patch).length) edit(patch);
+    134|       save();
+    135|       expect(hoisted.inputs).toHaveLength(1);
+       |                              ^
+    136|
+    137|       deliver(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice after the content-loss dialog chose Classic
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice after the content-loss dialog chose V2
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice after the content-loss dialog chose Classic
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice after the content-loss dialog chose V2
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:150:32
+    148|           cur().commitSaveChoice(cur().pendingSaveChoice?.options.find…
+    149|         });
+    150|         expect(hoisted.inputs).toHaveLength(1);
+       |                                ^
+    151|
+    152|         deliver(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for a save whose broadcast hash is digits only, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for a save whose broadcast hash is a minus sign and digits only, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for a save whose broadcast hash is digits, an e and digits, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for a save whose broadcast hash is an exponent past what a double holds, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for a save whose broadcast hash is a minus sign and an exponent past what a double holds, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for a save whose broadcast hash is digits only, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for a save whose broadcast hash is a minus sign and digits only, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for a save whose broadcast hash is digits, an e and digits, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for a save whose broadcast hash is an exponent past what a double holds, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for a save whose broadcast hash is a minus sign and an exponent past what a double holds, when an edit follows Save
+ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+]
+ ❯ Object.get error [as error] node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:538:31
+ ❯ ZodObject.parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:638:22
+ ❯ serverHashOf src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:94:66
+     92| const save = () => { act(() => { cur().saveMessage(); }); };
+     93|
+     94| const serverHashOf = (input: unknown) => hashMessage(upsertInput.parse…
+       |                                                                  ^
+     95| const sentHash = (index: number) => serverHashOf(hoisted.inputs[index]…
+     96| const remoteHash = (patch: Record<string, unknown>) => serverHashOf({
+ ❯ sentHash src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:95:37
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:169:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice when an edit is typed after Save and before the broadcast arrives
+ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+]
+ ❯ Object.get error [as error] node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:538:31
+ ❯ ZodObject.parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:638:22
+ ❯ serverHashOf src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:94:66
+     92| const save = () => { act(() => { cur().saveMessage(); }); };
+     93|
+     94| const serverHashOf = (input: unknown) => hashMessage(upsertInput.parse…
+       |                                                                  ^
+     95| const sentHash = (index: number) => serverHashOf(hoisted.inputs[index]…
+     96| const remoteHash = (patch: Record<string, unknown>) => serverHashOf({
+ ❯ sentHash src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:95:37
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:117:78
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:181:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for a save that carries a field the server drops, when an edit follows Save
+ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+]
+ ❯ Object.get error [as error] node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:538:31
+ ❯ ZodObject.parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:638:22
+ ❯ serverHashOf src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:94:66
+     92| const save = () => { act(() => { cur().saveMessage(); }); };
+     93|
+     94| const serverHashOf = (input: unknown) => hashMessage(upsertInput.parse…
+       |                                                                  ^
+     95| const sentHash = (index: number) => serverHashOf(hoisted.inputs[index]…
+     96| const remoteHash = (patch: Record<string, unknown>) => serverHashOf({
+ ❯ sentHash src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:95:37
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:117:78
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:191:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for either of two saves in flight, delivered in the order sent, when edits follow the second
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for either of two saves in flight, delivered in the reverse order, when edits follow the second
+ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+]
+ ❯ Object.get error [as error] node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:538:31
+ ❯ ZodObject.parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:638:22
+ ❯ serverHashOf src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:94:66
+     92| const save = () => { act(() => { cur().saveMessage(); }); };
+     93|
+     94| const serverHashOf = (input: unknown) => hashMessage(upsertInput.parse…
+       |                                                                  ^
+     95| const sentHash = (index: number) => serverHashOf(hoisted.inputs[index]…
+     96| const remoteHash = (patch: Record<string, unknown>) => serverHashOf({
+ ❯ sentHash src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:95:37
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:117:78
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:207:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice when an edit is typed after Save and before the broadcast arrives
+TypeError: Cannot read properties of undefined (reading 'onSuccess')
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:102:29
+    100| const respond = (index: number) => {
+    101|   act(() => {
+    102|     (hoisted.mutOpts[index].onSuccess as (m: unknown, v: unknown) => v…
+       |                             ^
+    103|       { ...(hoisted.inputs[index] as UpsertInput).message, id: '42' },
+    104|       hoisted.inputs[index],
+ ❯ Proxy.process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ respond src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:101:3
+ ❯ orders src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:118:67
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:181:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for a save that carries a field the server drops, when an edit follows Save
+TypeError: Cannot read properties of undefined (reading 'onSuccess')
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:102:29
+    100| const respond = (index: number) => {
+    101|   act(() => {
+    102|     (hoisted.mutOpts[index].onSuccess as (m: unknown, v: unknown) => v…
+       |                             ^
+    103|       { ...(hoisted.inputs[index] as UpsertInput).message, id: '42' },
+    104|       hoisted.inputs[index],
+ ❯ Proxy.process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ respond src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:101:3
+ ❯ orders src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:118:67
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:191:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for either of two saves in flight, delivered in the order sent, when edits follow the second
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for either of two saves in flight, delivered in the reverse order, when edits follow the second
+TypeError: Cannot read properties of undefined (reading 'onSuccess')
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:102:29
+    100| const respond = (index: number) => {
+    101|   act(() => {
+    102|     (hoisted.mutOpts[index].onSuccess as (m: unknown, v: unknown) => v…
+       |                             ^
+    103|       { ...(hoisted.inputs[index] as UpsertInput).message, id: '42' },
+    104|       hoisted.inputs[index],
+ ❯ Proxy.process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ respond src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:101:3
+ ❯ orders src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:118:67
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:207:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for two identical saves, their broadcasts, and an edit after the second
+ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+]
+ ❯ Object.get error [as error] node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:538:31
+ ❯ ZodObject.parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:638:22
+ ❯ serverHashOf src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:94:66
+     92| const save = () => { act(() => { cur().saveMessage(); }); };
+     93|
+     94| const serverHashOf = (input: unknown) => hashMessage(upsertInput.parse…
+       |                                                                  ^
+     95| const sentHash = (index: number) => serverHashOf(hoisted.inputs[index]…
+     96| const remoteHash = (patch: Record<string, unknown>) => serverHashOf({
+ ❯ sentHash src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:95:37
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:219:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content whose hash differs from a held record's although both would read as one finite value
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content whose hash differs from a held record's although both would read as Infinity
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content whose hash differs from a held record's although both would read as -Infinity
+ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+]
+ ❯ Object.get error [as error] node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:538:31
+ ❯ ZodObject.parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:638:22
+ ❯ serverHashOf src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:94:66
+     92| const save = () => { act(() => { cur().saveMessage(); }); };
+     93|
+     94| const serverHashOf = (input: unknown) => hashMessage(upsertInput.parse…
+       |                                                                  ^
+     95| const sentHash = (index: number) => serverHashOf(hoisted.inputs[index]…
+     96| const remoteHash = (patch: Record<string, unknown>) => serverHashOf({
+ ❯ sentHash src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:95:37
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:284:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content this tab sent earlier and has already seen broadcast
+ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+]
+ ❯ Object.get error [as error] node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:538:31
+ ❯ ZodObject.parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:638:22
+ ❯ serverHashOf src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:94:66
+     92| const save = () => { act(() => { cur().saveMessage(); }); };
+     93|
+     94| const serverHashOf = (input: unknown) => hashMessage(upsertInput.parse…
+       |                                                                  ^
+     95| const sentHash = (index: number) => serverHashOf(hoisted.inputs[index]…
+     96| const remoteHash = (patch: Record<string, unknown>) => serverHashOf({
+ ❯ sentHash src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:95:37
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:326:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice for a later save of the content of a save that failed
+TypeError: Cannot read properties of undefined (reading 'onError')
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:110:29
+    108| const fail = (index: number) => {
+    109|   act(() => {
+    110|     (hoisted.mutOpts[index].onError as (e: unknown, v: unknown) => voi…
+       |                             ^
+    111|   });
+    112| };
+ ❯ Proxy.process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ fail src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:109:3
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:348:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for the broadcast of an identical save still in flight when one of two failed
+TypeError: Cannot read properties of undefined (reading 'onError')
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:110:29
+    108| const fail = (index: number) => {
+    109|   act(() => {
+    110|     (hoisted.mutOpts[index].onError as (e: unknown, v: unknown) => voi…
+       |                             ^
+    111|   });
+    112| };
+ ❯ Proxy.process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ fail src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:109:3
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:361:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows
+ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+]
+ ❯ Object.get error [as error] node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:538:31
+ ❯ ZodObject.parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:638:22
+ ❯ serverHashOf src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:94:66
+     92| const save = () => { act(() => { cur().saveMessage(); }); };
+     93|
+     94| const serverHashOf = (input: unknown) => hashMessage(upsertInput.parse…
+       |                                                                  ^
+     95| const sentHash = (index: number) => serverHashOf(hoisted.inputs[index]…
+     96| const remoteHash = (patch: Record<string, unknown>) => serverHashOf({
+ ❯ sentHash src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:95:37
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:375:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for a later save in flight when an earlier save, already broadcast, then reports failure
+ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+]
+ ❯ Object.get error [as error] node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:538:31
+ ❯ ZodObject.parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:638:22
+ ❯ serverHashOf src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:94:66
+     92| const save = () => { act(() => { cur().saveMessage(); }); };
+     93|
+     94| const serverHashOf = (input: unknown) => hashMessage(upsertInput.parse…
+       |                                                                  ^
+     95| const sentHash = (index: number) => serverHashOf(hoisted.inputs[index]…
+     96| const remoteHash = (patch: Record<string, unknown>) => serverHashOf({
+ ❯ sentHash src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:95:37
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:387:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when a payload that is not a string arrives while this tab holds a record of a save with the same digits
+ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [],
+    "message": "Required"
+  }
+]
+ ❯ Object.get error [as error] node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:538:31
+ ❯ ZodObject.parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:638:22
+ ❯ serverHashOf src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:94:66
+     92| const save = () => { act(() => { cur().saveMessage(); }); };
+     93|
+     94| const serverHashOf = (input: unknown) => hashMessage(upsertInput.parse…
+       |                                                                  ^
+     95| const sentHash = (index: number) => serverHashOf(hoisted.inputs[index]…
+     96| const remoteHash = (patch: Record<string, unknown>) => serverHashOf({
+ ❯ sentHash src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:95:37
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:400:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider — Save of a stored V2 message beside an empty embed > writes it as V2 without the embed, and the editor holds exactly what was written
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:89:28
+     87|
+     88|     expect(current().pendingSaveChoice).toBe(null);
+     89|     expect(hoisted.inputs).toHaveLength(1);
+       |                            ^
+     90|     const written = (hoisted.inputs[0] as { message: ActiveMessage }).…
+     91|     expect(written.data.embeds).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider — the choice save of a stored V2 message with content > Save as Classic: the editor holds the classic message that was written, in Classic mode
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ writtenAndHeld src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:74:26
+     72|
+     73| function writtenAndHeld() {
+     74|   expect(hoisted.inputs).toHaveLength(1);
+       |                          ^
+     75|   const written = (hoisted.inputs[0] as { message: ActiveMessage }).me…
+     76|   const held = current().message as ActiveMessage;
+ ❯ chooseAndSave src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:112:12
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:116:31
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider — the choice save of a stored V2 message with content > Save as Components V2: the editor holds the V2 message that was written, in V2 mode
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ writtenAndHeld src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:74:26
+     72|
+     73| function writtenAndHeld() {
+     74|   expect(hoisted.inputs).toHaveLength(1);
+       |                          ^
+     75|   const written = (hoisted.inputs[0] as { message: ActiveMessage }).me…
+     76|   const held = current().message as ActiveMessage;
+ ❯ chooseAndSave src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:112:12
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:125:31
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds
+TypeError: Cannot read properties of undefined (reading 'onSuccess')
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:330:31
+    328|   const respond = (index: number, id: string) => {
+    329|     act(() => {
+    330|       (hoisted.mutOpts[index].onSuccess as (m: unknown, v: unknown) =>…
+       |                               ^
+    331|         { ...(hoisted.inputs[index] as { message: object }).message, i…
+    332|         hoisted.inputs[index],
+ ❯ Proxy.process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ respond src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:329:5
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:344:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds
+TypeError: Cannot read properties of undefined (reading 'onSuccess')
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:330:31
+    328|   const respond = (index: number, id: string) => {
+    329|     act(() => {
+    330|       (hoisted.mutOpts[index].onSuccess as (m: unknown, v: unknown) =>…
+       |                               ^
+    331|         { ...(hoisted.inputs[index] as { message: object }).message, i…
+    332|         hoisted.inputs[index],
+ ❯ Proxy.process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ respond src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:329:5
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:357:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message stays when an edit was typed after Save
+TypeError: Cannot read properties of undefined (reading 'onSuccess')
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:330:31
+    328|   const respond = (index: number, id: string) => {
+    329|     act(() => {
+    330|       (hoisted.mutOpts[index].onSuccess as (m: unknown, v: unknown) =>…
+       |                               ^
+    331|         { ...(hoisted.inputs[index] as { message: object }).message, i…
+    332|         hoisted.inputs[index],
+ ❯ Proxy.process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ respond src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:329:5
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:370:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/61]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx > MessageProvider — transient notices still use toast (not a blanket removal) > an in-flight save toasts (toast.loading)
+AssertionError: expected "Mock" to be called with arguments: [ 'Saving message...' ]
+
+Number of calls: 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx:55:17
+     53|     act(() => { ctx!.saveMessage(); });
+     54|
+     55|     expect(spy).toHaveBeenCalledWith('Saving message...');
+       |                 ^
+     56|     spy.mockRestore();
+     57|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/61]⎯
+
+ FAIL  |node| src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts > JSON-editor Load->save, executed end to end > THE FALSITY SIGNATURE ITSELF — 5712 does NOT still carry flags 32768 after Load and save
+Error: save never reached the API layer
+ ❯ loadAndSaveViaShippedProvider src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:59:38
+     57|     updateMessage({ data: validated } as any);
+     58|     saveMessage();
+     59|     if (upserted.length !== 1) throw Error('save never reached the API…
+       |                                      ^
+     60|     return upserted[0].message;
+     61|   }
+ ❯ editorRoundTrip src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:72:45
+ ❯ src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:88:23
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/61]⎯
+
+ FAIL  |node| src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts > JSON-editor Load->save, executed end to end > and the repair is genuinely LOSSLESS for 5712 — the content survives
+Error: save never reached the API layer
+ ❯ loadAndSaveViaShippedProvider src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:59:38
+     57|     updateMessage({ data: validated } as any);
+     58|     saveMessage();
+     59|     if (upserted.length !== 1) throw Error('save never reached the API…
+       |                                      ^
+     60|     return upserted[0].message;
+     61|   }
+ ❯ editorRoundTrip src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:72:45
+ ❯ src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:93:23
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/61]⎯
+
+ FAIL  |node| src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts > JSON-editor Load->save, executed end to end > the flag DOES now reach the textarea (the silent strip is retired)
+Error: save never reached the API layer
+ ❯ loadAndSaveViaShippedProvider src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:59:38
+     57|     updateMessage({ data: validated } as any);
+     58|     saveMessage();
+     59|     if (upserted.length !== 1) throw Error('save never reached the API…
+       |                                      ^
+     60|     return upserted[0].message;
+     61|   }
+ ❯ editorRoundTrip src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:72:45
+ ❯ src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:99:27
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[27/61]⎯
+
+ FAIL  |node| src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts > JSON-editor Load->save, executed end to end > ...and the repair is what clears it: row D resolves to classic, and Load applies that
+Error: save never reached the API layer
+ ❯ loadAndSaveViaShippedProvider src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:59:38
+     57|     updateMessage({ data: validated } as any);
+     58|     saveMessage();
+     59|     if (upserted.length !== 1) throw Error('save never reached the API…
+       |                                      ^
+     60|     return upserted[0].message;
+     61|   }
+ ❯ editorRoundTrip src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:72:45
+ ❯ src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:104:36
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[28/61]⎯
+
+ FAIL  |node| src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts > JSON-editor Load->save, executed end to end > B3 class: the editor path is now LOSSLESS — flag cleared, content AND Action Row survive
+Error: save never reached the API layer
+ ❯ loadAndSaveViaShippedProvider src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:59:38
+     57|     updateMessage({ data: validated } as any);
+     58|     saveMessage();
+     59|     if (upserted.length !== 1) throw Error('save never reached the API…
+       |                                      ^
+     60|     return upserted[0].message;
+     61|   }
+ ❯ editorRoundTrip src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:72:45
+ ❯ src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:124:36
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[29/61]⎯
+
+ FAIL  |node| src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts > JSON-editor Load->save, executed end to end > the editor path is now lossless; the toggle path still is not
+Error: save never reached the API layer
+ ❯ loadAndSaveViaShippedProvider src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:59:38
+     57|     updateMessage({ data: validated } as any);
+     58|     saveMessage();
+     59|     if (upserted.length !== 1) throw Error('save never reached the API…
+       |                                      ^
+     60|     return upserted[0].message;
+     61|   }
+ ❯ editorRoundTrip src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:72:45
+ ❯ src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:143:23
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[30/61]⎯
+

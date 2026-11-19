@@ -1,0 +1,17 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-31
+
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 3 failed) 1624ms
+     × navigates to the clicked destination when the prompt is confirmed 120ms
+     × replaces the history entry on confirm for a link that replaces 77ms
+     × treats an absolute address on this site as a link on this site 56ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 3 failed) 4241ms
+     × navigates to the avatar link when the prompt is confirmed 284ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 202ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 213ms
+
+ Test Files  2 failed | 142 passed (144)
+      Tests  6 failed | 1847 passed (1853)
+   Start at  19:35:22
+   Duration  19.53s (transform 30.44s, setup 3.48s, import 144.85s, tests 43.83s, environment 87.85s)
+

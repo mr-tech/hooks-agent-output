@@ -1,0 +1,20 @@
+FAIL ok status=204 puts=0 other=- lines=0 :: 0 puts, want 1; put shape undefined
+PASS goto-404 status=500 puts=0 other=- lines=1
+PASS goto-500 status=500 puts=0 other=- lines=1
+PASS goto-300 status=500 puts=0 other=- lines=1
+PASS goto-204 status=500 puts=0 other=- lines=1
+FAIL goto-299 status=204 puts=0 other=- lines=0 :: 0 puts, want 1; put shape undefined
+PASS goto-null status=500 puts=0 other=- lines=1
+PASS goto-199 status=500 puts=0 other=- lines=1
+PASS setup-rejects status=500 puts=0 other=- lines=0
+PASS goto-reset status=500 puts=0 other=- lines=1
+PASS screenshot status=500 puts=0 other=- lines=1
+FAIL put status=204 puts=0 other=- lines=0 :: status 204, want 500; 0 puts, want at least 1; 0 failure lines, want 1
+PASS bad body status=500 want=500
+PASS wrong key status=404 want=404
+PASS wrong path status=404 want=404
+PASS wrong method status=404 want=404
+unchanged lines: Server running 1, Created instance 2, POST /generate 14
+closing lines: 1
+cases 16, failed 3
+left over processes: generator 0, chrome 0

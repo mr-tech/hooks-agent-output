@@ -1,0 +1,32 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-12
+
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 22 failed) 4877ms
+     × asks before the avatar link leaves the editor, and Cancel keeps the edits 441ms
+     × navigates to the avatar link when the prompt is confirmed 182ms
+     × asks the same for a link rendered inside the editor's own providers 135ms
+     × asks for a link activated from the keyboard 81ms
+     × link to https://other.example/message/m/4/edit: asks is true 97ms
+     × link to /message/m/4/edit/extra: asks is true 74ms
+     × link to /message/m/new: asks is true 68ms
+     × asks before the sidebar logo leaves the page 89ms
+     × asks before the sidebar edit link leaves the page 73ms
+     × asks before the sidebar terms link leaves the page 58ms
+     × asks before the sidebar privacy link leaves the page 51ms
+     × asks before the sidebar servers link leaves the page 78ms
+     × asks before the sidebar account link leaves the page 57ms
+     × search result to another message whose id starts with this one: asks is 4 85ms
+     × search result to another message whose id is a prefix of this one: asks is 42 73ms
+     × asks before the crumb to the server's folder leaves the page 67ms
+     × asks before either crumb to the user's folder leaves the page 47ms
+     × asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed 70ms
+     × keeps both open when raised together, each answered on its own, with a link inside the editor 149ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 1113ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 1121ms
+     × renders no editor prompt on the send page, and still asks for its links 16ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  22 failed | 1831 passed (1853)
+   Start at  19:29:31
+   Duration  16.79s (transform 23.35s, setup 1.64s, import 125.77s, tests 38.00s, environment 75.14s)
+

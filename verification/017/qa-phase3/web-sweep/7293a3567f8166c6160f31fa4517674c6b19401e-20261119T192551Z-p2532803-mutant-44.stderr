@@ -1,0 +1,143 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts > a save of an existing message > replies while the generator has not answered, with the nonce already committed
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:70:28
+     68|     const saved = await upsertMessage(existingMessage, userSelect);
+     69|
+     70|     expect(world.requests).toHaveLength(1);
+       |                            ^
+     71|     expect(saved.previewImageNonce).toBe(PREVIOUS);
+     72|     world.requests[0].answer.resolve({ status: 204 });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts > a save of an existing message > asks the generator only after its row is saved
+AssertionError: expected -1 to be greater than 1
+ ❯ src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:79:36
+     77|     await upsertMessage(existingMessage, userSelect);
+     78|
+     79|     expect(order.indexOf('fetch')).toBeGreaterThan(order.indexOf('inse…
+       |                                    ^
+     80|     world.requests[0].answer.resolve({ status: 204 });
+     81|     await Promise.all(hoisted.waited);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts > a save of an existing message > hands the platform one promise that outlives the reply
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:87:28
+     85|     await upsertMessage(existingMessage, userSelect);
+     86|
+     87|     expect(hoisted.waited).toHaveLength(1);
+       |                            ^
+     88|     world.requests[0].answer.resolve({ status: 204 });
+     89|     await expect(hoisted.waited[0]).resolves.toBeUndefined();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/9]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts > a save of an existing message > sends the saved id and a nonce minted from the database clock the statement returned
+TypeError: Cannot read properties of undefined (reading 'body')
+ ❯ src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:96:30
+     94|     await upsertMessage(existingMessage, userSelect);
+     95|
+     96|     expect(world.requests[0].body.id).toBe('42');
+       |                              ^
+     97|     expect(world.requests[0].body.nonce).toMatch(/^v1763509200123456[0…
+     98|     expect(world.requests[0].body.message).toEqual(data);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/9]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts > a save of an existing message > still saves when the generator fails, and keeps the stored nonce
+TypeError: Cannot read properties of undefined (reading 'answer')
+ ❯ src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:106:23
+    104|     const saved = await upsertMessage(existingMessage, userSelect);
+    105|     await settle();
+    106|     world.requests[0].answer.resolve({ status: 500 });
+       |                       ^
+    107|     await Promise.all(hoisted.waited);
+    108|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/9]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts > a save of an existing message > settles its promise without rejecting when the storage fails after a 204
+TypeError: Cannot read properties of undefined (reading 'answer')
+ ❯ src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:116:23
+    114|     await upsertMessage(existingMessage, userSelect);
+    115|     world.db = undefined;
+    116|     world.requests[0].answer.resolve({ status: 204 });
+       |                       ^
+    117|
+    118|     await expect(hoisted.waited[0]).resolves.toBeUndefined();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/9]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts > the saved row's id > is the id the client sent for an existing message
+TypeError: Cannot read properties of undefined (reading 'answer')
+ ❯ src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:127:23
+    125|
+    126|     expect(insertParameters).toContain('42');
+    127|     world.requests[0].answer.resolve({ status: 204 });
+       |                       ^
+    128|     await Promise.all(hoisted.waited);
+    129|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/9]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts > the saved row's id > is left to the database for a new message
+TypeError: Cannot read properties of undefined (reading 'answer')
+ ❯ src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:135:23
+    133|
+    134|     expect(insertParameters).not.toContain('42');
+    135|     world.requests[0].answer.resolve({ status: 204 });
+       |                       ^
+    136|     await Promise.all(hoisted.waited);
+    137|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/9]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts > a save of a new message > asks the generator once, after the insert, for the id the insert returned
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:144:28
+    142|     await upsertMessage(newMessage, userSelect);
+    143|
+    144|     expect(world.requests).toHaveLength(1);
+       |                            ^
+    145|     expect(order.indexOf('fetch')).toBeGreaterThan(order.indexOf('inse…
+    146|     expect(world.requests[0].body.id).toBe('42');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/9]⎯
+

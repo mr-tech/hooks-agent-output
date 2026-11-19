@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-44
+
+ ❯ |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts (9 tests | 9 failed) 54ms
+     × replies while the generator has not answered, with the nonce already committed 26ms
+     × asks the generator only after its row is saved 5ms
+     × hands the platform one promise that outlives the reply 3ms
+     × sends the saved id and a nonce minted from the database clock the statement returned 3ms
+     × still saves when the generator fails, and keeps the stored nonce 3ms
+     × settles its promise without rejecting when the storage fails after a 204 2ms
+     × is the id the client sent for an existing message 3ms
+     × is left to the database for a new message 3ms
+     × asks the generator once, after the insert, for the id the insert returned 5ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  9 failed | 1844 passed (1853)
+   Start at  19:44:09
+   Duration  16.75s (transform 23.89s, setup 2.04s, import 123.80s, tests 36.61s, environment 76.44s)
+

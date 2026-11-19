@@ -1,0 +1,692 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in, opening a saved message, and returning to route 0
+AssertionError: expected { data: { …(3) }, name: 'New Message' } to deeply equal { data: { …(2) }, name: 'New Message' }
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "my draft",
++     "content": "Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _",
+      "embeds": [
+        {
+          "_key": "1",
+-         "description": "An embed body",
+-         "title": "An embed title",
++         "color": 14895353,
++         "description": "We're excited to have you here!
++
++ This user-friendly interface makes it easy to create custom messages that fit your server's theme and tone. (Hint: Use the Actions menu to toggle between Edit Mode and View Mode.)
++
++ Here are just some of the exciting features you'll find in Hooks.gg.
++
++ _ _",
++         "fields": [
++           {
++             "_key": "1",
++             "name": "<:pointer_ol:987453923587686430>_ _ Fully-Interactive Message Editor",
++             "value": "Our message editor is easy to use and understand. No more needing to remember what's what, **if you want to change something, just click or tap it!**",
++           },
++           {
++             "_key": "2",
++             "name": "<:discord_ol:987449544012882061>_ _ Familiar Tools",
++             "value": "This editor brings you all the fancy features you're used to from Discord including `**inline formatting**` and an emoji picker built into supported inputs.",
++           },
++           {
++             "_key": "3",
++             "name": "<:folder_ol:987449556969078864>_ _ Saving to the Cloud",
++             "value": "All of your messages are saved securely to the cloud upon logging in, so you can access them from anywhere and never lose your progress.",
++           },
++           {
++             "_key": "4",
++             "name": "<:userplus_ol:987453943770656768>_ _ Shared Saves",
++             "value": "Saving messages to a Discord server you admin allows other admins of that server to also view and edit them, making it easy to collaborate with the team.",
++           },
++           {
++             "_key": "5",
++             "name": "<:download_ol:987449546915323924>_ _ Message Importing",
++             "value": "You can easily load messages already sent by webhooks directly into our editor, making it easy to edit and recreate responses.",
+            },
+          ],
++         "title": "About Hooks.gg",
++         "url": "https://hooks.gg",
++       },
++       {
++         "_key": "2",
++         "author": {
++           "name": "Your Wonderful Server",
++         },
++         "color": 5793266,
++         "description": "Hey there {user}! Welcome to our community. We're excited to have you here and hope you'll have a great time with us.
++
++ Take a moment to introduce yourself and let us know what brought you here. And if you have any questions or concerns, don't hesitate to reach out to one of our friendly moderators.
++
++ Thanks for joining us, and we look forward to getting to know you better!
++
++ _ _",
++         "fields": [
++           {
++             "_key": "1",
++             "inline": true,
++             "name": "Server Rules",
++             "value": "Please be sure to read through our server rules before posting. We want to make sure everyone feels safe and welcome here.",
++           },
++           {
++             "_key": "2",
++             "inline": true,
++             "name": "Channels",
++             "value": "We have a variety of channels for different topics, so feel free to jump in and join the conversation!",
++           },
++           {
++             "_key": "3",
++             "name": "Events",
++             "value": "We regularly host events and activities, so keep an eye out for announcements and join in on the fun!",
++           },
++         ],
++         "timestamp": "2026-11-19T19:30:18.770Z",
++         "title": "Example: Welcome to Our Server!",
++       },
++     ],
++     "username": "Hooks.gg Bot",
+    },
+    "name": "New Message",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:115:21
+    113|     visit('/message/m/0/edit');
+    114|
+    115|     expect(shown()).toEqual({ data: restoredData('my draft'), name: 'N…
+       |                     ^
+    116|   });
+    117|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in and a reload
+AssertionError: expected { data: { …(3) }, name: 'New Message' } to deeply equal { data: { …(2) }, name: 'New Message' }
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "my draft",
++     "content": "Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _",
+      "embeds": [
+        {
+          "_key": "1",
+-         "description": "An embed body",
+-         "title": "An embed title",
++         "color": 14895353,
++         "description": "We're excited to have you here!
++
++ This user-friendly interface makes it easy to create custom messages that fit your server's theme and tone. (Hint: Use the Actions menu to toggle between Edit Mode and View Mode.)
++
++ Here are just some of the exciting features you'll find in Hooks.gg.
++
++ _ _",
++         "fields": [
++           {
++             "_key": "1",
++             "name": "<:pointer_ol:987453923587686430>_ _ Fully-Interactive Message Editor",
++             "value": "Our message editor is easy to use and understand. No more needing to remember what's what, **if you want to change something, just click or tap it!**",
++           },
++           {
++             "_key": "2",
++             "name": "<:discord_ol:987449544012882061>_ _ Familiar Tools",
++             "value": "This editor brings you all the fancy features you're used to from Discord including `**inline formatting**` and an emoji picker built into supported inputs.",
++           },
++           {
++             "_key": "3",
++             "name": "<:folder_ol:987449556969078864>_ _ Saving to the Cloud",
++             "value": "All of your messages are saved securely to the cloud upon logging in, so you can access them from anywhere and never lose your progress.",
++           },
++           {
++             "_key": "4",
++             "name": "<:userplus_ol:987453943770656768>_ _ Shared Saves",
++             "value": "Saving messages to a Discord server you admin allows other admins of that server to also view and edit them, making it easy to collaborate with the team.",
++           },
++           {
++             "_key": "5",
++             "name": "<:download_ol:987449546915323924>_ _ Message Importing",
++             "value": "You can easily load messages already sent by webhooks directly into our editor, making it easy to edit and recreate responses.",
+            },
+          ],
++         "title": "About Hooks.gg",
++         "url": "https://hooks.gg",
++       },
++       {
++         "_key": "2",
++         "author": {
++           "name": "Your Wonderful Server",
++         },
++         "color": 5793266,
++         "description": "Hey there {user}! Welcome to our community. We're excited to have you here and hope you'll have a great time with us.
++
++ Take a moment to introduce yourself and let us know what brought you here. And if you have any questions or concerns, don't hesitate to reach out to one of our friendly moderators.
++
++ Thanks for joining us, and we look forward to getting to know you better!
++
++ _ _",
++         "fields": [
++           {
++             "_key": "1",
++             "inline": true,
++             "name": "Server Rules",
++             "value": "Please be sure to read through our server rules before posting. We want to make sure everyone feels safe and welcome here.",
++           },
++           {
++             "_key": "2",
++             "inline": true,
++             "name": "Channels",
++             "value": "We have a variety of channels for different topics, so feel free to jump in and join the conversation!",
++           },
++           {
++             "_key": "3",
++             "name": "Events",
++             "value": "We regularly host events and activities, so keep an eye out for announcements and join in on the fun!",
++           },
++         ],
++         "timestamp": "2026-11-19T19:30:18.770Z",
++         "title": "Example: Welcome to Our Server!",
++       },
++     ],
++     "username": "Hooks.gg Bot",
+    },
+    "name": "New Message",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:126:21
+    124|     mount();
+    125|
+    126|     expect(shown()).toEqual({ data: restoredData('my draft'), name: 'N…
+       |                     ^
+    127|   });
+    128|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored in a tab opened later, when it was the last edited
+AssertionError: expected { data: { …(3) }, name: 'New Message' } to deeply equal { data: { …(2) }, name: 'New Message' }
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "my draft",
++     "content": "Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _",
+      "embeds": [
+        {
+          "_key": "1",
+-         "description": "An embed body",
+-         "title": "An embed title",
++         "color": 14895353,
++         "description": "We're excited to have you here!
++
++ This user-friendly interface makes it easy to create custom messages that fit your server's theme and tone. (Hint: Use the Actions menu to toggle between Edit Mode and View Mode.)
++
++ Here are just some of the exciting features you'll find in Hooks.gg.
++
++ _ _",
++         "fields": [
++           {
++             "_key": "1",
++             "name": "<:pointer_ol:987453923587686430>_ _ Fully-Interactive Message Editor",
++             "value": "Our message editor is easy to use and understand. No more needing to remember what's what, **if you want to change something, just click or tap it!**",
++           },
++           {
++             "_key": "2",
++             "name": "<:discord_ol:987449544012882061>_ _ Familiar Tools",
++             "value": "This editor brings you all the fancy features you're used to from Discord including `**inline formatting**` and an emoji picker built into supported inputs.",
++           },
++           {
++             "_key": "3",
++             "name": "<:folder_ol:987449556969078864>_ _ Saving to the Cloud",
++             "value": "All of your messages are saved securely to the cloud upon logging in, so you can access them from anywhere and never lose your progress.",
++           },
++           {
++             "_key": "4",
++             "name": "<:userplus_ol:987453943770656768>_ _ Shared Saves",
++             "value": "Saving messages to a Discord server you admin allows other admins of that server to also view and edit them, making it easy to collaborate with the team.",
++           },
++           {
++             "_key": "5",
++             "name": "<:download_ol:987449546915323924>_ _ Message Importing",
++             "value": "You can easily load messages already sent by webhooks directly into our editor, making it easy to edit and recreate responses.",
+            },
+          ],
++         "title": "About Hooks.gg",
++         "url": "https://hooks.gg",
++       },
++       {
++         "_key": "2",
++         "author": {
++           "name": "Your Wonderful Server",
++         },
++         "color": 5793266,
++         "description": "Hey there {user}! Welcome to our community. We're excited to have you here and hope you'll have a great time with us.
++
++ Take a moment to introduce yourself and let us know what brought you here. And if you have any questions or concerns, don't hesitate to reach out to one of our friendly moderators.
++
++ Thanks for joining us, and we look forward to getting to know you better!
++
++ _ _",
++         "fields": [
++           {
++             "_key": "1",
++             "inline": true,
++             "name": "Server Rules",
++             "value": "Please be sure to read through our server rules before posting. We want to make sure everyone feels safe and welcome here.",
++           },
++           {
++             "_key": "2",
++             "inline": true,
++             "name": "Channels",
++             "value": "We have a variety of channels for different topics, so feel free to jump in and join the conversation!",
++           },
++           {
++             "_key": "3",
++             "name": "Events",
++             "value": "We regularly host events and activities, so keep an eye out for announcements and join in on the fun!",
++           },
++         ],
++         "timestamp": "2026-11-19T19:30:18.770Z",
++         "title": "Example: Welcome to Our Server!",
++       },
++     ],
++     "username": "Hooks.gg Bot",
+    },
+    "name": "New Message",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:137:21
+    135|     mount();
+    136|
+    137|     expect(shown()).toEqual({ data: restoredData('my draft'), name: 'N…
+       |                     ^
+    138|   });
+    139| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload
+AssertionError: expected { data: { …(3) }, name: 'New Message' } to deeply equal { …(2) }
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "from A",
++     "content": "Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _",
+      "embeds": [
+        {
+          "_key": "1",
+-         "description": "An embed body",
+-         "title": "An embed title",
++         "color": 14895353,
++         "description": "We're excited to have you here!
++
++ This user-friendly interface makes it easy to create custom messages that fit your server's theme and tone. (Hint: Use the Actions menu to toggle between Edit Mode and View Mode.)
++
++ Here are just some of the exciting features you'll find in Hooks.gg.
++
++ _ _",
++         "fields": [
++           {
++             "_key": "1",
++             "name": "<:pointer_ol:987453923587686430>_ _ Fully-Interactive Message Editor",
++             "value": "Our message editor is easy to use and understand. No more needing to remember what's what, **if you want to change something, just click or tap it!**",
++           },
++           {
++             "_key": "2",
++             "name": "<:discord_ol:987449544012882061>_ _ Familiar Tools",
++             "value": "This editor brings you all the fancy features you're used to from Discord including `**inline formatting**` and an emoji picker built into supported inputs.",
++           },
++           {
++             "_key": "3",
++             "name": "<:folder_ol:987449556969078864>_ _ Saving to the Cloud",
++             "value": "All of your messages are saved securely to the cloud upon logging in, so you can access them from anywhere and never lose your progress.",
++           },
++           {
++             "_key": "4",
++             "name": "<:userplus_ol:987453943770656768>_ _ Shared Saves",
++             "value": "Saving messages to a Discord server you admin allows other admins of that server to also view and edit them, making it easy to collaborate with the team.",
++           },
++           {
++             "_key": "5",
++             "name": "<:download_ol:987449546915323924>_ _ Message Importing",
++             "value": "You can easily load messages already sent by webhooks directly into our editor, making it easy to edit and recreate responses.",
+            },
+          ],
++         "title": "About Hooks.gg",
++         "url": "https://hooks.gg",
++       },
++       {
++         "_key": "2",
++         "author": {
++           "name": "Your Wonderful Server",
++         },
++         "color": 5793266,
++         "description": "Hey there {user}! Welcome to our community. We're excited to have you here and hope you'll have a great time with us.
++
++ Take a moment to introduce yourself and let us know what brought you here. And if you have any questions or concerns, don't hesitate to reach out to one of our friendly moderators.
++
++ Thanks for joining us, and we look forward to getting to know you better!
++
++ _ _",
++         "fields": [
++           {
++             "_key": "1",
++             "inline": true,
++             "name": "Server Rules",
++             "value": "Please be sure to read through our server rules before posting. We want to make sure everyone feels safe and welcome here.",
++           },
++           {
++             "_key": "2",
++             "inline": true,
++             "name": "Channels",
++             "value": "We have a variety of channels for different topics, so feel free to jump in and join the conversation!",
++           },
++           {
++             "_key": "3",
++             "name": "Events",
++             "value": "We regularly host events and activities, so keep an eye out for announcements and join in on the fun!",
++           },
++         ],
++         "timestamp": "2026-11-19T19:30:18.770Z",
++         "title": "Example: Welcome to Our Server!",
++       },
++     ],
++     "username": "Hooks.gg Bot",
+    },
+    "name": "New Message",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:209:21
+    207|     openTab('A');
+    208|     mount();
+    209|     expect(shown()).toEqual({ data: restoredData('from A'), name: 'New…
+       |                     ^
+    210|     unmountDom();
+    211|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently
+AssertionError: expected { data: { …(3) }, name: 'New Message' } to deeply equal { …(2) }
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "from B",
++     "content": "Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _",
+      "embeds": [
+        {
+          "_key": "1",
+-         "description": "An embed body",
+-         "title": "An embed title",
++         "color": 14895353,
++         "description": "We're excited to have you here!
++
++ This user-friendly interface makes it easy to create custom messages that fit your server's theme and tone. (Hint: Use the Actions menu to toggle between Edit Mode and View Mode.)
++
++ Here are just some of the exciting features you'll find in Hooks.gg.
++
++ _ _",
++         "fields": [
++           {
++             "_key": "1",
++             "name": "<:pointer_ol:987453923587686430>_ _ Fully-Interactive Message Editor",
++             "value": "Our message editor is easy to use and understand. No more needing to remember what's what, **if you want to change something, just click or tap it!**",
++           },
++           {
++             "_key": "2",
++             "name": "<:discord_ol:987449544012882061>_ _ Familiar Tools",
++             "value": "This editor brings you all the fancy features you're used to from Discord including `**inline formatting**` and an emoji picker built into supported inputs.",
++           },
++           {
++             "_key": "3",
++             "name": "<:folder_ol:987449556969078864>_ _ Saving to the Cloud",
++             "value": "All of your messages are saved securely to the cloud upon logging in, so you can access them from anywhere and never lose your progress.",
++           },
++           {
++             "_key": "4",
++             "name": "<:userplus_ol:987453943770656768>_ _ Shared Saves",
++             "value": "Saving messages to a Discord server you admin allows other admins of that server to also view and edit them, making it easy to collaborate with the team.",
++           },
++           {
++             "_key": "5",
++             "name": "<:download_ol:987449546915323924>_ _ Message Importing",
++             "value": "You can easily load messages already sent by webhooks directly into our editor, making it easy to edit and recreate responses.",
+            },
+          ],
++         "title": "About Hooks.gg",
++         "url": "https://hooks.gg",
++       },
++       {
++         "_key": "2",
++         "author": {
++           "name": "Your Wonderful Server",
++         },
++         "color": 5793266,
++         "description": "Hey there {user}! Welcome to our community. We're excited to have you here and hope you'll have a great time with us.
++
++ Take a moment to introduce yourself and let us know what brought you here. And if you have any questions or concerns, don't hesitate to reach out to one of our friendly moderators.
++
++ Thanks for joining us, and we look forward to getting to know you better!
++
++ _ _",
++         "fields": [
++           {
++             "_key": "1",
++             "inline": true,
++             "name": "Server Rules",
++             "value": "Please be sure to read through our server rules before posting. We want to make sure everyone feels safe and welcome here.",
++           },
++           {
++             "_key": "2",
++             "inline": true,
++             "name": "Channels",
++             "value": "We have a variety of channels for different topics, so feel free to jump in and join the conversation!",
++           },
++           {
++             "_key": "3",
++             "name": "Events",
++             "value": "We regularly host events and activities, so keep an eye out for announcements and join in on the fun!",
++           },
++         ],
++         "timestamp": "2026-11-19T19:30:18.770Z",
++         "title": "Example: Welcome to Our Server!",
++       },
++     ],
++     "username": "Hooks.gg Bot",
+    },
+    "name": "New Message",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:224:21
+    222|     mount();
+    223|
+    224|     expect(shown()).toEqual({ data: restoredData('from B'), name: 'New…
+       |                     ^
+    225|   });
+    226|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab a draft whose tab has closed
+AssertionError: expected { data: { …(3) }, name: 'New Message' } to deeply equal { …(2) }
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "from A",
++     "content": "Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _",
+      "embeds": [
+        {
+          "_key": "1",
+-         "description": "An embed body",
+-         "title": "An embed title",
++         "color": 14895353,
++         "description": "We're excited to have you here!
++
++ This user-friendly interface makes it easy to create custom messages that fit your server's theme and tone. (Hint: Use the Actions menu to toggle between Edit Mode and View Mode.)
++
++ Here are just some of the exciting features you'll find in Hooks.gg.
++
++ _ _",
++         "fields": [
++           {
++             "_key": "1",
++             "name": "<:pointer_ol:987453923587686430>_ _ Fully-Interactive Message Editor",
++             "value": "Our message editor is easy to use and understand. No more needing to remember what's what, **if you want to change something, just click or tap it!**",
++           },
++           {
++             "_key": "2",
++             "name": "<:discord_ol:987449544012882061>_ _ Familiar Tools",
++             "value": "This editor brings you all the fancy features you're used to from Discord including `**inline formatting**` and an emoji picker built into supported inputs.",
++           },
++           {
++             "_key": "3",
++             "name": "<:folder_ol:987449556969078864>_ _ Saving to the Cloud",
++             "value": "All of your messages are saved securely to the cloud upon logging in, so you can access them from anywhere and never lose your progress.",
++           },
++           {
++             "_key": "4",
++             "name": "<:userplus_ol:987453943770656768>_ _ Shared Saves",
++             "value": "Saving messages to a Discord server you admin allows other admins of that server to also view and edit them, making it easy to collaborate with the team.",
++           },
++           {
++             "_key": "5",
++             "name": "<:download_ol:987449546915323924>_ _ Message Importing",
++             "value": "You can easily load messages already sent by webhooks directly into our editor, making it easy to edit and recreate responses.",
+            },
+          ],
++         "title": "About Hooks.gg",
++         "url": "https://hooks.gg",
++       },
++       {
++         "_key": "2",
++         "author": {
++           "name": "Your Wonderful Server",
++         },
++         "color": 5793266,
++         "description": "Hey there {user}! Welcome to our community. We're excited to have you here and hope you'll have a great time with us.
++
++ Take a moment to introduce yourself and let us know what brought you here. And if you have any questions or concerns, don't hesitate to reach out to one of our friendly moderators.
++
++ Thanks for joining us, and we look forward to getting to know you better!
++
++ _ _",
++         "fields": [
++           {
++             "_key": "1",
++             "inline": true,
++             "name": "Server Rules",
++             "value": "Please be sure to read through our server rules before posting. We want to make sure everyone feels safe and welcome here.",
++           },
++           {
++             "_key": "2",
++             "inline": true,
++             "name": "Channels",
++             "value": "We have a variety of channels for different topics, so feel free to jump in and join the conversation!",
++           },
++           {
++             "_key": "3",
++             "name": "Events",
++             "value": "We regularly host events and activities, so keep an eye out for announcements and join in on the fun!",
++           },
++         ],
++         "timestamp": "2026-11-19T19:30:18.770Z",
++         "title": "Example: Welcome to Our Server!",
++       },
++     ],
++     "username": "Hooks.gg Bot",
+    },
+    "name": "New Message",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:233:21
+    231|     mount();
+    232|
+    233|     expect(shown()).toEqual({ data: restoredData('from A'), name: 'New…
+       |                     ^
+    234|   });
+    235|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the legacy message key > holds the route-0 draft last written, for the code that reads it
+TypeError: Cannot convert undefined or null to object
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:322:19
+    320|     const legacy = JSON.parse(window.localStorage.getItem('message') a…
+    321|
+    322|     expect(Object.keys(legacy).sort()).toEqual(['data', 'name', 'updat…
+       |                   ^
+    323|     expect(legacy).toEqual({ name: 'New Message', updatedAt: 1_700_000…
+    324|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/7]⎯
+

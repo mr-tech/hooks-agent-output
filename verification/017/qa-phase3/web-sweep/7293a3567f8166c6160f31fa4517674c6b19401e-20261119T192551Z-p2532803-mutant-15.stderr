@@ -1,0 +1,30 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > leave no stored draft once they are typed back to the saved copy
+AssertionError: expected '{"42":{"data":{"content":"unsaved edi…' to be '{}' // Object.is equality
+
+Expected: "{}"
+Received: "{"42":{"data":{"content":"unsaved edits on 42","embeds":[{"title":"An embed title","description":"An embed body","_key":"3b2e5974-8308-4bc5-be7e-bb80d126eb3a"}]},"name":"Stored","editedAt":1795116636996}}"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:182:58
+    180|     act(() => { cur().updateMessage({ data: { content: 'saved copy' } …
+    181|
+    182|     expect(window.localStorage.getItem('messageDrafts')).toBe('{}');
+       |                                                          ^
+    183|   });
+    184|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

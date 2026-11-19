@@ -1,0 +1,30 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, reloading a saved message > discards the stored edits and shows the saved copy
+AssertionError: expected '{"42":{"data":{"content":"stale edits…' to be '{}' // Object.is equality
+
+Expected: "{}"
+Received: "{"42":{"data":{"content":"stale edits"},"name":"Stored","editedAt":9999}}"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:389:58
+    387|
+    388|     expect(content()).toBe('saved copy');
+    389|     expect(window.localStorage.getItem('messageDrafts')).toBe('{}');
+       |                                                          ^
+    390|   });
+    391| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,49 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed
+AssertionError: expected "vi.fn()" to be called once with arguments: [ Array(1) ]
+
+Received:
+
+  1st vi.fn() call:
+
+Compared values have no visual difference.
+
+  2nd vi.fn() call:
+
+Compared values have no visual difference.
+
+
+Number of calls: 2
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:311:22
+    309|     press(dialogButton('Leave Page'));
+    310|
+    311|     expect(replaced).toHaveBeenCalledExactlyOnceWith(OUTSIDE);
+       |                      ^
+    312|     expect(leavingAtReplace).toHaveBeenCalledExactlyOnceWith(true);
+    313|     expect(assigned).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

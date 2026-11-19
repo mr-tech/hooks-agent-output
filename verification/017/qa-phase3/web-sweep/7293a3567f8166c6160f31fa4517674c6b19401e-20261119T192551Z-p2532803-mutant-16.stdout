@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3/web-work/20261119T192551Z-p2532803/mutant-16
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 4 failed) 229ms
+     × are shown again after signing in and opening the message 29ms
+     × are shown after a reload, as before 14ms
+     × leave no stored draft once they are typed back to the saved copy 6ms
+     × of a saved message stays when an edit was typed after Save 6ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  4 failed | 1849 passed (1853)
+   Start at  19:30:45
+   Duration  18.44s (transform 26.58s, setup 3.35s, import 132.05s, tests 39.18s, environment 83.48s)
+

@@ -1,0 +1,5 @@
+control 16 0
+generateImage.ts:21:stmt KILLED 16 9
+generateImage.ts:55:stmt KILLED 16 3
+server.ts:39:stmt KILLED 16 9
+3 of 3 mutants killed (denominator: mutants applied under a passing control)

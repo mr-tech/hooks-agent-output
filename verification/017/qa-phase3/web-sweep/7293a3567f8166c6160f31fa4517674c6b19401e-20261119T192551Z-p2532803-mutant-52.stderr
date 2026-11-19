@@ -1,0 +1,151 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes one entry and leaves the others
+AssertionError: expected [ 'a', 'b' ] to deeply equal [ 'b' ]
+
+- Expected
++ Received
+
+  [
++   "a",
+    "b",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:127:35
+    125|     removeDraft('a');
+    126|
+    127|     expect(Object.keys(stored())).toEqual(['b']);
+       |                                   ^
+    128|   });
+    129|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes an entry only when its data satisfies the condition given
+AssertionError: expected [ 'a' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "a",
++ ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:137:35
+    135|
+    136|     removeDraft('a', (e) => e.data.content === 'mine');
+    137|     expect(Object.keys(stored())).toEqual([]);
+       |                                   ^
+    138|   });
+    139| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > removes its own entry, and the legacy key when it holds that draft
+AssertionError: expected [ '0:rf26wkrfqc' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "0:rf26wkrfqc",
++ ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:194:35
+    192|     removeRouteZeroDraft({ content: 'gone' });
+    193|
+    194|     expect(Object.keys(stored())).toEqual([]);
+       |                                   ^
+    195|     expect(window.localStorage.getItem('message')).toBeNull();
+    196|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > leave no stored draft once they are typed back to the saved copy
+AssertionError: expected '{"42":{"data":{"content":"unsaved edi…' to be '{}' // Object.is equality
+
+Expected: "{}"
+Received: "{"42":{"data":{"content":"unsaved edits on 42","embeds":[{"title":"An embed title","description":"An embed body","_key":"50b43764-3b79-40a9-8a49-a41e0383e3fb"}]},"name":"Stored","editedAt":1795117609328}}"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:182:58
+    180|     act(() => { cur().updateMessage({ data: { content: 'saved copy' } …
+    181|
+    182|     expect(window.localStorage.getItem('messageDrafts')).toBe('{}');
+       |                                                          ^
+    183|   });
+    184|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds
+AssertionError: expected [ '0:A' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "0:A",
++ ]
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:346:25
+    344|     respond(0, '55');
+    345|
+    346|     expect(draftKeys()).toEqual([]);
+       |                         ^
+    347|     expect(window.localStorage.getItem('message')).toBeNull();
+    348|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds
+AssertionError: expected [ '42' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "42",
++ ]
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:359:25
+    357|     respond(0, '42');
+    358|
+    359|     expect(draftKeys()).toEqual([]);
+       |                         ^
+    360|   });
+    361|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, reloading a saved message > discards the stored edits and shows the saved copy
+AssertionError: expected '{"42":{"data":{"content":"stale edits…' to be '{}' // Object.is equality
+
+Expected: "{}"
+Received: "{"42":{"data":{"content":"stale edits"},"name":"Stored","editedAt":9999}}"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:389:58
+    387|
+    388|     expect(content()).toBe('saved copy');
+    389|     expect(window.localStorage.getItem('messageDrafts')).toBe('{}');
+       |                                                          ^
+    390|   });
+    391| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/7]⎯
+

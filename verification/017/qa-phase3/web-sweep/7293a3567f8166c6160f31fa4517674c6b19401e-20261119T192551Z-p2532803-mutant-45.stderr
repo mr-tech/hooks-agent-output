@@ -1,0 +1,45 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts > a save of an existing message > hands the platform one promise that outlives the reply
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:87:28
+     85|     await upsertMessage(existingMessage, userSelect);
+     86|
+     87|     expect(hoisted.waited).toHaveLength(1);
+       |                            ^
+     88|     world.requests[0].answer.resolve({ status: 204 });
+     89|     await expect(hoisted.waited[0]).resolves.toBeUndefined();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts > a save of an existing message > settles its promise without rejecting when the storage fails after a 204
+TypeError: You must provide a Promise to expect() when using .resolves, not 'undefined'.
+ ❯ src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:118:36
+    116|     world.requests[0].answer.resolve({ status: 204 });
+    117|
+    118|     await expect(hoisted.waited[0]).resolves.toBeUndefined();
+       |                                    ^
+    119|   });
+    120| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
