@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/b5afe525-3f83-48b3-a08e-9d337a51fe7f/scratchpad/mut-work4/20261119T231901Z-p827543/mutant-2
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.message-id.test.ts (13 tests | 1 failed) 16ms
+     × refuses one past the largest number a message can hold as a failed parse, without throwing 8ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 12 passed (13)
+   Start at  23:19:05
+   Duration  222ms (transform 50ms, setup 0ms, import 77ms, tests 16ms, environment 0ms)
+

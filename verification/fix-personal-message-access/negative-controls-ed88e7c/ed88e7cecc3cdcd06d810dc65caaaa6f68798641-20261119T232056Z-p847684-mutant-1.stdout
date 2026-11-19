@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/b5afe525-3f83-48b3-a08e-9d337a51fe7f/scratchpad/mut-work7/20261119T232056Z-p847684/mutant-1
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.message-id.test.ts (13 tests | 1 failed) 12ms
+     × refuses 20 digits, even when their value fits as a failed parse, without throwing 5ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 12 passed (13)
+   Start at  23:20:58
+   Duration  209ms (transform 53ms, setup 0ms, import 80ms, tests 12ms, environment 0ms)
+

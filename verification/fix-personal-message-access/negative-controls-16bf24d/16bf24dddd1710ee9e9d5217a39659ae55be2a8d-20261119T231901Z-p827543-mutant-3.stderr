@@ -1,0 +1,25 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-id.test.ts > messageIdShape > accepts zero as its canonical digits
+AssertionError: expected { success: true, data: '00' } to deeply equal { success: true, data: '0' }
+
+- Expected
++ Received
+
+  {
+-   "data": "0",
++   "data": "00",
+    "success": true,
+  }
+
+ ❯ src/server/api/utils/__tests__/shapes.message-id.test.ts:32:42
+     30|     ['zero', '0', '0'],
+     31|   ])('accepts %s as its canonical digits', (_, id, canonical) => {
+     32|     expect(messageIdShape.safeParse(id)).toEqual({ success: true, data…
+       |                                          ^
+     33|   });
+     34| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

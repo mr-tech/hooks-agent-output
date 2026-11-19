@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/b5afe525-3f83-48b3-a08e-9d337a51fe7f/scratchpad/mut-work4/20261119T231901Z-p827543/mutant-1
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.message-id.test.ts (13 tests | 3 failed) 11ms
+     × refuses an exponent as a failed parse, without throwing 6ms
+     × refuses letters as a failed parse, without throwing 1ms
+     × refuses a decimal point as a failed parse, without throwing 0ms
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 10 passed (13)
+   Start at  23:19:04
+   Duration  217ms (transform 51ms, setup 0ms, import 82ms, tests 11ms, environment 0ms)
+

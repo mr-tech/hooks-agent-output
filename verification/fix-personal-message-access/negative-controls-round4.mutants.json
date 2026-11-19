@@ -1,0 +1,14 @@
+[
+  {"id": "bound-checked-on-text", "file": "src/server/api/utils/shapes.ts",
+   "old": "  .transform((id) => BigInt(id))\n  .refine((id) => id <= MAX_MESSAGE_ID)\n  .transform((id) => id.toString());",
+   "new": "  .refine((id) => BigInt(id) <= MAX_MESSAGE_ID)\n  .transform((id) => BigInt(id).toString());",
+   "tests": ["src/server/api/utils/__tests__/shapes.message-id.test.ts"]},
+  {"id": "bound-dropped", "file": "src/server/api/utils/shapes.ts",
+   "old": "  .refine((id) => id <= MAX_MESSAGE_ID)\n",
+   "new": "",
+   "tests": ["src/server/api/utils/__tests__/shapes.message-id.test.ts"]},
+  {"id": "canonical-form-changed", "file": "src/server/api/utils/shapes.ts",
+   "old": "  .transform((id) => id.toString());",
+   "new": "  .transform((id) => id.toString().padStart(2, '0'));",
+   "tests": ["src/server/api/utils/__tests__/shapes.message-id.test.ts"]}
+]

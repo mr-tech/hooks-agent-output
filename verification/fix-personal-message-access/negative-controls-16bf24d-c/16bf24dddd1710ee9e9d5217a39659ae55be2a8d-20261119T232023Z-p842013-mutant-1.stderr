@@ -1,0 +1,83 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-id.test.ts > messageIdShape > refuses an exponent as a failed parse, without throwing
+AssertionError: expected [Function] to not throw an error but 'SyntaxError: Cannot convert 1e3 to a …' was thrown
+
+- Expected:
+undefined
+
++ Received:
+"SyntaxError: Cannot convert 1e3 to a BigInt"
+
+ ❯ src/server/api/utils/__tests__/shapes.message-id.test.ts:23:67
+     21|   ])('refuses %s as a failed parse, without throwing', (_, id) => {
+     22|     let outcome: { success: boolean } | undefined;
+     23|     expect(() => { outcome = messageIdShape.safeParse(id); }).not.toTh…
+       |                                                                   ^
+     24|     expect(outcome?.success).toBe(false);
+     25|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-id.test.ts > messageIdShape > refuses letters as a failed parse, without throwing
+AssertionError: expected [Function] to not throw an error but 'SyntaxError: Cannot convert abc to a …' was thrown
+
+- Expected:
+undefined
+
++ Received:
+"SyntaxError: Cannot convert abc to a BigInt"
+
+ ❯ src/server/api/utils/__tests__/shapes.message-id.test.ts:23:67
+     21|   ])('refuses %s as a failed parse, without throwing', (_, id) => {
+     22|     let outcome: { success: boolean } | undefined;
+     23|     expect(() => { outcome = messageIdShape.safeParse(id); }).not.toTh…
+       |                                                                   ^
+     24|     expect(outcome?.success).toBe(false);
+     25|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-id.test.ts > messageIdShape > refuses a hexadecimal prefix as a failed parse, without throwing
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-id.test.ts > messageIdShape > refuses a minus sign as a failed parse, without throwing
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-id.test.ts > messageIdShape > refuses a plus sign as a failed parse, without throwing
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-id.test.ts > messageIdShape > refuses a leading space as a failed parse, without throwing
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-id.test.ts > messageIdShape > refuses the empty string as a failed parse, without throwing
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/server/api/utils/__tests__/shapes.message-id.test.ts:24:30
+     22|     let outcome: { success: boolean } | undefined;
+     23|     expect(() => { outcome = messageIdShape.safeParse(id); }).not.toTh…
+     24|     expect(outcome?.success).toBe(false);
+       |                              ^
+     25|   });
+     26|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-id.test.ts > messageIdShape > refuses a decimal point as a failed parse, without throwing
+AssertionError: expected [Function] to not throw an error but 'SyntaxError: Cannot convert 1.5 to a …' was thrown
+
+- Expected:
+undefined
+
++ Received:
+"SyntaxError: Cannot convert 1.5 to a BigInt"
+
+ ❯ src/server/api/utils/__tests__/shapes.message-id.test.ts:23:67
+     21|   ])('refuses %s as a failed parse, without throwing', (_, id) => {
+     22|     let outcome: { success: boolean } | undefined;
+     23|     expect(() => { outcome = messageIdShape.safeParse(id); }).not.toTh…
+       |                                                                   ^
+     24|     expect(outcome?.success).toBe(false);
+     25|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+

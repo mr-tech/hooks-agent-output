@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/b5afe525-3f83-48b3-a08e-9d337a51fe7f/scratchpad/mut-work5/20261119T232009Z-p839649/control-1
+
+
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+   Start at  23:20:10
+   Duration  210ms (transform 48ms, setup 0ms, import 77ms, tests 8ms, environment 0ms)
+

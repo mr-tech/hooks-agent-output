@@ -1,0 +1,20 @@
+[
+ {
+  "id": "digit-check-loosened",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "/^[0-9]{1,19}$/",
+  "new": "/^.*$/",
+  "tests": [
+   "src/server/api/utils/__tests__/shapes.message-id.test.ts"
+  ]
+ },
+ {
+  "id": "length-check-loosened",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "/^[0-9]{1,19}$/",
+  "new": "/^[0-9]{1,20}$/",
+  "tests": [
+   "src/server/api/utils/__tests__/shapes.message-id.test.ts"
+  ]
+ }
+]

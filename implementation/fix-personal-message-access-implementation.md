@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-personal-message-access
 UUID: 1b613853
 Status: Active
-Status-Detail: "Fix committed on website chain/fix-personal-message-access at 12bcd75 (CR-1 test, CR-2 and CR-5 after code review round 1, rulings block 23:09Z); code review owed, then QA Phase 2 (116 production lines added), then security, then devops for website master on the owner's word."
-Handoff-At: 12bcd754dd1cb5737cb5e8246088497f75296a6e — repos=website; earlier d597734, 2e50cd9
+Status-Detail: "Fix committed on website chain/fix-personal-message-access at ed88e7c (CR-6 folded in per rulings block 23:17Z); code review delta owed, then QA Phase 2 (117 production lines added), then security, then devops for website master on the owner's word."
+Handoff-At: ed88e7cecc3cdcd06d810dc65caaaa6f68798641 — repos=website; earlier 12bcd75, d597734, 2e50cd9
 Origin-Chain: none
 ---
 
@@ -37,6 +37,10 @@ production residue read is held by steering to the release seam.
 - CR-2 (bound the message number to int8, and give `getOne` the same shape) is in scope.
 - CR-5 (the fate of the draft stored under a dead number) is the fixer's design choice inside scope.
 - CR-3 and CR-4 go to steering's handoffs.
+
+**Routed at 23:17Z** (rulings block "2026-11-19T23:17Z", record `44d13e7`): CR-6 (record `c4a3804`) is folded in before QA.
+`messageIdShape`'s int8 bound must not run `BigInt()` on text the digit check refused, so a failed parse returns a failure and never
+throws.
 
 The S-numbers are the sweep's (`verification/access-defects/scoping/sweep.md`, website `787bec5`). The three handoffs for S14, S15 and
 S1b are steering's under that block. This document writes none of them.
@@ -132,6 +136,12 @@ any query (before, postgres raised `out of range for type bigint`, a 500). Consu
 
 No site-issued number changes. Zero-padded text longer than 19 characters is refused, as an oddly formatted number.
 
+**CR-6 (round 4).** zod keeps a failed `.regex` non-fatal, so at `12bcd75` the `.refine` ran `BigInt()` on text the regex had refused.
+`messageIdShape.safeParse('1e3')` (and `'abc'`, `'1.5'`) threw a `SyntaxError` instead of returning a failure. The router still answered
+`BAD_REQUEST`. The instrument is the red run below. At `16bf24d` the shape is regex → `transform(BigInt)` → `refine(n <= MAX)` →
+`transform(String)`, the reviewer's preferred form. A transform does not run on input an earlier check failed, so `BigInt()` sees only
+1–19 digits. The output, and every consumer of it, is unchanged.
+
 **CR-5, the dead number's draft — a decision of mine as fixer (agent-authored, not the owner's).** When a save of a held number N comes
 back with another number M (its row was gone), `MessageProvider` drops the draft stored under N if, and only if, that draft holds the
 content just saved. This is the same predicate the same-number branch already used. The change is one line: the branch now keys on
@@ -175,6 +185,9 @@ totals follow in this list:
   - `routers/message.ts`: `getOne` takes `messageIdShape`.
   - `providers/MessageProvider/index.tsx` (3/3): the draft branch in `upsert`'s `onSuccess` keys on `message.id` (CR-5).
 - **Totals over `787bec5..12bcd75`: 116 production lines added** (MessageProvider 3, message.ts 15, shapes.ts 9, shared.ts 88,
+  auth.ts 1).
+- Round 4 (`16bf24d`): `shapes.ts`, the CR-6 reorder of `messageIdShape`. `ed88e7c` is test-only.
+- **Totals over `787bec5..ed88e7c`: 117 production lines added** (MessageProvider 3, message.ts 15, shapes.ts 10, shared.ts 88,
   auth.ts 1).
 - `src/server/auth.ts` (1/1): the hydrated callback passes `user.id` (the `Users` row id, from the adapter's `getSessionAndUser`,
   `kysely-adapter/index.ts:329-354`).
@@ -328,6 +341,38 @@ Runs:
 - **Real-database run at `12bcd75`:** 17 of 17 passed, exit 0 (`pg/out-round2/pg-12bcd75.*`); no container was left. CR-2's refusal
   happens in the input shape before any query, so its instrument is the router test.
 
+**Round 4** (CR-6, rulings block 23:17Z).
+
+New file `src/server/api/utils/__tests__/shapes.message-id.test.ts`, 13 cases:
+- `messageIdShape.safeParse` refuses ten forms as a failed parse, without throwing: exponent, letters, hex prefix, decimal point, minus,
+  plus, leading space, empty, 20 zero-padded digits whose value fits, and one past int8.
+- It accepts the int8 maximum, `0042` and `0` as their canonical digits.
+
+Runs:
+- **Red at `12bcd75`** (the committed test from `ed88e7c`, copied into a `git archive 12bcd75` export): **13 cases, 3 failed, 10 passed,
+  exit 1**. The 3 are `1e3`, `abc` and `1.5`, each with "SyntaxError: Cannot convert … to a BigInt", which is CR-6's signature. Capture:
+  `red-12bcd75.json`.
+- **Green, whole suite at `ed88e7c`:** **1904 cases, 1904 passed, exit 0, 148 files** (`suite-ed88e7c.json`; `suite-16bf24d.json`
+  is the same count at the fix commit).
+
+**Negative controls** (`negative-controls-round4*.mutants.json`), every case that passed at red included:
+
+| Control | SHA | Outcome | Cases that went red |
+|---|---|---|---|
+| `bound-checked-on-text` (the `12bcd75` form) | `16bf24d` | KILLED | the three throwing forms |
+| `bound-dropped` | `16bf24d` | KILLED | one past int8 |
+| `canonical-form-changed` (`padStart(2)`) | `16bf24d` | KILLED | zero |
+| `canonical-text-dropped` (bigint output) | `16bf24d` | KILLED | all three accept cases |
+| `digit-check-loosened` (`/^.*$/`) | `16bf24d` | KILLED | the eight non-digit forms |
+| `length-check-loosened` (`{1,20}`) | `16bf24d` | **SURVIVED** | — |
+| `length-check-loosened` (`{1,20}`) | `ed88e7c` | KILLED | 20 zero-padded digits |
+
+Directories: `negative-controls-16bf24d{,-b,-c}/` and `negative-controls-ed88e7c/`.
+
+The SURVIVED row is a test defect of mine, kept as a record. The 20-digit case at `16bf24d` used `12345678901234567890`, which is past
+int8, so the bound refused it whatever the length check said, and the case did not discriminate the length check. `ed88e7c` changed it
+to `00000000000000000042`, a value that fits, which only the length check refuses. The same control then killed it.
+
 No time-based test enters the suite. The real-database driver's readiness loop is in the instrument, not the suite.
 
 ## Verification
@@ -363,6 +408,11 @@ and as `.exit` files for the real-database runs. The `.log` files stay on this b
   - `pnpm run typecheck`: exit 0 (`typecheck-12bcd75.txt`);
   - eslint over every file changed `787bec5..12bcd75`: exit 0 (`eslint-changed-files-12bcd75.txt`);
   - convention check: 14 files examined, 0 FAIL, 0 CANDIDATE (`convention-check-12bcd75.txt`); the same SKIPs.
+- **Round 4:**
+  - at `16bf24d`: suite 1904, exit 0; `pnpm run typecheck` exit 0 (`typecheck-16bf24d.txt`); eslint over every file changed from base,
+    exit 0 (`eslint-changed-files-16bf24d.txt`);
+  - at `ed88e7c` (a one-line test change): suite 1904, exit 0; convention check 15 files examined, 0 FAIL, 0 CANDIDATE
+    (`convention-check-ed88e7c.txt`); eslint on the changed test file, exit 0.
 
 ## User-visible flows
 
@@ -386,9 +436,10 @@ For the owner's own check on production after release; no UAT stage runs:
 
 ## Handoff
 
-- **Handoff SHA:** website `12bcd754dd1cb5737cb5e8246088497f75296a6e` on `chain/fix-personal-message-access` (no upstream; not pushed).
-  Earlier handoffs were `d597734` and `2e50cd9`.
-- **Reviews:** code review (`code-reviewer-hooks-fix-personal-message-access`), then QA Phase 2 (116 production lines ≥ 20), then security
+- **Handoff SHA:** website `ed88e7cecc3cdcd06d810dc65caaaa6f68798641` on `chain/fix-personal-message-access` (no upstream; not pushed).
+  Earlier handoffs were `12bcd75`, `d597734` and `2e50cd9`.
+- **Reviews:** code review (`code-reviewer-hooks-fix-personal-message-access`; a delta review from `12bcd75`), then QA Phase 2 (117
+  production lines ≥ 20), then security
   on the change (rulings block 20:30Z).
 - **Merges:** devops, for website `master`, under the owner's release approval. The push deploys to production through Vercel (no beta),
   so it needs his word.
@@ -406,3 +457,6 @@ For the owner's own check on production after release; no UAT stage runs:
 | 2026-11-19T23:09 | fixer | CR-1 provider test committed at `5d9678d` (commit time), test only |
 | 2026-11-19T23:11 | fixer | Round 3 committed at `12bcd75` (commit time), per rulings block 23:09Z (record `e908744`): CR-2 bound and `getOne` shape, CR-5 draft decision (agent-authored). Red at `5d9678d`, 7 controls, suite and real-database run recorded |
 | 2026-11-19T23:13 | fixer | Scope, Diagnosis, Change, Test, Verification, flows, Handoff and out-of-scope carriers updated; `Handoff-At` moved to `12bcd75`; handed to code review |
+| 2026-11-19T23:18 | fixer | CR-6 fix and its test committed at `16bf24d` (commit time), per rulings block 23:17Z (record `44d13e7`) |
+| 2026-11-19T23:20 | fixer | The 20-digit case tightened at `ed88e7c` (commit time, test only), after the length control survived at `16bf24d` |
+| 2026-11-19T23:21 | fixer | Scope, Diagnosis, Change, Test, Verification and Handoff updated for round 4; `Handoff-At` moved to `ed88e7c`; handed to code review for a delta review |

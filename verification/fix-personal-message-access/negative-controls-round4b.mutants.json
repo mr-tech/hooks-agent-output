@@ -1,0 +1,11 @@
+[
+ {
+  "id": "canonical-text-dropped",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "  .transform((id) => id.toString());",
+  "new": "  .transform((id) => id);",
+  "tests": [
+   "src/server/api/utils/__tests__/shapes.message-id.test.ts"
+  ]
+ }
+]

@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/b5afe525-3f83-48b3-a08e-9d337a51fe7f/scratchpad/mut-work5/20261119T232009Z-p839649/mutant-1
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.message-id.test.ts (13 tests | 3 failed) 15ms
+     × accepts the largest number a message can hold as its canonical digits 6ms
+     × accepts a number with leading zeros as its canonical digits 1ms
+     × accepts zero as its canonical digits 1ms
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 10 passed (13)
+   Start at  23:20:11
+   Duration  213ms (transform 51ms, setup 0ms, import 77ms, tests 15ms, environment 0ms)
+
