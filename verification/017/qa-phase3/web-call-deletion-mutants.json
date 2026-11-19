@@ -1,0 +1,524 @@
+[
+ {
+  "id": "NavMenu.tsx:142:stmt",
+  "file": "src/app/_components/NavMenu.tsx",
+  "old": "await leaveWithoutAlert(() => signIn('discord', { callbackUrl: '/message' }));",
+  "new": ";",
+  "op": "stmt",
+  "line": 142,
+  "text": "await leaveWithoutAlert(() => signIn('discord', { callbackUrl: '/message' }));"
+ },
+ {
+  "id": "page.tsx:155:attr",
+  "file": "src/app/message/m/[id]/edit/page.tsx",
+  "old": "onContinue={() => leaveWithoutAlert(() => signIn('discord', { callbackUrl: '/message' }))}",
+  "new": "",
+  "op": "attr",
+  "line": 155,
+  "text": "onContinue={() => leaveWithoutAlert(() => signIn('discord', { callbackUrl: '/message' }))}"
+ },
+ {
+  "id": "ConfirmationDialog.tsx:17:attr",
+  "file": "src/components/ConfirmationDialog.tsx",
+  "old": "ref={ref}",
+  "new": "",
+  "op": "attr",
+  "line": 17,
+  "text": "ref={ref}"
+ },
+ {
+  "id": "ConfirmationDialog.tsx:17:attr:2",
+  "file": "src/components/ConfirmationDialog.tsx",
+  "old": "className=\"contents\"",
+  "new": "",
+  "op": "attr",
+  "line": 17,
+  "text": "className=\"contents\""
+ },
+ {
+  "id": "ImageUploader.tsx:96:attr",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "ref={ref}",
+  "new": "",
+  "op": "attr",
+  "line": 96,
+  "text": "ref={ref}"
+ },
+ {
+  "id": "ImageUploader.tsx:96:attr:2",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "className=\"contents\"",
+  "new": "",
+  "op": "attr",
+  "line": 96,
+  "text": "className=\"contents\""
+ },
+ {
+  "id": "StyledLink.tsx:34:attr",
+  "file": "src/components/StyledLink.tsx",
+  "old": "{...mergeProps({ prefetch: false }, rest, {\n        onNavigate: (e: { preventDefault: VoidFunction }) => {\n          const { replace, scroll } = rest;\n          if (intercept({ href: hrefToString(rest.href), replace, scroll })) e.preventDefault();\n        },\n        onClick: (e: MouseEvent<HTMLAnchorElement>) => {\n          const href = hrefToString(rest.href);\n          if (e.defaultPrevented || !opensInThisTab(e) || isOnThisSite(href)) return;\n          if (intercept({ href, external: true, replace: rest.replace })) e.preventDefault();\n        },\n      }, focusProps)}",
+  "new": "",
+  "op": "attr",
+  "line": 34,
+  "text": "{...mergeProps({ prefetch: false }, rest, {"
+ },
+ {
+  "id": "StyledLink.tsx:37:stmt",
+  "file": "src/components/StyledLink.tsx",
+  "old": "          if (intercept({ href: hrefToString(rest.href), replace, scroll })) e.preventDefault();",
+  "new": "          if (intercept({ href: hrefToString(rest.href), replace, scroll })) ;",
+  "op": "stmt",
+  "line": 37,
+  "text": "e.preventDefault();"
+ },
+ {
+  "id": "StyledLink.tsx:42:stmt",
+  "file": "src/components/StyledLink.tsx",
+  "old": "          if (intercept({ href, external: true, replace: rest.replace })) e.preventDefault();",
+  "new": "          if (intercept({ href, external: true, replace: rest.replace })) ;",
+  "op": "stmt",
+  "line": 42,
+  "text": "e.preventDefault();"
+ },
+ {
+  "id": "WarningDialog.tsx:23:attr",
+  "file": "src/components/WarningDialog.tsx",
+  "old": "ref={ref}",
+  "new": "",
+  "op": "attr",
+  "line": 23,
+  "text": "ref={ref}"
+ },
+ {
+  "id": "WarningDialog.tsx:23:attr:2",
+  "file": "src/components/WarningDialog.tsx",
+  "old": "className=\"contents\"",
+  "new": "",
+  "op": "attr",
+  "line": 23,
+  "text": "className=\"contents\""
+ },
+ {
+  "id": "index.tsx:125:stmt",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "useEffect(\n    () => register((destination) => hasChanged && !isSameMessage(destination, paramMessageId)),\n    [register, hasChanged, paramMessageId],\n  );",
+  "new": ";",
+  "op": "stmt",
+  "line": 125,
+  "text": "useEffect("
+ },
+ {
+  "id": "index.tsx:153:stmt",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "writeRouteZeroDraft(tmp);",
+  "new": ";",
+  "op": "stmt",
+  "line": 153,
+  "text": "writeRouteZeroDraft(tmp);"
+ },
+ {
+  "id": "index.tsx:186:stmt",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "writeRouteZeroDraft({ ...message, name });",
+  "new": ";",
+  "op": "stmt",
+  "line": 186,
+  "text": "writeRouteZeroDraft({ ...message, name });"
+ },
+ {
+  "id": "index.tsx:188:stmt",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "removeDraft(message.id);",
+  "new": ";",
+  "op": "stmt",
+  "line": 188,
+  "text": "removeDraft(message.id);"
+ },
+ {
+  "id": "index.tsx:190:stmt",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "writeDraft(message.id, { data: message.data, name, editedAt: Date.now() });",
+  "new": ";",
+  "op": "stmt",
+  "line": 190,
+  "text": "writeDraft(message.id, { data: message.data, name, editedAt: Date.now() });"
+ },
+ {
+  "id": "index.tsx:224:stmt",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "removeDraft(fetchedMessage.id);",
+  "new": ";",
+  "op": "stmt",
+  "line": 224,
+  "text": "removeDraft(fetchedMessage.id);"
+ },
+ {
+  "id": "index.tsx:259:stmt",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "removeDraft(msg.id, (draft) => sameJson(stripKeys({ name: draft.name, data: draft.data }).data, sent.data));",
+  "new": ";",
+  "op": "stmt",
+  "line": 259,
+  "text": "removeDraft(msg.id, (draft) => sameJson(stripKeys({ name: draft.name, data: draft.data }).data, sent.data));"
+ },
+ {
+  "id": "index.tsx:261:stmt",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "removeRouteZeroDraft(message?.data as ActiveMessage['data']);",
+  "new": ";",
+  "op": "stmt",
+  "line": 261,
+  "text": "removeRouteZeroDraft(message?.data as ActiveMessage['data']);"
+ },
+ {
+  "id": "index.tsx:280:stmt",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "forgetOwnSave(ownSaveRecordsRef, sent);",
+  "new": ";",
+  "op": "stmt",
+  "line": 280,
+  "text": "forgetOwnSave(ownSaveRecordsRef, sent);"
+ },
+ {
+  "id": "index.tsx:314:stmt",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "usePusher(messageRef, reloadMessage, hasChanged, ownSaveRecordsRef);",
+  "new": ";",
+  "op": "stmt",
+  "line": 314,
+  "text": "usePusher(messageRef, reloadMessage, hasChanged, ownSaveRecordsRef);"
+ },
+ {
+  "id": "useApiMethods.ts:74:stmt",
+  "file": "src/providers/MessageProvider/useApiMethods.ts",
+  "old": "recordOwnSave(ownSaveRecordsRef, payload);",
+  "new": ";",
+  "op": "stmt",
+  "line": 74,
+  "text": "recordOwnSave(ownSaveRecordsRef, payload);"
+ },
+ {
+  "id": "useApiMethods.ts:75:stmt",
+  "file": "src/providers/MessageProvider/useApiMethods.ts",
+  "old": "upsertMessage({ message: payload });",
+  "new": ";",
+  "op": "stmt",
+  "line": 75,
+  "text": "upsertMessage({ message: payload });"
+ },
+ {
+  "id": "usePusher.ts:31:stmt",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "recordsRef.current.push(hashOf(payload));",
+  "new": ";",
+  "op": "stmt",
+  "line": 31,
+  "text": "recordsRef.current.push(hashOf(payload));"
+ },
+ {
+  "id": "usePusher.ts:39:stmt",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "recordsRef.current.splice(index, 1);",
+  "new": ";",
+  "op": "stmt",
+  "line": 39,
+  "text": "recordsRef.current.splice(index, 1);"
+ },
+ {
+  "id": "usePusher.ts:62:stmt",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "channel.bind('message-update', (hash: unknown) => {\n      if (!messageRef.current) return;\n      const ownSaveIndex = ownSaveRecordsRef.current\n        .findIndex((record) => record === hash);\n      if (ownSaveIndex >= 0) ownSaveRecordsRef.current.splice(ownSaveIndex, 1);\n      const shownHash = hashMessage(normalizeForHash(messageRef.current));\n      if (ownSaveIndex < 0 && hash !== shownHash) {\n        showConfirmation({\n          enabled: true,\n          title: 'Message Update Detected',\n          confirmText: 'Reload',\n          onConfirm: reloadMessage,\n          message: `The message you are viewing has been updated. Would you like to reload it?${hasChangedRef.current ? ' Any changes you have made will be lost.' : ''}`,\n        });\n      }\n    });",
+  "new": ";",
+  "op": "stmt",
+  "line": 62,
+  "text": "channel.bind('message-update', (hash: unknown) => {"
+ },
+ {
+  "id": "usePusher.ts:66:stmt",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "ownSaveRecordsRef.current.splice(ownSaveIndex, 1);",
+  "new": ";",
+  "op": "stmt",
+  "line": 66,
+  "text": "ownSaveRecordsRef.current.splice(ownSaveIndex, 1);"
+ },
+ {
+  "id": "usePusher.ts:82:stmt",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "pusher.disconnect();",
+  "new": ";",
+  "op": "stmt",
+  "line": 82,
+  "text": "pusher.disconnect();"
+ },
+ {
+  "id": "NavigationGuardProvider.tsx:51:stmt",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "showConfirmation({\n        enabled: true,\n        title: 'You have unsaved changes!',\n        message: 'Are you sure you want to leave this page? Changes you made may not be saved.',\n        confirmText: 'Leave Page',\n        onConfirm: () => {\n          if (external) void leaveWithoutAlert(async () => window.location[replace ? 'replace' : 'assign'](href));\n          else routerRef.current[replace ? 'replace' : 'push'](href, { scroll });\n        },\n      });",
+  "new": ";",
+  "op": "stmt",
+  "line": 51,
+  "text": "showConfirmation({"
+ },
+ {
+  "id": "NavigationGuardProvider.tsx:57:stmt",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "void leaveWithoutAlert(async () => window.location[replace ? 'replace' : 'assign'](href));",
+  "new": ";",
+  "op": "stmt",
+  "line": 57,
+  "text": "void leaveWithoutAlert(async () => window.location[replace ? 'replace' : 'assign'](href));"
+ },
+ {
+  "id": "NavigationGuardProvider.tsx:58:stmt",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "routerRef.current[replace ? 'replace' : 'push'](href, { scroll });",
+  "new": ";",
+  "op": "stmt",
+  "line": 58,
+  "text": "routerRef.current[replace ? 'replace' : 'push'](href, { scroll });"
+ },
+ {
+  "id": "NavigationGuardProvider.tsx:66:attr",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "value={value}",
+  "new": "",
+  "op": "attr",
+  "line": 66,
+  "text": "value={value}"
+ },
+ {
+  "id": "SessionProvider.tsx:15:stmt",
+  "file": "src/providers/SessionProvider.tsx",
+  "old": "voided(() => leaveWithoutAlert(() => signOut()))();",
+  "new": ";",
+  "op": "stmt",
+  "line": 15,
+  "text": "voided(() => leaveWithoutAlert(() => signOut()))();"
+ },
+ {
+  "id": "previewImage.ts:42:stmt",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "console.error(`${PREVIEW_FAILURE_PREFIX} id=${id} class=${failureClass} elapsedMs=${elapsedMs}`);",
+  "new": ";",
+  "op": "stmt",
+  "line": 42,
+  "text": "console.error(`${PREVIEW_FAILURE_PREFIX} id=${id} class=${failureClass} elapsedMs=${elapsedMs}`);"
+ },
+ {
+  "id": "previewImage.ts:58:stmt",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "controller.abort();",
+  "new": ";",
+  "op": "stmt",
+  "line": 58,
+  "text": "controller.abort();"
+ },
+ {
+  "id": "previewImage.ts:74:stmt",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "clearTimeout(timer);",
+  "new": ";",
+  "op": "stmt",
+  "line": 74,
+  "text": "clearTimeout(timer);"
+ },
+ {
+  "id": "previewImage.ts:80:stmt",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "await getS3().send(new DeleteObjectsCommand({\n    Bucket: env.CDN_BUCKET,\n    Delete: { Objects: keys.map((Key) => ({ Key })) },\n  }));",
+  "new": ";",
+  "op": "stmt",
+  "line": 80,
+  "text": "await getS3().send(new DeleteObjectsCommand({"
+ },
+ {
+  "id": "previewImage.ts:94:stmt",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "await deleteObjects((Contents ?? [])\n    .filter(({ Key, LastModified }) => Key !== committedKey\n      && !!LastModified\n      && committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS)\n    .map(({ Key }) => Key as string));",
+  "new": ";",
+  "op": "stmt",
+  "line": 94,
+  "text": "await deleteObjects((Contents ?? [])"
+ },
+ {
+  "id": "previewImage.ts:110:stmt",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "logFailure(id, failure, Date.now() - start);",
+  "new": ";",
+  "op": "stmt",
+  "line": 110,
+  "text": "logFailure(id, failure, Date.now() - start);"
+ },
+ {
+  "id": "previewImage.ts:116:stmt",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "await deleteObjects([previewKey(id, nonce)]);",
+  "new": ";",
+  "op": "stmt",
+  "line": 116,
+  "text": "await deleteObjects([previewKey(id, nonce)]);"
+ },
+ {
+  "id": "previewImage.ts:121:stmt",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "await deleteObjects([previewKey(id, prev)]);",
+  "new": ";",
+  "op": "stmt",
+  "line": 121,
+  "text": "await deleteObjects([previewKey(id, prev)]);"
+ },
+ {
+  "id": "previewImage.ts:122:stmt",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "await sweepOlderObjects(id, previewKey(id, nonce));",
+  "new": ";",
+  "op": "stmt",
+  "line": 122,
+  "text": "await sweepOlderObjects(id, previewKey(id, nonce));"
+ },
+ {
+  "id": "previewImage.ts:124:stmt",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "console.error(err);",
+  "new": ";",
+  "op": "stmt",
+  "line": 124,
+  "text": "console.error(err);"
+ },
+ {
+  "id": "shared.ts:262:stmt",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "waitUntil(runPreviewContinuation({ id, nonce: mintNonce(savedAtMicros), message: message.data }));",
+  "new": ";",
+  "op": "stmt",
+  "line": 262,
+  "text": "waitUntil(runPreviewContinuation({ id, nonce: mintNonce(savedAtMicros), message: message.data }));"
+ },
+ {
+  "id": "shared.ts:262:wrap",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "waitUntil(runPreviewContinuation({ id, nonce: mintNonce(savedAtMicros), message: message.data }))",
+  "new": "runPreviewContinuation({ id, nonce: mintNonce(savedAtMicros), message: message.data })",
+  "op": "wrap",
+  "line": 262,
+  "text": "waitUntil(runPreviewContinuation({ id, nonce: mintNonce(savedAtMicros), message: message.data }))"
+ },
+ {
+  "id": "shared.ts:274:stmt",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "await pusher.trigger(genMessageChannelKey(message.id), 'message-update', JSON.stringify(hashMessage(message)));",
+  "new": ";",
+  "op": "stmt",
+  "line": 274,
+  "text": "await pusher.trigger(genMessageChannelKey(message.id), 'message-update', JSON.stringify(hashMessage(message)));"
+ },
+ {
+  "id": "useDialogEnter.ts:9:stmt",
+  "file": "src/utils/hooks/useDialogEnter.ts",
+  "old": "useHotkeys(['enter'], () => {\n    if (ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)) answer?.();\n  }, { enabled }, [enabled, answer]);",
+  "new": ";",
+  "op": "stmt",
+  "line": 9,
+  "text": "useHotkeys(['enter'], () => {"
+ },
+ {
+  "id": "useDialogEnter.ts:10:stmt",
+  "file": "src/utils/hooks/useDialogEnter.ts",
+  "old": "answer?.();",
+  "new": ";",
+  "op": "stmt",
+  "line": 10,
+  "text": "answer?.();"
+ },
+ {
+  "id": "useUnloadAlert.ts:8:stmt",
+  "file": "src/utils/hooks/useUnloadAlert.ts",
+  "old": "useBeforeUnload(block && (() => !isLeavingWithoutAlert()), 'Changes you made may not be saved.');",
+  "new": ";",
+  "op": "stmt",
+  "line": 8,
+  "text": "useBeforeUnload(block && (() => !isLeavingWithoutAlert()), 'Changes you made may not be saved.');"
+ },
+ {
+  "id": "leaveWithoutAlert.ts:11:stmt",
+  "file": "src/utils/leaveWithoutAlert.ts",
+  "old": "setTimeout(() => { leaving = false; }, REARM_MS);",
+  "new": ";",
+  "op": "stmt",
+  "line": 11,
+  "text": "setTimeout(() => { leaving = false; }, REARM_MS);"
+ },
+ {
+  "id": "messageDrafts.ts:20:stmt",
+  "file": "src/utils/messageDrafts.ts",
+  "old": "window.sessionStorage.setItem(TAB_KEY, made);",
+  "new": ";",
+  "op": "stmt",
+  "line": 20,
+  "text": "window.sessionStorage.setItem(TAB_KEY, made);"
+ },
+ {
+  "id": "messageDrafts.ts:60:stmt",
+  "file": "src/utils/messageDrafts.ts",
+  "old": "store().set(drafts);",
+  "new": ";",
+  "op": "stmt",
+  "line": 60,
+  "text": "store().set(drafts);"
+ },
+ {
+  "id": "messageDrafts.ts:71:stmt",
+  "file": "src/utils/messageDrafts.ts",
+  "old": "writeDraft(routeZeroKey(tab), drafts[newest]);",
+  "new": ";",
+  "op": "stmt",
+  "line": 71,
+  "text": "writeDraft(routeZeroKey(tab), drafts[newest]);"
+ },
+ {
+  "id": "messageDrafts.ts:76:stmt",
+  "file": "src/utils/messageDrafts.ts",
+  "old": "writeDraft(routeZeroKey(tabId()), {\n    data: message.data, name: message.name, editedAt: Date.now(),\n  });",
+  "new": ";",
+  "op": "stmt",
+  "line": 76,
+  "text": "writeDraft(routeZeroKey(tabId()), {"
+ },
+ {
+  "id": "messageDrafts.ts:79:stmt",
+  "file": "src/utils/messageDrafts.ts",
+  "old": "legacyStore().set(message);",
+  "new": ";",
+  "op": "stmt",
+  "line": 79,
+  "text": "legacyStore().set(message);"
+ },
+ {
+  "id": "messageDrafts.ts:88:stmt",
+  "file": "src/utils/messageDrafts.ts",
+  "old": "removeDraft(routeZeroKey(tabId()));",
+  "new": ";",
+  "op": "stmt",
+  "line": 88,
+  "text": "removeDraft(routeZeroKey(tabId()));"
+ },
+ {
+  "id": "messageDrafts.ts:92:stmt",
+  "file": "src/utils/messageDrafts.ts",
+  "old": "legacyStore().remove();",
+  "new": ";",
+  "op": "stmt",
+  "line": 92,
+  "text": "legacyStore().remove();"
+ },
+ {
+  "id": "withLocalStorage.ts:19:stmt",
+  "file": "src/utils/withLocalStorage.ts",
+  "old": "window.dispatchEvent(new Event('storage', { bubbles: true }));",
+  "new": ";",
+  "op": "stmt",
+  "line": 19,
+  "text": "window.dispatchEvent(new Event('storage', { bubbles: true }));"
+ }
+]

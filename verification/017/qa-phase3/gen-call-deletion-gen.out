@@ -1,0 +1,21 @@
+{
+ "base": "8de2b53",
+ "tip": "8512a1d",
+ "files": 2,
+ "mutants": 3,
+ "unplaced": 0,
+ "perFile": {
+  "src/generateImage.ts": {
+   "changedLines": 17,
+   "stmt": 2,
+   "attr": 0,
+   "wrap": 0
+  },
+  "src/server.ts": {
+   "changedLines": 2,
+   "stmt": 1,
+   "attr": 0,
+   "wrap": 0
+  }
+ }
+}

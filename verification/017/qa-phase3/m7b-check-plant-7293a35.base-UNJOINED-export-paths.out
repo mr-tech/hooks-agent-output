@@ -1,0 +1,36 @@
+lintable changed files: 60 (M 25, A 31, R 4); violations: 33
+VIOLATION M src/@types/global.d.ts src/@types/global.d.ts @typescript-eslint/no-unused-vars 0 13
+VIOLATION M src/@types/global.d.ts src/@types/global.d.ts max-len 0 1
+VIOLATION M src/@types/global.d.ts src/@types/global.d.ts planted-rule 0 1
+VIOLATION A None src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx planted-rule 0 1
+VIOLATION R src/utils/__tests__/useApiMethods.json-editor-repair.test.ts src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts object-curly-newline 0 4
+VIOLATION R src/utils/__tests__/useApiMethods.json-editor-repair.test.ts src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts import/first 0 6
+VIOLATION R src/utils/__tests__/useApiMethods.json-editor-repair.test.ts src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts @typescript-eslint/no-unused-vars 0 1
+VIOLATION R src/utils/__tests__/useApiMethods.json-editor-repair.test.ts src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts max-len 0 1
+VIOLATION R src/utils/__tests__/useApiMethods.json-editor-repair.test.ts src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts @typescript-eslint/member-delimiter-style 0 3
+VIOLATION R src/utils/__tests__/useApiMethods.json-editor-repair.test.ts src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts @typescript-eslint/no-explicit-any 0 12
+VIOLATION R src/utils/__tests__/useApiMethods.json-editor-repair.test.ts src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts @typescript-eslint/no-unsafe-call 0 1
+VIOLATION R src/utils/__tests__/useApiMethods.json-editor-repair.test.ts src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts react-hooks/rules-of-hooks 0 1
+VIOLATION R src/utils/__tests__/useApiMethods.json-editor-repair.test.ts src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts @typescript-eslint/no-unsafe-argument 0 9
+VIOLATION R src/utils/__tests__/useApiMethods.json-editor-repair.test.ts src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts @typescript-eslint/no-unsafe-return 0 1
+VIOLATION R src/utils/__tests__/useApiMethods.json-editor-repair.test.ts src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts function-paren-newline 0 2
+VIOLATION R src/utils/__tests__/useApiMethods.json-editor-repair.test.ts src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts @typescript-eslint/no-non-null-assertion 0 1
+VIOLATION R src/utils/__tests__/useApiMethods.json-editor-repair.test.ts src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts planted-rule 0 1
+VIOLATION R src/utils/__tests__/usePusher.hash-parity.test.ts src/providers/MessageProvider/__tests__/usePusher.hash-parity.test.ts object-curly-newline 0 6
+VIOLATION R src/utils/__tests__/usePusher.hash-parity.test.ts src/providers/MessageProvider/__tests__/usePusher.hash-parity.test.ts import/first 0 3
+VIOLATION R src/utils/__tests__/usePusher.hash-parity.test.ts src/providers/MessageProvider/__tests__/usePusher.hash-parity.test.ts object-property-newline 0 2
+VIOLATION R src/utils/__tests__/messageValidity.predicate.test.ts src/server/api/utils/__tests__/messageValidity.predicate.test.ts object-curly-newline 0 4
+VIOLATION R src/utils/__tests__/messageValidity.predicate.test.ts src/server/api/utils/__tests__/messageValidity.predicate.test.ts import/first 0 3
+VIOLATION M src/server/api/utils/__tests__/shared.upsert-valid.test.ts src/server/api/utils/__tests__/shared.upsert-valid.test.ts import/order 0 1
+VIOLATION M src/server/api/utils/__tests__/shared.upsert-valid.test.ts src/server/api/utils/__tests__/shared.upsert-valid.test.ts object-curly-newline 0 8
+VIOLATION M src/server/api/utils/__tests__/shared.upsert-valid.test.ts src/server/api/utils/__tests__/shared.upsert-valid.test.ts import/first 0 3
+VIOLATION M src/utils/__tests__/limits.import-validation.test.ts src/utils/__tests__/limits.import-validation.test.ts import/order 0 1
+VIOLATION M src/utils/__tests__/limits.import-validation.test.ts src/utils/__tests__/limits.import-validation.test.ts import/first 0 1
+VIOLATION M src/utils/__tests__/limits.import-validation.test.ts src/utils/__tests__/limits.import-validation.test.ts @typescript-eslint/no-non-null-assertion 0 3
+VIOLATION M src/utils/index.ts src/utils/index.ts import/no-cycle 0 1
+VIOLATION M src/utils/index.ts src/utils/index.ts no-nested-ternary 0 1
+VIOLATION R src/utils/__tests__/messageStore.dropped-set-report.test.ts src/utils/redis/__tests__/messageStore.dropped-set-report.test.ts object-curly-newline 0 2
+VIOLATION R src/utils/__tests__/messageStore.dropped-set-report.test.ts src/utils/redis/__tests__/messageStore.dropped-set-report.test.ts import/first 0 3
+VIOLATION M src/utils/withLocalStorage.ts src/utils/withLocalStorage.ts max-len 0 1
+plants found 3 of 3
+exit=0

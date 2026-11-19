@@ -1,0 +1,147 @@
+{
+ "base": "1ad625e",
+ "tip": "7293a35",
+ "files": 23,
+ "mutants": 58,
+ "unplaced": 0,
+ "perFile": {
+  "src/app/_components/NavMenu.tsx": {
+   "changedLines": 2,
+   "stmt": 1,
+   "attr": 0,
+   "wrap": 0
+  },
+  "src/app/message/layout.tsx": {
+   "changedLines": 3,
+   "stmt": 0,
+   "attr": 0,
+   "wrap": 0
+  },
+  "src/app/message/m/[id]/edit/page.tsx": {
+   "changedLines": 2,
+   "stmt": 0,
+   "attr": 1,
+   "wrap": 0
+  },
+  "src/components/ConfirmationDialog.tsx": {
+   "changedLines": 4,
+   "stmt": 0,
+   "attr": 2,
+   "wrap": 0
+  },
+  "src/components/ImageUploader.tsx": {
+   "changedLines": 4,
+   "stmt": 0,
+   "attr": 2,
+   "wrap": 0
+  },
+  "src/components/StyledLink.tsx": {
+   "changedLines": 34,
+   "stmt": 2,
+   "attr": 1,
+   "wrap": 0
+  },
+  "src/components/WarningDialog.tsx": {
+   "changedLines": 4,
+   "stmt": 0,
+   "attr": 2,
+   "wrap": 0
+  },
+  "src/providers/MessageProvider/index.tsx": {
+   "changedLines": 57,
+   "stmt": 10,
+   "attr": 0,
+   "wrap": 0
+  },
+  "src/providers/MessageProvider/useApiMethods.ts": {
+   "changedLines": 6,
+   "stmt": 2,
+   "attr": 0,
+   "wrap": 0
+  },
+  "src/providers/MessageProvider/usePusher.ts": {
+   "changedLines": 27,
+   "stmt": 5,
+   "attr": 0,
+   "wrap": 0
+  },
+  "src/providers/NavigationGuardProvider.tsx": {
+   "changedLines": 79,
+   "stmt": 3,
+   "attr": 1,
+   "wrap": 0
+  },
+  "src/providers/SessionProvider.tsx": {
+   "changedLines": 2,
+   "stmt": 1,
+   "attr": 0,
+   "wrap": 0
+  },
+  "src/server/api/utils/deleteMessagePreviewImages.ts": {
+   "changedLines": 4,
+   "stmt": 0,
+   "attr": 0,
+   "wrap": 0
+  },
+  "src/server/api/utils/previewBucket.ts": {
+   "changedLines": 17,
+   "stmt": 0,
+   "attr": 0,
+   "wrap": 0
+  },
+  "src/server/api/utils/previewImage.ts": {
+   "changedLines": 126,
+   "stmt": 10,
+   "attr": 0,
+   "wrap": 0
+  },
+  "src/server/api/utils/shared.ts": {
+   "changedLines": 14,
+   "stmt": 2,
+   "attr": 0,
+   "wrap": 1
+  },
+  "src/utils/hooks/useDialogEnter.ts": {
+   "changedLines": 14,
+   "stmt": 2,
+   "attr": 0,
+   "wrap": 0
+  },
+  "src/utils/hooks/useLocalStorage.ts": {
+   "changedLines": 0,
+   "stmt": 0,
+   "attr": 0,
+   "wrap": 0
+  },
+  "src/utils/hooks/useUnloadAlert.ts": {
+   "changedLines": 3,
+   "stmt": 1,
+   "attr": 0,
+   "wrap": 0
+  },
+  "src/utils/index.ts": {
+   "changedLines": 0,
+   "stmt": 0,
+   "attr": 0,
+   "wrap": 0
+  },
+  "src/utils/leaveWithoutAlert.ts": {
+   "changedLines": 17,
+   "stmt": 1,
+   "attr": 0,
+   "wrap": 0
+  },
+  "src/utils/messageDrafts.ts": {
+   "changedLines": 94,
+   "stmt": 7,
+   "attr": 0,
+   "wrap": 0
+  },
+  "src/utils/withLocalStorage.ts": {
+   "changedLines": 6,
+   "stmt": 1,
+   "attr": 0,
+   "wrap": 0
+  }
+ }
+}

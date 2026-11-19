@@ -1,0 +1,6 @@
+fresh=1490 shared=1490 common=1490 only_fresh=0 only_shared=0
+lock_yaml_identical_exit=0
+installed lock.yaml vs tip pnpm-lock.yaml: cmp exit=0
+control, installed lock.yaml vs BASE 1ad625e pnpm-lock.yaml: cmp exit=1
+1	0	package.json
+80	0	pnpm-lock.yaml

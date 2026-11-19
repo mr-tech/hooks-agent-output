@@ -1,0 +1,29 @@
+[
+ {
+  "id": "generateImage.ts:21:stmt",
+  "file": "src/generateImage.ts",
+  "old": "super(`Preview render failed: ${failureClass}`);",
+  "new": ";",
+  "op": "stmt",
+  "line": 21,
+  "text": "super(`Preview render failed: ${failureClass}`);"
+ },
+ {
+  "id": "generateImage.ts:55:stmt",
+  "file": "src/generateImage.ts",
+  "old": "await getS3().send(new PutObjectCommand({\n    Bucket: config.CDN_BUCKET,\n    Key: `${config.ENV === 'development' ? 'dev/' : ''}previews/${messageId}/${nonce}.jpeg`,\n    ContentType: 'image/jpeg',\n    Body: image,\n    ACL: 'public-read',\n  })).catch((err) => { throw new PreviewFailure('put', err); });",
+  "new": ";",
+  "op": "stmt",
+  "line": 55,
+  "text": "await getS3().send(new PutObjectCommand({"
+ },
+ {
+  "id": "server.ts:39:stmt",
+  "file": "src/server.ts",
+  "old": "console.error(`preview-image-failure id=${id} class=${err.failureClass} elapsedMs=${Date.now() - start}`);",
+  "new": ";",
+  "op": "stmt",
+  "line": 39,
+  "text": "console.error(`preview-image-failure id=${id} class=${err.failureClass} elapsedMs=${Date.now() - start}`);"
+ }
+]

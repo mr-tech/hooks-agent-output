@@ -1,0 +1,3 @@
+.gitignore:86:next-env.d.ts	next-env.d.ts
+.gitignore:87:.next	.next
+3b942af44c5547b81cbd961c8f99001767ea89e2b6ec6923afbfd199369af814  /usr/local/bin/hooks/website/next-env.d.ts
