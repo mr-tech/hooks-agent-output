@@ -384,15 +384,26 @@ First delivery, kept: code review at `de06d95` (M4 range `1ab3b96..de06d95`), th
 
 ## Resumption State
 
-Written after the Round 4 fix round and QAF-18, before the hand-back. Website branch `chain/017-existing-items-backlog`, HEAD `5c3d03f`; the tree is clean
-apart from the held `.playwright-mcp/`. M3 is through.
+Written at the checkpoint steering asked for (context 266K, steering's word 05:19Z), after M4 passed both gates and the M5-0 probes ran. Website branch
+`chain/017-existing-items-backlog`, HEAD `5c3d03f`; the tree is clean apart from the held `.playwright-mcp/`. Nothing of mine is uncommitted or locally mutated.
 
-- Done: CR-9 (`ConfirmationDialog` answers Enter only when focus lies inside its own dialog), CR-10 (`helpers/click.ts`), CR-11 (the other-site
-  path keeps `replace`), each red first; full suite 1693 of 1693 exit 0, typecheck exit 0, convention check 0 FAIL / 0 CANDIDATE, 8 of 8 row mutants and
-  4 of 4 sweep mutants killed, NM-25 re-run killed, the reviewer's probe passes 4 of 4 at the new tip. Section `## Fix Round 4`.
-- QAF-18 (QA Phase 2 at `a5dd76f`, test-only) fixed at `5c3d03f`. Awaited: the reviewer's Round 4 sub-entry at `a5dd76f`..`5c3d03f` (scoped check of QAF-18), then QA's refresh (suite at the new tip, `qa-unregister-unconditional`). A further finding is another fix round on this document.
-- Open question for the coordinator (not blocking): whether `ImageUploader` and `WarningDialog` (the other two document-level Enter bindings, pre-existing, routed
-  to `agent-output/INBOX.md` by the reviewer) get the same gate in this chain. Not in the plan; not done.
-- Next after M4 passes both gates: tell `steering-roadmap` that M1 to M4 are through (devops probe push for OQ-7). M5 and M6 wait on OQ-7 (plan M5-0); M7 last.
-- Scratch: exports and `mutation-run.py` work folders are outside the repositories; the shared tree was never mutated.
-- Cache-warm wake armed for 04:20 local (job `bab6ac27`).
+- Done: M1 to M4 through both gates (M4: code review Round 4 sub-entry `33b90ce`, QA refresh PASS at `5c3d03f`, `9f5dbb1`). This document holds M4's first delivery and `## Fix Round 4`
+  (CR-9, CR-10, CR-11 at `a5dd76f`; QAF-18 at `5c3d03f`). M5-0 limb 2 (`d9030b9`, `aca8cb3`, outcome kept alive) and limb 3 (`8c13d1c`, outcome lasts) probes written,
+  pushed and read by `devops-hooks-017`; the branches are deleted, never merged. My records: `verification/017/m5-0/README.md` and `verification/017/m5-0/limb3/README.md`
+  (agent-output `19c99d5`, `54ad9c9`); devops's: `deployment/017-existing-items-backlog-m5-0-probe-deployment.md`.
+- Released: M5, M6 and M8 start on plan revision 7 (`6ade256`) with QA Phase 1 at `7eda138` (`steering/017-rulings.md` block 05:19Z, `04a5e55`; the Phase 1 re-key `no finding`).
+  M8 is the owner's rider (D-26): the `ImageUploader` and `WarningDialog` Enter bindings scoped to the focused dialog (M4's `ConfirmationDialog` form, `src/components/ConfirmationDialog.tsx`
+  at `a5dd76f`, is the already-reviewed pattern to extend). M7 stays last. Steering sends the go after the clear.
+- Next, in order, per the stage-start rules: read the plan (revision 7) in full or by the Reading Order for the implementer's row, and QA's Phase 1 sections for M5, M6 and M8
+  (`qa/017-existing-items-backlog-qa.md` at `7eda138`); read `/home/dev/.claude/agents/qa.md` from § Test-Driven Development through § An Instrument Score Travels With Its Predicate;
+  for the cross-repo contract (M5-g, the generator `preview-image-generator`) read `~/.claude/agent-skills/cross-repo-contract/SKILL.md`; record an Entry Conditions table in a NEW implementation document
+  per milestone (`implementation/017-existing-items-backlog-m5-implementation.md`, `-m6-`, `-m8-`: copy `ID`, `Origin`, `UUID` from the plan); set the plan's Status to `In Progress` only if it is not (it is, from M1) and
+  add a changelog row with `node ~/.claude/tools/plan-row-commit.js`. Open questions in the plan not marked `[RESOLVED]` or `[CLOSED]` halt implementation: list them first.
+- Facts the M5 design rests on: T = 40 s (M5-f); the probe showed `waitUntil` post-response work to 55 s on a Preview deployment (`nodejs24.x`), not a real generator call, not the production project's limit, not
+  a function reaching 60 s (RK-2). Preview has no `DATABASE_URL` or `REDIS*`, so a Preview build needs `SKIP_ENV_VALIDATION=1`. `@vercel/functions` 3.11.3 is the dependency to add (lockfile diff: only it and its own dependencies
+  moved, 80 lines added, no existing pin; the add is a deliberate lockfile step, plan Recommendation 3).
+- Process facts that carry: a mutation or sweep driver writes under `agent-output/verification/017/impl/<milestone>/` named by SHA (`mutation-run.py --dep node_modules`, `mutant-gen.js --range`); a fix is red-first;
+  a test of a hotkey is driven with the real `react-hotkeys-hook` (M4's mock hid CR-9); a test file under `src/pages/` is a route; a probe needs `SKIP_ENV_VALIDATION=1` on Preview.
+- Questions sent: none open. QAF-19 (a layout `it.each` title) is parked in the planner's batch (R-21).
+- Scratch: exports and `mutation-run.py` work folders are in the session scratchpad, outside the repositories; the probe worktrees are removed. No process of mine is running.
+- Cache-warm wake: deleted at this checkpoint; arm again on the next briefed turn.
