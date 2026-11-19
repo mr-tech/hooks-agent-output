@@ -545,3 +545,16 @@ Fix round 4 (approved, review `f5f3346`): code review at website `60252be` (rang
 
 Fix round 3: code review at website `42d15de` (range `4b8db9c..42d15de`, `code-reviewer-hooks-017`), then QA Phase 2 for the fix, an architect delta read, and UAT's re-walk of B-1.
 Earlier rounds: code review of M2 at `ec984fe`, then M3 (done).
+
+## Resumption State
+
+Written 2026-11-19T19:00Z by implementer-hooks-017 at steering's checkpoint request (steering-roadmap-hooks), past the context threshold.
+
+- **Done:** every M2 round is handed over and reviewed. Fix Round 4 (CR-20, website `60252be`): code review APPROVED (review `f5f3346`). Fix Round 5 (M2-d disconnect, EC-6 wire cases, `33e59f7`): Round 10 REJECTED on CR-21. Fix Round 6 (CR-21, `24e9be7`, test-only): Round 10 sub-entry APPROVED (agent-output `4e1b43b`, plan R-57 `ce22822`). M2-d is with `qa-hooks-017`.
+- **Next for me:** nothing is owed. Expect a message from QA Phase 2 (M2 on `42d15de..24e9be7`, B-15's first run on the unfixed tree) or from steering. If QA fails a row, the round is the Fix Round pattern above: red first, class sweep table, mutants named per row, convention-check, full suite with exit code, typecheck, a new Fix Round section, `Handoff-At` moved, SHA returned to `code-reviewer-hooks-017`.
+- **Open items I hold, for QA's judgement:** dropping `channel.unbind()` (a line this chain did not change) survives the suite, because `disconnect` closes the socket the binding lives on; the pathname-to-id step of the mounted provider is not exercised by the member-2 case, B-15 (UAT) observes it; AF-25 is built (the wire file decodes with pusher-js's own `decodeMessage`).
+- **Branch and HEAD:** website `chain/017-existing-items-backlog` at `24e9be7`; agent-output `master`, last seen `ce22822`. Nothing of mine uncommitted. The website tree's modified files, if any, are other sessions'; `.playwright-mcp/` is untracked and held, not mine.
+- **Evidence run and recorded:** `verification/017/cr20-fix/` (committed `77e71db`), `m2d-fix/` (`668ae57`), `m2d-fix2/` (`b7d0a2a`). Nothing run and unrecorded. Scratchpad exports were removed (`leftover exports: 0`).
+- **Questions sent:** none pending. Last messages: to `code-reviewer-hooks-017` and `steering-roadmap-hooks` at the `24e9be7` hand-off, both answered (approved).
+- **Wake:** `593ab8a3` deleted at this checkpoint. Re-arm on the next turn.
+- **Notes for the record:** never record safeguard or security blocks in agent-output (standing owner prohibition); gate refusals are disclosed in chat only. The comment gate allows only `ALLOW` entries: a rationale lives in the test or the record, not in a source comment. Use Edit/Write for record documents; absolute paths for shell reads of the tree; rtk filters can print `N matches in 1 files` instead of lines for `grep -v` over piped output, so use the Read tool or `grep -c`.
