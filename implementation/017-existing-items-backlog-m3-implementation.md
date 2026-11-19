@@ -336,5 +336,7 @@ commit that carries this text is the one the hand-off message names. M3's first 
   M5 and M6 wait on OQ-7 and gate M5-0; M7 last.
 - Scratch: this session's exports and the older sessions' loose files and clones are removed. No process of mine is left
   running (`pstree` shows only the claude process). Nothing locally mutated and unrestored.
-- Cache-warm wake: `d27f4c05` was deleted at the first checkpoint; `dc5b1602` (fires 03:19 local) was armed on the review
-  message and stays armed while M4 work proceeds.
+- Cache-warm wakes `d27f4c05` and `dc5b1602` are both deleted (the second at the fix-round checkpoint, context past
+  225K); arm again on the next briefed turn.
+- Record tools: `check-repo.js` passed at the fix commit; the record-write gate refused one scripted edit earlier in the run
+  and the Edit tool was used instead (disclosed in the round).
