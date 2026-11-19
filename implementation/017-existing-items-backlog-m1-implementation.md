@@ -58,8 +58,8 @@ M1-a, M1-b, M1-c. M2 to M7 not started.
 | Path | Changes | Lines |
 |---|---|---|
 | `src/utils/index.ts` | `enforceImportMutualExclusivity` and its doc comment deleted | −21 |
-| `src/utils/__tests__/limits.import-validation.test.ts` | the `enforceImportMutualExclusivity` `describe` and its banner deleted (14 cases); the import narrowed to `hasV2Components`; three now-unused helper imports (`makeLinkButton`, `makeThumbnail`, `makeSeparator`) dropped | −172 / +1 |
-| `src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx` | new `describe('DiscordMessageEditor error-line text')`: 11 cases | +34 |
+| `src/utils/__tests__/limits.import-validation.test.ts` | the `enforceImportMutualExclusivity` `describe` and its banner deleted (14 cases); the import narrowed to `hasV2Components`; three now-unused helper imports (`makeLinkButton`, `makeThumbnail`, `makeSeparator`) dropped | −173 / +3 (`git diff --numstat 1ad625e 8147661`; corrected from −172/+1 after QA's note) |
+| `src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx` | new `describe('DiscordMessageEditor error-line text')`: 11 cases | +35 (corrected from +34) |
 
 Renamed with `git mv`, blob ids unchanged (`git hash-object` against `git rev-parse 1ad625e:<old>`):
 
@@ -165,6 +165,13 @@ token in a basename, a title or a comment.
   ("couldn't determine the plugin react uniquely"), so lint was run from stdin in the shared tree, which
   writes nothing.
 - The mutants ran against `8147661` after it was committed, so each kill is of a committed instrument.
+
+Correction (2026-11-19T00:57, QA's QAF-15, `qa/017-existing-items-backlog-m1-qa.md`): the "21 findings at
+`1ad625e`" for `limits.import-validation.test.ts` came from linting the base blob on stdin in the shared tree,
+which resolves types against the moved tree. The base count is 7 (`verification/017/entry/lint-1ad625e/nofix.json`),
+and the tip's 5 stands. The conclusion (no rule count rose) is unchanged. M7-b reads base counts from that
+whole-tree capture and lints the tip in a tree that is exactly the commit measured, with its own install (a
+linked `node_modules` fails with "plugin react uniquely"; `verification/017/README.md`).
 
 ## Next Steps
 

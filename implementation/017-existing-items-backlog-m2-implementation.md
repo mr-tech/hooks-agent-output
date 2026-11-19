@@ -121,6 +121,13 @@ The full suite and typecheck are to be re-run at the final tip of M2 before hand
 - The records are never cleared when the message id changes in a mounted provider; they are bounded by the
   plan's residue class (1) (RK-3). Not asserted.
 - Walk B-1 (real Pusher delivery to the sender) is UAT's.
+- QAF-16 LOW (QA, carried to M2's pass): `useApiMethods.json-editor-repair.test.ts` stubs React's `useState`
+  and `useCallback`, and `1c07354` adds a `describe` of two cases to it. The stub holds one value per call
+  site and cannot represent a re-render after `setPendingSaveChoice`. Neither new case reaches the dialog
+  path, so they do not depend on it. Wanted: real React state (DOM harness) or the stub named here. Open;
+  to be decided with QA at the M2 hand-off (moving the two cases into the `MessageProvider` file's real
+  mount is the cheaper route).
+- QAF-15 (M1's QA): see the M1 document's correction; the instrument for M7-b is the whole-tree capture.
 
 ## Next Steps
 
