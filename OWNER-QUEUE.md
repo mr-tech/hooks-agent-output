@@ -26,10 +26,10 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ---
 
-## Plan 017: three looks on hooks.gg, once both releases are live
+## Plan 017: three looks on hooks.gg (live now)
 
-These start after you approve the release in `devops-hooks-017`'s session, and devops reports the website and generator deploys live.
-Tell `steering-roadmap-hooks` what you saw for each one.
+Both releases are live on hooks.gg: the website went out at 20:11 UTC and the preview generator at 20:15 UTC on 19 November.
+Do these on hooks.gg whenever suits you, then tell `steering-roadmap-hooks` what you saw for each one.
 
 1. **Preview updates (B-6).** Edit and save one of your messages, then look at its preview in the message list.
    *Pass:* the preview shows your new edit within a minute, and opening the preview image never shows "Invalid message data."
