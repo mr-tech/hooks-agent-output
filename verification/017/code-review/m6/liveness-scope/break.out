@@ -1,0 +1,4 @@
+== restart-after-deploy (want 0: since the latest process start):
+'Generated image for message' lines in the out log at or after that stamp (liveness for a zero): 0
+== pm2-prefixed lines (want NOT READ):
+no ISO-stamped 'Server running at' line in the out log: the deploy boundary is not placeable, so the liveness count is NOT READ
