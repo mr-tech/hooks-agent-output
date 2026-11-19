@@ -511,3 +511,34 @@ parked in the Planner batch, R-21 `2e8742e`, under the M4 cap). M1 to M3 as reco
 - The reviewer's INBOX FYI (`ImageUploader`, `WarningDialog` bind Enter at the document, CR-9's class)
   is outside the plan. It is a candidate rider for him: a refuting helper is checking the conclusion
   before it is put.
+
+## 2026-11-19T04:50Z — rider: the two dialogs' page-wide Enter, added to 017 (his selection)
+
+Selection prompt, put 04:4xZ, answered 04:50Z; ledger `steering/selection-ledger/2026-11-19.md` block
+"2026-11-19T04:50Z — steering-roadmap". Words are his by selection; option text is this thread's.
+Question, as put: "Chain 017 code review found that two editor dialogs, the "Delete Field?" warning and
+the image dialog, still answer Enter anywhere on the page. M4 already fixed this for the update prompt. …
+This is outside 017's plan, and the plan hasn't grown since you approved it. What should happen?"
+- **Agent: add it to 017 (Recommended)** — CHOSEN. "The planner adds it to 017 as revision 5. The critic,
+  architect and QA read the change, then the implementer applies M4's already-reviewed fix to both
+  dialogs, through code review and QA. It ships in 017's release. Cost: one plan revision and its gate
+  reads, plus one small fix round (estimated, not measured)."
+- Agent: own small fix later — "A separate fix after 017 is released (fixer plus code review, no plan).
+  It waits for 017's release, because the website tree is on 017's branch until then, and it needs its
+  own release."
+- Agent: record it, don't fix — "Record it as a known defect for later. Nothing is fixed now, and both
+  dialogs keep answering Enter anywhere on the page."
+Premises, with the read that established each this turn:
+- The defect, executed: refuting `general-purpose-sonnet` helper, isolated export of website `5c3d03f`,
+  throwaway DOM test — WarningDialog and ImageUploader open with the update ConfirmationDialog, one
+  Enter on the document fired `["warn.confirm","img.close","img.set","reload"]`. Sites:
+  `src/components/ImageUploader.tsx:86`, `src/components/WarningDialog.tsx:19` (`useHotkeys(['enter'])`,
+  guard compares `tagName` to `'~/components/Button'`, never true); `ConfirmationDialog.tsx:16` guarded
+  since `a5dd76f`. Not run: the case where focus sits in the other dialog. Origin: reviewer's FYI,
+  `agent-output/INBOX.md` (2026-11-19, code-reviewer-hooks-017), CR-9's class.
+- "The plan hasn't grown since you approved it": `Revision: 4` in the plan header (read 04:50Z); his
+  approval named revision 4 (block 00:29Z); no rider since.
+- Costs are estimates, marked so in the option.
+The cap notice for M4 ($21.15, ≈1.5 h, block 04:14Z) was told to him in the same turn, before the prompt.
+Recipients: `planner-hooks-017` (revision 5); the critic, architect and QA read it as the plan's
+revision delta; `implementer-hooks-017` and `code-reviewer-hooks-017` (the reviewer's FYI dispositioned).
