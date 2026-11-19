@@ -1,0 +1,27 @@
+NM-10-any-resolved-fetch-commits exit 1 failed cases 41 killed
+NM-11-commit-unconditional exit 1 failed cases 2 killed
+NM-12a-form1-deletes-own-object exit 1 failed cases 28 killed
+NM-12b-delete-before-commit exit 1 failed cases 28 killed
+NM-13-prefix-loses-trailing-slash exit 1 failed cases 29 killed
+NM-14-dev-predicate-differs exit 1 failed cases 1 killed
+NM-15a-line-carries-nonce exit 1 failed cases 9 killed
+NM-15b-line-written-on-204 exit 1 failed cases 2 killed
+NM-16a-timer-not-cleared exit 1 failed cases 1 killed
+NM-16b-timeout-logs-twice exit 1 failed cases 1 killed
+NM-17-continuation-awaited-before-reply exit 1 failed cases 14 killed
+NM-23a-age-from-function-clock exit 1 failed cases 7 killed
+NM-23b-L-below-continuation-life exit 1 failed cases 2 killed
+NM-23c-age-guard-dropped exit 1 failed cases 6 killed
+NM-26-absent-reference-deletes-all exit 1 failed cases 6 killed
+row-refused-commit-keeps-own-object exit timeout failed cases 0 killed
+row-form1-dropped exit 1 failed cases 4 killed
+row-sweep-dropped exit 1 failed cases 16 killed
+row-404-class-merged-into-500 exit 1 failed cases 1 killed
+row-timeout-class-reported-as-network exit 1 failed cases 1 killed
+row-upsert-posts-before-the-row-is-saved exit 1 failed cases 7 killed
+row-nonce-clock-not-padded exit 1 failed cases 1 killed
+row-nonce-random-part-dropped exit 1 failed cases 1 killed
+row-commit-writes-updatedAt-too exit 1 failed cases 3 killed
+row-upsert-writes-nonce exit 1 failed cases 1 killed
+row-upsert-returns-no-clock exit 1 failed cases 1 killed
+done 0

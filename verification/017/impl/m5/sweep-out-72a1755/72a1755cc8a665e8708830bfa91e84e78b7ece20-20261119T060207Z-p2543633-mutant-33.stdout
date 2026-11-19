@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7af6b2ec-e8bc-4694-9cc1-2624ec1960ba/scratchpad/mr-work/20261119T060207Z-p2543633/mutant-33
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts (14 tests | 1 failed) 52ms
+     × deletes nothing in the sweep when the committed object is not in the listing 14ms
+ ❯ |node| src/server/api/utils/__tests__/previewImage.interleavings.test.ts (38 tests | 3 failed) 873ms
+     × s1 'ok', s2 'ok', delete false, orphan false: every interleaving holds the invariants 55ms
+     × s1 'ok', s2 'ok', delete false, orphan true: every interleaving holds the invariants 16ms
+     × W1 C1 W2 C2 D2 D1 leaves the later save's image committed and present 2ms
+
+ Test Files  2 failed | 23 passed (25)
+      Tests  4 failed | 327 passed (331)
+   Start at  06:07:43
+   Duration  1.93s (transform 4.40s, setup 0ms, import 13.27s, tests 3.14s, environment 3ms)
+

@@ -1,0 +1,26 @@
+{
+ "mutant": {
+  "name": "row-timeout-class-reported-as-network",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "return timedOut ? 'no-answer-within-T' : 'network-error';",
+    "new": "return 'network-error';"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "a generator that does not answer within 40 seconds writes exactly one line of class no-answer-within-T at 40 seconds, and no commit"
+ ],
+ "verdict": "killed"
+}

@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7af6b2ec-e8bc-4694-9cc1-2624ec1960ba/scratchpad/mr-work/20261119T060207Z-p2543633/mutant-10
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts (14 tests | 8 failed) 36ms
+     × deletes the object of the nonce it replaced 14ms
+     × deletes its own object and nothing else when a later save has committed 2ms
+     × deletes its own object when the row is gone, and recreates no row 2ms
+     × lists the message's prefix with its trailing slash 1ms
+     × leaves another message whose id starts with this one alone 2ms
+     × an object 120000 ms older than the committed one is deleted: true 1ms
+     × deletes nothing in the sweep when the committed object is not in the listing 1ms
+     × lists and deletes under dev/ when the website runs as development 1ms
+ ❯ |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts (13 tests | 10 failed) 47ms
+     × commits the nonce and writes no failure line 10ms
+     × answer 500 writes one line and leaves the stored nonce alone 7ms
+     × answer 404 writes one line and leaves the stored nonce alone 2ms
+     × answer 200 writes one line and leaves the stored nonce alone 2ms
+     × answer 302 writes one line and leaves the stored nonce alone 1ms
+     × answer 503 writes one line and leaves the stored nonce alone 1ms
+     × names no nonce, no message content, no object key and no credential 1ms
+     × deletes nothing from the bucket 4ms
+     × stops waiting once the generator has answered 204: no later line 2ms
+     × stops waiting once the generator has answered 500: one line, not two 2ms
+ ❯ |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts (7 tests | 2 failed) 28ms
+     × hands the platform one promise that outlives the reply 6ms
+     × still saves when the generator fails, and keeps the stored nonce 3ms

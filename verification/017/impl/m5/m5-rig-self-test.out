@@ -1,0 +1,16 @@
+Start the local website with these in its process environment (not .env.local):
+  CDN_ENDPOINT=http://127.0.0.1:39001
+  CDN_BUCKET=bucket CDN_KEY=rig CDN_SECRET=rig
+  NEXT_PUBLIC_CDN_HOST=http://127.0.0.1:39001/bucket
+  PREVIEW_IMAGE_URL=http://127.0.0.1:39002/generate PREVIEW_IMAGE_API_KEY=rig-api-key
+Stub request log: /usr/local/bin/hooks/agent-output/verification/017/impl/m5/m5-rig-stublog.jsonl
+2026-11-19T06:02:49.090Z Server running at http://127.0.0.1:39002/
+2026-11-19T06:02:49.263Z GET /generate
+2026-11-19T06:02:49.273Z POST /generate
+2026-11-19T06:02:49.586Z Created instance 1. Active instances: 2.
+2026-11-19T06:02:49.588Z Acquired instance 1.
+2026-11-19T06:02:49.591Z Created instance 2. Active instances: 2.
+2026-11-19T06:02:50.704Z Releasing instance 1.
+2026-11-19T06:02:50.725Z Generated image for message 42 with nonce vrig-01 in 1451ms
+{"up":true,"status":204,"putKey":"dev/previews/42/vrig-01.jpeg","putType":"image/jpeg","served":200,"servedType":"image/jpeg","otherRequests":0}
+2026-11-19T06:02:51.230Z Server received SIGINT. Closing server.

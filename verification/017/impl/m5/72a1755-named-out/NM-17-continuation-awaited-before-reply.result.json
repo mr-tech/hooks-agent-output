@@ -1,0 +1,39 @@
+{
+ "mutant": {
+  "name": "NM-17-continuation-awaited-before-reply",
+  "edits": [
+   {
+    "file": "src/server/api/utils/shared.ts",
+    "old": "waitUntil(runPreviewContinuation({ id, nonce: mintNonce(savedAtMicros), message: message.data }));",
+    "new": "await runPreviewContinuation({ id, nonce: mintNonce(savedAtMicros), message: message.data });"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "the per-owner message cap on a new user-scoped message saves a new message when the user holds 0",
+  "the per-owner message cap on a new user-scoped message saves a new message when the user holds 999",
+  "the per-owner message cap on a new user-scoped message counts the user's messages, not the server's",
+  "the per-owner message cap on a new guild-scoped message saves a new message when the server holds 999",
+  "the per-owner message cap on a new guild-scoped message counts the server's messages, not the user's",
+  "the per-owner message cap on an existing message never refuses a save of an existing user message at 1000",
+  "the per-owner message cap on an existing message never refuses a save of an existing guild message at 1000",
+  "a save of an existing message replies while the generator has not answered, with the nonce already committed",
+  "a save of an existing message asks the generator only after its row is saved",
+  "a save of an existing message hands the platform one promise that outlives the reply",
+  "a save of an existing message sends the saved id and a nonce minted from the database clock the statement returned",
+  "a save of an existing message still saves when the generator fails, and keeps the stored nonce",
+  "a save of an existing message settles its promise without rejecting when the storage fails after a 204",
+  "a save of a new message asks the generator once, after the insert, for the id the insert returned"
+ ],
+ "verdict": "killed"
+}

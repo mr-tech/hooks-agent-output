@@ -1,0 +1,36 @@
+previewBucket.ts:6:false SURVIVED 2.81
+previewImage.ts:46:if-false KILLED 2.84
+previewImage.ts:46:=== KILLED 2.83
+previewImage.ts:46:num KILLED 2.95
+previewImage.ts:47:if-false KILLED 2.88
+previewImage.ts:47:=== KILLED 2.89
+previewImage.ts:47:num KILLED 2.89
+previewImage.ts:57:false KILLED 2.89
+previewImage.ts:58:true KILLED 2.79
+previewImage.ts:70:=== KILLED 120.12
+previewImage.ts:70:num KILLED 3.05
+previewImage.ts:79:if-false KILLED 2.88
+previewImage.ts:79:not KILLED 3.0
+previewImage.ts:82:walk-first KILLED 2.86
+previewImage.ts:82:walk-last KILLED 2.76
+previewImage.ts:91:walk-first KILLED 2.87
+previewImage.ts:91:walk-last KILLED 2.92
+previewImage.ts:91:=== KILLED 3.09
+previewImage.ts:92:if-false SURVIVED 2.96
+previewImage.ts:92:not KILLED 3.16
+previewImage.ts:94:walk-first KILLED 2.87
+previewImage.ts:94:walk-last KILLED 2.91
+previewImage.ts:94:walk-first:2 KILLED 2.88
+previewImage.ts:94:walk-last:2 KILLED 2.93
+previewImage.ts:95:!== KILLED 2.84
+previewImage.ts:96:&& KILLED 2.86
+previewImage.ts:96:not KILLED 2.94
+previewImage.ts:97:&& KILLED 2.8
+previewImage.ts:97:>= KILLED 2.82
+previewImage.ts:109:if-false KILLED 2.83
+previewImage.ts:115:if-false KILLED 120.12
+previewImage.ts:115:not KILLED 3.32
+previewImage.ts:121:if-false KILLED 3.14
+shared.ts:255:if-false SURVIVED 3.18
+31 of 34 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; sweep-mutants-72a1755.json (blob 9a951f42e17e25d2cf05afff466e71377ba15e25))
+exit 0

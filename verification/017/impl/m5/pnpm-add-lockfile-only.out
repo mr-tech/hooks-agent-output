@@ -1,0 +1,36 @@
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated @vercel/edge-config@0.2.0: This version is no longer supported. Please upgrade to the latest version.
+Progress: resolved 121, reused 0, downloaded 0, added 0
+Progress: resolved 122, reused 1, downloaded 0, added 0
+Progress: resolved 122, reused 2, downloaded 0, added 0
+Progress: resolved 1092, reused 2, downloaded 0, added 0
+ WARN  13 deprecated subdependencies found: @humanwhocodes/config-array@0.13.0, @humanwhocodes/object-schema@2.0.3, are-we-there-yet@2.0.0, basic-ftp@5.0.3, gauge@3.0.2, glob@7.2.3, glob@8.1.0, inflight@1.0.6, npmlog@5.0.1, prebuild-install@7.1.1, sourcemap-codec@1.4.8, tar@6.2.0, uuid@3.4.0
+Progress: resolved 1567, reused 2, downloaded 0, added 0
+Progress: resolved 1567, reused 2, downloaded 0, added 0, done
+ WARN  Issues with peer dependencies found
+.
+├─┬ vite 8.0.3
+│ └── ✕ unmet peer sass@^1.70.0: found 1.56.2
+├─┬ eslint-config-airbnb 19.0.4
+│ └── ✕ unmet peer eslint-plugin-react-hooks@^4.3.0: found 7.0.1
+├─┬ @eslint/js 10.0.1
+│ └── ✕ unmet peer eslint@^10.0.0: found 8.57.1
+├─┬ next-auth 4.24.5
+│ ├── ✕ unmet peer next@"^12.2.5 || ^13 || ^14": found 16.1.6
+│ ├── ✕ unmet peer react@"^17.0.2 || ^18": found 19.2.4
+│ └── ✕ unmet peer react-dom@"^17.0.2 || ^18": found 19.2.4
+├─┬ react-accessible-accordion 5.0.1
+│ ├── ✕ unmet peer react@"^16.3.2 || ^17.0.0 || ^18.0.0": found 19.2.4
+│ └── ✕ unmet peer react-dom@"^16.3.3 || ^17.0.0 || ^18.0.0": found 19.2.4
+├─┬ react-use 17.4.0
+│ ├── ✕ unmet peer react@"^16.8.0  || ^17.0.0 || ^18.0.0": found 19.2.4
+│ └── ✕ unmet peer react-dom@"^16.8.0  || ^17.0.0 || ^18.0.0": found 19.2.4
+└─┬ react-slider 2.0.4
+  └── ✕ unmet peer react@"^16 || ^17 || ^18": found 19.2.4
+
+dependencies:
++ @vercel/functions 3.11.3
+
+Done in 9.6s using pnpm v10.28.2

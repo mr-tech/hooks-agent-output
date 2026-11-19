@@ -1,0 +1,26 @@
+{
+ "mutant": {
+  "name": "row-upsert-returns-no-clock",
+  "edits": [
+   {
+    "file": "src/server/api/utils/shared.ts",
+    "old": "      sql<string>`(extract(epoch from clock_timestamp()) * 1000000)::bigint::text`.as('savedAtMicros'),",
+    "new": "      sql<string>`'0'`.as('savedAtMicros'),"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "the upsert statement no longer writes the preview nonce returns the message id and the database clock, read in the same statement"
+ ],
+ "verdict": "killed"
+}

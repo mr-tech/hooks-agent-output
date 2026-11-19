@@ -1,0 +1,26 @@
+{
+ "mutant": {
+  "name": "row-upsert-writes-nonce",
+  "edits": [
+   {
+    "file": "src/server/api/utils/shared.ts",
+    "old": "        valid: values.valid,\n        updatedAt: values.updatedAt,",
+    "new": "        valid: values.valid,\n        previewImageNonce: 'x',\n        updatedAt: values.updatedAt,"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "the upsert statement no longer writes the preview nonce names no nonce column in its insert or its conflict update"
+ ],
+ "verdict": "killed"
+}

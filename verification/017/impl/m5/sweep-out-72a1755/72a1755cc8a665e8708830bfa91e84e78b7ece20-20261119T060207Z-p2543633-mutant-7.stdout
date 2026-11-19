@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7af6b2ec-e8bc-4694-9cc1-2624ec1960ba/scratchpad/mr-work/20261119T060207Z-p2543633/mutant-7
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts (13 tests | 1 failed) 42ms
+     × answer 404 writes one line and leaves the stored nonce alone 8ms
+
+ Test Files  1 failed | 24 passed (25)
+      Tests  1 failed | 330 passed (331)
+   Start at  06:02:29
+   Duration  1.85s (transform 4.09s, setup 0ms, import 12.96s, tests 3.06s, environment 3ms)
+

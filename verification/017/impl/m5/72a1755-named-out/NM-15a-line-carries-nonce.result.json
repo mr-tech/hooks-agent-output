@@ -1,0 +1,44 @@
+{
+ "mutant": {
+  "name": "NM-15a-line-carries-nonce",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "elapsedMs=${elapsedMs}`);",
+    "new": "elapsedMs=${elapsedMs} nonce=${nonceForLog}`);"
+   },
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "const logFailure = (id: string,",
+    "new": "let nonceForLog = '';\nconst logFailure = (id: string,"
+   },
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "  const start = Date.now();\n  try {",
+    "new": "  const start = Date.now();\n  nonceForLog = nonce;\n  try {"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "one failure line per failed generation answer 500 writes one line and leaves the stored nonce alone",
+  "one failure line per failed generation answer 404 writes one line and leaves the stored nonce alone",
+  "one failure line per failed generation answer 200 writes one line and leaves the stored nonce alone",
+  "one failure line per failed generation answer 302 writes one line and leaves the stored nonce alone",
+  "one failure line per failed generation answer 503 writes one line and leaves the stored nonce alone",
+  "one failure line per failed generation answer a refused connection writes one line and leaves the stored nonce alone",
+  "one failure line per failed generation names no nonce, no message content, no object key and no credential",
+  "a generator that does not answer within 40 seconds writes exactly one line of class no-answer-within-T at 40 seconds, and no commit",
+  "a generator that does not answer within 40 seconds stops waiting once the generator has answered 500: one line, not two"
+ ],
+ "verdict": "killed"
+}

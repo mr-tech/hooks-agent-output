@@ -1,0 +1,32 @@
+{
+ "mutant": {
+  "name": "NM-23a-age-from-function-clock",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS",
+    "new": "Date.now() - LastModified.getTime() >= SWEEP_AGE_MS"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "the sweep after an accepted commit an object 119999 ms older than the committed one is deleted: false",
+  "the sweep after an accepted commit measures age by the bucket's times, not the function's clock",
+  "the sweep after an accepted commit keeps an object written after the committed one",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'ok', delete false, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'ok', delete false, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'ok', delete true, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'ok', delete true, orphan true: every interleaving holds the invariants"
+ ],
+ "verdict": "killed"
+}

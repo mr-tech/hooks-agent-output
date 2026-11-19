@@ -1,0 +1,41 @@
+[
+ {
+  "name": "previewBucket.ts_6_false",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewBucket.ts",
+    "old": "false",
+    "new": "true"
+   }
+  ],
+  "tests": [
+   "src/server"
+  ]
+ },
+ {
+  "name": "previewImage.ts_92_if-false",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "\n  if (!co",
+    "new": "\n  if (false && !co"
+   }
+  ],
+  "tests": [
+   "src/server"
+  ]
+ },
+ {
+  "name": "shared.ts_255_if-false",
+  "edits": [
+   {
+    "file": "src/server/api/utils/shared.ts",
+    "old": "\n\n  if (mess",
+    "new": "\n\n  if (false && mess"
+   }
+  ],
+  "tests": [
+   "src/server"
+  ]
+ }
+]

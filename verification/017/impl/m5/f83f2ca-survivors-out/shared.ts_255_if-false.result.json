@@ -1,0 +1,20 @@
+{
+ "mutant": {
+  "name": "shared.ts_255_if-false",
+  "edits": [
+   {
+    "file": "src/server/api/utils/shared.ts",
+    "old": "\n\n  if (mess",
+    "new": "\n\n  if (false && mess"
+   }
+  ],
+  "tests": [
+   "src/server"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "the saved row's id is the id the client sent for an existing message"
+ ],
+ "verdict": "killed"
+}

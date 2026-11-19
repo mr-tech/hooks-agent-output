@@ -1,0 +1,53 @@
+{
+ "mutant": {
+  "name": "NM-12b-delete-before-commit",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "    const committed = await buildCommitPreviewNonceQuery(getPostgres(), id, nonce).execute();\n    if (!committed.length) {",
+    "new": "    await deleteObjects([previewKey(id, nonce)]);\n    const committed = await buildCommitPreviewNonceQuery(getPostgres(), id, nonce).execute();\n    if (!committed.length) {"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "an accepted commit deletes the object of the nonce it replaced",
+  "an accepted commit deletes nothing for a replaced nonce of none, and keeps its own object",
+  "an accepted commit never deletes the object it committed",
+  "the sweep after an accepted commit leaves another message whose id starts with this one alone",
+  "the sweep after an accepted commit an object 120000 ms older than the committed one is deleted: true",
+  "the sweep after an accepted commit an object 119999 ms older than the committed one is deleted: false",
+  "the development prefix lists and deletes under dev/ when the website runs as development",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'ok', delete false, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'ok', delete false, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'ok', delete true, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'ok', delete true, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'fail', delete false, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'fail', delete false, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'fail', delete true, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'fail', delete true, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'late', delete false, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'late', delete false, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'late', delete true, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'late', delete true, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'fail', s2 'ok', delete false, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'fail', s2 'ok', delete false, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'fail', s2 'ok', delete true, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'fail', s2 'ok', delete true, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'late', s2 'ok', delete false, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'late', s2 'ok', delete false, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'late', s2 'ok', delete true, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'late', s2 'ok', delete true, orphan true: every interleaving holds the invariants",
+  "the sequence in which a later save deletes the earlier save's object first W1 C1 W2 C2 D2 D1 leaves the later save's image committed and present"
+ ],
+ "verdict": "killed"
+}

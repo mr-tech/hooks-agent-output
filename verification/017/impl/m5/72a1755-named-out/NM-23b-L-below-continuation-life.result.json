@@ -1,0 +1,27 @@
+{
+ "mutant": {
+  "name": "NM-23b-L-below-continuation-life",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "export const SWEEP_AGE_MS = 120_000;",
+    "new": "export const SWEEP_AGE_MS = 30_000;"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "the sweep after an accepted commit an object 119999 ms older than the committed one is deleted: false",
+  "the sweep after an accepted commit measures age by the bucket's times, not the function's clock"
+ ],
+ "verdict": "killed"
+}

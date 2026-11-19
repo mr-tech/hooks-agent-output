@@ -1,0 +1,32 @@
+{
+ "mutant": {
+  "name": "row-upsert-posts-before-the-row-is-saved",
+  "edits": [
+   {
+    "file": "src/server/api/utils/shared.ts",
+    "old": "  waitUntil(runPreviewContinuation({ id, nonce: mintNonce(savedAtMicros), message: message.data }));\n",
+    "new": ""
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "a save of an existing message replies while the generator has not answered, with the nonce already committed",
+  "a save of an existing message asks the generator only after its row is saved",
+  "a save of an existing message hands the platform one promise that outlives the reply",
+  "a save of an existing message sends the saved id and a nonce minted from the database clock the statement returned",
+  "a save of an existing message still saves when the generator fails, and keeps the stored nonce",
+  "a save of an existing message settles its promise without rejecting when the storage fails after a 204",
+  "a save of a new message asks the generator once, after the insert, for the id the insert returned"
+ ],
+ "verdict": "killed"
+}

@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7af6b2ec-e8bc-4694-9cc1-2624ec1960ba/scratchpad/mr-work/20261119T060207Z-p2543633/mutant-12
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts (14 tests | 1 failed) 43ms
+     × deletes nothing for a replaced nonce of none, and keeps its own object 16ms
+
+ Test Files  1 failed | 24 passed (25)
+      Tests  1 failed | 330 passed (331)
+   Start at  06:04:41
+   Duration  1.85s (transform 4.41s, setup 0ms, import 12.84s, tests 2.99s, environment 3ms)
+

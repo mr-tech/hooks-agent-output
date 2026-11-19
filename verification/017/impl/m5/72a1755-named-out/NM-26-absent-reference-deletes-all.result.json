@@ -1,0 +1,31 @@
+{
+ "mutant": {
+  "name": "NM-26-absent-reference-deletes-all",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "  if (!committedAt) return;\n",
+    "new": "  if (!committedAt) { await deleteObjects((Contents ?? []).map(({ Key }) => Key as string)); return; }\n"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "the sweep after an accepted commit deletes nothing in the sweep when the committed object is not in the listing",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'ok', delete false, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'ok', delete false, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'ok', delete true, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'ok', delete true, orphan true: every interleaving holds the invariants",
+  "the sequence in which a later save deletes the earlier save's object first W1 C1 W2 C2 D2 D1 leaves the later save's image committed and present"
+ ],
+ "verdict": "killed"
+}

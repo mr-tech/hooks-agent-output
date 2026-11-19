@@ -1,0 +1,20 @@
+{
+ "mutant": {
+  "name": "previewBucket.ts_6_false",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewBucket.ts",
+    "old": "false",
+    "new": "true"
+   }
+  ],
+  "tests": [
+   "src/server"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "the sweep after an accepted commit talks to the configured endpoint, without forcing path-style addressing"
+ ],
+ "verdict": "killed"
+}

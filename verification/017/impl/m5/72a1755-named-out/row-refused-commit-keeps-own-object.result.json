@@ -1,0 +1,24 @@
+{
+ "mutant": {
+  "name": "row-refused-commit-keeps-own-object",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "      await deleteObjects([previewKey(id, nonce)]);\n      return;",
+    "new": "      return;"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ "exit": "timeout",
+ "failed": [],
+ "verdict": "killed"
+}

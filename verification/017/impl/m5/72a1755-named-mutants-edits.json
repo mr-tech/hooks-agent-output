@@ -1,0 +1,506 @@
+[
+ {
+  "name": "NM-10-any-resolved-fetch-commits",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "return response.status === 204 ? null : failureClassOf(response.status);",
+    "new": "void response; return null;"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "NM-11-commit-unconditional",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "  .where((eb) => eb.or([\n    eb('Messages.previewImageNonce', 'is', null),\n    sql<boolean>`\"Messages\".\"previewImageNonce\" collate \"C\" < ${nonce}`,\n  ]))\n",
+    "new": ""
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "NM-12a-form1-deletes-own-object",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "if (prev) await deleteObjects([previewKey(id, prev)]);",
+    "new": "if (prev) await deleteObjects([previewKey(id, nonce)]);"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "NM-12b-delete-before-commit",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "    const committed = await buildCommitPreviewNonceQuery(getPostgres(), id, nonce).execute();\n    if (!committed.length) {",
+    "new": "    await deleteObjects([previewKey(id, nonce)]);\n    const committed = await buildCommitPreviewNonceQuery(getPostgres(), id, nonce).execute();\n    if (!committed.length) {"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "NM-13-prefix-loses-trailing-slash",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewBucket.ts",
+    "old": "previews/${messageId}/`;",
+    "new": "previews/${messageId}`;"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "NM-14-dev-predicate-differs",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewBucket.ts",
+    "old": "env.NODE_ENV === 'development'",
+    "new": "process.env.NODE_ENV === 'development'"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "NM-15a-line-carries-nonce",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "elapsedMs=${elapsedMs}`);",
+    "new": "elapsedMs=${elapsedMs} nonce=${nonceForLog}`);"
+   },
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "const logFailure = (id: string,",
+    "new": "let nonceForLog = '';\nconst logFailure = (id: string,"
+   },
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "  const start = Date.now();\n  try {",
+    "new": "  const start = Date.now();\n  nonceForLog = nonce;\n  try {"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "NM-15b-line-written-on-204",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "    const committed = await buildCommitPreviewNonceQuery",
+    "new": "    logFailure(id, 'status-other', 0);\n    const committed = await buildCommitPreviewNonceQuery"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "NM-16a-timer-not-cleared",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "    clearTimeout(timer);",
+    "new": "    void timer;"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "NM-16b-timeout-logs-twice",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "setTimeout(() => { timedOut = true; controller.abort(); }",
+    "new": "setTimeout(() => { timedOut = true; logFailure(id, 'no-answer-within-T', PREVIEW_ANSWER_TIMEOUT_MS); controller.abort(); }"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "NM-17-continuation-awaited-before-reply",
+  "edits": [
+   {
+    "file": "src/server/api/utils/shared.ts",
+    "old": "waitUntil(runPreviewContinuation({ id, nonce: mintNonce(savedAtMicros), message: message.data }));",
+    "new": "await runPreviewContinuation({ id, nonce: mintNonce(savedAtMicros), message: message.data });"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "NM-23a-age-from-function-clock",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS",
+    "new": "Date.now() - LastModified.getTime() >= SWEEP_AGE_MS"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "NM-23b-L-below-continuation-life",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "export const SWEEP_AGE_MS = 120_000;",
+    "new": "export const SWEEP_AGE_MS = 30_000;"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "NM-23c-age-guard-dropped",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "&& committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS)",
+    "new": "&& committedAt.getTime() - LastModified.getTime() >= 0)"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "NM-26-absent-reference-deletes-all",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "  if (!committedAt) return;\n",
+    "new": "  if (!committedAt) { await deleteObjects((Contents ?? []).map(({ Key }) => Key as string)); return; }\n"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "row-refused-commit-keeps-own-object",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "      await deleteObjects([previewKey(id, nonce)]);\n      return;",
+    "new": "      return;"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "row-form1-dropped",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "if (prev) await deleteObjects([previewKey(id, prev)]);",
+    "new": ""
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "row-sweep-dropped",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "    await sweepOlderObjects(id, previewKey(id, nonce));",
+    "new": ""
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "row-404-class-merged-into-500",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "if (status === 404) return 'status-404';",
+    "new": ""
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "row-timeout-class-reported-as-network",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "return timedOut ? 'no-answer-within-T' : 'network-error';",
+    "new": "return 'network-error';"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "row-upsert-posts-before-the-row-is-saved",
+  "edits": [
+   {
+    "file": "src/server/api/utils/shared.ts",
+    "old": "  waitUntil(runPreviewContinuation({ id, nonce: mintNonce(savedAtMicros), message: message.data }));\n",
+    "new": ""
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "row-nonce-clock-not-padded",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "clockMicros.padStart(16, '0')",
+    "new": "clockMicros"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "row-nonce-random-part-dropped",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "${randomBytes(8).toString('hex')}`",
+    "new": "${'0'.repeat(16)}`"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "row-commit-writes-updatedAt-too",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": ".set({ previewImageNonce: nonce })",
+    "new": ".set({ previewImageNonce: nonce, updatedAt: new Date() })"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "row-upsert-writes-nonce",
+  "edits": [
+   {
+    "file": "src/server/api/utils/shared.ts",
+    "old": "        valid: values.valid,\n        updatedAt: values.updatedAt,",
+    "new": "        valid: values.valid,\n        previewImageNonce: 'x',\n        updatedAt: values.updatedAt,"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ {
+  "name": "row-upsert-returns-no-clock",
+  "edits": [
+   {
+    "file": "src/server/api/utils/shared.ts",
+    "old": "      sql<string>`(extract(epoch from clock_timestamp()) * 1000000)::bigint::text`.as('savedAtMicros'),",
+    "new": "      sql<string>`'0'`.as('savedAtMicros'),"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ }
+]

@@ -1,0 +1,29 @@
+# git grep -n "previewImageNonce" -- src (production)
+src/@types/global.d.ts:87:    previewImageNonce: null | string;
+src/@types/global.d.ts:97:    previewImageNonce: null | string;
+src/providers/MessageProvider/index.tsx:51:function storedToActive(stored: StoredMessage): Omit<ApiMessage, 'id' | 'createdAt' | 'previewImageNonce'> {
+src/server/api/utils/guild.ts:57:      'Messages.data', 'Messages.previewImageNonce',
+src/server/api/utils/previewImage.ts:26:    .select('previewImageNonce as prev')
+src/server/api/utils/previewImage.ts:31:  .set({ previewImageNonce: nonce })
+src/server/api/utils/previewImage.ts:34:    eb('Messages.previewImageNonce', 'is', null),
+src/server/api/utils/previewImage.ts:35:    sql<boolean>`"Messages"."previewImageNonce" collate "C" < ${nonce}`,
+src/server/api/utils/shared.ts:29:  previewImageNonce: null | string;
+src/server/api/utils/shared.ts:54:    id, guildId, createdAt, updatedAt, name, previewImageNonce, data,
+src/server/api/utils/shared.ts:61:    previewImageNonce,
+src/server/api/utils/shared.ts:94:  id, createdAt, updatedAt, name, guildId, previewImageNonce,
+src/server/api/utils/shared.ts:95:}: Pick<DatabaseMessage, 'id' | 'createdAt' | 'updatedAt' | 'name' | 'previewImageNonce' | 'guildId'>) {
+src/server/api/utils/shared.ts:101:    previewImageNonce,
+src/server/api/utils/shared.ts:116:      'Messages.previewImageNonce', 'Guilds.guildId as guildId',
+src/server/api/utils/shared.ts:129:      'Messages.previewImageNonce',
+src/server/api/utils/shared.ts:144:      'Messages.data', 'Messages.previewImageNonce',
+src/server/api/utils/shared.ts:165:      'Messages.previewImageNonce', 'Guilds.guildId as guildId',
+src/utils/index.ts:520:export function getPreviewImageUrl(message?: Pick<ApiMessage, 'id' | 'previewImageNonce'>) {
+src/utils/index.ts:521:  return message?.previewImageNonce ? `${getCDNUrl()}/previews/${message.id}/${message.previewImageNonce}.jpeg` : DEFAULT_IMAGE_URL;
+# git grep -n "new S3(" -- src (production)
+src/server/api/utils/previewBucket.ts:5:export const getS3 = () => new S3({
+# git grep -n "postMessagePreviewImage\|genUuid" -- src/server (production)
+# git grep -c 'preview-image-failure' -- src (production)
+src/server/api/utils/previewImage.ts:1
+# previews/ key forms
+src/server/api/utils/previewBucket.ts:15:export const previewPrefix = (messageId: string) => `${env.NODE_ENV === 'development' ? 'dev/' : ''}previews/${messageId}/`;
+src/utils/index.ts:521:  return message?.previewImageNonce ? `${getCDNUrl()}/previews/${message.id}/${message.previewImageNonce}.jpeg` : DEFAULT_IMAGE_URL;

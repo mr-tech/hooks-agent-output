@@ -1,0 +1,26 @@
+{
+ "mutant": {
+  "name": "row-nonce-random-part-dropped",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "${randomBytes(8).toString('hex')}`",
+    "new": "${'0'.repeat(16)}`"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "the ordered nonce draws the random part afresh on each call"
+ ],
+ "verdict": "killed"
+}

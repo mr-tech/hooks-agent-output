@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > a generator that does not answer within 40 seconds > writes exactly one line of class no-answer-within-T at 40 seconds, and no commit
+AssertionError: expected 'preview-image-failure id=42 class=net…' to be 'preview-image-failure id=42 class=no-…' // Object.is equality
+
+Expected: "preview-image-failure id=42 class=no-answer-within-T elapsedMs=40000"
+Received: "preview-image-failure id=42 class=network-error elapsedMs=40000"
+
+ ❯ src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts:123:31
+    121|
+    122|     expect(failureLines()).toHaveLength(1);
+    123|     expect(failureLines()[0]).toBe('preview-image-failure id=42 class=…
+       |                               ^
+    124|     expect(world.commits).toEqual([]);
+    125|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,26 @@
+{
+ "mutant": {
+  "name": "NM-14-dev-predicate-differs",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewBucket.ts",
+    "old": "env.NODE_ENV === 'development'",
+    "new": "process.env.NODE_ENV === 'development'"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "the development prefix lists and deletes under dev/ when the website runs as development"
+ ],
+ "verdict": "killed"
+}

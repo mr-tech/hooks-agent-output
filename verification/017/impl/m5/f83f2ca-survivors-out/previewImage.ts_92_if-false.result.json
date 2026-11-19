@@ -1,0 +1,20 @@
+{
+ "mutant": {
+  "name": "previewImage.ts_92_if-false",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "\n  if (!co",
+    "new": "\n  if (false && !co"
+   }
+  ],
+  "tests": [
+   "src/server"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "the sweep after an accepted commit deletes nothing in the sweep when the committed object is not in the listing, and reports no error"
+ ],
+ "verdict": "killed"
+}

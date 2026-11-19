@@ -1,0 +1,28 @@
+{
+ "mutant": {
+  "name": "row-commit-writes-updatedAt-too",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": ".set({ previewImageNonce: nonce })",
+    "new": ".set({ previewImageNonce: nonce, updatedAt: new Date() })"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "the commit statement updates the existing row and never inserts",
+  "the commit statement writes no other column",
+  "the commit statement carries the message id and the new nonce as parameters"
+ ],
+ "verdict": "killed"
+}

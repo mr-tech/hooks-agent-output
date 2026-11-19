@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7af6b2ec-e8bc-4694-9cc1-2624ec1960ba/scratchpad/mr-work/20261119T060207Z-p2543633/mutant-2
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts (13 tests | 2 failed) 40ms
+     × answer 500 writes one line and leaves the stored nonce alone 6ms
+     × stops waiting once the generator has answered 500: one line, not two 2ms
+
+ Test Files  1 failed | 24 passed (25)
+      Tests  2 failed | 329 passed (331)
+   Start at  06:02:14
+   Duration  1.79s (transform 3.71s, setup 0ms, import 12.11s, tests 2.97s, environment 3ms)
+

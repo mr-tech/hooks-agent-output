@@ -1,0 +1,71 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts > the sweep after an accepted commit > deletes nothing in the sweep when the committed object is not in the listing
+AssertionError: expected [ …(2) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
++   "previews/42/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.jpeg",
+    "previews/42/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.jpeg",
+  ]
+
+ ❯ src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts:163:20
+    161|     await save(N1);
+    162|
+    163|     expect(keys()).toEqual([key('e'.repeat(32))]);
+       |                    ^
+    164|   });
+    165| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.interleavings.test.ts > two saves of one message, interleaved, with and without a message delete and an old orphan > s1 'ok', s2 'ok', delete false, orphan false: every interleaving holds the invariants
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.interleavings.test.ts > two saves of one message, interleaved, with and without a message delete and an old orphan > s1 'ok', s2 'ok', delete false, orphan true: every interleaving holds the invariants
+AssertionError: expected [ '[W1 C1 D1 W2 C2 D2] E2:n1', …(4) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "[W1 C1 D1 W2 C2 D2] E2:n1",
++   "[W1 C1 W2 D1 C2 D2] E2:n1",
++   "[W1 C1 W2 C2 D1 D2] E2:n1",
++   "[W1 C1 W2 C2 D2 D1] E2:n1",
++   "[W1 W2 C1 D1 C2 D2] E2:n1",
++ ]
+
+ ❯ src/server/api/utils/__tests__/previewImage.interleavings.test.ts:147:29
+    145|
+    146|     expect(sequences.length).toBeGreaterThan(0);
+    147|     expect(bad.slice(0, 5)).toEqual([]);
+       |                             ^
+    148|   }, 120_000);
+    149| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.interleavings.test.ts > the sequence in which a later save deletes the earlier save's object first > W1 C1 W2 C2 D2 D1 leaves the later save's image committed and present
+AssertionError: expected [ 'E2:n1' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "E2:n1",
++ ]
+
+ ❯ src/server/api/utils/__tests__/previewImage.interleavings.test.ts:162:29
+    160|     const result = await play(['W1', 'C1', 'W2', 'C2', 'D2', 'D1'], fa…
+    161|
+    162|     expect(result.failures).toEqual([]);
+       |                             ^
+    163|     expect(result.row.nonce).toBe(NONCES[2]);
+    164|     expect(result.objects).toEqual([key(NONCES[2])]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+

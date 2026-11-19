@@ -1,0 +1,66 @@
+{
+ "mutant": {
+  "name": "NM-10-any-resolved-fetch-commits",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "return response.status === 204 ? null : failureClassOf(response.status);",
+    "new": "void response; return null;"
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "one failure line per failed generation answer 500 writes one line and leaves the stored nonce alone",
+  "one failure line per failed generation answer 404 writes one line and leaves the stored nonce alone",
+  "one failure line per failed generation answer 200 writes one line and leaves the stored nonce alone",
+  "one failure line per failed generation answer 302 writes one line and leaves the stored nonce alone",
+  "one failure line per failed generation answer 503 writes one line and leaves the stored nonce alone",
+  "one failure line per failed generation names no nonce, no message content, no object key and no credential",
+  "one failure line per failed generation deletes nothing from the bucket",
+  "a generator that does not answer within 40 seconds stops waiting once the generator has answered 500: one line, not two",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'fail', delete false, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'fail', delete false, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'fail', delete true, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'fail', delete true, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'late', delete false, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'late', delete false, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'late', delete true, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'ok', s2 'late', delete true, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'fail', s2 'ok', delete false, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'fail', s2 'ok', delete false, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'fail', s2 'ok', delete true, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'fail', s2 'ok', delete true, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'fail', s2 'fail', delete false, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'fail', s2 'fail', delete false, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'fail', s2 'fail', delete true, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'fail', s2 'fail', delete true, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'fail', s2 'late', delete false, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'fail', s2 'late', delete false, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'fail', s2 'late', delete true, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'fail', s2 'late', delete true, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'late', s2 'ok', delete false, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'late', s2 'ok', delete false, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'late', s2 'ok', delete true, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'late', s2 'ok', delete true, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'late', s2 'fail', delete false, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'late', s2 'fail', delete false, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'late', s2 'fail', delete true, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'late', s2 'fail', delete true, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'late', s2 'late', delete false, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'late', s2 'late', delete false, orphan true: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'late', s2 'late', delete true, orphan false: every interleaving holds the invariants",
+  "two saves of one message, interleaved, with and without a message delete and an old orphan s1 'late', s2 'late', delete true, orphan true: every interleaving holds the invariants",
+  "a save of an existing message still saves when the generator fails, and keeps the stored nonce"
+ ],
+ "verdict": "killed"
+}

@@ -1,0 +1,27 @@
+{
+ "mutant": {
+  "name": "NM-11-commit-unconditional",
+  "edits": [
+   {
+    "file": "src/server/api/utils/previewImage.ts",
+    "old": "  .where((eb) => eb.or([\n    eb('Messages.previewImageNonce', 'is', null),\n    sql<boolean>`\"Messages\".\"previewImageNonce\" collate \"C\" < ${nonce}`,\n  ]))\n",
+    "new": ""
+   }
+  ],
+  "tests": [
+   "src/server/api/utils/__tests__/previewImage.commit-statement.test.ts",
+   "src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts",
+   "src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts",
+   "src/server/api/utils/__tests__/previewImage.interleavings.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts",
+   "src/server/api/utils/__tests__/shared.message-cap.test.ts",
+   "src/server/api/utils/__tests__/shared.upsert-valid.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "the commit statement moves the nonce only where the row has none or one that orders below, under collation C",
+  "the commit statement carries the message id and the new nonce as parameters"
+ ],
+ "verdict": "killed"
+}
