@@ -3,8 +3,8 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: QA Complete
-Status-Detail: "Revision 8 (the Planner batch fold) is APPROVED by the critic (56a602a). QA Complete plan-level (qa/017-existing-items-backlog-qa.md, effort-final pass): all eight milestones QA Complete (M1 to M5, M7 and M8 at website 4b8db9c or earlier; M6 at generator 8512a1d), effort-final sweep run; security APPROVED the generator delta (4ae4825). He accepted X-21 and X-22 (D-31, D-32). Next: UAT, then devops."
-Revision: 8
+Status-Detail: "Revision 8 (the Planner batch fold) is APPROVED by the critic (56a602a). QA Complete plan-level (qa/017-existing-items-backlog-qa.md, effort-final pass): all eight milestones QA Complete (M1 to M5, M7 and M8 at website 4b8db9c or earlier; M6 at generator 8512a1d), effort-final sweep run; security APPROVED the generator delta (4ae4825). He accepted X-21 and X-22 (D-31, D-32). Revision 9 folds QAF-25 as X-24; its critic read is owed. Next: UAT, then devops."
+Revision: 9
 Plan-ID: 017
 Target-Release: "website master (Vercel production) first, then preview-image-generator prod (prod.yml), each push his word, run by devops. Order and reason: § Release and rollback. Neither package.json carries a version field (git show 1ad625e:package.json, 8de2b53:package.json), so no version artifact moves."
 Epic-Alignment: "Hooks.gg existing-items queue: the commission of 2026-11-18T21:53Z (items 2 to 5 of the five-item ranking), under his 2026-11-11 ruling that new feature work waits until the existing items are handled (steering/queue-hooks-rulings.md, selection 2)."
@@ -75,6 +75,7 @@ Architectural-Surface: "Yes; the architect's conformance pass is a named step (s
 | 2026-11-19T08:42 | R-46 | planner-hooks-017 | Registered D-31 and D-32, his acceptance of X-22 and X-21; words in `steering/selection-ledger/2026-11-19.md` block "2026-11-19T08:41Z — steering-roadmap-hooks" and `steering/017-rulings.md` block 2026-11-19T08:41Z (`06f7f2f`). The same write carries the critique's label fixes left for it (`56a602a`): SL-3's third member (X-22's carrier) and SL-5's two lines (RK-8's record cell, the owed re-verdicts row order). Scope delta: none — registration only. |
 | 2026-11-19T09:14 | R-47 | qa-hooks-017 | QA, effort-final pass and plan-level verdict: **QA Complete** at website `4b8db9c` and generator `8512a1d` (`qa/017-existing-items-backlog-qa.md` § Test Execution Results). Website sweep over `1ad625e..4b8db9c`: 124 of 140 killed; 16 survivors each dispositioned (10 whitespace-only lines, 4 equivalent, 1 constant the plan does not name, and QAF-25); 1 ABORTED (out of memory, not credited). The generator was swept whole at M6. Revision 8's delta moves no verified criterion. QAF-25 LOW (`StyledLink`'s `prefetch: false` unasserted) goes to the Planner batch under the M4 cap. Status set to QA Complete. |
 | 2026-11-19T09:15 | R-48 | planner-hooks-017 | Registered QAF-25 LOW in the Planner batch, parked under steering's M4 cap (`qa/017-existing-items-backlog-qa.md`, `1a8edce`; `steering/017-rulings.md` block 2026-11-19T04:14Z). Scope delta: none — registration only. |
+| 2026-11-19T09:16 | 9 | planner-hooks-017 | Folds R-48 (QAF-25 LOW, `qa/017-existing-items-backlog-qa.md`, `1a8edce`) as Exclusions X-24, a stated limit in X-23's form under steering's M4 cap, on steering's brief to fold before devops Stage 1. Scope delta: none in milestones or delivered behaviour; one Exclusions row, and no code, test or verifier moves. Against the original ask: as at revision 5. Gate rounds: the critic, one delta-bounded pass; then the architect's closing pass, started by steering. |
 
 ## Reading Order
 
@@ -100,6 +101,7 @@ Owed re-verdicts:
 | The same delta, re-keyed: NM-30 to NM-38 against M8-b's red rows and M8-c's off-button rows; B-13, B-14 | revision 7 commit | QA Phase 1 re-key | passed, no finding; QAF-20 and QAF-21 resolved; EC-3 and EC-4 added for the implementer (`7eda138`) |
 | AF-23's fold, the line "The form, mirrored" only | revision 7 commit | architect, delta read | passed: APPROVED stands, no finding; AF-23 closed (`0e380fc`) |
 | Revision 8 delta: M3 matrix fetch cell, M4-a, M4-d's table, M6-c's closed class set, X-21 to X-23, the Planner batch | revision 8 commit | critic, delta-bounded (the fold's one gate) | passed: APPROVED, cycle 3 pass 1, no finding (`56a602a`) |
+| Revision 9 delta: X-24 and its Planner batch disposition | revision 9 commit | critic, delta-bounded | owed |
 
 ## Value Statement and Business Objective
 
@@ -1329,6 +1331,7 @@ revision 1, `upload-message-dialog-closes-on-first-portal-load-2026-11-08` is cl
 | X-21 | Encoding the generator's request `id` before it reaches the logs (security audit L-001 LOW, CWE-117) | Reach needs the `/generate` API key: at website `4b8db9c` the `id` sent is the database's and the nonce is minted server-side (audit I-3), so no Hooks user can form a line. The stdout sink predates the chain; the schema remedy is X-4's class. The sink-only remedy changes generator `src/server.ts`, which expires code review, QA Phase 2 and the security verdict at `8512a1d` for a LOW the audit marks "Optional, not required for approval" (`security/017-preview-image-generator-security-audit.md` § Low Findings, `4ae4825`). Accepted by him (D-32). | `architecture/system-architecture.md` Problem Areas row "preview-image-generator's `/generate` trusts its body beyond object-ness", which the architect's closing pass extends by the log sink |
 | X-22 | A `/preview` render that reaches the page's own fallback ("Invalid message data.", for unparseable data or through `ErrorBoundary`) is screenshotted, answered 204 and committed over the stale image | Outside item 2's property, whose defect is a *broken* image (determination block 21:59Z, item 2): this image is present. The page answers 200 with the fallback (`src/app/preview/page.tsx` `invalidData` at `4b8db9c`, unchanged since `1ad625e` by `git diff --quiet`), behaviour predating the chain (plan 015 M5-h). Whether any saved message reaches it is unmeasured (code review Round 7 Assumption Not Checked, `8296f7e`). Telling it apart needs a signal from `/preview` to the generator, which is new code in both repositories after every milestone is QA Complete. Accepted by him (D-31) | His post-deploy look at one message he saves (QA's B-6), which fails visibly on a fallback image; no stage looks for one before release; `architecture/system-architecture.md` "`/preview` input guard" |
 | X-23 | QAF-19 LOW: one `it.each` title in `layout.navigation-guard.test.tsx` prints the row's current-id column where the expected outcome belongs | The assertions are correct; a fix moves the website tip and its gates for a title. Parked under steering's M4 cap (block 2026-11-19T04:14Z) | Stated limit; `qa/017-existing-items-backlog-m4-qa.md` QAF-19 |
+| X-24 | QAF-25 LOW: no case asserts that a `StyledLink` renders `next/link` with `prefetch` false unless the caller passes one; the mutant `prefetch: true` survives the suite at website `4b8db9c` | The default is the base's (`1ad625e`), carried onto the line M4 rewrote (`mergeProps({ prefetch: false }, rest, …)` in `StyledLink`), and M4 claims only that `StyledLink`'s props are unchanged, which holds. Adding the case moves the website tip and its gates for a value no criterion names. Parked under steering's M4 cap (block 2026-11-19T04:14Z) | Stated limit; `qa/017-existing-items-backlog-qa.md` QAF-25 |
 
 ## Planner batch
 
@@ -1343,7 +1346,7 @@ revision 1, `upload-message-dialog-closes-on-first-portal-load-2026-11-08` is cl
 | M3's write matrix, row "Message *n* opened (fetch)": the Sn cell is "removed when the fetched copy is shown", not "nothing written" | CR-8 LOW (`code-review/017-existing-items-backlog-code-review.md`); M3 document, CR-8 deviation | Discharged at revision 8: the matrix cell reads as the code does. |
 | M6's setup failures carry no class line: is a fifth class wanted? | `implementation/017-existing-items-backlog-m6-implementation.md` § Deviations (`008468b`); code review Round 7 CR-17 | Discharged at revision 8: M6-c states the class set closed at the four; no fifth class. |
 | Security L-001 LOW: the request `id` reaches the generator's logs unescaped | `security/017-preview-image-generator-security-audit.md` § Low Findings (`4ae4825`) | Discharged at revision 8: Exclusions X-21, accepted by him (D-32). |
-| QAF-25 LOW: `StyledLink`'s rewritten `LinkProxy` keeps `mergeProps({ prefetch: false }, rest, …)` (website `4b8db9c`), and no case fails when the default is lost (mutant `prefetch: true` survives the suite). M4 claims `StyledLink`'s props unchanged, and they are | `qa/017-existing-items-backlog-qa.md` § Test Execution Results, Findings (effort-final pass), agent-output `1a8edce`; steering's M4 cap (`steering/017-rulings.md` block 2026-11-19T04:14Z) | Parked, LOW. Proposed fold: an Exclusions row in X-23's form, a stated limit under the M4 cap, naming the unasserted property "a `StyledLink` renders `next/link` with `prefetch` false unless the caller passes one". Folds at the next planning pass, or on steering's brief where devops Stage 1 finds it unfolded (devops.md step 2c). |
+| QAF-25 LOW: `StyledLink`'s rewritten `LinkProxy` keeps `mergeProps({ prefetch: false }, rest, …)` (website `4b8db9c`), and no case fails when the default is lost (mutant `prefetch: true` survives the suite). M4 claims `StyledLink`'s props unchanged, and they are | `qa/017-existing-items-backlog-qa.md` § Test Execution Results, Findings (effort-final pass), agent-output `1a8edce`; steering's M4 cap (`steering/017-rulings.md` block 2026-11-19T04:14Z) | Discharged at revision 9: Exclusions X-24, a stated limit. |
 | Code review Round 7 assumption: a `/preview` fallback render is stored as the preview | `code-review/017-existing-items-backlog-code-review.md` § Assumption Not Checked, Round 7 (`8296f7e`) | Discharged at revision 8: Exclusions X-22, accepted by him (D-31). |
 
 ## Resumption State
@@ -1357,8 +1360,10 @@ Written 2026-11-19T08:30Z by planner-hooks-017, at revision 8.
   `1ad625e` by `git ls-remote`; the generator tip `8512a1d` is the gate documents' (not read here).
 - **Next.** The critic approved revision 8 (`56a602a`); R-45 records it. R-46 registers D-31 and D-32
   (he accepted X-22 and X-21) and brings the critique's SL-3 third member and SL-5's two lines into
-  agreement. R-48 parks QAF-25 LOW as a Planner batch row, unfolded. The website access defects in the same rulings block are not 017's and are not
-  registered. No pass is owed until a gate or a ruling arrives. Disclosed: the stamp gate refused
+  agreement. R-48 parks QAF-25 LOW; revision 9 folds it as X-24 on steering's brief (09:16Z), before
+  devops Stage 1, and goes to critic-hooks-017; steering starts the architect's closing pass after
+  the critic's read. The website access defects in the 08:41Z rulings block are not 017's and are
+  not registered. No other pass is owed. Disclosed: the stamp gate refused
   R-45's and R-46's first stamps (08:43, typed a minute ahead of the clock); both were re-stamped
   from `date -u`.
 - **In flight.** None. **Uncommitted.** The INBOX.md entry for X-13, kept for the record's owner.
