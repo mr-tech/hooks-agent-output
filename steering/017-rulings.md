@@ -954,3 +954,11 @@ Discord challenge is his) and saves a throwaway message; account 1 opens it / *Y
 `access-defects`; evidence to `verification/access-defects/browser-check/`. Not chain 017's work.
 **This thread's gate event, disclosed in the round:** `record-write-gate-hook` refused a shell `sed -i` on
 the brief (a block-heading fix); re-issued with the Edit tool, the form the gate names.
+
+## 2026-11-19T08:55Z — browser check relaunched with a steps-only brief, on his word
+
+The first `uat-access-check` session did not complete the check; it was stopped. **His words:** *"relaunch
+the uat agent, but just tell it what steps to do, not why it's doing them"*, then *"yes"* to relaunching now.
+The brief `backlog-2026-11-18-briefs/uat-access-check.md` was rewritten to hold the steps, limits and delivery
+alone; the steps, accounts and limits are unchanged. `uat-access-check` respawned in category `access-defects`.
+The access handling question stays open (wait key `website-access-defects`).
