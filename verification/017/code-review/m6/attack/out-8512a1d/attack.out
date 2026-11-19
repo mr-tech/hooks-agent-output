@@ -1,0 +1,10 @@
+PASS jpeg-body
+PASS redirect-404
+PASS redirect-200
+PASS prior-object
+PASS concurrent
+PASS client-abort
+recorded: dropped request's object stored=true
+s3 request kinds: {"put":7}
+failure lines: 1
+cases 6, failed 0

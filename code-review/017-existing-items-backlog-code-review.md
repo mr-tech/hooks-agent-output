@@ -2,10 +2,10 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Reviewed-At: "4b8db9c — repos=website; Round 6 sub-entry, M5 title fix (record line 838c571); Round 6, M5, was reviewed at f83f2ca (implementation document 521a89f); M8 was confirmed at 6555f65 (Round 5 sub-entry, implementation document d71c462); Round 5, M8, was reviewed at c37d41a (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
+Reviewed-At: "8512a1d — repos=preview-image-generator; Round 7, M6 (implementation document 4c4e948; record change verification/015/pig-host-read.sh at agent-output 4c4e948); website was last reviewed at 4b8db9c, Round 6 sub-entry, M5 title fix (record line 838c571); Round 6, M5, was reviewed at f83f2ca (implementation document 521a89f); M8 was confirmed at 6555f65 (Round 5 sub-entry, implementation document d71c462); Round 5, M8, was reviewed at c37d41a (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
 Status: In Review
-Round: 6
-Verdict: APPROVED
+Round: 7
+Verdict: REJECTED
 ---
 
 # Code Review: 017 — the existing-items backlog
@@ -34,6 +34,7 @@ Verdict: APPROVED
 | 2026-11-19T06:06 | implementer-hooks-017 (fix SHA `6555f65`, M8 document `d71c462`) | Round 5 sub-entry: confirm the test-only fix for CR-13 (QAF-22) and CR-12 | Round 5 sub-entry: APPROVED at `6555f65`. 4 of 4 re-attack mutants were killed as assertions (`verification/017/code-review/m8/fix-6555f65/`). Both dropped-`enabled` mutants now fail the new closing-window cases. CR-13 and CR-12 are gone. The fix commit touches only the two enter-scope test files over `72a1755`. M5's `9909fb3` and `72a1755` lie inside `c37d41a..6555f65` and are outside this sub-entry. Gate disclosed: the stamp gate refused plan row R-32 as first typed (06:05 against the clock's 06:03); it was re-stamped from `date -u` and committed (`6b95965`). Disclosed: this row, and the collapse of CR-13 and CR-12 to disposition lines, were written by an ad-hoc python script, not the Edit tool or `record-edit.js`, against the lifecycle rule for record documents. The error was mine, the same one the Resumption State records. The rest of the sub-entry was written with the Edit tool, and the diff was read before commit. |
 | 2026-11-19T06:28 | implementer-hooks-017 (M5 document `521a89f`) | Round 6: review M5 at website `f83f2ca` | Round 6, M5 only. APPROVED_WITH_COMMENTS. CR-14 LOW: `previewWorld` decides commits by a JavaScript copy of the SQL predicate, which the M5 document does not name (record line). CR-15 LOW: one interleavings title matches the ID-token class (`D1`, `D2`). The criteria assessed are M5-a to M5-g, the lockfile and the rig, as revision 7 states them at round open. Adversarial execution against a running deletion path (real Postgres 16, the real SDK to an S3 stub, a scripted generator, network-isolated): 14 of 14, and 4 of 4 planted defects fire. Captures are in `verification/017/code-review/m5/`. Disclosed: the attack's first two runs failed on my harness (a missing table, a log slice, a race reading the generator's second request), corrected before the recorded run. M6 (generator `8512a1d`) is queued as Round 7. |
 | 2026-11-19T06:31 | implementer-hooks-017 (website `4b8db9c`, M5 document `838c571`) | Round 6 sub-entry: confirm CR-14 and CR-15 | Round 6 sub-entry: APPROVED at `4b8db9c` (a title-only diff over `f83f2ca`). CR-15's sweep was re-run over the titles at `4b8db9c` (0 hits) and over the executed full names at `f83f2ca` (only the title now changed). CR-14's line is present. Both are gone. |
+| 2026-11-19T07:34 | steering-roadmap-hooks (resume brief `steering/backlog-2026-11-18-briefs/code-reviewer-hooks-017-resume.md`); implementer-hooks-017 (M6 document `4c4e948`) | Resume, premise re-read, Round 7: review M6 at generator `8512a1d` | Fresh session after the park. Premise re-read recorded: the generator tip `8512a1d`, website `4b8db9c`, plan revision 7 (no hunk in `### M6` or `### M7` since `6ade256`) and M6's `Handoff-At` all hold. M7's `Handoff-At` `f83f2ca` is behind the website tip. Round 7, M6 only: REJECTED on CR-16 MEDIUM. `pig-host-read.sh` section [7]'s liveness count is over the whole log, not since the deploy, so RK-7 precondition (2) cannot fail (falsifier reads 3 where 0 is wanted). CR-17 LOW: setup failures carry no class line, an undeclared decision. CR-18 LOW: a failed sweep capture sits beside the cited one. The generator code itself is sound: `tsc -b` and eslint pass, the rig re-run gives 17 of 17 at the tip and is red at the base, and my attack passes 6 of 6 with 2 controls firing. The fix is record-only and returns as a Round 7 sub-entry. The criteria assessed are M6-0, M6-a to M6-c and X-4, as revision 7 states them at round open. Captures are in `verification/017/code-review/m6/`. Gate disclosed: the stamp gate refused plan row R-38 as first typed (07:36 against the clock's 07:34), and I had also placed it above R-37. I re-stamped it from `date -u` and moved it below R-37 with a python script, not the Edit tool, against the lifecycle rule for record documents. The error was mine, and the diff was read before commit. |
 
 ## Scope and Tree
 
@@ -453,6 +454,53 @@ The fidelity gap in the shared world is CR-14.
 - **CR-14**: the line names the transcription, the row lock not modelled, and the three owning instruments.
 - **Run**: the implementer's 38 of 38 before and after, with the pass set differing only in the title, is read and not re-run. A title-only diff leaves no behaviour to re-attack.
 
+## Premise re-read on resume (2026-11-19T07:25Z)
+
+I am a fresh session, resumed from the Resumption State below (agent-output `225352a`; brief `steering/backlog-2026-11-18-briefs/code-reviewer-hooks-017-resume.md`, steering-roadmap-hooks). I re-read each premise the state rests on at the mechanism:
+
+| Premise (Resumption State) | Instrument | Read |
+|---|---|---|
+| Generator chain tip `8512a1d` | `git -C preview-image-generator branch --show-current`, `rev-parse --short HEAD` | `chain/017-existing-items-backlog` at `8512a1d`. Holds. `ls-remote origin`: `master` `87dcb41`, `prod` `8de2b53`, unchanged. |
+| Website chain tip `4b8db9c` | same, `website` | `chain/017-existing-items-backlog` at `4b8db9c`. Holds. |
+| Plan revision 7 (`6ade256`) | header `Revision:`; `git log 6ade256..HEAD -- planning/017-existing-items-backlog.md`; the hunks of `git diff -U0 6ade256 HEAD` | `Revision: 7`, last commit `b2eefcd`. The delta touches Status-Detail, changelog rows R-27 to R-36, the owed re-verdicts table, the Planner batch and the Resumption State. No hunk falls in `### M6` (from line 904) or `### M7`. Holds. |
+| M6 `Handoff-At` | header of `implementation/017-existing-items-backlog-m6-implementation.md`, last commit `4c4e948`, clean against HEAD | `8512a1d — repos=preview-image-generator`. Holds. |
+| M7 `Handoff-At` | header of `…-m7-implementation.md`, last commit `fc87937`, clean | `f83f2ca — repos=website`. It is behind the website tip `4b8db9c`. The one commit between them changes one test title (Round 6 sub-entry), so M7-b's per-file counts can differ only in that file. Whether M7's document moves its anchor is settled when M7 is reviewed. |
+
+## Round 7 — M6 at generator `8512a1d`
+
+### Scope and tree
+
+- **Criteria assessed** (recorded before the diff was read): M6-0 (the rig), M6-a (204 exactly when this nonce's object was stored, otherwise 500 with nothing written; four render-path members: `goto` rejects, `goto` resolves `null` or with a status outside 200–299, screenshot rejects, put rejects; the pre-render 500 and 404 unchanged; the unanswered-acquire residue), M6-b (no request deletes an object), M6-c (log lines keep their text and emission count, `Generated image for message … in <N>ms` kept, and one `preview-image-failure` line per render-path failure naming class, id and elapsed ms with no content, nonce or key, its shape added to `verification/015/pig-host-read.sh`), the unchanged request contract (X-4), as plan § Plan `### M6` states them in revision 7 (plan last commit `b2eefcd`). Carried from Round 6: "a 204 means an object was stored" must be seen to hold.
+- **Tree**: preview-image-generator `8512a1d`, the document's `Handoff-At`, base `8de2b53`. One commit, `git diff --numstat 8de2b53 8512a1d`: `src/generateImage.ts` +17 −28, `src/server.ts` +2 −1. Read with `git show 8512a1d:<path>`. It was the shared HEAD at round start and end. The record change is `verification/015/pig-host-read.sh` section [7] (+17), committed in agent-output `4c4e948`. Secret-file gate: no `git log` or `git show` in this repository could print `.github/`, and no read was refused this round. Exports were made with `git archive … ':(exclude).github'`.
+- **Plan reading**: the Reading Order row for code-reviewer: Decisions Register, `### M6`, Exclusions (X-4) and Risks (RK-7, whose liveness precondition section [7] serves).
+- **Files reviewed**: both source files, `pig-host-read.sh` section [7], and the rig under `verification/017/m6-probe/` (`run.sh`, `probe.mjs`, `preview-stub.mjs`, `s3-stub.mjs`, `shim-screenshot.cjs`, `mutate-probe.py`, `final-runs.sh`, `pig-host-read-fixture.sh`).
+
+### Architecture alignment (Round 7)
+
+**Alignment Status**: ALIGNED. Deletion leaves the generator entirely: `git grep -n "DeleteObjectsCommand\|ListObjectsCommand\|deleteMessagePreviewImages" 8512a1d -- src` gives 0 lines, and the website's continuation and delete route are the only deleters (Round 6's sweep). The failure line takes the website's shape (`previewImage.ts` `PREVIEW_FAILURE_PREFIX`, `id= class= elapsedMs=`), so one pattern reads both services (`preview-image-generator.md` A-1 and AF-7). The request contract is unchanged (X-4). The production entry point is `ecosystem.config.js` `script: 'dist/server.js'`, built by `tsc -b`. The rig runs `ts-node` in transpile-only mode, so I ran the real build at the tip (below). Runtime Flow 3 ("who deletes") is in the plan's `Architectural-Surface` list for the architect's closing pass.
+
+### Instruments and reproduction (Round 7)
+
+| Claim under review | Instrument (this round) | Result |
+|---|---|---|
+| The tree builds as production builds it | `npm ci` (lockfile identical at base and tip, `cmp`), then `npx tsc -b` and `npx eslint src/generateImage.ts src/server.ts`, in a `git archive` export of `8512a1d` | `tsc -b` exit 0, eslint exit 0. `tsconfig.json` targets `es2022`, so `instanceof PreviewFailure` holds for an `Error` subclass in the built output. |
+| M6-0, M6-a to M6-c, the implementer's rig, re-run by me | `m6-probe/run.sh` against my own exports of `8512a1d` (full, with the 30 s hang) and `8de2b53` (`--quick`) | Tip: 17 of 17, exit 0 (`code-review/m6/rig-tip/`). Base: 12 of 16 fail (`rig-base/`), consistent with the document's 13 of 17 once the hang case is dropped. |
+| M6-a and M6-b beyond the rig's cases (adversarial execution: the put is a public-read publish, and M6 removes a deleter) | My `code-review/m6/attack/attack.mjs` via `run.sh`: the real generator and real Chrome under `unshare -rn`, the rig's S3 stub, and my own `/preview` stub. Oracle in the file header, fixed before the run. | 6 of 6 at the tip (`out-8512a1d/`): the stored body is a JPEG (`FF D8`, non-empty); a 302 to a 404 page answers 500 with one `class=error-status` line and no put; a 302 to a 200 page answers 204; an object already under the prefix survives; two concurrent saves of one id both answer 204 and both objects stay; a client that drops after 1 s leaves the generator serving. The only bucket requests are 7 puts. No process is left over. |
+| The attack discriminates | Controls: the base export (`control-base-8de2b53/`), and a planted empty body (`Body: Buffer.alloc(0)`, read back in `control-empty-body.mutant.txt`) | Base: 5 of 6 fail (the 302 to 404 answered 204 with a put; the seeded and concurrent objects deleted; 8 lists, 7 deletes). Empty body: `jpeg-body` fails, the rest pass. |
+| Round 6's carried premise, "a 204 means an object was stored" | The 204 is written only in `generateImage(...).then`, after `await getS3().send(new PutObjectCommand …)` resolves. A put rejection throws `PreviewFailure('put')` to the `.catch`. Rig cases `ok`, `goto-299` and `put`; attack `jpeg-body` and `concurrent`. | Holds. Each 204 had a stored object for its own nonce. The `put` case (3 SDK attempts, all refused) answers 500. |
+| The dropped request's object (recorded, not judged) | `attack.out` | `stored=true`. The generator stores what a caller has stopped waiting for. That is the website's "no answer within T" orphan, which M5's sweep removes by age (Round 6). At the base the next save's delete removed it. |
+| The survivor `?? 0` → `?? 1`, argued equivalent | Domain read: `status` has one reader, the comparison `status < 200 \|\| status > 299` (`grep -n status` over `git show 8512a1d:src/generateImage.ts` gives 3 lines: the class-type line 17, the binding at 36 and the comparison at 37. The variable `status` is read only at 37.). Only a `null` response takes the fallback. | Equivalent on its whole domain. Both 0 and 1 are below 200, and there is no state, window or second reader, so no run can separate them. This is a total function of one value, not CR-13's transition window. |
+| The failure line's redaction | Rig: each failing case asserts the line names no nonce, marker or `previews/`. I also read the error log that follows it. | The line is clean. The `console.error(err)` that follows prints `PreviewFailure` with `original`, whose `goto` errors quote the `/preview?data=…` URL, which is the message content. The base printed the same puppeteer error directly, so this is not new. |
+| Section [7] counts "since the deploy" (RK-7 precondition 2) | My falsifier `code-review/m6/liveness-scope/run.sh`: the script copied with `H` at a fixture, as the implementer's fixture does. The out log holds 3 timestamped `Generated image` lines before the last ready line and none after it. Control: one line after it. | **Reads 3, where 0 is wanted**. The control reads 4, where 1 is wanted. The count is over the whole log, which spans deploys (section [6] reads several spans from the same file). This is CR-16. |
+| Conventions | `convention-check.js preview-image-generator --since=8de2b53` | 0 FAIL, 0 CANDIDATE, 2 SKIP: the ID-token limb, which has no test files here, and eslint, which is absent from the shared tree. eslint was run in the export instead (above). The diff adds no comment. |
+| The cited mutation sweep | `impl/m6/sweep-run.out` (15 of 16 under a passing control of 16 cases) beside `impl/m6/sweep-run-8512a1d.out` | The `-8512a1d` capture is a failed run (`FileNotFoundError: …all-mutants-8512a1d.json`, exit 1), committed beside the cited one. This is CR-18. The sweep is QA's at Phase 2. I used no mutant beyond my one planted control. |
+
+**Input class, as attacked**: the rig's 13 render cases (statuses 404, 500, 300, 299, 204, a `null` and a 199 response through the shim, a reset, a 30 s hang, screenshot and put rejection, a setup rejection) and its 4 pre-render cases, plus my 6: a redirect to an error page and to a good page, a prior object under the prefix, two concurrent saves of one id, a dropped caller, and the stored body's bytes. Outside the class: a `/preview` that answers 200 with its own error fallback (Assumption Not Checked, Round 7), pool exhaustion (the plan's residue), and the host's real Spaces endpoint.
+
+### TDD compliance (Round 7)
+
+**TDD Table Present**: Yes. **All Rows Complete**: Yes. The repository has no tests, and the instrument is the probe, red at `8de2b53` and green at `8512a1d`. I reproduced both. `tdd-check.py` reads Python only and does not apply. The probe's expectations are literals (statuses, the key form, the line regex) and are not computed from `generateImage.ts`, so they are independent (axiom E). The shim stands in for three outcomes a stub page cannot produce (`screenshot` rejecting, `goto` resolving `null` or 199). It sits outside the production source, and the document names it under Outstanding Items. No bug-form test was added, and no time-based test entered a suite.
+
 ## Findings
 
 ### Critical
@@ -484,6 +532,19 @@ CR-9 HIGH Round 4
   - **Pre-existing members**: `ImageUploader` and `WarningDialog` are routed to `agent-output/INBOX.md` (they are not M4's). Applying the Preferred form to all three is cheaper than leaving two copies of the class.
 
 ### Medium
+
+CR-16 MEDIUM Round 7
+**A liveness count that cannot fail**: `pig-host-read.sh` section [7] counts `Generated image for message` lines over the whole out log. RK-7's precondition (2) wants that count "since the deploy", and the section's own header says the same. The log spans deploys, so the count reads above zero from history even when the deployed process has rendered nothing. A zero `error-status` count then passes as "no member observed" when it means nothing.
+- **Location**: `verification/015/pig-host-read.sh` section [7], the `'Generated image for message' lines in the out log` count (`"$GREP" -c … "$OUT"`), agent-output `4c4e948`. Its fixture, `verification/017/m6-probe/pig-host-read-fixture.sh`, appends its ready line after the generated lines, so the fixture cannot show the scope either.
+- **Class**: a count that RK-7's read takes "since the deploy" is computed over the whole log.
+- **Enumeration**: `sed -n '/^# --- \[7\]/,/^echo; echo "=== end"/p' verification/015/pig-host-read.sh | grep -c '"\$GREP" -c'` gives 3 count sites in section [7]: the per-class loop (4 classes), "all classes", and the generated-image count. The generated-image count is a member. Its lines exist before M6, and section [6] reads several spans from the same out log, so the log is not cut at deploy. The two failure counts read `$ERRF`, whose lines carry no stamp (`console.error` is not wrapped), so they cannot be scoped by time. They are bounded in practice only because the line's shape first exists at M6's deploy, and a rollback followed by a redeploy would merge the two deploys' counts. The predicate sees only `grep -c` sites inside section [7]. It cannot see a count in sections [1] to [6] that a later read relies on as since-deploy. [6] scopes by span and was not re-examined.
+- **Falsifier, run**: `verification/017/code-review/m6/liveness-scope/run.sh` (`run.out`). With no render since the last ready line it reads 3, where 0 is wanted, and the control reads 4, where 1 is wanted.
+- **Required Action**:
+  - **Preferred (structural)**: section [7] takes the deploy boundary the way section [6] places spans: the latest ISO-stamped `Server running at` line in the out log. It prints that stamp and counts only ISO-stamped `Generated image for message` lines at or after it. The failure counts state their bound in the output: "error log, unstamped: counts since the line shape first existed, not since this deploy".
+  - **Minimum**: the generated-image count only, scoped as above.
+  - **Callers**: two. B-10's crontab read at Stage 1 gets a count that can read 0. The implementer's fixture must put its ready line before the generated lines, or it reads 0 under either form. Changing the fixture is the remedy's cost.
+  - **What the result must show**: `liveness-scope/run.sh` prints 0 for its case and 1 for its control, each as the section's printed count. The case must keep generated lines both before and after the boundary stamp, never only at one end.
+- **Plan row**: this instantiates the falsifier of RK-7's liveness precondition (2).
 
 CR-13 MEDIUM Round 5 Duplicates: QAF-22 in qa/017-existing-items-backlog-m8-qa.md
 RESOLVED at `6555f65`: closing-window cases for W and for I (Preferred). Under each dropped-`enabled` mutant the case fails as an assertion. Check: `verification/017/code-review/m8/fix-6555f65/` (argument in `c44cf87`).
@@ -560,6 +621,20 @@ CR-3 MEDIUM Round 2
 - **Carrier**: QA Phase 2 for M2, as part of QAF-16's disposition (`qa/017-existing-items-backlog-m1-qa.md` names QAF-16 as carried to M2's pass). It goes to the implementer if QA routes a fix. It does not hold this verdict.
 
 ### Low/Info
+
+CR-17 LOW Round 7
+**An undeclared class decision**: a 500 caused by the render's setup writes no `preview-image-failure` line on the generator. The setup steps are `browser.newPage()`, `page.setViewport(...)` and the pool's acquire rejecting. M6-c's "one line per render-path failure" lists four classes and does not say whether setup is on the render path. The M6 document decides it in its Class Sweep row C ("must not write a failure line") and still records Deviations as "None".
+- **Location**: `src/generateImage.ts` `generateMessagePreviewImage` (`newPage`, `setViewport`) and the default export's `getPool().use(...)`, at `8512a1d`. `server.ts` `processImage`'s `.catch` writes the line only for `instanceof PreviewFailure`.
+- **Class**: a 500 answered after the body and key checks, whose cause is outside the four named classes, gets no class line on the generator.
+- **Enumeration**: the awaited calls on the path between the key check and the put that are not wrapped in `PreviewFailure`. `grep -n "await" ` over `git show 8512a1d:src/generateImage.ts` gives `newPage` (26), `setViewport` (29) and `getPool().use` (53). `page.close` (44) is caught and does not fail the request. So there are 3 members. The rig's `setup-rejects` case shows `setViewport` answering 500 with no line. The predicate cannot see a synchronous throw, such as `new URL(config.PREVIEW_ENDPOINT)` with a bad endpoint, which is fixed at start-up config.
+- **Impact, as measured**: the operator still sees each such 500 on the website, whose `previewImage.ts` writes its own `preview-image-failure` line for any non-204 (Round 6's oracle). The generator's error log keeps the stack. Only the generator-side per-class count (RK-7's reader) misses them. RK-7 counts `error-status` only, so its read does not change.
+- **Required Action**: a Deviations line in the M6 document that states the decision (setup failures carry no class line) and its reason. The Planner batch records whether a fifth class is wanted. `no test`. This finding does not hold the round.
+
+CR-18 LOW Round 7
+**Evidence identity**: `verification/017/impl/m6/sweep-run-8512a1d.out` is a failed run (`FileNotFoundError` on `all-mutants-8512a1d.json`, exit 1), committed beside the cited `sweep-run.out`. `green-8512a1d/` and `pig-host-read-fixture-8512a1d.txt` are byte-identical to the cited `green/` and `pig-host-read-fixture.txt` (`diff`). The document does not say which tree the cited sweep ran against. Its TDD section says the lint and typecheck ran on "an export of the working tree before the commit".
+- **Class**: a committed capture whose tree, or whose standing beside a sibling capture, the document leaves unstated.
+- **Enumeration**: `ls verification/017/impl/m6/ | grep -c .` gives 11 entries: 3 `-8512a1d` siblings, of which 1 is failed and 2 are identical. The predicate cannot see a capture's tree where no sibling exists.
+- **Required Action**: one record line in the M6 document. It names the tree of `sweep-run.out` and of `green/`, and says that `sweep-run-8512a1d.out` is a failed attempt and not evidence, or removes it. My own run of the rig at the `8512a1d` export reproduces the green (17 of 17), so the verdict does not rest on this. `no test`.
 
 CR-14 LOW Round 6
 RESOLVED at agent-output `838c571`: the M5 document names `previewWorld`'s transcribed commit predicate, says the row lock is not modelled, and names the shape cases, the lane and `code-review/m5/attack/` as the statement's owners. `no test` (argument in `2d4cf2e`).
@@ -651,6 +726,15 @@ No finding changes a decision. The two above go to their stated carriers.
 
 ## Verdict
 
+**Round 7 (M6 at generator `8512a1d`) — Status**: REJECTED
+**Rationale**: the generator change is sound. I found no defect in `src/` and it does not need to change.
+- A 204 is written only after the put resolves, so "a 204 means an object was stored" holds. That is the premise Round 6 carried.
+- Every render-path failure answers 500 with nothing written and one redacted class line.
+- The generator lists and deletes nothing, and two concurrent saves of one id keep both objects.
+- The real build passes. The rig reproduces at the tip (17 of 17) and red at the base. My 6 attack cases pass, and 2 controls fire.
+
+The verdict is REJECTED on CR-16 alone. It is a severity-floor finding: RK-7's liveness precondition (2), which M6-c's section [7] exists to serve, has no count that can fail. The falsifier reads 3 where 0 is wanted. The fix is in the record (`verification/015/pig-host-read.sh` and its fixture) and returns as a Round 7 sub-entry at the record SHA. CR-17 and CR-18 are LOW record lines for the implementer's next write and do not hold the round. If the fix leaves `8512a1d` unchanged, QA Phase 2 for M6 runs at `8512a1d`, and the security review the stage set names follows this approval.
+
 **Round 6 sub-entry (M5 at `4b8db9c`) — Status**: APPROVED. CR-14 and CR-15 are gone (see the sub-entry). The tip moved by one title, so M5's QA Phase 2 may run at `4b8db9c`.
 
 **Round 6 (M5 at `f83f2ca`) — Status**: APPROVED_WITH_COMMENTS
@@ -729,6 +813,11 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Required Actions
 
+- Round 7 (REJECTED), to the implementer:
+  - CR-16: scope section [7]'s generated-image count to the latest ISO-stamped `Server running at` line (Preferred: also state the failure counts' bound in the output). Move the fixture's ready line before its generated lines. Then `verification/017/code-review/m6/liveness-scope/run.sh` must print 0 for its case and 1 for its control.
+  - CR-17: a Deviations line in the M6 document (setup failures carry no class line, and why).
+  - CR-18: a record line naming the trees of `sweep-run.out` and `green/`, and the standing of `sweep-run-8512a1d.out`.
+  - Return the record SHA, and the generator SHA if it moved, for a scoped Round 7 sub-entry.
 - Round 6: none outstanding. CR-14 and CR-15 were confirmed at `838c571` and `4b8db9c`.
 - Round 5: none outstanding. CR-13 and CR-12 were confirmed at `6555f65` and `d71c462`. Previously (REJECTED after reconcile): the closing-window cases and the `FakeImage` line.
 - Round 4 (REJECTED), to the implementer:
@@ -773,7 +862,13 @@ The production change is the deletion of an unreferenced export. The remaining f
   - **If false**: after two saves of one message more than 120 s apart, a read-only listing of `previews/<id>/` holds more than one object (the sweep finds no age or no reference). Or Vercel's logs carry an SDK error with no `preview-image-failure` prefix after a 204.
   - **Owner**: UAT at B-6, the post-deploy look, under the production release of M5 with M6, with a read-only listing of the saved message's prefix added. devops establishes what that listing may read.
 
+- Round 7: this review assumes that every message the website saves renders on `/preview` without reaching the page's own fallback. `src/app/preview/page.tsx` at `4b8db9c` is a client component that renders "Invalid message data." for unparseable data, and through `ErrorBoundary` for a crashing render, with the main resource still answering 200 (`system-architecture.md`, "`/preview` input guard"). M6-a's `error-status` class therefore never sees those renders. The generator screenshots the fallback, answers 204, and M5 commits it over the stale image the owner's "show a stale one" keeps. That behaviour predates this chain (plan 015 M5-h). What I did not test is whether any saved message reaches it.
+  - **If false**: a production preview image shows the line "Invalid message data." for a saved message, with no `preview-image-failure` line on either service for that save.
+  - **Owner**: UAT at B-6, the post-deploy look, under the production release of M5 with M6, with this step added: open the preview images of the messages saved in the look and check none shows the fallback line.
+
 ## Next Steps
+
+- Round 7: to the implementer (`implementer-hooks-017`) for CR-16, CR-17 and CR-18. The fix returns as a Round 7 sub-entry, then QA Phase 2 for M6, then the security review. UAT B-6 closes the Round 7 assumption. M7 follows the sub-entry. Its `Handoff-At` `f83f2ca` is behind the website tip `4b8db9c` (see the premise re-read).
 
 - Round 6: QA Phase 2 for M5 at `f83f2ca` (`qa-hooks-017`), with its lane re-run (EC-2). CR-14 and CR-15 go to the implementer's next write. UAT B-6 closes the Round 6 assumption. M6's review (Round 7) must see "204 means an object was stored" hold, the premise the attack's observation case shows M5-b rests on.
 
@@ -793,7 +888,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Resumption State
 
-Written at the checkpoint for the chain's park, 2026-11-19T07:16Z (owner's word, "park the chain"; `steering/017-rulings.md` block 2026-11-19T07:15Z, `cffd802`; relayed by steering-roadmap-hooks). It was written with the Edit tool. The 05:52Z checkpoint's python-script disclosure stands in that revision's commit (`00e6bb8`), and Round 5's sub-entry repeats it (changelog 06:06).
+Updated at Round 7's verdict, 2026-11-19T07:34Z, by the resumed session. Previously written at the checkpoint for the chain's park, 2026-11-19T07:16Z (owner's word, "park the chain"; `steering/017-rulings.md` block 2026-11-19T07:15Z, `cffd802`; relayed by steering-roadmap-hooks). It was written with the Edit tool. The 05:52Z checkpoint's python-script disclosure stands in that revision's commit (`00e6bb8`), and Round 5's sub-entry repeats it (changelog 06:06).
 
 - **Done**:
   - Round 1 (M1): APPROVED_WITH_COMMENTS at `8147661`.
@@ -802,23 +897,18 @@ Written at the checkpoint for the chain's park, 2026-11-19T07:16Z (owner's word,
   - Round 4 (M4): REJECTED at `de06d95` (CR-9 HIGH, CR-10 and CR-11 LOW). Its sub-entry approved CR-9 to CR-11 at `a5dd76f` and QAF-18 at `5c3d03f`.
   - Round 5 (M8): REJECTED after reconcile at `c37d41a` (CR-13 MEDIUM, a duplicate of QAF-22; CR-12 LOW), published as APPROVED_WITH_COMMENTS. Its sub-entry approved both at `6555f65`.
   - Round 6 (M5): APPROVED_WITH_COMMENTS at `f83f2ca` (CR-14 and CR-15 LOW). Its sub-entry approved both at `4b8db9c`. Instruments: `verification/017/code-review/m5/attack/` (`run.sh <sha> <out> [control id]`).
-  - My plan rows: R-8, R-10, R-12, R-13, R-15, R-16, R-18, R-19, R-22, R-30, R-32, R-33, R-35 and R-36.
-  - QA hand-offs were sent for each approval. The last two were for M5: `ecf3c9a9` at `f83f2ca`, then `ff73fabd` saying the tip is `4b8db9c`.
-- **In flight**: nothing. Round 7 had not opened at the park. I had read none of M6's diff or document, and no Round 7 criteria are recorded.
-- **Next, on resume**: Round 7, M6 at preview-image-generator `8512a1d` (range `8de2b53..8512a1d`: `src/generateImage.ts` and `src/server.ts`, plus `verification/015/pig-host-read.sh` section [7]). The implementation document is agent-output `4c4e948`. Its hand-off cited a probe rig, 13 of 17 failing on the base and 17 of 17 on the tip, a 15 of 16 mutation sweep with one survivor argued equivalent, and RK-7's liveness fixture.
-  - Re-derive `Handoff-At` from the document first, since the implementer may have moved it.
-  - Record the criteria before reading the diff: `### M6` as the plan states it at round open (revision 7 unless moved).
-  - Round 7 must see "a 204 means an object was stored" hold. Round 6's attack shows M5-b rests on it (`OBSERVE no-object-204`). The survivor argued equivalent is a claim to settle by running it, never by reading (CR-13's lesson).
-  - M6 stops the generator deleting, so adversarial execution applies: the attack harness and the `m6-probe` S3 stub are reusable.
-  - Then M7, last. It re-derives CR-1's file (M7-b).
+  - Round 7 (M6): REJECTED at generator `8512a1d` on CR-16 MEDIUM (record script), with CR-17 and CR-18 LOW. The generator code is sound. Instruments: `verification/017/code-review/m6/attack/run.sh <export> <out>`, `liveness-scope/run.sh <out>`, and `rig-tip/` and `rig-base/`.
+  - My plan rows: R-8, R-10, R-12, R-13, R-15, R-16, R-18, R-19, R-22, R-30, R-32, R-33, R-35, R-36 and R-38.
+  - QA hand-offs were sent for each approval. The last two were for M5: `ecf3c9a9` at `f83f2ca`, then `ff73fabd` saying the tip is `4b8db9c`. QA Complete for M5 at `4b8db9c` (plan R-37).
+- **In flight**: Round 7's sub-entry, waiting on the implementer's record fix for CR-16 to CR-18.
+- **Next, on resume**: the Round 7 sub-entry. Re-run `liveness-scope/run.sh` against the fixed `pig-host-read.sh`: it must print 0 for its case and 1 for its control. Re-run the implementer's corrected fixture, and break the new scope predicate too (an out log whose only ready line is untimestamped; generated lines on both sides of the boundary). Check that `8512a1d` is unchanged, or review the delta if it moved. On APPROVED, hand to `qa-hooks-017` for M6's Phase 2. Then M7, last: re-derive its `Handoff-At` (`f83f2ca` against the tip `4b8db9c`) and CR-1's file (M7-b).
 - **Standing rules**: steering's M4 cap (`steering/017-rulings.md` block 2026-11-19T04:14Z, `a805d4d`) and M8 cap (block 2026-11-19T06:01Z, `9349040`). For M4 and M8, a finding below HIGH that is not a severity-floor finding goes to the Planner batch as a stated limit, with no fix round. Steering is now `steering-roadmap-hooks`.
 - **Waiting on others, not blocking**:
-  - QA Phase 2 for M5 at `4b8db9c` (M8's refresh is QA Complete, plan R-34);
-  - UAT B-3 (Round 4 assumption), B-13 (Round 5 and its sub-entry) and B-6 with a read-only prefix listing (Round 6 assumption).
+  - UAT B-3 (Round 4 assumption), B-13 (Round 5 and its sub-entry), and B-6 with a read-only prefix listing (Round 6 assumption) and the fallback-line look (Round 7 assumption).
 - **Questions sent**: none open.
-- **Branch and HEAD**: website `chain/017-existing-items-backlog` at `4b8db9c`, the reviewed M5 tip. preview-image-generator HEAD is `8512a1d`, not yet reviewed. This session never moved either shared tree.
+- **Branch and HEAD**: website `chain/017-existing-items-backlog` at `4b8db9c`, the reviewed M5 tip. preview-image-generator `chain/017-existing-items-backlog` at `8512a1d`, reviewed in Round 7 (REJECTED on a record finding). This session never moved either shared tree.
 - **Uncommitted**: `agent-output/INBOX.md` holds my FYI entries: CR-2, the M3 `Handoff-At` placeholder (since fixed), CR-9's pre-existing members (now M8's), and the M4 document's citation of a missing M5 document (record-check failure at `implementation/017-existing-items-backlog-m4-implementation.md:400`). The inbox is left uncommitted by rule, for its owning session. Nothing else of mine is uncommitted.
-- **Mutated state**: none. Every mutant and attack ran in a `mutation-run.py` or `git archive` export, all of which are deleted. No `cr017-attack` container is left (`docker ps -a`), no `/dev/shm/cra.*` directory remains, and no process of mine is running (`pstree`). Evidence not yet recorded: none.
+- **Mutated state**: none. Every mutant and attack ran in a `mutation-run.py` or `git archive` export, all of which are deleted. Round 7's generator exports in the scratchpad (`r7/tip`, `base`, `ctl-empty`) were removed at round end, and no process of theirs remains (`pgrep -fa`, 0). No `cr017-attack` container is left (`docker ps -a`), no `/dev/shm/cra.*` directory remains, and no process of mine is running (`pstree`). Evidence not yet recorded: none.
 - **Instruments to reuse**:
   - `verification/017/code-review/m1/vitest.probe.config.mjs`, passed to `mutation-run.py` as `--config <abs path>` with `--dep node_modules -- node_modules/.bin/vitest run --no-cache --configLoader runner`;
   - `verification/017/code-review/m4/probe-enter-both/` (two-prompt Enter probe, with its README);

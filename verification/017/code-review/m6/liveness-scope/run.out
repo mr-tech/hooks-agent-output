@@ -1,0 +1,2 @@
+case no-render-since-deploy (want 0 since the 2026-11-20T09:00 ready line):   'Generated image for message' lines in the out log (liveness for a zero): 3
+control one-render-since-deploy (want 1):   'Generated image for message' lines in the out log (liveness for a zero): 4

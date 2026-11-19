@@ -1,0 +1,697 @@
+{
+ "results": [
+  {
+   "case": "ok",
+   "observed": {
+    "status": 204,
+    "ms": 1425,
+    "puts": 1,
+    "otherS3": [
+     "list"
+    ],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "1 list/delete/other requests, want 0"
+   ]
+  },
+  {
+   "case": "goto-404",
+   "observed": {
+    "status": 204,
+    "ms": 1075,
+    "puts": 1,
+    "otherS3": [
+     "list",
+     "delete"
+    ],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "status 204, want 500",
+    "1 puts, want 0",
+    "2 list/delete/other requests, want 0",
+    "0 failure lines, want 1"
+   ]
+  },
+  {
+   "case": "goto-500",
+   "observed": {
+    "status": 204,
+    "ms": 1082,
+    "puts": 1,
+    "otherS3": [
+     "list",
+     "delete"
+    ],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "status 204, want 500",
+    "1 puts, want 0",
+    "2 list/delete/other requests, want 0",
+    "0 failure lines, want 1"
+   ]
+  },
+  {
+   "case": "goto-300",
+   "observed": {
+    "status": 204,
+    "ms": 1079,
+    "puts": 1,
+    "otherS3": [
+     "list",
+     "delete"
+    ],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "status 204, want 500",
+    "1 puts, want 0",
+    "2 list/delete/other requests, want 0",
+    "0 failure lines, want 1"
+   ]
+  },
+  {
+   "case": "goto-204",
+   "observed": {
+    "status": 500,
+    "ms": 57,
+    "puts": 0,
+    "otherS3": [
+     "list",
+     "delete"
+    ],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "2 list/delete/other requests, want 0",
+    "0 failure lines, want 1"
+   ]
+  },
+  {
+   "case": "goto-299",
+   "observed": {
+    "status": 204,
+    "ms": 1076,
+    "puts": 1,
+    "otherS3": [
+     "list"
+    ],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "1 list/delete/other requests, want 0"
+   ]
+  },
+  {
+   "case": "goto-null",
+   "observed": {
+    "status": 204,
+    "ms": 77,
+    "puts": 1,
+    "otherS3": [
+     "list",
+     "delete"
+    ],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "status 204, want 500",
+    "1 puts, want 0",
+    "2 list/delete/other requests, want 0",
+    "0 failure lines, want 1"
+   ]
+  },
+  {
+   "case": "goto-199",
+   "observed": {
+    "status": 204,
+    "ms": 68,
+    "puts": 1,
+    "otherS3": [
+     "list",
+     "delete"
+    ],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "status 204, want 500",
+    "1 puts, want 0",
+    "2 list/delete/other requests, want 0",
+    "0 failure lines, want 1"
+   ]
+  },
+  {
+   "case": "setup-rejects",
+   "observed": {
+    "status": 500,
+    "ms": 31,
+    "puts": 0,
+    "otherS3": [
+     "list",
+     "delete"
+    ],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "2 list/delete/other requests, want 0"
+   ]
+  },
+  {
+   "case": "goto-reset",
+   "observed": {
+    "status": 500,
+    "ms": 102,
+    "puts": 0,
+    "otherS3": [
+     "list"
+    ],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "1 list/delete/other requests, want 0",
+    "0 failure lines, want 1"
+   ]
+  },
+  {
+   "case": "screenshot",
+   "observed": {
+    "status": 500,
+    "ms": 1049,
+    "puts": 0,
+    "otherS3": [
+     "list"
+    ],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "1 list/delete/other requests, want 0",
+    "0 failure lines, want 1"
+   ]
+  },
+  {
+   "case": "put",
+   "observed": {
+    "status": 500,
+    "ms": 1279,
+    "puts": 3,
+    "otherS3": [
+     "list"
+    ],
+    "failureLines": []
+   },
+   "verdict": "FAIL",
+   "reasons": [
+    "1 list/delete/other requests, want 0",
+    "0 failure lines, want 1"
+   ]
+  }
+ ],
+ "unchanged": [
+  {
+   "case": "bad body",
+   "want": 500,
+   "got": 500
+  },
+  {
+   "case": "wrong key",
+   "want": 404,
+   "got": 404
+  },
+  {
+   "case": "wrong path",
+   "want": 404,
+   "got": 404
+  },
+  {
+   "case": "wrong method",
+   "want": 404,
+   "got": 404
+  }
+ ],
+ "createdInstance": 2,
+ "posts": 14,
+ "closing": [
+  "2026-11-19T07:28:50.159Z Server received SIGINT. Closing server."
+ ],
+ "s3Log": [
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-01.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-01.jpeg",
+   "type": "image/jpeg",
+   "acl": "public-read",
+   "bytes": 1415,
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "POST",
+   "path": "/bucket/",
+   "query": {
+    "delete": "",
+    "x-id": "DeleteObjects"
+   },
+   "kind": "delete",
+   "keys": [
+    "previews/42/vprobe-01.jpeg"
+   ],
+   "status": 200
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-02.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-02.jpeg",
+   "type": "image/jpeg",
+   "acl": "public-read",
+   "bytes": 1415,
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "POST",
+   "path": "/bucket/",
+   "query": {
+    "delete": "",
+    "x-id": "DeleteObjects"
+   },
+   "kind": "delete",
+   "keys": [
+    "previews/42/vprobe-02.jpeg"
+   ],
+   "status": 200
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-03.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-03.jpeg",
+   "type": "image/jpeg",
+   "acl": "public-read",
+   "bytes": 1415,
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "POST",
+   "path": "/bucket/",
+   "query": {
+    "delete": "",
+    "x-id": "DeleteObjects"
+   },
+   "kind": "delete",
+   "keys": [
+    "previews/42/vprobe-03.jpeg"
+   ],
+   "status": 200
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-04.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-04.jpeg",
+   "type": "image/jpeg",
+   "acl": "public-read",
+   "bytes": 1415,
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "POST",
+   "path": "/bucket/",
+   "query": {
+    "delete": "",
+    "x-id": "DeleteObjects"
+   },
+   "kind": "delete",
+   "keys": [
+    "previews/42/vprobe-04.jpeg"
+   ],
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-10.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-10.jpeg",
+   "type": "image/jpeg",
+   "acl": "public-read",
+   "bytes": 1415,
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "POST",
+   "path": "/bucket/",
+   "query": {
+    "delete": "",
+    "x-id": "DeleteObjects"
+   },
+   "kind": "delete",
+   "keys": [
+    "previews/42/vprobe-10.jpeg"
+   ],
+   "status": 200
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-11.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-11.jpeg",
+   "type": "image/jpeg",
+   "acl": "public-read",
+   "bytes": 1010,
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "POST",
+   "path": "/bucket/",
+   "query": {
+    "delete": "",
+    "x-id": "DeleteObjects"
+   },
+   "kind": "delete",
+   "keys": [
+    "previews/42/vprobe-11.jpeg"
+   ],
+   "status": 200
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-12.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-12.jpeg",
+   "type": "image/jpeg",
+   "acl": "public-read",
+   "bytes": 1010,
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "POST",
+   "path": "/bucket/",
+   "query": {
+    "delete": "",
+    "x-id": "DeleteObjects"
+   },
+   "kind": "delete",
+   "keys": [
+    "previews/42/vprobe-12.jpeg"
+   ],
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "GET",
+   "path": "/bucket/",
+   "query": {
+    "prefix": "previews/42/"
+   },
+   "kind": "list",
+   "prefix": "previews/42/",
+   "status": 200
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-nfail.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-nfail.jpeg",
+   "status": 500
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-nfail.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-nfail.jpeg",
+   "status": 500
+  },
+  {
+   "method": "PUT",
+   "path": "/bucket/previews/42/vprobe-nfail.jpeg",
+   "query": {
+    "x-id": "PutObject"
+   },
+   "kind": "put",
+   "key": "previews/42/vprobe-nfail.jpeg",
+   "status": 500
+  }
+ ],
+ "generatorLines": [
+  "2026-11-19T07:28:35.662Z Server running at http://127.0.0.1:38058/",
+  "2026-11-19T07:28:35.746Z POST /generate",
+  "2026-11-19T07:28:36.038Z Created instance 1. Active instances: 2.",
+  "2026-11-19T07:28:36.039Z Acquired instance 1.",
+  "2026-11-19T07:28:36.043Z Created instance 2. Active instances: 2.",
+  "2026-11-19T07:28:37.149Z Releasing instance 1.",
+  "2026-11-19T07:28:37.156Z Generated image for message 42 with nonce vprobe-01 in 1410ms",
+  "2026-11-19T07:28:37.664Z POST /generate",
+  "2026-11-19T07:28:37.666Z Acquired instance 2.",
+  "2026-11-19T07:28:38.733Z Releasing instance 2.",
+  "2026-11-19T07:28:38.737Z Generated image for message 42 with nonce vprobe-02 in 1072ms",
+  "2026-11-19T07:28:39.239Z POST /generate",
+  "2026-11-19T07:28:39.240Z Acquired instance 1.",
+  "2026-11-19T07:28:40.316Z Releasing instance 1.",
+  "2026-11-19T07:28:40.319Z Generated image for message 42 with nonce vprobe-03 in 1080ms",
+  "2026-11-19T07:28:40.824Z POST /generate",
+  "2026-11-19T07:28:40.826Z Acquired instance 2.",
+  "2026-11-19T07:28:41.899Z Releasing instance 2.",
+  "2026-11-19T07:28:41.902Z Generated image for message 42 with nonce vprobe-04 in 1078ms",
+  "2026-11-19T07:28:42.404Z POST /generate",
+  "2026-11-19T07:28:42.407Z Acquired instance 1.",
+  "2026-11-19T07:28:42.458Z Releasing instance 1.",
+  "Error: net::ERR_ABORTED at http://127.0.0.1:46871/preview?data=%7B%22mode%22%3A%22status-204%22%2C%22marker%22%3A%22PLANTED-MESSAGE-CONTENT%22%7D",
+  "    at navigate (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/puppeteer-core/src/common/Frame.ts:175:13)",
+  "    at async Deferred.race (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/puppeteer-core/src/util/Deferred.ts:102:14)",
+  "    at async Frame.goto (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/puppeteer-core/src/common/Frame.ts:128:17)",
+  "    at async CDPPage.goto (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/puppeteer-core/src/common/Page.ts:923:12)",
+  "    at async generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/src/generateImage.ts:28:5)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/src/getPool.ts:88:14)",
+  "    at async Promise.all (index 0)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/src/generateImage.ts:61:19)",
+  "2026-11-19T07:28:42.962Z POST /generate",
+  "2026-11-19T07:28:42.963Z Acquired instance 2.",
+  "2026-11-19T07:28:44.031Z Releasing instance 2.",
+  "2026-11-19T07:28:44.035Z Generated image for message 42 with nonce vprobe-10 in 1073ms",
+  "2026-11-19T07:28:44.541Z POST /generate",
+  "2026-11-19T07:28:44.542Z Acquired instance 1.",
+  "2026-11-19T07:28:44.613Z Releasing instance 1.",
+  "2026-11-19T07:28:44.616Z Generated image for message 42 with nonce vprobe-11 in 75ms",
+  "2026-11-19T07:28:45.118Z POST /generate",
+  "2026-11-19T07:28:45.119Z Acquired instance 2.",
+  "2026-11-19T07:28:45.182Z Releasing instance 2.",
+  "2026-11-19T07:28:45.184Z Generated image for message 42 with nonce vprobe-12 in 66ms",
+  "2026-11-19T07:28:45.687Z POST /generate",
+  "2026-11-19T07:28:45.689Z Acquired instance 1.",
+  "2026-11-19T07:28:45.717Z Releasing instance 1.",
+  "Error: shim: setViewport rejected",
+  "    at CDPPage.setViewport (/usr/local/bin/hooks/agent-output/verification/017/m6-probe/shim-screenshot.cjs:25:107)",
+  "    at CDPPage._create (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/puppeteer-core/src/common/Page.ts:116:20)",
+  "    at async PageTarget.page (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/puppeteer-core/src/common/Target.ts:274:13)",
+  "    at async CDPBrowser._createPageInContext (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/puppeteer-core/src/common/Browser.ts:455:18)",
+  "    at async generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/src/generateImage.ts:20:16)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/src/getPool.ts:88:14)",
+  "    at async Promise.all (index 0)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/src/generateImage.ts:61:19)",
+  "2026-11-19T07:28:46.221Z POST /generate",
+  "2026-11-19T07:28:46.223Z Acquired instance 2.",
+  "2026-11-19T07:28:46.319Z Releasing instance 2.",
+  "Error: net::ERR_EMPTY_RESPONSE at http://127.0.0.1:46871/preview?data=%7B%22mode%22%3A%22reset%22%2C%22marker%22%3A%22PLANTED-MESSAGE-CONTENT%22%7D",
+  "    at navigate (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/puppeteer-core/src/common/Frame.ts:175:13)",
+  "    at async Deferred.race (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/puppeteer-core/src/util/Deferred.ts:102:14)",
+  "    at async Frame.goto (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/puppeteer-core/src/common/Frame.ts:128:17)",
+  "    at async CDPPage.goto (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/puppeteer-core/src/common/Page.ts:923:12)",
+  "    at async generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/src/generateImage.ts:28:5)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/src/getPool.ts:88:14)",
+  "    at async Promise.all (index 0)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/src/generateImage.ts:61:19)",
+  "2026-11-19T07:28:46.825Z POST /generate",
+  "2026-11-19T07:28:46.826Z Acquired instance 1.",
+  "2026-11-19T07:28:47.872Z Releasing instance 1.",
+  "Error: shim: screenshot rejected",
+  "    at CDPPage.screenshot (/usr/local/bin/hooks/agent-output/verification/017/m6-probe/shim-screenshot.cjs:9:93)",
+  "    at generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/src/generateImage.ts:30:23)",
+  "    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/src/getPool.ts:88:14)",
+  "    at async Promise.all (index 0)",
+  "    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/src/generateImage.ts:61:19)",
+  "2026-11-19T07:28:48.375Z POST /generate",
+  "2026-11-19T07:28:48.376Z Acquired instance 2.",
+  "2026-11-19T07:28:49.452Z Releasing instance 2.",
+  "S3ServiceException [InternalError]: stub",
+  "    at throwDefaultError (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:8:22)",
+  "    at /tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:18:39",
+  "    at de_PutObjectCommandError (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/@aws-sdk/client-s3/dist-cjs/protocols/Aws_restXml.js:5721:12)",
+  "    at processTicksAndRejections (node:internal/process/task_queues:104:5)",
+  "    at async /tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/@smithy/middleware-serde/dist-cjs/deserializerMiddleware.js:7:24",
+  "    at async /tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/@aws-sdk/middleware-signing/dist-cjs/awsAuthMiddleware.js:14:20",
+  "    at async /tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/@smithy/middleware-retry/dist-cjs/retryMiddleware.js:27:46",
+  "    at async /tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/@aws-sdk/middleware-flexible-checksums/dist-cjs/flexibleChecksumsMiddleware.js:58:20",
+  "    at async /tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/node_modules/@aws-sdk/middleware-logger/dist-cjs/loggerMiddleware.js:7:26 {",
+  "  '$fault': 'client',",
+  "  '$metadata': {",
+  "    httpStatusCode: 500,",
+  "    requestId: undefined,",
+  "    extendedRequestId: undefined,",
+  "    cfId: undefined,",
+  "    attempts: 3,",
+  "    totalRetryDelay: 192",
+  "  },",
+  "  Code: 'InternalError'",
+  "}",
+  "2026-11-19T07:28:50.155Z POST /generate",
+  "SyntaxError: Unexpected token 'o', \"not json\" is not valid JSON",
+  "    at JSON.parse (<anonymous>)",
+  "    at IncomingMessage.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r7/base/src/server.ts:24:25)",
+  "    at IncomingMessage.emit (node:events:508:28)",
+  "    at IncomingMessage.emit (node:domain:489:12)",
+  "    at endReadableNT (node:internal/streams/readable:1729:12)",
+  "    at processTicksAndRejections (node:internal/process/task_queues:90:21)",
+  "2026-11-19T07:28:50.156Z POST /generate",
+  "2026-11-19T07:28:50.157Z POST /other",
+  "2026-11-19T07:28:50.158Z GET /generate",
+  "2026-11-19T07:28:50.159Z Server received SIGINT. Closing server."
+ ]
+}

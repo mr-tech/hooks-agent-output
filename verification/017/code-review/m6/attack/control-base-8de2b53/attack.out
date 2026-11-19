@@ -1,0 +1,10 @@
+FAIL jpeg-body :: other list
+FAIL redirect-404 :: status 204; a put; lines []; other list,delete
+FAIL redirect-200 :: other list,delete
+FAIL prior-object :: seeded object deleted; other list,delete
+FAIL concurrent :: missing cr7-a; missing cr7-c; missing cr7-d; other list,list,delete,delete
+PASS client-abort
+recorded: dropped request's object stored=false
+s3 request kinds: {"list":8,"put":8,"delete":7}
+failure lines: 0
+cases 6, failed 5
