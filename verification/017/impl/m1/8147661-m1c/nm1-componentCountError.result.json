@@ -1,0 +1,24 @@
+{
+ "mutant": {
+  "name": "nm1-componentCountError",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "line": 345,
+  "old": "{componentCountError}</div>",
+  "new": "{componentCountError}=</div>",
+  "tests": [
+   "src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "DiscordMessageEditor component limit shows the total and the limit with a red border above the limit: 41 flat components",
+  "DiscordMessageEditor component limit shows the total and the limit with a red border above the limit: a container holding 40 text displays",
+  "DiscordMessageEditor component limit shows the total and the limit with a red border above the limit: 11 containers of one section each",
+  "DiscordMessageEditor component limit, the error line shows the components line after the text-length line",
+  "DiscordMessageEditor component limit, the error line drops the line and the border once the total is back to 40",
+  "DiscordMessageEditor component validity, the error line shows the line after the components-total line",
+  "DiscordMessageEditor error-line text renders only the reason text for component count",
+  "DiscordMessageEditor component limit when not editing shows the total and the limit with a red border when validation is not hidden"
+ ],
+ "verdict": "killed"
+}

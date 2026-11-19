@@ -1,0 +1,17 @@
+{
+ "mutant": {
+  "name": "nm1-noContentError",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "line": 296,
+  "old": "{noContentError}</div>",
+  "new": "{noContentError}=</div>",
+  "tests": [
+   "src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "DiscordMessageEditor error-line text renders only the reason text for no content"
+ ],
+ "verdict": "killed"
+}

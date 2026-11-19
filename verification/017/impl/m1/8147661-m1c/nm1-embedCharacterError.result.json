@@ -1,0 +1,17 @@
+{
+ "mutant": {
+  "name": "nm1-embedCharacterError",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "line": 339,
+  "old": "{embedCharacterError}</div>",
+  "new": "{embedCharacterError}=</div>",
+  "tests": [
+   "src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "DiscordMessageEditor error-line text renders only the reason text for embed characters"
+ ],
+ "verdict": "killed"
+}

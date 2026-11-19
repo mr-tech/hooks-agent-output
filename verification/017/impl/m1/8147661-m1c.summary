@@ -1,0 +1,9 @@
+nm1-noContentError exit 1 failed cases 1 killed
+nm1-embedCharacterError exit 1 failed cases 1 killed
+nm1-v2TextError exit 1 failed cases 3 killed
+nm1-componentCountError exit 1 failed cases 8 killed
+kt-298 exit 1 failed cases 11 killed
+kt-347 exit 1 failed cases 1 killed
+kt-348-open exit 1 failed cases 1 killed
+kt-348-close exit 1 failed cases 1 killed
+kt-349 exit 1 failed cases 11 killed

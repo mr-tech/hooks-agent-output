@@ -1,0 +1,19 @@
+{
+ "mutant": {
+  "name": "nm1-v2TextError",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "line": 342,
+  "old": "{v2TextError}</div>",
+  "new": "{v2TextError}=</div>",
+  "tests": [
+   "src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "DiscordMessageEditor component limit, the error line shows the components line after the text-length line",
+  "DiscordMessageEditor validation lines that precede the component lines shows the text-length line with a red border for Text Displays over 4000 characters",
+  "DiscordMessageEditor error-line text renders only the reason text for displayable text"
+ ],
+ "verdict": "killed"
+}

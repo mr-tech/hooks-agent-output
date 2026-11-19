@@ -1,0 +1,17 @@
+{
+ "mutant": {
+  "name": "kt-347",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "line": 347,
+  "old": "show={v2ComponentError}>",
+  "new": "show={v2ComponentError}>=",
+  "tests": [
+   "src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "DiscordMessageEditor error-line text renders only the reason text for V2 component reason"
+ ],
+ "verdict": "killed"
+}

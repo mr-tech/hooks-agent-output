@@ -1,0 +1,23 @@
+{
+ "mutant": {
+  "name": "isMessageV2-or-to-and",
+  "file": "src/utils/messageMode.ts",
+  "line": 8,
+  "old": "|| !!(",
+  "new": "&& !!(",
+  "tests": [
+   "src/utils/__tests__/messageMode.detection.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "isMessageV2, the shared mode predicate is true when the V2 flag bit is set, with no components at all",
+  "isMessageV2, the shared mode predicate is true when the V2 flag bit is set over Action-Rows-only components",
+  "isMessageV2, the shared mode predicate is true when V2 components are present with no flag (row B) \u2014 isolates the structural conjunct",
+  "detectMessageMode reads the flag regardless of components presence returns v2 for a flag-only record with no `components` key (5712-shaped)",
+  "detectMessageMode reads the flag regardless of components presence returns v2 for structural V2 components with no flag",
+  "the toggle sets what it shows a V2-mode draft with only Action Rows, saved and reloaded, opens in V2 (misreport cannot occur)",
+  "showV2PatchWarning, the extracted predicate warns when editing (showEdit) an already-sent message (oldMessage) that is V2 by flag alone"
+ ],
+ "verdict": "killed"
+}

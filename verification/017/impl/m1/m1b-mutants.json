@@ -1,0 +1,3 @@
+[
+  {"name": "isMessageV2-or-to-and", "file": "src/utils/messageMode.ts", "line": 8, "old": "|| !!(", "new": "&& !!(", "tests": ["src/utils/__tests__/messageMode.detection.test.ts"]}
+]

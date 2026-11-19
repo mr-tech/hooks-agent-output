@@ -1,0 +1,17 @@
+{
+ "mutant": {
+  "name": "kt-348-open",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "line": 348,
+  "old": "text-error\">",
+  "new": "text-error\">=",
+  "tests": [
+   "src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "DiscordMessageEditor error-line text renders only the reason text for V2 component reason"
+ ],
+ "verdict": "killed"
+}

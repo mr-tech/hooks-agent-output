@@ -1,0 +1,12 @@
+files base 123 tip 123
+only in base: ['src/utils/__tests__/messageStore.dropped-set-report.test.ts', 'src/utils/__tests__/messageValidity.predicate.test.ts', 'src/utils/__tests__/useApiMethods.json-editor-repair.test.ts', 'src/utils/__tests__/usePusher.hash-parity.test.ts']
+only in tip: ['src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts', 'src/providers/MessageProvider/__tests__/usePusher.hash-parity.test.ts', 'src/server/api/utils/__tests__/messageValidity.predicate.test.ts', 'src/utils/redis/__tests__/messageStore.dropped-set-report.test.ts']
+file-set difference is exactly the four renames: True
+messageStore.dropped-set-report.test.ts: cases base 1 tip 1 passed 1 identical (fullName,status): True
+messageValidity.predicate.test.ts: cases base 11 tip 11 passed 11 identical (fullName,status): True
+useApiMethods.json-editor-repair.test.ts: cases base 7 tip 7 passed 7 identical (fullName,status): True
+usePusher.hash-parity.test.ts: cases base 6 tip 6 passed 6 identical (fullName,status): True
+limits.import-validation base 33 minus enforce describe 19 tip 19 identical: True all passed: True
+removed cases 14
+other files whose cases differ: ['src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx']
+RESULT OK
