@@ -3,8 +3,8 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: In Progress
-Status-Detail: "M2 is open again on UAT-1 (fix round 3). Code review rejected website 42d15de on CR-20 (R-49). He chose the exact hash fix in 017 (D-33, implementer under way) and the Pusher disconnect in 017 (D-34). Revision 10 writes D-34 as M2-d; its critic, QA Phase 1 re-key and architect reads are owed, and the disconnect code waits for them. The other seven milestones keep their QA Complete verdicts (M6 at generator 8512a1d), and security APPROVED the generator delta (4ae4825). Next: M2's round through code review and QA, then UAT's B-1 re-walk, then devops."
-Revision: 10
+Status-Detail: "M2 is open again on UAT-1 (fix round 3). Code review rejected website 42d15de on CR-20 (R-49). He chose the exact hash fix in 017 (D-33, implementer under way) and the Pusher disconnect in 017 (D-34). Revision 10 writes D-34 as M2-d and passed all three pre-code gates (critic 012ee2b, QA Phase 1 9e212a3, architect 410044e), so the disconnect code is free. Code review approved the hash fix at website 60252be (R-54). Revision 11 folds the gates' findings on M2-d's walk step; the critic's read is owed. The other seven milestones keep their QA Complete verdicts (M6 at generator 8512a1d), and security APPROVED the generator delta (4ae4825). Next: M2's round through code review and QA, then UAT's B-1 re-walk, then devops."
+Revision: 11
 Plan-ID: 017
 Target-Release: "website master (Vercel production) first, then preview-image-generator prod (prod.yml), each push his word, run by devops. Order and reason: § Release and rollback. Neither package.json carries a version field (git show 1ad625e:package.json, 8de2b53:package.json), so no version artifact moves."
 Epic-Alignment: "Hooks.gg existing-items queue: the commission of 2026-11-18T21:53Z (items 2 to 5 of the five-item ranking), under his 2026-11-11 ruling that new feature work waits until the existing items are handled (steering/queue-hooks-rulings.md, selection 2)."
@@ -82,6 +82,9 @@ Architectural-Surface: "Yes; the architect's conformance pass is a named step (s
 | 2026-11-19T17:51 | 10 | planner-hooks-017 | Writes D-34 as M2-d (the Pusher instance each `usePusher` effect run creates is disconnected when that effect ends; three members), and states D-33's exact string equality in M2-c with the JSON-encoded broadcast; on steering's word (`steering/017-rulings.md` block 2026-11-19T17:51Z, `bc18caa`), after code review CR-20 (R-49). M2-d reaches no value statement: it closes a connection the editor leaves open, which he added to 017 by selection (D-34). Scope delta: M2 gains criterion M2-d and one surface line (`shared.ts`'s trigger), a milestone-level delta on an open milestone that he ruled at 17:49Z; no milestone is added. Since approval: revisions 8 to 10. Gate rounds: the critic, QA Phase 1's re-key and the architect's delta read, then code review and QA Phase 2 for M2's round; the disconnect code waits for the three pre-code reads, while the hash fix (D-33, no criterion change) does not. Against the original ask: item 3 grows by one connection-close line. |
 | 2026-11-19T17:54 | R-52 | planner-hooks-017 | Recorded the architect's delta read on revision 10: APPROVED stands; AF-25 LOW (recommended: a case running pusher-js's real decode over the producer's frame) and AF-26 INFO (`architecture/017-existing-items-backlog-architecture-findings.md` § "Findings on revision 10", `410044e`). AF-25 is held for one fold with the critic's and QA's verdicts, and sent to QA now for its re-key. Scope delta: none. |
 | 2026-11-19T17:55 | R-53 | planner-hooks-017 | Recorded the critic's read of revision 10: cycle 4 pass 1, APPROVED with F-29 MEDIUM (M2-d's walk step must name an in-app move, not a page load) and SL-5's third member (RK-3's record cell) (`critiques/017-existing-items-backlog-critique.md`, `012ee2b`). Held for one fold with QA's re-key. Scope delta: none. |
+| 2026-11-19T18:01 | R-54 | code-reviewer-hooks-017 | Code review, M2 Round 9 sub-entry: APPROVED at website `60252be` (`code-review/017-existing-items-backlog-code-review.md`). CR-20 is gone: the producer sends the hash as JSON text, and the consumer compares exact strings. 5 of 5 reviewer mutants are killed with the count checked (`verification/017/code-review/m2-cr20/`). The red for CR-20's class at `42d15de` sits in the producer test (8 of 8), a departure from the finding's wording that I accepted. M7-b holds at `60252be` (60 files, 0 above the base). M2-d is not in this tree. Milestone-scoped; plan Status is unmoved; no criterion moves. |
+| 2026-11-19T18:01 | R-55 | planner-hooks-017 | Recorded QA's Phase 1 re-key on revision 10: passes; EC-5, EC-6 (AF-25's instrument), NM-39 to NM-45, B-15 and QAF-26 LOW (`qa/017-existing-items-backlog-qa.md` § "Phase 1 re-key on plan revision 10", `9e212a3`). Scope delta: none. |
+| 2026-11-19T18:01 | 11 | planner-hooks-017 | Folds the three gate verdicts on revision 10: critique cycle 4 pass 1 (`012ee2b`: F-29, SL-5's third member), QA's re-key (`9e212a3`: QAF-26, EC-6) and the architect's delta read (`410044e`: AF-25, AF-26); dispositions in § "Gate findings folded". M2-d's walk step now names an in-app move with no page load, says why a page load cannot fail, and marks the unfixed tree's two sockets as a code read; RK-3's record cell names CR-20's member. Scope delta: none in milestones or in what M2-d requires; the walk step's wording only. Against the original ask: as at revision 10. Gate rounds: the critic, cycle 4 pass 2, delta-bounded; QA's B-15 already carries the walk condition. |
 
 ## Reading Order
 
@@ -108,9 +111,10 @@ Owed re-verdicts:
 | AF-23's fold, the line "The form, mirrored" only | revision 7 commit | architect, delta read | passed: APPROVED stands, no finding; AF-23 closed (`0e380fc`) |
 | Revision 8 delta: M3 matrix fetch cell, M4-a, M4-d's table, M6-c's closed class set, X-21 to X-23, the Planner batch | revision 8 commit | critic, delta-bounded (the fold's one gate) | passed: APPROVED, cycle 3 pass 1, no finding (`56a602a`) |
 | Revision 9 delta: X-24 and its Planner batch disposition | revision 9 commit | critic, delta-bounded | passed: APPROVED, cycle 3 pass 2, no finding (`5f892f5`) |
-| Revision 10 delta: M2-d, M2-c's equality sentence, M2's surfaces line, M2's human-observable M2-d step, D-34's consequence | revision 10 commit | critic, delta-bounded (new cycle) | APPROVED with F-29 MEDIUM, cycle 4 pass 1 (`012ee2b`); F-29's fold owed |
-| The same delta, re-keyed: M2-d's members against named cases; M2-c's exact equality; M2-d's human-observable step as a register row | revision 10 commit | QA Phase 1 re-key | owed |
-| The same delta, as a conformance read (the wire form on the `message-update` broadcast) | revision 10 commit | architect, delta read | passed: APPROVED stands; AF-25 LOW, AF-26 INFO (`410044e`) |
+| Revision 10 delta: M2-d, M2-c's equality sentence, M2's surfaces line, M2's human-observable M2-d step, D-34's consequence | revision 10 commit | critic, delta-bounded (new cycle) | APPROVED with F-29 MEDIUM, cycle 4 pass 1 (`012ee2b`); F-29 folded at revision 11 |
+| Revision 10 delta, re-keyed: M2-d's members against named cases; M2-c's exact equality; M2-d's human-observable step as a register row | revision 10 commit | QA Phase 1 re-key | passed: EC-5, EC-6 (AF-25), NM-39 to NM-45, B-15; QAF-26 LOW folded at revision 11 (`9e212a3`) |
+| Revision 10 delta, as a conformance read (the wire form on the `message-update` broadcast) | revision 10 commit | architect, delta read | passed: APPROVED stands; AF-25 LOW, AF-26 INFO (`410044e`), folded at revision 11 |
+| Revision 11 delta: M2-d's walk step (F-29, QAF-26), RK-3's record cell, four rows of § "Gate findings folded" | revision 11 commit | critic, cycle 4 pass 2 (delta-bounded) | owed |
 
 ## Value Statement and Business Objective
 
@@ -337,6 +341,10 @@ raising gate's.
 | QAF-13 MEDIUM | A listing without the committing save's own object deletes nothing | M5-c form 3 |
 | QAF-14 LOW | B-10's liveness precondition: a fixture line counted at M6, and the region's success count above zero at each read | RK-7 |
 | QA's LastModified assumption (re-key on revision 3) | Argued to hold for either stamping point; the residue is a clock disagreement of more than 60 s inside the bucket. The two-put check on the real bucket is not required | M5-c form 3 |
+| F-29 MEDIUM (cycle 4 pass 1), QAF-26 LOW (re-key on revision 10) | M2-d's walk names an in-app move with no page load, states why a page load cannot fail, and marks the unfixed tree's two sockets as a code read | M2, human-observable form |
+| SL-5 third member (cycle 4 pass 1) | RK-3's record cell names CR-20's member and what closed it | RK-3 |
+| AF-25 LOW (delta read on revision 10) | In scope as M2-c's instrument, keyed by QA as EC-6 (real `upsertMessage`, real pusher 5.1.3, pusher-js 8.3.0's `Protocol.decodeMessage`; 4 of 4 green at `60252be`, 3 of 4 red at `4b8db9c`, `qa/017-existing-items-backlog-qa.md` § "Phase 1 re-key on plan revision 10", `9e212a3`); no criterion moves | M2-c (instrument, QA's register) |
+| AF-26 INFO | No release-order constraint from the wire form | — |
 
 ## Plan
 
@@ -466,9 +474,15 @@ is taken there and nowhere else. A new persisting path inherits it by going thro
   `website`" (ids moved past 900000000000001 before the first save); that walk fires
   `handoff/local-walk-save-can-write-a-client-sent-low-message-id-2026-11-11.md`, and its brief names
   it. In production after the deploy, his look (QA's B-8). The production look confirms tab 2's
-  notice (M2-c) and confirms M2-b only when the window is hit. M2-d: in one tab, open a message's
-  editor, then open a second message's editor in the same tab; the browser's network panel shows one
-  open Pusher WebSocket, not two. Walked by UAT beside B-1, on the same local build.
+  notice (M2-c) and confirms M2-b only when the window is hit. M2-d: in one tab, open message A's
+  editor, then reach message B's editor by in-app links only (for example the sidebar's or the user
+  icon's link to the message list, then message B), with no reload and no typed address; the
+  browser's network panel shows one open Pusher WebSocket, not two. Reachability: a page load
+  (typed address, reload) replaces the document and closes every socket whatever the cleanup does,
+  so a walk that loads a page reads "one" on the unfixed tree too and does not exercise M2-d. On the
+  unfixed tree (`1ad625e`, `42d15de`) an in-app move leaves two open: a code read (the cleanup has
+  no `disconnect`), not observed. Walked by QA at Phase 2 and by UAT beside B-1, on the same local
+  build (QA's B-15, which voids a run whose document was replaced).
 - Negative-criterion instrument: the carried AN-1 probe and `MessageProvider/__tests__/usePusher.update-prompt.test.tsx`
   (4 cases at base, none on own-save recognition), tightened first. Rollback: as M1.
 
@@ -1239,7 +1253,7 @@ Run once at the named trees by this planner on 2026-11-18, captures under `verif
 |---|---|---|---|
 | RK-1 | `waitUntil` does not keep post-response work alive in this route, so previews stop updating | M5-0 limb 2; after release, his look at a saved message's preview (QA's B-6) | — |
 | RK-2 | A continuation ends before it processes its answer (the platform's cut, a save longer than 15 s, a render past T): a stale preview (safe), an orphan object (M5-c's residue), and a "no answer" line or none | M5-0 limb 3 for the platform's cut on post-response work (lasts to 55 s on a Preview, `8f26f37`); AN-4: max 26275 ms over 16832 successes; after release, B-7's 12-hourly count of `preview-image-failure` lines with class "no answer within T" | — |
-| RK-3 | Own-save recognition suppresses a real remote update (hazard 4) | M2-c's members; residue as stated in M2 | — |
+| RK-3 | Own-save recognition suppresses a real remote update (hazard 4) | M2-c's members; residue as stated in M2 | Code review round 9 (CR-20, R-49) found a member at `42d15de`: distinct hashes that pusher-js decodes to one number (every ±Infinity hash) suppressed another tab's notice. Closed by D-33's exact string compare (M2-c, revision 10) |
 | RK-4 | The storage change loses a draft already in a user's browser at first load | M3-e's fixtures | — |
 | RK-5 | Two saves of one message, or a save and a delete, commit the wrong nonce, delete the committed object or resurrect a row | M5-e's oracle (re-keyed to revision 2 at `df45dde`, 0 of 3120 violating; owed again for revision 3's age reference); the real-Postgres lane | — |
 | RK-6 | The generator deploy stops a process mid-render | `handoff/preview-image-generator-drain-under-load-unobserved-2026-11-08.md`, devops's read | — |
@@ -1391,8 +1405,9 @@ Written 2026-11-19T08:30Z by planner-hooks-017, at revision 8.
   devops Stage 1, and goes to critic-hooks-017; steering starts the architect's closing pass after
   the critic's read; the critic approved revision 9 (`5f892f5`, R-50). R-51 registers D-33 to D-35
   (17:49Z). Revision 10 writes D-34's criterion as M2-d and states D-33's exact equality in M2-c, on
-  steering's word (block 17:51Z); the critic, QA Phase 1's re-key and the architect's delta read
-  are owed on it before the disconnect code. The
+  steering's word (block 17:51Z); all three pre-code gates passed it (R-52, R-53, R-55). Revision 11
+  folds their findings (F-29 with QAF-26, SL-5's third member, AF-25, AF-26); the critic's cycle 4
+  pass 2 is owed. The
   website access defects in the 08:41Z rulings block are not 017's and are not registered. Disclosed: the stamp gate refused
   R-45's and R-46's first stamps (08:43, typed a minute ahead of the clock); both were re-stamped
   from `date -u`.
