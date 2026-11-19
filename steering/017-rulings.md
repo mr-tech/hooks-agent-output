@@ -628,3 +628,7 @@ Premises, read this turn:
 - Gate rounds since his rev-4 approval: revisions 5 and 6; no gate has read either. Both options
   trigger the same three reads of revision 6; (a) adds the probe run before M5 code.
 Recipients: `devops-hooks-017` (his words, verbatim), `planner-hooks-017` (register; resolve OQ-15).
+Registered: D-30, R-25, agent-output `6daa353` (05:08Z; `git log -1` read by this thread). This thread's
+error: its message to the planner said "Noted from the plan itself (R-25, 2df9c3c)", echoing the
+planner's unread SHA (`2df9c3c` is not an object). The planner corrected its own SHA; this line corrects
+mine.
