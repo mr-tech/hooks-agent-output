@@ -1,0 +1,86 @@
++import { useEffect } from 'react';
++import click from '~/components/__tests__/helpers/click';
++import click from '~/components/__tests__/helpers/click';
++  reload: vi.fn(),
++    enabled: true, title: 'Message Update Detected', message: 'm', confirmText: 'Reload', onConfirm: hoisted.reload,
++function enter() {
++  const target = document.activeElement ?? document.body;
++  const init = {
++    key: 'Enter', code: 'Enter', bubbles: true, cancelable: true,
++  };
++  act(() => { target.dispatchEvent(new KeyboardEvent('keydown', init)); });
++  act(() => { target.dispatchEvent(new KeyboardEvent('keyup', init)); });
++}
++
++function titleOfFocusedDialog() {
++  return Array.from(document.body.querySelectorAll('[role="dialog"]'))
++    .find((d) => d.contains(document.activeElement))?.textContent ?? '';
++}
++
++  hoisted.reload.mockClear();
++  it.each([
++    ['the link prompt first', true],
++    ['the update prompt first', false],
++  ])('answers only the prompt that holds focus when Enter is pressed with both open, %s', async (_name, linkFirst) => {
++    await mountTree(true);
++    edit();
++    if (linkFirst) {
++      click(link('inside the editor'));
++      act(() => { raiseEditorPrompt(); });
++    } else {
++      act(() => { raiseEditorPrompt(); });
++      click(link('inside the editor'));
++    }
++    const linkHasFocus = titleOfFocusedDialog().includes(TITLE);
++    expect(titleOfFocusedDialog()).toMatch(linkHasFocus ? TITLE : 'Message Update Detected');
++
++    enter();
++
++    expect(hoisted.push.mock.calls.length + hoisted.reload.mock.calls.length).toBe(1);
++    expect(hoisted.push).toHaveBeenCalledTimes(linkHasFocus ? 1 : 0);
++    expect(hoisted.reload).toHaveBeenCalledTimes(linkHasFocus ? 0 : 1);
++    const updatePrompted = () => document.body.textContent?.includes('Message Update Detected') ?? false;
++    await vi.waitFor(async () => {
++      await act(async () => {});
++      expect(prompted()).toBe(!linkHasFocus);
++      expect(updatePrompted()).toBe(linkHasFocus);
++    });
++
++    press(dialogButton(linkHasFocus ? 'Reload' : 'Leave Page', linkHasFocus ? 'Message Update Detected' : TITLE));
++    expect(hoisted.push.mock.calls.length + hoisted.reload.mock.calls.length).toBe(2);
++  });
++
++import { memo, useRef } from 'react';
++  const ref = useRef<HTMLDivElement>(null);
++
++    if (ref.current?.closest('[role="dialog"]')?.contains(document.activeElement)) onConfirm();
++    <div ref={ref} className="contents">
++    </div>
++          if (intercept({ href, external: true, replace: rest.replace })) e.preventDefault();
++import { act } from 'react';
++
++export default function click(el: Element, init: MouseEventInit = {}) {
++  act(() => {
++    el.dispatchEvent(new MouseEvent('click', {
++      bubbles: true, cancelable: true, button: 0, detail: 1, ...init,
++    }));
++  });
++}
++          if (external) void leaveWithoutAlert(async () => window.location[replace ? 'replace' : 'assign'](href));
++import click from '~/components/__tests__/helpers/click';
++const replaced = vi.fn();
++const leavingAtReplace = vi.fn();
++  replaced.mockReset();
++  leavingAtReplace.mockReset();
++    replace: (href: string) => { leavingAtReplace(isLeavingWithoutAlert()); replaced(href); },
++  it('replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed', () => {
++    mountGuarded(() => true, [OUTSIDE, { replace: true }]);
++    click(link(`go ${OUTSIDE}`));
++
++    press(dialogButton('Leave Page'));
++
++    expect(replaced).toHaveBeenCalledExactlyOnceWith(OUTSIDE);
++    expect(leavingAtReplace).toHaveBeenCalledExactlyOnceWith(true);
++    expect(assigned).not.toHaveBeenCalled();
++  });
++

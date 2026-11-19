@@ -1,0 +1,9 @@
+cr9-enter-bound-at-document KILLED 4.59
+cr9-gate-negated KILLED 4.6
+cr9-gate-looks-at-nearest-div KILLED 4.63
+cr9-gate-looks-at-body KILLED 4.61
+cr11-other-site-always-assign KILLED 4.82
+cr11-other-site-always-replace KILLED 4.71
+cr11-other-site-swapped KILLED 4.69
+cr11-link-drops-replace KILLED 4.69
+8 of 8 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; row-mutants-a5dd76f642fb78fbd238d985c95189b5f9e59775.json (blob db3798e25c0d5df0d8b84947052ceb7c38d48b32))

@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Handoff-At: de06d95 — repos=website; M4 first delivery
+Handoff-At: a5dd76f — repos=website; M4 fix round (CR-9, CR-10, CR-11); first delivery was de06d95
 ---
 
 # Implementation 017 — M4: a link away from an editor with unsaved changes asks first (item 4, D-12)
@@ -27,6 +27,7 @@ code review APPROVED at `1ab3b96`, QA Phase 2 for M3 still running at this write
 | 2026-11-19T03:05 | implementer-hooks-017 | M4 built and committed at website `aa33701`; full suite 1679 of 1679, exit 0; typecheck exit 0. |
 | 2026-11-19T03:13 | implementer-hooks-017 | Self-check sweep over `1ab3b96..aa33701` (39 of 40 killed), QA's named mutants NM-8, NM-9, NM-24, NM-25 run (4 of 4 killed), convention-check CANDIDATEs (four fixed waits) removed at `de06d95`, tests only. Full suite 1690 of 1690, exit 0; typecheck exit 0. Handed to code review at `de06d95`. |
 | 2026-11-19T03:14 | implementer-hooks-017 | Checkpoint at the hand-off seam (context 370K, steering's word): Resumption State written; no change to the handed-over tree. |
+| 2026-11-19T03:34 | implementer-hooks-017 | Fix round on code review Round 4 (REJECTED at `de06d95`: CR-9 HIGH, CR-10 LOW, CR-11 LOW), by `code-reviewer-hooks-017`'s message. Fixed at website `a5dd76f`; full suite 1693 of 1693 exit 0; typecheck exit 0. Handed back to the reviewer. Section `## Fix Round 4` below. |
 
 ## Implementation Summary
 
@@ -140,6 +141,9 @@ The plan's own text gets these three corrections at the planner's next batch (`s
 | `src/utils/hooks/useUnloadAlert.ts` | the dead `next/router` handler removed; only `useBeforeUnload` remains | −17 |
 | `src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx` | the `next/router` mock removed; one case added (route-change event raises no confirmation) | +13 −2 |
 | `src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx` | the `next/router` mock removed | −1 |
+| `src/components/ConfirmationDialog.tsx` | (fix round) Enter answers only when focus lies inside this instance's own dialog; the always-true tag-name condition removed | +6 −4 |
+| `src/components/StyledLink.tsx`, `src/providers/NavigationGuardProvider.tsx` | (fix round) the other-site path passes `replace` and confirms with `location.replace` when set | +1 −1 each |
+| the three M4 test files | (fix round) import the shared `click`; the layout file drops its `react-hotkeys-hook` mock and gains the Enter case; the provider file gains the replace case and a `replace` stub | +69 −27 (layout +50 −10, provider +17 −8, `NavMenu` +2 −9) |
 
 ## Files Created
 
@@ -150,6 +154,7 @@ The plan's own text gets these three corrections at the planner's next batch (`s
 | `src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx` | the guard and `StyledLink` (34 cases) |
 | `src/app/message/__tests__/layout.navigation-guard.test.tsx` | the real two-level layout tree: the editor and send routes (31 cases) |
 | `src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx` | `NavMenu` through the real `Dropdown` (4 cases) |
+| `src/components/__tests__/helpers/click.ts` | (fix round) the shared left-click dispatch (`click(el, init)`) |
 
 ## Patterns Extended
 
@@ -233,6 +238,101 @@ case in the Entry Conditions table.
 
 No timeout or time-based test was added to the standing suite; the closing transition of a dialog is awaited by condition.
 
+## Fix Round 4 (code review Round 4: CR-9, CR-10, CR-11)
+
+Base `de06d95`, tip `a5dd76f` (one commit, `git diff --numstat de06d95 a5dd76f`: 7 paths). Captures under `verification/017/impl/m4/r4-fix/`.
+Entry: the reviewer's message and `code-review/017-existing-items-backlog-code-review.md` Required Actions (Round 4); no plan change; the
+plan is already `In Progress`. Round 4's Required Actions say CR-9's fix, if it stays within these findings, returns as a Round 4 sub-entry.
+It stays within them: one production component (`ConfirmationDialog`), the two other production edits are CR-11's.
+
+User-visible flows (derived from the codebase):
+
+| Flow | Surface | Trigger | What happens next | Rung |
+|---|---|---|---|---|
+| Enter with a confirmation open | `ConfirmationDialog` (the link prompt, the editor's update prompt, the JSON modal's and Reload prompts) | Enter while focus is inside that dialog | it answers that dialog as at `1ad625e`; with a second prompt open elsewhere, Enter answers only the prompt that holds focus | the review's own Preferred form; in-file (the same `useHotkeys` call, gated) |
+| Leaving for another site, confirmed, from a link that replaces | `StyledLink` to another site | Leave Page | the history entry is replaced, as Next does for an unheld link with `replace` | Next's `linkClicked` (`location[replace ? 'replace' : 'assign']`), as the review states |
+| (none) | the click helper | test-only | no user-visible surface | not owed |
+
+No flow holds a decision: both are the review's named Required Actions. No question to put to the owner.
+
+Design note on CR-9. The review's Preferred form offers two ways: bind Enter to the dialog element, or check that `document.activeElement` lies
+inside this instance's dialog. The first was built and was red at the new case: under jsdom the focus rests on the dialog's own root
+element (`role="dialog"`, `tabindex="-1"`), which lies outside the content `Inner` renders, so a listener on `Inner`'s wrapper heard
+no key (0 answered, `expected +0 to be 1`). The shipped form is the second: the binding stays on the document and answers only when
+`ref.current?.closest('[role="dialog"]')?.contains(document.activeElement)`, where `ref` is a `div.contents` wrapping `Inner`'s content
+(`contents` leaves the panel's flex layout unchanged). The dead condition `document.activeElement?.tagName !== '~/components/Button'` is removed,
+as the review asked. Bound: which dialog a real browser focuses is not measured here (the review's Assumption Not Checked, Round 4, is UAT B-3).
+
+TDD Compliance (this round):
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| `ConfirmationDialog` Enter answers only the dialog holding focus, link prompt first and update prompt first (real `react-hotkeys-hook`; the file's module mock removed; update prompt raised through `showConfirmation`, no pointer event) | `layout.navigation-guard.test.tsx` "answers only the prompt that holds focus when Enter is pressed with both open" | Yes | Yes, `red-enter-both-open.json` (2 of 33 failing, both orders) and, with the final test text against the `de06d95` production source in a `git archive` export, `red-pre-change-tests-at-tip.json` (3 of 72) | AssertionError `expected 2 to be 1` (never a timeout), the reviewer's falsity signature | Yes, `green-enter-both-open.json` (33 of 33) |
+| a held link to another site with `replace` leaves by `location.replace`, with the suppression raised, `assign` not called | `NavigationGuardProvider.link-confirmation.test.tsx` "replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed" | Yes | Yes, `red-other-site-replace.json` (1 of 35 failing) | AssertionError `expected "vi.fn()" to be called once with arguments` (`replace` called 0 times) | Yes, `green-other-site-replace.json` (35 of 35) |
+| the `click` helper lifted (3 copies to 1) | `helpers/click.ts`; callers: the layout, provider and `NavMenu` files | not owed: a behaviour-preserving extraction of a test helper | the evidence the extraction rule asks for: both trees executed over the three files; the per-file case titles and statuses are identical by path (`before-click-lift-de06d95.json` against `after-click-lift.json`: 34, 31 and 4 cases, 69 of 69 both) | not owed | Yes |
+
+The covering test I tightened rather than duplicated: the layout file's "keeps both open when raised together, each answered on its own, with a link inside the editor"
+is kept (it answers by pointer); the new case is its sibling in the same describe, because that case ends in a Cancel and the new one is about a key. Fixture
+independence: the expected answer is a literal (one call in all, then two after the second prompt is answered on its own), and the holder is
+read from `document.activeElement`, which the case first asserts lies in one of the two dialogs. The mock removal did not change any other case
+(the other 31 pass with the real library).
+
+Row mutants, each named in its row, made as one change in a `mutation-run.py` export of `a5dd76f` (`row-mutants-*.json`, `row-out-*/`, `row-run-*.out`; 8 of 8 killed, each by assertion; the CR-9 four fail exactly the two Enter cases):
+
+| Mutant | Result |
+|---|---|
+| `cr9-enter-bound-at-document` (the gate removed, as at `de06d95`) | killed, 2 failing |
+| `cr9-gate-negated` | killed, 2 failing |
+| `cr9-gate-looks-at-nearest-div` (`closest('div')`) | killed, 2 failing |
+| `cr9-gate-looks-at-body` (`document.body.contains`) | killed, 2 failing |
+| `cr11-other-site-always-assign` | killed, 1 failing |
+| `cr11-other-site-always-replace` | killed, 3 failing |
+| `cr11-other-site-swapped` | killed, 4 failing |
+| `cr11-link-drops-replace` (`StyledLink` does not pass `replace`) | killed, 1 failing |
+
+Self-check sweep over `de06d95..a5dd76f` (`mutant-gen.js --range`, `sweep-mutants-*.json`, `sweep-out-*/`, `sweep-run-*.out`): 4 of 4 killed (stillborn 0, aborted 0), no survivor to disposition.
+Test files in the range are not mutated by the tool and are named as skipped by it.
+
+Named mutants (QA's list): the guards this diff touches are none of NM-8, NM-9, NM-24; NM-25's both-open case lost its module mock, so NM-25 was re-run
+(`named-NM-25-a5dd76f-edits.json`, `named-NM-25-a5dd76f.out`, `mutate-edits.py` against an export of `a5dd76f`): killed, 4 failing.
+NM-29 stays unplaced as recorded above.
+
+The reviewer's probe, `verification/017/code-review/m4/probe-enter-both/`, run unmodified against an export of `a5dd76f`
+(`probe-enter-both-a5dd76f.out`, exit 0): the controls give one answer each; both orders with two prompts open give `answered=1`
+(update first: `updateConfirmed=1 push=0`; link first: `updateConfirmed=0 push=1`). 4 of 4 pass. At `de06d95` the same file gave 2 per Enter.
+Its planted control was not re-run: it is the `de06d95` result with the binding removed, and my `cr9-enter-bound-at-document` and
+`cr9-gate-looks-at-body` mutants carry that role in the suite.
+
+Class Sweep (this round):
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| CR-9, a dialog's keyboard answer bound at the document, with two such dialogs open together (the reviewer's) | `git grep -n "useHotkeys(\['enter'\]" a5dd76f -- src ':!**/__tests__/**'` (`class-sweep-a5dd76f.out`) | 3 hits: `ConfirmationDialog.tsx:16`, `ImageUploader.tsx:86`, `WarningDialog.tsx:19` (the same 3 as at `de06d95`) | `ConfirmationDialog`: fixed, gated on its own dialog. `ImageUploader`, `WarningDialog`: not changed. The review puts both outside M4's change (each opens only on a user's act, which an open link prompt's modal blocks; open together with the update prompt already at `1ad625e`) and routes them to `agent-output/INBOX.md`. The review also says applying the form to all three is cheaper than leaving two copies; the plan does not name them and I did not widen the slice. Put as a question in the hand-back. Residual after the fix: 2 hits, both dispositioned as this row says |
+| CR-9, the instances M4 can open together | `git grep -n "<ConfirmationDialog" a5dd76f -- src ':!**/__tests__/**'` (same file) | 2 hits: `edit/page.tsx:176`, `NavigationGuardProvider.tsx:68` | both are instances of the fixed component; both covered by the new case (editor instance and layout instance) |
+| CR-9, the test files that replace the hotkey library | `git grep -n "vi.mock('react-hotkeys-hook'" a5dd76f -- src` (same file) | 1 hit: `page.sign-in-exit.test.tsx:24` (was 2; the layout file's mock is removed) | not applicable: that file mocks `~/components/ConfirmationDialog` itself (line 49) and asserts no key. Residual 1, dispositioned |
+| CR-9, sibling sweep, the reference query | Serena `find_referencing_symbols` is not available in this session; the language-server tool is not usable either (`typescript-language-server` not on `PATH`) | not run | stated limit: the text predicate above (`<ConfirmationDialog`, plus the `useHotkeys` one) is the only instrument that ran. A reference to `ConfirmationDialog` by an alias import would not be seen; `git grep -n "ConfirmationDialog" -- src` names no alias (only the two render sites and the one test mock) |
+| CR-10, a test helper duplicated to a third copy | `git grep -nE "^(function\|const) click\b" a5dd76f -- 'src/**/__tests__/**'` (same file) | 1 hit: `JsonModalBody.menu-close-after-load.test.tsx:57`, calls `el.click()`, a different shape (the review's own exclusion). Was 4 | the three class members now import `helpers/click`; the remaining hit is outside the class. Residual 0 in the class. A copy under another name (`activate`, `tap`): `git grep -nE "(function\|const) (activate\|tap)\b" … 'src/**/__tests__/**'` gives no line |
+| CR-11, a `next/link` prop the guarded path drops where the unguarded path honours it | the review's list of what `linkClicked` reads: `href`, `as`, `replace`, `scroll`, `onNavigate`; and `git grep -nE "location\.(assign\|replace)\(\|location\[" a5dd76f -- src ':!**/__tests__/**'` (same file) | 1 hit: `NavigationGuardProvider.tsx:57`, now `window.location[replace ? 'replace' : 'assign'](href)` | `href`, `replace`, `scroll` are passed on the local path, `href` and `replace` on the other-site path; `scroll` has no meaning for another site (the review's statement), `as` is pages-router only, `onNavigate` is ours. Residual 0 |
+
+Test Execution Results (this round):
+
+| Command | Result |
+|---|---|
+| `npx vitest run --reporter=json` over the whole suite, the working tree whose changed paths are the commit `a5dd76f` (`vitest-full-worktree.{json,out,exit}`) | 1693 of 1693 passed, 136 test files (`testResults` length), 0 failed, `success` true; process exit code 0; count method: the reporter's `numTotalTests`/`numPassedTests`/`numFailedTests`. 1690 at `de06d95` plus 1 (replace) plus 2 (the Enter case in both orders). Run network-isolated (`unshare -rn`) |
+| `pnpm run typecheck` (both programs) (`typecheck-r4.{out,exit}`) | exit 0 |
+| `npx eslint` over the 7 changed files | 0 findings (two `object-curly-newline` findings and one `no-unused-vars` in my first drafts were fixed before the commit; satisfied, not worked around) |
+| `node ~/.claude/tools/convention-check.js . --since=1ab3b96` at `a5dd76f` (`convention-check-since-1ab3b96-a5dd76f.out`) | 0 FAIL, 0 CANDIDATE, 20 SKIP: the `.playwright-mcp/*.png` files (held), two files with no added lines, and the checker's note that it does not implement the ID-token class verbatim |
+| The ID-token and comment predicates by hand over `git diff -U0 de06d95 a5dd76f -- src` (`added-lines-a5dd76f.txt`, 86 added lines) | 0 ID-token hits, 0 comment lines; positive control `cr-3 case` matches 1 |
+
+Scratch exports (`git archive de06d95` and `a5dd76f`, and the `mutation-run.py` work directories) were outside the repositories and the shared tree was not mutated.
+No time-based test was added; the new case awaits its dialogs closing by condition (`vi.waitFor`). Outside the fix: a pre-existing item,
+the `ImageUploader` and `WarningDialog` Enter bindings, is as dispositioned above; nothing else found.
+
+Self-diagnosis, for the retrospective: my first M4 cases for "both open" answered by pointer only, and I let the layout file mock the hotkey library away, so the
+state M4-b's clause describes was never driven by the input (a key) that the shared dialog binds at the document. I asserted the clause's
+outcome through the one channel my fixture left open, not through each channel the surface offers; the class "an input the mock removes" was
+not on my list when I walked the criterion's members.
+
 ## Outstanding Items
 
 - **Unmounted:** the File menu's "New" link (`target=_blank`): its popover (`AnchoredPopover`, `portal`) cannot be positioned under jsdom
@@ -257,29 +357,21 @@ No timeout or time-based test was added to the standing suite; the closing trans
 
 ## Next Steps
 
-Code review (`code-reviewer-hooks-017`) at website `de06d95` (M4 range `1ab3b96..de06d95`), then QA Phase 2 for M4. After M4, tell
+Fix round: back to `code-reviewer-hooks-017` at website `a5dd76f` for a Round 4 sub-entry (CR-9, CR-10, CR-11); then QA Phase 2 for M4 (range `1ab3b96..a5dd76f`).
+First delivery, kept: code review at `de06d95` (M4 range `1ab3b96..de06d95`), then QA Phase 2 for M4. After M4, tell
 `steering-roadmap` that M1 to M4 are through (the devops probe push for OQ-7). M5 and M6 wait on OQ-7 and gate M5-0; M7 last.
 
 ## Resumption State
 
-Written at the M4 hand-off checkpoint (steering's word, context 370K). Website branch `chain/017-existing-items-backlog`, HEAD
-`de06d95`; the tree is clean apart from the held `.playwright-mcp/`. M3 is through (code review APPROVED and QA Phase 2 PASS at
-`1ab3b96`); its Resumption State was removed.
+Written after the Round 4 fix round, before the hand-back. Website branch `chain/017-existing-items-backlog`, HEAD `a5dd76f`; the tree is clean
+apart from the held `.playwright-mcp/`. M3 is through.
 
-- Done: M4 built (`aa33701`), tests tidied (`de06d95`), self-check sweep (39 of 40; the survivor is equivalent), QA's NM-8, NM-9,
-  NM-24, NM-25 killed, suite 1690 of 1690 exit 0, typecheck exit 0, convention check 0 FAIL / 0 CANDIDATE; this document and the
-  captures committed (agent-output `e5d520a`); handed to `code-reviewer-hooks-017` and `steering-roadmap` told (messages sent
-  03:13Z, no reply yet).
-- Awaited: code review's verdict at `de06d95`, then QA Phase 2 for M4. A finding comes back as a fix round on this document:
-  read the review, tighten the covering test or fix the code red-first, re-run the sweep over that round's diff and the named mutants
-  whose guard it touches (`m4/aa33701-named-mutants-edits.json`, `m4/mutate-edits.py`; export a `git archive` of the new tip and link
-  `node_modules`), record the Class Sweep rows, move `Handoff-At`, commit, hand back to the reviewer.
-- Next after M4 passes both gates: tell `steering-roadmap` that M1 to M4 are through (devops probe push for OQ-7). M5 and M6 wait on OQ-7
-  (plan M5-0); M7 last. Read plan M5, then QA § M5, before any M5 code.
-- Questions sent: none open. The external-link question was answered (rulings 02:43Z). For the planner's batch, already sent to
-  `steering-roadmap`: M4-d table corrections, M4-a wording, M3's CR-8 write-matrix deviation.
-- Scratch: the mutation exports and work directories are removed; the test tree has no scratch files; no process of mine is left
-  running. Nothing locally mutated and unrestored.
-- Cache-warm wake `87d3142b` deleted at this checkpoint; arm again on the next briefed turn.
-- Record tools: `check-repo.js` passes for my documents; its one failure is QA's (`qa/017-existing-items-backlog-qa.md:643`,
-  HEADING-STAMP), noted by steering. The record-write gate refused one `sed -i` this run; the Edit tool was used.
+- Done: CR-9 (`ConfirmationDialog` answers Enter only when focus lies inside its own dialog), CR-10 (`helpers/click.ts`), CR-11 (the other-site
+  path keeps `replace`), each red first; full suite 1693 of 1693 exit 0, typecheck exit 0, convention check 0 FAIL / 0 CANDIDATE, 8 of 8 row mutants and
+  4 of 4 sweep mutants killed, NM-25 re-run killed, the reviewer's probe passes 4 of 4 at the new tip. Section `## Fix Round 4`.
+- Awaited: the reviewer's Round 4 sub-entry at `a5dd76f`, then QA Phase 2 for M4. A further finding is another fix round on this document.
+- Open question for the coordinator (not blocking): whether `ImageUploader` and `WarningDialog` (the other two document-level Enter bindings, pre-existing, routed
+  to `agent-output/INBOX.md` by the reviewer) get the same gate in this chain. Not in the plan; not done.
+- Next after M4 passes both gates: tell `steering-roadmap` that M1 to M4 are through (devops probe push for OQ-7). M5 and M6 wait on OQ-7 (plan M5-0); M7 last.
+- Scratch: exports and `mutation-run.py` work folders are outside the repositories; the shared tree was never mutated.
+- Cache-warm wake armed for 04:20 local (job `bab6ac27`).

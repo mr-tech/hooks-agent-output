@@ -1,0 +1,193 @@
+{
+ "sha": "a5dd76f642fb78fbd238d985c95189b5f9e59775",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "sweep-mutants-a5dd76f642fb78fbd238d985c95189b5f9e59775.json",
+ "command": [
+  "unshare",
+  "-rn",
+  "npx",
+  "vitest",
+  "run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "sweep-mutants-a5dd76f642fb78fbd238d985c95189b5f9e59775.json",
+   "blob": "8f1142c6a3f72c1859ee4d69206f8c3a53284396"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[\"src/app/message/__tests__/layout.navigation-guard.test.tsx\", \"src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx\", \"src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/sweep-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033051Z-p1256287-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/sweep-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033051Z-p1256287-control-1.stderr",
+   "seconds": 4.72,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 72,
+   "tests": [
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+    "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+    "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "ConfirmationDialog.tsx:17:if-false",
+   "run": "mutant-1",
+   "file": "src/components/ConfirmationDialog.tsx",
+   "tests": [
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+    "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+    "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 17,
+    "text": "if (ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)) onConfirm();"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 72,
+   "control_tests_run": 72,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.64,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/sweep-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033051Z-p1256287-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/sweep-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033051Z-p1256287-mutant-1.stderr"
+  },
+  {
+   "id": "StyledLink.tsx:42:if-false",
+   "run": "mutant-2",
+   "file": "src/components/StyledLink.tsx",
+   "tests": [
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+    "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+    "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 42,
+    "text": "if (intercept({ href, external: true, replace: rest.replace })) e.preventDefault();"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 72,
+   "control_tests_run": 72,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > asks first, and does not leave, when the guard holds a link to another site",
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > hands the guard the full address of a link to another site",
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves for the address, in this tab and with no second browser prompt, once confirmed",
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed",
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > stays when the prompt for a link to another site is cancelled",
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > reads a URL object as the address it holds",
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > asks for a link to another site that names this tab as its target",
+    "|dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx > NavMenu, its links away from an editor with unsaved changes > asks before Invite Bot, a link to another site, leaves the page",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > link to https://other.example/message/m/4/edit: asks is true",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.71,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/sweep-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033051Z-p1256287-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/sweep-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033051Z-p1256287-mutant-2.stderr"
+  },
+  {
+   "id": "StyledLink.tsx:42:true",
+   "run": "mutant-3",
+   "file": "src/components/StyledLink.tsx",
+   "tests": [
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+    "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+    "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+   ],
+   "carried": {
+    "op": "true",
+    "line": 42,
+    "text": "if (intercept({ href, external: true, replace: rest.replace })) e.preventDefault();"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 72,
+   "control_tests_run": 72,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves for the address, in this tab and with no second browser prompt, once confirmed",
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed",
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > reads a URL object as the address it holds",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.8,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/sweep-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033051Z-p1256287-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/sweep-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033051Z-p1256287-mutant-3.stderr"
+  },
+  {
+   "id": "NavigationGuardProvider.tsx:57:if-false",
+   "run": "mutant-4",
+   "file": "src/providers/NavigationGuardProvider.tsx",
+   "tests": [
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+    "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+    "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 57,
+    "text": "if (external) void leaveWithoutAlert(async () => window.location[replace ? 'replace' : 'assign'](href));"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 72,
+   "control_tests_run": 72,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves for the address, in this tab and with no second browser prompt, once confirmed",
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed",
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > reads a URL object as the address it holds",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.77,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/sweep-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033051Z-p1256287-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/sweep-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033051Z-p1256287-mutant-4.stderr"
+  }
+ ],
+ "score": "4 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; sweep-mutants-a5dd76f642fb78fbd238d985c95189b5f9e59775.json (blob 8f1142c6a3f72c1859ee4d69206f8c3a53284396))"
+}

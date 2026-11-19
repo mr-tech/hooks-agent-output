@@ -1,0 +1,274 @@
+{
+ "sha": "a5dd76f642fb78fbd238d985c95189b5f9e59775",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "row-mutants-a5dd76f642fb78fbd238d985c95189b5f9e59775.json",
+ "command": [
+  "unshare",
+  "-rn",
+  "npx",
+  "vitest",
+  "run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "row-mutants-a5dd76f642fb78fbd238d985c95189b5f9e59775.json",
+   "blob": "db3798e25c0d5df0d8b84947052ceb7c38d48b32"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[\"src/app/message/__tests__/layout.navigation-guard.test.tsx\", \"src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx\", \"src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-control-1.stderr",
+   "seconds": 4.69,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 72,
+   "tests": [
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+    "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+    "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "cr9-enter-bound-at-document",
+   "run": "mutant-1",
+   "file": "src/components/ConfirmationDialog.tsx",
+   "tests": [
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+    "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+    "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 72,
+   "control_tests_run": 72,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.59,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-mutant-1.stderr"
+  },
+  {
+   "id": "cr9-gate-negated",
+   "run": "mutant-2",
+   "file": "src/components/ConfirmationDialog.tsx",
+   "tests": [
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+    "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+    "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 72,
+   "control_tests_run": 72,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.6,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-mutant-2.stderr"
+  },
+  {
+   "id": "cr9-gate-looks-at-nearest-div",
+   "run": "mutant-3",
+   "file": "src/components/ConfirmationDialog.tsx",
+   "tests": [
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+    "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+    "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 72,
+   "control_tests_run": 72,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.63,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-mutant-3.stderr"
+  },
+  {
+   "id": "cr9-gate-looks-at-body",
+   "run": "mutant-4",
+   "file": "src/components/ConfirmationDialog.tsx",
+   "tests": [
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+    "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+    "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 72,
+   "control_tests_run": 72,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.61,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-mutant-4.stderr"
+  },
+  {
+   "id": "cr11-other-site-always-assign",
+   "run": "mutant-5",
+   "file": "src/providers/NavigationGuardProvider.tsx",
+   "tests": [
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+    "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+    "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 72,
+   "control_tests_run": 72,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.82,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-mutant-5.stderr"
+  },
+  {
+   "id": "cr11-other-site-always-replace",
+   "run": "mutant-6",
+   "file": "src/providers/NavigationGuardProvider.tsx",
+   "tests": [
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+    "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+    "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 72,
+   "control_tests_run": 72,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves for the address, in this tab and with no second browser prompt, once confirmed",
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > reads a URL object as the address it holds",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.71,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-mutant-6.stderr"
+  },
+  {
+   "id": "cr11-other-site-swapped",
+   "run": "mutant-7",
+   "file": "src/providers/NavigationGuardProvider.tsx",
+   "tests": [
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+    "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+    "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 72,
+   "control_tests_run": 72,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves for the address, in this tab and with no second browser prompt, once confirmed",
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed",
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > reads a URL object as the address it holds",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.69,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-mutant-7.stderr"
+  },
+  {
+   "id": "cr11-link-drops-replace",
+   "run": "mutant-8",
+   "file": "src/components/StyledLink.tsx",
+   "tests": [
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+    "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+    "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 72,
+   "control_tests_run": 72,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.69,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/row-out-a5dd76f642fb78fbd238d985c95189b5f9e59775/a5dd76f642fb78fbd238d985c95189b5f9e59775-20261119T033116Z-p1260619-mutant-8.stderr"
+  }
+ ],
+ "score": "8 of 8 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; row-mutants-a5dd76f642fb78fbd238d985c95189b5f9e59775.json (blob db3798e25c0d5df0d8b84947052ceb7c38d48b32))"
+}

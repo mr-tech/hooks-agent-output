@@ -1,0 +1,90 @@
+[
+ {
+  "id": "cr9-enter-bound-at-document",
+  "file": "src/components/ConfirmationDialog.tsx",
+  "old": "if (ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)) onConfirm();",
+  "new": "onConfirm();",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+   "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "id": "cr9-gate-negated",
+  "file": "src/components/ConfirmationDialog.tsx",
+  "old": "if (ref.current?.closest('[role=\"dialog\"]')?.contains",
+  "new": "if (!ref.current?.closest('[role=\"dialog\"]')?.contains",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+   "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "id": "cr9-gate-looks-at-nearest-div",
+  "file": "src/components/ConfirmationDialog.tsx",
+  "old": "closest('[role=\"dialog\"]')",
+  "new": "closest('div')",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+   "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "id": "cr9-gate-looks-at-body",
+  "file": "src/components/ConfirmationDialog.tsx",
+  "old": "ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)",
+  "new": "document.body.contains(document.activeElement)",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+   "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "id": "cr11-other-site-always-assign",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "window.location[replace ? 'replace' : 'assign'](href)",
+  "new": "window.location.assign(href)",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+   "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "id": "cr11-other-site-always-replace",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "window.location[replace ? 'replace' : 'assign'](href)",
+  "new": "window.location.replace(href)",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+   "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "id": "cr11-other-site-swapped",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "[replace ? 'replace' : 'assign']",
+  "new": "[replace ? 'assign' : 'replace']",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+   "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "id": "cr11-link-drops-replace",
+  "file": "src/components/StyledLink.tsx",
+  "old": "intercept({ href, external: true, replace: rest.replace })",
+  "new": "intercept({ href, external: true })",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+   "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+  ]
+ }
+]

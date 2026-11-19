@@ -1,0 +1,5 @@
+ConfirmationDialog.tsx:17:if-false KILLED 4.64
+StyledLink.tsx:42:if-false KILLED 4.71
+StyledLink.tsx:42:true KILLED 4.8
+NavigationGuardProvider.tsx:57:if-false KILLED 4.77
+4 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; sweep-mutants-a5dd76f642fb78fbd238d985c95189b5f9e59775.json (blob 8f1142c6a3f72c1859ee4d69206f8c3a53284396))

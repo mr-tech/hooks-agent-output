@@ -1,0 +1,38 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:508:26
+    506|
+    507|     expect(hoisted.push.mock.calls.length + hoisted.reload.mock.calls.…
+    508|     expect(hoisted.push).toHaveBeenCalledTimes(linkHasFocus ? 1 : 0);
+       |                          ^
+    509|     expect(hoisted.reload).toHaveBeenCalledTimes(linkHasFocus ? 0 : 1);
+    510|     const updatePrompted = () => document.body.textContent?.includes('…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first
+AssertionError: expected "vi.fn()" to be called +0 times, but got 1 times
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:508:26
+    506|
+    507|     expect(hoisted.push.mock.calls.length + hoisted.reload.mock.calls.…
+    508|     expect(hoisted.push).toHaveBeenCalledTimes(linkHasFocus ? 1 : 0);
+       |                          ^
+    509|     expect(hoisted.reload).toHaveBeenCalledTimes(linkHasFocus ? 0 : 1);
+    510|     const updatePrompted = () => document.body.textContent?.includes('…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

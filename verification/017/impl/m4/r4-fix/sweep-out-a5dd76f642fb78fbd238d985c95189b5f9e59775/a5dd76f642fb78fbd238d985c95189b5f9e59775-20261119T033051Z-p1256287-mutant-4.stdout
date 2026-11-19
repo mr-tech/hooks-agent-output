@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9310d754-fa77-4013-bace-ca59bb63d5de/scratchpad/mwork-sweep/20261119T033051Z-p1256287/mutant-4
+
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 3 failed) 649ms
+     × leaves for the address, in this tab and with no second browser prompt, once confirmed 22ms
+     × replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed 20ms
+     × reads a URL object as the address it holds 18ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 1 failed) 1549ms
+     × asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed 51ms
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  4 failed | 68 passed (72)
+   Start at  03:31:12
+   Duration  3.70s (transform 864ms, setup 55ms, import 3.20s, tests 2.58s, environment 1.90s)
+

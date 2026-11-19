@@ -1,0 +1,18 @@
+$ git grep -n "useHotkeys(\[.enter.\]" a5dd76f -- src (non-test)
+a5dd76f:src/components/ConfirmationDialog.tsx:16:  useHotkeys(['enter'], () => {
+a5dd76f:src/components/ImageUploader.tsx:86:  useHotkeys(['enter'], () => {
+a5dd76f:src/components/WarningDialog.tsx:19:  useHotkeys(['enter'], () => {
+hits: 3 files
+
+$ git grep -n "<ConfirmationDialog"
+a5dd76f:src/app/message/m/[id]/edit/page.tsx:176:                  <ConfirmationDialog />
+a5dd76f:src/providers/NavigationGuardProvider.tsx:68:      <ConfirmationDialog />
+
+$ git grep -nE "^(function|const) click\b" a5dd76f -- src/**/__tests__/**
+a5dd76f:src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx:57:function click(el: HTMLElement) {
+
+$ git grep -nE "location\.(assign|replace)\(|location\[" a5dd76f -- src (non-test)
+a5dd76f:src/providers/NavigationGuardProvider.tsx:57:          if (external) void leaveWithoutAlert(async () => window.location[replace ? 'replace' : 'assign'](href));
+
+$ git grep -n "vi.mock(.react-hotkeys-hook." a5dd76f -- src
+a5dd76f:src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx:24:vi.mock('react-hotkeys-hook', () => ({ useHotkeys: () => undefined }));
