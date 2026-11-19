@@ -1,0 +1,3 @@
+C: every new > every old|t
+default collation: every new > every old|t
+C: later time sorts higher|t

@@ -1,46 +1,175 @@
-BASE row summary:
-s1=ok   s2=ok   n=20  B=false E1=true E2=false  counterexamples=4
-s1=ok   s2=fail n= 4  B=true E1=true E2=true  counterexamples=0
-s1=ok   s2=late n=14  B=true E1=true E2=false  counterexamples=4
-s1=fail s2=ok   n= 4  B=true E1=true E2=true  counterexamples=0
-s1=fail s2=fail n= 2  B=true E1=true E2=true  counterexamples=0
-s1=fail s2=late n= 5  B=true E1=true E2=false  counterexamples=3
-s1=late s2=ok   n=14  B=true E1=true E2=false  counterexamples=4
-s1=late s2=fail n= 5  B=true E1=true E2=false  counterexamples=3
-s1=late s2=late n=14  B=true E1=true E2=false  counterexamples=12
 
-M-commit-unconditional (drop the later-save check in C_i):
-s1=ok   s2=ok   n=20  B=false E1=false E2=false  counterexamples=13
-s1=ok   s2=fail n= 4  B=true E1=true E2=true  counterexamples=0
-s1=ok   s2=late n=14  B=true E1=true E2=false  counterexamples=4
-s1=fail s2=ok   n= 4  B=true E1=true E2=true  counterexamples=0
-s1=fail s2=fail n= 2  B=true E1=true E2=true  counterexamples=0
-s1=fail s2=late n= 5  B=true E1=true E2=false  counterexamples=3
-s1=late s2=ok   n=14  B=true E1=true E2=false  counterexamples=4
-s1=late s2=fail n= 5  B=true E1=true E2=false  counterexamples=3
-s1=late s2=late n=14  B=true E1=true E2=false  counterexamples=12
-differs from base: True
+MUTANT commit unconditional (order check dropped):
+rows 36, interleavings 3120, violating 312, with late-write residue 736
+  s1=ok s2=ok delete=false orphan=false: 10/20
+      [W1 W2 C2 C1 D1 D2] E1 prefix{n1}
+      [W1 W2 C2 C1 D2 D1] E1 prefix{n1}
+      [W1 W2 C2 D2 C1 D1] E1 prefix{n1}
+  s1=ok s2=ok delete=false orphan=true: 10/20
+      [W1 W2 C2 C1 D1 D2] E1 prefix{n1}
+      [W1 W2 C2 C1 D2 D1] E1 prefix{n1}
+      [W1 W2 C2 D2 C1 D1] E1 prefix{n1}
+  s1=ok s2=ok delete=true orphan=false: 80/560
+      [W1 C1 D1 X P W2 C2 D2] E2:n2 prefix{n2}
+      [W1 C1 X D1 P W2 C2 D2] E2:n2 prefix{n2}
+      [W1 C1 X P D1 W2 C2 D2] E2:n2 prefix{n2}
+  s1=ok s2=ok delete=true orphan=true: 80/560
+      [W1 C1 D1 X P W2 C2 D2] E2:n2 prefix{n2}
+      [W1 C1 X D1 P W2 C2 D2] E2:n2 prefix{n2}
+      [W1 C1 X P D1 W2 C2 D2] E2:n2 prefix{n2}
+  s1=ok s2=fail delete=true orphan=false: 6/60
+      [F2 X P W1 C1 D1] E2:n1 prefix{n1}
+      [X F2 P W1 C1 D1] E2:n1 prefix{n1}
+      [X P W1 C1 D1 F2] E2:n1 prefix{n1}
+  s1=ok s2=fail delete=true orphan=true: 6/60
+      [F2 X P W1 C1 D1] E2:n1 prefix{n1}
+      [X F2 P W1 C1 D1] E2:n1 prefix{n1}
+      [X P W1 C1 D1 F2] E2:n1 prefix{n1}
+  s1=ok s2=late delete=true orphan=false: 27/270
+      [F2 W2 X P W1 C1 D1] E2:n1 prefix{n1}
+      [F2 X P W1 C1 D1] E2:n1 prefix{n1}
+      [F2 X W2 P W1 C1 D1] E2:n1 prefix{n1}
+  s1=ok s2=late delete=true orphan=true: 27/270
+      [F2 W2 X P W1 C1 D1] E2:n1 prefix{n1}
+      [F2 X P W1 C1 D1] E2:n1 prefix{n1}
+      [F2 X W2 P W1 C1 D1] E2:n1 prefix{n1}
+  s1=fail s2=ok delete=true orphan=false: 6/60
+      [F1 X P W2 C2 D2] E2:n2 prefix{n2}
+      [X F1 P W2 C2 D2] E2:n2 prefix{n2}
+      [X P F1 W2 C2 D2] E2:n2 prefix{n2}
+  s1=fail s2=ok delete=true orphan=true: 6/60
+      [F1 X P W2 C2 D2] E2:n2 prefix{n2}
+      [X F1 P W2 C2 D2] E2:n2 prefix{n2}
+      [X P F1 W2 C2 D2] E2:n2 prefix{n2}
+  s1=late s2=ok delete=true orphan=false: 27/270
+      [F1 W1 X P W2 C2 D2] E2:n2 prefix{n2}
+      [F1 X P W2 C2 D2] E2:n2 prefix{n2}
+      [F1 X W1 P W2 C2 D2] E2:n2 prefix{n2}
+  s1=late s2=ok delete=true orphan=true: 27/270
+      [F1 W1 X P W2 C2 D2] E2:n2 prefix{n2}
+      [F1 X P W2 C2 D2] E2:n2 prefix{n2}
+      [F1 X W1 P W2 C2 D2] E2:n2 prefix{n2}
 
-M-delete-nothing (D_i a no-op):
-s1=ok   s2=ok   n=20  B=true E1=true E2=false  counterexamples=20
-s1=ok   s2=fail n= 4  B=true E1=true E2=false  counterexamples=4
-s1=ok   s2=late n=14  B=true E1=true E2=false  counterexamples=14
-s1=fail s2=ok   n= 4  B=true E1=true E2=false  counterexamples=4
-s1=fail s2=fail n= 2  B=true E1=true E2=true  counterexamples=0
-s1=fail s2=late n= 5  B=true E1=true E2=false  counterexamples=3
-s1=late s2=ok   n=14  B=true E1=true E2=false  counterexamples=14
-s1=late s2=fail n= 5  B=true E1=true E2=false  counterexamples=3
-s1=late s2=late n=14  B=true E1=true E2=false  counterexamples=12
-differs from base: True
+MUTANT commit inserts when the row is gone:
+rows 36, interleavings 3120, violating 1708, with late-write residue 736
+  s1=ok s2=ok delete=true orphan=false: 392/560
+      [W1 C1 D1 W2 X C2 D2 P] B@P,E1:row prefix{}
+      [W1 C1 D1 W2 X C2 P D2] B@P,B@D2,E1:row prefix{}
+      [W1 C1 D1 W2 X P C2 D2] B@C2,B@D2,E1:row prefix{}
+  s1=ok s2=ok delete=true orphan=true: 392/560
+      [W1 C1 D1 W2 X C2 D2 P] B@P,E1:row prefix{}
+      [W1 C1 D1 W2 X C2 P D2] B@P,B@D2,E1:row prefix{}
+      [W1 C1 D1 W2 X P C2 D2] B@C2,B@D2,E1:row prefix{}
+  s1=ok s2=fail delete=true orphan=false: 42/60
+      [W1 F2 X C1 D1 P] B@P,E1:row prefix{}
+      [W1 F2 X C1 P D1] B@P,B@D1,E1:row prefix{}
+      [W1 F2 X P C1 D1] B@C1,B@D1,E1:row prefix{}
+  s1=ok s2=fail delete=true orphan=true: 42/60
+      [W1 F2 X C1 D1 P] B@P,E1:row prefix{}
+      [W1 F2 X C1 P D1] B@P,B@D1,E1:row prefix{}
+      [W1 F2 X P C1 D1] B@C1,B@D1,E1:row prefix{}
+  s1=ok s2=late delete=true orphan=false: 189/270
+      [W1 F2 W2 X C1 D1 P] B@P,E1:row prefix{}
+      [W1 F2 W2 X C1 P D1] B@P,B@D1,E1:row prefix{}
+      [W1 F2 W2 X P C1 D1] B@C1,B@D1,E1:row prefix{}
+  s1=ok s2=late delete=true orphan=true: 189/270
+      [W1 F2 W2 X C1 D1 P] B@P,E1:row prefix{}
+      [W1 F2 W2 X C1 P D1] B@P,B@D1,E1:row prefix{}
+      [W1 F2 W2 X P C1 D1] B@C1,B@D1,E1:row prefix{}
+  s1=fail s2=ok delete=true orphan=false: 42/60
+      [F1 W2 X C2 D2 P] B@P,E1:row prefix{}
+      [F1 W2 X C2 P D2] B@P,B@D2,E1:row prefix{}
+      [F1 W2 X P C2 D2] B@C2,B@D2,E1:row prefix{}
+  s1=fail s2=ok delete=true orphan=true: 42/60
+      [F1 W2 X C2 D2 P] B@P,E1:row prefix{}
+      [F1 W2 X C2 P D2] B@P,B@D2,E1:row prefix{}
+      [F1 W2 X P C2 D2] B@C2,B@D2,E1:row prefix{}
+  s1=late s2=ok delete=true orphan=false: 189/270
+      [F1 W1 W2 X C2 D2 P] B@P,E1:row prefix{}
+      [F1 W1 W2 X C2 P D2] B@P,B@D2,E1:row prefix{}
+      [F1 W1 W2 X P C2 D2] B@C2,B@D2,E1:row prefix{}
+  s1=late s2=ok delete=true orphan=true: 189/270
+      [F1 W1 W2 X C2 D2 P] B@P,E1:row prefix{}
+      [F1 W1 W2 X C2 P D2] B@P,B@D2,E1:row prefix{}
+      [F1 W1 W2 X P C2 D2] B@C2,B@D2,E1:row prefix{}
 
-M-delete-including-own (D_i also deletes n_i):
-s1=ok   s2=ok   n=20  B=false E1=true E2=false  counterexamples=20
-s1=ok   s2=fail n= 4  B=false E1=true E2=false  counterexamples=4
-s1=ok   s2=late n=14  B=false E1=true E2=false  counterexamples=14
-s1=fail s2=ok   n= 4  B=false E1=true E2=false  counterexamples=4
-s1=fail s2=fail n= 2  B=true E1=true E2=true  counterexamples=0
-s1=fail s2=late n= 5  B=true E1=true E2=false  counterexamples=3
-s1=late s2=ok   n=14  B=false E1=true E2=false  counterexamples=14
-s1=late s2=fail n= 5  B=true E1=true E2=false  counterexamples=3
-s1=late s2=late n=14  B=true E1=true E2=false  counterexamples=12
-differs from base: True
+MUTANT form 1 dropped (replaced object kept):
+rows 36, interleavings 3120, violating 20, with late-write residue 736
+  s1=ok s2=ok delete=false orphan=false: 10/20
+      [W1 C1 D1 W2 C2 D2] E2:n1 prefix{n1,n2}
+      [W1 C1 W2 D1 C2 D2] E2:n1 prefix{n1,n2}
+      [W1 C1 W2 C2 D1 D2] E2:n1 prefix{n1,n2}
+  s1=ok s2=ok delete=false orphan=true: 10/20
+      [W1 C1 D1 W2 C2 D2] E2:n1 prefix{n1,n2}
+      [W1 C1 W2 D1 C2 D2] E2:n1 prefix{n1,n2}
+      [W1 C1 W2 C2 D1 D2] E2:n1 prefix{n1,n2}
+
+MUTANT form 2 dropped (refused save keeps its object):
+rows 36, interleavings 3120, violating 336, with late-write residue 736
+  s1=ok s2=ok delete=false orphan=false: 10/20
+      [W1 W2 C2 C1 D1 D2] E2:n1 prefix{n1,n2}
+      [W1 W2 C2 C1 D2 D1] E2:n1 prefix{n1,n2}
+      [W1 W2 C2 D2 C1 D1] E2:n1 prefix{n1,n2}
+  s1=ok s2=ok delete=false orphan=true: 10/20
+      [W1 W2 C2 C1 D1 D2] E2:n1 prefix{n1,n2}
+      [W1 W2 C2 C1 D2 D1] E2:n1 prefix{n1,n2}
+      [W1 W2 C2 D2 C1 D1] E2:n1 prefix{n1,n2}
+  s1=ok s2=ok delete=true orphan=false: 92/560
+      [W1 C1 D1 X P W2 C2 D2] E2:n2 prefix{n2}
+      [W1 C1 X D1 P W2 C2 D2] E2:n2 prefix{n2}
+      [W1 C1 X P D1 W2 C2 D2] E2:n2 prefix{n2}
+  s1=ok s2=ok delete=true orphan=true: 92/560
+      [W1 C1 D1 X P W2 C2 D2] E2:n2 prefix{n2}
+      [W1 C1 X D1 P W2 C2 D2] E2:n2 prefix{n2}
+      [W1 C1 X P D1 W2 C2 D2] E2:n2 prefix{n2}
+  s1=ok s2=fail delete=true orphan=false: 6/60
+      [F2 X P W1 C1 D1] E2:n1 prefix{n1}
+      [X F2 P W1 C1 D1] E2:n1 prefix{n1}
+      [X P W1 C1 D1 F2] E2:n1 prefix{n1}
+  s1=ok s2=fail delete=true orphan=true: 6/60
+      [F2 X P W1 C1 D1] E2:n1 prefix{n1}
+      [X F2 P W1 C1 D1] E2:n1 prefix{n1}
+      [X P W1 C1 D1 F2] E2:n1 prefix{n1}
+  s1=ok s2=late delete=true orphan=false: 27/270
+      [F2 W2 X P W1 C1 D1] E2:n1 prefix{n1}
+      [F2 X P W1 C1 D1] E2:n1 prefix{n1}
+      [F2 X W2 P W1 C1 D1] E2:n1 prefix{n1}
+  s1=ok s2=late delete=true orphan=true: 27/270
+      [F2 W2 X P W1 C1 D1] E2:n1 prefix{n1}
+      [F2 X P W1 C1 D1] E2:n1 prefix{n1}
+      [F2 X W2 P W1 C1 D1] E2:n1 prefix{n1}
+  s1=fail s2=ok delete=true orphan=false: 6/60
+      [F1 X P W2 C2 D2] E2:n2 prefix{n2}
+      [X F1 P W2 C2 D2] E2:n2 prefix{n2}
+      [X P F1 W2 C2 D2] E2:n2 prefix{n2}
+  s1=fail s2=ok delete=true orphan=true: 6/60
+      [F1 X P W2 C2 D2] E2:n2 prefix{n2}
+      [X F1 P W2 C2 D2] E2:n2 prefix{n2}
+      [X P F1 W2 C2 D2] E2:n2 prefix{n2}
+  s1=late s2=ok delete=true orphan=false: 27/270
+      [F1 W1 X P W2 C2 D2] E2:n2 prefix{n2}
+      [F1 X P W2 C2 D2] E2:n2 prefix{n2}
+      [F1 X W1 P W2 C2 D2] E2:n2 prefix{n2}
+  s1=late s2=ok delete=true orphan=true: 27/270
+      [F1 W1 X P W2 C2 D2] E2:n2 prefix{n2}
+      [F1 X P W2 C2 D2] E2:n2 prefix{n2}
+      [F1 X W1 P W2 C2 D2] E2:n2 prefix{n2}
+
+MUTANT sweep without the age guard:
+rows 36, interleavings 3120, violating 60, with late-write residue 692
+  s1=ok s2=ok delete=false orphan=false: 9/20
+      [W1 C1 W2 D1 C2 D2] B@C2,B@D2 prefix{}
+      [W1 C1 W2 C2 D1 D2] B@D1,B@D2 prefix{}
+      [W1 C1 W2 C2 D2 D1] B@D1 prefix{}
+  s1=ok s2=ok delete=false orphan=true: 9/20
+      [W1 C1 W2 D1 C2 D2] B@C2,B@D2 prefix{}
+      [W1 C1 W2 C2 D1 D2] B@D1,B@D2 prefix{}
+      [W1 C1 W2 C2 D2 D1] B@D1 prefix{}
+  s1=ok s2=ok delete=true orphan=false: 21/560
+      [W1 C1 W2 D1 C2 D2 X P] B@C2,B@D2 prefix{}
+      [W1 C1 W2 D1 C2 X D2 P] B@C2 prefix{}
+      [W1 C1 W2 D1 C2 X P D2] B@C2 prefix{}
+  s1=ok s2=ok delete=true orphan=true: 21/560
+      [W1 C1 W2 D1 C2 D2 X P] B@C2,B@D2 prefix{}
+      [W1 C1 W2 D1 C2 X D2 P] B@C2 prefix{}
+      [W1 C1 W2 D1 C2 X P D2] B@C2 prefix{}

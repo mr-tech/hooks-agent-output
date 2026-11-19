@@ -1,0 +1,39 @@
+s1=ok   s2=ok   n=20  B=false E1=true E2=false  counterexamples=4
+    [W1 C1 W2 D1 C2 D2] -> committed n2, prefix {}, B broken at C2, E2 broken
+    [W1 W2 C1 D1 C2 D2] -> committed n2, prefix {}, B broken at C2, E2 broken
+    [W2 W1 C1 D1 C2 D2] -> committed n2, prefix {}, B broken at C2, E2 broken
+    [W2 C2 D2 W1 C1 D1] -> committed n2, prefix {n1,n2}, E2 broken
+s1=ok   s2=fail n= 4  B=true E1=true E2=true  counterexamples=0
+s1=ok   s2=late n=14  B=true E1=true E2=false  counterexamples=4
+    [W1 C1 D1 F2 W2] -> committed n1, prefix {n1,n2}, E2 broken
+    [W1 C1 F2 D1 W2] -> committed n1, prefix {n1,n2}, E2 broken
+    [W1 F2 C1 D1 W2] -> committed n1, prefix {n1,n2}, E2 broken
+    [F2 W1 C1 D1 W2] -> committed n1, prefix {n1,n2}, E2 broken
+s1=fail s2=ok   n= 4  B=true E1=true E2=true  counterexamples=0
+s1=fail s2=fail n= 2  B=true E1=true E2=true  counterexamples=0
+s1=fail s2=late n= 5  B=true E1=true E2=false  counterexamples=3
+    [F1 F2 W2] -> committed n0, prefix {n0,n2}, E2 broken
+    [F2 F1 W2] -> committed n0, prefix {n0,n2}, E2 broken
+    [F2 W2 F1] -> committed n0, prefix {n0,n2}, E2 broken
+s1=late s2=ok   n=14  B=true E1=true E2=false  counterexamples=4
+    [F1 W2 C2 D2 W1] -> committed n2, prefix {n1,n2}, E2 broken
+    [W2 F1 C2 D2 W1] -> committed n2, prefix {n1,n2}, E2 broken
+    [W2 C2 F1 D2 W1] -> committed n2, prefix {n1,n2}, E2 broken
+    [W2 C2 D2 F1 W1] -> committed n2, prefix {n1,n2}, E2 broken
+s1=late s2=fail n= 5  B=true E1=true E2=false  counterexamples=3
+    [F1 W1 F2] -> committed n0, prefix {n0,n1}, E2 broken
+    [F1 F2 W1] -> committed n0, prefix {n0,n1}, E2 broken
+    [F2 F1 W1] -> committed n0, prefix {n0,n1}, E2 broken
+s1=late s2=late n=14  B=true E1=true E2=false  counterexamples=12
+    [F1 W1 F2 W2] -> committed n0, prefix {n0,n1,n2}, E2 broken
+    [F1 W1 F2] -> committed n0, prefix {n0,n1}, E2 broken
+    [F1 F2 W2] -> committed n0, prefix {n0,n2}, E2 broken
+    [F1 F2 W1 W2] -> committed n0, prefix {n0,n1,n2}, E2 broken
+    [F1 F2 W1] -> committed n0, prefix {n0,n1}, E2 broken
+    [F1 F2 W2 W1] -> committed n0, prefix {n0,n1,n2}, E2 broken
+    [F2 F1 W1 W2] -> committed n0, prefix {n0,n1,n2}, E2 broken
+    [F2 F1 W1] -> committed n0, prefix {n0,n1}, E2 broken
+    [F2 F1 W2] -> committed n0, prefix {n0,n2}, E2 broken
+    [F2 F1 W2 W1] -> committed n0, prefix {n0,n1,n2}, E2 broken
+    [F2 W2 F1 W1] -> committed n0, prefix {n0,n1,n2}, E2 broken
+    [F2 W2 F1] -> committed n0, prefix {n0,n2}, E2 broken

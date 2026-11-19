@@ -4,14 +4,15 @@ Origin: 017
 UUID: 5c3e9a71
 Verified-At: "1ad625e,8de2b53 — repos=website,preview-image-generator; Phase 1 base trees (the plan's surfaces read at these SHAs; the suite and the carried probes ran in an export of website 1ad625e). No verdict is carried at Phase 1."
 Status: Awaiting Implementation
-Status-Detail: "Phase 1 on plan revision 1 (agent-output 97e6814): strategy, Irreversible Side-Effect Register, M5-e oracle and blocking-condition register written. Findings QAF-1 to QAF-9 go to the planner. QAF-1 HIGH and QAF-2 to QAF-5 MEDIUM bear on M5's rules and fixtures; QAF-6 MEDIUM on M3-e. M1, M2, M4 and M7 have no blocking finding."
+Status-Detail: "Phase 1 re-keyed to plan revision 2 (agent-output 3d678cc). QAF-1 to QAF-9 resolved (the M5-e oracle re-keyed: 0 of 3120 interleavings violate). Open for the planner: QAF-10 MEDIUM (M5-a can learn a stale replaced nonce; needs a real-Postgres lane), QAF-12 MEDIUM (M4-a's provider move: renderer, /send update prompt, one dialog slot), QAF-11 LOW (B-7's member check)."
 Phase: 1
 ---
 
 # QA Report: Plan 017 — the existing-items backlog
 
-**Plan Reference**: `agent-output/planning/017-existing-items-backlog.md`, revision 1 (agent-output
-`97e6814`; the R-4 registration at `d84b192` was read with it and changes no criterion).
+**Plan Reference**: `agent-output/planning/017-existing-items-backlog.md`, revision 2 (agent-output
+`3d678cc`), re-keyed in § "Phase 1 re-key on plan revision 2". The first pass read revision 1
+(`97e6814`; the R-4 registration at `d84b192` was read with it and changes no criterion).
 
 ## Changelog
 
@@ -19,6 +20,7 @@ Phase: 1
 |------|---------------|---------|---------|
 | 2026-11-18T23:40 | steering-roadmap (brief `steering/backlog-2026-11-18-briefs/qa-hooks-017.md`) | Phase 1 test strategy on revision 1 | Phase 1. Strategy over M1–M7. Base suite re-derived in an export. AN-1 and AN-2 probes re-run at `1ad625e`. M5-e oracle written and mutation-checked. Local sign-in provisioned. G-6 walked. Register B-1 to B-11. Findings QAF-1 to QAF-9 go to `planner-hooks-017`. |
 | 2026-11-18T23:45 | steering-roadmap (`steering/017-rulings.md` 23:41Z, `1cb801c`) | Make the B-7 / QAF-9 production-log read under the Standing Default | Phase 1 amendment. Read made, read-only, aggregates only: liveness met by function stderr, not by the tRPC `onError`, which is development-only (my earlier naming was wrong); retention under 1 day. QAF-9 and B-7 amended by reconcile lines. Routing it as owner-needing was my error. Process fact: the capture's README was first written by shell heredoc, outside the record-write rule, then re-written with the Write tool. The stamp gate refused this row's first stamp (typed `23:46`, clock `23:45`). Satisfied by the `date -u` minute in this row and in the three reconcile lines. |
+| 2026-11-19T00:11 | planner-hooks-017 (revision 2, agent-output `3d678cc`) | Phase 1 re-key, including the M5-e oracle | Phase 1 re-key. Oracle re-keyed to revision 2: 0 of 3120 interleavings violate; five mutants fire. Revision-1 run frozen beside it. Postgres probe P1–P3 on a throwaway container. QAF-1 to QAF-9 dispositioned (all RESOLVED). New: QAF-10 MEDIUM (stale replaced nonce), QAF-11 LOW (B-7 member outside its query), QAF-12 MEDIUM (dialog renderer and one slot). NM-22 to NM-25; EC-1 and EC-2; B-7 amended. |
 
 ## Inputs read
 
@@ -390,6 +392,132 @@ Not findings, recorded:
 - Handoff `bug-evaluation-fixes-unclosed-assumptions-2026-11-08.md` item 3 (only the website calls
   `/generate`) bears on M6-b: objects written for another caller would now accumulate. Its closing
   instrument is still the owner's knowledge of callers. Item 7 is B-10.
+
+## Phase 1 re-key on plan revision 2 (agent-output `3d678cc`)
+
+Read: the revision as the diff `a3c1e83..3d678cc` over the plan (586 added and 285 removed lines,
+`git diff --numstat`). M2, M3, M4, M5 and M6 and § "Gate findings folded" were re-read whole at
+`3d678cc`. Before the write, the plan was confirmed unchanged since `3d678cc` (`git diff --quiet
+3d678cc HEAD -- planning/…`, exit 0).
+
+### Dispositions of this gate's revision-1 findings, re-derived at the plan text
+
+| Finding | Where revision 2 carries it | Re-derived |
+|---|---|---|
+| QAF-1 HIGH, QAF-2 MEDIUM, QAF-5 MEDIUM | M5-a (conditional update that never inserts), M5-c (three delete forms, L = 120 s), M5-e (each save's write, answer, commit and deletes, plus a message delete) | **Resolved by execution.** The re-keyed oracle has 0 violating interleavings over 3120 in 36 rows; five mutants each fire. QAF-1 HIGH Phase 1 RESOLVED — M5-c three-form deletion; oracle `m5-decision-table/` (`oracle.mjs` rev 2). QAF-2 MEDIUM Phase 1 RESOLVED — M5-c residue stated over its class (RK-2). QAF-5 MEDIUM Phase 1 RESOLVED — M5-a never inserts; M5-e outcome after a message delete. |
+| QAF-3 MEDIUM | M5-a order token: the database clock (`clock_timestamp()` in the upsert's `RETURNING`), nonce `v` + microseconds + 16 hex | **Resolved by execution** on Postgres 16.16 (`pg-order-probe/`, P1, P2). QAF-3 MEDIUM Phase 1 RESOLVED — M5-a; probe P1/P2. The statement that learns the replaced nonce is QAF-10 below. |
+| QAF-4 MEDIUM | M5-g key contract | Read: both sides' deciding variables named; the generator's production `ENV` stated as unread (Inference). QAF-4 MEDIUM Phase 1 RESOLVED — M5-g; the production `ENV` read stays open as M5-g states. |
+| QAF-6 MEDIUM | M3 storage form (own typed key `messageDrafts`); M3-g for `theme`, `frequentlyUsedEmojis`, `client_preferences` | Read; the keys match `global.d.ts` `LocalStorage` at `1ad625e` (4 members). QAF-6 MEDIUM Phase 1 RESOLVED — M3-g. |
+| QAF-7 LOW | M1-c cites NM-1 | Read (plan line "QA's NM-1 supplies a mutant for each of the other four members"). QAF-7 LOW Phase 1 RESOLVED — M1-c. |
+| QAF-8 LOW | M4-d class table; M4 human-observable names the user-icon link to `/message/f/0` | Read; `target='_blank'` on both raw anchors re-read (`EmbedAuthor.tsx`, `EmbedTitle.tsx` at `1ad625e`). QAF-8 LOW Phase 1 RESOLVED — M4-d, M4 Human-observable. |
+| QAF-9 INFO | M5-f instrument, prefix `preview-image-failure`, B-7 as reader | Read. QAF-9 INFO Phase 1 RESOLVED — M5-f; one remainder is QAF-11 below. |
+
+### New measurements
+
+- **`pg-order-probe/`** (throwaway `postgres:16` container of its own, `--network none`, removed on
+  exit; `docker ps -a` after the run: 0). `probe.sh` and its run `run-20261119T0009/result.txt`.
+  Server PostgreSQL 16.16; database collation `en_US.utf8`.
+  - **P1:** session B's upsert started at 00:09:49.617 and waited on A's row lock. Its `RETURNING
+    clock_timestamp()` read 00:09:51.611, above A's 00:09:48.606, so the token orders saves by lock
+    order.
+  - **P2:** every new nonce sorts above every old 32-hex nonce, and a later time sorts higher. This
+    holds under `COLLATE "C"` and under the default `en_US.utf8`.
+  - **P3:** with the row at `n0`, session A commits `n1` and holds its transaction. B commits `n2`,
+    learning the replaced value in the same statement:
+    - `UPDATE … FROM (SELECT prev …)` returned **`n0`, a stale value**;
+    - `WITH o AS (SELECT prev … FOR UPDATE) UPDATE … FROM o` returned `n1`, correct.
+
+    The two forms on the same run are the probe's discriminating pair.
+- **Revision 2 populations.**
+  - M3-g: 4 typed keys (`global.d.ts` `LocalStorage` at `1ad625e`), of which 3 are carried with
+    literals. M3's new `messageDrafts` key has no live population (the plan says so; B-2 reads the
+    count).
+  - M4-d: 7 table rows (the plan's own read). The re-derivation at the tip is the implementer's
+    first M4 step. `StyledLink` importers: 11 files (`git grep -l`, `1ad625e`).
+  - `useConfirmation` / `ConfirmationProvider` consumers at `1ad625e` (`git grep -n`):
+    `JsonModalBody.tsx`, `m/[id]/_layout/Navigation.tsx`, `ConfirmationDialog.tsx`,
+    `DiscordMessageEditor/index.tsx` (the `Context`) and `usePusher.ts` (the update prompt). The one
+    renderer, `<ConfirmationDialog />`, is mounted only in `m/[id]/edit/page.tsx`.
+
+### Findings on revision 2 (to `planner-hooks-017`)
+
+QAF-10 MEDIUM Phase 1 — **M5-a's "learning in the same statement the nonce it replaced" has a
+natural statement form that returns a stale value, and no test planned can tell.** On Postgres 16.16
+under a concurrent commit, `UPDATE … FROM (SELECT prev)` returned `n0` where the row had held `n1`.
+M5-c form 1 would then delete `n0` (already gone) and leave `n1`, an object of a processed 204, in
+the prefix. That breaks M5-c's property: it is removed only by a later sweep at least L after.
+`WITH … FOR UPDATE` returned the right value. The M5 Node tests substitute the database
+(`helpers/capturingDatabase`), so neither form can fail them. Asked:
+- M5-a names the statement's concurrency requirement (the replaced value is read under the row
+  lock);
+- the Testing Strategy adds a real-Postgres lane for M5-a's two statements, the upsert's token and
+  the conditional commit. Its prototype is `pg-order-probe/probe.sh`.
+
+Named mutant NM-22.
+
+QAF-11 LOW Phase 1 — **M5-f names M5-0's probe lines as B-7's first real member, but B-7 queries
+production and the probe runs on a preview deployment.** B-7's command is `-e production`, so the
+member falls outside its query. Asked: the reader's member check runs the same query shape with
+`--deployment <probe URL>` within the retention window, recorded at M5-0. B-7 is amended below.
+
+QAF-12 MEDIUM Phase 1 — **M4-a moves `ConfirmationProvider` but not its renderer, and the move
+reaches M2's prompt.**
+- (a) `<ConfirmationDialog />` is mounted only in `m/[id]/edit/page.tsx` at `1ad625e`. Moving the
+  provider up to `message/layout.tsx` gives the Header and Sidebar on `/send` a context but no
+  dialog. M4-b's confirmation on `/send` needs the renderer moved too.
+- (b) Once a renderer exists on `/send`, `usePusher`'s "Message Update Detected"
+  (`showConfirmation`, which runs on `/send` because `MessageProvider` spans it) becomes visible on
+  `/send`. At `1ad625e` it sets the provider's `props` there with nothing rendering them. That is a
+  behaviour change on M2's surface that no criterion states.
+- (c) The provider holds one `props` slot, and `showConfirmation` overwrites it (`useValue`,
+  `setProps`), so the earlier dialog's `onCancel` never runs. A link confirmation and an update
+  prompt that open together drop one of them. If the update prompt is dropped, hazard 4's
+  protection is lost for that broadcast.
+
+Asked: M4-a names the renderer's placement; a criterion states the update prompt's behaviour on
+`/send` at the tip; a member in M2-c or M4-b covers both dialogs open together. The preserved
+behaviours (`JsonModalBody`'s and the editor's confirmations through the moved provider) carry an
+assertion at M4's tip. This meets the severity floor. Named mutants NM-24 and NM-25.
+
+### Entry conditions (probe shapes, for the implementer)
+
+- EC-1 (M5-c form 3) — show that the bucket listing's HTTP `Date` header is readable through the
+  website's own `@aws-sdk/client-s3` client before building the age comparison. The command output
+  carries `Contents[].LastModified` and `$metadata`, and this pass found no `Date` in the parsed
+  output, so reading it takes a deserialize-step middleware or equivalent. Shown against the loopback
+  stub, with the stub's `Date` set to a planted value the test reads back.
+- EC-2 (M5-a) — the real-Postgres lane of QAF-10 runs the shipped statements, never copies of them,
+  for example by exporting the statement builders and executing their compiled SQL against the
+  throwaway instance.
+
+### Named mutants added
+
+- NM-22 — the conditional commit learns the replaced nonce from an unlocked snapshot, returning a
+  stale value under a concurrent commit (probe P3's first form) — M5-a, M5-c form 1 (QAF-10).
+- NM-23 — the sweep's age is taken from the function's clock, or L is set below the continuation's
+  life (60 s), or the age guard is dropped (oracle mutant "sweep without the age guard") — M5-c form 3.
+- NM-24 — a modified click (Ctrl/Cmd/Shift or a middle click), which opens a new tab or window and
+  does not navigate the current tab, is prompted or blocked — M4-b, M4-d's class.
+- NM-25 — a link confirmation and the update prompt opened together: the second silently replaces the
+  first — M4-b, M2-c (QAF-12).
+
+### Register amendments
+
+- B-7, reconcile 2026-11-19T00:11Z: the reader's member check runs `npx vercel@66.2.0 logs -p
+  hooks-gg-website --scope hooks-gg --deployment <M5-0 probe URL> -s 23h --json -q
+  'preview-image-failure'` at M5-0, inside the retention window, and records its count beside the
+  production read (QAF-11). Written here, beside the row's earlier text, which stays.
+- No other row changes. B-2's subject is unchanged (local sign-in); B-4's rig is now the
+  implementer's (M5 Human-observable).
+
+### Assumption Not Checked (this pass)
+
+This pass assumes the hosted production Postgres evaluates `clock_timestamp()` in an upsert's
+`RETURNING` after the row lock, and orders `COLLATE "C"`, as the probe's Postgres 16.16 does. The
+hosted server's version was not read. The signature of falsity: two saves of one message committing
+out of upsert order in production, visible as an older preview after a quick double save. Owner:
+devops, at release readiness (read `server_version` on the production database through whatever
+read access the release has), named again in the hand-off.
 
 ## Assumption Not Checked
 

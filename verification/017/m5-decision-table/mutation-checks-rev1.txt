@@ -1,0 +1,46 @@
+BASE row summary:
+s1=ok   s2=ok   n=20  B=false E1=true E2=false  counterexamples=4
+s1=ok   s2=fail n= 4  B=true E1=true E2=true  counterexamples=0
+s1=ok   s2=late n=14  B=true E1=true E2=false  counterexamples=4
+s1=fail s2=ok   n= 4  B=true E1=true E2=true  counterexamples=0
+s1=fail s2=fail n= 2  B=true E1=true E2=true  counterexamples=0
+s1=fail s2=late n= 5  B=true E1=true E2=false  counterexamples=3
+s1=late s2=ok   n=14  B=true E1=true E2=false  counterexamples=4
+s1=late s2=fail n= 5  B=true E1=true E2=false  counterexamples=3
+s1=late s2=late n=14  B=true E1=true E2=false  counterexamples=12
+
+M-commit-unconditional (drop the later-save check in C_i):
+s1=ok   s2=ok   n=20  B=false E1=false E2=false  counterexamples=13
+s1=ok   s2=fail n= 4  B=true E1=true E2=true  counterexamples=0
+s1=ok   s2=late n=14  B=true E1=true E2=false  counterexamples=4
+s1=fail s2=ok   n= 4  B=true E1=true E2=true  counterexamples=0
+s1=fail s2=fail n= 2  B=true E1=true E2=true  counterexamples=0
+s1=fail s2=late n= 5  B=true E1=true E2=false  counterexamples=3
+s1=late s2=ok   n=14  B=true E1=true E2=false  counterexamples=4
+s1=late s2=fail n= 5  B=true E1=true E2=false  counterexamples=3
+s1=late s2=late n=14  B=true E1=true E2=false  counterexamples=12
+differs from base: True
+
+M-delete-nothing (D_i a no-op):
+s1=ok   s2=ok   n=20  B=true E1=true E2=false  counterexamples=20
+s1=ok   s2=fail n= 4  B=true E1=true E2=false  counterexamples=4
+s1=ok   s2=late n=14  B=true E1=true E2=false  counterexamples=14
+s1=fail s2=ok   n= 4  B=true E1=true E2=false  counterexamples=4
+s1=fail s2=fail n= 2  B=true E1=true E2=true  counterexamples=0
+s1=fail s2=late n= 5  B=true E1=true E2=false  counterexamples=3
+s1=late s2=ok   n=14  B=true E1=true E2=false  counterexamples=14
+s1=late s2=fail n= 5  B=true E1=true E2=false  counterexamples=3
+s1=late s2=late n=14  B=true E1=true E2=false  counterexamples=12
+differs from base: True
+
+M-delete-including-own (D_i also deletes n_i):
+s1=ok   s2=ok   n=20  B=false E1=true E2=false  counterexamples=20
+s1=ok   s2=fail n= 4  B=false E1=true E2=false  counterexamples=4
+s1=ok   s2=late n=14  B=false E1=true E2=false  counterexamples=14
+s1=fail s2=ok   n= 4  B=false E1=true E2=false  counterexamples=4
+s1=fail s2=fail n= 2  B=true E1=true E2=true  counterexamples=0
+s1=fail s2=late n= 5  B=true E1=true E2=false  counterexamples=3
+s1=late s2=ok   n=14  B=false E1=true E2=false  counterexamples=14
+s1=late s2=fail n= 5  B=true E1=true E2=false  counterexamples=3
+s1=late s2=late n=14  B=true E1=true E2=false  counterexamples=12
+differs from base: True

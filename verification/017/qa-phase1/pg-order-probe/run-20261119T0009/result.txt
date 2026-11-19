@@ -1,0 +1,12 @@
+server: PostgreSQL 16.16 (Debian 16.16-1.pgdg13+
+datcollate: en_US.utf8
+P1 A: A|2026-11-19 00:09:48.606131+00|
+P1 B started at 2026-11-19 00:09:49.617024+00, returned: B|2026-11-19 00:09:51.611597+00
+P1 B's clock above A's: t
+P2:
+  C: every new > every old|t
+  default collation: every new > every old|t
+  C: later time sorts higher|t
+P3 UPDATE ... FROM (SELECT prev) (no lock): learned replaced=[n0], row now=[n2] (expected replaced n1)
+P3 WITH o AS (SELECT prev ... FOR UPDATE) UPDATE ... FROM o: learned replaced=[n1], row now=[n2] (expected replaced n1)
+exit 0
