@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/01141c37-1391-4a14-abd8-6cc1e138c507/scratchpad/cr/work4/20261119T022218Z-p694245/mutant-2
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 2 failed) 66ms
+     × turns a stored message with no id into this tab's route-0 entry, dated by its own timestamp 9ms
+     × turns a stored copy of saved message 42 into the entry for 42 2ms
+
+ Test Files  1 failed | 11 passed (12)
+      Tests  2 failed | 137 passed (139)
+   Start at  02:22:25
+   Duration  2.60s (transform 2.12s, setup 424ms, import 9.18s, tests 839ms, environment 11.99s)
+

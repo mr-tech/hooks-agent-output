@@ -1,0 +1,9 @@
+3498ef3:src/providers/MessageProvider/index.tsx:30:  readDrafts, removeDraft, removeRouteZeroDraft, routeZeroDraftFor, sameJson, tabId, writeDraft,
+3498ef3:src/providers/MessageProvider/index.tsx:31:  writeRouteZeroDraft,
+3498ef3:src/providers/MessageProvider/index.tsx:140:      writeRouteZeroDraft(tmp);
+3498ef3:src/providers/MessageProvider/index.tsx:173:      writeRouteZeroDraft({ ...message, name });
+3498ef3:src/providers/MessageProvider/index.tsx:175:      removeDraft(message.id);
+3498ef3:src/providers/MessageProvider/index.tsx:177:      writeDraft(message.id, { data: message.data, name, editedAt: Date.now() });
+3498ef3:src/providers/MessageProvider/index.tsx:211:        removeDraft(fetchedMessage.id);
+3498ef3:src/providers/MessageProvider/index.tsx:246:        removeDraft(msg.id, (draft) => sameJson(stripKeys({ name: draft.name, data: draft.data }).data, sent.data));
+3498ef3:src/providers/MessageProvider/index.tsx:248:        removeRouteZeroDraft(message?.data as ActiveMessage['data']);

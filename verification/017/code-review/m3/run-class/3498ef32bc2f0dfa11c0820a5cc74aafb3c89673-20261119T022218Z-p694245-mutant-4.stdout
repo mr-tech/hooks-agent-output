@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/01141c37-1391-4a14-abd8-6cc1e138c507/scratchpad/cr/work4/20261119T022218Z-p694245/mutant-4
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 1 failed) 76ms
+     × with none of its own, copies the route-0 entry edited most recently under its own key 13ms
+
+ Test Files  1 failed | 11 passed (12)
+      Tests  1 failed | 138 passed (139)
+   Start at  02:22:33
+   Duration  2.86s (transform 2.19s, setup 544ms, import 9.96s, tests 893ms, environment 13.40s)
+

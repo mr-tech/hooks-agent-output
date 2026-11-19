@@ -1,0 +1,11 @@
+[
+  {"id": "p1-route-zero-restore-drops-name", "file": "src/providers/MessageProvider/index.tsx",
+   "old": "makeEditable({ name: draft.name, data: draft.data, updatedAt: draft.editedAt })",
+   "new": "makeEditable({ name: 'New Message', data: draft.data, updatedAt: draft.editedAt })"},
+  {"id": "p2-route-zero-restore-drops-embeds", "file": "src/providers/MessageProvider/index.tsx",
+   "old": "makeEditable({ name: draft.name, data: draft.data, updatedAt: draft.editedAt })",
+   "new": "makeEditable({ name: draft.name, data: { ...draft.data, embeds: [] }, updatedAt: draft.editedAt })"},
+  {"id": "p3-legacy-write-carries-an-id", "file": "src/utils/messageDrafts.ts",
+   "old": "  legacyStore().set(message);",
+   "new": "  legacyStore().set({ ...message, id: 'x' } as ActiveMessage);"}
+]

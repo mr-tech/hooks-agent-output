@@ -1,0 +1,116 @@
+{
+ "sha": "3498ef32bc2f0dfa11c0820a5cc74aafb3c89673",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/probe-mutants.json",
+ "command": [
+  "node_modules/.bin/vitest",
+  "run",
+  "--no-cache",
+  "--configLoader",
+  "runner",
+  "--config",
+  "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/vitest.probe.config.mjs",
+  "src/utils",
+  "src/providers/MessageProvider"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/probe-mutants.json",
+   "blob": "25d7a666c695ed19c0ec38c798bc6973b1065304"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  },
+  {
+   "kind": "argument",
+   "path": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/vitest.probe.config.mjs",
+   "blob": "361b4c895da72529398b7a0339c60a645d6e0618"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022144Z-p689908-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022144Z-p689908-control-1.stderr",
+   "seconds": 3.3,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 139,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "p1-route-zero-restore-drops-name",
+   "run": "mutant-1",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 139,
+   "control_tests_run": 139,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 3.31,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022144Z-p689908-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022144Z-p689908-mutant-1.stderr"
+  },
+  {
+   "id": "p2-route-zero-restore-drops-embeds",
+   "run": "mutant-2",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 139,
+   "control_tests_run": 139,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 3.44,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022144Z-p689908-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022144Z-p689908-mutant-2.stderr"
+  },
+  {
+   "id": "p3-legacy-write-carries-an-id",
+   "run": "mutant-3",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 139,
+   "control_tests_run": 139,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 3.58,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022144Z-p689908-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022144Z-p689908-mutant-3.stderr"
+  }
+ ],
+ "score": "0 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; probe-mutants.json (blob 25d7a666c695ed19c0ec38c798bc6973b1065304))"
+}

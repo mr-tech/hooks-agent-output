@@ -2,10 +2,10 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Reviewed-At: "dd26104 — repos=website; Round 2 sub-entry, M2 fix confirmation (implementation document e088937); Round 2 was reviewed at ec984fe; Round 1, M1, was reviewed at 8147661"
+Reviewed-At: "3498ef3 — repos=website; Round 3, M3 (implementation document e6588c0); M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
 Status: In Review
-Round: 2
-Verdict: APPROVED
+Round: 3
+Verdict: REJECTED
 ---
 
 # Code Review: 017 — the existing-items backlog
@@ -24,6 +24,7 @@ Verdict: APPROVED
 | 2026-11-19T01:17 | implementer-hooks-017 (cross-session hand-off; M2 document `057109c`) | Round 2: review M2 at website `ec984fe` | Round 2, M2 only. APPROVED_WITH_COMMENTS: CR-3 MEDIUM (`useSaveWith`'s hook-style name hides a hook called outside a render from `rules-of-hooks`; positive control at line 160; routed to QAF-16's disposition at QA Phase 2), CR-4 LOW (M2-a's eleventh member, "fails shape", has no case and no recorded disposition; it is unobservable at the client). The criteria assessed are M2-a, M2-b, M2-c and the Window, as revision 4 states them at round open. Captures are in `verification/017/code-review/m2/`. Gate disclosed: the record-write gate refused a shell heredoc that drafted this round's section into a scratch file, reading it as a shell write to a record document; the section was then written into this document with the Edit tool. |
 | 2026-11-19T01:27 | qa-hooks-017 (QAF-17, `5630f1b`) | R2-reconcile: Round 2's verdict corrected | Round 2 reopened by correction: CR-5 MEDIUM (duplicates QAF-17) is a severity-floor finding I missed. Verdict APPROVED_WITH_COMMENTS → REJECTED; the fix is test-only and returns as a Round 2 sub-entry. Method observation for the retrospective: the reviewer checked the implementer's mutant list for coverage instead of enumerating the criterion's interleavings itself. |
 | 2026-11-19T01:48 | implementer-hooks-017 (fix SHA `dd26104`, M2 document `e088937`) | Round 2 sub-entry: confirm the test-only fix for CR-5, CR-3 and CR-4 | Round 2 sub-entry: APPROVED at `dd26104`. 4 of 4 re-attack mutants were killed as assertions (`verification/017/code-review/m2-fix/`). CR-5 and CR-3 are gone, CR-4 is recorded. M3's `index.tsx` change is outside this sub-entry, and M2's wiring there is untouched. |
+| 2026-11-19T02:25 | implementer-hooks-017 (M3 document `e6588c0`) | Round 3: review M3 at website `3498ef3` | Round 3, M3 only. REJECTED: CR-6 MEDIUM (the provider's restore sites are asserted on `content` only; probe mutants P1, P2 and P4 survived), CR-7 MEDIUM (M3-f's old-reader instrument was not run; P3 survived), CR-8 LOW (the fetch path removes `Sn` against the matrix's "nothing written"; record line). The criteria assessed are M3-a to M3-h, the Storage form and the Write matrix, as revision 4 states them at round open. Captures are in `verification/017/code-review/m3/`. Disclosed: CR-6's and CR-8's enumerations were written before they were run; both were then run, CR-8's matched, and CR-6's text was corrected to the predicate's 10 hits. |
 
 ## Scope and Tree
 
@@ -167,6 +168,45 @@ That file is M1's blob plus the single `{ current: [] }` argument the new parame
 
 **Sub-entry verdict**: APPROVED at `dd26104` for M2. Every Round 2 finding is dispositioned. The suite figure (1606 of 1606, exit 0) is the implementer's and was not re-run here; that is QA's refresh.
 
+## Round 3 — M3 at `3498ef3`
+
+### Scope and tree
+
+- **Criteria assessed** (recorded before the diff was read): M3-a to M3-h, the "Storage form" and the "Write matrix", as plan § Plan `### M3` states them in revision 4 (plan commit `e9f83be`).
+- **Tree**: website `3498ef3`, the `Handoff-At` of `implementation/017-existing-items-backlog-m3-implementation.md` (agent-output `e6588c0`). M3's commits are `d9ebe97`, `79144cb`, `536b8e6`, `08124a4` and `3498ef3`. The production diff is `git diff ec984fe 3498ef3 -- src ':!**/__tests__/**'`, because M2's fix commits in that range are test-only.
+- **Tree check**: the branch tip and the shared tree's HEAD were `3498ef3` at round start and end. The tree was clean apart from `.playwright-mcp/`.
+- **Files reviewed**: every row of Files Modified and Files Created.
+- **No running instance**: M3 adds no security boundary, auth gate or irreversible server action. The browser-storage rewrite is reversible by M3-f's revert path. Adversarial execution is not owed.
+
+### Architecture alignment (Round 3)
+
+**Alignment Status**: MINOR_DEVIATIONS, each stated by the implementer:
+- the draft store reads through `withLocalStorage` directly rather than `useLocalStorage` (the plan's "Storage form"; reason: no read-at-call-time). Every write still reads the stored map first (`writeDraft`, `removeDraft` → `readDrafts`), which is the property the plan states.
+- the fetch path removes `Sn` when the fetched copy is shown (CR-8).
+
+The shared `set` changes only where it was wrong for every key: it no longer throws, and it dispatches no event on a refused write (`website.md` A-7 and the plan header name these lines for the architect's closing pass).
+
+### Instruments and reproduction (Round 3)
+
+| Claim under review | Instrument (this round) | Result |
+|---|---|---|
+| "`getMessage`'s newer-local rule unchanged" | Base comparison source: `git grep -n updatedAt ec984fe -- src/providers/MessageProvider` | At base, `useApiMethods` stamps `updatedAt: Date.now()` (client) and `getMessage` compares it with the server's `updatedAt`. At the tip, `editedAt` is `Date.now()` and the same comparison is made. Unchanged, clock skew included. |
+| The legacy `message` key has no other reader; quota is caught for every key | `git grep -nE "withLocalStorage\(\s*'message'…\|getItem\(\s*'message'…" 3498ef3 -- src`; `git grep -nE "localStorage\.setItem\|sessionStorage\.setItem"` | Only `messageDrafts.ts` reads `message`. The only direct writes are `withLocalStorage.set` (now caught) and `tabId`'s `sessionStorage.setItem` (inside `try`). D-23's "every stored setting" holds. |
+| `useBeforeUnload` takes a function for the flag | `node_modules/react-use/lib/useBeforeUnload.js` (17.4.0) | `typeof enabled === 'function' ? enabled() : true` is read at the event. `block && (() => !isLeavingWithoutAlert())` is therefore evaluated per unload. |
+| M3-a's "deep-equal `data` and `name`" and the saved-message restore | Probe mutants at `3498ef3` (`verification/017/code-review/m3/probe-mutants.json`, `probe-mutants-class.json`; `run/`, `run-class/`), over every DOM test in `src/utils` and `src/providers/MessageProvider` (139 cases, control passing) | P1 (route-0 restore drops the draft's `name`) SURVIVED. P2 (it drops embeds) SURVIVED. P4 (`getMessage` drops embeds) SURVIVED. P5, P6 (migration) and P7 (copy-in) were KILLED. See CR-6. |
+| M3-f, evaluated against the old code's reader | P3 (the legacy write carries an `id`, which the old reader `local.id ? copyIntroMessage() : local` turns into the intro message) | SURVIVED. No old-reader run exists in `verification/017/impl/m3/`. See CR-7. |
+| Lint (M7-b) | `convention-check.js website --since=ec984fe` at `3498ef3` (`m3/convention-check-since-ec984fe.out`), and the base whole-tree capture for the two files that carry findings (`m3/lint-base-global-withLocalStorage.out`) | 15 FAIL: `global.d.ts` 13 `no-unused-vars` + 1 `max-len`, and `withLocalStorage.ts` 1 `max-len`. Both equal base rule by rule. The 10 new test files and the other production files have 0 FAILs. |
+| Conventions the checker skipped | ID-token class and comments by hand over `git diff -U0 ec984fe 3498ef3 -- src` | 1018 added lines, 0 comment lines. 1 date-shaped hit, `expires: '2999-01-01'` in a `Session` fixture: data, under the bounded exemption. |
+| The self-check sweep and named mutants | The implementer's captures, read | 58 of 72 killed at `536b8e6`; 9 of the 14 survivors closed by cases at `08124a4`; NM-6, NM-7 ×3, NM-27 and NM-28 ×2 killed. The five equivalence claims hold on reading: 6 (re-arm delay), 7–8 (opaque id), 12 (no-window guard), 14 (`bubbles` on the target). The bound is counted in UTF-16 code units (`JSON.stringify(...).length`), which the plan's "1 MB serialised" leaves open. The plan's reason (serialise and parse cost) is measured in that unit, so this is no finding. |
+
+### TDD compliance (Round 3)
+
+**TDD Table Present**: Yes. **All Rows Complete**: Yes.
+
+Each new module's first row is its compile-time red. The rows added after the sweep say "Written first: No" and name the mutant that closes them, which is the honest form. The self-diagnosis (asserting example inputs, not the property that separates a rule from its near-miss) is accurate, and CR-6 is another member of it.
+
+Every M3-e fixture is a literal stored string, so axiom E holds there. `tdd-check.py` does not apply to TypeScript.
+
 ## Findings
 
 ### Critical
@@ -176,6 +216,41 @@ None
 None
 
 ### Medium
+
+CR-6 MEDIUM Round 3
+**Checks that cannot fail**: the provider's two draft-restore sites are asserted only on `content`, so a restore that loses the draft's `name` or any other part of its `data` passes.
+- **Location**: `src/providers/MessageProvider/index.tsx` at `3498ef3`: the route-0 effect's `makeEditable({ name: draft.name, data: draft.data, updatedAt: draft.editedAt })`, and `getMessage`'s `{ ...message, data: draft.data, name: draft.name, … }`. The cases are in `__tests__/MessageProvider.stored-draft.test.tsx`, whose `content()` helper reads only `data.content`.
+- **Class**: a restore of a stored draft into the editor with no assertion that the restored `data` and `name` equal the stored ones, which M3-a states as "deep-equal `data` and `name`".
+- **Enumeration**: `git grep -nE "draft\.data\|legacy\.data\|drafts\[newest\]" 3498ef3 -- src ':!**/__tests__/**'` gives 10 hits (`verification/017/code-review/m3/cr6-restore-sites.out`).
+  - **Outside the class**: 4 hits. Three are `useApiMethods.ts` :68, :85 and :97, where `draft` is `persist`'s local payload, not a stored draft. One is `index.tsx` :246, a removal predicate, not a restore.
+  - **The class**: 6 hits at 4 sites, each probed by a mutant:
+  - route-0 effect: P1 (`name`) SURVIVED, P2 (embeds) SURVIVED;
+  - `getMessage`: P4 (embeds) SURVIVED;
+  - `readDrafts` migration: P5 and P6 KILLED;
+  - `routeZeroDraftFor` copy-in: P7 KILLED.
+
+  3 members are open, at 2 sites. Blind spot: a field the mutants did not drop (components, flags) is covered only by the same fix, and a restore through a path not named above (none found) is not covered.
+- **Issue**: M3-a, M3-b and M3-e restore drafts users typed. Every provider-level fixture is a content-only `data`, so nothing distinguishes "the draft" from "the draft's content". This is a property M3 relies on with no failing assertion, which is the severity floor (MEDIUM; it blocks hand-off to QA).
+- **Required Action**: tighten the provider cases. Do not add a sibling file.
+  - **Minimum (and sufficient)**:
+    - the route-0 restore cases (M3-a, M3-c) and the saved-message restore cases (M3-b, M3-e) compare the restored `message.data` and `message.name` with the stored draft by `toEqual`;
+    - the fixture property: the draft's `name` differs from every default name (`New Message`, the saved copy's), and its `data` carries at least one field besides `content` (an embed or a component);
+    - the falsity signature: P1, P2 and P4 each fail as an assertion, not a timeout.
+  - **Preferred (structural)**: one fixture constant used by both the write and the expectation's literal, written out in full, never built by `messageDrafts` (axiom E).
+
+CR-7 MEDIUM Round 3
+**Criterion instrument not run**: M3-f is "evaluated at the tip against the old code's reader", but no run of that reader exists. The legacy-key case checks only that the key's content matches.
+- **Location**: `src/utils/messageDrafts.ts` `writeRouteZeroDraft` (`legacyStore().set(message)`) at `3498ef3`; `MessageProvider.stored-draft.test.tsx` "holds the route-0 draft last written, for the code that reads it" (`toMatchObject({ data: { content } })`); `verification/017/impl/m3/`, which holds no old-reader capture.
+- **Class**: a revert-safety property whose stated instrument, the old code's reader, was replaced by a partial transcription of its input.
+- **Enumeration**: one writer of the legacy key (`writeRouteZeroDraft`) and one remover (`removeRouteZeroDraft`), per `git grep -n "legacyStore()" 3498ef3 -- src`. The old reader at `1ad625e` is `MessageProvider/index.tsx`'s route-0 effect `local.id ? copyIntroMessage() : local` over `useLocalMessageStore`, plus `getMessage`'s `localMessage.id === message.id`.
+
+  Probe P3 (the legacy write gains an `id`) SURVIVED. Under it, the old reader would show the intro message and the revert would lose the draft.
+- **Issue**: the plan names the instrument ("against the old code's reader"), and a criterion that names an instrument is met only by running it. The in-suite case cannot see the field the old reader branches on. This is a relied-on property with no failing assertion, so the severity floor applies (MEDIUM; it blocks hand-off).
+- **Required Action**:
+  - **Minimum**:
+    1. In-suite: assert the legacy string's form as the old reader consumes it. That means no `id`, plus `name`, `data` deep-equal to the draft, and `updatedAt`, all as literals. Falsity signature: P3 fails as an assertion.
+    2. The named instrument: mount the `1ad625e` `MessageProvider` at route 0, in a `git archive 1ad625e` export, with `localStorage.message` seeded by the exact string the tip writes (captured from a tip run, not typed). Assert that the restored data equals the draft. Capture the run under `verification/017/impl/m3/` and cite it in the document. That run is the M3-f evidence.
+  - **Preferred (structural)**: none in the source. The old reader lives only in history.
 
 CR-5 MEDIUM Round 2 Duplicates: QAF-17 in qa/017-existing-items-backlog-m2-qa.md
 **Checks that cannot fail**: the guard that lets only a matching broadcast consume a record was never seen red.
@@ -214,6 +289,16 @@ CR-3 MEDIUM Round 2
 - **Carrier**: QA Phase 2 for M2, as part of QAF-16's disposition (`qa/017-existing-items-backlog-m1-qa.md` names QAF-16 as carried to M2's pass). It goes to the implementer if QA routes a fix. It does not hold this verdict.
 
 ### Low/Info
+
+CR-8 LOW Round 3
+**Plan deviation not reconciled**: the fetch path removes a saved message's draft when the fetched copy is shown, where the plan's write matrix says "nothing written".
+- **Location**: `src/providers/MessageProvider/index.tsx` at `3498ef3`, the fetch effect's `removeDraft(fetchedMessage.id)` in the `mostRecent === fetchedMessage` branch. Plan M3 "Write matrix", row "Message *n* opened (fetch)", Sn cell.
+- **Class**: a write the plan's matrix rules out, made without a recorded deviation.
+- **Enumeration**: every `removeDraft` / `writeDraft` / `writeRouteZeroDraft` / `removeRouteZeroDraft` call in `index.tsx` (`git grep -nE "removeDraft\|writeDraft\|RouteZeroDraft" 3498ef3 -- src/providers/MessageProvider/index.tsx`), compared one by one with the matrix. That gives 7 call sites, and 1 departs: this one. Blind spot: writes made through a helper not named in the predicate (none found).
+- **Issue**: the outcome equals base, since at `1ad625e` the fetch overwrote the one key. An `Sn` older than the fetched copy is never shown again under `getMessage`'s rule, so removing it loses nothing reachable. The Reload confirmation relies on it to discard edits.
+
+  But the implementation document lists it as a "design note", not as a departure from a criterion's table, and the matrix's row "Another tab saves *n*: a diverged Sn stays" now holds only until this tab next opens *n*.
+- **Required Action**: record it as a deviation with this reason in the M3 document, for the planner to fold into the matrix at the next revision. Keep the code. Writing "nothing" would leave unreachable entries to the eviction path. `no test` beyond the existing "discards the stored edits and shows the saved copy".
 
 CR-4 LOW Round 2
 **Criterion coverage**: one of M2-a's eleven members has no case and no stated disposition.
@@ -260,6 +345,23 @@ No finding changes a decision. The two above go to their stated carriers.
 
 ## Verdict
 
+**Round 3 (M3 at `3498ef3`) — Status**: REJECTED
+**Rationale**: CR-6 and CR-7 are severity-floor findings, each shown by a surviving mutant:
+- CR-6: the provider restores a draft and no assertion fails when the draft's `name` or non-content `data` is lost (P1, P2, P4);
+- CR-7: M3-f's named instrument, the old code's reader, was never run, and the legacy form it branches on is unasserted (P3).
+
+Both remedies are test-only (and, for CR-7, one captured cross-tree run).
+
+The design is otherwise sound:
+- one writer path per class;
+- reads at write time;
+- quota caught for every key, with no other direct writer;
+- the D-18 exits each mounted;
+- base-equal lint;
+- every equivalence claim holding.
+
+CR-8 is a record line.
+
 **Round 2 (M2 at `ec984fe`) — Status**: REJECTED (reconciled; published as APPROVED_WITH_COMMENTS)
 
 Reconcile, written at the R2-reconcile changelog row: QAF-17 (`qa/017-existing-items-backlog-m2-qa.md`, agent-output `5630f1b`) found a relied-on guard with no failing assertion. That is CR-5, and under the severity floor it blocks hand-off to QA, so the round's verdict moves to REJECTED.
@@ -281,6 +383,11 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Required Actions
 
+- Round 3 (REJECTED), to the implementer:
+  - CR-6: provider restore cases compared by `toEqual` on `data` and `name`, with fixtures carrying a non-default name and a non-content field. P1, P2 and P4 must fail.
+  - CR-7: the legacy-form assertion (P3 must fail), plus the `1ad625e` reader run captured under `verification/017/impl/m3/`.
+  - CR-8: a deviation line in the M3 document.
+  - Return the fix SHA for a scoped Round 3 sub-entry, then QA Phase 2.
 - Round 2 (REJECTED after reconcile):
   - CR-5 must be fixed: QA's QAF-17 case.
   - CR-3, via QAF-16's disposition (Preferred: a real render; no `use` rename); QA ruled it.
@@ -297,7 +404,13 @@ The production change is the deletion of an unreferenced export. The remaining f
   - **If false**: with Pusher delivering, a real two-tab walk shows tab 1 raising "Message Update Detected" for its own save with an edit typed in flight (M2-b fails), while tab 2's notice (M2-c) still shows.
   - **Owner**: UAT, walk B-1 on a local build (plan M2 "Human-observable form"). In production, his B-8 look exercises it only when the in-flight window is hit.
 
+- Round 3: this review assumes that a browser keeps a tab's `sessionStorage` (`messageDraftTab`) across the Discord OAuth round trip and a reload in the same tab, as jsdom models it. If that is false, the tab id changes across sign-in, so the tab's own route-0 entry is not found.
+  - **If false**: on the local-stack walk, after signing in, route 0 shows the most-recently-edited copy-in, or the intro when this tab's draft was not the newest, instead of this tab's own draft. `localStorage.messageDrafts` then holds two `0:` entries for one tab.
+  - **Owner**: UAT, walk B-2 (plan M3 "Human-observable form"). In production, his B-9 look exercises it only when two route-0 drafts exist.
+
 ## Next Steps
+
+- Round 3: to the implementer for CR-6, CR-7 and CR-8. The fix SHA returns here as a Round 3 sub-entry, then goes to QA Phase 2 for M3. UAT B-2 closes the Round 3 assumption.
 
 - Round 2: QA Phase 2 for M2 at `ec984fe` (`qa-hooks-017`), with CR-3 inside QAF-16's disposition. CR-4 goes to the implementer's next document write. UAT B-1 closes the Round 2 assumption.
 

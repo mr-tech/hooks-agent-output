@@ -1,0 +1,148 @@
+{
+ "sha": "3498ef32bc2f0dfa11c0820a5cc74aafb3c89673",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/probe-mutants-class.json",
+ "command": [
+  "node_modules/.bin/vitest",
+  "run",
+  "--no-cache",
+  "--configLoader",
+  "runner",
+  "--config",
+  "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/vitest.probe.config.mjs",
+  "src/utils",
+  "src/providers/MessageProvider"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/probe-mutants-class.json",
+   "blob": "e7a9a11247957004da7edbd08ceefc6b9a4fd07e"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  },
+  {
+   "kind": "argument",
+   "path": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/vitest.probe.config.mjs",
+   "blob": "361b4c895da72529398b7a0339c60a645d6e0618"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run-class/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022218Z-p694245-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run-class/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022218Z-p694245-control-1.stderr",
+   "seconds": 3.33,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 139,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "p4-saved-message-restore-drops-embeds",
+   "run": "mutant-1",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 139,
+   "control_tests_run": 139,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 3.29,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run-class/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022218Z-p694245-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run-class/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022218Z-p694245-mutant-1.stderr"
+  },
+  {
+   "id": "p5-migration-drops-embeds",
+   "run": "mutant-2",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 139,
+   "control_tests_run": 139,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > turns a stored message with no id into this tab's route-0 entry, dated by its own timestamp",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > turns a stored copy of saved message 42 into the entry for 42"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.39,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run-class/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022218Z-p694245-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run-class/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022218Z-p694245-mutant-2.stderr"
+  },
+  {
+   "id": "p6-migration-drops-name",
+   "run": "mutant-3",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 139,
+   "control_tests_run": 139,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > turns a stored message with no id into this tab's route-0 entry, dated by its own timestamp",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > turns a stored copy of saved message 42 into the entry for 42"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.73,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run-class/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022218Z-p694245-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run-class/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022218Z-p694245-mutant-3.stderr"
+  },
+  {
+   "id": "p7-copy-in-drops-embeds",
+   "run": "mutant-4",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 139,
+   "control_tests_run": 139,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.69,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run-class/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022218Z-p694245-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m3/run-class/3498ef32bc2f0dfa11c0820a5cc74aafb3c89673-20261119T022218Z-p694245-mutant-4.stderr"
+  }
+ ],
+ "score": "3 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; probe-mutants-class.json (blob e7a9a11247957004da7edbd08ceefc6b9a4fd07e))"
+}

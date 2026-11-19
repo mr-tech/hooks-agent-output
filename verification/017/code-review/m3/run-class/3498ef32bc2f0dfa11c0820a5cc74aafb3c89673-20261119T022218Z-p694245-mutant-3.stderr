@@ -1,0 +1,53 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > turns a stored message with no id into this tab's route-0 entry, dated by its own timestamp
+AssertionError: expected { Object (data, name, ...) } to deeply equal { Object (data, name, ...) }
+
+- Expected
++ Received
+
+  {
+    "data": {
+      "content": "old draft",
+    },
+    "editedAt": 5,
+-   "name": "Draft",
++   "name": "New Message",
+  }
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:213:36
+    211|     window.localStorage.setItem('message', '{"name":"Draft","updatedAt…
+    212|
+    213|     expect(readDrafts()[tabKey()]).toEqual({ data: { content: 'old dra…
+       |                                    ^
+    214|   });
+    215|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > turns a stored copy of saved message 42 into the entry for 42
+AssertionError: expected { data: { content: 'edited' }, …(2) } to deeply equal { data: { content: 'edited' }, …(2) }
+
+- Expected
++ Received
+
+  {
+    "data": {
+      "content": "edited",
+    },
+    "editedAt": 9,
+-   "name": "Saved",
++   "name": "New Message",
+  }
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:219:32
+    217|     window.localStorage.setItem('message', '{"id":"42","name":"Saved",…
+    218|
+    219|     expect(readDrafts()['42']).toEqual({ data: { content: 'edited' }, …
+       |                                ^
+    220|   });
+    221|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
