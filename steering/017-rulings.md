@@ -783,3 +783,20 @@ ARMED. OOM 0. Usage live: session 8%, `weekly_all` 2%.
   command that included `git -C preview-image-generator log -1 --format=%h`, then refused the same read
   with `--name-only`, a form its message lists. Not re-issued in any other form; the generator tip is
   taken from code review's committed `Reviewed-At`.
+
+## 2026-11-19T08:09Z — M7 reviewed; security APPROVED; an owner item outside 017 held for refutation
+
+Read this turn: code review Round 8, M7 APPROVED_WITH_COMMENTS at website `4b8db9c` (`8bb33d3`, R-42
+`53fe7e0`; CR-19 LOW, a record line, to the implementer); M7 at QA Phase 2. Security
+(`security/017-preview-image-generator-security-audit.md`, agent-output `4ae4825`, header read): pre-release
+gate on generator `8de2b53..8512a1d` APPROVED, no required control; L-001 LOW (the request's `id` reaches
+the logs unescaped; optional remedy, the planner's call under X-4) → Planner batch fold.
+**Owner-needing item from security (its § "Outside the reviewed delta"):** two observations in website
+code no open chain changes, read from code, not run: (1) `message.getOne` lets any signed-in user read
+any personal message by number; (2) `message.upsert` accepts a client `id`, so a user can claim a future
+message number and a later user's new message lands in that row. Security recommends a small follow-up
+chain after 017 releases; neither held 017's release. Before any prompt to him, a `general-purpose-sonnet`
+helper is trying to refute both by execution at website `1ad625e` (production) and `4b8db9c` (output
+`verification/017/steering-refute-access/`). The question goes to him in plain-message form once it
+returns (017 can still move without him).
+Planner fold: held until M7's QA Phase 2 passes (the planner's Resumption State, plan § Resumption State).
