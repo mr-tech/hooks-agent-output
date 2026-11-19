@@ -27,6 +27,7 @@ whose fix round `dd26104` is APPROVED (code review round 2 sub-entry, `fb4c5f3`)
 | 2026-11-19T02:19 | implementer-hooks-017 | Checkpoint at the hand-off seam (context 212K) before M4: Resumption State written; no change to the handed-over tree. |
 | 2026-11-19T02:29 | implementer-hooks-017 | Fix round 1 on code review Round 3 (REJECTED at `3498ef3`: CR-6, CR-7, CR-8), tests only: the provider's restore cases compare name and data whole, the legacy key's form is asserted as literals, the `1ad625e` reader is run on the tip's string, CR-8 recorded as a deviation. Handoff-At moved to `1ab3b96`. |
 | 2026-11-19T02:33 | implementer-hooks-017 | Code review confirmed the fix APPROVED at `1ab3b96`; at its request the tip-side capture test's source added under `verification/017/impl/m3/`. No website change. |
+| 2026-11-19T03:14 | implementer-hooks-017 | M3 is through (QA Phase 2 PASS at `1ab3b96`, `4fe859b`); the Resumption State removed, the live one is in the M4 document. No website change. |
 
 ## Implementation Summary
 
@@ -320,27 +321,5 @@ M5 and M6 wait on OQ-7 and gate M5-0; M7 last.
 
 ## Resumption State
 
-Rewritten at the M3 fix-round seam (code review Round 3 REJECTED `3498ef3`; fix `1ab3b96`). Website branch
-`chain/017-existing-items-backlog`, HEAD `1ab3b96`; the tree is clean apart from the held `.playwright-mcp/`. The record
-commit that carries this text is the one the hand-off message names. M3's first checkpoint (2026-11-19T02:19Z, context
-212K) preceded the review message.
-
-- Done: M3 built, handed to `code-reviewer-hooks-017` at `3498ef3`; REJECTED on CR-6, CR-7, CR-8; fixed at `1ab3b96`
-  (tests only, Fix Round 1 above); the fix SHA is handed back to `code-reviewer-hooks-017` for a scoped Round 3 sub-entry,
-  then QA Phase 2 for M3. Awaited: that sub-entry and QA's verdict; a further finding comes back as another fix round on
-  this document. `steering-roadmap` was told M3 was built and M4 starts; it asked for no further status messages.
-- Next: M4. Read plan M4 (`planning/017-existing-items-backlog.md`, § M4, M4-a to M4-d, X-14) and QA § M4 (`qa/017-existing-items-backlog-qa.md`,
-  NM-8, NM-9, NM-24, NM-25) first, then open the M4 implementation document under the `-m4-implementation` name (copy ID, Origin, UUID from the
-  plan; stage start is covered by the rulings block for M1 to M4, D-12 and D-20). M4 is user-visible: record one line per
-  flow, and message `steering-roadmap` only the flows that hold a decision (none expected: D-12, D-20 decide the dialog and
-  the layout). M4's first step is the class re-derivation from three listings (`next/link` importers, `StyledLink`
-  importers, string `onPress` items) written into the document. M4-c removes `next/router` from production source
-  (`useUnloadAlert.ts` keeps only `useBeforeUnload`; M3's `useUnloadAlert.act-suppression` test mocks `next/router`, which that
-  removal will make unnecessary). After M4, tell `steering-roadmap` that M1 to M4 are through (the devops probe push for OQ-7).
-  M5 and M6 wait on OQ-7 and gate M5-0; M7 last.
-- Scratch: this session's exports and the older sessions' loose files and clones are removed. No process of mine is left
-  running (`pstree` shows only the claude process). Nothing locally mutated and unrestored.
-- Cache-warm wakes `d27f4c05` and `dc5b1602` are both deleted (the second at the fix-round checkpoint, context past
-  225K); arm again on the next briefed turn.
-- Record tools: `check-repo.js` passed at the fix commit; the record-write gate refused one scripted edit earlier in the run
-  and the Edit tool was used instead (disclosed in the round).
+Removed at the M4 checkpoint: M3 is through (code review APPROVED at `1ab3b96`, QA Phase 2 PASS at `1ab3b96`, `qa/017-existing-items-backlog-m3-qa.md`
+at `4fe859b`). The live Resumption State is in `implementation/017-existing-items-backlog-m4-implementation.md`.

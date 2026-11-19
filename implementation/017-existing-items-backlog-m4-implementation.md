@@ -26,6 +26,7 @@ code review APPROVED at `1ab3b96`, QA Phase 2 for M3 still running at this write
 | 2026-11-19T02:46 | implementer-hooks-017 | The class re-derivation found two same-tab external links Next's `onNavigate` never reaches (NavMenu "Invite Bot", the `/send` bot-invite `InfoPanel` link); asked `steering-roadmap`, answered by `steering/017-rulings.md` block 2026-11-19T02:43Z (`ed584ba`): not put to the owner, the mechanism is mine, record the departure from M4-a as a deviation. |
 | 2026-11-19T03:05 | implementer-hooks-017 | M4 built and committed at website `aa33701`; full suite 1679 of 1679, exit 0; typecheck exit 0. |
 | 2026-11-19T03:13 | implementer-hooks-017 | Self-check sweep over `1ab3b96..aa33701` (39 of 40 killed), QA's named mutants NM-8, NM-9, NM-24, NM-25 run (4 of 4 killed), convention-check CANDIDATEs (four fixed waits) removed at `de06d95`, tests only. Full suite 1690 of 1690, exit 0; typecheck exit 0. Handed to code review at `de06d95`. |
+| 2026-11-19T03:14 | implementer-hooks-017 | Checkpoint at the hand-off seam (context 370K, steering's word): Resumption State written; no change to the handed-over tree. |
 
 ## Implementation Summary
 
@@ -256,5 +257,29 @@ No timeout or time-based test was added to the standing suite; the closing trans
 
 ## Next Steps
 
-Code review (`code-reviewer-hooks-017`) at website `aa33701` (M4 range `1ab3b96..aa33701`), then QA Phase 2 for M4. After M4, tell
+Code review (`code-reviewer-hooks-017`) at website `de06d95` (M4 range `1ab3b96..de06d95`), then QA Phase 2 for M4. After M4, tell
 `steering-roadmap` that M1 to M4 are through (the devops probe push for OQ-7). M5 and M6 wait on OQ-7 and gate M5-0; M7 last.
+
+## Resumption State
+
+Written at the M4 hand-off checkpoint (steering's word, context 370K). Website branch `chain/017-existing-items-backlog`, HEAD
+`de06d95`; the tree is clean apart from the held `.playwright-mcp/`. M3 is through (code review APPROVED and QA Phase 2 PASS at
+`1ab3b96`); its Resumption State was removed.
+
+- Done: M4 built (`aa33701`), tests tidied (`de06d95`), self-check sweep (39 of 40; the survivor is equivalent), QA's NM-8, NM-9,
+  NM-24, NM-25 killed, suite 1690 of 1690 exit 0, typecheck exit 0, convention check 0 FAIL / 0 CANDIDATE; this document and the
+  captures committed (agent-output `e5d520a`); handed to `code-reviewer-hooks-017` and `steering-roadmap` told (messages sent
+  03:13Z, no reply yet).
+- Awaited: code review's verdict at `de06d95`, then QA Phase 2 for M4. A finding comes back as a fix round on this document:
+  read the review, tighten the covering test or fix the code red-first, re-run the sweep over that round's diff and the named mutants
+  whose guard it touches (`m4/aa33701-named-mutants-edits.json`, `m4/mutate-edits.py`; export a `git archive` of the new tip and link
+  `node_modules`), record the Class Sweep rows, move `Handoff-At`, commit, hand back to the reviewer.
+- Next after M4 passes both gates: tell `steering-roadmap` that M1 to M4 are through (devops probe push for OQ-7). M5 and M6 wait on OQ-7
+  (plan M5-0); M7 last. Read plan M5, then QA § M5, before any M5 code.
+- Questions sent: none open. The external-link question was answered (rulings 02:43Z). For the planner's batch, already sent to
+  `steering-roadmap`: M4-d table corrections, M4-a wording, M3's CR-8 write-matrix deviation.
+- Scratch: the mutation exports and work directories are removed; the test tree has no scratch files; no process of mine is left
+  running. Nothing locally mutated and unrestored.
+- Cache-warm wake `87d3142b` deleted at this checkpoint; arm again on the next briefed turn.
+- Record tools: `check-repo.js` passes for my documents; its one failure is QA's (`qa/017-existing-items-backlog-qa.md:643`,
+  HEADING-STAMP), noted by steering. The record-write gate refused one `sed -i` this run; the Edit tool was used.
