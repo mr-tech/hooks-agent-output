@@ -2,7 +2,7 @@
 ID: n/a
 Origin: fix-personal-message-access
 UUID: 1b613853
-Reviewed-At: ed88e7cecc3cdcd06d810dc65caaaa6f68798641 — repos=website; Round 1 raised at d597734, sub-entry 1a at 12bcd75, sub-entry 1b at ed88e7c
+Reviewed-At: 75f1543ce352ae9ae08bb2a34d8bafa1d653e6dd — repos=website; Round 1 raised at d597734, 1a at 12bcd75, 1b at ed88e7c, 1c at 75f1543 (test-only; production identical to ed88e7c)
 Status: In Review
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
@@ -26,6 +26,7 @@ record `2af7391`).
 | 2026-11-19T23:09 | steering (`e908744`, block 23:09Z) | Routing of CR-2 to CR-5 | CR-2 is in scope, and the fixer takes it with CR-1 (production lines). CR-3 goes to a handoff steering writes. CR-4 goes to a handoff owned by the architect, triggered at release. CR-5 is the fixer's choice, stated by the CR-1 test. The Assumption Not Checked owners are confirmed. The fix confirmation remains a sub-entry of Round 1, since CR-1 and CR-2 are both this round's findings. |
 | 2026-11-19T23:16 | fixer (`ca0e7de`, website `12bcd75`) | Round 1 sub-entry 1a: fix confirmation | CR-1, CR-2 and CR-5 are fixed; their fixes are this round's findings, so this is a sub-entry and not a new round. Attack 187/187 at `12bcd75`. The id-bound probe found CR-6 LOW: `messageIdShape.safeParse` throws on non-digits, while the router refuses `BAD_REQUEST` before the resolver either way. APPROVED_WITH_COMMENTS; handed to QA Phase 2 (116 production lines). |
 | 2026-11-19T23:23 | fixer (`100c406`, website `ed88e7c`) | Round 1 sub-entry 1b: CR-6 confirmation | CR-6 is fixed; its class is gone. Probe 24/24, attack 187/187 and the convention check report 0 FAIL at `ed88e7c`. APPROVED_WITH_COMMENTS stands at `ed88e7c`; delivered to steering for QA Phase 2. |
+| 2026-11-19T23:50 | steering (QA `0ed724b`, website `75f1543`) | Round 1 sub-entry 1c: test-only delta | QA's QAF-1 cases: production is byte-identical to `ed88e7c`, and the tests conform. APPROVED_WITH_COMMENTS stands at `75f1543`. Capture paths are written in full (check-repo LINKS). |
 
 ## Scope of this round
 
@@ -120,11 +121,11 @@ fixer's.
   - no Pusher channel and no S3 input names A's number.
 - **Positive controls** (the oracle fires on a real change): A's own save changes the snapshot; A's leading-zero delete removes the row
   and clears `previews/<canonical>/`; A's `getOne` carries A's text.
-- **Calibration** (`code-review/calibration/`):
+- **Calibration** (`verification/fix-personal-message-access/code-review/calibration/`):
   - `787bec5`: 187 cases, 52 failed. Every defect class in scope is red: `getOne` leak; save, recent-data and delete without a write
     owner term; browser-chosen number; the leading-zero preview prefix; the hydrated list.
   - `2e50cd9`: 4 failed, exactly the delete-past-the-check cases that the 22:59Z ruling brought into scope.
-- **Result at `d597734`: 187 of 187 passed, vitest exit 0** (`code-review/run-d597734/attack-d597734.{json,exit}`). No container was left
+- **Result at `d597734`: 187 of 187 passed, vitest exit 0** (`verification/fix-personal-message-access/code-review/run-d597734/attack-d597734.{json,exit}`). No container was left
   (`docker ps -a | grep -c fpma-cr` returned 0).
 - **Not driven:**
   - The HTTP adapter and the NextAuth session that supplies `session.user.id`. The attack injects the session (Assumption Not Checked).
@@ -250,7 +251,7 @@ CR-5 INFO Round 1
 - `deleteOwnedMessage` clears previews only when a row was removed.
 - `getUserRecentMessages` takes `user.id`. The same callback already uses `user.id` as `userDbId` for `redis.fetchUserAccount`, so it is
   the `Users` row id that `fk_users_id` references.
-- Comments: the convention check reports 0 FAIL and 0 CANDIDATE (`code-review/run-d597734/convention-check.txt`). The ID-token check
+- Comments: the convention check reports 0 FAIL and 0 CANDIDATE (`verification/fix-personal-message-access/code-review/run-d597734/convention-check.txt`). The ID-token check
   SKIPs and is unchecked by the tool.
 - Removing the dead `message && hashMessage(message);` is sound.
 - `updated && message.id`: the second term is needed for type narrowing and is not redundant.
@@ -289,7 +290,7 @@ Nothing is touched beyond the findings' scope, so no new round opens. The tree w
   - `partialMessageShape.id` (`user.updatePreferences`'s draft, with CR-3's handoff);
   - `idMessageShape.id` (commented-out use only).
 
-My probe (`code-review/id-bound.probe.test.ts`, driven by `run-probe.sh`; captures in `code-review/run-12bcd75/`) has literal expected
+My probe (`verification/fix-personal-message-access/code-review/id-bound.probe.test.ts`, driven by `run-probe.sh`; captures in `verification/fix-personal-message-access/code-review/run-12bcd75/`) has literal expected
 values, with int8 max at 2^63−1.
 - `d597734`: 19 cases, 5 failed. Every beyond-int8 form was accepted. This is the positive control.
 - `12bcd75`, at the shape: `9223372036854775807` and `…806` are accepted; every beyond-int8 form and every 20-character form is
@@ -298,8 +299,8 @@ values, with int8 max at 2^63−1.
   inputs are `1e3`, `１`, `9.00000000000101e14`, `9223372036854775808` and `abc`.
 - At the shape, `1e3` and `１` failed. That is CR-6.
 
-Attack instrument at `12bcd75`: **187 of 187, vitest exit 0** (`code-review/run-12bcd75/attack-12bcd75.{json,exit}`). No `fpma-cr`
-container was left. Convention check `--since=787bec5`: 0 FAIL, 0 CANDIDATE (`code-review/run-12bcd75/convention-check.txt`).
+Attack instrument at `12bcd75`: **187 of 187, vitest exit 0** (`verification/fix-personal-message-access/code-review/run-12bcd75/attack-12bcd75.{json,exit}`). No `fpma-cr`
+container was left. Convention check `--since=787bec5`: 0 FAIL, 0 CANDIDATE (`verification/fix-personal-message-access/code-review/run-12bcd75/convention-check.txt`).
 
 CR-6 LOW Round 1
 
@@ -330,11 +331,11 @@ CR-6 LOW Round 1
 | ID | Disposition | Captured check |
 |---|---|---|
 | CR-1 | Fixed: the class is gone | `MessageProvider.save-new-number.test.tsx`; controls `editor-move-dropped`, `editor-move-inverted` |
-| CR-2 | Fixed at the router: the class is gone | `message.personal-ownership.test.ts` "the message number each procedure takes"; `code-review/id-bound.probe.test.ts` |
+| CR-2 | Fixed at the router: the class is gone | `message.personal-ownership.test.ts` "the message number each procedure takes"; `verification/fix-personal-message-access/code-review/id-bound.probe.test.ts` |
 | CR-3 | Routed: handoff written by steering (block 23:09Z) | no test |
 | CR-4 | Routed: handoff, owned by the architect, at release (block 23:09Z) | no test |
 | CR-5 | Fixed: the fixer chose to drop the draft | `MessageProvider.save-new-number.test.tsx`; control `old-number-draft-kept` |
-| CR-6 | Fixed at sub-entry 1b (`ed88e7c`): the class is gone | `shapes.message-id.test.ts`; `code-review/id-bound.probe.test.ts` |
+| CR-6 | Fixed at sub-entry 1b (`ed88e7c`): the class is gone | `shapes.message-id.test.ts`; `verification/fix-personal-message-access/code-review/id-bound.probe.test.ts` |
 
 **Verdict (sub-entry 1a): APPROVED_WITH_COMMENTS at `12bcd75`.** The ownership property holds under adversarial execution, and every
 round-1 finding that held the tree is fixed with a control seen failing.
@@ -351,25 +352,46 @@ Steering ruled CR-6 in at block 23:17Z (`44d13e7`). The tree was read at `ed88e7
 **CR-6: the class is gone.**
 - Sweep re-run: `git grep -n -E "\.regex\([^)]*\)\s*$" ed88e7c -- src ':!**/__tests__/**'` gives 1 hit, `messageIdShape`. Its parse is
   now a `transform`, which zod 3 does not run on a dirty parse.
-- My probe (`code-review/run-ed88e7c/probe-ed88e7c.json`): **24 of 24** pass. At `12bcd75` the same probe failed 2, on `1e3` and `１`.
+- My probe (`verification/fix-personal-message-access/code-review/run-ed88e7c/probe-ed88e7c.json`): **24 of 24** pass. At `12bcd75` the same probe failed 2, on `1e3` and `１`.
   - `safeParse` no longer throws on any refused form.
   - int8 max is accepted and every beyond-int8 form is refused.
   - Through tRPC's input middleware, all five forms are refused `BAD_REQUEST` with no resolver run.
 - The fixer's red at `12bcd75` fails 3 of 13 with `SyntaxError: Cannot convert … to a BigInt`, and its five controls are KILLED (record
   `100c406`, Test "Round 4").
-- Captured check: `src/server/api/utils/__tests__/shapes.message-id.test.ts`, and `code-review/id-bound.probe.test.ts`.
+- Captured check: `src/server/api/utils/__tests__/shapes.message-id.test.ts`, and `verification/fix-personal-message-access/code-review/id-bound.probe.test.ts`.
 
 **Also checked:**
 - Test placement and name: `shapes.message-id` passes the positive form, with no ID token.
-- Attack instrument: **187 of 187, exit 0** (`code-review/run-ed88e7c/attack-ed88e7c.{json,exit}`). No `fpma-cr` container was left.
-- Convention check `--since=787bec5`: 0 FAIL, 0 CANDIDATE (`code-review/run-ed88e7c/convention-check.txt`).
+- Attack instrument: **187 of 187, exit 0** (`verification/fix-personal-message-access/code-review/run-ed88e7c/attack-ed88e7c.{json,exit}`). No `fpma-cr` container was left.
+- Convention check `--since=787bec5`: 0 FAIL, 0 CANDIDATE (`verification/fix-personal-message-access/code-review/run-ed88e7c/convention-check.txt`).
 
 **Verdict (sub-entry 1b): APPROVED_WITH_COMMENTS at `ed88e7c`.** No finding is open. The comments are the routed CR-3 and CR-4 handoffs
 and the Assumption Not Checked.
 
+## Round 1, sub-entry 1c — test-only delta at `75f1543`
+
+The scope is `ed88e7c..75f1543`: QA's commit, which closes QAF-1 (`qa/fix-personal-message-access-qa.md`, record `0ed724b`). It adds 34
+lines to `message.personal-ownership.test.ts` and nothing else (`git diff --numstat`).
+
+- **Production identity:** `git diff --quiet ed88e7c 75f1543 -- src ':!**/__tests__/**'` exits 0. Every verdict quantity above (the
+  attack, the probe, the controls) therefore carries to `75f1543` unchanged, and was not re-run.
+- **Tests, reviewed beside the code they cover:** the four new cases are another signed-in user naming the owner's personal number to
+  `upsert` (personal and server path), `updateRecentMessageData` and `delete`.
+  - Each case asserts the `NOT_FOUND` refusal, and also that no `Messages` write, no Pusher channel and no S3 input occurred. The
+    expected values are literals or empty lists.
+  - That matches the router at `75f1543`. On the personal path, `authorizeUser` refuses a row whose `fk_users_id` differs. On the server
+    path, `authorizeGuildUser`'s `getOldMessages` refuses a row whose server differs, here a personal row.
+  - Titles carry no ID token, and the file is unchanged in name and place.
+- **Convention check** `--since=787bec5`: 0 FAIL, 0 CANDIDATE
+  (`verification/fix-personal-message-access/code-review/run-75f1543/convention-check.txt`).
+- **Record fix:** check-repo's one LINKS failure was a short capture path of mine on this document (sub-entry 1b). Every capture path
+  here is now written from the record root.
+
+**Verdict (sub-entry 1c): APPROVED_WITH_COMMENTS at `75f1543`.**
+
 ## Verdict
 
-**Status**: APPROVED_WITH_COMMENTS at `ed88e7c` (sub-entry 1b). It was APPROVED_WITH_COMMENTS at `12bcd75` (1a) and REJECTED at `d597734`.
+**Status**: APPROVED_WITH_COMMENTS at `75f1543` (sub-entry 1c; production identical to `ed88e7c`, sub-entry 1b). It was APPROVED_WITH_COMMENTS at `12bcd75` (1a) and REJECTED at `d597734`.
 **Rationale**:
 - The ownership property holds at `d597734` under adversarial execution: 187/187, every in-scope defect red at base, and the
   check-bypassed mode green.
@@ -393,6 +415,8 @@ session through `createCaller`.
 - That check exercises the path only once the website `master` release is serving: the owner's Vercel production deploy.
 
 ## Next Steps
+
+- **At sub-entry 1c:** delivered to steering at `75f1543`.
 
 - **At sub-entry 1b:** delivered to steering, which spawns QA Phase 2 at `ed88e7c` (block 23:17Z). CR-6 is closed.
 
