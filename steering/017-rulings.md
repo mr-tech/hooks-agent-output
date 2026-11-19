@@ -452,3 +452,29 @@ re-keyed to revision 4 with no finding (`qa/017-existing-items-backlog-qa.md`, `
   no tracked change; the switch moved no file (same commit), so it is held, untouched. Lockfile identical
   across the switch (same commit). Generator branch: devops names it (plan § Plan), before M6.
 - `implementer-hooks-017` spawned (brief `steering/backlog-2026-11-18-briefs/implementer-hooks-017.md`).
+
+## 2026-11-19T02:43Z — M4's external same-tab links: answered by D-12 and M4-b/M4-d, not put to him
+
+`implementer-hooks-017` asked (message, 02:4xZ) what M4 does about the two same-tab external links on
+`/send` (NavMenu "Invite Bot", the `/send` bot-invite `InfoPanel` link), which Next's `<Link onNavigate>`
+does not reach for a non-local href (its claim, read at website `1ab3b96`; not re-derived here — code
+review and QA verify it). Options it put: (a) known limit beside X-14, code nothing; (b) a second
+interception in `StyledLink` for a plain click on a non-local same-tab link, same confirmation;
+(c) mount `useUnloadAlert(hasChanged)` on `/send` (browser prompt, also on close/reload).
+**Not put to him: his ruling's words answer it** (steering.md, Prompting the owner). D-12, chosen
+"Agent: warn on link clicks (Recommended)", shown: "Warn when someone clicks a link away from an editor
+with unsaved changes, for everyone … and record the navigations that can't be stopped as a known
+limit." These links can be stopped (the implementer's own (b) and (c) stop them), so they are not X-14's
+kind. Plan revision 4 M4-d's class is "every link rendered on `/message/m/[id]/edit` or `/send` whose
+activation navigates the current tab to a destination other than this message's `/edit` or `/send`" —
+these are members — and M4-b requires "for every link in M4-d's class … shows the confirmation first".
+So (a) narrows his ruling and is not open without him; (c)'s browser prompt is not M4-b's confirmation
+and adds a close/reload prompt on `/send` that no ruling asked for. The mechanism that meets M4-b for
+these members is the implementer's (a design choice inside the agreed scope, Standing Default); a
+departure from M4-a's parenthetical "the one interception Next 16.1.6 offers, AN-2" is recorded in its
+document as a deviation with its reason. M4-d's table corrections it reports (`/support` has newTab, so
+not a member; `InfoPanel` has a member on `/send`) go into its tip re-derivation (M4-d's own step) and
+to the planner's Planner batch for the plan's table and M4-a's text. A refuting helper was started and
+stopped unused (no prompt was put); its scratch export removed. This thread's error disclosed: its first
+write of this block was a shell heredoc, refused by record-write-gate-hook; re-issued with the Edit tool.
+Recipients: `implementer-hooks-017`; the planner at the batch brief.
