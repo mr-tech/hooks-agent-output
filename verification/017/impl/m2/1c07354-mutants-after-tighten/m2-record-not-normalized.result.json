@@ -1,0 +1,19 @@
+{
+ "mutant": {
+  "name": "m2-record-not-normalized",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "line": 31,
+  "old": "hashOf(payload)",
+  "new": "hashMessage(payload as never)",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "MessageProvider, the saving tab and its own save the broadcast arrives before the response raises no notice for a save that carries a field the server drops, when an edit follows Save",
+  "MessageProvider, the saving tab and its own save the broadcast arrives after the response raises no notice for a save that carries a field the server drops, when an edit follows Save"
+ ],
+ "verdict": "killed"
+}

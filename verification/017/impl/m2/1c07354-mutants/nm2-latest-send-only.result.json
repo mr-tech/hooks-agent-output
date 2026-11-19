@@ -1,0 +1,21 @@
+{
+ "mutant": {
+  "name": "nm2-latest-send-only",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "line": 31,
+  "old": "recordsRef.current.push(hashOf(payload));",
+  "new": "recordsRef.current = [hashOf(payload)];",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "MessageProvider, the saving tab and its own save the broadcast arrives before the response raises no notice for either of two saves in flight when edits follow the second",
+  "MessageProvider, the saving tab and its own save the broadcast arrives after the response raises no notice for either of two saves in flight when edits follow the second",
+  "MessageProvider, the saving tab and its own save raises no notice for two identical saves, their broadcasts, and an edit after the second",
+  "useApiMethods saveMessage, the record of the tab's own save records one hash for a message that has an id"
+ ],
+ "verdict": "killed"
+}

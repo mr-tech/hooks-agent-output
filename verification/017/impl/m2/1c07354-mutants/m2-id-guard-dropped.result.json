@@ -1,0 +1,18 @@
+{
+ "mutant": {
+  "name": "m2-id-guard-dropped",
+  "file": "src/providers/MessageProvider/useApiMethods.ts",
+  "line": 74,
+  "old": "if (payload.id) ",
+  "new": "if (true) ",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "useApiMethods saveMessage, the record of the tab's own save records nothing for a message that has no id yet"
+ ],
+ "verdict": "killed"
+}

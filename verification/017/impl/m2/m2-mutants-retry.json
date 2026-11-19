@@ -1,0 +1,35 @@
+[
+ {
+  "name": "nm2-latest-send-only",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "line": 31,
+  "old": "recordsRef.current.push(hashOf(payload));",
+  "new": "recordsRef.current = [hashOf(payload)];",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts"
+  ]
+ },
+ {
+  "name": "nm3-set-not-per-send",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "line": 31,
+  "old": "recordsRef.current.push(hashOf(payload));",
+  "new": "if (!recordsRef.current.includes(hashOf(payload))) recordsRef.current.push(hashOf(payload));",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts"
+  ]
+ },
+ {
+  "name": "m2-record-not-normalized",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "line": 31,
+  "old": "hashOf(payload)",
+  "new": "hashMessage(payload as never)",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts"
+  ]
+ }
+]

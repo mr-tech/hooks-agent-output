@@ -1,0 +1,11 @@
+nm2-latest-send-only SKIP: old text occurs 0 times on line 28
+nm3-set-not-per-send SKIP: old text occurs 0 times on line 28
+nm4-record-kept-after-broadcast exit 1 failed cases 1 killed
+nm5-current-clause-dropped exit 1 failed cases 1 killed
+m2-record-not-normalized SKIP: old text occurs 0 times on line 28
+m2-id-guard-dropped exit 1 failed cases 1 killed
+m2-failed-save-record-kept exit 1 failed cases 1 killed
+m2-own-clause-dropped exit 1 failed cases 5 killed
+nm2-latest-send-only exit 1 failed cases 4 killed
+nm3-set-not-per-send exit 1 failed cases 1 killed
+m2-record-not-normalized exit 0 failed cases 0 SURVIVED

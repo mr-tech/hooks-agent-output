@@ -1,0 +1,22 @@
+{
+ "mutant": {
+  "name": "m2-own-clause-dropped",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "line": 66,
+  "old": "ownSaveIndex < 0 && hash !== ",
+  "new": "hash !== ",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "MessageProvider, the saving tab and its own save the broadcast arrives before the response raises no notice when an edit is typed after Save and before the broadcast arrives",
+  "MessageProvider, the saving tab and its own save the broadcast arrives before the response raises no notice for either of two saves in flight when edits follow the second",
+  "MessageProvider, the saving tab and its own save the broadcast arrives after the response raises no notice when an edit is typed after Save and before the broadcast arrives",
+  "MessageProvider, the saving tab and its own save the broadcast arrives after the response raises no notice for either of two saves in flight when edits follow the second",
+  "MessageProvider, the saving tab and its own save raises no notice for two identical saves, their broadcasts, and an edit after the second"
+ ],
+ "verdict": "killed"
+}

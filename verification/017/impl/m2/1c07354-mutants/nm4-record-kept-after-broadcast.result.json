@@ -1,0 +1,18 @@
+{
+ "mutant": {
+  "name": "nm4-record-kept-after-broadcast",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "line": 65,
+  "old": "splice(ownSaveIndex, 1)",
+  "new": "splice(ownSaveIndex, 0)",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "MessageProvider, the saving tab and its own save raises the notice when another tab saves content this tab sent earlier and has already seen broadcast"
+ ],
+ "verdict": "killed"
+}

@@ -1,0 +1,16 @@
+{
+ "mutant": {
+  "name": "m2-record-not-normalized",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "line": 31,
+  "old": "hashOf(payload)",
+  "new": "hashMessage(payload as never)",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts"
+  ]
+ },
+ "exit": 0,
+ "failed": [],
+ "verdict": "SURVIVED"
+}

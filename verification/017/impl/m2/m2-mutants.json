@@ -1,0 +1,90 @@
+[
+ {
+  "name": "nm2-latest-send-only",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "line": 31,
+  "old": "recordsRef.current.push(hashOf(payload));",
+  "new": "recordsRef.current = [hashOf(payload)];",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts"
+  ]
+ },
+ {
+  "name": "nm3-set-not-per-send",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "line": 31,
+  "old": "recordsRef.current.push(hashOf(payload));",
+  "new": "if (!recordsRef.current.includes(hashOf(payload))) recordsRef.current.push(hashOf(payload));",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts"
+  ]
+ },
+ {
+  "name": "nm4-record-kept-after-broadcast",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "line": 65,
+  "old": "splice(ownSaveIndex, 1)",
+  "new": "splice(ownSaveIndex, 0)",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts"
+  ]
+ },
+ {
+  "name": "nm5-current-clause-dropped",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "line": 66,
+  "old": "ownSaveIndex < 0 && hash !== hashMessage(normalizeForHash(messageRef.current))",
+  "new": "ownSaveIndex < 0",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts"
+  ]
+ },
+ {
+  "name": "m2-record-not-normalized",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "line": 31,
+  "old": "hashOf(payload)",
+  "new": "hashMessage(payload as never)",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts"
+  ]
+ },
+ {
+  "name": "m2-id-guard-dropped",
+  "file": "src/providers/MessageProvider/useApiMethods.ts",
+  "line": 74,
+  "old": "if (payload.id) ",
+  "new": "if (true) ",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts"
+  ]
+ },
+ {
+  "name": "m2-failed-save-record-kept",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "line": 250,
+  "old": "forgetOwnSave(ownSaveRecordsRef, sent);",
+  "new": "void sent;",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts"
+  ]
+ },
+ {
+  "name": "m2-own-clause-dropped",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "line": 66,
+  "old": "ownSaveIndex < 0 && hash !== ",
+  "new": "hash !== ",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts"
+  ]
+ }
+]
