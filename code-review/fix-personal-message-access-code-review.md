@@ -2,10 +2,10 @@
 ID: n/a
 Origin: fix-personal-message-access
 UUID: 1b613853
-Reviewed-At: d597734859bb58e184cd7f218708382e46aa1589 — repos=website
+Reviewed-At: 12bcd754dd1cb5737cb5e8246088497f75296a6e — repos=website; Round 1 raised at d597734, confirmed at 12bcd75 (sub-entry 1a)
 Status: In Review
 Round: 1
-Verdict: REJECTED
+Verdict: APPROVED_WITH_COMMENTS
 ---
 
 # Code Review: fix-personal-message-access
@@ -24,6 +24,7 @@ record `2af7391`).
 |------|---------------|---------|---------|
 | 2026-11-19T23:08 | fixer (`98a103e`, website `d597734`) | Round 1 code review | Round 1: REJECTED on CR-1 (MEDIUM, severity floor: the editor's move to a server-assigned number, which the fix now relies on, has no assertion). Ownership attacks: 187 of 187 hold at `d597734`. CR-2 to CR-5 are LOW/INFO, routed in Next Steps. The steering hold at `2e50cd9` was honoured; no verdict was given at that SHA. |
 | 2026-11-19T23:09 | steering (`e908744`, block 23:09Z) | Routing of CR-2 to CR-5 | CR-2 is in scope, and the fixer takes it with CR-1 (production lines). CR-3 goes to a handoff steering writes. CR-4 goes to a handoff owned by the architect, triggered at release. CR-5 is the fixer's choice, stated by the CR-1 test. The Assumption Not Checked owners are confirmed. The fix confirmation remains a sub-entry of Round 1, since CR-1 and CR-2 are both this round's findings. |
+| 2026-11-19T23:16 | fixer (`ca0e7de`, website `12bcd75`) | Round 1 sub-entry 1a: fix confirmation | CR-1, CR-2 and CR-5 are fixed; their fixes are this round's findings, so this is a sub-entry and not a new round. Attack 187/187 at `12bcd75`. The id-bound probe found CR-6 LOW: `messageIdShape.safeParse` throws on non-digits, while the router refuses `BAD_REQUEST` before the resolver either way. APPROVED_WITH_COMMENTS; handed to QA Phase 2 (116 production lines). |
 
 ## Scope of this round
 
@@ -253,9 +254,93 @@ CR-5 INFO Round 1
 - Removing the dead `message && hashMessage(message);` is sound.
 - `updated && message.id`: the second term is needed for type narrowing and is not redundant.
 
+## Round 1, sub-entry 1a — fix confirmation at `12bcd75`
+
+The scope is the fix diff `d597734..12bcd75`:
+- `5d9678d`: the CR-1 tests, test only;
+- `12bcd75`: CR-2, the int8 bound with `getOne` on `messageIdShape`; and CR-5, the draft under the held number dropped, per steering
+  block 23:09Z (`e908744`).
+
+Nothing is touched beyond the findings' scope, so no new round opens. The tree was read at `12bcd75` and re-verified at the end
+(`git rev-parse chain/fix-personal-message-access`).
+
+**CR-1: the class is gone.** `MessageProvider.save-new-number.test.tsx` mounts the real provider.
+- "moves the editor to the new number…" asserts `replace('/message/m/<M>/edit')` once.
+- "keeps the editor where it is…" asserts no `replace` for the held number.
+- The CR-1 control was read from the fixer's own streams, not from the document. `negative-controls-12bcd75/…mutant-1.stdout` shows
+  `editor-move-dropped` failing on `AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times`. That is an assertion
+  failure, not a timeout.
+- Captured check: that test file, with the controls `editor-move-dropped` and `editor-move-inverted` in
+  `negative-controls-round3.mutants.json`.
+
+**CR-5: the class is gone.** The draft branch now keys on the number the editor holds (`removeDraft(message.id, …)`).
+- The "drops the draft held under the old number…" case is killed by `old-number-draft-kept`:
+  `AssertionError: expected [ '900000000000101' ] to not include '900000000000101'` (mutant-3).
+- The old branches are unchanged for `msg.id === message.id` and for route 0.
+- Captured check: the same file.
+
+**CR-2: the class is gone at the router.** Sweep re-run at `12bcd75`:
+- `git grep -n -E "\[0-9\]\+\\$/|\[0-9\]\{1,19\}" 12bcd75 -- src/server src/app ':!**/__tests__/**'` gives 1 hit, `messageIdShape`.
+- `git grep -n "messageIdShape" 12bcd75 -- src ':!**/__tests__/**'` shows that `getOne`, `delete`, `recentMessageDataShape` and
+  `optionalIdMessageShape` all use it. The inline `getOne` regex is gone.
+- Blind spot: `git grep -n -E "id: z\.string\(\)"` gives 3 hits that are not message-number inputs of these procedures:
+  - `emojiShape.id`;
+  - `partialMessageShape.id` (`user.updatePreferences`'s draft, with CR-3's handoff);
+  - `idMessageShape.id` (commented-out use only).
+
+My probe (`code-review/id-bound.probe.test.ts`, driven by `run-probe.sh`; captures in `code-review/run-12bcd75/`) has literal expected
+values, with int8 max at 2^63−1.
+- `d597734`: 19 cases, 5 failed. Every beyond-int8 form was accepted. This is the positive control.
+- `12bcd75`, at the shape: `9223372036854775807` and `…806` are accepted; every beyond-int8 form and every 20-character form is
+  refused.
+- `12bcd75`, through tRPC 11.10's real input middleware: 5 of 5 cases are refused `BAD_REQUEST` with the resolver never run. The
+  inputs are `1e3`, `１`, `9.00000000000101e14`, `9223372036854775808` and `abc`.
+- At the shape, `1e3` and `１` failed. That is CR-6.
+
+Attack instrument at `12bcd75`: **187 of 187, vitest exit 0** (`code-review/run-12bcd75/attack-12bcd75.{json,exit}`). No `fpma-cr`
+container was left. Convention check `--since=787bec5`: 0 FAIL, 0 CANDIDATE (`code-review/run-12bcd75/convention-check.txt`).
+
+CR-6 LOW Round 1
+
+**[Input validation]**: `messageIdShape.safeParse` throws on text its own regex refused.
+- **Location**: `src/server/api/utils/shapes.ts` `messageIdShape`.
+- **Class**: a zod refinement or transform that assumes an earlier non-fatal check passed. In zod 3.22, a failed `.regex` leaves the
+  parse dirty and still runs `.refine`. So `BigInt(id)` throws `SyntaxError` out of `safeParse`, which is meant never to throw.
+- **Enumeration**: `git grep -n -E "\.regex\([^)]*\)\s*$" 12bcd75 -- src ':!**/__tests__/**'`, followed by a `.refine`/`.transform`
+  that parses: 1 site, `messageIdShape`.
+  - The other `BigInt(` calls in `src/server` that could reach input were read by `git grep -n "BigInt(" 12bcd75 -- src/server`. None
+    is behind a zod check.
+  - Blind spot: a chain split across lines differently, or a refine that throws for a reason other than parsing.
+- **Evidence**: the probe at `12bcd75`. `safeParse('1e3')` and `safeParse('１')` throw `SyntaxError: Cannot convert … to a BigInt`
+  (`shapes.ts`, the refine).
+- **Magnitude**: measured. Through the tRPC input middleware, the outcome is `BAD_REQUEST` with no query, the same code as a zod
+  refusal. The decision a caller reads does not change; only the error's `cause` differs (a `SyntaxError`, not a `ZodError`).
+  `messageIdShape` has no caller outside tRPC inputs (the sweep above).
+- **Required Action**:
+  - **Preferred (structural)**: order the shape so that the parse runs only on text the regex accepted. In zod 3, `transform` does not
+    run on a dirty parse. So use `z.string().regex(/^[0-9]{1,19}$/).transform((id) => BigInt(id)).refine((n) => n <=
+    MAX_MESSAGE_ID).transform(String)`, or guard inside the refine with the same regex.
+  - Falsity signature: `messageIdShape.safeParse('1e3')` returns `{ success: false }` and does not throw.
+  - **Routing**: this changes no decision (the probe above), so under "Rounds stop" it does not hold the tree. It is at the scope's own
+    site, so it goes to steering: either the fixer folds it in before QA starts (it is one shape), or a handoff carries it.
+
+**Disposition of Round 1's findings:**
+
+| ID | Disposition | Captured check |
+|---|---|---|
+| CR-1 | Fixed: the class is gone | `MessageProvider.save-new-number.test.tsx`; controls `editor-move-dropped`, `editor-move-inverted` |
+| CR-2 | Fixed at the router: the class is gone | `message.personal-ownership.test.ts` "the message number each procedure takes"; `code-review/id-bound.probe.test.ts` |
+| CR-3 | Routed: handoff written by steering (block 23:09Z) | no test |
+| CR-4 | Routed: handoff, owned by the architect, at release (block 23:09Z) | no test |
+| CR-5 | Fixed: the fixer chose to drop the draft | `MessageProvider.save-new-number.test.tsx`; control `old-number-draft-kept` |
+| CR-6 | Open, LOW: routed to steering | `code-review/id-bound.probe.test.ts` (fails at `12bcd75` on `1e3` and `１`) |
+
+**Verdict (sub-entry 1a): APPROVED_WITH_COMMENTS at `12bcd75`.** The ownership property holds under adversarial execution, and every
+round-1 finding that held the tree is fixed with a control seen failing.
+
 ## Verdict
 
-**Status**: REJECTED
+**Status**: APPROVED_WITH_COMMENTS at `12bcd75` (sub-entry 1a). It was REJECTED at `d597734`.
 **Rationale**:
 - The ownership property holds at `d597734` under adversarial execution: 187/187, every in-scope defect red at base, and the
   check-bypassed mode green.
@@ -279,6 +364,12 @@ session through `createCaller`.
 - That check exercises the path only once the website `master` release is serving: the owner's Vercel production deploy.
 
 ## Next Steps
+
+- **At sub-entry 1a:**
+  - Handed to QA Phase 2 (`qa-hooks-fix-personal-message-access`) at `12bcd75`, for 116 production lines.
+  - CR-6 goes to steering: fold it in before QA, or a handoff.
+  - The Assumption Not Checked is unchanged, and owned by security and the post-deploy browser check.
+- **At Round 1 (superseded by 1a):**
 
 - **Fixer** (`fixer-hooks-fix-personal-message-access`): CR-1, then hand back the new SHA. I confirm it as a sub-entry: I re-run the
   attack instrument at the new SHA and check the new case's control.
