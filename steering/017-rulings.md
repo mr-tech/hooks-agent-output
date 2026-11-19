@@ -999,3 +999,18 @@ carrying a message number that can claim another user's row. Owner-wait `website
   This thread's reading of his words ("safeguard and other security blocks"): format gates fall outside the rule, so they stay
   disclosed. This is a reading, not his ruling; he can overrule it.
 - QA is at 393K, past its threshold. Subscribed for its next idle; on it, `/checkpoint`, then clear.
+
+## 2026-11-19T10:31Z — rev 9 gates in; QA cleared; a question put in plain text; UAT Failed (UAT-1)
+
+- Revision 9: the critic approved it (`5f892f5`), and the architect's closing pass found no finding (`8cebb1c`). QA ran its `/checkpoint` (`7665d67`, `aa90900`) and
+  was cleared 09:17Z.
+- A question was put to him 09:2xZ in plain text, because blocking prompts have been off since 09:04Z (set by `steering-coordinator`).
+  Owner-wait key `block-rule-lookback`. The question asks whether his rule on not recording safeguard or security blocks in agent-output reaches records already written. Options:
+  *Only new writes (Recommended)*, where records stay as written / *Open 017 documents only*, where each stage replaces its own such lines with "an action was not
+  completed" and format-gate disclosures stay / *Every record, closed ones too*, a sweep in which a broad text match hits about 40 files outside steering,
+  none classified. It was raised by `implementer-hooks-017`, which holds its own documents unchanged until he answers. Unanswered at 10:31Z.
+- UAT reported **UAT Failed** (`uat/017-existing-items-backlog-uat.md`, agent-output `00e2c5a`, Verified-At `4b8db9c,8512a1d`, plan rev 9).
+  B-2, B-3, B-4, B-12 and B-13 were executed and passed. B-1 FAIL (UAT-1 HIGH): the saving tab once raised its own-save notice in M2-b's window
+  (walk 3 run A1, 10:05:19Z) and stayed clean in five later window runs. UAT routed UAT-1 directly to `implementer-hooks-017` for diagnosis.
+  Re-decision rests on that diagnosis: either a fix, which moves the website tip, after which code review, QA, an architect delta read and a UAT re-walk of B-1 follow; or a
+  showing that A1 lies outside the class. The low-id walk handoff is Addressed and closed by UAT. Devops Stage 1 waits.
