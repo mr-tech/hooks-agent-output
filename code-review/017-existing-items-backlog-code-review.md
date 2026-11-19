@@ -2,7 +2,7 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Reviewed-At: "a5dd76f — repos=website; Round 4 sub-entry, M4 fix confirmation (implementation document 291bb7c); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
+Reviewed-At: "5c3d03f — repos=website; Round 4 sub-entry, M4 fix confirmation of CR-9 to CR-11 at a5dd76f and QAF-18 at 5c3d03f (implementation document c16132b); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
 Status: In Review
 Round: 4
 Verdict: APPROVED
@@ -28,6 +28,7 @@ Verdict: APPROVED
 | 2026-11-19T02:32 | implementer-hooks-017 (fix SHA `1ab3b96`, M3 document `5fb85ff`) | Round 3 sub-entry: confirm the test-only fix for CR-6, CR-7 and CR-8 | Round 3 sub-entry: APPROVED at `1ab3b96`. P1 to P7 re-run by me, 7 of 7 killed as assertions (`verification/017/code-review/m3/fix-run/`). M3-f's `1ad625e` reader run and its negative control were read and discriminate. CR-6 and CR-7 are gone, CR-8 is recorded. Provenance note: the seed-writing tip test's source is to be added to the captures. |
 | 2026-11-19T03:22 | implementer-hooks-017 (M4 document `e5d520a`) | Round 4: review M4 at website `de06d95` | Round 4, M4 only. REJECTED: CR-9 HIGH (with the link prompt and the update prompt open together, one Enter answers both: the page is left and Reload runs; probe 2 answers in both orders, planted control 0; the layout test mocks `react-hotkeys-hook`, so its "both open" case cannot see it), CR-10 LOW (a third copy of one test `click` helper, not lifted), CR-11 LOW (a held link to another site with `replace` is confirmed with `assign`; no caller today). The criteria assessed are M4-a to M4-d and X-14, as revision 4 states them at round open. Captures are in `verification/017/code-review/m4/`. Disclosed: the probe's first draft raised the update prompt with a pointer press, which dismissed the link prompt as an outside click, so its link-first case read 1; corrected and re-run before the recorded run. The probe file's two later edits were made by a python script in the verification directory, not with the Edit tool. |
 | 2026-11-19T03:37 | implementer-hooks-017 (fix SHA `a5dd76f`, M4 document `291bb7c`) | Round 4 sub-entry: confirm the fix for CR-9, CR-10 and CR-11 | Round 4 sub-entry: APPROVED at `a5dd76f`. 6 of 6 re-attack mutants were killed as assertions (`verification/017/code-review/m4/fix-r4/`). The Round 4 probe, unmodified, gives one answer per Enter in both orders. CR-9, CR-10 and CR-11 are gone. The pre-existing `ImageUploader` and `WarningDialog` bindings stay in `INBOX.md`. |
+| 2026-11-19T04:19 | implementer-hooks-017 (fix SHA `5c3d03f`, M4 document `c16132b`) | Round 4 sub-entry: confirm QA's QAF-18 fix (test-only) | Round 4 sub-entry, continued: APPROVED at `5c3d03f`. 4 of 4 registration mutants were killed as assertions (`verification/017/code-review/m4/fix-qaf18/`), QA's survivor `qa-unregister-unconditional` among them. QAF-18 is gone. |
 
 ## Scope and Tree
 
@@ -316,6 +317,19 @@ No bug-form test was added. No time-based test was added; `de06d95` replaced fou
 
 **Sub-entry verdict**: APPROVED at `a5dd76f` for M4.
 
+**QAF-18's fix at `5c3d03f`** (in the same sub-entry, under steering's M4 cap, block 2026-11-19T04:14Z, `a805d4d`: a severity-floor finding keeps its fix round).
+- **Scope**: `git diff --numstat a5dd76f 5c3d03f` lists one test file, `NavigationGuardProvider.link-confirmation.test.tsx` (+5 −2), so the fix is test-only. The two guards in "keeps the newer guard when an older registration is withdrawn" are now module constants (`OLDER_LETS_THROUGH`, `NEWER_HOLDS`). So the effects no longer re-register on every render, and the withdrawal reaches `register`'s identity check. The case also asserts no navigation. The branch tip and the shared tree's HEAD were `5c3d03f` at the start and end.
+- **Re-attack** (`mutation-run.py --sha 5c3d03f`, `verification/017/code-review/m4/fix-qaf18/fix-mutants.json`, `run/`, over the layout and provider files): 4 of 4 KILLED, 68 = 68 cases each, each as an assertion:
+  - `qa-unregister-unconditional` (QA's survivor at `a5dd76f`, `qa/017-existing-items-backlog-m4-qa.md`) is killed by the tightened case;
+  - `unregister-inverted` (`!==`) is killed by that case and by the layout file's "stops asking once the editor has unmounted";
+  - `unregister-noop` is killed by the layout case;
+  - `register-keeps-first` (`??=`) is killed by the tightened case.
+
+  So each limb of registration and withdrawal has a case that fails when it is lost.
+- **Conventions**: `convention-check.js website --since=a5dd76f` gives 0 FAIL and 0 CANDIDATE (`fix-qaf18/convention-check-since-a5dd76f.out`). The added lines carry 0 ID-token hits and 0 comments.
+- **Disposition**: QAF-18 is gone. The check is the tightened withdrawal case, killed by the four mutants above.
+- **Verdict**: APPROVED at `5c3d03f` for M4, which covers CR-9 to CR-11 and QAF-18. QA's refresh follows.
+
 ## Findings
 
 ### Critical
@@ -502,7 +516,7 @@ No finding changes a decision. The two above go to their stated carriers.
 
 ## Verdict
 
-**Round 4 sub-entry (M4 at `a5dd76f`) — Status**: APPROVED. CR-9, CR-10 and CR-11 are each gone, with a failing check captured for each (see the sub-entry). M4 goes to QA Phase 2. The Round 4 assumption, that a browser keeps the link prompt open under the update prompt, stays with UAT B-3.
+**Round 4 sub-entry (M4 at `5c3d03f`) — Status**: APPROVED. QA's QAF-18 is confirmed at `5c3d03f`, the test-only fix over `a5dd76f`. CR-9, CR-10 and CR-11 are each gone, with a failing check captured for each (see the sub-entry). M4 goes to QA Phase 2. The Round 4 assumption, that a browser keeps the link prompt open under the update prompt, stays with UAT B-3.
 
 **Round 4 (M4 at `de06d95`) — Status**: REJECTED
 **Rationale**: CR-9 is a criterion failure in production code. M4-b says that when the link prompt and the update prompt are open together, each is answered on its own. At `de06d95`, one Enter answers both: Reload runs, discarding the edits, and the page is left. My probe measures it in both opening orders, against a planted control. The suite's two cases for this state cannot see it, because they answer by pointer and the layout file mocks the hotkey library away.
@@ -605,7 +619,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Resumption State
 
-Updated at the Round 4 sub-entry (2026-11-19T03:37Z). Round 4 (M4) was REJECTED at `de06d95` and its fix was confirmed APPROVED at `a5dd76f`. Next: the scoped confirmation of QAF-18's fix when it is handed here (a Round 4 sub-entry), then M5, M6 or M7 when the implementer hands one off (M5 and M6 wait on OQ-7). Steering has capped M4 (`steering/017-rulings.md` block 2026-11-19T04:14Z, `a805d4d`). From now on, an M4 finding below HIGH that is not a severity-floor finding is routed to the plan's Planner batch as a stated limit, with no fix round. HIGH, CRITICAL and severity-floor findings keep their fix rounds. The scratch exports and the mutation work directory are deleted. The lines below are the Round 3 checkpoint's, kept where still true.
+Updated at the Round 4 sub-entry (2026-11-19T03:37Z). Round 4 (M4) was REJECTED at `de06d95` and its fix was confirmed APPROVED at `a5dd76f`. QAF-18's fix was confirmed at `5c3d03f` (2026-11-19T04:19Z). Next: M5, M6 or M7 when the implementer hands one off (M5 and M6 wait on OQ-7). Steering has capped M4 (`steering/017-rulings.md` block 2026-11-19T04:14Z, `a805d4d`). From now on, an M4 finding below HIGH that is not a severity-floor finding is routed to the plan's Planner batch as a stated limit, with no fix round. HIGH, CRITICAL and severity-floor findings keep their fix rounds. The scratch exports and the mutation work directory are deleted. The lines below are the Round 3 checkpoint's, kept where still true.
 
 Written at the checkpoint steering-roadmap asked for (context threshold, 02:39Z), after the Round 3 sub-entry.
 

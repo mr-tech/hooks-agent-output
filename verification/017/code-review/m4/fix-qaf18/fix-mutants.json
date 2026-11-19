@@ -1,0 +1,42 @@
+[
+ {
+  "id": "qa-unregister-unconditional",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "if (guardRef.current === guard) guardRef.current = null;",
+  "new": "guardRef.current = null;",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx"
+  ]
+ },
+ {
+  "id": "unregister-inverted",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "if (guardRef.current === guard) guardRef.current = null;",
+  "new": "if (guardRef.current !== guard) guardRef.current = null;",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx"
+  ]
+ },
+ {
+  "id": "unregister-noop",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "if (guardRef.current === guard) guardRef.current = null;",
+  "new": "void guard;",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx"
+  ]
+ },
+ {
+  "id": "register-keeps-first",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "      guardRef.current = guard;\n",
+  "new": "      guardRef.current ??= guard;\n",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx"
+  ]
+ }
+]

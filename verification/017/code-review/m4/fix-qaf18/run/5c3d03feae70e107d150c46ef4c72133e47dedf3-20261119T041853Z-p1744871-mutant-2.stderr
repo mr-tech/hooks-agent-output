@@ -1,0 +1,49 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > keeps the newer guard when an older registration is withdrawn
+AssertionError: expected 'go home' to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go home"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:238:39
+    236|     click(link('go home'));
+    237|
+    238|     expect(document.body.textContent).toContain(TITLE);
+       |                                       ^
+    239|     expect(linkRouter.push).not.toHaveBeenCalled();
+    240|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > stops asking once the editor has unmounted
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:338:24
+    336|     click(link('outside the editor'));
+    337|
+    338|     expect(prompted()).toBe(false);
+       |                        ^
+    339|     expect(linkRouter.push).toHaveBeenCalledTimes(1);
+    340|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

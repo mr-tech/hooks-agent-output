@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2d84e546-bc6d-4e4c-9ace-a079ac110fd8/scratchpad/mr-work2/20261119T041853Z-p1744871/mutant-2
+
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 1 failed) 588ms
+     × keeps the newer guard when an older registration is withdrawn 8ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 1 failed) 1619ms
+     × stops asking once the editor has unmounted 37ms
+
+ Test Files  2 failed (2)
+      Tests  2 failed | 66 passed (68)
+   Start at  04:19:03
+   Duration  3.63s (transform 614ms, setup 38ms, import 2.07s, tests 2.21s, environment 1.23s)
+
