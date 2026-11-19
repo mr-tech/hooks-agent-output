@@ -432,3 +432,23 @@ Recipients: `planner-hooks-017` (registers), `critic-hooks-017` (told the questi
 `architect-hooks-017` briefed to read revision 4's delta as its conformance pass before implementation
 starts (steering.md, Conformance: each revision the critic reads before implementation) — the planner had
 cued it for the closing pass only.
+
+## 2026-11-19T00:29Z — implementation start on revision 4; chain branch cut
+
+Every pre-code gate has approved revision 4 (`a97628d`), read this turn: critic APPROVED, critique closed
+`critiques/closed/017-existing-items-backlog-critique.md` (`77dfec4`); architect delta read APPROVED, no
+finding (`architecture/017-existing-items-backlog-architecture-findings.md`, `96b4b62`); QA Phase 1
+re-keyed to revision 4 with no finding (`qa/017-existing-items-backlog-qa.md`, `3af80aa`; checkpoint
+`0b67e82`; Status "Awaiting Implementation"). After revision 4: R-6 `99643d4`, registration only (D-22..D-25).
+- Open questions: OQ-8..OQ-13 resolved (D-18..D-25). OQ-7 stays open by his D-15 ("The gates and M1–M4
+  and M7 go ahead. Before M5 code, a devops session asks you for the probe push."); it blocks M5 and M6 code.
+- Handoffs opened after revision 4: none (`git log --since=2026-11-19T00:25:14Z --diff-filter=A
+  --name-only -- handoff/` to a file, `grep -c .` = 0; `git status --porcelain -- handoff/` = 0 lines).
+- **Implementation starts on revision 4** (`a97628d`), QA Phase 1 at `3af80aa`. Order per § Plan: M1, M2,
+  M3, M4, then M5/M6 after gate M5-0, M7 last.
+- Website branch: `git -C website switch --no-track -c chain/017-existing-items-backlog origin/master`
+  (00:29Z) — `master` = `origin/master` = `HEAD` = `1ad625e` before; after, `HEAD` `1ad625e` on the new
+  branch, no upstream. Tree before: one untracked `.playwright-mcp/` (Playwright MCP output, chain A era),
+  no tracked change; the switch moved no file (same commit), so it is held, untouched. Lockfile identical
+  across the switch (same commit). Generator branch: devops names it (plan § Plan), before M6.
+- `implementer-hooks-017` spawned (brief `steering/backlog-2026-11-18-briefs/implementer-hooks-017.md`).
