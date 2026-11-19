@@ -24,6 +24,7 @@ whose fix round `dd26104` is APPROVED (code review round 2 sub-entry, `fb4c5f3`)
 |---|---|---|
 | 2026-11-19T01:12 | implementer-hooks-017 | Document opened with the design read from the plan and the flows below; no code yet. |
 | 2026-11-19T02:17 | implementer-hooks-017 | Resumed after the checkpoint. The 14 self-check survivors dispositioned (9 closed by cases at `08124a4`, 5 stated equivalent), QA's NM-6, NM-7, NM-27 and NM-28 run against the built code, a mounted test added for the edit page's Log in (`3498ef3`), convention-check FAILs that were M3's removed, full suite and typecheck at `3498ef3`. Handed to code review at `3498ef3`; Resumption State removed. |
+| 2026-11-19T02:19 | implementer-hooks-017 | Checkpoint at the hand-off seam (context 212K) before M4: Resumption State written; no change to the handed-over tree. |
 
 ## Implementation Summary
 
@@ -267,7 +268,7 @@ Record: this document and `verification/017/impl/m3/` committed at `e6588c0`.
   Nothing is awaited from me except the M3 code review and the later QA Phase 2 for M3; a finding on M3 comes back as a
   fix round on this document.
 - Next: M4. Read plan M4 (`planning/017-existing-items-backlog.md`, § M4, M4-a to M4-d, X-14) and QA § M4 (`qa/017-existing-items-backlog-qa.md`,
-  NM-8, NM-9, NM-24, NM-25) first, then open `implementation/017-existing-items-backlog-m4-implementation.md` (copy ID, Origin, UUID from the
+  NM-8, NM-9, NM-24, NM-25) first, then open the M4 implementation document under the `-m4-implementation` name (copy ID, Origin, UUID from the
   plan; stage start is covered by the rulings block for M1 to M4, D-12 and D-20). M4 is user-visible: record one line per
   flow, and message `steering-roadmap` only the flows that hold a decision (none expected: D-12, D-20 decide the dialog and
   the layout). M4's first step is the class re-derivation from three listings (`next/link` importers, `StyledLink`
