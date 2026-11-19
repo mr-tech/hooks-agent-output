@@ -255,3 +255,26 @@ Code review (`code-reviewer-hooks-017`) at website `3498ef3` (the M3 range is `d
 `08124a4`, `3498ef3`; `ec984fe..dd26104` is M2's fix round and outside it), then QA Phase 2 for M3, then M4 (read
 plan M4 and QA § M4 first). After M4: tell `steering-roadmap` that M1 to M4 are through (devops probe push for OQ-7).
 M5 and M6 wait on OQ-7 and gate M5-0; M7 last.
+
+## Resumption State
+
+Written 2026-11-19T02:19Z at the M3 hand-off seam (context 212K, taken ahead of M4 so M4 starts clean). Website
+branch `chain/017-existing-items-backlog`, HEAD `3498ef3`; the tree is clean apart from the held `.playwright-mcp/`.
+Record: this document and `verification/017/impl/m3/` committed at `e6588c0`.
+
+- Done: M3 handed to `code-reviewer-hooks-017` by message (document path and `3498ef3`); `steering-roadmap` told M3 is
+  built and M4 starts (it replied: status lives in the documents, message it only for an owner decision or a spawn cue).
+  Nothing is awaited from me except the M3 code review and the later QA Phase 2 for M3; a finding on M3 comes back as a
+  fix round on this document.
+- Next: M4. Read plan M4 (`planning/017-existing-items-backlog.md`, § M4, M4-a to M4-d, X-14) and QA § M4 (`qa/017-existing-items-backlog-qa.md`,
+  NM-8, NM-9, NM-24, NM-25) first, then open `implementation/017-existing-items-backlog-m4-implementation.md` (copy ID, Origin, UUID from the
+  plan; stage start is covered by the rulings block for M1 to M4, D-12 and D-20). M4 is user-visible: record one line per
+  flow, and message `steering-roadmap` only the flows that hold a decision (none expected: D-12, D-20 decide the dialog and
+  the layout). M4's first step is the class re-derivation from three listings (`next/link` importers, `StyledLink`
+  importers, string `onPress` items) written into the document. M4-c removes `next/router` from production source
+  (`useUnloadAlert.ts` keeps only `useBeforeUnload`; M3's `useUnloadAlert.act-suppression` test mocks `next/router`, which that
+  removal will make unnecessary). After M4, tell `steering-roadmap` that M1 to M4 are through (the devops probe push for OQ-7).
+  M5 and M6 wait on OQ-7 and gate M5-0; M7 last.
+- Scratch: this session's exports and the older sessions' loose files and clones are removed. No process of mine is left
+  running (`pstree` shows only the claude process). Nothing locally mutated and unrestored.
+- Cache-warm wake `d27f4c05` deleted at this checkpoint; arm again on the next briefed turn.
