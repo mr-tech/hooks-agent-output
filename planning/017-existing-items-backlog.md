@@ -1045,3 +1045,29 @@ revision 1, `upload-message-dialog-closes-on-first-portal-load-2026-11-08` is cl
 | Generator `page.goto` does not reject on an HTTP error status | steering-roadmap, `verification/017/steering-refute/` (c2) | Discharged at revision 1: M6-a, re-derived at puppeteer-core 21.1.0's published source. |
 | Nothing enforces lint (chain A CR-3) | `code-review/closed/fix-dialog-closes-on-first-portal-load-code-review.md` CR-3 | Discharged at revision 1: M7-c, X-12. |
 | Base moved to website `1ad625e` | steering-roadmap | Discharged at revision 1: every cited line re-read at `1ad625e`, or shown unchanged from `395510e` by `git diff --quiet`; suite and lint re-taken there. |
+
+## Resumption State
+
+Written 2026-11-19T00:3xZ at steering's /checkpoint request (planner-hooks-017).
+
+- **Done.** Revision 4 is committed (`a97628d`). Registrations R-5 (`5c9e785`, D-18 to D-21) and R-6
+  (`99643d4`, D-22 to D-25) are committed. Gates on revision 4: QA's Phase 1 re-key passed with no
+  finding (`3af80aa`); critique cycle 1 pass 4 APPROVED, with the critique closed at
+  `critiques/closed/017-existing-items-backlog-critique.md` (`77dfec4`, per steering, not re-read
+  by this planner); the architect's conformance read of revision 4 is owed (briefed by steering).
+- **Next.** When the architect's verdict arrives: if it approves, bring the owed re-verdicts table
+  and Status current (a Status write, not a revision) and report to steering that the plan is ready
+  for implementation, apart from OQ-7, which blocks M5 and M6 code only. If it raises findings,
+  fold them into revision 5 and re-cue the critic, plus QA if a criterion moves. A recommendation
+  that changes no criterion parks as a Planner batch row.
+- **Open items carried.** OQ-7: the `waitUntil` probe push needs his approval (D-15). D-19 governs
+  how its result is read. The INBOX.md entry "2026-11-18 — planner-hooks-017 — DECISION NEEDED" (X-13
+  placement) stays uncommitted on purpose, for the record's owning session.
+- **Branches.** None cut for 017. Website `master` `1ad625e`; generator `prod` `8de2b53`.
+- **Uncommitted or mutated.** Nothing of this planner's beyond that INBOX entry.
+- **Gate refusal this run, disclosed.** At the checkpoint, the record-write gate refused a shell
+  heredoc append to this plan (an empty append). It was not re-issued in that form, and this
+  section was written with the Edit tool.
+- **Messages sent.** Revision 2, 3 and 4 cues went to the critic, the architect and QA. Owner items
+  and registration reports went to steering-roadmap. No reply is owed to this planner except the
+  architect's verdict on revision 4.
