@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Open
-Status-Detail: "Cycle 1 pass 3 on plan revision 3: REQUEST REVISION. F-1 to F-23 RESOLVED; SL-1 and SL-2 members fixed in the text. F-24 MEDIUM (OQ-11's and OQ-12's options contradict each other in 2 of 4 answer pairs) and F-25 LOW are OPEN. OQ-11, OQ-12 and OQ-13 are open with him and not yet put; OQ-7 proceeds open (D-15)."
+Status-Detail: "Cycle 1 pass 3 on plan revision 3: REQUEST REVISION. F-1 to F-23 RESOLVED; SL-1 and SL-2 members fixed in the text. F-24 MEDIUM (OQ-11's and OQ-12's options contradict each other in 2 of 4 answer pairs) and F-25 LOW are OPEN. OQ-11, OQ-12 and OQ-13 were put to him at 00:21Z and are unanswered; OQ-7 proceeds open (D-15)."
 Artifact-Revision: 3 — the delta 3d678cc..b3d811e read whole; last whole read is revision 1 at d84b192
 Reviewed-At: "b3d811e — repos=agent-output; website code read at 1ad625e (origin/master), generator at 8de2b53 (origin/prod)"
 Verdict: REQUEST REVISION
@@ -36,13 +36,15 @@ named now go to him with their stated-limit forms (OQ-11 to OQ-13), so the price
 
 The verdict rests on one finding. OQ-11's and OQ-12's options each state a consequence that the
 other question's answer changes, and in 2 of the 4 answer pairs OQ-11 option (b)'s text is false
-(F-24). He has not been asked yet: the rulings file's last block is 00:11Z, read at this pass. The
-fix is option text, and it is owed before the questions are put. F-25 is LOW and rides the same
-revision.
+(F-24). The questions were put to him at 00:21Z (`steering/017-rulings.md`, block 00:21Z), while
+this pass was being written; no answer block existed when this critique was committed. So the fix is
+option text for a question already in front of him: if he selects OQ-11 (b), the selection rests on
+a consequence that does not hold. F-25 is LOW and rides the same revision.
 
 The stop authority did not fire at this pass. F-24's shape, an owner option whose stated consequence
 depends on a second open question, has no earlier instance. The hard stop did not fire (pass 3 of
-15). Routed to the owner through steering: OQ-11 and OQ-12 are not put as revision 3 words them.
+15). Routed to steering as an owner-needing item: OQ-11's and OQ-12's options, as put, are
+interdependent, and an answer of OQ-11 (b) needs the four pairs' outcomes shown to him first.
 
 No milestone is marked `PREMISE-STALE`.
 
@@ -99,6 +101,10 @@ Premises run in pass 3:
   `ConfirmationProvider.tsx` holds one `props` state that `showConfirmation` sets.
 - **Not yet put.** `grep -n '^## ' steering/017-rulings.md`: the last block is 00:11Z, and the
   2026-11-19 ledger holds the 00:10Z block only. So OQ-11 to OQ-13 were not put when this was read.
+  Reconcile, same pass: a re-read after this critique's first pass-3 commit (`d3e4085`) found block
+  00:21Z, which puts OQ-11 to OQ-13 to him. The first commit's "not yet put" was true at its read
+  and stale at its commit. The 00:21Z block also records steering's own partial refutations of
+  OQ-12 (b)'s and OQ-13 (b)'s wording; it does not raise the cross-dependency F-24 names.
 
 Process fact of this run, lodged in the round: the record-write gate refused one Bash call at this
 pass. The call redirected `git show b3d811e:planning/…` to a file in this session's scratchpad,
@@ -141,7 +147,8 @@ F-24 MEDIUM cycle 1 pass 3 OPEN — OQ-11's and OQ-12's options state consequenc
 - **Impact**: 2 of the 4 answer pairs contradict the text he would select on. He could choose "no
   bound" to avoid a silent loss and still get eviction through the quota path.
 - **Recommendation**: State what each of the four pairs does on a full store and past 20 entries,
-  as one small table, and word each option from it. Do this before the two questions are put.
+  as one small table, and word each option from it. The questions are already put (00:21Z), so
+  steering shows him the table before acting on an answer of OQ-11 (b).
 
 F-25 LOW cycle 1 pass 3 OPEN — M5-g's production falsifier names a runner without its instrument, for an observation B-6 already makes.
 
