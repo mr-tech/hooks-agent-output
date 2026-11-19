@@ -1,4 +1,4 @@
-%% Hooks.gg workspace architecture — companion to system-architecture.md (2026-11-11, website 0e3d903)
+%% Hooks.gg workspace architecture — companion to system-architecture.md (2026-11-19, release trees website 4b8db9c, preview-image-generator 8512a1d)
 graph TB
     subgraph workspace["/usr/local/bin/hooks (plain directory, four sibling repos)"]
         subgraph website["website (hooks-gg/website, master) — Next.js 16 / React 19 — deploys on Vercel"]
@@ -25,9 +25,10 @@ graph TB
     api -->|Kysely| pu
     pu --> pg
     api --> redis
-    api -->|"POST /generate"| pig
+    api -->|"POST /generate after the save replies\n(waitUntil, 40 s abort)"| pig
     pig -->|"renders /preview"| appui
-    pig -->|JPEG public-read| s3
+    pig -->|"JPEG public-read (write only)\n204 = stored"| s3
+    api -->|"on 204: commit nonce, then delete replaced\n+ sweep older; list+delete on message delete"| s3
     discord -->|interactions| edge
     edge --> botmod
     edge -->|server commands| srv

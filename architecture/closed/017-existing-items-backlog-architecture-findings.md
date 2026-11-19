@@ -2,8 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Active
-Status-Detail: "Delta read on plan revision 7 (record 6ade256): APPROVED stands, with no finding open; AF-23 is folded. Open until the closing pass, no later than devops Stage 1: AF-9's reconciliation of Runtime Flow 3 and preview-image-generator.md, the Problem Areas rows the plan closes, and the ADR for @vercel/functions."
+Status: Resolved
+Status-Detail: "Closing pass on plan revision 8 (record 5e36106): APPROVED stands, no finding sent to the planner (AF-24 INFO). Every open item is discharged: system-architecture.md reconciled from the release trees website 4b8db9c and generator 8512a1d (D-006 added), website.md A-7/A-8 restated, preview-image-generator.md A-2 added, diagram updated. Anchored to those two trees: a release tree that moves before devops's pushes needs a re-read of its delta, which is steering's to route."
 ---
 
 # Architecture Findings — Plan 017: the existing-items backlog (conformance pass)
@@ -18,6 +18,7 @@ Status-Detail: "Delta read on plan revision 7 (record 6ade256): APPROVED stands,
 | 2026-11-19T00:28 | Delta read, plan rev 4 (record `a97628d`; diff `b3d811e..a97628d`), briefed by steering-roadmap as the conformance read of the revision the critic reads before implementation | AF-22 is folded in the form it asked for, and its argument is retired to a disposition line. QAF-13's rule was re-derived and holds. F-24's table, F-25's falsifier and QAF-14's precondition were read. No finding. His OQ-11 to OQ-13 answers, all option (a) (`steering/017-rulings.md` block 2026-11-19T00:27Z), are the forms this pass read. **APPROVED** stands. |
 | 2026-11-19T05:08 | Conformance read, plan rev 6 (record `21e61eb`; diff `a97628d..21e61eb`, taking in revision 5 `5155e68`, which was never routed, and registration rows R-6 to R-24), briefed by steering-roadmap. Rulings read: `steering/017-rulings.md` blocks 04:50Z, 05:01Z and 05:06Z. | M8's form was read against website `5c3d03f`. The sibling it mirrors, `ConfirmationDialog.tsx` `Inner` (a ref inside the panel, with `closest('[role="dialog"]')` containing `document.activeElement`), is as the plan cites it. Both members still carry the dead `tagName` compare. The Architectural-Surface line's M8 sentence is correct: M8 adds no surface and narrows two leaf dialogs to M4's approved form. X-20's carrier, the Problem Areas row restated at the closing pass, is accepted and added to the open items. M5-0 limb 3 and its outcomes are sound. Its result on a Preview carries to production only if the 60 s limit is project-wide, which the plan marks unread for a Preview. AF-23 INFO is offered. **APPROVED** stands. |
 | 2026-11-19T05:17 | Delta read, plan rev 7 (record `6ade256`; diff `21e61eb..6ade256`, taking in R-25 and R-26), briefed by steering-roadmap | AF-23 is folded as written, and its argument is retired to a disposition line. The critic's F-26 to F-28 and SL-4, QA's QAF-20 and QAF-21, and limb 3's result were read as the delta. No finding. **APPROVED** stands. |
+| 2026-11-19T08:44 | Closing pass, plan rev 8 (record `5e36106`; diff `6ade256..5e36106`, the Planner batch fold), briefed by steering-roadmap-hooks (`steering/backlog-2026-11-18-briefs/architect-hooks-017-closing.md`). Release trees read: website `4b8db9c`, generator `8512a1d`. His X-21 and X-22 acceptances read in `steering/017-rulings.md` block 08:41Z (`06f7f2f`). | Premises re-read and held. The delta's forms conform. M4-a's `onClick` path is a necessary deviation (AF-24 INFO). No defect, so nothing goes to the planner. Open items 1 to 4 and the master document's lag are discharged: Runtime Flow 3, Components, Data Boundaries, Dependencies, Quality Attributes, Problem Areas (two resolved, four restated, five registered), D-006, Roadmap Readiness, Recommendations 1, 4 and 6, the diagram, `website.md` A-7/A-8 and `preview-image-generator.md` A-1, A-2, P-2 and P-6. **APPROVED** stands. Closed `Resolved`. |
 
 ## Scope and instrument
 
@@ -81,6 +82,69 @@ These sharpen what the tests discriminate and add no surface. M5-0 limb 3's read
 agreement, request-log exclusivity) and its result: lasts to 55 s on a Preview, record `8f26f37`, so T = 40 s stands.
 The Preview-versus-production limit remains as revision 6 stated it, carried in RK-2's text.
 
+## Closing pass (plan revision 8; release trees website `4b8db9c`, generator `8512a1d`)
+
+### Premise re-read
+
+Each premise of the Resumption State (`61fc3ff`) was re-read at the mechanism. The commits it cites
+(`406b34a`, `5ee7b89`, `26f648e`, `96b4b62`, `635868d`, `0e380fc`, the plan's `6ade256`, and the deployment records
+`d61f445` and `8f26f37`) each resolve as commits in agent-output (`git cat-file -t`). `verification/017/architect-delta/`
+holds its two files. `architecture/` was clean at `61fc3ff` before this pass wrote. Both product trees are on
+`chain/017-existing-items-backlog`, website at `4b8db9c` (`git log -1`) and the generator at `8512a1d` (`git rev-parse
+HEAD`). The plan stands at revision 8 (`5e36106`), and the critic approved it (`56a602a`). All premises hold.
+
+The generator was read only by explicit path: `git diff --stat` and `git diff` limited to `src/`,
+`ecosystem.config.js` and the package files, and its `src/` files. No `git log` or `git show` ran in that repository,
+and no read was refused.
+
+### Delta conformance (`6ade256..5e36106`)
+
+The plan body changed in five places, each describing code already reviewed and QA-passed:
+
+| Form | Read at | Verdict |
+|---|---|---|
+| M3 matrix, fetch row: Sn removed when the fetched copy is shown | `MessageProvider/index.tsx` fetch effect, `removeDraft(fetchedMessage.id)` | follows the code; conforms |
+| M4-a: `StyledLink` intercepts from `onNavigate`, and from `onClick` for a same-tab plain click to another site | `StyledLink.tsx` `LinkProxy` (`opensInThisTab`, `isOnThisSite`); `NavigationGuardProvider.tsx` `intercept({ external })` | AF-24 |
+| M4-d: four member rows added | the M4 document's re-derivation (`c16132b`), covered at M4's gates | describes the code; conforms |
+| M6-c: the class set closed at four; setup failures carry no class line | generator `src/generateImage.ts` `PreviewFailureClass`, `src/server.ts` `processImage` | conforms; the observability residue is a registered Problem Area (unstamped error log) |
+| X-21, X-22, X-23 | security audit L-001; code review Round 7; QAF-19 | X-21 and X-22 **accepted by him** (rulings block 2026-11-19T08:41Z, `06f7f2f`). X-23 is a stated limit. Each carrier is landed (below). |
+
+AF-24 INFO — M4-a's `onClick` path is a necessary deviation, accepted. `next/link` hands a plain click on another
+site's URL to the browser and never calls `onNavigate`, so a single interception point cannot cover the member class
+M4-d enumerates. The current form is "`onNavigate` only". The new form changes no name, type or shape that other code
+reads: `StyledLink`'s props are unchanged, and `GuardedLink` gains an optional `external`, read only by
+`NavigationGuardProvider`'s `intercept` (`git grep -l NavigationGuardProvider` at `4b8db9c`: `StyledLink.tsx`,
+`MessageProvider/index.tsx`, `message/layout.tsx`, and tests). The click rule mirrors Next's own, so the two paths
+do not overlap. Landed in `website.md` A-8's consequence: a new link component calls `intercept` on both paths.
+
+No form in the delta grows in cost with the record or its history. The sweep's `ListObjects` per accepted save grows
+with a message's orphan objects, which are bounded by X-19's causes; that is registered, not measured.
+
+### Carriers landed
+
+- **X-20**: the Problem Areas row "Enter-to-confirm in dialogs rests on an unidentified mechanism" is restated from M8
+  at `4b8db9c`. `useDialogEnter` is the one check, the `tagName` compare is gone (`git grep -c tagName` over the three
+  files: no hit), and the stopping mechanism for Enter on a focused Cancel is still unread.
+- **X-21** (accepted): the row "preview-image-generator's `/generate` trusts its body beyond object-ness" is extended
+  by the two log sinks, and its delete-prefix limb is retired (security audit I-1).
+- **X-22** (accepted): a new row, "A `/preview` fallback render is stored as the message's preview". The
+  "`/preview` input guard" bullet in Components states that the page answers 200.
+- **Security I-8** (the record's `INBOX.md` entry from security-hooks-017): landed in the toolchain row and as an
+  attributed architect's sentence in `preview-image-generator.md` P-2. His quoted text and grade are untouched.
+  **I-1**: landed in Runtime Flow 3, D-006's consequences and A-2. The inbox entry itself is the record owner's to
+  clear.
+- **Chain `fix-dialog-closes-on-first-portal-load`** (the record's `INBOX.md` entry from steering-roadmap,
+  2026-11-18): the static `FloatingPortal` import and the `next/dynamic` lint rule are now in Components, website,
+  and the rule's unenforced state is in the ESLint row. The three closed chain-004 documents it names are not edited:
+  closed documents are not this architect's to change.
+
+### Problem Areas registered by this pass (could be better; none blocks the release)
+
+Orphan objects outlive a message's last save (X-19, RK-2). The bucket key contract is computed in two repositories
+from two variables (M5-g). The generator's error log is unstamped, so failure counts cannot be bounded to a deploy
+(observability; Recommendation 6). The X-22 fallback row. The unload prompt's suppression is a timed module flag
+(`leaveWithoutAlert`, 2 s). Each names a fix shape for a later chain. None is a defect in what plan 017 promised.
+
 ## Alternative recorded
 
 ### AF-8 INFO — a stable-key design would remove the commit protocol, the deletion transfer and OQ-7
@@ -122,51 +186,31 @@ M3 and M4:
 - **A-7**: browser storage. Four typed keys go through one shared helper, and the draft key has one reader.
 - **A-8**: the editor's providers sit below the message layout's header and sidebar.
 
-None this delta pass. Revision 2's forms are planned, not implemented, and they are landed from the implemented tree at
-reconciliation (A-7 and A-8 restated, the key contract added to `preview-image-generator.md`).
+At the closing pass, from the release trees: `website.md` A-7 (the `messageDrafts` store, `set`'s return value, the
+bounds under his OQ-11 selection (a)) and A-8 (`NavigationGuardProvider`, both interception paths, his D-20 selection)
+are restated, rev 11 of its addendum changelog. `preview-image-generator.md` gains A-2 (the key contract and the
+meaning of 204), and A-1 is extended by section [7]'s two lines.
 
 ## Verdict
 
 **APPROVED** at plan revision 2 (record `3d678cc`), and it stands at revisions 3 (record `b3d811e`) and 4 (record `a97628d`), with no finding open on revision 4. It stands at revision 6 (record `21e61eb`) and revision 7 (record `6ade256`), with no finding open.
-Anything folded after this read is read once by the closing pass, which steering starts no later than devops Stage 1.
+It stands at revision 8 (record `5e36106`), read by the closing pass, with no finding open (AF-24 INFO, accepted).
 
-## Open items (closing no later than devops Stage 1)
+## Open items — all discharged at the closing pass
 
-1. AF-9: reconciliation of Runtime Flow 3 and `preview-image-generator.md` from the implemented tree.
-2. Reconciliation of the master document's Problem Areas rows the plan closes: the preview-failure row, the dead
-   mode-rule function, and the ESLint row restated from M7-a. Also `website.md` A-7 and A-8 restated to the
-   implemented M3 and M4, and an ADR for `@vercel/functions`, all at the closing pass.
-3. Anything folded after revision 7, read once at the closing pass.
-4. X-20's carrier: restate the Problem Areas row "Enter-to-confirm in dialogs rests on an unidentified mechanism" from
-   the implemented M4 and M8. The dead compare is gone at all three sites, and the stopping mechanism is still
-   unidentified.
+1. AF-9: Runtime Flow 3 is restated from the release trees, and the contract is recorded as `preview-image-generator.md` A-2.
+2. Problem Areas: the preview-failure and `enforceImportMutualExclusivity` rows are resolved and moved to history. The
+   ESLint row is restated from M7-a with its count and instrument. `website.md` A-7 and A-8 are restated. The ADR for
+   `@vercel/functions` is D-006.
+3. Revision 8, everything folded after revision 7, is read above.
+4. X-20's carrier, the Enter-to-confirm row, is restated.
+5. The master document's lag on chain `fix-dialog-closes-on-first-portal-load` and plan 016's closure is reconciled
+   (Components, agent-output line, Roadmap Readiness).
+
+Condition carried in the `Status-Detail`: this reconciliation is anchored to website `4b8db9c` and generator
+`8512a1d`. If UAT or devops moves either release tree, the delta is read once more before release. Steering routes
+that read, which is the only party that sees the tree move.
 
 ## Resumption State
 
-Written 2026-11-19T05:21Z by architect-hooks-017, at a checkpoint steering asked for after the revision-7 delta read.
-
-- **Done.** The conformance pass on revision 1 (`406b34a`) and the delta reads on revisions 2, 3, 4, 6 and 7
-  (`5ee7b89`, `26f648e`, `96b4b62`, `635868d`, `0e380fc`) are all committed. APPROVED stands at plan revision 7
-  (`6ade256`). AF-1 to AF-23 are resolved or folded, and no finding is open. `website.md` A-7 and A-8 were landed at
-  `406b34a`, and the master changelog row at the same commit.
-- **Next: the closing pass.** Steering briefs it, no later than devops Stage 1. Its scope is the four Open items
-  above:
-  1. Read the plan as a diff from `6ade256` to its last revision. Read the implemented website tree at the chain
-     tip, and the generator's chain branch once devops cuts it.
-  2. Reconcile `system-architecture.md`: Runtime Flow 3 (who deletes, the commit protocol, the key contract
-     `[dev/]previews/<id>/<nonce>.jpeg`); Problem Areas (the preview-failure row and the
-     `enforceImportMutualExclusivity` row resolved, ESLint restated from M7-a with its count and instrument, the
-     Enter row restated per X-20); Recommendations 1, 4 and 6; and an ADR for `@vercel/functions` (`waitUntil`; M5-0
-     limbs 2 and 3, `d61f445` and `8f26f37`). Update the diagram if Runtime Flow 3's edges change.
-  3. Restate `website.md` A-7 to M3's implemented `messageDrafts` form, and A-8 to M4's guard context.
-  4. Add an agent-designed `preview-image-generator.md` entry for the key contract and the meaning of 204.
-  5. The master document also lags chain A (website `1ad625e`) and plan 016's closure in its Roadmap Readiness
-     text. Reconcile that in the same pass.
-  6. Close this document `Resolved` once every open item is discharged.
-- **Approach in flight.** None. No read or edit is half-done.
-- **Branch and HEAD.** The website tree was on `chain/017-existing-items-backlog` at `5c3d03f` at 05:21Z, read
-  only, never written by this session. Every architect read used `git show <ref>:<path>`.
-- **Uncommitted or locally mutated.** Nothing of this session's. The scratchpad holds diff copies only.
-- **Evidence.** `verification/017/architect-delta/` (AF-16's measurement), committed at `5ee7b89`.
-- **Questions sent.** None to the owner. Every delivery went to `planner-hooks-017` or `steering-roadmap`, and every
-  answer it needed has been received.
+Closed `Resolved` 2026-11-19T08:44Z by architect-hooks-017 at the closing pass. Nothing is in flight.

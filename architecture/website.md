@@ -276,37 +276,53 @@ Two consequences a reader cannot derive from the tree:
 
 ### A-7 — Browser storage goes through one shared helper over typed keys, and the draft key has one reader
 
-**Grade**: agent-designed. Read at website `1ad625e` by architect-hooks-017 (plan 017 conformance pass, AF-5). It
-records no intent of his. Re-verify against the code.
+**Grade**: agent-designed. Read at website `1ad625e` by architect-hooks-017 (plan 017 conformance pass, AF-5), and
+restated at the release tree `4b8db9c` (plan 017 closing pass, M3). It records no intent of his. The 20-entry and
+1 MiB bounds are his OQ-11 selection (a), an option agents composed, cited as its authority and not as his intent.
+Re-verify against the code.
 
-**Mechanism.** `src/utils/withLocalStorage.ts` (`get`, `set`, `remove`) is the only module that calls
-`localStorage.getItem`, `setItem` or `removeItem` under `src`. `src/utils/hooks/useLocalStorage.ts` wraps it as a
-hook that re-reads its key on every `storage` event, so a write from another tab replaces this tab's value. Four keys
-are typed in `src/@types/global.d.ts` `LocalStorage`: `theme`, `frequentlyUsedEmojis`, `message` and
-`client_preferences`. The editor's draft is the one `message` key, shared by every message and every tab. Its only
-reader is `MessageProvider` through `useLocalMessageStore`. `set` does not catch a quota error.
+**Mechanism.** `src/utils/withLocalStorage.ts` (`get`, `set`, `remove`) writes every key. Its `set` returns `false`
+when `setItem` throws (the quota) and `true` otherwise. `src/utils/hooks/useLocalStorage.ts` wraps it as a hook that
+re-reads its key on every `storage` event, so a write from another tab replaces this tab's value. Five keys are typed
+in `src/@types/global.d.ts` `LocalStorage`: `theme`, `frequentlyUsedEmojis`, `message`, `messageDrafts` and
+`client_preferences`. Drafts go through one module, `src/utils/messageDrafts.ts`. `messageDrafts` maps a message id,
+or `0:<tab id>` for route 0, to `{ data, name, editedAt }`. The tab id is kept in `sessionStorage`, the one
+`sessionStorage` user under `src`. `writeDraft` holds the map to `MAX_DRAFTS` (20) entries and `MAX_DRAFT_CHARS`
+(1 MiB) serialised, evicting the oldest other entry, and evicts again while `set` returns `false`. The legacy
+`message` key is still written for route 0 and read when `messageDrafts` is absent. `messageDrafts.ts` is the one
+other module that calls `localStorage.getItem` directly, to test whether a key is present. `MessageProvider` is its
+only caller in production code, and the plan's write matrix (M3) states when each entry is written and removed.
 
-**Consequence a change must carry**: a change to the draft's storage is a change to the `message` member and its one
-reader, and it leaves the other three keys' cross-tab sync as it is unless it says otherwise. A form whose number of
-entries grows with the messages a browser opens states its bound, because `set` throws past the origin's quota.
+**Consequence a change must carry**: a change to the drafts goes through `messageDrafts.ts` and keeps M3's write
+matrix true, and it leaves the other keys' cross-tab sync as it is unless it says otherwise. A writer that can fail
+on quota reads `set`'s return value. A new form whose entries grow with use states its bound. The legacy `message`
+key is written beside every route-0 entry so that a rollback to the `1ad625e` reader still finds the latest route-0
+draft (M3-f, revert safety). A change that stops writing it gives up that rollback.
 
 ---
 
 ### A-8 — The editor's providers sit below the message layout's header and sidebar
 
-**Grade**: agent-designed. Read at website `1ad625e` by architect-hooks-017 (plan 017 conformance pass, AF-4). It
-records no intent of his. Re-verify against the code.
+**Grade**: agent-designed. Read at website `1ad625e` by architect-hooks-017 (plan 017 conformance pass, AF-4), and
+restated at the release tree `4b8db9c` (plan 017 closing pass, M4). It records no intent of his. The guard's form is
+his D-20 selection, an option agents composed, cited as its authority. Re-verify against the code.
 
-**Mechanism.** `src/app/message/layout.tsx` renders `Providers` (tRPC, session, guild, partial messages), `Redirects`
-and `_layout/Navigation`, which renders `Header` and `Sidebar`, around its children. `MessageProvider` and
-`ConfirmationProvider` are mounted one level down, in `src/app/message/m/[id]/layout.tsx`. So the header and sidebar,
-and every link in them, render outside the editor's state and its confirmation dialog. `useMessage` throws there
-(the provider formula, `system-architecture.md` Components). In-app links go through `src/components/StyledLink.tsx`,
-which wraps `next/link` and is also used outside `/message` (landing, footer, cookie consent).
+**Mechanism.** `src/app/message/layout.tsx` renders `Providers` (tRPC, session, guild, partial messages), and inside
+it `NavigationGuardProvider`, which wraps `Redirects`, `_layout/Navigation` (`Header` and `Sidebar`) and the
+children. `MessageProvider` and the editor's `ConfirmationProvider` are mounted one level down, in
+`src/app/message/m/[id]/layout.tsx`. So the header and sidebar render outside the editor's state, and `useMessage`
+throws there (the provider formula, `system-architecture.md` Components). The bridge is
+`src/providers/NavigationGuardProvider.tsx`. It mounts its own `ConfirmationProvider` and `ConfirmationDialog`.
+`useNavigationGuard` returns a "no guard" value outside it rather than throwing (a necessary deviation from the
+formula, plan 017 AF-19). `MessageProvider` registers a guard while mounted. `src/components/StyledLink.tsx`, which
+wraps `next/link` and is also used outside `/message`, calls `intercept` from `onNavigate` for a link on this site,
+and from `onClick` for a same-tab plain click to another site, which `next/link` hands to the browser without
+`onNavigate`.
 
 **Consequence a change must carry**: a behaviour of the header, the sidebar or `StyledLink` that depends on the
-editor reaches that state through a context mounted at or above `message/layout.tsx`, with a default for where no
-editor is mounted. It never calls `useMessage` from those components.
+editor goes through `NavigationGuardProvider`, or through a context mounted at the same level with a default for
+where no editor is mounted. It never calls `useMessage` from those components. A new link component that can leave
+an editor calls `intercept` on both paths, or the guard's member class (plan 017 M4-d) grows a hole.
 
 ---
 
@@ -324,3 +340,4 @@ editor is mounted. It never calls `useMessage` from those components.
 | 2026-11-11T10:50 | 8 | architect-hooks-016 | Added `A-6` (agent-designed): the editor persists its own message through one step, `useApiMethods` `persist`, which leaves the editor holding what it stored. Read at website `0e3d903`, routed by `retrospectives/fix-website-save-gate-embeds-retrospective.md`. Shaped by his selection 15, which is quoted as the option text he saw; the mode limb is steering's ruling. |
 | 2026-11-11T14:22 | 9 | architect-hooks-016 | `A-4` reconciled from the plan 016 implementation (release tree website `395510e`). Adds the one-sided-bound clause (plan 016 AF-4): `MAX_COMPONENT_DESCRIPTION_LENGTH` is read by the editor inputs and the send check and not by the schema. That is his selection 19, cited verbatim as its authority, and the clause states no intent of his beyond the option he chose. The env-free probe was re-run at `395510e` (exit 0). Agent-designed. |
 | 2026-11-18T23:33 | 10 | architect-hooks-017 | Added `A-7` (browser storage: one shared helper, four typed keys, one reader of the draft key) and `A-8` (the editor's providers sit below the message layout's header and sidebar), both agent-designed, read at website `1ad625e` in the plan 017 conformance pass (AF-4, AF-5). No selection of his shaped them. |
+| 2026-11-19T08:41 | 11 | architect-hooks-017 | `A-7` and `A-8` restated from the plan 017 implementation at the release tree `4b8db9c` (closing pass): the `messageDrafts` store, `set`'s return value and the bounds (his OQ-11 selection (a), cited as authority); `NavigationGuardProvider` and `StyledLink`'s two interception paths (his D-20 selection, cited as authority). Agent-designed. |

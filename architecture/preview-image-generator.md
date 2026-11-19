@@ -1,6 +1,6 @@
 ---
 Status: Active
-Last Updated: 2026-11-11
+Last Updated: 2026-11-19
 Record-Type: owner-sourced architecture record
 Repo: preview-image-generator (hooks-gg/preview-image-generator, branch `prod`)
 ---
@@ -38,7 +38,7 @@ Six questions asked and answered 2026-08-24.
 
 **One fact, not two.** It is *not* deliberately frozen — nothing forced an update. But the reason the staleness has cost nothing is architectural: the service screenshots the website's own `/preview` route, so it inherits every change to the preview surface for free and needs no adjustment when the editor changes. It is downstream of D-001's single-component-tree property (`website.md` W-3).
 
-**What this governs**: the **functional-drift** risk from old dependencies is structurally nil, and will stay nil for as long as the reuse holds. **A change that broke the reuse would raise the dependency risk at the same moment** — those are one risk, not two, and a proposal that ends the reuse must price the toolchain update with it. Security and maintenance risk from 2023 dependencies on a live production service is a **separate** question this answer does not address. It is assessed in `security/closed/015-preview-image-generator-security-audit.md`: H-001 (unsandboxed root Chromium 116.0.5845.96 renders user-supplied image URLs) and H-003 (the plain-HTTP port is public, served as root by an end-of-life Node) are its dependency-age findings. The owner accepted them as recorded; the carrier is `handoff/preview-image-generator-host-security-posture-2026-11-08.md`.
+**What this governs**: the **functional-drift** risk from old dependencies is structurally nil, and will stay nil for as long as the reuse holds. **A change that broke the reuse would raise the dependency risk at the same moment** — those are one risk, not two, and a proposal that ends the reuse must price the toolchain update with it. Security and maintenance risk from 2023 dependencies on a live production service is a **separate** question this answer does not address. It is assessed in `security/closed/015-preview-image-generator-security-audit.md`: H-001 (unsandboxed root Chromium 116.0.5845.96 renders user-supplied image URLs) and H-003 (the plain-HTTP port is public, served as root by an end-of-life Node) are its dependency-age findings. The owner accepted them as recorded; the carrier is `handoff/preview-image-generator-host-security-posture-2026-11-08.md`. The 015 audit ran no dependency scanner. The first one, `npm audit` over the lockfile at `8512a1d` (byte-identical to production's `8de2b53`), counts 25 advisories in production dependencies, 4 of them critical. Read in context, none is reached by a request in a way chain 017 opens (`security/017-preview-image-generator-security-audit.md` I-8). That count belongs to the same separate question and the same handoff. This sentence is the architect's (chain 017 closing pass), not his.
 
 ---
 
@@ -107,6 +107,8 @@ Under this grade, re-verify the mechanism, not the agreement. If any part of the
 
 So a failed generation yields a **broken image, not a stale one**. Achieving his stated intent requires the nonce to rotate only on confirmed success, or the URL to fall back to the last known-good nonce. Registered as a Problem Area in `system-architecture.md`.
 
+**Closed at the release trees, live in production until they ship.** Plan 017 (M5, M6) closes the mismatch at website `4b8db9c` and generator `8512a1d`. The nonce is committed only after a 204 that means "stored", the generator no longer deletes, and the website deletes only after the commit. A failed generation now leaves the last good image referenced, which is his stated intent (`system-architecture.md` Runtime Flow 3, D-006). The mechanism above is what production runs until chain 017's release. Two residues his answer does not speak to are recorded as Problem Areas there: an error-page render answered 200 by `/preview` is stored like any image (his X-22 acceptance), and orphan objects can outlive a message's last save (X-19).
+
 **Recorded here as the clearest instance of why this record earns its cost**: the defect was invisible for as long as nobody had written down what was supposed to happen. The code was self-consistent; only the stated intent made it wrong.
 
 ---
@@ -119,7 +121,7 @@ None outstanding at 2026-08-24.
 
 ## Recovered rationale — agent-derived, not owner testimony
 
-*The provenance grades above govern P-1 to P-6 only. The entry below is graded agent-designed: a mechanism agents designed and wrote, landed without his confirmation. Re-verify it against the code; never read it as his intent.*
+*The provenance grades above govern P-1 to P-6 only. The entries below are graded agent-designed: a mechanism agents designed and wrote, landed without his confirmation. Re-verify it against the code; never read it as his intent.*
 
 ### A-1 — Four log lines are an interface, read on the host by `verification/015/pig-host-read.sh`
 
@@ -132,4 +134,14 @@ None outstanding at 2026-08-24.
 
 After M8 there is also the drain-complete line, which gives the elapsed milliseconds.
 
-**Consequence a change must carry**: a change to any of these strings, or to how many times one is emitted, is a change to that instrument. It needs a matching edit to the script, or the next host read misclassifies without any error. Registered from the plan 015 conformance passes (architect AF-3, AF-14; QA QAF-8).
+Plan 017 (M6-c, release tree `8512a1d`) adds two lines to the interface. Section [7] counts the stderr line `preview-image-failure id=<id> class=<goto-rejected|error-status|screenshot|put> elapsedMs=<n>` by class. It counts the stdout `Generated image for message <id> with nonce <n> in <N>ms` lines stamped at or after the latest ISO-stamped `Server running at` line, as liveness for a zero (QAF-14; code review CR-16). The class set is closed at those four. A setup failure writes no class line (plan 017 M6-c, revision 8).
+
+**Consequence a change must carry**: a change to any of these strings, or to how many times one is emitted, is a change to that instrument. It needs a matching edit to the script, or the next host read misclassifies without any error. Registered from the plan 015 conformance passes (architect AF-3, AF-14; QA QAF-8), extended at the plan 017 closing pass.
+
+### A-2 — The bucket key and the meaning of 204 are a contract between two repositories
+
+**Grade**: agent-designed. Plan 017's mechanism, read at the release trees website `4b8db9c` and generator `8512a1d` by architect-hooks-017 at the closing pass. It records no intent of his. Re-verify against both trees.
+
+**Mechanism.** Every preview object's key is `[dev/]previews/<message id>/<nonce>.jpeg`. The generator writes it, with `dev/` when `config.ENV === 'development'` (`src/generateImage.ts`). The website builds the same key to delete and to sweep, with `dev/` when `env.NODE_ENV === 'development'` (`src/server/api/utils/previewBucket.ts` `previewPrefix`, `previewKey`). It reads the key back through `getCDNUrl`. The nonce is minted by the website (`previewImage.ts` `mintNonce`: `v`, 16 digits of database-clock microseconds, 16 hex). The generator treats it as opaque. The generator answers **204 exactly when the object was stored**. Any render-path failure answers 500 after writing nothing, and a 2xx page is rendered as stored whatever it shows. The website commits a nonce only on 204 and owns every list and delete. The generator only writes. The request body is unchanged: `{ id, nonce, message }`.
+
+**Consequence a change must carry**: a change to the key form, to either prefix variable, or to what 204 means is a change in both repositories, released in the order plan 017 § Release and rollback argues (website first, rollback generator first). A generator that wrote under a key the website does not build would leak objects the website never deletes. A generator that answered 204 without storing would commit a broken image, which is the defect P-6 records. Nothing shared states this contract in code (`system-architecture.md` Problem Areas, the key-contract row).
