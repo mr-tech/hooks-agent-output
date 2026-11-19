@@ -80,6 +80,7 @@ Architectural-Surface: "Yes; the architect's conformance pass is a named step (s
 | 2026-11-19T17:50 | R-50 | planner-hooks-017 | Recorded the critic's read of revision 9: cycle 3 pass 2, APPROVED, no finding (`critiques/closed/017-existing-items-backlog-critique.md`, `5f892f5`). Scope delta: none. |
 | 2026-11-19T17:50 | R-51 | planner-hooks-017 | Registered D-33 to D-35, his three selections of 17:49Z (the exact hash fix in 017, the Pusher disconnect in 017, the block rule for new writes only); words in `steering/selection-ledger/2026-11-19.md` block "2026-11-19T17:49Z — steering-roadmap-hooks" and `steering/017-rulings.md` block 2026-11-19T17:49Z (`de08a04`). Status set to In Progress: M2 has code open again. Scope delta: none — registration only; D-34's criterion is owed as a revision. |
 | 2026-11-19T17:51 | 10 | planner-hooks-017 | Writes D-34 as M2-d (the Pusher instance each `usePusher` effect run creates is disconnected when that effect ends; three members), and states D-33's exact string equality in M2-c with the JSON-encoded broadcast; on steering's word (`steering/017-rulings.md` block 2026-11-19T17:51Z, `bc18caa`), after code review CR-20 (R-49). M2-d reaches no value statement: it closes a connection the editor leaves open, which he added to 017 by selection (D-34). Scope delta: M2 gains criterion M2-d and one surface line (`shared.ts`'s trigger), a milestone-level delta on an open milestone that he ruled at 17:49Z; no milestone is added. Since approval: revisions 8 to 10. Gate rounds: the critic, QA Phase 1's re-key and the architect's delta read, then code review and QA Phase 2 for M2's round; the disconnect code waits for the three pre-code reads, while the hash fix (D-33, no criterion change) does not. Against the original ask: item 3 grows by one connection-close line. |
+| 2026-11-19T17:54 | R-52 | planner-hooks-017 | Recorded the architect's delta read on revision 10: APPROVED stands; AF-25 LOW (recommended: a case running pusher-js's real decode over the producer's frame) and AF-26 INFO (`architecture/017-existing-items-backlog-architecture-findings.md` § "Findings on revision 10", `410044e`). AF-25 is held for one fold with the critic's and QA's verdicts, and sent to QA now for its re-key. Scope delta: none. |
 
 ## Reading Order
 
@@ -108,7 +109,7 @@ Owed re-verdicts:
 | Revision 9 delta: X-24 and its Planner batch disposition | revision 9 commit | critic, delta-bounded | passed: APPROVED, cycle 3 pass 2, no finding (`5f892f5`) |
 | Revision 10 delta: M2-d, M2-c's equality sentence, M2's surfaces line, M2's human-observable M2-d step, D-34's consequence | revision 10 commit | critic, delta-bounded (new cycle) | owed |
 | The same delta, re-keyed: M2-d's members against named cases; M2-c's exact equality; M2-d's human-observable step as a register row | revision 10 commit | QA Phase 1 re-key | owed |
-| The same delta, as a conformance read (the wire form on the `message-update` broadcast) | revision 10 commit | architect, delta read | owed |
+| The same delta, as a conformance read (the wire form on the `message-update` broadcast) | revision 10 commit | architect, delta read | passed: APPROVED stands; AF-25 LOW, AF-26 INFO (`410044e`) |
 
 ## Value Statement and Business Objective
 
