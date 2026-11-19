@@ -23,6 +23,7 @@ record `2af7391`).
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-19T23:08 | fixer (`98a103e`, website `d597734`) | Round 1 code review | Round 1: REJECTED on CR-1 (MEDIUM, severity floor: the editor's move to a server-assigned number, which the fix now relies on, has no assertion). Ownership attacks: 187 of 187 hold at `d597734`. CR-2 to CR-5 are LOW/INFO, routed in Next Steps. The steering hold at `2e50cd9` was honoured; no verdict was given at that SHA. |
+| 2026-11-19T23:09 | steering (`e908744`, block 23:09Z) | Routing of CR-2 to CR-5 | CR-2 is in scope, and the fixer takes it with CR-1 (production lines). CR-3 goes to a handoff steering writes. CR-4 goes to a handoff owned by the architect, triggered at release. CR-5 is the fixer's choice, stated by the CR-1 test. The Assumption Not Checked owners are confirmed. The fix confirmation remains a sub-entry of Round 1, since CR-1 and CR-2 are both this round's findings. |
 
 ## Scope of this round
 
@@ -265,7 +266,7 @@ CR-5 INFO Round 1
 
 1. CR-1: add the spec-form provider case and its negative control, and record both in the Test section. A test-only diff is confirmed
    as a sub-entry of this round, not a new round.
-2. Optional, on steering's ruling only: CR-2 (int8 bound) and CR-5 (the N draft).
+2. CR-2: the int8 bound, ruled in scope (rulings block 23:09Z). CR-5 is the fixer's choice, stated by the CR-1 test.
 
 ## Assumption Not Checked
 
