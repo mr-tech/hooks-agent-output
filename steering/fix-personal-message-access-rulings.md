@@ -185,3 +185,12 @@ second-user matrix passes 21/21 at `ed88e7c`, with 6 failing at `787bec5`.
   The devops brief names both.
 - **Release-seam residue read, one count added** (QA's Assumption Not Checked): `select count(*) from "Messages" where fk_users_id is
   not null and fk_guilds_id is not null`. It is the same at base; this chain does not introduce it.
+
+## 2026-11-19T23:50Z — delta code review APPROVED_WITH_COMMENTS at 75f1543; residue refutation started
+
+Read this turn: the review document (record `948b85a`) gives `Reviewed-At: 75f1543…` and `Verdict: APPROVED_WITH_COMMENTS`, sub-entry 1c,
+a test-only delta. The reviewer re-ran the production-tree diff against `ed88e7c`, exit 0, and fixed its LINKS failure (check-repo PASS,
+by its message). Code review and QA now both anchor at `75f1543`. Security is running there.
+A `general-purpose-sonnet` helper was started to refute the fixer's "Residue already in production" conclusion, limbs (a) to (c), through
+`appRouter.createCaller` at `75f1543` against a throwaway postgres. This is ahead of the release prompt, per steering.md, Prompting the
+owner.
