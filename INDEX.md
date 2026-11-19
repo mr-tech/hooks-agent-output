@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-381 documents · 17 numbered chains · 200 unnumbered.
+384 documents · 17 numbered chains · 203 unnumbered.
 
 ---
 
@@ -299,6 +299,7 @@ they are the ID-less artifacts that root new efforts.
 | code review | `code-review/closed/fix-uat-local-stack-id-sequence-code-review.md` | Committed — Committed with the chain on the record repository's master at 7d59233; verdict APPROVED unchanged. Closed by steering-queue-hooks. |
 | code review | `code-review/closed/fix-v1-guild-messages-auth-code-review.md` | Committed |
 | code review | `code-review/closed/fix-website-save-gate-embeds-code-review.md` | Committed — Committed with the chain at website 0e3d903 (devops Stage 1, 2026-11-11T10:12Z); verdict APPROVED_WITH_COMMENTS unchanged. |
+| code review | `code-review/fix-personal-message-access-code-review.md` | In Review |
 | deployment | `deployment/closed/2026-04-07-plan-005.md` | Released |
 | deployment | `deployment/closed/2026-04-07-plan-006.md` | Released |
 | deployment | `deployment/closed/2026-04-07-plans-001-003-004.md` | Released |
@@ -347,6 +348,8 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` | Open · priority normal — Two items plan 016 excludes and does not discharge: the generic failure toast on a refused send (research F-14), and a File component's upload path (with removing File from the add menu). Neither blocks plan 016. The owner is shown both with plan 016 revision 1's Exclusions register. |
 | handoff | `handoff/uat-local-stack-test-free-port-race-2026-11-11.md` | Open · priority normal — The free-port helper in tools/uatLocalStack.test.js picks a port, releases it, and listens on it again later with no 'error' handler. If another process takes the port in between, the file hangs on EADDRINUSE until the runner's cap. This was seen once, at code review of fix-uat-local-stack-id-sequence. Nothing blocks on it; a run that hangs is repeated. |
 | handoff | `handoff/unsaved-change-guards-disabled-for-unauthenticated-users-2026-08-24.md` | Open · priority normal — A pre-existing data-loss gap in `website`: every unsaved-changes guard in the message editor is gated on the user being authenticated, so for an unauthenticated user they are inert — one of them skips its confirmation dialog entirely and reloads. A fourth guard listed here is a SEPARATE defect that has never worked for anyone, and the predicate fix does not close it. Found by `code-reviewer-hooks-013-3` while breaking its own predicate during chain 013 round 12, in code chain 013 never touched. Written as a handoff on the owner's standing disposition for this class; nothing is built and no chain is minted. |
+| handoff | `handoff/update-preferences-recent-message-ids-accepts-non-int8-2026-11-19.md` | Open · priority normal — user.updatePreferences accepts any string in recentMessageIds, so a non-int8 entry fails that user's own hydrated session. Pre-existing at 787bec5, self-only; same class as CR-2, which the fixer chain fixes at its own inputs. No stage owns this input yet. |
+| handoff | `handoff/upsert-message-count-problem-area-false-after-access-fix-2026-11-19.md` | Open · priority normal — The architecture Problem Areas row 'upsertMessage counts the owner's messages on every save' becomes false when fix-personal-message-access releases, because upsertMessage then counts only on the insert path. The architect updates the row at release. |
 | handoff | `handoff/website-api-handler-hardening-2026-10-10.md` | Open · priority normal — Four open LOW items (2 to 5) in website's API handlers and tests, raised by the fix-v1-guild-messages-auth code review and kept out of that fix's owner-bound scope. Item 1 was discharged by owner rider 2 at website 7606149. Nothing blocks the v1 auth fix's release. |
 | implementation | `implementation/closed/fix-agent-comment-sweep-merge-implementation.md` | Released — Released 2026-11-10T10:13Z: website master = 6d78b19 on origin. Record: deployment/fix-agent-comment-sweep-merge-deployment.md. |
 | implementation | `implementation/closed/fix-dialog-closes-on-first-portal-load-implementation.md` | Released — Released 2026-11-18T22:41Z: website master 395510e -> 1ad625e on origin (deployment/closed/fix-dialog-closes-on-first-portal-load-deployment.md). Production look owed, carried by handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md. |
@@ -354,7 +357,7 @@ they are the ID-less artifacts that root new efforts.
 | implementation | `implementation/closed/fix-uat-local-stack-id-sequence-implementation.md` | Committed — Committed on the record repository's master at 7d59233; code review APPROVED at that tree (record 1f5b0c3). No QA Phase 2 (the tool is +15/-5 by git diff --numstat 68d737f). No deploy: the tool is a record tool. Closed by steering-queue-hooks. |
 | implementation | `implementation/closed/fix-v1-guild-messages-auth-implementation.md` | Committed — Committed for release on website fix/v1-guild-messages-auth at ddbd750 (devops Stage 1, 2026-10-10). The owner's key check returned 'match'. Release (merge to master, push) awaits the owner's approval. |
 | implementation | `implementation/closed/fix-website-save-gate-embeds-implementation.md` | Released — Released 2026-11-11T10:13Z: website master 6d78b19 -> 0e3d903ce98e108c7ca848b992ad89ac538f4b44 on origin; fix branch merged and deleted. Deployment record deployment/fix-website-save-gate-embeds-deployment.md. |
-| implementation | `implementation/fix-personal-message-access-implementation.md` | Active — Fix committed on website chain/fix-personal-message-access at 2e50cd9; code review owed, then QA Phase 2 (83 production lines added), then security, then devops for website master on the owner's word. |
+| implementation | `implementation/fix-personal-message-access-implementation.md` | Active — Fix committed on website chain/fix-personal-message-access at d597734 (round 2, amended scope of rulings block 22:59Z); code review owed, then QA Phase 2 (107 production lines added), then security, then devops for website master on the owner's word. |
 | process improvement | `process-improvement/closed/012-013-batch7-agent-instruction-updates.md` | Applied — Mirror ledger. The analysis and the full ledger live in the statbot record: /usr/local/bin/statbot/agent-output/process-improvement/closed/023-012-013-batch7-*.md. First pi run over this repository; 012 and 013 retrospectives Processed and moved to closed/. |
 | process improvement | `process-improvement/closed/014-batch10-agent-instruction-updates.md` | Applied — Mirror ledger. The analysis and the full ledger live in the statbot record: /usr/local/bin/statbot/agent-output/process-improvement/closed/014-batch10-*.md. Retrospective 014 Processed and moved to closed/. Definitions ~/.claude/agents 96a3980; skill ~/.claude/agent-skills c6dd817. |
 | QA | `qa/closed/fix-hooks-record-shared-engine-qa.md` | Released — Released with the chain: Phase 2 PASS at c444457, refreshed at 0f09e6c over the REVIEW flip; on origin master at 1611473. |
@@ -761,6 +764,7 @@ they are the ID-less artifacts that root new efforts.
 | `fix-personal-message-access-brief-common.md` | `steering/fix-personal-message-access-brief-common.md` |
 | `fix-personal-message-access-brief-fixer.md` | `steering/fix-personal-message-access-brief-fixer.md` |
 | `fix-personal-message-access-brief-qa.md` | `steering/fix-personal-message-access-brief-qa.md` |
+| `fix-personal-message-access-code-review.md` | `code-review/fix-personal-message-access-code-review.md` |
 | `fix-personal-message-access-implementation.md` | `implementation/fix-personal-message-access-implementation.md` |
 | `fix-personal-message-access-rulings.md` | `steering/fix-personal-message-access-rulings.md` |
 | `fix-uat-local-stack-id-sequence-code-review.md` | `code-review/closed/fix-uat-local-stack-id-sequence-code-review.md` |
@@ -857,7 +861,9 @@ they are the ID-less artifacts that root new efforts.
 | `uat-local-stack-up-reuses-low-message-ids-2026-11-11.md` | `handoff/closed/uat-local-stack-up-reuses-low-message-ids-2026-11-11.md` |
 | `uat-save-gate-embeds-hooks-gg-check-brief.md` | `steering/queue-hooks-briefs/uat-save-gate-embeds-hooks-gg-check-brief.md` |
 | `unsaved-change-guards-disabled-for-unauthenticated-users-2026-08-24.md` | `handoff/unsaved-change-guards-disabled-for-unauthenticated-users-2026-08-24.md` |
+| `update-preferences-recent-message-ids-accepts-non-int8-2026-11-19.md` | `handoff/update-preferences-recent-message-ids-accepts-non-int8-2026-11-19.md` |
 | `upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` | `handoff/closed/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md` |
+| `upsert-message-count-problem-area-false-after-access-fix-2026-11-19.md` | `handoff/upsert-message-count-problem-area-false-after-access-fix-2026-11-19.md` |
 | `v1-guild-messages-auth-devops-phase-2d-brief.md` | `steering/v1-guild-messages-auth-devops-phase-2d-brief.md` |
 | `v1-guild-messages-auth-exposure-2026-10-10.md` | `research/closed/v1-guild-messages-auth-exposure-2026-10-10.md` |
 | `v1-guild-messages-auth-rulings.md` | `steering/v1-guild-messages-auth-rulings.md` |

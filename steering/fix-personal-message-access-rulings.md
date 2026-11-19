@@ -139,3 +139,5 @@ This thread's routing:
 - Assumption Not Checked (that the session carries the caller's own id): the security stage and the post-deploy browser check own it, as
   the reviewer says.
 Relays: the fixer and the code reviewer.
+Handoffs (helper subagent, `3a22a16`, check-repo PASS exit 0): CR-3 `handoff/update-preferences-recent-message-ids-accepts-non-int8-2026-11-19.md`;
+CR-4 `handoff/upsert-message-count-problem-area-false-after-access-fix-2026-11-19.md` (Owning-Stage architect, trigger this chain's release).
