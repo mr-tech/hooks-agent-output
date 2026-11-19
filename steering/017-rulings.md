@@ -592,3 +592,39 @@ Which element a real browser focuses when the update prompt opens over another d
 "Either wording leaves M8's fix the same": M8-b's property (Enter answers only the dialog holding focus)
 is the same under both, read at plan lines 939 to 966.
 Recipients: `planner-hooks-017` (register the statement and resolve OQ-14).
+Correction (05:06Z): "read at plan lines 939 to 966" was written before this thread had read those
+lines (it had read only M8-b's first line). It read them at 05:02Z, after the commit `a949b03`: the
+property and its decision table are the same under either wording, so the premise held. The check that
+would have caught it: read the cited lines before writing the citation.
+
+## 2026-11-19T05:06Z — OQ-15: one more probe push for M5-0 limb 3 (his selection)
+
+Plan revision 6 (`21e61eb`, 05:05Z) adds M5-0 limb 3 (a probe whose promise writes lines at 5, 15, 30,
+45 and 55 s) and OQ-15 (blocks M5 and M6 code). Selection prompt, put and answered 05:06Z; ledger
+`steering/selection-ledger/2026-11-19.md` block "2026-11-19T05:06Z — steering-roadmap". Chosen by
+selection; option text is this thread's.
+- **Agent: push one more probe (Recommended)** — CHOSEN. "devops-hooks-017 pushes one more probe branch on
+  this answer. The website has no GitHub workflows, and the last probe push built only a Vercel preview;
+  master didn't move. It runs and reads the probe, then deletes the branch, as before (about 2.5 min). It
+  removes any bypass secret it adds. The preview stays until Vercel expires it. This settles the 40 s
+  window before M5 code."
+- Agent: don't push — "No second probe. The 40 s window rests on Vercel's documentation and the 60 s
+  default. If Vercel cuts the background work somewhere between 5 s and 55 s, nothing would show it,
+  before or after release."
+Premises, read this turn:
+- What the push triggers: `ls -d website/.github/workflows`, "No such file or directory";
+  `git show origin/master:vercel.json`, `crons` only. Limb 2's push of `probe/017-waituntil` built a
+  Preview only (Ready 04:56:07Z); master unmoved at `1ad625e`
+  (`deployment/017-existing-items-backlog-m5-0-probe-deployment.md`, `d61f445`). About 2.5 min: that
+  record, push 04:55:17Z to deletion 04:57:41Z.
+- 5 s observed, 5 to 55 s not: the same record (`elapsedMs=5006`; its "What this does not establish"
+  line). Refuting `general-purpose-sonnet` helper: HOLDS. The `@vercel/functions` reference says
+  waitUntil promises "will have the same timeout as the function itself"; the project record gives
+  `functionDefaultTimeout=60`, with no route override at `origin/master` (analysis AN-3,
+  `verification/017/analysis/an3/vercel-api-project-record-extract.txt`; D-10). A Preview's limit is
+  unread.
+- The bypass secret: limb 2's `vercel curl` added one, and his 04:58Z selection in devops's session
+  revoked it (D-28); revision 6's limb 3 has devops restore the bypass count after the run.
+- Gate rounds since his rev-4 approval: revisions 5 and 6; no gate has read either. Both options
+  trigger the same three reads of revision 6; (a) adds the probe run before M5 code.
+Recipients: `devops-hooks-017` (his words, verbatim), `planner-hooks-017` (register; resolve OQ-15).
