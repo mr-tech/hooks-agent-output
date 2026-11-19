@@ -52,6 +52,7 @@ Architectural-Surface: "Yes; the architect's conformance pass is a named step (s
 | 2026-11-19T05:08 | R-25 | planner-hooks-017 | Registered D-30, his OQ-15 answer (push limb 3's probe); words in `steering/017-rulings.md` block 2026-11-19T05:06Z (`3c24ead`) and the ledger block it names. OQ-15 resolved; Status-Detail's limb 3 clause brought current. Scope delta: none (registration only). |
 | 2026-11-19T05:09 | R-26 | planner-hooks-017 | Recorded the architect's conformance read on revision 6: APPROVED stands, with AF-23 INFO (`architecture/017-existing-items-backlog-architecture-findings.md`, `635868d`). AF-23 is held for one fold with the critic's and QA's verdicts. Scope delta: none. |
 | 2026-11-19T05:16 | 7 | planner-hooks-017 | Folds the three verdicts on revision 6: critique cycle 2 pass 1 (`6d55bfc`: APPROVED; F-26 to F-28 LOW, SL-4), the architect's conformance read (`635868d`: APPROVED stands; AF-23 INFO) and QA's Phase 1 re-key (`b974198`: QAF-20 and QAF-21 MEDIUM), plus limb 3's result (deployment record `8f26f37`: lasts to 55 s, QAF-21's five checks answered from a whole capture). M8-b's table and M8-c name the focus position, with the red rows in U off its buttons (QAF-20, SL-4); M8-a gains the `useDocumentEventListener` listing (F-26); M8's form prefers the lifted check and places the ref inside each instance's panel (AF-23); M5-0 limb 3 states its read checks, its read boundary and a complete outcome rule (QAF-21, F-27), and records its result; two revision labels are corrected (F-28). Scope delta: none in milestones; M8's criteria now say where focus sits (what they require is unchanged in kind, but they can now fail at `5c3d03f`); M5-0 limb 3 is closed as met. Against the original ask: as at revision 5. Gate rounds: the critic's delta-bounded pass 2 and QA's re-key, plus the architect's delta read of AF-23's fold if steering routes one. |
+| 2026-11-19T05:18 | R-27 | planner-hooks-017 | Recorded the architect's delta read on revision 7: APPROVED stands, no finding, AF-23 closed (`architecture/017-existing-items-backlog-architecture-findings.md`, `0e380fc`). Scope delta: none. |
 
 ## Reading Order
 
@@ -75,7 +76,7 @@ Owed re-verdicts:
 | M8-a to M8-d keyed into the register and named mutants; M8's human-observable row; M5-0 limb 3's outcomes and its capture | revision 6 commit | QA Phase 1 re-key | QAF-20 and QAF-21 MEDIUM (`b974198`), folded at revision 7 |
 | Revision 7 delta: M8-a's third listing, M8-b's table with focus positions, M8-c's off-button rows, M8's human-observable focus step, M8's form (AF-23), M5-0 limb 3's read rule and result, F-28's labels | revision 7 commit | critic, cycle 2 pass 2 (delta-bounded) | owed |
 | The same delta, re-keyed: NM-30 to NM-38 against M8-b's red rows and M8-c's off-button rows; B-13, B-14 | revision 7 commit | QA Phase 1 re-key | owed |
-| AF-23's fold, the line "The form, mirrored" only | revision 7 commit | architect, delta read, if steering routes one | owed if routed |
+| AF-23's fold, the line "The form, mirrored" only | revision 7 commit | architect, delta read | passed: APPROVED stands, no finding; AF-23 closed (`0e380fc`) |
 
 ## Value Statement and Business Objective
 
