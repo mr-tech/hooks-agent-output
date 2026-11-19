@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/b5afe525-3f83-48b3-a08e-9d337a51fe7f/scratchpad/mut-work3/20261119T231124Z-p747713/mutant-4
+
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (27 tests | 4 failed) 42ms
+     × getOne refuses a number past the largest a message can hold, before any query 7ms
+     × upsert refuses a number past the largest a message can hold, before any query 2ms
+     × updateRecentMessageData refuses a number past the largest a message can hold, before any query 1ms
+     × delete refuses a number past the largest a message can hold, before any query 1ms
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 23 passed (27)
+   Start at  23:11:38
+   Duration  1.15s (transform 196ms, setup 0ms, import 975ms, tests 42ms, environment 0ms)
+

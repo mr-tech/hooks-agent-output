@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-personal-message-access
 UUID: 1b613853
 Status: Active
-Status-Detail: "Fix committed on website chain/fix-personal-message-access at d597734 (round 2, amended scope of rulings block 22:59Z); code review owed, then QA Phase 2 (107 production lines added), then security, then devops for website master on the owner's word."
-Handoff-At: d597734859bb58e184cd7f218708382e46aa1589 — repos=website; round 1 2e50cd9
+Status-Detail: "Fix committed on website chain/fix-personal-message-access at 12bcd75 (CR-1 test, CR-2 and CR-5 after code review round 1, rulings block 23:09Z); code review owed, then QA Phase 2 (116 production lines added), then security, then devops for website master on the owner's word."
+Handoff-At: 12bcd754dd1cb5737cb5e8246088497f75296a6e — repos=website; earlier d597734, 2e50cd9
 Origin-Chain: none
 ---
 
@@ -30,6 +30,13 @@ the save/update/delete queries"; "cleans up oddly formatted message numbers"). T
 
 Out, each to a handoff steering writes: the hydrated recent list returning server-message rows, and `getOne`'s absent-number error. The
 production residue read is held by steering to the release seam.
+
+**Routed at 23:09Z** (rulings block "2026-11-19T23:09Z — code review round 1 REJECTED at d597734 (CR-1); CR-2 to CR-5 routed", record
+`e908744`):
+- CR-1 is a test owed here.
+- CR-2 (bound the message number to int8, and give `getOne` the same shape) is in scope.
+- CR-5 (the fate of the draft stored under a dead number) is the fixer's design choice inside scope.
+- CR-3 and CR-4 go to steering's handoffs.
 
 The S-numbers are the sweep's (`verification/access-defects/scoping/sweep.md`, website `787bec5`). The three handoffs for S14, S15 and
 S1b are steering's under that block. This document writes none of them.
@@ -117,9 +124,26 @@ with the number it holds (`MessageProvider`, `msg.id === message?.id`). The clie
 - `values.id = message.id`: first added at `98ecb0b`. `72a1755` (chain 017) touched that line but did not introduce it.
 - The cap's `!message.id &&`: present since `c0b59c3` / `4fe53b6`. `fadee3e` (chain 015) changed only the operator.
 
+**CR-2, the bound (round 3).** `messageIdShape` is now `/^[0-9]{1,19}$/`, refined to `≤ 9223372036854775807`, then canonicalised. It
+is also `getOne`'s input, so one shape owns the number at all four procedures. A number past int8 is refused with `BAD_REQUEST` before
+any query (before, postgres raised `out of range for type bigint`, a 500). Consumers newly affected:
+- `getOne`'s `getMessage` now reads the canonical number.
+- `MessageProvider` keys its query on the URL's own text and reads back the database's id, so nothing compares the two.
+
+No site-issued number changes. Zero-padded text longer than 19 characters is refused, as an oddly formatted number.
+
+**CR-5, the dead number's draft — a decision of mine as fixer (agent-authored, not the owner's).** When a save of a held number N comes
+back with another number M (its row was gone), `MessageProvider` drops the draft stored under N if, and only if, that draft holds the
+content just saved. This is the same predicate the same-number branch already used. The change is one line: the branch now keys on
+`message.id`, not `msg.id`. Reasons:
+- N's row no longer exists, so its draft can never be offered back on that number.
+- Its content now lives at M.
+- A draft the user edited further while the save was in flight does not match, and is kept, exactly as on a same-number save.
+
 **Observed outside the scope, not absorbed** (reported to steering at round 1; none is an ownership breach of a personal message). At
 22:59Z steering ruled the upsert canonical id and the delete owner term in scope, and they are fixed in round 2. The two items below
-stay out of scope, and steering writes a handoff for each:
+stay out of scope. Their carriers are `handoff/hydrated-recent-list-returns-guild-message-rows-2026-11-19.md` and
+`handoff/get-one-absent-number-fails-without-not-found-2026-11-19.md`:
 - The hydrated recent list still returns server-message rows for any server whose message number is stored (the `fk_guilds_id is not
   null` arm keeps the guild behaviour unchanged). This is guild-message metadata, in S1b's family.
 - `getOne` on a number no row holds still fails with `executeTakeFirstOrThrow`'s error, not `NOT_FOUND`, so "absent" and "not yours" can
@@ -146,6 +170,12 @@ totals follow in this list:
   - `shapes.ts` (1/1): `optionalIdMessageShape.id` is `messageIdShape.optional()`.
   - `shared.ts` (18/1): the `MessageOwner` type; `deleteOwnedMessage(id, owner)` with the owner term, `returning id`.
 - **Totals over `787bec5..d597734`: 107 production lines added** (message.ts 14, shapes.ts 4, shared.ts 88, auth.ts 1).
+- Round 3 (`git diff --numstat d597734 12bcd75`):
+  - `shapes.ts`: `MAX_MESSAGE_ID` and the bounded `messageIdShape`.
+  - `routers/message.ts`: `getOne` takes `messageIdShape`.
+  - `providers/MessageProvider/index.tsx` (3/3): the draft branch in `upsert`'s `onSuccess` keys on `message.id` (CR-5).
+- **Totals over `787bec5..12bcd75`: 116 production lines added** (MessageProvider 3, message.ts 15, shapes.ts 9, shared.ts 88,
+  auth.ts 1).
 - `src/server/auth.ts` (1/1): the hydrated callback passes `user.id` (the `Users` row id, from the adapter's `getSessionAndUser`,
   `kysely-adapter/index.ts:329-354`).
 
@@ -266,6 +296,38 @@ still pass.
     ("expected 'undefined' to be 'function'"). Its behavioural red is the router test's owner-term case at `2e50cd9`, together with the
     `delete-owner-term-*` controls. The real database shows the write refusing only at `d597734`.
 
+**Round 3** (code review round 1: CR-1, CR-2, CR-5).
+
+New cases:
+- `src/providers/MessageProvider/__tests__/MessageProvider.save-new-number.test.tsx` (new file, mounted with `mountInMessageProvider`;
+  `next/navigation` mocked with one shared `replace` spy, because the shared helper makes a fresh spy per render). Three cases:
+  - "moves the editor to the new number when the save of a held number lands at another": `replace('/message/m/M/edit')` once;
+  - "drops the draft held under the old number once its content is saved at the new one" (CR-5's stated outcome);
+  - "keeps the editor where it is when the save comes back with the held number".
+- In `message.personal-ownership.test.ts`, 9 cases:
+  - each of `getOne`, `upsert`, `updateRecentMessageData` and `delete` refuses `9223372036854775808` with `BAD_REQUEST` before any query;
+  - each takes `9223372036854775807` to the database;
+  - `getOne` reads the canonical number for a leading-zero input.
+
+Runs:
+- **Test-only commit `5d9678d`** (the CR-1 cases, before any production change): both editor-move cases pass, because the branch exists.
+  The reviewer asked for red under a negative control, given below.
+- **Red at `5d9678d`** (with the CR-2 and CR-5 cases): `npx vitest run --reporter=json` over the two files gives **30 cases, 6 failed, 24
+  passed, exit 1**. The 6 are the draft case, the four past-int8 refusals, and `getOne`'s canonical read. Captures:
+  `red-5d9678d.{json,log}`.
+- **Green, whole suite at `12bcd75`:** **1891 cases, 1891 passed, exit 0, 147 files** (`suite-12bcd75.{json,log}`). The new file is
+  the only path added since round 2.
+- **Negative controls** (`negative-controls-round3.mutants.json`, on `12bcd75`): **7 of 7 KILLED**, count `checked`, every one an
+  assertion failure (no timeout) (`negative-controls-12bcd75/`):
+  - `editor-move-dropped` (the `router.replace` line removed): "moves the editor…";
+  - `editor-move-inverted` (`!==` → `===`): "moves the editor…" and "keeps the editor where it is…";
+  - `old-number-draft-kept` (`removeDraft(msg.id, …)`, the round-2 behaviour): "drops the draft…";
+  - `id-bound-dropped`: the four past-int8 refusals;
+  - `id-bound-strict` (`<=` → `<`) and `id-length-short` (`{1,19}` → `{1,18}`): the four largest-number cases;
+  - `getOne-input-shape` (the old inline regex): `getOne`'s past-int8 and canonical cases.
+- **Real-database run at `12bcd75`:** 17 of 17 passed, exit 0 (`pg/out-round2/pg-12bcd75.*`); no container was left. CR-2's refusal
+  happens in the input shape before any query, so its instrument is the router test.
+
 No time-based test enters the suite. The real-database driver's readiness loop is in the instrument, not the suite.
 
 ## Verification
@@ -291,6 +353,11 @@ No time-based test enters the suite. The real-database driver's readiness loop i
   - `npx eslint --max-warnings=0` over every file changed `787bec5..d597734`: exit 0 (`eslint-changed-files-d597734.txt`). The first
     pass warned on two lines over 100 characters, both mine; I wrapped them.
   - convention check `--since=787bec5`: 0 FAIL, 0 CANDIDATE (`convention-check-d597734.txt`); the same SKIPs as round 1.
+- **Round 3, at `12bcd75`:**
+  - suite: 1891 cases, exit 0;
+  - `pnpm run typecheck`: exit 0 (`typecheck-12bcd75.txt`);
+  - eslint over every file changed `787bec5..12bcd75`: exit 0 (`eslint-changed-files-12bcd75.txt`);
+  - convention check: 14 files examined, 0 FAIL, 0 CANDIDATE (`convention-check-12bcd75.txt`); the same SKIPs.
 
 ## User-visible flows
 
@@ -300,7 +367,9 @@ For the owner's own check on production after release; no UAT stage runs:
 - Your own personal messages, and server messages for servers you administer, still open, save, copy, send (recent webhook data) and delete
   as before.
 - Saving a message that was deleted in another tab now saves it as a new message and moves the editor to the new number. Before, it was
-  recreated at the old number.
+  recreated at the old number. The browser's stored draft for the old number is dropped when it holds what was saved.
+- A message number longer than any message can have (in an `/message/m/<number>` address, say) is refused as a bad request. Before, it
+  was a server error.
 - After signing in, the recent-messages list shows only your own personal messages and server messages, even if your preferences hold
   other numbers.
 - Deleting a message also clears its preview images when the number was sent with leading zeros. (The site's own UI always sends the
@@ -312,9 +381,9 @@ For the owner's own check on production after release; no UAT stage runs:
 
 ## Handoff
 
-- **Handoff SHA:** website `d597734859bb58e184cd7f218708382e46aa1589` on `chain/fix-personal-message-access` (no upstream; not pushed).
-  Round 1 was `2e50cd9`.
-- **Reviews:** code review (`code-reviewer-hooks-fix-personal-message-access`), then QA Phase 2 (107 production lines ≥ 20), then security
+- **Handoff SHA:** website `12bcd754dd1cb5737cb5e8246088497f75296a6e` on `chain/fix-personal-message-access` (no upstream; not pushed).
+  Earlier handoffs were `d597734` and `2e50cd9`.
+- **Reviews:** code review (`code-reviewer-hooks-fix-personal-message-access`), then QA Phase 2 (116 production lines ≥ 20), then security
   on the change (rulings block 20:30Z).
 - **Merges:** devops, for website `master`, under the owner's release approval. The push deploys to production through Vercel (no beta),
   so it needs his word.
@@ -329,3 +398,6 @@ For the owner's own check on production after release; no UAT stage runs:
 | 2026-11-19T22:56 | fixer | Document created; `Handoff-At` `2e50cd9`; handed to code review |
 | 2026-11-19T23:01 | fixer | Round 2 committed at `d597734` (commit time), on the amended scope of rulings block 22:59Z (record `2af7391`): delete owner term, upsert canonical id. Red at `2e50cd9`, 8 controls, real-database run over three SHAs recorded |
 | 2026-11-19T23:04 | fixer | Scope statement, Diagnosis, Change, Test, Verification, flows and Handoff updated; `Handoff-At` moved to `d597734`; handed to code review |
+| 2026-11-19T23:09 | fixer | CR-1 provider test committed at `5d9678d` (commit time), test only |
+| 2026-11-19T23:11 | fixer | Round 3 committed at `12bcd75` (commit time), per rulings block 23:09Z (record `e908744`): CR-2 bound and `getOne` shape, CR-5 draft decision (agent-authored). Red at `5d9678d`, 7 controls, suite and real-database run recorded |
+| 2026-11-19T23:13 | fixer | Scope, Diagnosis, Change, Test, Verification, flows, Handoff and out-of-scope carriers updated; `Handoff-At` moved to `12bcd75`; handed to code review |

@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/b5afe525-3f83-48b3-a08e-9d337a51fe7f/scratchpad/mut-work3/20261119T231124Z-p747713/mutant-2
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-new-number.test.tsx (3 tests | 2 failed) 55ms
+     × moves the editor to the new number when the save of a held number lands at another 39ms
+     × keeps the editor where it is when the save comes back with the held number 8ms
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed (3)
+   Start at  23:11:33
+   Duration  1.66s (transform 236ms, setup 22ms, import 850ms, tests 55ms, environment 594ms)
+

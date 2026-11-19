@@ -1,0 +1,18 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > the message number each procedure takes > getOne takes the largest number a message can hold to the database
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > the message number each procedure takes > upsert takes the largest number a message can hold to the database
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > the message number each procedure takes > updateRecentMessageData takes the largest number a message can hold to the database
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > the message number each procedure takes > delete takes the largest number a message can hold to the database
+AssertionError: expected 0 to be greater than 0
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:395:37
+    393|     await call(INT8_MAX).catch(() => undefined);
+    394|
+    395|     expect(captured.queries.length).toBeGreaterThan(0);
+       |                                     ^
+    396|   });
+    397|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+

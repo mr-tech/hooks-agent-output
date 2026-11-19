@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/b5afe525-3f83-48b3-a08e-9d337a51fe7f/scratchpad/mut-work3/20261119T231124Z-p747713/mutant-3
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-new-number.test.tsx (3 tests | 1 failed) 47ms
+     × drops the draft held under the old number once its content is saved at the new one 8ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  23:11:35
+   Duration  1.66s (transform 249ms, setup 21ms, import 878ms, tests 47ms, environment 576ms)
+

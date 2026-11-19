@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/b5afe525-3f83-48b3-a08e-9d337a51fe7f/scratchpad/mut-work3/20261119T231124Z-p747713/mutant-7
+
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (27 tests | 2 failed) 43ms
+     × getOne refuses a number past the largest a message can hold, before any query 7ms
+     × getOne reads the canonical number when the browser sends leading zeros 1ms
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 25 passed (27)
+   Start at  23:11:45
+   Duration  1.16s (transform 194ms, setup 0ms, import 996ms, tests 43ms, environment 0ms)
+

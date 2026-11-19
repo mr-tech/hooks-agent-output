@@ -1,0 +1,39 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-new-number.test.tsx > MessageProvider — the number a save comes back with > moves the editor to the new number when the save of a held number lands at another
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.save-new-number.test.tsx:85:29
+     83|     saveAnsweredWith(FRESH);
+     84|
+     85|     expect(hoisted.replace).toHaveBeenCalledTimes(1);
+       |                             ^
+     86|     expect(hoisted.replace).toHaveBeenCalledWith(`/message/m/${FRESH}/…
+     87|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-new-number.test.tsx > MessageProvider — the number a save comes back with > keeps the editor where it is when the save comes back with the held number
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      "/message/m/900000000000101/edit",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.save-new-number.test.tsx:98:33
+     96|     saveAnsweredWith(HELD);
+     97|
+     98|     expect(hoisted.replace).not.toHaveBeenCalled();
+       |                                 ^
+     99|   });
+    100| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
