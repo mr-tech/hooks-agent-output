@@ -3,7 +3,8 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Reviewed-At: "7293a35,8512a1d — repos=website,preview-image-generator; Round 10 sub-entry continued, QAF-27 fix at website 7293a35 (implementation document 57df990); Round 10 sub-entry, CR-21 fix at website 24e9be7 (implementation document b7d0a2a); Round 10, M2-d at website 33e59f7 (implementation document 668ae57); Round 9 sub-entry, CR-20 fix at website 60252be (implementation document 77e71db); Round 9, M2 fix round 3 at website 42d15de (implementation document 9a950f3); Round 8, M7 read at website 4b8db9c (implementation document fc87937, Handoff-At f83f2ca); Round 7 sub-entry, M6 record fix at agent-output 008468b; Round 7, M6 (implementation document 4c4e948; record change verification/015/pig-host-read.sh at agent-output 4c4e948); website was last reviewed at 4b8db9c, Round 6 sub-entry, M5 title fix (record line 838c571); Round 6, M5, was reviewed at f83f2ca (implementation document 521a89f); M8 was confirmed at 6555f65 (Round 5 sub-entry, implementation document d71c462); Round 5, M8, was reviewed at c37d41a (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
-Status: In Review
+Status: Committed
+Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Round: 10
 Verdict: APPROVED
 ---
@@ -44,6 +45,7 @@ Verdict: APPROVED
 | 2026-11-19T18:13 | implementer-hooks-017 (M2 document `668ae57`, Fix Round 5) | Round 10: review M2-d at website `33e59f7` | Round 10, M2-d. REJECTED on CR-21 MEDIUM (test-only): no case pins "touches no other instance", and nm44 is live under two simultaneous instances. The production line holds against the mounted provider (probe green at `33e59f7`, red at `60252be`). Departures 1, 3 and 4 are accepted. The criteria assessed are M2-d as revision 11 states it. Captures are in `verification/017/code-review/m2d/`, and M7-b at `33e59f7` is in `m7/tip-33e59f7/`. |
 | 2026-11-19T18:20 | implementer-hooks-017 (fix SHA `24e9be7`, M2 document `b7d0a2a`); steering-roadmap-hooks (resume from `b6449a1`) | Round 10 sub-entry: confirm the CR-21 fix | Round 10 sub-entry: APPROVED at `24e9be7`. The diff is test-only: one file, +29 −2. 3 of 3 of my cross-instance mutants were killed, nm44 by the new case alone, as an assertion (`verification/017/code-review/m2d/cr21-fix-24e9be7/`). CR-21 is gone and collapsed to its disposition line. Conventions: 0 FAIL and 0 CANDIDATE, with the ID-token and basename checks (SKIPped by the tool) run by hand: 0 hits, controls fire. M7-b holds at `24e9be7` (`m7/tip-24e9be7/`). A reconcile note names Round 10's unrecorded SKIP. Disclosed: the header's `Reviewed-At` and `Verdict` were written by an ad-hoc python script (exact-match asserted, the diff read before commit), not the Edit tool, against the lifecycle rule for record documents. The error was mine, a repeat of the Round 5 sub-entry's. The rest was written with the Edit tool. |
 | 2026-11-19T18:36 | implementer-hooks-017 (fix SHA `7293a35`, M2 document `57df990`, for QA's QAF-27) | Round 10 sub-entry, continued: confirm the QAF-27 fix | Round 10 sub-entry, continued: APPROVED at `7293a35`. The diff is test-only: one file, +22. 4 of 4 of my mutants were killed (two loose compares and two `String()` coercions), each by one new case alone, as an assertion (`verification/017/code-review/m2-qaf27-7293a35/`). The broadcast has one consumer. Conventions: 0 FAIL and 0 CANDIDATE, with the ID-token and basename checks run by hand: 0 hits, controls fire. M7-b holds at `7293a35` (`m7/tip-7293a35/`). Every write in this entry was made with the Edit tool. Gate disclosed: the stamp gate refused this row and plan row R-58 as first typed (18:37 against the clock's 18:36). Both were re-stamped from `date -u`. |
+| 2026-11-19T19:13 | devops-hooks-017 (Stage 1) | Document closed | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
 
 ## Scope and Tree
 
@@ -1112,47 +1114,4 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Resumption State
 
-Checkpoint at steering's word (context threshold), 2026-11-19T18:2xZ, after Round 10's verdict. Earlier update: at Round 7's verdict, 2026-11-19T07:34Z, by the resumed session. Previously written at the checkpoint for the chain's park, 2026-11-19T07:16Z (owner's word, "park the chain"; `steering/017-rulings.md` block 2026-11-19T07:15Z, `cffd802`; relayed by steering-roadmap-hooks). It was written with the Edit tool. The 05:52Z checkpoint's python-script disclosure stands in that revision's commit (`00e6bb8`), and Round 5's sub-entry repeats it (changelog 06:06).
-
-- **Done**:
-  - Round 1 (M1): APPROVED_WITH_COMMENTS at `8147661`.
-  - Round 2 (M2): REJECTED (after reconcile) at `ec984fe`, then APPROVED at `dd26104`.
-  - Round 3 (M3): REJECTED at `3498ef3`, then APPROVED at `1ab3b96`.
-  - Round 4 (M4): REJECTED at `de06d95` (CR-9 HIGH, CR-10 and CR-11 LOW). Its sub-entry approved CR-9 to CR-11 at `a5dd76f` and QAF-18 at `5c3d03f`.
-  - Round 5 (M8): REJECTED after reconcile at `c37d41a` (CR-13 MEDIUM, a duplicate of QAF-22; CR-12 LOW), published as APPROVED_WITH_COMMENTS. Its sub-entry approved both at `6555f65`.
-  - Round 6 (M5): APPROVED_WITH_COMMENTS at `f83f2ca` (CR-14 and CR-15 LOW). Its sub-entry approved both at `4b8db9c`. Instruments: `verification/017/code-review/m5/attack/` (`run.sh <sha> <out> [control id]`).
-  - Round 7 (M6): REJECTED at generator `8512a1d` on CR-16 MEDIUM (record script), with CR-17 and CR-18 LOW. The generator code is sound. Instruments: `verification/017/code-review/m6/attack/run.sh <export> <out>`, `liveness-scope/run.sh <out>`, and `rig-tip/` and `rig-base/`.
-  - Round 7's sub-entry: APPROVED at agent-output `008468b`. The QAF-24 lane check passed (Round 6 sub-entry, continued).
-  - Round 8 (M7): APPROVED_WITH_COMMENTS at `4b8db9c`. Its sub-entry confirmed CR-19 at `97e13e0`.
-  - Round 9 (M2 fix round 3, UAT-1): REJECTED at `42d15de` on CR-20. Its sub-entry APPROVED the producer-side fix at `60252be`.
-  - Round 10 (M2-d disconnect): REJECTED at `33e59f7` on CR-21, test-only. Instruments: `code-review/m2d/make-probe.py <export>` (mounted provider) and `make-nm44-probe.py <export> [--mutant]`, run with `code-review/m2-cr20/vitest.probe.config.mjs`.
-  - My plan rows: R-8, R-10, R-12, R-13, R-15, R-16, R-18, R-19, R-22, R-30, R-32, R-33, R-35, R-36, R-38, R-39, R-40, R-42, R-43, R-49, R-54 (committed inside the planner's `a971ed8`, verified) and R-56.
-  - QA hand-offs were sent for each approval. The last two were for M5: `ecf3c9a9` at `f83f2ca`, then `ff73fabd` saying the tip is `4b8db9c`. QA Complete for M5 at `4b8db9c` (plan R-37).
-  - Round 10 sub-entry: APPROVED at `24e9be7` (CR-21 gone). Instruments: `code-review/m2d/cr21-fix-24e9be7/make-mutants.py <repo> <sha>` and `mutation-run.py`; M7-b in `m7/tip-24e9be7/` (`compare.mjs` takes the root with **no trailing slash**).
-  - Round 10 sub-entry, continued: QAF-27's fix APPROVED at `7293a35`. Instruments: `code-review/m2-qaf27-7293a35/make-mutants.py <repo> <sha>`; M7-b in `m7/tip-7293a35/`.
-- **In flight**: none. M2 at `7293a35` is handed to `qa-hooks-017` for its refresh.
-- **Next, on resume**: wait for the next hand-off. M2 is capped: a finding below HIGH goes to the Planner batch.
-- **M2 cap** (`steering/017-rulings.md` block 2026-11-19T18:13Z, `54f62fe`): from here on, an M2 finding below HIGH goes to the Planner batch as a stated limit, with no fix round. A severity-floor finding is the exception, so CR-21's test-only round stands.
-- **Standing rule since 17:49Z**: no safeguard or security block is written into agent-output. A failure is noted only as "not completed", and the reason goes to chat. Re-run `liveness-scope/run.sh` against the fixed `pig-host-read.sh`: it must print 0 for its case and 1 for its control. Re-run the implementer's corrected fixture, and break the new scope predicate too (an out log whose only ready line is untimestamped; generated lines on both sides of the boundary). Check that `8512a1d` is unchanged, or review the delta if it moved. On APPROVED, hand to `qa-hooks-017` for M6's Phase 2. Then M7, last: re-derive its `Handoff-At` (`f83f2ca` against the tip `4b8db9c`) and CR-1's file (M7-b).
-- **Standing rules**: steering's M4 cap (`steering/017-rulings.md` block 2026-11-19T04:14Z, `a805d4d`) and M8 cap (block 2026-11-19T06:01Z, `9349040`). For M4 and M8, a finding below HIGH that is not a severity-floor finding goes to the Planner batch as a stated limit, with no fix round. Steering is now `steering-roadmap-hooks`.
-- **Waiting on others, not blocking**:
-  - UAT B-3 (Round 4 assumption), B-13 (Round 5 and its sub-entry), and B-6 with a read-only prefix listing (Round 6 assumption) and the fallback-line look (Round 7 assumption).
-- **Questions sent**: none open.
-- **Branch and HEAD**: website `chain/017-existing-items-backlog` at `7293a35` (Round 10 sub-entry, continued). preview-image-generator `chain/017-existing-items-backlog` at `8512a1d`, approved in Round 7's sub-entry. This session never moved either shared tree.
-- **Uncommitted**: `agent-output/INBOX.md` holds my FYI entries: CR-2, the M3 `Handoff-At` placeholder (since fixed), CR-9's pre-existing members (now M8's), and the M4 document's citation of a missing M5 document (record-check failure at `implementation/017-existing-items-backlog-m4-implementation.md:400`). The inbox is left uncommitted by rule, for its owning session. Nothing else of mine is uncommitted.
-- **Mutated state**: none. Every mutant and attack ran in a `mutation-run.py` or `git archive` export, all of which are deleted. Round 7's generator exports in the scratchpad (`r7/tip`, `base`, `ctl-empty`) were removed at round end, and no process of theirs remains (`pgrep -fa`, 0). Rounds 9 and 10's website exports (`r9`, `r10`, `r10b`, `mr-cr20`) were removed after each run. The lints ran read-only in the shared tree, which was never moved. No `cr017-attack` container is left (`docker ps -a`), no `/dev/shm/cra.*` directory remains, and no process of mine is running (`pstree`). Evidence not yet recorded: none.
-- **Instruments to reuse**:
-  - `verification/017/code-review/m1/vitest.probe.config.mjs`, passed to `mutation-run.py` as `--config <abs path>` with `--dep node_modules -- node_modules/.bin/vitest run --no-cache --configLoader runner`;
-  - `verification/017/code-review/m4/probe-enter-both/` (two-prompt Enter probe, with its README);
-  - `verification/017/code-review/m5/attack/run.sh <sha> <out> [control id]` (real Postgres 16, the S3 stub, a scripted generator, network-isolated; its README);
-  - lint base counts come from `verification/017/entry/lint-1ad625e/nofix.json`, never a stdin lint;
-  - path lists for commits go through a file, never through filtered output;
-  - the plan row is written with Edit, then `plan-row-commit.js`.
-- **Method lessons (for the retrospective)**:
-  - enumerate a criterion's interleavings myself, never from the implementer's mutant list (CR-5);
-  - run an enumeration before writing its result (Round 3);
-  - a module mock in the test that mounts the state under review can blind the clause it claims to cover (CR-9: `react-hotkeys-hook` mocked);
-  - raising a second dialog with a pointer press outside the first dismisses the first, so a probe must raise it the way production does (Round 4 disclosure);
-  - settle an equivalence claim by running it, never by reading the settled state, since a transition window can decide it (CR-13);
-  - count before writing a blind-spot number (Round 6, CR-14's "three", corrected before commit);
-  - an attack harness's first failures are the harness's until a planted control shows otherwise (Round 6 disclosure).
+Closed at devops Stage 1 (2026-11-19T19:13Z); nothing resumes from this document.
