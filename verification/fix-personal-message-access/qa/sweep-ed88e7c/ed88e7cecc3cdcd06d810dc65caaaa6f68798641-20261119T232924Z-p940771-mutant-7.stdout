@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/sweep-work/20261119T232924Z-p940771/mutant-7
+
+ ❯ |node| src/server/api/utils/__tests__/shared.message-cap.test.ts (10 tests | 2 failed) 48ms
+     × refuses a new message when the user holds 1000, and inserts nothing 12ms
+     × refuses a new message when the server holds 1000, and inserts nothing 4ms
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (27 tests | 1 failed) 99ms
+     × refuses at the per-user cap, and creates no row 32ms
+
+ Test Files  2 failed | 146 passed (148)
+      Tests  3 failed | 1901 passed (1904)
+   Start at  23:31:37
+   Duration  17.59s (transform 23.73s, setup 1.84s, import 132.70s, tests 38.94s, environment 80.71s)
+

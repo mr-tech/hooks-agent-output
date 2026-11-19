@@ -1,0 +1,213 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 14 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert with a message number no row holds > never writes a row at the number the browser sent
+TRPCError: Cannot destructure property 'id' of 'saved' as it is undefined.
+ ❯ upsertMessage src/server/api/utils/shared.ts:285:11
+    283|   }
+    284|
+    285|   const { id, savedAtMicros } = saved;
+       |           ^
+    286|   const newMessagePromise = getMessage(id);
+    287|
+ ❯ resolveMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:576:21
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:682:19
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/router.ts:474:19
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:221:19
+
+Caused by: TypeError: Cannot destructure property 'id' of 'saved' as it is undefined.
+ ❯ upsertMessage src/server/api/utils/shared.ts:285:11
+ ❯ resolveMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:221:17
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:281:18
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/tracked-Bjtgv3wJ.mjs:298:13
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:221:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/14]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert with a message number no row holds > announces no update on the number the browser sent
+TRPCError: Cannot destructure property 'id' of 'saved' as it is undefined.
+ ❯ upsertMessage src/server/api/utils/shared.ts:285:11
+    283|   }
+    284|
+    285|   const { id, savedAtMicros } = saved;
+       |           ^
+    286|   const newMessagePromise = getMessage(id);
+    287|
+ ❯ resolveMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:576:21
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:682:19
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/router.ts:474:19
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:230:5
+
+Caused by: TypeError: Cannot destructure property 'id' of 'saved' as it is undefined.
+ ❯ upsertMessage src/server/api/utils/shared.ts:285:11
+ ❯ resolveMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:221:17
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:281:18
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/tracked-Bjtgv3wJ.mjs:298:13
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:230:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/14]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert with a message number no row holds > refuses at the per-user cap, and creates no row
+AssertionError: expected [Function] to throw error including 'You have reached the limit of 1000 me…' but got 'Cannot destructure property \'id\' of…'
+
+Expected: "You have reached the limit of 1000 messages per user."
+Received: "Cannot destructure property 'id' of 'saved' as it is undefined."
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:238:72
+    236|     world.ownerCount = 1000;
+    237|
+    238|     await expect(callerAs(OTHER).upsert({ message: draft(UNUSED_ID) }))
+       |                                                                        ^
+    239|       .rejects.toThrow('You have reached the limit of 1000 messages pe…
+    240|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new user-scoped message > saves a new message when the user holds 0
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new user-scoped message > saves a new message when the user holds 999
+TypeError: Cannot destructure property 'id' of 'saved' as it is undefined.
+ ❯ Module.upsertMessage src/server/api/utils/shared.ts:285:11
+    283|   }
+    284|
+    285|   const { id, savedAtMicros } = saved;
+       |           ^
+    286|   const newMessagePromise = getMessage(id);
+    287|
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:62:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new user-scoped message > refuses a new message when the user holds 1000, and inserts nothing
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new user-scoped message > refuses a new message when the user holds 1001, and inserts nothing
+AssertionError: expected [Function] to throw error including 'You have reached the limit of 1000 me…' but got 'Cannot destructure property \'id\' of…'
+
+Expected: "You have reached the limit of 1000 messages per user."
+Received: "Cannot destructure property 'id' of 'saved' as it is undefined."
+
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:70:56
+     68|     useCounts({ user, guild: 0 });
+     69|
+     70|     await expect(upsertMessage(newMessage, userSelect)).rejects.toThro…
+       |                                                        ^
+     71|
+     72|     expect(insertedMessages()).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new user-scoped message > counts the user's messages, not the server's
+TypeError: Cannot destructure property 'id' of 'saved' as it is undefined.
+ ❯ Module.upsertMessage src/server/api/utils/shared.ts:285:11
+    283|   }
+    284|
+    285|   const { id, savedAtMicros } = saved;
+       |           ^
+    286|   const newMessagePromise = getMessage(id);
+    287|
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:78:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new guild-scoped message > saves a new message when the server holds 999
+TypeError: Cannot destructure property 'id' of 'saved' as it is undefined.
+ ❯ Module.upsertMessage src/server/api/utils/shared.ts:285:11
+    283|   }
+    284|
+    285|   const { id, savedAtMicros } = saved;
+       |           ^
+    286|   const newMessagePromise = getMessage(id);
+    287|
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:88:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new guild-scoped message > refuses a new message when the server holds 1000, and inserts nothing
+AssertionError: expected [Function] to throw error including 'You have reached the limit of 1000 me…' but got 'Cannot destructure property \'id\' of…'
+
+Expected: "You have reached the limit of 1000 messages per guild."
+Received: "Cannot destructure property 'id' of 'saved' as it is undefined."
+
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:96:57
+     94|     useCounts({ user: 0, guild: 1000 });
+     95|
+     96|     await expect(upsertMessage(newMessage, guildSelect)).rejects.toThr…
+       |                                                         ^
+     97|
+     98|     expect(insertedMessages()).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new guild-scoped message > counts the server's messages, not the user's
+TypeError: Cannot destructure property 'id' of 'saved' as it is undefined.
+ ❯ Module.upsertMessage src/server/api/utils/shared.ts:285:11
+    283|   }
+    284|
+    285|   const { id, savedAtMicros } = saved;
+       |           ^
+    286|   const newMessagePromise = getMessage(id);
+    287|
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:104:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message, as a subscriber decodes it > is not sent for a message without an id
+TypeError: Cannot destructure property 'id' of 'saved' as it is undefined.
+ ❯ Module.upsertMessage src/server/api/utils/shared.ts:285:11
+    283|   }
+    284|
+    285|   const { id, savedAtMicros } = saved;
+       |           ^
+    286|   const newMessagePromise = getMessage(id);
+    287|
+ ❯ src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts:107:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts > the saved row's id > is left to the database for a new message
+TypeError: Cannot destructure property 'id' of 'saved' as it is undefined.
+ ❯ Module.upsertMessage src/server/api/utils/shared.ts:285:11
+    283|   }
+    284|
+    285|   const { id, savedAtMicros } = saved;
+       |           ^
+    286|   const newMessagePromise = getMessage(id);
+    287|
+ ❯ src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:134:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts > a save of a new message > asks the generator once, after the insert, for the id the insert returned
+TypeError: Cannot destructure property 'id' of 'saved' as it is undefined.
+ ❯ Module.upsertMessage src/server/api/utils/shared.ts:285:11
+    283|   }
+    284|
+    285|   const { id, savedAtMicros } = saved;
+       |           ^
+    286|   const newMessagePromise = getMessage(id);
+    287|
+ ❯ src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:144:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/14]⎯
+

@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/rerun-work/20261119T234338Z-p1121243/mutant-3
+
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (31 tests | 1 failed) 108ms
+     × updateRecentMessageData refuses, and nothing is written 25ms
+
+ Test Files  1 failed | 147 passed (148)
+      Tests  1 failed | 1907 passed (1908)
+   Start at  23:44:48
+   Duration  19.63s (transform 36.08s, setup 2.21s, import 154.79s, tests 39.98s, environment 86.28s)
+

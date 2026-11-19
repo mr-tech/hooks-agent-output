@@ -1,0 +1,35 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > another signed-in user naming the owner's personal message number > updateRecentMessageData refuses, and nothing is written
+AssertionError: promise resolved "undefined" instead of rejecting
+
+- Expected:
+Error {
+  "message": "rejected promise",
+}
+
++ Received:
+undefined
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:395:80
+    393|
+    394|   it('updateRecentMessageData refuses, and nothing is written', async …
+    395|     await expect(callerAs(OTHER).updateRecentMessageData(recentData(OW…
+       |                                                                                ^
+    396|       .rejects.toMatchObject(refusal);
+    397|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

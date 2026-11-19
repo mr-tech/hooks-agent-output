@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/sweep-work/20261119T232924Z-p940771/mutant-20
+
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (27 tests | 3 failed) 132ms
+     × checks, deletes and clears the previews of the canonical number when the browser sends leading zeros 20ms
+     × refuses a number that is not digits before any query 4ms
+     × delete refuses a number past the largest a message can hold, before any query 5ms
+
+ Test Files  1 failed | 147 passed (148)
+      Tests  3 failed | 1901 passed (1904)
+   Start at  23:35:27
+   Duration  16.64s (transform 20.69s, setup 1.67s, import 123.29s, tests 34.85s, environment 78.49s)
+

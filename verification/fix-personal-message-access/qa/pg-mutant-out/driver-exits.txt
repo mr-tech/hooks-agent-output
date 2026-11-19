@@ -1,0 +1,12 @@
+getone-precheck-no-id driver-exit 0
+upsert-precheck-no-id driver-exit 0
+upsert-guild-precheck-no-id driver-exit 0
+recent-precheck-no-id driver-exit 0
+delete-precheck-no-id driver-exit 0
+upsert-precheck-no-id+update-user-term-dropped driver-exit 0
+recent-precheck-no-id+recent-write-user-term-dropped driver-exit 0
+delete-precheck-no-id+delete-write-user-term-dropped driver-exit 0
+insert-at-client-id driver-exit 0
+recent-list-owner-arm-any driver-exit 0
+hydrated-owner-discord-id driver-exit 0
+delete-input-raw driver-exit 0

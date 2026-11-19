@@ -1,0 +1,16 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/sweep-work/20261119T232924Z-p940771/mutant-22
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.message-id.test.ts (13 tests | 1 failed) 20ms
+     × refuses one past the largest number a message can hold as a failed parse, without throwing 8ms
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (27 tests | 4 failed) 90ms
+     × getOne refuses a number past the largest a message can hold, before any query 12ms
+     × upsert refuses a number past the largest a message can hold, before any query 6ms
+     × updateRecentMessageData refuses a number past the largest a message can hold, before any query 4ms
+     × delete refuses a number past the largest a message can hold, before any query 3ms
+
+ Test Files  2 failed | 146 passed (148)
+      Tests  5 failed | 1899 passed (1904)
+   Start at  23:36:02
+   Duration  16.33s (transform 19.74s, setup 1.62s, import 121.38s, tests 36.02s, environment 77.02s)
+

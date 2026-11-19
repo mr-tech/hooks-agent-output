@@ -1,0 +1,16 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/sweep-work/20261119T232924Z-p940771/mutant-3
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.message-id.test.ts (13 tests | 1 failed) 22ms
+     × accepts the largest number a message can hold as its canonical digits 12ms
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (27 tests | 4 failed) 92ms
+     × getOne takes the largest number a message can hold to the database 21ms
+     × upsert takes the largest number a message can hold to the database 1ms
+     × updateRecentMessageData takes the largest number a message can hold to the database 1ms
+     × delete takes the largest number a message can hold to the database 1ms
+
+ Test Files  2 failed | 146 passed (148)
+      Tests  5 failed | 1899 passed (1904)
+   Start at  23:30:19
+   Duration  17.26s (transform 24.65s, setup 1.89s, import 131.47s, tests 37.79s, environment 77.32s)
+

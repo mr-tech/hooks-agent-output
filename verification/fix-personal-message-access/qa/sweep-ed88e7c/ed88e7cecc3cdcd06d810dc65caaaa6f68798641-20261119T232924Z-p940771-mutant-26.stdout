@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/sweep-work/20261119T232924Z-p940771/mutant-26
+
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (27 tests | 2 failed) 85ms
+     × reads, checks and writes the canonical number when the browser sends leading zeros 11ms
+     × updateRecentMessageData refuses a number past the largest a message can hold, before any query 4ms
+
+ Test Files  1 failed | 147 passed (148)
+      Tests  2 failed | 1902 passed (1904)
+   Start at  23:37:12
+   Duration  17.27s (transform 20.12s, setup 2.16s, import 129.02s, tests 35.43s, environment 81.96s)
+

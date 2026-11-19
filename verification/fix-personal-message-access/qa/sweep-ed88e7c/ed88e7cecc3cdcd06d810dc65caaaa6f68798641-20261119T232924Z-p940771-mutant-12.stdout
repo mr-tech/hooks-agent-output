@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/sweep-work/20261119T232924Z-p940771/mutant-12
+
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (27 tests | 1 failed) 73ms
+     × refuses another signed-in user, with none of the message in the outcome 10ms
+
+ Test Files  1 failed | 147 passed (148)
+      Tests  1 failed | 1903 passed (1904)
+   Start at  23:33:06
+   Duration  16.47s (transform 19.55s, setup 1.57s, import 122.54s, tests 35.85s, environment 76.00s)
+

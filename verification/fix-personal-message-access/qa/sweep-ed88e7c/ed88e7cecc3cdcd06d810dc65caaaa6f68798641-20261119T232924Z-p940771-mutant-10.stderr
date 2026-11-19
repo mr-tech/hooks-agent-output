@@ -1,0 +1,38 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.delete > leaves the previews alone when the delete removed no row
+AssertionError: expected [ { Bucket: 'test-CDN_BUCKET', …(1) } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "Bucket": "test-CDN_BUCKET",
++     "Prefix": "previews/900000000000101/",
++   },
++ ]
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:365:28
+    363|     await callerAs(OWNER).delete({ id: OWNED_ID });
+    364|
+    365|     expect(mocks.s3Inputs).toEqual([]);
+       |                            ^
+    366|   });
+    367|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/sweep-work/20261119T232924Z-p940771/mutant-37
+
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (27 tests | 1 failed) 81ms
+     × deletes a personal message only where the caller still owns the row 20ms
+
+ Test Files  1 failed | 147 passed (148)
+      Tests  1 failed | 1903 passed (1904)
+   Start at  23:40:27
+   Duration  16.14s (transform 19.95s, setup 1.50s, import 122.49s, tests 35.21s, environment 73.95s)
+

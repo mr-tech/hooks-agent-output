@@ -1,0 +1,33 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.updateRecentMessageData > writes a server message only where the row still belongs to that server
+AssertionError: expected undefined to be '300000000000000001' // Object.is equality
+
+- Expected:
+"300000000000000001"
+
++ Received:
+undefined
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:309:43
+    307|     expect(writes).toHaveLength(1);
+    308|     expect(boundTo(writes[0], 'id')).toBe(GUILD_MESSAGE_ID);
+    309|     expect(boundTo(writes[0], 'guildId')).toBe(GUILD.discordId);
+       |                                           ^
+    310|     expect(boundTo(writes[0], 'fk_users_id')).toBeUndefined();
+    311|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

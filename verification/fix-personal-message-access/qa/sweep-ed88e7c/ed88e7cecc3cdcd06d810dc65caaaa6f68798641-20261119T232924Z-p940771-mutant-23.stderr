@@ -1,0 +1,33 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-id.test.ts > messageIdShape > refuses a plus sign as a failed parse, without throwing
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/server/api/utils/__tests__/shapes.message-id.test.ts:24:30
+     22|     let outcome: { success: boolean } | undefined;
+     23|     expect(() => { outcome = messageIdShape.safeParse(id); }).not.toTh…
+     24|     expect(outcome?.success).toBe(false);
+       |                              ^
+     25|   });
+     26|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,27 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/sweep-work/20261119T232924Z-p940771/mutant-4
+
+ ❯ |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts (9 tests | 2 failed) 49ms
+     × is left to the database for a new message 18ms
+     × asks the generator once, after the insert, for the id the insert returned 1ms
+ ❯ |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts (12 tests | 1 failed) 396ms
+     × is not sent for a message without an id 18ms
+ ❯ |node| src/server/api/utils/__tests__/shared.message-cap.test.ts (10 tests | 8 failed) 66ms
+     × saves a new message when the user holds 0 22ms
+     × saves a new message when the user holds 999 1ms
+     × refuses a new message when the user holds 1000, and inserts nothing 22ms
+     × refuses a new message when the user holds 1001, and inserts nothing 3ms
+     × counts the user's messages, not the server's 1ms
+     × saves a new message when the server holds 999 2ms
+     × refuses a new message when the server holds 1000, and inserts nothing 2ms
+     × counts the server's messages, not the user's 1ms
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (27 tests | 3 failed) 92ms
+     × never writes a row at the number the browser sent 30ms
+     × announces no update on the number the browser sent 4ms
+     × refuses at the per-user cap, and creates no row 10ms
+
+ Test Files  4 failed | 144 passed (148)
+      Tests  14 failed | 1890 passed (1904)
+   Start at  23:30:38
+   Duration  18.00s (transform 26.37s, setup 2.15s, import 137.32s, tests 38.82s, environment 80.97s)
+

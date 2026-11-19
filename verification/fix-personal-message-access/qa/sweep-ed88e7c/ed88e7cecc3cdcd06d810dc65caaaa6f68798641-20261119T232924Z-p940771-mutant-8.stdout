@@ -1,0 +1,24 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/sweep-work/20261119T232924Z-p940771/mutant-8
+
+ ❯ |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts (12 tests | 11 failed) 252ms
+     × arrives once, on the message's channel, as a message-update event 66ms
+     × carries the exact hash string of the saved message when the hash has letters and digits 30ms
+     × carries the exact hash string of the saved message when the hash has digits only 38ms
+     × carries the exact hash string of the saved message when the hash has a minus sign and digits only 18ms
+     × carries the exact hash string of the saved message when the hash has digits, an e and 00 7ms
+     × carries the exact hash string of the saved message when the hash has a minus sign, digits, an e and 02 11ms
+     × carries the exact hash string of the saved message when the hash has an exponent past what a double holds 5ms
+     × carries the exact hash string of the saved message when the hash has a minus sign and an exponent past what a double holds 8ms
+     × keeps two saves apart whose hashes would both read as one finite value 13ms
+     × keeps two saves apart whose hashes would both read as Infinity 18ms
+     × keeps two saves apart whose hashes would both read as -Infinity 34ms
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (27 tests | 2 failed) 99ms
+     × updates and announces the canonical number when the browser sends leading zeros 13ms
+     × writes a personal message only where the caller still owns the row 3ms
+
+ Test Files  2 failed | 146 passed (148)
+      Tests  13 failed | 1891 passed (1904)
+   Start at  23:31:56
+   Duration  17.16s (transform 20.92s, setup 1.90s, import 126.27s, tests 37.19s, environment 81.00s)
+

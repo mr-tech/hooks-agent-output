@@ -1,0 +1,33 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.updateRecentMessageData > writes a personal message only where the caller still owns the row
+AssertionError: expected undefined to be '900000000000001' // Object.is equality
+
+- Expected:
+"900000000000001"
+
++ Received:
+undefined
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:300:47
+    298|     expect(writes).toHaveLength(1);
+    299|     expect(boundTo(writes[0], 'id')).toBe(OWNED_ID);
+    300|     expect(boundTo(writes[0], 'fk_users_id')).toBe(OWNER.dbUserId);
+       |                                               ^
+    301|   });
+    302|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

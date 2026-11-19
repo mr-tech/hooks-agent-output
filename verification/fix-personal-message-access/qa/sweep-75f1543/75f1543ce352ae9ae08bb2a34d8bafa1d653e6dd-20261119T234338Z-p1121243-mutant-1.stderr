@@ -1,0 +1,46 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > another signed-in user naming the owner's personal message number > upsert refuses a personal save, and nothing is written or announced
+AssertionError: promise resolved "{ id: '900000000000777', …(8) }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "createdAt": 0,
++   "data": {
++     "content": "owner-only-content",
++   },
++   "id": "900000000000777",
++   "name": "owner-name",
++   "previewImageNonce": null,
++   "recentMessageId": null,
++   "recentThreadId": null,
++   "recentWebhookId": null,
++   "updatedAt": 0,
+  }
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:379:71
+    377|
+    378|   it('upsert refuses a personal save, and nothing is written or announ…
+    379|     await expect(callerAs(OTHER).upsert({ message: draft(OWNED_ID) }))
+       |                                                                       ^
+    380|       .rejects.toMatchObject(refusal);
+    381|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

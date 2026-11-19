@@ -1,0 +1,31 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/sweep-work/20261119T232924Z-p940771/mutant-34
+
+ ❯ |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts (9 tests | 2 failed) 55ms
+     × asks the generator only after its row is saved 12ms
+     × is the id the client sent for an existing message 4ms
+ ❯ |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts (12 tests | 11 failed) 251ms
+     × arrives once, on the message's channel, as a message-update event 116ms
+     × carries the exact hash string of the saved message when the hash has letters and digits 11ms
+     × carries the exact hash string of the saved message when the hash has digits only 5ms
+     × carries the exact hash string of the saved message when the hash has a minus sign and digits only 4ms
+     × carries the exact hash string of the saved message when the hash has digits, an e and 00 23ms
+     × carries the exact hash string of the saved message when the hash has a minus sign, digits, an e and 02 12ms
+     × carries the exact hash string of the saved message when the hash has an exponent past what a double holds 7ms
+     × carries the exact hash string of the saved message when the hash has a minus sign and an exponent past what a double holds 19ms
+     × keeps two saves apart whose hashes would both read as one finite value 8ms
+     × keeps two saves apart whose hashes would both read as Infinity 33ms
+     × keeps two saves apart whose hashes would both read as -Infinity 8ms
+ ❯ |node| src/server/api/utils/__tests__/shared.message-cap.test.ts (10 tests | 2 failed) 37ms
+     × never refuses a save of an existing user message at 1000 8ms
+     × never refuses a save of an existing guild message at 1000 1ms
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (27 tests | 3 failed) 85ms
+     × updates and announces the canonical number when the browser sends leading zeros 27ms
+     × writes a personal message only where the caller still owns the row 2ms
+     × writes a server message only where the row still belongs to that server, for any of its admins 4ms
+
+ Test Files  4 failed | 144 passed (148)
+      Tests  18 failed | 1886 passed (1904)
+   Start at  23:39:35
+   Duration  16.32s (transform 20.12s, setup 1.23s, import 122.81s, tests 35.07s, environment 76.39s)
+

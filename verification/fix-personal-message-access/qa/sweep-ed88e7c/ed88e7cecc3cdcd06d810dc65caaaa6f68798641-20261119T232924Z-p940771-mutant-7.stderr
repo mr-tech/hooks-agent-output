@@ -1,0 +1,116 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert with a message number no row holds > refuses at the per-user cap, and creates no row
+AssertionError: promise resolved "{ id: '900000000000777', …(8) }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "createdAt": 0,
++   "data": {
++     "content": "owner-only-content",
++   },
++   "id": "900000000000777",
++   "name": "owner-name",
++   "previewImageNonce": null,
++   "recentMessageId": null,
++   "recentThreadId": null,
++   "recentWebhookId": null,
++   "updatedAt": 0,
+  }
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:238:72
+    236|     world.ownerCount = 1000;
+    237|
+    238|     await expect(callerAs(OTHER).upsert({ message: draft(UNUSED_ID) }))
+       |                                                                        ^
+    239|       .rejects.toThrow('You have reached the limit of 1000 messages pe…
+    240|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new user-scoped message > refuses a new message when the user holds 1000, and inserts nothing
+AssertionError: promise resolved "{ id: 'saved-id', createdAt: +0, …(7) }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "createdAt": 0,
++   "data": {
++     "components": [],
++     "content": "Hi",
++     "embeds": [],
++     "username": "U",
++   },
++   "id": "saved-id",
++   "name": "n",
++   "previewImageNonce": null,
++   "recentMessageId": undefined,
++   "recentThreadId": undefined,
++   "recentWebhookId": undefined,
++   "updatedAt": 0,
+  }
+
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:70:56
+     68|     useCounts({ user, guild: 0 });
+     69|
+     70|     await expect(upsertMessage(newMessage, userSelect)).rejects.toThro…
+       |                                                        ^
+     71|
+     72|     expect(insertedMessages()).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.message-cap.test.ts > the per-owner message cap on a new guild-scoped message > refuses a new message when the server holds 1000, and inserts nothing
+AssertionError: promise resolved "{ id: 'saved-id', createdAt: +0, …(7) }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "createdAt": 0,
++   "data": {
++     "components": [],
++     "content": "Hi",
++     "embeds": [],
++     "username": "U",
++   },
++   "id": "saved-id",
++   "name": "n",
++   "previewImageNonce": null,
++   "recentMessageId": undefined,
++   "recentThreadId": undefined,
++   "recentWebhookId": undefined,
++   "updatedAt": 0,
+  }
+
+ ❯ src/server/api/utils/__tests__/shared.message-cap.test.ts:96:57
+     94|     useCounts({ user: 0, guild: 1000 });
+     95|
+     96|     await expect(upsertMessage(newMessage, guildSelect)).rejects.toThr…
+       |                                                         ^
+     97|
+     98|     expect(insertedMessages()).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

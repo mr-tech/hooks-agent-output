@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/sweep-work/20261119T232924Z-p940771/mutant-23
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.message-id.test.ts (13 tests | 1 failed) 20ms
+     × refuses a plus sign as a failed parse, without throwing 8ms
+
+ Test Files  1 failed | 147 passed (148)
+      Tests  1 failed | 1903 passed (1904)
+   Start at  23:36:20
+   Duration  16.02s (transform 19.45s, setup 1.45s, import 119.87s, tests 35.06s, environment 74.52s)
+

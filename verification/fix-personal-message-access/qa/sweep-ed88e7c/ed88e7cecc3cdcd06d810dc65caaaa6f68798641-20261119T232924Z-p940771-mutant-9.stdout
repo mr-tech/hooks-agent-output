@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/sweep-work/20261119T232924Z-p940771/mutant-9
+
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (27 tests | 1 failed) 91ms
+     × announces no update on the number the browser sent 29ms
+
+ Test Files  1 failed | 147 passed (148)
+      Tests  1 failed | 1903 passed (1904)
+   Start at  23:32:14
+   Duration  16.08s (transform 19.53s, setup 1.58s, import 120.14s, tests 34.36s, environment 75.21s)
+

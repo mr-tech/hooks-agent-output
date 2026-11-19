@@ -1,0 +1,58 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > the message number each procedure takes > getOne refuses a number past the largest a message can hold, before any query
+AssertionError: promise resolved "{ id: '9223372036854775808', …(8) }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "createdAt": 0,
++   "data": {
++     "content": "owner-only-content",
++   },
++   "id": "9223372036854775808",
++   "name": "owner-name",
++   "previewImageNonce": null,
++   "recentMessageId": null,
++   "recentThreadId": null,
++   "recentWebhookId": null,
++   "updatedAt": 0,
+  }
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:387:34
+    385|
+    386|   it.each(calls)('%s refuses a number past the largest a message can h…
+    387|     await expect(call(PAST_INT8)).rejects.toMatchObject({ code: 'BAD_R…
+       |                                  ^
+    388|
+    389|     expect(captured.queries).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > the message number each procedure takes > getOne reads the canonical number when the browser sends leading zeros
+AssertionError: expected [ '00900000000000101' ] to not include '00900000000000101'
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:402:30
+    400|
+    401|     for (const { parameters } of captured.queries) {
+    402|       expect(parameters).not.toContain(`00${OWNED_ID}`);
+       |                              ^
+    403|     }
+    404|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

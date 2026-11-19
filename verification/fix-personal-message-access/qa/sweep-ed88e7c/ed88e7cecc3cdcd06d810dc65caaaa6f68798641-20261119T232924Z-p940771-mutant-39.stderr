@@ -1,0 +1,56 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent personal message the signed-in user owns
+AssertionError: expected [] to deeply equal [ '900000000000102' ]
+
+- Expected
++ Received
+
+- [
+-   "900000000000102",
+- ]
++ []
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:73:42
+     71|     const messages = await hydrateAs(VIEWER_DB_ID, [VIEWER_MESSAGE_ID]…
+     72|
+     73|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
+       |                                          ^
+     74|   });
+     75|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out another user's personal message stored in the preferences
+AssertionError: expected [] to deeply equal [ '900000000000102' ]
+
+- Expected
++ Received
+
+- [
+-   "900000000000102",
+- ]
++ []
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:79:42
+     77|     const messages = await hydrateAs(VIEWER_DB_ID, [OWNED_MESSAGE_ID, …
+     78|
+     79|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
+       |                                          ^
+     80|     expect(JSON.stringify(messages)).not.toContain('owner-private-name…
+     81|     const select = mocks.queries.find(({ sql }) => sql.includes('from …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

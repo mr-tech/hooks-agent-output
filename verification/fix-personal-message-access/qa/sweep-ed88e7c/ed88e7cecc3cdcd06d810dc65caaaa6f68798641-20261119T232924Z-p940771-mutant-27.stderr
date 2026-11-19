@@ -1,0 +1,51 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out another user's personal message stored in the preferences
+AssertionError: expected [ Array(2) ] to deeply equal [ '900000000000102' ]
+
+- Expected
++ Received
+
+  [
++   "900000000000101",
+    "900000000000102",
+  ]
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:79:42
+     77|     const messages = await hydrateAs(VIEWER_DB_ID, [OWNED_MESSAGE_ID, …
+     78|
+     79|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
+       |                                          ^
+     80|     expect(JSON.stringify(messages)).not.toContain('owner-private-name…
+     81|     const select = mocks.queries.find(({ sql }) => sql.includes('from …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > binds a non-empty id list as parameters of one in-list, beside the caller as owner
+AssertionError: expected 'select "Messages"."id", "Messages"."c…' to contain '"Messages"."fk_users_id" = $3 or "Mes…'
+
+Expected: ""Messages"."fk_users_id" = $3 or "Messages"."fk_guilds_id" is not null"
+Received: "select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce", "Guilds"."guildId" as "guildId" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" where "Messages"."id" in ($1, $2) and ("Messages"."fk_users_id" is not null or "Messages"."fk_guilds_id" is not null)"
+
+ ❯ src/server/api/utils/__tests__/shared.in-predicates.test.ts:45:37
+     43|     expect(captured.queries).toHaveLength(1);
+     44|     expect(captured.queries[0].sql).toContain('"Messages"."id" in ($1,…
+     45|     expect(captured.queries[0].sql).toContain('"Messages"."fk_users_id…
+       |                                     ^
+     46|     expect(captured.queries[0].parameters).toEqual(['m1', 'm2', 'u1']);
+     47|     expect(captured.queries[0].sql).toContain(PARTIAL_MESSAGE_SELECT);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

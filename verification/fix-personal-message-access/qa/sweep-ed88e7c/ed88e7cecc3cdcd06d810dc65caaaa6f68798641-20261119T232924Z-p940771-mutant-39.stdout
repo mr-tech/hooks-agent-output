@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/sweep-work/20261119T232924Z-p940771/mutant-39
+
+ ❯ |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts (2 tests | 2 failed) 14ms
+     × lists a recent personal message the signed-in user owns 12ms
+     × leaves out another user's personal message stored in the preferences 1ms
+
+ Test Files  1 failed | 147 passed (148)
+      Tests  2 failed | 1902 passed (1904)
+   Start at  23:41:03
+   Duration  16.57s (transform 20.56s, setup 2.26s, import 123.03s, tests 35.61s, environment 77.77s)
+

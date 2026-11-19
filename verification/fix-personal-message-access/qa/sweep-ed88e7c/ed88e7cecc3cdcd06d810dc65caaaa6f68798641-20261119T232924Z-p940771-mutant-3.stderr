@@ -1,0 +1,89 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > the message number each procedure takes > getOne takes the largest number a message can hold to the database
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > the message number each procedure takes > upsert takes the largest number a message can hold to the database
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > the message number each procedure takes > updateRecentMessageData takes the largest number a message can hold to the database
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > the message number each procedure takes > delete takes the largest number a message can hold to the database
+AssertionError: expected 0 to be greater than 0
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:395:37
+    393|     await call(INT8_MAX).catch(() => undefined);
+    394|
+    395|     expect(captured.queries.length).toBeGreaterThan(0);
+       |                                     ^
+    396|   });
+    397|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-id.test.ts > messageIdShape > accepts the largest number a message can hold as its canonical digits
+AssertionError: expected { success: false, …(2) } to deeply equal { success: true, …(1) }
+
+- Expected
++ Received
+
+  {
+-   "data": "9223372036854775807",
+-   "success": true,
++   "_error": ZodError {
++     "message": "[
++   {
++     \"code\": \"custom\",
++     \"message\": \"Invalid input\",
++     \"path\": []
++   }
++ ]",
++     "issues": [
++       {
++         "code": "custom",
++         "message": "Invalid input",
++         "path": [],
++       },
++     ],
++     "addIssue": [Function anonymous],
++     "addIssues": [Function anonymous],
++     "name": "ZodError",
++   },
++   "error": ZodError {
++     "message": "[
++   {
++     \"code\": \"custom\",
++     \"message\": \"Invalid input\",
++     \"path\": []
++   }
++ ]",
++     "issues": [
++       {
++         "code": "custom",
++         "message": "Invalid input",
++         "path": [],
++       },
++     ],
++     "addIssue": [Function anonymous],
++     "addIssues": [Function anonymous],
++     "name": "ZodError",
++   },
++   "success": false,
+  }
+
+ ❯ src/server/api/utils/__tests__/shapes.message-id.test.ts:32:42
+     30|     ['zero', '0', '0'],
+     31|   ])('accepts %s as its canonical digits', (_, id, canonical) => {
+     32|     expect(messageIdShape.safeParse(id)).toEqual({ success: true, data…
+       |                                          ^
+     33|   });
+     34| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+

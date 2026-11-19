@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/sweep-work/20261119T232924Z-p940771/mutant-33
+
+ ❯ |node| src/server/api/utils/__tests__/shared.message-cap.test.ts (10 tests | 5 failed) 39ms
+     × saves a new message when the user holds 0 11ms
+     × saves a new message when the user holds 999 1ms
+     × refuses a new message when the user holds 1000, and inserts nothing 7ms
+     × refuses a new message when the user holds 1001, and inserts nothing 3ms
+     × counts the user's messages, not the server's 2ms
+
+ Test Files  1 failed | 147 passed (148)
+      Tests  5 failed | 1899 passed (1904)
+   Start at  23:39:17
+   Duration  16.33s (transform 21.48s, setup 1.60s, import 120.86s, tests 35.94s, environment 75.95s)
+

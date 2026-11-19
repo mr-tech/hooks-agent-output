@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/sweep-work/20261119T232924Z-p940771/mutant-1
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (30 tests | 1 failed) 202ms
+     × of a saved message is removed when this tab saves what the draft holds 17ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-new-number.test.tsx (3 tests | 1 failed) 134ms
+     × drops the draft held under the old number once its content is saved at the new one 39ms
+
+ Test Files  2 failed | 146 passed (148)
+      Tests  2 failed | 1902 passed (1904)
+   Start at  23:29:44
+   Duration  15.97s (transform 18.51s, setup 1.71s, import 119.93s, tests 34.83s, environment 74.41s)
+

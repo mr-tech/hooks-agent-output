@@ -1,0 +1,899 @@
+diff --git a/src/providers/MessageProvider/__tests__/MessageProvider.save-new-number.test.tsx b/src/providers/MessageProvider/__tests__/MessageProvider.save-new-number.test.tsx
+new file mode 100644
+index 0000000..0beb762
+--- /dev/null
++++ b/src/providers/MessageProvider/__tests__/MessageProvider.save-new-number.test.tsx
+@@ -0,0 +1,100 @@
++import { act } from 'react';
++import {
++  afterEach, describe, expect, it, vi,
++} from 'vitest';
++
++import { mountInMessageProvider } from './helpers/mountMessageProvider';
++
++import { unmountDom } from '~/components/__tests__/helpers/dom';
++import { useMessage } from '~/providers/MessageProvider';
++import { readDrafts, writeDraft } from '~/utils/messageDrafts';
++
++const HELD = '900000000000101';
++const FRESH = '900000000000777';
++
++const hoisted = vi.hoisted(() => ({
++  replace: vi.fn(),
++  push: vi.fn(),
++  answerWith: '',
++  stored: {
++    id: '900000000000101',
++    name: 'Stored',
++    updatedAt: 1,
++    data: {
++      content: 'hi', embeds: [], components: [],
++    } as Record<string, unknown>,
++  },
++}));
++
++vi.mock('~/env.mjs', async () => (await import('./helpers/messageProviderDeps')).ENV_MOCK);
++vi.mock('next/navigation', () => ({
++  useRouter: () => ({
++    push: hoisted.push, replace: hoisted.replace, refresh: vi.fn(), back: vi.fn(),
++  }),
++  usePathname: () => `/message/m/${hoisted.stored.id}/edit`,
++  useSearchParams: () => new URLSearchParams(''),
++}));
++vi.mock('next-auth/react', async () => (await import('./helpers/messageProviderDeps')).AUTH_MOCK);
++vi.mock('~/providers/GuildProvider', async () => (await import('./helpers/messageProviderDeps')).GUILD_PROVIDER_MOCK);
++vi.mock('~/providers/WebhookProvider', async () => (await import('./helpers/messageProviderDeps')).WEBHOOK_PROVIDER_MOCK);
++vi.mock('~/providers/ConfirmationProvider', async () => (await import('./helpers/messageProviderDeps')).CONFIRMATION_PROVIDER_MOCK);
++vi.mock('~/utils/api', async () => {
++  const { buildApiMock } = await import('./helpers/messageProviderDeps');
++  return buildApiMock({
++    queryData: { 'message.getOne': () => hoisted.stored },
++    onMutation: {
++      'message.upsert': (opts, input) => {
++        const sent = (input as { message: { name: string, data: unknown } }).message;
++        const onSuccess = opts.onSuccess as (saved: unknown, variables: unknown) => void;
++        onSuccess({ ...hoisted.stored, ...sent, id: hoisted.answerWith }, input);
++      },
++    },
++  });
++});
++
++afterEach(() => {
++  unmountDom();
++  hoisted.replace.mockReset();
++  hoisted.push.mockReset();
++  window.localStorage.clear();
++});
++
++let ctx: ReturnType<typeof useMessage> | null = null;
++const Probe: FC = () => {
++  ctx = useMessage();
++  return null;
++};
++
++function current() {
++  expect(ctx).toBeTruthy();
++  return ctx as ReturnType<typeof useMessage>;
++}
++
++function saveAnsweredWith(id: string) {
++  hoisted.answerWith = id;
++  writeDraft(HELD, { name: hoisted.stored.name, data: hoisted.stored.data as never, editedAt: 2 });
++  act(() => { mountInMessageProvider(<Probe />); });
++  expect(current().message?.id).toBe(HELD);
++  act(() => { current().saveMessage(); });
++}
++
++describe('MessageProvider — the number a save comes back with', () => {
++  it('moves the editor to the new number when the save of a held number lands at another', () => {
++    saveAnsweredWith(FRESH);
++
++    expect(hoisted.replace).toHaveBeenCalledTimes(1);
++    expect(hoisted.replace).toHaveBeenCalledWith(`/message/m/${FRESH}/edit`);
++  });
++
++  it('drops the draft held under the old number once its content is saved at the new one', () => {
++    saveAnsweredWith(FRESH);
++
++    expect(Object.keys(readDrafts())).not.toContain(HELD);
++  });
++
++  it('keeps the editor where it is when the save comes back with the held number', () => {
++    saveAnsweredWith(HELD);
++
++    expect(hoisted.replace).not.toHaveBeenCalled();
++  });
++});
+diff --git a/src/server/__tests__/auth.hydrated-recent-messages.test.ts b/src/server/__tests__/auth.hydrated-recent-messages.test.ts
+new file mode 100644
+index 0000000..7d8fde1
+--- /dev/null
++++ b/src/server/__tests__/auth.hydrated-recent-messages.test.ts
+@@ -0,0 +1,84 @@
++import {
++  beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import type { CompiledQuery } from 'kysely';
++
++import { hydratedAuthOptions } from '~/server/auth';
++
++const mocks = vi.hoisted(() => ({
++  respond: (() => []) as (query: CompiledQuery) => unknown[],
++  queries: [] as CompiledQuery[],
++  fetchUserAccount: vi.fn(),
++  fetchUserGuilds: vi.fn(),
++  fetchGuild: vi.fn(async () => {}),
++}));
++
++vi.mock('~/env.mjs', () => ({
++  env: new Proxy({}, { get: (_, key) => `test-${String(key)}` }),
++}));
++vi.mock('project-utils', async () => {
++  const { default: create } = await import('../api/utils/__tests__/helpers/capturingDatabase');
++  const { db, queries } = create((query) => mocks.respond(query));
++  mocks.queries = queries;
++  return { getPostgres: () => db };
++});
++vi.mock('~/utils/redis', () => ({ default: mocks }));
++vi.mock('~/utils/redis/client', () => ({ getClient: () => ({}) }));
++
++const OWNER_DB_ID = '900000000000001';
++const VIEWER_DB_ID = '900000000000002';
++const OWNED_MESSAGE_ID = '900000000000101';
++const VIEWER_MESSAGE_ID = '900000000000102';
++
++const rows = [
++  { id: OWNED_MESSAGE_ID, owner: OWNER_DB_ID, name: 'owner-private-name' },
++  { id: VIEWER_MESSAGE_ID, owner: VIEWER_DB_ID, name: 'viewer-name' },
++];
++
++function boundTo(query: CompiledQuery, column: string): unknown {
++  const match = query.sql.match(new RegExp(`"${column}" = \\$(\\d+)`));
++  return match ? query.parameters[Number(match[1]) - 1] : undefined;
++}
++
++beforeEach(() => {
++  mocks.queries.length = 0;
++  mocks.respond = (query) => {
++    if (!query.sql.includes('from "Messages"')) return [];
++    const owner = boundTo(query, 'fk_users_id');
++    return rows
++      .filter(({ id }) => query.parameters.includes(id))
++      .filter((row) => owner === undefined || row.owner === owner)
++      .map(({ id, name }) => ({
++        id, name, createdAt: new Date(0), updatedAt: new Date(0), previewImageNonce: 'v1', guildId: null,
++      }));
++  };
++  mocks.fetchUserAccount.mockResolvedValue({ access_token: 'token', providerAccountId: '100000000000000002' });
++  mocks.fetchUserGuilds.mockResolvedValue([]);
++});
++
++async function hydrateAs(dbUserId: string, recentMessageIds: string[]) {
++  const session = await hydratedAuthOptions.callbacks?.session?.({
++    session: { user: {}, expires: '' },
++    user: { id: dbUserId, preferences: { recentMessageIds } },
++    token: {},
++  } as never) as unknown as { hydration: { messages: { id: string, name: string }[] } };
++  return session.hydration.messages;
++}
++
++describe('the hydrated session\'s recent messages', () => {
++  it('lists a recent personal message the signed-in user owns', async () => {
++    const messages = await hydrateAs(VIEWER_DB_ID, [VIEWER_MESSAGE_ID]);
++
++    expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
++  });
++
++  it('leaves out another user\'s personal message stored in the preferences', async () => {
++    const messages = await hydrateAs(VIEWER_DB_ID, [OWNED_MESSAGE_ID, VIEWER_MESSAGE_ID]);
++
++    expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
++    expect(JSON.stringify(messages)).not.toContain('owner-private-name');
++    const select = mocks.queries.find(({ sql }) => sql.includes('from "Messages"'));
++    expect(select && boundTo(select, 'fk_users_id')).toBe(VIEWER_DB_ID);
++  });
++});
+diff --git a/src/server/api/routers/__tests__/message.personal-ownership.test.ts b/src/server/api/routers/__tests__/message.personal-ownership.test.ts
+new file mode 100644
+index 0000000..435642d
+--- /dev/null
++++ b/src/server/api/routers/__tests__/message.personal-ownership.test.ts
+@@ -0,0 +1,405 @@
++import {
++  beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import createCapturingDatabase from '../../utils/__tests__/helpers/capturingDatabase';
++import messageRouter from '../message';
++
++import type { CompiledQuery } from 'kysely';
++
++const mocks = vi.hoisted(() => ({
++  db: undefined as unknown,
++  authorizeGuildAdmin: vi.fn(),
++  s3Inputs: [] as unknown[],
++  channels: [] as string[],
++}));
++
++vi.mock('~/env.mjs', () => ({
++  env: new Proxy({}, { get: (_, key) => `test-${String(key)}` }),
++}));
++vi.mock('~/server/auth', () => ({
++  getServerAuthSession: vi.fn(),
++  getHydratedServerAuthSession: vi.fn(),
++}));
++vi.mock('project-utils', () => ({ getPostgres: () => mocks.db }));
++vi.mock('pusher', () => ({
++  default: class {
++    trigger = vi.fn(async (channel: string) => { mocks.channels.push(channel); });
++  },
++}));
++vi.mock('@vercel/functions', () => ({ waitUntil: () => undefined }));
++vi.mock('../../utils/previewImage', () => ({
++  mintNonce: () => 'v0000000000000000aaaaaaaaaaaaaaaa',
++  runPreviewContinuation: async () => {},
++}));
++vi.mock('../../utils/previewBucket', async (importOriginal) => ({
++  ...(await importOriginal<object>()),
++  getS3: () => ({
++    send: async ({ input }: { input: unknown }) => {
++      mocks.s3Inputs.push(input);
++      return {};
++    },
++  }),
++}));
++vi.mock('../../utils/authorizeGuildAdmin', () => ({ default: mocks.authorizeGuildAdmin }));
++vi.mock('~/utils/redis', () => ({ default: {} }));
++vi.mock('~/utils/redis/messageStore', () => ({ default: {} }));
++
++const OWNER = { discordId: '100000000000000001', dbUserId: '900000000000001' };
++const OTHER = { discordId: '100000000000000002', dbUserId: '900000000000002' };
++const GUILD = { discordId: '300000000000000001', rowId: '700000000000001' };
++
++const OWNED_ID = '900000000000101';
++const GUILD_MESSAGE_ID = '900000000000201';
++const UNUSED_ID = '900000000000500';
++const SERVER_ASSIGNED_ID = '900000000000777';
++
++const SECRET = 'owner-only-content';
++
++interface Row {
++  fk_users_id: string | null;
++  fk_guilds_id: string | null;
++  guildId: string | null;
++}
++
++const rows: Record<string, Row> = {
++  [OWNED_ID]: { fk_users_id: OWNER.dbUserId, fk_guilds_id: null, guildId: null },
++  [GUILD_MESSAGE_ID]: { fk_users_id: null, fk_guilds_id: GUILD.rowId, guildId: GUILD.discordId },
++};
++
++const world = { ownerCount: 0, deleteMisses: false };
++
++function boundTo(query: CompiledQuery, column: string): unknown {
++  const match = query.sql.match(new RegExp(`"${column}" = \\$(\\d+)`));
++  return match ? query.parameters[Number(match[1]) - 1] : undefined;
++}
++
++function asBigint(value: unknown): string | undefined {
++  try {
++    return BigInt(String(value).trim()).toString();
++  } catch {
++    return undefined;
++  }
++}
++
++function rowOf(value: unknown): [string, Row] | [] {
++  const id = asBigint(value);
++  return id !== undefined && id in rows ? [id, rows[id]] : [];
++}
++
++function fullRow(id: string, row: Row) {
++  return {
++    id,
++    createdAt: new Date(0),
++    updatedAt: new Date(0),
++    name: 'owner-name',
++    data: { content: SECRET },
++    previewImageNonce: null,
++    recentWebhookId: null,
++    recentThreadId: null,
++    recentMessageId: null,
++    guildId: row.guildId,
++    scheduledMessageId: null,
++    scheduledMessageCron: null,
++    scheduledMessageError: null,
++    scheduledMessageSendAt: null,
++    scheduledMessageSent: null,
++  };
++}
++
++function insertedId({ sql, parameters }: CompiledQuery) {
++  const columns = (sql.match(/^insert into "Messages" \(([^)]*)\)/)?.[1] ?? '').split(', ');
++  const index = columns.indexOf('"id"');
++  return index === -1 ? SERVER_ASSIGNED_ID : String(parameters[index]);
++}
++
++function respond(query: CompiledQuery): unknown[] {
++  const { sql, parameters } = query;
++  if (sql.startsWith('select "userId" from "Accounts"')) {
++    const account = [OWNER, OTHER].find(({ discordId }) => parameters.includes(discordId));
++    return account ? [{ userId: account.dbUserId }] : [];
++  }
++  if (sql.startsWith('select "fk_users_id" from "Messages"')) {
++    return parameters.flatMap((value) => {
++      const [, row] = rowOf(value);
++      return row ? [{ fk_users_id: row.fk_users_id }] : [];
++    });
++  }
++  if (sql.includes('left join "ScheduledMessages"')) {
++    const [id, row] = rowOf(parameters[0]);
++    if (id && row) return [fullRow(id, row)];
++    const fresh = String(parameters[0]);
++    return [fullRow(fresh, { fk_users_id: null, fk_guilds_id: null, guildId: null })];
++  }
++  if (sql.startsWith('select "Guilds"."guildId" from "Messages"')) {
++    return parameters.flatMap((value) => {
++      const [, row] = rowOf(value);
++      return row ? [{ guildId: row.guildId }] : [];
++    });
++  }
++  if (sql.startsWith('select count(*)')) return [{ count: String(world.ownerCount) }];
++  if (sql.startsWith('insert into "Guilds"')) return [{ id: GUILD.rowId }];
++  if (sql.startsWith('insert into "Messages"')) return [{ id: insertedId(query), savedAtMicros: '1763509200000000' }];
++  if (sql.startsWith('update "Messages"')) {
++    const [id, row] = rowOf(boundTo(query, 'id'));
++    if (!id || !row) return [];
++    const owner = boundTo(query, 'fk_users_id');
++    if (owner !== undefined && owner !== row.fk_users_id) return [];
++    const guildRow = boundTo(query, 'fk_guilds_id');
++    if (guildRow !== undefined && guildRow !== row.fk_guilds_id) return [];
++    return [{ id, savedAtMicros: '1763509200000000' }];
++  }
++  if (sql.startsWith('delete from "Messages"')) {
++    const [id, row] = rowOf(boundTo(query, 'id'));
++    if (!id || !row || world.deleteMisses) return [];
++    const owner = boundTo(query, 'fk_users_id');
++    if (owner !== undefined && owner !== row.fk_users_id) return [];
++    const guildId = boundTo(query, 'guildId');
++    if (guildId !== undefined && guildId !== row.guildId) return [];
++    return [{ id }];
++  }
++  return [];
++}
++
++let captured: ReturnType<typeof createCapturingDatabase>;
++
++function callerAs(user: { discordId: string }) {
++  return messageRouter.createCaller({
++    session: { user: { id: user.discordId, guilds: [] }, expires: 'never' },
++    req: {},
++    database: captured.db,
++  } as never);
++}
++
++const writesOf = (table: string) => captured.queries.filter(({ sql }) => (
++  sql.startsWith(`insert into "${table}"`) || sql.startsWith(`update "${table}"`) || sql.startsWith(`delete from "${table}"`)
++));
++
++const draft = (id?: string, guildId?: string) => ({
++  ...(id ? { id } : {}),
++  ...(guildId ? { guildId } : {}),
++  name: 'n',
++  data: {
++    content: 'Hi', username: 'U', embeds: [], components: [],
++  },
++}) as never;
++
++beforeEach(() => {
++  world.ownerCount = 0;
++  world.deleteMisses = false;
++  mocks.s3Inputs.length = 0;
++  mocks.channels.length = 0;
++  mocks.authorizeGuildAdmin.mockReset().mockResolvedValue({
++    account: { providerAccountId: OWNER.discordId },
++    guild: { id: GUILD.discordId },
++  });
++  vi.stubGlobal('fetch', vi.fn(() => new Promise<never>(() => { void 0; })));
++  captured = createCapturingDatabase(respond);
++  mocks.db = captured.db;
++});
++
++describe('message.getOne on a personal message', () => {
++  it('returns the message to the user who owns it', async () => {
++    const message = await callerAs(OWNER).getOne(OWNED_ID);
++
++    expect(message?.data).toEqual({ content: SECRET });
++  });
++
++  it('refuses another signed-in user, with none of the message in the outcome', async () => {
++    const outcome = await callerAs(OTHER).getOne(OWNED_ID).then(
++      (value) => ({ value }),
++      (error: unknown) => ({ error }),
++    );
++
++    expect(outcome).toMatchObject({ error: { code: 'NOT_FOUND' } });
++    expect(JSON.stringify(outcome)).not.toContain(SECRET);
++  });
++});
++
++describe('message.upsert with a message number no row holds', () => {
++  it('never writes a row at the number the browser sent', async () => {
++    const saved = await callerAs(OTHER).upsert({ message: draft(UNUSED_ID) });
++
++    const inserts = writesOf('Messages').filter(({ sql }) => sql.startsWith('insert'));
++    expect(inserts).toHaveLength(1);
++    expect(inserts[0].parameters).not.toContain(UNUSED_ID);
++    expect(saved?.id).toBe(SERVER_ASSIGNED_ID);
++  });
++
++  it('announces no update on the number the browser sent', async () => {
++    await callerAs(OTHER).upsert({ message: draft(UNUSED_ID) });
++
++    expect(mocks.channels).toEqual([]);
++  });
++
++  it('refuses at the per-user cap, and creates no row', async () => {
++    world.ownerCount = 1000;
++
++    await expect(callerAs(OTHER).upsert({ message: draft(UNUSED_ID) }))
++      .rejects.toThrow('You have reached the limit of 1000 messages per user.');
++
++    expect(writesOf('Messages').filter(({ sql }) => sql.startsWith('insert'))).toHaveLength(0);
++  });
++});
++
++describe('message.upsert, the number the browser sends', () => {
++  it('updates and announces the canonical number when the browser sends leading zeros', async () => {
++    await callerAs(OWNER).upsert({ message: draft(`00${OWNED_ID}`) });
++
++    expect(captured.queries.length).toBeGreaterThan(0);
++    for (const { parameters } of captured.queries) {
++      expect(parameters).not.toContain(`00${OWNED_ID}`);
++    }
++    expect(boundTo(writesOf('Messages')[0], 'id')).toBe(OWNED_ID);
++    expect(mocks.channels).toEqual([`message-update-${OWNED_ID}`]);
++  });
++
++  it('refuses a number that is not digits before any query', async () => {
++    await expect(callerAs(OWNER).upsert({ message: draft(` ${OWNED_ID}`) })).rejects.toMatchObject({ code: 'BAD_REQUEST' });
++
++    expect(captured.queries).toHaveLength(0);
++  });
++});
++
++describe('message.upsert of an existing message', () => {
++  it('writes a personal message only where the caller still owns the row', async () => {
++    await callerAs(OWNER).upsert({ message: draft(OWNED_ID) });
++
++    const writes = writesOf('Messages');
++    expect(writes).toHaveLength(1);
++    expect(boundTo(writes[0], 'id')).toBe(OWNED_ID);
++    expect(boundTo(writes[0], 'fk_users_id')).toBe(OWNER.dbUserId);
++    expect(mocks.channels).toEqual([`message-update-${OWNED_ID}`]);
++  });
++
++  it('writes a server message only where the row still belongs to that server, for any of its admins', async () => {
++    await callerAs(OTHER).upsert({ message: draft(GUILD_MESSAGE_ID, GUILD.discordId) });
++
++    const writes = writesOf('Messages');
++    expect(writes).toHaveLength(1);
++    expect(boundTo(writes[0], 'id')).toBe(GUILD_MESSAGE_ID);
++    expect(boundTo(writes[0], 'fk_guilds_id')).toBe(GUILD.rowId);
++    expect(boundTo(writes[0], 'fk_users_id')).toBeUndefined();
++  });
++});
++
++const recentData = (id: string) => ({
++  id,
++  recentWebhookId: '400000000000000001',
++  recentThreadId: null,
++  recentMessageId: '400000000000000002',
++});
++
++describe('message.updateRecentMessageData', () => {
++  it('writes a personal message only where the caller still owns the row', async () => {
++    await callerAs(OWNER).updateRecentMessageData(recentData(OWNED_ID));
++
++    const writes = writesOf('Messages');
++    expect(writes).toHaveLength(1);
++    expect(boundTo(writes[0], 'id')).toBe(OWNED_ID);
++    expect(boundTo(writes[0], 'fk_users_id')).toBe(OWNER.dbUserId);
++  });
++
++  it('writes a server message only where the row still belongs to that server', async () => {
++    await callerAs(OTHER).updateRecentMessageData(recentData(GUILD_MESSAGE_ID));
++
++    const writes = writesOf('Messages');
++    expect(writes).toHaveLength(1);
++    expect(boundTo(writes[0], 'id')).toBe(GUILD_MESSAGE_ID);
++    expect(boundTo(writes[0], 'guildId')).toBe(GUILD.discordId);
++    expect(boundTo(writes[0], 'fk_users_id')).toBeUndefined();
++  });
++
++  it('reads, checks and writes the canonical number when the browser sends leading zeros', async () => {
++    await callerAs(OWNER).updateRecentMessageData(recentData(`00${OWNED_ID}`));
++
++    expect(captured.queries.length).toBeGreaterThan(0);
++    for (const { parameters } of captured.queries) {
++      expect(parameters).not.toContain(`00${OWNED_ID}`);
++    }
++    expect(boundTo(writesOf('Messages')[0], 'id')).toBe(OWNED_ID);
++  });
++});
++
++describe('message.delete', () => {
++  it('checks, deletes and clears the previews of the canonical number when the browser sends leading zeros', async () => {
++    await callerAs(OWNER).delete({ id: `00${OWNED_ID}` });
++
++    for (const { parameters } of captured.queries) {
++      expect(parameters).not.toContain(`00${OWNED_ID}`);
++    }
++    expect(boundTo(writesOf('Messages')[0], 'id')).toBe(OWNED_ID);
++    expect(mocks.s3Inputs[0]).toMatchObject({ Prefix: `previews/${OWNED_ID}/` });
++  });
++
++  it('refuses a number that is not digits before any query', async () => {
++    await expect(callerAs(OWNER).delete({ id: ` ${OWNED_ID}` })).rejects.toMatchObject({ code: 'BAD_REQUEST' });
++
++    expect(captured.queries).toHaveLength(0);
++  });
++
++  it('deletes a personal message only where the caller still owns the row', async () => {
++    await callerAs(OWNER).delete({ id: OWNED_ID });
++
++    const writes = writesOf('Messages');
++    expect(writes).toHaveLength(1);
++    expect(boundTo(writes[0], 'id')).toBe(OWNED_ID);
++    expect(boundTo(writes[0], 'fk_users_id')).toBe(OWNER.dbUserId);
++  });
++
++  it('deletes a server message only where the row still belongs to that server', async () => {
++    await callerAs(OTHER).delete({ id: GUILD_MESSAGE_ID });
++
++    const writes = writesOf('Messages');
++    expect(writes).toHaveLength(1);
++    expect(boundTo(writes[0], 'id')).toBe(GUILD_MESSAGE_ID);
++    expect(boundTo(writes[0], 'guildId')).toBe(GUILD.discordId);
++    expect(boundTo(writes[0], 'fk_users_id')).toBeUndefined();
++  });
++
++  it('leaves the previews alone when the delete removed no row', async () => {
++    world.deleteMisses = true;
++
++    await callerAs(OWNER).delete({ id: OWNED_ID });
++
++    expect(mocks.s3Inputs).toEqual([]);
++  });
++
++  it('clears the previews of the row it removed', async () => {
++    await callerAs(OWNER).delete({ id: OWNED_ID });
++
++    expect(mocks.s3Inputs[0]).toMatchObject({ Prefix: `previews/${OWNED_ID}/` });
++  });
++});
++
++const PAST_INT8 = '9223372036854775808';
++const INT8_MAX = '9223372036854775807';
++
++describe('the message number each procedure takes', () => {
++  const calls = [
++    ['getOne', (id: string) => callerAs(OWNER).getOne(id)],
++    ['upsert', (id: string) => callerAs(OWNER).upsert({ message: draft(id) })],
++    ['updateRecentMessageData', (id: string) => callerAs(OWNER).updateRecentMessageData(recentData(id))],
++    ['delete', (id: string) => callerAs(OWNER).delete({ id })],
++  ] as const;
++
++  it.each(calls)('%s refuses a number past the largest a message can hold, before any query', async (_, call) => {
++    await expect(call(PAST_INT8)).rejects.toMatchObject({ code: 'BAD_REQUEST' });
++
++    expect(captured.queries).toHaveLength(0);
++  });
++
++  it.each(calls)('%s takes the largest number a message can hold to the database', async (_, call) => {
++    await call(INT8_MAX).catch(() => undefined);
++
++    expect(captured.queries.length).toBeGreaterThan(0);
++  });
++
++  it('getOne reads the canonical number when the browser sends leading zeros', async () => {
++    await callerAs(OWNER).getOne(`00${OWNED_ID}`);
++
++    for (const { parameters } of captured.queries) {
++      expect(parameters).not.toContain(`00${OWNED_ID}`);
++    }
++  });
++});
+diff --git a/src/server/api/utils/__tests__/previewImage.commit-statement.test.ts b/src/server/api/utils/__tests__/previewImage.commit-statement.test.ts
+index 2579dec..b6bb998 100644
+--- a/src/server/api/utils/__tests__/previewImage.commit-statement.test.ts
++++ b/src/server/api/utils/__tests__/previewImage.commit-statement.test.ts
+@@ -8,7 +8,7 @@ import {
+ import type { DatabaseSchema } from 'project-utils';
+ 
+ import { buildCommitPreviewNonceQuery, mintNonce } from '~/server/api/utils/previewImage';
+-import { buildMessageValues, buildUpsertMessageQuery } from '~/server/api/utils/shared';
++import { buildInsertMessageQuery, buildMessageValues, buildUpdateOwnedMessageQuery } from '~/server/api/utils/shared';
+ 
+ vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+ 
+@@ -25,11 +25,14 @@ const data = {
+   content: 'Hi', username: 'U', embeds: [], components: [],
+ };
+ 
+-describe('the upsert statement no longer writes the preview nonce', () => {
++describe.each([
++  ['insert', (values: never) => buildInsertMessageQuery(database, values)],
++  ['update', (values: never) => buildUpdateOwnedMessageQuery(database, '42', values)],
++] as const)('the %s statement of a save does not write the preview nonce', (_, build) => {
+   const values = buildMessageValues({ name: 'n', data } as never, { dbUserId: 'u1' } as never);
+-  const compiled = buildUpsertMessageQuery(database, values as never).compile();
++  const compiled = build(values as never).compile();
+ 
+-  it('names no nonce column in its insert or its conflict update', () => {
++  it('names no nonce column', () => {
+     expect(compiled.sql).not.toMatch(/previewImageNonce/);
+   });
+ 
+diff --git a/src/server/api/utils/__tests__/shapes.message-id.test.ts b/src/server/api/utils/__tests__/shapes.message-id.test.ts
+new file mode 100644
+index 0000000..4bcfabe
+--- /dev/null
++++ b/src/server/api/utils/__tests__/shapes.message-id.test.ts
+@@ -0,0 +1,34 @@
++import {
++  describe, expect, it, vi,
++} from 'vitest';
++
++import { messageIdShape } from '~/server/api/utils/shapes';
++
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++
++describe('messageIdShape', () => {
++  it.each([
++    ['an exponent', '1e3'],
++    ['letters', 'abc'],
++    ['a hexadecimal prefix', '0x10'],
++    ['a decimal point', '1.5'],
++    ['a minus sign', '-1'],
++    ['a plus sign', '+1'],
++    ['a leading space', ' 1'],
++    ['the empty string', ''],
++    ['20 digits, even when their value fits', '00000000000000000042'],
++    ['one past the largest number a message can hold', '9223372036854775808'],
++  ])('refuses %s as a failed parse, without throwing', (_, id) => {
++    let outcome: { success: boolean } | undefined;
++    expect(() => { outcome = messageIdShape.safeParse(id); }).not.toThrow();
++    expect(outcome?.success).toBe(false);
++  });
++
++  it.each([
++    ['the largest number a message can hold', '9223372036854775807', '9223372036854775807'],
++    ['a number with leading zeros', '0042', '42'],
++    ['zero', '0', '0'],
++  ])('accepts %s as its canonical digits', (_, id, canonical) => {
++    expect(messageIdShape.safeParse(id)).toEqual({ success: true, data: canonical });
++  });
++});
+diff --git a/src/server/api/utils/__tests__/shared.in-predicates.test.ts b/src/server/api/utils/__tests__/shared.in-predicates.test.ts
+index 66c31a9..0a4cf54 100644
+--- a/src/server/api/utils/__tests__/shared.in-predicates.test.ts
++++ b/src/server/api/utils/__tests__/shared.in-predicates.test.ts
+@@ -33,16 +33,17 @@ beforeEach(() => {
+ 
+ describe('getUserRecentMessages', () => {
+   it('issues no query and returns no messages for an empty id list', async () => {
+-    expect(await getUserRecentMessages([])).toEqual([]);
++    expect(await getUserRecentMessages([], 'u1')).toEqual([]);
+     expect(captured.queries).toHaveLength(0);
+   });
+ 
+-  it('binds a non-empty id list as parameters of one in-list', async () => {
+-    const result = await getUserRecentMessages(['m1', 'm2']);
++  it('binds a non-empty id list as parameters of one in-list, beside the caller as owner', async () => {
++    const result = await getUserRecentMessages(['m1', 'm2'], 'u1');
+ 
+     expect(captured.queries).toHaveLength(1);
+     expect(captured.queries[0].sql).toContain('"Messages"."id" in ($1, $2)');
+-    expect(captured.queries[0].parameters).toEqual(['m1', 'm2']);
++    expect(captured.queries[0].sql).toContain('"Messages"."fk_users_id" = $3 or "Messages"."fk_guilds_id" is not null');
++    expect(captured.queries[0].parameters).toEqual(['m1', 'm2', 'u1']);
+     expect(captured.queries[0].sql).toContain(PARTIAL_MESSAGE_SELECT);
+     expect(result.map(({ id }) => id)).toEqual(['m1']);
+   });
+diff --git a/src/server/api/utils/__tests__/shared.message-cap.test.ts b/src/server/api/utils/__tests__/shared.message-cap.test.ts
+index 9bb1ab5..1b85373 100644
+--- a/src/server/api/utils/__tests__/shared.message-cap.test.ts
++++ b/src/server/api/utils/__tests__/shared.message-cap.test.ts
+@@ -39,7 +39,7 @@ function useCounts({ user, guild }: { user: number, guild: number }) {
+       if (sql.includes('"fk_guilds_id" = $1') && parameters[0] === 'guild-row') return [{ count: String(guild) }];
+       return [];
+     }
+-    if (sql.startsWith('insert into "Messages"')) return [{ id: 'saved-id', savedAtMicros: '1763509200000000' }];
++    if (sql.startsWith('insert into "Messages"') || sql.startsWith('update "Messages"')) return [{ id: 'saved-id', savedAtMicros: '1763509200000000' }];
+     return [{
+       id: 'saved-id', createdAt: new Date(0), updatedAt: new Date(0), name: 'n', data, previewImageNonce: null,
+     }];
+@@ -48,6 +48,7 @@ function useCounts({ user, guild }: { user: number, guild: number }) {
+ }
+ 
+ const insertedMessages = () => captured.queries.filter(({ sql }) => sql.startsWith('insert into "Messages"'));
++const updatedMessages = () => captured.queries.filter(({ sql }) => sql.startsWith('update "Messages"'));
+ 
+ beforeEach(() => {
+   vi.stubGlobal('fetch', vi.fn(() => new Promise<never>(() => { void 0; })));
+@@ -115,6 +116,7 @@ describe('the per-owner message cap on an existing message', () => {
+ 
+     await upsertMessage(existingMessage, select);
+ 
+-    expect(insertedMessages()).toHaveLength(1);
++    expect(updatedMessages()).toHaveLength(1);
++    expect(insertedMessages()).toHaveLength(0);
+   });
+ });
+diff --git a/src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts b/src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts
+index 98c3b5e..607055b 100644
+--- a/src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts
++++ b/src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts
+@@ -41,7 +41,7 @@ beforeEach(() => {
+   hoisted.db = createCapturingDatabase(({ sql }) => {
+     if (sql.startsWith('insert into "Guilds"')) return [{ id: 'guild-row' }];
+     if (sql.startsWith('select count(*)')) return [{ count: '0' }];
+-    if (sql.startsWith('insert into "Messages"')) return [{ id: '42', savedAtMicros: '1763509200000000' }];
++    if (sql.startsWith('insert into "Messages"') || sql.startsWith('update "Messages"')) return [{ id: '42', savedAtMicros: '1763509200000000' }];
+     return [{
+       id: '42', createdAt: new Date(0), updatedAt: new Date(0), name: 'n', data: {}, previewImageNonce: null,
+     }];
+diff --git a/src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts b/src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts
+index d4dd3b8..9c44b0d 100644
+--- a/src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts
++++ b/src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts
+@@ -32,15 +32,16 @@ const userSelect = { dbUserId: 'u1' };
+ 
+ let order: string[];
+ 
+-let insertParameters: readonly unknown[] = [];
++let writeParameters: readonly unknown[] = [];
+ 
+ function useDatabase() {
+   world.other = ({ sql, parameters }) => {
+-    if (sql.startsWith('insert into "Messages"')) insertParameters = parameters;
++    const writesMessage = sql.startsWith('insert into "Messages"') || sql.startsWith('update "Messages"');
++    if (writesMessage) writeParameters = parameters;
+     order.push(sql.split(' ').slice(0, 3).join(' '));
+     if (sql.startsWith('insert into "Guilds"')) return [{ id: 'guild-row' }];
+     if (sql.startsWith('select count(*)')) return [{ count: '0' }];
+-    if (sql.startsWith('insert into "Messages"')) return [{ id: '42', savedAtMicros: CLOCK }];
++    if (writesMessage) return [{ id: '42', savedAtMicros: CLOCK }];
+     return [{
+       id: '42', createdAt: new Date(0), updatedAt: new Date(0), name: 'n', data, previewImageNonce: PREVIOUS,
+     }];
+@@ -76,7 +77,8 @@ describe('a save of an existing message', () => {
+   it('asks the generator only after its row is saved', async () => {
+     await upsertMessage(existingMessage, userSelect);
+ 
+-    expect(order.indexOf('fetch')).toBeGreaterThan(order.indexOf('insert into "Messages"'));
++    expect(order).toContain('update "Messages" set');
++    expect(order.indexOf('fetch')).toBeGreaterThan(order.indexOf('update "Messages" set'));
+     world.requests[0].answer.resolve({ status: 204 });
+     await Promise.all(hoisted.waited);
+   });
+@@ -123,7 +125,7 @@ describe('the saved row\'s id', () => {
+   it('is the id the client sent for an existing message', async () => {
+     await upsertMessage(existingMessage, userSelect);
+ 
+-    expect(insertParameters).toContain('42');
++    expect(writeParameters).toContain('42');
+     world.requests[0].answer.resolve({ status: 204 });
+     await Promise.all(hoisted.waited);
+   });
+@@ -131,7 +133,7 @@ describe('the saved row\'s id', () => {
+   it('is left to the database for a new message', async () => {
+     await upsertMessage(newMessage, userSelect);
+ 
+-    expect(insertParameters).not.toContain('42');
++    expect(writeParameters).not.toContain('42');
+     world.requests[0].answer.resolve({ status: 204 });
+     await Promise.all(hoisted.waited);
+   });
+diff --git a/src/server/api/utils/__tests__/shared.upsert-valid.test.ts b/src/server/api/utils/__tests__/shared.upsert-valid.test.ts
+index b6ae224..b286aff 100644
+--- a/src/server/api/utils/__tests__/shared.upsert-valid.test.ts
++++ b/src/server/api/utils/__tests__/shared.upsert-valid.test.ts
+@@ -1,14 +1,15 @@
+-import { describe, it, expect, vi } from 'vitest';
+-
+-vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+-
++import {
++  describe, it, expect, vi,
++} from 'vitest';
+ import {
+   Kysely, DummyDriver, PostgresAdapter, PostgresIntrospector, PostgresQueryCompiler,
+ } from 'kysely';
+ 
+ import type { DatabaseSchema } from 'project-utils';
+ 
+-import { buildMessageValues, buildUpsertMessageQuery } from '~/server/api/utils/shared';
++import { buildInsertMessageQuery, buildMessageValues, buildUpdateOwnedMessageQuery } from '~/server/api/utils/shared';
++
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+ 
+ const database = new Kysely<DatabaseSchema>({
+   dialect: {
+@@ -23,7 +24,9 @@ function values(overrides: Record<string, unknown> = {}) {
+   return {
+     updatedAt: new Date('2026-08-23T00:00:00Z'),
+     name: 'test',
+-    data: { content: 'Hi', username: 'U', embeds: [], components: [] },
++    data: {
++      content: 'Hi', username: 'U', embeds: [], components: [],
++    },
+     fk_users_id: 'u1',
+     fk_guilds_id: null,
+     valid: true,
+@@ -31,25 +34,23 @@ function values(overrides: Record<string, unknown> = {}) {
+   };
+ }
+ 
+-describe('the conflict branch names `valid` explicitly, both directions', () => {
++describe('the insert and the update of a message name `valid` explicitly, both directions', () => {
+   it('insert column list carries `valid`', () => {
+-    const compiled = buildUpsertMessageQuery(database, values()).compile();
++    const compiled = buildInsertMessageQuery(database, values()).compile();
+     expect(compiled.sql).toMatch(/"valid"/);
+   });
+ 
+-  it('`on conflict … do update set` also carries `valid` — the enumerated trap', () => {
+-    const compiled = buildUpsertMessageQuery(database, values()).compile();
+-    const conflictClause = compiled.sql.slice(compiled.sql.indexOf('on conflict'));
+-    expect(conflictClause).toMatch(/"valid"\s*=/);
++  it('the update of an existing message also sets `valid`', () => {
++    const compiled = buildUpdateOwnedMessageQuery(database, '42', values()).compile();
++    const setClause = compiled.sql.slice(compiled.sql.indexOf(' set '), compiled.sql.indexOf(' where '));
++    expect(setClause).toMatch(/"valid"\s*=/);
+   });
+ 
+   it('an update whose verdict is unchanged still writes `valid` (no conditional omission)', () => {
+-    const compiledTrue = buildUpsertMessageQuery(database, values({ valid: true })).compile();
+-    const compiledFalse = buildUpsertMessageQuery(database, values({ valid: false })).compile();
+-    const trueConflict = compiledTrue.sql.slice(compiledTrue.sql.indexOf('on conflict'));
+-    const falseConflict = compiledFalse.sql.slice(compiledFalse.sql.indexOf('on conflict'));
+-    expect(trueConflict).toMatch(/"valid"\s*=/);
+-    expect(falseConflict).toMatch(/"valid"\s*=/);
++    const compiledTrue = buildUpdateOwnedMessageQuery(database, '42', values({ valid: true })).compile();
++    const compiledFalse = buildUpdateOwnedMessageQuery(database, '42', values({ valid: false })).compile();
++    expect(compiledTrue.sql).toMatch(/ set .*"valid"\s*=.* where /);
++    expect(compiledFalse.sql).toMatch(/ set .*"valid"\s*=.* where /);
+     expect(compiledTrue.parameters).toContain(true);
+     expect(compiledFalse.parameters).toContain(false);
+   });
+@@ -58,7 +59,12 @@ describe('the conflict branch names `valid` explicitly, both directions', () =>
+ describe('buildMessageValues computes `valid` from the predicate, never from the caller', () => {
+   it('a sendable payload computes valid: true', () => {
+     const built = buildMessageValues(
+-      { name: 'n', data: { content: 'Hi', username: 'U', embeds: [], components: [] } } as never,
++      {
++        name: 'n',
++        data: {
++          content: 'Hi', username: 'U', embeds: [], components: [],
++        },
++      } as never,
+       { dbUserId: 'u1' } as never,
+     );
+     expect(built.valid).toBe(true);
+@@ -66,7 +72,12 @@ describe('buildMessageValues computes `valid` from the predicate, never from the
+ 
+   it('an unsendable payload computes valid: false', () => {
+     const built = buildMessageValues(
+-      { name: 'n', data: { content: '', username: 'U', embeds: [], components: [] } } as never,
++      {
++        name: 'n',
++        data: {
++          content: '', username: 'U', embeds: [], components: [],
++        },
++      } as never,
+       { dbUserId: 'u1' } as never,
+     );
+     expect(built.valid).toBe(false);

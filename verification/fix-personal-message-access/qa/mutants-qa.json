@@ -1,0 +1,205 @@
+[
+ {
+  "id": "getone-precheck-no-id",
+  "file": "src/server/api/routers/message.ts",
+  "old": "        await authorizeUser(session.user.id, message.id);\n      }\n      return message;",
+  "new": "        await authorizeUser(session.user.id);\n      }\n      return message;",
+  "surface": "S2"
+ },
+ {
+  "id": "upsert-precheck-no-id",
+  "file": "src/server/api/routers/message.ts",
+  "old": "authorizeUser(session.user.id, message.id);\n\n      return upsertMessage",
+  "new": "authorizeUser(session.user.id);\n\n      return upsertMessage",
+  "surface": "S6a"
+ },
+ {
+  "id": "upsert-guild-precheck-no-id",
+  "file": "src/server/api/routers/message.ts",
+  "old": "authorizeGuildUser(req, message.guildId, message.id);\n        return upsertMessage",
+  "new": "authorizeGuildUser(req, message.guildId);\n        return upsertMessage",
+  "surface": "S6a"
+ },
+ {
+  "id": "recent-precheck-no-id",
+  "file": "src/server/api/routers/message.ts",
+  "old": "authorizeUser(session.user.id, message.id);\n      return updateRecentMessageData",
+  "new": "authorizeUser(session.user.id);\n      return updateRecentMessageData",
+  "surface": "S7"
+ },
+ {
+  "id": "recent-owner-discord-id",
+  "file": "src/server/api/routers/message.ts",
+  "old": "updateRecentMessageData(input, { dbUserId: userId })",
+  "new": "updateRecentMessageData(input, { dbUserId: session.user.id })",
+  "surface": "S7"
+ },
+ {
+  "id": "delete-precheck-no-id",
+  "file": "src/server/api/routers/message.ts",
+  "old": "authorizeAction(session.user.id, req, message.guildId, id)",
+  "new": "authorizeAction(session.user.id, req, message.guildId, undefined)",
+  "surface": "S8"
+ },
+ {
+  "id": "delete-owner-always-user",
+  "file": "src/server/api/routers/message.ts",
+  "old": "const owner = message.guildId ? { guildId: message.guildId } : { dbUserId: userId };",
+  "new": "const owner = { dbUserId: userId };",
+  "surface": "S8 coupling: guild delete takes the personal term"
+ },
+ {
+  "id": "delete-owner-always-guild",
+  "file": "src/server/api/routers/message.ts",
+  "old": "const owner = message.guildId ? { guildId: message.guildId } : { dbUserId: userId };",
+  "new": "const owner = { guildId: message.guildId as string };",
+  "surface": "S8 coupling: personal delete takes the guild term"
+ },
+ {
+  "id": "delete-input-raw",
+  "file": "src/server/api/routers/message.ts",
+  "old": ".input(z.object({ id: messageIdShape }))",
+  "new": ".input(z.object({ id: z.string() }))",
+  "surface": "S8/S9"
+ },
+ {
+  "id": "getone-input-raw",
+  "file": "src/server/api/routers/message.ts",
+  "old": ".input(messageIdShape)\n    .query",
+  "new": ".input(z.string().regex(/^[0-9]+$/))\n    .query",
+  "surface": "S2 id"
+ },
+ {
+  "id": "shape-max-plus-one",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "const MAX_MESSAGE_ID = 9223372036854775807n;",
+  "new": "const MAX_MESSAGE_ID = 9223372036854775808n;",
+  "surface": "id bound"
+ },
+ {
+  "id": "shape-admits-plus",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": ".regex(/^[0-9]{1,19}$/)",
+  "new": ".regex(/^[+0-9]{1,19}$/)",
+  "surface": "id digits"
+ },
+ {
+  "id": "shape-raw-text-out",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": ".transform((id) => id.toString());",
+  "new": ".transform((id) => id.toString().padStart(1, '0'));",
+  "surface": "id canonical"
+ },
+ {
+  "id": "upsert-id-raw",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "  id: messageIdShape.optional(),",
+  "new": "  id: z.string().optional(),",
+  "surface": "S6a/S6b id"
+ },
+ {
+  "id": "recent-id-raw",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "  id: messageIdShape,\n  recentWebhookId",
+  "new": "  id: z.string(),\n  recentWebhookId",
+  "surface": "S7 id"
+ },
+ {
+  "id": "recent-list-owner-arm-any",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "eb('Messages.fk_users_id', '=', dbUserId),",
+  "new": "eb('Messages.fk_users_id', 'is not', null),",
+  "surface": "S11"
+ },
+ {
+  "id": "recent-list-guild-arm-any",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "eb('Messages.fk_guilds_id', 'is not', null),",
+  "new": "eb('Messages.id', 'is not', null),",
+  "surface": "S11 coupling: guild arm admits personal rows"
+ },
+ {
+  "id": "update-guild-term-dropped",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "? query.where('fk_guilds_id', '=', values.fk_guilds_id as string)",
+  "new": "? query",
+  "surface": "S6a guild"
+ },
+ {
+  "id": "update-user-term-dropped",
+  "file": "src/server/api/utils/shared.ts",
+  "old": ": query.where('fk_users_id', '=', values.fk_users_id as string)\n  ).returning",
+  "new": ": query\n  ).returning",
+  "surface": "S6a personal"
+ },
+ {
+  "id": "update-term-choice-inverted",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "return (values.fk_guilds_id\n    ? query.where",
+  "new": "return (!values.fk_guilds_id\n    ? query.where",
+  "surface": "S6a coupling"
+ },
+ {
+  "id": "insert-at-client-id",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "saved = await buildInsertMessageQuery(database, values).executeTakeFirstOrThrow();",
+  "new": "saved = await buildInsertMessageQuery(database, message.id ? { ...values, id: message.id } : values).executeTakeFirstOrThrow();",
+  "surface": "S6b"
+ },
+ {
+  "id": "cap-counts-guild-only",
+  "file": "src/server/api/utils/shared.ts",
+  "old": ": messageCountQuery.where('fk_users_id', '=', values.fk_users_id as string)",
+  "new": ": messageCountQuery.where('fk_guilds_id', '=', values.fk_users_id as string)",
+  "surface": "S6b cap"
+ },
+ {
+  "id": "update-skipped",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "const updated = message.id\n    ? await",
+  "new": "const updated = false\n    ? await",
+  "surface": "S6a"
+ },
+ {
+  "id": "recent-write-user-term-dropped",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "\n  await ('dbUserId' in owner\n    ? query.where('fk_users_id', '=', owner.dbUserId)",
+  "new": "\n  await ('dbUserId' in owner\n    ? query",
+  "surface": "S7 personal"
+ },
+ {
+  "id": "recent-write-guild-term-inverted",
+  "file": "src/server/api/utils/shared.ts",
+  "old": ".where('Guilds.guildId', '=', owner.guildId))\n  ).execute();",
+  "new": ".where('Guilds.guildId', '!=', owner.guildId))\n  ).execute();",
+  "surface": "S7 guild"
+ },
+ {
+  "id": "delete-write-user-term-dropped",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "const deleted = await ('dbUserId' in owner\n    ? query.where('fk_users_id', '=', owner.dbUserId)",
+  "new": "const deleted = await ('dbUserId' in owner\n    ? query",
+  "surface": "S8 personal"
+ },
+ {
+  "id": "delete-write-guild-term-inverted",
+  "file": "src/server/api/utils/shared.ts",
+  "old": ".where('Guilds.guildId', '=', owner.guildId))\n  ).returning('id')",
+  "new": ".where('Guilds.guildId', '!=', owner.guildId))\n  ).returning('id')",
+  "surface": "S8 guild"
+ },
+ {
+  "id": "hydrated-owner-discord-id",
+  "file": "src/server/auth.ts",
+  "old": "getUserRecentMessages(preferences.recentMessageIds, user.id)",
+  "new": "getUserRecentMessages(preferences.recentMessageIds, String(session.user.id))",
+  "surface": "S11 call site"
+ },
+ {
+  "id": "draft-key-new-number",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "removeDraft(message.id, (draft)",
+  "new": "removeDraft(msg.id, (draft)",
+  "surface": "CR-5"
+ }
+]

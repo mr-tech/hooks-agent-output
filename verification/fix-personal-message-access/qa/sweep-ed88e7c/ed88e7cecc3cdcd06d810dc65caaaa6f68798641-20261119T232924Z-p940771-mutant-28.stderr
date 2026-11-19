@@ -1,0 +1,30 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > binds a non-empty id list as parameters of one in-list, beside the caller as owner
+AssertionError: expected 'select "Messages"."id", "Messages"."c…' to contain '"Messages"."fk_users_id" = $3 or "Mes…'
+
+Expected: ""Messages"."fk_users_id" = $3 or "Messages"."fk_guilds_id" is not null"
+Received: "select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce", "Guilds"."guildId" as "guildId" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" where "Messages"."id" in ($1, $2) and ("Messages"."fk_users_id" = $3 or "Messages"."id" is not null)"
+
+ ❯ src/server/api/utils/__tests__/shared.in-predicates.test.ts:45:37
+     43|     expect(captured.queries).toHaveLength(1);
+     44|     expect(captured.queries[0].sql).toContain('"Messages"."id" in ($1,…
+     45|     expect(captured.queries[0].sql).toContain('"Messages"."fk_users_id…
+       |                                     ^
+     46|     expect(captured.queries[0].parameters).toEqual(['m1', 'm2', 'u1']);
+     47|     expect(captured.queries[0].sql).toContain(PARTIAL_MESSAGE_SELECT);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

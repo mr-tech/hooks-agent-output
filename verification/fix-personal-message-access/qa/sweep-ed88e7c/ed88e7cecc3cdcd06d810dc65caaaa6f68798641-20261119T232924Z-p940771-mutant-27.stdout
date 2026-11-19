@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/sweep-work/20261119T232924Z-p940771/mutant-27
+
+ ❯ |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts (4 tests | 1 failed) 42ms
+     × binds a non-empty id list as parameters of one in-list, beside the caller as owner 30ms
+ ❯ |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts (2 tests | 1 failed) 12ms
+     × leaves out another user's personal message stored in the preferences 6ms
+
+ Test Files  2 failed | 146 passed (148)
+      Tests  2 failed | 1902 passed (1904)
+   Start at  23:37:31
+   Duration  16.82s (transform 21.82s, setup 1.49s, import 126.06s, tests 36.98s, environment 77.38s)
+

@@ -1,0 +1,30 @@
+[
+ {
+  "id": "upsert-precheck-no-id",
+  "file": "src/server/api/routers/message.ts",
+  "old": "authorizeUser(session.user.id, message.id);\n\n      return upsertMessage",
+  "new": "authorizeUser(session.user.id);\n\n      return upsertMessage",
+  "surface": "S6a"
+ },
+ {
+  "id": "upsert-guild-precheck-no-id",
+  "file": "src/server/api/routers/message.ts",
+  "old": "authorizeGuildUser(req, message.guildId, message.id);\n        return upsertMessage",
+  "new": "authorizeGuildUser(req, message.guildId);\n        return upsertMessage",
+  "surface": "S6a"
+ },
+ {
+  "id": "recent-precheck-no-id",
+  "file": "src/server/api/routers/message.ts",
+  "old": "authorizeUser(session.user.id, message.id);\n      return updateRecentMessageData",
+  "new": "authorizeUser(session.user.id);\n      return updateRecentMessageData",
+  "surface": "S7"
+ },
+ {
+  "id": "delete-precheck-no-id",
+  "file": "src/server/api/routers/message.ts",
+  "old": "authorizeAction(session.user.id, req, message.guildId, id)",
+  "new": "authorizeAction(session.user.id, req, message.guildId, undefined)",
+  "surface": "S8"
+ }
+]

@@ -1,0 +1,124 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 13 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert, the number the browser sends > updates and announces the canonical number when the browser sends leading zeros
+AssertionError: expected [] to deeply equal [ 'message-update-900000000000101' ]
+
+- Expected
++ Received
+
+- [
+-   "message-update-900000000000101",
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:254:28
+    252|     }
+    253|     expect(boundTo(writesOf('Messages')[0], 'id')).toBe(OWNED_ID);
+    254|     expect(mocks.channels).toEqual([`message-update-${OWNED_ID}`]);
+       |                            ^
+    255|   });
+    256|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/13]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert of an existing message > writes a personal message only where the caller still owns the row
+AssertionError: expected [] to deeply equal [ 'message-update-900000000000101' ]
+
+- Expected
++ Received
+
+- [
+-   "message-update-900000000000101",
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:272:28
+    270|     expect(boundTo(writes[0], 'id')).toBe(OWNED_ID);
+    271|     expect(boundTo(writes[0], 'fk_users_id')).toBe(OWNER.dbUserId);
+    272|     expect(mocks.channels).toEqual([`message-update-${OWNED_ID}`]);
+       |                            ^
+    273|   });
+    274|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/13]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message, as a subscriber decodes it > arrives once, on the message's channel, as a message-update event
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ receivedBySubscriber src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts:64:18
+     62|   posted.length = 0;
+     63|   await upsertMessage(messageWith(content), userSelect);
+     64|   expect(posted).toHaveLength(1);
+       |                  ^
+     65|   const { body } = posted[0];
+     66|   const frame = JSON.stringify({ event: body.name, channel: body.chann…
+ ❯ src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts:72:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/13]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message, as a subscriber decodes it > carries the exact hash string of the saved message when the hash has letters and digits
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message, as a subscriber decodes it > carries the exact hash string of the saved message when the hash has digits only
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message, as a subscriber decodes it > carries the exact hash string of the saved message when the hash has a minus sign and digits only
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message, as a subscriber decodes it > carries the exact hash string of the saved message when the hash has digits, an e and 00
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message, as a subscriber decodes it > carries the exact hash string of the saved message when the hash has a minus sign, digits, an e and 02
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message, as a subscriber decodes it > carries the exact hash string of the saved message when the hash has an exponent past what a double holds
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message, as a subscriber decodes it > carries the exact hash string of the saved message when the hash has a minus sign and an exponent past what a double holds
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ receivedBySubscriber src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts:64:18
+     62|   posted.length = 0;
+     63|   await upsertMessage(messageWith(content), userSelect);
+     64|   expect(posted).toHaveLength(1);
+       |                  ^
+     65|   const { body } = posted[0];
+     66|   const frame = JSON.stringify({ event: body.name, channel: body.chann…
+ ❯ src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts:87:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/13]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message, as a subscriber decodes it > keeps two saves apart whose hashes would both read as one finite value
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message, as a subscriber decodes it > keeps two saves apart whose hashes would both read as Infinity
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts > the update broadcast of a saved message, as a subscriber decodes it > keeps two saves apart whose hashes would both read as -Infinity
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ receivedBySubscriber src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts:64:18
+     62|   posted.length = 0;
+     63|   await upsertMessage(messageWith(content), userSelect);
+     64|   expect(posted).toHaveLength(1);
+       |                  ^
+     65|   const { body } = posted[0];
+     66|   const frame = JSON.stringify({ event: body.name, channel: body.chann…
+ ❯ src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts:98:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/13]⎯
+

@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/rerun-work/20261119T234338Z-p1121243/mutant-1
+
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (31 tests | 1 failed) 91ms
+     × upsert refuses a personal save, and nothing is written or announced 18ms
+
+ Test Files  1 failed | 147 passed (148)
+      Tests  1 failed | 1907 passed (1908)
+   Start at  23:43:59
+   Duration  17.53s (transform 23.88s, setup 1.60s, import 131.43s, tests 36.31s, environment 77.42s)
+

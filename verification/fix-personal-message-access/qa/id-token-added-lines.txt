@@ -1,0 +1,2 @@
+695:+    const result = await getUserRecentMessages(['m1', 'm2'], 'u1');
+701:+    expect(captured.queries[0].parameters).toEqual(['m1', 'm2', 'u1']);
