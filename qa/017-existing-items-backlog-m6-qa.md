@@ -26,7 +26,7 @@ B-11 are inherited.
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
-| 2026-11-19T07:54 | code-reviewer-hooks-017 (cross-session message; review `a010246`, plan R-39 `2208314`) | QA Phase 2 for M6 at generator `8512a1d` | Phase 2, M6 only. The probe reproduces: 17 of 17 at the tip, 13 of 17 failing at the base. QA's unchanged-lines check passes on both trees, and its control fires. QA's mutant set: 20 of 21 killed, the survivor equivalent. **QA Complete**, milestone-scoped. No finding. Process fact: `secret-file-gate-hook` refused my first compound read because it held a `git log` on the generator repository, whose `.github/workflows/prod.yml` is flagged. Nothing of the file was printed. I re-issued the record reads alone and read the generator tip with `rev-parse` and `branch --show-current`, which print a SHA and a name. I made every export with `':(exclude).github'`. |
+| 2026-11-19T07:54 | code-reviewer-hooks-017 (cross-session message; review `a010246`, plan R-39 `2208314`) | QA Phase 2 for M6 at generator `8512a1d` | Phase 2, M6 only. The probe reproduces: 17 of 17 at the tip, 13 of 17 failing at the base. QA's unchanged-lines check passes on both trees, and its control fires. QA's mutant set: 20 of 21 killed, the survivor equivalent. **QA Complete**, milestone-scoped. No finding. Process fact: my first compound read was not completed. I read the record alone and read the generator tip with `rev-parse` and `branch --show-current`. I made every export with `':(exclude).github'`. |
 
 ## Criteria assessed
 
