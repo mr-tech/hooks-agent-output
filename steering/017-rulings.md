@@ -954,3 +954,18 @@ Discord challenge is his) and saves a throwaway message; account 1 opens it / *Y
 `access-defects`; evidence to `verification/access-defects/browser-check/`. Not chain 017's work.
 **This thread's gate event, disclosed in the round:** `record-write-gate-hook` refused a shell `sed -i` on
 the brief (a block-heading fix); re-issued with the Edit tool, the form the gate names.
+
+## 2026-11-19T08:46Z — browser check blocked by a model safeguard; architect closing pass Resolved
+
+`uat-access-check`'s first response, after it read its brief and `agent-output/CLAUDE.md`, was stopped by
+the model's safeguards: pane text *"API Error: Opus 5.5's safeguards flagged this session … Details:
+`[cyber]` … Request ID: req_011ChBzdBGsZK4zbcTPogC89"* (pane read 08:46Z). It did nothing in a browser.
+Under `~/.claude/CLAUDE.md` ("A blocked action is reported, never retried in different words") this thread
+does not re-word the brief, switch the model, or route the check through another session; it stopped the
+session (`tmux-agent stop uat-access-check`, 08:46Z) and puts the block to him: what it was doing (a live
+test that one signed-in test account can open another test account's personal message by number), what
+blocked it (the `[cyber]` safeguard), and that he decides whether it was a false positive. The access
+handling question stays open.
+Architect closing pass committed (`2a9db38`), findings document Resolved, moved to `closed/`, no finding to
+the planner; X-21 and X-22 recorded as accepted. Its conditional cue: if either release tree moves from
+website `4b8db9c` or generator `8512a1d` before the pushes, one delta read is owed — this thread watches for it.
