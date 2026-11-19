@@ -12,6 +12,10 @@ second, after its `Duties negated:` line, and adds only what is that stage's own
   statement there governs. Quoted:
   "In scope: S2 with S18, S6b, S11, an owner term in the S6a and S7 write queries, and a canonical id at the S7, S8 and S9 inputs. All of
   it is in website alone. Out: S5, S16 and S17 (no record; X-21 carries S17). S14, S15 and S1b get one handoff each."
+  **Amended 22:59Z** (block "2026-11-19T22:59Z", this thread's ruling, correcting its own narrowing of his chosen option's words):
+  - an owner term in the delete query of S8 (`message.delete`) as well as in S6a and S7;
+  - a canonical id at the `message.upsert` input (S6a/S6b, `optionalIdMessageShape.id`) as well as at S7, S8 and S9.
+  Out, each to a handoff: the hydrated recent list's server-message rows (S1b family); `getOne`'s absent-number error.
 - **S-numbers:** the sweep, `/usr/local/bin/hooks/agent-output/verification/access-defects/scoping/sweep.md` (website `787bec5`).
 - **Executed evidence:** the refutation run, `/usr/local/bin/hooks/agent-output/verification/access-defects/scoping/refutation.md`.
   S2, S6b and S11 NOT REFUTED through `appRouter.createCaller` against a throwaway postgres. Its export is gone from the box; its setup
