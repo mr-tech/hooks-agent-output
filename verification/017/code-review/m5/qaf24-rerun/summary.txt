@@ -1,0 +1,5 @@
+control exit 0 total 11 failed 0 | 
+clock-now exit 1 total 11 failed 1 | P1: the clock is read after the row lock, so the save that t
+clock-statement-timestamp exit 1 total 11 failed 1 | P1: the clock is read after the row lock, so the save that t
+clock-transaction-timestamp exit 1 total 11 failed 1 | P1: the clock is read after the row lock, so the save that t
+leftover-containers 0
