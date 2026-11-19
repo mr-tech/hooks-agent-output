@@ -1,0 +1,8 @@
+base: numTotalTests=1505 numPassedTests=1505 success=true files=123 statuses={"passed":1505}
+tip: numTotalTests=1542 numPassedTests=1542 success=true files=124 statuses={"passed":1542}
+base-only paths (0): 
+tip-only paths (1): src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx
+paths not explained by the rename map: 1 src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx
+changed src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts: base 7 tip 9 removed 0 added 2
+  + passed	useApiMethods saveMessage, the record of the tab's own save records nothing for a message that has no id yet
+  + passed	useApiMethods saveMessage, the record of the tab's own save records one hash for a message that has an id

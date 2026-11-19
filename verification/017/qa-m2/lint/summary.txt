@@ -1,0 +1,10 @@
+src/providers/MessageProvider/usePusher.ts 0 {}
+src/providers/MessageProvider/useApiMethods.ts 0 {}
+src/providers/MessageProvider/index.tsx 8 {'@typescript-eslint/no-unsafe-argument': 4, '@typescript-eslint/no-unsafe-call': 4}
+src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx 0 {}
+src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx 0 {}
+src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts 42 {'@typescript-eslint/member-delimiter-style': 3, '@typescript-eslint/no-explicit-any': 12, '@typescript-eslint/no-non-null-assertion': 1, '@typescript-eslint/no-unsafe-argument': 9, '@typescript-eslint/no-unsafe-call': 1, '@typescript-eslint/no-unsafe-return': 1, '@typescript-eslint/no-unused-vars': 1, 'function-paren-newline': 2, 'import/first': 6, 'max-len': 1, 'object-curly-newline': 4, 'react-hooks/rules-of-hooks': 1}
+base src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx 0 {}
+base src/providers/MessageProvider/index.tsx 0 {}
+base src/providers/MessageProvider/useApiMethods.ts 0 {}
+base src/providers/MessageProvider/usePusher.ts 0 {}

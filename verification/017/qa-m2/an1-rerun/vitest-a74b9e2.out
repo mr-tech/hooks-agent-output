@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/exp-a74b9e2
+
+No test files found, exiting with code 1
+
+filter: src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx
+include: src/**/*.test.ts
+exclude:  **/node_modules/**, **/.git/**
+
