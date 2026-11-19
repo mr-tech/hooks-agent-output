@@ -793,7 +793,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Resumption State
 
-Written at the checkpoint steering-roadmap-hooks asked for (context 354K, threshold 325K), 2026-11-19T05:52Z, after Round 5. Disclosed: this section was replaced by an ad-hoc python script, not the Edit tool or `record-edit.js`, against the lifecycle rule for record documents. The error was mine. The content was checked by `git diff` before commit, and this line was written with the Edit tool.
+Written at the checkpoint for the chain's park, 2026-11-19T07:16Z (owner's word, "park the chain"; `steering/017-rulings.md` block 2026-11-19T07:15Z, `cffd802`; relayed by steering-roadmap-hooks). It was written with the Edit tool. The 05:52Z checkpoint's python-script disclosure stands in that revision's commit (`00e6bb8`), and Round 5's sub-entry repeats it (changelog 06:06).
 
 - **Done**:
   - Round 1 (M1): APPROVED_WITH_COMMENTS at `8147661`.
@@ -802,20 +802,27 @@ Written at the checkpoint steering-roadmap-hooks asked for (context 354K, thresh
   - Round 4 (M4): REJECTED at `de06d95` (CR-9 HIGH, CR-10 and CR-11 LOW). Its sub-entry approved CR-9 to CR-11 at `a5dd76f` and QAF-18 at `5c3d03f`.
   - Round 5 (M8): REJECTED after reconcile at `c37d41a` (CR-13 MEDIUM, a duplicate of QAF-22; CR-12 LOW), published as APPROVED_WITH_COMMENTS. Its sub-entry approved both at `6555f65`.
   - Round 6 (M5): APPROVED_WITH_COMMENTS at `f83f2ca` (CR-14 and CR-15 LOW). Its sub-entry approved both at `4b8db9c`. Instruments: `verification/017/code-review/m5/attack/` (`run.sh <sha> <out> [control id]`).
-  - My plan rows: R-8, R-10, R-12, R-13, R-15, R-16, R-18, R-19, R-22 and R-30.
-  - QA hand-offs were sent for each approval, the last for M8 (msg `dd56c5ed`).
-- **Next**: Round 7, M6 at preview-image-generator `8512a1d` (implementation document agent-output `4c4e948`). It must see "204 means an object was stored" hold (Round 6's observation). Then M7. Previously: M5, M6 or M7, when handed off. Open Round 6. Read the plan as the diff from `225e4f3`: that milestone's section, the Decisions Register rows it cites, and its Reading Order row. M5 and M6 rest on M5-0's probe results (D-27, D-30). M7 comes last and re-derives CR-1's file (M7-b).
+  - My plan rows: R-8, R-10, R-12, R-13, R-15, R-16, R-18, R-19, R-22, R-30, R-32, R-33, R-35 and R-36.
+  - QA hand-offs were sent for each approval. The last two were for M5: `ecf3c9a9` at `f83f2ca`, then `ff73fabd` saying the tip is `4b8db9c`.
+- **In flight**: nothing. Round 7 had not opened at the park. I had read none of M6's diff or document, and no Round 7 criteria are recorded.
+- **Next, on resume**: Round 7, M6 at preview-image-generator `8512a1d` (range `8de2b53..8512a1d`: `src/generateImage.ts` and `src/server.ts`, plus `verification/015/pig-host-read.sh` section [7]). The implementation document is agent-output `4c4e948`. Its hand-off cited a probe rig, 13 of 17 failing on the base and 17 of 17 on the tip, a 15 of 16 mutation sweep with one survivor argued equivalent, and RK-7's liveness fixture.
+  - Re-derive `Handoff-At` from the document first, since the implementer may have moved it.
+  - Record the criteria before reading the diff: `### M6` as the plan states it at round open (revision 7 unless moved).
+  - Round 7 must see "a 204 means an object was stored" hold. Round 6's attack shows M5-b rests on it (`OBSERVE no-object-204`). The survivor argued equivalent is a claim to settle by running it, never by reading (CR-13's lesson).
+  - M6 stops the generator deleting, so adversarial execution applies: the attack harness and the `m6-probe` S3 stub are reusable.
+  - Then M7, last. It re-derives CR-1's file (M7-b).
 - **Standing rules**: steering's M4 cap (`steering/017-rulings.md` block 2026-11-19T04:14Z, `a805d4d`) and M8 cap (block 2026-11-19T06:01Z, `9349040`). For M4 and M8, a finding below HIGH that is not a severity-floor finding goes to the Planner batch as a stated limit, with no fix round. Steering is now `steering-roadmap-hooks`.
 - **Waiting on others, not blocking**:
-  - QA Phase 2 for M8 at `c37d41a`;
-  - the implementer's CR-12 line;
-  - UAT B-3 (Round 4 assumption) and B-13 (Round 5 assumption, RK-11).
-- **Branch and HEAD**: website `chain/017-existing-items-backlog`. HEAD is `72a1755` at this write, past `c37d41a`, which is the implementer's M5 work and not reviewed. This session never moved the shared tree.
+  - QA Phase 2 for M5 at `4b8db9c` (M8's refresh is QA Complete, plan R-34);
+  - UAT B-3 (Round 4 assumption), B-13 (Round 5 and its sub-entry) and B-6 with a read-only prefix listing (Round 6 assumption).
+- **Questions sent**: none open.
+- **Branch and HEAD**: website `chain/017-existing-items-backlog` at `4b8db9c`, the reviewed M5 tip. preview-image-generator HEAD is `8512a1d`, not yet reviewed. This session never moved either shared tree.
 - **Uncommitted**: `agent-output/INBOX.md` holds my FYI entries: CR-2, the M3 `Handoff-At` placeholder (since fixed), CR-9's pre-existing members (now M8's), and the M4 document's citation of a missing M5 document (record-check failure at `implementation/017-existing-items-backlog-m4-implementation.md:400`). The inbox is left uncommitted by rule, for its owning session. Nothing else of mine is uncommitted.
-- **Mutated state**: none. Every mutant ran in `mutation-run.py` or `git archive` exports, all of which are deleted, and no process of mine is running.
+- **Mutated state**: none. Every mutant and attack ran in a `mutation-run.py` or `git archive` export, all of which are deleted. No `cr017-attack` container is left (`docker ps -a`), no `/dev/shm/cra.*` directory remains, and no process of mine is running (`pstree`). Evidence not yet recorded: none.
 - **Instruments to reuse**:
   - `verification/017/code-review/m1/vitest.probe.config.mjs`, passed to `mutation-run.py` as `--config <abs path>` with `--dep node_modules -- node_modules/.bin/vitest run --no-cache --configLoader runner`;
   - `verification/017/code-review/m4/probe-enter-both/` (two-prompt Enter probe, with its README);
+  - `verification/017/code-review/m5/attack/run.sh <sha> <out> [control id]` (real Postgres 16, the S3 stub, a scripted generator, network-isolated; its README);
   - lint base counts come from `verification/017/entry/lint-1ad625e/nofix.json`, never a stdin lint;
   - path lists for commits go through a file, never through filtered output;
   - the plan row is written with Edit, then `plan-row-commit.js`.
@@ -823,4 +830,7 @@ Written at the checkpoint steering-roadmap-hooks asked for (context 354K, thresh
   - enumerate a criterion's interleavings myself, never from the implementer's mutant list (CR-5);
   - run an enumeration before writing its result (Round 3);
   - a module mock in the test that mounts the state under review can blind the clause it claims to cover (CR-9: `react-hotkeys-hook` mocked);
-  - raising a second dialog with a pointer press outside the first dismisses the first, so a probe must raise it the way production does (Round 4 disclosure).
+  - raising a second dialog with a pointer press outside the first dismisses the first, so a probe must raise it the way production does (Round 4 disclosure);
+  - settle an equivalence claim by running it, never by reading the settled state, since a transition window can decide it (CR-13);
+  - count before writing a blind-spot number (Round 6, CR-14's "three", corrected before commit);
+  - an attack harness's first failures are the harness's until a planted control shows otherwise (Round 6 disclosure).
