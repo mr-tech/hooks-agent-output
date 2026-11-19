@@ -1,0 +1,121 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first
+AssertionError: expected [ 'k1', 'k2', 'k3', 'k4', 'k5', …(15) ] to deeply equal [ Array(20) ]
+
+- Expected
++ Received
+
+@@ -1,6 +1,11 @@
+  [
++   "k1",
++   "k2",
++   "k3",
++   "k4",
++   "k5",
+    "k6",
+    "k7",
+    "k8",
+    "k9",
+    "k10",
+@@ -12,11 +17,6 @@
+    "k16",
+    "k17",
+    "k18",
+    "k19",
+    "k20",
+-   "k21",
+-   "k22",
+-   "k23",
+-   "k24",
+-   "k25",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:30:18
+     28|     const keys = Object.keys(stored()).sort((a, b) => Number(a.slice(1…
+     29|
+     30|     expect(keys).toEqual(Array.from({ length: 20 }, (_, i) => `k${i + …
+       |                  ^
+     31|   });
+     32|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > never drops the entry being written, even when it is the least recently edited
+AssertionError: expected [ 'k2', 'k3', 'k4', 'k5', 'k6', …(15) ] to include 'k1'
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:38:35
+     36|     writeDraft('k1', entry(1));
+     37|
+     38|     expect(Object.keys(stored())).toContain('k1');
+       |                                   ^
+     39|     expect(Object.keys(stored())).not.toContain('k2');
+     40|     expect(Object.keys(stored())).toHaveLength(20);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most one megabyte serialised, dropping the least recently edited first
+AssertionError: expected [ 'a', 'b' ] to deeply equal [ 'b', 'c' ]
+
+- Expected
++ Received
+
+  [
++   "a",
+    "b",
+-   "c",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:49:42
+     47|     writeDraft('c', entry(3, big));
+     48|
+     49|     expect(Object.keys(stored()).sort()).toEqual(['b', 'c']);
+       |                                          ^
+     50|     expect((window.localStorage.getItem('messageDrafts') as string).le…
+     51|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > still writes one entry that alone passes a megabyte
+AssertionError: expected [ 'old' ] to deeply equal [ 'huge' ]
+
+- Expected
++ Received
+
+  [
+-   "huge",
++   "old",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:58:35
+     56|     writeDraft('huge', entry(2, 'z'.repeat(MEGABYTE + 10)));
+     57|
+     58|     expect(Object.keys(stored())).toEqual(['huge']);
+       |                                   ^
+     59|   });
+     60| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands
+AssertionError: expected [ 'a', 'b' ] to deeply equal [ 'b', 'c' ]
+
+- Expected
++ Received
+
+  [
++   "a",
+    "b",
+-   "c",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:77:42
+     75|
+     76|     expect(landed).toBe(true);
+     77|     expect(Object.keys(stored()).sort()).toEqual(['b', 'c']);
+       |                                          ^
+     78|   });
+     79|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+

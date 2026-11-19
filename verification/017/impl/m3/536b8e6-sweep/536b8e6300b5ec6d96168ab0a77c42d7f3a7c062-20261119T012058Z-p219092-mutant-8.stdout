@@ -1,0 +1,32 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/work-m3/20261119T012058Z-p219092/mutant-8
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx (2 tests | 2 failed) 59ms
+     × a code-fetch query error toasts (toast.error) 48ms
+     × an in-flight save toasts (toast.loading) 8ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (25 tests | 19 failed) 148ms
+     × is restored after sign-in, opening a saved message, and returning to route 0 38ms
+     × is restored after sign-in and a reload 6ms
+     × is restored in a tab opened later, when it was the last edited 8ms
+     × are shown again after signing in and opening the message 23ms
+     × are shown after a reload, as before 8ms
+     × shows each tab its own last draft after a reload 2ms
+     × shows a new tab the draft edited most recently 7ms
+     × shows a new tab a draft whose tab has closed 3ms
+     × shows the intro message, and writes nothing, in a new tab with no draft anywhere 2ms
+     × restores a stored route-0 draft that has no id 2ms
+     × holds the route-0 draft last written, for the code that reads it 4ms
+     × is removed from route 0 when a creating save succeeds 2ms
+     × of a saved message stays when an edit was typed after Save 6ms
+     × is false for an unedited message when authenticated 1ms
+     × is false for an unedited message when unauthenticated 1ms
+     × is false for an unedited message when loading 2ms
+     × is true for an edited message when authenticated 2ms
+     × is true for an edited message when unauthenticated 2ms
+     × is true for an edited message when loading 2ms
+
+ Test Files  2 failed | 49 passed (51)
+      Tests  21 failed | 935 passed (956)
+   Start at  01:21:46
+   Duration  4.76s (transform 11.97s, setup 368ms, import 42.21s, tests 1.59s, environment 11.43s)
+

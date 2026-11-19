@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/work-m3/20261119T012058Z-p219092/mutant-15
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (25 tests | 2 failed) 186ms
+     × is removed from route 0 when a creating save succeeds 19ms
+     × of a saved message is removed when this tab saves what the draft holds 10ms
+
+ Test Files  1 failed | 50 passed (51)
+      Tests  2 failed | 954 passed (956)
+   Start at  01:22:26
+   Duration  4.63s (transform 14.66s, setup 319ms, import 42.50s, tests 1.90s, environment 14.09s)
+

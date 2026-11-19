@@ -1,0 +1,423 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 81 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ Module.writeDraft src/utils/messageDrafts.ts:43:23
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:26:38
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/81]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > never drops the entry being written, even when it is the least recently edited
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ Module.writeDraft src/utils/messageDrafts.ts:43:23
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:34:38
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/81]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most one megabyte serialised, dropping the least recently edited first
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ Module.writeDraft src/utils/messageDrafts.ts:43:23
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:45:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/81]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > still writes one entry that alone passes a megabyte
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ Module.writeDraft src/utils/messageDrafts.ts:43:23
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:54:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/81]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ Module.writeDraft src/utils/messageDrafts.ts:43:23
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:64:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/81]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the write, without throwing, once no other entry remains to drop
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ Module.writeDraft src/utils/messageDrafts.ts:43:23
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:81:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/81]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > keeps an entry another tab stored since this tab last wrote
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ Module.writeDraft src/utils/messageDrafts.ts:43:23
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:95:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/81]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes one entry and leaves the others
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ Module.writeDraft src/utils/messageDrafts.ts:43:23
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:104:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/81]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes an entry only when its data satisfies the condition given
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ Module.writeDraft src/utils/messageDrafts.ts:43:23
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:113:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/81]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > shows its own draft
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ writeDraft src/utils/messageDrafts.ts:43:23
+ ❯ Module.writeRouteZeroDraft src/utils/messageDrafts.ts:76:3
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:140:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/81]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ Module.writeDraft src/utils/messageDrafts.ts:43:23
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:147:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/81]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with no route-0 entry anywhere, shows nothing and writes nothing
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ Module.writeDraft src/utils/messageDrafts.ts:43:23
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:158:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/81]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > writes the draft under its own key and also under the legacy message key
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ writeDraft src/utils/messageDrafts.ts:43:23
+ ❯ Module.writeRouteZeroDraft src/utils/messageDrafts.ts:76:3
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:165:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/81]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > removes its own entry, and the legacy key when it holds that draft
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ writeDraft src/utils/messageDrafts.ts:43:23
+ ❯ Module.writeRouteZeroDraft src/utils/messageDrafts.ts:76:3
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:172:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/81]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > leaves the legacy key when it holds a different draft
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ writeDraft src/utils/messageDrafts.ts:43:23
+ ❯ Module.writeRouteZeroDraft src/utils/messageDrafts.ts:76:3
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:181:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/81]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > turns a stored message with no id into this tab's route-0 entry, dated by its own timestamp
+AssertionError: expected undefined to deeply equal { Object (data, name, ...) }
+
+- Expected:
+{
+  "data": {
+    "content": "old draft",
+  },
+  "editedAt": 5,
+  "name": "Draft",
+}
+
++ Received:
+undefined
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:195:36
+    193|     window.localStorage.setItem('message', '{"name":"Draft","updatedAt…
+    194|
+    195|     expect(readDrafts()[tabKey()]).toEqual({ data: { content: 'old dra…
+       |                                    ^
+    196|   });
+    197|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/81]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > turns a stored copy of saved message 42 into the entry for 42
+AssertionError: expected undefined to deeply equal { data: { content: 'edited' }, …(2) }
+
+- Expected:
+{
+  "data": {
+    "content": "edited",
+  },
+  "editedAt": 9,
+  "name": "Saved",
+}
+
++ Received:
+undefined
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:201:32
+    199|     window.localStorage.setItem('message', '{"id":"42","name":"Saved",…
+    200|
+    201|     expect(readDrafts()['42']).toEqual({ data: { content: 'edited' }, …
+       |                                ^
+    202|   });
+    203|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/81]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > migrates nothing when no message was ever stored
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ Module.readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:221:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/81]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message after an edit
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message after an edit
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message beside an empty embed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a message not valid for sending, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a message not valid for sending, after an edit
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice after the content-loss dialog chose Classic
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice after the content-loss dialog chose V2
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice when an edit is typed after Save and before the broadcast arrives
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for a save that carries a field the server drops, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for either of two saves in flight when edits follow the second
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message after an edit
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message after an edit
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message beside an empty embed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a message not valid for sending, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a message not valid for sending, after an edit
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice after the content-loss dialog chose Classic
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice after the content-loss dialog chose V2
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice when an edit is typed after Save and before the broadcast arrives
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for a save that carries a field the server drops, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for either of two saves in flight when edits follow the second
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for two identical saves, their broadcasts, and an edit after the second
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content this tab never sent
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves while this tab has unsaved edits, naming the loss
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves a component-only edit
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves while this tab's own save is in flight
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content this tab sent earlier and has already seen broadcast
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice when another tab saves what this tab already shows
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice for a later save of the content of a save that failed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for the broadcast of an identical save still in flight when one of two failed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider — Save of a stored V2 message beside an empty embed > writes it as V2 without the embed, and the editor holds exactly what was written
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider — the choice save of a stored V2 message with content > Save as Classic: the editor holds the classic message that was written, in Classic mode
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider — the choice save of a stored V2 message with content > Save as Components V2: the editor holds the V2 message that was written, in V2 mode
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are not shown at route 0 meanwhile, which shows its own draft
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > survive opening another saved message
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message stays when an edit was typed after Save
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ getMessage src/providers/MessageProvider/index.tsx:39:17
+ ❯ src/providers/MessageProvider/index.tsx:208:26
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25989:20
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ commitHookEffectListMount node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13249:29
+ ❯ commitHookPassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13336:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15484:13
+ ❯ recursivelyTraversePassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15439:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15519:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/81]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in, opening a saved message, and returning to route 0
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in and a reload
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored in a tab opened later, when it was the last edited
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab a draft whose tab has closed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows the intro message, and writes nothing, in a new tab with no draft anywhere
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the legacy message key > holds the route-0 draft last written, for the code that reads it
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when authenticated
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when unauthenticated
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when loading
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when authenticated
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when unauthenticated
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when loading
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx > MessageProvider — transient notices still use toast (not a blanket removal) > a code-fetch query error toasts (toast.error)
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx > MessageProvider — transient notices still use toast (not a blanket removal) > an in-flight save toasts (toast.loading)
+TypeError: Cannot read properties of undefined (reading 'id')
+ ❯ readDrafts src/utils/messageDrafts.ts:32:13
+     30|   const legacy = legacyStore().get();
+     31|   return {
+     32|     [legacy.id ?? routeZeroKey(tabId())]: {
+       |             ^
+     33|       data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,
+     34|     },
+ ❯ routeZeroDraftFor src/utils/messageDrafts.ts:64:18
+ ❯ src/providers/MessageProvider/index.tsx:154:21
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25989:20
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ commitHookEffectListMount node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13249:29
+ ❯ commitHookPassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13336:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15484:13
+ ❯ recursivelyTraversePassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15439:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15519:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/81]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > restores a stored route-0 draft that has no id
+AssertionError: expected 'Welcome to **Hooks.gg**, the ultimate…' to be 'kept from before' // Object.is equality
+
+- Expected
++ Received
+
+- kept from before
++ Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:229:23
+    227|     mount();
+    228|
+    229|     expect(content()).toBe('kept from before');
+       |                       ^
+    230|   });
+    231|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/81]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > restores a stored copy of message 42 that is newer than its saved copy
+AssertionError: expected 'saved copy' to be 'newer local copy' // Object.is equality
+
+Expected: "newer local copy"
+Received: "saved copy"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:239:23
+    237|     mount();
+    238|
+    239|     expect(content()).toBe('newer local copy');
+       |                       ^
+    240|   });
+    241|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/81]⎯
+

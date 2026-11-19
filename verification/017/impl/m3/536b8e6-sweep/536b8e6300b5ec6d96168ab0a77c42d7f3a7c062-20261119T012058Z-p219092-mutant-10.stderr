@@ -1,0 +1,281 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in, opening a saved message, and returning to route 0
+AssertionError: expected 'Welcome to **Hooks.gg**, the ultimate…' to be 'my draft' // Object.is equality
+
+- Expected
++ Received
+
+- my draft
++ Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:104:23
+    102|     visit('/message/m/0/edit');
+    103|
+    104|     expect(content()).toBe('my draft');
+       |                       ^
+    105|   });
+    106|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/12]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in and a reload
+AssertionError: expected 'Welcome to **Hooks.gg**, the ultimate…' to be 'my draft' // Object.is equality
+
+- Expected
++ Received
+
+- my draft
++ Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:115:23
+    113|     mount();
+    114|
+    115|     expect(content()).toBe('my draft');
+       |                       ^
+    116|   });
+    117|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/12]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored in a tab opened later, when it was the last edited
+AssertionError: expected 'Welcome to **Hooks.gg**, the ultimate…' to be 'my draft' // Object.is equality
+
+- Expected
++ Received
+
+- my draft
++ Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:126:23
+    124|     mount();
+    125|
+    126|     expect(content()).toBe('my draft');
+       |                       ^
+    127|   });
+    128| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/12]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message
+AssertionError: expected 'saved copy' to be 'unsaved edits on 42' // Object.is equality
+
+Expected: "unsaved edits on 42"
+Received: "saved copy"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:144:23
+    142|     visit('/message/m/42/edit', 'authenticated');
+    143|
+    144|     expect(content()).toBe('unsaved edits on 42');
+       |                       ^
+    145|   });
+    146|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/12]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before
+AssertionError: expected 'saved copy' to be 'unsaved edits on 42' // Object.is equality
+
+Expected: "unsaved edits on 42"
+Received: "saved copy"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:161:23
+    159|     mount();
+    160|
+    161|     expect(content()).toBe('unsaved edits on 42');
+       |                       ^
+    162|   });
+    163|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/12]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload
+AssertionError: expected 'Welcome to **Hooks.gg**, the ultimate…' to be 'from A' // Object.is equality
+
+- Expected
++ Received
+
+- from A
++ Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:188:23
+    186|     openTab('A');
+    187|     mount();
+    188|     expect(content()).toBe('from A');
+       |                       ^
+    189|     unmountDom();
+    190|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/12]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently
+AssertionError: expected 'Welcome to **Hooks.gg**, the ultimate…' to be 'from B' // Object.is equality
+
+- Expected
++ Received
+
+- from B
++ Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:203:23
+    201|     mount();
+    202|
+    203|     expect(content()).toBe('from B');
+       |                       ^
+    204|   });
+    205|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/12]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab a draft whose tab has closed
+AssertionError: expected 'Welcome to **Hooks.gg**, the ultimate…' to be 'from A' // Object.is equality
+
+- Expected
++ Received
+
+- from A
++ Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:212:23
+    210|     mount();
+    211|
+    212|     expect(content()).toBe('from A');
+       |                       ^
+    213|   });
+    214|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/12]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows the intro message, and writes nothing, in a new tab with no draft anywhere
+AssertionError: expected '{"0:A":{"data":{"content":"Welcome to…' to be null
+
+- Expected:
+null
+
++ Received:
+"{\"0:A\":{\"data\":{\"content\":\"Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!\\n\\nHere you can easily create beautiful custom messages for your server to engage and communicate with your members.\\n\\nTo get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.\\n\\nIf you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!\\n_ _\",\"username\":\"Hooks.gg Bot\",\"embeds\":[{\"_key\":\"1\",\"title\":\"About Hooks.gg\",\"url\":\"https://hooks.gg\",\"description\":\"We're excited to have you here!\\n\\nThis user-friendly interface makes it easy to create custom messages that fit your server's theme and tone. (Hint: Use the Actions menu to toggle between Edit Mode and View Mode.)\\n\\nHere are just some of the exciting features you'll find in Hooks.gg.\\n\\n_ _\",\"color\":14895353,\"fields\":[{\"_key\":\"1\",\"name\":\"<:pointer_ol:987453923587686430>_ _ Fully-Interactive Message Editor\",\"value\":\"Our message editor is easy to use and understand. No more needing to remember what's what, **if you want to change something, just click or tap it!**\"},{\"_key\":\"2\",\"name\":\"<:discord_ol:987449544012882061>_ _ Familiar Tools\",\"value\":\"This editor brings you all the fancy features you're used to from Discord including `**inline formatting**` and an emoji picker built into supported inputs.\"},{\"_key\":\"3\",\"name\":\"<:folder_ol:987449556969078864>_ _ Saving to the Cloud\",\"value\":\"All of your messages are saved securely to the cloud upon logging in, so you can access them from anywhere and never lose your progress.\"},{\"_key\":\"4\",\"name\":\"<:userplus_ol:987453943770656768>_ _ Shared Saves\",\"value\":\"Saving messages to a Discord server you admin allows other admins of that server to also view and edit them, making it easy to collaborate with the team.\"},{\"_key\":\"5\",\"name\":\"<:download_ol:987449546915323924>_ _ Message Importing\",\"value\":\"You can easily load messages already sent by webhooks directly into our editor, making it easy to edit and recreate responses.\"}]},{\"_key\":\"2\",\"author\":{\"name\":\"Your Wonderful Server\"},\"description\":\"Hey there {user}! Welcome to our community. We're excited to have you here and hope you'll have a great time with us.\\n\\nTake a moment to introduce yourself and let us know what brought you here. And if you have any questions or concerns, don't hesitate to reach out to one of our friendly moderators.\\n\\nThanks for joining us, and we look forward to getting to know you better!\\n\\n_ _\",\"color\":5793266,\"title\":\"Example: Welcome to Our Server!\",\"fields\":[{\"_key\":\"1\",\"name\":\"Server Rules\",\"value\":\"Please be sure to read through our server rules before posting. We want to make sure everyone feels safe and welcome here.\",\"inline\":true},{\"_key\":\"2\",\"name\":\"Channels\",\"value\":\"We have a variety of channels for different topics, so feel free to jump in and join the conversation!\",\"inline\":true},{\"_key\":\"3\",\"name\":\"Events\",\"value\":\"We regularly host events and activities, so keep an eye out for announcements and join in on the fun!\"}],\"timestamp\":\"2026-11-19T01:22:01.785Z\"}]},\"name\":\"New Message\",\"editedAt\":1795051322009}}"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:219:58
+    217|
+    218|     expect(content()).toBe(INTRO_MESSAGE.data.content);
+    219|     expect(window.localStorage.getItem('messageDrafts')).toBeNull();
+       |                                                          ^
+    220|   });
+    221| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/12]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the legacy message key > holds the route-0 draft last written, for the code that reads it
+AssertionError: expected { name: 'New Message', …(2) } to match object { data: { content: 'revert-safe' } }
+(4 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "revert-safe",
++     "content": "Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _",
+    },
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:258:74
+    256|     typeDraft('revert-safe');
+    257|
+    258|     expect(JSON.parse(window.localStorage.getItem('message') as string…
+       |                                                                          ^
+    259|   });
+    260| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/12]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds
+AssertionError: expected '{"name":"New Message","updatedAt":179…' to be null
+
+- Expected:
+null
+
++ Received:
+"{\"name\":\"New Message\",\"updatedAt\":1795051322028,\"data\":{\"content\":\"Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!\\n\\nHere you can easily create beautiful custom messages for your server to engage and communicate with your members.\\n\\nTo get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.\\n\\nIf you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!\\n_ _\",\"username\":\"Hooks.gg Bot\",\"embeds\":[{\"_key\":\"1\",\"title\":\"About Hooks.gg\",\"url\":\"https://hooks.gg\",\"description\":\"We're excited to have you here!\\n\\nThis user-friendly interface makes it easy to create custom messages that fit your server's theme and tone. (Hint: Use the Actions menu to toggle between Edit Mode and View Mode.)\\n\\nHere are just some of the exciting features you'll find in Hooks.gg.\\n\\n_ _\",\"color\":14895353,\"fields\":[{\"_key\":\"1\",\"name\":\"<:pointer_ol:987453923587686430>_ _ Fully-Interactive Message Editor\",\"value\":\"Our message editor is easy to use and understand. No more needing to remember what's what, **if you want to change something, just click or tap it!**\"},{\"_key\":\"2\",\"name\":\"<:discord_ol:987449544012882061>_ _ Familiar Tools\",\"value\":\"This editor brings you all the fancy features you're used to from Discord including `**inline formatting**` and an emoji picker built into supported inputs.\"},{\"_key\":\"3\",\"name\":\"<:folder_ol:987449556969078864>_ _ Saving to the Cloud\",\"value\":\"All of your messages are saved securely to the cloud upon logging in, so you can access them from anywhere and never lose your progress.\"},{\"_key\":\"4\",\"name\":\"<:userplus_ol:987453943770656768>_ _ Shared Saves\",\"value\":\"Saving messages to a Discord server you admin allows other admins of that server to also view and edit them, making it easy to collaborate with the team.\"},{\"_key\":\"5\",\"name\":\"<:download_ol:987449546915323924>_ _ Message Importing\",\"value\":\"You can easily load messages already sent by webhooks directly into our editor, making it easy to edit and recreate responses.\"}]},{\"_key\":\"2\",\"author\":{\"name\":\"Your Wonderful Server\"},\"description\":\"Hey there {user}! Welcome to our community. We're excited to have you here and hope you'll have a great time with us.\\n\\nTake a moment to introduce yourself and let us know what brought you here. And if you have any questions or concerns, don't hesitate to reach out to one of our friendly moderators.\\n\\nThanks for joining us, and we look forward to getting to know you better!\\n\\n_ _\",\"color\":5793266,\"title\":\"Example: Welcome to Our Server!\",\"fields\":[{\"_key\":\"1\",\"name\":\"Server Rules\",\"value\":\"Please be sure to read through our server rules before posting. We want to make sure everyone feels safe and welcome here.\",\"inline\":true},{\"_key\":\"2\",\"name\":\"Channels\",\"value\":\"We have a variety of channels for different topics, so feel free to jump in and join the conversation!\",\"inline\":true},{\"_key\":\"3\",\"name\":\"Events\",\"value\":\"We regularly host events and activities, so keep an eye out for announcements and join in on the fun!\"}],\"timestamp\":\"2026-11-19T01:22:01.785Z\"}]}}"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:282:52
+    280|
+    281|     expect(draftKeys()).toEqual([]);
+    282|     expect(window.localStorage.getItem('message')).toBeNull();
+       |                                                    ^
+    283|   });
+    284|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/12]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message stays when an edit was typed after Save
+AssertionError: expected [] to deeply equal [ '42' ]
+
+- Expected
++ Received
+
+- [
+-   "42",
+- ]
++ []
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:307:25
+    305|     respond(0, '42');
+    306|
+    307|     expect(draftKeys()).toEqual(['42']);
+       |                         ^
+    308|   });
+    309| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/12]⎯
+

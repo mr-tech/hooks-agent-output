@@ -1,0 +1,18 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/work-m3/20261119T012058Z-p219092/mutant-6
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (25 tests | 6 failed) 182ms
+     × is false for an unedited message when authenticated 25ms
+     × is false for an unedited message when unauthenticated 4ms
+     × is false for an unedited message when loading 4ms
+     × is true for an edited message when authenticated 4ms
+     × is true for an edited message when unauthenticated 2ms
+     × is true for an edited message when loading 7ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (35 tests | 1 failed) 419ms
+     × raises the notice when another tab saves while this tab has unsaved edits, naming the loss 14ms
+
+ Test Files  2 failed | 49 passed (51)
+      Tests  7 failed | 949 passed (956)
+   Start at  01:21:35
+   Duration  4.20s (transform 12.85s, setup 302ms, import 38.08s, tests 1.89s, environment 12.65s)
+

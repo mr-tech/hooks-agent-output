@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/work-m3/20261119T012058Z-p219092/mutant-27
+
+ ❯ |dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx (6 tests | 1 failed) 59ms
+     × prompts again at once when the exit fails 17ms
+
+ Test Files  1 failed | 50 passed (51)
+      Tests  1 failed | 955 passed (956)
+   Start at  01:23:35
+   Duration  4.37s (transform 13.35s, setup 311ms, import 41.15s, tests 1.93s, environment 12.00s)
+

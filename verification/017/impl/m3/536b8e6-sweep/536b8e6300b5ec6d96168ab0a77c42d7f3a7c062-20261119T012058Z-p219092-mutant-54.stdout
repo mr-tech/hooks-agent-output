@@ -1,0 +1,16 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/work-m3/20261119T012058Z-p219092/mutant-54
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (35 tests | 6 failed) 496ms
+       × raises no notice in the saving tab: a classic message, nothing changed 64ms
+       × raises no notice in the saving tab: a V2 message, nothing changed 8ms
+       × raises no notice in the saving tab: a message not valid for sending, nothing changed 5ms
+       × raises no notice in the saving tab: a classic message, nothing changed 2ms
+       × raises no notice in the saving tab: a V2 message, nothing changed 4ms
+       × raises no notice in the saving tab: a message not valid for sending, nothing changed 5ms
+
+ Test Files  1 failed | 50 passed (51)
+      Tests  6 failed | 950 passed (956)
+   Start at  01:43:14
+   Duration  4.12s (transform 11.24s, setup 213ms, import 36.22s, tests 1.93s, environment 12.31s)
+

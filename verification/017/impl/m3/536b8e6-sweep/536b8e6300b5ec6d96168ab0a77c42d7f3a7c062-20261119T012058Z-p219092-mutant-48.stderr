@@ -1,0 +1,24 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > still writes one entry that alone passes a megabyte
+AssertionError: expected [ 'old', 'huge' ] to deeply equal [ 'huge' ]
+
+- Expected
++ Received
+
+  [
++   "old",
+    "huge",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:58:35
+     56|     writeDraft('huge', entry(2, 'z'.repeat(MEGABYTE + 10)));
+     57|
+     58|     expect(Object.keys(stored())).toEqual(['huge']);
+       |                                   ^
+     59|   });
+     60| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

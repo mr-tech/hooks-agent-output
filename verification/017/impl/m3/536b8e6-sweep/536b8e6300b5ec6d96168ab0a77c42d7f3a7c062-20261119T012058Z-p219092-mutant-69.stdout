@@ -1,0 +1,39 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/work-m3/20261119T012058Z-p219092/mutant-69
+
+ ❯ |dom| src/utils/__tests__/withLocalStorage.stored-keys.test.tsx (9 tests | 3 failed) 22ms
+     × writes a theme as the bare string 9ms
+     × tells the other tabs of the page with a storage event after a write that landed 3ms
+     × reports that a write which landed did 3ms
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (22 tests | 13 failed) 70ms
+     × holds at most 20 entries, dropping the least recently edited first 31ms
+     × never drops the entry being written, even when it is the least recently edited 5ms
+     × holds at most one megabyte serialised, dropping the least recently edited first 4ms
+     × still writes one entry that alone passes a megabyte 6ms
+     × drops the least recently edited other entry and retries until the write lands 3ms
+     × keeps an entry another tab stored since this tab last wrote 3ms
+     × removes one entry and leaves the others 1ms
+     × removes an entry only when its data satisfies the condition given 1ms
+     × shows its own draft 3ms
+     × with none of its own, copies the route-0 entry edited most recently under its own key 1ms
+     × with no route-0 entry anywhere, shows nothing and writes nothing 2ms
+     × writes the draft under its own key and also under the legacy message key 1ms
+     × leaves the legacy key when it holds a different draft 1ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (25 tests | 11 failed) 210ms
+     × is restored after sign-in, opening a saved message, and returning to route 0 52ms
+     × is restored after sign-in and a reload 24ms
+     × is restored in a tab opened later, when it was the last edited 10ms
+     × are shown again after signing in and opening the message 8ms
+     × are shown after a reload, as before 9ms
+     × shows each tab its own last draft after a reload 12ms
+     × shows a new tab the draft edited most recently 14ms
+     × shows a new tab a draft whose tab has closed 8ms
+     × holds the route-0 draft last written, for the code that reads it 7ms
+     × of a saved message stays when an edit was typed after Save 6ms
+     × discards the stored edits and shows the saved copy 8ms
+
+ Test Files  3 failed | 48 passed (51)
+      Tests  27 failed | 929 passed (956)
+   Start at  01:44:33
+   Duration  4.13s (transform 12.01s, setup 288ms, import 37.09s, tests 1.90s, environment 12.21s)
+

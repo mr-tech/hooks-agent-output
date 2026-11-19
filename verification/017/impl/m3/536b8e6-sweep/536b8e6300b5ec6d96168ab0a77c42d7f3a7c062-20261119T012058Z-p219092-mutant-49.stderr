@@ -1,0 +1,200 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first
+AssertionError: expected [ 'k25' ] to deeply equal [ Array(20) ]
+
+- Expected
++ Received
+
+  [
+-   "k6",
+-   "k7",
+-   "k8",
+-   "k9",
+-   "k10",
+-   "k11",
+-   "k12",
+-   "k13",
+-   "k14",
+-   "k15",
+-   "k16",
+-   "k17",
+-   "k18",
+-   "k19",
+-   "k20",
+-   "k21",
+-   "k22",
+-   "k23",
+-   "k24",
+    "k25",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:30:18
+     28|     const keys = Object.keys(stored()).sort((a, b) => Number(a.slice(1…
+     29|
+     30|     expect(keys).toEqual(Array.from({ length: 20 }, (_, i) => `k${i + …
+       |                  ^
+     31|   });
+     32|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > never drops the entry being written, even when it is the least recently edited
+AssertionError: expected [ 'k1' ] to have a length of 20 but got 1
+
+- Expected
++ Received
+
+- 20
++ 1
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:40:35
+     38|     expect(Object.keys(stored())).toContain('k1');
+     39|     expect(Object.keys(stored())).not.toContain('k2');
+     40|     expect(Object.keys(stored())).toHaveLength(20);
+       |                                   ^
+     41|   });
+     42|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most one megabyte serialised, dropping the least recently edited first
+AssertionError: expected [ 'c' ] to deeply equal [ 'b', 'c' ]
+
+- Expected
++ Received
+
+  [
+-   "b",
+    "c",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:49:42
+     47|     writeDraft('c', entry(3, big));
+     48|
+     49|     expect(Object.keys(stored()).sort()).toEqual(['b', 'c']);
+       |                                          ^
+     50|     expect((window.localStorage.getItem('messageDrafts') as string).le…
+     51|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/9]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:76:20
+     74|     const landed = writeDraft('c', entry(3));
+     75|
+     76|     expect(landed).toBe(true);
+       |                    ^
+     77|     expect(Object.keys(stored()).sort()).toEqual(['b', 'c']);
+     78|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/9]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the write, without throwing, once no other entry remains to drop
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:89:20
+     87|     expect(() => { landed = writeDraft('b', entry(2)); }).not.toThrow(…
+     88|
+     89|     expect(landed).toBe(false);
+       |                    ^
+     90|   });
+     91| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/9]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > keeps an entry another tab stored since this tab last wrote
+AssertionError: expected [ 'c' ] to deeply equal [ 'a', 'b', 'c' ]
+
+- Expected
++ Received
+
+  [
+-   "a",
+-   "b",
+    "c",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:100:42
+     98|     writeDraft('c', entry(3));
+     99|
+    100|     expect(Object.keys(stored()).sort()).toEqual(['a', 'b', 'c']);
+       |                                          ^
+    101|   });
+    102|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/9]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > shows its own draft
+AssertionError: expected { content: 'theirs' } to deeply equal { content: 'mine' }
+
+- Expected
++ Received
+
+  {
+-   "content": "mine",
++   "content": "theirs",
+  }
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:143:46
+    141|     writeDraft('0:other-tab', entry(9, 'theirs'));
+    142|
+    143|     expect(routeZeroDraftFor(tabId())?.data).toEqual({ content: 'mine'…
+       |                                              ^
+    144|   });
+    145|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/9]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key
+AssertionError: expected undefined to deeply equal { content: 'from B' }
+
+- Expected:
+{
+  "content": "from B",
+}
+
++ Received:
+undefined
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:153:25
+    151|     const shown = routeZeroDraftFor('C');
+    152|
+    153|     expect(shown?.data).toEqual({ content: 'from B' });
+       |                         ^
+    154|     expect(stored()['0:C'].editedAt).toBe(2);
+    155|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/9]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload
+AssertionError: expected 'from B' to be 'from A' // Object.is equality
+
+Expected: "from A"
+Received: "from B"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:188:23
+    186|     openTab('A');
+    187|     mount();
+    188|     expect(content()).toBe('from A');
+       |                       ^
+    189|     unmountDom();
+    190|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/9]⎯
+

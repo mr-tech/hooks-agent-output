@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/work-m3/20261119T012058Z-p219092/mutant-56
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (22 tests | 1 failed) 84ms
+     × removes an entry only when its data satisfies the condition given 30ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (25 tests | 1 failed) 255ms
+     × of a saved message stays when an edit was typed after Save 38ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (35 tests | 8 failed) 467ms
+       × raises no notice in the saving tab: a classic message, nothing changed 57ms
+       × raises no notice in the saving tab: a V2 message, nothing changed 11ms
+       × raises no notice in the saving tab: a message not valid for sending, nothing changed 4ms
+       × raises no notice for either of two saves in flight when edits follow the second 5ms
+       × raises no notice in the saving tab: a classic message, nothing changed 4ms
+       × raises no notice in the saving tab: a V2 message, nothing changed 4ms
+       × raises no notice in the saving tab: a message not valid for sending, nothing changed 5ms
+       × raises no notice for either of two saves in flight when edits follow the second 4ms
+
+ Test Files  3 failed | 48 passed (51)
+      Tests  10 failed | 946 passed (956)
+   Start at  01:43:24
+   Duration  4.30s (transform 10.69s, setup 258ms, import 38.80s, tests 2.15s, environment 12.84s)
+

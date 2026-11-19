@@ -1,0 +1,83 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/utils/__tests__/withLocalStorage.stored-keys.test.tsx (9 tests | 4 failed) 16ms
+     × does not throw 7ms
+     × reports that the write did not land 1ms
+     × dispatches no storage event for it 1ms
+     × reports that a write which landed did 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/withLocalStorage.stored-keys.test.tsx > withLocalStorage, a write the browser refuses > does not throw
+AssertionError: expected [Function] to not throw an error but DOMException{ stack: 'QuotaExceededE…', …(1) } was thrown
+
+- Expected:
+undefined
+
++ Received:
+DOMException {}
+
+ ❯ src/utils/__tests__/withLocalStorage.stored-keys.test.tsx:63:70
+     61|     refuseWrites();
+     62|
+     63|     expect(() => withLocalStorage('theme', 'dark').set('light')).not.t…
+       |                                                                      ^
+     64|   });
+     65|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/utils/__tests__/withLocalStorage.stored-keys.test.tsx > withLocalStorage, a write the browser refuses > reports that the write did not land
+QuotaExceededError: The quota has been exceeded.
+ ❯ Proxy.<anonymous> src/utils/__tests__/withLocalStorage.stored-keys.test.tsx:11:9
+      9|
+     10| const refuseWrites = () => vi.spyOn(Storage.prototype, 'setItem').mock…
+     11|   throw new DOMException('The quota has been exceeded.', 'QuotaExceede…
+       |         ^
+     12| });
+     13|
+ ❯ Object.set src/utils/withLocalStorage.ts:14:20
+ ❯ src/utils/__tests__/withLocalStorage.stored-keys.test.tsx:69:46
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/utils/__tests__/withLocalStorage.stored-keys.test.tsx > withLocalStorage, a write the browser refuses > dispatches no storage event for it
+QuotaExceededError: The quota has been exceeded.
+ ❯ Proxy.<anonymous> src/utils/__tests__/withLocalStorage.stored-keys.test.tsx:11:9
+      9|
+     10| const refuseWrites = () => vi.spyOn(Storage.prototype, 'setItem').mock…
+     11|   throw new DOMException('The quota has been exceeded.', 'QuotaExceede…
+       |         ^
+     12| });
+     13|
+ ❯ Object.set src/utils/withLocalStorage.ts:14:20
+ ❯ src/utils/__tests__/withLocalStorage.stored-keys.test.tsx:77:39
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/utils/__tests__/withLocalStorage.stored-keys.test.tsx > withLocalStorage, a write the browser refuses > reports that a write which landed did
+AssertionError: expected undefined to be true // Object.is equality
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ src/utils/__tests__/withLocalStorage.stored-keys.test.tsx:84:60
+     82|
+     83|   it('reports that a write which landed did', () => {
+     84|     expect(withLocalStorage('theme', 'dark').set('light')).toBe(true);
+       |                                                            ^
+     85|   });
+     86| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 5 passed (9)
+   Start at  01:13:13
+   Duration  817ms (transform 31ms, setup 21ms, import 25ms, tests 16ms, environment 609ms)
+

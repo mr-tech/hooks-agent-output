@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/work-fix/20261119T013229Z-p322938/mutant-2
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/useApiMethods.own-save-record.test.tsx (2 tests | 1 failed) 30ms
+     × records nothing for a message that has no id yet 8ms
+
+ Test Files  1 failed | 7 passed (8)
+      Tests  1 failed | 84 passed (85)
+   Start at  01:32:37
+   Duration  2.28s (transform 1.19s, setup 174ms, import 6.69s, tests 638ms, environment 5.26s)
+

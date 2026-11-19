@@ -1,0 +1,95 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/work-m3/20261119T012058Z-p219092/mutant-38
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (22 tests | 18 failed) 40ms
+     × holds at most 20 entries, dropping the least recently edited first 22ms
+     × never drops the entry being written, even when it is the least recently edited 1ms
+     × holds at most one megabyte serialised, dropping the least recently edited first 0ms
+     × still writes one entry that alone passes a megabyte 1ms
+     × drops the least recently edited other entry and retries until the write lands 1ms
+     × drops the write, without throwing, once no other entry remains to drop 1ms
+     × keeps an entry another tab stored since this tab last wrote 1ms
+     × removes one entry and leaves the others 1ms
+     × removes an entry only when its data satisfies the condition given 1ms
+     × shows its own draft 1ms
+     × with none of its own, copies the route-0 entry edited most recently under its own key 0ms
+     × with no route-0 entry anywhere, shows nothing and writes nothing 1ms
+     × writes the draft under its own key and also under the legacy message key 1ms
+     × removes its own entry, and the legacy key when it holds that draft 1ms
+     × leaves the legacy key when it holds a different draft 1ms
+     × turns a stored message with no id into this tab's route-0 entry, dated by its own timestamp 4ms
+     × turns a stored copy of saved message 42 into the entry for 42 1ms
+     × migrates nothing when no message was ever stored 0ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx (2 tests | 2 failed) 62ms
+     × a code-fetch query error toasts (toast.error) 53ms
+     × an in-flight save toasts (toast.loading) 7ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx (3 tests | 3 failed) 94ms
+     × writes it as V2 without the embed, and the editor holds exactly what was written 77ms
+     × Save as Classic: the editor holds the classic message that was written, in Classic mode 4ms
+     × Save as Components V2: the editor holds the V2 message that was written, in V2 mode 10ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (35 tests | 35 failed) 143ms
+       × raises no notice in the saving tab: a classic message, nothing changed 35ms
+       × raises no notice in the saving tab: a classic message after an edit 7ms
+       × raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace 9ms
+       × raises no notice in the saving tab: a V2 message, nothing changed 6ms
+       × raises no notice in the saving tab: a V2 message after an edit 6ms
+       × raises no notice in the saving tab: a V2 message beside an empty embed 3ms
+       × raises no notice in the saving tab: a message not valid for sending, nothing changed 4ms
+       × raises no notice in the saving tab: a message not valid for sending, after an edit 4ms
+       × raises no notice after the content-loss dialog chose Classic 6ms
+       × raises no notice after the content-loss dialog chose V2 4ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 3ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 2ms
+       × raises no notice for either of two saves in flight when edits follow the second 4ms
+       × raises no notice in the saving tab: a classic message, nothing changed 3ms
+       × raises no notice in the saving tab: a classic message after an edit 1ms
+       × raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace 1ms
+       × raises no notice in the saving tab: a V2 message, nothing changed 2ms
+       × raises no notice in the saving tab: a V2 message after an edit 3ms
+       × raises no notice in the saving tab: a V2 message beside an empty embed 2ms
+       × raises no notice in the saving tab: a message not valid for sending, nothing changed 2ms
+       × raises no notice in the saving tab: a message not valid for sending, after an edit 1ms
+       × raises no notice after the content-loss dialog chose Classic 3ms
+       × raises no notice after the content-loss dialog chose V2 3ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 3ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 2ms
+       × raises no notice for either of two saves in flight when edits follow the second 3ms
+     × raises no notice for two identical saves, their broadcasts, and an edit after the second 3ms
+     × raises the notice when another tab saves content this tab never sent 2ms
+     × raises the notice when another tab saves while this tab has unsaved edits, naming the loss 2ms
+     × raises the notice when another tab saves a component-only edit 2ms
+     × raises the notice when another tab saves while this tab's own save is in flight 2ms
+     × raises the notice when another tab saves content this tab sent earlier and has already seen broadcast 2ms
+     × raises no notice when another tab saves what this tab already shows 3ms
+     × raises the notice for a later save of the content of a save that failed 1ms
+     × raises no notice for the broadcast of an identical save still in flight when one of two failed 3ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (25 tests | 23 failed) 159ms
+     × is restored after sign-in, opening a saved message, and returning to route 0 64ms
+     × is restored after sign-in and a reload 4ms
+     × is restored in a tab opened later, when it was the last edited 4ms
+     × are shown again after signing in and opening the message 13ms
+     × are not shown at route 0 meanwhile, which shows its own draft 3ms
+     × are shown after a reload, as before 5ms
+     × survive opening another saved message 3ms
+     × shows each tab its own last draft after a reload 4ms
+     × shows a new tab the draft edited most recently 6ms
+     × shows a new tab a draft whose tab has closed 4ms
+     × shows the intro message, and writes nothing, in a new tab with no draft anywhere 3ms
+     × restores a stored route-0 draft that has no id 13ms
+     × restores a stored copy of message 42 that is newer than its saved copy 4ms
+     × holds the route-0 draft last written, for the code that reads it 2ms
+     × is removed from route 0 when a creating save succeeds 2ms
+     × of a saved message is removed when this tab saves what the draft holds 2ms
+     × of a saved message stays when an edit was typed after Save 2ms
+     × is false for an unedited message when authenticated 1ms
+     × is false for an unedited message when unauthenticated 2ms
+     × is false for an unedited message when loading 2ms
+     × is true for an edited message when authenticated 2ms
+     × is true for an edited message when unauthenticated 1ms
+     × is true for an edited message when loading 1ms
+
+ Test Files  5 failed | 46 passed (51)
+      Tests  81 failed | 875 passed (956)
+   Start at  01:24:38
+   Duration  5.79s (transform 12.86s, setup 388ms, import 48.50s, tests 1.40s, environment 11.61s)
+

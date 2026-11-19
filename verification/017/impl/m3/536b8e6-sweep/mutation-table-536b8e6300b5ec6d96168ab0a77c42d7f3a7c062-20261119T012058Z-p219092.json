@@ -1,0 +1,2583 @@
+{
+ "sha": "536b8e6300b5ec6d96168ab0a77c42d7f3a7c062",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/mutants-m3.json",
+ "command": [
+  "unshare",
+  "-rn",
+  "npx",
+  "vitest",
+  "run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/mutants-m3.json",
+   "blob": "7ba587f62e8f2537379c7073520959d2c4c6ef70"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[\"src/utils\", \"src/providers/MessageProvider\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-control-1.stderr",
+   "seconds": 5.29,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 956,
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "index.tsx:41:if-false",
+   "run": "mutant-1",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 41,
+    "text": "if (!ignoreLocalRef.current && draft && draft.editedAt > message.updatedAt) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > restores a stored copy of message 42 that is newer than its saved copy",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, reloading a saved message > discards the stored edits and shows the saved copy"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.51,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-1.stderr"
+  },
+  {
+   "id": "index.tsx:41:not",
+   "run": "mutant-2",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "not",
+    "line": 41,
+    "text": "if (!ignoreLocalRef.current && draft && draft.editedAt > message.updatedAt) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > restores a stored copy of message 42 that is newer than its saved copy",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, reloading a saved message > discards the stored edits and shows the saved copy"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.74,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-2.stderr"
+  },
+  {
+   "id": "index.tsx:41:&&",
+   "run": "mutant-3",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "&&",
+    "line": 41,
+    "text": "if (!ignoreLocalRef.current && draft && draft.editedAt > message.updatedAt) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message beside an empty embed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a message not valid for sending, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a message not valid for sending, after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice after the content-loss dialog chose Classic",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice after the content-loss dialog chose V2",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice when an edit is typed after Save and before the broadcast arrives",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for a save that carries a field the server drops, when an edit follows Save",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for either of two saves in flight when edits follow the second",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message beside an empty embed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a message not valid for sending, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a message not valid for sending, after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice after the content-loss dialog chose Classic",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice after the content-loss dialog chose V2",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice when an edit is typed after Save and before the broadcast arrives",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for a save that carries a field the server drops, when an edit follows Save",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for either of two saves in flight when edits follow the second",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for two identical saves, their broadcasts, and an edit after the second",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content this tab never sent",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves while this tab has unsaved edits, naming the loss",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves a component-only edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves while this tab's own save is in flight",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content this tab sent earlier and has already seen broadcast",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice when another tab saves what this tab already shows",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice for a later save of the content of a save that failed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for the broadcast of an identical save still in flight when one of two failed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider \u2014 Save of a stored V2 message beside an empty embed > writes it as V2 without the embed, and the editor holds exactly what was written",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider \u2014 the choice save of a stored V2 message with content > Save as Classic: the editor holds the classic message that was written, in Classic mode",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider \u2014 the choice save of a stored V2 message with content > Save as Components V2: the editor holds the V2 message that was written, in V2 mode",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in, opening a saved message, and returning to route 0",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are not shown at route 0 meanwhile, which shows its own draft",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > survive opening another saved message",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message stays when an edit was typed after Save",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > shows the saved copy when the stored copy is older",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, reloading a saved message > discards the stored edits and shows the saved copy"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 6.72,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-3.stderr"
+  },
+  {
+   "id": "index.tsx:41:&&:2",
+   "run": "mutant-4",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "&&",
+    "line": 41,
+    "text": "if (!ignoreLocalRef.current && draft && draft.editedAt > message.updatedAt) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message beside an empty embed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a message not valid for sending, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a message not valid for sending, after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice after the content-loss dialog chose Classic",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice after the content-loss dialog chose V2",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice when an edit is typed after Save and before the broadcast arrives",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for a save that carries a field the server drops, when an edit follows Save",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for either of two saves in flight when edits follow the second",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message beside an empty embed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a message not valid for sending, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a message not valid for sending, after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice after the content-loss dialog chose Classic",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice after the content-loss dialog chose V2",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice when an edit is typed after Save and before the broadcast arrives",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for a save that carries a field the server drops, when an edit follows Save",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for either of two saves in flight when edits follow the second",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for two identical saves, their broadcasts, and an edit after the second",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content this tab never sent",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves while this tab has unsaved edits, naming the loss",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves a component-only edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves while this tab's own save is in flight",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content this tab sent earlier and has already seen broadcast",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice when another tab saves what this tab already shows",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice for a later save of the content of a save that failed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for the broadcast of an identical save still in flight when one of two failed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider \u2014 Save of a stored V2 message beside an empty embed > writes it as V2 without the embed, and the editor holds exactly what was written",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider \u2014 the choice save of a stored V2 message with content > Save as Classic: the editor holds the classic message that was written, in Classic mode",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider \u2014 the choice save of a stored V2 message with content > Save as Components V2: the editor holds the V2 message that was written, in V2 mode",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in, opening a saved message, and returning to route 0",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are not shown at route 0 meanwhile, which shows its own draft",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > survive opening another saved message",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message stays when an edit was typed after Save",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > shows the saved copy when the stored copy is older",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, reloading a saved message > discards the stored edits and shows the saved copy"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 6.42,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-4.stderr"
+  },
+  {
+   "id": "index.tsx:41:>",
+   "run": "mutant-5",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": ">",
+    "line": 41,
+    "text": "if (!ignoreLocalRef.current && draft && draft.editedAt > message.updatedAt) {"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 5.04,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-5.stderr"
+  },
+  {
+   "id": "index.tsx:113:not",
+   "run": "mutant-6",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "not",
+    "line": 113,
+    "text": "() => !typedDeepEqual(savedMessage?.data, message?.data),"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves while this tab has unsaved edits, naming the loss",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when authenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when unauthenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when loading",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when authenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when unauthenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when loading"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.32,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-6.stderr"
+  },
+  {
+   "id": "index.tsx:170:if-false",
+   "run": "mutant-7",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 170,
+    "text": "if (!message?.name || message === loadedRef.current) return;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in, opening a saved message, and returning to route 0",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in and a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored in a tab opened later, when it was the last edited",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab a draft whose tab has closed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows the intro message, and writes nothing, in a new tab with no draft anywhere",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > restores a stored route-0 draft that has no id",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the legacy message key > holds the route-0 draft last written, for the code that reads it",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when authenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when unauthenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when loading",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when authenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when unauthenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when loading",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx > MessageProvider \u2014 transient notices still use toast (not a blanket removal) > a code-fetch query error toasts (toast.error)",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx > MessageProvider \u2014 transient notices still use toast (not a blanket removal) > an in-flight save toasts (toast.loading)"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 6.09,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-7.stderr"
+  },
+  {
+   "id": "index.tsx:170:not",
+   "run": "mutant-8",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "not",
+    "line": 170,
+    "text": "if (!message?.name || message === loadedRef.current) return;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in, opening a saved message, and returning to route 0",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in and a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored in a tab opened later, when it was the last edited",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab a draft whose tab has closed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows the intro message, and writes nothing, in a new tab with no draft anywhere",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > restores a stored route-0 draft that has no id",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the legacy message key > holds the route-0 draft last written, for the code that reads it",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when authenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when unauthenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when loading",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when authenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when unauthenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when loading",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx > MessageProvider \u2014 transient notices still use toast (not a blanket removal) > a code-fetch query error toasts (toast.error)",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx > MessageProvider \u2014 transient notices still use toast (not a blanket removal) > an in-flight save toasts (toast.loading)",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message stays when an edit was typed after Save"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.87,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-8.stderr"
+  },
+  {
+   "id": "index.tsx:170:||",
+   "run": "mutant-9",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "||",
+    "line": 170,
+    "text": "if (!message?.name || message === loadedRef.current) return;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in, opening a saved message, and returning to route 0",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in and a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored in a tab opened later, when it was the last edited",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab a draft whose tab has closed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows the intro message, and writes nothing, in a new tab with no draft anywhere",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > restores a stored route-0 draft that has no id",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the legacy message key > holds the route-0 draft last written, for the code that reads it",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when authenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when unauthenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when loading",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when authenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when unauthenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when loading",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx > MessageProvider \u2014 transient notices still use toast (not a blanket removal) > a code-fetch query error toasts (toast.error)",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx > MessageProvider \u2014 transient notices still use toast (not a blanket removal) > an in-flight save toasts (toast.loading)"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.58,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-9.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-9.stderr"
+  },
+  {
+   "id": "index.tsx:170:===",
+   "run": "mutant-10",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "===",
+    "line": 170,
+    "text": "if (!message?.name || message === loadedRef.current) return;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in, opening a saved message, and returning to route 0",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in and a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored in a tab opened later, when it was the last edited",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab a draft whose tab has closed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows the intro message, and writes nothing, in a new tab with no draft anywhere",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the legacy message key > holds the route-0 draft last written, for the code that reads it",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message stays when an edit was typed after Save"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.25,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-10.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-10.stderr"
+  },
+  {
+   "id": "index.tsx:172:if-false",
+   "run": "mutant-11",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 172,
+    "text": "if (!message.id) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in, opening a saved message, and returning to route 0",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in and a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored in a tab opened later, when it was the last edited",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab a draft whose tab has closed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the legacy message key > holds the route-0 draft last written, for the code that reads it",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.23,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-11.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-11.stderr"
+  },
+  {
+   "id": "index.tsx:172:not",
+   "run": "mutant-12",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "not",
+    "line": 172,
+    "text": "if (!message.id) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in, opening a saved message, and returning to route 0",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in and a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored in a tab opened later, when it was the last edited",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are not shown at route 0 meanwhile, which shows its own draft",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab a draft whose tab has closed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the legacy message key > holds the route-0 draft last written, for the code that reads it",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message stays when an edit was typed after Save"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.35,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-12.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-12.stderr"
+  },
+  {
+   "id": "index.tsx:174:if-false",
+   "run": "mutant-13",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 174,
+    "text": "} else if (typedDeepEqual(savedMessage?.data, message.data)) {"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 5.18,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-13.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-13.stderr"
+  },
+  {
+   "id": "index.tsx:245:if-false",
+   "run": "mutant-14",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 245,
+    "text": "if (msg.id === message?.id) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.73,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-14.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-14.stderr"
+  },
+  {
+   "id": "index.tsx:245:===",
+   "run": "mutant-15",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "===",
+    "line": 245,
+    "text": "if (msg.id === message?.id) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.86,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-15.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-15.stderr"
+  },
+  {
+   "id": "index.tsx:247:if-false",
+   "run": "mutant-16",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 247,
+    "text": "} else if (!message?.id) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.41,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-16.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-16.stderr"
+  },
+  {
+   "id": "index.tsx:247:not",
+   "run": "mutant-17",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "not",
+    "line": 247,
+    "text": "} else if (!message?.id) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.74,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-17.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-17.stderr"
+  },
+  {
+   "id": "SessionProvider.tsx:15:if-false",
+   "run": "mutant-18",
+   "file": "src/providers/SessionProvider.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 15,
+    "text": "if (getClientSessionCookie() && !session) voided(() => leaveWithoutAlert(() => signOut()))();"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 5.65,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-18.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-18.stderr"
+  },
+  {
+   "id": "SessionProvider.tsx:15:&&",
+   "run": "mutant-19",
+   "file": "src/providers/SessionProvider.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "&&",
+    "line": 15,
+    "text": "if (getClientSessionCookie() && !session) voided(() => leaveWithoutAlert(() => signOut()))();"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 5.91,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-19.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-19.stderr"
+  },
+  {
+   "id": "SessionProvider.tsx:15:not",
+   "run": "mutant-20",
+   "file": "src/providers/SessionProvider.tsx",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "not",
+    "line": 15,
+    "text": "if (getClientSessionCookie() && !session) voided(() => leaveWithoutAlert(() => signOut()))();"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 5.73,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-20.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-20.stderr"
+  },
+  {
+   "id": "useUnloadAlert.ts:10:&&",
+   "run": "mutant-21",
+   "file": "src/utils/hooks/useUnloadAlert.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "&&",
+    "line": 10,
+    "text": "useBeforeUnload(block && (() => !isLeavingWithoutAlert()), 'Changes you made may not be saved.');"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx > useUnloadAlert and the exits that lose nothing > does not prompt when there are none",
+    "|dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx > useUnloadAlert and the exits that lose nothing > does not prompt while an exit that loses nothing is leaving the page"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.71,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-21.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-21.stderr"
+  },
+  {
+   "id": "useUnloadAlert.ts:10:not",
+   "run": "mutant-22",
+   "file": "src/utils/hooks/useUnloadAlert.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "not",
+    "line": 10,
+    "text": "useBeforeUnload(block && (() => !isLeavingWithoutAlert()), 'Changes you made may not be saved.');"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx > useUnloadAlert and the exits that lose nothing > prompts on unload while there are unsaved changes",
+    "|dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx > useUnloadAlert and the exits that lose nothing > does not prompt while an exit that loses nothing is leaving the page",
+    "|dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx > useUnloadAlert and the exits that lose nothing > prompts again once the exit has had time to leave and the page is still here",
+    "|dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx > useUnloadAlert and the exits that lose nothing > prompts again at once when the exit fails"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.91,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-22.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-22.stderr"
+  },
+  {
+   "id": "leaveWithoutAlert.ts:1:num",
+   "run": "mutant-23",
+   "file": "src/utils/leaveWithoutAlert.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 1,
+    "text": "const REARM_MS = 2000;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 5.45,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-23.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-23.stderr"
+  },
+  {
+   "id": "leaveWithoutAlert.ts:3:false",
+   "run": "mutant-24",
+   "file": "src/utils/leaveWithoutAlert.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "false",
+    "line": 3,
+    "text": "let leaving = false;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx > useUnloadAlert and the exits that lose nothing > prompts on unload while there are unsaved changes"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.52,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-24.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-24.stderr"
+  },
+  {
+   "id": "leaveWithoutAlert.ts:8:true",
+   "run": "mutant-25",
+   "file": "src/utils/leaveWithoutAlert.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "true",
+    "line": 8,
+    "text": "leaving = true;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx > useUnloadAlert and the exits that lose nothing > does not prompt while an exit that loses nothing is leaving the page"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.43,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-25.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-25.stderr"
+  },
+  {
+   "id": "leaveWithoutAlert.ts:11:false",
+   "run": "mutant-26",
+   "file": "src/utils/leaveWithoutAlert.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "false",
+    "line": 11,
+    "text": "setTimeout(() => { leaving = false; }, REARM_MS);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx > useUnloadAlert and the exits that lose nothing > prompts again once the exit has had time to leave and the page is still here"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.31,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-26.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-26.stderr"
+  },
+  {
+   "id": "leaveWithoutAlert.ts:14:false",
+   "run": "mutant-27",
+   "file": "src/utils/leaveWithoutAlert.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "false",
+    "line": 14,
+    "text": "leaving = false;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx > useUnloadAlert and the exits that lose nothing > prompts again at once when the exit fails"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.51,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-27.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-27.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:5:num",
+   "run": "mutant-28",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 5,
+    "text": "export const MAX_DRAFTS = 20;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > never drops the entry being written, even when it is the least recently edited"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.7,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-28.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-28.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:6:num",
+   "run": "mutant-29",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 6,
+    "text": "export const MAX_DRAFT_CHARS = 1024 * 1024;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > still writes one entry that alone passes a megabyte"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.55,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-29.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-29.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:6:num:2",
+   "run": "mutant-30",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 6,
+    "text": "export const MAX_DRAFT_CHARS = 1024 * 1024;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > still writes one entry that alone passes a megabyte"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.49,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-30.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-30.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:18:if-false",
+   "run": "mutant-31",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 18,
+    "text": "if (existing) return existing;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the tab > has one id for the life of the tab",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > writes the draft under its own key and also under the legacy message key",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > removes its own entry, and the legacy key when it holds that draft",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > turns a stored message with no id into this tab's route-0 entry, dated by its own timestamp",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.49,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-31.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-31.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:19:num",
+   "run": "mutant-32",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 19,
+    "text": "const made = Math.random().toString(36).slice(2, 12);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the tab > has a different id in a tab that starts with no session storage"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.1,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-32.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-32.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:19:num:2",
+   "run": "mutant-33",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 19,
+    "text": "const made = Math.random().toString(36).slice(2, 12);"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 5.05,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-33.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-33.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:19:num:3",
+   "run": "mutant-34",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 19,
+    "text": "const made = Math.random().toString(36).slice(2, 12);"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 5.05,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-34.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-34.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:28:if-false",
+   "run": "mutant-35",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 28,
+    "text": "if (window.localStorage.getItem('messageDrafts') !== null) return store().get();"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > never drops the entry being written, even when it is the least recently edited",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most one megabyte serialised, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > keeps an entry another tab stored since this tab last wrote",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes an entry only when its data satisfies the condition given",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > does not migrate once the drafts map exists",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, reloading a saved message > discards the stored edits and shows the saved copy"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.75,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-35.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-35.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:28:!==",
+   "run": "mutant-36",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "!==",
+    "line": 28,
+    "text": "if (window.localStorage.getItem('messageDrafts') !== null) return store().get();"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > never drops the entry being written, even when it is the least recently edited",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most one megabyte serialised, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > keeps an entry another tab stored since this tab last wrote",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes an entry only when its data satisfies the condition given",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > turns a stored message with no id into this tab's route-0 entry, dated by its own timestamp",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > turns a stored copy of saved message 42 into the entry for 42",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > does not migrate once the drafts map exists",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > restores a stored route-0 draft that has no id",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > restores a stored copy of message 42 that is newer than its saved copy",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, reloading a saved message > discards the stored edits and shows the saved copy"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.37,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-36.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-36.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:29:if-false",
+   "run": "mutant-37",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 29,
+    "text": "if (window.localStorage.getItem('message') === null) return {};"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > never drops the entry being written, even when it is the least recently edited",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most one megabyte serialised, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > still writes one entry that alone passes a megabyte",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the write, without throwing, once no other entry remains to drop",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > keeps an entry another tab stored since this tab last wrote",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes one entry and leaves the others",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes an entry only when its data satisfies the condition given",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > shows its own draft",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with no route-0 entry anywhere, shows nothing and writes nothing",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > writes the draft under its own key and also under the legacy message key",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > removes its own entry, and the legacy key when it holds that draft",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > leaves the legacy key when it holds a different draft",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > migrates nothing when no message was ever stored",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message beside an empty embed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a message not valid for sending, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a message not valid for sending, after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice after the content-loss dialog chose Classic",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice after the content-loss dialog chose V2",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice when an edit is typed after Save and before the broadcast arrives",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for a save that carries a field the server drops, when an edit follows Save",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for either of two saves in flight when edits follow the second",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message beside an empty embed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a message not valid for sending, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a message not valid for sending, after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice after the content-loss dialog chose Classic",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice after the content-loss dialog chose V2",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice when an edit is typed after Save and before the broadcast arrives",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for a save that carries a field the server drops, when an edit follows Save",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for either of two saves in flight when edits follow the second",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for two identical saves, their broadcasts, and an edit after the second",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content this tab never sent",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves while this tab has unsaved edits, naming the loss",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves a component-only edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves while this tab's own save is in flight",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content this tab sent earlier and has already seen broadcast",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice when another tab saves what this tab already shows",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice for a later save of the content of a save that failed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for the broadcast of an identical save still in flight when one of two failed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider \u2014 Save of a stored V2 message beside an empty embed > writes it as V2 without the embed, and the editor holds exactly what was written",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider \u2014 the choice save of a stored V2 message with content > Save as Classic: the editor holds the classic message that was written, in Classic mode",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider \u2014 the choice save of a stored V2 message with content > Save as Components V2: the editor holds the V2 message that was written, in V2 mode",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are not shown at route 0 meanwhile, which shows its own draft",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > survive opening another saved message",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message stays when an edit was typed after Save",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in, opening a saved message, and returning to route 0",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in and a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored in a tab opened later, when it was the last edited",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab a draft whose tab has closed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows the intro message, and writes nothing, in a new tab with no draft anywhere",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the legacy message key > holds the route-0 draft last written, for the code that reads it",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when authenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when unauthenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when loading",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when authenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when unauthenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when loading",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx > MessageProvider \u2014 transient notices still use toast (not a blanket removal) > a code-fetch query error toasts (toast.error)",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx > MessageProvider \u2014 transient notices still use toast (not a blanket removal) > an in-flight save toasts (toast.loading)"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 7.05,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-37.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-37.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:29:===",
+   "run": "mutant-38",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "===",
+    "line": 29,
+    "text": "if (window.localStorage.getItem('message') === null) return {};"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > never drops the entry being written, even when it is the least recently edited",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most one megabyte serialised, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > still writes one entry that alone passes a megabyte",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the write, without throwing, once no other entry remains to drop",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > keeps an entry another tab stored since this tab last wrote",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes one entry and leaves the others",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes an entry only when its data satisfies the condition given",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > shows its own draft",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with no route-0 entry anywhere, shows nothing and writes nothing",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > writes the draft under its own key and also under the legacy message key",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > removes its own entry, and the legacy key when it holds that draft",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > leaves the legacy key when it holds a different draft",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > turns a stored message with no id into this tab's route-0 entry, dated by its own timestamp",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > turns a stored copy of saved message 42 into the entry for 42",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > migrates nothing when no message was ever stored",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message beside an empty embed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a message not valid for sending, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a message not valid for sending, after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice after the content-loss dialog chose Classic",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice after the content-loss dialog chose V2",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice when an edit is typed after Save and before the broadcast arrives",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for a save that carries a field the server drops, when an edit follows Save",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for either of two saves in flight when edits follow the second",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message beside an empty embed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a message not valid for sending, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a message not valid for sending, after an edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice after the content-loss dialog chose Classic",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice after the content-loss dialog chose V2",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice when an edit is typed after Save and before the broadcast arrives",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for a save that carries a field the server drops, when an edit follows Save",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for either of two saves in flight when edits follow the second",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for two identical saves, their broadcasts, and an edit after the second",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content this tab never sent",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves while this tab has unsaved edits, naming the loss",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves a component-only edit",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves while this tab's own save is in flight",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content this tab sent earlier and has already seen broadcast",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice when another tab saves what this tab already shows",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice for a later save of the content of a save that failed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for the broadcast of an identical save still in flight when one of two failed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider \u2014 Save of a stored V2 message beside an empty embed > writes it as V2 without the embed, and the editor holds exactly what was written",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider \u2014 the choice save of a stored V2 message with content > Save as Classic: the editor holds the classic message that was written, in Classic mode",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx > MessageProvider \u2014 the choice save of a stored V2 message with content > Save as Components V2: the editor holds the V2 message that was written, in V2 mode",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are not shown at route 0 meanwhile, which shows its own draft",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > survive opening another saved message",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message stays when an edit was typed after Save",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in, opening a saved message, and returning to route 0",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in and a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored in a tab opened later, when it was the last edited",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab a draft whose tab has closed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows the intro message, and writes nothing, in a new tab with no draft anywhere",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the legacy message key > holds the route-0 draft last written, for the code that reads it",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when authenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when unauthenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when loading",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when authenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when unauthenticated",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when loading",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx > MessageProvider \u2014 transient notices still use toast (not a blanket removal) > a code-fetch query error toasts (toast.error)",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx > MessageProvider \u2014 transient notices still use toast (not a blanket removal) > an in-flight save toasts (toast.loading)",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > restores a stored route-0 draft that has no id",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > restores a stored copy of message 42 that is newer than its saved copy"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 6.92,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-38.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-38.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:38:walk-first",
+   "run": "mutant-39",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "walk-first",
+    "line": 38,
+    "text": "const oldestOtherThan = (drafts: MessageDrafts, key: string) => Object.keys(drafts)"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 5.2,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-39.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-39.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:38:walk-last",
+   "run": "mutant-40",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "walk-last",
+    "line": 38,
+    "text": "const oldestOtherThan = (drafts: MessageDrafts, key: string) => Object.keys(drafts)"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": null,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "failing_titles": [],
+   "exit": -9,
+   "timedOut": true,
+   "seconds": 240.15,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-40.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-40.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:39:!==",
+   "run": "mutant-41",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "!==",
+    "line": 39,
+    "text": ".filter((k) => k !== key)"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > never drops the entry being written, even when it is the least recently edited",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most one megabyte serialised, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > still writes one entry that alone passes a megabyte",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.71,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-41.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-41.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:40:num",
+   "run": "mutant-42",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 40,
+    "text": ".sort((a, b) => drafts[a].editedAt - drafts[b].editedAt)[0];"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": null,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "failing_titles": [],
+   "exit": -9,
+   "timedOut": true,
+   "seconds": 240.15,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-42.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-42.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:44:>",
+   "run": "mutant-43",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": ">",
+    "line": 44,
+    "text": "const tooBig = () => Object.keys(drafts).length > MAX_DRAFTS"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > never drops the entry being written, even when it is the least recently edited"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 16.31,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-43.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-43.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:45:||",
+   "run": "mutant-44",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "||",
+    "line": 45,
+    "text": "|| JSON.stringify(drafts).length > MAX_DRAFT_CHARS;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > never drops the entry being written, even when it is the least recently edited",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most one megabyte serialised, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > still writes one entry that alone passes a megabyte"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 15.4,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-44.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-44.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:45:>",
+   "run": "mutant-45",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": ">",
+    "line": 45,
+    "text": "|| JSON.stringify(drafts).length > MAX_DRAFT_CHARS;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 6.69,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-45.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-45.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:46:&&",
+   "run": "mutant-46",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "&&",
+    "line": 46,
+    "text": "while (tooBig() && Object.keys(drafts).length > 1) delete drafts[oldestOtherThan(drafts, key)];"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": null,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "failing_titles": [
+    "shows each tab its own last draft after a reload"
+   ],
+   "exit": -9,
+   "timedOut": true,
+   "seconds": 240.13,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-46.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-46.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:46:>",
+   "run": "mutant-47",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": ">",
+    "line": 46,
+    "text": "while (tooBig() && Object.keys(drafts).length > 1) delete drafts[oldestOtherThan(drafts, key)];"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": null,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "failing_titles": [],
+   "exit": -9,
+   "timedOut": true,
+   "seconds": 240.12,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-47.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-47.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:46:num",
+   "run": "mutant-48",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 46,
+    "text": "while (tooBig() && Object.keys(drafts).length > 1) delete drafts[oldestOtherThan(drafts, key)];"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > still writes one entry that alone passes a megabyte"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.93,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-48.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-48.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:48:not",
+   "run": "mutant-49",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "not",
+    "line": 48,
+    "text": "while (!store().set(drafts)) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > never drops the entry being written, even when it is the least recently edited",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most one megabyte serialised, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the write, without throwing, once no other entry remains to drop",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > keeps an entry another tab stored since this tab last wrote",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > shows its own draft",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.33,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-49.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-49.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:50:if-false",
+   "run": "mutant-50",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 50,
+    "text": "if (oldest === undefined) return false;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "ABORTED",
+   "count": "checked",
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 69.11,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-50.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-50.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:50:===",
+   "run": "mutant-51",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "===",
+    "line": 50,
+    "text": "if (oldest === undefined) return false;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.11,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-51.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-51.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:50:false",
+   "run": "mutant-52",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "false",
+    "line": 50,
+    "text": "if (oldest === undefined) return false;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the write, without throwing, once no other entry remains to drop"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.81,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-52.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-52.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:53:true",
+   "run": "mutant-53",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "true",
+    "line": 53,
+    "text": "return true;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.99,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-53.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-53.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:58:if-false",
+   "run": "mutant-54",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 58,
+    "text": "if (!(key in drafts) || (only && !only(drafts[key]))) return;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a message not valid for sending, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a message not valid for sending, nothing changed"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.29,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-54.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-54.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:58:not",
+   "run": "mutant-55",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "not",
+    "line": 58,
+    "text": "if (!(key in drafts) || (only && !only(drafts[key]))) return;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes one entry and leaves the others",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes an entry only when its data satisfies the condition given",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > removes its own entry, and the legacy key when it holds that draft",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a message not valid for sending, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a message not valid for sending, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, reloading a saved message > discards the stored edits and shows the saved copy"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.11,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-55.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-55.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:58:||",
+   "run": "mutant-56",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "||",
+    "line": 58,
+    "text": "if (!(key in drafts) || (only && !only(drafts[key]))) return;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes an entry only when its data satisfies the condition given",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a message not valid for sending, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for either of two saves in flight when edits follow the second",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a message not valid for sending, nothing changed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for either of two saves in flight when edits follow the second",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message stays when an edit was typed after Save"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.36,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-56.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-56.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:58:&&",
+   "run": "mutant-57",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "&&",
+    "line": 58,
+    "text": "if (!(key in drafts) || (only && !only(drafts[key]))) return;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes one entry and leaves the others",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes an entry only when its data satisfies the condition given",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > removes its own entry, and the legacy key when it holds that draft",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > leaves the legacy key when it holds a different draft",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > shows the saved copy when the stored copy is older",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, reloading a saved message > discards the stored edits and shows the saved copy",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.15,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-57.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-57.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:58:not:2",
+   "run": "mutant-58",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "not",
+    "line": 58,
+    "text": "if (!(key in drafts) || (only && !only(drafts[key]))) return;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes an entry only when its data satisfies the condition given",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message stays when an edit was typed after Save"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.16,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-58.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-58.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:66:if-false",
+   "run": "mutant-59",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 66,
+    "text": "if (own) return own;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.18,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-59.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-59.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:67:walk-first",
+   "run": "mutant-60",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "walk-first",
+    "line": 67,
+    "text": "const newest = Object.keys(drafts)"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.04,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-60.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-60.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:67:walk-last",
+   "run": "mutant-61",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "walk-last",
+    "line": 67,
+    "text": "const newest = Object.keys(drafts)"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 5.1,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-61.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-61.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:69:num",
+   "run": "mutant-62",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 69,
+    "text": ".sort((a, b) => drafts[b].editedAt - drafts[a].editedAt)[0];"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored in a tab opened later, when it was the last edited",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab a draft whose tab has closed"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.02,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-62.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-62.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:70:if-false",
+   "run": "mutant-63",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 70,
+    "text": "if (newest === undefined) return undefined;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows the intro message, and writes nothing, in a new tab with no draft anywhere"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.98,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-63.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-63.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:70:===",
+   "run": "mutant-64",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "===",
+    "line": 70,
+    "text": "if (newest === undefined) return undefined;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored in a tab opened later, when it was the last edited",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab a draft whose tab has closed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows the intro message, and writes nothing, in a new tab with no draft anywhere"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.0,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-64.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-64.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:89:!==",
+   "run": "mutant-65",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "!==",
+    "line": 89,
+    "text": "const holdsIt = window.localStorage.getItem('message') !== null"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > removes its own entry, and the legacy key when it holds that draft",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.04,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-65.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-65.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:90:&&",
+   "run": "mutant-66",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "&&",
+    "line": 90,
+    "text": "&& sameJson(legacyStore().get().data, savedData);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > leaves the legacy key when it holds a different draft"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.96,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-66.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-66.stderr"
+  },
+  {
+   "id": "messageDrafts.ts:91:if-false",
+   "run": "mutant-67",
+   "file": "src/utils/messageDrafts.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 91,
+    "text": "if (holdsIt) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > removes its own entry, and the legacy key when it holds that draft",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.22,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-67.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-67.stderr"
+  },
+  {
+   "id": "withLocalStorage.ts:13:if-false",
+   "run": "mutant-68",
+   "file": "src/utils/withLocalStorage.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "if-false",
+    "line": 13,
+    "text": "if (typeof window === 'undefined') return false;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 5.34,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-68.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-68.stderr"
+  },
+  {
+   "id": "withLocalStorage.ts:13:===",
+   "run": "mutant-69",
+   "file": "src/utils/withLocalStorage.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "===",
+    "line": 13,
+    "text": "if (typeof window === 'undefined') return false;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > never drops the entry being written, even when it is the least recently edited",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most one megabyte serialised, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > still writes one entry that alone passes a megabyte",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > keeps an entry another tab stored since this tab last wrote",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes one entry and leaves the others",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes an entry only when its data satisfies the condition given",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > shows its own draft",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with no route-0 entry anywhere, shows nothing and writes nothing",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > writes the draft under its own key and also under the legacy message key",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > leaves the legacy key when it holds a different draft",
+    "|dom| src/utils/__tests__/withLocalStorage.stored-keys.test.tsx > withLocalStorage, the keys stored as before > writes a theme as the bare string",
+    "|dom| src/utils/__tests__/withLocalStorage.stored-keys.test.tsx > withLocalStorage, the keys stored as before > tells the other tabs of the page with a storage event after a write that landed",
+    "|dom| src/utils/__tests__/withLocalStorage.stored-keys.test.tsx > withLocalStorage, a write the browser refuses > reports that a write which landed did",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in, opening a saved message, and returning to route 0",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in and a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored in a tab opened later, when it was the last edited",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab a draft whose tab has closed",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the legacy message key > holds the route-0 draft last written, for the code that reads it",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message stays when an edit was typed after Save",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, reloading a saved message > discards the stored edits and shows the saved copy"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.28,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-69.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-69.stderr"
+  },
+  {
+   "id": "withLocalStorage.ts:13:false",
+   "run": "mutant-70",
+   "file": "src/utils/withLocalStorage.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "false",
+    "line": 13,
+    "text": "if (typeof window === 'undefined') return false;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.95,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-70.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-70.stderr"
+  },
+  {
+   "id": "withLocalStorage.ts:17:false",
+   "run": "mutant-71",
+   "file": "src/utils/withLocalStorage.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "false",
+    "line": 17,
+    "text": "return false;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the write, without throwing, once no other entry remains to drop",
+    "|dom| src/utils/__tests__/withLocalStorage.stored-keys.test.tsx > withLocalStorage, a write the browser refuses > reports that the write did not land"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.21,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-71.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-71.stderr"
+  },
+  {
+   "id": "withLocalStorage.ts:19:true",
+   "run": "mutant-72",
+   "file": "src/utils/withLocalStorage.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "true",
+    "line": 19,
+    "text": "window.dispatchEvent(new Event('storage', { bubbles: true }));"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 5.04,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-72.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-72.stderr"
+  },
+  {
+   "id": "withLocalStorage.ts:20:true",
+   "run": "mutant-73",
+   "file": "src/utils/withLocalStorage.ts",
+   "tests": [
+    "src/utils",
+    "src/providers/MessageProvider"
+   ],
+   "carried": {
+    "op": "true",
+    "line": 20,
+    "text": "return true;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 956,
+   "control_tests_run": 956,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > never drops the entry being written, even when it is the least recently edited",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most one megabyte serialised, dropping the least recently edited first",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > keeps an entry another tab stored since this tab last wrote",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > shows its own draft",
+    "|dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key",
+    "|dom| src/utils/__tests__/withLocalStorage.stored-keys.test.tsx > withLocalStorage, a write the browser refuses > reports that a write which landed did",
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.05,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-73.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m3/536b8e6-sweep/536b8e6300b5ec6d96168ab0a77c42d7f3a7c062-20261119T012058Z-p219092-mutant-73.stderr"
+  }
+ ],
+ "score": "58 of 72 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 1, control-failed 0; mutants-m3.json (blob 7ba587f62e8f2537379c7073520959d2c4c6ef70))"
+}

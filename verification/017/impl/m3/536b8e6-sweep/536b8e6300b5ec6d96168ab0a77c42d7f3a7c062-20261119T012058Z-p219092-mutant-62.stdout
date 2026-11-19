@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/work-m3/20261119T012058Z-p219092/mutant-62
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (22 tests | 1 failed) 73ms
+     × with none of its own, copies the route-0 entry edited most recently under its own key 16ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (25 tests | 3 failed) 211ms
+     × is restored in a tab opened later, when it was the last edited 32ms
+     × shows a new tab the draft edited most recently 13ms
+     × shows a new tab a draft whose tab has closed 11ms
+
+ Test Files  2 failed | 49 passed (51)
+      Tests  4 failed | 952 passed (956)
+   Start at  01:43:56
+   Duration  3.96s (transform 9.81s, setup 154ms, import 34.95s, tests 1.92s, environment 12.22s)
+

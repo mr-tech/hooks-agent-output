@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/work-m3/20261119T012058Z-p219092/mutant-30
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (22 tests | 1 failed) 52ms
+     × still writes one entry that alone passes a megabyte 15ms
+
+ Test Files  1 failed | 50 passed (51)
+      Tests  1 failed | 955 passed (956)
+   Start at  01:23:52
+   Duration  4.38s (transform 14.33s, setup 268ms, import 41.12s, tests 1.83s, environment 12.11s)
+

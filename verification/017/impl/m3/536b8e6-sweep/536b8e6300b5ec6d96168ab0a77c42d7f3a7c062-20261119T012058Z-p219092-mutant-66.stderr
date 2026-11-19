@@ -1,0 +1,15 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > leaves the legacy key when it holds a different draft
+AssertionError: expected null not to be null
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:185:56
+    183|     removeRouteZeroDraft({ content: 'something else' });
+    184|
+    185|     expect(window.localStorage.getItem('message')).not.toBeNull();
+       |                                                        ^
+    186|   });
+    187| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

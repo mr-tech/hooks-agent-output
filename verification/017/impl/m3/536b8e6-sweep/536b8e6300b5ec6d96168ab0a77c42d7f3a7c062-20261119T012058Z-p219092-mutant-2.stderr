@@ -1,0 +1,67 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message
+AssertionError: expected 'saved copy' to be 'unsaved edits on 42' // Object.is equality
+
+Expected: "unsaved edits on 42"
+Received: "saved copy"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:144:23
+    142|     visit('/message/m/42/edit', 'authenticated');
+    143|
+    144|     expect(content()).toBe('unsaved edits on 42');
+       |                       ^
+    145|   });
+    146|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before
+AssertionError: expected 'saved copy' to be 'unsaved edits on 42' // Object.is equality
+
+Expected: "unsaved edits on 42"
+Received: "saved copy"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:161:23
+    159|     mount();
+    160|
+    161|     expect(content()).toBe('unsaved edits on 42');
+       |                       ^
+    162|   });
+    163|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > restores a stored copy of message 42 that is newer than its saved copy
+AssertionError: expected 'saved copy' to be 'newer local copy' // Object.is equality
+
+Expected: "newer local copy"
+Received: "saved copy"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:239:23
+    237|     mount();
+    238|
+    239|     expect(content()).toBe('newer local copy');
+       |                       ^
+    240|   });
+    241|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, reloading a saved message > discards the stored edits and shows the saved copy
+AssertionError: expected 'saved copy' to be 'stale edits' // Object.is equality
+
+Expected: "stale edits"
+Received: "saved copy"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:317:23
+    315|     hoisted.pathname = '/message/m/42/edit';
+    316|     mount();
+    317|     expect(content()).toBe('stale edits');
+       |                       ^
+    318|
+    319|     hoisted.stored = { ...hoisted.stored };
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+

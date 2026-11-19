@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/work-fix/20261119T013229Z-p322938/mutant-1
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (36 tests | 1 failed) 235ms
+     × raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows 7ms
+
+ Test Files  1 failed | 7 passed (8)
+      Tests  1 failed | 84 passed (85)
+   Start at  01:32:34
+   Duration  2.34s (transform 1.17s, setup 123ms, import 7.13s, tests 570ms, environment 5.23s)
+

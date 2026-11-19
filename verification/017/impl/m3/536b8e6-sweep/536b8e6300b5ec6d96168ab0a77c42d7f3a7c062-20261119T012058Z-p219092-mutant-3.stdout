@@ -1,0 +1,59 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/work-m3/20261119T012058Z-p219092/mutant-3
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx (3 tests | 3 failed) 57ms
+     × writes it as V2 without the embed, and the editor holds exactly what was written 44ms
+     × Save as Classic: the editor holds the classic message that was written, in Classic mode 5ms
+     × Save as Components V2: the editor holds the V2 message that was written, in V2 mode 6ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (25 tests | 9 failed) 132ms
+     × is restored after sign-in, opening a saved message, and returning to route 0 40ms
+     × are shown again after signing in and opening the message 3ms
+     × are not shown at route 0 meanwhile, which shows its own draft 2ms
+     × are shown after a reload, as before 2ms
+     × survive opening another saved message 3ms
+     × shows the saved copy when the stored copy is older 9ms
+     × of a saved message is removed when this tab saves what the draft holds 1ms
+     × of a saved message stays when an edit was typed after Save 1ms
+     × discards the stored edits and shows the saved copy 4ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (35 tests | 35 failed) 122ms
+       × raises no notice in the saving tab: a classic message, nothing changed 31ms
+       × raises no notice in the saving tab: a classic message after an edit 7ms
+       × raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace 6ms
+       × raises no notice in the saving tab: a V2 message, nothing changed 9ms
+       × raises no notice in the saving tab: a V2 message after an edit 7ms
+       × raises no notice in the saving tab: a V2 message beside an empty embed 3ms
+       × raises no notice in the saving tab: a message not valid for sending, nothing changed 2ms
+       × raises no notice in the saving tab: a message not valid for sending, after an edit 3ms
+       × raises no notice after the content-loss dialog chose Classic 3ms
+       × raises no notice after the content-loss dialog chose V2 3ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 1ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 2ms
+       × raises no notice for either of two saves in flight when edits follow the second 2ms
+       × raises no notice in the saving tab: a classic message, nothing changed 2ms
+       × raises no notice in the saving tab: a classic message after an edit 1ms
+       × raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace 2ms
+       × raises no notice in the saving tab: a V2 message, nothing changed 2ms
+       × raises no notice in the saving tab: a V2 message after an edit 2ms
+       × raises no notice in the saving tab: a V2 message beside an empty embed 2ms
+       × raises no notice in the saving tab: a message not valid for sending, nothing changed 1ms
+       × raises no notice in the saving tab: a message not valid for sending, after an edit 2ms
+       × raises no notice after the content-loss dialog chose Classic 2ms
+       × raises no notice after the content-loss dialog chose V2 2ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 1ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 2ms
+       × raises no notice for either of two saves in flight when edits follow the second 1ms
+     × raises no notice for two identical saves, their broadcasts, and an edit after the second 2ms
+     × raises the notice when another tab saves content this tab never sent 2ms
+     × raises the notice when another tab saves while this tab has unsaved edits, naming the loss 2ms
+     × raises the notice when another tab saves a component-only edit 1ms
+     × raises the notice when another tab saves while this tab's own save is in flight 1ms
+     × raises the notice when another tab saves content this tab sent earlier and has already seen broadcast 1ms
+     × raises no notice when another tab saves what this tab already shows 1ms
+     × raises the notice for a later save of the content of a save that failed 6ms
+     × raises no notice for the broadcast of an identical save still in flight when one of two failed 3ms
+
+ Test Files  3 failed | 48 passed (51)
+      Tests  47 failed | 909 passed (956)
+   Start at  01:21:16
+   Duration  5.63s (transform 13.25s, setup 326ms, import 52.34s, tests 1.44s, environment 11.69s)
+

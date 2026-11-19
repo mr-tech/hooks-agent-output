@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx [ src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx ]
+Error: Failed to resolve import "~/utils/leaveWithoutAlert" from "src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /usr/local/bin/hooks/website/src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx:10:0
+  6  |  const __vi_import_1__ = await import("~/components/__tests__/helpers/dom");
+  7  |  const __vi_import_2__ = await import("~/utils/hooks/useUnloadAlert");
+  8  |  const __vi_import_3__ = await import("~/utils/leaveWithoutAlert");
+     |                                       ^
+  9  |  const __vi_import_4__ = await import("react/jsx-dev-runtime");
+  10 |  
+ ❯ TransformPluginContext._formatLog node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:30259:39
+ ❯ TransformPluginContext.error node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:30256:14
+ ❯ normalizeUrl node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:27544:18
+ ❯ node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:27607:30
+ ❯ TransformPluginContext.transform node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:27575:4
+ ❯ EnvironmentPluginContainer.transform node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:30048:14
+ ❯ loadAndTransform node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:24177:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  01:19:47
+   Duration  874ms (transform 17ms, setup 24ms, import 0ms, tests 0ms, environment 631ms)
+

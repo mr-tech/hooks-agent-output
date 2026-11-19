@@ -1,0 +1,32 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx [ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx ]
+Error: Failed to resolve import "../messageDrafts" from "src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /usr/local/bin/hooks/website/src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:5:7
+  1  |  import { afterEach, describe, expect, it, vi } from "vitest";
+  2  |  ...eroDraftFor, tabId, writeDraft, writeRouteZeroDraft } from "../messageDrafts";
+     |                                                                 ^
+  3  |  afterEach(() => {
+  4  |  	vi.restoreAllMocks();
+ ❯ TransformPluginContext._formatLog node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:30259:39
+ ❯ TransformPluginContext.error node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:30256:14
+ ❯ normalizeUrl node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:27544:18
+ ❯ node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:27607:30
+ ❯ TransformPluginContext.transform node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:27575:4
+ ❯ EnvironmentPluginContainer.transform node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:30048:14
+ ❯ loadAndTransform node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:24177:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  01:14:01
+   Duration  793ms (transform 15ms, setup 21ms, import 0ms, tests 0ms, environment 585ms)
+

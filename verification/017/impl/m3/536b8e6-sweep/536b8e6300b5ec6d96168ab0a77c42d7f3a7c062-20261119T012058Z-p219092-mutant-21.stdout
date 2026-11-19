@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/work-m3/20261119T012058Z-p219092/mutant-21
+
+ ❯ |dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx (6 tests | 2 failed) 65ms
+     × does not prompt when there are none 16ms
+     × does not prompt while an exit that loses nothing is leaving the page 7ms
+
+ Test Files  1 failed | 50 passed (51)
+      Tests  2 failed | 954 passed (956)
+   Start at  01:23:01
+   Duration  4.53s (transform 15.53s, setup 301ms, import 42.54s, tests 1.93s, environment 12.32s)
+

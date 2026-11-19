@@ -1,0 +1,166 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes one entry and leaves the others
+AssertionError: expected [ 'a', 'b' ] to deeply equal [ 'b' ]
+
+- Expected
++ Received
+
+  [
++   "a",
+    "b",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:109:35
+    107|     removeDraft('a');
+    108|
+    109|     expect(Object.keys(stored())).toEqual(['b']);
+       |                                   ^
+    110|   });
+    111|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/12]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes an entry only when its data satisfies the condition given
+AssertionError: expected [ 'a' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "a",
++ ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:119:35
+    117|
+    118|     removeDraft('a', (e) => e.data.content === 'mine');
+    119|     expect(Object.keys(stored())).toEqual([]);
+       |                                   ^
+    120|   });
+    121| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/12]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > removes its own entry, and the legacy key when it holds that draft
+AssertionError: expected [ '0:uvyy9u5piu' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "0:uvyy9u5piu",
++ ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:176:35
+    174|     removeRouteZeroDraft({ content: 'gone' });
+    175|
+    176|     expect(Object.keys(stored())).toEqual([]);
+       |                                   ^
+    177|     expect(window.localStorage.getItem('message')).toBeNull();
+    178|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/12]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a message not valid for sending, nothing changed
+TypeError: Cannot read properties of undefined (reading 'name')
+ ❯ src/providers/MessageProvider/index.tsx:246:73
+    244|     onSuccess: (msg, { message: sent }) => {
+    245|       if (msg.id === message?.id) {
+    246|         removeDraft(msg.id, (draft) => sameJson(stripKeys({ name: draf…
+       |                                                                         ^
+    247|       } else if (!message?.id) {
+    248|         removeRouteZeroDraft(message?.data as ActiveMessage['data']);
+ ❯ removeDraft src/utils/messageDrafts.ts:58:36
+ ❯ Object.onSuccess src/providers/MessageProvider/index.tsx:246:9
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:101:29
+ ❯ Proxy.process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ respond src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:100:3
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:116:92
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:136:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/12]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a message not valid for sending, nothing changed
+TypeError: Cannot read properties of undefined (reading 'name')
+ ❯ src/providers/MessageProvider/index.tsx:246:73
+    244|     onSuccess: (msg, { message: sent }) => {
+    245|       if (msg.id === message?.id) {
+    246|         removeDraft(msg.id, (draft) => sameJson(stripKeys({ name: draf…
+       |                                                                         ^
+    247|       } else if (!message?.id) {
+    248|         removeRouteZeroDraft(message?.data as ActiveMessage['data']);
+ ❯ removeDraft src/utils/messageDrafts.ts:58:36
+ ❯ Object.onSuccess src/providers/MessageProvider/index.tsx:246:9
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:101:29
+ ❯ Proxy.process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ respond src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:100:3
+ ❯ orders src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:117:67
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:136:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/12]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds
+AssertionError: expected [ '0:A' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "0:A",
++ ]
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:281:25
+    279|     respond(0, '55');
+    280|
+    281|     expect(draftKeys()).toEqual([]);
+       |                         ^
+    282|     expect(window.localStorage.getItem('message')).toBeNull();
+    283|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/12]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds
+AssertionError: expected [ '42' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "42",
++ ]
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:294:25
+    292|     respond(0, '42');
+    293|
+    294|     expect(draftKeys()).toEqual([]);
+       |                         ^
+    295|   });
+    296|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/12]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, reloading a saved message > discards the stored edits and shows the saved copy
+AssertionError: expected '{"42":{"data":{"content":"stale edits…' to be '{}' // Object.is equality
+
+Expected: "{}"
+Received: "{"42":{"data":{"content":"stale edits"},"name":"Stored","editedAt":9999}}"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:324:58
+    322|
+    323|     expect(content()).toBe('saved copy');
+    324|     expect(window.localStorage.getItem('messageDrafts')).toBe('{}');
+       |                                                          ^
+    325|   });
+    326| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/12]⎯
+

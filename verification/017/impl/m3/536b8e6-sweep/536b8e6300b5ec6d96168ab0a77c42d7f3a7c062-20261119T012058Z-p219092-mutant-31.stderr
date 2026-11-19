@@ -1,0 +1,123 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the tab > has one id for the life of the tab
+AssertionError: expected '9d2tm5cxov' to be 'cry8awmggt' // Object.is equality
+
+Expected: "cry8awmggt"
+Received: "9d2tm5cxov"
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:125:21
+    123| describe('messageDrafts, the tab', () => {
+    124|   it('has one id for the life of the tab', () => {
+    125|     expect(tabId()).toBe(tabId());
+       |                     ^
+    126|   });
+    127|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > writes the draft under its own key and also under the legacy message key
+AssertionError: expected [ '0:g2f0xjzg32' ] to deeply equal [ '0:5ha35gmtil' ]
+
+- Expected
++ Received
+
+  [
+-   "0:5ha35gmtil",
++   "0:g2f0xjzg32",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:167:35
+    165|     writeRouteZeroDraft(draft('legacy too', 5));
+    166|
+    167|     expect(Object.keys(stored())).toEqual([`0:${tabId()}`]);
+       |                                   ^
+    168|     expect(JSON.parse(window.localStorage.getItem('message') as string…
+    169|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > removes its own entry, and the legacy key when it holds that draft
+AssertionError: expected [ '0:rx1n7ums3x' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "0:rx1n7ums3x",
++ ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:176:35
+    174|     removeRouteZeroDraft({ content: 'gone' });
+    175|
+    176|     expect(Object.keys(stored())).toEqual([]);
+       |                                   ^
+    177|     expect(window.localStorage.getItem('message')).toBeNull();
+    178|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > turns a stored message with no id into this tab's route-0 entry, dated by its own timestamp
+AssertionError: expected undefined to deeply equal { Object (data, name, ...) }
+
+- Expected:
+{
+  "data": {
+    "content": "old draft",
+  },
+  "editedAt": 5,
+  "name": "Draft",
+}
+
++ Received:
+undefined
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:195:36
+    193|     window.localStorage.setItem('message', '{"name":"Draft","updatedAt…
+    194|
+    195|     expect(readDrafts()[tabKey()]).toEqual({ data: { content: 'old dra…
+       |                                    ^
+    196|   });
+    197|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload
+AssertionError: expected 'from B' to be 'from A' // Object.is equality
+
+Expected: "from A"
+Received: "from B"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:188:23
+    186|     openTab('A');
+    187|     mount();
+    188|     expect(content()).toBe('from A');
+       |                       ^
+    189|     unmountDom();
+    190|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds
+AssertionError: expected [ '0:l68r9oalgi' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "0:l68r9oalgi",
++ ]
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:281:25
+    279|     respond(0, '55');
+    280|
+    281|     expect(draftKeys()).toEqual([]);
+       |                         ^
+    282|     expect(window.localStorage.getItem('message')).toBeNull();
+    283|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+

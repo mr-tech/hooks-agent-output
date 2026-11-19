@@ -1,0 +1,575 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 27 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first
+AssertionError: expected [] to deeply equal [ Array(20) ]
+
+- Expected
++ Received
+
+- [
+-   "k6",
+-   "k7",
+-   "k8",
+-   "k9",
+-   "k10",
+-   "k11",
+-   "k12",
+-   "k13",
+-   "k14",
+-   "k15",
+-   "k16",
+-   "k17",
+-   "k18",
+-   "k19",
+-   "k20",
+-   "k21",
+-   "k22",
+-   "k23",
+-   "k24",
+-   "k25",
+- ]
++ []
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:30:18
+     28|     const keys = Object.keys(stored()).sort((a, b) => Number(a.slice(1…
+     29|
+     30|     expect(keys).toEqual(Array.from({ length: 20 }, (_, i) => `k${i + …
+       |                  ^
+     31|   });
+     32|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/27]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > never drops the entry being written, even when it is the least recently edited
+AssertionError: expected [] to include 'k1'
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:38:35
+     36|     writeDraft('k1', entry(1));
+     37|
+     38|     expect(Object.keys(stored())).toContain('k1');
+       |                                   ^
+     39|     expect(Object.keys(stored())).not.toContain('k2');
+     40|     expect(Object.keys(stored())).toHaveLength(20);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/27]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most one megabyte serialised, dropping the least recently edited first
+AssertionError: expected [] to deeply equal [ 'b', 'c' ]
+
+- Expected
++ Received
+
+- [
+-   "b",
+-   "c",
+- ]
++ []
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:49:42
+     47|     writeDraft('c', entry(3, big));
+     48|
+     49|     expect(Object.keys(stored()).sort()).toEqual(['b', 'c']);
+       |                                          ^
+     50|     expect((window.localStorage.getItem('messageDrafts') as string).le…
+     51|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/27]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > still writes one entry that alone passes a megabyte
+AssertionError: expected [] to deeply equal [ 'huge' ]
+
+- Expected
++ Received
+
+- [
+-   "huge",
+- ]
++ []
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:58:35
+     56|     writeDraft('huge', entry(2, 'z'.repeat(MEGABYTE + 10)));
+     57|
+     58|     expect(Object.keys(stored())).toEqual(['huge']);
+       |                                   ^
+     59|   });
+     60| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/27]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:76:20
+     74|     const landed = writeDraft('c', entry(3));
+     75|
+     76|     expect(landed).toBe(true);
+       |                    ^
+     77|     expect(Object.keys(stored()).sort()).toEqual(['b', 'c']);
+     78|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/27]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > keeps an entry another tab stored since this tab last wrote
+AssertionError: expected [ 'b' ] to deeply equal [ 'a', 'b', 'c' ]
+
+- Expected
++ Received
+
+  [
+-   "a",
+    "b",
+-   "c",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:100:42
+     98|     writeDraft('c', entry(3));
+     99|
+    100|     expect(Object.keys(stored()).sort()).toEqual(['a', 'b', 'c']);
+       |                                          ^
+    101|   });
+    102|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/27]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes one entry and leaves the others
+AssertionError: expected [] to deeply equal [ 'b' ]
+
+- Expected
++ Received
+
+- [
+-   "b",
+- ]
++ []
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:109:35
+    107|     removeDraft('a');
+    108|
+    109|     expect(Object.keys(stored())).toEqual(['b']);
+       |                                   ^
+    110|   });
+    111|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/27]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes an entry only when its data satisfies the condition given
+AssertionError: expected [] to deeply equal [ 'a' ]
+
+- Expected
++ Received
+
+- [
+-   "a",
+- ]
++ []
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:116:35
+    114|
+    115|     removeDraft('a', (e) => e.data.content === 'other');
+    116|     expect(Object.keys(stored())).toEqual(['a']);
+       |                                   ^
+    117|
+    118|     removeDraft('a', (e) => e.data.content === 'mine');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/27]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > shows its own draft
+AssertionError: expected undefined to deeply equal { content: 'mine' }
+
+- Expected:
+{
+  "content": "mine",
+}
+
++ Received:
+undefined
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:143:46
+    141|     writeDraft('0:other-tab', entry(9, 'theirs'));
+    142|
+    143|     expect(routeZeroDraftFor(tabId())?.data).toEqual({ content: 'mine'…
+       |                                              ^
+    144|   });
+    145|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/27]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key
+AssertionError: expected undefined to deeply equal { content: 'from B' }
+
+- Expected:
+{
+  "content": "from B",
+}
+
++ Received:
+undefined
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:153:25
+    151|     const shown = routeZeroDraftFor('C');
+    152|
+    153|     expect(shown?.data).toEqual({ content: 'from B' });
+       |                         ^
+    154|     expect(stored()['0:C'].editedAt).toBe(2);
+    155|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/27]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with no route-0 entry anywhere, shows nothing and writes nothing
+AssertionError: expected [] to deeply equal [ '77' ]
+
+- Expected
++ Received
+
+- [
+-   "77",
+- ]
++ []
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:161:35
+    159|
+    160|     expect(routeZeroDraftFor('C')).toBeUndefined();
+    161|     expect(Object.keys(stored())).toEqual(['77']);
+       |                                   ^
+    162|   });
+    163|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/27]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > writes the draft under its own key and also under the legacy message key
+AssertionError: expected [] to deeply equal [ '0:nuu8a3p4yw' ]
+
+- Expected
++ Received
+
+- [
+-   "0:nuu8a3p4yw",
+- ]
++ []
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:167:35
+    165|     writeRouteZeroDraft(draft('legacy too', 5));
+    166|
+    167|     expect(Object.keys(stored())).toEqual([`0:${tabId()}`]);
+       |                                   ^
+    168|     expect(JSON.parse(window.localStorage.getItem('message') as string…
+    169|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/27]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > leaves the legacy key when it holds a different draft
+AssertionError: expected null not to be null
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:185:56
+    183|     removeRouteZeroDraft({ content: 'something else' });
+    184|
+    185|     expect(window.localStorage.getItem('message')).not.toBeNull();
+       |                                                        ^
+    186|   });
+    187| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/27]⎯
+
+ FAIL  |dom| src/utils/__tests__/withLocalStorage.stored-keys.test.tsx > withLocalStorage, the keys stored as before > writes a theme as the bare string
+AssertionError: expected null to be 'light' // Object.is equality
+
+- Expected:
+"light"
+
++ Received:
+null
+
+ ❯ src/utils/__tests__/withLocalStorage.stored-keys.test.tsx:26:50
+     24|     withLocalStorage('theme', 'dark').set('light');
+     25|
+     26|     expect(window.localStorage.getItem('theme')).toBe('light');
+       |                                                  ^
+     27|   });
+     28|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/27]⎯
+
+ FAIL  |dom| src/utils/__tests__/withLocalStorage.stored-keys.test.tsx > withLocalStorage, the keys stored as before > tells the other tabs of the page with a storage event after a write that landed
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/utils/__tests__/withLocalStorage.stored-keys.test.tsx:57:19
+     55|     window.removeEventListener('storage', heard);
+     56|
+     57|     expect(heard).toHaveBeenCalledTimes(1);
+       |                   ^
+     58|   });
+     59| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/27]⎯
+
+ FAIL  |dom| src/utils/__tests__/withLocalStorage.stored-keys.test.tsx > withLocalStorage, a write the browser refuses > reports that a write which landed did
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/withLocalStorage.stored-keys.test.tsx:86:60
+     84|
+     85|   it('reports that a write which landed did', () => {
+     86|     expect(withLocalStorage('theme', 'dark').set('light')).toBe(true);
+       |                                                            ^
+     87|   });
+     88| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/27]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in, opening a saved message, and returning to route 0
+AssertionError: expected 'Welcome to **Hooks.gg**, the ultimate…' to be 'my draft' // Object.is equality
+
+- Expected
++ Received
+
+- my draft
++ Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:104:23
+    102|     visit('/message/m/0/edit');
+    103|
+    104|     expect(content()).toBe('my draft');
+       |                       ^
+    105|   });
+    106|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/27]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in and a reload
+AssertionError: expected 'Welcome to **Hooks.gg**, the ultimate…' to be 'my draft' // Object.is equality
+
+- Expected
++ Received
+
+- my draft
++ Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:115:23
+    113|     mount();
+    114|
+    115|     expect(content()).toBe('my draft');
+       |                       ^
+    116|   });
+    117|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/27]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored in a tab opened later, when it was the last edited
+AssertionError: expected 'Welcome to **Hooks.gg**, the ultimate…' to be 'my draft' // Object.is equality
+
+- Expected
++ Received
+
+- my draft
++ Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:126:23
+    124|     mount();
+    125|
+    126|     expect(content()).toBe('my draft');
+       |                       ^
+    127|   });
+    128| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/27]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message
+AssertionError: expected 'saved copy' to be 'unsaved edits on 42' // Object.is equality
+
+Expected: "unsaved edits on 42"
+Received: "saved copy"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:144:23
+    142|     visit('/message/m/42/edit', 'authenticated');
+    143|
+    144|     expect(content()).toBe('unsaved edits on 42');
+       |                       ^
+    145|   });
+    146|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/27]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before
+AssertionError: expected 'saved copy' to be 'unsaved edits on 42' // Object.is equality
+
+Expected: "unsaved edits on 42"
+Received: "saved copy"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:161:23
+    159|     mount();
+    160|
+    161|     expect(content()).toBe('unsaved edits on 42');
+       |                       ^
+    162|   });
+    163|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/27]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload
+AssertionError: expected 'Welcome to **Hooks.gg**, the ultimate…' to be 'from A' // Object.is equality
+
+- Expected
++ Received
+
+- from A
++ Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:188:23
+    186|     openTab('A');
+    187|     mount();
+    188|     expect(content()).toBe('from A');
+       |                       ^
+    189|     unmountDom();
+    190|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/27]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently
+AssertionError: expected 'Welcome to **Hooks.gg**, the ultimate…' to be 'from B' // Object.is equality
+
+- Expected
++ Received
+
+- from B
++ Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:203:23
+    201|     mount();
+    202|
+    203|     expect(content()).toBe('from B');
+       |                       ^
+    204|   });
+    205|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/27]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab a draft whose tab has closed
+AssertionError: expected 'Welcome to **Hooks.gg**, the ultimate…' to be 'from A' // Object.is equality
+
+- Expected
++ Received
+
+- from A
++ Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:212:23
+    210|     mount();
+    211|
+    212|     expect(content()).toBe('from A');
+       |                       ^
+    213|   });
+    214|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/27]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the legacy message key > holds the route-0 draft last written, for the code that reads it
+AssertionError: expected null to match object { data: { content: 'revert-safe' } }
+
+- Expected:
+{
+  "data": {
+    "content": "revert-safe",
+  },
+}
+
++ Received:
+null
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:258:74
+    256|     typeDraft('revert-safe');
+    257|
+    258|     expect(JSON.parse(window.localStorage.getItem('message') as string…
+       |                                                                          ^
+    259|   });
+    260| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/27]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message stays when an edit was typed after Save
+AssertionError: expected [] to deeply equal [ '42' ]
+
+- Expected
++ Received
+
+- [
+-   "42",
+- ]
++ []
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:307:25
+    305|     respond(0, '42');
+    306|
+    307|     expect(draftKeys()).toEqual(['42']);
+       |                         ^
+    308|   });
+    309| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/27]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, reloading a saved message > discards the stored edits and shows the saved copy
+AssertionError: expected '{"42":{"data":{"content":"stale edits…' to be '{}' // Object.is equality
+
+Expected: "{}"
+Received: "{"42":{"data":{"content":"stale edits"},"name":"Stored","editedAt":9999}}"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:324:58
+    322|
+    323|     expect(content()).toBe('saved copy');
+    324|     expect(window.localStorage.getItem('messageDrafts')).toBe('{}');
+       |                                                          ^
+    325|   });
+    326| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[27/27]⎯
+

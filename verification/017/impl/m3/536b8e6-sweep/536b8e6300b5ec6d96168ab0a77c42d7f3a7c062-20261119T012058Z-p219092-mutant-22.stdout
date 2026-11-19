@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/work-m3/20261119T012058Z-p219092/mutant-22
+
+ ❯ |dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx (6 tests | 4 failed) 66ms
+     × prompts on unload while there are unsaved changes 32ms
+     × does not prompt while an exit that loses nothing is leaving the page 8ms
+     × prompts again once the exit has had time to leave and the page is still here 7ms
+     × prompts again at once when the exit fails 10ms
+
+ Test Files  1 failed | 50 passed (51)
+      Tests  4 failed | 952 passed (956)
+   Start at  01:23:07
+   Duration  4.75s (transform 14.93s, setup 290ms, import 44.25s, tests 2.03s, environment 13.20s)
+

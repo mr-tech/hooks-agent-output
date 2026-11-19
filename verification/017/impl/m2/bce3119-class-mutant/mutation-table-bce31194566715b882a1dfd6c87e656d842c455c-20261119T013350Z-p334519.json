@@ -1,0 +1,75 @@
+{
+ "sha": "bce31194566715b882a1dfd6c87e656d842c455c",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/mutants-m2-class.json",
+ "command": [
+  "unshare",
+  "-rn",
+  "npx",
+  "vitest",
+  "run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/mutants-m2-class.json",
+   "blob": "28b876ac44700dce8f17d443b4957385cb24f4dc"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[\"src/providers/MessageProvider\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m2/bce3119-class-mutant/bce31194566715b882a1dfd6c87e656d842c455c-20261119T013350Z-p334519-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m2/bce3119-class-mutant/bce31194566715b882a1dfd6c87e656d842c455c-20261119T013350Z-p334519-control-1.stderr",
+   "seconds": 3.61,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 85,
+   "tests": [
+    "src/providers/MessageProvider"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "class-forget-consumes-when-absent",
+   "run": "mutant-1",
+   "file": "src/providers/MessageProvider/usePusher.ts",
+   "tests": [
+    "src/providers/MessageProvider"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 85,
+   "control_tests_run": 85,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.09,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m2/bce3119-class-mutant/bce31194566715b882a1dfd6c87e656d842c455c-20261119T013350Z-p334519-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m2/bce3119-class-mutant/bce31194566715b882a1dfd6c87e656d842c455c-20261119T013350Z-p334519-mutant-1.stderr"
+  }
+ ],
+ "score": "0 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-m2-class.json (blob 28b876ac44700dce8f17d443b4957385cb24f4dc))"
+}

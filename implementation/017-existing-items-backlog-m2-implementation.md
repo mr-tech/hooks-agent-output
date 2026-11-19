@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Handoff-At: ec984fe — repos=website
+Handoff-At: dd26104 — repos=website; fix round 2 (QAF-17, CR-3, CR-4, CR-5), test-only
 ---
 
 # Implementation 017 — M2: the saving tab recognises its own save (item 3)
@@ -23,6 +23,7 @@ chain branch `chain/017-existing-items-backlog`; M1 is `8147661` (`implementatio
 |---|---|---|
 | 2026-11-19T00:41 | implementer-hooks-017 | M2 built at website `1c07354`, tightened at `736c7bf`. Checkpoint taken at that seam (context past 225K): the self-check sweep, convention-check and the hand-off to code review are owed (Resumption State). |
 | 2026-11-19T01:12 | implementer-hooks-017 | Resumed. Self-check sweep run (one survivor, closed at `53c3c58`), lint introduced by M2 removed at `ec984fe`, convention-check and full suite re-run at `ec984fe`. Handed to code review at `ec984fe`; Resumption State removed. |
+| 2026-11-19T01:34 | implementer-hooks-017 | Fix round 2 on QAF-17 / CR-5 (QA's case), CR-3 (real render, `442059d`), CR-4 (disposition line), plus a class-sweep case: tests only, no production change. Handoff-At moved to `dd26104`. |
 
 ## Implementation Summary
 
@@ -56,7 +57,7 @@ M2-a, M2-b, M2-c built and green at `ec984fe`; self-check sweep and convention-c
 | `src/providers/MessageProvider/usePusher.ts` | `recordOwnSave`, `forgetOwnSave` added beside `normalizeForHash`; the hook takes the records ref and consumes a matching record before it compares to the current content |
 | `src/providers/MessageProvider/useApiMethods.ts` | `persist` records the payload when it has an id; takes the ref as its last parameter |
 | `src/providers/MessageProvider/index.tsx` | one `useRef<string[]>` passed to both hooks the way `messageRef` is; the mutation's `onError` forgets the failed payload |
-| `src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx`, `useApiMethods.json-editor-repair.test.ts` | callers pass the new ref; the second file gains two cases on `persist`'s record (id, no id) |
+| `src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx`, `useApiMethods.json-editor-repair.test.ts` | callers pass the new ref; the second file gained two cases on `persist`'s record (id, no id) at `1c07354`, moved at `442059d` to `useApiMethods.own-save-record.test.tsx` (CR-3) |
 
 ## Files Created
 
@@ -100,6 +101,9 @@ killed (1), `m2-record-not-normalized` **survived at `1c07354`** (exit 0), close
 and then killed (2 cases; `1c07354-mutants-after-tighten/`). QA's NM-2 to NM-5 are the first four.
 
 | `forgetOwnSave` removes one record, "a failed save with an identical save still in flight" | `MessageProvider.own-save-notice.test.tsx` | Yes (added at `53c3c58` after the self-check sweep's survivor) | Yes, mutant `usePusher.ts:39:num:2` (`splice(index, 2)`), survived `736c7bf`, killed `53c3c58` (`53c3c58-survivor/`) | AssertionError | Yes |
+| coupling: a foreign broadcast between this tab's save and its broadcast must not consume the save's record (QAF-17 / CR-5) | `MessageProvider.own-save-notice.test.tsx` | Yes (QA's supplied case, added at `bce3119`) | Yes, QA's mutant `qa-coupling-any-broadcast-consumes-a-record` survived `ec984fe`, killed at `bce3119` (`m2/bce3119-fix-mutants/`) | AssertionError (notice count) | Yes |
+| class member: a failure report for an already-broadcast save leaves other records alone | same | Yes (added at `dd26104`) | Yes, mutant `class-forget-consumes-when-absent` (`splice(Math.max(index, 0), 1)`) survived `bce3119` (`m2/bce3119-class-mutant/`), killed at `dd26104` (`m2/dd26104-class-mutant/`) | AssertionError | Yes |
+| `persist` record, id and no-id, now a real render (CR-3) | `useApiMethods.own-save-record.test.tsx` | moved from `useApiMethods.json-editor-repair.test.ts`, same two cases | mutant `useApiMethods.ts:74:if-false` (id guard dropped) killed at `bce3119` (`m2/bce3119-fix-mutants/`) | AssertionError | Yes |
 
 Self-check sweep (`mutant-gen.js --range 8147661..736c7bf`, 14 operator mutants over the added lines of `usePusher.ts`
 and `useApiMethods.ts`; `mutation-run.py` exports of the committed SHA, network isolated, tests: the `MessageProvider`
@@ -111,9 +115,15 @@ after `1c07354` except an import's position (`ec984fe`); their last result is th
 
 ## Class Sweep
 
-Not owed (first delivery). The survivor above is its own disposition: a gap the sweep exposed, closed by a
+First delivery: not owed; the survivor above is its own disposition: a gap the sweep exposed, closed by a
 spec-form case in the existing file, the class being "a payload whose server-parsed form differs from its raw
 form", one member (an unknown field); other members of the class (fields the shape defaults) are not claimed.
+
+Fix round 2 (QAF-17 / CR-5, a test gap, not a production defect):
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---------|---------------------|----------------------------------|--------------------------|
+| QAF-17: a foreign broadcast consumes a record it does not own. Class: a `splice` of `ownSaveRecordsRef` that is not tied to the record's own hash | `grep -rn "splice" src/providers/MessageProvider/*.ts src/providers/MessageProvider/*.tsx` (derived; the reviewer's mutant is the instrument, the grep locates) | 2 hits: `usePusher.ts:39` (`forgetOwnSave`, `if (index >= 0)`), `usePusher.ts:65` (broadcast handler, `if (ownSaveIndex >= 0)`) | `:65`: QA's case, mutant killed. `:39`: the same mutant shape (`Math.max(index, 0)`) survived; the class-member case above kills it. No other site removes records (`recordOwnSave` only pushes; `grep -rn "ownSaveRecordsRef\|recordsRef" src` outside tests, 11 lines, all pass-through, one `push`, two `splice`). Residual after the fix: 0 unkilled. |
 
 ## Test Execution Results
 
@@ -138,6 +148,15 @@ form", one member (an unknown field); other members of the class (fields the sha
   mount is the cheaper route). Status at `ec984fe`: the two cases still sit in that file, now with real types for the
   arguments (no `any`) and no lint finding of their own; the no-id case cannot move to the mount (a payload without an
   id has no channel, so the record is unobservable by a broadcast). The state stub remains the file's; decision for QA.
+- CR-4 LOW (code review round 2): M2-a lists 11 AN-1 members and `MessageProvider.own-save-notice.test.tsx` covers 10.
+  The missing one, "not valid (fails shape) / nothing changed", is unobservable at the client: the router rejects the
+  input, so nothing is broadcast; its record removal is covered by "a later save of the content of a save that failed".
+  No test is owed (the reviewer's own disposition).
+- CR-3 MEDIUM (code review round 2): `useSaveWith`'s `use` prefix hid a rules-of-hooks finding. Resolved with the
+  reviewer's preferred form: the two `persist` cases left `useApiMethods.json-editor-repair.test.ts` and are now
+  `useApiMethods.own-save-record.test.tsx`, which renders the hook for real (`createRoot`/`act`, no React stub) and reads
+  the ref; the stubbed-`useState` file is back to its M1 content and the concern of QAF-16 no longer applies to M2's cases.
+  Committed in the M3 sequence at website `442059d`.
 - QAF-15 (M1's QA): see the M1 document's correction; the instrument for M7-b is the whole-tree capture.
 
 ## Next Steps
