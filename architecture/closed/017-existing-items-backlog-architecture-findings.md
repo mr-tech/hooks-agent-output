@@ -2,8 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Active
-Status-Detail: "Reopened 17:53Z: the anchor fired. UAT-1 reopened M2 and the website tree moved past 4b8db9c (42d15de, with D-33's and D-34's round still to come). Delta read on plan revision 10 (record fad6cd4): APPROVED stands. AF-25 LOW is recommended to the planner (M2-c's instrument must run pusher-js's real decode), and AF-26 INFO records the wire form's deploy-order safety. The disconnect code is not held by this read. Open until a closing pass no later than devops Stage 1: the website delta 4b8db9c..M2's final tip read, and Runtime Flow 1b and website.md A-6 reconciled to the implemented wire form and disconnect."
+Status: Resolved
+Status-Detail: "Closing pass on plan revision 11 (record a971ed8) and the website delta 4b8db9c..7293a35 (M2's fix rounds 3 to 7): APPROVED stands, no finding. AF-25 was adopted as QA's EC-6. Runtime Flow 1b, Dependencies, Quality Attributes, Roadmap Readiness and website.md A-6 are reconciled to website 7293a35. The generator is unchanged at 8512a1d, so its reconciliation stands. Anchored to website 7293a35 and generator 8512a1d: a release tree that moves before devops's pushes needs a re-read of its delta, which is steering's to route."
 ---
 
 # Architecture Findings — Plan 017: the existing-items backlog (conformance pass)
@@ -21,6 +21,7 @@ Status-Detail: "Reopened 17:53Z: the anchor fired. UAT-1 reopened M2 and the web
 | 2026-11-19T08:44 | Closing pass, plan rev 8 (record `5e36106`; diff `6ade256..5e36106`, the Planner batch fold), briefed by steering-roadmap-hooks (`steering/backlog-2026-11-18-briefs/architect-hooks-017-closing.md`). Release trees read: website `4b8db9c`, generator `8512a1d`. His X-21 and X-22 acceptances read in `steering/017-rulings.md` block 08:41Z (`06f7f2f`). | Premises re-read and held. The delta's forms conform. M4-a's `onClick` path is a necessary deviation (AF-24 INFO). No defect, so nothing goes to the planner. Open items 1 to 4 and the master document's lag are discharged: Runtime Flow 3, Components, Data Boundaries, Dependencies, Quality Attributes, Problem Areas (two resolved, four restated, five registered), D-006, Roadmap Readiness, Recommendations 1, 4 and 6, the diagram, `website.md` A-7/A-8 and `preview-image-generator.md` A-1, A-2, P-2 and P-6. **APPROVED** stands. Closed `Resolved`. |
 | 2026-11-19T09:18 | Closing pass, plan rev 9 (record `bcc23c6`; diff `5e36106..bcc23c6`), briefed by steering-roadmap-hooks by message. The critic approved revision 9 (`5f892f5`). Release trees re-read: website `4b8db9c`, generator `8512a1d`, unchanged. | The delta is X-24 (QAF-25, `StyledLink`'s `prefetch: false` default unasserted), D-31 and D-32 (his X-22 and X-21 acceptances, already landed as accepted at `2a9db38`), RK-8's firing history, and the X-21/X-22 cells. X-24's premise holds: `mergeProps({ prefetch: false }, …)` is in `StyledLink.tsx` at both `1ad625e` and `4b8db9c`. It is a test gap, not a form, so no pattern or Problem Area moves. No finding. **APPROVED** stands; the document stays `Resolved`. |
 | 2026-11-19T17:53 | Delta read, plan rev 10 (record `fad6cd4`; diff `bcc23c6..fad6cd4`, taking in R-49 to R-51 and D-33 to D-35), on the planner's word (`planner-hooks-017`, by message). Rulings read: `steering/017-rulings.md` blocks 10:31Z, 11:06Z, 11:10Z, 17:49Z and 17:51Z. Website read at `42d15de` (`chain/017-existing-items-backlog`). | The document is reopened from `closed/`, because the anchor its `Status-Detail` named has fired. M2-c's wire form (D-33) and M2-d (D-34) were read against the producer, the consumer and both libraries at their installed versions. AF-25 LOW is recommended to the planner, and AF-26 INFO is recorded. **APPROVED** stands. Process fact: the record-write gate refused one shell command of this pass, a redirect to this session's scratchpad written as a variable path. It was re-issued with the literal scratchpad path; no record document was written through the shell. |
+| 2026-11-19T18:42 | Closing pass, plan rev 11 (record `a971ed8`; diff `fad6cd4..a971ed8`, taking in R-52 to R-55), and the website delta `4b8db9c..7293a35`, briefed by steering-roadmap-hooks by message. Plan-level QA is Complete at `7293a35,8512a1d` (`qa/017-existing-items-backlog-qa.md`, agent-output `cf69ef1`). The website was read at HEAD `7293a35`, the generator at `8512a1d`. | Revision 11 folds AF-25 as QA's EC-6 and AF-26 as no constraint; F-29, QAF-26 and SL-5 are wording. The delta's production change is `usePusher.ts` and one line of `shared.ts`, and both read as revision 10 specified. Items 6 and 7 are discharged. **APPROVED** stands. Closed `Resolved`. |
 
 ## Scope and instrument
 
@@ -191,6 +192,32 @@ AF-26 INFO — the wire form is safe in both deploy orders. Producer and consume
 
 No deploy-order constraint is owed. This is recorded for devops's release-order reading.
 
+## Closing pass (plan revision 11; website `7293a35`)
+
+The revision 11 delta folds three gates' findings and changes nothing in M2-d's requirement. AF-25 became QA's EC-6:
+real `upsertMessage`, real `pusher` 5.1.3 and pusher-js 8.3.0's `Protocol.decodeMessage`. It is 4 of 4 green at
+`60252be` and 3 of 4 red at `4b8db9c` (QA `9e212a3`), which is the form AF-25 asked for. AF-26 is recorded as no
+release-order constraint. F-29 and QAF-26 make M2-d's walk an in-app move, since a page load closes every socket
+whatever the cleanup does. That fixes the instrument, not the form.
+
+The website delta `4b8db9c..7293a35` (six commits: `8e1ccef`, `60252be` and `33e59f7` touch production code, the
+other three tests only) was read whole for production code, as the net diff:
+- `shared.ts` `upsertMessage` triggers `message-update` with `JSON.stringify(hashMessage(message))`.
+- `usePusher.ts` binds with `hash: unknown`, matches a record by `record === hash`, and raises the notice when no
+  record matched and `hash !== shownHash`.
+- The effect's cleanup adds `pusher.disconnect()` after `unbind` and `unsubscribe`.
+
+Each is the form revision 10 wrote and the delta read approved. With `unknown` and strict equality, a payload that is
+not the exact string falls to the notice, never to suppression, as AF-26 argued. No other production file moved
+(`git diff --stat 4b8db9c 7293a35`). The generator is not in this round.
+
+Reconciled from `7293a35`: Runtime Flow 1b (the wire form, the strict compare, the per-effect instance and its
+disconnect); Dependencies (both Pusher versions, and EC-6 as the contract's guard); Quality Attributes (1853 of 1853
+in 144 files, exit 0, typecheck exit 0); the ESLint row (M7-b at `7293a35`, 60 files); Roadmap Readiness. Lines on
+surfaces the delta did not touch now name `7293a35` as the release tree. `website.md` A-6 records the own-save hash
+taken in `persist` and the encoding sentence in its consequence. `preview-image-generator.md` P-6 names the release
+trees. The diagram is unchanged.
+
 ## Alternative recorded
 
 ### AF-8 INFO — a stable-key design would remove the commit protocol, the deletion transfer and OQ-7
@@ -242,7 +269,8 @@ meaning of 204), and A-1 is extended by section [7]'s two lines.
 **APPROVED** at plan revision 2 (record `3d678cc`), and it stands at revisions 3 (record `b3d811e`) and 4 (record `a97628d`), with no finding open on revision 4. It stands at revision 6 (record `21e61eb`) and revision 7 (record `6ade256`), with no finding open.
 It stands at revision 8 (record `5e36106`), read by the closing pass, with no finding open (AF-24 INFO, accepted),
 and at revision 9 (record `bcc23c6`), whose delta is X-24 alone in substance, with no finding. It stands at revision 10
-(record `fad6cd4`), with AF-25 LOW recommended and AF-26 INFO.
+(record `fad6cd4`), with AF-25 LOW recommended and AF-26 INFO, and at revision 11 (record `a971ed8`) over the
+website release tree `7293a35`, with no finding.
 
 ## Open items — all discharged at the closing pass
 
@@ -259,7 +287,10 @@ Condition carried in the `Status-Detail`: this reconciliation is anchored to web
 `8512a1d`. If UAT or devops moves either release tree, the delta is read once more before release. Steering routes
 that read, which is the only party that sees the tree move.
 
-## Open items (reopened 17:53Z; closing no later than devops Stage 1)
+## Open items reopened 17:53Z — discharged at the 18:42Z closing pass
+
+Item 6 is discharged by § "Closing pass (plan revision 11; website `7293a35`)". Item 7: AF-25 was adopted as QA's
+EC-6 at revision 11.
 
 6. Read the website delta from `4b8db9c` to M2's final tip once code review and QA pass it (UAT-1's fix round, D-33,
    D-34). Then reconcile from that tree: `system-architecture.md` Runtime Flow 1b (the JSON-encoded broadcast and the
@@ -271,9 +302,4 @@ that read, which is the only party that sees the tree move.
 
 ## Resumption State
 
-Written 2026-11-19T17:53Z by architect-hooks-017 at the revision 10 delta read.
-
-- **Done.** Closing passes on revisions 8 and 9 (`2a9db38`, `8cebb1c`). The delta read on revision 10 is this write.
-- **Next.** The closing pass for items 6 and 7, briefed by steering after M2's round passes code review and QA,
-  before devops Stage 1's message. Read the plan as a diff from `fad6cd4`.
-- **In flight.** None. **Uncommitted.** Nothing of this session's after this commit.
+Closed `Resolved` 2026-11-19T18:42Z by architect-hooks-017 at the closing pass on revision 11. Nothing is in flight.
