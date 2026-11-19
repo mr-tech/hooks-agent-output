@@ -1,0 +1,10 @@
+notjson status=200
+  contains 'Invalid message data': 1
+array status=200
+  contains 'Invalid message data': 1
+valid status=200
+  contains 'Invalid message data': 0
+badembeds status=200
+  contains 'Invalid message data': 1
+badcontent status=200
+  contains 'Invalid message data': 1

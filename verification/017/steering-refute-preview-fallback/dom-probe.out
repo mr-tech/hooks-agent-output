@@ -1,0 +1,6 @@
+invalid: 'Invalid message data' count=1
+<div class="dark h-screen max-w-3xl bg-primary text-default"><p class="text-sm text-error">Invalid message data.</p></div><!--$--><!--/$--><!--/$--><!--$--><!--/$--><script id="_R_">self.__next_r="kZNtmHE_u9EC69hT_blkn"</script><script src="/_next/static/chunks
+
+valid: 'Invalid message data' count=0
+<div class="dark h-screen max-w-3xl bg-primary text-default"><!--$--><!--/$--><div class="discord-visualizer discord-visualizer__en-US w-full pointer-events-none select-none transition-opacity opacity-100" data-enter="" data-transition="" style=""><div class="d
+

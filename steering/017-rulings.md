@@ -853,3 +853,24 @@ shell python script the gate did not catch; the planner read their content in th
   premise (the fallback answers 200 and the generator stores it): a `general-purpose-sonnet` helper is
   trying to refute it by execution (`verification/017/steering-refute-preview-fallback/`) before the
   question is put. X-23 rides the M4 cap (block 04:14Z) and needs no question.
+
+## 2026-11-19T08:36Z — X-22 refutation result; X-21 and X-22 put to him (plain message)
+
+Plan rows read this turn: X-21, X-22, X-23 at `planning/017-existing-items-backlog.md:1323-1325`.
+Refutation helper (`general-purpose-sonnet`, `verification/017/steering-refute-preview-fallback/`):
+(a) **confirmed by execution**: real `next dev` of website `4b8db9c` (`page.tsx` identical at `1ad625e`),
+network-isolated: `/preview` with unrenderable data (`not json`, `[1,2]`, `{"embeds":"x"}`, …) answered 200
+with "Invalid message data." (HTML and headless-Chrome DOM); `{"content":"hello"}` rendered the editor.
+(b) **not determined by execution**: the generator half (stores the 200 page, answers 204) is read from code
+only; `secret-file-gate-hook` refused the helper's `git archive` of the generator (explicit paths), not
+retried. (c) 16 save-shape-valid payloads all rendered the editor (a sample, not proof; not run through the
+Zod schema); a shape-valid message looks unable to reach the null-parse branch; the ErrorBoundary branch
+and legacy stored data are not ruled out.
+Put to him as a plain message (017 still moves without him), one `owner-wait` notice, key
+`017-exclusions-x21-x22`. X-22 options (the planner's set): (a) accept X-22 as written; (b) bring it into
+017 as a new milestone — a milestone-level scope delta, new code in both repos, every gate again after all
+milestones are QA Complete; (c) its own chain or a handoff. This thread's recommendation: (a), since the
+sample found no saveable message that reaches it, with UAT B-6 still looking. X-21 options: (a) accept X-21
+(the architecture Problem Areas row carries it); (b) fix it in 017 — moves the generator tip, re-opens code
+review, QA and security there. Recommendation: (a): only an API-key holder can reach it. The access question
+(block 08:12Z) is re-stated in the same message.

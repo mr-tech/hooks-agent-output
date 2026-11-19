@@ -1,0 +1,16 @@
+empty: invalid=0 editor=1
+emptystr: invalid=0 editor=1
+emptyembed: invalid=0 editor=1
+embedbadcolor: invalid=0 editor=1
+embedbadts: invalid=0 editor=1
+embedimg: invalid=0 editor=1
+markdown: invalid=0 editor=1
+flags: invalid=0 editor=1
+comp_text: invalid=0 editor=1
+comp_container: invalid=0 editor=1
+comp_gallery: invalid=0 editor=1
+comp_gallery_empty: invalid=0 editor=1
+comp_sep: invalid=0 editor=1
+comp_file: invalid=0 editor=1
+comp_section: invalid=0 editor=1
+comp_row: invalid=0 editor=1
