@@ -887,3 +887,11 @@ and it is his look at one message he saves himself. So no stage looks for a fall
 and B-6 covers one message, not the class X-22 leaves unmeasured. The plan's X-22 carrier cell reads the same;
 the critique records it as SL-3's third member, for the planner's registration of his answer. Corrected to
 him in this turn. The X-22 recommendation is unchanged, with this weaker carrier stated.
+
+## 2026-11-19T08:39Z — his word: prompts hold lifted (typed)
+
+His words, typed in this session: *"the hold on prompts is lifted. just send me them as you have them. do
+not ping all the other agents about this"*. Effect for this thread: owner questions go to him as selection
+prompts as they arise, not held back as plain messages. No other session is told (his words). The three
+open asks (blocks 08:12Z and 08:36Z: the website access defects and C1's intent, X-22, X-21) are put now as
+one selection prompt; the answered prompt is recorded as its own block.
