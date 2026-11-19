@@ -25,3 +25,10 @@ commit message states what the deleted text carried and where it went. **The sam
 lines about items nobody is waiting on.** If it does not need the owner to act, it is not here.
 
 ---
+
+## Chain 017 (Hooks.gg backlog items 2 to 5) — parked, waiting for your word to resume
+
+You parked it at 07:15Z on 19 Nov. Nothing moves until you say so. When you want it back, tell
+steering-roadmap-hooks "resume 017" (or respawn it with `claude --agent steering` in
+`/usr/local/bin/hooks` and say the same). Where it stopped: M5 waiting for QA, M6 waiting for code
+review, every other milestone through both checks or handed off. Do you want it resumed, and when?
