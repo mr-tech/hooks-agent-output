@@ -1,0 +1,10 @@
+repo     /usr/local/bin/hooks/preview-image-generator
+ref      prod
+target   8512a1d003af7fdbce56b85ef27218dd885becd1
+remote   origin/prod 8de2b5337179623f7fbd82904221078c2930214a
+local    prod 8de2b5337179623f7fbd82904221078c2930214a
+untracked 0 path(s) left alone
+evidence reason dry run before QA Phase 3 record exists; Phase 2 Verified-At 8512a1d (qa cf69ef1)
+checks   ff-from-remote ok; sibling serving refs (master) on one line ok
+workflows prod.yml: on push to prod → run: npm ci --omit=optional ; run: | ; run: npm run build ; run: |
+DRY RUN: every check passed; nothing moved

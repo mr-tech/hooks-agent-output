@@ -1,0 +1,7 @@
+{'type': 'github', 'org': 'hooks-gg', 'repo': 'website', 'productionBranch': 'master', 'deployHooks': []}
+productionBranch master
+nodeVersion 24.x framework nextjs
+buildCommand None installCommand git config --global url."https://${GITHUB_USER}:${GITHUB_USER_ACCESS_TOKEN}@github.com/".insteadOf "git@github.com:" && pnpm install 1> /dev/null
+maxDuration None
+protectionBypass entries 0
+gitForkProtection True autoAssignCustomDomains None

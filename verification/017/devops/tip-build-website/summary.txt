@@ -1,0 +1,3 @@
+install exit=0
+build exit=0
+api route in table: 0 (the probe route must not be here)

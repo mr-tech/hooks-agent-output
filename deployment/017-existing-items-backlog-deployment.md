@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Status-Detail: "Stage 1 complete at website 7293a35 and generator 8512a1d (chain branch chain/017-existing-items-backlog in both repositories): plan 017 and its stage documents are Committed and closed. Stage 2 (release) not started: it waits on his release approval, asked by this stage in its own session; no ref has moved and nothing is pushed."
+Status-Detail: "Stage 2, Phase 2A in progress at website 7293a35 and generator 8512a1d: packaging at the tip, rollback patch checks, dry runs, pollers and the runbook are done and recorded; the release-tip verdict (QA Phase 3) is pending, so no approval is asked yet. No ref has moved and nothing is pushed."
 ---
 
 # Deployment Record: plan 017 — the existing-items backlog (Stage 1, then Stage 2)
@@ -19,6 +19,7 @@ Status-Detail: "Stage 1 complete at website 7293a35 and generator 8512a1d (chain
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-19T19:14 | steering-roadmap-hooks → devops-hooks-017 (brief `cd16832`) | Stage 1 for plan 017 | Gates re-derived at the record (below); every pre-release register row terminal; plan at rest; release consistency checked; both trees clean of the chain's work and unmoved (website `7293a35`, generator `8512a1d`). Carrier handoff, scheduled readers B7R and B10R and their crontab lines created (smoke OK). Plan, 8 implementation, code-review, analysis, 9 QA and the UAT documents set `Committed` and moved to `closed/` (one commit each). No push, no merge. Disclosed: the stamp gate refused the carrier's first changelog row, typed ahead of the clock; re-stamped from `date -u` (a format standard satisfied). |
+| 2026-11-19T19:23 | steering-roadmap-hooks → devops-hooks-017 (message, Stage 2 go; no approval carried) | Stage 2, Phase 2A | Phase 3 requested of qa-hooks-017 (message 4cccfcec, Resumption State 1925e56). Carrier F-7 added (UAT, event trigger). Packaging built at both tips (exit 0, 0); both rollback patches apply in reverse (exit 0); both `release-move.js` dry runs pass; two read-only pollers written, stub dry-run (7 of 7) and run live once; runbook, operational block and owner step written (below). Disclosed: a `git pull` run by mistake in the record repository (nothing to pull: up-to-date; no tree moved); the first consumer search was refused by a gate and re-issued once as a listing with absolute paths aimed at statbot-v3 and statbot-api src, its true target; the release-tip build script's first run wrote its logs to a relative path and failed (re-run with absolute paths, exit 0), and the generator packaging's first run had a mis-ordered `timeout` argument (exit 127, re-run). |
 
 ## Stage 1 verification (devops.md Stage 1, steps 2 to 7)
 
@@ -96,6 +97,87 @@ Instrument: `verification/017/devops/assumptions-extract.md`, every section head
 1. **His release approval, asked by this stage in its session** (Phase 2B), after Phase 2A completes: every plan Committed (one plan), release-tip verdict recorded (`qa-hooks-017`, Phase 3, `qa-phase-3.md`; the merge result is a fast-forward in both repositories, so the tip's tree equals the Phase 2 `Verified-At` tree and the request is for the open-handoff sweep and the carried Phase 3 items above), packaging at the tip, serving-ref ordering (`release-move.js --report`: website one serving ref at origin (`master`), no pair; generator `master@87dcb41` and `prod@8de2b53`, "prod contains master"; read this turn, exit 0), the operational-text block per repository, the in-flight runbook, the owner step for the generator's runner.
 2. Order: website first, verified live (B-11: `vercel inspect` commit contained in the release); then the generator, whose deploy evidence is the host's start line after the push, read through `ssh hooks-pig`. Rollback runs the reverse way. Plan RK-6: the generator deploy stops a process that has served requests (`handoff/preview-image-generator-drain-under-load-unobserved-2026-11-08.md`).
 3. A release tree that moves before the pushes needs the architect's delta read and a QA verdict at the new tip first.
+
+## Stage 2, Phase 2A: release readiness (steering's Stage 2 go, 2026-11-19; no approval carried by it)
+
+### Release tip (steps 2a, 7)
+
+Both moves are fast-forwards of the shared branch's current remote commit, so the assembled tip is the chain tip itself and nothing is merged or rewritten. Re-read at the write (`git ls-remote origin`): website `master` `1ad625e2161b58c5f870c9db369f4056df690a03`; generator `prod` `8de2b5337179623f7fbd82904221078c2930214a`, `master` `87dcb410e8fd3e24d61ca94bcfeeecd2794921dd`. `git merge-base --is-ancestor` exit 0 for website `origin/master` to `7293a35` and generator `origin/prod` to `8512a1d`.
+
+| Repository | Release tip (chain branch) | Tree (`rev-parse <tip>^{tree}`) | Ref moved |
+|---|---|---|---|
+| website | `7293a3567f8166c6160f31fa4517674c6b19401e` | `3bc5a89ec128e92d4f8e57c9662fa50142ae808c` | `master` (Vercel production) |
+| preview-image-generator | `8512a1d003af7fdbce56b85ef27218dd885becd1` | `0dbbb74721c9243508dc436f6ced9be331a3081a` | `prod` (`prod.yml`), then `master` follows |
+
+No history was rewritten between verification and release: each Verified-At SHA is the branch head and is reachable from `chain/017-existing-items-backlog`.
+
+### Release-tip verdict (step 3)
+
+**Pending.** Requested of `qa-hooks-017` at 2026-11-19T19:16Z (message `4cccfcec`; its Resumption State is agent-output `1925e56`). The tip's tree is a Phase 2 `Verified-At` tree (the same SHAs, `qa/closed/017-existing-items-backlog-qa.md`, `cf69ef1`), so the request is for QA's step 1b (the open-handoff sweep) and the gated time-based set, plus three carried items: the fresh install against the lockfile, M7-b re-read at the tip with `--plant`, and the call-deletion set. No ref moves, and no approval is asked, before the verdict is recorded here with its SHA.
+
+### Release consistency at the tip (step 4)
+
+As at Stage 1, read at the tip: no `version` field in either `package.json`; the website's `project-utils` lock pin `749606d` equals that repository's `origin/master`; the chain's one dependency change is `@vercel/functions` `3.11.3` (website `package.json` +1, `pnpm-lock.yaml` +80, none removed); the generator's package files are untouched.
+
+**Populations re-derived (4b).** The one population the release condition rests on is the generator's callers, because the generator's contract changes (204 only after a confirmed image; deletion moves to the website): `git grep PREVIEW_IMAGE_URL` over the website at `HEAD` finds one call site, `src/server/api/utils/previewImage.ts` (plus `env.mjs` and a test helper). `project-utils/src` has no call. A search of `statbot-v3/src` and `statbot-api/src` for the variable and for the generator's host name returned no file (a listing; scope those two directories, not the whole statbot tree; one first attempt at it was not completed and was re-issued once in a form that shows its true target). The Vercel project has separate `PREVIEW_IMAGE_URL` records for Production and Preview (the M5-0 record), so a Preview deployment may call a generator that is not production's; whether it is the same host is not read. Serving refs per repository: website one (`master`), generator two (`master`, `prod`), enumerated from the repository by `release-move.js --report` (website: "one serving ref at origin (master); no pair"; generator: "prod contains master", exit 0), not from any gate's count.
+
+### Packaging integrity at the tip (step 5)
+
+Each is a build re-run in a throwaway `git archive` export of the tip (not an inference from an earlier capture), in a capped scope (`systemd-run --user --scope -p RuntimeMaxSec -p MemoryMax -p TasksMax`); exports removed at the end of this stage's run.
+
+| Repository | Command | Result | Capture |
+|---|---|---|---|
+| website `7293a35` | `pnpm install --frozen-lockfile` under pnpm 10.28.2 (the `packageManager` field; node v24.14.0 here, the project's `nodeVersion` is 24.x), then `next build` (Next.js 16.1.6) with the Production target's variable names and dummy values, no `SKIP_ENV_VALIDATION` | install exit 0; build exit 0; 10 app routes, the probe route absent | `verification/017/devops/tip-build-website/` (`install.log`, `build.log`, `summary.txt`), script `release-tip-build.sh` |
+| generator `8512a1d` | `npm ci --omit=optional`, then `npm run build` (`tsc -b && rimraf dist && cp -r build dist`), the forms the deploy workflow's run steps name; `PUPPETEER_SKIP_DOWNLOAD=1` so the install fetches no browser (no step runs one) | `npm ci` exit 0; build exit 0; `dist/` produced | `verification/017/devops/tip-build-generator/`, script `release-tip-build-generator.sh` |
+
+The lockfile change is the website's (`@vercel/functions`). The package manager on the deploy host is Vercel's: the project's install command is `pnpm install` (project JSON, read this turn: `installCommand` with the git-credential line, no `buildCommand`), and the `packageManager` field names pnpm 10.28.2, the version this box ran. Whether Vercel's build image honours that field was not read; it is **accepted as written, a named risk**. The evidence beside it is that Vercel built the M5-0 probe commit (`aca8cb3`, same dependency at the same version, a differently shaped lockfile) on this project and that the production deployment from chain A is Ready; the install under Vercel's pnpm of this tip's lockfile is first seen at the push. A failed Vercel build leaves production serving `1ad625e` (Vercel keeps the previous production deployment), so that failure is a no-deploy, not an outage (Vercel's documented behaviour, not executed here).
+
+### Workspace (step 6)
+
+Both product trees are on `chain/017-existing-items-backlog` at the tips above. The website's untracked `.playwright-mcp/` (17 paths, not the chain's) is the one exclusion a predecessor declared; `release-move.js` leaves untracked paths alone and its dry run passed with it present (`untracked 17 path(s) left alone`), so it does not affect the release mechanism. No tracked build artefact is excluded (entry facts: none under `dist`/`build`/`.next`). The generator's tree is clean. The record repository: this stage's paths are committed; `INBOX.md` holds other sessions' entries.
+
+### Execution mode (step 8)
+
+**Mode A for both moves**, run by this session once he sanctions them in this session (Phase 2B): `release-move.js` for each serving branch move, the default form for the website (it fast-forwards the shared tree's `master` to the verified tip and switches the shared tree back onto `master`, which is the one switch Phase 2C owns; the website tree is clean of tracked changes) and for the generator. The generator's runner start is the owner step `verification/017/owner-steps-generator-runner.md`.
+
+### Operational text re-derived against the mechanism (before the first ref moves)
+
+| Repository | Line | Mark | Instrument |
+|---|---|---|---|
+| website | Deploy mechanism: Vercel git integration, project `hooks-gg-website`, linked to GitHub `hooks-gg/website`, `productionBranch` `master`, no deploy hooks; no `.github/workflows` (0 tracked); a push to `master` builds a production deployment | **re-derived** | `vercel api /v9/projects/<id>` link fields (`verification/017/devops/website-deploy-mechanism.txt`); `release-move.js` dry run: "workflows none" |
+| website | Rollback: a revert commit pushed through `release-move.js` (a fast-forward; the tool refuses a non-fast-forward), or Vercel's promote of the previous production deployment `dpl_FgUy9jKLcQXGdJJZdDXu77TnBtkF` (commit `1ad625e`, the owner's console, not run) | **re-derived (patch check)**: `git apply --check -R` of `1ad625e..7293a35` (6394 diff lines, written to a file first) against the tree, exit 0 | `verification/017/devops/rollback-website.diff` |
+| website | Ordering: first, and verified live before the generator moves (plan: the new website with the old generator behaves as today; the reverse window leaks objects) | **accepted as written from the plan**, with row W5's check as the gate | plan § "Release and rollback" |
+| website | Serving refs: one (`master`) | **re-derived** | `release-move.js --report` |
+| generator | Deploy mechanism: `prod.yml` on push to `prod` runs on a self-hosted runner: `npm ci --omit=optional`, `npm run build`, then the deploy script (copy to `deployed/$ENV`, `pm2 startOrReload --update-env`, `pm2 reset`, `pm2 save`) | **re-derived for the trigger and the first two steps** (`release-move.js` workflow summary: "on push to prod → npm ci --omit=optional; npm run build"); the deploy script's steps are **accepted as written** from chain 015's record (`deployment/closed/015-bug-evaluation-fixes-deployment.md`, re-derived there from the file); the workflow's lines were not read in this stage (not completed) | `verification/017/devops/release-move-dry-generator.txt` |
+| generator | Runner: the job queues and deploys nothing while the runner is down (P-3; 24 minutes at chain 015's release) | **accepted as written** and named a risk; liveness is his to confirm before the yes, nothing is read from the host | `verification/017/owner-steps-generator-runner.md` |
+| generator | Rollback: a revert pushed to `prod` with the runner running, which is another deploy with another stop; the generator is reverted first and confirmed deployed, then the website | **re-derived (patch check)**: `git apply --check -R` of `8de2b53..8512a1d` over `src/generateImage.ts` and `src/server.ts` (106 diff lines), exit 0 | `verification/017/devops/rollback-generator.diff` |
+| generator | Serving refs: `master` `87dcb41` and `prod` `8de2b53`; "prod contains master"; after the push `prod` is ahead and `master` behind (allowed). The plan has `master` follow so that `prod` keeps containing it: row G12 | **re-derived** | `release-move.js --report` (exit 0) |
+| generator | Stop of a process that has served requests (RK-6, the drain handoff): the deploy reloads the process | **accepted as written**; the transition read is row G10 | `handoff/preview-image-generator-drain-under-load-unobserved-2026-11-08.md` |
+
+### Open disagreements with predecessor documents (step 9b)
+
+None open. One field flagged stale and not a disagreement: QA's register State column says `open` for rows UAT later executed; QA's own text names UAT's table and then this record as authoritative, and Stage 1 reconciled each row to a terminal state. Predecessor Assumption Not Checked lines this release exercises, each with the read that closes it: the Phase 3 items (above, QA's); F-1 to F-5 (the carrier handoff; production reads after the deploys). **A live session could run before the first ref moves, read-only and optional**, named to steering in this turn's message: F-1 (`show server_version` on the production database) and F-3 (the `Messages."previewImageNonce"` column type), two single read queries on his production database, for which this box has no access; neither gates the release (each shows in his B-6 look).
+
+### Runbook (one ordered artifact; completed rows are the execution record)
+
+Results are blank until run. Each gate row carries its abort criterion with the command it gates. A classifier or hook denial of any push row is reported to him, never retried. Pollers (`verification/017/devops/poll-*.sh`) are read-only, exit non-zero after three consecutive unreadable reads, and carry a read bound; their stub dry run (`poll-stub-dryrun.sh`, seven cases, exits as designed) and one live baseline read each (`poll-live-baseline-*.txt`: website exit 0 on the current production commit, generator exit 0 on the current boundary) were run before any real use.
+
+| # | Step | Command / instrument | Abort criterion | Result |
+|---|---|---|---|---|
+| 0 | Pre-go reads (done now, read-only; live value beside the prediction) | B-11 website: production deployment `dpl_FgUy9j…`, commit `1ad625e…`, READY, tip not contained (`merge-base --is-ancestor` exit 1); prediction after W3: exit 0. B-11 generator: boundary stamp `2026-11-08T22:04:51.196Z`; prediction: a later stamp after G8. B-7: failure lines 0, control 219 records (prediction: 0 now). B-10: classes all 0, liveness 76. Captures `b11-baseline-website-production.txt`, `b7-baseline-*`, `b10-baseline-*` | a read that does not match its stated baseline stops the release | Read 2026-11-19T19:08Z to 19:22Z: as stated |
+| W1 | Re-read refs and trees at write time | `git -C /usr/local/bin/hooks/website ls-remote origin master` = `1ad625e…`; `git -C … rev-parse HEAD` of both trees = the tips; `ls-remote origin prod master` (generator) = `8de2b53…`, `87dcb41…` | any ref or tree differs from this record: stop; a moved tree needs the architect's delta read and a QA verdict first | |
+| W2 | Website dry run | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 7293a3567f8166c6160f31fa4517674c6b19401e --dry-run --qa-record <the committed Phase 3 record>` | non-zero exit | |
+| W3 | **Website move** (his sanction, this session) | the same command without `--dry-run` | non-zero exit; a denial | |
+| W4 | Ledger: E-WEBSITE-PUSH | `git ls-remote origin master` equals the tip; ref, SHA and the push time into the carrier's event ledger | the remote ref is not the tip | |
+| W5 | **B-11, website: gate for the generator** | `bash verification/017/devops/poll-website-deploy.sh 7293a3567f8166c6160f31fa4517674c6b19401e 20 30`, then `npx vercel@66.2.0 inspect https://hooks.gg --scope hooks-gg` and `merge-base --is-ancestor <tip> <deployment commit>` | exit 4 (ERROR or CANCELED), 3 or 5: the generator does not move; report to him with the rollback form | |
+| W6 | First B-7 read | `bash verification/017/post-deploy/kit/b7-read.sh verification/017/devops/b7-after-website`; control above 0 | control 0 or a read exit non-zero: recorded, not a stop | |
+| G7 | Generator dry run and the runner check | `release-move.js /usr/local/bin/hooks/preview-image-generator prod 8512a1d003af7fdbce56b85ef27218dd885becd1 --dry-run --qa-record <…>`; his confirmation of the runner was part of his yes | non-zero exit | |
+| G8 | **Generator move** (his sanction, this session) | the same command without `--dry-run` | non-zero exit; a denial | |
+| G9 | **B-11, generator** | `bash verification/017/devops/poll-generator-start.sh <push ISO time> 12 60` | exit 5 (runner down, job queued): print `verification/017/owner-steps-generator-runner.md` Step A to him and wait; exit 3: stop and report | |
+| G10 | Transition read (RK-6) | `ssh hooks-pig 'bash -s' < verification/015/pig-host-read.sh` once after G9's exit 0; capture to `verification/017/devops/` | record only, no stop | |
+| G11 | Ledger: E-GENERATOR-PUSH and E-GENERATOR-START | push time and SHA; the start line's stamp | | |
+| G12 | `master` follows | `release-move.js /usr/local/bin/hooks/preview-image-generator master 8512a1d… --qa-record <…>` after G9 exits 0 (a push of a branch the workflow does not trigger on) | non-zero exit; the workflow summary lists a trigger on `master` | |
+| R | Rollback, if any abort criterion fires after a move | generator first: a revert commit through `release-move.js`, confirm deployed (G9's poller), then the website's; owner communicates (devops sends nothing) | | |
 
 ## Post-Release Status
 

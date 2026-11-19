@@ -1,0 +1,106 @@
+diff --git a/src/generateImage.ts b/src/generateImage.ts
+index c375f39..d02530f 100644
+--- a/src/generateImage.ts
++++ b/src/generateImage.ts
+@@ -1,6 +1,4 @@
+-import {
+-  DeleteObjectsCommand, ListObjectsCommand, PutObjectCommand, S3,
+-} from '@aws-sdk/client-s3';
++import { PutObjectCommand, S3 } from '@aws-sdk/client-s3';
+ 
+ import config from './config';
+ import getPool from './getPool';
+@@ -16,6 +14,14 @@ const getS3 = () => new S3({
+     secretAccessKey: config.CDN_SECRET,
+   },
+ });
++export type PreviewFailureClass = 'goto-rejected' | 'error-status' | 'screenshot' | 'put';
++
++export class PreviewFailure extends Error {
++  constructor(public failureClass: PreviewFailureClass, public original?: unknown) {
++    super(`Preview render failed: ${failureClass}`);
++  }
++}
++
+ async function generateMessagePreviewImage(browser: Browser, data: Record<string, unknown>) {
+   const page = await browser.newPage();
+ 
+@@ -25,49 +31,32 @@ async function generateMessagePreviewImage(browser: Browser, data: Record<string
+     const url = new URL(config.PREVIEW_ENDPOINT);
+     url.searchParams.append('data', JSON.stringify(data));
+ 
+-    await page.goto(url.toString(), { waitUntil: 'networkidle0' });
++    const response = await page.goto(url.toString(), { waitUntil: 'networkidle0' })
++      .catch((err) => { throw new PreviewFailure('goto-rejected', err); });
++    const status = response?.status() ?? 0;
++    if (status < 200 || status > 299) throw new PreviewFailure('error-status');
+ 
+     return await page.screenshot({
+       type: 'jpeg',
+       quality: 90,
+-    });
++    }).catch((err) => { throw new PreviewFailure('screenshot', err); });
+   } finally {
+     await page.close().catch((err) => { console.error(err); });
+   }
+ }
+ 
+-async function deleteMessagePreviewImages(messageId: string) {
+-  const s3Client = getS3();
+-  const { Contents } = await s3Client.send(new ListObjectsCommand({
+-    Bucket: config.CDN_BUCKET,
+-    Prefix: `${config.ENV === 'development' ? 'dev/' : ''}previews/${messageId}/`,
+-  }));
+-  if (Contents?.length) {
+-    await s3Client.send(new DeleteObjectsCommand({
+-      Bucket: config.CDN_BUCKET,
+-      Delete: {
+-        Objects: Contents.map(({ Key }) => ({ Key })),
+-      },
+-    }));
+-  }
+-}
+-
+ export default async (
+   messageId: string,
+   nonce: string,
+   message: Record<string, unknown>,
+ ) => {
+-  const s3Client = getS3();
+-  const [image] = await Promise.all([
+-    getPool().use((p) => generateMessagePreviewImage(p, message)),
+-    deleteMessagePreviewImages(messageId),
+-  ]);
++  const image = await getPool().use((p) => generateMessagePreviewImage(p, message));
+ 
+-  return s3Client.send(new PutObjectCommand({
++  await getS3().send(new PutObjectCommand({
+     Bucket: config.CDN_BUCKET,
+     Key: `${config.ENV === 'development' ? 'dev/' : ''}previews/${messageId}/${nonce}.jpeg`,
+     ContentType: 'image/jpeg',
+     Body: image,
+     ACL: 'public-read',
+-  }));
++  })).catch((err) => { throw new PreviewFailure('put', err); });
+ };
+diff --git a/src/server.ts b/src/server.ts
+index e52e5cd..1674127 100644
+--- a/src/server.ts
++++ b/src/server.ts
+@@ -1,7 +1,7 @@
+ import http from 'http';
+ 
+ import config from './config';
+-import generateImage from './generateImage';
++import generateImage, { PreviewFailure } from './generateImage';
+ import { checkPoolShape, getExistingPool } from './getPool';
+ 
+ import type { IncomingMessage, ServerResponse } from 'http';
+@@ -36,6 +36,7 @@ function processImage(req: IncomingMessage, res: ServerResponse) {
+       res.writeHead(204);
+       res.end();
+     }).catch((err) => {
++      if (err instanceof PreviewFailure) console.error(`preview-image-failure id=${id} class=${err.failureClass} elapsedMs=${Date.now() - start}`);
+       res.writeHead(500);
+       res.end();
+       console.error(err);
