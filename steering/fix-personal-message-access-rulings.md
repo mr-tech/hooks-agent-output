@@ -163,3 +163,25 @@ sub-entry 1b. The fixer's `Handoff-At` is `ed88e7c`. Website log: `16bf24d` (fix
 no finding is open. Spawn cue acted on: `qa-hooks-fix-personal-message-access` spawned (`tmux-agent spawn`, cwd website, effort medium as
 printed), on its brief, for QA Phase 2 at `ed88e7c`. The security brief is written for its start on QA's verdict:
 `steering/fix-personal-message-access-brief-security.md`.
+The fixer was cleared at 23:3xZ after its Checkpoint (`1921854`), on this thread's ask: it was idle at a seam with a 351K prefix, past its
+role's 325K threshold.
+
+## 2026-11-19T23:49Z — QA Phase 2 PASS at 75f1543; security spawned; delta review asked; post-deploy items
+
+Read this turn: `qa/fix-personal-message-access-qa.md` (record `0ed724b`): `Status: QA Complete`, `Verified-At: 75f1543…`. `75f1543` is
+QA's test-only commit, +34 lines in one test file (`git diff --stat`), which closes QAF-1. Its production tree equals `ed88e7c`: `git diff
+--quiet ed88e7c 75f1543 -- src ':!**/__tests__/**'`, exit 0, run by this thread. That is a test-only case QA writes to close a survivor,
+added in the chain (Standing Default). By QA's message: the suite passes 1908/1908 with exit 0 at `75f1543`; the real-database
+second-user matrix passes 21/21 at `ed88e7c`, with 6 failing at `787bec5`.
+- **Security** spawned at `75f1543`: `security-hooks-fix-personal-message-access` (`tmux-agent spawn`, cwd website, effort high as
+  printed), on its brief.
+- **Code review:** its verdict is at `ed88e7c` and the tree moved, so a delta review at `75f1543` was asked of the reviewer. The broken
+  capture path at its document's line 354 rides that message.
+- **Post-deploy items B-1 and B-2** (QA's register; this chain has no UAT, so they reach this thread as blocks). Neither gates a release
+  act. Carrier: the devops Stage 1 handoff, read by a uat-role session on the test accounts. That is his standing ruling for test accounts
+  on live hooks.gg (`steering/015-rulings.md` line 429), with screenshots untracked (his 09:01Z ruling).
+  - B-2: a signed-in `getOne` on a number beyond int8 returns 400 with the fix, 500 without.
+  - B-1: re-walk `verification/access-defects/browser-check/README.md`.
+  The devops brief names both.
+- **Release-seam residue read, one count added** (QA's Assumption Not Checked): `select count(*) from "Messages" where fk_users_id is
+  not null and fk_guilds_id is not null`. It is the same at base; this chain does not introduce it.
