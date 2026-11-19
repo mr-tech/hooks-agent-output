@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Handoff-At: 33e59f7 — repos=website; M2-d (the Pusher disconnect) and EC-6's wire cases, on top of 60252be (CR-20, code review APPROVED at f5f3346)
+Handoff-At: 24e9be7 — repos=website; fix round 6 (CR-21, test-only) on 33e59f7 (M2-d, EC-6) on 60252be (CR-20, code review APPROVED at f5f3346)
 ---
 
 # Implementation 017 — M2: the saving tab recognises its own save (item 3)
@@ -27,6 +27,7 @@ chain branch `chain/017-existing-items-backlog`; M1 is `8147661` (`implementatio
 | 2026-11-19T11:05 | implementer-hooks-017 | Fix round 3 on UAT-1 (B-1 recurred in walk 6): root cause found and fixed at website `8e1ccef`, covering case tightened at `42d15de`. A production change, so QA, code review, the architect read and UAT's re-walk of B-1 follow. Handoff-At moved to `42d15de`. See § Fix Round 3. |
 | 2026-11-19T18:20 | implementer-hooks-017 | Fix round 4 on CR-20 (code review Round 9), on his answer (`steering/017-rulings.md` block 2026-11-19T17:49Z, D-33): the producer sends the hash JSON-encoded, the handler compares strings exactly, `asDelivered` removed. Red first at `42d15de`, built and committed at website `60252be`. Handoff-At moved to `60252be`. M2-d (disconnect) held for QA's re-key. See § Fix Round 4. |
 | 2026-11-19T18:35 | implementer-hooks-017 | M2-d built on steering's word (`steering/017-rulings.md` block 2026-11-19T18:01Z; entry conditions EC-5 and EC-6 of QA's Phase 1 re-key `9e212a3`): `usePusher`'s cleanup disconnects its run's Pusher instance; the producer cases now decode the real `pusher` frame with pusher-js's own `decodeMessage`. Committed at website `33e59f7`. Handoff-At moved to `33e59f7`. See § Fix Round 5. |
+| 2026-11-19T18:50 | implementer-hooks-017 | Fix round 6 on CR-21 (code review Round 10, `cfbdb2e`): one case, two hooks mounted at once, test-only; website `24e9be7`. My disposition of `nm44` as equivalent (Fix Round 5) is withdrawn. Handoff-At moved to `24e9be7`. See § Fix Round 6. |
 
 ## Implementation Summary
 
@@ -460,10 +461,58 @@ Two gate stops this round, met by changing the work: the comment gate on a comme
 Website tip moves `60252be` to `33e59f7` (production: `usePusher.ts`, one line; tests: the five files above). This expires, at `60252be`: nothing the reviewer approved, which is the hash fix. M2's QA Phase 2 is owed on the whole of `42d15de..33e59f7`;
 QA's Assumption Not Checked (an in-app switch leaves the first socket open on the unfixed tree) is B-15's first run, QA's, before UAT executes it.
 
+## Fix Round 6 — CR-21 (`nm44` is not equivalent)
+
+Brief: code review Round 10 (`cfbdb2e`, plan R-56): REJECTED at website `33e59f7` on CR-21 MEDIUM, test-only; the production line is right. Required: one case with two hook instances live at once, the instance unmounted first not the one created last; red as an assertion under `nm44`, green at `33e59f7`.
+
+### Reconcile note (a record's correction, dated 2026-11-19T18:50)
+
+Fix Round 5 said of QA's `nm44` (disconnect the latest instance, held in a module variable, instead of this run's): "equivalent under React's effect ordering; no case can tell them apart", and its Outstanding Items line repeated it.
+That was defensible when written only for one hook instance's own runs, where a run's cleanup precedes the next run's body, so the latest instance is the run's own. I reasoned about the effect order of one instance and not about module-level state shared by instances.
+With two hook instances mounted at once (two roots), unmounting the first runs its cleanup while the module variable holds the second's instance, so the second's connection is closed and the first's is not. That is the property M2-d states ("touches no other instance"), unreachable today with one `usePusher` site but stated.
+The disposition is withdrawn. Fix Round 5's two lines stay as written above as the record of what I said.
+
+Self-diagnosis, for the retrospective: I called a surviving mutant equivalent by an argument about ordering, without a case driving the path that could separate the two forms (a second live instance). This is the same method slip as `row-warning-enabled-dropped` in the M8 document (QAF-22): an equivalence argued from the structure I had read, not from a captured case.
+
+### Change
+
+Test only. `src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx`: `Harness` takes an optional `source` ref (default the file's `messageRef`, so every earlier case is unchanged), and one case is added to the M2-d `describe`:
+"closes only the connection of the hook that unmounts when two hooks are mounted at once". Two roots, hook 1 created first (id `1`) and hook 2 created last (id `2`); the first is unmounted first: only instance 0's `disconnect` fires, once and instance 1's not at all; then the second is unmounted: instance 1's fires once and instance 0's stays at one.
+No production change. No existing test already pinned two live instances (the file's M2-d cases are one hook at a time), so this is a new case in the file the criterion's cases live in.
+
+### TDD Compliance
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| `usePusher` cleanup disconnects its own instance only, two hooks live at once (M2-d: "touches no other instance") | `usePusher.update-prompt.test.tsx` | Yes (the production line already exists; a test-only fix) | Yes: mutant `nm44-disconnect-latest-instance` at `24e9be7` fails exactly this case, `AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times` (`verification/017/m2d-fix2/24e9be7/nm44-disconnect-latest-instance.json`); green at `33e59f7`'s production line | AssertionError | Yes |
+
+Mutants (isolated exports of `git archive 24e9be7`, the same driver as Fix Round 5, `verification/017/m2d-fix2/run-mutants.py`, `24e9be7/summary.txt`, `leftover exports: 0`): control 0 of 160 failed; `nm39` 9, `nm40` 10, `nm42` 4, `nm43` 3, `nm44` **1** (the new case alone), `nm45` 3 killed. The extra (`channel.unbind()` dropped, an unchanged line) still survives; reviewer's point 3 accepts it as outside this round.
+The ordering of the two instances is the one the review asks for: the instance created last (2) is mounted last and unmounted last, so under `nm44` the first unmount closes instance 1's connection instead of instance 0's.
+
+### Class Sweep
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| CR-21. Class: a mutant I dispositioned as equivalent (or a guard as unreachable) by an argument, without a captured case driving the path. Derived by me (the finding carries the instance, not the class). | `grep -c -i "equivalent" implementation/017-existing-items-backlog-m*-implementation.md`; and for the M2 document `grep -n -i "equivalent" implementation/017-existing-items-backlog-m2-implementation.md` | per file: m1 0, m2 2, m3 8, m4 1, m5 1, m6 4, m7 0, m8 5. The M2 document's 2 hits are both `nm44` (Fix Round 5's disposition and its Outstanding Items line) | M2's 2 hits: withdrawn above, case added, mutant killed. The other milestones' 19 hits are not re-swept here: their documents' dispositions each passed code review and the milestone's QA Phase 2 (the plan's Status-Detail: the other seven milestones keep QA Complete verdicts), and the M8 document's QAF-22 row already swept the M8 tables for this class (1 hit, withdrawn and killed, "no other row"); the owner of any further sweep is the retrospective, named here. Residual in the M2 document: 0 standing equivalence claims |
+
+### Test Execution Results (fix round 6)
+
+| Command | Result |
+|---|---|
+| Full suite at `24e9be7`, network isolated | 1851 of 1851, 144 files by the reporter's `testResults`, vitest exit 0 (`m2d-fix2/green/full-suite.json`, `.exit`); 1850 + 1 |
+| `pnpm run typecheck` at `24e9be7` | exit 0, both programs (`m2d-fix2/green/typecheck.exit`) |
+| `eslint` on the test file | exit 0 (a `max-len` warning on the first form of the `Harness` line removed by an interface) |
+| `convention-check.js` | not re-run: the one test file changed, no comment, a title with no ID token by hand; the round before reported 0 FAIL on the same file |
+
+### Hand-off
+
+Website tip moves `33e59f7` to `24e9be7` (one test file). This expires: code review Round 10's REJECTED verdict is the one to re-read; QA's reading of `nm44` as an equivalent candidate in Phase 2 (my Fix Round 5 line) is superseded by the case. Return to `code-reviewer-hooks-017` for its Round 10 sub-entry.
+
 ## Outstanding Items
 
 - Fix round 3: nothing owed before hand-off. The walk of B-1 at the tip is UAT's.
 - Fix round 4: the Pusher disconnect (D-34, M2-d) is owed and held for QA Phase 1's re-key of revision 10; it will be its own round on `usePusher.ts`'s cleanup. Fix Round 3's follow-up (1), the producer-side exact fix, is done here.
+- Fix round 6: `nm44` is withdrawn as an equivalent and killed (Fix Round 6); the `channel.unbind()` survivor remains QA's to judge.
 - Fix round 5: the disconnect is built (Fix Round 5). Open: `nm44` survives as an equivalent under React's effect ordering, and dropping `channel.unbind()` survives (unchanged line) — both for QA's Phase 2 judgement. The pathname-to-id step of the mounted provider is not exercised by the member-2 case; B-15 (UAT) is its observation.
 - Nothing owed before hand-off.
 - The records are never cleared when the message id changes in a mounted provider; they are bounded by the
@@ -490,6 +539,7 @@ QA's Assumption Not Checked (an in-app switch leaves the first socket open on th
 
 ## Next Steps
 
+Fix round 6: code review Round 10 sub-entry at website `24e9be7` (range `33e59f7..24e9be7`, test-only), then as below.
 Fix round 5: code review at website `33e59f7` (range `60252be..33e59f7`, `code-reviewer-hooks-017`), then QA Phase 2 on `42d15de..33e59f7` with B-15's first run, the architect's wire read, UAT's B-1 and B-15 walks.
 Fix round 4 (approved, review `f5f3346`): code review at website `60252be` (range `42d15de..60252be`, `code-reviewer-hooks-017`, its Round 9 sub-entry; re-read M7-b at the new tip), then QA Phase 2, the architect's wire read, UAT's B-1 re-walk; the disconnect round after QA's re-key.
 
