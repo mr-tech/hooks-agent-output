@@ -1,0 +1,82 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice when an edit is typed after Save and before the broadcast arrives
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice when an edit is typed after Save and before the broadcast arrives
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:162:29
+    160|       deliver(0);
+    161|
+    162|       expect(noticeShown()).toBe(false);
+       |                             ^
+    163|     });
+    164|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for a save that carries a field the server drops, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for a save that carries a field the server drops, when an edit follows Save
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:172:29
+    170|       deliver(0);
+    171|
+    172|       expect(noticeShown()).toBe(false);
+       |                             ^
+    173|     });
+    174|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for either of two saves in flight when edits follow the second
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for either of two saves in flight when edits follow the second
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:186:29
+    184|       deliver(1);
+    185|
+    186|       expect(noticeShown()).toBe(false);
+       |                             ^
+    187|     });
+    188|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for two identical saves, their broadcasts, and an edit after the second
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:199:27
+    197|     broadcast(sentHash(1));
+    198|
+    199|     expect(noticeShown()).toBe(false);
+       |                           ^
+    200|   });
+    201|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+

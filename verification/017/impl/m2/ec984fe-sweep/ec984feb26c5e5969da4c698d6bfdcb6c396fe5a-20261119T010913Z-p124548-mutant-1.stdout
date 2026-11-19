@@ -1,0 +1,20 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/work3/20261119T010913Z-p124548/mutant-1
+
+ ❯ |node| src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts (9 tests | 1 failed) 20ms
+     × records one hash for a message that has an id 7ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (35 tests | 8 failed) 290ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 9ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 4ms
+       × raises no notice for either of two saves in flight when edits follow the second 6ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 3ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 4ms
+       × raises no notice for either of two saves in flight when edits follow the second 7ms
+     × raises no notice for two identical saves, their broadcasts, and an edit after the second 4ms
+     × raises no notice for the broadcast of an identical save still in flight when one of two failed 3ms
+
+ Test Files  2 failed | 4 passed (6)
+      Tests  9 failed | 50 passed (59)
+   Start at  01:09:17
+   Duration  1.98s (transform 715ms, setup 52ms, import 4.20s, tests 500ms, environment 2.74s)
+

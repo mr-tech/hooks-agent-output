@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/work3/20261119T010913Z-p124548/mutant-14
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx (4 tests | 4 failed) 32ms
+     × names the loss when the composer already had changes at subscription 24ms
+     × names the loss when the composer changed after the subscription was made 2ms
+     × does not name the loss when the composer has no changes 2ms
+     × does not name the loss when the composer returned to no changes after the subscription was made 3ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (35 tests | 7 failed) 234ms
+     × raises the notice when another tab saves content this tab never sent 7ms
+     × raises the notice when another tab saves while this tab has unsaved edits, naming the loss 3ms
+     × raises the notice when another tab saves a component-only edit 2ms
+     × raises the notice when another tab saves while this tab's own save is in flight 3ms
+     × raises the notice when another tab saves content this tab sent earlier and has already seen broadcast 3ms
+     × raises no notice when another tab saves what this tab already shows 3ms
+     × raises the notice for a later save of the content of a save that failed 3ms
+
+ Test Files  2 failed | 4 passed (6)
+      Tests  11 failed | 48 passed (59)
+   Start at  01:09:58
+   Duration  1.93s (transform 751ms, setup 26ms, import 4.19s, tests 428ms, environment 2.84s)
+

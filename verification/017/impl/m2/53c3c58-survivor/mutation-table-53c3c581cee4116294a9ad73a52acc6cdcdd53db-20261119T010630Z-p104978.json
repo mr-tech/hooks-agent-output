@@ -1,0 +1,83 @@
+{
+ "sha": "53c3c581cee4116294a9ad73a52acc6cdcdd53db",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/mutants-m2-survivor.json",
+ "command": [
+  "unshare",
+  "-rn",
+  "npx",
+  "vitest",
+  "run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/tmp/claude-1000/-usr-local-bin-hooks/1ac9ac0a-2ffc-413e-987e-ee1537f96eac/scratchpad/mutants-m2-survivor.json",
+   "blob": "5cdb98042ead9472e3fd094674709d13a9ce7782"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[\"src/providers/MessageProvider/__tests__\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m2/53c3c58-survivor/53c3c581cee4116294a9ad73a52acc6cdcdd53db-20261119T010630Z-p104978-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m2/53c3c58-survivor/53c3c581cee4116294a9ad73a52acc6cdcdd53db-20261119T010630Z-p104978-control-1.stderr",
+   "seconds": 3.0,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 59,
+   "tests": [
+    "src/providers/MessageProvider/__tests__"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "usePusher.ts:39:num:2",
+   "run": "mutant-1",
+   "file": "src/providers/MessageProvider/usePusher.ts",
+   "tests": [
+    "src/providers/MessageProvider/__tests__"
+   ],
+   "carried": {
+    "op": "num",
+    "line": 39,
+    "text": "if (index >= 0) recordsRef.current.splice(index, 1);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 59,
+   "control_tests_run": 59,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for the broadcast of an identical save still in flight when one of two failed"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.84,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m2/53c3c58-survivor/53c3c581cee4116294a9ad73a52acc6cdcdd53db-20261119T010630Z-p104978-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m2/53c3c58-survivor/53c3c581cee4116294a9ad73a52acc6cdcdd53db-20261119T010630Z-p104978-mutant-1.stderr"
+  }
+ ],
+ "score": "1 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-m2-survivor.json (blob 5cdb98042ead9472e3fd094674709d13a9ce7782))"
+}

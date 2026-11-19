@@ -1,0 +1,15 @@
+useApiMethods.ts:74:if-false KILLED 2.89
+usePusher.ts:39:if-false KILLED 2.92
+usePusher.ts:39:>= KILLED 2.93
+usePusher.ts:39:num KILLED 2.88
+usePusher.ts:39:num:2 SURVIVED 3.18
+usePusher.ts:65:if-false KILLED 2.94
+usePusher.ts:65:>= KILLED 2.96
+usePusher.ts:65:num KILLED 2.94
+usePusher.ts:65:num:2 KILLED 2.92
+usePusher.ts:66:if-false KILLED 3.06
+usePusher.ts:66:< KILLED 3.02
+usePusher.ts:66:num KILLED 2.89
+usePusher.ts:66:&& KILLED 2.94
+usePusher.ts:66:!== KILLED 2.91
+13 of 14 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-m2.json (blob 0e5530512035f8d451acb36dada066a915bd19fc))

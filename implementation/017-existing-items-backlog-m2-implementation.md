@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Handoff-At: 736c7bf — repos=website; built and committed, self-check sweep and convention-check owed, not yet handed to code review
+Handoff-At: ec984fe — repos=website
 ---
 
 # Implementation 017 — M2: the saving tab recognises its own save (item 3)
@@ -22,6 +22,7 @@ chain branch `chain/017-existing-items-backlog`; M1 is `8147661` (`implementatio
 | Date | Agent | Change |
 |---|---|---|
 | 2026-11-19T00:41 | implementer-hooks-017 | M2 built at website `1c07354`, tightened at `736c7bf`. Checkpoint taken at that seam (context past 225K): the self-check sweep, convention-check and the hand-off to code review are owed (Resumption State). |
+| 2026-11-19T01:15 | implementer-hooks-017 | Resumed. Self-check sweep run (one survivor, closed at `53c3c58`), lint introduced by M2 removed at `ec984fe`, convention-check and full suite re-run at `ec984fe`. Handed to code review at `ec984fe`; Resumption State removed. |
 
 ## Implementation Summary
 
@@ -35,7 +36,7 @@ Rollback: `git -C website revert 736c7bf 1c07354`.
 
 ## Milestones Completed
 
-M2-a, M2-b, M2-c built and green. Owed before hand-off: self-check sweep, convention-check, class evidence below.
+M2-a, M2-b, M2-c built and green at `ec984fe`; self-check sweep and convention-check recorded below.
 
 ## Entry Conditions
 
@@ -98,6 +99,16 @@ killed (1), `m2-own-clause-dropped` killed (5), `m2-id-guard-dropped` killed (1)
 killed (1), `m2-record-not-normalized` **survived at `1c07354`** (exit 0), closed by the case added at `736c7bf`
 and then killed (2 cases; `1c07354-mutants-after-tighten/`). QA's NM-2 to NM-5 are the first four.
 
+| `forgetOwnSave` removes one record, "a failed save with an identical save still in flight" | `MessageProvider.own-save-notice.test.tsx` | Yes (added at `53c3c58` after the self-check sweep's survivor) | Yes, mutant `usePusher.ts:39:num:2` (`splice(index, 2)`), survived `736c7bf`, killed `53c3c58` (`53c3c58-survivor/`) | AssertionError | Yes |
+
+Self-check sweep (`mutant-gen.js --range 8147661..736c7bf`, 14 operator mutants over the added lines of `usePusher.ts`
+and `useApiMethods.ts`; `mutation-run.py` exports of the committed SHA, network isolated, tests: the `MessageProvider`
+test folder; `m2/736c7bf-mutants-gen.json`, `m2/736c7bf-sweep/`): 13 of 14 killed at `736c7bf`. Survivor
+`usePusher.ts:39:num:2`: `forgetOwnSave` removing two records instead of one; no case had two identical saves with one failing.
+Disposition: a spec-form case in the existing file (row above), then 14 of 14 killed at `ec984fe` (`m2/ec984fe-sweep/`).
+The hand-made named mutants (NM-2 to NM-5 and the three `m2-*`) were not re-run at `ec984fe`: no production guard changed
+after `1c07354` except an import's position (`ec984fe`); their last result is the one above.
+
 ## Class Sweep
 
 Not owed (first delivery). The survivor above is its own disposition: a gap the sweep exposed, closed by a
@@ -109,15 +120,13 @@ form", one member (an unknown field); other members of the class (fields the sha
 | Command | Result |
 |---|---|
 | Full suite at `1c07354` (before the tightening), network isolated | 1539 of 1539, 124 files, exit 0 (`m2/vitest-m2.json`). 1505 (M1) + 32 + 2 = 1539. |
-| `pnpm run typecheck` | exit 0 (`m2/typecheck.out`) |
-| The own-save file at `736c7bf` | 34 of 34 (adds the unknown-field case in both orders) |
-
-The full suite and typecheck are to be re-run at the final tip of M2 before hand-off (Resumption State).
+| Full suite at `ec984fe` (final tip), network isolated | 1542 of 1542, 124 test files by the reporter's `testResults`, vitest exit 0 (`m2/vitest-m2-ec984fe.json`, `.exit`). 1539 + 2 (unknown-field case, both orders) + 1 (identical-save failure case) = 1542. |
+| `pnpm run typecheck` at `ec984fe` | exit 0 (`m2/typecheck-ec984fe.exit`, `.out`) |
+| `convention-check.js website --since=1ad625e` at `ec984fe` | 47 FAIL, 0 CANDIDATE, 19 SKIP (`m2/convention-check-ec984fe.out`). All 47 are eslint: 5 in `limits.import-validation.test.ts` (M1's, under D-9) and 42 in `useApiMethods.json-editor-repair.test.ts`, which linted 42 at `8147661` (`git show 8147661:<path> \| eslint --stdin`) and 42 now, so none is M2's. At `53c3c58` it was 58: M2 had added 4 (`MessageProvider.own-save-notice.test.tsx`: the Pusher mock as a class, one long object literal), 6 (the `saveWith` helper's `any`s and a hook called from a non-hook name) and 1 (`import/order` in `useApiMethods.ts`); all removed at `ec984fe`, which `eslint` reports clean for those two files. SKIPs: `.playwright-mcp/` images (held, not mine), `src/utils/index.ts` no added lines, and the id-token/basename check that the tool names as not run (it does not implement the ID-token class verbatim): unchecked, not passed; by hand the new file is `MessageProvider.own-save-notice.test.tsx`, titles carry no ID token. |
 
 ## Outstanding Items
 
-- Owed before hand-off: `mutant-gen.js --range 8147661..<tip>` in a git clone; `convention-check.js --since=1ad625e`
-  with each CANDIDATE dispositioned; full suite and typecheck at the final tip; `Handoff-At` moved to that tip.
+- Nothing owed before hand-off.
 - The records are never cleared when the message id changes in a mounted provider; they are bounded by the
   plan's residue class (1) (RK-3). Not asserted.
 - Walk B-1 (real Pusher delivery to the sender) is UAT's.
@@ -126,30 +135,11 @@ The full suite and typecheck are to be re-run at the final tip of M2 before hand
   site and cannot represent a re-render after `setPendingSaveChoice`. Neither new case reaches the dialog
   path, so they do not depend on it. Wanted: real React state (DOM harness) or the stub named here. Open;
   to be decided with QA at the M2 hand-off (moving the two cases into the `MessageProvider` file's real
-  mount is the cheaper route).
+  mount is the cheaper route). Status at `ec984fe`: the two cases still sit in that file, now with real types for the
+  arguments (no `any`) and no lint finding of their own; the no-id case cannot move to the mount (a payload without an
+  id has no channel, so the record is unobservable by a broadcast). The state stub remains the file's; decision for QA.
 - QAF-15 (M1's QA): see the M1 document's correction; the instrument for M7-b is the whole-tree capture.
 
 ## Next Steps
 
-Hand-off to code review at the final M2 tip, then M3.
-
-## Resumption State
-
-Written 2026-11-19T00:41Z at the M2 commit seam (context past 225K). Branch `chain/017-existing-items-backlog`,
-HEAD `736c7bf` (M1 `8147661`, M2 `1c07354`, tighten `736c7bf`); website tree clean apart from the held
-`.playwright-mcp/`. Record repo: M1 document and evidence committed (`2bace82`); this document and
-`verification/017/impl/m2/` are committed with the checkpoint.
-
-- Done: M1 handed to steering (spawn cue sent; steering wrote the reviewer brief `7655982`; planner fixed R-7's
-  order `9d4f3e1`). M2 code, tests, mutants.
-- Next: the M2 items under Outstanding Items, then hand M2 to `code-reviewer-hooks-017` if live (else
-  `steering-roadmap`). Then M3 (read the plan's M3 and the QA § M3 first; M3 has a user-visible surface: send
-  `steering-roadmap` only flows that hold a decision), M4. After M4: tell `steering-roadmap` that M1 to M4 are
-  through (devops starts for the OQ-7 probe push). M5/M6 wait on OQ-7 and gate M5-0. M7 last.
-- Scratch to remove at run end: `$SCRATCH/exp-m1`, `exp-m2`, `clone-m1` under
-  `/tmp/claude-1000/-usr-local-bin-hooks/4fc9969e-4c4a-48ea-8512-e0b69da51295/scratchpad/`; no process left running.
-- Messages: M1 hand-off and the R-7 ordering block to `steering-roadmap` (answered by the fix). Nothing awaited.
-- Process facts for the final report: stamp-gate refusals (two, corrected); comment-gate refused a `/* none */`
-  comment in the new test, removed (satisfied, not worked around); convention-check eslint FAILs on M1 left under
-  D-9 (disclosed in the M1 document).
-- Cache-warm wake `be5e9b57` deleted at this checkpoint; re-arm on the next briefed turn.
+Code review of M2 at `ec984fe` (`code-reviewer-hooks-017`), then M3.
