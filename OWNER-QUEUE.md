@@ -25,3 +25,19 @@ commit message states what the deleted text carried and where it went. **The sam
 lines about items nobody is waiting on.** If it does not need the owner to act, it is not here.
 
 ---
+
+## Plan 017: three looks on hooks.gg, once both releases are live
+
+These start after you approve the release in `devops-hooks-017`'s session, and devops reports the website and generator deploys live.
+Tell `steering-roadmap-hooks` what you saw for each one.
+
+1. **Preview updates (B-6).** Edit and save one of your messages, then look at its preview in the message list.
+   *Pass:* the preview shows your new edit within a minute, and opening the preview image never shows "Invalid message data."
+   *If it still shows the old one,* say so: background work after a save isn't running in production.
+2. **Update notice with two tabs (B-8).** Open one of your messages in two tabs. In tab 1, save and keep typing straight away.
+   *Pass:* tab 1 shows no "Message Update Detected", and tab 2 does. *If tab 1 shows it,* your August report still stands.
+3. **Drafts and leave warning (B-9).** Signed out, type a draft, sign in, open a saved message, then go back to new: is the
+   draft still there? With unsaved edits, click a link away from the editor: does it ask first, does Cancel keep your edits,
+   and does confirming leave the page? *Pass:* yes to every one of those questions.
+
+---
