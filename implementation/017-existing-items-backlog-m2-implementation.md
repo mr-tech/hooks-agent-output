@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Handoff-At: 24e9be7 — repos=website; fix round 6 (CR-21, test-only) on 33e59f7 (M2-d, EC-6) on 60252be (CR-20, code review APPROVED at f5f3346)
+Handoff-At: 7293a35 — repos=website; fix round 7 (QAF-27, test-only) on 24e9be7 (CR-21, test-only) on 33e59f7 (M2-d, EC-6) on 60252be (CR-20, code review APPROVED at f5f3346)
 ---
 
 # Implementation 017 — M2: the saving tab recognises its own save (item 3)
@@ -25,9 +25,10 @@ chain branch `chain/017-existing-items-backlog`; M1 is `8147661` (`implementatio
 | 2026-11-19T01:12 | implementer-hooks-017 | Resumed. Self-check sweep run (one survivor, closed at `53c3c58`), lint introduced by M2 removed at `ec984fe`, convention-check and full suite re-run at `ec984fe`. Handed to code review at `ec984fe`; Resumption State removed. |
 | 2026-11-19T01:34 | implementer-hooks-017 | Fix round 2 on QAF-17 / CR-5 (QA's case), CR-3 (real render, `442059d`), CR-4 (disposition line), plus a class-sweep case: tests only, no production change. Handoff-At moved to `dd26104`. |
 | 2026-11-19T11:05 | implementer-hooks-017 | Fix round 3 on UAT-1 (B-1 recurred in walk 6): root cause found and fixed at website `8e1ccef`, covering case tightened at `42d15de`. A production change, so QA, code review, the architect read and UAT's re-walk of B-1 follow. Handoff-At moved to `42d15de`. See § Fix Round 3. |
-| 2026-11-19T18:20 | implementer-hooks-017 | Fix round 4 on CR-20 (code review Round 9), on his answer (`steering/017-rulings.md` block 2026-11-19T17:49Z, D-33): the producer sends the hash JSON-encoded, the handler compares strings exactly, `asDelivered` removed. Red first at `42d15de`, built and committed at website `60252be`. Handoff-At moved to `60252be`. M2-d (disconnect) held for QA's re-key. See § Fix Round 4. |
-| 2026-11-19T18:35 | implementer-hooks-017 | M2-d built on steering's word (`steering/017-rulings.md` block 2026-11-19T18:01Z; entry conditions EC-5 and EC-6 of QA's Phase 1 re-key `9e212a3`): `usePusher`'s cleanup disconnects its run's Pusher instance; the producer cases now decode the real `pusher` frame with pusher-js's own `decodeMessage`. Committed at website `33e59f7`. Handoff-At moved to `33e59f7`. See § Fix Round 5. |
-| 2026-11-19T18:50 | implementer-hooks-017 | Fix round 6 on CR-21 (code review Round 10, `cfbdb2e`): one case, two hooks mounted at once, test-only; website `24e9be7`. My disposition of `nm44` as equivalent (Fix Round 5) is withdrawn. Handoff-At moved to `24e9be7`. See § Fix Round 6. |
+| 2026-11-19T17:55 | implementer-hooks-017 | Fix round 4 on CR-20 (code review Round 9), on his answer (`steering/017-rulings.md` block 2026-11-19T17:49Z, D-33): the producer sends the hash JSON-encoded, the handler compares strings exactly, `asDelivered` removed. Red first at `42d15de`, built and committed at website `60252be`. Handoff-At moved to `60252be`. M2-d (disconnect) held for QA's re-key. See § Fix Round 4. Stamp corrected on 2026-11-19T18:33 from 18:20, which was later than the commit; the time the row was written was not recorded, so it carries the commit's own time (`git log -1 --format=%cd 60252be`). |
+| 2026-11-19T18:06 | implementer-hooks-017 | M2-d built on steering's word (`steering/017-rulings.md` block 2026-11-19T18:01Z; entry conditions EC-5 and EC-6 of QA's Phase 1 re-key `9e212a3`): `usePusher`'s cleanup disconnects its run's Pusher instance; the producer cases now decode the real `pusher` frame with pusher-js's own `decodeMessage`. Committed at website `33e59f7`. Handoff-At moved to `33e59f7`. See § Fix Round 5. Stamp corrected on 2026-11-19T18:33 from 18:35 (later than the commit), to the commit's own time. |
+| 2026-11-19T18:14 | implementer-hooks-017 | Fix round 6 on CR-21 (code review Round 10, `cfbdb2e`): one case, two hooks mounted at once, test-only; website `24e9be7`. My disposition of `nm44` as equivalent (Fix Round 5) is withdrawn. Handoff-At moved to `24e9be7`. See § Fix Round 6. Stamp corrected on 2026-11-19T18:33 from 18:50 (later than the commit), to the commit's own time. |
+| 2026-11-19T18:34 | implementer-hooks-017 | Fix round 7 on QAF-27 (QA Phase 2 for M2 at `24e9be7`, MEDIUM, test-only): two cases for a payload that is not a string, website `7293a35`. Handoff-At moved to `7293a35`. See § Fix Round 7. |
 
 ## Implementation Summary
 
@@ -508,10 +509,74 @@ The ordering of the two instances is the one the review asks for: the instance c
 
 Website tip moves `33e59f7` to `24e9be7` (one test file). This expires: code review Round 10's REJECTED verdict is the one to re-read; QA's reading of `nm44` as an equivalent candidate in Phase 2 (my Fix Round 5 line) is superseded by the case. Return to `code-reviewer-hooks-017` for its Round 10 sub-entry.
 
+## Fix Round 7 — QAF-27 (a payload that is not a string)
+
+Brief: `qa-hooks-017`, 2026-11-19: M2's QA Phase 2 at website `24e9be7` is QA Failed on QAF-27 MEDIUM (record `qa/017-existing-items-backlog-m2-qa.md` § "Phase 2 on M2's fix rounds 3 to 6", agent-output `7f758aa`; plan row R-58, `686b810`). The fix is test-only.
+Finding: nothing asserts that a payload which is not a string raises the notice. Fix Round 4 and AF-26 rely on it; every consumer case hands the handler a string, so `record == hash` and `hash != shownHash` both survive.
+The remedy is QA's (`verification/017/qa-m2-r4/nonstring-payload-cases.txt`); I took it as written, the two cases verbatim.
+
+### Change
+
+Test only. `src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx`: two cases added at the end of the file's one `describe`, tightening the file that already holds the consumer's compare (it covers the surface; no sibling file):
+1. "raises the notice when a payload that is not a string arrives while this tab holds a record of a save with the same digits": save a message whose hash is digits only, edit, hand the handler the held record's hash as a number; the notice is raised. It alone kills the loose record compare.
+2. "raises the notice when a payload that is not a string arrives with the digits of the shown content's hash": the shown content's hash as a number; the notice is raised. It alone kills the loose shown compare.
+Each asserts its fixture's hash against `/^[1-9][0-9]*$/` before it delivers it, so a fixture that stops being digits-only fails there and not silently. No production change.
+
+### User-visible flows
+
+Touches no user-visible surface (tests only).
+
+### Patterns Extended
+
+| Surface | Pattern |
+|---|---|
+| Tests | the file's own helpers (`mountStored`, `edit`, `save`, `sentHash`, `remoteHash`, `noticeShown`); the handler is driven through `hoisted.handler`, as `broadcast` does, with a number in place of the string |
+
+### TDD Compliance
+
+The production compare is already exact (`60252be`), so the cases are green at the tip by construction and the red is a mutant of the production line, the form a test-only fix takes (TDD rows' "mutation stands in for red against the pre-change code": here the pre-change code is the loose compare).
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| handler: a held record compares exactly (a number whose digits equal a held record's hash string is not that record) | `MessageProvider.own-save-notice.test.tsx` | Yes (the production line already exists; a test-only fix) | Yes: mutant `nonstring-loose-record` (`record === hash` to `record == hash`) at `7293a35` fails this case alone, `AssertionError: expected false to be true` (`verification/017/nonstring-fix/7293a35/nonstring-loose-record.json`) | AssertionError | Yes |
+| handler: the shown content compares exactly (a number whose digits equal the shown hash string is not the shown content) | same | Yes (same) | Yes: mutant `nonstring-loose-shown` (`hash !== shownHash` to `hash != shownHash`) at `7293a35` fails this case alone, same assertion (`.../nonstring-loose-shown.json`) | AssertionError | Yes |
+
+TDD Gate: Test `raises the notice when a payload that is not a string arrives while this tab holds a record of a save with the same digits` fails as expected under `nonstring-loose-record`: `AssertionError: expected false to be true`. Proceeding (production unchanged; the case is the spec of the existing compare).
+TDD Gate: Test `raises the notice when a payload that is not a string arrives with the digits of the shown content's hash` fails as expected under `nonstring-loose-shown`: `AssertionError: expected false to be true`. Proceeding (production unchanged).
+
+Mutants (isolated exports of `git archive 7293a35`, one exact-once edit each, vitest over `src/providers/MessageProvider`, network isolated, process group killed at 300 s; driver `verification/017/nonstring-fix/run-mutants.py`, results `7293a35/summary.txt`, `leftover exports: 0`):
+control 0 of 117 failed; `nonstring-loose-record` 1 killed (the first case), `nonstring-loose-shown` 1 killed (the second case). QA's own runs of the same two mutants (`qa-m2-r4/nonstring-loose-{record,shown}.*`) agree.
+
+Self-check sweep: `mutant-gen.js` has nothing to mutate, the diff holds no production line (`git diff -U0 24e9be7 7293a35` over `src`: one file, the test). QA's Named mutants not re-run: no guard they name is touched by this diff.
+
+### Class Sweep
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| QAF-27. Class: a comparison in a handler of a value that arrives from outside (the Pusher payload) with no case in which the value is not the type the compare expects, so a loose compare survives. Derived by me; QA's finding carries the two compares. | `grep -n "===\|!==\|==\|!=" src/providers/MessageProvider/usePusher.ts` (production compares in the one Pusher consumer) and `grep -rn "\.bind(" src --include=*.ts --include=*.tsx --exclude-dir=__tests__` (consumers of a payload) | see Residual below | see Residual below |
+
+Residual: the handler's compares on the payload are the two QAF-27 names (`record === hash` in the `findIndex`, `hash !== shownHash`); both now have a case that a loose form fails. The only other `bind(` hit is `components/Drawer/index.tsx`, a gesture handler's `{...bind()}`, not a payload (Fix Round 4's sweep, same result). Residual 0 compares without a non-string case.
+The `ownSaveIndex < 0` and `>= 0` compares in the same function are on a number this code computes, not on the payload: not applicable.
+
+### Test Execution Results (fix round 7)
+
+| Command | Result |
+|---|---|
+| `src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx`, network isolated, at `7293a35` | 60 of 60 |
+| Full suite at `7293a35`, network isolated | 1853 of 1853, 144 files by the reporter's `testResults`, vitest exit 0 (`nonstring-fix/green/full-suite.json`, `.exit`); 1851 + 2 |
+| `pnpm run typecheck` at `7293a35` | exit 0, both programs (`nonstring-fix/green/typecheck.exit`) |
+| `eslint` on the test file | exit 0 |
+| `convention-check.js` | not re-run: one test file, no comment, titles carry no ID token by hand (the reporter's own titles above); the round before reported 0 FAIL on the file's rules |
+
+### Hand-off
+
+Website tip moves `24e9be7` to `7293a35` (one test file, +22 lines). Return to `qa-hooks-017` for QAF-27's re-check (its remedy built as given); code review's Round 10 approval concerned `24e9be7`, and this diff holds no production line.
+
 ## Outstanding Items
 
 - Fix round 3: nothing owed before hand-off. The walk of B-1 at the tip is UAT's.
 - Fix round 4: the Pusher disconnect (D-34, M2-d) is owed and held for QA Phase 1's re-key of revision 10; it will be its own round on `usePusher.ts`'s cleanup. Fix Round 3's follow-up (1), the producer-side exact fix, is done here.
+- Fix round 7: nothing owed; QAF-27 is QA's to re-check.
 - Fix round 6: `nm44` is withdrawn as an equivalent and killed (Fix Round 6); the `channel.unbind()` survivor remains QA's to judge.
 - Fix round 5: the disconnect is built (Fix Round 5). Open: `nm44` survives as an equivalent under React's effect ordering, and dropping `channel.unbind()` survives (unchanged line) — both for QA's Phase 2 judgement. The pathname-to-id step of the mounted provider is not exercised by the member-2 case; B-15 (UAT) is its observation.
 - Nothing owed before hand-off.
@@ -539,22 +604,10 @@ Website tip moves `33e59f7` to `24e9be7` (one test file). This expires: code rev
 
 ## Next Steps
 
+Fix round 7: QA Phase 2 re-check of QAF-27 at website `7293a35` (range `24e9be7..7293a35`, test-only), then UAT's B-1 and B-15 walks.
 Fix round 6: code review Round 10 sub-entry at website `24e9be7` (range `33e59f7..24e9be7`, test-only), then as below.
 Fix round 5: code review at website `33e59f7` (range `60252be..33e59f7`, `code-reviewer-hooks-017`), then QA Phase 2 on `42d15de..33e59f7` with B-15's first run, the architect's wire read, UAT's B-1 and B-15 walks.
 Fix round 4 (approved, review `f5f3346`): code review at website `60252be` (range `42d15de..60252be`, `code-reviewer-hooks-017`, its Round 9 sub-entry; re-read M7-b at the new tip), then QA Phase 2, the architect's wire read, UAT's B-1 re-walk; the disconnect round after QA's re-key.
 
 Fix round 3: code review at website `42d15de` (range `4b8db9c..42d15de`, `code-reviewer-hooks-017`), then QA Phase 2 for the fix, an architect delta read, and UAT's re-walk of B-1.
 Earlier rounds: code review of M2 at `ec984fe`, then M3 (done).
-
-## Resumption State
-
-Written 2026-11-19T19:00Z by implementer-hooks-017 at steering's checkpoint request (steering-roadmap-hooks), past the context threshold.
-
-- **Done:** every M2 round is handed over and reviewed. Fix Round 4 (CR-20, website `60252be`): code review APPROVED (review `f5f3346`). Fix Round 5 (M2-d disconnect, EC-6 wire cases, `33e59f7`): Round 10 REJECTED on CR-21. Fix Round 6 (CR-21, `24e9be7`, test-only): Round 10 sub-entry APPROVED (agent-output `4e1b43b`, plan R-57 `ce22822`). M2-d is with `qa-hooks-017`.
-- **Next for me:** nothing is owed. Expect a message from QA Phase 2 (M2 on `42d15de..24e9be7`, B-15's first run on the unfixed tree) or from steering. If QA fails a row, the round is the Fix Round pattern above: red first, class sweep table, mutants named per row, convention-check, full suite with exit code, typecheck, a new Fix Round section, `Handoff-At` moved, SHA returned to `code-reviewer-hooks-017`.
-- **Open items I hold, for QA's judgement:** dropping `channel.unbind()` (a line this chain did not change) survives the suite, because `disconnect` closes the socket the binding lives on; the pathname-to-id step of the mounted provider is not exercised by the member-2 case, B-15 (UAT) observes it; AF-25 is built (the wire file decodes with pusher-js's own `decodeMessage`).
-- **Branch and HEAD:** website `chain/017-existing-items-backlog` at `24e9be7`; agent-output `master`, last seen `ce22822`. Nothing of mine uncommitted. The website tree's modified files, if any, are other sessions'; `.playwright-mcp/` is untracked and held, not mine.
-- **Evidence run and recorded:** `verification/017/cr20-fix/` (committed `77e71db`), `m2d-fix/` (`668ae57`), `m2d-fix2/` (`b7d0a2a`). Nothing run and unrecorded. Scratchpad exports were removed (`leftover exports: 0`).
-- **Questions sent:** none pending. Last messages: to `code-reviewer-hooks-017` and `steering-roadmap-hooks` at the `24e9be7` hand-off, both answered (approved).
-- **Wake:** `593ab8a3` deleted at this checkpoint. Re-arm on the next turn.
-- **Notes for the record:** never record safeguard or security blocks in agent-output (standing owner prohibition); gate refusals are disclosed in chat only. The comment gate allows only `ALLOW` entries: a rationale lives in the test or the record, not in a source comment. Use Edit/Write for record documents; absolute paths for shell reads of the tree; rtk filters can print `N matches in 1 files` instead of lines for `grep -v` over piped output, so use the Read tool or `grep -c`.

@@ -1,0 +1,6 @@
+control exit 0 failed 0 of 117
+nonstring-loose-record exit 1 failed 1 of 117
+     a payload that is not a string arrives while this tab holds a record of a save with the same digits
+nonstring-loose-shown exit 1 failed 1 of 117
+    s the notice when a payload that is not a string arrives with the digits of the shown content's hash
+leftover exports: 0
