@@ -2,8 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Active
-Status-Detail: "AN-1, AN-2 and AN-3 answered for the planner's revision 1, each finding labelled with its provenance. G-1 resolved at 23:13Z (Fluid compute off, function timeout 60 s). G-3 resolved at 23:19Z by AN-4 (production render-plus-store p50 2197 ms, p99 3729 ms, max 26275 ms over n=16832)."
+Status: Committed
+Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 ---
 
 # Analysis 017 — the existing-items backlog: AN-1 (item 3), AN-2 (item 4), AN-3 (item 2)
@@ -17,6 +17,7 @@ Status-Detail: "AN-1, AN-2 and AN-3 answered for the planner's revision 1, each 
 | 2026-11-18T23:13 | analyst-hooks-017 | G-1 closed by one read-only `vercel api` GET of the project record, on the owner's selection "Agent: query Vercel's API (Recommended)" (`steering/selection-ledger/2026-11-18.md`, latest steering-roadmap block). Fluid compute off; function default timeout 60 s. |
 | 2026-11-18T23:14 | analyst-hooks-017 | AN-4 (G-3: production render-time distribution from the generator's out log on the host, via `ssh hooks-pig`) was requested by planner-hooks-017 by message. **Held, not started.** It is absent from the committed plan (`grep -n "AN-4"` at `bcb2e15`: no hit), and the brief excludes host acts ("Production: no host act and no hooks.gg save is part of this commission"). Put to steering-roadmap as an owner-needing item (msg `fb230ece`). G-2's preview-deployment probe: not to be run (planner). |
 | 2026-11-18T23:19 | analyst-hooks-017 | AN-4 run. Commissioned in the plan at `43129a3` (R-3); route per the steering ruling of 23:15Z and the brief amendment `6c17041`. Two read-only host reads over `ssh hooks-pig` as `claude-ro`. G-3 resolved: § AN-4. |
+| 2026-11-19T19:13 | devops-hooks-017 | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
 
 ## Value Statement and Business Objective
 
@@ -248,11 +249,4 @@ Two scripts were streamed with `ssh hooks-pig 'bash -s' < <script>` and ran as `
 
 ## Resumption State
 
-Checkpoint 2026-11-18T23:31Z, on steering-roadmap's request (prefix past threshold), before a `/clear`.
-
-- **Done:** AN-1 to AN-4, every scope plan 017 commissions (plan `43129a3` § "Analysis commissioned"). Each was delivered to `planner-hooks-017` by SendMessage. Last results commit: `b7b4d08`. G-1 and G-3 are resolved.
-- **Open gaps, none in flight:** G-2 (the `waitUntil` preview-deployment probe; the planner says do not run it, because revision 1 makes it a milestone step behind his push approval), G-4, G-5 and G-6, as the gap table states.
-- **Next:** nothing queued. Resume only on a pipeline message, which will name this section. On resume: re-arm the cache-warm wake (`cache-warm.md` step 1), then re-read the plan as the `git diff` from `43129a3`.
-- **Branch / tree:** agent-output `master`; this run's paths are committed. No website or generator tree was touched. Scratch exports (`w395`, `wa74`, `poc-after`, `vcli`, the fixtures) are deleted. The scratchpad holds only install logs and `out/` captures, all copied into the record where cited. The raw `vercel api` response was deleted uncommitted, because it carries the project's `env` array.
-- **Nothing uncommitted, nothing mutated and unrestored, no evidence unrecorded.**
-- **Questions sent:** none outstanding. The G-1 and AN-4 owner items were answered (rulings 23:08Z, 23:15Z, and the ledger).
+Closed at devops Stage 1 (2026-11-19T19:13Z); nothing resumes from this document.
