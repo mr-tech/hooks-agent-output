@@ -401,3 +401,32 @@ Premises — `general-purpose-sonnet` helper, conclusions alone (read from code,
   Node v24 V8 run per its README (JSON only; no browser or `setItem`; a lower bound by its own words).
 - X-18: today's draft key is the constant `'message'` (`useLocalStorage.ts:42`), shared by every message
   in the origin; "last writer wins, as today" holds and today is wider.
+
+## 2026-11-19T00:28Z — his four answers on revision 3, by selection; F-24's correction recorded beside them
+
+Put as one selection prompt at 00:2xZ, answered 00:26Z, all by selection (his words: none beyond the
+labels). Ledger: `steering/selection-ledger/2026-11-19.md`, block "2026-11-19T00:26Z — steering-roadmap".
+- **OQ-11 (draft cap):** "Agent: cap 20 drafts / 1 MB (Recommended)" — "At most 20 drafts and 1 MB. When
+  it's full, the least recently edited draft is dropped, silently."
+- **OQ-12 (full storage):** "Agent: fix in shared code (Recommended)" — "The shared storage code stops
+  throwing for every stored setting, and the draft store drops an old draft and retries. This fixes the
+  shared bug once, where it lives."
+- **OQ-13 (leftover images):** "Agent: sweep after each save (Recommended)" — "After each successful save,
+  delete that message's leftover images more than 120 s older than the current one. Only the latest image
+  is kept again; it costs one storage listing per save."
+- **X-18's third case:** "Agent: accept it (Recommended)" — "X-18 keeps its third case as a known limit.
+  Two tabs on one message overwrite each other's draft, as they do today."
+**Correction after the selection (critic F-24, `97b96e3`; planner revision 4 `a97628d`):** the OQ-11 (b)
+option as put — "No draft is ever dropped … once browser storage is full the newest edit isn't saved" —
+was false in both pairings with OQ-12 (with (a) a full store evicts the oldest; with (b) the write throws).
+He chose (a) on both; the (a)·(a) pair's outcome is as his chosen options state (revision 4's four-pair
+table, "(a)·(a): past 20 drafts or 1 MB, the oldest draft is evicted silently. When storage is full, the
+oldest is evicted and the write retried"), so the correction changes nothing he chose and his answers
+hold. The check that would have caught it: before putting two questions whose options interact, have
+the refuting helper state each answer pair's outcome, not each option alone.
+Also recorded: `critic-hooks-017` put its own selection to him at 00:27Z (ledger block "2026-11-19T00:27Z —
+critic-hooks-017", "Agent: approve now (Recommended)"), its role-internal ask on its verdict.
+Recipients: `planner-hooks-017` (registers), `critic-hooks-017` (told the questions were pending).
+`architect-hooks-017` briefed to read revision 4's delta as its conformance pass before implementation
+starts (steering.md, Conformance: each revision the critic reads before implementation) — the planner had
+cued it for the closing pass only.
