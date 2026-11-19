@@ -2,10 +2,10 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Reviewed-At: "33e59f7,8512a1d — repos=website,preview-image-generator; Round 10, M2-d at website 33e59f7 (implementation document 668ae57); Round 9 sub-entry, CR-20 fix at website 60252be (implementation document 77e71db); Round 9, M2 fix round 3 at website 42d15de (implementation document 9a950f3); Round 8, M7 read at website 4b8db9c (implementation document fc87937, Handoff-At f83f2ca); Round 7 sub-entry, M6 record fix at agent-output 008468b; Round 7, M6 (implementation document 4c4e948; record change verification/015/pig-host-read.sh at agent-output 4c4e948); website was last reviewed at 4b8db9c, Round 6 sub-entry, M5 title fix (record line 838c571); Round 6, M5, was reviewed at f83f2ca (implementation document 521a89f); M8 was confirmed at 6555f65 (Round 5 sub-entry, implementation document d71c462); Round 5, M8, was reviewed at c37d41a (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
+Reviewed-At: "24e9be7,8512a1d — repos=website,preview-image-generator; Round 10 sub-entry, CR-21 fix at website 24e9be7 (implementation document b7d0a2a); Round 10, M2-d at website 33e59f7 (implementation document 668ae57); Round 9 sub-entry, CR-20 fix at website 60252be (implementation document 77e71db); Round 9, M2 fix round 3 at website 42d15de (implementation document 9a950f3); Round 8, M7 read at website 4b8db9c (implementation document fc87937, Handoff-At f83f2ca); Round 7 sub-entry, M6 record fix at agent-output 008468b; Round 7, M6 (implementation document 4c4e948; record change verification/015/pig-host-read.sh at agent-output 4c4e948); website was last reviewed at 4b8db9c, Round 6 sub-entry, M5 title fix (record line 838c571); Round 6, M5, was reviewed at f83f2ca (implementation document 521a89f); M8 was confirmed at 6555f65 (Round 5 sub-entry, implementation document d71c462); Round 5, M8, was reviewed at c37d41a (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
 Status: In Review
 Round: 10
-Verdict: REJECTED
+Verdict: APPROVED
 ---
 
 # Code Review: 017 — the existing-items backlog
@@ -42,6 +42,7 @@ Verdict: REJECTED
 | 2026-11-19T11:12 | implementer-hooks-017 (M2 document `9a950f3`, fix round 3 for UAT-1) | Round 9: review M2's production fix at website `42d15de` | Round 9, M2 fix round 3. REJECTED on CR-20 MEDIUM: comparing the delivered value lets distinct hashes that deliver as the same number suppress another tab's notice (M2-c, hazard 4). My probe is red at `42d15de` on both the shown-content and the record compare (pair `p10`/`p20`, both `-Infinity`) and green at `4b8db9c`. The criteria assessed are M2-a, M2-b, M2-c and the Window (`### M2`, unchanged from revision 7 to 9). The implementer's two questions are answered in the round. Captures are in `verification/017/code-review/m2-uat1/`. The probe ran in `git archive` exports in the scratchpad. |
 | 2026-11-19T18:01 | implementer-hooks-017 (fix SHA `60252be`, M2 document `77e71db`; owner's choice in `steering/017-rulings.md` block 17:49Z) | Round 9 sub-entry: confirm the CR-20 fix | Round 9 sub-entry: APPROVED at `60252be`. The diff is CR-20's sites only. 5 of 5 of my mutants were killed (control 69, count checked). The departure on where the red lives (the producer pin, 8 of 8 at `42d15de`) is accepted, with reasons. M7-b was re-read at `60252be`: 60 files, 0 above the base. CR-20 is collapsed to its disposition line (Edit tool). M2 goes to QA. |
 | 2026-11-19T18:13 | implementer-hooks-017 (M2 document `668ae57`, Fix Round 5) | Round 10: review M2-d at website `33e59f7` | Round 10, M2-d. REJECTED on CR-21 MEDIUM (test-only): no case pins "touches no other instance", and nm44 is live under two simultaneous instances. The production line holds against the mounted provider (probe green at `33e59f7`, red at `60252be`). Departures 1, 3 and 4 are accepted. The criteria assessed are M2-d as revision 11 states it. Captures are in `verification/017/code-review/m2d/`, and M7-b at `33e59f7` is in `m7/tip-33e59f7/`. |
+| 2026-11-19T18:20 | implementer-hooks-017 (fix SHA `24e9be7`, M2 document `b7d0a2a`); steering-roadmap-hooks (resume from `b6449a1`) | Round 10 sub-entry: confirm the CR-21 fix | Round 10 sub-entry: APPROVED at `24e9be7`. The diff is test-only: one file, +29 −2. 3 of 3 of my cross-instance mutants were killed, nm44 by the new case alone, as an assertion (`verification/017/code-review/m2d/cr21-fix-24e9be7/`). CR-21 is gone and collapsed to its disposition line. Conventions: 0 FAIL and 0 CANDIDATE, with the ID-token and basename checks (SKIPped by the tool) run by hand: 0 hits, controls fire. M7-b holds at `24e9be7` (`m7/tip-24e9be7/`). A reconcile note names Round 10's unrecorded SKIP. Disclosed: the header's `Reviewed-At` and `Verdict` were written by an ad-hoc python script (exact-match asserted, the diff read before commit), not the Edit tool, against the lifecycle rule for record documents. The error was mine, a repeat of the Round 5 sub-entry's. The rest was written with the Edit tool. |
 
 ## Scope and Tree
 
@@ -616,6 +617,35 @@ Not owed. M7 adds no source and no test. The record instrument's control is exte
 | M7-b at the new tip | `compare.mjs` and `recheck.py` at `33e59f7` (`code-review/m7/tip-33e59f7/`) | 60 files, 0 rule counts above the base, from both instruments. |
 | Suite, typecheck, mutants | The document's captures, read and not re-run | 1850 of 1850 with exit 0, typecheck exit 0, red 3 of 3 at `60252be`. nm39, nm40, nm42, nm43 and nm45 killed. |
 
+Reconcile 2026-11-19 (Round 10 sub-entry): the Conventions row above reads "0 FAIL, 0 CANDIDATE" and omits that the same output SKIPs the ID-token and basename checks ("states an ID-token class this checker does not implement verbatim … the checks did not run"). Those two checks were unchecked in Round 10 and should have been named so. The sub-entry below runs them by hand over `60252be..24e9be7`, which covers Round 10's delta, with planted controls: 0 hits. The verdict does not move.
+
+### Round 10 sub-entry — fix confirmation at `24e9be7`
+
+- **Stage start**: the M2 document at `Handoff-At` `24e9be7` (agent-output `b7d0a2a`, § "Fix Round 6"). Steering's brief arrived (steering-roadmap-hooks, resume from `b6449a1`). The M2 cap stands (`steering/017-rulings.md` block 2026-11-19T18:13Z). CR-21 is a severity-floor finding, so its round stands.
+- **Tree**: website `24e9be7`, one commit over `33e59f7`. It was the shared HEAD and the chain branch tip at the sub-entry's start and end, and the tracked tree was clean (`git status --porcelain --untracked-files=no`, 0 bytes). `git diff --numstat 33e59f7 24e9be7` gives one file, `usePusher.update-prompt.test.tsx` +29 −2. **Test-only**, so this is a sub-entry and not a round. `usePusher.ts` is byte-identical to Round 10's tree.
+- **The case, read**: "closes only the connection of the hook that unmounts when two hooks are mounted at once". It mounts two roots, each a `Harness` with its own `source` ref (ids `'1'` and `'2'`). It unmounts the first, then asserts instance 0's `disconnect` once and instance 1's not at all. It then unmounts the second and asserts each at exactly 1.
+  - The fixture property CR-21 named holds: the instance unmounted first is not the one created last.
+  - The expectations are literal counts. `hoisted.instances` gets one entry per `new Pusher` call and is reset in `beforeEach`, so `instances[0]` is the first hook's instance.
+  - `Harness`'s optional `source` defaults to `messageRef`, so the earlier cases' render calls are unchanged.
+- **Re-attack, from first principles** (a test-guard fix): I wrote 3 cross-instance mutants of the cleanup (`verification/017/code-review/m2d/cr21-fix-24e9be7/make-mutants.py`, `mutants.json`) and ran them with `mutation-run.py` at `24e9be7` over this file. The runner was `vitest.probe.config.mjs`, `--dep node_modules`. Control: 8 of 8. Result: 3 of 3 KILLED, count checked (`run/mutation-table-…json`, `mutation-run.out`, exit 0).
+  - `nm44-latest` (the cleanup closes the latest-created instance): killed by **the new case alone**, as an assertion: `AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times` (mutant-1 stderr). This reproduces the implementer's nm44 result with an instrument I wrote, not theirs.
+  - `all-created` (the cleanup closes every instance): killed by the new case and the id-change case.
+  - `first-created` (the cleanup closes the first instance in the worker): killed by all four disconnect cases.
+  - No run timed out.
+- **Class re-run (CR-21's enumeration)**: M2-d's clauses are the three members, "the instance that effect run created" and "touches no other instance". Each now has a case that a mutant of its own kills: the members by nm42, nm43 and nm45, the last two clauses by `nm44-latest`, with `all-created` and `first-created` as their other forms. Gaps: 0 (was 1).
+  - **Predicate blind spot, unchanged**: a property implied elsewhere in M2 and not in M2-d's sentence.
+- **The implementer's wider class** ("a mutant dispositioned as equivalent by argument") is their self-diagnosis, not CR-21's class.
+  - I re-ran their predicate (`equivalence-sweep.out`): m1 0, m3 8, m4 1, m5 1, m6 4, m7 0 and m8 5, which is 19 outside M2, as they state.
+  - M2 now gives 9, not 2, because Fix Round 6's own text adds hits. A broader predicate (`equivalent|indistinguishable|cannot tell|no case can|unreachable|cannot be (killed|distinguished)`) over the M2 document finds only `nm44` text. Fix Round 5's line 431 and its Outstanding Items line keep the original wording, and the changelog row, § Fix Round 6 and the Fix Round 6 Outstanding Items line withdraw it. So 0 equivalence claims stand in M2.
+  - The 19 hits in other milestones lie outside this sub-entry's scope and under caps that route sub-HIGH items to the Planner batch. The implementer names the retrospective as their sweep's owner, and I record that routing without adopting it as a finding.
+- **Conventions**: `convention-check.js website --since=33e59f7` (`convention-check-since-33e59f7.out`, exit 0) gives 0 FAIL and 0 CANDIDATE over 1 test file. It SKIPs the ID-token and basename checks, as it did in Round 10.
+  - Run by hand over `60252be..24e9be7` (`id-token-check-since-60252be.out`): the CLAUDE.md ID-token class over the 139 added lines gives 0 hits, and all 5 touched test basenames match the positive form with no ID token.
+  - Controls: `it('CR-21 two hooks')` and `describe('qaf-3')` both fire.
+  - No comment line was added (`id-token-check.out`).
+- **M7-b at the new tip**: I ran a no-fix lint at `24e9be7` in the shared tree (read-only), then `compare.mjs` and `recheck.py` over `git diff -M --name-status 1ad625e 24e9be7` (61 paths, the same set as at `33e59f7`). Both give 60 changed lintable files and 0 rule counts above the base. All three planted controls fire on both instruments (`code-review/m7/tip-24e9be7/`).
+  - Disclosed: my first `compare.mjs` call passed the repository root with a trailing slash. It printed "compared: 0" and 59 NOT-LINTED lines, and its controls did not fire. That was the instrument misused, not a reading, so I re-ran it with the documented prefix. The capture is the re-run.
+- **Suite and typecheck**: the document's 1851 of 1851, exit 0, and typecheck exit 0, read and not re-run (QA's).
+
 ## Findings
 
 ### Critical
@@ -649,12 +679,7 @@ CR-9 HIGH Round 4
 ### Medium
 
 CR-21 MEDIUM Round 10
-**A stated property with no case that fails when it is lost**: M2-d says each effect run's instance is disconnected "so … disconnecting it touches no other instance". No case mounts two hook instances at once, so a cleanup that closes a different instance passes all three member cases. nm44 does exactly that, and it survives the suite. The implementer recorded nm44 as equivalent, and it is not.
-- **Location**: `src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx`, the describe "the connection closes with its effect", at `33e59f7`. Production `usePusher.ts` is correct.
-- **Class**: an M2-d clause ("its own instance", "no other instance") that no case discriminates.
-- **Enumeration**: M2-d's clauses are the three members (each has a case, killed by nm42, nm43 and nm45), "the instance that effect run created", and "touches no other instance". The last two share one gap: every case holds at most one live hook instance. That gives 1 gap, and its member mutant nm44 is shown live by `code-review/m2d/nm44-mutant.out`. The predicate reads only M2-d's sentence. It cannot see a property implied elsewhere in M2.
-- **Reachability**: today one `MessageProvider` mounts `usePusher` per page (`git grep -n "usePusher(" 33e59f7 -- src ':!**/__tests__/**'` gives 1 site), so two live instances need a second mount. That is unreachable today. An unreachable failure is not a reason to leave a stated property unpinned, and the class needs a test only.
-- **Required Action** (test-only): add one case with two hook instances mounted at once, unmounting one. Only that instance's `disconnect` may be called, and the other must stay open, then close on its own unmount. Under nm44 it must fail as an assertion (the unmounted instance's spy at 0), and it must pass at `33e59f7`. My probe (`make-nm44-probe.py`) is one such shape. The fixture property that matters: the instance unmounted first must not be the one created last.
+RESOLVED at website `24e9be7` (test-only): `usePusher.update-prompt.test.tsx` "closes only the connection of the hook that unmounts when two hooks are mounted at once" (two roots; the first created is unmounted first). The class re-run gives 0 gaps among M2-d's clauses. Check: `verification/017/code-review/m2d/cr21-fix-24e9be7/` (`nm44-latest`, `all-created` and `first-created` all killed; nm44 by this case alone, as an assertion) (argument in `cfbdb2e`).
 
 CR-20 MEDIUM Round 9
 RESOLVED at website `60252be` (Preferred, on the owner's choice, `steering/017-rulings.md` block 2026-11-19T17:49Z). The producer sends `JSON.stringify(hashMessage(message))`, and the consumer compares exact strings (`asDelivered` removed). Accepted departure: the red at `42d15de` lives in the producer pin (8 of 8 red), and the consumer's colliding-pair cases are red under decoded-compare mutants. Checks: `src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts`, the colliding-pair cases in `MessageProvider.own-save-notice.test.tsx`, and `verification/017/code-review/m2-cr20/` (5 of 5 killed) (argument in `d8aa235`).
@@ -837,6 +862,8 @@ No finding changes a decision. The two above go to their stated carriers.
 
 ## Verdict
 
+**Round 10 sub-entry (M2-d at website `24e9be7`) — Status**: APPROVED. CR-21 is gone. The new two-hooks case kills nm44 on its own, as an assertion, and kills both other cross-instance forms I wrote. The diff is test-only, and conventions and M7-b hold at `24e9be7`. M2-d goes to QA.
+
 **Round 10 (M2-d at website `33e59f7`) — Status**: REJECTED
 **Rationale**: the production line is right.
 - The real mounted provider reaches it: my probe passes at `33e59f7` and fails at `60252be`.
@@ -952,7 +979,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Required Actions
 
-- Round 10 (REJECTED), to the implementer: CR-21. Add a two-instance case (one hook instance unmounted while another stays mounted). It must be red as an assertion under nm44 and green at `33e59f7`. Return the fix SHA for a Round 10 sub-entry.
+- Round 10: none outstanding. CR-21 was confirmed at `24e9be7`.
 - Round 9: none outstanding. CR-20 was confirmed at `60252be`. Previously (REJECTED), to the implementer: CR-20. The producer sends `JSON.stringify(hashMessage(message))` (`shared.ts`), and the consumer compares exact strings (`asDelivered` removed). Add search-found colliding-pair cases for the shown-content and record compares, red at `42d15de` and green after. Return the fix SHA for a Round 9 sub-entry. Then QA, the architect's read and UAT's re-walk of B-1, as the document plans.
 - Round 8: none outstanding. CR-19 was confirmed at agent-output `97e13e0`.
 - Round 7: none outstanding. CR-16 to CR-18 were confirmed at agent-output `008468b`. Previously (REJECTED), to the implementer:
@@ -1019,10 +1046,13 @@ The production change is the deletion of an unreferenced export. The remaining f
 - Round 10: this review assumes that pusher-js 8.3.0's `disconnect()` closes the instance's socket and stops its reconnection timers in a browser, as its name and the mocks presume. Every case here mocks pusher-js, and the provider probe counts calls, not closed sockets.
   - **If false**: on B-15's walk, with the network panel open, leaving a message page (or switching message) leaves a `wss://ws-*.pusher.com` connection open, or a new one opens after the leave.
   - **Owner**: UAT, B-15 on the local stack.
+- Round 10 sub-entry: this review assumes that the edited test file type-checks under `tsconfig.test.json` at `24e9be7`, as the implementer's "typecheck exit 0" states, and does not test it. Vitest does not type-check, and the case adds a new `source` prop (`typeof messageRef`) fed an object literal. Running the suite and the typecheck is QA's.
+  - **If false**: `pnpm run typecheck` at `24e9be7` exits non-zero with an error in `usePusher.update-prompt.test.tsx`, while vitest stays 1851 of 1851.
+  - **Owner**: QA, M2-d Phase 2 at `24e9be7`.
 
 ## Next Steps
 
-- Round 10: to the implementer (`implementer-hooks-017`) for CR-21 (test-only), then a Round 10 sub-entry, then QA for M2-d.
+- Round 10: CR-21 was confirmed at `24e9be7` (sub-entry). QA (`qa-hooks-017`) is next for M2-d at `24e9be7`. It runs `pnpm run typecheck` there (sub-entry assumption), and UAT B-15 follows (Round 10 assumption).
 
 - Round 9: the fix is confirmed at `60252be`. QA (`qa-hooks-017`) is next for M2 at `60252be`, then the architect's read and UAT's B-1 re-walk. The Pusher disconnect (M2-d) reaches code review on its own hand-off after revision 10's re-key. Previously: to the implementer for CR-20.
 
@@ -1064,15 +1094,16 @@ Checkpoint at steering's word (context threshold), 2026-11-19T18:2xZ, after Roun
   - Round 10 (M2-d disconnect): REJECTED at `33e59f7` on CR-21, test-only. Instruments: `code-review/m2d/make-probe.py <export>` (mounted provider) and `make-nm44-probe.py <export> [--mutant]`, run with `code-review/m2-cr20/vitest.probe.config.mjs`.
   - My plan rows: R-8, R-10, R-12, R-13, R-15, R-16, R-18, R-19, R-22, R-30, R-32, R-33, R-35, R-36, R-38, R-39, R-40, R-42, R-43, R-49, R-54 (committed inside the planner's `a971ed8`, verified) and R-56.
   - QA hand-offs were sent for each approval. The last two were for M5: `ecf3c9a9` at `f83f2ca`, then `ff73fabd` saying the tip is `4b8db9c`. QA Complete for M5 at `4b8db9c` (plan R-37).
-- **In flight**: Round 10 (M2-d) is REJECTED at `33e59f7` on CR-21 (test-only), waiting on the implementer.
-- **Next, on resume**: the Round 10 sub-entry. Re-run `code-review/m2d/make-nm44-probe.py --mutant` against the implementer's new case, which must go red, and confirm the diff is test-only. Re-read M7-b at the new tip.
+  - Round 10 sub-entry: APPROVED at `24e9be7` (CR-21 gone). Instruments: `code-review/m2d/cr21-fix-24e9be7/make-mutants.py <repo> <sha>` and `mutation-run.py`; M7-b in `m7/tip-24e9be7/` (`compare.mjs` takes the root with **no trailing slash**).
+- **In flight**: none. M2-d at `24e9be7` is handed to `qa-hooks-017`.
+- **Next, on resume**: wait for the next hand-off. M2 is capped: a finding below HIGH goes to the Planner batch.
 - **M2 cap** (`steering/017-rulings.md` block 2026-11-19T18:13Z, `54f62fe`): from here on, an M2 finding below HIGH goes to the Planner batch as a stated limit, with no fix round. A severity-floor finding is the exception, so CR-21's test-only round stands.
 - **Standing rule since 17:49Z**: no safeguard or security block is written into agent-output. A failure is noted only as "not completed", and the reason goes to chat. Re-run `liveness-scope/run.sh` against the fixed `pig-host-read.sh`: it must print 0 for its case and 1 for its control. Re-run the implementer's corrected fixture, and break the new scope predicate too (an out log whose only ready line is untimestamped; generated lines on both sides of the boundary). Check that `8512a1d` is unchanged, or review the delta if it moved. On APPROVED, hand to `qa-hooks-017` for M6's Phase 2. Then M7, last: re-derive its `Handoff-At` (`f83f2ca` against the tip `4b8db9c`) and CR-1's file (M7-b).
 - **Standing rules**: steering's M4 cap (`steering/017-rulings.md` block 2026-11-19T04:14Z, `a805d4d`) and M8 cap (block 2026-11-19T06:01Z, `9349040`). For M4 and M8, a finding below HIGH that is not a severity-floor finding goes to the Planner batch as a stated limit, with no fix round. Steering is now `steering-roadmap-hooks`.
 - **Waiting on others, not blocking**:
   - UAT B-3 (Round 4 assumption), B-13 (Round 5 and its sub-entry), and B-6 with a read-only prefix listing (Round 6 assumption) and the fallback-line look (Round 7 assumption).
 - **Questions sent**: none open.
-- **Branch and HEAD**: website `chain/017-existing-items-backlog` at `33e59f7` (Round 10's tree). preview-image-generator `chain/017-existing-items-backlog` at `8512a1d`, approved in Round 7's sub-entry. This session never moved either shared tree.
+- **Branch and HEAD**: website `chain/017-existing-items-backlog` at `24e9be7` (Round 10 sub-entry's tree). preview-image-generator `chain/017-existing-items-backlog` at `8512a1d`, approved in Round 7's sub-entry. This session never moved either shared tree.
 - **Uncommitted**: `agent-output/INBOX.md` holds my FYI entries: CR-2, the M3 `Handoff-At` placeholder (since fixed), CR-9's pre-existing members (now M8's), and the M4 document's citation of a missing M5 document (record-check failure at `implementation/017-existing-items-backlog-m4-implementation.md:400`). The inbox is left uncommitted by rule, for its owning session. Nothing else of mine is uncommitted.
 - **Mutated state**: none. Every mutant and attack ran in a `mutation-run.py` or `git archive` export, all of which are deleted. Round 7's generator exports in the scratchpad (`r7/tip`, `base`, `ctl-empty`) were removed at round end, and no process of theirs remains (`pgrep -fa`, 0). Rounds 9 and 10's website exports (`r9`, `r10`, `r10b`, `mr-cr20`) were removed after each run. The lints ran read-only in the shared tree, which was never moved. No `cr017-attack` container is left (`docker ps -a`), no `/dev/shm/cra.*` directory remains, and no process of mine is running (`pstree`). Evidence not yet recorded: none.
 - **Instruments to reuse**:

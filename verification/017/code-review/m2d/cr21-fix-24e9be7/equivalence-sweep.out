@@ -1,0 +1,20 @@
+# grep -c -i equivalent per M-document (implementer predicate)
+implementation/017-existing-items-backlog-m5-implementation.md:1
+implementation/017-existing-items-backlog-m8-implementation.md:5
+implementation/017-existing-items-backlog-m7-implementation.md:0
+implementation/017-existing-items-backlog-m3-implementation.md:8
+implementation/017-existing-items-backlog-m6-implementation.md:4
+implementation/017-existing-items-backlog-m2-implementation.md:9
+implementation/017-existing-items-backlog-m1-implementation.md:0
+implementation/017-existing-items-backlog-m4-implementation.md:1
+# broader predicate over M2 document: equivalent|indistinguishable|cannot tell|no case can|unreachable|cannot be (killed|distinguished)
+30:| 2026-11-19T18:50 | implementer-hooks-017 | Fix round 6 on CR-21 (code review Round 10, `cfbdb2e`): one case, two hooks mounted at once, test-only; website `24e9be7`. My disposition of `nm44` as equivalent (Fix Round 5) is withdrawn. Handoff-At moved to `24e9be7`. See § Fix Round 6. |
+431:  so at cleanup time the latest instance is that run's own; the two forms never differ in an order React produces. Disposition: equivalent under React's effect ordering; no case can tell them apart
+464:## Fix Round 6 — CR-21 (`nm44` is not equivalent)
+470:Fix Round 5 said of QA's `nm44` (disconnect the latest instance, held in a module variable, instead of this run's): "equivalent under React's effect ordering; no case can tell them apart", and its Outstanding Items line repeated it.
+472:With two hook instances mounted at once (two roots), unmounting the first runs its cleanup while the module variable holds the second's instance, so the second's connection is closed and the first's is not. That is the property M2-d states ("touches no other instance"), unreachable today with one `usePusher` site but stated.
+475:Self-diagnosis, for the retrospective: I called a surviving mutant equivalent by an argument about ordering, without a case driving the path that could separate the two forms (a second live instance). This is the same method slip as `row-warning-enabled-dropped` in the M8 document (QAF-22): an equivalence argued from the structure I had read, not from a captured case.
+496:| CR-21. Class: a mutant I dispositioned as equivalent (or a guard as unreachable) by an argument, without a captured case driving the path. Derived by me (the finding carries the instance, not the class). | `grep -c -i "equivalent" implementation/017-existing-items-backlog-m*-implementation.md`; and for the M2 document `grep -n -i "equivalent" implementation/017-existing-items-backlog-m2-implementation.md` | per file: m1 0, m2 2, m3 8, m4 1, m5 1, m6 4, m7 0, m8 5. The M2 document's 2 hits are both `nm44` (Fix Round 5's disposition and its Outstanding Items line) | M2's 2 hits: withdrawn above, case added, mutant killed. The other milestones' 19 hits are not re-swept here: their documents' dispositions each passed code review and the milestone's QA Phase 2 (the plan's Status-Detail: the other seven milestones keep QA Complete verdicts), and the M8 document's QAF-22 row already swept the M8 tables for this class (1 hit, withdrawn and killed, "no other row"); the owner of any further sweep is the retrospective, named here. Residual in the M2 document: 0 standing equivalence claims |
+509:Website tip moves `33e59f7` to `24e9be7` (one test file). This expires: code review Round 10's REJECTED verdict is the one to re-read; QA's reading of `nm44` as an equivalent candidate in Phase 2 (my Fix Round 5 line) is superseded by the case. Return to `code-reviewer-hooks-017` for its Round 10 sub-entry.
+515:- Fix round 6: `nm44` is withdrawn as an equivalent and killed (Fix Round 6); the `channel.unbind()` survivor remains QA's to judge.
+516:- Fix round 5: the disconnect is built (Fix Round 5). Open: `nm44` survives as an equivalent under React's effect ordering, and dropping `channel.unbind()` survives (unchanged line) — both for QA's Phase 2 judgement. The pathname-to-id step of the mounted provider is not exercised by the member-2 case; B-15 (UAT) is its observation.

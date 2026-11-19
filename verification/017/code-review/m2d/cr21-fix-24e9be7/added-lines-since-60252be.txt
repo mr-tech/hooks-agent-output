@@ -1,0 +1,139 @@
++++ b/src/app/message/__tests__/layout.navigation-guard.test.tsx
++      disconnect: () => undefined,
++++ b/src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx
++      disconnect: () => undefined,
++++ b/src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx
++      disconnect: () => undefined,
++++ b/src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx
++  instances: [] as { disconnect: ReturnType<typeof vi.fn> }[],
++    const instance = {
++      disconnect: vi.fn(),
++    hoisted.instances.push(instance);
++    return instance;
++const messageRef: { current: Record<string, unknown> } = { current: {} };
++interface HarnessProps { hasChanged: boolean, source?: typeof messageRef }
++
++const Harness: FC<HarnessProps> = ({ hasChanged, source = messageRef }) => {
++  usePusher(source as never, () => {}, hasChanged, { current: [] });
++  hoisted.instances.length = 0;
++  messageRef.current = { id: '1', name: 'n', data: { content: 'x' } };
++function unmountNow() {
++  const target = root;
++  if (target) act(() => { target.unmount(); });
++  container?.remove();
++  root = null;
++  container = null;
++}
++
++
++describe('usePusher — the connection closes with its effect', () => {
++  it('keeps the connection open while mounted and closes it once when unmounted', () => {
++    renderWith(false);
++
++    expect(hoisted.instances).toHaveLength(1);
++    expect(hoisted.instances[0].disconnect).not.toHaveBeenCalled();
++
++    unmountNow();
++
++    expect(hoisted.instances[0].disconnect).toHaveBeenCalledTimes(1);
++  });
++
++  it('closes the connection of the message it leaves and keeps the one it opens when the message id changes', () => {
++    renderWith(false);
++
++    messageRef.current = { id: '2', name: 'n', data: { content: 'x' } };
++    renderWith(false);
++
++    expect(hoisted.instances).toHaveLength(2);
++    expect(hoisted.instances[0].disconnect).toHaveBeenCalledTimes(1);
++    expect(hoisted.instances[1].disconnect).not.toHaveBeenCalled();
++
++    unmountNow();
++
++    expect(hoisted.instances[0].disconnect).toHaveBeenCalledTimes(1);
++    expect(hoisted.instances[1].disconnect).toHaveBeenCalledTimes(1);
++  });
++
++  it('closes the connection and opens none when the message stops being an API message', () => {
++    renderWith(false);
++
++    messageRef.current = { name: 'n', data: { content: 'x' } };
++    renderWith(false);
++
++    expect(hoisted.instances).toHaveLength(1);
++    expect(hoisted.instances[0].disconnect).toHaveBeenCalledTimes(1);
++  });
++
++  it('closes only the connection of the hook that unmounts when two hooks are mounted at once', () => {
++    const mountAnother = (id: string) => {
++      const host = document.createElement('div');
++      document.body.appendChild(host);
++      const mounted = createRoot(host);
++      const source = { current: { id, name: 'n', data: { content: 'x' } } };
++      act(() => { mounted.render(<Harness hasChanged={false} source={source} />); });
++      return () => { act(() => { mounted.unmount(); }); host.remove(); };
++    };
++    const unmountFirst = mountAnother('1');
++    const unmountSecond = mountAnother('2');
++
++    expect(hoisted.instances).toHaveLength(2);
++
++    unmountFirst();
++
++    expect(hoisted.instances[0].disconnect).toHaveBeenCalledTimes(1);
++    expect(hoisted.instances[1].disconnect).not.toHaveBeenCalled();
++
++    unmountSecond();
++
++    expect(hoisted.instances[0].disconnect).toHaveBeenCalledTimes(1);
++    expect(hoisted.instances[1].disconnect).toHaveBeenCalledTimes(1);
++  });
++});
++++ b/src/providers/MessageProvider/usePusher.ts
++      pusher.disconnect();
++++ b/src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts
++import Pusher from 'pusher';
++  afterEach, beforeEach, describe, expect, it, vi,
++const hoisted = vi.hoisted(() => ({ db: undefined as unknown }));
++  env: new Proxy({}, { get: (_, key) => (String(key) === 'PUSHER_APP_ID' ? '1' : `test-${String(key)}`) }),
++interface PostedEvent { path: string, body: { name: string, channels: string[], data: unknown } }
++
++const posted: PostedEvent[] = [];
++
++beforeEach(() => {
++  posted.length = 0;
++  vi.spyOn(Pusher.prototype, 'post').mockImplementation(((options: PostedEvent) => {
++    posted.push(options);
++    return Promise.resolve({ status: 200 });
++  }) as never);
++  vi.stubGlobal('fetch', vi.fn(() => new Promise<never>(() => { void 0; })));
++afterEach(() => {
++  vi.restoreAllMocks();
++  vi.unstubAllGlobals();
++});
++
++interface SubscriberEvent { event: string, channel: string, data: unknown }
++interface SubscriberProtocol { decodeMessage: (event: MessageEvent) => SubscriberEvent }
++const PROTOCOL_MODULE = 'pusher-js/src/core/connection/protocol/protocol';
++async function receivedBySubscriber(content: string) {
++  const { default: Protocol } = await import(PROTOCOL_MODULE) as { default: SubscriberProtocol };
++  posted.length = 0;
++  expect(posted).toHaveLength(1);
++  const { body } = posted[0];
++  const frame = JSON.stringify({ event: body.name, channel: body.channels[0], data: body.data });
++  return Protocol.decodeMessage({ data: frame } as MessageEvent);
++describe('the update broadcast of a saved message, as a subscriber decodes it', () => {
++  it('arrives once, on the message\'s channel, as a message-update event', async () => {
++    const event = await receivedBySubscriber('p0');
++    expect(event.event).toBe('message-update');
++    expect(event.channel).toBe('message-update-42');
++    ['letters and digits', 'p0', '2cf29ca1'],
++    ['digits only', 'p29', '10942554'],
++    ['a minus sign and digits only', 'p44', '-47974433'],
++  ])('carries the exact hash string of the saved message when the hash has %s', async (_shape, content, hash) => {
++    const { data } = await receivedBySubscriber(content);
++    expect(typeof data).toBe('string');
++    expect(data).toBe(hash);
++    const a = (await receivedBySubscriber(contentA)).data;
++    const b = (await receivedBySubscriber(contentB)).data;
++    expect(posted).toHaveLength(0);

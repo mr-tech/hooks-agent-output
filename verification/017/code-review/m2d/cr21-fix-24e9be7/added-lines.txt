@@ -1,0 +1,30 @@
++++ b/src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx
++interface HarnessProps { hasChanged: boolean, source?: typeof messageRef }
++
++const Harness: FC<HarnessProps> = ({ hasChanged, source = messageRef }) => {
++  usePusher(source as never, () => {}, hasChanged, { current: [] });
++
++  it('closes only the connection of the hook that unmounts when two hooks are mounted at once', () => {
++    const mountAnother = (id: string) => {
++      const host = document.createElement('div');
++      document.body.appendChild(host);
++      const mounted = createRoot(host);
++      const source = { current: { id, name: 'n', data: { content: 'x' } } };
++      act(() => { mounted.render(<Harness hasChanged={false} source={source} />); });
++      return () => { act(() => { mounted.unmount(); }); host.remove(); };
++    };
++    const unmountFirst = mountAnother('1');
++    const unmountSecond = mountAnother('2');
++
++    expect(hoisted.instances).toHaveLength(2);
++
++    unmountFirst();
++
++    expect(hoisted.instances[0].disconnect).toHaveBeenCalledTimes(1);
++    expect(hoisted.instances[1].disconnect).not.toHaveBeenCalled();
++
++    unmountSecond();
++
++    expect(hoisted.instances[0].disconnect).toHaveBeenCalledTimes(1);
++    expect(hoisted.instances[1].disconnect).toHaveBeenCalledTimes(1);
++  });

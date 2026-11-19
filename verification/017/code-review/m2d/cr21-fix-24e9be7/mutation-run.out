@@ -1,0 +1,4 @@
+nm44-latest KILLED 2.3
+all-created KILLED 2.44
+first-created KILLED 2.24
+3 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob 85916dd1fa01aad68313c4f694fd9b97bef15787))

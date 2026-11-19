@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/eded5a52-a0f4-44e6-82d8-56dbcd3e0493/scratchpad/mr-cr21/20261119T181707Z-p1599670/mutant-1
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx (8 tests | 1 failed) 29ms
+     × closes only the connection of the hook that unmounts when two hooks are mounted at once 4ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 passed (8)
+   Start at  18:17:10
+   Duration  1.40s (transform 131ms, setup 20ms, import 547ms, tests 29ms, environment 659ms)
+

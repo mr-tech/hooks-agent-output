@@ -1,0 +1,37 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx > usePusher — the connection closes with its effect > closes the connection of the message it leaves and keeps the one it opens when the message id changes
+AssertionError: expected "vi.fn()" to be called 1 times, but got 2 times
+ ❯ src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx:142:45
+    140|     unmountNow();
+    141|
+    142|     expect(hoisted.instances[0].disconnect).toHaveBeenCalledTimes(1);
+       |                                             ^
+    143|     expect(hoisted.instances[1].disconnect).toHaveBeenCalledTimes(1);
+    144|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx > usePusher — the connection closes with its effect > closes only the connection of the hook that unmounts when two hooks are mounted at once
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array []
+
+
+Number of calls: 1
+
+ ❯ src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx:173:49
+    171|
+    172|     expect(hoisted.instances[0].disconnect).toHaveBeenCalledTimes(1);
+    173|     expect(hoisted.instances[1].disconnect).not.toHaveBeenCalled();
+       |                                                 ^
+    174|
+    175|     unmountSecond();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
