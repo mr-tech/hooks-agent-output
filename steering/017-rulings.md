@@ -1057,3 +1057,26 @@ of `42d15de` is superseded under 1(a)), and `uat-hooks-017` (the re-walk's scope
   regression of M2-c: its probe is red at `42d15de` and green at `4b8db9c`. Its remedy is item 1(a)'s. The reviewer sent CR-20 to the implementer, and this thread held the implementer from any
   code change until his answer, since the remedy touches `shared.ts` outside M2's surfaces, which the planner calls a scope delta. With this verdict, 1(b) means changing M2-c so that
   code which fails it passes.
+
+## 2026-11-19T17:49Z — his three answers: exact hash fix, Pusher disconnect in 017, block rule forward only (selection)
+
+Re-put as one selection prompt at 17:4xZ, after `steering-coordinator` reported blocking prompts back on (flag
+`~/.claude/state/prompt-gate-off` absent, `ls`, 17:45Z). The questions were asked in plain text at 11:10Z and 10:31Z and
+re-stated at 16:4xZ. Answered 17:49Z, all by selection; his words are the labels, the option text is this thread's. Ledger:
+`steering/selection-ledger/2026-11-19.md` block "2026-11-19T17:49Z — steering-roadmap-hooks" (options and descriptions in full).
+1. "Hash clash": **Agent: exact fix in 017 (Recommended)**: "One more implementer round: the website sends the save code
+   as text and the tab compares it as text. Code review and QA run again on that file, plus a quick check of the one
+   sending line. Your UAT re-walk then exercises the fix on every save. What M2 promises doesn't change." Not chosen:
+   accept it as a limit.
+2. "Pusher close": **Agent: fix it in 017**: "Adds one disconnect line to the cleanup. New code that can share the hash
+   fix's round on the same file, if you chose that fix." Not chosen: leave out of 017 (X-25 and a handoff).
+3. "Block rule": **Agent: only new writes (Recommended)**: "Records already written stay as they are. The rule applies
+   from now on." Not chosen: open 017 docs only; every record.
+Premises read this turn: website tip `42d15de` (`rev-parse`); code-review Round 9 REJECTED `42d15de` on CR-20
+(`d8aa235`, block 11:12Z). The collision was executed by a helper at 11:10Z and is not re-run. "About 6%" is the planner's
+sample. "About 40 files" is the 10:31Z count, marked unread in the option text. "Before 017 (`1ad625e`)" is the planner's
+read, block 11:10Z.
+Recipients: `planner-hooks-017` (registers all three, and says whether 2 needs a revision); `implementer-hooks-017` (1 now,
+from its Resumption State `9245904`; 2 once the planner disposes it; 3 releases its held documents);
+`code-reviewer-hooks-017` (CR-20's remedy chosen; Round 9's verdict stands until the new tip); `uat-hooks-017` (with 1, the
+B-1 re-walk need not place runs by frame hash). Owner-wait keys `m2-hash-residue` and `block-rule-lookback` cleared.
