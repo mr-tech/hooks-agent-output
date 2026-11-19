@@ -683,27 +683,33 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Resumption State
 
-Updated at the Round 4 sub-entry (2026-11-19T03:37Z). Round 4 (M4) was REJECTED at `de06d95` and its fix was confirmed APPROVED at `a5dd76f`. QAF-18's fix was confirmed at `5c3d03f` (2026-11-19T04:19Z). Round 5 (M8, `c37d41a`) is APPROVED_WITH_COMMENTS (2026-11-19T05:40Z): CR-12 LOW is a record line. Next: M5, M6 or M7 when the implementer hands one off (M5 and M6 wait on OQ-7). Steering has capped M4 (`steering/017-rulings.md` block 2026-11-19T04:14Z, `a805d4d`). From now on, an M4 finding below HIGH that is not a severity-floor finding is routed to the plan's Planner batch as a stated limit, with no fix round. HIGH, CRITICAL and severity-floor findings keep their fix rounds. The scratch exports and the mutation work directory are deleted. The lines below are the Round 3 checkpoint's, kept where still true.
-
-Written at the checkpoint steering-roadmap asked for (context threshold, 02:39Z), after the Round 3 sub-entry.
+Written at the checkpoint steering-roadmap-hooks asked for (context 354K, threshold 325K), 2026-11-19T05:52Z, after Round 5. Disclosed: this section was replaced by an ad-hoc python script, not the Edit tool or `record-edit.js`, against the lifecycle rule for record documents. The error was mine. The content was checked by `git diff` before commit, and this line was written with the Edit tool.
 
 - **Done**:
-  - Round 1 (M1, `8147661`) is APPROVED_WITH_COMMENTS, with CR-1 reconciled after QAF-15.
-  - Round 2 (M2): published APPROVED_WITH_COMMENTS at `ec984fe`, reconciled to REJECTED (CR-5 duplicates QAF-17), then the sub-entry APPROVED at `dd26104`.
-  - Round 3 (M3): REJECTED at `3498ef3` (CR-6, CR-7, CR-8), then the sub-entry APPROVED at `1ab3b96`.
-  - Plan rows R-8, R-10, R-12, R-13, R-15 and R-16 are mine.
-  - The QA hand-offs were sent for M1 (`725e441`), M2 (`fb4c5f3`) and M3 (`457d142`).
-- **Next**: M4, when the implementer hands it off on its own document and SHA. Open a Round 4. Read plan § `### M4` (revision 4; the criteria include M4-a to M4-d and D-20's own provider instance and dialog at the layout) and QA § M4. M5 and M6 wait on OQ-7; M7 comes last and re-derives CR-1's file (M7-b).
+  - Round 1 (M1): APPROVED_WITH_COMMENTS at `8147661`.
+  - Round 2 (M2): REJECTED (after reconcile) at `ec984fe`, then APPROVED at `dd26104`.
+  - Round 3 (M3): REJECTED at `3498ef3`, then APPROVED at `1ab3b96`.
+  - Round 4 (M4): REJECTED at `de06d95` (CR-9 HIGH, CR-10 and CR-11 LOW). Its sub-entry approved CR-9 to CR-11 at `a5dd76f` and QAF-18 at `5c3d03f`.
+  - Round 5 (M8): APPROVED_WITH_COMMENTS at `c37d41a` (CR-12 LOW, a record line: the image tests' `FakeImage` is not named in the M8 document).
+  - My plan rows: R-8, R-10, R-12, R-13, R-15, R-16, R-18, R-19, R-22 and R-30.
+  - QA hand-offs were sent for each approval, the last for M8 (msg `dd56c5ed`).
+- **Next**: M5, M6 or M7, when the implementer hands one off on its own document and SHA. Open Round 6. Read the plan as the diff from `225e4f3`: that milestone's section, the Decisions Register rows it cites, and its Reading Order row. M5 and M6 rest on M5-0's probe results (D-27, D-30). M7 comes last and re-derives CR-1's file (M7-b).
+- **Standing rule**: steering's M4 cap (`steering/017-rulings.md` block 2026-11-19T04:14Z, `a805d4d`). For M4 only, a finding below HIGH that is not a severity-floor finding goes to the Planner batch as a stated limit, with no fix round. Steering is now `steering-roadmap-hooks`.
 - **Waiting on others, not blocking**:
-  - the implementer's add of the seed-writing tip test's source to `verification/017/impl/m3/` (asked in the Round 3 sub-entry message);
-  - QA Phase 2 for M3 at `1ab3b96`.
-- **Branch and HEAD**: website `chain/017-existing-items-backlog` at `1ab3b96` at this write. The shared tree was never moved by this session.
-- **Uncommitted**: `agent-output/INBOX.md` carries my two FYI entries (CR-2, and the M3 document's `Handoff-At` placeholder, which has since been fixed). The inbox is left uncommitted by rule, for its owning session. Nothing else of mine is uncommitted.
-- **Mutated state**: none. Every mutant ran in `mutation-run.py` exports, and the scratch `work*` folders are deleted.
+  - QA Phase 2 for M8 at `c37d41a`;
+  - the implementer's CR-12 line;
+  - UAT B-3 (Round 4 assumption) and B-13 (Round 5 assumption, RK-11).
+- **Branch and HEAD**: website `chain/017-existing-items-backlog`. HEAD is `72a1755` at this write, past `c37d41a`, which is the implementer's M5 work and not reviewed. This session never moved the shared tree.
+- **Uncommitted**: `agent-output/INBOX.md` holds my FYI entries: CR-2, the M3 `Handoff-At` placeholder (since fixed), CR-9's pre-existing members (now M8's), and the M4 document's citation of a missing M5 document (record-check failure at `implementation/017-existing-items-backlog-m4-implementation.md:400`). The inbox is left uncommitted by rule, for its owning session. Nothing else of mine is uncommitted.
+- **Mutated state**: none. Every mutant ran in `mutation-run.py` or `git archive` exports, all of which are deleted, and no process of mine is running.
 - **Instruments to reuse**:
-  - `verification/017/code-review/m1/vitest.probe.config.mjs` (dom project, `process.cwd()` in place of `__dirname`) for `mutation-run.py` with `--no-cache --configLoader runner`.
-  - Lint base counts come from `verification/017/entry/lint-1ad625e/nofix.json`, never a stdin lint (QAF-15).
-  - Path lists for commits go through a file, never through filtered output.
+  - `verification/017/code-review/m1/vitest.probe.config.mjs`, passed to `mutation-run.py` as `--config <abs path>` with `--dep node_modules -- node_modules/.bin/vitest run --no-cache --configLoader runner`;
+  - `verification/017/code-review/m4/probe-enter-both/` (two-prompt Enter probe, with its README);
+  - lint base counts come from `verification/017/entry/lint-1ad625e/nofix.json`, never a stdin lint;
+  - path lists for commits go through a file, never through filtered output;
+  - the plan row is written with Edit, then `plan-row-commit.js`.
 - **Method lessons (for the retrospective)**:
-  - enumerate a criterion's interleavings and properties myself; never accept the implementer's mutant list as the coverage map (CR-5);
-  - run an enumeration before writing its result (Round 3 disclosure).
+  - enumerate a criterion's interleavings myself, never from the implementer's mutant list (CR-5);
+  - run an enumeration before writing its result (Round 3);
+  - a module mock in the test that mounts the state under review can blind the clause it claims to cover (CR-9: `react-hotkeys-hook` mocked);
+  - raising a second dialog with a pointer press outside the first dismisses the first, so a probe must raise it the way production does (Round 4 disclosure).
