@@ -384,6 +384,8 @@ First delivery, kept: code review at `de06d95` (M4 range `1ab3b96..de06d95`), th
 
 ## Resumption State
 
+Superseded by the Resumption State in `implementation/017-existing-items-backlog-m7-implementation.md`; kept below as the M4-era record.
+
 Written at the checkpoint steering asked for (context 266K, steering's word 05:19Z), after M4 passed both gates and the M5-0 probes ran. Website branch
 `chain/017-existing-items-backlog`, HEAD `5c3d03f`; the tree is clean apart from the held `.playwright-mcp/`. Nothing of mine is uncommitted or locally mutated.
 

@@ -96,6 +96,21 @@ The 30 files beyond the base's 454 are the chain's added files; their findings a
 - **Process fact:** the record-write gate refused a shell heredoc for this document; re-issued with the Write tool, satisfied and not worked around.
 - **Self-diagnosis, for the retrospective:** none; the one surprise (an export cannot lint because of two `eslint-plugin-react` versions) is a fact about the install, recorded above.
 
+## Resumption State
+
+Written at the checkpoint (context 587K), after M5, M6, M7 and M8 were all handed off. This section supersedes the Resumption State in `implementation/017-existing-items-backlog-m4-implementation.md`.
+
+- **Branches and heads.** Website `chain/017-existing-items-backlog` at `f83f2ca`; generator `chain/017-existing-items-backlog` at `8512a1d` (no upstream); agent-output `master` at `0d5e412` when written. Both product trees are clean apart from the held `.playwright-mcp/`. Nothing of mine is uncommitted or locally mutated; no process, container or `/dev/shm` socket directory of mine remains; the session scratchpad holds no export.
+- **Where each milestone stands.**
+  - M8 (`implementation/…-m8-…`): first delivery `c37d41a` (code review APPROVED_WITH_COMMENTS, QA Failed on QAF-22), fix round `6555f65` test-only; code review Round 5 sub-entry APPROVED (`74263c8`); QA's refresh is with `qa-hooks-017`. QAF-23 (FakeImage line) goes to the Planner batch; the M8 document already carries the line (left in place).
+  - M5 (`…-m5-…`): website `f83f2ca` (`9909fb3` dependency, `72a1755` code, `f83f2ca` three cases), at code review (`code-reviewer-hooks-017` told), then QA Phase 2 (re-runs `verification/017/m5-pg/run.sh`). The local-walk rig for UAT is `verification/017/m5-rig/`.
+  - M6 (`…-m6-…`): generator `8512a1d` (+ `verification/015/pig-host-read.sh` section [7]), at code review (told); then the security review the stage set names, then QA Phase 2.
+  - M7 (`…-m7-…`): record only; M7-b read at website `f83f2ca` (59 files, 0 rule above the base). Re-run at the final tip if any later commit moves it (`impl/m7/compare.mjs`, commands in the document); lint runs from the website tree, not an export (two `eslint-plugin-react` versions).
+- **Next, in order.** Answer code review and QA findings as they arrive, each fix round red-first with a Class Sweep and a captured mutation re-run; keep the fix on the same document's section. After M5 and M6 pass both gates and any fix changes the website tip, re-run M7-b. Then hand-back to steering: M1 to M8 through, the architect's closing pass and devops Stage 1 follow (not mine). Tell `steering-roadmap-hooks` (the name changed from `steering-roadmap`) when all milestones are through.
+- **Facts that carry.** The M5 mutation driver `mutate-edits.py` has no control run; rebuild the export from the commit and compare blob ids before reading a rerun (a killed run leaves its mutant in the export). `mutation-run.py` has a control and `--dep node_modules`. The generator probe is `verification/017/m6-probe/run.sh <export> <out> [--quick]` and needs a generator export installed with `PUPPETEER_SKIP_DOWNLOAD=true npm ci` and the system Chrome. The real-Postgres lane's socket directory is under `/dev/shm` (108-byte path limit) and is emptied by the container before it stops. `eslint --fix` is run on named files only, never on a directory. A heredoc or `sed -i` on a record document is refused by the gate: use the Edit or Write tool. The secret-file hook refuses any call in the generator repo that could print `.github/workflows/prod.yml`: use `rev-parse`, `status`, `diff --numstat`, `grep -c` there.
+- **Questions sent and open.** None to the owner. Sent: M8 fix round to `qa-hooks-017` and `code-reviewer-hooks-017` (answered by the reviewer; QA's refresh pending); M5 and M6 to `code-reviewer-hooks-017` (pending).
+- **Cache-warm wake:** deleted at this checkpoint; arm again on the next briefed turn.
+
 ## Next Steps
 
 Code review of this record-only milestone with the others; QA Phase 2 re-runs M7-b at the release tip. Then the plan's closing steps (the architect's closing pass, devops Stage 1).
