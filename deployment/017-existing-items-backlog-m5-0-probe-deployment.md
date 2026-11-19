@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Status-Detail: "M5-0 limb 2 probe run 2026-11-19T04:55Z–04:59Z on his approval (D-15): outcome kept alive; branch deleted; scope this probe only. Not a Stage 1 or Stage 2 record; the plan's release record is a separate document."
+Status-Detail: "M5-0 limb 2 probe run 2026-11-19T04:55Z–04:59Z on his approval (D-15): outcome kept alive; limb 3 probe run 05:09Z–05:13Z on his 05:06Z selection: outcome lasts (all five lines to 55 s); both branches deleted; scope these probes only. Not a Stage 1 or Stage 2 record; the plan's release record is a separate document."
 ---
 
 # Deployment Record: plan 017, gate M5-0 limb 2 — the `waitUntil` probe push
@@ -20,6 +20,7 @@ Status-Detail: "M5-0 limb 2 probe run 2026-11-19T04:55Z–04:59Z on his approval
 |------|---------------|---------|---------|
 | 2026-11-19T04:52 | steering-roadmap → devops-hooks-017 (brief) | M5-0 limb 2 probe push | Brief, common part, plan § M5-0 and D-15/D-17/D-19 read. Pre-push work: E-6 and the deploy mechanism established (below). The first probe tip `d9030b9` would not build on Preview; the repair came as `aca8cb3` from implementer-hooks-017. Approval not yet asked at this row. Disclosed in this round: the record repository ignores `*.log`, so the captures are `.txt`; and a `sed -i` of this document in a shell line was refused by `record-write-gate-hook`, re-issued with the Edit tool (not retried in the refused form). |
 | 2026-11-19T04:59 | owner → devops-hooks-017 (selection prompts, 04:55Z and ~04:58Z) | Push approval; bypass-secret revocation | Pushed `aca8cb3` to `probe/017-waituntil` 04:55:17Z; Preview Ready 04:56:07Z; both requests; logs read twice; outcome **kept alive**; branch deleted local and remote 04:57:41Z. `vercel curl` created a project bypass secret, disclosed to him and revoked at his word (0 entries read back 04:59Z). Record `42ccf5f` carried the pre-push state; this row and the sections below completed it. |
+| 2026-11-19T05:13 | steering-roadmap → devops-hooks-017 (message; his 05:06Z selection, rulings `3c24ead`); implementer-hooks-017 → devops-hooks-017 (branch, SHA) | M5-0 limb 3 probe | Pushed `8c13d1c` to `probe/017-waituntil-span` 05:09:55Z; Ready 05:10:45Z; plain `curl` 05:11:02Z HTTP 200; logs read 05:12:31Z: control plus lines at 5, 15, 30, 45, 55 s. Outcome **lasts**. Branch deleted 05:12:4xZ. Bypass count 0 before and after (no `vercel curl` used). Section "Limb 3" above. |
 
 ## The probe under push
 
@@ -114,6 +115,40 @@ Mode A. No release; no serving ref moved. The only ref moved was the probe ref: 
 - The first real members of the M5-f prefix query on a Preview deployment: 3 records, `level: error`, `stream: stderr`, `source: function`, `environment: preview` — the instrument (`--deployment`, no `-e`) returned them without the `-e production` that QA's B-7 read used.
 - Node: runtime observed `nodejs24.x`, satisfying `@vercel/functions` `engines.node >= 20`.
 - What this does not establish: behaviour under the production project's load, with a real generator call, or a post-response promise lasting up to T = 40 s (the probe's was 5 s). The M5-f window is the plan's, not this probe's.
+
+## Limb 3 — post-response life across T (second probe push; added 2026-11-19T05:13)
+
+Plan revision 6 (`21e61eb`), § M5-0 limb 3, OQ-15. **Approval**: his selection "Agent: push one more probe (Recommended)", put and answered in `steering-roadmap`'s session at 05:06Z; read in the primary records this turn, not taken from the relay: rulings `steering/017-rulings.md` block 05:06Z (`3c24ead`) and ledger `steering/selection-ledger/2026-11-19.md` block "2026-11-19T05:06Z — steering-roadmap" (`answer: Agent: push one more probe (Recommended)`). Its scope: one more probe branch, run, read, delete; remove any bypass secret it adds.
+
+| Item | Value | Instrument |
+|---|---|---|
+| Branch / tip | `probe/017-waituntil-span` at `8c13d1c0b74d822aeded205832917beaae365c74`, one commit on `1ad625e` | `git rev-parse`, `git log --format='%H %P'` |
+| Diff | `git diff --stat 1ad625e 8c13d1c`: `package.json` +1, `pnpm-lock.yaml` +80, `src/pages/api/waituntil-span-probe.ts` +25, `vercel.json` +1 (107 insertions); `package.json` and `vercel.json` identical to `aca8cb3` (`git diff aca8cb3 8c13d1c -- package.json vercel.json` empty); `vercel.json` parses with `buildCommand` `SKIP_ENV_VALIDATION=1 next build` and the `crons` entry | git; `JSON.parse` |
+| Route (read whole) | `GET /api/waituntil-span-probe?id=<token>[&mode=without]`; control line before the response; one promise handed to `waitUntil` writes `preview-image-failure probe-post-response mode=with id=<token> atS=<5·15·30·45·55> elapsedMs=<n>` at those seconds; no generator call, no env, no secret | `git show 8c13d1c:src/pages/api/waituntil-span-probe.ts` |
+| Not built locally by this session | the build form is limb 2's (`aca8cb3` built on Vercel, this record above); the build here is the Vercel build itself, row 3 | — |
+
+| # | Step | Result |
+|---|---|---|
+| 1 | Bypass count before | 0 entries (project API, `protectionBypass` count, read 05:08:03Z and again 05:11:02Z) |
+| 2 | Push | 05:09:55Z: `[new branch] 8c13d1c0b74d822aeded205832917beaae365c74 -> probe/017-waituntil-span`; `ls-remote` had no `probe/*` ref before. Tree stayed on `chain/017-existing-items-backlog` |
+| 3 | Preview Ready | reads 05:10:05Z, 05:10:25Z Building; 05:10:45Z **Ready** (build 40 s). `dpl_DAPQmKvKyG6X9nhpKQXkJqtjuw5R`, `https://hooks-gg-website-680ul3owe-hooks-gg.vercel.app`; deployments API: `readyState READY`, `target` null, branch `probe/017-waituntil-span`, commit `8c13d1c0b74d822aeded205832917beaae365c74` |
+| 4 | Request | A plain `curl` (not `vercel curl`, which created a project bypass secret in limb 2) at 05:11:02.387Z: HTTP 200, body `{"mode":"with","id":"with-20261119T051102"}`. The preview answered an unauthenticated request, so no bypass was needed. |
+| 5 | Wait and read | Waited to 05:12:26Z (84 s after the request, the route's last line is due at 55 s), then `npx vercel@66.2.0 logs -p hooks-gg-website --scope hooks-gg --deployment <URL> --json -n 1000 -s 30m` at 05:12:31Z. 6 records, summary `recordsReturned 6`, no excluded interval, no further page. Capture `verification/017/m5-0/limb3/probe-runtime-logs.jsonl` |
+| 6 | Branch deleted | 05:12:4xZ: `git push origin --delete probe/017-waituntil-span` (`[deleted]`), `git branch -D` (was `8c13d1c`); `ls-remote --heads origin 'probe/*'` count 0; local `rev-parse --verify` exit 1 |
+| 7 | Bypass count after | 0 entries (read 05:12:51Z). The count before and after is 0; this run created no entry, so there was nothing to restore |
+
+**Outcome (limb 3): lasts.** One request id (`4rr8m…`), runtime `nodejs24.x`, all five lines present after the control line, each stamped by the function:
+
+| atS | function timestamp (UTC) | elapsedMs |
+|---|---|---|
+| control | 05:11:03.178Z | — |
+| 5 | 05:11:08.193Z | 5015 |
+| 15 | 05:11:18.192Z | 15015 |
+| 30 | 05:11:33.192Z | 30015 |
+| 45 | 05:11:48.193Z | 45015 |
+| 55 | 05:11:58.192Z | 55015 |
+
+Under the plan's limb 3 outcomes, "lasts (all five lines present): T = 40 s stands". What this does not show: a promise that awaits a real generator call (the plan holds the platform's lifetime independent of what the promise awaits, Inference from the documentation; the probe makes no generator call); the production project (this is a Preview, whose function limit was not read; the lines show it ran at least 55 s); behaviour with more than one concurrent request; and a function that reaches 60 s. The `without` control was not requested (limb 3 does not ask for it). The preview `dpl_DAPQmKvKyG6X9nhpKQXkJqtjuw5R` remains until Vercel expires it; local objects `8c13d1c` remain in the object store, unreachable from any ref, named here and in `verification/017/m5-0/limb3/README.md`.
 
 ## Post-Release Status
 
