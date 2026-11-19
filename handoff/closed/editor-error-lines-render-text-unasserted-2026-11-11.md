@@ -1,7 +1,7 @@
 ---
 UUID: 54673438
-Status: Open
-Status-Detail: "No suite case asserts that DiscordMessageEditor's error lines, and the render around them, carry only their reason text. Five mutants survived plan 016's effort-final sweep on that surface (QAF-13 LOW). Plan 016 carries it as a stated limit under steering's M1 cap; this handoff carries it past that plan's closure."
+Status: Addressed
+Status-Detail: "Discharged by plan 017 M1-c (plan disposition table, planning/closed/017-existing-items-backlog.md line 1348): every error line DiscordMessageEditor renders is asserted by literal text, each case seen red under a mutant of its own (qa/closed/017-existing-items-backlog-m1-qa.md line 219, QA Complete at website 8147661). Released at website master 787bec5 (2026-11-19T20:11Z)."
 Owning-Stage: planner (the next website effort that edits DiscordMessageEditor/index.tsx's error lines or their tests)
 Review-Trigger: "when src/components/DiscordMessageEditor/index.tsx's error lines (noContentError, embedCharacterError, v2TextError, componentCountError, the V2 send-check reason line) or their tests are next edited; or when a user reports stray characters beside an editor error line or in a preview image"
 ---
@@ -37,3 +37,9 @@ on the shared surface, covering every error line, not plan 016's line alone.
 The next effort that edits these lines adds an exact-text assertion over the error-line region,
 for every line the editor renders, and shows it red against these five mutants (Test Conventions,
 axiom A).
+
+## Changelog
+
+| Date | Author | Change |
+|---|---|---|
+| 2026-11-19T20:24 | steering-roadmap-hooks | Document closed. Status: Addressed. Plan 017 M1-c discharged it (the plan's handoff disposition table; M1 QA Complete with each error line asserted by literal text and seen red), released at website `787bec5`. Closed at chain 017's closure. |
