@@ -1188,3 +1188,32 @@ are live now. `handoff/preview-image-failure-shows-broken-not-stale-2026-08-24.m
 The audit's § "Outside the reviewed delta" (three website observations) is carried by the access-defects fixer determination
 (his "Fix right after 017", block 09:01Z), which starts now with the scope sweep.
 Code review's record items: no plan row for the release-tip cycle (this thread's word, 20:0xZ).
+
+## 2026-11-19T20:25Z — 017 closure: sessions stopped, handoffs closed, retrospective started
+
+steering-closure.md, run. Read this turn:
+- **Stage documents:** security audit Review Complete and closed (`b0d7392`). `ls -d */017-*` outside `closed/` lists only the post-deploy
+  carrier and the three steering files. Implementer's two check-repo corrections are at `c482b6d`; check-repo PASS, exit 0.
+- **Handoffs the chain answered** (the plan's disposition table, `planning/closed/017-existing-items-backlog.md` lines 1344-1348):
+  - `website-tests-not-beside-their-module-2026-11-08` and `editor-error-lines-render-text-unasserted-2026-11-11`: closed Addressed by
+    this thread (M1-a/X-13 and M1-c, M1 QA Complete, released).
+  - `preview-image-failure-shows-broken-not-stale-2026-08-24`, `save-originating-tab-raises-its-own-update-prompt-2026-08-25` and
+    `unsaved-change-guards-disabled-for-unauthenticated-users-2026-08-24`: discharged in code. Each stays Open until he reports B-6, B-8
+    and B-9 respectively (OWNER-QUEUE), then closes Addressed.
+  - `local-walk-save-…-2026-11-11` was already Addressed by UAT.
+- **Handoffs created:** the post-deploy carrier (Open, readers B7R and B10R in crontab) and chain A's
+  `anchored-popover-first-load-test-is-order-dependent-2026-11-18` (Open, chain A's carrier).
+- **Fired trigger:** the drain handoff's item 1 was observed and recorded by devops; item 2 stays Open.
+- **Stopped** with `tmux-agent stop`, all idle: planner, critic, architect, code-reviewer, qa, implementer, uat, security and devops
+  `-hooks-017`.
+- **Box:** `docker ps -a` lists no container. One image, `postgres:16` (created about 23 h ago), which no 017 record names as its own;
+  it is named here and left. `/var/tmp` holds no 017 capture.
+- **Scratch:** 48 directories of exited `*-hooks-017` and earlier `steering-roadmap*` sessions deleted from
+  `/tmp/claude-1000/-usr-local-bin-hooks/`; `du -s` 47836 → 1328 (KB). Kept: this process's two directories (a running background
+  helper writes there) and other efforts' (`uat-access-check`, unnamed). The two `/tmp/claude-` citations found
+  (`verification/017/devops/close-*.sh`) are spent closure scripts, not open carriers.
+- **Retrospective:** subagent `retrospective-hooks-017` started. Test-case scoring started beside it: the case-list helper for website
+  `787bec5`, marking test files changed `1ad625e..787bec5`. The generator carries no tests (workspace CLAUDE.md), so it has no pass.
+- **This thread's error:** my 20:2xZ relay to `security-hooks-017` cited block 20:21Z before it was committed (it was committed as `dbbd552`
+  minutes later). steering.md, Continuity: "A block a relay cites is committed before the relay is sent." The check that catches it:
+  commit, then send.
