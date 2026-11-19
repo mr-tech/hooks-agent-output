@@ -1125,3 +1125,16 @@ Plan `Revision: 10`, with no unresolved `OPEN QUESTION` (count 0). No `handoff/`
 **M2-d starts on revision 10, QA Phase 1 at `9e212a3`.** It is its own round after the D-33 fix, which was handed to code review at
 website `60252be` (M2 implementation § Fix Round 4, `77e71db`). The planner folds F-29, SL-5, AF-25 and QAF-26 as revision 11; none
 changes what M2-d requires of the code (its message, and QA's).
+
+## 2026-11-19T18:13Z — M2 capped: its second post-approval revision; CR-21 keeps its round
+
+steering.md, Standing check (the cap). M2 has taken two revisions since his approval of the plan: revision 10 (M2-d, `fad6cd4`) and
+revision 11 (the fold that rewords M2-d's walk step, `a971ed8`). That is the trigger. Also read this turn: code review has rejected M2 twice
+since UAT-1 reopened it, Round 9 (CR-20, `d8aa235`) and Round 10 (CR-21 MEDIUM, test-only, `cfbdb2e`, R-56 `69897cb`). UAT failed it
+once (UAT-1).
+- Spend, every chain-017 session, 10:31Z to 18:13Z: $53.10 (`cc-usage.py chain 017 --since 2026-11-19T10:31 --until 2026-11-19T18:13`,
+  TOTAL row). The window also covers revisions 10 and 11's gate reads and the 16:4xZ-to-17:49Z wait on him, so M2's own work is not
+  separated. Hours: about 7.7, wall-clock, waits included.
+**Cap:** for M2, each further gap below HIGH goes to the plan's Planner batch as a stated limit, with no fix round. A gate's
+severity-floor finding is the exception. CR-21 (no case pins M2-d's "touches no other instance", a property the change claims) is a
+severity-floor finding (GLOSSARY), so it keeps its test-only round. Told: `code-reviewer-hooks-017` and `qa-hooks-017`. He is told in this turn.
