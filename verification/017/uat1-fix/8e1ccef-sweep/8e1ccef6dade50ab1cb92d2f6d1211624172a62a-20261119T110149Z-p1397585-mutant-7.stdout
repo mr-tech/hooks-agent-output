@@ -1,0 +1,32 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/4c1656a7-db93-4315-920f-1c4df87de017/scratchpad/sweep-work/20261119T110149Z-p1397585/mutant-7
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (50 tests | 22 failed) 237ms
+       × raises no notice for a save whose broadcast hash is digits only, when an edit follows Save 8ms
+       × raises no notice for a save whose broadcast hash is a minus sign and digits only, when an edit follows Save 4ms
+       × raises no notice for a save whose broadcast hash is digits, an e and digits, when an edit follows Save 3ms
+       × raises no notice for a save whose broadcast hash is an exponent past what a double holds, when an edit follows Save 3ms
+       × raises no notice for a save whose broadcast hash is a minus sign and an exponent past what a double holds, when an edit follows Save 3ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 2ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 2ms
+       × raises no notice for either of two saves in flight when edits follow the second 4ms
+       × raises no notice for a save whose broadcast hash is digits only, when an edit follows Save 3ms
+       × raises no notice for a save whose broadcast hash is a minus sign and digits only, when an edit follows Save 3ms
+       × raises no notice for a save whose broadcast hash is digits, an e and digits, when an edit follows Save 2ms
+       × raises no notice for a save whose broadcast hash is an exponent past what a double holds, when an edit follows Save 2ms
+       × raises no notice for a save whose broadcast hash is a minus sign and an exponent past what a double holds, when an edit follows Save 2ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 2ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 2ms
+       × raises no notice for either of two saves in flight when edits follow the second 3ms
+     × raises no notice for two identical saves, their broadcasts, and an edit after the second 2ms
+     × raises no notice when another tab saves what this tab already shows, under a digits-only hash 2ms
+     × raises no notice when another tab saves what this tab already shows 2ms
+     × raises no notice for the broadcast of an identical save still in flight when one of two failed 2ms
+     × raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows 3ms
+     × raises no notice for a later save in flight when an earlier save, already broadcast, then reports failure 2ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  22 failed | 38 passed (60)
+   Start at  11:02:11
+   Duration  1.87s (transform 410ms, setup 34ms, import 1.88s, tests 266ms, environment 1.25s)
+

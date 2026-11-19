@@ -1,0 +1,18 @@
+{
+ "mutant": {
+  "name": "nm3-set-not-per-send",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "line": 31,
+  "old": "recordsRef.current.push(hashOf(payload));",
+  "new": "if (!recordsRef.current.includes(hashOf(payload))) recordsRef.current.push(hashOf(payload));",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "MessageProvider, the saving tab and its own save raises no notice for two identical saves, their broadcasts, and an edit after the second",
+  "MessageProvider, the saving tab and its own save raises no notice for the broadcast of an identical save still in flight when one of two failed"
+ ],
+ "verdict": "killed"
+}

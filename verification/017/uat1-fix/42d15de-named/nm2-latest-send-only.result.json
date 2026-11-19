@@ -1,0 +1,23 @@
+{
+ "mutant": {
+  "name": "nm2-latest-send-only",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "line": 31,
+  "old": "recordsRef.current.push(hashOf(payload));",
+  "new": "recordsRef.current = [hashOf(payload)];",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "MessageProvider, the saving tab and its own save the broadcast arrives before the response raises no notice for either of two saves in flight, delivered in the order sent, when edits follow the second",
+  "MessageProvider, the saving tab and its own save the broadcast arrives before the response raises no notice for either of two saves in flight, delivered in the reverse order, when edits follow the second",
+  "MessageProvider, the saving tab and its own save the broadcast arrives after the response raises no notice for either of two saves in flight, delivered in the order sent, when edits follow the second",
+  "MessageProvider, the saving tab and its own save the broadcast arrives after the response raises no notice for either of two saves in flight, delivered in the reverse order, when edits follow the second",
+  "MessageProvider, the saving tab and its own save raises no notice for two identical saves, their broadcasts, and an edit after the second",
+  "MessageProvider, the saving tab and its own save raises no notice for the broadcast of an identical save still in flight when one of two failed",
+  "MessageProvider, the saving tab and its own save raises no notice for a later save in flight when an earlier save, already broadcast, then reports failure"
+ ],
+ "verdict": "killed"
+}

@@ -1,0 +1,6 @@
+[
+ {"name":"nm2-latest-send-only","file":"src/providers/MessageProvider/usePusher.ts","line":31,"old":"recordsRef.current.push(hashOf(payload));","new":"recordsRef.current = [hashOf(payload)];","tests":["src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx"]},
+ {"name":"nm3-set-not-per-send","file":"src/providers/MessageProvider/usePusher.ts","line":31,"old":"recordsRef.current.push(hashOf(payload));","new":"if (!recordsRef.current.includes(hashOf(payload))) recordsRef.current.push(hashOf(payload));","tests":["src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx"]},
+ {"name":"nm4-record-kept-after-broadcast","file":"src/providers/MessageProvider/usePusher.ts","line":74,"old":"splice(ownSaveIndex, 1)","new":"splice(ownSaveIndex, 0)","tests":["src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx"]},
+ {"name":"nm5-current-clause-dropped","file":"src/providers/MessageProvider/usePusher.ts","line":76,"old":"ownSaveIndex < 0 && hash !== asDelivered(shownHash)","new":"ownSaveIndex < 0","tests":["src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx"]}
+]

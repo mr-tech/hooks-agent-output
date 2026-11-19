@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/4c1656a7-db93-4315-920f-1c4df87de017/scratchpad/sweep-work2/20261119T110259Z-p1411724/mutant-8
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx (4 tests | 4 failed) 23ms
+     × names the loss when the composer already had changes at subscription 16ms
+     × names the loss when the composer changed after the subscription was made 2ms
+     × does not name the loss when the composer has no changes 2ms
+     × does not name the loss when the composer returned to no changes after the subscription was made 2ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (52 tests | 11 failed) 241ms
+     × raises the notice when another tab saves content this tab never sent 6ms
+     × raises the notice when another tab saves while this tab has unsaved edits, naming the loss 2ms
+     × raises the notice when another tab saves content whose broadcast hash is digits only 1ms
+     × raises the notice when another tab saves content whose hash is digits and an e, beside a held record of different content 2ms
+     × raises no notice when another tab saves what this tab already shows, under a digits-only hash 2ms
+     × raises the notice when another tab saves a component-only edit 2ms
+     × raises the notice when another tab saves while this tab's own save is in flight 2ms
+     × raises the notice when another tab saves content this tab sent earlier and has already seen broadcast 3ms
+     × raises no notice when another tab saves what this tab already shows 2ms
+     × raises the notice for a later save of the content of a save that failed 3ms
+     × raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows 2ms
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  15 failed | 47 passed (62)
+   Start at  11:03:25
+   Duration  1.85s (transform 371ms, setup 29ms, import 1.85s, tests 273ms, environment 1.25s)
+

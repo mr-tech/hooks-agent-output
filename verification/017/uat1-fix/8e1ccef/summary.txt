@@ -1,0 +1,50 @@
+control failed 0 of 60
+record-raw failed 10 of 60
+    before the response raises no notice for a save whose broadcast hash is digits only, when an edit follows Save
+    se raises no notice for a save whose broadcast hash is a minus sign and digits only, when an edit follows Save
+    esponse raises no notice for a save whose broadcast hash is digits, an e and digits, when an edit follows Save
+    s no notice for a save whose broadcast hash is an exponent past what a double holds, when an edit follows Save
+     save whose broadcast hash is a minus sign and an exponent past what a double holds, when an edit follows Save
+     after the response raises no notice for a save whose broadcast hash is digits only, when an edit follows Save
+    se raises no notice for a save whose broadcast hash is a minus sign and digits only, when an edit follows Save
+    esponse raises no notice for a save whose broadcast hash is digits, an e and digits, when an edit follows Save
+    s no notice for a save whose broadcast hash is an exponent past what a double holds, when an edit follows Save
+     save whose broadcast hash is a minus sign and an exponent past what a double holds, when an edit follows Save
+shown-raw failed 1 of 60
+    and its own save raises no notice when another tab saves what this tab already shows, under a digits-only hash
+any-number-is-own failed 1 of 60
+    notice when another tab saves content whose hash is digits and an e, beside a held record of different content
+parse-failure-lost failed 30 of 60
+    e broadcast arrives before the response raises no notice in the saving tab: a classic message, nothing changed
+     the broadcast arrives before the response raises no notice in the saving tab: a classic message after an edit
+    e the response raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace
+    ve the broadcast arrives before the response raises no notice in the saving tab: a V2 message, nothing changed
+     save the broadcast arrives before the response raises no notice in the saving tab: a V2 message after an edit
+    e broadcast arrives before the response raises no notice in the saving tab: a V2 message beside an empty embed
+    rives before the response raises no notice in the saving tab: a message not valid for sending, nothing changed
+    arrives before the response raises no notice in the saving tab: a message not valid for sending, after an edit
+    wn save the broadcast arrives before the response raises no notice after the content-loss dialog chose Classic
+    arrives before the response raises no notice when an edit is typed after Save and before the broadcast arrives
+    fore the response raises no notice for a save that carries a field the server drops, when an edit follows Save
+    st arrives before the response raises no notice for either of two saves in flight when edits follow the second
+    he broadcast arrives after the response raises no notice in the saving tab: a classic message, nothing changed
+    e the broadcast arrives after the response raises no notice in the saving tab: a classic message after an edit
+    r the response raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace
+    ave the broadcast arrives after the response raises no notice in the saving tab: a V2 message, nothing changed
+    n save the broadcast arrives after the response raises no notice in the saving tab: a V2 message after an edit
+    he broadcast arrives after the response raises no notice in the saving tab: a V2 message beside an empty embed
+    rrives after the response raises no notice in the saving tab: a message not valid for sending, nothing changed
+     arrives after the response raises no notice in the saving tab: a message not valid for sending, after an edit
+    own save the broadcast arrives after the response raises no notice after the content-loss dialog chose Classic
+     arrives after the response raises no notice when an edit is typed after Save and before the broadcast arrives
+    fter the response raises no notice for a save that carries a field the server drops, when an edit follows Save
+    ast arrives after the response raises no notice for either of two saves in flight when edits follow the second
+     tab and its own save raises no notice for two identical saves, their broadcasts, and an edit after the second
+    own save raises the notice when another tab saves content this tab sent earlier and has already seen broadcast
+    eProvider, the saving tab and its own save raises no notice when another tab saves what this tab already shows
+    nd its own save raises no notice for the broadcast of an identical save still in flight when one of two failed
+    ther tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows
+    save raises no notice for a later save in flight when an earlier save, already broadcast, then reports failure
+record-kept-after-match failed 1 of 60
+    own save raises the notice when another tab saves content this tab sent earlier and has already seen broadcast
+leftover exports: 0
