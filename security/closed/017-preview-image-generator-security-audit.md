@@ -2,9 +2,9 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Active
-Status-Detail: "Pre-release security gate on the preview-image-generator delta 8de2b53..8512a1d (M6): APPROVED, no required control. One LOW (L-001, log sinks take the request's id unescaped; optional remedy, the planner's call under X-4). Two observations outside the reviewed delta, in website code this chain does not change, are with steering as an owner-needing scope item (§ Outside the reviewed delta). Stays Active until the chain closes."
-Reviewed-At: "8512a1d — repos=preview-image-generator; base 8de2b53 (prod, ls-remote 08:06Z). The website's side of the contract was read at 4b8db9c and is not under this verdict."
+Status: Review Complete
+Status-Detail: "Review Complete 2026-11-19: pre-release security gate on the preview-image-generator delta 8de2b53..8512a1d (M6) APPROVED, no required control. The reviewed tip is the SHA released: generator prod and master at 8512a1d (ls-remote 20:21Z). L-001 LOW is the plan's exclusion X-21, accepted by the owner (D-32). The observations outside the reviewed delta are carried by steering/017-rulings.md (blocks 08:12Z, 09:01Z, 20:21Z) for the access-defects fixer chain. Nothing is owed by this document."
+Reviewed-At: "8512a1d — repos=preview-image-generator; base 8de2b53 (prod before the release). The website's side of the contract was read at 4b8db9c and is not under this verdict."
 Kind: pre-production-gate
 ---
 
@@ -15,6 +15,7 @@ Kind: pre-production-gate
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-19T08:06 | steering-roadmap-hooks → security-hooks-017 (brief `steering/backlog-2026-11-18-briefs/security-hooks-017.md`; common part `steering/017-brief-common.md`; stage set, `steering/backlog-2026-11-18-rulings.md` block 21:59Z) | Security on the generator delta before release | Initial assessment at generator `8512a1d` against `8de2b53`. Verdict APPROVED. L-001 LOW recorded. Dependency audit run for the first time on this lockfile: 25 advisories, none introduced (the lockfile is byte-identical to production's). Two observations in unchanged website code routed to steering. No read was refused by the secret-file gate in this pass. |
+| 2026-11-19T20:22 | steering-roadmap-hooks → security-hooks-017 (message 20:2xZ; `steering/017-rulings.md` block 2026-11-19T20:21Z "017 released; close-out started") | Close the audit: the chain is released | Document closed. Status: Review Complete. Re-derived at this write, not carried: `git -C preview-image-generator ls-remote origin prod master` → `8512a1d` twice, the SHA under this verdict, so no delta was released unreviewed; the deployment record is at `deployment/closed/017-existing-items-backlog-deployment.md`. Every item this document raised has its carrier (§ Closure). |
 
 ## Metadata
 
@@ -154,6 +155,15 @@ None for approval.
 - **implementer-hooks-017**: L-001 with its optional remedy, marked as no change requested: the generator stays at `8512a1d` unless the planner takes the finding into the chain.
 - **devops (Stage 1)**: nothing here blocks the generator's `prod` push. No security read is owed at the release.
 - **Record `INBOX.md`**: one entry pointing the architect's closing pass at I-8 (the first `npm audit` of the generator's lockfile), since `architecture/preview-image-generator.md` P-2 names the 015 audit as the dependency assessment.
+
+## Closure (security-hooks-017)
+
+**Closed 2026-11-19T20:22, Status Review Complete.** The sections above are the review as written at 08:06Z; later stage documents are authoritative on what has happened since. Where each raised item lives now:
+
+- **L-001 LOW** (the request's `id` reaches the logs unescaped): the plan's Exclusions row X-21, accepted by the owner as D-32 (`planning/closed/017-existing-items-backlog.md`). Its carrier is the `architecture/system-architecture.md` Problem Areas row "preview-image-generator's `/generate` trusts its body beyond object-ness", which now names both log sinks (read at this closure). No remedy was taken in the chain; the generator shipped at `8512a1d`.
+- **Outside the reviewed delta** (reading a personal message by number; a save claiming a message number; the delete route's prefix): `steering/017-rulings.md`. Block 08:12Z holds all three and steering's helper run confirming the first two at website `1ad625e` and `4b8db9c`. Block 09:01Z holds the owner's selection, "Fix right after 017", which names the first two. Block 20:21Z states that the fixer chain's scoping determination carries all three and starts at this release. The third is read from code, not run, by me and by steering alike.
+- **I-8** (the first `npm audit` of the generator's lockfile): the record `INBOX.md` entry "2026-11-19 — security-hooks-017 — FYI", still present at this closure (`grep -c security-hooks-017 INBOX.md` → 1).
+- **§ Not Covered** below lists this review's limits, not owed work. No post-release host read is owed by this document: the release changed two source files and no dependency, workflow or deploy script.
 
 ## Not Covered
 
