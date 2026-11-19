@@ -1308,22 +1308,34 @@ revision 1, `upload-message-dialog-closes-on-first-portal-load-2026-11-08` is cl
 
 ## Resumption State
 
-Written 2026-11-19T05:16Z by planner-hooks-017, at revision 7.
+Written 2026-11-19T07:17Z by planner-hooks-017 at the chain's park (his word, "park the chain", `steering/017-rulings.md`
+block 2026-11-19T07:15Z, `cffd802`), at steering's /checkpoint request.
 
-- **Done.** Revision 7 folds the three verdicts on revision 6 (critic `6d55bfc`, architect `635868d`,
-  QA `b974198`) and limb 3's result (`8f26f37`, lasts). M5-0 is met. D-26 to D-30 are registered. M1 to
-  M4 are through code review and QA Phase 2 at website `5c3d03f`.
-- **Next.** The critic's delta-bounded pass 2 and QA's re-key read revision 7. The architect's delta
-  read of AF-23's fold is steering's to route. M5, M6 and M8 code start on their approval (steering's
-  hold). Findings fold in one revision.
-- **Open items carried.** The Planner batch holds QAF-19 and the three record corrections, folded at
-  the post-Phase-2 seam. The INBOX.md entry "2026-11-18 — planner-hooks-017 — DECISION NEEDED" (X-13)
-  stays for the record's owning session.
-- **Branches.** Website `chain/017-existing-items-backlog` at `5c3d03f`; both probe branches are
-  deleted. The generator's branch is not yet cut (devops names it before M6).
-- **Uncommitted or mutated.** Nothing of this planner's beyond that INBOX entry.
-- **Gate refusal disclosed at the 00:3xZ checkpoint, kept here.** The record-write gate refused a shell
+- **Done.** Revision 7 (`6ade256`) is the current plan, approved by all three pre-code gates: critic
+  `2ed550b`, architect `0e380fc`, QA Phase 1 `7eda138`. Registrations R-24 to R-28 are committed (D-27 to
+  D-30, and the gate verdicts). M5-0 is met (`8f26f37`: limb 3 lasts to 55 s), so T = 40 s stands. Per
+  steering's 07:15Z block, M1 to M4 and M8 are through code review and QA Phase 2 (M8 at website
+  `6555f65`, `ebebc72`); M5's code review is APPROVED at `4b8db9c`, with its QA Phase 2 in progress; M6
+  is handed to code review at generator `8512a1d`; M7 is handed off. QAF-23 needed no batch row (QA
+  resolved it, `ebebc72`).
+- **Next, on resume.** No planning pass is owed now. The Planner batch folds at the seam after the
+  last milestone's QA Phase 2 passes, gated by the critic alone: QAF-19 and the three record
+  corrections (the M4-d table, M4-a's interception wording, M3's CR-8 fetch cell). Fold any gate
+  finding on M5 to M7 that changes a criterion as a revision; park the rest as batch rows.
+- **In flight.** None of this planner's. No edit is half-made and no probe or run is unrecorded.
+- **Branches.** Website `chain/017-existing-items-backlog` at `4b8db9c` (read this turn); the generator
+  chain branch at `8512a1d`, per steering's 07:15Z block (not read by this planner, see below). Both
+  probe branches are deleted.
+- **Uncommitted or mutated.** Nothing of this planner's beyond the INBOX.md entry "2026-11-18 —
+  planner-hooks-017 — DECISION NEEDED" (X-13), kept for the record's owning session.
+- **Gate refusals, disclosed.** (1) At the 00:3xZ checkpoint, the record-write gate refused a shell
   heredoc append to this plan (an empty append). It was not re-issued in that form, and that section
-  was written with the Edit tool.
-- **Messages sent.** Revision 7 goes to the critic and QA directly (both asked for the folding
-  revision), with steering told for routing. Owed to this planner: their verdicts on revision 7.
+  was written with the Edit tool. (2) At this checkpoint, secret-file-gate-hook refused a Bash call
+  that included `git -C ../preview-image-generator log --oneline -1`, because the record flags that
+  repository's `.github/workflows/prod.yml`. That read was not re-issued in any form. The generator
+  tip above is steering's, and this section was written by a call without that read.
+- **Questions out.** None open with him. Steering's session is now named `steering-roadmap-hooks`.
+  The critic, the architect and QA owe this planner nothing.
+- **One error of this planner's, disclosed.** It reported R-25 to steering as `2df9c3c` before the commit
+  returned, and corrected that to `6daa353` in the same channel. Steering's 05:1xZ note still carries the
+  wrong SHA.
