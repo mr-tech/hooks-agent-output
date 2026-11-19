@@ -114,3 +114,6 @@ the swept region (S6, S8), so this is a recorded ruling, not a re-scope. The ame
 I searched `memory/hazards.md`, the architecture record, and the record for "production database" and `claude-ro`. `.env.local` values
 are never read. It goes to him with the release question, after a refutation helper reads the fix at its final SHA.
 Relays: the fixer (a blocking change to its work) and the code reviewer (hold: the handoff will move off `2e50cd9`).
+Handoffs for the two out items (helper subagent, `92c140d`, check-repo PASS exit 0):
+`handoff/hydrated-recent-list-returns-guild-message-rows-2026-11-19.md` and
+`handoff/get-one-absent-number-fails-without-not-found-2026-11-19.md`.
