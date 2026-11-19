@@ -3,8 +3,8 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Status-Detail: "Revision 3: critique pass 2 (F-19 to F-23, SL-1, SL-2), the architect's delta approval (AF-16 to AF-18) and QA's Phase 1 re-key (QAF-10 to QAF-12, EC-1, EC-2) folded. Ready for critique pass 3, the architect's delta read and QA's re-key. Blocks before code: OQ-11 and OQ-12 (his, before M3 code), OQ-13 (his, before M5 code), OQ-7 (the waitUntil probe, before M5 and M6 code). M1, M2 and M7 wait only on the gates and the chain branch."
-Revision: 3
+Status-Detail: "Revision 4: critique pass 3 (F-24, F-25), the architect's delta read (AF-22) and QA's re-key on revision 3 (QAF-13, QAF-14) folded. Ready for critique pass 4 and QA's re-key; the architect reads it at its closing pass. Blocks before code: OQ-11 and OQ-12 (his, before M3 code), OQ-13 (his, before M5 code), OQ-7 (the waitUntil probe, before M5 and M6 code). M1, M2 and M7 wait only on the gates and the chain branch."
+Revision: 4
 Plan-ID: 017
 Target-Release: "website master (Vercel production) first, then preview-image-generator prod (prod.yml), each push his word, run by devops. Order and reason: § Release and rollback. Neither package.json carries a version field (git show 1ad625e:package.json, 8de2b53:package.json), so no version artifact moves."
 Epic-Alignment: "Hooks.gg existing-items queue: the commission of 2026-11-18T21:53Z (items 2 to 5 of the five-item ranking), under his 2026-11-11 ruling that new feature work waits until the existing items are handled (steering/queue-hooks-rulings.md, selection 2)."
@@ -27,6 +27,7 @@ Architectural-Surface: "Yes; the architect's conformance pass is a named step (s
 | 2026-11-18T23:57 | 2 | planner-hooks-017 | Folds the three gate verdicts on revision 1: critique cycle 1 pass 1 (`aa2e8ef`, F-1 to F-18), the architect's conformance pass (`406b34a`, AF-1 to AF-9) and QA Phase 1 (`d1add83`, `06511f1`, QAF-1 to QAF-9 with the QAF-9 reconcile); disposition of every finding in § "Gate findings folded". OQ-8 to OQ-10 opened for him; D-17 registered (steering's 23:41Z Standing Default). Scope delta: no milestone added or removed; M3 gains a named storage form, a write matrix, a preservation limb for the other stored keys and an unload-exit table; M4 gains a navigation-guard context and moves `ConfirmationProvider` up a layout (OQ-10); M5 gains an ordered nonce, a deletion form, the cross-repo key contract and a fixed log prefix; M5-0 gains three outcomes and a control line; M6 gains a provision step and per-class failure lines. Against the original ask: what each item delivers is unchanged; the mechanism under items 2 and 4 is larger. |
 | 2026-11-19T00:12 | R-5 | planner-hooks-017 | Registered D-18 to D-21, his four selections on revision 2 (OQ-8, OQ-9, OQ-10, X-17 to X-19); words in `steering/selection-ledger/2026-11-19.md` block "2026-11-19T00:10Z — steering-roadmap" and `steering/017-rulings.md` block 2026-11-19T00:11Z (`7c14195`). Scope delta: none — registration only. |
 | 2026-11-19T00:15 | 3 | planner-hooks-017 | Folds critique cycle 1 pass 2 (`51805f4`: F-19 to F-23; SL-1 and SL-2 members fixed), the architect's delta approval (`5ee7b89`: AF-16 to AF-18), QA's Phase 1 re-key (`df45dde`: QAF-10 to QAF-12, EC-1, EC-2, NM-22 to NM-25), his D-18 to D-21 into the criteria, and steering's two candidates (`steering/017-rulings.md` block 00:06Z), each re-derived. M4's dialog form now rides D-20 (its own provider instance at the layout instead of moving the editor's); disposition table § "Gate findings folded". OQ-11 to OQ-13 opened for him (F-19). Scope delta: no milestone added or removed; M3 gains a byte bound and a matrix row; M4's dialog form changes inside D-20; M5 gains a lock-read statement form, a real-Postgres lane, an age reference on the committed object and a 12-hour reader. Against the original ask: what each item delivers is unchanged. |
+| 2026-11-19T00:23 | 4 | planner-hooks-017 | Folds critique cycle 1 pass 3 (`97b96e3`: F-24, F-25), the architect's delta read (`26f648e`: AF-22) and QA's re-key on revision 3 (`0137fa0`: QAF-13, QAF-14, NM-26 to NM-28, and its LastModified assumption); disposition table § "Gate findings folded". OQ-11 and OQ-12 reworded from a four-pair table, while both are with him unanswered (put 00:21Z). Scope delta: none in milestones or delivery; M3-h reads from the table; M4-a names how the guard reaches its dialog; M5-c form 3 deletes nothing when its own object is missing; M5-g's falsifier is B-6; RK-7 gains a liveness precondition. |
 
 ## Reading Order
 
@@ -42,9 +43,9 @@ Owed re-verdicts:
 
 | Limb | Decidable since | Owning gate | State |
 |---|---|---|---|
-| Revision 3 delta (M3 bound and matrix, M4-a dialog form, M5-a statement form, M5-c age reference, M5-f reader, RK-7) | revision 3 commit | critic, cycle 1 pass 3 | owed |
-| M4-a's dialog form; M5-c's age reference (AF-17); M3's byte bound (AF-16) | revision 3 commit | architect, delta read | owed |
-| M5-c form 3 re-keyed to the committed object's `LastModified`; M4-b's two-dialog member; the real-Postgres lane; B-7 and B-10 readers | revision 3 commit | QA Phase 1 re-key | owed |
+| Revision 4 delta (OQ-11/OQ-12 table, M3-h, M4-a dialog reach, M5-c missing-reference rule, M5-g falsifier, RK-7 liveness) | revision 4 commit | critic, cycle 1 pass 4 | owed |
+| M5-c's missing-reference rule (QAF-13) in the oracle; M4-b's two-level layout member; B-10's liveness rows | revision 4 commit | QA Phase 1 re-key | owed |
+| Everything folded after revision 3 | revision 4 commit | architect, closing pass (no later than devops Stage 1) | owed |
 
 ## Value Statement and Business Objective
 
@@ -156,15 +157,24 @@ option's cost: (a) **at most 20 entries and at most 1 MB serialised, evicting th
 edited entry** (Recommended): the store and its per-keystroke cost stay small (the architect measured
 17.2 ms to serialise and 5.1 ms to parse a 7.4 MB map, `verification/017/architect-delta/`); what it
 gives up is a silent loss, the oldest draft, for a browser past the bound, which D-11's text did not
-show him. (b) **No bound but the browser's quota**: no draft is ever evicted; what it gives up is
-the per-keystroke cost growing with the store, and when storage fills, the newest write is dropped
-(the edits stay on the page only).
+show him. (b) **No bound of the chain's own**: what it gives up is the per-keystroke cost growing
+with the store; what happens when the browser's storage fills is OQ-12's answer (table below).
 
 **OPEN QUESTION OQ-12 (his; blocks M3 code; F-19 item 2).** The quota error. (a) **The shared `set`
 stops throwing for every stored key, and the draft store evicts and retries** (Recommended; his
 standing rule fixes a shared bug once, in the shared code). (b) **Stated limit**: no code changes on
 the quota path; a full origin storage makes every later edit throw inside the editor's store effect,
 as it can today, and the same for theme and preferences writes.
+
+The two answers combine (F-24). What each of the four pairs does, the options' text being readings
+of this table:
+
+| OQ-11 · OQ-12 | Past 20 entries or 1 MB | Browser storage full |
+|---|---|---|
+| (a) · (a) | the least recently edited draft is evicted, silently | the least recently edited draft is evicted and the write retried; with nothing left to evict, the write is dropped and the edits stay on the page; the editor keeps working |
+| (a) · (b) | the same | the write throws inside the editor's store effect, on every later edit (reachable only when other data fills the origin, since the drafts stay under 1 MB) |
+| (b) · (a) | nothing happens; no bound | the least recently edited draft is evicted and the write retried, as (a) · (a): a silent loss, but only at the browser's quota |
+| (b) · (b) | nothing happens; no bound | the write throws inside the editor's store effect, on every later edit, as it can today |
 
 **OPEN QUESTION OQ-13 (his; blocks M5 code; F-19 item 3).** The leftover-object sweep (M5-c form 3).
 (a) **After each commit, delete the message's leftover objects at least 120 s older than the
@@ -241,6 +251,12 @@ raising gate's.
 | QAF-12 MEDIUM | The guard renders its own provider instance and dialog at the layout; the editor's provider and dialog stay where they are, so `/send`'s update prompt is unchanged and the two dialogs never share a slot | M4-a, M4-b |
 | Steering candidate 1 (`SessionProvider` effect) | Re-derived at source: keyed on the server-given `session` prop, so it runs at page load; the expired-session member is expected empty (Inference); D-18 covers it either way | M3-d |
 | Steering candidate 2 (retention) | Re-derived: about a day (Vercel's documentation 1 day; the CLI's 1 d refusal) | D-8; M5-f |
+| F-24 MEDIUM (pass 3) | A four-pair table under OQ-12; OQ-11 (b) reworded to defer the full-storage outcome to it; M3-h reads from it | OQ-11, OQ-12; M3-h |
+| F-25 LOW | M5-g's production falsifier is his B-6 look | M5-g |
+| AF-22 LOW | The guard captures `showConfirmation` from its own instance; `StyledLink` never calls `useConfirmation`; tests mount the two-level layout with a `/send` member inside `MessageProvider` | M4-a |
+| QAF-13 MEDIUM | A listing without the committing save's own object deletes nothing | M5-c form 3 |
+| QAF-14 LOW | B-10's liveness precondition: a fixture line counted at M6, and the region's success count above zero at each read | RK-7 |
+| QA's LastModified assumption (re-key on revision 3) | Argued to hold for either stamping point; the residue is a clock disagreement of more than 60 s inside the bucket. The two-put check on the real bucket is not required | M5-c form 3 |
 
 ## Plan
 
@@ -510,10 +526,11 @@ path (M3-h) is their residue.
   sequence of writes, the map holds at most 20 entries and at most 1 MB serialised unless one entry
   alone exceeds it; an eviction never removes the entry being written. Under OQ-12 (a): a write
   refused for quota leaves the editor working with the edits on the page. Each half is removed with
-  its option if he chooses (b). Declined work's fate, in
-  operator terms: an evicted entry is gone. The group most exposed is a browser past the bound (more
-  than 20 route-0 drafts or unsaved messages, or a megabyte of them), which loses the least recently
-  edited first.
+  its option if he chooses (b); the outcome of each of the four answer pairs is the table under
+  OQ-12, and this limb is read from it. Declined work's fate, in operator terms: an evicted entry is
+  gone. The group most exposed is a browser past the bound (more than 20 route-0 drafts or unsaved
+  messages, or a megabyte of them), or, under OQ-11 (b) with OQ-12 (a), a browser whose storage is
+  full; each loses the least recently edited first.
 - **Human-observable form.** Signed out at `/message/m/0/edit`: type a draft, sign in with the test
   account, open a saved message, return to the new-message page. The draft is there. Walked before
   release by UAT on the local stack (`tools/uat-local-stack.sh`), where QA Phase 1 showed Discord
@@ -546,6 +563,12 @@ Surfaces at `1ad625e`: `src/components/StyledLink.tsx`; `src/app/message/layout.
     two dialogs opened together. Sibling, mirrored with no code change: `ConfirmationProvider` and
     `ConfirmationDialog` as `Navigation.tsx`'s Reload uses them. This rides D-20 ("moves the dialog up
     a layout"): a dialog now lives at the layout, and the send page's Header and Sidebar links warn.
+    Because `useConfirmation` returns the nearest instance and the editor's instance shadows the
+    layout's inside `m/[id]/layout.tsx` (AF-22), the guard captures `showConfirmation` from its own
+    instance at the layout, and `StyledLink` reaches the confirmation only through the guard context,
+    never by calling `useConfirmation`. M4-b's tests mount the real two-level layout tree
+    (`message/layout.tsx` over `m/[id]/layout.tsx`) and include a member inside `MessageProvider` on
+    `/send` (`send/page.tsx`'s links), where the editor's instance has no renderer.
   - *Deviation, with its reason*: the guard hook returns "no guard" outside its provider instead of
     throwing, as the provider pattern's hooks do (`useMessage`), because `StyledLink` renders on pages
     with no editor (`CookieConsent`, `LandingCTA`, `_layout/Footer`), and `Dropdown` and `InfoPanel`
@@ -689,7 +712,15 @@ unreachable, reset); no answer within T; the continuation ended by the platform'
      is needed (QA's EC-1 falls away). L must cover the earliest any in-flight save's object can be
      written: a later save's continuation starts after the committed save's started, and each writes
      its object within its own life (60 s, D-10), so a later in-flight object is at most 60 s older
-     than the committed one and is never collected; the other 60 s are margin.
+     than the committed one and is never collected; the other 60 s are margin. The argument holds
+     whether the bucket stamps `LastModified` at the start or the end of a put, since both fall inside
+     the writing continuation's life; its residue is a disagreement of more than 60 s between the
+     bucket's own servers' clocks, which no read here can measure without writing to the real bucket
+     (QA's re-key on revision 3 routed a two-put check on the `dev/` prefix to the implementer; it is
+     not required, because a put to the real bucket is outside what any stage here may do unasked).
+     **A listing that does not contain the committing save's own object deletes nothing** (QAF-13: a
+     later save's form 1 can delete it first, as in `W1 C1 W2 C2 D2 D1`, and a sweep without its
+     reference would then delete the newly committed image).
 
   Property: after every completed commit's deletes, the prefix holds the committed object plus only
   objects written after it or less than L before it. An earlier save still in flight may have its
@@ -747,9 +778,9 @@ unreachable, reset); no answer within T; the continuation ended by the platform'
   website's `NODE_ENV` is `production`; the generator's `ENV` on its host is unread (its `.env`
   holds secrets, and no read here prints it), and production previews resolve under `previews/`
   without `dev/` (Inference from the working production images, chain 016's post-deploy looks). Its
-  falsifier, after both deploys: devops saves the test account's message and requests that message's
-  preview URL, without `dev/`, recording the status in the deployment record (a 200 is the
-  agreement; part of B-11). The local walk records both variables' names and values. Every
+  falsifier, after both deploys, is his B-6 look (F-25): a saved message's new preview showing after
+  a reload of the list means the generator wrote where the website reads and deletes; a broken or
+  unchanged preview names RK-10 or RK-1. The local walk records both variables' names and values. Every
   listing keeps the trailing `/` after the id (QA's NM-13). Tests use literal keys.
 - **Cost** (AF-7). Each save now holds a function instance for the generator's round trip (AN-4
   median 2197 ms, bound T = 40 s) on a project without Fluid compute (D-10, Inference), where today
@@ -901,7 +932,7 @@ Run once at the named trees by this planner on 2026-11-18, captures under `verif
 | RK-4 | The storage change loses a draft already in a user's browser at first load | M3-e's fixtures | — |
 | RK-5 | Two saves of one message, or a save and a delete, commit the wrong nonce, delete the committed object or resurrect a row | M5-e's oracle (re-keyed to revision 2 at `df45dde`, 0 of 3120 violating; owed again for revision 3's age reference); the real-Postgres lane | — |
 | RK-6 | The generator deploy stops a process mid-render | `handoff/preview-image-generator-drain-under-load-unobserved-2026-11-08.md`, devops's read | — |
-| RK-7 | Stored messages whose `/preview` render answers an error status stop being re-imaged and keep their stale image (unclosed-assumptions item 7) | QA's B-10. Reader: a crontab line on this box installed by devops at Stage 1, earliest read 30 days after the generator deploy, running `verification/015/pig-host-read.sh` with M6-c's shape through `ssh hooks-pig`. The read is the count of M6-c's `preview-image-failure` lines of class `error-status` since the deploy; each counted line is a member (a stored message whose render answers an error status and keeps a stale image), and zero over the 30 days is no member observed. Artifact: `verification/017/post-deploy/b10/<UTC stamp>.txt`. Carrier for the result: the handoff devops mints at Stage 1. | — |
+| RK-7 | Stored messages whose `/preview` render answers an error status stop being re-imaged and keep their stale image (unclosed-assumptions item 7) | QA's B-10. Reader: a crontab line on this box installed by devops at Stage 1, earliest read 30 days after the generator deploy, running `verification/015/pig-host-read.sh` with M6-c's shape through `ssh hooks-pig`. The read is the count of M6-c's `preview-image-failure` lines of class `error-status` since the deploy; each counted line is a member (a stored message whose render answers an error status and keeps a stale image), and zero over the 30 days is no member observed. Artifact: `verification/017/post-deploy/b10/<UTC stamp>.txt`. Carrier for the result: the handoff devops mints at Stage 1. Liveness precondition (QAF-14), without which zero means nothing: (1) at M6, the changed `pig-host-read.sh` is shown counting one fixture line of M6-c's exact shape on this box, by the implementer, captured under `verification/017/m6-probe/`; (2) at each read, the same region's `Generated image for message` count since the deploy is above zero, recorded beside the failure count. | — |
 | RK-8 | M4 misses a link | M4-d's table re-derived at the tip against its three listings (the `next/link` and `StyledLink` importers, and the string `onPress` item sites) | SL-2 (critique pass 2): three members found missing from revision 2's table, added at revision 3 |
 | RK-9 | The database clock steps backwards between two saves of one message, so a later save's nonce sorts below an earlier one's and is refused: the earlier save's preview shows until the next save | None measured: the clock order is Observed on Postgres 16.16 (QA's P1) and production's version is unread; a member shows as a stale preview after a save, never a broken one (M5-b holds either way), seen in his look (B-6) | — |
 | RK-10 | The website's and generator's `dev/` predicates disagree on an environment, so deletions miss (a leak) | M5-g; the local walk's recorded values | — |
