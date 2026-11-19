@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/usr/local/bin/hooks/agent-output/verification/017/m6-probe/mutate-probe.py", line 11, in <module>
-    mutants = json.load(open(sys.argv[1]))
-FileNotFoundError: [Errno 2] No such file or directory: '/usr/local/bin/hooks/agent-output/verification/017/impl/m6/all-mutants-8512a1d.json'
-exit 1

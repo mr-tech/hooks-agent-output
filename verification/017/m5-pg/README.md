@@ -10,6 +10,6 @@ container with two concurrent sessions. It is outside the standing suite.
   `website-src-dir` defaults to the website's `src`; pass the `src` of an export to run a mutant.
 - `vitest.config.mjs`, `pg-lane.test.ts`, `env-stub.ts` — the runner, the lane, and the `~/env.mjs` stand-in.
 
-Cases: P1 the shipped upsert's clock follows lock order; P2 a minted nonce sorts above any existing 32-hex nonce; P3 the shipped
+Cases: P1 the shipped upsert's clock is read after the row lock (the save that begins its transaction and statement first but takes the lock second holds the larger clock, so `now()`, `statement_timestamp()` and `transaction_timestamp()` each fail it); P2 a minted nonce sorts above any existing 32-hex nonce; P3 the shipped
 commit learns the nonce it replaced under a concurrent commit; refused commit on a greater nonce; refused commit on a missing row
 (no insert).

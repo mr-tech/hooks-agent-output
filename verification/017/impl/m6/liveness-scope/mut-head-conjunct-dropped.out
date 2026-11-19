@@ -1,0 +1,20 @@
+== case no-render-since-deploy (3 lines before the latest ready line, none after; want 0):
+latest ISO-stamped 'Server running at' line in the out log (the deploy boundary): 2026-11-20T09:00:00.000Z
+'Generated image for message' lines in the out log at or after that stamp (liveness for a zero): 0
+== case one-render-since-deploy (3 before, 1 after; want 1):
+latest ISO-stamped 'Server running at' line in the out log (the deploy boundary): 2026-11-20T09:00:00.000Z
+'Generated image for message' lines in the out log at or after that stamp (liveness for a zero): 1
+== case two-renders-since-deploy (3 before, 2 after; want 2):
+latest ISO-stamped 'Server running at' line in the out log (the deploy boundary): 2026-11-20T09:00:00.000Z
+'Generated image for message' lines in the out log at or after that stamp (liveness for a zero): 2
+== case ready-lines-out-of-line-order (the later stamp is the earlier line; 1 line after it, 1 before; want 1):
+latest ISO-stamped 'Server running at' line in the out log (the deploy boundary): 2026-11-20T09:00:00.000Z
+'Generated image for message' lines in the out log at or after that stamp (liveness for a zero): 1
+== case other-line-shapes-after-deploy (a generated-image line without the nonce shape, a line with the nonce tail but another head; want 0):
+latest ISO-stamped 'Server running at' line in the out log (the deploy boundary): 2026-11-20T09:00:00.000Z
+'Generated image for message' lines in the out log at or after that stamp (liveness for a zero): 1
+== case unstamped-generated-line-after-deploy (two lines with no ISO stamp, one with 25 characters ahead of the phrase, so they cannot be placed; want 0):
+latest ISO-stamped 'Server running at' line in the out log (the deploy boundary): 2026-11-20T09:00:00.000Z
+'Generated image for message' lines in the out log at or after that stamp (liveness for a zero): 0
+== case no-stamped-ready-line (the boundary is not placeable; want NOT READ, no count):
+no ISO-stamped 'Server running at' line in the out log: the deploy boundary is not placeable, so the liveness count is NOT READ

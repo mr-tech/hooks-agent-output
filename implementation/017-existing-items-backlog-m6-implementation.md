@@ -23,6 +23,7 @@ M5 (website) has its own document and ships first (§ Release and rollback).
 | Date | Agent | Change |
 |---|---|---|
 | 2026-11-19T06:21 | implementer-hooks-017 | M6 built at generator `8512a1d` (two files, +19 −29). Probe: 13 of 17 cases fail on the base `8de2b53` and 17 of 17 pass on the tip, with the 30 s hang case; mutation 15 of 16 killed, the survivor equivalent. RK-7's liveness fixture captured. Handed to code review at `8512a1d`. |
+| 2026-11-19T07:38 | implementer-hooks-017 (resumed) | Round 7 fix round (REJECTED on CR-16; CR-17, CR-18 LOW). Record-only: the generator stays at `8512a1d`. CR-16: `verification/015/pig-host-read.sh` section [7] counts the generated-image lines at or after the latest ISO-stamped `Server running at` line and prints that stamp; the failure counts state that the error log is unstamped. CR-17: a Deviations line. CR-18: a record line under Test Execution Results; the failed capture `sweep-run-8512a1d.out` removed. The reviewer's falsifier `code-review/m6/liveness-scope/run.sh` prints 0 and 1; my fixture has 7 cases and 5 of 5 conjunct mutants killed. |
 
 ## Implementation Summary
 
@@ -61,7 +62,13 @@ M6 touches no user-visible surface of its own: it is a service answering the web
 
 ## Deviations
 
-None. The failure-line field order (`id`, `class`, `elapsedMs`) follows the website's line so one pattern reads both.
+One decision the plan leaves open (CR-17, Round 7). The failure-line field order (`id`, `class`, `elapsedMs`) follows the website's line so one pattern reads both.
+
+**Setup failures carry no class line.** A 500 caused by the render's setup (`browser.newPage()`, `page.setViewport(...)`, the pool's acquire rejecting) writes no `preview-image-failure` line on the generator. M6-c's "one line per render-path failure" lists four
+classes (`goto-rejected`, `error-status`, `screenshot`, `put`) and does not say whether setup is on the render path. I read it as the four: a line is written only for a failure of the page's load, the screenshot or the store, which are the steps
+that say whether *this message's* image could be made, and a fifth class for the browser or the pool being unavailable would name the host's condition, not the message's. A setup failure still answers 500, writes nothing, and is logged by the
+existing `console.error(err)` with its stack, and the website writes its own line for any non-204 answer (M5, class `status-500`), so the operator still sees each one. Only the generator-side per-class count (RK-7's reader) does not see them; RK-7 counts
+`error-status` only, so its read does not change. The probe's `setup-rejects` case shows the behaviour. Whether a fifth class is wanted is the planner's to record; no test is owed.
 
 ## Files Modified
 
@@ -117,6 +124,13 @@ The repository has no test suite; the instrument is the probe, the red run is th
 | B, a probe's nonce that is a substring of a class word (my first `screenshot` case used the nonce `nshot`, inside `screenshot`, and failed the redaction check falsely) | the probe's nonces against the four class words and `preview-image-failure` | 13 nonces `vprobe-NN` and `vprobe-nfail` | none is a substring of a class word. Residual 0 |
 | C, a failure outside the four classes (a render-setup failure) must not write a failure line | a probe case with `setViewport` rejecting | 1 case | `setup-rejects`: 500, no put, no failure line, the error logged by the existing `console.error(err)` |
 
+Round 7 fix round (record-only; the generator is unchanged at `8512a1d`):
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| CR-16, a count the read takes "since the deploy" computed over the whole log (the reviewer's enumeration, re-run) | `sed -n '/^# --- \[7\]/,/^echo; echo "=== end"/p' verification/015/pig-host-read.sh \| grep -c '"\$GREP" -c'` at `4c4e948`, then now; then the whole script: `grep -n '"\$GREP" -c' verification/015/pig-host-read.sh` (`impl/m6/liveness-scope/class-sweep-count-sites.out`) | section [7]: 3 sites at `4c4e948`, 2 now. Whole script: 16 sites. Only [7]'s header states a since-the-deploy reading: `grep -n "since the deploy\|since deploy\|since the last\|since the start"` over the script gives 0 lines outside [7] | the generated-image count (the member) is gone as a `grep -c` and is now an `awk` count at or after the latest ISO-stamped ready line, with the stamp printed. The 2 remaining [7] sites read the unstamped error log, cannot be scoped by time, and now print their bound ("unstamped: counts since the line shape first existed, not since this deploy"). The 13 sites in [3] to [6] are whole-log or whole-process counts labelled as such, or span machinery in [6] (list sizes): none states or is relied on as since-the-deploy, so not-applicable. Residual 0 members. The predicate sees only `grep -c` sites; a count made with `awk` or `wc` elsewhere would not show: `grep -c "awk.*n++\|wc -l"` is not applicable here, the script's other counts are the 16 |
+| CR-16, the scope code's own guards (each conjunct of the new count and the boundary choice) | `m6-probe/liveness-scope-fixture.sh` (7 cases: none rendered since the deploy; one; two; ready lines out of line order; a line of another shape after the deploy; unstamped generated lines, one with 25 characters ahead of the phrase; no stamped ready line), five one-change mutants of a copy of the script (`impl/m6/liveness-scope/mut-*.out`, `mutants.out`) | 5 of 5 killed: boundary compare dropped, latest becomes earliest, head conjunct dropped, tail conjunct dropped, ISO gate dropped | the ISO-gate mutant first SURVIVED: the head conjunct (`index(substr($0, 26), …) == 1`) already excludes an unstamped line of the ordinary shape. It is not equivalent: an unstamped line with 25 characters ahead of the phrase passes the head conjunct. A case with that line was added and the mutant is killed. Residual 0 |
+
 ## Test Execution Results
 
 Environment: generator export of `8512a1d` (and of `8de2b53` for the red) in the session scratchpad, outside the repositories, `node_modules` from `npm ci` of the unchanged lockfile; every probe run network-isolated (`unshare -rn`, loopback up); Chrome from `/usr/bin/google-chrome` 157.
@@ -129,6 +143,24 @@ No generator or Chrome process remained after any run (`left over processes: gen
 | `tsc --noEmit -p .` and `npx eslint src/generateImage.ts src/server.ts` in an export of the working tree before the commit | 0 errors, 0 findings (the base lints clean on the same files) |
 | Mutation: `mutant-gen.js --range 8de2b53..8512a1d` (8 mutants) plus 8 named or row mutants (`impl/m6/all-mutants.json`, `m6-probe/mutate-probe.py`, `impl/m6/sweep-run.out`) | 15 of 16 killed under a passing control (16 cases), 1 survivor |
 | `m6-probe/pig-host-read-fixture.sh` over the real probe lines (`impl/m6/pig-host-read-fixture.txt`) | section [7] counted 10 failure lines by class (goto-rejected 3, error-status 5, screenshot 1, put 1) and 2 generated-image lines; the near-miss class `error-statusX`, a stack head and a stack frame were not counted |
+
+Round 7 fix round (record-only; network isolation does not apply: no network path):
+
+| Command | Result |
+|---|---|
+| Red, the scope fixture against `pig-host-read.sh` as committed at `4c4e948` (`impl/m6/liveness-scope/red-4c4e948.out`) | counts 3, 4, 5, 2 and 2 for the five cases where 0, 1, 2, 1 and "not read" are wanted: the count is over the whole log; the last case printed a count where none is wanted |
+| Green, the same fixture against the changed script (`liveness-scope/green-new.out`) | 0, 1, 2, 1, 0, 0 and "NOT READ", each case printing the boundary stamp it counted from; the last case prints no count |
+| The reviewer's falsifier `code-review/m6/liveness-scope/run.sh` (not edited) | `no-render-since-deploy` reads 0 and the control reads 1 |
+| `m6-probe/pig-host-read-fixture.sh` over the real probe lines, ready line moved before them (`liveness-scope/fixture-after.out`) | 10 failure lines by class as before; boundary `2026-11-19T06:13:39.709Z`; 2 generated-image lines at or after it; the near-miss class, a stack head and a stack frame are still not counted |
+| Mutants of the scope code | 5 of 5 killed (Class Sweep above); each in its own copy of the script in the session scratchpad, never the record's file |
+| `bash -n verification/015/pig-host-read.sh` | exit 0 |
+
+**Record line (CR-18): the trees of the captures.** `impl/m6/green/` and `impl/m6/sweep-run.out` (with `sweep-out/`) were produced by the probe and the mutation driver against the generator export the sections above name, `git archive` of `8512a1d`; the captures
+themselves record no tree id (their stack traces name only the shared `node_modules` of the base install), so that identity is this document's statement, not something the files prove. What the files do show is that the sweep's control passed all 16 cases and that its
+mutants were generated over `8de2b53..8512a1d` with line numbers that are the tip's (`generateImage.ts:36` and `:37`). Code review reproduced the green at its own export of `8512a1d`, 17 of 17 (Round 7). `impl/m6/green-8512a1d/` and
+`impl/m6/pig-host-read-fixture-8512a1d.txt` are byte-identical second copies of `green/` and `pig-host-read-fixture.txt` (the reviewer's `diff`) and carry no further evidence. `impl/m6/sweep-run-8512a1d.out` was a failed attempt (`FileNotFoundError` on
+`all-mutants-8512a1d.json`, exit 1), not evidence, and is removed in this round. `impl/m6/pig-host-read-fixture.txt` is the output of the first delivery's script (the whole-log count) and is superseded by `liveness-scope/fixture-after.out`. The lint and
+typecheck row above ran on "an export of the working tree before the commit", not of the commit; code review's own `tsc -b` and eslint at an export of `8512a1d` (exit 0 each, Round 7) are the run at the commit.
 
 Named mutants (QA's list) and row mutants:
 
@@ -149,7 +181,7 @@ Named mutants (QA's list) and row mutants:
 - **Unreachable states, stated:** a response status below 200 never reaches puppeteer from Chrome, and a null `goto` is not inducible by a stub (Chrome aborts a 204), so those two members are driven through the shim, not through a real browser; production behaviour for them is the code read.
 - **The `put` case retries:** the AWS SDK retries a refused put three times before the 500, so a failed storage costs seconds, as at the base.
 - **Release order** (plan § Release and rollback): the website ships first; with the new generator and the old website, nothing deletes the old objects (a leak) and the old website still rotates the nonce unconditionally.
-- **Process facts, disclosed in the round:** the secret-file hook refused one compound call (a `git commit` followed by `git log`) in this repository because `git log` could print the flagged `.github/workflows/prod.yml`; nothing ran; I re-issued the commit alone, and used `rev-parse`, `status`, `diff --numstat` and `grep -c` thereafter, printing no line of that file. The exports were made with `git archive … ':(exclude).github'`. The generator repository's tree stayed clean of `node_modules` and build output.
+- **Process facts, disclosed in the round:** the secret-file hook refused one compound call (a `git commit` followed by `git log`) in this repository because `git log` could print the flagged `.github/workflows/prod.yml`; nothing ran; I re-issued the commit alone, and used `rev-parse`, `status`, `diff --numstat` and `grep -c` thereafter, printing no line of that file. The exports were made with `git archive … ':(exclude).github'`. The generator repository's tree stayed clean of `node_modules` and build output. **Round 7 fix round:** the same hook refused two `git log` calls in this repository (one inside a compound read, one alone with `--name-only`; both only to read the commit's time, which no finding needs). I did not re-issue either in another form and dropped the read; nothing of the flagged file was printed. `git rm --cached` staged the removal of `sweep-run-8512a1d.out` in the shared index before its pathspec commit.
 - **Downstream:** M6 changes product behaviour observable outside the service's source: a render that errors now answers 500 where it answered 204, and the generator no longer deletes. M5's premise ("204 means the object was stored") is what this delivers; RK-7's reader (B-10) counts the new `error-status` lines from the deploy.
 - **Self-diagnosis, for the retrospective:** my first probe's redaction check flagged a false failure because a probe nonce was a substring of a class word; I chose nonces for brevity, not for being unmistakable among the words the line contains. The check was right to be strict and the fixture wrong.
 

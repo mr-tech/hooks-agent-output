@@ -1,0 +1,10 @@
+== case no-render-since-deploy (3 lines before the latest ready line, none after; want 0):
+'Generated image for message' lines in the out log (liveness for a zero): 3
+== case one-render-since-deploy (3 before, 1 after; want 1):
+'Generated image for message' lines in the out log (liveness for a zero): 4
+== case two-renders-since-deploy (3 before, 2 after; want 2):
+'Generated image for message' lines in the out log (liveness for a zero): 5
+== case ready-lines-out-of-line-order (the later stamp is the earlier line; 1 line after it, 1 before; want 1):
+'Generated image for message' lines in the out log (liveness for a zero): 2
+== case no-stamped-ready-line (the boundary is not placeable; want NOT READ, no count):
+'Generated image for message' lines in the out log (liveness for a zero): 2

@@ -1,0 +1,13 @@
+fixture members: 10 real failure lines; non-members: 1 near-miss class, 1 stack head, 1 stack frame
+fixture generated-image lines: 2
+[7] preview failure lines for hooks-image-preview-generator-prod (counts only):
+  class=goto-rejected: 3
+  class=error-status: 5
+  class=screenshot: 1
+  class=put: 1
+  all classes: 10
+  (the failure counts are over the error log, which is unstamped: counts since the line shape first existed, not since this deploy)
+  latest ISO-stamped 'Server running at' line in the out log (the deploy boundary): 2026-11-19T06:13:39.709Z
+  'Generated image for message' lines in the out log at or after that stamp (liveness for a zero): 2
+
+=== end

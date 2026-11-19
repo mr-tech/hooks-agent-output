@@ -257,7 +257,11 @@ fi
 # The generator writes one 'preview-image-failure id=<id> class=<class> elapsedMs=<n>' line per render-path failure to
 # stderr (the PROD app's error log) and 'Generated image for message <id> with nonce <n> in <N>ms' to stdout (its out log).
 # Counts only; no line is printed. Liveness (QAF-14): a zero failure count says nothing unless the generated-image count
-# since the same deploy is above zero. The fixture run is verification/017/m6-probe/pig-host-read-fixture.sh.
+# since the same deploy is above zero. The deploy boundary is placed as section [6] places a span: the latest ISO-stamped
+# 'Server running at' line in the out log (by timestamp, never by line order); the generated-image count covers the ISO-stamped
+# lines at or after it, and the boundary's stamp is printed. The error log carries no stamp (console.error is not wrapped), so
+# the failure counts cannot be scoped by time; their bound is stated in the output. The fixture run is
+# verification/017/m6-probe/pig-host-read-fixture.sh; the scope falsifier is verification/017/m6-probe/liveness-scope-fixture.sh.
 echo; echo "[7] preview failure lines for $PROD (counts only):"
 ERRF="$H/logs/$PROD-error.log"
 if [ -r "$ERRF" ] && [ -r "$OUT" ]; then
@@ -265,7 +269,18 @@ if [ -r "$ERRF" ] && [ -r "$OUT" ]; then
     echo "  class=$CLS: $("$GREP" -c "preview-image-failure id=[0-9]* class=$CLS elapsedMs=[0-9]*\$" "$ERRF")"
   done
   echo "  all classes: $("$GREP" -c 'preview-image-failure id=[0-9]* class=[a-z-]* elapsedMs=[0-9]*$' "$ERRF")"
-  echo "  'Generated image for message' lines in the out log (liveness for a zero): $("$GREP" -c 'Generated image for message [0-9]* with nonce .* in [0-9]*ms$' "$OUT")"
+  echo "  (the failure counts are over the error log, which is unstamped: counts since the line shape first existed, not since this deploy)"
+  READY7="$("$GREP" '^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\.[0-9][0-9][0-9]Z Server running at ' "$OUT" | "$AWK" '{ t = substr($0, 1, 24); if (t > best) best = t } END { print best }')"
+  if [ -n "$READY7" ]; then
+    echo "  latest ISO-stamped 'Server running at' line in the out log (the deploy boundary): $READY7"
+    echo "  'Generated image for message' lines in the out log at or after that stamp (liveness for a zero): $("$AWK" -v b="$READY7" '
+      /^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\.[0-9][0-9][0-9]Z / {
+        if (substr($0, 1, 24) >= b && index(substr($0, 26), "Generated image for message ") == 1 && $0 ~ / with nonce .* in [0-9]*ms$/) n++
+      }
+      END { print n + 0 }' "$OUT")"
+  else
+    echo "  no ISO-stamped 'Server running at' line in the out log: the deploy boundary is not placeable, so the liveness count is NOT READ"
+  fi
 else
   echo "  $ERRF or $OUT not readable"
 fi

@@ -1,0 +1,7 @@
+previewImage.commit-statement.test.ts:36:  it('returns the message id and the database clock, read in the same statement', () => {
+previewImage.commit-statement.test.ts:37:    expect(compiled.sql).toMatch(/returning "id", \(extract\(epoch from clock_timestamp\(\)\) \* 1000000\)::bigint::text as "savedAtMicros"$/);
+previewImage.commit-statement.test.ts:72:  it('is v, the clock in microseconds to 16 digits, then 16 hex characters', () => {
+previewImage.commit-statement.test.ts:76:  it('pads a short clock to 16 digits', () => {
+previewImage.commit-statement.test.ts:84:  it('sorts a later clock above an earlier one whatever the random parts are', () => {
+shared.upsert-preview-continuation.test.ts:43:    if (sql.startsWith('insert into "Messages"')) return [{ id: '42', savedAtMicros: CLOCK }];
+shared.upsert-preview-continuation.test.ts:93:  it('sends the saved id and a nonce minted from the database clock the statement returned', async () => {

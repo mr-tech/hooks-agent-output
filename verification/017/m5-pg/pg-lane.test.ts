@@ -48,20 +48,27 @@ const nonceOf = async (id: string) => (await sql<{ n: string | null }>`select "p
 const seed = (id: string, nonce: string | null) => sql`insert into "Messages" (id, name, data, valid, "updatedAt", "previewImageNonce") values (${id}, 'n', '{}', true, now(), ${nonce})`.execute(dbA);
 
 describe('the shipped upsert statement', () => {
-  it('P1: returns a clock that follows lock order, so the second of two saves holds the larger clock', async () => {
+  it('P1: the clock is read after the row lock, so the save that takes the lock second holds the larger clock, though its transaction and its statement began first', async () => {
     await seed('7', OLD_NONCE);
-    let firstClock = '';
-    const first = dbA.transaction().execute(async (trx) => {
+    let laterLockClock = '';
+    let earlierLockClock = '';
+    const startsFirst = dbA.transaction().execute(async (trx) => {
+      await sleep(300);
       const row = await buildUpsertMessageQuery(trx as never, upsertValues('7') as never).executeTakeFirstOrThrow();
-      firstClock = row.savedAtMicros;
-      await sleep(2000);
+      laterLockClock = row.savedAtMicros;
     });
-    await sleep(700);
-    const second = await buildUpsertMessageQuery(dbB as never, upsertValues('7') as never).executeTakeFirstOrThrow();
-    await first;
+    await sleep(100);
+    const takesLockFirst = dbB.transaction().execute(async (trx) => {
+      await sql`select id from "Messages" where id = '7' for update`.execute(trx);
+      await sleep(500);
+      const row = await buildUpsertMessageQuery(trx as never, upsertValues('7') as never).executeTakeFirstOrThrow();
+      earlierLockClock = row.savedAtMicros;
+      await sleep(300);
+    });
+    await Promise.all([startsFirst, takesLockFirst]);
 
-    expect(BigInt(second.savedAtMicros) > BigInt(firstClock)).toBe(true);
-    expect(mintNonce(second.savedAtMicros) > mintNonce(firstClock)).toBe(true);
+    expect(BigInt(laterLockClock) > BigInt(earlierLockClock)).toBe(true);
+    expect(mintNonce(laterLockClock) > mintNonce(earlierLockClock)).toBe(true);
   });
 
   it('writes no preview nonce on insert or on conflict', async () => {

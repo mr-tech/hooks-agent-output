@@ -25,6 +25,7 @@ Start: `steering/017-rulings.md` block 2026-11-19T05:19Z; QA Phase 1 at `7eda138
 |---|---|---|
 | 2026-11-19T06:12 | implementer-hooks-017 | M5 built: dependency at website `9909fb3`, code and 78 cases at `72a1755`, three survivor-closing cases at `f83f2ca`. Full suite 1814 of 1814 exit 0; typecheck exit 0. Real-Postgres lane 11 of 11, 3 of 3 lane mutants killed. Handed to code review at `f83f2ca`. |
 | 2026-11-19T06:30 | implementer-hooks-017 | Round 6 LOWs. CR-14: the `previewWorld` line added under Files Created. CR-15: the interleavings case retitled by behaviour (`leaves the later save's image committed and present`; the chain stays the `play()` argument). Before and after, `previewImage.interleavings.test.ts` runs 38 of 38 passed, exit 0, network-isolated; the pass set differs only in that title; eslint 0. Handoff-At unchanged (a title-only commit on top of `f83f2ca`). |
+| 2026-11-19T07:38 | implementer-hooks-017 (resumed) | Premises re-read at the mechanism (§ Resumption premise re-read). QAF-24 (LOW): the real-Postgres lane's P1 rewritten so the save that takes the row lock second began its transaction and its statement first; under `now()`, `statement_timestamp()` and `transaction_timestamp()` it fails, and the control is 11 of 11. Lane-only (`verification/017/m5-pg/`): website stays at `4b8db9c`, so M5's QA verdict there stands. |
 
 ## Implementation Summary
 
@@ -217,13 +218,55 @@ sleeps 2 s inside its transactions to hold a row lock; it is outside the standin
 - **Process facts:** the secret-file hook refused one compound call that contained `git log` in the generator repository (see M6's document); the record-write gate refused no write this milestone; an `eslint --fix` I ran over a whole `__tests__` directory rewrote three test files outside M5 (formatting only); I restored those three to `HEAD` before committing (they were my own tool's output, shown by their diffs to be formatting only) and re-applied the two intended edits by hand. A leftover empty `/tmp/impl017-pgsock.*` directory (owned by the container's uid) was removed as root inside a container.
 - **Downstream:** M5 changes product behaviour observable outside the service's source: a save no longer moves the stored preview until the generator confirms; with the old generator (which deletes before it renders) the window is today's (§ Release and rollback). M6 is the milestone whose premise it sets (204 must mean an object was stored).
 
+## Resumption premise re-read (2026-11-19T07:38, session resumed after the park)
+
+Each premise the Resumption State rested on, re-read at the mechanism this session:
+
+| Premise | Instrument | Result |
+|---|---|---|
+| Website chain tip is `4b8db9c` on `chain/017-existing-items-backlog` | `git -C website branch --show-current`, `log --oneline -3`, `rev-parse` | holds: `4b8db9c`, `status` shows only the untracked `.playwright-mcp/` |
+| `4b8db9c` is a title-only commit on `f83f2ca` | `git -C website diff --numstat f83f2ca 4b8db9c` | 1 file, `previewImage.interleavings.test.ts`, +1 −1 |
+| The upsert reads the database clock after the row lock | `git show 4b8db9c:src/server/api/utils/shared.ts \| grep -n "clock_timestamp\|waitUntil"` | `clock_timestamp()` at the `savedAtMicros` column (line 225) and `waitUntil(runPreviewContinuation(…))` (262) |
+| Generator chain tip is `8512a1d` | `git -C preview-image-generator branch --show-current`, `log --oneline -2` | holds, on the chain branch; local `origin/prod` `8de2b53`, `origin/master` `87dcb41` |
+| Website remote refs unchanged since the cut | local tracking refs, `rev-parse origin/master` | `1ad625e` (a read of the local tracking ref, not a `ls-remote`) |
+| The lane runs the shipped statements and exits 0 | `m5-pg/run.sh` through the driver below | control 11 of 11, exit 0 at website `4b8db9c` |
+
+## QAF-24 fix round (LOW)
+
+**Finding** (`qa/017-existing-items-backlog-m5-qa.md` § Findings, agent-output `10e4627`): the lane's P1 could not tell the order token's clock (`clock_timestamp()`, read after the row lock) from a clock read at the statement's or the transaction's start,
+because the scenario's two statements and two transactions started in the same order as their lock acquisitions. QA's mutant `qa-clock-now` passed 11 of 11.
+
+**Change** (`verification/017/m5-pg/pg-lane.test.ts` and its README; nothing under `website/`): P1 now has session A begin its transaction first and start its upsert statement first (it blocks), while session B, whose transaction began later, takes the row lock first with
+`select … for update`, then runs its own upsert statement (a later statement start than A's) and holds the lock a further 300 ms. A takes the lock second. The case asserts A's clock above B's and A's minted nonce above B's. Under `now()` and
+`transaction_timestamp()` A's clock is its transaction's start, below B's. Under `statement_timestamp()` it is A's statement start, below B's. Under `clock_timestamp()` it is read after the lock, above B's. The existing P1 is tightened, not joined by a sibling.
+
+**Surface and flows.** No user-visible surface: a verification lane outside the standing suite.
+
+**TDD row** (the lane is a run, not a standing test; its red is the mutants, as the milestone's lane row states):
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| P1, the shipped upsert's clock is read after the row lock | `m5-pg/pg-lane.test.ts` | Yes (the case first, then the mutants; the production statement did not change) | Yes: `clock-now`, `clock-statement-timestamp`, `clock-transaction-timestamp` each fail 1 of 11, the case P1 and no other (`impl/m5-qaf24/lane-4b8db9c-new-p1/summary.txt`); the old P1 passed 11 of 11 under `qa-clock-now` (QA's `lane-sweep/qa-clock-now/`) | `AssertionError: expected false to be true` on the clock comparison | Yes: control 11 of 11, exit 0, `PostgreSQL 16.16` (`…/control/`) |
+
+Mutants ran in a fresh `git archive 4b8db9c` export each (`impl/m5-qaf24/run-lane-mutants.sh`, `lane-clock-mutants.json`; one exact-once edit; output to files; each run in its own process group under `timeout -k`), in the session scratchpad, never the shared tree; the exports were removed by the driver
+(`leftover-containers 0` as the summary's last line; `/dev/shm` held no `pgl.*` directory after).
+
+**Class Sweep**
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| QAF-24, a lane case on a concurrent property whose scenario orders the sessions the same way under the property and under a weaker alternative (derived by me: the finding carries one for P1 only) | `grep -n "sleep(" verification/017/m5-pg/pg-lane.test.ts` (`impl/m5-qaf24/class-sweep-sleep-sites.out`): every concurrent case has a sleep | 6 hits in 2 cases: P1 (4 sites, after the fix) and P3 (2 sites). The lane's other 9 cases hold no second session | P1: fixed above, the alternatives killed. P3 (the commit learns the nonce it replaced under a concurrent commit): its alternative is an unlocked read, which orders the same way only if the second session reads after the first commits; the scenario has the first session hold its transaction open for 2 s while the second starts at 700 ms, so the unlocked read returns the old nonce. QA's `lane-sweep` killed that mutant (`NM-22`, P3 failing) and I re-ran it at `72a1755` (`pg-lane-mutant-unlocked`, 1 failing). Not-applicable, with those two runs. Residual 0 |
+| QAF-24, the same class in the Node tests (a clock-order case that substitutes the database) | `grep -n "savedAtMicros\|clock" src/server/api/utils/__tests__/previewImage.commit-statement.test.ts shared.upsert-preview-continuation.test.ts` over the website tree | 8 lines (`impl/m5-qaf24/class-sweep-node-clock-sites.out`): the statement-text case "returns the message id and the database clock, read in the same statement" (:36, :37), three mint-shape cases (:72, :76, :84), the substituted insert's fixture return (`shared.upsert-preview-continuation` :43) and the mint-from-the-clock case (:93) | each matches the compiled text, the minted shape or a fixture value, and none claims an order under a lock; the property they cannot see (order under a lock) is the lane's alone, and P1 now holds it. Not-applicable beyond that. Residual 0 |
+
+**Handoff and expiry.** The website tip does not move, so M5's QA verdict at `4b8db9c` is not expired by this round. QA owns QAF-24's resolution; I do not mark it.
+
 ## Next Steps
 
-Code review at website `f83f2ca` (M5 range `c37d41a..f83f2ca`), then QA Phase 2 for M5 (its pg lane re-run, EC-2). Then M6's document (generator `8512a1d`), and M7 last.
+Code review at website `f83f2ca` (M5 range `c37d41a..f83f2ca`), then QA Phase 2 for M5 (its pg lane re-run, EC-2). Then M6's document (generator `8512a1d`), and M7 last. After QAF-24: QA's confirmation of the lane change; the M6 fix round is in M6's document.
 
 ## Resumption State
 
-Written 2026-11-19T07:16 by implementer-hooks-017 at steering's checkpoint request; chain 017 is parked on the owner's word (`steering/017-rulings.md` block 2026-11-19T07:15Z, `cffd802`). The shell append that first tried to write this section was refused by `record-write-gate-hook`; it is re-issued here with the Edit tool.
+Consumed 2026-11-19T07:38 by the resumed session (§ Resumption premise re-read); kept as written. Written 2026-11-19T07:16 by implementer-hooks-017 at steering's checkpoint request; chain 017 is parked on the owner's word (`steering/017-rulings.md` block 2026-11-19T07:15Z, `cffd802`). The shell append that first tried to write this section was refused by `record-write-gate-hook`; it is re-issued here with the Edit tool.
 
 - **Done (M5):** dependency `9909fb3`, code `72a1755`, survivor cases `f83f2ca`, then the Round 6 fix round: CR-15 (website `4b8db9c`, the interleavings case retitled by behaviour, 38 of 38 before and after) and CR-14 (agent-output `838c571`, the `previewWorld` line under Files Created). Code review approved the Round 6 sub-entry at website `4b8db9c` (agent-output `6e4436d`); QA was told the tip is `4b8db9c`. `Handoff-At` stays `f83f2ca` (the retitle is a title-only commit on top of it).
 - **Next:** QA Phase 2 for M5 (its pg lane re-run, EC-2) is QA's. M6's document (generator `8512a1d`, `4c4e948`) is already written and is in code review (Round 7). M7 comes last. Nothing is owed from me on M5; a QA or review finding on M5 would start a fix round with the Class Sweep table.

@@ -3,6 +3,7 @@
 # RK-7's liveness precondition (QAF-14, plan 017 M6-c): the changed verification/015/pig-host-read.sh section [7] counts a line of
 # M6-c's exact shape on this box. The member lines are REAL: the generator's own failure and success lines out of a probe run
 # (green-8512a1d/probe-result.json). The non-members are a near-miss class, a stack head, and a line of another message's shape.
+# The ready line is stamped 60 s before the first generated line, so section [7]'s since-the-deploy count sees every generated line (CR-16).
 # The script is copied with H pointed at the fixture and the claude-ro refusal removed (the same way
 # verification/015/pig-span-read-fixture/run.sh does); only section [7] is printed.
 set -u
@@ -26,8 +27,13 @@ node -e '
   echo "Error: Preview render failed: error-status"
   echo "    at generateMessagePreviewImage (src/generateImage.ts:1:1)"
 } > "$T/fx/logs/$P-error.log"
-cat "$T/gen.txt" > "$T/fx/logs/$P-out.log"
-echo "$(date -u +%Y-%m-%dT%H:%M:%S.000Z) Server running at http://0.0.0.0:3000/" >> "$T/fx/logs/$P-out.log"
+READY_AT=$(node -e '
+  const r = JSON.parse(require("fs").readFileSync(process.argv[1], "utf8"));
+  const first = r.generatorLines.filter((l) => l.includes("Generated image for message"))[0].slice(0, 24);
+  console.log(new Date(Date.parse(first) - 60000).toISOString());
+' "$RESULT")
+echo "$READY_AT Server running at http://0.0.0.0:3000/" > "$T/fx/logs/$P-out.log"
+cat "$T/gen.txt" >> "$T/fx/logs/$P-out.log"
 : > "$T/fx/pm2.log"
 sed -e "s#^H=/etc/.pm2#H=$T/fx#" -e '/^\[ "\$ME" = "claude-ro" \]/d' "$R/verification/015/pig-host-read.sh" > "$T/script.sh"
 {
