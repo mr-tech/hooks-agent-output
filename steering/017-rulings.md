@@ -874,3 +874,16 @@ sample found no saveable message that reaches it, with UAT B-6 still looking. X-
 (the architecture Problem Areas row carries it); (b) fix it in 017 — moves the generator tip, re-opens code
 review, QA and security there. Recommendation: (a): only an API-key holder can reach it. The access question
 (block 08:12Z) is re-stated in the same message.
+
+## 2026-11-19T08:38Z — critic APPROVED revision 8; architect closing pass started; this thread's error on B-6
+
+Critic cycle 3 pass 1: revision 8 APPROVED, no finding (`critiques/closed/017-existing-items-backlog-critique.md`,
+`56a602a`; its message). `architect-hooks-017` started for the closing pass (brief
+`…/architect-hooks-017-closing.md`), last revision read 7 (`6ade256`), now revision 8 (`5e36106`).
+**This thread's error, in the round:** the 08:36Z message to him said of X-22 "UAT will still look for
+it". Wrong. The critic pointed out, and this thread read (`qa/017-existing-items-backlog-qa.md:303`), that
+B-6 is a row in QA's register, not a UAT step: its runner is the owner, it runs after both deploys are live,
+and it is his look at one message he saves himself. So no stage looks for a fallback image before release,
+and B-6 covers one message, not the class X-22 leaves unmeasured. The plan's X-22 carrier cell reads the same;
+the critique records it as SL-3's third member, for the planner's registration of his answer. Corrected to
+him in this turn. The X-22 recommendation is unchanged, with this weaker carrier stated.
