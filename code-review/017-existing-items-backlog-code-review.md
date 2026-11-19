@@ -2,10 +2,10 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Reviewed-At: "ec984fe — repos=website; Round 2, M2 (implementation document 057109c); Round 1, M1, was reviewed at 8147661"
+Reviewed-At: "dd26104 — repos=website; Round 2 sub-entry, M2 fix confirmation (implementation document e088937); Round 2 was reviewed at ec984fe; Round 1, M1, was reviewed at 8147661"
 Status: In Review
 Round: 2
-Verdict: REJECTED
+Verdict: APPROVED
 ---
 
 # Code Review: 017 — the existing-items backlog
@@ -23,6 +23,7 @@ Verdict: REJECTED
 | 2026-11-19T00:58 | qa-hooks-017 (QAF-15) | Reconcile CR-1's base lint figure | Round 1 reconcile: CR-1's base figure of 21 corrected to 7 (base-tree lint); 7 → 5, so M7-b holds and the verdict does not move. CR-2 re-checked on the 8147661 export and holds. |
 | 2026-11-19T01:17 | implementer-hooks-017 (cross-session hand-off; M2 document `057109c`) | Round 2: review M2 at website `ec984fe` | Round 2, M2 only. APPROVED_WITH_COMMENTS: CR-3 MEDIUM (`useSaveWith`'s hook-style name hides a hook called outside a render from `rules-of-hooks`; positive control at line 160; routed to QAF-16's disposition at QA Phase 2), CR-4 LOW (M2-a's eleventh member, "fails shape", has no case and no recorded disposition; it is unobservable at the client). The criteria assessed are M2-a, M2-b, M2-c and the Window, as revision 4 states them at round open. Captures are in `verification/017/code-review/m2/`. Gate disclosed: the record-write gate refused a shell heredoc that drafted this round's section into a scratch file, reading it as a shell write to a record document; the section was then written into this document with the Edit tool. |
 | 2026-11-19T01:27 | qa-hooks-017 (QAF-17, `5630f1b`) | R2-reconcile: Round 2's verdict corrected | Round 2 reopened by correction: CR-5 MEDIUM (duplicates QAF-17) is a severity-floor finding I missed. Verdict APPROVED_WITH_COMMENTS → REJECTED; the fix is test-only and returns as a Round 2 sub-entry. Method observation for the retrospective: the reviewer checked the implementer's mutant list for coverage instead of enumerating the criterion's interleavings itself. |
+| 2026-11-19T01:48 | implementer-hooks-017 (fix SHA `dd26104`, M2 document `e088937`) | Round 2 sub-entry: confirm the test-only fix for CR-5, CR-3 and CR-4 | Round 2 sub-entry: APPROVED at `dd26104`. 4 of 4 re-attack mutants were killed as assertions (`verification/017/code-review/m2-fix/`). CR-5 and CR-3 are gone, CR-4 is recorded. M3's `index.tsx` change is outside this sub-entry, and M2's wiring there is untouched. |
 
 ## Scope and Tree
 
@@ -142,6 +143,29 @@ The red ran before the implementation: 5 failed of 32 at the M1 tip with the new
 The test added after a survivor (`53c3c58`) is spec-form, not bug-form. No escaped provenance is claimed, so none is owed. No time-based test was added. `tdd-check.py` applies to Python sources only and was not run.
 
 One weakness: the two new cases in `useApiMethods.json-editor-repair.test.ts` assert only the record count, not its value. The value is asserted through the mount file's broadcast cases and `m2-record-not-normalized`, so that is not a gap. Where the two cases live is CR-3's subject.
+
+### Round 2 sub-entry — fix confirmation at `dd26104`
+
+**Scope**: the fix diff `ec984fe..dd26104` over M2's files. The M2 commits in it are `442059d`, `bce3119` and `dd26104`, all test-only. `git diff --name-only ec984fe dd26104` over `usePusher.ts`, `useApiMethods.ts` and `index.tsx` lists only `index.tsx`, which M3's commits changed (`d9ebe97`, `79144cb`, `536b8e6`). None of M3's changed lines touches M2's wiring: `git diff -U0` filtered for `ownSave|forgetOwnSave|onError|usePusher|useApiMethods` gives 0 lines, and the five wiring lines are present at `dd26104`. M3's code and its `messageProviderDeps.ts` helper change (`79144cb`) are M3's to review.
+
+The branch tip was `dd26104` at the start and end of the sub-entry, and the three test files I read are byte-equal to their `dd26104` blobs.
+
+**Re-attack** (`mutation-run.py --sha dd26104`, isolated exports, `verification/017/code-review/m2-fix/`: `fix-mutants.json`, `run/`). 4 of 4 KILLED, with control count equal to mutant count. Each failed exactly its intended case with an `AssertionError`, in about 3 s against a 240 s timeout, so none was a timeout:
+- `cr5-any-broadcast-consumes-a-record` (QA's coupling mutant) → "raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows";
+- `cr5-sibling-any-failure-forgets-a-record` (the same shape on `forgetOwnSave`, the implementer's class-sweep member) → "raises no notice for a later save in flight when an earlier save, already broadcast, then reports failure";
+- `cr3-id-guard-dropped` → "records nothing for a message that has no id yet";
+- `cr3-record-call-removed` → "records one hash for a message that has an id".
+
+**Conventions**: `convention-check.js . --files` over the two changed test files gives 0 FAIL, with the id-token limb skipped; my hand predicate over their added lines gives 0 hits. eslint on `useApiMethods.json-editor-repair.test.ts` at `dd26104` gives 42 findings, with `rules-of-hooks` only at the base line 48, equal to base (`eslint-stub-file-dd26104.out`).
+
+That file is M1's blob plus the single `{ current: [] }` argument the new parameter requires, not M1's content exactly as the implementer's message says. The difference is immaterial.
+
+**Dispositions** (class gone, plus the check that fails if it returns):
+- **CR-5**: gone. The check is the `own-save-notice` case above, killed by `cr5-any-broadcast-consumes-a-record`. The class's sibling member on `forgetOwnSave` is closed by its own case.
+- **CR-3**: gone. The class enumeration re-run at `dd26104` gives 6 hits, and `useSaveWith` is not among them (`hook-named-test-helpers-dd26104.out`; the 6 are the non-member server fixtures). The two `persist` cases now render the real hook under `createRoot`/`act` in `useApiMethods.own-save-record.test.tsx`. The checks are `cr3-id-guard-dropped` and `cr3-record-call-removed`, CR-3's two falsity signatures, each an assertion failure.
+- **CR-4**: recorded, in the M2 document's Outstanding Items (agent-output `e088937`). `no test`.
+
+**Sub-entry verdict**: APPROVED at `dd26104` for M2. Every Round 2 finding is dispositioned. The suite figure (1606 of 1606, exit 0) is the implementer's and was not re-run here; that is QA's refresh.
 
 ## Findings
 

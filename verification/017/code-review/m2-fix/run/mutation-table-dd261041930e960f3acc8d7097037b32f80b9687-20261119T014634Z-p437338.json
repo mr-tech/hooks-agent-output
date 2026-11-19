@@ -1,0 +1,171 @@
+{
+ "sha": "dd261041930e960f3acc8d7097037b32f80b9687",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m2-fix/fix-mutants.json",
+ "command": [
+  "node_modules/.bin/vitest",
+  "run",
+  "--no-cache",
+  "--configLoader",
+  "runner",
+  "--config",
+  "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/vitest.probe.config.mjs"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m2-fix/fix-mutants.json",
+   "blob": "7ef77d8550f5780996cf75cf5ceba51b17ab30a0"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  },
+  {
+   "kind": "argument",
+   "path": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/vitest.probe.config.mjs",
+   "blob": "361b4c895da72529398b7a0339c60a645d6e0618"
+  }
+ ],
+ "controls": {
+  "[\"src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m2-fix/run/dd261041930e960f3acc8d7097037b32f80b9687-20261119T014634Z-p437338-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m2-fix/run/dd261041930e960f3acc8d7097037b32f80b9687-20261119T014634Z-p437338-control-1.stderr",
+   "seconds": 7.24,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 37,
+   "tests": [
+    "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx"
+   ],
+   "passed": true
+  },
+  "[\"src/providers/MessageProvider/__tests__/useApiMethods.own-save-record.test.tsx\"]": {
+   "id": "control-2",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m2-fix/run/dd261041930e960f3acc8d7097037b32f80b9687-20261119T014634Z-p437338-control-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m2-fix/run/dd261041930e960f3acc8d7097037b32f80b9687-20261119T014634Z-p437338-control-2.stderr",
+   "seconds": 4.35,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 2,
+   "tests": [
+    "src/providers/MessageProvider/__tests__/useApiMethods.own-save-record.test.tsx"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "cr5-any-broadcast-consumes-a-record",
+   "run": "mutant-1",
+   "file": "src/providers/MessageProvider/usePusher.ts",
+   "tests": [
+    "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 37,
+   "control_tests_run": 37,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.36,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m2-fix/run/dd261041930e960f3acc8d7097037b32f80b9687-20261119T014634Z-p437338-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m2-fix/run/dd261041930e960f3acc8d7097037b32f80b9687-20261119T014634Z-p437338-mutant-1.stderr"
+  },
+  {
+   "id": "cr5-sibling-any-failure-forgets-a-record",
+   "run": "mutant-2",
+   "file": "src/providers/MessageProvider/usePusher.ts",
+   "tests": [
+    "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 37,
+   "control_tests_run": 37,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for a later save in flight when an earlier save, already broadcast, then reports failure"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.14,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m2-fix/run/dd261041930e960f3acc8d7097037b32f80b9687-20261119T014634Z-p437338-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m2-fix/run/dd261041930e960f3acc8d7097037b32f80b9687-20261119T014634Z-p437338-mutant-2.stderr"
+  },
+  {
+   "id": "cr3-id-guard-dropped",
+   "run": "mutant-3",
+   "file": "src/providers/MessageProvider/useApiMethods.ts",
+   "tests": [
+    "src/providers/MessageProvider/__tests__/useApiMethods.own-save-record.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2,
+   "control_tests_run": 2,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/useApiMethods.own-save-record.test.tsx > useApiMethods saveMessage, the record of the tab's own save > records nothing for a message that has no id yet"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.65,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m2-fix/run/dd261041930e960f3acc8d7097037b32f80b9687-20261119T014634Z-p437338-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m2-fix/run/dd261041930e960f3acc8d7097037b32f80b9687-20261119T014634Z-p437338-mutant-3.stderr"
+  },
+  {
+   "id": "cr3-record-call-removed",
+   "run": "mutant-4",
+   "file": "src/providers/MessageProvider/useApiMethods.ts",
+   "tests": [
+    "src/providers/MessageProvider/__tests__/useApiMethods.own-save-record.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2,
+   "control_tests_run": 2,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/useApiMethods.own-save-record.test.tsx > useApiMethods saveMessage, the record of the tab's own save > records one hash for a message that has an id"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.75,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m2-fix/run/dd261041930e960f3acc8d7097037b32f80b9687-20261119T014634Z-p437338-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m2-fix/run/dd261041930e960f3acc8d7097037b32f80b9687-20261119T014634Z-p437338-mutant-4.stderr"
+  }
+ ],
+ "score": "4 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; fix-mutants.json (blob 7ef77d8550f5780996cf75cf5ceba51b17ab30a0))"
+}

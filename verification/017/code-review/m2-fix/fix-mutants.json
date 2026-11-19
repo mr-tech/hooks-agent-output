@@ -1,0 +1,18 @@
+[
+  {"id": "cr5-any-broadcast-consumes-a-record", "file": "src/providers/MessageProvider/usePusher.ts",
+   "old": "if (ownSaveIndex >= 0) ownSaveRecordsRef.current.splice(ownSaveIndex, 1);",
+   "new": "ownSaveRecordsRef.current.splice(Math.max(ownSaveIndex, 0), 1);",
+   "tests": ["src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx"]},
+  {"id": "cr5-sibling-any-failure-forgets-a-record", "file": "src/providers/MessageProvider/usePusher.ts",
+   "old": "if (index >= 0) recordsRef.current.splice(index, 1);",
+   "new": "recordsRef.current.splice(Math.max(index, 0), 1);",
+   "tests": ["src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx"]},
+  {"id": "cr3-id-guard-dropped", "file": "src/providers/MessageProvider/useApiMethods.ts",
+   "old": "if (payload.id) recordOwnSave(ownSaveRecordsRef, payload);",
+   "new": "recordOwnSave(ownSaveRecordsRef, payload);",
+   "tests": ["src/providers/MessageProvider/__tests__/useApiMethods.own-save-record.test.tsx"]},
+  {"id": "cr3-record-call-removed", "file": "src/providers/MessageProvider/useApiMethods.ts",
+   "old": "if (payload.id) recordOwnSave(ownSaveRecordsRef, payload);",
+   "new": "if (payload.id) void recordOwnSave;",
+   "tests": ["src/providers/MessageProvider/__tests__/useApiMethods.own-save-record.test.tsx"]}
+]

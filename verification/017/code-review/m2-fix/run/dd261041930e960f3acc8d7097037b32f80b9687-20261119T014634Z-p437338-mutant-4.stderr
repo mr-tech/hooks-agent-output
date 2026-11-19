@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/useApiMethods.own-save-record.test.tsx > useApiMethods saveMessage, the record of the tab's own save > records one hash for a message that has an id
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/useApiMethods.own-save-record.test.tsx:36:73
+     34| describe('useApiMethods saveMessage, the record of the tab\'s own save…
+     35|   it('records one hash for a message that has an id', () => {
+     36|     expect(saveRecords({ id: '1', name: 'n', data: { content: 'x' } })…
+       |                                                                         ^
+     37|   });
+     38|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
