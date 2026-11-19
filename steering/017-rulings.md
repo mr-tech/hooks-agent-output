@@ -837,3 +837,19 @@ implementer 207K idle; every wake ARMED. OOM 0. Usage live: session 16%, `weekly
   started now (brief `backlog-2026-11-18-briefs/planner-hooks-017-resume.md`), with security L-001, M6's
   fifth-failure-class Deviation and code review's Round 7 `/preview` assumption to disposition. The access
   defects (block 08:12Z) stay out of the fold. The critic is started on the planner's revision.
+
+## 2026-11-19T08:32Z — revision 8 (the batch fold) received; critic started; X-21 and X-22 for him
+
+Read this turn: plan `Revision: 8`, Status In Progress, last commit `5e36106` (08:31:02Z). The planner's
+message (not yet re-read in the plan body by this thread) states: no milestone or delivered-behaviour
+scope delta; record corrections folded (CR-8, M4-a, M4-d); M6 class set closed at four (no fifth); new
+exclusions X-21 (security L-001, the planner's call) and X-22 (code review Round 7: `/preview`'s fallback
+render stored as the preview), and X-23 (QAF-19, a stated limit under the M4 cap). Its disclosure: the
+record-write gate refused one `sed -i` on the plan, and three earlier writes in that pass went through a
+shell python script the gate did not catch; the planner read their content in the diff.
+- `critic-hooks-017` started on revision 8 at its pin (cycle 3 pass 1, not a first cycle; brief
+  `…/critic-hooks-017-resume.md`, `9bc127e`).
+- X-21 and X-22 are exclusions he has not seen: both go to him. X-22's options rest on a code-read
+  premise (the fallback answers 200 and the generator stores it): a `general-purpose-sonnet` helper is
+  trying to refute it by execution (`verification/017/steering-refute-preview-fallback/`) before the
+  question is put. X-23 rides the M4 cap (block 04:14Z) and needs no question.
