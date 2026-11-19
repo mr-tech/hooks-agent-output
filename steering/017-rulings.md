@@ -1229,3 +1229,18 @@ marked ids in units of 115/116/116/116 (`website-1.tsv` to `website-4.tsv`); no 
   7 are `left unasserted` (299, 380, 418, 1596, 1601, 1669, 1811).
 - Nothing is deleted on this. A deletion would be a later chain's, behind a mutation re-run. The retrospective does not wait on it.
 The export (`scratchpad/deweed/web-787bec5`) is removed after this commit. The generator carries no tests, so it had no pass.
+
+## 2026-11-19T20:41Z — retrospective written; 017 close-out complete
+
+`retrospectives/017-existing-items-backlog-retrospective.md` (`93f7adc`, Status Active). Its open item for this thread: the seven mutants
+standing as "equivalent" on argument alone had no carrier. This thread's decision: carry them. `handoff/mutant-equivalence-by-argument-unverified-2026-11-19.md`
+(Owning-Stage qa, event trigger on the five files), check-repo PASS.
+Carriers still open at close-out:
+- the post-deploy carrier `handoff/017-existing-items-backlog-post-deploy-2026-11-19.md` (readers B7R first 2026-11-20T07:17Z, B10R from
+  2026-12-19; his looks B-6, B-8, B-9 on OWNER-QUEUE);
+- the three item handoffs closing on those looks (block 20:25Z);
+- the drain handoff's item 2;
+- the new equivalence handoff.
+Disclosure: the stamp gate refused this block's first heading (20:42Z, typed a minute ahead of the clock). It now carries the `date -u` minute.
+The 017 standing check is deleted. This thread stays up for the access-defects fixer, whose scope question is with him
+(`steering/fix-personal-message-access-rulings.md`).

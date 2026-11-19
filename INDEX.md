@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-366 documents · 17 numbered chains · 186 unnumbered.
+371 documents · 17 numbered chains · 190 unnumbered.
 
 ---
 
@@ -122,7 +122,7 @@ closed. A document's path changes when it closes; its name does not.
 | retrospective | `retrospectives/closed/016-send-check-validity-retrospective.md` | Processed |
 | UAT | `uat/closed/016-send-check-validity-uat.md` | Released — APPROVED FOR RELEASE at website 395510e (plan revision 7), released at devops Phase 2D (pushed 2026-11-11T18:29:46Z). Pre-release rows B-1, B-2 and B-5 EXECUTED and PASS. Post-deploy rows B-3, B-4 and B-6 ride handoff/send-check-validity-post-deploy-2026-11-11.md with their unfixed values; UAT-1 LOW (B-6(b) is read on the red border, subject message 5996) is carried there. |
 
-### 017 — 0 open, 28 closed
+### 017 — 1 open, 28 closed
 
 | Stage | Location | Status |
 |---|---|---|
@@ -152,6 +152,7 @@ closed. A document's path changes when it closes; its name does not.
 | QA | `qa/closed/017-existing-items-backlog-m7-qa.md` | Released — Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md. |
 | QA | `qa/closed/017-existing-items-backlog-m8-qa.md` | Released — Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md. |
 | QA | `qa/closed/017-existing-items-backlog-qa.md` | Released — Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md. |
+| retrospective | `retrospectives/017-existing-items-backlog-retrospective.md` | Active — Written after chain 017's close-out (every stage document terminal and in closed/; released website master 787bec5, generator prod 8512a1d). Rests until pi runs on the owner's command. |
 | security | `security/closed/017-preview-image-generator-security-audit.md` | Review Complete — Review Complete 2026-11-19: pre-release security gate on the preview-image-generator delta 8de2b53..8512a1d (M6) APPROVED, no required control. The reviewed tip is the SHA released: generator prod and master at 8512a1d (ls-remote 20:21Z). L-001 LOW is the plan's exclusion X-21, accepted by the owner (D-32). The observations outside the reviewed delta are carried by steering/017-rulings.md (blocks 08:12Z, 09:01Z, 20:21Z) for the access-defects fixer chain. Nothing is owed by this document. |
 | UAT | `uat/closed/017-existing-items-backlog-uat.md` | Released — Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md. |
 
@@ -327,6 +328,7 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/closed/v1-guild-messages-endpoints-unauthenticated-2026-08-24.md` | Addressed · priority normal — Addressed: both v1 guild-messages handlers require the Statbot key since website 1acffee, live since 2026-10-10 (unauthenticated request: 401, 0 bytes). The open questions are answered in steering/v1-guild-messages-auth-rulings.md, block 2026-11-10: the owner rules the key is not treated as compromised; of the other matchers, /message and /preview are live and /api/guilds is a dead pattern that guards nothing. The remaining post-deploy check (Statbot's own calls) rides handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md. |
 | handoff | `handoff/closed/website-tests-not-beside-their-module-2026-11-08.md` | Addressed · priority normal — Discharged by plan 017 M1-a and X-13 (plan disposition table, planning/closed/017-existing-items-backlog.md line 1347): M1-a moved the files beside their modules; X-13, accepted by the owner, keeps cron.scheduled-selection and interactions-edge.signature-before-parse in src/server/api/__tests__/ because a test file under src/pages/api/ would be built as an API route. M1 QA Complete at website 8147661; released at website master 787bec5 (2026-11-19T20:11Z). |
 | handoff | `handoff/message-init-cached-edits-lost-2026-08-27.md` | Open · priority normal — A test file (`website/src/utils/__tests__/message-init-route0.test.ts`) pinned a bug in its own transcription of MessageProvider's route-0 mount-effect logic, not in the production module itself — the file imported nothing from `~/` or `bot/`. The pin is deleted by plan 014 (D2: delete the pin, log the bug, no bug fixes in a test-cleanup chain). Whether the defect is live in production was NOT verified by chain 014 (out of scope by ruling); an informal, non-authoritative observation is recorded below and should not be read as a verification. |
+| handoff | `handoff/mutant-equivalence-by-argument-unverified-2026-11-19.md` | Open · priority normal — Seven surviving mutants from chain 017 are dispositioned 'equivalent' by argument alone, with no case on a separating input. In 017, three of three argued equivalences that a case later tested were wrong. Owed: for each, a case driving the input that would separate the two forms (kill it), or a recorded run that shows none exists. Nothing blocks on it. |
 | handoff | `handoff/newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` | Open · priority normal — Discovered while converting a source-text test (`013-fqa19-ingress-gate-reachability.test.ts`, plan 014 M4c row 19) to a real mount. The old test asserted `onSubmit`'s gate-then-write ordering by reading `NewMessageModal.tsx`'s own source text; it never actually rendered the component or clicked a real button. Mounting it for real (`src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx`) shows the gated choice UI the old test's ROUTE 1/ROUTE 2 cases described is unreachable via the Save button today. This chain does not fix product code (D2); logged here instead. |
 | handoff | `handoff/one-hooks-user-several-discord-accounts-2026-11-08.md` | Open · priority normal — Sign-out revokes and clears one arbitrary Discord account row when a Hooks user holds several, and the account lookup returns an arbitrary one. A known limit by the owner's ruling (chain 015 D34); nothing is owed unless such a user is found or reported. |
 | handoff | `handoff/preview-image-failure-shows-broken-not-stale-2026-08-24.md` | Open · priority normal — A live defect in `preview-image-generator`'s integration, found by writing the owner's intent down rather than by anything failing. He stated what should happen when preview generation fails; the tree does something else. Nothing is built, nothing is committed to, and no chain is minted — the owner ruled this a handoff rather than a chain because it belongs to a different service from the effort in flight. The mechanism below was established by `architect-hooks-013` and has NOT been re-derived by the thread that wrote this document. |
@@ -406,6 +408,7 @@ they are the ID-less artifacts that root new efforts.
 | steering | `steering/comment-sweep-briefs/comment-sweep-fixer-brief.md` | — |
 | steering | `steering/fix-dialog-closes-on-first-portal-load-brief-common.md` | — |
 | steering | `steering/fix-dialog-closes-on-first-portal-load-rulings.md` | — |
+| steering | `steering/fix-personal-message-access-rulings.md` | — |
 | steering | `steering/queue-hooks-briefs/architect-016-brief.md` | — |
 | steering | `steering/queue-hooks-briefs/architect-016-respawn-brief.md` | — |
 | steering | `steering/queue-hooks-briefs/code-reviewer-016-brief.md` | — |
@@ -464,6 +467,8 @@ they are the ID-less artifacts that root new efforts.
 | verification | `verification/017/uat/walk-2/setup-snapshot.md` | — |
 | verification | `verification/017/uat/walk-4/part1-results.md` | — |
 | verification | `verification/017/uat/walk-8/results.md` | — |
+| verification | `verification/access-defects/scoping/refutation.md` | — |
+| verification | `verification/access-defects/scoping/sweep.md` | — |
 | verification | `verification/backlog-2026-11-18/scoping/preview-failure-sweep.md` | — |
 | verification | `verification/backlog-2026-11-18/scoping/save-tab-notice-sweep.md` | — |
 | verification | `verification/backlog-2026-11-18/scoping/signed-out-guards-sweep.md` | — |
@@ -658,6 +663,7 @@ they are the ID-less artifacts that root new efforts.
 | `017-existing-items-backlog-qa.md` | `qa/closed/017-existing-items-backlog-qa.md` |
 | `017-existing-items-backlog-release-tip-fix-code-review.md` | `code-review/closed/017-existing-items-backlog-release-tip-fix-code-review.md` |
 | `017-existing-items-backlog-release-tip-fix-implementation.md` | `implementation/closed/017-existing-items-backlog-release-tip-fix-implementation.md` |
+| `017-existing-items-backlog-retrospective.md` | `retrospectives/017-existing-items-backlog-retrospective.md` |
 | `017-existing-items-backlog-uat.md` | `uat/closed/017-existing-items-backlog-uat.md` |
 | `017-existing-items-backlog.md` | `planning/closed/017-existing-items-backlog.md` |
 | `017-preview-image-generator-security-audit.md` | `security/closed/017-preview-image-generator-security-audit.md` |
@@ -739,6 +745,7 @@ they are the ID-less artifacts that root new efforts.
 | `fix-hooks-record-shared-engine-implementation.md` | `implementation/closed/fix-hooks-record-shared-engine-implementation.md` |
 | `fix-hooks-record-shared-engine-qa.md` | `qa/closed/fix-hooks-record-shared-engine-qa.md` |
 | `fix-hooks-record-shared-engine-retrospective.md` | `retrospectives/closed/fix-hooks-record-shared-engine-retrospective.md` |
+| `fix-personal-message-access-rulings.md` | `steering/fix-personal-message-access-rulings.md` |
 | `fix-uat-local-stack-id-sequence-code-review.md` | `code-review/closed/fix-uat-local-stack-id-sequence-code-review.md` |
 | `fix-uat-local-stack-id-sequence-implementation.md` | `implementation/closed/fix-uat-local-stack-id-sequence-implementation.md` |
 | `fix-uat-local-stack-id-sequence-retrospective.md` | `retrospectives/closed/fix-uat-local-stack-id-sequence-retrospective.md` |
@@ -766,6 +773,7 @@ they are the ID-less artifacts that root new efforts.
 | `m0-baseline.md` | `verification/014/m0-baseline.md` |
 | `message-init-cached-edits-lost-2026-08-27.md` | `handoff/message-init-cached-edits-lost-2026-08-27.md` |
 | `message-valid-field-for-statbot-2026-08-23.md` | `handoff/closed/message-valid-field-for-statbot-2026-08-23.md` |
+| `mutant-equivalence-by-argument-unverified-2026-11-19.md` | `handoff/mutant-equivalence-by-argument-unverified-2026-11-19.md` |
 | `newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` | `handoff/newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` |
 | `one-hooks-user-several-discord-accounts-2026-11-08.md` | `handoff/one-hooks-user-several-discord-accounts-2026-11-08.md` |
 | `open-documents-survey.md` | `verification/cleanup-2026-11-10/open-documents-survey.md` |
@@ -795,6 +803,7 @@ they are the ID-less artifacts that root new efforts.
 | `record-engine-fixer-brief.md` | `steering/record-engine-briefs/record-engine-fixer-brief.md` |
 | `record-engine-qa-brief.md` | `steering/record-engine-briefs/record-engine-qa-brief.md` |
 | `record-tools-shared-engine-rulings.md` | `steering/record-tools-shared-engine-rulings.md` |
+| `refutation.md` | `verification/access-defects/scoping/refutation.md` |
 | `release-4a7126b-tip-verification.md` | `qa/closed/release-4a7126b-tip-verification.md` |
 | `release-b56570d-tip-verification.md` | `qa/closed/release-b56570d-tip-verification.md` |
 | `report.md` | `verification/015/d28-seed-probes/report.md` |
@@ -815,6 +824,7 @@ they are the ID-less artifacts that root new efforts.
 | `setup-snapshot.md` | `verification/017/uat/walk-2/setup-snapshot.md` |
 | `signed-out-guards-sweep.md` | `verification/backlog-2026-11-18/scoping/signed-out-guards-sweep.md` |
 | `step1-edit-snapshot.md` | `verification/017/qa-phase1/g6-walk/step1-edit-snapshot.md` |
+| `sweep.md` | `verification/access-defects/scoping/sweep.md` |
 | `sweep.md` | `verification/fix-dialog-closes-on-first-portal-load/scoping/sweep.md` |
 | `system-architecture.md` | `architecture/system-architecture.md` |
 | `test-inventory-2026-08-26.md` | `analysis/test-inventory-2026-08-26.md` |
