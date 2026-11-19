@@ -1159,3 +1159,17 @@ Selection put and answered 19:13Z (ledger day file, block "2026-11-19T19:13Z —
 - Not chosen: "Agent: investigate first" (release waits about an hour or more, estimated; a found fix re-opens code review, QA and UAT);
   "Agent: investigate after" (a handoff beside the access-bug fix).
 Recipients: `devops-hooks-017` (O-1 no longer pending; B-6 and B-10 carry it in its forward-item sweep); `planner-hooks-017` (register it).
+
+## 2026-11-19T19:54Z — release-tip QA Phase 3 failed (QAF-29, QAF-30); test-only fix round
+
+`qa/website-7293a35-generator-8512a1d-release-tip-qa.md` (`4914aaa`, read this turn: Status "Release Verification Failed",
+Verified-At `7293a35,8512a1d`). Its call-deletion set left two survivors, both severity-floor MEDIUM and both fixable in tests alone:
+QAF-29 (M3: a share code opened at route 0 writes this tab's route-0 draft, `index.tsx:153`) and QAF-30 (M8: the `contents` wrapper in
+three dialogs). QAF-28 LOW (B-11's generator limb) is routed to devops as a carrier amendment.
+This thread's reading: the M2/M4/M8 caps send gaps below HIGH to the Planner batch, but a severity-floor finding keeps its round
+(blocks 18:13Z, 04:14Z, 06:01Z), so both get a round. No owner word needed. QA names releasing over them as his offer only; no
+standing rule of this thread's prescribes putting it, so it is told to him in this turn, not asked.
+Path: the implementer adds the tests (`implementer-hooks-017` and `devops-hooks-017` busy at 19:5xZ, `cc-usage.py sessions`). Then code
+review checks the test-only diff, then the architect does a delta read at the new website tip (devops step 2c; the closing pass at
+`0fbb246` expires with the tree), then a fresh QA Phase 3 on devops's request, and then devops's 2B ask. Website tip `7293a35` (`rev-parse`).
+Disclosure: the record-write gate refused this block's first write through a shell heredoc; it was re-issued with the Edit tool, the form the gate names.
