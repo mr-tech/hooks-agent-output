@@ -4,7 +4,7 @@ Written by implementer-hooks-017, 2026-11-19. Plan `planning/017-existing-items-
 
 ## The branch
 
-- Website branch `probe/017-waituntil`, one commit `d9030b9` on the chain's base `1ad625e` (`git diff --stat 1ad625e d9030b9`: `package.json` +1,
+- Website branch `probe/017-waituntil`, `d9030b9` on the chain's base `1ad625e`, then `aca8cb3` (below) (`git diff --stat 1ad625e d9030b9`: `package.json` +1,
   `pnpm-lock.yaml` +84 −2, `src/pages/api/waituntil-probe.ts` +23).
 - Built in a git worktree outside `/usr/local/bin/hooks`; the shared website tree stayed on `chain/017-existing-items-backlog` throughout and was not
   switched. The worktree is removed; the branch remains in the repository. It is never merged and is deleted by devops after the read.
@@ -60,6 +60,13 @@ Request the `with` route once the deployment is ready, then read after at least 
 
 `@vercel/functions` declares `engines.node >= 20`; the project's Node version for the preview deployment is devops's to confirm with the environment facts.
 
+## Second commit, `aca8cb3` (at devops-hooks-017's request)
+
+devops's throwaway `next build` of `d9030b9` with only the Preview target's variable names failed in `src/env.mjs` (the Production-only database and Redis variables
+are required), exit 1; with `SKIP_ENV_VALIDATION=1` it exited 0 with `/api/waituntil-probe` in the route table. `aca8cb3` changes only `vercel.json`: a first key
+`"buildCommand": "SKIP_ENV_VALIDATION=1 next build"` (`git diff --stat d9030b9 aca8cb3`: 1 file, 1 insertion). The `crons` entry is untouched, byte for byte (placing the new key
+first leaves its lines out of the diff). The file parses as JSON. How Vercel treats the override is not run here; devops confirms it at the build.
+
 ## For devops-hooks-017
 
-Branch `probe/017-waituntil`, SHA `d9030b9`.
+Branch `probe/017-waituntil`, SHA `aca8cb3` (`aca8cb312f5eef03a25e9383fa384d73fc01842a`); the route is at `d9030b9`.
