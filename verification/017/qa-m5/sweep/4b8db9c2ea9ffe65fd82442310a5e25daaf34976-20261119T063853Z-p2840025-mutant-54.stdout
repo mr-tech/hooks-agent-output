@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-54
+
+ ❯ |node| src/server/api/utils/__tests__/shared.message-cap.test.ts (10 tests | 7 failed) 35103ms
+     × saves a new message when the user holds 0 5025ms
+     × saves a new message when the user holds 999 5014ms
+     × counts the user's messages, not the server's 5032ms
+     × saves a new message when the server holds 999 5005ms
+     × counts the server's messages, not the user's 5003ms
+     × never refuses a save of an existing user message at 1000 5004ms
+     × never refuses a save of an existing guild message at 1000 5010ms
+ ❯ |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts (9 tests | 8 failed) 45027ms
+     × replies while the generator has not answered, with the nonce already committed 5013ms
+     × asks the generator only after its row is saved 5004ms
+     × hands the platform one promise that outlives the reply 5026ms
+     × sends the saved id and a nonce minted from the database clock the statement returned 5014ms
+     × still saves when the generator fails, and keeps the stored nonce 5018ms
+     × settles its promise without rejecting when the storage fails after a 204 5003ms
+     × is the id the client sent for an existing message 5007ms
+     × asks the generator once, after the insert, for the id the insert returned 5004ms
+
+ Test Files  2 failed | 141 passed (143)
+      Tests  15 failed | 1799 passed (1814)
+   Start at  07:09:10
+   Duration  59.37s (transform 20.16s, setup 1.59s, import 120.58s, tests 118.03s, environment 77.59s)
+

@@ -1,0 +1,62 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.interleavings.test.ts > two saves of one message, interleaved, with and without a message delete and an old orphan > s1 'ok', s2 'ok', delete false, orphan true: every interleaving holds the invariants
+AssertionError: expected [ Array(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "[W1 C1 W2 C2 D2 D1] E3@D2:n0",
++   "[W1 W2 C1 C2 D2 D1] E3@D2:n0",
++   "[W2 W1 C1 C2 D2 D1] E3@D2:n0",
++ ]
+
+ ❯ src/server/api/utils/__tests__/previewImage.interleavings.test.ts:147:29
+    145|
+    146|     expect(sequences.length).toBeGreaterThan(0);
+    147|     expect(bad.slice(0, 5)).toEqual([]);
+       |                             ^
+    148|   }, 120_000);
+    149| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.interleavings.test.ts > two saves of one message, interleaved, with and without a message delete and an old orphan > s1 'ok', s2 'ok', delete true, orphan true: every interleaving holds the invariants
+AssertionError: expected [ …(5) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "[W1 C1 W2 C2 D2 D1 X P] E3@D2:n0",
++   "[W1 C1 W2 C2 D2 X D1 P] E3@D2:n0",
++   "[W1 C1 W2 C2 D2 X P D1] E3@D2:n0",
++   "[W1 W2 C1 C2 D2 D1 X P] E3@D2:n0",
++   "[W1 W2 C1 C2 D2 X D1 P] E3@D2:n0",
++ ]
+
+ ❯ src/server/api/utils/__tests__/previewImage.interleavings.test.ts:147:29
+    145|
+    146|     expect(sequences.length).toBeGreaterThan(0);
+    147|     expect(bad.slice(0, 5)).toEqual([]);
+       |                             ^
+    148|   }, 120_000);
+    149| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

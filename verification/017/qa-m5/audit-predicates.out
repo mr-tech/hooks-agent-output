@@ -1,0 +1,21 @@
+# tree 4b8db9c
+# ID-token class (case-insensitive) over title-call lines, comment lines, basename; positive basename form
+src/server/api/utils/__tests__/helpers/previewWorld.ts titles=0 comments=0 basename=0 positive-form=0
+src/server/api/utils/__tests__/previewImage.commit-statement.test.ts titles=0 comments=0 basename=0 positive-form=1
+src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts titles=0 comments=0 basename=0 positive-form=1
+src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts titles=0 comments=0 basename=0 positive-form=1
+src/server/api/utils/__tests__/previewImage.interleavings.test.ts titles=0 comments=0 basename=0 positive-form=1
+src/server/api/utils/__tests__/shared.message-cap.test.ts titles=0 comments=0 basename=0 positive-form=1
+src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts titles=0 comments=0 basename=0 positive-form=1
+src/server/api/utils/__tests__/shared.upsert-valid.test.ts titles=0 comments=0 basename=0 positive-form=1
+# positive control for the ID-token predicate (expect 2 of 2 lines)
+2
+# class-table predicates: source-text (readFileSync|__filename|__dirname|import.meta), time-based (timers, clock reads), local render/mount function, DOM harness use, project imports
+src/server/api/utils/__tests__/helpers/previewWorld.ts source-text=0 time=0 local-render-fn=0 dom-harness=0 project-imports=0
+src/server/api/utils/__tests__/previewImage.commit-statement.test.ts source-text=0 time=0 local-render-fn=0 dom-harness=0 project-imports=2
+src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts source-text=0 time=7 local-render-fn=0 dom-harness=0 project-imports=1
+src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts source-text=0 time=0 local-render-fn=0 dom-harness=0 project-imports=1
+src/server/api/utils/__tests__/previewImage.interleavings.test.ts source-text=0 time=0 local-render-fn=0 dom-harness=0 project-imports=1
+src/server/api/utils/__tests__/shared.message-cap.test.ts source-text=0 time=0 local-render-fn=0 dom-harness=0 project-imports=2
+src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts source-text=0 time=0 local-render-fn=0 dom-harness=0 project-imports=2
+src/server/api/utils/__tests__/shared.upsert-valid.test.ts source-text=0 time=0 local-render-fn=0 dom-harness=0 project-imports=1

@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-58
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts (15 tests | 1 failed) 45ms
+     × an object 119999 ms older than the committed one is deleted: false 13ms
+
+ Test Files  1 failed | 142 passed (143)
+      Tests  1 failed | 1813 passed (1814)
+   Start at  07:11:04
+   Duration  17.09s (transform 23.01s, setup 1.55s, import 127.61s, tests 37.34s, environment 79.48s)
+

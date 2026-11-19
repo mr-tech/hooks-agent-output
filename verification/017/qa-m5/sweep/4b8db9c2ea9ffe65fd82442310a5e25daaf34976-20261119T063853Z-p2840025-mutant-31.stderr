@@ -1,0 +1,41 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+stderr | src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts > a refused commit > deletes its own object and nothing else when a later save has committed
+TypeError: Cannot read properties of undefined (reading 'prev')
+    at Module.runPreviewContinuation (/tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-31/src/server/api/utils/previewImage.ts:120:14)
+    at save (/tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-31/src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts:33:3)
+    at /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-31/src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts:84:5
+    at file:///tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-31/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:1893:20
+
+stderr | src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts > a refused commit > deletes its own object when the row is gone, and recreates no row
+TypeError: Cannot read properties of undefined (reading 'prev')
+    at Module.runPreviewContinuation (/tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-31/src/server/api/utils/previewImage.ts:120:14)
+    at save (/tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-31/src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts:33:3)
+    at /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-31/src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts:94:5
+    at file:///tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-31/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:1893:20
+
+stderr | src/server/api/utils/__tests__/previewImage.interleavings.test.ts > two saves of one message, interleaved, with and without a message delete and an old orphan > s1 'ok', s2 'ok', delete false, orphan false: every interleaving holds the invariants
+TypeError: Cannot read properties of undefined (reading 'prev')
+    at Module.runPreviewContinuation (/tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-31/src/server/api/utils/previewImage.ts:120:14)
+
+stderr | src/server/api/utils/__tests__/previewImage.interleavings.test.ts > two saves of one message, interleaved, with and without a message delete and an old orphan > s1 'ok', s2 'ok', delete false, orphan false: every interleaving holds the invariants
+TypeError: Cannot read properties of undefined (reading 'prev')
+    at Module.runPreviewContinuation (/tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-31/src/server/api/utils/previewImage.ts:120:14)
+
+stderr | src/server/api/utils/__tests__/previewImage.interleavings.test.ts > two saves of one message, interleaved, with and without a message delete and an old orphan > s1 'ok', s2 'ok', delete false, orphan true: every interleaving holds the invariants
+TypeError: Cannot read properties of undefined (reading 'prev')
+    at Module.runPreviewContinuation (/tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-31/src/server/api/utils/previewImage.ts:120:14)
+
+stderr | src/server/api/utils/__tests__/previewImage.interleavings.test.ts > two saves of one message, interleaved, with and without a message delete and an old orphan > s1 'ok', s2 'ok', delete false, orphan true: every interleaving holds the invariants
+TypeError: Cannot read properties of undefined (reading 'prev')
+    at Module.runPreviewContinuation (/tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-31/src/server/api/utils/previewImage.ts:120:14)
+

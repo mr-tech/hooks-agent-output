@@ -1,0 +1,18 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-55
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.interleavings.test.ts (38 tests | 4 failed) 1024ms
+     × s1 'ok', s2 'ok', delete false, orphan false: every interleaving holds the invariants 42ms
+     × s1 'ok', s2 'ok', delete false, orphan true: every interleaving holds the invariants 13ms
+     × s1 'ok', s2 'ok', delete true, orphan false: every interleaving holds the invariants 257ms
+     × s1 'ok', s2 'ok', delete true, orphan true: every interleaving holds the invariants 142ms
+ ❯ |node| src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts (15 tests | 3 failed) 47ms
+     × an object 119999 ms older than the committed one is deleted: false 14ms
+     × measures age by the bucket's times, not the function's clock 2ms
+     × keeps an object written after the committed one 1ms
+
+ Test Files  2 failed | 141 passed (143)
+      Tests  7 failed | 1807 passed (1814)
+   Start at  07:10:11
+   Duration  16.93s (transform 22.59s, setup 1.57s, import 126.62s, tests 36.05s, environment 79.26s)
+

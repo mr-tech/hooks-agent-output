@@ -1,0 +1,33 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.commit-statement.test.ts > the upsert statement no longer writes the preview nonce > returns the message id and the database clock, read in the same statement
+AssertionError: expected 'insert into "Messages" ("updatedAt", …' to match /returning "id", \(extract\(epoch from…/
+
+- Expected:
+/returning "id", \(extract\(epoch from clock_timestamp\(\)\) \* 1000000\)::bigint::text as "savedAtMicros"$/
+
++ Received:
+"insert into \"Messages\" (\"updatedAt\", \"name\", \"data\", \"valid\", \"fk_users_id\") values ($1, $2, $3, $4, $5) on conflict (\"id\") do update set \"name\" = $6, \"data\" = $7, \"valid\" = $8, \"updatedAt\" = $9 returning \"id\", (extract(epoch from now()) * 1000000)::bigint::text as \"savedAtMicros\""
+
+ ❯ src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:37:26
+     35|
+     36|   it('returns the message id and the database clock, read in the same …
+     37|     expect(compiled.sql).toMatch(/returning "id", \(extract\(epoch fro…
+       |                          ^
+     38|   });
+     39| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

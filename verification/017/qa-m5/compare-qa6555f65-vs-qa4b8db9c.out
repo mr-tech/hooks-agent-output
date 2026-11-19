@@ -1,0 +1,15 @@
+base: numTotalTests=1811 numPassedTests=1811 success=true files=143 statuses={"passed":1811}
+tip: numTotalTests=1814 numPassedTests=1814 success=true files=143 statuses={"passed":1814}
+base-only paths (0): 
+tip-only paths (0): 
+paths not explained by the rename map: 0
+changed src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts: base 14 tip 15 removed 1 added 2
+  - passed	the sweep after an accepted commit deletes nothing in the sweep when the committed object is not in the listing
+  + passed	the sweep after an accepted commit deletes nothing in the sweep when the committed object is not in the listing, and reports no error
+  + passed	the sweep after an accepted commit talks to the configured endpoint, without forcing path-style addressing
+changed src/server/api/utils/__tests__/previewImage.interleavings.test.ts: base 38 tip 38 removed 1 added 1
+  - passed	the sequence in which a later save deletes the earlier save's object first W1 C1 W2 C2 D2 D1 leaves the later save's image committed and present
+  + passed	the sequence in which a later save deletes the earlier save's object first leaves the later save's image committed and present
+changed src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts: base 7 tip 9 removed 0 added 2
+  + passed	the saved row's id is left to the database for a new message
+  + passed	the saved row's id is the id the client sent for an existing message

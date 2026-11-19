@@ -1,0 +1,27 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-43
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.interleavings.test.ts (38 tests | 13 failed) 865ms
+     × s1 'ok', s2 'ok', delete false, orphan false: every interleaving holds the invariants 54ms
+     × s1 'ok', s2 'ok', delete false, orphan true: every interleaving holds the invariants 14ms
+     × s1 'ok', s2 'ok', delete true, orphan false: every interleaving holds the invariants 173ms
+     × s1 'ok', s2 'ok', delete true, orphan true: every interleaving holds the invariants 121ms
+     × s1 'ok', s2 'fail', delete false, orphan true: every interleaving holds the invariants 5ms
+     × s1 'ok', s2 'fail', delete true, orphan true: every interleaving holds the invariants 15ms
+     × s1 'ok', s2 'late', delete false, orphan true: every interleaving holds the invariants 8ms
+     × s1 'ok', s2 'late', delete true, orphan true: every interleaving holds the invariants 72ms
+     × s1 'fail', s2 'ok', delete false, orphan true: every interleaving holds the invariants 2ms
+     × s1 'fail', s2 'ok', delete true, orphan true: every interleaving holds the invariants 13ms
+     × s1 'late', s2 'ok', delete false, orphan true: every interleaving holds the invariants 5ms
+     × s1 'late', s2 'ok', delete true, orphan true: every interleaving holds the invariants 69ms
+     × leaves the later save's image committed and present 2ms
+ ❯ |node| src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts (15 tests | 3 failed) 30ms
+     × lists the message's prefix with its trailing slash 6ms
+     × an object 120000 ms older than the committed one is deleted: true 2ms
+     × lists and deletes under dev/ when the website runs as development 1ms
+
+ Test Files  2 failed | 141 passed (143)
+      Tests  16 failed | 1798 passed (1814)
+   Start at  07:05:52
+   Duration  16.66s (transform 20.26s, setup 1.47s, import 121.86s, tests 37.02s, environment 77.93s)
+

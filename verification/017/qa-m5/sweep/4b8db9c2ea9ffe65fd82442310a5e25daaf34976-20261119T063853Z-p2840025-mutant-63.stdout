@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-63
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts (13 tests | 1 failed) 5061ms
+     × writes exactly one line of class no-answer-within-T at 40 seconds, and no commit 5007ms
+
+ Test Files  1 failed | 142 passed (143)
+      Tests  1 failed | 1813 passed (1814)
+   Start at  07:12:35
+   Duration  18.28s (transform 19.34s, setup 1.64s, import 116.18s, tests 40.76s, environment 77.93s)
+

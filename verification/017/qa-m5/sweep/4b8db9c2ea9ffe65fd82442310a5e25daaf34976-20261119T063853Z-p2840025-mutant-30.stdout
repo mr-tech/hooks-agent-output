@@ -1,0 +1,55 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-30
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts (13 tests | 10 failed) 64ms
+     × answer 500 writes one line and leaves the stored nonce alone 12ms
+     × answer 404 writes one line and leaves the stored nonce alone 3ms
+     × answer 200 writes one line and leaves the stored nonce alone 4ms
+     × answer 302 writes one line and leaves the stored nonce alone 3ms
+     × answer 503 writes one line and leaves the stored nonce alone 4ms
+     × answer a refused connection writes one line and leaves the stored nonce alone 3ms
+     × names no nonce, no message content, no object key and no credential 3ms
+     × deletes nothing from the bucket 7ms
+     × writes exactly one line of class no-answer-within-T at 40 seconds, and no commit 6ms
+     × stops waiting once the generator has answered 500: one line, not two 2ms
+ ❯ |node| src/server/api/utils/__tests__/previewImage.interleavings.test.ts (38 tests | 32 failed) 970ms
+     × s1 'ok', s2 'fail', delete false, orphan false: every interleaving holds the invariants 12ms
+     × s1 'ok', s2 'fail', delete false, orphan true: every interleaving holds the invariants 3ms
+     × s1 'ok', s2 'fail', delete true, orphan false: every interleaving holds the invariants 15ms
+     × s1 'ok', s2 'fail', delete true, orphan true: every interleaving holds the invariants 25ms
+     × s1 'ok', s2 'late', delete false, orphan false: every interleaving holds the invariants 7ms
+     × s1 'ok', s2 'late', delete false, orphan true: every interleaving holds the invariants 4ms
+     × s1 'ok', s2 'late', delete true, orphan false: every interleaving holds the invariants 63ms
+     × s1 'ok', s2 'late', delete true, orphan true: every interleaving holds the invariants 72ms
+     × s1 'fail', s2 'ok', delete false, orphan false: every interleaving holds the invariants 1ms
+     × s1 'fail', s2 'ok', delete false, orphan true: every interleaving holds the invariants 2ms
+     × s1 'fail', s2 'ok', delete true, orphan false: every interleaving holds the invariants 14ms
+     × s1 'fail', s2 'ok', delete true, orphan true: every interleaving holds the invariants 19ms
+     × s1 'fail', s2 'fail', delete false, orphan false: every interleaving holds the invariants 2ms
+     × s1 'fail', s2 'fail', delete false, orphan true: every interleaving holds the invariants 1ms
+     × s1 'fail', s2 'fail', delete true, orphan false: every interleaving holds the invariants 4ms
+     × s1 'fail', s2 'fail', delete true, orphan true: every interleaving holds the invariants 2ms
+     × s1 'fail', s2 'late', delete false, orphan false: every interleaving holds the invariants 1ms
+     × s1 'fail', s2 'late', delete false, orphan true: every interleaving holds the invariants 5ms
+     × s1 'fail', s2 'late', delete true, orphan false: every interleaving holds the invariants 11ms
+     × s1 'fail', s2 'late', delete true, orphan true: every interleaving holds the invariants 11ms
+     × s1 'late', s2 'ok', delete false, orphan false: every interleaving holds the invariants 5ms
+     × s1 'late', s2 'ok', delete false, orphan true: every interleaving holds the invariants 3ms
+     × s1 'late', s2 'ok', delete true, orphan false: every interleaving holds the invariants 73ms
+     × s1 'late', s2 'ok', delete true, orphan true: every interleaving holds the invariants 48ms
+     × s1 'late', s2 'fail', delete false, orphan false: every interleaving holds the invariants 1ms
+     × s1 'late', s2 'fail', delete false, orphan true: every interleaving holds the invariants 2ms
+     × s1 'late', s2 'fail', delete true, orphan false: every interleaving holds the invariants 8ms
+     × s1 'late', s2 'fail', delete true, orphan true: every interleaving holds the invariants 10ms
+     × s1 'late', s2 'late', delete false, orphan false: every interleaving holds the invariants 3ms
+     × s1 'late', s2 'late', delete false, orphan true: every interleaving holds the invariants 3ms
+     × s1 'late', s2 'late', delete true, orphan false: every interleaving holds the invariants 32ms
+     × s1 'late', s2 'late', delete true, orphan true: every interleaving holds the invariants 25ms
+ ❯ |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts (9 tests | 1 failed) 57ms
+     × still saves when the generator fails, and keeps the stored nonce 15ms
+
+ Test Files  3 failed | 140 passed (143)
+      Tests  43 failed | 1771 passed (1814)
+   Start at  06:52:33
+   Duration  16.52s (transform 19.50s, setup 2.08s, import 119.37s, tests 36.87s, environment 77.94s)
+

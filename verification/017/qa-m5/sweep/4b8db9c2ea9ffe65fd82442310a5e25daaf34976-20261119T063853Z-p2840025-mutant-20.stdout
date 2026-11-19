@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-20
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.interleavings.test.ts (38 tests | 13 failed) 951ms
+     × s1 'ok', s2 'ok', delete false, orphan false: every interleaving holds the invariants 74ms
+     × s1 'ok', s2 'ok', delete false, orphan true: every interleaving holds the invariants 18ms
+     × s1 'ok', s2 'ok', delete true, orphan false: every interleaving holds the invariants 269ms
+     × s1 'ok', s2 'ok', delete true, orphan true: every interleaving holds the invariants 112ms
+     × s1 'ok', s2 'fail', delete false, orphan true: every interleaving holds the invariants 2ms
+     × s1 'ok', s2 'fail', delete true, orphan true: every interleaving holds the invariants 17ms
+     × s1 'ok', s2 'late', delete false, orphan true: every interleaving holds the invariants 5ms
+     × s1 'ok', s2 'late', delete true, orphan true: every interleaving holds the invariants 74ms
+     × s1 'fail', s2 'ok', delete false, orphan true: every interleaving holds the invariants 1ms
+     × s1 'fail', s2 'ok', delete true, orphan true: every interleaving holds the invariants 12ms
+     × s1 'late', s2 'ok', delete false, orphan true: every interleaving holds the invariants 4ms
+     × s1 'late', s2 'ok', delete true, orphan true: every interleaving holds the invariants 59ms
+     × leaves the later save's image committed and present 2ms
+ ❯ |node| src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts (15 tests | 2 failed) 42ms
+     × an object 120000 ms older than the committed one is deleted: true 6ms
+     × deletes nothing in the sweep when the committed object is not in the listing, and reports no error 4ms
+
+ Test Files  2 failed | 141 passed (143)
+      Tests  15 failed | 1799 passed (1814)
+   Start at  06:49:34
+   Duration  16.65s (transform 21.86s, setup 1.72s, import 121.53s, tests 36.51s, environment 78.62s)
+

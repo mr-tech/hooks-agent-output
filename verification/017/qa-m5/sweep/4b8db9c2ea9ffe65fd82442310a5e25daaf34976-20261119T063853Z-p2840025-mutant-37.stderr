@@ -1,0 +1,33 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.commit-statement.test.ts > the commit statement > moves the nonce only where the row has none or one that orders below, under collation C
+AssertionError: expected 'with "replaced" as (select "previewIm…' to match /"previewImageNonce" is null or "Messa…/
+
+- Expected:
+/"previewImageNonce" is null or "Messages"\."previewImageNonce" collate "C" < \$/
+
++ Received:
+"with \"replaced\" as (select \"previewImageNonce\" as \"prev\" from \"Messages\" where \"id\" = $1 for update) update \"Messages\" set \"previewImageNonce\" = $2 from \"replaced\" where \"Messages\".\"id\" = $3 and \"Messages\".\"previewImageNonce\" collate \"C\" < $4 returning \"replaced\".\"prev\""
+
+ ❯ src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:49:26
+     47|
+     48|   it('moves the nonce only where the row has none or one that orders b…
+     49|     expect(compiled.sql).toMatch(/"previewImageNonce" is null or "Mess…
+       |                          ^
+     50|   });
+     51|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

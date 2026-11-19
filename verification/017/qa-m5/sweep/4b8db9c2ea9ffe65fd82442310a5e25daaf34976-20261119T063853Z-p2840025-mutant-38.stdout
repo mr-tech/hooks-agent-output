@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-38
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.commit-statement.test.ts (13 tests | 2 failed) 12ms
+     × moves the nonce only where the row has none or one that orders below, under collation C 4ms
+     × carries the message id and the new nonce as parameters 2ms
+
+ Test Files  1 failed | 142 passed (143)
+      Tests  2 failed | 1812 passed (1814)
+   Start at  06:59:39
+   Duration  17.07s (transform 24.05s, setup 1.29s, import 127.74s, tests 38.47s, environment 78.31s)
+

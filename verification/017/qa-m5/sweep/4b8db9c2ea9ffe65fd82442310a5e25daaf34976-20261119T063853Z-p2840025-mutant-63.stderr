@@ -1,0 +1,27 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > a generator that does not answer within 40 seconds > writes exactly one line of class no-answer-within-T at 40 seconds, and no commit
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts:114:3
+    112|   beforeEach(() => { vi.useFakeTimers(); });
+    113|
+    114|   it('writes exactly one line of class no-answer-within-T at 40 second…
+       |   ^
+    115|     const done = start();
+    116|     await vi.advanceTimersByTimeAsync(39_999);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

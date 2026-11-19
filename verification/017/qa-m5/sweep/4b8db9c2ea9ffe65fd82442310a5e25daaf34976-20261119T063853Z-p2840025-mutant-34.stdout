@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-34
+
+ ❯ |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts (9 tests | 1 failed) 66ms
+     × is the id the client sent for an existing message 11ms
+
+ Test Files  1 failed | 142 passed (143)
+      Tests  1 failed | 1813 passed (1814)
+   Start at  06:58:27
+   Duration  16.60s (transform 20.87s, setup 1.56s, import 123.06s, tests 36.92s, environment 78.28s)
+

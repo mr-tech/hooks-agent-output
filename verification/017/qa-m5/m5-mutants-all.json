@@ -1,0 +1,506 @@
+[
+ {
+  "id": "previewBucket.ts:6:false",
+  "file": "src/server/api/utils/previewBucket.ts",
+  "old": "false",
+  "new": "true",
+  "op": "false",
+  "line": 6,
+  "text": "forcePathStyle: false,"
+ },
+ {
+  "id": "previewImage.ts:46:if-false",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "{\n  if (stat",
+  "new": "{\n  if (false && stat",
+  "op": "if-false",
+  "line": 46,
+  "text": "if (status === 500) return 'status-500';"
+ },
+ {
+  "id": "previewImage.ts:46:===",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "s === 5",
+  "new": "s !== 5",
+  "op": "===",
+  "line": 46,
+  "text": "if (status === 500) return 'status-500';"
+ },
+ {
+  "id": "previewImage.ts:46:num",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": " 500)",
+  "new": " 501)",
+  "op": "num",
+  "line": 46,
+  "text": "if (status === 500) return 'status-500';"
+ },
+ {
+  "id": "previewImage.ts:47:if-false",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": ";\n  if (stat",
+  "new": ";\n  if (false && stat",
+  "op": "if-false",
+  "line": 47,
+  "text": "if (status === 404) return 'status-404';"
+ },
+ {
+  "id": "previewImage.ts:47:===",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "s === 4",
+  "new": "s !== 4",
+  "op": "===",
+  "line": 47,
+  "text": "if (status === 404) return 'status-404';"
+ },
+ {
+  "id": "previewImage.ts:47:num",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": " 404)",
+  "new": " 405)",
+  "op": "num",
+  "line": 47,
+  "text": "if (status === 404) return 'status-404';"
+ },
+ {
+  "id": "previewImage.ts:57:false",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "false",
+  "new": "true",
+  "op": "false",
+  "line": 57,
+  "text": "let timedOut = false;"
+ },
+ {
+  "id": "previewImage.ts:58:true",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "true",
+  "new": "false",
+  "op": "true",
+  "line": 58,
+  "text": "const timer = setTimeout(() => { timedOut = true; controller.abort(); }, PREVIEW_ANSWER_TIMEOUT_MS);"
+ },
+ {
+  "id": "previewImage.ts:70:===",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "s === 2",
+  "new": "s !== 2",
+  "op": "===",
+  "line": 70,
+  "text": "return response.status === 204 ? null : failureClassOf(response.status);"
+ },
+ {
+  "id": "previewImage.ts:70:num",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "204",
+  "new": "205",
+  "op": "num",
+  "line": 70,
+  "text": "return response.status === 204 ? null : failureClassOf(response.status);"
+ },
+ {
+  "id": "previewImage.ts:79:if-false",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "  if (!k",
+  "new": "  if (false && !k",
+  "op": "if-false",
+  "line": 79,
+  "text": "if (!keys.length) return;"
+ },
+ {
+  "id": "previewImage.ts:79:not",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "(!k",
+  "new": "(k",
+  "op": "not",
+  "line": 79,
+  "text": "if (!keys.length) return;"
+ },
+ {
+  "id": "previewImage.ts:82:walk-first",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": " keys.",
+  "new": " (Array.isArray(keys) ? keys.slice(0, 1) : keys).",
+  "op": "walk-first",
+  "line": 82,
+  "text": "Delete: { Objects: keys.map((Key) => ({ Key })) },"
+ },
+ {
+  "id": "previewImage.ts:82:walk-last",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": " keys.",
+  "new": " (Array.isArray(keys) ? keys.slice(-1) : keys).",
+  "op": "walk-last",
+  "line": 82,
+  "text": "Delete: { Objects: keys.map((Key) => ({ Key })) },"
+ },
+ {
+  "id": "previewImage.ts:91:walk-first",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": " Contents?",
+  "new": " (Array.isArray(Contents) ? Contents.slice(0, 1) : Contents)?",
+  "op": "walk-first",
+  "line": 91,
+  "text": "const committedAt = Contents?.find(({ Key }) => Key === committedKey)?.LastModified;"
+ },
+ {
+  "id": "previewImage.ts:91:walk-last",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": " Contents?",
+  "new": " (Array.isArray(Contents) ? Contents.slice(-1) : Contents)?",
+  "op": "walk-last",
+  "line": 91,
+  "text": "const committedAt = Contents?.find(({ Key }) => Key === committedKey)?.LastModified;"
+ },
+ {
+  "id": "previewImage.ts:91:===",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "y === c",
+  "new": "y !== c",
+  "op": "===",
+  "line": 91,
+  "text": "const committedAt = Contents?.find(({ Key }) => Key === committedKey)?.LastModified;"
+ },
+ {
+  "id": "previewImage.ts:92:if-false",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "\n  if (!co",
+  "new": "\n  if (false && !co",
+  "op": "if-false",
+  "line": 92,
+  "text": "if (!committedAt) return;"
+ },
+ {
+  "id": "previewImage.ts:92:not",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "\n  if (!committ",
+  "new": "\n  if (committ",
+  "op": "not",
+  "line": 92,
+  "text": "if (!committedAt) return;"
+ },
+ {
+  "id": "previewImage.ts:94:walk-first",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "(Contents ?? [])\n    .filter(({ Key, LastModified }) => Key !== committedKey\n      && !!LastModified\n      && committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS)",
+  "new": "(Array.isArray((Contents ?? [])\n    .filter(({ Key, LastModified }) => Key !== committedKey\n      && !!LastModified\n      && committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS)) ? (Contents ?? [])\n    .filter(({ Key, LastModified }) => Key !== committedKey\n      && !!LastModified\n      && committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS).slice(0, 1) : (Contents ?? [])\n    .filter(({ Key, LastModified }) => Key !== committedKey\n      && !!LastModified\n      && committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS))",
+  "op": "walk-first",
+  "line": 94,
+  "text": "await deleteObjects((Contents ?? [])"
+ },
+ {
+  "id": "previewImage.ts:94:walk-last",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "(Contents ?? [])\n    .filter(({ Key, LastModified }) => Key !== committedKey\n      && !!LastModified\n      && committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS)",
+  "new": "(Array.isArray((Contents ?? [])\n    .filter(({ Key, LastModified }) => Key !== committedKey\n      && !!LastModified\n      && committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS)) ? (Contents ?? [])\n    .filter(({ Key, LastModified }) => Key !== committedKey\n      && !!LastModified\n      && committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS).slice(-1) : (Contents ?? [])\n    .filter(({ Key, LastModified }) => Key !== committedKey\n      && !!LastModified\n      && committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS))",
+  "op": "walk-last",
+  "line": 94,
+  "text": "await deleteObjects((Contents ?? [])"
+ },
+ {
+  "id": "previewImage.ts:94:walk-first:2",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "(Contents ?? [])",
+  "new": "(Array.isArray((Contents ?? [])) ? (Contents ?? []).slice(0, 1) : (Contents ?? []))",
+  "op": "walk-first",
+  "line": 94,
+  "text": "await deleteObjects((Contents ?? [])"
+ },
+ {
+  "id": "previewImage.ts:94:walk-last:2",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "(Contents ?? [])",
+  "new": "(Array.isArray((Contents ?? [])) ? (Contents ?? []).slice(-1) : (Contents ?? []))",
+  "op": "walk-last",
+  "line": 94,
+  "text": "await deleteObjects((Contents ?? [])"
+ },
+ {
+  "id": "previewImage.ts:95:!==",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "!==",
+  "new": "===",
+  "op": "!==",
+  "line": 95,
+  "text": ".filter(({ Key, LastModified }) => Key !== committedKey"
+ },
+ {
+  "id": "previewImage.ts:96:&&",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "  && !",
+  "new": "  || !",
+  "op": "&&",
+  "line": 96,
+  "text": "&& !!LastModified"
+ },
+ {
+  "id": "previewImage.ts:96:not",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "!!L",
+  "new": "!L",
+  "op": "not",
+  "line": 96,
+  "text": "&& !!LastModified"
+ },
+ {
+  "id": "previewImage.ts:97:&&",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "  && c",
+  "new": "  || c",
+  "op": "&&",
+  "line": 97,
+  "text": "&& committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS)"
+ },
+ {
+  "id": "previewImage.ts:97:>=",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": ">=",
+  "new": ">",
+  "op": ">=",
+  "line": 97,
+  "text": "&& committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS)"
+ },
+ {
+  "id": "previewImage.ts:109:if-false",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": " if (f",
+  "new": " if (false && f",
+  "op": "if-false",
+  "line": 109,
+  "text": "if (failure) {"
+ },
+ {
+  "id": "previewImage.ts:115:if-false",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "   if (!co",
+  "new": "   if (false && !co",
+  "op": "if-false",
+  "line": 115,
+  "text": "if (!committed.length) {"
+ },
+ {
+  "id": "previewImage.ts:115:not",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "   if (!committ",
+  "new": "   if (committ",
+  "op": "not",
+  "line": 115,
+  "text": "if (!committed.length) {"
+ },
+ {
+  "id": "previewImage.ts:121:if-false",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": " if (p",
+  "new": " if (false && p",
+  "op": "if-false",
+  "line": 121,
+  "text": "if (prev) await deleteObjects([previewKey(id, prev)]);"
+ },
+ {
+  "id": "shared.ts:255:if-false",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "\n\n  if (mess",
+  "new": "\n\n  if (false && mess",
+  "op": "if-false",
+  "line": 255,
+  "text": "if (message.id) values.id = message.id;"
+ },
+ {
+  "id": "NM-10-any-resolved-fetch-commits",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "return response.status === 204 ? null : failureClassOf(response.status);",
+  "new": "return null;"
+ },
+ {
+  "id": "NM-11-commit-unconditional",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "  .where((eb) => eb.or([\n    eb('Messages.previewImageNonce', 'is', null),\n    sql<boolean>`\"Messages\".\"previewImageNonce\" collate \"C\" < ${nonce}`,\n  ]))\n",
+  "new": ""
+ },
+ {
+  "id": "qa-commit-null-disjunct-dropped",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "    eb('Messages.previewImageNonce', 'is', null),\n",
+  "new": ""
+ },
+ {
+  "id": "qa-commit-order-disjunct-dropped",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "    sql<boolean>`\"Messages\".\"previewImageNonce\" collate \"C\" < ${nonce}`,\n",
+  "new": ""
+ },
+ {
+  "id": "NM-12a-form1-deletes-new-object",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "if (prev) await deleteObjects([previewKey(id, prev)]);",
+  "new": "if (prev) await deleteObjects([previewKey(id, nonce)]);"
+ },
+ {
+  "id": "NM-12b-own-object-deleted-before-commit",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "    const committed = await buildCommitPreviewNonceQuery(getPostgres(), id, nonce).execute();\n",
+  "new": "    await deleteObjects([previewKey(id, nonce)]);\n    const committed = await buildCommitPreviewNonceQuery(getPostgres(), id, nonce).execute();\n"
+ },
+ {
+  "id": "qa-form2-dropped",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "    if (!committed.length) {\n      await deleteObjects([previewKey(id, nonce)]);\n      return;\n    }\n",
+  "new": "    if (!committed.length) {\n      return;\n    }\n"
+ },
+ {
+  "id": "qa-form1-dropped",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "    if (prev) await deleteObjects([previewKey(id, prev)]);\n",
+  "new": ""
+ },
+ {
+  "id": "qa-sweep-dropped",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "    await sweepOlderObjects(id, previewKey(id, nonce));\n",
+  "new": ""
+ },
+ {
+  "id": "NM-13-prefix-trailing-slash-dropped",
+  "file": "src/server/api/utils/previewBucket.ts",
+  "old": "previews/${messageId}/`",
+  "new": "previews/${messageId}`"
+ },
+ {
+  "id": "NM-14-dev-predicate-differs",
+  "file": "src/server/api/utils/previewBucket.ts",
+  "old": "${env.NODE_ENV === 'development'",
+  "new": "${process.env.NODE_ENV === 'development'"
+ },
+ {
+  "id": "NM-15a-line-carries-nonce",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "      logFailure(id, failure, Date.now() - start);\n",
+  "new": "      logFailure(`${id} ${nonce}`, failure, Date.now() - start);\n"
+ },
+ {
+  "id": "NM-15b-line-on-204",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "    const committed = await buildCommitPreviewNonceQuery(getPostgres(), id, nonce).execute();\n",
+  "new": "    console.error(`${PREVIEW_FAILURE_PREFIX} id=${id} class=ok elapsedMs=0`);\n    const committed = await buildCommitPreviewNonceQuery(getPostgres(), id, nonce).execute();\n"
+ },
+ {
+  "id": "NM-15c-line-carries-content",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "      logFailure(id, failure, Date.now() - start);\n",
+  "new": "      logFailure(`${id} ${JSON.stringify(message)}`, failure, Date.now() - start);\n"
+ },
+ {
+  "id": "NM-15d-line-carries-key",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "      logFailure(id, failure, Date.now() - start);\n",
+  "new": "      logFailure(`${id} ${previewKey(id, nonce)}`, failure, Date.now() - start);\n"
+ },
+ {
+  "id": "qa-line-dropped",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "      logFailure(id, failure, Date.now() - start);\n",
+  "new": ""
+ },
+ {
+  "id": "NM-16a-timer-not-cleared",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "    clearTimeout(timer);\n",
+  "new": ""
+ },
+ {
+  "id": "NM-16b-timeout-writes-two-lines",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "{ timedOut = true; controller.abort(); }",
+  "new": "{ timedOut = true; logFailure(id, 'no-answer-within-T', PREVIEW_ANSWER_TIMEOUT_MS); controller.abort(); }"
+ },
+ {
+  "id": "qa-timeout-labelled-network",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "return timedOut ? 'no-answer-within-T' : 'network-error';",
+  "new": "return 'network-error';"
+ },
+ {
+  "id": "NM-17-continuation-awaited",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "waitUntil(runPreviewContinuation({ id, nonce: mintNonce(savedAtMicros), message: message.data }));",
+  "new": "await runPreviewContinuation({ id, nonce: mintNonce(savedAtMicros), message: message.data });"
+ },
+ {
+  "id": "NM-23a-age-from-function-clock",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS",
+  "new": "Date.now() - LastModified.getTime() >= SWEEP_AGE_MS"
+ },
+ {
+  "id": "NM-23b-L-60s",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "SWEEP_AGE_MS = 120_000;",
+  "new": "SWEEP_AGE_MS = 60_000;"
+ },
+ {
+  "id": "qa-L-plus-one",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "SWEEP_AGE_MS = 120_000;",
+  "new": "SWEEP_AGE_MS = 120_001;"
+ },
+ {
+  "id": "qa-L-minus-one",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "SWEEP_AGE_MS = 120_000;",
+  "new": "SWEEP_AGE_MS = 119_999;"
+ },
+ {
+  "id": "NM-23c-age-guard-dropped",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "\n      && committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS",
+  "new": ""
+ },
+ {
+  "id": "qa-sweep-committed-key-conjunct-dropped",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "Key !== committedKey\n      && ",
+  "new": ""
+ },
+ {
+  "id": "NM-26-absent-reference-deletes-all",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "  if (!committedAt) return;\n",
+  "new": "  if (!committedAt) {\n    await deleteObjects((Contents ?? []).filter(({ Key }) => Key !== committedKey).map(({ Key }) => Key as string));\n    return;\n  }\n"
+ },
+ {
+  "id": "qa-T-minus-one",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "PREVIEW_ANSWER_TIMEOUT_MS = 40_000;",
+  "new": "PREVIEW_ANSWER_TIMEOUT_MS = 39_999;"
+ },
+ {
+  "id": "qa-T-plus-one",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "PREVIEW_ANSWER_TIMEOUT_MS = 40_000;",
+  "new": "PREVIEW_ANSWER_TIMEOUT_MS = 40_001;"
+ },
+ {
+  "id": "qa-nonce-pad-15",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "padStart(16, '0')",
+  "new": "padStart(15, '0')"
+ },
+ {
+  "id": "qa-nonce-random-4-bytes",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "randomBytes(8)",
+  "new": "randomBytes(4)"
+ },
+ {
+  "id": "qa-nonce-leads-0",
+  "file": "src/server/api/utils/previewImage.ts",
+  "old": "=> `v${clockMicros",
+  "new": "=> `0${clockMicros"
+ },
+ {
+  "id": "qa-clock-now",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "extract(epoch from clock_timestamp())",
+  "new": "extract(epoch from now())"
+ }
+]

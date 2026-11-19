@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-65
+
+ ❯ |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts (9 tests | 2 failed) 49ms
+     × hands the platform one promise that outlives the reply 10ms
+     × sends the saved id and a nonce minted from the database clock the statement returned 3ms
+ ❯ |node| src/server/api/utils/__tests__/previewImage.commit-statement.test.ts (13 tests | 2 failed) 11ms
+     × is v, the clock in microseconds to 16 digits, then 16 hex characters 4ms
+     × pads a short clock to 16 digits 1ms
+
+ Test Files  2 failed | 141 passed (143)
+      Tests  4 failed | 1810 passed (1814)
+   Start at  07:13:12
+   Duration  16.21s (transform 20.60s, setup 1.39s, import 121.15s, tests 35.19s, environment 75.58s)
+

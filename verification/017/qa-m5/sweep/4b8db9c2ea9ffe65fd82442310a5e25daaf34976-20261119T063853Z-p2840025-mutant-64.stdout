@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-64
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.commit-statement.test.ts (13 tests | 1 failed) 10ms
+     × pads a short clock to 16 digits 5ms
+
+ Test Files  1 failed | 142 passed (143)
+      Tests  1 failed | 1813 passed (1814)
+   Start at  07:12:54
+   Duration  16.33s (transform 20.69s, setup 2.11s, import 118.48s, tests 36.16s, environment 77.59s)
+

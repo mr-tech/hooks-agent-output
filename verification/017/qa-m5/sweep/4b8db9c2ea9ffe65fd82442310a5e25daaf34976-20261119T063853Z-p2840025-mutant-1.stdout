@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-1
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts (15 tests | 1 failed) 43ms
+     × talks to the configured endpoint, without forcing path-style addressing 11ms
+
+ Test Files  1 failed | 142 passed (143)
+      Tests  1 failed | 1813 passed (1814)
+   Start at  06:39:12
+   Duration  16.78s (transform 22.90s, setup 1.73s, import 123.85s, tests 36.70s, environment 80.36s)
+

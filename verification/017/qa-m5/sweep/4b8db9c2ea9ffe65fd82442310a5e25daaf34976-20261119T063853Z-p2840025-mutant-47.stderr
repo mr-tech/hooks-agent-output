@@ -1,0 +1,80 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > a generator answer of 204 > commits the nonce and writes no failure line
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "preview-image-failure id=42 class=ok elapsedMs=0",
++ ]
+
+ ❯ src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts:64:28
+     62|
+     63|     expect(world.row.nonce).toBe(NEW_NONCE);
+     64|     expect(failureLines()).toEqual([]);
+       |                            ^
+     65|   });
+     66| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > a generator that does not answer within 40 seconds > stops waiting once the generator has answered 204: no later line
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "preview-image-failure id=42 class=ok elapsedMs=0",
++ ]
+
+ ❯ src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts:135:28
+    133|     await vi.advanceTimersByTimeAsync(120_000);
+    134|
+    135|     expect(failureLines()).toEqual([]);
+       |                            ^
+    136|     expect(world.requests[0].signal?.aborted).toBe(false);
+    137|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts > the sweep after an accepted commit > deletes nothing in the sweep when the committed object is not in the listing, and reports no error
+AssertionError: expected "error" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st error call:
+
+    Array [
+      "preview-image-failure id=42 class=ok elapsedMs=0",
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts:165:24
+    163|
+    164|     expect(keys()).toEqual([key('e'.repeat(32))]);
+    165|     expect(errors).not.toHaveBeenCalled();
+       |                        ^
+    166|     errors.mockRestore();
+    167|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

@@ -1,0 +1,35 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > a generator that does not answer within 40 seconds > writes exactly one line of class no-answer-within-T at 40 seconds, and no commit
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "preview-image-failure id=42 class=no-answer-within-T elapsedMs=39999",
++ ]
+
+ ❯ src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts:117:28
+    115|     const done = start();
+    116|     await vi.advanceTimersByTimeAsync(39_999);
+    117|     expect(failureLines()).toEqual([]);
+       |                            ^
+    118|
+    119|     await vi.advanceTimersByTimeAsync(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

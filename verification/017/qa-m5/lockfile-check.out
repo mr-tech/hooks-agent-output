@@ -1,0 +1,28 @@
+## numstat c37d41a..4b8db9c
+1	0	package.json
+80	0	pnpm-lock.yaml
+## removed lines in pnpm-lock.yaml (grep -c of ^-[^-])
+0
+## paracord pin at both trees
+350:      paracord:
+351:        specifier: github:mr-tech/paracord
+352:        version: https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227
+353:      paracord:
+354:        specifier: github:mr-tech/paracord
+355:        version: https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227
+## added package keys
+  jose@5.10.0:
+  jose@5.10.0: {}
+  os-paths@4.4.0:
+  os-paths@4.4.0: {}
+  '@vercel/cli-config@0.4.0':
+  '@vercel/cli-exec@1.0.1':
+  '@vercel/functions@3.11.3':
+  '@vercel/functions@3.11.3(@aws-sdk/credential-provider-web-identity@3.378.0)(ws@8.13.0(bufferutil@4.0.7)(utf-8-validate@5.0.10))':
+  '@vercel/oidc@4.0.9':
+  xdg-app-paths@5.1.0:
+  xdg-portable@7.3.0:
+  zod@4.6.7:
+  zod@4.6.7: {}
+## package.json
++    "@vercel/functions": "3.11.3",

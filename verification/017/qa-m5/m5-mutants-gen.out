@@ -1,0 +1,13 @@
+skipped package.json (not a JavaScript or TypeScript source)
+skipped pnpm-lock.yaml (not a JavaScript or TypeScript source)
+skipped src/components/__tests__/ImageUploader.enter-scope.test.tsx (test file)
+skipped src/components/__tests__/WarningDialog.enter-scope.test.tsx (test file)
+skipped src/server/api/utils/__tests__/helpers/previewWorld.ts (test file)
+skipped src/server/api/utils/__tests__/previewImage.commit-statement.test.ts (test file)
+skipped src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts (test file)
+skipped src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts (test file)
+skipped src/server/api/utils/__tests__/previewImage.interleavings.test.ts (test file)
+skipped src/server/api/utils/__tests__/shared.message-cap.test.ts (test file)
+skipped src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts (test file)
+skipped src/server/api/utils/__tests__/shared.upsert-valid.test.ts (test file)
+34 mutants written; dropped (not unique) 0

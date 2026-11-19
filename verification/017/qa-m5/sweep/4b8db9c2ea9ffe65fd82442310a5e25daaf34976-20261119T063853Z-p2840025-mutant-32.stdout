@@ -1,0 +1,43 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-32
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts (15 tests | 11 failed) 32ms
+     × deletes the object of the nonce it replaced 12ms
+     × deletes nothing for a replaced nonce of none, and keeps its own object 4ms
+     × never deletes the object it committed 2ms
+     × deletes its own object and nothing else when a later save has committed 2ms
+     × deletes its own object when the row is gone, and recreates no row 2ms
+     × lists the message's prefix with its trailing slash 1ms
+     × leaves another message whose id starts with this one alone 1ms
+     × an object 120000 ms older than the committed one is deleted: true 1ms
+     × an object 119999 ms older than the committed one is deleted: false 1ms
+     × deletes nothing in the sweep when the committed object is not in the listing, and reports no error 2ms
+     × lists and deletes under dev/ when the website runs as development 1ms
+ ❯ |node| src/server/api/utils/__tests__/previewImage.interleavings.test.ts (38 tests | 21 failed) 1475ms
+     × s1 'ok', s2 'ok', delete false, orphan false: every interleaving holds the invariants 63ms
+     × s1 'ok', s2 'ok', delete false, orphan true: every interleaving holds the invariants 21ms
+     × s1 'ok', s2 'ok', delete true, orphan false: every interleaving holds the invariants 453ms
+     × s1 'ok', s2 'ok', delete true, orphan true: every interleaving holds the invariants 299ms
+     × s1 'ok', s2 'fail', delete false, orphan false: every interleaving holds the invariants 3ms
+     × s1 'ok', s2 'fail', delete false, orphan true: every interleaving holds the invariants 1ms
+     × s1 'ok', s2 'fail', delete true, orphan false: every interleaving holds the invariants 27ms
+     × s1 'ok', s2 'fail', delete true, orphan true: every interleaving holds the invariants 23ms
+     × s1 'ok', s2 'late', delete false, orphan false: every interleaving holds the invariants 11ms
+     × s1 'ok', s2 'late', delete false, orphan true: every interleaving holds the invariants 6ms
+     × s1 'ok', s2 'late', delete true, orphan false: every interleaving holds the invariants 110ms
+     × s1 'ok', s2 'late', delete true, orphan true: every interleaving holds the invariants 111ms
+     × s1 'fail', s2 'ok', delete false, orphan false: every interleaving holds the invariants 2ms
+     × s1 'fail', s2 'ok', delete false, orphan true: every interleaving holds the invariants 2ms
+     × s1 'fail', s2 'ok', delete true, orphan false: every interleaving holds the invariants 22ms
+     × s1 'fail', s2 'ok', delete true, orphan true: every interleaving holds the invariants 19ms
+     × s1 'late', s2 'ok', delete false, orphan false: every interleaving holds the invariants 4ms
+     × s1 'late', s2 'ok', delete false, orphan true: every interleaving holds the invariants 4ms
+     × s1 'late', s2 'ok', delete true, orphan false: every interleaving holds the invariants 100ms
+     × s1 'late', s2 'ok', delete true, orphan true: every interleaving holds the invariants 83ms
+     × leaves the later save's image committed and present 1ms
+
+ Test Files  2 failed | 141 passed (143)
+      Tests  32 failed | 1782 passed (1814)
+   Start at  06:57:51
+   Duration  17.12s (transform 24.32s, setup 2.04s, import 129.40s, tests 36.62s, environment 78.02s)
+

@@ -1,0 +1,52 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > one failure line per failed generation > answer 500 writes one line and leaves the stored nonce alone
+AssertionError: expected 'preview-image-failure id=42 class=sta…' to match /^preview-image-failure id=42 class=st…/
+
+- Expected:
+/^preview-image-failure id=42 class=status-500 elapsedMs=\d+$/
+
++ Received:
+"preview-image-failure id=42 class=status-other elapsedMs=0"
+
+ ❯ src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts:83:31
+     81|
+     82|     expect(failureLines()).toHaveLength(1);
+     83|     expect(failureLines()[0]).toMatch(new RegExp(`^preview-image-failu…
+       |                               ^
+     84|     expect(world.row.nonce).toBe(OLD_NONCE);
+     85|     expect(world.commits).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > a generator that does not answer within 40 seconds > stops waiting once the generator has answered 500: one line, not two
+AssertionError: expected 'preview-image-failure id=42 class=sta…' to match /class=status-500 elapsedMs=10000$/
+
+- Expected:
+/class=status-500 elapsedMs=10000$/
+
++ Received:
+"preview-image-failure id=42 class=status-other elapsedMs=10000"
+
+ ❯ src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts:148:31
+    146|
+    147|     expect(failureLines()).toHaveLength(1);
+    148|     expect(failureLines()[0]).toMatch(/class=status-500 elapsedMs=1000…
+       |                               ^
+    149|   });
+    150| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

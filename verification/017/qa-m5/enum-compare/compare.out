@@ -1,0 +1,9 @@
+# oracle blob 30dc18a73b1fc823c57710b21ea2e9a94221f728 (HEAD 30dc18a73b1fc823c57710b21ea2e9a94221f728); test blob 6de5ed716831d95c9d2a18a95d773676eecd8d7d (website 4b8db9c 6de5ed716831d95c9d2a18a95d773676eecd8d7d)
+plant=false oracle=3120 test=3120 onlyOracle=0 onlyTest=0
+
+exit 0
+plant=true oracle=3120 test=2648 onlyOracle=472 onlyTest=0
+ok late false false | W1 C1 D1 F2
+ok late false false | W1 C1 F2 D1
+ok late false false | W1 F2 C1 D1
+exit 0

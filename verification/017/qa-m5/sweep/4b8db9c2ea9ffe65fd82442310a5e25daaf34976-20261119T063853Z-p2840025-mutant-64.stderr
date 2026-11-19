@@ -1,0 +1,33 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.commit-statement.test.ts > the ordered nonce > pads a short clock to 16 digits
+AssertionError: expected 'v000000000000007388689104486367f' to match /^v0000000000000007[0-9a-f]{16}$/
+
+- Expected:
+/^v0000000000000007[0-9a-f]{16}$/
+
++ Received:
+"v000000000000007388689104486367f"
+
+ ❯ src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:77:28
+     75|
+     76|   it('pads a short clock to 16 digits', () => {
+     77|     expect(mintNonce('7')).toMatch(/^v0000000000000007[0-9a-f]{16}$/);
+       |                            ^
+     78|   });
+     79|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

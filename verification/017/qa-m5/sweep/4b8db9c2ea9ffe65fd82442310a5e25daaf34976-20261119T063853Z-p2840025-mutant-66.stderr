@@ -1,0 +1,128 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.commit-statement.test.ts > the ordered nonce > is v, the clock in microseconds to 16 digits, then 16 hex characters
+AssertionError: expected '01763509200000000d6a186e5a80df77e' to match /^v1763509200000000[0-9a-f]{16}$/
+
+- Expected:
+/^v1763509200000000[0-9a-f]{16}$/
+
++ Received:
+"01763509200000000d6a186e5a80df77e"
+
+ ❯ src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:73:43
+     71| describe('the ordered nonce', () => {
+     72|   it('is v, the clock in microseconds to 16 digits, then 16 hex charac…
+     73|     expect(mintNonce('1763509200000000')).toMatch(/^v1763509200000000[…
+       |                                           ^
+     74|   });
+     75|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.commit-statement.test.ts > the ordered nonce > pads a short clock to 16 digits
+AssertionError: expected '000000000000000076d4ce153cc4d8071' to match /^v0000000000000007[0-9a-f]{16}$/
+
+- Expected:
+/^v0000000000000007[0-9a-f]{16}$/
+
++ Received:
+"000000000000000076d4ce153cc4d8071"
+
+ ❯ src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:77:28
+     75|
+     76|   it('pads a short clock to 16 digits', () => {
+     77|     expect(mintNonce('7')).toMatch(/^v0000000000000007[0-9a-f]{16}$/);
+       |                            ^
+     78|   });
+     79|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.commit-statement.test.ts > the ordered nonce > sorts a later clock above an earlier one whatever the random parts are
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:87:53
+     85|     const earlier = `v1763509200000000${'f'.repeat(16)}`;
+     86|     const later = `v1763509200000001${'0'.repeat(16)}`;
+     87|     expect(mintNonce('1763509200000001') > earlier).toBe(true);
+       |                                                     ^
+     88|     expect(later > mintNonce('1763509200000000')).toBe(true);
+     89|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.commit-statement.test.ts > the ordered nonce > sorts above every 32-character hex nonce an existing row may hold
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:92:45
+     90|
+     91|   it('sorts above every 32-character hex nonce an existing row may hol…
+     92|     expect(mintNonce('0') > 'f'.repeat(32)).toBe(true);
+       |                                             ^
+     93|   });
+     94| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts > a save of an existing message > hands the platform one promise that outlives the reply
+AssertionError: expected 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' to match /^v1763509200123456[0-9a-f]{16}$/
+
+- Expected:
+/^v1763509200123456[0-9a-f]{16}$/
+
++ Received:
+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+ ❯ src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:90:29
+     88|     world.requests[0].answer.resolve({ status: 204 });
+     89|     await expect(hoisted.waited[0]).resolves.toBeUndefined();
+     90|     expect(world.row.nonce).toMatch(/^v1763509200123456[0-9a-f]{16}$/);
+       |                             ^
+     91|   });
+     92|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts > a save of an existing message > sends the saved id and a nonce minted from the database clock the statement returned
+AssertionError: expected '0176350920012345682b6afdf113f49e5' to match /^v1763509200123456[0-9a-f]{16}$/
+
+- Expected:
+/^v1763509200123456[0-9a-f]{16}$/
+
++ Received:
+"0176350920012345682b6afdf113f49e5"
+
+ ❯ src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:97:42
+     95|
+     96|     expect(world.requests[0].body.id).toBe('42');
+     97|     expect(world.requests[0].body.nonce).toMatch(/^v1763509200123456[0…
+       |                                          ^
+     98|     expect(world.requests[0].body.message).toEqual(data);
+     99|     world.requests[0].answer.resolve({ status: 500 });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+

@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-23
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.interleavings.test.ts (38 tests | 2 failed) 874ms
+     × s1 'ok', s2 'ok', delete false, orphan true: every interleaving holds the invariants 31ms
+     × s1 'ok', s2 'ok', delete true, orphan true: every interleaving holds the invariants 125ms
+
+ Test Files  1 failed | 142 passed (143)
+      Tests  2 failed | 1812 passed (1814)
+   Start at  06:50:28
+   Duration  16.44s (transform 21.12s, setup 1.76s, import 121.71s, tests 36.47s, environment 76.38s)
+

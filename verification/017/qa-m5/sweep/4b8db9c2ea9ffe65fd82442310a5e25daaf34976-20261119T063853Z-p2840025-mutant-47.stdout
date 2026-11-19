@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-m5/20261119T063853Z-p2840025/mutant-47
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts (13 tests | 2 failed) 41ms
+     × commits the nonce and writes no failure line 11ms
+     × stops waiting once the generator has answered 204: no later line 3ms
+ ❯ |node| src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts (15 tests | 1 failed) 45ms
+     × deletes nothing in the sweep when the committed object is not in the listing, and reports no error 10ms
+
+ Test Files  2 failed | 141 passed (143)
+      Tests  3 failed | 1811 passed (1814)
+   Start at  07:07:04
+   Duration  17.60s (transform 23.53s, setup 1.54s, import 132.69s, tests 39.37s, environment 79.84s)
+
