@@ -1138,3 +1138,24 @@ once (UAT-1).
 **Cap:** for M2, each further gap below HIGH goes to the plan's Planner batch as a stated limit, with no fix round. A gate's
 severity-floor finding is the exception. CR-21 (no case pins M2-d's "touches no other instance", a property the change claims) is a
 severity-floor finding (GLOSSARY), so it keeps its test-only round. Told: `code-reviewer-hooks-017` and `qa-hooks-017`. He is told in this turn.
+
+## 2026-11-19T19:13Z — UAT approved; devops Stage 1 started; O-1 (local /preview failures): release, watch production (his selection)
+
+UAT pass 2: APPROVED FOR RELEASE at website `7293a35` and generator `8512a1d`, on a production build (`uat/017-existing-items-backlog-uat.md`,
+`f5f78b0`, Status UAT Complete; plan R-61 `9cfc8f5`, Status UAT Approved). Architect closing pass Resolved at the same trees (`0fbb246`).
+`devops-hooks-017` spawned for Stage 1 (category `S017-backlog`, effort high; brief `backlog-2026-11-18-briefs/devops-hooks-017-stage1.md`,
+`cd16832`).
+**UAT's O-1, owner-routed:** four generator `PreviewFailure … error-status` lines for message 900000000000001 between 18:48:15Z and
+18:48:46Z on the local stack (`verification/017/uat/walk-7/`). A `general-purpose-sonnet` helper, briefed with the claims alone
+(`verification/017/steering-refute-o1/findings.txt`), found the following.
+- "/preview answered 500": refuted as worded. `error-status` means any non-2xx or no response (`generateImage.ts:34-35`). The 500 is the
+  generator's own answer to the website. /preview's real status is not logged. Timing and count hold (each about 1.06 s); a fifth failure
+  came at 18:59:09.916Z, outside the walk window.
+- `/preview` route unchanged `1ad625e..7293a35`: not refuted, with changed components in its import tree. Nothing changed found able to
+  raise it: read from code, not run.
+Selection put and answered 19:13Z (ledger day file, block "2026-11-19T19:13Z — steering-roadmap-hooks"). Option text is this thread's.
+- **Agent: release, watch prod (Recommended)**: CHOSEN. "UAT's note stands as a known limit of the local test setup. Release goes ahead.
+  The post-deploy checks already planned (B-6, B-10) look at real preview images and the website's failure log on production."
+- Not chosen: "Agent: investigate first" (release waits about an hour or more, estimated; a found fix re-opens code review, QA and UAT);
+  "Agent: investigate after" (a handoff beside the access-bug fix).
+Recipients: `devops-hooks-017` (O-1 no longer pending; B-6 and B-10 carry it in its forward-item sweep); `planner-hooks-017` (register it).
