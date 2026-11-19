@@ -1,0 +1,46 @@
+
+[1m[46m RUN [49m[22m [36mv4.1.2 [39m[90m/tmp/claude-1000/-usr-local-bin-hooks/e0020673-6e57-4ff1-90d8-a95a22085569/scratchpad/attack-exp-f83f2ca[39m
+
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mstatus-500 ({ status: 500, put: true })[32m 40[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mstatus-404 ({ status: 404 })[32m 10[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mstatus-other ({ status: 503 })[32m 6[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mstatus-other ({ status: 302 })[32m 5[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mnetwork-error ({ drop: true })[32m 9[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mno answer within T: one line, nothing moved[33m 40013[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma confirmed generation[2m > [22mcommits, deletes the replaced object, writes no failure line[32m 44[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma confirmed generation[2m > [22ma new message stores no nonce until a success, then the success[32m 17[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma confirmed generation[2m > [22mleaves a message whose id extends this one alone[32m 14[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma confirmed generation[2m > [22msweeps over the wire by the bucket's times: 125 s older goes, 115 s older and newer stay[32m 16[2mms[22m[39m
+[90mstdout[2m | attack/attack.test.ts[2m > [22m[2mobservation, not a criterion: a 204 with no object stored (M6's premise broken)[2m > [22m[2mrecords what the row and the bucket then hold
+[22m[39mOBSERVE no-object-204 row=new objects=[]
+
+ [31m×[39m attack/attack.test.ts[2m > [22mtwo saves of one message[2m > [22mlater answers first: the later save wins, one object left[32m 84[2mms[22m[39m
+[31m   → expected 'v179506934192957940c6e9cd4c33754b' to be 'v17950693419332270c102238e199c4fb' // Object.is equality[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22mtwo saves of one message[2m > [22mearlier answers first: the later save wins, one object left[32m 24[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma message deleted while its preview renders[2m > [22mis not recreated, and its prefix ends empty[32m 48[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22mobservation, not a criterion: a 204 with no object stored (M6's premise broken)[2m > [22mrecords what the row and the bucket then hold[32m 12[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 1 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m attack/attack.test.ts[2m > [22mtwo saves of one message[2m > [22mlater answers first: the later save wins, one object left
+[31m[1mAssertionError[22m: expected 'v179506934192957940c6e9cd4c33754b' to be 'v17950693419332270c102238e199c4fb' // Object.is equality[39m
+
+Expected: [32m"v17950693419[7m332270c102238e199c4f[27mb"[39m
+Received: [31m"v17950693419[7m2957940c6e9cd4c33754[27mb"[39m
+
+[36m [2m❯[22m attack/attack.test.ts:[2m204:32[22m[39m
+    [90m202|[39m     [34mexpect[39m(n2 [33m>[39m n1)[33m.[39m[34mtoBe[39m([35mtrue[39m)[33m;[39m
+    [90m203|[39m     if (order === 'later answers first') { open2(); await s2.done; ope…
+    [90m204|[39m     [34mexpect[39m([35mawait[39m [34mrowNonce[39m(id))[33m.[39m[34mtoBe[39m(n2)[33m;[39m
+    [90m   |[39m                                [31m^[39m
+    [90m205|[39m     [34mexpect[39m([34mobjectsUnder[39m([32m`previews/[39m[36m${[39mid[36m}[39m[32m/`[39m))[33m.[39m[34mtoEqual[39m([[34mkey[39m(id[33m,[39m n2)])[33m;[39m
+    [90m206|[39m     [34mexpect[39m([34mfailureLines[39m())[33m.[39m[34mtoEqual[39m([])[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m13 passed[39m[22m[90m (14)[39m
+[2m   Start at [22m 06:21:40
+[2m   Duration [22m 41.32s[2m (transform 137ms, setup 0ms, import 822ms, tests 40.38s, environment 0ms)[22m
+

@@ -2,10 +2,10 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Reviewed-At: "6555f65 — repos=website; Round 5 sub-entry, M8 fix (implementation document d71c462); Round 5, M8, was reviewed at c37d41a (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
+Reviewed-At: "f83f2ca — repos=website; Round 6, M5 (implementation document 521a89f); M8 was confirmed at 6555f65 (Round 5 sub-entry, implementation document d71c462); Round 5, M8, was reviewed at c37d41a (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
 Status: In Review
-Round: 5
-Verdict: APPROVED
+Round: 6
+Verdict: APPROVED_WITH_COMMENTS
 ---
 
 # Code Review: 017 — the existing-items backlog
@@ -32,6 +32,7 @@ Verdict: APPROVED
 | 2026-11-19T05:40 | implementer-hooks-017 (M8 document `167ec86`) | Round 5: review M8 at website `c37d41a` | Round 5, M8 only. APPROVED_WITH_COMMENTS. CR-12 LOW: the image dialog's cases replace the browser's `Image` with a stand-in that always loads, and the M8 document does not name it; the remedy is a record line. The criteria assessed are M8-a to M8-d, M8-b's decision table and "The form, mirrored", as revision 7 states them at round open. 8 of 8 reviewer mutants were killed as assertions. M8's cases run against `1ad625e` pass every "alone" row (M8-c). Captures are in `verification/017/code-review/m8/`. |
 | 2026-11-19T06:01 | qa-hooks-017 (QAF-22, `8e73691`; plan R-31 `f35d750`) | R5-reconcile: Round 5's verdict corrected | Round 5 reopened by correction: CR-13 MEDIUM (duplicates QAF-22) is a severity-floor finding I missed. Verdict APPROVED_WITH_COMMENTS → REJECTED. I reproduced QA's probe and ran the two dropped-`enabled` mutants: W SURVIVED and I was KILLED (`verification/017/code-review/m8/closing-window/`). The fix is test-only and returns as a Round 5 sub-entry. Method observation for the retrospective: I settled an equivalence claim by reading the closed state when a run of under a minute would have settled it. This is the second severity-floor miss QA caught on this chain, after CR-5. |
 | 2026-11-19T06:06 | implementer-hooks-017 (fix SHA `6555f65`, M8 document `d71c462`) | Round 5 sub-entry: confirm the test-only fix for CR-13 (QAF-22) and CR-12 | Round 5 sub-entry: APPROVED at `6555f65`. 4 of 4 re-attack mutants were killed as assertions (`verification/017/code-review/m8/fix-6555f65/`). Both dropped-`enabled` mutants now fail the new closing-window cases. CR-13 and CR-12 are gone. The fix commit touches only the two enter-scope test files over `72a1755`. M5's `9909fb3` and `72a1755` lie inside `c37d41a..6555f65` and are outside this sub-entry. Gate disclosed: the stamp gate refused plan row R-32 as first typed (06:05 against the clock's 06:03); it was re-stamped from `date -u` and committed (`6b95965`). Disclosed: this row, and the collapse of CR-13 and CR-12 to disposition lines, were written by an ad-hoc python script, not the Edit tool or `record-edit.js`, against the lifecycle rule for record documents. The error was mine, the same one the Resumption State records. The rest of the sub-entry was written with the Edit tool, and the diff was read before commit. |
+| 2026-11-19T06:28 | implementer-hooks-017 (M5 document `521a89f`) | Round 6: review M5 at website `f83f2ca` | Round 6, M5 only. APPROVED_WITH_COMMENTS. CR-14 LOW: `previewWorld` decides commits by a JavaScript copy of the SQL predicate, which the M5 document does not name (record line). CR-15 LOW: one interleavings title matches the ID-token class (`D1`, `D2`). The criteria assessed are M5-a to M5-g, the lockfile and the rig, as revision 7 states them at round open. Adversarial execution against a running deletion path (real Postgres 16, the real SDK to an S3 stub, a scripted generator, network-isolated): 14 of 14, and 4 of 4 planted defects fire. Captures are in `verification/017/code-review/m5/`. Disclosed: the attack's first two runs failed on my harness (a missing table, a log slice, a race reading the generator's second request), corrected before the recorded run. M6 (generator `8512a1d`) is queued as Round 7. |
 
 ## Scope and Tree
 
@@ -391,6 +392,59 @@ The fixture gap is CR-12.
   - **If false**: the cases still pass, but they guard a state no user reaches, and I's guard is again held only through jsdom states.
   - **Owner**: UAT B-13, carried with the Round 5 assumption. On the walk, press Enter on the image dialog's Submit, then Enter again at once: `setImage` runs once and the dialog closes.
 
+## Round 6 — M5 at `f83f2ca`
+
+### Scope and tree
+
+- **Criteria assessed** (recorded before the diff was read): M5-a to M5-g, M5-c's three forms with its property and residue, M5-f's line contract with T = 40 s, the lockfile disposition and the rig, as plan § Plan `### M5` states them in revision 7 (plan last row R-33 at `d827b5c`). M5-0 is taken as met only as its two records say (`d61f445`, `8f26f37`).
+- **Tree**: website `f83f2ca`, the `Handoff-At` of `implementation/017-existing-items-backlog-m5-implementation.md` (agent-output `521a89f`). M5's commits are `9909fb3`, `72a1755` and `f83f2ca` over `c37d41a`. M8's fix `6555f65` lies between them and is reviewed in Round 5's sub-entry. The branch tip and the shared HEAD were `f83f2ca` at round start and end, and the tree was clean apart from `.playwright-mcp/`.
+- **Plan reading**: the Reading Order row for code-reviewer: the Decisions Register (D-2, D-3, D-8, D-10, D-15, D-19, D-24, D-27, D-30 bear on M5), `### M5`, Exclusions and Risks.
+
+### Architecture alignment (Round 6)
+
+**Alignment Status**: ALIGNED. The client and the key form are lifted into `previewBucket.ts`, and the delete route's `deleteMessagePreviewImages` now calls them with unchanged behaviour (the plan's "sibling, mirrored for the deletion"). The write-surface sweep, re-run: `git grep -n "previewImageNonce\|PREVIEW_IMAGE_URL\|DeleteObjectsCommand\|new S3(\|deleteMessagePreviewImages" f83f2ca -- src ':!**/__tests__/**'` gives one nonce writer (the commit in `previewImage.ts`), one generator caller, one `new S3(` and two deleters (the continuation and the delete route). A second, statement-shaped predicate, `insertInto('Messages')`, `updateTable('Messages')` and `deleteFrom('Messages')`, gives 5 sites. Besides the commit and the upsert, they are `updateRecentMessageData` (recent ids only), `backfillValid` (the `valid` column) and the delete route. So no other site writes the nonce or reaches the generator. The tRPC handler is a Pages API route (`src/pages/api/trpc/[trpc].ts`), the route type M5-0's probes used.
+
+### Instruments and reproduction (Round 6)
+
+| Claim under review | Instrument (this round) | Result |
+|---|---|---|
+| The nonce column accepts the new form | Read `project-utils` `prisma/schema.prisma` `model Message`: `previewImageNonce String?`, which is `text` | Holds. The lane's hand-made `text` column is the real type, so `collate "C"` applies. |
+| `waitUntil` outside Vercel (local dev, the rig) | Read `@vercel/functions` 3.11.3 `wait-until.js` and `get-context.js` | With no request context it is a no-op and does not throw. The continuation still runs because it was started eagerly. |
+| M5-a to M5-c, M5-f against a running instance (irreversible action: object deletion) | My harness, `verification/017/code-review/m5/attack/` (README in `run.sh`'s header). It drives the real `upsertMessage`, the continuation, `deleteMessagePreviewImages` and `@aws-sdk/client-s3` over HTTP to the loopback S3 stub, with real `fetch` to a scripted generator and a real Postgres 16 holding the Prisma schema's column types. It runs in a `git archive` export (no `.env.local`), under `unshare -rn` with loopback only. Substituted: `~/env.mjs`, `pusher`, and Vercel's request context through its own protocol. Ids from `900000000000001`. | 14 of 14 at `f83f2ca`, exit 0 (`out-f83f2ca/`). See the input class and oracle below. |
+| The attack discriminates | 4 planted defects, applied to the export and read back (`controls.json`, `control-*/`) | All 4 fire: `commit-unconditional` (the later-answers-first case), `refused-keeps-own-object` (2 cases), `prefix-no-trailing-slash` (6) and `sweep-age-guard-dropped` (the sweep case). |
+| Lockfile: only the new package and its own dependencies move | `git diff --numstat c37d41a f83f2ca -- pnpm-lock.yaml`; `paracord` read at both trees | 80 added, 0 removed: `@vercel/functions` 3.11.3 and the 8 dependencies the document names. `paracord` is at `3f203086…` at both trees and appears in no diff line (`grep -c` 0). |
+| Suite, typecheck, reds, sweep | The implementer's captures, read with python and not re-run | 1814 of 1814, 0 failed, 143 `testResults`, `success` true, exit file 0. Typecheck exit 0. The stub-tree red shows 28 failing of 53 (7 + 21, as the document says). The three sweep survivors are each killed by one case (`f83f2ca-survivors.out`). |
+| Conventions | `convention-check.js website --since=c37d41a` (`m5/convention-check-since-c37d41a.out`), and a hand predicate over the 1132 added lines (`m5/added-lines.txt`) | 0 FAIL, 0 CANDIDATE and 21 SKIP, with the ID-token limb skipped. The hand predicate gives 1 title hit (CR-15) and 1 data line (`play([...])`, exempt). The 5 comment lines are `eslint-disable-next-line`, which the gate admits. |
+| No time-based test in the standing suite | `grep -c` per M5 test file for `useFakeTimers`, `setTimeout(`, `sleep(` and `waitFor(` | Only `continuation-outcomes` uses timers, and they are fake ones. It spends no wall-clock time (GLOSSARY, "Time-based test"). The lane's 2 s sleeps are outside the suite. |
+| `tdd-check.py` | `tdd-check.py table --repo website --sha f83f2ca …` | Refuses TypeScript ("reads Python only"), as the document says. The table was read by hand. |
+
+**Input class, as attacked**:
+- every outcome class of one save's request: 204, 500 (with an object stored), 404, 503, 302, a dropped connection, and no answer within T (one real 40 s run);
+- a new message, failing and then succeeding;
+- two saves of one message answered in both orders;
+- a message deleted, row and then purge, while its preview renders;
+- a message whose id extends this one (`…2` against `…27`);
+- the sweep against the bucket's own `LastModified` over the wire (125 s older, 115 s older, newer).
+
+A 302 with a `Location` (`fetch` follows redirects) is outside the class, because the generator is trusted and never redirects. It is residue and holds no round.
+
+**Oracle, fixed before the run**: for each case, the exact final row nonce; the exact object set under every prefix touched; the stub's request log (no list or delete for a failed save, no delete outside the saved message's prefix, and the one list naming `previews/<id>/`); and the failure lines (exactly one per failure, matching `^preview-image-failure id=<id> class=<class> elapsedMs=\d+$` without the nonce, and none on 204).
+
+**Observation (M6's premise)**: a 204 with no object stored leaves the row naming a missing object, and form 1 deletes the previous one (`OBSERVE no-object-204 row=new objects=[]`). M5-b rests on "204 means an object was stored", which is M6's to guarantee (the M5 document, Downstream). It is carried to Round 7 (M6) as the property that review must see hold.
+
+**Disclosed**: the attack's first two runs failed on my harness, not the code. The schema lacked `ScheduledMessages`, a per-scenario log slice was missing, and the second generator request was read before it had arrived. I corrected all three before the recorded run (`out-f83f2ca/` is the third run).
+
+### TDD compliance (Round 6)
+
+**TDD Table Present**: Yes. **All Rows Complete**: Yes.
+- The deletion forms and the interleavings say "No" to test-first. Each is closed by an assertion-level red against a stub tree, which I re-counted.
+- The three survivor rows name their mutant.
+- The Postgres lane's red is its three lane mutants.
+- The boundary literals 120000 and 119999 are independent of `SWEEP_AGE_MS`.
+- No bug-form test was added, and no time-based test.
+
+The fidelity gap in the shared world is CR-14.
+
 ## Findings
 
 ### Critical
@@ -499,6 +553,25 @@ CR-3 MEDIUM Round 2
 
 ### Low/Info
 
+CR-14 LOW Round 6
+**Fixture stand-in not named**: the shared world decides whether a commit is accepted by its own JavaScript copy of the SQL predicate. The M5 document does not say so.
+- **Location**: `src/server/api/utils/__tests__/helpers/previewWorld.ts` at `f83f2ca`, `reset`'s capturing-database handler: `if (query.sql.startsWith('with "replaced"'))`, then `world.row.exists && (world.row.nonce === null || world.row.nonce < next)`.
+- **Class**: a stand-in for what the database returns, invented by the test and not named in the author's document (testing-patterns Iron Law 5).
+- **Enumeration**: `git grep -n "startsWith('with \"replaced\"')" f83f2ca -- src` gives 1 hit. The world's other database answer is `world.other`, which returns `[]` by default for every other statement. `grep -c "transcri\|stands in\|stand-in" implementation/017-existing-items-backlog-m5-implementation.md` gives 0. Blind spot: a stand-in in a test-local `createCapturingDatabase` handler outside the helper. `git grep -c "createCapturingDatabase("` gives 6 files. The one M5 touched besides the helper is `shared.message-cap`, whose handler answers the upsert with a clock; I read it through its +3 −2 diff only. The other three are outside M5.
+- **Issue**: the world ignores the statement's text beyond its prefix, so the 3120 interleavings check the continuation's sequencing given a correct database, not the statement.
+  - The statement's semantics are held elsewhere. The compiled-shape cases (`previewImage.commit-statement`) are standing. The Postgres lane (EC-2, QA's re-run) is not standing, and neither is this round's attack (`commit-unconditional` fires there).
+  - So in the standing suite, the predicate is guarded only by its compiled text.
+  - This is a sound design, but a reader of the interleavings file cannot tell it from the record.
+- **Required Action**: one line in the M5 document beside `previewWorld`. It names the transcribed predicate and the row lock it does not model, and the instruments that own the statement: the shape cases, the lane and `code-review/m5/attack/`. `no test`. It does not hold the verdict.
+
+CR-15 LOW Round 6
+**Test naming**: one title carries tokens from the workspace's ID-token class.
+- **Location**: `src/server/api/utils/__tests__/previewImage.interleavings.test.ts` at `f83f2ca`, `it('W1 C1 W2 C2 D2 D1 leaves the later save\'s image committed and present')`.
+- **Class**: a `describe`/`it`/`test` title that matches the ID-token class `\b(…|d|…)-?[0-9]+[a-z]?\b` (CLAUDE.md, "Negative form": zero matches in titles outside a `// escaped:` line).
+- **Enumeration**: the class predicate, case-insensitive, over the 1132 lines M5 adds (`m5/added-lines.txt`) gives 2 hits. One is this title. The other is its `play(['W1', …, 'D1'], false)` argument, which is fixture data the test computes over, so it is exempt. `convention-check.js` skipped this limb ("does not implement verbatim"). Blind spot: a title built at run time, such as an `it.each` format over row names, is seen only through its template.
+- **Issue**: `D1` and `D2` here are interleaving events, not decision ids. The predicate cannot tell the two apart in a title, and the convention applies it to titles without exception.
+- **Required Action**: retitle by behaviour, for example "a later save's delete of the earlier image, before the earlier sweep, leaves the later image committed and present". Keep the chain in the `play` argument. Test-only, at the implementer's next write, with the per-file case count and pass set unchanged. It does not hold the verdict.
+
 CR-12 LOW Round 5
 RESOLVED at agent-output `d71c462`: the M8 document's Fix Round names `FakeImage`, what it stands in for and the path it leaves untested. `no test` (argument in `4950989`).
 
@@ -583,6 +656,15 @@ No finding changes a decision. The two above go to their stated carriers.
 
 ## Verdict
 
+**Round 6 (M5 at `f83f2ca`) — Status**: APPROVED_WITH_COMMENTS
+**Rationale**: M5-a to M5-g hold against a running instance I attacked, not only against the implementer's substituted world.
+- Over the request's outcome classes, two saves in both orders, a delete mid-render, a prefix collision and the bucket's own times, the row and the bucket end exactly as the oracle says, and each failure writes exactly one line with the plan's fields.
+- 4 planted defects each turn the attack red.
+- The upsert writes no nonce. The commit is the only nonce writer and the continuation the only new deleter. The delete route's sibling now calls the lifted client.
+- The lockfile moves only the new package and its own dependencies.
+
+CR-14 and CR-15 are LOW record and naming lines.
+
 **Round 5 sub-entry (M8 at `6555f65`) — Status**: APPROVED. CR-13 (QAF-22) and CR-12 are each gone. Both dropped-`enabled` mutants and the hook-level one now fail as assertions in the closing-window cases (see the sub-entry). M8 goes to QA's refresh.
 
 **Round 5 (M8 at `c37d41a`) — Status**: REJECTED (reconciled; published as APPROVED_WITH_COMMENTS)
@@ -650,6 +732,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Required Actions
 
+- Round 6 (APPROVED_WITH_COMMENTS), to the implementer's next write: CR-14, a line in the M5 document naming `previewWorld`'s transcribed commit predicate and the instruments that own the statement. CR-15, the interleavings title retitled by behaviour. Neither holds QA.
 - Round 5: none outstanding. CR-13 and CR-12 were confirmed at `6555f65` and `d71c462`. Previously (REJECTED after reconcile): the closing-window cases and the `FakeImage` line.
 - Round 4 (REJECTED), to the implementer:
   - CR-9: `ConfirmationDialog`'s Enter bound to its own dialog, not the document. The layout file's "both open" case runs with the real `react-hotkeys-hook`, opens the link prompt first, and raises the update prompt through `showConfirmation`. One Enter must answer exactly one prompt and leave the other open. Under `de06d95` it must fail as an assertion (2 answered).
@@ -689,7 +772,13 @@ The production change is the deletion of an unreferenced export. The remaining f
   - **If false**: on B-13's walk (two tabs, a delete warning open in tab A, a save from tab B), one Enter with focus on the update prompt's text both reloads and deletes the field. Or focus starts in the warning after the prompt opens, so Enter deletes the field and leaves the update prompt open.
   - **Owner**: UAT, walk B-13 on the local stack (plan M8 "Human-observable form"). In production, the same act after deploy.
 
+- Round 6: this review assumes that DigitalOcean Spaces' `ListObjects` returns `LastModified` for every key of a message's prefix, in a form the SDK parses, and that the client's virtual-hosted addressing (`forcePathStyle: false`) reaches the bucket. The attack ran path-style against a loopback stub, which the SDK picks for an IP endpoint. The delete route already lists and deletes on Spaces with the same client today, but it never reads `LastModified`.
+  - **If false**: after two saves of one message more than 120 s apart, a read-only listing of `previews/<id>/` holds more than one object (the sweep finds no age or no reference). Or Vercel's logs carry an SDK error with no `preview-image-failure` prefix after a 204.
+  - **Owner**: UAT at B-6, the post-deploy look, under the production release of M5 with M6, with a read-only listing of the saved message's prefix added. devops establishes what that listing may read.
+
 ## Next Steps
+
+- Round 6: QA Phase 2 for M5 at `f83f2ca` (`qa-hooks-017`), with its lane re-run (EC-2). CR-14 and CR-15 go to the implementer's next write. UAT B-6 closes the Round 6 assumption. M6's review (Round 7) must see "204 means an object was stored" hold, the premise the attack's observation case shows M5-b rests on.
 
 - Round 5: the fix is confirmed at `6555f65`. QA's refresh of M8 (`qa-hooks-017`) is next. UAT B-13 closes the Round 5 assumption and the sub-entry's.
 
@@ -715,9 +804,10 @@ Written at the checkpoint steering-roadmap-hooks asked for (context 354K, thresh
   - Round 3 (M3): REJECTED at `3498ef3`, then APPROVED at `1ab3b96`.
   - Round 4 (M4): REJECTED at `de06d95` (CR-9 HIGH, CR-10 and CR-11 LOW). Its sub-entry approved CR-9 to CR-11 at `a5dd76f` and QAF-18 at `5c3d03f`.
   - Round 5 (M8): REJECTED after reconcile at `c37d41a` (CR-13 MEDIUM, a duplicate of QAF-22; CR-12 LOW), published as APPROVED_WITH_COMMENTS. Its sub-entry approved both at `6555f65`.
+  - Round 6 (M5): APPROVED_WITH_COMMENTS at `f83f2ca` (CR-14 and CR-15 LOW). Instruments: `verification/017/code-review/m5/attack/` (`run.sh <sha> <out> [control id]`).
   - My plan rows: R-8, R-10, R-12, R-13, R-15, R-16, R-18, R-19, R-22 and R-30.
   - QA hand-offs were sent for each approval, the last for M8 (msg `dd56c5ed`).
-- **Next**: M5, M6 or M7, when the implementer hands one off on its own document and SHA. Open Round 6. Read the plan as the diff from `225e4f3`: that milestone's section, the Decisions Register rows it cites, and its Reading Order row. M5 and M6 rest on M5-0's probe results (D-27, D-30). M7 comes last and re-derives CR-1's file (M7-b).
+- **Next**: Round 7, M6 at preview-image-generator `8512a1d` (implementation document agent-output `4c4e948`). It must see "204 means an object was stored" hold (Round 6's observation). Then M7. Previously: M5, M6 or M7, when handed off. Open Round 6. Read the plan as the diff from `225e4f3`: that milestone's section, the Decisions Register rows it cites, and its Reading Order row. M5 and M6 rest on M5-0's probe results (D-27, D-30). M7 comes last and re-derives CR-1's file (M7-b).
 - **Standing rules**: steering's M4 cap (`steering/017-rulings.md` block 2026-11-19T04:14Z, `a805d4d`) and M8 cap (block 2026-11-19T06:01Z, `9349040`). For M4 and M8, a finding below HIGH that is not a severity-floor finding goes to the Planner batch as a stated limit, with no fix round. Steering is now `steering-roadmap-hooks`.
 - **Waiting on others, not blocking**:
   - QA Phase 2 for M8 at `c37d41a`;

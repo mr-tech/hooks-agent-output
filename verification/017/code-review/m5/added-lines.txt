@@ -1,0 +1,1132 @@
++import { act, useState } from 'react';
++let setOpen: (open: boolean) => void = () => undefined;
++
++const ClosableUploader = () => {
++  const [open, set] = useState(true);
++  setOpen = set;
++  return (
++    <ImageUploader isOpen={open} image={URL_A} onClose={calls.close} setImage={calls.setImage} />
++  );
++};
++
++  describe('while its panel is still leaving after it is closed', () => {
++    it('answers nothing, with focus still inside the visible panel', async () => {
++      mountDom(<ClosableUploader />);
++      await act(async () => {});
++      await act(async () => {});
++      focusAndCheck(dialogOf(IMAGE_TITLE));
++      act(() => { setOpen(false); });
++      expect(dialogOf(IMAGE_TITLE).contains(document.activeElement)).toBe(true);
++
++      enter();
++
++      expect(counts()).toEqual(NOTHING);
++    });
++  });
++
++import { act, useState } from 'react';
++let setOpen: (open: boolean) => void = () => undefined;
++
++const ClosableWarning = () => {
++  const [open, set] = useState(true);
++  setOpen = set;
++  return (
++    <WarningDialog
++      title={WARNING}
++      message="This will delete the field."
++      open={open}
++      confirmText="Delete"
++      onClose={calls.warnClose}
++      onConfirm={calls.warnConfirm}
++    />
++  );
++};
++
++    it('answers nothing while its panel is still leaving after it is closed', async () => {
++      mountDom(<ClosableWarning />);
++      await act(async () => {});
++      focusAndCheck(dialogOf(WARNING));
++      act(() => { setOpen(false); });
++      expect(dialogOf(WARNING).contains(document.activeElement)).toBe(true);
++
++      enter();
++
++      expect(counts()).toEqual({ warnConfirm: 0, warnClose: 0, updateConfirm: 0 });
++    });
++
++import createCapturingDatabase from './capturingDatabase';
++
++type Deferred<T> = { promise: Promise<T>, resolve: (value: T) => void, reject: (reason: unknown) => void };
++
++export function deferred<T = void>(): Deferred<T> {
++  let resolve!: (value: T) => void;
++  let reject!: (reason: unknown) => void;
++  const promise = new Promise<T>((res, rej) => { resolve = res; reject = rej; });
++  return { promise, resolve, reject };
++}
++
++type GeneratorAnswer = { status: number } | Error;
++type PendingRequest = {
++  body: { id: string, nonce: string, message: unknown };
++  headers: Record<string, string>;
++  answer: Deferred<GeneratorAnswer>;
++  signal?: AbortSignal;
++};
++
++export const BASE_TIME = Date.UTC(2020, 0, 1, 12, 0, 0);
++export const OLD_AGE_MS = 1_000_000_000;
++
++export const world = {
++  objects: new Map<string, Date>(),
++  row: { exists: true, nonce: null as string | null },
++  requests: [] as PendingRequest[],
++  s3Calls: [] as { kind: string, input: Record<string, unknown> }[],
++  s3Configs: [] as Record<string, unknown>[],
++  commits: [] as { nonce: string, accepted: boolean }[],
++  gate: null as Deferred<void> | null,
++  db: undefined as unknown,
++  queries: [] as { sql: string, parameters: readonly unknown[] }[],
++  clock: BASE_TIME,
++  other: ((_query: { sql: string, parameters: readonly unknown[] }) => []) as (query: { sql: string, parameters: readonly unknown[] }) => unknown[],
++
++  reset({ nonce = null, exists = true }: { nonce?: string | null, exists?: boolean } = {}) {
++    world.objects = new Map();
++    world.row = { exists, nonce };
++    world.requests = [];
++    world.s3Calls = [];
++    world.s3Configs = [];
++    world.commits = [];
++    world.gate = null;
++    world.clock = BASE_TIME;
++    world.other = () => [];
++    const captured = createCapturingDatabase((query) => {
++      world.queries.push({ sql: query.sql, parameters: query.parameters });
++      if (query.sql.startsWith('with "replaced"')) {
++        const next = query.parameters[1] as string;
++        const accepted = world.row.exists && (world.row.nonce === null || world.row.nonce < next);
++        world.commits.push({ nonce: next, accepted });
++        if (!accepted) return [];
++        const prev = world.row.nonce;
++        world.row.nonce = next;
++        return [{ prev }];
++      }
++      return world.other(query);
++    });
++    world.db = captured.db;
++    world.queries = [];
++  },
++
++  put(key: string, ageMs = 0) {
++    world.objects.set(key, new Date(world.clock - ageMs));
++  },
++
++  tick(ms = 5000) {
++    world.clock += ms;
++  },
++};
++
++type FetchInit = { body: string, headers: Record<string, string>, signal?: AbortSignal };
++
++export const fakeFetch = (_url: string, init: FetchInit) => {
++  const request: PendingRequest = {
++    body: JSON.parse(init.body) as PendingRequest['body'],
++    headers: init.headers,
++    answer: deferred<GeneratorAnswer>(),
++    signal: init.signal,
++  };
++  world.requests.push(request);
++  return new Promise((resolve, reject) => {
++    init.signal?.addEventListener('abort', () => reject(Object.assign(new Error('The operation was aborted.'), { name: 'AbortError' })));
++    void request.answer.promise.then((answer) => {
++      if (answer instanceof Error) reject(answer);
++      else resolve(answer);
++    });
++  });
++};
++
++type Input = Record<string, unknown>;
++type Command = { input: Input };
++
++function ListObjectsCommand(this: Command, input: Input) { this.input = input; }
++function DeleteObjectsCommand(this: Command, input: Input) { this.input = input; }
++function PutObjectCommand(this: Command, input: Input) { this.input = input; }
++
++type Sender = { send: (command: Command) => Promise<unknown> };
++
++function S3(this: Sender, config: Record<string, unknown>) {
++  world.s3Configs.push(config);
++  this.send = async (command: Command) => {
++    let kind = 'PutObjectCommand';
++    if (command instanceof (ListObjectsCommand as never)) kind = 'ListObjectsCommand';
++    if (command instanceof (DeleteObjectsCommand as never)) kind = 'DeleteObjectsCommand';
++    world.s3Calls.push({ kind, input: command.input });
++    if (world.gate) {
++      const { gate } = world;
++      world.gate = null;
++      await gate.promise;
++    }
++    if (kind === 'ListObjectsCommand') {
++      const prefix = command.input.Prefix as string;
++      return {
++        Contents: [...world.objects]
++          .filter(([key]) => key.startsWith(prefix))
++          .map(([Key, LastModified]) => ({ Key, LastModified })),
++      };
++    }
++    if (kind === 'DeleteObjectsCommand') {
++      (command.input.Delete as { Objects: { Key: string }[] }).Objects
++        .forEach(({ Key }) => world.objects.delete(Key));
++    }
++    return {};
++  };
++}
++
++export const S3_MODULE = {
++  S3, ListObjectsCommand, DeleteObjectsCommand, PutObjectCommand,
++};
++
++export const envValues: Record<string, string> = {
++  NODE_ENV: 'production',
++  CDN_BUCKET: 'bucket',
++  CDN_ENDPOINT: 'https://cdn.invalid',
++  CDN_KEY: 'k',
++  CDN_SECRET: 's',
++  PREVIEW_IMAGE_URL: 'https://generator.invalid/generate',
++  PREVIEW_IMAGE_API_KEY: 'planted-api-key',
++};
++
++export const ENV_MODULE = {
++  env: new Proxy(envValues, { get: (target, key) => target[String(key)] ?? `test-${String(key)}` }),
++};
++
++export const settle = async () => {
++  for (let i = 0; i < 6; i += 1) {
++    // eslint-disable-next-line no-await-in-loop
++    await new Promise((resolve) => { setImmediate(resolve); });
++  }
++};
++import {
++  DummyDriver, Kysely, PostgresAdapter, PostgresIntrospector, PostgresQueryCompiler,
++} from 'kysely';
++import {
++  describe, expect, it, vi,
++} from 'vitest';
++
++import type { DatabaseSchema } from 'project-utils';
++
++import { buildCommitPreviewNonceQuery, mintNonce } from '~/server/api/utils/previewImage';
++import { buildMessageValues, buildUpsertMessageQuery } from '~/server/api/utils/shared';
++
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++
++const database = new Kysely<DatabaseSchema>({
++  dialect: {
++    createAdapter: () => new PostgresAdapter(),
++    createDriver: () => new DummyDriver(),
++    createIntrospector: (db) => new PostgresIntrospector(db),
++    createQueryCompiler: () => new PostgresQueryCompiler(),
++  },
++});
++
++const data = {
++  content: 'Hi', username: 'U', embeds: [], components: [],
++};
++
++describe('the upsert statement no longer writes the preview nonce', () => {
++  const values = buildMessageValues({ name: 'n', data } as never, { dbUserId: 'u1' } as never);
++  const compiled = buildUpsertMessageQuery(database, values as never).compile();
++
++  it('names no nonce column in its insert or its conflict update', () => {
++    expect(compiled.sql).not.toMatch(/previewImageNonce/);
++  });
++
++  it('returns the message id and the database clock, read in the same statement', () => {
++    expect(compiled.sql).toMatch(/returning "id", \(extract\(epoch from clock_timestamp\(\)\) \* 1000000\)::bigint::text as "savedAtMicros"$/);
++  });
++});
++
++describe('the commit statement', () => {
++  const compiled = buildCommitPreviewNonceQuery(database, '42', 'vNEW').compile();
++
++  it('reads the nonce it replaces under the row lock', () => {
++    expect(compiled.sql).toMatch(/^with "replaced" as \(select "previewImageNonce" as "prev" from "Messages" where "id" = \$1 for update\) /);
++  });
++
++  it('moves the nonce only where the row has none or one that orders below, under collation C', () => {
++    expect(compiled.sql).toMatch(/"previewImageNonce" is null or "Messages"\."previewImageNonce" collate "C" < \$/);
++  });
++
++  it('updates the existing row and never inserts', () => {
++    expect(compiled.sql).toMatch(/update "Messages" set "previewImageNonce" = \$2 from "replaced" where "Messages"\."id" = \$3/);
++    expect(compiled.sql).not.toMatch(/insert/);
++  });
++
++  it('writes no other column', () => {
++    const setClause = compiled.sql.slice(compiled.sql.indexOf(' set '), compiled.sql.indexOf(' from "replaced"'));
++    expect(setClause).toBe(' set "previewImageNonce" = $2');
++  });
++
++  it('hands back the replaced nonce', () => {
++    expect(compiled.sql).toMatch(/returning "replaced"\."prev"$/);
++  });
++
++  it('carries the message id and the new nonce as parameters', () => {
++    expect(compiled.parameters).toEqual(['42', 'vNEW', '42', 'vNEW']);
++  });
++});
++
++describe('the ordered nonce', () => {
++  it('is v, the clock in microseconds to 16 digits, then 16 hex characters', () => {
++    expect(mintNonce('1763509200000000')).toMatch(/^v1763509200000000[0-9a-f]{16}$/);
++  });
++
++  it('pads a short clock to 16 digits', () => {
++    expect(mintNonce('7')).toMatch(/^v0000000000000007[0-9a-f]{16}$/);
++  });
++
++  it('draws the random part afresh on each call', () => {
++    expect(mintNonce('1763509200000000')).not.toBe(mintNonce('1763509200000000'));
++  });
++
++  it('sorts a later clock above an earlier one whatever the random parts are', () => {
++    const earlier = `v1763509200000000${'f'.repeat(16)}`;
++    const later = `v1763509200000001${'0'.repeat(16)}`;
++    expect(mintNonce('1763509200000001') > earlier).toBe(true);
++    expect(later > mintNonce('1763509200000000')).toBe(true);
++  });
++
++  it('sorts above every 32-character hex nonce an existing row may hold', () => {
++    expect(mintNonce('0') > 'f'.repeat(32)).toBe(true);
++  });
++});
++import {
++  afterEach, beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import { settle, world } from './helpers/previewWorld';
++
++import { runPreviewContinuation } from '~/server/api/utils/previewImage';
++
++vi.mock('~/env.mjs', async () => (await import('./helpers/previewWorld')).ENV_MODULE);
++vi.mock('@aws-sdk/client-s3', async () => (await import('./helpers/previewWorld')).S3_MODULE);
++vi.mock('project-utils', async () => {
++  const { world: w } = await import('./helpers/previewWorld');
++  return { getPostgres: () => w.db };
++});
++
++const OLD_NONCE = 'a'.repeat(32);
++const NEW_NONCE = 'v1763509200000001PLANTEDNONCEHEX';
++const CONTENT = 'PLANTED-MESSAGE-CONTENT';
++const message = {
++  content: CONTENT, username: 'U', embeds: [], components: [],
++} as unknown as MessageData;
++
++let lines: string[];
++const failureLines = () => lines.filter((line) => line.startsWith('preview-image-failure'));
++
++beforeEach(async () => {
++  const { fakeFetch } = await import('./helpers/previewWorld');
++  world.reset({ nonce: OLD_NONCE });
++  world.put(`previews/42/${OLD_NONCE}.jpeg`, 1_000_000_000);
++  world.put(`previews/42/${NEW_NONCE}.jpeg`);
++  vi.stubGlobal('fetch', fakeFetch);
++  lines = [];
++  vi.spyOn(console, 'error').mockImplementation((...args: unknown[]) => { lines.push(args.map(String).join(' ')); });
++});
++afterEach(() => {
++  vi.useRealTimers();
++  vi.restoreAllMocks();
++  vi.unstubAllGlobals();
++});
++
++const start = () => runPreviewContinuation({ id: '42', nonce: NEW_NONCE, message });
++
++describe('the request to the generator', () => {
++  it('posts the id, the nonce and the message, with a bearer credential', async () => {
++    const done = start();
++    await settle();
++
++    expect(world.requests).toHaveLength(1);
++    expect(world.requests[0].body).toEqual({ id: '42', nonce: NEW_NONCE, message });
++    expect(world.requests[0].headers.Authorization.startsWith('Bearer ')).toBe(true);
++    world.requests[0].answer.resolve({ status: 204 });
++    await done;
++  });
++});
++
++describe('a generator answer of 204', () => {
++  it('commits the nonce and writes no failure line', async () => {
++    const done = start();
++    await settle();
++    world.requests[0].answer.resolve({ status: 204 });
++    await done;
++
++    expect(world.row.nonce).toBe(NEW_NONCE);
++    expect(failureLines()).toEqual([]);
++  });
++});
++
++describe('one failure line per failed generation', () => {
++  it.each([
++    ['500', { status: 500 }, 'status-500'],
++    ['404', { status: 404 }, 'status-404'],
++    ['200', { status: 200 }, 'status-other'],
++    ['302', { status: 302 }, 'status-other'],
++    ['503', { status: 503 }, 'status-other'],
++    ['a refused connection', new TypeError('fetch failed'), 'network-error'],
++  ])('answer %s writes one line and leaves the stored nonce alone', async (_name, answer, cls) => {
++    const done = start();
++    await settle();
++    world.requests[0].answer.resolve(answer);
++    await done;
++
++    expect(failureLines()).toHaveLength(1);
++    expect(failureLines()[0]).toMatch(new RegExp(`^preview-image-failure id=42 class=${cls} elapsedMs=\\d+$`));
++    expect(world.row.nonce).toBe(OLD_NONCE);
++    expect(world.commits).toEqual([]);
++  });
++
++  it('names no nonce, no message content, no object key and no credential', async () => {
++    const done = start();
++    await settle();
++    world.requests[0].answer.resolve({ status: 500 });
++    await done;
++
++    const line = failureLines()[0];
++    expect(line.includes(NEW_NONCE)).toBe(false);
++    expect(line.includes(CONTENT)).toBe(false);
++    expect(line.includes('previews/')).toBe(false);
++    expect(line.includes('planted-api-key')).toBe(false);
++  });
++
++  it('deletes nothing from the bucket', async () => {
++    const done = start();
++    await settle();
++    world.requests[0].answer.resolve({ status: 500 });
++    await done;
++
++    expect(world.s3Calls).toEqual([]);
++  });
++});
++
++describe('a generator that does not answer within 40 seconds', () => {
++  beforeEach(() => { vi.useFakeTimers(); });
++
++  it('writes exactly one line of class no-answer-within-T at 40 seconds, and no commit', async () => {
++    const done = start();
++    await vi.advanceTimersByTimeAsync(39_999);
++    expect(failureLines()).toEqual([]);
++
++    await vi.advanceTimersByTimeAsync(1);
++    await done;
++
++    expect(failureLines()).toHaveLength(1);
++    expect(failureLines()[0]).toBe('preview-image-failure id=42 class=no-answer-within-T elapsedMs=40000');
++    expect(world.commits).toEqual([]);
++  });
++
++  it('stops waiting once the generator has answered 204: no later line', async () => {
++    const done = start();
++    await vi.advanceTimersByTimeAsync(10_000);
++    world.requests[0].answer.resolve({ status: 204 });
++    await done;
++
++    await vi.advanceTimersByTimeAsync(120_000);
++
++    expect(failureLines()).toEqual([]);
++    expect(world.requests[0].signal?.aborted).toBe(false);
++  });
++
++  it('stops waiting once the generator has answered 500: one line, not two', async () => {
++    const done = start();
++    await vi.advanceTimersByTimeAsync(10_000);
++    world.requests[0].answer.resolve({ status: 500 });
++    await done;
++
++    await vi.advanceTimersByTimeAsync(120_000);
++
++    expect(failureLines()).toHaveLength(1);
++    expect(failureLines()[0]).toMatch(/class=status-500 elapsedMs=10000$/);
++  });
++});
++import {
++  afterEach, beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import {
++  envValues, fakeFetch, settle, world,
++} from './helpers/previewWorld';
++
++import { runPreviewContinuation } from '~/server/api/utils/previewImage';
++
++vi.mock('~/env.mjs', async () => (await import('./helpers/previewWorld')).ENV_MODULE);
++vi.mock('@aws-sdk/client-s3', async () => (await import('./helpers/previewWorld')).S3_MODULE);
++vi.mock('project-utils', async () => {
++  const { world: w } = await import('./helpers/previewWorld');
++  return { getPostgres: () => w.db };
++});
++
++const N0 = 'a'.repeat(32);
++const N1 = 'v1763509200000001aaaaaaaaaaaaaaaa';
++const N2 = 'v1763509200000002bbbbbbbbbbbbbbbb';
++const message = {
++  content: 'Hi', username: 'U', embeds: [], components: [],
++} as unknown as MessageData;
++
++const key = (nonce: string, id = '42', dev = '') => `${dev}previews/${id}/${nonce}.jpeg`;
++const keys = () => [...world.objects.keys()].sort();
++const MINUTE = 60_000;
++
++async function save(nonce: string, id = '42') {
++  const done = runPreviewContinuation({ id, nonce, message });
++  await settle();
++  world.requests[world.requests.length - 1].answer.resolve({ status: 204 });
++  await done;
++}
++
++beforeEach(() => {
++  world.reset({ nonce: N0 });
++  vi.stubGlobal('fetch', fakeFetch);
++  envValues.NODE_ENV = 'production';
++});
++afterEach(() => {
++  vi.unstubAllGlobals();
++  envValues.NODE_ENV = 'production';
++});
++
++describe('an accepted commit', () => {
++  it('deletes the object of the nonce it replaced', async () => {
++    world.put(key(N0), 10 * MINUTE);
++    world.put(key(N1));
++
++    await save(N1);
++
++    expect(keys()).toEqual([key(N1)]);
++    expect(world.s3Calls.filter(({ kind }) => kind === 'DeleteObjectsCommand').map(({ input }) => input.Delete)).toContainEqual({ Objects: [{ Key: key(N0) }] });
++  });
++
++  it('deletes nothing for a replaced nonce of none, and keeps its own object', async () => {
++    world.reset({ nonce: null });
++    world.put(key(N1));
++
++    await save(N1);
++
++    expect(keys()).toEqual([key(N1)]);
++    expect(world.s3Calls.filter(({ kind }) => kind === 'DeleteObjectsCommand')).toEqual([]);
++  });
++
++  it('never deletes the object it committed', async () => {
++    world.put(key(N0), 10 * MINUTE);
++    world.put(key(N1));
++
++    await save(N1);
++
++    expect(world.objects.has(key(N1))).toBe(true);
++  });
++});
++
++describe('a refused commit', () => {
++  it('deletes its own object and nothing else when a later save has committed', async () => {
++    world.reset({ nonce: N2 });
++    world.put(key(N2));
++    world.put(key(N1));
++    world.put(key('c'.repeat(32)), 10 * MINUTE);
++
++    await save(N1);
++
++    expect(keys()).toEqual([key(N2), key('c'.repeat(32))].sort());
++    expect(world.row.nonce).toBe(N2);
++  });
++
++  it('deletes its own object when the row is gone, and recreates no row', async () => {
++    world.reset({ nonce: null, exists: false });
++    world.put(key(N1));
++
++    await save(N1);
++
++    expect(keys()).toEqual([]);
++    expect(world.row.exists).toBe(false);
++    expect(world.queries.some(({ sql }) => /insert/i.test(sql))).toBe(false);
++  });
++});
++
++describe('the sweep after an accepted commit', () => {
++  it('lists the message\'s prefix with its trailing slash', async () => {
++    world.put(key(N1));
++
++    await save(N1);
++
++    const listing = world.s3Calls.find(({ kind }) => kind === 'ListObjectsCommand');
++    expect(listing?.input.Prefix).toBe('previews/42/');
++  });
++
++  it('leaves another message whose id starts with this one alone', async () => {
++    world.put(key(N0), 10 * MINUTE);
++    world.put(key(N1));
++    world.put(key('d'.repeat(32), '421'), 10 * MINUTE);
++
++    await save(N1);
++
++    expect(keys()).toEqual([key('d'.repeat(32), '421'), key(N1)].sort());
++  });
++
++  it.each([
++    [120_000, true],
++    [119_999, false],
++  ])('an object %i ms older than the committed one is deleted: %s', async (age, deleted) => {
++    world.put(key(N0), 10 * MINUTE);
++    world.put(key('e'.repeat(32)), age);
++    world.put(key(N1));
++
++    await save(N1);
++
++    expect(world.objects.has(key('e'.repeat(32)))).toBe(!deleted);
++    expect(world.objects.has(key(N1))).toBe(true);
++  });
++
++  it('measures age by the bucket\'s times, not the function\'s clock', async () => {
++    world.put(key(N0), 10 * MINUTE);
++    world.put(key('f'.repeat(32)), 100_000);
++    world.put(key(N1));
++
++    await save(N1);
++
++    expect(world.objects.has(key('f'.repeat(32)))).toBe(true);
++  });
++
++  it('keeps an object written after the committed one', async () => {
++    world.put(key(N0), 10 * MINUTE);
++    world.put(key(N1));
++    world.tick(30_000);
++    world.put(key(N2));
++
++    await save(N1);
++
++    expect(world.objects.has(key(N2))).toBe(true);
++  });
++
++  it('deletes nothing in the sweep when the committed object is not in the listing, and reports no error', async () => {
++    const errors = vi.spyOn(console, 'error').mockImplementation(() => undefined);
++    world.put(key(N0), 10 * MINUTE);
++    world.put(key('e'.repeat(32)), 10 * MINUTE);
++
++    await save(N1);
++
++    expect(keys()).toEqual([key('e'.repeat(32))]);
++    expect(errors).not.toHaveBeenCalled();
++    errors.mockRestore();
++  });
++
++  it('talks to the configured endpoint, without forcing path-style addressing', async () => {
++    world.put(key(N1));
++
++    await save(N1);
++
++    expect(world.s3Configs.length).toBeGreaterThan(0);
++    world.s3Configs.forEach((config) => {
++      expect(config.endpoint).toBe('https://cdn.invalid');
++      expect(config.forcePathStyle).toBe(false);
++    });
++  });
++});
++
++describe('the development prefix', () => {
++  it('lists and deletes under dev/ when the website runs as development', async () => {
++    envValues.NODE_ENV = 'development';
++    world.put(key(N0, '42', 'dev/'), 10 * MINUTE);
++    world.put(key(N1, '42', 'dev/'));
++
++    await save(N1);
++
++    expect(world.s3Calls.find(({ kind }) => kind === 'ListObjectsCommand')?.input.Prefix).toBe('dev/previews/42/');
++    expect(keys()).toEqual([key(N1, '42', 'dev/')]);
++  });
++
++  it('does not use dev/ in production', async () => {
++    world.put(key(N0), 10 * MINUTE);
++    world.put(key(N1));
++
++    await save(N1);
++
++    expect(world.s3Calls.every(({ input }) => !JSON.stringify(input).includes('dev/'))).toBe(true);
++  });
++});
++import {
++  afterEach, beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import {
++  deferred, fakeFetch, settle, world,
++} from './helpers/previewWorld';
++
++import { runPreviewContinuation } from '~/server/api/utils/previewImage';
++
++vi.mock('~/env.mjs', async () => (await import('./helpers/previewWorld')).ENV_MODULE);
++vi.mock('@aws-sdk/client-s3', async () => (await import('./helpers/previewWorld')).S3_MODULE);
++vi.mock('project-utils', async () => {
++  const { world: w } = await import('./helpers/previewWorld');
++  return { getPostgres: () => w.db };
++});
++
++const NONCES = { 0: 'a'.repeat(32), 1: 'v1763509200000001aaaaaaaaaaaaaaaa', 2: 'v1763509200000002bbbbbbbbbbbbbbbb' } as const;
++const ORPHAN = 'z'.repeat(32);
++const OLD = 1_000_000;
++const key = (nonce: string) => `previews/42/${nonce}.jpeg`;
++const message = {
++  content: 'Hi', username: 'U', embeds: [], components: [],
++} as unknown as MessageData;
++
++type Cls = 'ok' | 'fail' | 'late';
++
++function chain(i: 1 | 2, cls: Cls): { ev: string, optional?: boolean }[] {
++  if (cls === 'ok') return [{ ev: `W${i}` }, { ev: `C${i}` }, { ev: `D${i}` }];
++  if (cls === 'fail') return [{ ev: `F${i}` }];
++  return [{ ev: `F${i}` }, { ev: `W${i}`, optional: true }];
++}
++
++function interleave(chains: { ev: string, optional?: boolean }[][]): string[][] {
++  const out = new Set<string>();
++  const rec = (cs: typeof chains, acc: string[]) => {
++    if (cs.every((c) => !c.length)) { out.add(acc.join(' ')); return; }
++    cs.forEach((c, k) => {
++      if (!c.length) return;
++      rec(cs.map((x, j) => (j === k ? x.slice(1) : x)), [...acc, c[0].ev]);
++      if (c[0].optional && c.length === 1) rec(cs.map((x, j) => (j === k ? [] : x)), acc);
++    });
++  };
++  rec(chains, []);
++  return [...out].map((s) => (s ? s.split(' ') : []));
++}
++
++async function play(seq: string[], withOrphan: boolean) {
++  world.reset({ nonce: NONCES[0] });
++  world.put(key(NONCES[0]), OLD);
++  if (withOrphan) world.put(key(ORPHAN), OLD);
++  const done = ([1, 2] as const).map((i) => runPreviewContinuation({ id: '42', nonce: NONCES[i], message }));
++  await settle();
++  const answerOf = (i: 1 | 2) => (world.requests.find(({ body }) => body.nonce === NONCES[i]) as { answer: ReturnType<typeof deferred<{ status: number } | Error>> }).answer;
++  const gates: Record<number, ReturnType<typeof deferred<void>>> = {};
++  const failures: string[] = [];
++  const processed: number[] = [];
++  const committedBeforeDelete: number[] = [];
++  const check = (ev: string) => {
++    const { row } = world;
++    if (row.exists && row.nonce && !world.objects.has(key(row.nonce))) failures.push(`B@${ev}`);
++  };
++
++  for (const ev of seq) {
++    const i = Number(ev.slice(1)) as 1 | 2;
++    switch (ev[0]) {
++      case 'W':
++        world.tick(5000);
++        world.put(key(NONCES[i]));
++        break;
++      case 'C':
++        gates[i] = deferred();
++        world.gate = gates[i];
++        processed.push(i);
++        if (world.row.exists) committedBeforeDelete.push(i);
++        answerOf(i).resolve({ status: 204 });
++        // eslint-disable-next-line no-await-in-loop
++        await settle();
++        break;
++      case 'D': {
++        gates[i].resolve();
++        // eslint-disable-next-line no-await-in-loop
++        await done[i - 1];
++        const accepted = world.commits.some(({ nonce, accepted: ok }) => nonce === NONCES[i] && ok);
++        if (accepted && world.row.exists && world.objects.has(key(NONCES[i]))) {
++          if (world.objects.has(key(NONCES[0])) && world.row.nonce !== NONCES[0]) failures.push(`E3@${ev}:n0`);
++          if (world.objects.has(key(ORPHAN))) failures.push(`E3@${ev}:z`);
++        }
++        break;
++      }
++      case 'F':
++        answerOf(i).resolve(seq.includes(`W${i}`) && !seq.includes(`C${i}`) ? new TypeError('fetch failed') : { status: 500 });
++        // eslint-disable-next-line no-await-in-loop
++        await done[i - 1];
++        break;
++      case 'X': world.row.exists = false; break;
++      case 'P': world.objects.clear(); break;
++      default: break;
++    }
++    check(ev);
++  }
++  await Promise.all(done);
++
++  const survivors = committedBeforeDelete.filter(() => !seq.includes('X') || seq.indexOf('X') > 0);
++  const acceptedNonces = survivors.map((i) => NONCES[i as 1 | 2]);
++  const wantNonce = [NONCES[0], ...acceptedNonces].sort().pop() as string;
++  if (seq.includes('X')) {
++    if (world.row.exists) failures.push('E1:row');
++  } else if (world.row.nonce !== wantNonce) failures.push(`E1:${String(world.row.nonce)} want ${wantNonce}`);
++  processed.forEach((i) => {
++    const nonce = NONCES[i as 1 | 2];
++    const committed = world.row.exists && world.row.nonce === nonce;
++    if (world.objects.has(key(nonce)) && !committed) failures.push(`E2:n${i}`);
++  });
++  return { failures, objects: [...world.objects.keys()].sort(), row: { ...world.row } };
++}
++
++beforeEach(() => { vi.stubGlobal('fetch', fakeFetch); });
++afterEach(() => { vi.unstubAllGlobals(); });
++
++const CLASSES: Cls[] = ['ok', 'fail', 'late'];
++const FLAGS = [false, true];
++
++const tableRows = CLASSES.flatMap((c1) => CLASSES.flatMap((c2) => FLAGS.flatMap((del) => FLAGS.map(
++  (orphan) => ({
++    c1, c2, del, orphan,
++  }),
++))));
++
++const sequencesOf = ({ c1, c2, del }: { c1: Cls, c2: Cls, del: boolean }) => {
++  const chains = [chain(1, c1), chain(2, c2)];
++  if (del) chains.push([{ ev: 'X' }, { ev: 'P' }]);
++  return interleave(chains);
++};
++
++describe('two saves of one message, interleaved, with and without a message delete and an old orphan', () => {
++  it.each(tableRows)('s1 $c1, s2 $c2, delete $del, orphan $orphan: every interleaving holds the invariants', async (row) => {
++    const bad: string[] = [];
++    const sequences = sequencesOf(row);
++    for (const seq of sequences) {
++      // eslint-disable-next-line no-await-in-loop
++      const result = await play(seq, row.orphan);
++      if (result.failures.length) bad.push(`[${seq.join(' ')}] ${result.failures.join(',')}`);
++    }
++
++    expect(sequences.length).toBeGreaterThan(0);
++    expect(bad.slice(0, 5)).toEqual([]);
++  }, 120_000);
++});
++
++describe('the enumeration', () => {
++  it('covers the 3120 interleavings of the 36 class rows that the decision table lists', () => {
++    expect(tableRows).toHaveLength(36);
++    expect(tableRows.reduce((total, row) => total + sequencesOf(row).length, 0)).toBe(3120);
++  });
++});
++
++describe('the sequence in which a later save deletes the earlier save\'s object first', () => {
++  it('W1 C1 W2 C2 D2 D1 leaves the later save\'s image committed and present', async () => {
++    const result = await play(['W1', 'C1', 'W2', 'C2', 'D2', 'D1'], false);
++
++    expect(result.failures).toEqual([]);
++    expect(result.row.nonce).toBe(NONCES[2]);
++    expect(result.objects).toEqual([key(NONCES[2])]);
++  });
++});
++vi.mock('@vercel/functions', () => ({ waitUntil: () => undefined }));
++    if (sql.startsWith('insert into "Messages"')) return [{ id: 'saved-id', savedAtMicros: '1763509200000000' }];
++  vi.stubGlobal('fetch', vi.fn(() => new Promise<never>(() => { void 0; })));
++import {
++  afterEach, beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import {
++  fakeFetch, settle, world,
++} from './helpers/previewWorld';
++
++import type { IncomingMessage } from '~/server/api/utils/shapes';
++
++import { upsertMessage } from '~/server/api/utils/shared';
++
++const hoisted = vi.hoisted(() => ({ waited: [] as Promise<unknown>[] }));
++
++vi.mock('~/env.mjs', async () => (await import('./helpers/previewWorld')).ENV_MODULE);
++vi.mock('@aws-sdk/client-s3', async () => (await import('./helpers/previewWorld')).S3_MODULE);
++vi.mock('project-utils', async () => {
++  const { world: w } = await import('./helpers/previewWorld');
++  return { getPostgres: () => w.db };
++});
++vi.mock('pusher', () => ({ default: class { trigger = vi.fn(async () => {}); } }));
++vi.mock('@vercel/functions', () => ({ waitUntil: (promise: Promise<unknown>) => { hoisted.waited.push(promise); } }));
++
++const data = {
++  content: 'Hi', username: 'U', embeds: [], components: [],
++};
++const PREVIOUS = 'a'.repeat(32);
++const CLOCK = '1763509200123456';
++const newMessage = { name: 'n', data } as unknown as IncomingMessage;
++const existingMessage = { ...newMessage, id: '42' } as IncomingMessage;
++const userSelect = { dbUserId: 'u1' };
++
++let order: string[];
++
++let insertParameters: readonly unknown[] = [];
++
++function useDatabase() {
++  world.other = ({ sql, parameters }) => {
++    if (sql.startsWith('insert into "Messages"')) insertParameters = parameters;
++    order.push(sql.split(' ').slice(0, 3).join(' '));
++    if (sql.startsWith('insert into "Guilds"')) return [{ id: 'guild-row' }];
++    if (sql.startsWith('select count(*)')) return [{ count: '0' }];
++    if (sql.startsWith('insert into "Messages"')) return [{ id: '42', savedAtMicros: CLOCK }];
++    return [{
++      id: '42', createdAt: new Date(0), updatedAt: new Date(0), name: 'n', data, previewImageNonce: PREVIOUS,
++    }];
++  };
++}
++
++beforeEach(() => {
++  hoisted.waited = [];
++  order = [];
++  world.reset({ nonce: PREVIOUS });
++  useDatabase();
++  vi.stubGlobal('fetch', (url: string, init: { body: string, headers: Record<string, string>, signal?: AbortSignal }) => {
++    order.push('fetch');
++    return fakeFetch(url, init);
++  });
++  vi.spyOn(console, 'error').mockImplementation(() => undefined);
++});
++afterEach(() => {
++  vi.restoreAllMocks();
++  vi.unstubAllGlobals();
++});
++
++describe('a save of an existing message', () => {
++  it('replies while the generator has not answered, with the nonce already committed', async () => {
++    const saved = await upsertMessage(existingMessage, userSelect);
++
++    expect(world.requests).toHaveLength(1);
++    expect(saved.previewImageNonce).toBe(PREVIOUS);
++    world.requests[0].answer.resolve({ status: 204 });
++    await Promise.all(hoisted.waited);
++  });
++
++  it('asks the generator only after its row is saved', async () => {
++    await upsertMessage(existingMessage, userSelect);
++
++    expect(order.indexOf('fetch')).toBeGreaterThan(order.indexOf('insert into "Messages"'));
++    world.requests[0].answer.resolve({ status: 204 });
++    await Promise.all(hoisted.waited);
++  });
++
++  it('hands the platform one promise that outlives the reply', async () => {
++    await upsertMessage(existingMessage, userSelect);
++
++    expect(hoisted.waited).toHaveLength(1);
++    world.requests[0].answer.resolve({ status: 204 });
++    await expect(hoisted.waited[0]).resolves.toBeUndefined();
++    expect(world.row.nonce).toMatch(/^v1763509200123456[0-9a-f]{16}$/);
++  });
++
++  it('sends the saved id and a nonce minted from the database clock the statement returned', async () => {
++    await upsertMessage(existingMessage, userSelect);
++
++    expect(world.requests[0].body.id).toBe('42');
++    expect(world.requests[0].body.nonce).toMatch(/^v1763509200123456[0-9a-f]{16}$/);
++    expect(world.requests[0].body.message).toEqual(data);
++    world.requests[0].answer.resolve({ status: 500 });
++    await Promise.all(hoisted.waited);
++  });
++
++  it('still saves when the generator fails, and keeps the stored nonce', async () => {
++    const saved = await upsertMessage(existingMessage, userSelect);
++    await settle();
++    world.requests[0].answer.resolve({ status: 500 });
++    await Promise.all(hoisted.waited);
++
++    expect(saved.id).toBe('42');
++    expect(world.row.nonce).toBe(PREVIOUS);
++  });
++
++  it('settles its promise without rejecting when the storage fails after a 204', async () => {
++    await upsertMessage(existingMessage, userSelect);
++    world.db = undefined;
++    world.requests[0].answer.resolve({ status: 204 });
++
++    await expect(hoisted.waited[0]).resolves.toBeUndefined();
++  });
++});
++
++describe('the saved row\'s id', () => {
++  it('is the id the client sent for an existing message', async () => {
++    await upsertMessage(existingMessage, userSelect);
++
++    expect(insertParameters).toContain('42');
++    world.requests[0].answer.resolve({ status: 204 });
++    await Promise.all(hoisted.waited);
++  });
++
++  it('is left to the database for a new message', async () => {
++    await upsertMessage(newMessage, userSelect);
++
++    expect(insertParameters).not.toContain('42');
++    world.requests[0].answer.resolve({ status: 204 });
++    await Promise.all(hoisted.waited);
++  });
++});
++
++describe('a save of a new message', () => {
++  it('asks the generator once, after the insert, for the id the insert returned', async () => {
++    await upsertMessage(newMessage, userSelect);
++
++    expect(world.requests).toHaveLength(1);
++    expect(order.indexOf('fetch')).toBeGreaterThan(order.indexOf('insert into "Messages"'));
++    expect(world.requests[0].body.id).toBe('42');
++    world.requests[0].answer.resolve({ status: 204 });
++    await Promise.all(hoisted.waited);
++  });
++});
++import { DeleteObjectsCommand, ListObjectsCommand } from '@aws-sdk/client-s3';
++import { getS3, previewPrefix } from './previewBucket';
++import { env } from '~/env.mjs';
++    Prefix: previewPrefix(messageId),
++import { S3 } from '@aws-sdk/client-s3';
++
++import { env } from '~/env.mjs';
++
++export const getS3 = () => new S3({
++  forcePathStyle: false,
++  endpoint: env.CDN_ENDPOINT,
++  region: 'us-east-1',
++  credentials: {
++    accessKeyId: env.CDN_KEY,
++    secretAccessKey: env.CDN_SECRET,
++  },
++});
++
++export const previewPrefix = (messageId: string) => `${env.NODE_ENV === 'development' ? 'dev/' : ''}previews/${messageId}/`;
++
++export const previewKey = (messageId: string, nonce: string) => `${previewPrefix(messageId)}${nonce}.jpeg`;
++import { randomBytes } from 'crypto';
++import { DeleteObjectsCommand, ListObjectsCommand } from '@aws-sdk/client-s3';
++import { sql } from 'kysely';
++import { getPostgres } from 'project-utils';
++
++import { getS3, previewKey, previewPrefix } from './previewBucket';
++
++import type { Kysely } from 'kysely';
++import type { DatabaseSchema } from 'project-utils';
++
++import { env } from '~/env.mjs';
++
++export const PREVIEW_ANSWER_TIMEOUT_MS = 40_000;
++export const SWEEP_AGE_MS = 120_000;
++export const PREVIEW_FAILURE_PREFIX = 'preview-image-failure';
++
++export const mintNonce = (clockMicros: string) => `v${clockMicros.padStart(16, '0')}${randomBytes(8).toString('hex')}`;
++
++export const buildCommitPreviewNonceQuery = (
++  database: Kysely<DatabaseSchema>,
++  id: string,
++  nonce: string,
++) => database
++  .with('replaced', (qb) => qb
++    .selectFrom('Messages')
++    .select('previewImageNonce as prev')
++    .where('id', '=', id)
++    .forUpdate())
++  .updateTable('Messages')
++  .from('replaced')
++  .set({ previewImageNonce: nonce })
++  .where('Messages.id', '=', id)
++  .where((eb) => eb.or([
++    eb('Messages.previewImageNonce', 'is', null),
++    sql<boolean>`"Messages"."previewImageNonce" collate "C" < ${nonce}`,
++  ]))
++  .returning('replaced.prev');
++
++type FailureClass = 'status-500' | 'status-404' | 'status-other' | 'network-error' | 'no-answer-within-T';
++
++const logFailure = (id: string, failureClass: FailureClass, elapsedMs: number) => {
++  console.error(`${PREVIEW_FAILURE_PREFIX} id=${id} class=${failureClass} elapsedMs=${elapsedMs}`);
++};
++
++function failureClassOf(status: number): FailureClass {
++  if (status === 500) return 'status-500';
++  if (status === 404) return 'status-404';
++  return 'status-other';
++}
++
++async function requestPreview(
++  id: string,
++  nonce: string,
++  message: MessageData,
++): Promise<null | FailureClass> {
++  const controller = new AbortController();
++  let timedOut = false;
++  const timer = setTimeout(() => { timedOut = true; controller.abort(); }, PREVIEW_ANSWER_TIMEOUT_MS);
++
++  try {
++    const response = await fetch(env.PREVIEW_IMAGE_URL, {
++      method: 'POST',
++      body: JSON.stringify({ id, nonce, message }),
++      headers: {
++        'Content-Type': 'application/json',
++        Authorization: `Bearer ${env.PREVIEW_IMAGE_API_KEY}`,
++      },
++      signal: controller.signal,
++    });
++    return response.status === 204 ? null : failureClassOf(response.status);
++  } catch (_) {
++    return timedOut ? 'no-answer-within-T' : 'network-error';
++  } finally {
++    clearTimeout(timer);
++  }
++}
++
++async function deleteObjects(keys: string[]) {
++  if (!keys.length) return;
++  await getS3().send(new DeleteObjectsCommand({
++    Bucket: env.CDN_BUCKET,
++    Delete: { Objects: keys.map((Key) => ({ Key })) },
++  }));
++}
++
++async function sweepOlderObjects(id: string, committedKey: string) {
++  const { Contents } = await getS3().send(new ListObjectsCommand({
++    Bucket: env.CDN_BUCKET,
++    Prefix: previewPrefix(id),
++  }));
++  const committedAt = Contents?.find(({ Key }) => Key === committedKey)?.LastModified;
++  if (!committedAt) return;
++
++  await deleteObjects((Contents ?? [])
++    .filter(({ Key, LastModified }) => Key !== committedKey
++      && !!LastModified
++      && committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS)
++    .map(({ Key }) => Key as string));
++}
++
++export async function runPreviewContinuation({ id, nonce, message }: {
++  id: string;
++  nonce: string;
++  message: MessageData;
++}) {
++  const start = Date.now();
++  try {
++    const failure = await requestPreview(id, nonce, message);
++    if (failure) {
++      logFailure(id, failure, Date.now() - start);
++      return;
++    }
++
++    const committed = await buildCommitPreviewNonceQuery(getPostgres(), id, nonce).execute();
++    if (!committed.length) {
++      await deleteObjects([previewKey(id, nonce)]);
++      return;
++    }
++
++    const [{ prev }] = committed;
++    if (prev) await deleteObjects([previewKey(id, prev)]);
++    await sweepOlderObjects(id, previewKey(id, nonce));
++  } catch (err) {
++    console.error(err);
++  }
++}
++import { waitUntil } from '@vercel/functions';
++import { sql } from 'kysely';
++import { mintNonce, runPreviewContinuation } from './previewImage';
++import { genMessageChannelKey, hashMessage } from '~/utils';
++    .returning([
++      'id',
++      sql<string>`(extract(epoch from clock_timestamp()) * 1000000)::bigint::text`.as('savedAtMicros'),
++    ]);
++    ...buildMessageValues(message, select),
++  if (message.id) values.id = message.id;
++  const { id, savedAtMicros } = await buildUpsertMessageQuery(database, values)
++    .executeTakeFirstOrThrow();
++  waitUntil(runPreviewContinuation({ id, nonce: mintNonce(savedAtMicros), message: message.data }));

@@ -1,0 +1,26 @@
+
+[1m[46m RUN [49m[22m [36mv4.1.2 [39m[90m/tmp/claude-1000/-usr-local-bin-hooks/e0020673-6e57-4ff1-90d8-a95a22085569/scratchpad/attack-exp-f83f2ca[39m
+
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mstatus-500 ({ status: 500, put: true })[32m 37[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mstatus-404 ({ status: 404 })[32m 10[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mstatus-other ({ status: 503 })[32m 5[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mstatus-other ({ status: 302 })[32m 6[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mnetwork-error ({ drop: true })[32m 8[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mno answer within T: one line, nothing moved[33m 40012[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma confirmed generation[2m > [22mcommits, deletes the replaced object, writes no failure line[32m 43[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma confirmed generation[2m > [22ma new message stores no nonce until a success, then the success[32m 14[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma confirmed generation[2m > [22mleaves a message whose id extends this one alone[32m 12[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma confirmed generation[2m > [22msweeps over the wire by the bucket's times: 125 s older goes, 115 s older and newer stay[32m 15[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22mtwo saves of one message[2m > [22mlater answers first: the later save wins, one object left[32m 78[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22mtwo saves of one message[2m > [22mearlier answers first: the later save wins, one object left[32m 18[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma message deleted while its preview renders[2m > [22mis not recreated, and its prefix ends empty[32m 31[2mms[22m[39m
+[90mstdout[2m | attack/attack.test.ts[2m > [22m[2mobservation, not a criterion: a 204 with no object stored (M6's premise broken)[2m > [22m[2mrecords what the row and the bucket then hold
+[22m[39mOBSERVE no-object-204 row=new objects=[]
+
+ [32m✓[39m attack/attack.test.ts[2m > [22mobservation, not a criterion: a 204 with no object stored (M6's premise broken)[2m > [22mrecords what the row and the bucket then hold[32m 10[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m14 passed[39m[22m[90m (14)[39m
+[2m   Start at [22m 06:20:37
+[2m   Duration [22m 41.24s[2m (transform 130ms, setup 0ms, import 798ms, tests 40.33s, environment 0ms)[22m
+

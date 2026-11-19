@@ -1,0 +1,166 @@
+
+[1m[46m RUN [49m[22m [36mv4.1.2 [39m[90m/tmp/claude-1000/-usr-local-bin-hooks/e0020673-6e57-4ff1-90d8-a95a22085569/scratchpad/attack-exp-f83f2ca[39m
+
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mstatus-500 ({ status: 500, put: true })[32m 42[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mstatus-404 ({ status: 404 })[32m 11[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mstatus-other ({ status: 503 })[32m 6[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mstatus-other ({ status: 302 })[32m 6[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mnetwork-error ({ drop: true })[32m 11[2mms[22m[39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma failed generation moves nothing and logs one line[2m > [22mno answer within T: one line, nothing moved[33m 40012[2mms[22m[39m
+ [31m×[39m attack/attack.test.ts[2m > [22ma confirmed generation[2m > [22mcommits, deletes the replaced object, writes no failure line[32m 53[2mms[22m[39m
+[31m   → expected [ …(2) ] to deeply equal [ Array(1) ][39m
+ [32m✓[39m attack/attack.test.ts[2m > [22ma confirmed generation[2m > [22ma new message stores no nonce until a success, then the success[32m 22[2mms[22m[39m
+ [31m×[39m attack/attack.test.ts[2m > [22ma confirmed generation[2m > [22mleaves a message whose id extends this one alone[32m 16[2mms[22m[39m
+[31m   → expected [ Array(1) ] to deeply equal [][39m
+ [31m×[39m attack/attack.test.ts[2m > [22ma confirmed generation[2m > [22msweeps over the wire by the bucket's times: 125 s older goes, 115 s older and newer stay[32m 15[2mms[22m[39m
+[31m   → expected [ …(5) ] to deeply equal [ …(3) ][39m
+ [31m×[39m attack/attack.test.ts[2m > [22mtwo saves of one message[2m > [22mlater answers first: the later save wins, one object left[32m 78[2mms[22m[39m
+[31m   → expected [ …(3) ] to deeply equal [ Array(1) ][39m
+[90mstdout[2m | attack/attack.test.ts[2m > [22m[2mobservation, not a criterion: a 204 with no object stored (M6's premise broken)[2m > [22m[2mrecords what the row and the bucket then hold
+[22m[39mOBSERVE no-object-204 row=new objects=["previews/900000000600007/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.jpeg"]
+
+ [31m×[39m attack/attack.test.ts[2m > [22mtwo saves of one message[2m > [22mearlier answers first: the later save wins, one object left[32m 24[2mms[22m[39m
+[31m   → expected [ …(3) ] to deeply equal [ Array(1) ][39m
+ [31m×[39m attack/attack.test.ts[2m > [22ma message deleted while its preview renders[2m > [22mis not recreated, and its prefix ends empty[32m 19[2mms[22m[39m
+[31m   → expected [ Array(1) ] to deeply equal [][39m
+ [32m✓[39m attack/attack.test.ts[2m > [22mobservation, not a criterion: a 204 with no object stored (M6's premise broken)[2m > [22mrecords what the row and the bucket then hold[32m 51[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 6 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m attack/attack.test.ts[2m > [22ma confirmed generation[2m > [22mcommits, deletes the replaced object, writes no failure line
+[31m[1mAssertionError[22m: expected [ …(2) ] to deeply equal [ Array(1) ][39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[31m+   "previews/900000000100001/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.jpeg",[39m
+[2m    "previews/900000000100001/v1795069435521482174dcd0a0e2dbe51.jpeg",[22m
+[2m  ][22m
+
+[36m [2m❯[22m attack/attack.test.ts:[2m149:45[22m[39m
+    [90m147|[39m     [34mexpect[39m(n)[33m.[39m[34mtoMatch[39m([36m/^v\d{16}[0-9a-f]{16}$/[39m)[33m;[39m
+    [90m148|[39m     expect((reply as { previewImageNonce: string }).previewImageNonce)…
+    [90m149|[39m     [34mexpect[39m([34mobjectsUnder[39m([32m`previews/[39m[36m${[39mid[36m}[39m[32m/`[39m))[33m.[39m[34mtoEqual[39m([[34mkey[39m(id[33m,[39m n)])[33m;[39m
+    [90m   |[39m                                             [31m^[39m
+    [90m150|[39m     [34mexpect[39m([34mfailureLines[39m())[33m.[39m[34mtoEqual[39m([])[33m;[39m
+    [90m151|[39m   })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m attack/attack.test.ts[2m > [22ma confirmed generation[2m > [22mleaves a message whose id extends this one alone
+[31m[1mAssertionError[22m: expected [ Array(1) ] to deeply equal [][39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- [][39m
+[31m+ [[39m
+[31m+   "previews/900000000200002aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.jpeg",[39m
+[31m+ ][39m
+
+[36m [2m❯[22m attack/attack.test.ts:[2m174:94[22m[39m
+    [90m172|[39m     [35mawait[39m done[33m;[39m
+    [90m173|[39m     expect(objectsUnder(`previews/${other}/`)).toEqual([key(other, 'b'…
+    [90m174|[39m     expect(deletesLogged(logBefore).filter((k: string) => !k.startsWit…
+    [90m   |[39m                                                                                              [31m^[39m
+    [90m175|[39m     [34mexpect[39m([34mlistsLogged[39m(logBefore))[33m.[39m[34mtoEqual[39m([[32m`previews/[39m[36m${[39mid[36m}[39m[32m/`[39m])[33m;[39m
+    [90m176|[39m   })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m attack/attack.test.ts[2m > [22ma confirmed generation[2m > [22msweeps over the wire by the bucket's times: 125 s older goes, 115 s older and newer stay
+[31m[1mAssertionError[22m: expected [ …(5) ] to deeply equal [ …(3) ][39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[31m+   "previews/900000000300003/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.jpeg",[39m
+[2m    "previews/900000000300003/edge.jpeg",[22m
+[2m    "previews/900000000300003/newer.jpeg",[22m
+[31m+   "previews/900000000300003/old.jpeg",[39m
+[2m    "previews/900000000300003/v1795069435605589536816c64104d15a.jpeg",[22m
+[2m  ][22m
+
+[36m [2m❯[22m attack/attack.test.ts:[2m187:45[22m[39m
+    [90m185|[39m     [35mawait[39m done[33m;[39m
+    [90m186|[39m     [35mconst[39m n [33m=[39m [35mawait[39m [34mrowNonce[39m(id)[33m;[39m
+    [90m187|[39m     expect(objectsUnder(`previews/${id}/`)).toEqual([`previews/${id}/e…
+    [90m   |[39m                                             [31m^[39m
+    [90m188|[39m   })[33m;[39m
+    [90m189|[39m })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m attack/attack.test.ts[2m > [22mtwo saves of one message[2m > [22mlater answers first: the later save wins, one object left
+[31m[1mAssertionError[22m: expected [ …(3) ] to deeply equal [ Array(1) ][39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[31m+   "previews/900000000400004/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.jpeg",[39m
+[31m+   "previews/900000000400004/v1795069435621180b166ca3c38dfc8ba.jpeg",[39m
+[2m    "previews/900000000400004/v1795069435625221bae480a9543d19f7.jpeg",[22m
+[2m  ][22m
+
+[36m [2m❯[22m attack/attack.test.ts:[2m205:45[22m[39m
+    [90m203|[39m     if (order === 'later answers first') { open2(); await s2.done; ope…
+    [90m204|[39m     [34mexpect[39m([35mawait[39m [34mrowNonce[39m(id))[33m.[39m[34mtoBe[39m(n2)[33m;[39m
+    [90m205|[39m     [34mexpect[39m([34mobjectsUnder[39m([32m`previews/[39m[36m${[39mid[36m}[39m[32m/`[39m))[33m.[39m[34mtoEqual[39m([[34mkey[39m(id[33m,[39m n2)])[33m;[39m
+    [90m   |[39m                                             [31m^[39m
+    [90m206|[39m     [34mexpect[39m([34mfailureLines[39m())[33m.[39m[34mtoEqual[39m([])[33m;[39m
+    [90m207|[39m   })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m attack/attack.test.ts[2m > [22mtwo saves of one message[2m > [22mearlier answers first: the later save wins, one object left
+[31m[1mAssertionError[22m: expected [ …(3) ] to deeply equal [ Array(1) ][39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[31m+   "previews/900000000400005/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.jpeg",[39m
+[31m+   "previews/900000000400005/v1795069435698805d1a6d9b69a61e47b.jpeg",[39m
+[2m    "previews/900000000400005/v1795069435701997fe9bcb4ed4d2577d.jpeg",[22m
+[2m  ][22m
+
+[36m [2m❯[22m attack/attack.test.ts:[2m205:45[22m[39m
+    [90m203|[39m     if (order === 'later answers first') { open2(); await s2.done; ope…
+    [90m204|[39m     [34mexpect[39m([35mawait[39m [34mrowNonce[39m(id))[33m.[39m[34mtoBe[39m(n2)[33m;[39m
+    [90m205|[39m     [34mexpect[39m([34mobjectsUnder[39m([32m`previews/[39m[36m${[39mid[36m}[39m[32m/`[39m))[33m.[39m[34mtoEqual[39m([[34mkey[39m(id[33m,[39m n2)])[33m;[39m
+    [90m   |[39m                                             [31m^[39m
+    [90m206|[39m     [34mexpect[39m([34mfailureLines[39m())[33m.[39m[34mtoEqual[39m([])[33m;[39m
+    [90m207|[39m   })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m attack/attack.test.ts[2m > [22ma message deleted while its preview renders[2m > [22mis not recreated, and its prefix ends empty
+[31m[1mAssertionError[22m: expected [ Array(1) ] to deeply equal [][39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- [][39m
+[31m+ [[39m
+[31m+   "previews/900000000500006/v1795069435723428c1a213778f4bf3cd.jpeg",[39m
+[31m+ ][39m
+
+[36m [2m❯[22m attack/attack.test.ts:[2m221:45[22m[39m
+    [90m219|[39m     [34mopen[39m()[33m;[39m [35mawait[39m s[33m.[39mdone[33m;[39m
+    [90m220|[39m     expect(await q('select id from "Messages" where id = $1', [id])).t…
+    [90m221|[39m     [34mexpect[39m([34mobjectsUnder[39m([32m`previews/[39m[36m${[39mid[36m}[39m[32m/`[39m))[33m.[39m[34mtoEqual[39m([])[33m;[39m
+    [90m   |[39m                                             [31m^[39m
+    [90m222|[39m   })[33m;[39m
+    [90m223|[39m })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m6 failed[39m[22m[2m | [22m[1m[32m8 passed[39m[22m[90m (14)[39m
+[2m   Start at [22m 06:23:14
+[2m   Duration [22m 41.40s[2m (transform 151ms, setup 0ms, import 877ms, tests 40.40s, environment 0ms)[22m
+

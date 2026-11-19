@@ -1,0 +1,6 @@
+[
+ {"id":"commit-unconditional","file":"src/server/api/utils/previewImage.ts","old":"  .where((eb) => eb.or([\n    eb('Messages.previewImageNonce', 'is', null),\n    sql<boolean>`\"Messages\".\"previewImageNonce\" collate \"C\" < ${nonce}`,\n  ]))\n","new":""},
+ {"id":"refused-keeps-own-object","file":"src/server/api/utils/previewImage.ts","old":"      await deleteObjects([previewKey(id, nonce)]);\n      return;","new":"      return;"},
+ {"id":"prefix-no-trailing-slash","file":"src/server/api/utils/previewBucket.ts","old":"previews/${messageId}/`;","new":"previews/${messageId}`;"},
+ {"id":"sweep-age-guard-dropped","file":"src/server/api/utils/previewImage.ts","old":"      && committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS)","new":"      && committedAt.getTime() - LastModified.getTime() >= 0)"}
+]

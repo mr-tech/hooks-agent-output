@@ -1,0 +1,1 @@
+applied prefix-no-trailing-slash
