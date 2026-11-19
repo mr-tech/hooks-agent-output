@@ -855,9 +855,10 @@ assumption.
   stale, on saves whose render was quick.
 - **Owner.** devops at Stage 1, through B-7's carrier. Named again in the hand-off.
 
-## Resumption State (2026-11-19T03:11Z, checkpoint on steering's word; re-stated 2026-11-19T04:14Z at M4's Phase 2)
+## Resumption State (2026-11-19T05:21Z, checkpoint on steering's word, after the revision 7 re-key)
 
-- **Done.** Phase 1 and its re-keys to revision 4 (`3af80aa`). Phase 2 per milestone, each in its own document:
+- **Done.** Phase 1 and its re-keys: revision 4 (`3af80aa`), revision 6 (`b974198`, QAF-20 and QAF-21 MEDIUM), and
+  revision 7 (`7eda138`, no finding; both resolved; EC-3 and EC-4; B-14 executed, Lasts). Phase 2 per milestone, each in its own document:
   - M1: PASS at website `8147661`, `qa/017-existing-items-backlog-m1-qa.md` (`7d7eb50`, plan R-9).
   - M2: QA Failed at `ec984fe` (QAF-17), then PASS on the refresh at `dd26104`, `qa/017-existing-items-backlog-m2-qa.md`
     (`5630f1b`, then `b77fb74`; plan R-11, R-14).
@@ -885,8 +886,9 @@ assumption.
   - M5: the oracle is `verification/017/m5-decision-table/oracle.mjs` (OQ-13 option a binds). Re-run the real-Postgres
     lane `verification/017/m5-pg/`. NM-10 to NM-23 and NM-26 to NM-28. The E-1 and E-2 guards get their own sweep.
   - Lint: never stdin against a moved tree (QAF-15). Base counts come from `entry/lint-1ad625e/nofix.json`.
-- **Trees.** The website chain branch was at `a5dd76f` at this write, and it is not mine to move. My exports `exp-a5dd76f`
-  and `exp-probe` are deleted at the run's end.
+- **Trees.** The website chain branch `chain/017-existing-items-backlog` and the shared tree's HEAD were `5c3d03f` at this
+  write. It is not mine to move. No export or work directory of mine remains: `exp-a5dd76f`, `exp-probe` and `exp-5c3d03f`
+  are deleted.
 - **Uncommitted or mutated.** Nothing of QA's after this pass's commit. `INBOX.md` entries are appended uncommitted, as
   inbox rules require.
 - **Evidence.** All committed under `verification/017/qa-m1/`, `qa-m2/`, `qa-m2-refresh/`, `qa-m3/` and `qa-m4/`.
