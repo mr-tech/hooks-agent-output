@@ -55,6 +55,7 @@ Architectural-Surface: "Yes; the architect's conformance pass is a named step (s
 | 2026-11-19T05:18 | R-27 | planner-hooks-017 | Recorded the architect's delta read on revision 7: APPROVED stands, no finding, AF-23 closed (`architecture/017-existing-items-backlog-architecture-findings.md`, `0e380fc`). Scope delta: none. |
 | 2026-11-19T05:18 | R-28 | planner-hooks-017 | Recorded QA's Phase 1 re-key on revision 7: no finding, QAF-20 and QAF-21 resolved, EC-3 and EC-4 entry conditions added (`qa/017-existing-items-backlog-qa.md` § "Phase 1 re-key on plan revision 7", `7eda138`). Scope delta: none. |
 | 2026-11-19T05:24 | R-29 | implementer-hooks-017 | Status stays In Progress; Status-Detail brought into agreement: M5, M6 and M8 implementation starts on revision 7 at steering's start (`steering/017-rulings.md` block 2026-11-19T05:19Z, `04a5e55`), website `chain/017-existing-items-backlog` and generator `chain/017-existing-items-backlog` (`8de2b53`). Status-Detail write only; no criterion moves. |
+| 2026-11-19T05:41 | R-30 | code-reviewer-hooks-017 | Code review, M8 only, round 5: APPROVED_WITH_COMMENTS at website `c37d41a` (`code-review/017-existing-items-backlog-code-review.md`, agent-output `4950989`). CR-12 LOW is a record line: the image dialog's tests stand in a `FakeImage`, which the M8 document does not name. 8 of 8 reviewer mutants were killed, and M8-c's lone-dialog literals were reproduced at `1ad625e`. Milestone-scoped; plan Status is unmoved; no criterion moves. |
 
 ## Reading Order
 
