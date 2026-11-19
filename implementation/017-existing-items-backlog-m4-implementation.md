@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Handoff-At: a5dd76f — repos=website; M4 fix round (CR-9, CR-10, CR-11); first delivery was de06d95
+Handoff-At: 5c3d03f — repos=website; M4 fix round (CR-9, CR-10, CR-11 at a5dd76f; QAF-18 at 5c3d03f); first delivery was de06d95
 ---
 
 # Implementation 017 — M4: a link away from an editor with unsaved changes asks first (item 4, D-12)
@@ -28,6 +28,7 @@ code review APPROVED at `1ab3b96`, QA Phase 2 for M3 still running at this write
 | 2026-11-19T03:13 | implementer-hooks-017 | Self-check sweep over `1ab3b96..aa33701` (39 of 40 killed), QA's named mutants NM-8, NM-9, NM-24, NM-25 run (4 of 4 killed), convention-check CANDIDATEs (four fixed waits) removed at `de06d95`, tests only. Full suite 1690 of 1690, exit 0; typecheck exit 0. Handed to code review at `de06d95`. |
 | 2026-11-19T03:14 | implementer-hooks-017 | Checkpoint at the hand-off seam (context 370K, steering's word): Resumption State written; no change to the handed-over tree. |
 | 2026-11-19T03:34 | implementer-hooks-017 | Fix round on code review Round 4 (REJECTED at `de06d95`: CR-9 HIGH, CR-10 LOW, CR-11 LOW), by `code-reviewer-hooks-017`'s message. Fixed at website `a5dd76f`; full suite 1693 of 1693 exit 0; typecheck exit 0. Handed back to the reviewer. Section `## Fix Round 4` below. |
+| 2026-11-19T04:18 | implementer-hooks-017 | QA Phase 2 for M4 failed at `a5dd76f` on QAF-18 MEDIUM (`qa/017-existing-items-backlog-m4-qa.md`, agent-output `de8d171`); test-only fix at website `5c3d03f`, section `### QAF-18` below. Full suite 1693 of 1693 exit 0; typecheck exit 0. |
 
 ## Implementation Summary
 
@@ -333,6 +334,26 @@ state M4-b's clause describes was never driven by the input (a key) that the sha
 outcome through the one channel my fixture left open, not through each channel the surface offers; the class "an input the mock removes" was
 not on my list when I walked the criterion's members.
 
+### QAF-18 (QA Phase 2 for M4 at `a5dd76f`): the older guard's withdrawal case
+
+Test-only; website `5c3d03f` (one file, `NavigationGuardProvider.link-confirmation.test.tsx`, +5 −2). The existing case "keeps the newer guard when an older registration
+is withdrawn" is tightened, not duplicated: its two guards are the module constants `OLDER_LETS_THROUGH` and `NEWER_HOLDS`, one function each for the
+case's life (QA's `STABLE_WITHDRAW` form), and it also asserts `push` was not called. With an inline `() => true` the newer guard re-registered on every render, so
+the identity check in `register`'s withdrawal decided nothing.
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| withdrawal of an older registration keeps the newer guard (the identity check in `register`'s returned function) | `NavigationGuardProvider.link-confirmation.test.tsx` | Yes (this is the tightened case; no production change) | Yes, under `qa-unregister-unconditional` (`guardRef.current = null;`), made in a `mutation-run.py` export of `5c3d03f`: `qaf18-out-*/`, `qaf18-run-*.out` KILLED, 1 failing ("keeps the newer guard when an older registration is withdrawn"), 34 passing. Before the change the same mutant survived the whole suite (QA's capture `verification/017/qa-m4/probes/run-probes.out`) | AssertionError (the link navigated: no prompt) | Yes, 35 of 35 in the file; suite 1693 of 1693, exit 0 |
+
+Class Sweep:
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| QAF-18, a case whose guard function is made anew each render, so a check on the guard's identity decides nothing | `git grep -nE "guard=\{\(\) =>\|mountGuarded\(\(\) =>\|register\(\(\) =>" 5c3d03f -- 'src/**/__tests__/**'` (`class-sweep-qaf18-5c3d03f.out`) | 26 hits: `NavMenu.navigation-guard.test.tsx:30`; the provider file's 22 `mountGuarded(() => …)` calls and 3 `<Registers guard={() => true} />` (lines 201, 369, 450) | all but the withdrawal case register one guard and never replace or withdraw it while the check is read, so the identity of the function does not enter their outcome: not applicable. Line 201 ("stops holding once the registering component has unmounted") unmounts the whole tree and mounts a fresh provider, so it would pass with a registration that is never withdrawn; that member is covered by the layout file's "stops asking once the editor has unmounted", which keeps the provider mounted. Shown, not asserted: mutant `class-unregister-never-clears` (the withdrawal removed) is killed, 1 failing ("stops asking once the editor has unmounted"), and `class-register-ignores-newer` (`guardRef.current ??= guard`) is killed, 1 failing (the withdrawal case) (`qaf18-class-out-*/`). Residual: 0 members unasserted |
+
+Self-diagnosis: I wrote the withdrawal case against the property "withdrawing the older keeps the newer" and gave the guards inline, without asking whether
+the registered function's identity was the thing the guard under test compares; I tested the sentence of the criterion, not the comparison in `register`.
+
 ## Outstanding Items
 
 - **Unmounted:** the File menu's "New" link (`target=_blank`): its popover (`AnchoredPopover`, `portal`) cannot be positioned under jsdom
@@ -363,13 +384,13 @@ First delivery, kept: code review at `de06d95` (M4 range `1ab3b96..de06d95`), th
 
 ## Resumption State
 
-Written after the Round 4 fix round, before the hand-back. Website branch `chain/017-existing-items-backlog`, HEAD `a5dd76f`; the tree is clean
+Written after the Round 4 fix round and QAF-18, before the hand-back. Website branch `chain/017-existing-items-backlog`, HEAD `5c3d03f`; the tree is clean
 apart from the held `.playwright-mcp/`. M3 is through.
 
 - Done: CR-9 (`ConfirmationDialog` answers Enter only when focus lies inside its own dialog), CR-10 (`helpers/click.ts`), CR-11 (the other-site
   path keeps `replace`), each red first; full suite 1693 of 1693 exit 0, typecheck exit 0, convention check 0 FAIL / 0 CANDIDATE, 8 of 8 row mutants and
   4 of 4 sweep mutants killed, NM-25 re-run killed, the reviewer's probe passes 4 of 4 at the new tip. Section `## Fix Round 4`.
-- Awaited: the reviewer's Round 4 sub-entry at `a5dd76f`, then QA Phase 2 for M4. A further finding is another fix round on this document.
+- QAF-18 (QA Phase 2 at `a5dd76f`, test-only) fixed at `5c3d03f`. Awaited: the reviewer's Round 4 sub-entry at `a5dd76f`..`5c3d03f` (scoped check of QAF-18), then QA's refresh (suite at the new tip, `qa-unregister-unconditional`). A further finding is another fix round on this document.
 - Open question for the coordinator (not blocking): whether `ImageUploader` and `WarningDialog` (the other two document-level Enter bindings, pre-existing, routed
   to `agent-output/INBOX.md` by the reviewer) get the same gate in this chain. Not in the plan; not done.
 - Next after M4 passes both gates: tell `steering-roadmap` that M1 to M4 are through (devops probe push for OQ-7). M5 and M6 wait on OQ-7 (plan M5-0); M7 last.

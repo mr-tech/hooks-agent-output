@@ -1,0 +1,11 @@
+[
+ {
+  "id": "qa-unregister-unconditional",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "if (guardRef.current === guard) guardRef.current = null;",
+  "new": "guardRef.current = null;",
+  "tests": [
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx"
+  ]
+ }
+]

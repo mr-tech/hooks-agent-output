@@ -1,0 +1,2 @@
+qa-unregister-unconditional KILLED 3.25
+1 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; qaf18-mutants-5c3d03feae70e107d150c46ef4c72133e47dedf3.json (blob eb6f4b0b84c736eebc3b67e48a2ea2333569b524))

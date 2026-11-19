@@ -1,0 +1,109 @@
+{
+ "sha": "5c3d03feae70e107d150c46ef4c72133e47dedf3",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "qaf18-class-mutants-5c3d03feae70e107d150c46ef4c72133e47dedf3.json",
+ "command": [
+  "unshare",
+  "-rn",
+  "npx",
+  "vitest",
+  "run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "qaf18-class-mutants-5c3d03feae70e107d150c46ef4c72133e47dedf3.json",
+   "blob": "1d829e49b0f4f93bd1e034ecd564f1b597cd0e13"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[\"src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx\", \"src/app/message/__tests__/layout.navigation-guard.test.tsx\", \"src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/qaf18-class-out-5c3d03feae70e107d150c46ef4c72133e47dedf3/5c3d03feae70e107d150c46ef4c72133e47dedf3-20261119T041748Z-p1733562-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/qaf18-class-out-5c3d03feae70e107d150c46ef4c72133e47dedf3/5c3d03feae70e107d150c46ef4c72133e47dedf3-20261119T041748Z-p1733562-control-1.stderr",
+   "seconds": 4.71,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 72,
+   "tests": [
+    "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+    "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "class-unregister-never-clears",
+   "run": "mutant-1",
+   "file": "src/providers/NavigationGuardProvider.tsx",
+   "tests": [
+    "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+    "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 72,
+   "control_tests_run": 72,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > stops asking once the editor has unmounted"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.62,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/qaf18-class-out-5c3d03feae70e107d150c46ef4c72133e47dedf3/5c3d03feae70e107d150c46ef4c72133e47dedf3-20261119T041748Z-p1733562-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/qaf18-class-out-5c3d03feae70e107d150c46ef4c72133e47dedf3/5c3d03feae70e107d150c46ef4c72133e47dedf3-20261119T041748Z-p1733562-mutant-1.stderr"
+  },
+  {
+   "id": "class-register-ignores-newer",
+   "run": "mutant-2",
+   "file": "src/providers/NavigationGuardProvider.tsx",
+   "tests": [
+    "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+    "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 72,
+   "control_tests_run": 72,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > keeps the newer guard when an older registration is withdrawn"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.65,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/qaf18-class-out-5c3d03feae70e107d150c46ef4c72133e47dedf3/5c3d03feae70e107d150c46ef4c72133e47dedf3-20261119T041748Z-p1733562-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m4/r4-fix/qaf18-class-out-5c3d03feae70e107d150c46ef4c72133e47dedf3/5c3d03feae70e107d150c46ef4c72133e47dedf3-20261119T041748Z-p1733562-mutant-2.stderr"
+  }
+ ],
+ "score": "2 of 2 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; qaf18-class-mutants-5c3d03feae70e107d150c46ef4c72133e47dedf3.json (blob 1d829e49b0f4f93bd1e034ecd564f1b597cd0e13))"
+}

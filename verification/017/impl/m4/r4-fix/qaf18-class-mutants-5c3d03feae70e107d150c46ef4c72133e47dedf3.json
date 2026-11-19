@@ -1,0 +1,24 @@
+[
+ {
+  "id": "class-unregister-never-clears",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "if (guardRef.current === guard) guardRef.current = null;",
+  "new": "void guard;",
+  "tests": [
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "id": "class-register-ignores-newer",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "guardRef.current = guard;",
+  "new": "guardRef.current ??= guard;",
+  "tests": [
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"
+  ]
+ }
+]

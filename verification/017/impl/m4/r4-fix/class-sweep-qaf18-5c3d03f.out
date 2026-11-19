@@ -1,0 +1,25 @@
+$ git grep -nE "guard=\{\(\) =>|mountGuarded\(\(\) =>|register\(\(\) =>" 5c3d03f -- src (tests)
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx:30:  useEffect(() => register(() => true), [register]);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:102:    mountGuarded(() => false, ['/message/f/0']);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:111:    mountGuarded(() => true, ['/message/f/0']);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:130:    mountGuarded(() => true, ['/message/f/0']);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:139:    mountGuarded(() => true, ['/message/f/0']);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:154:    mountGuarded(() => true, ['/message/f/0']);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:164:    mountGuarded(() => true, ['/message/f/0', { replace: true, scroll: false }]);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:179:    mountGuarded(() => true, ['/message/f/0']);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:189:    mountGuarded(() => true, ['/message/m/new', { target: '_blank' }]);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:201:          <Registers guard={() => true} />
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:277:    mountGuarded(() => true, [OUTSIDE]);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:295:    mountGuarded(() => true, [OUTSIDE]);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:306:    mountGuarded(() => true, [OUTSIDE, { replace: true }]);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:317:    mountGuarded(() => true, [OUTSIDE]);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:331:    mountGuarded(() => false, [OUTSIDE]);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:349:    mountGuarded(() => true, [OUTSIDE]);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:357:    mountGuarded(() => true, [OUTSIDE, { target: '_blank' }]);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:369:          <Registers guard={() => true} />
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:383:    mountGuarded(() => true, [OUTSIDE, { target: '_self' }]);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:391:    mountGuarded(() => true, [OUTSIDE, { download: true }]);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:399:    mountGuarded(() => true, [OUTSIDE]);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:412:    mountGuarded(() => true, [OUTSIDE, { onClick: (e: { preventDefault: VoidFunction }) => e.preventDefault() }]);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:421:    mountGuarded(() => true, [own]);
+5c3d03feae70e107d150c46ef4c72133e47dedf3:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:450:          <Registers guard={() => true} />

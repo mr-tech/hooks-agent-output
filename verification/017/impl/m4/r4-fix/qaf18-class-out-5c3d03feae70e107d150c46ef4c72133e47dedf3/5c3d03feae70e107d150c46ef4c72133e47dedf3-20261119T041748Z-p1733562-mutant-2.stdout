@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9310d754-fa77-4013-bace-ca59bb63d5de/scratchpad/mwork-qaf18c/20261119T041748Z-p1733562/mutant-2
+
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 1 failed) 633ms
+     × keeps the newer guard when an older registration is withdrawn 8ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 71 passed (72)
+   Start at  04:17:59
+   Duration  3.59s (transform 787ms, setup 50ms, import 2.87s, tests 2.55s, environment 1.88s)
+
