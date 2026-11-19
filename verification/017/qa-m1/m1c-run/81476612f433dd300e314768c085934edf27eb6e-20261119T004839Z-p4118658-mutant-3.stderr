@@ -1,0 +1,62 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor component limit, the error line > shows the components line after the text-length line
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+  [
+-   "Components text exceeds 4000 characters.",
++   "Components text exceeds 4000 characters.=",
+    "Message has 41 components; the limit is 40.",
+  ]
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:140:90
+    138|     const host = await mountV2(Array.from({ length: 41 }, () => makeTe…
+    139|
+    140|     expect(Array.from(host.querySelectorAll('.text-error')).map((el) =…
+       |                                                                                          ^
+    141|       'Components text exceeds 4000 characters.',
+    142|       'Message has 41 components; the limit is 40.',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor validation lines that precede the component lines > shows the text-length line with a red border for Text Displays over 4000 characters
+AssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "Components text exceeds 4000 characters.",
++   "Components text exceeds 4000 characters.=",
+  ]
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:276:19
+    274|
+    275|     const lines = Array.from(host.querySelectorAll('.text-error')).map…
+    276|     expect(lines).toEqual(['Components text exceeds 4000 characters.']…
+       |                   ^
+    277|     expect(host.querySelector('.discord-visualizer__accessories')?.cla…
+    278|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor error-line text > renders only the reason text for displayable text
+AssertionError: expected 'Components text exceeds 4000 characte…' to be 'Components text exceeds 4000 characte…' // Object.is equality
+
+Expected: "Components text exceeds 4000 characters."
+Received: "Components text exceeds 4000 characters.="
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:304:41
+    302|
+    303|   it.each(cases)('renders only the reason text for %s', async (_title,…
+    304|     expect(await renderedText(message)).toBe(reason);
+       |                                         ^
+    305|   });
+    306|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

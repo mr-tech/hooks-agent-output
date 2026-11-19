@@ -1,0 +1,21 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work/20261119T004839Z-p4118658/mutant-9
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (44 tests | 11 failed) 420ms
+     × renders only the reason text for no content 9ms
+     × renders only the reason text for embed characters 6ms
+     × renders only the reason text for displayable text 5ms
+     × renders only the reason text for component count 6ms
+     × renders only the reason text for V2 component reason 4ms
+     × renders no text when the message has no error 5ms
+     × renders no text for no content when validation is hidden 4ms
+     × renders no text for embed characters when validation is hidden 5ms
+     × renders no text for displayable text when validation is hidden 4ms
+     × renders no text for component count when validation is hidden 5ms
+     × renders no text for V2 component reason when validation is hidden 5ms
+
+ Test Files  1 failed (1)
+      Tests  11 failed | 33 passed (44)
+   Start at  00:49:06
+   Duration  2.09s (transform 207ms, setup 29ms, import 805ms, tests 420ms, environment 708ms)
+

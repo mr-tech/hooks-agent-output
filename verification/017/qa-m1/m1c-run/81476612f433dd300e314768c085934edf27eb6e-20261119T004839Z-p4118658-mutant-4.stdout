@@ -1,0 +1,18 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work/20261119T004839Z-p4118658/mutant-4
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (44 tests | 8 failed) 399ms
+     × shows the total and the limit with a red border above the limit: 41 flat components 12ms
+     × shows the total and the limit with a red border above the limit: a container holding 40 text displays 6ms
+     × shows the total and the limit with a red border above the limit: 11 containers of one section each 6ms
+     × shows the components line after the text-length line 9ms
+     × drops the line and the border once the total is back to 40 7ms
+     × shows the line after the components-total line 7ms
+     × renders only the reason text for component count 6ms
+     × shows the total and the limit with a red border when validation is not hidden 9ms
+
+ Test Files  1 failed (1)
+      Tests  8 failed | 36 passed (44)
+   Start at  00:48:52
+   Duration  2.07s (transform 210ms, setup 16ms, import 876ms, tests 399ms, environment 632ms)
+

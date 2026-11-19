@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work/20261119T004839Z-p4118658/mutant-8
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (44 tests | 1 failed) 432ms
+     × renders only the reason text for V2 component reason 9ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 43 passed (44)
+   Start at  00:49:03
+   Duration  2.07s (transform 220ms, setup 17ms, import 835ms, tests 432ms, environment 645ms)
+

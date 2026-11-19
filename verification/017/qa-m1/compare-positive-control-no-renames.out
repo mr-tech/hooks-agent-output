@@ -1,0 +1,32 @@
+base: numTotalTests=1508 numPassedTests=1508 success=true files=123 statuses={"passed":1508}
+tip: numTotalTests=1505 numPassedTests=1505 success=true files=123 statuses={"passed":1505}
+base-only paths (4): src/utils/__tests__/messageStore.dropped-set-report.test.ts src/utils/__tests__/messageValidity.predicate.test.ts src/utils/__tests__/useApiMethods.json-editor-repair.test.ts src/utils/__tests__/usePusher.hash-parity.test.ts
+tip-only paths (4): src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts src/providers/MessageProvider/__tests__/usePusher.hash-parity.test.ts src/server/api/utils/__tests__/messageValidity.predicate.test.ts src/utils/redis/__tests__/messageStore.dropped-set-report.test.ts
+paths not explained by the rename map: 8 src/utils/__tests__/messageStore.dropped-set-report.test.ts src/utils/__tests__/messageValidity.predicate.test.ts src/utils/__tests__/useApiMethods.json-editor-repair.test.ts src/utils/__tests__/usePusher.hash-parity.test.ts src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts src/providers/MessageProvider/__tests__/usePusher.hash-parity.test.ts src/server/api/utils/__tests__/messageValidity.predicate.test.ts src/utils/redis/__tests__/messageStore.dropped-set-report.test.ts
+changed src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx: base 33 tip 44 removed 0 added 11
+  + passed	DiscordMessageEditor error-line text renders no text for V2 component reason when validation is hidden
+  + passed	DiscordMessageEditor error-line text renders no text for component count when validation is hidden
+  + passed	DiscordMessageEditor error-line text renders no text for displayable text when validation is hidden
+  + passed	DiscordMessageEditor error-line text renders no text for embed characters when validation is hidden
+  + passed	DiscordMessageEditor error-line text renders no text for no content when validation is hidden
+  + passed	DiscordMessageEditor error-line text renders no text when the message has no error
+  + passed	DiscordMessageEditor error-line text renders only the reason text for V2 component reason
+  + passed	DiscordMessageEditor error-line text renders only the reason text for component count
+  + passed	DiscordMessageEditor error-line text renders only the reason text for displayable text
+  + passed	DiscordMessageEditor error-line text renders only the reason text for embed characters
+  + passed	DiscordMessageEditor error-line text renders only the reason text for no content
+changed src/utils/__tests__/limits.import-validation.test.ts: base 33 tip 19 removed 14 added 0
+  - passed	enforceImportMutualExclusivity V2 data detected → strips content/embeds detects V2 mode for all V2 component types
+  - passed	enforceImportMutualExclusivity V2 data detected → strips content/embeds preserves V2 components when stripping classic data
+  - passed	enforceImportMutualExclusivity V2 data detected → strips content/embeds strips both content and embeds when V2 components present
+  - passed	enforceImportMutualExclusivity V2 data detected → strips content/embeds strips content when V2 components present
+  - passed	enforceImportMutualExclusivity V2 data detected → strips content/embeds strips embeds when V2 components present
+  - passed	enforceImportMutualExclusivity classic data detected → strips V2 components filters out V2 types from mixed components when V2 is not dominant
+  - passed	enforceImportMutualExclusivity classic data detected → strips V2 components preserves legacy ActionRows in classic mode
+  - passed	enforceImportMutualExclusivity classic data detected → strips V2 components strips V2 components when only classic data present (no V2)
+  - passed	enforceImportMutualExclusivity edge cases V2 mode takes precedence: V2 + ActionRow mixed → V2 mode
+  - passed	enforceImportMutualExclusivity edge cases does not mutate the input object
+  - passed	enforceImportMutualExclusivity edge cases handles data with no fields at all
+  - passed	enforceImportMutualExclusivity edge cases handles empty components array
+  - passed	enforceImportMutualExclusivity edge cases handles undefined components
+  - passed	enforceImportMutualExclusivity edge cases returns a shallow copy (not the same reference)

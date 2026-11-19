@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor error-line text > renders only the reason text for embed characters
+AssertionError: expected 'Embeds exceed 6000 characters.=' to be 'Embeds exceed 6000 characters.' // Object.is equality
+
+Expected: "Embeds exceed 6000 characters."
+Received: "Embeds exceed 6000 characters.="
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:304:41
+    302|
+    303|   it.each(cases)('renders only the reason text for %s', async (_title,…
+    304|     expect(await renderedText(message)).toBe(reason);
+       |                                         ^
+    305|   });
+    306|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

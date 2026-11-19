@@ -1,0 +1,86 @@
+[
+ {
+  "id": "nm1-noContentError",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "{noContentError}</div>",
+  "new": "{noContentError}=</div>"
+ },
+ {
+  "id": "nm1-embedCharacterError",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "{embedCharacterError}</div>",
+  "new": "{embedCharacterError}=</div>"
+ },
+ {
+  "id": "nm1-v2TextError",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "{v2TextError}</div>",
+  "new": "{v2TextError}=</div>"
+ },
+ {
+  "id": "nm1-componentCountError",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "{componentCountError}</div>",
+  "new": "{componentCountError}=</div>"
+ },
+ {
+  "id": "kt-298",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "styles.errorBorder)}>",
+  "new": "styles.errorBorder)}>="
+ },
+ {
+  "id": "kt-347",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "show={v2ComponentError}>",
+  "new": "show={v2ComponentError}>="
+ },
+ {
+  "id": "kt-348-open",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "text-error\">{v2ComponentError}",
+  "new": "text-error\">={v2ComponentError}"
+ },
+ {
+  "id": "kt-348-close",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "{v2ComponentError}</div>",
+  "new": "{v2ComponentError}</div>="
+ },
+ {
+  "id": "kt-349",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "{v2ComponentError}</div>\n          </NullableComponent>",
+  "new": "{v2ComponentError}</div>\n          </NullableComponent>="
+ },
+ {
+  "id": "qm-swap-noContentError",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "{noContentError}</div>",
+  "new": "{embedCharacterError}</div>"
+ },
+ {
+  "id": "qm-swap-embedCharacterError",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "{embedCharacterError}</div>",
+  "new": "{v2TextError}</div>"
+ },
+ {
+  "id": "qm-swap-v2TextError",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "{v2TextError}</div>",
+  "new": "{componentCountError}</div>"
+ },
+ {
+  "id": "qm-swap-componentCountError",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "{componentCountError}</div>",
+  "new": "{v2ComponentError}</div>"
+ },
+ {
+  "id": "qm-swap-v2ComponentError",
+  "file": "src/components/DiscordMessageEditor/index.tsx",
+  "old": "{v2ComponentError}</div>",
+  "new": "{noContentError}</div>"
+ }
+]

@@ -1,0 +1,15 @@
+# M1-b absence, two instruments
+$ git -C website grep -c enforceImportMutualExclusivity 8147661
+exit 1
+$ grep -rc --include=*.ts --include=*.tsx --include=*.js --include=*.mjs enforceImportMutualExclusivity <export of 8147661> (non-zero files only, node_modules excluded)
+exit 1
+# positive control: same instruments at 1ad625e
+1ad625e:src/utils/__tests__/limits.import-validation.test.ts:17
+1ad625e:src/utils/index.ts:1
+exit 0
+ugrep: warning: /tmp/claude-1000/-usr-local-bin-hooks/60eb0bf1-9865-42cc-b8d0-db1f03a51dc0/scratchpad/web-1ad625e/src: No such file or directory
+exit 2
+# filesystem positive control: same grep over git archive 1ad625e src (the Phase 1 export was removed)
+/tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/base-src/src/utils/index.ts
+/tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/base-src/src/utils/__tests__/limits.import-validation.test.ts
+exit 0

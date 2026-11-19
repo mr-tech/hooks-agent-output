@@ -1,0 +1,17 @@
+# tree 8147661
+# ID-token class (case-insensitive) over title-call lines, comment lines, basename; positive basename form
+src/utils/__tests__/limits.import-validation.test.ts titles=0 comments=0 basename=0 positive-form=1
+src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx titles=0 comments=0 basename=0 positive-form=1
+src/utils/redis/__tests__/messageStore.dropped-set-report.test.ts titles=0 comments=0 basename=0 positive-form=1
+src/server/api/utils/__tests__/messageValidity.predicate.test.ts titles=0 comments=0 basename=0 positive-form=1
+src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts titles=0 comments=0 basename=0 positive-form=1
+src/providers/MessageProvider/__tests__/usePusher.hash-parity.test.ts titles=0 comments=0 basename=0 positive-form=1
+# positive control for the ID-token predicate (expect 2 of 2 lines)
+2
+# class-table predicates: source-text (readFileSync|__filename|__dirname|import.meta), time-based (timers, clock reads), local render/mount function, DOM harness use, project imports
+src/utils/__tests__/limits.import-validation.test.ts source-text=0 time=0 local-render-fn=0 dom-harness=0 project-imports=3
+src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx source-text=0 time=0 local-render-fn=3 dom-harness=12 project-imports=3
+src/utils/redis/__tests__/messageStore.dropped-set-report.test.ts source-text=0 time=0 local-render-fn=0 dom-harness=0 project-imports=3
+src/server/api/utils/__tests__/messageValidity.predicate.test.ts source-text=0 time=0 local-render-fn=0 dom-harness=0 project-imports=3
+src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts source-text=0 time=0 local-render-fn=0 dom-harness=0 project-imports=6
+src/providers/MessageProvider/__tests__/usePusher.hash-parity.test.ts source-text=0 time=0 local-render-fn=0 dom-harness=0 project-imports=3

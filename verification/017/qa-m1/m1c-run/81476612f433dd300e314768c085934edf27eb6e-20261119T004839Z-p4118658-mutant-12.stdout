@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work/20261119T004839Z-p4118658/mutant-12
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (44 tests | 3 failed) 987ms
+     × shows the components line after the text-length line 46ms
+     × shows the text-length line with a red border for Text Displays over 4000 characters 21ms
+     × renders only the reason text for displayable text 10ms
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 41 passed (44)
+   Start at  00:49:20
+   Duration  4.30s (transform 536ms, setup 22ms, import 1.68s, tests 987ms, environment 1.23s)
+
