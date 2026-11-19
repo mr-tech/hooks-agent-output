@@ -649,3 +649,16 @@ Every pre-code gate has approved revision 7 (`6ade256`, 05:16:40Z), read this tu
 **Implementation of M5, M6 and M8 starts on revision 7** (`6ade256`), QA Phase 1 at `7eda138`; M7 last
 (§ Plan). This lifts the 05:01Z hold. The generator branch is devops's to name (plan § Plan) before M6
 code in `preview-image-generator`.
+
+## 2026-11-19T05:21Z — generator chain branch cut
+
+`devops-hooks-017` named it `chain/017-existing-items-backlog` (its probe record, section "Generator branch
+name", `a0cfa8b`). `git -C preview-image-generator switch --no-track -c chain/017-existing-items-backlog
+origin/prod` (05:21Z). Before: on `prod`, `HEAD` = `origin/prod` = `8de2b53`, `status --porcelain` 0 lines.
+After: on the new branch at `8de2b53`, no upstream, 0 lines. The switch moved no file (same commit), so
+the lockfile is identical across it. Disclosed: a `git log` in this repository was refused by
+secret-file-gate-hook (`.github/workflows/prod.yml` flagged); re-issued as `rev-parse`/`status`, which
+print no line of it. devops-hooks-017 reported the same refusal and did not re-issue it.
+Also: the session was renamed by him to `steeering-roadmap-hooks` (05:1xZ). Stage briefs name
+`steering-roadmap` as the return address, and devops-hooks-017's first send to it was refused (no
+session carries the name). The name question is put to him.
