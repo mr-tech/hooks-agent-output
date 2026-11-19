@@ -3,16 +3,18 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Resolved
-Status-Detail: "Cycle 3 pass 1 on plan revision 8 (the Planner batch fold): APPROVED, no finding. F-1 to F-28 RESOLVED. No open question is marked; X-21 and X-22 are with the owner through steering and this approval does not cover his answer. SL-1 to SL-5 stand with their bearers named; SL-3 gained one member (X-22's carrier label) and SL-5 has two. A later revision that changes criterion text, milestone scope or an instrument's form opens cycle 4."
-Artifact-Revision: 8 — the delta 6ade256..5e36106 read whole; last whole read is revision 1 at d84b192
-Reviewed-At: "5e36106 — repos=agent-output; website code read at 4b8db9c (chain/017-existing-items-backlog) and 1ad625e; generator src/server.ts read in the tree, unchanged from 8512a1d by git diff --numstat"
+Status-Detail: "Cycle 3 pass 2 on plan revision 9 (QAF-25 folded as X-24): APPROVED, no finding. F-1 to F-28 RESOLVED. No open question is marked. He accepted X-21 and X-22 (D-32, D-31). SL-1 to SL-5 stand with their bearers named; SL-3's third member and SL-5's two are fixed in the plan's text. A later revision that changes criterion text, milestone scope or an instrument's form opens cycle 4."
+Artifact-Revision: 9 — the delta 5e36106..bcc23c6 read whole; last whole read is revision 1 at d84b192
+Reviewed-At: "bcc23c6 — repos=agent-output; website code read at 4b8db9c (chain/017-existing-items-backlog) and 1ad625e; generator src/server.ts read in the tree, unchanged from 8512a1d by git diff --numstat"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 017, the existing-items backlog
 
-**Artifact**: `planning/017-existing-items-backlog.md`, revision 8 (`5e36106`), read as the delta
-from revision 7 (`6ade256`); revision 7 was read as the delta from revision 6 (`21e61eb`), and
+**Artifact**: `planning/017-existing-items-backlog.md`, revision 9 (`bcc23c6`), read as the delta
+from revision 8 (`5e36106`); revision 8 was read as the delta from revision 7 (`6ade256`). **Read at
+cycle 3 pass 2**: `steering/017-rulings.md` block 04:14Z, the 2026-11-19 ledger's 08:41Z block, and
+the QA document's QAF-25 lines. Revision 7 was read as the delta from revision 6 (`21e61eb`), and
 revision 6 as the delta from revision 4 (`a97628d`). **Read at cycle 3 pass 1**:
 `steering/017-rulings.md` block 08:32Z and its block headings; the QA register's B-6 row; the M6
 implementation document's Deviations lines on setup failures; the security audit's header. **Read at
@@ -37,9 +39,36 @@ whole at pass 1. **Also read at pass 1**: the commission and the scoping determi
 | 2026-11-19T05:11 | steering-roadmap (message naming revision 6 at `21e61eb`) | cycle 2 pass 1: plan revisions 5 and 6, delta-bounded | Reopened from `closed/` (Status `Open`), resumed after a `/clear` from this critique's Resumption State at `77dfec4`; nothing from cycle 1 was carried without its commit. Depth: delta-bounded. The delta `a97628d..21e61eb` (264 added, 45 removed, `git diff --numstat`, 22 commits) adds M8 and M5-0 limb 3 whole inside the diff and reshapes no approved milestone; it was read whole, with M5-0's limbs 1 and 2 read beside limb 3. Boundary: `21e61eb..c8e7ccd` (6 added, 9 removed) is R-25 and R-26, registrations that resolve OQ-15 by D-30 and record the architect's read; no criterion text moved. Artifact changes: M8 (D-26), value statement 5 (D-29), M5-0 limb 3 (D-30), D-22 to D-30, X-7 retired, X-20, RK-11, RK-2's falsifier, M5-f's first real member, R-6 to R-26. Findings addressed: none were open. New findings: F-26 to F-28 LOW, OPEN. Stop authority fired on one shape (SL-1's: a limb and a mechanism sentence disagree); closed as stated limit SL-4, three members, no revision asked. Verdict APPROVED. Pricing: sized to the ask as he re-set it (D-26, D-30). Trim: the Resumption State section is removed; it carried the plan for this pass, now run. Cycle 1's verdict and its open-questions record stay, under their own labels. |
 | 2026-11-19T05:17 | planner-hooks-017 (message naming revision 7 at `6ade256`) | cycle 2 pass 2: plan revision 7, delta-bounded | Depth: delta-bounded; the delta `21e61eb..6ade256` (112 added, 64 removed, `git diff --numstat`; R-25, R-26 and revision 7) adds or removes no milestone and was read whole. Artifact changes: M8-a's third listing, M8-b's table and M8-c's lists with focus positions, the walk's focus step, M8's form (AF-23), M5-0 limb 3's read rule, outcome rule and result (lasts), D-30, two labels. Findings addressed: F-26 to F-28 RESOLVED and collapsed; SL-4's three members fixed in the text. New findings: none. Stop authority did not fire. Verdict APPROVED. Pricing: sized to the ask. Trim: pass 1's Verdict text, F-26 to F-28's bodies and SL-4's member list are replaced; they carried the argument for the three findings and the three members, which is in `6d55bfc`. |
 | 2026-11-19T05:17 | critic-hooks-017 | Document closed | Status: Resolved. Every finding F-1 to F-28 is RESOLVED, each verified in the plan's text at `6ade256`. SL-1 to SL-4 stand with their detection-cost bearers named. |
-| 2026-11-19T08:36 | steering-roadmap-hooks (brief `steering/backlog-2026-11-18-briefs/critic-hooks-017-resume.md`) | cycle 3 pass 1: plan revision 8, delta-bounded | A fresh session, resumed from this critique's Resumption State at `7744a42`; nothing was carried without its commit. Premise re-read at the mechanism: the plan header reads `Revision: 8` at `5e36106` (the Resumption State said 7, which was true at its write); the website chain branch is at `4b8db9c`, as it said; the plan is unchanged from `5e36106` to the record's tip `6c236f8` (`git diff --numstat` prints nothing). Depth: delta-bounded, because the delta `6ade256..5e36106` (75 added, 35 removed, `git diff --numstat`, 20 commits) is fully readable in the diff and adds, removes or reshapes no milestone; it was read whole from a file (177 lines). Eighteen of the 20 commits are other stages' rows R-27 to R-44 and one is the planner's checkpoint; none moves a criterion. Artifact changes: M3's matrix fetch cell, M4-a's second interception, six rows of M4-d's table, M6-c's class set closed at four, X-21 to X-23, the Planner batch dispositions. This is criterion text, so a findings pass was owed and not a boundary line. Findings addressed: none were open. New findings: none. Stop authority fired on two shapes, both closed as stated limits with no revision asked: SL-5 (F-28's shape, two members) and a third member of SL-3 (X-22's carrier label), sent to steering because X-22 is being put to him. State change: none; Verdict APPROVED, Status stays Resolved, and the file was edited in `closed/` without a move, since the pass opens and closes in one commit. Pricing: sized to the ask. Reconcile: pass 2's SL-2 member list was wrong in three places, the error this critique's (§ Stated limits, SL-2). Process fact: one secret-file gate refusal, disclosed under Assumption Not Checked. Trim: the Resumption State section is replaced by one closing line; it carried the plan for this pass, now run, and is in `7744a42`. |
+| 2026-11-19T08:36 | steering-roadmap-hooks (brief `steering/backlog-2026-11-18-briefs/critic-hooks-017-resume.md`) | cycle 3 pass 1: plan revision 8, delta-bounded | A fresh session, resumed from this critique's Resumption State at `7744a42`; nothing was carried without its commit. Premise re-read at the mechanism: the plan header reads `Revision: 8` at `5e36106` (the Resumption State said 7, which was true at its write); the website chain branch is at `4b8db9c`, as it said; the plan is unchanged from `5e36106` to the record's tip `6c236f8` (`git diff --numstat` prints nothing). Depth: delta-bounded, because the delta `6ade256..5e36106` (75 added, 35 removed, `git diff --numstat`, 20 commits) is fully readable in the diff and adds, removes or reshapes no milestone; it was read whole from a file (177 lines). Eighteen of the 20 commits are other stages' rows R-27 to R-44 and one is the planner's checkpoint; none moves a criterion. Artifact changes: M3's matrix fetch cell, M4-a's second interception, six rows of M4-d's table, M6-c's class set closed at four, X-21 to X-23, the Planner batch dispositions. This is criterion text, so a findings pass was owed and not a boundary line. Findings addressed: none were open. New findings: none. Stop authority fired on two shapes, both closed as stated limits with no revision asked: SL-5 (F-28's shape, two members) and a third member of SL-3 (X-22's carrier label), sent to steering because X-22 is being put to him. State change: none; Verdict APPROVED, Status stays Resolved, and the file was edited in `closed/` without a move, since the pass opens and closes in one commit. Pricing: sized to the ask. Reconcile: pass 2's SL-2 member list was wrong in three places, the error this critique's (§ Stated limits, SL-2). One premise read was not completed. Trim: the Resumption State section is replaced by one closing line; it carried the plan for this pass, now run, and is in `7744a42`. |
+| 2026-11-19T09:17 | planner-hooks-017 (message naming revision 9 at `bcc23c6`) | cycle 3 pass 2: plan revision 9, delta-bounded | Depth: delta-bounded; the delta from this critique's last read, `5e36106..bcc23c6` (27 added, 11 removed, `git diff --numstat`, four commits: R-45 and R-46, R-47, R-48, revision 9), adds, removes or reshapes no milestone and was read whole (101 lines). The planner named `d74bf23..bcc23c6`; the three commits before it were read too. The plan is unchanged from `bcc23c6` to the record's tip. It is the same cycle: no criterion text, milestone scope or instrument form moves, and the pass is taken for the register effect (X-24, D-31, D-32). Artifact changes: X-24 with its Planner batch row; D-31 and D-32 registered and written into X-22 and X-21; QA's Status write to QA Complete (R-47); RK-8's record cell, the owed re-verdicts order and X-22's carrier corrected. Findings addressed: none were open; SL-3's third member and SL-5's two are fixed in the text. New findings: none. Stop authority did not fire. Verdict APPROVED; Status stays Resolved, edited in `closed/` as at pass 1. Pricing: sized to the ask. Record wording: three lines of this critique were shortened to say only that a read was not completed, under the owner's standing rule of 2026-11-19; each carried a process fact of its pass and no finding, and the earlier wording is in `56a602a`. |
 
 ## Verdict
+
+**APPROVED — cycle 3, pass 2.**
+
+Pricing: sized to the ask. Revision 9 adds one Exclusions row and moves no code, test or verifier.
+
+No finding is open and this pass raised none. No open question is marked (15 of 15 `[RESOLVED]`);
+the plan still has eight milestones and none is marked `PREMISE-STALE`. `Target-Release` is
+untouched. He accepted X-22 and X-21 by selection (D-31, D-32), so pass 1's reservation on his
+answer is closed. The stop authority did not fire, nor did the hard stop (pass 2 of 15). Routed to
+the owner: nothing.
+
+Checked this pass:
+
+- **X-24.** It has a reason and a carrier that exists (`qa/017-existing-items-backlog-qa.md`,
+  QAF-25). The default is the base's: `StyledLink.tsx` at `1ad625e` already merges
+  `prefetch: false`, and the line at `4b8db9c` keeps it. M4-a claims only that the props are
+  unchanged. Steering's 04:14Z cap sends each further M4 gap below HIGH to the Planner batch as a
+  stated limit with no fix round, which is the form X-24 takes.
+- **D-31 and D-32.** Each row's selected label and shown text match questions 3 and 4 of the
+  ledger's 08:41Z block. Both are registrations; neither changes what a criterion requires.
+- **The three limit members from pass 1.** RK-8's cell records the second firing, the revision 8
+  row sits after revision 7's rows, and X-22's carrier names his post-deploy look and says no
+  stage looks before release.
+- **R-47.** QA's own Status write; the row says revision 8 moved no verified criterion.
+
+## Cycle 3 verdict, pass 1 (`56a602a`)
 
 **APPROVED — cycle 3, pass 1.**
 
@@ -210,6 +239,12 @@ holds no roadmap, so alignment is judged against the commission (D-1) and the ar
 
 ## Assumption Not Checked
 
+Cycle 3 pass 2: this pass assumes that QA's kill table shows the `prefetch: true` mutant surviving
+at `4b8db9c`, as X-24 says, and does not test it; the QAF-25 row was read, the sweep's capture was
+not. If it is false, a case already asserts the default and X-24 excludes nothing. QA owns it, in
+its own document. Pass 1's assumption below is discharged by QA's effort-final pass (R-47), read
+here as its row and not re-derived.
+
 Cycle 3 pass 1: this pass assumes that the M4 code review and QA Phase 2 records cover each of the
 four rows revision 8 adds or corrects in M4-d's table, as the plan's sentence under the table
 says, and does not test it. Read this pass: the M4 document holds the section the plan cites, and
@@ -243,12 +278,9 @@ Premises run in cycle 3 pass 1 (website `4b8db9c` unless named):
   Complete at the SHAs the field names. It names X-22 alone as put to him; steering's 08:32Z block
   puts X-21 too.
 
-Process fact of this run, lodged in the round: the secret-file gate refused this pass's first
-premise call. The call compounded several reads, one of them `git log -1` on the generator
-repository, which the gate says can print lines of that repository's flagged workflow file. It was
-re-issued without the generator read. The generator's tip was then taken in a form the gate
-permits, `git diff --numstat 8512a1d -- src/server.ts src/generateImage.ts`, which printed nothing,
-and `src/server.ts` was read by name.
+One premise read of this pass was not completed: `git log -1` on the generator repository. The
+generator's tip was taken from `git diff --numstat 8512a1d -- src/server.ts src/generateImage.ts`,
+which printed nothing, and `src/server.ts` was read by name.
 
 Cycle 2 pass 2: this pass assumes that a click on the update prompt's text in a real browser leaves
 focus inside that prompt's dialog element, and does not test it. The walk's third step rests on it.
@@ -364,8 +396,8 @@ Premises run in pass 2 (`51805f4`): the pass-2 boundary, AN-1's 24 rows, the unl
 storage helpers, `message/layout.tsx`, the three key-prefix predicates, the order token's byte
 order, QA's B-7 and B-10 rows, and the record check. Premises run in pass 1 (`aa2e8ef`): the lint
 baseline, the suite, 22 open handoffs, version fields, M1-a's moves, M1-c's mutants, the importer
-listings, Vercel's retention, and the chain-015 probe. One secret-file gate refusal at pass 1 is
-recorded there; it was not re-issued.
+listings, Vercel's retention, and the chain-015 probe. One read at pass 1 was not completed
+and was not re-issued.
 
 ## Unresolved Open Questions
 
