@@ -890,7 +890,7 @@ assumption.
 - **Trees.** Website `chain/017-existing-items-backlog` at `4b8db9c`; generator `chain/017-existing-items-backlog` at
   `8512a1d`. Neither is mine to move.
 - **Uncommitted or mutated.** Nothing of QA's. My `INBOX.md` entries are appended uncommitted, as the inbox rule says:
-  the code-review and implementer citation of `code-review/m6/liveness-scope/run.sh`, the drain observation for the
+  the code-review and implementer citation of the M6 liveness-scope falsifier script by a path that does not resolve, the drain observation for the
   drain handoff, and the M7 lint-export correction. No exports, containers or processes are left.
 - **Questions out.** None. Delivered: QAF-25 to `planner-hooks-017` (registered); the UAT spawn cue to
   `steering-roadmap-hooks`.
