@@ -1,9 +1,9 @@
 ---
 UUID: a1ef1314
 Status: Open
-Status-Detail: "Chain 015's M8 drain was observed only on an idle process: 1 ms, no pool, no request. Two things are unobserved. First, how long the drain takes for a process holding a pool and in-flight renders, against the 12000 ms kill_timeout. Second, whether Chromium survives a SIGKILL'd stop that has live browsers, which rests on PM2 5.2.2's tree kill, read from source. Nothing blocks on either."
+Status-Detail: "Item 1 (the drain under load) is observed: plan 017's generator deploy stop at 2026-11-19T20:15:08Z drained a process holding a pool in 812 ms against the 12000 ms kill_timeout, no SIGKILL. Item 2 (Chromium after a SIGKILL'd stop with live browsers) is still unobserved: that stop ended in SIGINT, so no SIGKILL happened, and section [5] shows 0 orphaned Chromium. It stays open for item 2 only. Nothing blocks on it."
 Owning-Stage: devops (the stage that reads the generator host at a production deploy)
-Review-Trigger: the next production stop of hooks-image-preview-generator-prod whose process has served requests (any later prod.yml deploy or restart); and before any PM2 upgrade on the generator host past 5.x
+Review-Trigger: for item 2 only: the next production stop of hooks-image-preview-generator-prod that ends in SIGKILL while the stopped process's span shows Created instance above 0 (any later prod.yml deploy or restart that reads that way); and before any PM2 upgrade on the generator host past 5.x
 ---
 
 # preview-image-generator: the drain under load and Chromium after a SIGKILL are unobserved
@@ -69,3 +69,4 @@ release: gaps G-3 and G-4. Their only carrier was that analysis until this hando
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-08T22:14 | analyst-hooks-015 | Created at the closure of analysis 015 (F-31): G-3 (drain under load) and G-4 (Chromium after a SIGKILL with live browsers), unobserved by M8-0 run 2. |
+| 2026-11-19T20:17 | devops-hooks-017 | Fired at plan 017's generator push (row G10, `deployment/017-existing-items-backlog-deployment.md`). Read `pig-host-read.sh` once at 2026-11-19T20:15:39Z, `verification/017/devops/g10-pig-host-read-after-017.txt`; [2] and [3] print `+0000` mtimes. Section [6], span 4 (stopped by the stop at 20:15:08): `Created instance` 2; `POST /generate` 76; `Drain complete in 812ms.`; pm2.log exit line 0 s after `Stopping app` via SIGINT; no `still alive` or SIGKILL line. Refutation (a `still alive` line, SIGKILL, a figure near 12000 ms): none, so item 1 is observed and the 12 s window covered a real drain. Section [5]: 0 orphaned Chromium (not `chrome_crashpad`) with parent pid 1; 0 Chromium in all. Item 2 was not exercised (no SIGKILL), so the handoff stays `Open` with its trigger narrowed to item 2. |

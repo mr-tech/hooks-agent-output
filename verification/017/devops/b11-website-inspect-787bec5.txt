@@ -1,0 +1,57 @@
+<claude-code-hint v="1" type="plugin" value="vercel@claude-plugins-official" />
+Vercel CLI 66.2.0
+> Fetched deployment "hooks-gg-website-hyp4k1voo-hooks-gg.vercel.app" in hooks-gg [444ms]
+
+  General
+
+    id		dpl_37f5wm52P7tqpRaMyPGFtk5cU6h8
+    name	hooks-gg-website
+    target	production
+    status	● Ready
+    url		https://hooks-gg-website-hyp4k1voo-hooks-gg.vercel.app
+    created	Thu Nov 19 2026 20:11:49 GMT+0000 (Coordinated Universal Time) [2m ago]
+
+
+  Build Machine
+
+    requested build machine enhanced
+    actual assigned cores   8 vCPU (actual assignment)
+    memory                  16384 MiB
+    selection type          fixed
+    selection source        project-setting
+
+
+  Build Cache
+
+    size       191 MiB / 5 GiB limit
+    file count ~73,208 (approx., paths selected for packing)
+
+
+  Duration
+
+    build duration	47s
+    post-build duration	unavailable
+    billable duration	unavailable
+    CPU Minutes Usage	unavailable
+
+
+  Aliases
+
+    ╶ https://hooks.gg
+    ╶ https://hooks-gg-website.vercel.app
+    ╶ https://www.hooks.gg
+    ╶ https://hooks-gg-website-hooks-gg.vercel.app
+    ╶ https://hooks-gg-website-git-master-hooks-gg.vercel.app
+    
+
+  Builds
+
+    ┌ .        [0ms]
+    ├── λ index (1.89MB) [cle1]
+    ├── λ _not-found (1.89MB) [cle1]
+    ├── λ _not-found.rsc (1.89MB) [cle1]
+    ├── λ _not-found.segments/_full.segment.rsc (1.89MB) [cle1]
+    ├── λ _not-found.segments/_head.segment.rsc (1.89MB) [cle1]
+    └── 57 output items hidden
+    
+
