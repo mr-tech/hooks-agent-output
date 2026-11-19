@@ -1,0 +1,3 @@
+1 entries 0.37MB stringify 0.8ms parse 0.3ms
+5 entries 1.84MB stringify 4.1ms parse 1.3ms
+20 entries 7.37MB stringify 17.2ms parse 5.1ms
