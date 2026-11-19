@@ -1,0 +1,21 @@
+control failed 0 of 122
+trigger-raw failed 8 of 122
+    date broadcast of a saved message reaches subscribers as the hash string when the hash has digits, an e and 00
+    pdate broadcast of a saved message reaches subscribers as the hash string when the hash has digits, an e and 0
+     of a saved message reaches subscribers as the hash string when the hash has a minus sign, digits, an e and 02
+     a saved message reaches subscribers as the hash string when the hash has an exponent past what a double holds
+    reaches subscribers as the hash string when the hash has a minus sign and an exponent past what a double holds
+    the update broadcast of a saved message keeps two saves apart whose hashes would both read as one finite value
+    the update broadcast of a saved message keeps two saves apart whose hashes would both read as Infinity
+    the update broadcast of a saved message keeps two saves apart whose hashes would both read as -Infinity
+record-decoded failed 3 of 122
+    another tab saves content whose hash differs from a held record's although both would read as one finite value
+    ce when another tab saves content whose hash differs from a held record's although both would read as Infinity
+    e when another tab saves content whose hash differs from a held record's although both would read as -Infinity
+shown-decoded failed 3 of 122
+    her tab saves content whose hash differs from the shown content's although both would read as one finite value
+    hen another tab saves content whose hash differs from the shown content's although both would read as Infinity
+    en another tab saves content whose hash differs from the shown content's although both would read as -Infinity
+record-kept-after-match failed 1 of 122
+    own save raises the notice when another tab saves content this tab sent earlier and has already seen broadcast
+leftover exports: 0

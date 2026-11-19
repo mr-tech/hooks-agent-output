@@ -1,0 +1,32 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dec0e9a-99c0-4120-8509-e3396f784f73/scratchpad/work/20261119T175624Z-p1319914/mutant-6
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx (4 tests | 4 failed) 26ms
+     × names the loss when the composer already had changes at subscription 17ms
+     × names the loss when the composer changed after the subscription was made 3ms
+     × does not name the loss when the composer has no changes 3ms
+     × does not name the loss when the composer returned to no changes after the subscription was made 2ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (58 tests | 17 failed) 302ms
+     × raises the notice when another tab saves content this tab never sent 8ms
+     × raises the notice when another tab saves while this tab has unsaved edits, naming the loss 2ms
+     × raises the notice when another tab saves content whose broadcast hash is digits only 2ms
+     × raises the notice when another tab saves content whose hash is digits and an e, beside a held record of different content 3ms
+     × raises the notice when another tab saves content whose hash differs from the shown content's although both would read as one finite value 3ms
+     × raises the notice when another tab saves content whose hash differs from the shown content's although both would read as Infinity 2ms
+     × raises the notice when another tab saves content whose hash differs from the shown content's although both would read as -Infinity 2ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as one finite value 2ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as Infinity 2ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as -Infinity 3ms
+     × raises no notice when another tab saves what this tab already shows, under a digits-only hash 3ms
+     × raises the notice when another tab saves a component-only edit 2ms
+     × raises the notice when another tab saves while this tab's own save is in flight 2ms
+     × raises the notice when another tab saves content this tab sent earlier and has already seen broadcast 2ms
+     × raises no notice when another tab saves what this tab already shows 3ms
+     × raises the notice for a later save of the content of a save that failed 2ms
+     × raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows 2ms
+
+ Test Files  2 failed | 7 passed (9)
+      Tests  21 failed | 101 passed (122)
+   Start at  17:56:45
+   Duration  2.36s (transform 1.20s, setup 193ms, import 7.56s, tests 687ms, environment 5.40s)
+

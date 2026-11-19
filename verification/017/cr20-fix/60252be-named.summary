@@ -1,0 +1,4 @@
+nm2-latest-send-only exit 1 failed cases 7 killed
+nm3-set-not-per-send exit 1 failed cases 2 killed
+nm4-record-kept-after-broadcast exit 1 failed cases 1 killed
+nm5-current-clause-dropped exit 1 failed cases 2 killed

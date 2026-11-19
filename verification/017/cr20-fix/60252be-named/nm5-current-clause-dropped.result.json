@@ -1,0 +1,18 @@
+{
+ "mutant": {
+  "name": "nm5-current-clause-dropped",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "line": 68,
+  "old": "ownSaveIndex < 0 && hash !== shownHash",
+  "new": "ownSaveIndex < 0",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "MessageProvider, the saving tab and its own save raises no notice when another tab saves what this tab already shows, under a digits-only hash",
+  "MessageProvider, the saving tab and its own save raises no notice when another tab saves what this tab already shows"
+ ],
+ "verdict": "killed"
+}

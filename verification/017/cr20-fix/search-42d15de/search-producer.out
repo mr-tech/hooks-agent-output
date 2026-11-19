@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dec0e9a-99c0-4120-8509-e3396f784f73/scratchpad/exp-search
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  17:52:48
+   Duration  2.21s (transform 126ms, setup 0ms, import 485ms, tests 1.60s, environment 0ms)
+

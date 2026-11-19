@@ -1,0 +1,299 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 21 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content this tab never sent
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:229:29
+    227|     broadcast(remoteHash({ content: 'from another tab' }));
+    228|
+    229|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    230|   });
+    231|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/21]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves while this tab has unsaved edits, naming the loss
+TypeError: Cannot read properties of undefined (reading 'message')
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:238:56
+    236|     broadcast(remoteHash({ content: 'from another tab' }));
+    237|
+    238|     expect((hoisted.confirm[0] as { message: string }).message).toCont…
+       |                                                        ^
+    239|   });
+    240|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/21]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content whose broadcast hash is digits only
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:246:29
+    244|     broadcast(remoteHash({ content: 'c24' }));
+    245|
+    246|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    247|   });
+    248|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/21]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content whose hash is digits and an e, beside a held record of different content
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:256:29
+    254|     broadcast(remoteHash({ content: 'c79' }));
+    255|
+    256|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    257|   });
+    258|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/21]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content whose hash differs from the shown content's although both would read as one finite value
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content whose hash differs from the shown content's although both would read as Infinity
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content whose hash differs from the shown content's although both would read as -Infinity
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:271:29
+    269|     broadcast(otherHash);
+    270|
+    271|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    272|   });
+    273|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/21]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content whose hash differs from a held record's although both would read as one finite value
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content whose hash differs from a held record's although both would read as Infinity
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content whose hash differs from a held record's although both would read as -Infinity
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:288:29
+    286|     broadcast(otherHash);
+    287|
+    288|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    289|   });
+    290|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/21]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice when another tab saves what this tab already shows, under a digits-only hash
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:297:27
+    295|     broadcast(remoteHash({ content: 'c24' }));
+    296|
+    297|     expect(noticeShown()).toBe(false);
+       |                           ^
+    298|   });
+    299|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/21]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves a component-only edit
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:308:29
+    306|     broadcast(remoteHash({ components: [{ type: 1, components: [button…
+    307|
+    308|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    309|   });
+    310|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/21]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves while this tab's own save is in flight
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:318:29
+    316|     broadcast(remoteHash({ content: 'from another tab' }));
+    317|
+    318|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    319|   });
+    320|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/21]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content this tab sent earlier and has already seen broadcast
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:331:29
+    329|     broadcast(sentHash(0));
+    330|
+    331|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    332|   });
+    333|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/21]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice when another tab saves what this tab already shows
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:340:27
+    338|     broadcast(remoteHash({ content: 'same' }));
+    339|
+    340|     expect(noticeShown()).toBe(false);
+       |                           ^
+    341|   });
+    342|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/21]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice for a later save of the content of a save that failed
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:352:29
+    350|     broadcast(sentHash(0));
+    351|
+    352|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    353|   });
+    354|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/21]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:376:29
+    374|     broadcast(sentHash(0));
+    375|
+    376|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    377|   });
+    378|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/21]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx > usePusher — the update prompt warns about unsaved changes exactly when there are some > names the loss when the composer already had changes at subscription
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ fireUpdate src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx:58:21
+     56|   const handler = hoisted.handlers['message-update'] as (hash: string)…
+     57|   act(() => { handler('a hash that is not the draft\'s'); });
+     58|   const [options] = hoisted.showConfirmation.mock.calls[0] as [{ messa…
+       |                     ^
+     59|   return options.message;
+     60| }
+ ❯ src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx:78:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/21]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx > usePusher — the update prompt warns about unsaved changes exactly when there are some > names the loss when the composer changed after the subscription was made
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ fireUpdate src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx:58:21
+     56|   const handler = hoisted.handlers['message-update'] as (hash: string)…
+     57|   act(() => { handler('a hash that is not the draft\'s'); });
+     58|   const [options] = hoisted.showConfirmation.mock.calls[0] as [{ messa…
+       |                     ^
+     59|   return options.message;
+     60| }
+ ❯ src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx:85:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/21]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx > usePusher — the update prompt warns about unsaved changes exactly when there are some > does not name the loss when the composer has no changes
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ fireUpdate src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx:58:21
+     56|   const handler = hoisted.handlers['message-update'] as (hash: string)…
+     57|   act(() => { handler('a hash that is not the draft\'s'); });
+     58|   const [options] = hoisted.showConfirmation.mock.calls[0] as [{ messa…
+       |                     ^
+     59|   return options.message;
+     60| }
+ ❯ src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx:91:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/21]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx > usePusher — the update prompt warns about unsaved changes exactly when there are some > does not name the loss when the composer returned to no changes after the subscription was made
+TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterator))
+ ❯ fireUpdate src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx:58:21
+     56|   const handler = hoisted.handlers['message-update'] as (hash: string)…
+     57|   act(() => { handler('a hash that is not the draft\'s'); });
+     58|   const [options] = hoisted.showConfirmation.mock.calls[0] as [{ messa…
+       |                     ^
+     59|   return options.message;
+     60| }
+ ❯ src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx:98:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/21]⎯
+

@@ -1,0 +1,32 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9dec0e9a-99c0-4120-8509-e3396f784f73/scratchpad/work/20261119T175624Z-p1319914/mutant-1
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (58 tests | 22 failed) 270ms
+       × raises no notice for a save whose broadcast hash is digits only, when an edit follows Save 9ms
+       × raises no notice for a save whose broadcast hash is a minus sign and digits only, when an edit follows Save 4ms
+       × raises no notice for a save whose broadcast hash is digits, an e and digits, when an edit follows Save 3ms
+       × raises no notice for a save whose broadcast hash is an exponent past what a double holds, when an edit follows Save 3ms
+       × raises no notice for a save whose broadcast hash is a minus sign and an exponent past what a double holds, when an edit follows Save 3ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 3ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 2ms
+       × raises no notice for a save whose broadcast hash is digits only, when an edit follows Save 2ms
+       × raises no notice for a save whose broadcast hash is a minus sign and digits only, when an edit follows Save 2ms
+       × raises no notice for a save whose broadcast hash is digits, an e and digits, when an edit follows Save 3ms
+       × raises no notice for a save whose broadcast hash is an exponent past what a double holds, when an edit follows Save 3ms
+       × raises no notice for a save whose broadcast hash is a minus sign and an exponent past what a double holds, when an edit follows Save 2ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 2ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 2ms
+     × raises no notice for two identical saves, their broadcasts, and an edit after the second 2ms
+     × raises the notice when another tab saves content whose hash is digits and an e, beside a held record of different content 2ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as one finite value 3ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as Infinity 2ms
+     × raises the notice when another tab saves content whose hash differs from a held record's although both would read as -Infinity 2ms
+     × raises the notice when another tab saves while this tab's own save is in flight 2ms
+     × raises no notice for the broadcast of an identical save still in flight when one of two failed 2ms
+     × raises no notice for a later save in flight when an earlier save, already broadcast, then reports failure 2ms
+
+ Test Files  1 failed | 8 passed (9)
+      Tests  22 failed | 100 passed (122)
+   Start at  17:56:28
+   Duration  2.13s (transform 1.04s, setup 113ms, import 6.83s, tests 628ms, environment 4.70s)
+

@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Handoff-At: 42d15de — repos=website; fix round 3 (UAT-1), production change in usePusher.ts; supersedes dd26104 (fix round 2, test-only)
+Handoff-At: 60252be — repos=website; fix round 4 (CR-20), production change in shared.ts and usePusher.ts; supersedes 42d15de (fix round 3); the Pusher disconnect (M2-d) is not in this hand-off
 ---
 
 # Implementation 017 — M2: the saving tab recognises its own save (item 3)
@@ -25,6 +25,7 @@ chain branch `chain/017-existing-items-backlog`; M1 is `8147661` (`implementatio
 | 2026-11-19T01:12 | implementer-hooks-017 | Resumed. Self-check sweep run (one survivor, closed at `53c3c58`), lint introduced by M2 removed at `ec984fe`, convention-check and full suite re-run at `ec984fe`. Handed to code review at `ec984fe`; Resumption State removed. |
 | 2026-11-19T01:34 | implementer-hooks-017 | Fix round 2 on QAF-17 / CR-5 (QA's case), CR-3 (real render, `442059d`), CR-4 (disposition line), plus a class-sweep case: tests only, no production change. Handoff-At moved to `dd26104`. |
 | 2026-11-19T11:05 | implementer-hooks-017 | Fix round 3 on UAT-1 (B-1 recurred in walk 6): root cause found and fixed at website `8e1ccef`, covering case tightened at `42d15de`. A production change, so QA, code review, the architect read and UAT's re-walk of B-1 follow. Handoff-At moved to `42d15de`. See § Fix Round 3. |
+| 2026-11-19T18:20 | implementer-hooks-017 | Fix round 4 on CR-20 (code review Round 9), on his answer (`steering/017-rulings.md` block 2026-11-19T17:49Z, D-33): the producer sends the hash JSON-encoded, the handler compares strings exactly, `asDelivered` removed. Red first at `42d15de`, built and committed at website `60252be`. Handoff-At moved to `60252be`. M2-d (disconnect) held for QA's re-key. See § Fix Round 4. |
 
 ## Implementation Summary
 
@@ -276,9 +277,108 @@ predicted here. Follow-ups, not done: (1) the producer-side exact fix in "Within
 (2) pusher-js instances opened by `usePusher`'s effect are unsubscribed but never `disconnect()`ed (read at `usePusher.ts` cleanup; not probed; severity low:
 a socket per message id visited in one tab).
 
+## Fix Round 4 — CR-20 (distinct hashes that decode equal)
+
+Brief: `steering-roadmap-hooks`, 2026-11-19: CR-20's exact fix, the remedy of code review Round 9 (`d8aa235`); his answer D-33 is the exact hash fix in 017.
+Not in this round: the Pusher disconnect (D-34, M2-d). Plan revision 10 holds its code until QA Phase 1's re-key; the critic (`012ee2b`) and the architect (`410044e`) have read it.
+No criterion changed: revision 10 states M2-c's exact equality and the JSON-encoded broadcast, which this round builds.
+
+### Change
+
+- `src/server/api/utils/shared.ts` (`upsertMessage`): `pusher.trigger(..., 'message-update', JSON.stringify(hashMessage(message)))`. pusher 5.1.3 sends a string as it is
+  (`node_modules/pusher/lib/events.js`, `ensureJSON`), so the frame carries the hash in JSON quotes; pusher-js 8.3.0 `decodeMessage` decodes it back to the exact string.
+- `src/providers/MessageProvider/usePusher.ts`: `asDelivered` removed. The handler finds a record with `record === hash` and compares the shown content with `hash !== shownHash`, both exact, `hash` still `unknown`.
+  No `typeof` guard: strict equality against a string never matches a non-string, so a non-string payload is "equal to neither" and raises the notice, which is the criterion's wording. Records, `recordOwnSave`, `forgetOwnSave`, `persist` unchanged.
+- `src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx`: the `asPusherDelivers` transcription removed (`broadcast` hands the handler the producer's string; the decode is covered on the producer side, below). Six cases added.
+- `src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts` (new, 11 cases): the producer's broadcast, decoded as the library decodes it. No existing test asserted the `trigger` arguments (`grep -rn "trigger" src --include=*.test.ts*`: 2 hits, neither on this surface; the two files that mock `pusher` (`shared.message-cap`, `shared.upsert-preview-continuation`) use a `vi.fn` that nothing reads), so this is a new file by the surface's name (`shared.<behaviour>`), not a sibling of a case that could be tightened.
+
+Wire form, observable outside the service's source: the `message-update` frame's data is now `"<hash>"` (JSON quotes) where it was `<hash>`. A tab on the previous client decodes it with the same `JSON.parse` and holds the same string, so no old client needs a reload. During a deploy, a new client that receives a frame from a not-yet-updated server instance gets the old raw form, and for a number-shaped hash (about 6% of saves, the planner's sample) it takes its own save for another tab's, which is the UAT-1 behaviour; bounded to the skew. Downstream: M5 touches `shared.ts` (its surfaces); its premise is untouched, the one changed line is the trigger.
+
+### User-visible flows
+
+| Flow | Surface | Trigger | What happens next | Rung |
+|---|---|---|---|---|
+| A tab saves; another tab's save arrives | "Message Update Detected" dialog | a broadcast whose hash is not this tab's own | the dialog appears for every distinct hash, including two that read as the same number; the saving tab still sees none for its own save | the M2 handler, same shape, compare made exact |
+
+No flow holds a decision, so no ask is owed.
+
+### Patterns Extended
+
+| Surface | Pattern |
+|---|---|
+| The producer's call | the one `pusher.trigger` in `upsertMessage`; the argument only |
+| The handler's compare | the M2 compare, `record === hash`, the form before Fix Round 3 minus the `indexOf` (`unknown` against string) |
+| Tests | `MessageProvider.own-save-notice.test.tsx` tightened (the number-shaped own-save cases that were green only through the decode now run on strings); `shared.message-cap.test.ts`'s mock set (env proxy, capturing database, `pusher` class) as the pattern for the new producer file |
+
+### TDD Compliance
+
+Red run before the fix (`verification/017/cr20-fix/red-pre-fix-42d15de/red.json`, `.out`: the new and tightened files against the unchanged `shared.ts` and `usePusher.ts` of `42d15de`):
+21 failed, 48 passed of 69. 13 are in the consumer file, 8 in the producer file. Verbatim firsts:
+consumer `AssertionError: expected true to be false // Object.is equality`; producer `AssertionError: expected 'number' to be 'string' // Object.is equality` and `expected 51354 to be '51354e00'`.
+
+TDD Gate: Test `reaches subscribers as the hash string when the hash has digits, an e and 00` fails as expected: `AssertionError: expected 'number' to be 'string'`. Proceeding to implementation.
+TDD Gate: Test `raises no notice for a save whose broadcast hash is digits only, when an edit follows Save` fails as expected: `AssertionError: expected true to be false`. Proceeding to implementation.
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| producer broadcast data, number-shaped hashes (5 shapes) reach subscribers as the hash string | `shared.upsert-broadcast.test.ts` | Yes | Yes (red file above, 5 cases); mutant `trigger-raw` (`hashMessage(message)`) fails the same 5 | AssertionError: `number` against `string` | Yes |
+| producer broadcast data, two saves whose hashes read as one finite value / `Infinity` / `-Infinity` stay apart | same | Yes | Yes (red file above, 3 cases); `trigger-raw` fails the same 3 | AssertionError: `51354`, `Infinity`, `-Infinity` against the hash | Yes |
+| producer broadcast, channel and event; hash that is not number-shaped; no id sends nothing | same | Yes | Green before and after: they state behaviour the fix keeps. No red claimed; no mutant of the fix reaches them. Kept as the surface's spec | not owed | Yes |
+| handler compare, own save under number-shaped hashes (5 shapes, both orders, 10 cases), V2 content-loss member (2) | `MessageProvider.own-save-notice.test.tsx` | existing | Yes (red file above, 12 cases: the producer's string no longer decodes to what `42d15de` compared against) | AssertionError: notice shown | Yes |
+| shown-content clause, "another tab saves what this tab already shows, under a digits-only hash" | same | existing | Yes (red file above, 1 case) | AssertionError | Yes |
+| handler compare, shown content against a colliding hash (finite, `Infinity`, `-Infinity`; 3 cases) | same | Yes | **Not red at `42d15de`**: with the producer's string delivered, `42d15de` raises the notice for them (it fails the own-save cases instead). Red from mutant `shown-decoded` (both sides decoded), which fails the 3 | AssertionError (notice count) | Yes |
+| handler compare, a held record against a colliding hash (3 cases) | same | Yes | **Not red at `42d15de`**, same reason. Red from mutant `record-decoded`, which fails the 3 | AssertionError (notice count) | Yes |
+| record removal after a match | same (existing) | existing | mutant `record-kept-after-match` fails 1 | AssertionError | Yes |
+
+Departure from the review's wording ("red at `42d15de`, green after") for the six colliding-pair cases: the review's probe delivers the numbers `42d15de`'s consumer was built for, i.e. the
+old frame. On the new frame no consumer fed strings can show the collision except one that decodes them again, which is the mutant. The producer cases carry the class's red at `42d15de`
+(8 of 8 above): two messages whose hashes read equal reach subscribers as two values at `60252be` and as one value at `42d15de`. Stated for the reviewer to accept or ask for another instrument.
+
+Fixtures: colliding pairs found by search with the real `hashMessage` (`verification/017/cr20-fix/search-42d15de/`: `pairs.txt` 400 `Infinity`/`-Infinity` pairs and `pairs-finite.txt` 6 finite pairs
+for the provider's message form, contents `p0`, `p1`, ...; `pairs-producer-form.txt`, `pairs-producer-form-finite.txt` for the producer's form; isolated export of `42d15de`, network isolated, results to files).
+Each case asserts its fixtures' hashes as literals before it delivers them (`remoteHash` / `sentHash` `toBe`, and the producer's delivered value `toBe` the literal).
+The decode in the producer file is `JSON.parse` over the frame string with the string kept on failure, transcribed from pusher-js 8.3.0 `decodeMessage` and pusher 5.1.3 `ensureJSON`, paths in the file's helper name and here;
+it is the transport's, not the code under test's, and the expectations are literals.
+
+Mutants (isolated exports of `git archive 60252be`, one exact-once edit each, outputs to files, `timeout -k`, network isolated; `verification/017/cr20-fix/run-mutants.sh`, results `60252be/summary.txt`, `leftover exports: 0`):
+control 0 of 122 failed; `trigger-raw` 8, `record-decoded` 3, `shown-decoded` 3, `record-kept-after-match` 1 killed.
+
+Self-check sweep (`mutant-gen.js --range 42d15de..60252be`, 6 operator mutants on the added lines of `usePusher.ts`; `mutation-run.py --dep node_modules`; `60252be-gen.json`, `60252be-sweep/`, `60252be-sweep.out`):
+6 of 6 killed. The producer's changed argument has no operator mutant (a call argument); `trigger-raw` is its mutant.
+
+QA's Named mutants for M2, re-run at `60252be` (the diff touches their guards; lines re-pointed, `named-mutants-60252be.json`, `60252be-named.summary`, driver `verification/017/impl/mutate.py`, network isolated):
+NM-2 killed (7 cases), NM-3 killed (2), NM-4 killed (1), NM-5 killed (2). NM-1 is M1's.
+
+### Class Sweep
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| CR-20. Class: a comparison, in the Pusher consumer or its producer, that lets two distinct hash strings read as one value; and a producer payload that a subscriber decodes to something other than the string sent. The reviewer's enumeration is `collision.mjs` (pairs and a model) and his two probe cases; they locate the compare and the delivered value, not every site. The grep below is derived by me. | `grep -rn "asDelivered\|asPusherDelivers" src`; `grep -rn "\.trigger(" src --include=*.ts --include=*.tsx --exclude-dir=__tests__`; `grep -rn "\.bind(\|bind_global" src --include=*.ts --include=*.tsx --exclude-dir=__tests__`; `grep -rl pusher ../project-utils/src ../preview-image-generator/src` (ts, tsx, js, mjs) | decode helpers: 0 hits. Triggers: 1 (`shared.ts:274`, now JSON-encoded). Binds: 2 (`usePusher.ts:62`, the one Pusher consumer, exact compare; `components/Drawer/index.tsx:242`, a gesture handler's `{...bind()}`, not Pusher). Other repos' `src`: 0 files listed | the trigger: fixed. the consumer: fixed. Drawer: not applicable. No other producer or consumer of a Pusher payload exists. Residual 0 (before the fix: 1 helper with 3 uses in `usePusher.ts` and 1 transcription in the test file) |
+| CR-20, as the instrument saw it: a test that can only see a collision through the old frame | `grep -n "broadcast(" src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx` and `grep -c "" ` on the producer file's case list | the consumer file's `broadcast` hands the handler the producer's string; the producer file decodes the real trigger arguments | the producer file is the instrument that sees the frame, see the departure above. Not applicable beyond that. Residual 0 |
+
+### Test Execution Results (fix round 4)
+
+| Command | Result |
+|---|---|
+| Red, new and tightened files against the unchanged production of `42d15de` | 21 failed of 69 (above) |
+| `src/providers/MessageProvider` and `shared.upsert-broadcast.test.ts`, network isolated (`unshare -rn`), at `60252be` | 122 of 122, 9 files, exit 0 (`green/focus.json`, `.out`) |
+| Full suite at `60252be`, network isolated | 1846 of 1846, 144 files by the reporter's `testResults`, vitest exit 0 (`green/full-suite.json`, `.exit`); 1829 + 6 consumer + 11 producer = 1846, 143 + 1 = 144 |
+| `pnpm run typecheck` at `60252be` | exit 0, both programs (`green/typecheck.exit`) |
+| `eslint` on the four files | exit 0 |
+| `convention-check.js website --since=42d15de` | 0 FAIL, 0 CANDIDATE, 18 SKIP (17 `.playwright-mcp` images, held, not mine; the ID-token/basename check, which the tool says it does not implement verbatim: unchecked, not passed; by hand the new file is `shared.upsert-broadcast.test.ts` and its titles carry no ID token) (`convention-check-60252be.out`) |
+
+The first comment on the new producer file was refused by the comment gate and removed; one lint rule (`class-methods-use-this`) on the first form of the `pusher` mock was met by the `vi.fn` form the sibling files use. Both disclosed in the round.
+
+### Hand-off
+
+Website tip moves `42d15de` to `60252be` (production: `shared.ts`, `usePusher.ts`; tests: the two files above). This expires, at `42d15de`: code review Round 9's REJECTED verdict is the one to re-read, M2's QA Phase 2 for the fix round,
+the architect's read of the wire, and UAT's re-walk of B-1, which no longer needs to place runs by frame hash.
+Not done: the disconnect (M2-d). QA's AF-25 (a case running pusher-js's real decode over the producer's frame) is the architect's LOW recommendation held for the planner's fold; the producer file's decode is a transcription of it.
+
 ## Outstanding Items
 
 - Fix round 3: nothing owed before hand-off. The walk of B-1 at the tip is UAT's.
+- Fix round 4: the Pusher disconnect (D-34, M2-d) is owed and held for QA Phase 1's re-key of revision 10; it will be its own round on `usePusher.ts`'s cleanup. Fix Round 3's follow-up (1), the producer-side exact fix, is done here.
 - Nothing owed before hand-off.
 - The records are never cleared when the message id changes in a mounted provider; they are bounded by the
   plan's residue class (1) (RK-3). Not asserted.
@@ -304,24 +404,7 @@ a socket per message id visited in one tab).
 
 ## Next Steps
 
+Fix round 4: code review at website `60252be` (range `42d15de..60252be`, `code-reviewer-hooks-017`, its Round 9 sub-entry; re-read M7-b at the new tip), then QA Phase 2, the architect's wire read, UAT's B-1 re-walk; the disconnect round after QA's re-key.
+
 Fix round 3: code review at website `42d15de` (range `4b8db9c..42d15de`, `code-reviewer-hooks-017`), then QA Phase 2 for the fix, an architect delta read, and UAT's re-walk of B-1.
 Earlier rounds: code review of M2 at `ec984fe`, then M3 (done).
-
-## Resumption State
-
-Written 2026-11-19T11:28Z by implementer-hooks-017 at steering's checkpoint request (steering-roadmap-hooks). Supersedes the "Resumption State" in `implementation/017-existing-items-backlog-m5-implementation.md` (its UAT-1 item is closed by Fix Round 3 above).
-
-- **Done:** UAT-1 diagnosed and fixed as Fix Round 3 above (website `8e1ccef`, `42d15de`; agent-output `9a950f3`). Handed to code review.
-- **Review result:** Round 9 REJECTED at `42d15de` on CR-20 MEDIUM (review at agent-output `d8aa235`, plan R-49 `9aea256`, probe and model under `verification/017/code-review/m2-uat1/`): the delivered-form compare lets distinct hashes that decode equal (every ±Infinity hash, `1e10`/`10e9`, `100000`/`1e5`) suppress another tab's notice, via the shown-content compare alone. Diagnosis accepted; remedy required by the reviewer is the producer-side route.
-- **HOLD (steering, 11:3xZ):** no code change and no website commit for CR-20 until steering relays the owner's answer. Reason: the remedy edits `shared.ts`, outside M2's listed surfaces; the planner holds it as a scope delta; steering's `steering/017-rulings.md` block 11:10Z puts it to the owner (owner-wait key `m2-hash-residue`): 1(a) exact fix in 017, or 1(b) a stated limit with `42d15de` standing; and 2 the pusher disconnect: (a) exclusion X-25, or (b) in 017. Reading and planning are allowed.
-- **Next, if the answer is 1(a):** one round, red first.
-  1. `src/server/api/utils/shared.ts` (`upsertMessage`, `pusher.trigger(genMessageChannelKey(message.id), 'message-update', …)`): send `JSON.stringify(hashMessage(message))` (pusher@5.1.3 `ensureJSON` sends a string as-is; pusher-js 8.3.0 `decodeMessage` decodes it back to the exact string). `shared.ts` has tests on the trigger: find and tighten the covering one before adding any.
-  2. `usePusher.ts`: remove `asDelivered`; keep `hash: unknown` with a `typeof hash === 'string'` guard; exact string equality for the record compare and the shown-content compare. Records, `recordOwnSave`, `forgetOwnSave`, `persist` unchanged.
-  3. `MessageProvider.own-save-notice.test.tsx`: `asPusherDelivers` models the new frame (stringify, then the library decode); add colliding pairs found by search, not hand-picked, for the shown-content compare and the held-record compare (the reviewer's examples: contents giving `-23e49110` and `-2337e571`, both ±Infinity, in `code-review/m2-uat1/probe-block.tsx`); red as assertions at `42d15de`, green after; keep the number-shaped own-save cases (they stay green on the new wire). Class Sweep table, mutants named per row, sweep over `4b8db9c..<tip>`'s still-changed lines, QA's NM-2 to NM-5 re-run, convention-check, full suite with exit code, typecheck. The M2 document gets a Fix Round 4 section; `Handoff-At` moves; return the fix SHA to `code-reviewer-hooks-017` (for its Round 9 sub-entry; it re-reads M7-b at the new tip).
-  4. If 2(b): `pusher.disconnect()` in the effect cleanup, same file, same round.
-  If 1(b): nothing owed from me beyond what steering sends.
-- **Branch and HEAD:** website `chain/017-existing-items-backlog` at `42d15de`; agent-output `master`, last seen `5834a86` (steering). Nothing of mine uncommitted or mutated. The tree's other modified files are other sessions' work.
-- **Evidence run and recorded:** all in `verification/017/uat1-fix/` (committed in `9a950f3`): `run-mutants.sh`, `8e1ccef/`, `42d15de/`, `*-sweep/`, `named-mutants-42d15de.json`, `42d15de-named/`, `red-pre-fix-8e1ccef/`, `full-suite-42d15de.summary.json`. Nothing run and unrecorded. The fixture search (`c0` to `c59999`, the real `hashMessage`) left no file but its result is in the Fix Round 3 TDD section; re-run through a throwaway test file with the `~/env.mjs` mock, writing to a file (console output is filtered).
-- **Questions sent:** to `steering-roadmap-hooks` (11:2xZ, ready to build 1(a) on word); to `code-reviewer-hooks-017` (CR-20 accepted, holding). Pending: the owner's answer through steering.
-- **Wake:** `52cf517b` deleted at this checkpoint. Re-arm on the next turn.
-- **Notes for the record:** never record safeguard or security blocks in agent-output (standing owner prohibition); the gate refusals of this round were disclosed in chat only. Tools: use Edit/Write for record documents; for shell reads of the tree, absolute paths.
