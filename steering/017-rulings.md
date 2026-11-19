@@ -693,3 +693,20 @@ code reviewer 354K idle, QA 211K busy, devops 228K, planner 289K, critic 243K. O
 - **This thread's gate event, disclosed in the round:** record-write-gate-hook refused a shell `sed -i`
   on `017-standing.md` (the same command also read two other rulings files); re-issued as an Edit, the
   form the gate names, and the reads separately.
+- Code reviewer checkpointed (`00e6bb8`, 05:52:48Z) and cleared 05:5xZ (`tmux-agent clear`, exit 0).
+
+## 2026-11-19T06:01Z — M8 QA Failed (QAF-22); M8 capped
+
+Read this turn: `qa/017-existing-items-backlog-m8-qa.md` at `8e73691` (05:58:33Z), Status "QA Failed" at
+website `c37d41a`, QAF-22 MEDIUM (no case fails when WarningDialog's hotkey stops being gated on open;
+fix test-only), QAF-23 LOW (duplicates CR-12). QA routed it to `implementer-hooks-017` (05:58:57Z) and
+`code-reviewer-hooks-017` (05:59:01Z), read from QA's transcript.
+**Cap (steering.md, Standing check):** M8's review and QA time has passed its implementation time.
+Implementation ≈ 14 min (go 05:23:34Z → hand-off `167ec86` 05:36:54Z); review ≈ 4 min (→ `4950989`
+05:41:00Z) plus QA ≈ 17 min (05:41:43Z → `8e73691` 05:58:33Z), ≈ 21 min. Gate count: 0 code-review
+rejections, 1 QA Failed. Hours ≈ 0.6. Spend: $19.54 for every chain-017 session over 05:23–06:00Z
+(`cc-usage.py chain 017 --since 2026-11-19T05:23 --until 2026-11-19T06:00`, TOTAL row), which includes
+M5 and M6 work in the same window, so M8 alone is not separated.
+For M8, each further gap below HIGH goes to the plan's Planner batch as a stated limit without a fix
+round, a gate's severity-floor finding excepted. QAF-22, raised before the cap, keeps its fix round.
+Told: `qa-hooks-017`, `code-reviewer-hooks-017`. He is told at this thread's next prompt to him.
