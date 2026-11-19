@@ -402,7 +402,9 @@ Premises — `general-purpose-sonnet` helper, conclusions alone (read from code,
 - X-18: today's draft key is the constant `'message'` (`useLocalStorage.ts:42`), shared by every message
   in the origin; "last writer wins, as today" holds and today is wider.
 
-## 2026-11-19T00:28Z — his four answers on revision 3, by selection; F-24's correction recorded beside them
+## 2026-11-19T00:27Z — his four answers on revision 3, by selection; F-24's correction recorded beside them
+
+(Heading restamped from a typed "00:28Z" the stamp gate refused as future-dated; clock read with `date -u`.)
 
 Put as one selection prompt at 00:2xZ, answered 00:26Z, all by selection (his words: none beyond the
 labels). Ledger: `steering/selection-ledger/2026-11-19.md`, block "2026-11-19T00:26Z — steering-roadmap".
