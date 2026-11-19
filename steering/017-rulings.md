@@ -823,3 +823,17 @@ defects; C1's intended behaviour asked first (security's recommendation); (2) a 
 017's release tip, re-opens code review, QA and UAT on the new tip; (3) record it as a handoff and accept
 for now. Plus his answer on C1: is a signed-in user meant to open another user's personal message by its
 number? Recommendation, this thread's: (1).
+
+## 2026-11-19T08:27Z — standing check: every milestone QA Complete; planner started for the batch fold
+
+Read this turn: M7 QA Complete at website `4b8db9c` (`qa/017-existing-items-backlog-m7-qa.md`, `9a155ee`,
+08:06:09Z; R-44); code review R-43 M7 sub-entry APPROVED (CR-19 gone). Plan revision 7. QA is running
+the effort-final website mutation sweep in a background shell (its pane, 08:27Z). Sessions
+(`cc-usage.py sessions`): QA 336K "shell" (past its 325K threshold, not at a seam: its `/checkpoint` is
+asked at its next idle seam), code reviewer 267K idle, security 293K idle (document committed),
+implementer 207K idle; every wake ARMED. OOM 0. Usage live: session 16%, `weekly_all` 5%.
+- The planner's own fold trigger (its Resumption State: after the last milestone's QA Phase 2 passes) fired
+  at 08:06Z and was not acted on until this check: this thread's lag, about 20 min. `planner-hooks-017`
+  started now (brief `backlog-2026-11-18-briefs/planner-hooks-017-resume.md`), with security L-001, M6's
+  fifth-failure-class Deviation and code review's Round 7 `/preview` assumption to disposition. The access
+  defects (block 08:12Z) stay out of the fold. The critic is started on the planner's revision.
