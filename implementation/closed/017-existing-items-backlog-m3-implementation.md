@@ -2,7 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Active
+Status: Committed
+Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Handoff-At: 1ab3b96 — repos=website; fix round 1 (CR-6, CR-7, CR-8), test-only
 ---
 
@@ -28,6 +29,7 @@ whose fix round `dd26104` is APPROVED (code review round 2 sub-entry, `fb4c5f3`)
 | 2026-11-19T02:29 | implementer-hooks-017 | Fix round 1 on code review Round 3 (REJECTED at `3498ef3`: CR-6, CR-7, CR-8), tests only: the provider's restore cases compare name and data whole, the legacy key's form is asserted as literals, the `1ad625e` reader is run on the tip's string, CR-8 recorded as a deviation. Handoff-At moved to `1ab3b96`. |
 | 2026-11-19T02:33 | implementer-hooks-017 | Code review confirmed the fix APPROVED at `1ab3b96`; at its request the tip-side capture test's source added under `verification/017/impl/m3/`. No website change. |
 | 2026-11-19T03:14 | implementer-hooks-017 | M3 is through (QA Phase 2 PASS at `1ab3b96`, `4fe859b`); the Resumption State removed, the live one is in the M4 document. No website change. |
+| 2026-11-19T19:13 | devops-hooks-017 | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
 
 ## Implementation Summary
 
@@ -321,5 +323,4 @@ M5 and M6 wait on OQ-7 and gate M5-0; M7 last.
 
 ## Resumption State
 
-Removed at the M4 checkpoint: M3 is through (code review APPROVED at `1ab3b96`, QA Phase 2 PASS at `1ab3b96`, `qa/017-existing-items-backlog-m3-qa.md`
-at `4fe859b`). The live Resumption State is in `implementation/017-existing-items-backlog-m4-implementation.md`.
+Closed at devops Stage 1 (2026-11-19T19:13Z); nothing resumes from this document.
