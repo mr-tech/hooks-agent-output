@@ -1053,3 +1053,7 @@ decodeMessage, which it read in `node_modules/pusher-js/src/core/connection/prot
    round on the same file).
 Recipients of the answer: `planner-hooks-017` (registration), `implementer-hooks-017` (a round if 1(a) or 2(b)), `code-reviewer-hooks-017` (its review
 of `42d15de` is superseded under 1(a)), and `uat-hooks-017` (the re-walk's scope).
+- 11:12Z: code review Round 9 **REJECTED** `42d15de` on CR-20 MEDIUM (agent-output `d8aa235`, plan R-49 `9aea256`). CR-20 is the same collision, which the reviewer calls a
+  regression of M2-c: its probe is red at `42d15de` and green at `4b8db9c`. Its remedy is item 1(a)'s. The reviewer sent CR-20 to the implementer, and this thread held the implementer from any
+  code change until his answer, since the remedy touches `shared.ts` outside M2's surfaces, which the planner calls a scope delta. With this verdict, 1(b) means changing M2-c so that
+  code which fails it passes.
