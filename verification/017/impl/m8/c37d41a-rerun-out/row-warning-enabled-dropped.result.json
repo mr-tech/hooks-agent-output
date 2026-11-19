@@ -1,0 +1,20 @@
+{
+ "mutant": {
+  "name": "row-warning-enabled-dropped",
+  "edits": [
+   {
+    "file": "src/components/WarningDialog.tsx",
+    "old": "useDialogEnter(onConfirm, open)",
+    "new": "useDialogEnter(onConfirm)"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ "exit": 0,
+ "failed": [],
+ "verdict": "SURVIVED"
+}

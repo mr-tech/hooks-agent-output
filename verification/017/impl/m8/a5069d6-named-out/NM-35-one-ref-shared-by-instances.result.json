@@ -1,0 +1,31 @@
+{
+ "mutant": {
+  "name": "NM-35-one-ref-shared-by-instances",
+  "edits": [
+   {
+    "file": "src/utils/hooks/useDialogEnter.ts",
+    "old": "const ref = useRef<HTMLDivElement>(null);",
+    "new": "const holder = globalThis as unknown as { sharedRef?: { current: HTMLDivElement | null } };\n  holder.sharedRef ??= { current: null };\n  const ref = holder.sharedRef as unknown as ReturnType<typeof useRef<HTMLDivElement>>;"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "ImageUploader, the Enter key beside the editor's update prompt, with an image loaded answers only the update prompt with focus on its dialog element",
+  "ImageUploader, the Enter key beside the editor's update prompt, with an image loaded answers only the update prompt with focus on its message text",
+  "ImageUploader, the Enter key beside the editor's update prompt, with an image loaded answers only the image dialog with focus on its dialog element",
+  "ImageUploader, the Enter key with two instances mounted, as the edit page mounts them answers only the open instance when the first is the open one",
+  "WarningDialog, the Enter key beside the editor's update prompt answers only the update prompt with focus on its dialog element",
+  "WarningDialog, the Enter key beside the editor's update prompt answers only the update prompt with focus on its message text",
+  "WarningDialog, the Enter key beside the editor's update prompt answers only the warning with focus on its dialog element",
+  "WarningDialog, the Enter key beside the editor's update prompt answers only the warning with focus on its message text",
+  "the link prompt and the editor's own prompt answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first",
+  "the link prompt and the editor's own prompt answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first"
+ ],
+ "verdict": "killed"
+}

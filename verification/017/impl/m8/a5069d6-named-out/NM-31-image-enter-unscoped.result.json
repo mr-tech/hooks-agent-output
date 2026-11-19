@@ -1,0 +1,28 @@
+{
+ "mutant": {
+  "name": "NM-31-image-enter-unscoped",
+  "edits": [
+   {
+    "file": "src/components/ImageUploader.tsx",
+    "old": "import useDialogEnter from '~/utils/hooks/useDialogEnter';",
+    "new": "import { useRef } from 'react';\nimport { useHotkeys } from 'react-hotkeys-hook';"
+   },
+   {
+    "file": "src/components/ImageUploader.tsx",
+    "old": "const ref = useDialogEnter(submit, isOpen);",
+    "new": "const ref = useRef<HTMLDivElement>(null);\n  useHotkeys(['enter'], () => { submit?.(); }, { enabled: isOpen }, [isOpen, submit]);"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "ImageUploader, the Enter key beside the editor's update prompt, with an image loaded answers only the update prompt with focus on its dialog element",
+  "ImageUploader, the Enter key beside the editor's update prompt, with an image loaded answers only the update prompt with focus on its message text"
+ ],
+ "verdict": "killed"
+}

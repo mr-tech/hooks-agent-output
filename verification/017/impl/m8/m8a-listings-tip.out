@@ -1,0 +1,20 @@
+# tip c37d41a
+# git grep -n "useHotkeys(\[.enter.\]"
+src/utils/hooks/useDialogEnter.ts:9:  useHotkeys(['enter'], () => {
+# git grep -n "addEventListener('keydown'"
+# git grep -n "useDocumentEventListener('keydown'"
+src/components/EmojiPicker/Root.tsx:58:  useDocumentEventListener('keydown', (e: KeyboardEvent) => {
+# git grep -c "tagName !== '~/components/Button'" -- src (M8-d)
+exit=1
+# git grep -n "useHotkeys(" production, all forms
+src/app/message/_layout/Sidebar.tsx:44:  useHotkeys('esc', closeSidebar, { enabled: showSidebar }, [showSidebar]);
+src/app/message/m/[id]/_layout/Navigation.tsx:100:  useHotkeys('esc', closeSidebar, { enabled: showSidebar }, [showSidebar]);
+src/app/message/m/[id]/edit/page.tsx:80:    useHotkeys(keys, callback, {
+src/utils/hooks/useDialogEnter.ts:9:  useHotkeys(['enter'], () => {
+# git grep -n "useDialogEnter" production
+src/components/ConfirmationDialog.tsx:7:import useDialogEnter from '~/utils/hooks/useDialogEnter';
+src/components/ConfirmationDialog.tsx:14:  const ref = useDialogEnter(onConfirm);
+src/components/ImageUploader.tsx:17:import useDialogEnter from '~/utils/hooks/useDialogEnter';
+src/components/ImageUploader.tsx:86:  const ref = useDialogEnter(submit, isOpen);
+src/components/WarningDialog.tsx:5:import useDialogEnter from '~/utils/hooks/useDialogEnter';
+src/components/WarningDialog.tsx:19:  const ref = useDialogEnter(onConfirm, open);

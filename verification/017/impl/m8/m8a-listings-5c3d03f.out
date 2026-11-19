@@ -1,0 +1,10 @@
+# git grep -n "useHotkeys(\['enter'\]"
+src/components/ConfirmationDialog.tsx:16:  useHotkeys(['enter'], () => {
+src/components/ImageUploader.tsx:86:  useHotkeys(['enter'], () => {
+src/components/WarningDialog.tsx:19:  useHotkeys(['enter'], () => {
+# git grep -n "addEventListener('keydown'"
+# git grep -n "useDocumentEventListener('keydown'"
+src/components/EmojiPicker/Root.tsx:58:  useDocumentEventListener('keydown', (e: KeyboardEvent) => {
+# git grep -c "tagName !== '~/components/Button'"
+src/components/ImageUploader.tsx:1
+src/components/WarningDialog.tsx:1

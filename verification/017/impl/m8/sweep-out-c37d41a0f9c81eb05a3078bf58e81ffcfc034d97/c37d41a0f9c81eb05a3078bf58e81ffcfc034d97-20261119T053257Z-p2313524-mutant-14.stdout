@@ -1,0 +1,29 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7af6b2ec-e8bc-4694-9cc1-2624ec1960ba/scratchpad/mr-work/20261119T053257Z-p2313524/mutant-14
+
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (19 tests | 8 failed) 618ms
+       × with focus on its dialog element runs only what that control does 107ms
+       × sets the loaded image when Enter is pressed with focus off its buttons 18ms
+       × sets an image that loaded after the dialog opened when Enter is pressed off its buttons 26ms
+       × answers only the update prompt with focus on its dialog element 41ms
+       × answers only the update prompt with focus on its message text 46ms
+       × answers only the image dialog with focus on its dialog element 36ms
+       × answers only the open instance when the first is the open one 23ms
+       × answers only the open instance when the second is the open one 22ms
+ ❯ |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx (12 tests | 7 failed) 1429ms
+       × with focus on its dialog element runs only what that control does 99ms
+       × with focus on its message text runs only what that control does 30ms
+       × answers only the update prompt with focus on its dialog element 35ms
+       × answers only the update prompt with focus on its message text 32ms
+       × answers only the warning with focus on its dialog element 29ms
+       × answers only the warning with focus on its message text 31ms
+       × leaves the warning answerable on its own after the update prompt is answered 1030ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 2 failed) 1404ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 60ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 47ms
+
+ Test Files  3 failed (3)
+      Tests  17 failed | 47 passed (64)
+   Start at  05:34:05
+   Duration  3.50s (transform 885ms, setup 74ms, import 2.96s, tests 3.45s, environment 1.80s)
+

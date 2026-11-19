@@ -1,0 +1,22 @@
+{
+ "mutant": {
+  "name": "NM-36-enable-on-form-tags",
+  "edits": [
+   {
+    "file": "src/utils/hooks/useDialogEnter.ts",
+    "old": "{ enabled }, [enabled, answer]",
+    "new": "{ enabled, enableOnFormTags: true }, [enabled, answer]"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "ImageUploader, the Enter key alone, with an image loaded with focus on its URL field runs only what that control does"
+ ],
+ "verdict": "killed"
+}

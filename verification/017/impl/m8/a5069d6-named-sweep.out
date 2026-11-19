@@ -1,0 +1,18 @@
+NM-30-warning-enter-unscoped exit 1 failed cases 3 killed
+NM-31-image-enter-unscoped exit 1 failed cases 2 killed
+NM-32-gate-accepts-any-dialog exit 1 failed cases 10 killed
+NM-33-gate-tests-content-wrapper-only exit 1 failed cases 13 killed
+NM-34-image-enabled-while-closed exit 0 failed cases 0 SURVIVED
+NM-35-one-ref-shared-by-instances exit 1 failed cases 10 killed
+NM-36-enable-on-form-tags exit 1 failed cases 1 killed
+NM-37-submit-with-no-image exit 1 failed cases 1 killed
+NM-38-lift-changes-confirmation-scope exit 1 failed cases 13 killed
+row-hook-enabled-default-false exit 1 failed cases 7 killed
+row-hook-deps-empty exit 1 failed cases 1 killed
+row-hook-gate-negated exit 1 failed cases 17 killed
+row-hook-gate-removed exit 1 failed cases 10 killed
+row-warning-ref-unattached exit 1 failed cases 5 killed
+row-image-ref-unattached exit 1 failed cases 6 killed
+row-confirmation-ref-unattached exit 1 failed cases 7 killed
+row-warning-enabled-dropped exit 0 failed cases 0 SURVIVED
+done 0

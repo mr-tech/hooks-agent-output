@@ -1,0 +1,28 @@
+{
+ "mutant": {
+  "name": "row-confirmation-ref-unattached",
+  "edits": [
+   {
+    "file": "src/components/ConfirmationDialog.tsx",
+    "old": "<div ref={ref} className=\"contents\">",
+    "new": "<div className=\"contents\">"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "ImageUploader, the Enter key beside the editor's update prompt, with an image loaded answers only the update prompt with focus on its dialog element",
+  "ImageUploader, the Enter key beside the editor's update prompt, with an image loaded answers only the update prompt with focus on its message text",
+  "WarningDialog, the Enter key beside the editor's update prompt answers only the update prompt with focus on its dialog element",
+  "WarningDialog, the Enter key beside the editor's update prompt answers only the update prompt with focus on its message text",
+  "WarningDialog, the Enter key beside the editor's update prompt leaves the warning answerable on its own after the update prompt is answered",
+  "the link prompt and the editor's own prompt answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first",
+  "the link prompt and the editor's own prompt answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first"
+ ],
+ "verdict": "killed"
+}

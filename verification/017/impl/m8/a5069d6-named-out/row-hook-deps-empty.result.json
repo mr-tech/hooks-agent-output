@@ -1,0 +1,22 @@
+{
+ "mutant": {
+  "name": "row-hook-deps-empty",
+  "edits": [
+   {
+    "file": "src/utils/hooks/useDialogEnter.ts",
+    "old": "[enabled, answer]",
+    "new": "[]"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "ImageUploader, the Enter key alone, with no image loaded sets an image that loaded after the dialog opened when Enter is pressed off its buttons"
+ ],
+ "verdict": "killed"
+}

@@ -1,0 +1,267 @@
+[
+ {
+  "name": "NM-30-warning-enter-unscoped",
+  "edits": [
+   {
+    "file": "src/components/WarningDialog.tsx",
+    "old": "import useDialogEnter from '~/utils/hooks/useDialogEnter';",
+    "new": "import { useRef } from 'react';\nimport { useHotkeys } from 'react-hotkeys-hook';"
+   },
+   {
+    "file": "src/components/WarningDialog.tsx",
+    "old": "const ref = useDialogEnter(onConfirm, open);",
+    "new": "const ref = useRef<HTMLDivElement>(null);\n  useHotkeys(['enter'], () => { onConfirm(); }, { enabled: open }, [open, onConfirm]);"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "NM-31-image-enter-unscoped",
+  "edits": [
+   {
+    "file": "src/components/ImageUploader.tsx",
+    "old": "import useDialogEnter from '~/utils/hooks/useDialogEnter';",
+    "new": "import { useRef } from 'react';\nimport { useHotkeys } from 'react-hotkeys-hook';"
+   },
+   {
+    "file": "src/components/ImageUploader.tsx",
+    "old": "const ref = useDialogEnter(submit, isOpen);",
+    "new": "const ref = useRef<HTMLDivElement>(null);\n  useHotkeys(['enter'], () => { submit?.(); }, { enabled: isOpen }, [isOpen, submit]);"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "NM-32-gate-accepts-any-dialog",
+  "edits": [
+   {
+    "file": "src/utils/hooks/useDialogEnter.ts",
+    "old": "ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)",
+    "new": "document.activeElement?.closest('[role=\"dialog\"]')"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "NM-33-gate-tests-content-wrapper-only",
+  "edits": [
+   {
+    "file": "src/utils/hooks/useDialogEnter.ts",
+    "old": "ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)",
+    "new": "ref.current?.contains(document.activeElement)"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "NM-34-image-enabled-while-closed",
+  "edits": [
+   {
+    "file": "src/components/ImageUploader.tsx",
+    "old": "useDialogEnter(submit, isOpen)",
+    "new": "useDialogEnter(submit)"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "NM-35-one-ref-shared-by-instances",
+  "edits": [
+   {
+    "file": "src/utils/hooks/useDialogEnter.ts",
+    "old": "const ref = useRef<HTMLDivElement>(null);",
+    "new": "const holder = globalThis as unknown as { sharedRef?: { current: HTMLDivElement | null } };\n  holder.sharedRef ??= { current: null };\n  const ref = holder.sharedRef as unknown as ReturnType<typeof useRef<HTMLDivElement>>;"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "NM-36-enable-on-form-tags",
+  "edits": [
+   {
+    "file": "src/utils/hooks/useDialogEnter.ts",
+    "old": "{ enabled }, [enabled, answer]",
+    "new": "{ enabled, enableOnFormTags: true }, [enabled, answer]"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "NM-37-submit-with-no-image",
+  "edits": [
+   {
+    "file": "src/components/ImageUploader.tsx",
+    "old": "useDialogEnter(submit, isOpen)",
+    "new": "useDialogEnter(onSetImage, isOpen)"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "NM-38-lift-changes-confirmation-scope",
+  "edits": [
+   {
+    "file": "src/utils/hooks/useDialogEnter.ts",
+    "old": "ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)",
+    "new": "ref.current?.contains(document.activeElement)"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "row-hook-enabled-default-false",
+  "edits": [
+   {
+    "file": "src/utils/hooks/useDialogEnter.ts",
+    "old": "enabled = true",
+    "new": "enabled = false"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "row-hook-deps-empty",
+  "edits": [
+   {
+    "file": "src/utils/hooks/useDialogEnter.ts",
+    "old": "[enabled, answer]",
+    "new": "[]"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "row-hook-gate-negated",
+  "edits": [
+   {
+    "file": "src/utils/hooks/useDialogEnter.ts",
+    "old": "if (ref.current?.closest",
+    "new": "if (!ref.current?.closest"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "row-hook-gate-removed",
+  "edits": [
+   {
+    "file": "src/utils/hooks/useDialogEnter.ts",
+    "old": "if (ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)) answer?.();",
+    "new": "answer?.();"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "row-warning-ref-unattached",
+  "edits": [
+   {
+    "file": "src/components/WarningDialog.tsx",
+    "old": "<div ref={ref} className=\"contents\">",
+    "new": "<div className=\"contents\">"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "row-image-ref-unattached",
+  "edits": [
+   {
+    "file": "src/components/ImageUploader.tsx",
+    "old": "<div ref={ref} className=\"contents\">",
+    "new": "<div className=\"contents\">"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "row-confirmation-ref-unattached",
+  "edits": [
+   {
+    "file": "src/components/ConfirmationDialog.tsx",
+    "old": "<div ref={ref} className=\"contents\">",
+    "new": "<div className=\"contents\">"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "row-warning-enabled-dropped",
+  "edits": [
+   {
+    "file": "src/components/WarningDialog.tsx",
+    "old": "useDialogEnter(onConfirm, open)",
+    "new": "useDialogEnter(onConfirm)"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ }
+]

@@ -1,0 +1,22 @@
+{
+ "mutant": {
+  "name": "NM-37-submit-with-no-image",
+  "edits": [
+   {
+    "file": "src/components/ImageUploader.tsx",
+    "old": "useDialogEnter(submit, isOpen)",
+    "new": "useDialogEnter(onSetImage, isOpen)"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "ImageUploader, the Enter key alone, with no image loaded with focus on its dialog element runs only what that control does"
+ ],
+ "verdict": "killed"
+}

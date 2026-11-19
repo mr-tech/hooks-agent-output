@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/7af6b2ec-e8bc-4694-9cc1-2624ec1960ba/scratchpad/mr-work/20261119T053257Z-p2313524/mutant-9
+
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (19 tests | 1 failed) 564ms
+       × with focus on Clear runs only what that control does 30ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 63 passed (64)
+   Start at  05:33:41
+   Duration  3.67s (transform 828ms, setup 59ms, import 2.87s, tests 2.59s, environment 2.05s)
+

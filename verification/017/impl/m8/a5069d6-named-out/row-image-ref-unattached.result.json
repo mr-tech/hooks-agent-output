@@ -1,0 +1,27 @@
+{
+ "mutant": {
+  "name": "row-image-ref-unattached",
+  "edits": [
+   {
+    "file": "src/components/ImageUploader.tsx",
+    "old": "<div ref={ref} className=\"contents\">",
+    "new": "<div className=\"contents\">"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "ImageUploader, the Enter key alone, with an image loaded with focus on its dialog element runs only what that control does",
+  "ImageUploader, the Enter key alone, with an image loaded sets the loaded image when Enter is pressed with focus off its buttons",
+  "ImageUploader, the Enter key alone, with no image loaded sets an image that loaded after the dialog opened when Enter is pressed off its buttons",
+  "ImageUploader, the Enter key beside the editor's update prompt, with an image loaded answers only the image dialog with focus on its dialog element",
+  "ImageUploader, the Enter key with two instances mounted, as the edit page mounts them answers only the open instance when the first is the open one",
+  "ImageUploader, the Enter key with two instances mounted, as the edit page mounts them answers only the open instance when the second is the open one"
+ ],
+ "verdict": "killed"
+}

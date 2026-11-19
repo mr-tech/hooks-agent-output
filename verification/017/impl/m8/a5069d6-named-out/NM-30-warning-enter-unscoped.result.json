@@ -1,0 +1,29 @@
+{
+ "mutant": {
+  "name": "NM-30-warning-enter-unscoped",
+  "edits": [
+   {
+    "file": "src/components/WarningDialog.tsx",
+    "old": "import useDialogEnter from '~/utils/hooks/useDialogEnter';",
+    "new": "import { useRef } from 'react';\nimport { useHotkeys } from 'react-hotkeys-hook';"
+   },
+   {
+    "file": "src/components/WarningDialog.tsx",
+    "old": "const ref = useDialogEnter(onConfirm, open);",
+    "new": "const ref = useRef<HTMLDivElement>(null);\n  useHotkeys(['enter'], () => { onConfirm(); }, { enabled: open }, [open, onConfirm]);"
+   }
+  ],
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "WarningDialog, the Enter key beside the editor's update prompt answers only the update prompt with focus on its dialog element",
+  "WarningDialog, the Enter key beside the editor's update prompt answers only the update prompt with focus on its message text",
+  "WarningDialog, the Enter key beside the editor's update prompt leaves the warning answerable on its own after the update prompt is answered"
+ ],
+ "verdict": "killed"
+}

@@ -1,0 +1,398 @@
+{
+ "sha": "c37d41a0f9c81eb05a3078bf58e81ffcfc034d97",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-mutants-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97.json",
+ "command": [
+  "unshare",
+  "-rn",
+  "npx",
+  "vitest",
+  "run",
+  "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+  "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+  "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 200.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-mutants-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97.json",
+   "blob": "b3661e4c9c85b3a999fed9bc4aa41291edb664f0"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-control-1.stderr",
+   "seconds": 4.93,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 64,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "ImageUploader.tsx:97:true",
+   "run": "mutant-1",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "true",
+    "line": 97,
+    "text": "<div className={styles.flex({ col: true, gap: 2 })}>"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.61,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-1.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:97:num",
+   "run": "mutant-2",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 97,
+    "text": "<div className={styles.flex({ col: true, gap: 2 })}>"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.61,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-2.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:101:true",
+   "run": "mutant-3",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "true",
+    "line": 101,
+    "text": "outerClassName={styles.flex({ col: true, gap: 1, grow: true })}"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.65,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-3.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:101:num",
+   "run": "mutant-4",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 101,
+    "text": "outerClassName={styles.flex({ col: true, gap: 1, grow: true })}"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.65,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-4.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:101:true:2",
+   "run": "mutant-5",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "true",
+    "line": 101,
+    "text": "outerClassName={styles.flex({ col: true, gap: 1, grow: true })}"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.52,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-5.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:110:not",
+   "run": "mutant-6",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 110,
+    "text": "{!localImage ? null : ("
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.72,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-6.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:116:true",
+   "run": "mutant-7",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "true",
+    "line": 116,
+    "text": "className={classNames(styles.flex({ c: true }), 'relative m-auto h-fit max-w-[16rem] overflow-hidden rounded')}"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.69,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-7.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:121:false",
+   "run": "mutant-8",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "false",
+    "line": 121,
+    "text": "draggable={false}"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.74,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-8.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:140:not",
+   "run": "mutant-9",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 140,
+    "text": "isDisabled={!localImage}"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on Clear runs only what that control does"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.7,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-9.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-9.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:147:not",
+   "run": "mutant-10",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 147,
+    "text": "isDisabled={!localImage && !image}"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.65,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-10.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-10.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:147:&&",
+   "run": "mutant-11",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 147,
+    "text": "isDisabled={!localImage && !image}"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.57,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-11.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-11.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:147:not:2",
+   "run": "mutant-12",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 147,
+    "text": "isDisabled={!localImage && !image}"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.73,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-12.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-12.stderr"
+  },
+  {
+   "id": "useDialogEnter.ts:6:true",
+   "run": "mutant-13",
+   "file": "src/utils/hooks/useDialogEnter.ts",
+   "tests": [],
+   "carried": {
+    "op": "true",
+    "line": 6,
+    "text": "export default (answer: (() => void) | undefined, enabled = true) => {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the update prompt with focus on its dialog element",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the update prompt with focus on its message text",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the update prompt with focus on its dialog element",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the update prompt with focus on its message text",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > leaves the warning answerable on its own after the update prompt is answered",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.55,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-13.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-13.stderr"
+  },
+  {
+   "id": "useDialogEnter.ts:10:if-false",
+   "run": "mutant-14",
+   "file": "src/utils/hooks/useDialogEnter.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 10,
+    "text": "if (ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)) answer?.();"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on its dialog element runs only what that control does",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > sets the loaded image when Enter is pressed with focus off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the update prompt with focus on its dialog element",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the update prompt with focus on its message text",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the image dialog with focus on its dialog element",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the first is the open one",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the second is the open one",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > alone > with focus on its dialog element runs only what that control does",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > alone > with focus on its message text runs only what that control does",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the update prompt with focus on its dialog element",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the update prompt with focus on its message text",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the warning with focus on its dialog element",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the warning with focus on its message text",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > leaves the warning answerable on its own after the update prompt is answered",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.53,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-14.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/impl/m8/sweep-out-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053257Z-p2313524-mutant-14.stderr"
+  }
+ ],
+ "score": "3 of 14 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; sweep-mutants-c37d41a0f9c81eb05a3078bf58e81ffcfc034d97.json (blob b3661e4c9c85b3a999fed9bc4aa41291edb664f0))"
+}
