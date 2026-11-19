@@ -1,0 +1,11 @@
+part 1, pairs of distinct hash strings and their delivered values:
+  1e10 -> 10000000000 | 10e9 -> 10000000000 | equal true | both int32 hash forms true
+  100000 -> 100000 | 1e5 -> 100000 | equal true | both int32 hash forms true
+  1e999 -> Infinity | 7e9999 -> Infinity | equal true | both int32 hash forms true
+  -1e999 -> -Infinity | -5e72712 -> -Infinity | equal true | both int32 hash forms true
+  0 -> 0 | 0e7 -> 0 | equal true | both int32 hash forms false
+  6286e037 -> 6.286e+40 | 62860e36 -> 6.286e+40 | equal true | both int32 hash forms true
+part 2, uniform-int32 model, 20000000 samples (xorshift32):
+  number-shaped share: 5.916%
+  pairs of distinct hashes reading equal: 17245140214 of 2.000e+14 pairs = 8.623e-5 per pair
+  samples reading +/-Infinity: 262642 (1.3132%)

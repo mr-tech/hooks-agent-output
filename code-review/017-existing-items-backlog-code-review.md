@@ -2,10 +2,10 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Reviewed-At: "4b8db9c,8512a1d — repos=website,preview-image-generator; Round 8, M7 read at website 4b8db9c (implementation document fc87937, Handoff-At f83f2ca); Round 7 sub-entry, M6 record fix at agent-output 008468b; Round 7, M6 (implementation document 4c4e948; record change verification/015/pig-host-read.sh at agent-output 4c4e948); website was last reviewed at 4b8db9c, Round 6 sub-entry, M5 title fix (record line 838c571); Round 6, M5, was reviewed at f83f2ca (implementation document 521a89f); M8 was confirmed at 6555f65 (Round 5 sub-entry, implementation document d71c462); Round 5, M8, was reviewed at c37d41a (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
+Reviewed-At: "42d15de,8512a1d — repos=website,preview-image-generator; Round 9, M2 fix round 3 at website 42d15de (implementation document 9a950f3); Round 8, M7 read at website 4b8db9c (implementation document fc87937, Handoff-At f83f2ca); Round 7 sub-entry, M6 record fix at agent-output 008468b; Round 7, M6 (implementation document 4c4e948; record change verification/015/pig-host-read.sh at agent-output 4c4e948); website was last reviewed at 4b8db9c, Round 6 sub-entry, M5 title fix (record line 838c571); Round 6, M5, was reviewed at f83f2ca (implementation document 521a89f); M8 was confirmed at 6555f65 (Round 5 sub-entry, implementation document d71c462); Round 5, M8, was reviewed at c37d41a (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
 Status: In Review
-Round: 8
-Verdict: APPROVED_WITH_COMMENTS
+Round: 9
+Verdict: REJECTED
 ---
 
 # Code Review: 017 — the existing-items backlog
@@ -39,6 +39,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-19T07:42 | implementer-hooks-017 (QAF-24 lane fix, agent-output `008468b`; website unchanged at `4b8db9c`) | Round 6 sub-entry, continued: scoped check of the lane fix for QA's QAF-24 | Round 6 sub-entry, continued: the scoped check passes. I re-ran the lane: control 11 of 11, exit 0, and the `now()`, `statement_timestamp()` and `transaction_timestamp()` mutants each fail exactly P1 as an assertion (`verification/017/code-review/m5/qaf24-rerun/`), on real Postgres 16 with no leftover container. QAF-24's closure is QA's. The M5 verdict does not move. |
 | 2026-11-19T07:59 | steering-roadmap-hooks (cue 07:5xZ; resume brief item 2); implementer-hooks-017 (M7 document `fc87937`) | Round 8: review M7 | Round 8, M7 only. APPROVED_WITH_COMMENTS. The criteria assessed are M7-a, M7-b, M7-c and release readiness, as revision 7 states them at round open. I read M7-b at the actual tip `4b8db9c` (the document's `Handoff-At` is `f83f2ca`): 59 files, 0 rule counts above the base, two instruments agreeing, and 3 of 3 planted controls firing. CR-1's file reads 7 → 5. CR-19 LOW is a record line. Captures are in `verification/017/code-review/m7/`. The lint ran read-only in the shared tree at `4b8db9c`, which was not moved. |
 | 2026-11-19T08:00 | implementer-hooks-017 (record fix agent-output `97e13e0`) | Round 8 sub-entry: confirm CR-19 | Round 8 sub-entry: APPROVED. `97e13e0` changes only the M7 document (+2 −1): the Deviations line and a changelog row citing Round 8's `4b8db9c` reading. CR-19 is gone and collapsed to its disposition line (written with the Edit tool). The website is unchanged at `4b8db9c`. |
+| 2026-11-19T11:12 | implementer-hooks-017 (M2 document `9a950f3`, fix round 3 for UAT-1) | Round 9: review M2's production fix at website `42d15de` | Round 9, M2 fix round 3. REJECTED on CR-20 MEDIUM: comparing the delivered value lets distinct hashes that deliver as the same number suppress another tab's notice (M2-c, hazard 4). My probe is red at `42d15de` on both the shown-content and the record compare (pair `p10`/`p20`, both `-Infinity`) and green at `4b8db9c`. The criteria assessed are M2-a, M2-b, M2-c and the Window (`### M2`, unchanged from revision 7 to 9). The implementer's two questions are answered in the round. Captures are in `verification/017/code-review/m2-uat1/`. The probe ran in `git archive` exports in the scratchpad. |
 
 ## Scope and Tree
 
@@ -549,6 +550,29 @@ I am a fresh session, resumed from the Resumption State below (agent-output `225
 
 Not owed. M7 adds no source and no test. The record instrument's control is extended above.
 
+## Round 9 — M2 fix round 3 (UAT-1) at website `42d15de`
+
+### Scope and tree
+
+- **Criteria assessed** (recorded before the diff was read): M2-a (absence over AN-1's eleven members in both delivery orders), M2-b (an edit typed in flight raises no notice for the tab's own broadcast, in both orders), M2-c (the cross-tab notice is kept for every broadcast equal to neither the current content nor a record, with its listed members), and the Window (a record lives from the send until an equal broadcast or the mutation's error, with residue classes (1) and (2)), as plan § Plan `### M2` states them. The section is byte-identical at revision 7 (`6ade256`) and revision 9 (HEAD, last commit `bcc23c6`; `cmp` of the extracted section).
+- **Why a numbered round**: the fix changes production code (`usePusher.ts`) for a defect UAT observed (UAT-1). That is outside every earlier finding's scope, so the whole delta `4b8db9c..42d15de` is reviewed as a first review of that tree.
+- **Tree**: website `42d15de` (`chain/017-existing-items-backlog`, shared HEAD at round open, 11:06Z). Commits `8e1ccef` (fix) and `42d15de` (test). `git diff --numstat`: `usePusher.ts` +13 −3, `MessageProvider.own-save-notice.test.tsx` +56 −6.
+- **Document**: `implementation/017-existing-items-backlog-m2-implementation.md` § "Fix Round 3", agent-output `9a950f3`, `Handoff-At: 42d15de`.
+- **No running instance**: the change alters when an existing dialog shows. It adds no security boundary or irreversible action. The mechanism was exercised by mounting the real provider in a probe (below).
+
+### Instruments and reproduction (Round 9)
+
+| Claim under review | Instrument (this round) | Result |
+|---|---|---|
+| The cause: the handler receives a number for a number-shaped hash | Read the libraries at their installed versions. `pusher@5.1.3` `lib/events.js` `ensureJSON` sends string data as-is. `pusher-js@8.3.0` `dist/web/pusher.js` `decodeMessage` runs `JSON.parse(messageData.data)` on string data and keeps the string on failure. | Confirmed. `6286e037` arrives as `6.286e+40`, and `-5e72712` arrives as `-Infinity`. |
+| The fix keeps M2-c, "for every broadcast whose hash equals neither T's current content nor any record T holds, T raises the notice" | The handler now compares `asDelivered(record) === hash` and `hash !== asDelivered(shownHash)`. That is equality of the delivered value, not of the hash. My `m2-uat1/collision.mjs`: exact pairs of distinct int32 hash strings that read equal, plus a uniform-int32 model of 2×10⁷ samples. | Not kept for colliding hashes. Exact pairs: `1e10`/`10e9`, `100000`/`1e5`, `6286e037`/`62860e36`, and every hash whose exponent overflows (`-5e72712`, UAT's own frame, reads as `-Infinity`, like `-1e999`). Model (a hypothesis about the real distribution, not a measurement of it): 5.9% of hashes are number-shaped, 1.3% read as ±Infinity, and two distinct hashes read equal at 8.6×10⁻⁵ per pair (`collision.out`). This is CR-20. |
+| The collision suppresses a real cross-tab notice | `m2-uat1/probe-block.tsx` appended to a copy of the file under test in `git archive` exports (the m1 probe config, jsdom). It searches `p0…` for two contents whose real `remoteHash` values differ but deliver equal, then delivers as pusher-js does. | At `42d15de`: pair `p10`=`-23e49110`, `p20`=`-2337e571`, both delivered `-Infinity`. Both cases fail as `AssertionError: expected [] to have a length of 1 but got +0`: shown content `p10` with a remote save of `p20`, and a held record of `p10` with a remote save of `p20` (`probe-tip.out`, exit 1). At `4b8db9c`, both pass (`probe-base.out`, exit 0). The fix introduces the regression. A colliding pair appears within the first 21 contents tried. |
+| The test's `asPusherDelivers` as an oracle (the implementer's question 2) | Compared against `decodeMessage` above | It transcribes the transport (third-party), not the code under test, and the document names the library and the path it read. The expectations are literals (notice or no notice, plus each fixture's hash asserted as a literal), so the case cannot pass by sharing the production formula: a production compare in any other form fails them. Acceptable, and not a finding. Its blind spot is the one CR-20 names: no case delivers two distinct hashes that read equal. |
+| The residue as the document states it (the implementer's question 1) | Read against the probe | Understated. The document says a collision needs "a record this tab still holds, while that save is in flight". The probe's first case holds no record and no save: the shown-content compare alone suppresses the notice. |
+| The producer-side remedy the document names | `ensureJSON` above, and one producer (`git grep -n "pusher.trigger" 42d15de -- src`: `shared.ts:274`) with one consumer (`usePusher.ts`) | Exact. `pusher.trigger(…, JSON.stringify(hashMessage(message)))` arrives as the original string, so the consumer compares strings and `asDelivered` goes. Deploy order: one Vercel deploy carries both sides. A tab still on the production client (`1ad625e`, string compare) gets the exact string, which is better than today. A new client facing the old server during the deploy window gets today's numbers, and shows today's behaviour only for that window. |
+| Conventions | `convention-check.js website --since=4b8db9c` (`convention-check-since-4b8db9c.out`), plus the ID-token class by hand over the added titles | 0 FAIL, 0 CANDIDATE, 18 SKIP (17 `.playwright-mcp` PNGs and the ID-token limb). By hand: the `it.each` rows' `c24`, `c60` and so on are fixture content (data), outside the token class. The new titles name behaviours. No comment was added. |
+| Suite, typecheck, sweep | The implementer's captures, read and not re-run (QA's) | The document reports 1829/1829 with exit 0, typecheck exit 0, red 13 of 50 before the fix, and a sweep of 8 of 8 at `42d15de`. |
+
 ## Findings
 
 ### Critical
@@ -580,6 +604,19 @@ CR-9 HIGH Round 4
   - **Pre-existing members**: `ImageUploader` and `WarningDialog` are routed to `agent-output/INBOX.md` (they are not M4's). Applying the Preferred form to all three is cheaper than leaving two copies of the class.
 
 ### Medium
+
+CR-20 MEDIUM Round 9
+**Distinct hashes read as equal**: the fix compares each broadcast by its delivered value. pusher-js `JSON.parse`s number-shaped hash strings, so two different hashes can deliver the same number, and every hash whose exponent overflows delivers ±Infinity. A save from another tab whose hash differs from the shown content, or from a held record, but delivers equal raises no "Message Update Detected". That breaks M2-c ("equals neither") and hazard 4's cross-tab protection, and at `4b8db9c` the same case raised the notice.
+- **Location**: `src/providers/MessageProvider/usePusher.ts` at `42d15de`: `asDelivered`, the handler's `findIndex((record) => asDelivered(record) === hash)` and `hash !== asDelivered(shownHash)`. The producer is `src/server/api/utils/shared.ts` `upsertMessage`'s `pusher.trigger(…, hashMessage(message))`.
+- **Class**: an identity compare across the Pusher wire that uses a lossy decoded form instead of the value sent.
+- **Enumeration**: `git grep -n "pusher.trigger\|channel.bind" 42d15de -- src ':!**/__tests__/**'` gives 2 lines: 1 producer and 1 consumer, so 1 wire and 2 compare sites (the record and the shown hash). The members are measured in `verification/017/code-review/m2-uat1/collision.out` (exact pairs; 1.3% of hashes in the ±Infinity classes under a uniform-int32 model; 8.6×10⁻⁵ per pair, a model and not the real hash distribution). The predicate cannot see a Pusher producer or consumer reached through a wrapper or a dynamic event name. The grep found none.
+- **Falsifier, run**: `m2-uat1/probe-block.tsx`. At `42d15de` both cases fail as assertions (pair `p10`/`p20`, both `-Infinity`). At `4b8db9c` both pass.
+- **Severity basis**: a behaviour the change claims to keep (M2-c, "Not changed: … M2-c's wording") with no case that fails when it is lost: the severity floor. The rate is the model's figure, not a production measurement.
+- **Required Action**:
+  - **Preferred (structural; the document's own "exact route")**: the producer sends `JSON.stringify(hashMessage(message))`, which pusher-js decodes back to the exact string. The consumer goes back to exact string equality: remove `asDelivered`, and give the parameter the type `unknown` with a `typeof hash === 'string'` guard. The records and `forgetOwnSave` stay unchanged. This edits M5's surface `shared.ts` by one argument, and it is the only producer. Callers under this form: the consumer (above), and any tab still on the production client, which then gets the exact string and is better off.
+  - **Minimum**: none exact on the consumer side, because the decode loses information. The only alternative is to state the collision rate as accepted residue on the owner's word. A finding cannot accept a loss of the cross-tab protection that hazard 4 names.
+  - **What the result must show**: the test file's delivery models the producer's new frame (stringify, then the library decode). The case must add a pair of distinct hashes that deliver equal under the old form, found by search rather than by hand-picked instances, for both the shown-content compare and the record compare. Under `42d15de` it must fail as an assertion (notice count 0 where 1 is wanted), and it must pass after the fix. The existing number-shaped own-save cases must stay green.
+- **Plan row**: this instantiates RK-3's residue class (1) beyond its stated bound ("equal content").
 
 CR-16 MEDIUM Round 7
 RESOLVED at agent-output `008468b` (Preferred): section [7] counts generated-image lines at or after the latest ISO-stamped ready line, prints that stamp, and states the failure counts' unstamped bound. Check: `verification/017/m6-probe/liveness-scope-fixture.sh` and `verification/017/code-review/m6/liveness-scope/run.sh` (case 0, control 1) (argument in `8296f7e`).
@@ -759,6 +796,13 @@ No finding changes a decision. The two above go to their stated carriers.
 
 ## Verdict
 
+**Round 9 (M2 fix round 3, UAT-1, at website `42d15de`) — Status**: REJECTED
+**Rationale**:
+- The diagnosis is right and well evidenced: pusher-js decodes number-shaped hash strings, and the two failing UAT frames are exactly the number-shaped ones.
+- The fix closes M2-a and M2-b for those hashes, but does it by comparing a lossy form. Distinct hashes that deliver equal now suppress another tab's notice: M2-c, hazard 4. My probe shows it at `42d15de` (both cases red as assertions) and not at `4b8db9c`.
+- The document names the exact remedy (the producer sends the hash JSON-encoded). It is one argument in the only producer, and it has no deploy-order hazard.
+- CR-20 returns as a Round 9 sub-entry if it stays within these sites.
+
 **Round 8 (M7, read at website `4b8db9c`; document `Handoff-At` `f83f2ca`) — Status**: APPROVED_WITH_COMMENTS
 **Rationale**: M7-b holds at the chain's actual tip.
 - Every one of the 59 changed lintable files has no rule above its `1ad625e` count, and the new files have none. Two differently shaped instruments agree, and each fires on all three planted limbs.
@@ -856,6 +900,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Required Actions
 
+- Round 9 (REJECTED), to the implementer: CR-20. The producer sends `JSON.stringify(hashMessage(message))` (`shared.ts`), and the consumer compares exact strings (`asDelivered` removed). Add search-found colliding-pair cases for the shown-content and record compares, red at `42d15de` and green after. Return the fix SHA for a Round 9 sub-entry. Then QA, the architect's read and UAT's re-walk of B-1, as the document plans.
 - Round 8: none outstanding. CR-19 was confirmed at agent-output `97e13e0`.
 - Round 7: none outstanding. CR-16 to CR-18 were confirmed at agent-output `008468b`. Previously (REJECTED), to the implementer:
   - CR-16: scope section [7]'s generated-image count to the latest ISO-stamped `Server running at` line (Preferred: also state the failure counts' bound in the output). Move the fixture's ready line before its generated lines. Then `verification/017/code-review/m6/liveness-scope/run.sh` must print 0 for its case and 1 for its control.
@@ -914,7 +959,13 @@ The production change is the deletion of an unreferenced export. The remaining f
   - **If false**: a lint of `1ad625e` with today's install (a detached worktree resolving `eslint-plugin-react@7.33.2`) shows a per-file, per-rule count different from the capture for any of the 30 modified or renamed files. A file where the base rises can then hide a chain-added finding.
   - **Owner**: QA, at Phase 3's M7-b re-run on the merged tip (plan § M7, "Run … by QA at Phase 2"). That run re-lints both trees with the install it uses.
 
+- Round 9: this review assumes that every transport pusher-js uses in the browser hands `message-update` data through the same `decodeMessage` (the websocket path at `dist/web/pusher.js` lines 1841 and 1947). I read the websocket path and did not trace the HTTP fallback transports. If a fallback delivered the raw string, the producer-side remedy would still give the exact string after its own parse.
+  - **If false**: on UAT's B-1 re-walk with the frame captured, a frame whose payload is a JSON string still reaches the handler as something other than that string. That shows as tab A raising the notice for its own save with a quoted hash in the captured frame.
+  - **Owner**: UAT, B-1 re-walk on the local stack, capturing frames as walk 6 did.
+
 ## Next Steps
+
+- Round 9: to the implementer (`implementer-hooks-017`) for CR-20, then a Round 9 sub-entry, then QA, the architect's read and UAT's B-1 re-walk.
 
 - Round 8: M7 goes to QA (`qa-hooks-017`) for its Phase 2 re-run of M7-b at the tip. CR-19 is for the implementer's next write. This was the last milestone for code review. Every milestone M1 to M8 now has a code-review verdict. Each round was milestone-scoped, so plan-level Status stays unmoved, and steering is told.
 
@@ -950,8 +1001,8 @@ Updated at Round 7's verdict, 2026-11-19T07:34Z, by the resumed session. Previou
   - Round 7 (M6): REJECTED at generator `8512a1d` on CR-16 MEDIUM (record script), with CR-17 and CR-18 LOW. The generator code is sound. Instruments: `verification/017/code-review/m6/attack/run.sh <export> <out>`, `liveness-scope/run.sh <out>`, and `rig-tip/` and `rig-base/`.
   - My plan rows: R-8, R-10, R-12, R-13, R-15, R-16, R-18, R-19, R-22, R-30, R-32, R-33, R-35, R-36 and R-38.
   - QA hand-offs were sent for each approval. The last two were for M5: `ecf3c9a9` at `f83f2ca`, then `ff73fabd` saying the tip is `4b8db9c`. QA Complete for M5 at `4b8db9c` (plan R-37).
-- **In flight**: nothing. Round 8 (M7) is APPROVED_WITH_COMMENTS, read at `4b8db9c` (captures `verification/017/code-review/m7/`). Every milestone has a code-review verdict.
-- **Next, on resume**: a sub-entry only if the tip moves or a fix round arrives. Re-run `code-review/m7/recheck.py` and `compare.mjs` at the new tip. Re-run `liveness-scope/run.sh` against the fixed `pig-host-read.sh`: it must print 0 for its case and 1 for its control. Re-run the implementer's corrected fixture, and break the new scope predicate too (an out log whose only ready line is untimestamped; generated lines on both sides of the boundary). Check that `8512a1d` is unchanged, or review the delta if it moved. On APPROVED, hand to `qa-hooks-017` for M6's Phase 2. Then M7, last: re-derive its `Handoff-At` (`f83f2ca` against the tip `4b8db9c`) and CR-1's file (M7-b).
+- **In flight**: Round 9 (M2 fix round 3, UAT-1) is REJECTED at `42d15de` on CR-20, waiting on the implementer's producer-side fix.
+- **Next, on resume**: the Round 9 sub-entry. Re-run `verification/017/code-review/m2-uat1/probe-block.tsx`, adapted to the new frame form, and `collision.mjs`. Confirm the consumer compares exact strings, and check `shared.ts`'s trigger argument. The website tip moved to `42d15de`, so M7-b re-reads there (`code-review/m7/recheck.py`, `compare.mjs`) at the sub-entry. Re-run `liveness-scope/run.sh` against the fixed `pig-host-read.sh`: it must print 0 for its case and 1 for its control. Re-run the implementer's corrected fixture, and break the new scope predicate too (an out log whose only ready line is untimestamped; generated lines on both sides of the boundary). Check that `8512a1d` is unchanged, or review the delta if it moved. On APPROVED, hand to `qa-hooks-017` for M6's Phase 2. Then M7, last: re-derive its `Handoff-At` (`f83f2ca` against the tip `4b8db9c`) and CR-1's file (M7-b).
 - **Standing rules**: steering's M4 cap (`steering/017-rulings.md` block 2026-11-19T04:14Z, `a805d4d`) and M8 cap (block 2026-11-19T06:01Z, `9349040`). For M4 and M8, a finding below HIGH that is not a severity-floor finding goes to the Planner batch as a stated limit, with no fix round. Steering is now `steering-roadmap-hooks`.
 - **Waiting on others, not blocking**:
   - UAT B-3 (Round 4 assumption), B-13 (Round 5 and its sub-entry), and B-6 with a read-only prefix listing (Round 6 assumption) and the fallback-line look (Round 7 assumption).

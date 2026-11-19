@@ -1,0 +1,56 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r9/tip
+
+stdout | src/providers/MessageProvider/__tests__/MessageProvider.hash-collision-probe.test.tsx > probe: distinct hashes delivered as the same number > raises the notice when another tab saves content whose hash differs from the shown content but is delivered as the same number
+PAIR p10=-23e49110 p20=-2337e571 delivered -Infinity
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.hash-collision-probe.test.tsx (54 tests | 2 failed | 52 skipped) 18ms
+     × raises the notice when another tab saves content whose hash differs from the shown content but is delivered as the same number 13ms
+     × raises the notice when another tab saves content whose hash differs from a held record but is delivered as the same number 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.hash-collision-probe.test.tsx > probe: distinct hashes delivered as the same number > raises the notice when another tab saves content whose hash differs from the shown content but is delivered as the same number
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.hash-collision-probe.test.tsx:393:29
+    391|     edit({ content: pair.a });
+    392|     act(() => { hoisted.handler?.(delivered(remoteHash({ content: pair…
+    393|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    394|   });
+    395|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.hash-collision-probe.test.tsx > probe: distinct hashes delivered as the same number > raises the notice when another tab saves content whose hash differs from a held record but is delivered as the same number
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.hash-collision-probe.test.tsx:402:29
+    400|     edit({ content: 'typed later' });
+    401|     act(() => { hoisted.handler?.(delivered(remoteHash({ content: pair…
+    402|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    403|   });
+    404| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 52 skipped (54)
+   Start at  11:10:48
+   Duration  1.62s (transform 257ms, setup 15ms, import 890ms, tests 18ms, environment 564ms)
+
