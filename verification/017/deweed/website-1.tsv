@@ -1,0 +1,116 @@
+id	score	disposition	class	generated	covered_by	reason
+1	8	kept	-	yes	-	only case that Enter with focus on the image dialog submits once: close 1, setImage 1
+2	8	kept	-	yes	-	pins that Enter in the URL field does not submit a loaded image
+3	8	kept	-	yes	-	Enter on the close button closes without also submitting the loaded image
+4	7	kept	-	yes	-	Enter on Cancel closes without submitting; a different control path from the close button
+5	7	kept	-	yes	-	Enter on Clear neither closes nor submits while an image is loaded
+6	8	kept	-	yes	-	Enter on Save fires exactly once, not once for the button and once for the dialog hotkey
+7	7	kept	-	no	-	asserts the argument handed to setImage, which the count row for the same focus does not
+8	8	kept	-	no	-	image loaded after open is submitted: fails if the hotkey keeps a stale answer
+9	8	kept	-	yes	-	decision row: no image loaded, Enter on the dialog does nothing
+10	5	remove	-	yes	2	with no image there is no answer to give; the URL-field exclusion is pinned with an image loaded
+11	5	remove	-	yes	3	close button with no image cannot double-fire; repeats the loaded-image row
+12	5	remove	-	yes	4	Cancel with no image cannot double-fire; repeats the loaded-image row
+13	8	kept	-	no	-	enabled flag decides while the unmount=false panel is still visible and focused after close
+14	8	kept	-	yes	-	focus in the neighbouring prompt: the image dialog stays silent, containment alone decides
+15	7	kept	-	yes	-	focus on a child of the prompt still answers it: separates contains from identity with the focused element
+16	8	kept	-	no	-	reverse direction: focus in the image dialog answers it and leaves the update prompt open and unanswered
+17	7	kept	-	no	-	Reload under focus answers once, not once for the button and once for the hotkey
+18	7	kept	-	no	-	never-opened instance with focus in its hidden dialog stays silent; overlaps the leaving-panel case in part
+19	8	kept	-	yes	-	two instances: only the open one answers, the other pair of handlers stays at 0
+20	7	kept	-	yes	-	mirror mount order; fails on an order-dependent hotkey registration the first row misses
+21	7	kept	-	no	-	wrapper carries the contents class and holds the field; a class proxy for layout, undecidable between refactor and regression
+24	8	kept	-	yes	-	only case that Enter on the warning dialog confirms without closing
+25	6	remove	-	yes	15	focus on message text repeats child-focus containment of the shared hook
+26	8	kept	-	yes	-	Enter on the close button closes and does not confirm the destructive action
+27	8	kept	-	yes	-	Enter on Cancel closes and does not confirm the destructive action
+28	8	kept	-	yes	-	Enter on the confirm button confirms once and closes once
+29	9	kept	-	no	-	the one fixture where the open flag alone decides: focus still inside the leaving panel
+30	5	remove	-	no	29	closed from mount renders no panel, so the ref is null and nothing can answer whether or not the open flag is passed
+31	8	kept	-	yes	-	warning stays silent while focus is in the update prompt: containment decides for WarningDialog
+32	6	remove	-	yes	31	same as the dialog-element row with focus on the message text
+33	7	kept	-	yes	-	warning answers with the update prompt beside it and the prompt stays unanswered; overlaps the image-dialog row in part
+34	6	remove	-	yes	33	same as the dialog-element row with focus on the message text
+35	6	remove	-	no	17	Reload answered once with a different silent neighbour; warning silence is the containment row
+36	7	kept	-	no	-	sequence: warning still answers Enter after the neighbouring prompt has closed
+37	7	kept	-	yes	-	WarningDialog wrapper carries the contents class; class proxy for layout, undecidable
+38	7	kept	-	yes	-	ConfirmationDialog wrapper carries the contents class; separate markup from WarningDialog
+39	10	kept	-	no	-	only assertion that a stale cookie signs the user out, and under the no-alert flag
+40	9	kept	-	no	-	the one fixture where the session conjunct alone decides: cookie present, no sign-out
+41	9	kept	-	no	-	the one fixture where the cookie conjunct alone decides: no session, no sign-out
+52	8	kept	-	no	-	stored bare string read back unparsed: stored-data compatibility for the theme key
+53	8	kept	-	no	-	theme written as a bare string, not JSON-quoted
+54	8	kept	-	no	-	array branch of the read and byte-identical write-back of a stored list
+55	7	kept	-	no	-	object branch read and byte-identical write-back; overlaps the list row in part
+56	8	kept	-	no	-	storage event dispatched once after a write that landed
+57	6	remove	-	no	58	any change that makes a refused write throw also fails the return-value case
+58	8	kept	-	no	-	refused write reports false: the signal the drafts retry loop depends on
+59	8	kept	-	no	-	no storage event for a write that did not land
+60	7	kept	-	no	-	landed write reports true
+61	8	kept	-	no	-	20-entry bound with eviction by editedAt rather than write order
+62	8	kept	-	no	-	entry being written is exempt from eviction even when oldest
+63	7	kept	-	no	-	size bound evicts the oldest of two other entries; overlaps the exact-boundary case in part
+64	8	kept	-	no	-	exact megabyte boundary: kept at the limit, evicted one character over
+65	8	kept	-	no	-	single oversize entry still written: loop terminates with one entry left
+66	8	kept	-	no	-	refused write evicts the oldest other entry and retries until it lands
+67	8	kept	-	no	-	nothing left to evict: returns false without throwing
+68	8	kept	-	no	-	read at write time keeps an entry another tab stored: stored-data loss otherwise
+69	7	kept	-	no	-	removeDraft deletes one key and leaves the rest
+70	8	kept	-	no	-	conditional removal: both sides of the predicate in one case
+71	7	kept	-	no	-	tab id persists across calls; fails if session storage is not written
+72	7	kept	-	no	-	fresh session storage gives a new id; fails on a constant id
+73	8	kept	-	no	-	own draft wins over a newer entry from another tab
+74	8	kept	-	no	-	adopts the newest route-0 entry, ignores a newer saved-message entry, and stores the copy under its own key
+75	8	kept	-	no	-	no route-0 entry: returns undefined and writes nothing
+76	8	kept	-	no	-	dual write to the tab key and the legacy key
+77	8	kept	-	no	-	removes the tab entry and the legacy key when it holds the saved draft
+78	9	kept	-	no	-	discriminating control: legacy key kept when it holds a different draft
+79	10	kept	-	no	-	migration of a legacy draft with no id into the tab route-0 entry, timestamp carried
+80	10	kept	-	no	-	migration of a legacy copy of a saved message into the entry keyed by its id
+81	8	kept	-	no	-	migration read leaves the legacy key byte-identical
+82	9	kept	-	no	-	the one fixture where the existing map alone decides against migrating
+83	7	kept	-	no	-	no legacy key: empty map, fails if the null guard on the legacy read goes
+84	7	kept	-	no	-	provider with no registered guard navigates; fails if the null guard reference is dereferenced
+85	8	kept	-	no	-	decision row: guard returns false, navigation proceeds with no prompt
+86	8	kept	-	no	-	core hold: prompt shown and neither router called
+87	8	kept	-	no	-	guard receives the clicked destination, with a second link present
+88	7	kept	-	no	-	keyboard activation asks; undecidable whether a pointer-only wiring would escape the pointer case
+89	8	kept	-	no	-	Cancel closes the prompt and no navigation follows
+90	8	kept	-	no	-	confirm pushes the href with the scroll option and does not replace
+91	8	kept	-	no	-	replace link confirms through replace with scroll false
+92	7	kept	-	yes	-	modified click on a link on this site neither prompts nor navigates
+93	6	remove	-	yes	92	no per-modifier branch of this project on the on-site route; the disjuncts are pinned on the other-site rows
+94	6	remove	-	yes	92	no per-modifier branch of this project on the on-site route; the disjuncts are pinned on the other-site rows
+95	6	remove	-	yes	92	no per-modifier branch of this project on the on-site route; the disjuncts are pinned on the other-site rows
+96	7	kept	-	no	-	new-tab link on this site is not held
+97	5	remove	-	no	241	the second mount is a fresh provider with its own guard reference, so the withdrawal on unmount is never exercised
+98	9	kept	-	no	-	discriminating control for the identity check on withdrawal: newer guard survives
+99	8	kept	-	no	-	no provider: default context lets the link navigate instead of throwing
+100	8	kept	-	no	-	path object serialised as pathname, search and hash for the guard
+101	8	kept	-	no	-	link to another site is held: prompt shown, location not assigned
+102	7	kept	-	no	-	guard receives the full outside address on the click-handler route
+103	8	kept	-	no	-	confirmed outside link assigns the address under the no-alert flag and does not push
+104	8	kept	-	no	-	outside link that replaces confirms through location.replace under the no-alert flag
+105	7	kept	-	no	-	Cancel on an outside link leaves location untouched; overlaps the on-site cancel in part
+106	8	kept	-	no	-	guard lets through: click default not prevented, so the browser follows the link
+107	8	kept	-	yes	-	ctrl disjunct of the this-tab test on the outside-link route
+108	8	kept	-	yes	-	meta disjunct of the this-tab test on the outside-link route
+109	8	kept	-	yes	-	shift disjunct of the this-tab test on the outside-link route
+110	8	kept	-	yes	-	alt disjunct of the this-tab test on the outside-link route
+111	8	kept	-	no	-	target other than this tab exempts an outside link
+112	8	kept	-	no	-	URL object href read through its href and assigned on confirm
+113	9	kept	-	no	-	discriminating control: target _self still asks
+114	8	kept	-	no	-	download attribute exempts an outside link
+115	8	kept	-	no	-	middle-click disjunct exempts an outside link
+116	8	kept	-	no	-	click already handled by the link own handler is not intercepted
+117	8	kept	-	no	-	absolute same-origin address routed through the router, not location
+118	8	kept	-	no	-	nested confirmation providers: two prompts coexist and each answers alone
+119	7	kept	-	yes	-	menu link reaches the guard through Dropdown: destination pinned, prompt shown, no push
+120	6	remove	-	yes	119	second menu item through the same item mapping, no per-item code
+121	7	kept	-	no	-	outside menu link is held in this tab; undecidable against the provider-level outside case
+122	7	kept	-	no	-	newTab item rendered with a new-tab target, so not held
+165	8	kept	-	no	-	only assertion that sign-in leaves under the no-alert flag
+166	8	kept	-	no	-	decision row: sign-out is not wrapped, flag false during the call
+229	8	kept	-	no	-	full tree: editor change registers the guard, prompt holds the avatar link, Cancel keeps the edit
+230	6	remove	-	no	90	confirm path is the provider own code once the prompt is up; same push assertion
+231	7	kept	-	no	-	link under the editor nested providers reaches the layout guard

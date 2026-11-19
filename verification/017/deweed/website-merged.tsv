@@ -1,0 +1,464 @@
+id	score	disposition	class	generated	covering	reason	covering_check
+1	8	kept	-	yes	-	only case that Enter with focus on the image dialog submits once: close 1, setImage 1	-
+2	8	kept	-	yes	-	pins that Enter in the URL field does not submit a loaded image	-
+3	8	kept	-	yes	-	Enter on the close button closes without also submitting the loaded image	-
+4	7	kept	-	yes	-	Enter on Cancel closes without submitting; a different control path from the close button	-
+5	7	kept	-	yes	-	Enter on Clear neither closes nor submits while an image is loaded	-
+6	8	kept	-	yes	-	Enter on Save fires exactly once, not once for the button and once for the dialog hotkey	-
+7	7	kept	-	no	-	asserts the argument handed to setImage, which the count row for the same focus does not	-
+8	8	kept	-	no	-	image loaded after open is submitted: fails if the hotkey keeps a stale answer	-
+9	8	kept	-	yes	-	decision row: no image loaded, Enter on the dialog does nothing	-
+10	5	remove	-	yes	2	with no image there is no answer to give; the URL-field exclusion is pinned with an image loaded	ok
+11	5	remove	-	yes	3	close button with no image cannot double-fire; repeats the loaded-image row	ok
+12	5	remove	-	yes	4	Cancel with no image cannot double-fire; repeats the loaded-image row	ok
+13	8	kept	-	no	-	enabled flag decides while the unmount=false panel is still visible and focused after close	-
+14	8	kept	-	yes	-	focus in the neighbouring prompt: the image dialog stays silent, containment alone decides	-
+15	7	kept	-	yes	-	focus on a child of the prompt still answers it: separates contains from identity with the focused element	-
+16	8	kept	-	no	-	reverse direction: focus in the image dialog answers it and leaves the update prompt open and unanswered	-
+17	7	kept	-	no	-	Reload under focus answers once, not once for the button and once for the hotkey	-
+18	7	kept	-	no	-	never-opened instance with focus in its hidden dialog stays silent; overlaps the leaving-panel case in part	-
+19	8	kept	-	yes	-	two instances: only the open one answers, the other pair of handlers stays at 0	-
+20	7	kept	-	yes	-	mirror mount order; fails on an order-dependent hotkey registration the first row misses	-
+21	7	kept	-	no	-	wrapper carries the contents class and holds the field; a class proxy for layout, undecidable between refactor and regression	-
+24	8	kept	-	yes	-	only case that Enter on the warning dialog confirms without closing	-
+25	6	remove	-	yes	15	focus on message text repeats child-focus containment of the shared hook	ok
+26	8	kept	-	yes	-	Enter on the close button closes and does not confirm the destructive action	-
+27	8	kept	-	yes	-	Enter on Cancel closes and does not confirm the destructive action	-
+28	8	kept	-	yes	-	Enter on the confirm button confirms once and closes once	-
+29	9	kept	-	no	-	the one fixture where the open flag alone decides: focus still inside the leaving panel	-
+30	5	remove	-	no	29	closed from mount renders no panel, so the ref is null and nothing can answer whether or not the open flag is passed	ok
+31	8	kept	-	yes	-	warning stays silent while focus is in the update prompt: containment decides for WarningDialog	-
+32	6	remove	-	yes	31	same as the dialog-element row with focus on the message text	ok
+33	7	kept	-	yes	-	warning answers with the update prompt beside it and the prompt stays unanswered; overlaps the image-dialog row in part	-
+34	6	remove	-	yes	33	same as the dialog-element row with focus on the message text	ok
+35	6	remove	-	no	17	Reload answered once with a different silent neighbour; warning silence is the containment row	ok
+36	7	kept	-	no	-	sequence: warning still answers Enter after the neighbouring prompt has closed	-
+37	7	kept	-	yes	-	WarningDialog wrapper carries the contents class; class proxy for layout, undecidable	-
+38	7	kept	-	yes	-	ConfirmationDialog wrapper carries the contents class; separate markup from WarningDialog	-
+39	10	kept	-	no	-	only assertion that a stale cookie signs the user out, and under the no-alert flag	-
+40	9	kept	-	no	-	the one fixture where the session conjunct alone decides: cookie present, no sign-out	-
+41	9	kept	-	no	-	the one fixture where the cookie conjunct alone decides: no session, no sign-out	-
+52	8	kept	-	no	-	stored bare string read back unparsed: stored-data compatibility for the theme key	-
+53	8	kept	-	no	-	theme written as a bare string, not JSON-quoted	-
+54	8	kept	-	no	-	array branch of the read and byte-identical write-back of a stored list	-
+55	7	kept	-	no	-	object branch read and byte-identical write-back; overlaps the list row in part	-
+56	8	kept	-	no	-	storage event dispatched once after a write that landed	-
+57	6	remove	-	no	58	any change that makes a refused write throw also fails the return-value case	ok
+58	8	kept	-	no	-	refused write reports false: the signal the drafts retry loop depends on	-
+59	8	kept	-	no	-	no storage event for a write that did not land	-
+60	7	kept	-	no	-	landed write reports true	-
+61	8	kept	-	no	-	20-entry bound with eviction by editedAt rather than write order	-
+62	8	kept	-	no	-	entry being written is exempt from eviction even when oldest	-
+63	7	kept	-	no	-	size bound evicts the oldest of two other entries; overlaps the exact-boundary case in part	-
+64	8	kept	-	no	-	exact megabyte boundary: kept at the limit, evicted one character over	-
+65	8	kept	-	no	-	single oversize entry still written: loop terminates with one entry left	-
+66	8	kept	-	no	-	refused write evicts the oldest other entry and retries until it lands	-
+67	8	kept	-	no	-	nothing left to evict: returns false without throwing	-
+68	8	kept	-	no	-	read at write time keeps an entry another tab stored: stored-data loss otherwise	-
+69	7	kept	-	no	-	removeDraft deletes one key and leaves the rest	-
+70	8	kept	-	no	-	conditional removal: both sides of the predicate in one case	-
+71	7	kept	-	no	-	tab id persists across calls; fails if session storage is not written	-
+72	7	kept	-	no	-	fresh session storage gives a new id; fails on a constant id	-
+73	8	kept	-	no	-	own draft wins over a newer entry from another tab	-
+74	8	kept	-	no	-	adopts the newest route-0 entry, ignores a newer saved-message entry, and stores the copy under its own key	-
+75	8	kept	-	no	-	no route-0 entry: returns undefined and writes nothing	-
+76	8	kept	-	no	-	dual write to the tab key and the legacy key	-
+77	8	kept	-	no	-	removes the tab entry and the legacy key when it holds the saved draft	-
+78	9	kept	-	no	-	discriminating control: legacy key kept when it holds a different draft	-
+79	10	kept	-	no	-	migration of a legacy draft with no id into the tab route-0 entry, timestamp carried	-
+80	10	kept	-	no	-	migration of a legacy copy of a saved message into the entry keyed by its id	-
+81	8	kept	-	no	-	migration read leaves the legacy key byte-identical	-
+82	9	kept	-	no	-	the one fixture where the existing map alone decides against migrating	-
+83	7	kept	-	no	-	no legacy key: empty map, fails if the null guard on the legacy read goes	-
+84	7	kept	-	no	-	provider with no registered guard navigates; fails if the null guard reference is dereferenced	-
+85	8	kept	-	no	-	decision row: guard returns false, navigation proceeds with no prompt	-
+86	8	kept	-	no	-	core hold: prompt shown and neither router called	-
+87	8	kept	-	no	-	guard receives the clicked destination, with a second link present	-
+88	7	kept	-	no	-	keyboard activation asks; undecidable whether a pointer-only wiring would escape the pointer case	-
+89	8	kept	-	no	-	Cancel closes the prompt and no navigation follows	-
+90	8	kept	-	no	-	confirm pushes the href with the scroll option and does not replace	-
+91	8	kept	-	no	-	replace link confirms through replace with scroll false	-
+92	7	kept	-	yes	-	modified click on a link on this site neither prompts nor navigates	-
+93	6	remove	-	yes	92	no per-modifier branch of this project on the on-site route; the disjuncts are pinned on the other-site rows	ok
+94	6	remove	-	yes	92	no per-modifier branch of this project on the on-site route; the disjuncts are pinned on the other-site rows	ok
+95	6	remove	-	yes	92	no per-modifier branch of this project on the on-site route; the disjuncts are pinned on the other-site rows	ok
+96	7	kept	-	no	-	new-tab link on this site is not held	-
+97	5	remove	-	no	241	the second mount is a fresh provider with its own guard reference, so the withdrawal on unmount is never exercised	ok
+98	9	kept	-	no	-	discriminating control for the identity check on withdrawal: newer guard survives	-
+99	8	kept	-	no	-	no provider: default context lets the link navigate instead of throwing	-
+100	8	kept	-	no	-	path object serialised as pathname, search and hash for the guard	-
+101	8	kept	-	no	-	link to another site is held: prompt shown, location not assigned	-
+102	7	kept	-	no	-	guard receives the full outside address on the click-handler route	-
+103	8	kept	-	no	-	confirmed outside link assigns the address under the no-alert flag and does not push	-
+104	8	kept	-	no	-	outside link that replaces confirms through location.replace under the no-alert flag	-
+105	7	kept	-	no	-	Cancel on an outside link leaves location untouched; overlaps the on-site cancel in part	-
+106	8	kept	-	no	-	guard lets through: click default not prevented, so the browser follows the link	-
+107	8	kept	-	yes	-	ctrl disjunct of the this-tab test on the outside-link route	-
+108	8	kept	-	yes	-	meta disjunct of the this-tab test on the outside-link route	-
+109	8	kept	-	yes	-	shift disjunct of the this-tab test on the outside-link route	-
+110	8	kept	-	yes	-	alt disjunct of the this-tab test on the outside-link route	-
+111	8	kept	-	no	-	target other than this tab exempts an outside link	-
+112	8	kept	-	no	-	URL object href read through its href and assigned on confirm	-
+113	9	kept	-	no	-	discriminating control: target _self still asks	-
+114	8	kept	-	no	-	download attribute exempts an outside link	-
+115	8	kept	-	no	-	middle-click disjunct exempts an outside link	-
+116	8	kept	-	no	-	click already handled by the link own handler is not intercepted	-
+117	8	kept	-	no	-	absolute same-origin address routed through the router, not location	-
+118	8	kept	-	no	-	nested confirmation providers: two prompts coexist and each answers alone	-
+119	7	kept	-	yes	-	menu link reaches the guard through Dropdown: destination pinned, prompt shown, no push	-
+120	6	remove	-	yes	119	second menu item through the same item mapping, no per-item code	ok
+121	7	kept	-	no	-	outside menu link is held in this tab; undecidable against the provider-level outside case	-
+122	7	kept	-	no	-	newTab item rendered with a new-tab target, so not held	-
+165	8	kept	-	no	-	only assertion that sign-in leaves under the no-alert flag	-
+166	8	kept	-	no	-	decision row: sign-out is not wrapped, flag false during the call	-
+229	8	kept	-	no	-	full tree: editor change registers the guard, prompt holds the avatar link, Cancel keeps the edit	-
+230	6	remove	-	no	90	confirm path is the provider own code once the prompt is up; same push assertion	ok
+231	7	kept	-	no	-	link under the editor nested providers reaches the layout guard	-
+232	5	remove	-	no	88	keyboard activation of a held link is the link component's own behaviour, already asserted with a registered guard; only the fixture differs	ok
+233	9	kept	-	no	-	the one editor-route fixture where the unchanged-message conjunct alone lets the link through	-
+234	9	kept	-	no	-	the one fixture where the same-message conjunct alone decides, edit to send, with edits pending	-
+235	8	kept	-	yes	-	boundary of the same-message match: a trailing slash still counts as this message	-
+236	8	kept	-	yes	-	boundary: a query string on this message's own route does not ask	-
+237	8	kept	-	yes	-	boundary: an absolute address on this origin to this message's send page does not ask	-
+238	9	kept	-	yes	-	the one fixture where the origin conjunct alone decides: same path on another site asks	-
+239	8	kept	-	yes	-	boundary: a path extending this message's route is another page and asks	-
+240	5	remove	-	yes	229	another destination that asks; no plausible loosening of the match lets /message/m/new through without the folder link failing first	ok
+241	8	kept	-	no	-	only case that the provider withdraws its own registration on unmount; the provider-level case uses a test registrant	-
+242	7	kept	-	yes	-	the sidebar logo is its own call site; fails if that link stops going through the guarded link component	-
+243	7	kept	-	yes	-	the sidebar edit link is its own call site; fails if that link stops going through the guarded link component	-
+244	7	kept	-	yes	-	the sidebar terms link is its own call site; fails if that link stops going through the guarded link component	-
+245	7	kept	-	yes	-	the sidebar privacy link is its own call site; fails if that link stops going through the guarded link component	-
+246	7	kept	-	yes	-	the sidebar servers link is its own call site; fails if that link stops going through the guarded link component	-
+247	7	kept	-	yes	-	the sidebar account link is its own call site; fails if that link stops going through the guarded link component	-
+248	6	remove	-	no	233	unchanged message lets a link through, repeated on the send route with a sidebar link	ok
+249	8	kept	-	yes	-	boundary: another message whose id extends this one is not this message; also the only guarded search-result link	-
+250	8	kept	-	yes	-	boundary: another message whose id is a prefix of this one is not this message	-
+251	7	kept	-	yes	-	send to edit of the same message does not ask; the reverse direction of the editor-route case	-
+252	5	remove	-	yes	251	same message, send to edit, with a two-digit id instead of one	ok
+253	8	kept	-	no	-	boundary: the unsaved route, id 0, counts as the same message between send and edit	-
+254	7	kept	-	no	-	the send page's server-folder crumb is its own call site under the real guard	-
+255	7	kept	-	no	-	the send page's two user-folder crumbs are their own call sites under the real guard	-
+256	5	remove	-	no	251	send to edit of the same message does not ask, repeated on the page's own links; a no-prompt assertion cannot tell a guarded link from a bare one	ok
+257	7	kept	-	no	-	the send page's bot invitation through the real guard to location.assign; overlaps the provider-level external cases in part	-
+258	7	kept	-	no	-	the two real layouts keep the link prompt and the editor prompt in separate providers; the provider-level case builds its own nesting	-
+259	7	kept	-	yes	-	Enter answers exactly one of two open prompts, link prompt raised first	-
+260	7	kept	-	yes	-	Enter answers exactly one of two open prompts, opposite raise order, where a first-opened handler bug would differ	-
+261	5	remove	-	no	231	the absent editor prompt is the fixture's own omission of the dialog, and the link prompt half repeats the inside-the-editor case on another pathname	ok
+262	5	remove	-	yes	263	below the limit with 38, one further from the boundary than the 39 row	ok
+263	8	kept	-	yes	-	boundary: adds still offered at 39	-
+264	8	kept	-	yes	-	boundary: adds, duplicate and add-child withdrawn at exactly 40	-
+265	5	remove	-	yes	264	above the limit; fails only when the 40 row does	ok
+266	5	remove	-	yes	264	above the limit; fails only when the 40 row does	ok
+267	7	kept	-	yes	-	a container and its children counted as 39 still offers adds; fails on a double count	-
+268	9	kept	-	yes	-	the one fixture where the nested count alone decides: one top-level component, 40 in all, no adds	-
+269	5	remove	-	yes	268	nested count above the limit; fails only when the 40-in-all row does	ok
+270	5	remove	-	yes	267	nested count below the limit with other shapes	ok
+271	6	remove	-	yes	268	nested count at the limit with sections and accessories; the editor only calls the counter the 40-in-all row already pins	ok
+272	8	kept	-	yes	-	boundary: no error line and no red border at exactly 40	-
+273	6	remove	-	yes	272	no error at 40 with a nested shape; same validator call	ok
+274	8	kept	-	yes	-	failure path the user sees: the exact line and the red border at 41	-
+275	6	remove	-	yes	274	the 41 line again for a nested shape	ok
+276	5	remove	-	yes	274	the line with total 44; other example data	ok
+277	7	kept	-	no	-	order of the text-length line and the components line	-
+278	6	remove	-	no	272	the 41 state then the 40 state in one mount; both states are pinned separately and the errors are recomputed each render	ok
+279	8	kept	-	no	-	failure path: the component-validity line and its red border for an empty Text Display	-
+280	9	kept	-	no	-	the one fixture where the V2 flag alone makes the validity check apply	-
+281	9	kept	-	no	-	discriminating control: the same empty Action Row raises no line in a classic message	-
+282	7	kept	-	no	-	order of the components-total line and the validity line	-
+283	6	remove	-	no	279	the empty state then a filled state in one mount; the empty state is pinned and the errors are recomputed each render	ok
+284	8	kept	-	no	-	boundary: the validity line and border show without an editable state, so validation is not gated on editing	-
+285	8	kept	-	no	-	failure path: the text-length line and its red border above 4000 characters	-
+286	8	kept	-	yes	-	failure path: the only assertion in the editor of the no-content line, and that nothing else renders beside it	-
+287	8	kept	-	yes	-	failure path: the only assertion in the editor of the embed-characters line	-
+288	6	remove	-	yes	285	the text-length line again, outside editing	ok
+289	7	kept	-	yes	-	the components-total line outside editing; overlaps the editing-mode 41 row in part	-
+290	6	remove	-	yes	284	same message and mode as the not-being-edited case, with the full sentence in place of the component name	ok
+291	7	kept	-	no	-	negative control: a valid message renders no error text	-
+292	6	remove	-	yes	222	the no-content line hidden when validation is hidden; the preview page case mounts the real page with the same kind of message and asserts no line and no border	unchecked
+293	6	remove	-	yes	223	the embed-characters line hidden when validation is hidden; the preview page case mounts the real page with the same kind of message and asserts no line and no border	unchecked
+294	6	remove	-	yes	224	the text-length line hidden when validation is hidden; the preview page case mounts the real page with the same kind of message and asserts no line and no border	unchecked
+295	6	remove	-	yes	225	the components-total line hidden when validation is hidden; the preview page case mounts the real page with the same kind of message and asserts no line and no border	unchecked
+296	6	remove	-	yes	226	the component-validity line hidden when validation is hidden; the preview page case mounts the real page with the same kind of message and asserts no line and no border	unchecked
+297	7	kept	-	yes	-	the V2 editing Author is handed the hide flag; fails if the prop is dropped	-
+298	6	remove	-	yes	297	the false half of the same pass-through; fails on a dropped prop that behaves identically, and a hard-coded true is not a plausible change	ok
+299	4	remove	-	yes	left unasserted: the message body showing its username errors when validation is not hidden	reads false off a stubbed child for the default value; fails when the prop is dropped although behaviour is unchanged	-
+300	8	kept	-	yes	-	boundary: an add at 39 that overshoots the limit is completed whole, Section with its accessory	-
+301	7	kept	-	yes	-	the Container menu item builds a container with its children at 39	-
+302	7	kept	-	yes	-	the Action Row menu item builds an action row at 39; label-to-factory wiring	-
+303	7	kept	-	no	-	duplicate deep-copies a container with its three children and inserts it; the placement case does not look at children	-
+304	5	remove	-	no	289	same 41-component message outside editing; the red border is pinned by the 41 flat components row	ok
+305	7	kept	-	no	-	onMount runs once and not again on re-render	-
+308	7	kept	-	yes	-	base case: the saving tab's own broadcast raises no notice; fails if the client hash and the server hash diverge for a classic message	-
+309	5	remove	-	yes	308	same path with other content; record and shown hash both still match	ok
+310	8	kept	-	yes	-	boundary: trailing whitespace the server trims must not turn the tab's own save into a notice	-
+311	7	kept	-	yes	-	the V2 shape through the same path; fails if client and server normalise V2 differently	-
+312	5	remove	-	yes	311	V2 with another body	ok
+313	8	kept	-	yes	-	boundary: an empty embed beside V2 components must hash alike on both sides	-
+314	8	kept	-	yes	-	boundary: a message that fails the send shape takes the fallback normalisation and still raises no notice	-
+315	7	kept	-	yes	-	whitespace-only content on the fallback path; overlaps the trailing-whitespace and invalid rows in part	-
+316	7	kept	-	yes	-	the save that goes through the content-loss choice, Classic, records and shows the resolved data	-
+317	7	kept	-	yes	-	the save that goes through the content-loss choice, V2 disposition	-
+318	8	kept	-	yes	-	boundary: a digits-only hash is matched to the held record as a string, with the shown content already different	-
+319	5	remove	-	yes	318	a negative digits-only hash; behaves as the digits-only row under any numeric handling	ok
+320	7	kept	-	yes	-	an exponent-form hash fails a number round trip that the digits-only row survives	-
+321	6	remove	-	yes	320	an overflowing exponent; fails under the same round trip as the exponent row	ok
+322	5	remove	-	yes	320	a negative overflowing exponent; same round trip	ok
+323	9	kept	-	yes	-	the one plain fixture where the own-save record alone decides: the shown content has moved on and the response has not arrived	-
+324	8	kept	-	yes	-	boundary: the record is hashed after the server-side drop of an unknown field, with the record alone deciding	-
+325	8	kept	-	yes	-	boundary: two records held at once; fails on a single-slot record	-
+326	8	kept	-	yes	-	boundary: records matched out of order; fails on a first-in-first-out record	-
+327	5	remove	-	yes	308	same message with the response delivered first; with no later edit the shown hash matches whatever the response did to the record	ok
+328	5	remove	-	yes	308	same message with the response delivered first; with no later edit the shown hash matches whatever the response did to the record	ok
+329	5	remove	-	yes	310	same message with the response delivered first; with no later edit the shown hash matches whatever the response did to the record	ok
+330	5	remove	-	yes	311	same message with the response delivered first; with no later edit the shown hash matches whatever the response did to the record	ok
+331	5	remove	-	yes	311	same message with the response delivered first; with no later edit the shown hash matches whatever the response did to the record	ok
+332	5	remove	-	yes	313	same message with the response delivered first; with no later edit the shown hash matches whatever the response did to the record	ok
+333	5	remove	-	yes	314	same message with the response delivered first; with no later edit the shown hash matches whatever the response did to the record	ok
+334	5	remove	-	yes	315	same message with the response delivered first; with no later edit the shown hash matches whatever the response did to the record	ok
+335	5	remove	-	yes	316	the Classic choice with the response delivered first; shown hash still matches	ok
+336	5	remove	-	yes	317	the V2 choice with the response delivered first; shown hash still matches	ok
+337	5	remove	-	yes	318	same hash shape with the response delivered first; a record lost on response is caught by the plain after-response case	ok
+338	5	remove	-	yes	318	same hash shape with the response delivered first; a record lost on response is caught by the plain after-response case	ok
+339	5	remove	-	yes	320	same hash shape with the response delivered first; a record lost on response is caught by the plain after-response case	ok
+340	5	remove	-	yes	320	same hash shape with the response delivered first; a record lost on response is caught by the plain after-response case	ok
+341	5	remove	-	yes	320	same hash shape with the response delivered first; a record lost on response is caught by the plain after-response case	ok
+342	8	kept	-	yes	-	boundary: the record must outlive the save's response; fails if success clears it	-
+343	5	remove	-	yes	324	the dropped-field save with the response delivered first	ok
+344	6	remove	-	yes	325	two saves with each response delivered first; a record cleared on response fails the single-save after-response case first	ok
+345	6	remove	-	yes	326	two saves in reverse with each response delivered first	ok
+346	8	kept	-	no	-	boundary: two identical saves need two records; fails on a set or a remove-all	-
+347	9	kept	-	no	-	discriminating control for the whole file: a broadcast this tab never sent does raise the notice	-
+348	7	kept	-	no	-	the provider hands its unsaved-changes state to the notice text; the hook-level cases pass the flag by hand	-
+349	6	remove	-	no	347	a foreign broadcast with a digits-only hash; raises for the same reason as the plain foreign broadcast	ok
+350	7	kept	-	no	-	first fixture where a held own-save record of other content must not suppress another tab's notice; fails if any held record mutes the broadcast	-
+351	9	kept	-	yes	-	the fixture where the shown-hash conjunct alone decides under numeric reading: two hex hashes equal as one finite number must still differ	-
+352	6	remove	-	yes	351	same shown-hash string-comparison behaviour with an overflow pair; any numeric coercion that fails here fails the finite pair first	ok
+353	6	remove	-	yes	351	same shown-hash string-comparison behaviour with a negative overflow pair; repeats the finite pair	ok
+354	9	kept	-	yes	-	the fixture where the held-record conjunct alone decides under numeric reading: a record and a foreign hash equal as one finite number	-
+355	6	remove	-	yes	354	same record-match string-comparison behaviour with an overflow pair; repeats the finite pair	ok
+356	6	remove	-	yes	354	same record-match string-comparison behaviour with a negative overflow pair; repeats the finite pair	ok
+357	9	kept	-	no	-	first fixture where equality with the shown content's hash alone suppresses the notice, no record held	-
+358	7	kept	-	no	-	a foreign save differing only in components must raise the notice through the provider; overlaps the content-only notice case in part	-
+359	6	remove	-	no	350	foreign save while an own record is held, already decided by the earlier held-record case with other content, and again inside 364	ok
+360	8	kept	-	no	-	only case that an own-save record is consumed by its first broadcast, so a second broadcast of that hash raises the notice	-
+361	6	remove	-	no	357	no notice for content this tab already shows, same conjunct as the earlier digits-only fixture with other content	ok
+362	8	kept	-	no	-	failure path: a failed save forgets its record so a later foreign save of that content is noticed	-
+363	8	kept	-	no	-	boundary of the forget: one failure of two identical saves removes one record, the other still mutes its broadcast	-
+364	8	kept	-	no	-	a foreign broadcast must not consume the own record; exact count of one notice across foreign then own broadcasts	-
+365	8	kept	-	no	-	boundary: failure of a save whose record was already consumed must not remove the later save's record (missing-index guard)	-
+366	9	kept	-	no	-	discriminating control for strict equality on the record conjunct: a number payload with the record's digits is not an own save	-
+367	9	kept	-	no	-	discriminating control for strict inequality on the shown-hash conjunct: a number payload with the shown hash's digits still notifies	-
+368	8	kept	-	no	-	only provider-level assertion that a V2 save beside an empty embed writes without the embed, asks nothing and leaves the editor equal to what was written	-
+369	8	kept	-	no	-	choice row Classic: written payload, held editor state and mode all asserted after commitSaveChoice	-
+370	8	kept	-	no	-	choice row V2: written payload, held editor state and mode after commitSaveChoice; the other row of the two-way decision	-
+373	8	kept	-	no	-	route-0 draft re-read on returning from a saved message within one mount; fails if loading 42 overwrites or drops the tab's draft	-
+374	7	kept	-	no	-	route-0 draft written by the provider and restored on remount; overlaps 373 on the write, differs on the mount read	-
+375	7	kept	-	no	-	a tab with no own draft adopts the last edited route-0 draft through the provider	-
+376	8	kept	-	no	-	unsaved edits on a saved message stored under its id and restored over the fetched copy after leaving to route 0 and back	-
+377	8	kept	-	no	-	a saved message's draft must not surface at route 0; fails if the route-0 lookup takes any newest draft	-
+378	7	kept	-	no	-	restore of a saved message's draft across remount; overlaps 376 in part	-
+379	8	kept	-	no	-	only provider case of the remove branch: edits typed back to the saved copy leave an empty drafts map	-
+380	2	remove	-	no	left unasserted: a stored draft of 42 surviving the load of a different saved message	the query mock serves the same object for route 43, so no effect reruns and the asserted state is the one typed before the visits; nothing is re-read	-
+381	7	kept	-	no	-	each tab reads its own key through the provider; fails if the provider keys route 0 without the tab id	-
+382	7	kept	-	no	-	new tab takes the most recently edited of two route-0 drafts through the provider; recency also pinned at helper level	-
+383	5	remove	-	no	375	same scenario as 375 (one draft from tab A, a new tab mounts) with another tab name and text	ok
+384	8	kept	-	no	-	boundary: with no draft anywhere the intro message shows and the load itself writes nothing to storage	-
+385	8	kept	-	no	-	only assertion that a share code's message becomes the tab's route-0 draft	-
+386	8	kept	-	no	-	legacy id-less stored message restored with its data and name through the provider; migration read on the provider route	-
+387	8	kept	-	no	-	legacy stored copy of 42 newer than the saved copy restored with its own name; migration read on the provider route	-
+388	9	kept	-	no	-	boundary of the newer-than comparison: an equal timestamp shows the saved copy	-
+389	7	kept	-	no	-	older stored copy shows the saved copy; the other side of the comparison from 387	-
+390	7	kept	-	no	-	seeded route-0 entry shown with its own name, which the typed-draft cases cannot distinguish from the default name	-
+391	7	kept	-	no	-	seeded draft of 42 shown with its own data and name over the fetched copy, on the drafts-map route	-
+392	8	kept	-	no	-	exact shape and content of the legacy message key the provider keeps writing; stored data read by older code	-
+393	8	kept	-	no	-	creating save removes the route-0 draft and the legacy key; only provider assertion of that cleanup	-
+394	8	kept	-	no	-	save of a saved message removes its draft when the draft equals what was sent	-
+395	9	kept	-	no	-	the fixture where the sent-equals-draft conjunct alone decides: an edit typed after Save keeps the draft	-
+396	8	kept	-	no	-	reload discards stored edits and shows the saved copy; only assertion of the ignore-local path	-
+397	7	kept	-	yes	-	hasChanged false on an unedited load; fails if the comparison takes in more than data	-
+398	5	remove	-	yes	397	same assertion with a session status the provider does not read	ok
+399	5	remove	-	yes	397	same assertion with a session status the provider does not read	ok
+400	7	kept	-	yes	-	hasChanged true after an edit; base row of the edited half	-
+401	8	kept	-	yes	-	edited while signed out is still changed; the row that fails if a session gate is put back on hasChanged	-
+402	6	remove	-	yes	401	edited while the session is loading; a session gate on hasChanged fails 401 first	ok
+403	6	remove	-	no	323	one record per save with an id is already forced by the provider cases where an edit follows Save (323) and by the consume-once case	ok
+404	8	kept	-	no	-	only fixture where the has-an-id conjunct decides: a creating save records nothing	-
+405	5	remove	-	no	348	loss wording when changed is asserted earlier through the provider; this adds only the changed-at-subscription start	ok
+406	6	remove	-	no	348	changed-after-subscription wording is the provider case 348 with the hook mounted bare	ok
+407	8	kept	-	no	-	discriminating control: the prompt omits the loss sentence when nothing is unsaved, asserted nowhere earlier	-
+408	6	remove	-	no	407	no loss sentence when unchanged, with a stale-value path that 348 already forces in the other direction	ok
+409	8	kept	-	no	-	connection closed exactly once on unmount and not before	-
+410	8	kept	-	no	-	message id change closes the old connection and opens one new one	-
+411	8	kept	-	no	-	boundary: message loses its id, connection closed and none opened	-
+412	7	kept	-	no	-	two hooks, unmount closes only its own connection; fails on a shared-client change	-
+418	5	remove	Superseded implementation	no	left unasserted: absence of a pages-router route-change confirm in useUnloadAlert	the hook holds no route listener; the case emits a pages-router event the app-router hook's input class excludes and can fail only if that listener is re-added	-
+419	8	kept	-	no	-	beforeunload is prevented while there are unsaved changes; first assertion of the prompt	-
+420	8	kept	-	no	-	control: no prompt without unsaved changes	-
+421	9	kept	-	no	-	the fixture where the leaving conjunct alone decides: blocked hook, exit in flight, no prompt	-
+422	8	kept	-	no	-	re-arm after the exit resolved and time passed; fails if the suppression never lifts	-
+423	8	kept	-	no	-	failure path: a rejected exit re-arms the prompt at once and rethrows	-
+424	7	kept	-	no	-	the exit's result is handed back to the caller	-
+528	8	kept	-	no	-	only assertion that the edit page arms the unload prompt from hasChanged	-
+529	8	kept	-	no	-	only assertion that the edit page's Log in runs signIn inside the no-prompt exit	-
+885	7	kept	-	no	-	classic content row of the content-requirement gate, called directly	-
+886	7	kept	-	no	-	embeds alone satisfy the content requirement	-
+887	7	kept	-	no	-	a legacy Action Row beside content and embeds is not a V2 conflict; first of three	-
+888	7	kept	-	no	-	V2 components alone are valid	-
+889	6	remove	-	no	888	V2 components with no classic content again, an Action Row added; no change fails this and not 888	ok
+890	7	kept	-	no	-	V2 components with content refused; oracle is only that a string came back	-
+891	7	kept	-	no	-	V2 components with embeds refused; embeds as the sole carrier of content	-
+892	5	remove	-	no	890	both carriers present at once; fails only when 890 and 891 do	ok
+893	7	kept	-	no	-	empty message refused	-
+894	8	kept	-	no	-	boundary: whitespace-only content counts as empty, first assertion in the list	-
+895	7	kept	-	no	-	omitted fields take their defaults and reach the empty verdict instead of throwing	-
+896	5	remove	-	no	887	Action Row beside embeds only; same not-V2 decision as 887	ok
+897	5	remove	-	no	887	Action Row beside content only; same not-V2 decision as 887	ok
+898	7	kept	-	no	-	Media Gallery is a member of the V2 type set	-
+899	7	kept	-	no	-	File is a member of the V2 type set	-
+900	7	kept	-	no	-	Section is a member of the V2 type set, first assertion in the list	-
+901	7	kept	-	no	-	control: an unknown type is not V2	-
+902	7	kept	-	no	-	Action Row alone is not V2, first direct assertion in the list	-
+903	5	remove	-	no	902	a bare Button is never a top-level component; repeats the non-member row with input the list's type excludes	ok
+1458	8	kept	-	no	-	server render path: get returns the default with no window; fails with a ReferenceError if the guard goes	-
+1459	8	kept	-	no	-	server render path: set reports false without throwing	-
+1474	7	kept	Hand-rolled renderer	no	-	only case asserting the upsert payload of a repaired flag-stranded record through saveMessage; the hook is run under stubbed React hooks, and the load steps are the test's own sequence	-
+1475	7	kept	Hand-rolled renderer	no	-	the same payload keeps its content and passes validateMessage; overlaps 1474 in fixture, differs in the property	-
+1476	5	remove	-	no	1457	the seed text carrying flags is asserted earlier; other example data	unchecked
+1477	5	remove	Hand-rolled renderer	no	1474	row D resolving to classic is 1351 and the cleared flag in the payload is 1474 again	ok
+1478	7	kept	Hand-rolled renderer	no	-	Action Row variant: payload keeps content and the row and drops the flag; the row surviving the save is asserted nowhere else	-
+1479	5	remove	-	no	932	toggle round trip clearing content and keeping the Action Row is asserted earlier on the same class of record; no provider code runs	unchecked
+1480	5	remove	Hand-rolled renderer	no	1478	restates 1478 and 1479 in one case	ok
+1481	6	remove	-	no	310	draft-to-saved hash parity under trailing whitespace is forced earlier through the provider	ok
+1482	5	remove	-	no	310	same parity with a nested field; both sides run the same shape, so only the normalise step can fail it, as in 310	ok
+1483	5	remove	-	no	310	same parity with another nested field	ok
+1484	6	remove	-	no	311	a normaliser that dropped component bodies already fails the provider parity case for a V2 message	ok
+1485	5	remove	-	no	311	key stripping and the structural flag are forced by provider parity on a keyed V2 message and pinned on stripKeys itself	ok
+1486	8	kept	-	no	-	failure path: a draft the shape rejects falls back instead of throwing inside the broadcast handler; asserted nowhere else	-
+1494	6	remove	-	no	1329	the same store write is asserted earlier with an empty report; this adds a non-empty report whose content is pinned at the ingress helper	unchecked
+1581	8	kept	-	no	-	the save statement must not write the nonce column; stored data, only assertion	-
+1582	8	kept	-	no	-	the save statement returns the id and the database clock the nonce is minted from	-
+1583	8	kept	-	no	-	the replaced nonce is read under a row lock	-
+1584	10	kept	-	no	-	only assertion of the condition that lets a nonce move: null or ordering below under collation C; stored data	-
+1585	8	kept	-	no	-	commit is an update of the existing row, never an insert	-
+1586	8	kept	-	no	-	commit sets the nonce column and nothing else	-
+1587	8	kept	-	no	-	commit returns the replaced nonce, which decides which stored object is deleted	-
+1588	7	kept	-	no	-	bound parameters are the id and the new nonce in order	-
+1589	8	kept	-	no	-	nonce format: v, sixteen clock digits, sixteen hex characters	-
+1590	8	kept	-	no	-	boundary: a short clock is left-padded, which the ordering depends on	-
+1591	7	kept	-	no	-	the random part differs between calls with one clock	-
+1592	7	kept	-	no	-	ordering of minted nonces by clock through mintNonce; follows from the format pinned at 1589/1590 but states the commit comparison the format exists for; overlap partial	-
+1593	8	kept	-	no	-	boundary against stored legacy 32-hex nonces: a prefix change that still matches a rewritten format case fails only here	-
+1594	7	kept	-	no	-	drives isMessageValid to both verdicts (two true, one false) with literal expectations; an inverted or constant predicate fails here	-
+1595	5	remove	Self-referential oracle	no	1594	expected value computed by validateMessage, the function the predicate delegates to; verdicts otherwise as 1594 with other payloads	ok
+1596	2	remove	-	no	left unasserted: nothing of the predicate - barrel and direct import are one module singleton	compares two imports of the same module; exercises no code of the predicate and cannot fail on any change to it	-
+1597	5	remove	-	no	1594	same flag-residue shape as the refusing payload of 1594 (content plus V2 flag, no components); no escaped provenance line	ok
+1598	5	remove	-	no	1594	same flag-set bare Text Display shape as the first permitting payload of 1594	ok
+1599	8	kept	-	no	-	absent username computes false: a decision row for stored records asserted nowhere else in the suite	-
+1600	9	kept	-	no	-	discriminating control of 1599: identical record plus a username computes true, and the only classic-content true verdict on the predicate	-
+1601	4	remove	-	no	left unasserted: the predicate leaves its argument unmutated	fails only if validation began mutating its input, which no plausible change to the verdict does	-
+1602	5	remove	-	no	1603	input the MessageData type excludes; reaches the ordinary empty-message refusal, not a distinct predicate branch	ok
+1603	8	kept	-	no	-	the catch path: a throwing gate computes false, not an exception; removing the try/catch fails here first	-
+1604	6	remove	-	no	1603	same catch branch as 1603 with another throwing shape	ok
+1605	8	kept	-	no	-	earliest assertion of the generator request body and the bearer header; the credential scheme is asserted nowhere else	-
+1606	8	kept	-	no	-	204 commits the new nonce to the row with no failure line: the success path driven directly	-
+1607	8	kept	-	yes	-	500 maps to status-500, anchored whole-line format, no commit, stored nonce unchanged	-
+1608	8	kept	-	yes	-	404 maps to status-404: its own decision row	-
+1609	8	kept	-	yes	-	200 is not success and maps to status-other: fails if success widened to any 2xx or response.ok	-
+1610	5	remove	-	yes	1609	302 is status-other as 200 is; any widening of success or misclassing of other fails 1609 first	ok
+1611	7	kept	-	yes	-	503 is status-other, not status-500: the one row that fails if 500 widened to >= 500	-
+1612	8	kept	-	yes	-	rejected fetch maps to network-error: the only non-timeout catch-path row	-
+1613	5	remove	-	no	1607	the anchored whole-line regex of 1607 already refuses any added nonce, content, key or credential	ok
+1614	8	kept	-	no	-	a failed generation sends no bucket command at all: direct assertion on a deletion path	-
+1615	8	kept	-	no	-	timeout boundary 39999/40000 ms, class no-answer-within-T, exact elapsed, no commit	-
+1616	7	kept	-	no	-	timer cleared after a 204: the request signal is not aborted later; fails if clearTimeout is dropped	-
+1617	5	remove	-	no	1607	one status-500 line as 1607; a dropped clearTimeout still writes one line, and exact elapsed is pinned at 1615	ok
+1618	7	kept	-	no	-	final bucket state after an accepted commit; the replaced object is 10 minutes old so the sweep would delete it identically - does not isolate the replaced-nonce deletion, fails on a wrong key	-
+1619	9	kept	-	no	-	the one fixture where the replaced-nonce guard alone decides: null previous nonce sends no delete command	-
+1620	5	remove	-	no	1618	same fixture as 1618, whose exact key list already includes the committed object	ok
+1621	8	kept	-	no	-	refused commit deletes only its own object and leaves the later nonce and an unrelated old object	-
+1622	8	kept	-	no	-	row gone: own object deleted, no insert issued, row not recreated	-
+1623	6	remove	-	no	1624	asserts the Prefix argument handed to the fake; the trailing slash is pinned behaviourally by 1624	ok
+1624	9	kept	-	no	-	only fixture where the trailing slash decides: another message with a prefix-sharing id keeps its old object	-
+1625	8	kept	-	yes	-	sweep boundary: exactly 120000 ms older is deleted	-
+1626	8	kept	-	yes	-	sweep boundary: 119999 ms older is kept	-
+1627	5	remove	-	no	1626	another under-threshold age; measuring by the function clock already deletes the 119999 ms object of 1626	ok
+1628	7	kept	-	no	-	object newer than the committed one is kept: fails on an absolute-difference or reversed comparison that 1625/1626 pass	-
+1629	8	kept	-	no	-	committed object absent from the listing: sweep deletes nothing and logs no error; removing the guard throws into the logged catch	-
+1630	7	kept	-	no	-	client built with the configured endpoint and path-style off; asserted nowhere else, weight not decidable from the code	-
+1631	8	kept	-	no	-	development environment row: lists and deletes under dev/	-
+1632	5	remove	-	no	1618	a dev/ prefix in production leaves the replaced object in place and fails the exact key list of 1618 first	ok
+1633	9	kept	-	yes	-	two accepted saves in every order: the race where one save sweeps or deletes the other object before it commits is checked only here	-
+1634	7	kept	-	yes	-	as 1633 plus an old orphan that an accepted commit must sweep under every ordering; overlaps 1633 and 1625 in part	-
+1635	8	kept	-	yes	-	two accepted saves racing a message delete and purge: no row recreated and no object left behind, asserted nowhere else	-
+1636	5	remove	-	yes	1635	1635 with an orphan the purge removes; the orphan check needs a live row and adds nothing to 1635	ok
+1637	5	remove	-	yes	1633	ok/fail: one accepted save beside a save that does nothing; saves share no state, so every invariant here is a sub-case of 1633	ok
+1638	5	remove	-	yes	1634	ok/fail with orphan: single accepted save sweeping the orphan, a sub-case of 1634	ok
+1639	5	remove	-	yes	1635	ok/fail with delete: single accepted save racing the delete, a sub-case of 1635	ok
+1640	5	remove	-	yes	1635	ok/fail with delete and orphan: sub-case of 1635; the orphan check needs a live row	ok
+1641	5	remove	-	yes	1633	ok/late: one accepted save beside a save that does nothing; saves share no state, so every invariant here is a sub-case of 1633	ok
+1642	5	remove	-	yes	1634	ok/late with orphan: single accepted save sweeping the orphan, a sub-case of 1634	ok
+1643	5	remove	-	yes	1635	ok/late with delete: single accepted save racing the delete, a sub-case of 1635	ok
+1644	5	remove	-	yes	1635	ok/late with delete and orphan: sub-case of 1635; the orphan check needs a live row	ok
+1645	5	remove	-	yes	1633	fail/ok: one accepted save beside a save that does nothing; saves share no state, so every invariant here is a sub-case of 1633	ok
+1646	5	remove	-	yes	1634	fail/ok with orphan: single accepted save sweeping the orphan, a sub-case of 1634	ok
+1647	5	remove	-	yes	1635	fail/ok with delete: single accepted save racing the delete, a sub-case of 1635	ok
+1648	5	remove	-	yes	1635	fail/ok with delete and orphan: sub-case of 1635; the orphan check needs a live row	ok
+1649	5	remove	-	yes	1607	fail/fail: no save commits, so the only production behaviour is no commit and no deletion on a failed generation	ok
+1650	5	remove	-	yes	1607	fail/fail with orphan: no save commits, so the only production behaviour is no commit and no deletion on a failed generation	ok
+1651	5	remove	-	yes	1607	fail/fail with delete: no save commits, so the only production behaviour is no commit and no deletion on a failed generation	ok
+1652	5	remove	-	yes	1607	fail/fail with delete and orphan: no save commits, so the only production behaviour is no commit and no deletion on a failed generation	ok
+1653	5	remove	-	yes	1607	fail/late: no save commits, so the only production behaviour is no commit and no deletion on a failed generation	ok
+1654	5	remove	-	yes	1607	fail/late with orphan: no save commits, so the only production behaviour is no commit and no deletion on a failed generation	ok
+1655	5	remove	-	yes	1607	fail/late with delete: no save commits, so the only production behaviour is no commit and no deletion on a failed generation	ok
+1656	5	remove	-	yes	1607	fail/late with delete and orphan: no save commits, so the only production behaviour is no commit and no deletion on a failed generation	ok
+1657	5	remove	-	yes	1633	late/ok: one accepted save beside a save that does nothing; saves share no state, so every invariant here is a sub-case of 1633	ok
+1658	5	remove	-	yes	1634	late/ok with orphan: single accepted save sweeping the orphan, a sub-case of 1634	ok
+1659	5	remove	-	yes	1635	late/ok with delete: single accepted save racing the delete, a sub-case of 1635	ok
+1660	5	remove	-	yes	1635	late/ok with delete and orphan: sub-case of 1635; the orphan check needs a live row	ok
+1661	5	remove	-	yes	1607	late/fail: no save commits, so the only production behaviour is no commit and no deletion on a failed generation	ok
+1662	5	remove	-	yes	1607	late/fail with orphan: no save commits, so the only production behaviour is no commit and no deletion on a failed generation	ok
+1663	5	remove	-	yes	1607	late/fail with delete: no save commits, so the only production behaviour is no commit and no deletion on a failed generation	ok
+1664	5	remove	-	yes	1607	late/fail with delete and orphan: no save commits, so the only production behaviour is no commit and no deletion on a failed generation	ok
+1665	5	remove	-	yes	1612	late/late: no save commits, so the only production behaviour is no commit and no deletion on a failed generation	ok
+1666	5	remove	-	yes	1612	late/late with orphan: no save commits, so the only production behaviour is no commit and no deletion on a failed generation	ok
+1667	5	remove	-	yes	1612	late/late with delete: no save commits, so the only production behaviour is no commit and no deletion on a failed generation	ok
+1668	5	remove	-	yes	1612	late/late with delete and orphan: no save commits, so the only production behaviour is no commit and no deletion on a failed generation	ok
+1669	2	remove	-	no	left unasserted: nothing of production - the count of the spec file own enumeration	counts the test generator rows and sequences; exercises no production code	-
+1670	6	remove	-	no	1633	one of the sequences 1633 already plays, with the same final nonce and object set its invariants require	ok
+1782	5	remove	-	yes	1783	under-cap save with another count; the boundary is 1783	ok
+1783	8	kept	-	yes	-	user cap boundary: 999 held still saves	-
+1784	8	kept	-	yes	-	user cap boundary: 1000 held refuses with the user wording and inserts nothing	-
+1785	7	kept	-	yes	-	1001 refuses: the row that fails if >= became ===; otherwise overlaps 1784	-
+1786	5	remove	-	no	1783	the fake answers by query text, so a mis-scoped count query fails 1783 the same way	ok
+1787	8	kept	-	no	-	guild cap boundary: 999 held still saves, through the guild count query	-
+1788	8	kept	-	no	-	guild cap boundary: 1000 held refuses with the guild wording and inserts nothing	-
+1789	5	remove	-	no	1787	the fake answers by query text, so a mis-scoped count query fails 1787 the same way	ok
+1790	9	kept	-	yes	-	the one fixture where the has-id conjunct alone decides: an existing message at the cap still saves	-
+1791	6	remove	-	yes	1790	same has-id conjunct as 1790 through the guild select	ok
+1792	8	kept	-	no	-	one broadcast, on message-update-<id>, named message-update: channel and event asserted nowhere else	-
+1793	7	kept	-	yes	-	literal hash of the saved message carried through the real subscriber decoder; this shape survives an unquoted payload, so it pins the value, not the encoding	-
+1794	9	kept	-	yes	-	the one fixture where the JSON string encoding alone decides: a digits-only hash decodes as a number without it	-
+1795	6	remove	-	yes	1794	negative digits-only hash: decodes as a number without the string encoding exactly as 1794 does	ok
+1796	6	remove	-	yes	1794	digits-e-digits hash: decodes as a number without the string encoding exactly as 1794 does	ok
+1797	6	remove	-	yes	1794	negative digits-e-digits hash: decodes as a number without the string encoding exactly as 1794 does	ok
+1798	6	remove	-	yes	1794	overflowing exponent hash: decodes as a number without the string encoding exactly as 1794 does	ok
+1799	6	remove	-	yes	1794	negative overflowing exponent hash: decodes as a number without the string encoding exactly as 1794 does	ok
+1800	5	remove	-	yes	1794	re-asserts hashes of 1796-1799 inputs plus one sibling each; the same dropped encoding fails 1794 first	ok
+1801	5	remove	-	yes	1794	re-asserts hashes of 1796-1799 inputs plus one sibling each; the same dropped encoding fails 1794 first	ok
+1802	5	remove	-	yes	1794	re-asserts hashes of 1796-1799 inputs plus one sibling each; the same dropped encoding fails 1794 first	ok
+1803	9	kept	-	no	-	the one fixture where the has-id conjunct of the broadcast decides: a new message publishes nothing	-
+1804	8	kept	-	no	-	the save resolves while the generator request is still pending: an awaited continuation hangs here	-
+1805	4	remove	-	no	1807	call order only; the nonce needs the clock the insert returns, so the order cannot change without failing 1807	ok
+1806	8	kept	-	no	-	exactly one promise handed to waitUntil, settling undefined after committing the minted nonce: the wiring is asserted nowhere else	-
+1807	8	kept	-	no	-	request carries the saved id, the message data and a nonce minted from the returned database clock	-
+1808	5	remove	-	no	1607	stored nonce unchanged after a 500 as 1607; the returned id comes from the fake row	ok
+1809	8	kept	-	no	-	storage failure after a 204 is caught: the handed-off promise resolves, not rejects	-
+1810	8	kept	-	no	-	the upsert of an existing message carries the client id as a parameter, so the save updates its row; asserted nowhere else	-
+1811	2	remove	-	no	left unasserted: a new message insert carries no id	no parameter can be 42 for a message without an id, even if the id were assigned unconditionally; cannot fail	-
+1812	9	kept	-	no	-	the one fixture where the returned id, not the client id, decides what the generator is asked for	-
+1817	4	remove	-	no	1818	matches "valid" anywhere in the statement, which the conflict clause alone satisfies; the insert list is the values passed in	ok
+1818	9	kept	-	no	-	the conflict update sets valid: without it an edited message keeps a stale stored verdict	-
+1819	5	remove	-	no	1818	same conflict-clause match as 1818 for both verdicts; the parameter check is satisfied by the insert values alone	ok
+1820	8	kept	-	no	-	stored valid computed true for a sendable payload through buildMessageValues	-
+1821	8	kept	-	no	-	stored valid computed false for an unsendable payload: with 1820 pins the predicate wiring	-
+1822	8	kept	-	no	-	a client-supplied data.valid does not decide the stored verdict	-

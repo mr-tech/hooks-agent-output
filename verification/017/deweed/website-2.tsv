@@ -1,0 +1,117 @@
+id	score	verdict	class	generated	covering	reason
+232	5	remove	-	no	88	keyboard activation of a held link is the link component's own behaviour, already asserted with a registered guard; only the fixture differs
+233	9	kept	-	no	-	the one editor-route fixture where the unchanged-message conjunct alone lets the link through
+234	9	kept	-	no	-	the one fixture where the same-message conjunct alone decides, edit to send, with edits pending
+235	8	kept	-	yes	-	boundary of the same-message match: a trailing slash still counts as this message
+236	8	kept	-	yes	-	boundary: a query string on this message's own route does not ask
+237	8	kept	-	yes	-	boundary: an absolute address on this origin to this message's send page does not ask
+238	9	kept	-	yes	-	the one fixture where the origin conjunct alone decides: same path on another site asks
+239	8	kept	-	yes	-	boundary: a path extending this message's route is another page and asks
+240	5	remove	-	yes	229	another destination that asks; no plausible loosening of the match lets /message/m/new through without the folder link failing first
+241	8	kept	-	no	-	only case that the provider withdraws its own registration on unmount; the provider-level case uses a test registrant
+242	7	kept	-	yes	-	the sidebar logo is its own call site; fails if that link stops going through the guarded link component
+243	7	kept	-	yes	-	the sidebar edit link is its own call site; fails if that link stops going through the guarded link component
+244	7	kept	-	yes	-	the sidebar terms link is its own call site; fails if that link stops going through the guarded link component
+245	7	kept	-	yes	-	the sidebar privacy link is its own call site; fails if that link stops going through the guarded link component
+246	7	kept	-	yes	-	the sidebar servers link is its own call site; fails if that link stops going through the guarded link component
+247	7	kept	-	yes	-	the sidebar account link is its own call site; fails if that link stops going through the guarded link component
+248	6	remove	-	no	233	unchanged message lets a link through, repeated on the send route with a sidebar link
+249	8	kept	-	yes	-	boundary: another message whose id extends this one is not this message; also the only guarded search-result link
+250	8	kept	-	yes	-	boundary: another message whose id is a prefix of this one is not this message
+251	7	kept	-	yes	-	send to edit of the same message does not ask; the reverse direction of the editor-route case
+252	5	remove	-	yes	251	same message, send to edit, with a two-digit id instead of one
+253	8	kept	-	no	-	boundary: the unsaved route, id 0, counts as the same message between send and edit
+254	7	kept	-	no	-	the send page's server-folder crumb is its own call site under the real guard
+255	7	kept	-	no	-	the send page's two user-folder crumbs are their own call sites under the real guard
+256	5	remove	-	no	251	send to edit of the same message does not ask, repeated on the page's own links; a no-prompt assertion cannot tell a guarded link from a bare one
+257	7	kept	-	no	-	the send page's bot invitation through the real guard to location.assign; overlaps the provider-level external cases in part
+258	7	kept	-	no	-	the two real layouts keep the link prompt and the editor prompt in separate providers; the provider-level case builds its own nesting
+259	7	kept	-	yes	-	Enter answers exactly one of two open prompts, link prompt raised first
+260	7	kept	-	yes	-	Enter answers exactly one of two open prompts, opposite raise order, where a first-opened handler bug would differ
+261	5	remove	-	no	231	the absent editor prompt is the fixture's own omission of the dialog, and the link prompt half repeats the inside-the-editor case on another pathname
+262	5	remove	-	yes	263	below the limit with 38, one further from the boundary than the 39 row
+263	8	kept	-	yes	-	boundary: adds still offered at 39
+264	8	kept	-	yes	-	boundary: adds, duplicate and add-child withdrawn at exactly 40
+265	5	remove	-	yes	264	above the limit; fails only when the 40 row does
+266	5	remove	-	yes	264	above the limit; fails only when the 40 row does
+267	7	kept	-	yes	-	a container and its children counted as 39 still offers adds; fails on a double count
+268	9	kept	-	yes	-	the one fixture where the nested count alone decides: one top-level component, 40 in all, no adds
+269	5	remove	-	yes	268	nested count above the limit; fails only when the 40-in-all row does
+270	5	remove	-	yes	267	nested count below the limit with other shapes
+271	6	remove	-	yes	268	nested count at the limit with sections and accessories; the editor only calls the counter the 40-in-all row already pins
+272	8	kept	-	yes	-	boundary: no error line and no red border at exactly 40
+273	6	remove	-	yes	272	no error at 40 with a nested shape; same validator call
+274	8	kept	-	yes	-	failure path the user sees: the exact line and the red border at 41
+275	6	remove	-	yes	274	the 41 line again for a nested shape
+276	5	remove	-	yes	274	the line with total 44; other example data
+277	7	kept	-	no	-	order of the text-length line and the components line
+278	6	remove	-	no	272	the 41 state then the 40 state in one mount; both states are pinned separately and the errors are recomputed each render
+279	8	kept	-	no	-	failure path: the component-validity line and its red border for an empty Text Display
+280	9	kept	-	no	-	the one fixture where the V2 flag alone makes the validity check apply
+281	9	kept	-	no	-	discriminating control: the same empty Action Row raises no line in a classic message
+282	7	kept	-	no	-	order of the components-total line and the validity line
+283	6	remove	-	no	279	the empty state then a filled state in one mount; the empty state is pinned and the errors are recomputed each render
+284	8	kept	-	no	-	boundary: the validity line and border show without an editable state, so validation is not gated on editing
+285	8	kept	-	no	-	failure path: the text-length line and its red border above 4000 characters
+286	8	kept	-	yes	-	failure path: the only assertion in the editor of the no-content line, and that nothing else renders beside it
+287	8	kept	-	yes	-	failure path: the only assertion in the editor of the embed-characters line
+288	6	remove	-	yes	285	the text-length line again, outside editing
+289	7	kept	-	yes	-	the components-total line outside editing; overlaps the editing-mode 41 row in part
+290	6	remove	-	yes	284	same message and mode as the not-being-edited case, with the full sentence in place of the component name
+291	7	kept	-	no	-	negative control: a valid message renders no error text
+292	6	remove	-	yes	222	the no-content line hidden when validation is hidden; the preview page case mounts the real page with the same kind of message and asserts no line and no border
+293	6	remove	-	yes	223	the embed-characters line hidden when validation is hidden; the preview page case mounts the real page with the same kind of message and asserts no line and no border
+294	6	remove	-	yes	224	the text-length line hidden when validation is hidden; the preview page case mounts the real page with the same kind of message and asserts no line and no border
+295	6	remove	-	yes	225	the components-total line hidden when validation is hidden; the preview page case mounts the real page with the same kind of message and asserts no line and no border
+296	6	remove	-	yes	226	the component-validity line hidden when validation is hidden; the preview page case mounts the real page with the same kind of message and asserts no line and no border
+297	7	kept	-	yes	-	the V2 editing Author is handed the hide flag; fails if the prop is dropped
+298	6	remove	-	yes	297	the false half of the same pass-through; fails on a dropped prop that behaves identically, and a hard-coded true is not a plausible change
+299	4	remove	-	yes	left unasserted: the message body showing its username errors when validation is not hidden	reads false off a stubbed child for the default value; fails when the prop is dropped although behaviour is unchanged
+300	8	kept	-	yes	-	boundary: an add at 39 that overshoots the limit is completed whole, Section with its accessory
+301	7	kept	-	yes	-	the Container menu item builds a container with its children at 39
+302	7	kept	-	yes	-	the Action Row menu item builds an action row at 39; label-to-factory wiring
+303	7	kept	-	no	-	duplicate deep-copies a container with its three children and inserts it; the placement case does not look at children
+304	5	remove	-	no	289	same 41-component message outside editing; the red border is pinned by the 41 flat components row
+305	7	kept	-	no	-	onMount runs once and not again on re-render
+308	7	kept	-	yes	-	base case: the saving tab's own broadcast raises no notice; fails if the client hash and the server hash diverge for a classic message
+309	5	remove	-	yes	308	same path with other content; record and shown hash both still match
+310	8	kept	-	yes	-	boundary: trailing whitespace the server trims must not turn the tab's own save into a notice
+311	7	kept	-	yes	-	the V2 shape through the same path; fails if client and server normalise V2 differently
+312	5	remove	-	yes	311	V2 with another body
+313	8	kept	-	yes	-	boundary: an empty embed beside V2 components must hash alike on both sides
+314	8	kept	-	yes	-	boundary: a message that fails the send shape takes the fallback normalisation and still raises no notice
+315	7	kept	-	yes	-	whitespace-only content on the fallback path; overlaps the trailing-whitespace and invalid rows in part
+316	7	kept	-	yes	-	the save that goes through the content-loss choice, Classic, records and shows the resolved data
+317	7	kept	-	yes	-	the save that goes through the content-loss choice, V2 disposition
+318	8	kept	-	yes	-	boundary: a digits-only hash is matched to the held record as a string, with the shown content already different
+319	5	remove	-	yes	318	a negative digits-only hash; behaves as the digits-only row under any numeric handling
+320	7	kept	-	yes	-	an exponent-form hash fails a number round trip that the digits-only row survives
+321	6	remove	-	yes	320	an overflowing exponent; fails under the same round trip as the exponent row
+322	5	remove	-	yes	320	a negative overflowing exponent; same round trip
+323	9	kept	-	yes	-	the one plain fixture where the own-save record alone decides: the shown content has moved on and the response has not arrived
+324	8	kept	-	yes	-	boundary: the record is hashed after the server-side drop of an unknown field, with the record alone deciding
+325	8	kept	-	yes	-	boundary: two records held at once; fails on a single-slot record
+326	8	kept	-	yes	-	boundary: records matched out of order; fails on a first-in-first-out record
+327	5	remove	-	yes	308	same message with the response delivered first; with no later edit the shown hash matches whatever the response did to the record
+328	5	remove	-	yes	308	same message with the response delivered first; with no later edit the shown hash matches whatever the response did to the record
+329	5	remove	-	yes	310	same message with the response delivered first; with no later edit the shown hash matches whatever the response did to the record
+330	5	remove	-	yes	311	same message with the response delivered first; with no later edit the shown hash matches whatever the response did to the record
+331	5	remove	-	yes	311	same message with the response delivered first; with no later edit the shown hash matches whatever the response did to the record
+332	5	remove	-	yes	313	same message with the response delivered first; with no later edit the shown hash matches whatever the response did to the record
+333	5	remove	-	yes	314	same message with the response delivered first; with no later edit the shown hash matches whatever the response did to the record
+334	5	remove	-	yes	315	same message with the response delivered first; with no later edit the shown hash matches whatever the response did to the record
+335	5	remove	-	yes	316	the Classic choice with the response delivered first; shown hash still matches
+336	5	remove	-	yes	317	the V2 choice with the response delivered first; shown hash still matches
+337	5	remove	-	yes	318	same hash shape with the response delivered first; a record lost on response is caught by the plain after-response case
+338	5	remove	-	yes	318	same hash shape with the response delivered first; a record lost on response is caught by the plain after-response case
+339	5	remove	-	yes	320	same hash shape with the response delivered first; a record lost on response is caught by the plain after-response case
+340	5	remove	-	yes	320	same hash shape with the response delivered first; a record lost on response is caught by the plain after-response case
+341	5	remove	-	yes	320	same hash shape with the response delivered first; a record lost on response is caught by the plain after-response case
+342	8	kept	-	yes	-	boundary: the record must outlive the save's response; fails if success clears it
+343	5	remove	-	yes	324	the dropped-field save with the response delivered first
+344	6	remove	-	yes	325	two saves with each response delivered first; a record cleared on response fails the single-save after-response case first
+345	6	remove	-	yes	326	two saves in reverse with each response delivered first
+346	8	kept	-	no	-	boundary: two identical saves need two records; fails on a set or a remove-all
+347	9	kept	-	no	-	discriminating control for the whole file: a broadcast this tab never sent does raise the notice
+348	7	kept	-	no	-	the provider hands its unsaved-changes state to the notice text; the hook-level cases pass the flag by hand
+349	6	remove	-	no	347	a foreign broadcast with a digits-only hash; raises for the same reason as the plain foreign broadcast

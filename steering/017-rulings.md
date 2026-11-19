@@ -1217,3 +1217,15 @@ steering-closure.md, run. Read this turn:
 - **This thread's error:** my 20:2xZ relay to `security-hooks-017` cited block 20:21Z before it was committed (it was committed as `dbbd552`
   minutes later). steering.md, Continuity: "A block a relay cites is committed before the relay is sent." The check that catches it:
   commit, then send.
+
+## 2026-11-19T20:33Z — test-case scoring of 017's changed test files (website 787bec5)
+
+Case list: `verification/017/deweed/cases-website.tsv` (`vitest list --json` in a clean export of `787bec5`, exit 0). There are 1857 cases,
+463 of them marked: they sit in the 31 test files changed `1ad625e..787bec5` (`git diff --name-only`). Four `deweeder` subagents scored the
+marked ids in units of 115/116/116/116 (`website-1.tsv` to `website-4.tsv`); no id was not found. Merged into `website-merged.tsv`, with a
+`covering_check` column (this thread's python merge, read this turn).
+- **Cases scored: 463. Below 7: 163, 35.2% (163/463).** Of the 163, 148 name a covering case scored 7 or more in the merged
+  table; 0 name a covering case scored below 7; 8 name a covering id outside this pass, marked `unchecked` (222 to 226, 932, 1329, 1457);
+  7 are `left unasserted` (299, 380, 418, 1596, 1601, 1669, 1811).
+- Nothing is deleted on this. A deletion would be a later chain's, behind a mutation re-run. The retrospective does not wait on it.
+The export (`scratchpad/deweed/web-787bec5`) is removed after this commit. The generator carries no tests, so it had no pass.

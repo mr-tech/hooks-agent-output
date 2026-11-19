@@ -1,0 +1,117 @@
+id	score	disposition	class	generated	covering	reason
+350	7	kept	-	no	-	first fixture where a held own-save record of other content must not suppress another tab's notice; fails if any held record mutes the broadcast
+351	9	kept	-	yes	-	the fixture where the shown-hash conjunct alone decides under numeric reading: two hex hashes equal as one finite number must still differ
+352	6	remove	-	yes	351	same shown-hash string-comparison behaviour with an overflow pair; any numeric coercion that fails here fails the finite pair first
+353	6	remove	-	yes	351	same shown-hash string-comparison behaviour with a negative overflow pair; repeats the finite pair
+354	9	kept	-	yes	-	the fixture where the held-record conjunct alone decides under numeric reading: a record and a foreign hash equal as one finite number
+355	6	remove	-	yes	354	same record-match string-comparison behaviour with an overflow pair; repeats the finite pair
+356	6	remove	-	yes	354	same record-match string-comparison behaviour with a negative overflow pair; repeats the finite pair
+357	9	kept	-	no	-	first fixture where equality with the shown content's hash alone suppresses the notice, no record held
+358	7	kept	-	no	-	a foreign save differing only in components must raise the notice through the provider; overlaps the content-only notice case in part
+359	6	remove	-	no	350	foreign save while an own record is held, already decided by the earlier held-record case with other content, and again inside 364
+360	8	kept	-	no	-	only case that an own-save record is consumed by its first broadcast, so a second broadcast of that hash raises the notice
+361	6	remove	-	no	357	no notice for content this tab already shows, same conjunct as the earlier digits-only fixture with other content
+362	8	kept	-	no	-	failure path: a failed save forgets its record so a later foreign save of that content is noticed
+363	8	kept	-	no	-	boundary of the forget: one failure of two identical saves removes one record, the other still mutes its broadcast
+364	8	kept	-	no	-	a foreign broadcast must not consume the own record; exact count of one notice across foreign then own broadcasts
+365	8	kept	-	no	-	boundary: failure of a save whose record was already consumed must not remove the later save's record (missing-index guard)
+366	9	kept	-	no	-	discriminating control for strict equality on the record conjunct: a number payload with the record's digits is not an own save
+367	9	kept	-	no	-	discriminating control for strict inequality on the shown-hash conjunct: a number payload with the shown hash's digits still notifies
+368	8	kept	-	no	-	only provider-level assertion that a V2 save beside an empty embed writes without the embed, asks nothing and leaves the editor equal to what was written
+369	8	kept	-	no	-	choice row Classic: written payload, held editor state and mode all asserted after commitSaveChoice
+370	8	kept	-	no	-	choice row V2: written payload, held editor state and mode after commitSaveChoice; the other row of the two-way decision
+373	8	kept	-	no	-	route-0 draft re-read on returning from a saved message within one mount; fails if loading 42 overwrites or drops the tab's draft
+374	7	kept	-	no	-	route-0 draft written by the provider and restored on remount; overlaps 373 on the write, differs on the mount read
+375	7	kept	-	no	-	a tab with no own draft adopts the last edited route-0 draft through the provider
+376	8	kept	-	no	-	unsaved edits on a saved message stored under its id and restored over the fetched copy after leaving to route 0 and back
+377	8	kept	-	no	-	a saved message's draft must not surface at route 0; fails if the route-0 lookup takes any newest draft
+378	7	kept	-	no	-	restore of a saved message's draft across remount; overlaps 376 in part
+379	8	kept	-	no	-	only provider case of the remove branch: edits typed back to the saved copy leave an empty drafts map
+380	2	remove	-	no	left unasserted: a stored draft of 42 surviving the load of a different saved message	the query mock serves the same object for route 43, so no effect reruns and the asserted state is the one typed before the visits; nothing is re-read
+381	7	kept	-	no	-	each tab reads its own key through the provider; fails if the provider keys route 0 without the tab id
+382	7	kept	-	no	-	new tab takes the most recently edited of two route-0 drafts through the provider; recency also pinned at helper level
+383	5	remove	-	no	375	same scenario as 375 (one draft from tab A, a new tab mounts) with another tab name and text
+384	8	kept	-	no	-	boundary: with no draft anywhere the intro message shows and the load itself writes nothing to storage
+385	8	kept	-	no	-	only assertion that a share code's message becomes the tab's route-0 draft
+386	8	kept	-	no	-	legacy id-less stored message restored with its data and name through the provider; migration read on the provider route
+387	8	kept	-	no	-	legacy stored copy of 42 newer than the saved copy restored with its own name; migration read on the provider route
+388	9	kept	-	no	-	boundary of the newer-than comparison: an equal timestamp shows the saved copy
+389	7	kept	-	no	-	older stored copy shows the saved copy; the other side of the comparison from 387
+390	7	kept	-	no	-	seeded route-0 entry shown with its own name, which the typed-draft cases cannot distinguish from the default name
+391	7	kept	-	no	-	seeded draft of 42 shown with its own data and name over the fetched copy, on the drafts-map route
+392	8	kept	-	no	-	exact shape and content of the legacy message key the provider keeps writing; stored data read by older code
+393	8	kept	-	no	-	creating save removes the route-0 draft and the legacy key; only provider assertion of that cleanup
+394	8	kept	-	no	-	save of a saved message removes its draft when the draft equals what was sent
+395	9	kept	-	no	-	the fixture where the sent-equals-draft conjunct alone decides: an edit typed after Save keeps the draft
+396	8	kept	-	no	-	reload discards stored edits and shows the saved copy; only assertion of the ignore-local path
+397	7	kept	-	yes	-	hasChanged false on an unedited load; fails if the comparison takes in more than data
+398	5	remove	-	yes	397	same assertion with a session status the provider does not read
+399	5	remove	-	yes	397	same assertion with a session status the provider does not read
+400	7	kept	-	yes	-	hasChanged true after an edit; base row of the edited half
+401	8	kept	-	yes	-	edited while signed out is still changed; the row that fails if a session gate is put back on hasChanged
+402	6	remove	-	yes	401	edited while the session is loading; a session gate on hasChanged fails 401 first
+403	6	remove	-	no	323	one record per save with an id is already forced by the provider cases where an edit follows Save (323) and by the consume-once case
+404	8	kept	-	no	-	only fixture where the has-an-id conjunct decides: a creating save records nothing
+405	5	remove	-	no	348	loss wording when changed is asserted earlier through the provider; this adds only the changed-at-subscription start
+406	6	remove	-	no	348	changed-after-subscription wording is the provider case 348 with the hook mounted bare
+407	8	kept	-	no	-	discriminating control: the prompt omits the loss sentence when nothing is unsaved, asserted nowhere earlier
+408	6	remove	-	no	407	no loss sentence when unchanged, with a stale-value path that 348 already forces in the other direction
+409	8	kept	-	no	-	connection closed exactly once on unmount and not before
+410	8	kept	-	no	-	message id change closes the old connection and opens one new one
+411	8	kept	-	no	-	boundary: message loses its id, connection closed and none opened
+412	7	kept	-	no	-	two hooks, unmount closes only its own connection; fails on a shared-client change
+418	5	remove	Superseded implementation	no	left unasserted: absence of a pages-router route-change confirm in useUnloadAlert	the hook holds no route listener; the case emits a pages-router event the app-router hook's input class excludes and can fail only if that listener is re-added
+419	8	kept	-	no	-	beforeunload is prevented while there are unsaved changes; first assertion of the prompt
+420	8	kept	-	no	-	control: no prompt without unsaved changes
+421	9	kept	-	no	-	the fixture where the leaving conjunct alone decides: blocked hook, exit in flight, no prompt
+422	8	kept	-	no	-	re-arm after the exit resolved and time passed; fails if the suppression never lifts
+423	8	kept	-	no	-	failure path: a rejected exit re-arms the prompt at once and rethrows
+424	7	kept	-	no	-	the exit's result is handed back to the caller
+528	8	kept	-	no	-	only assertion that the edit page arms the unload prompt from hasChanged
+529	8	kept	-	no	-	only assertion that the edit page's Log in runs signIn inside the no-prompt exit
+885	7	kept	-	no	-	classic content row of the content-requirement gate, called directly
+886	7	kept	-	no	-	embeds alone satisfy the content requirement
+887	7	kept	-	no	-	a legacy Action Row beside content and embeds is not a V2 conflict; first of three
+888	7	kept	-	no	-	V2 components alone are valid
+889	6	remove	-	no	888	V2 components with no classic content again, an Action Row added; no change fails this and not 888
+890	7	kept	-	no	-	V2 components with content refused; oracle is only that a string came back
+891	7	kept	-	no	-	V2 components with embeds refused; embeds as the sole carrier of content
+892	5	remove	-	no	890	both carriers present at once; fails only when 890 and 891 do
+893	7	kept	-	no	-	empty message refused
+894	8	kept	-	no	-	boundary: whitespace-only content counts as empty, first assertion in the list
+895	7	kept	-	no	-	omitted fields take their defaults and reach the empty verdict instead of throwing
+896	5	remove	-	no	887	Action Row beside embeds only; same not-V2 decision as 887
+897	5	remove	-	no	887	Action Row beside content only; same not-V2 decision as 887
+898	7	kept	-	no	-	Media Gallery is a member of the V2 type set
+899	7	kept	-	no	-	File is a member of the V2 type set
+900	7	kept	-	no	-	Section is a member of the V2 type set, first assertion in the list
+901	7	kept	-	no	-	control: an unknown type is not V2
+902	7	kept	-	no	-	Action Row alone is not V2, first direct assertion in the list
+903	5	remove	-	no	902	a bare Button is never a top-level component; repeats the non-member row with input the list's type excludes
+1458	8	kept	-	no	-	server render path: get returns the default with no window; fails with a ReferenceError if the guard goes
+1459	8	kept	-	no	-	server render path: set reports false without throwing
+1474	7	kept	Hand-rolled renderer	no	-	only case asserting the upsert payload of a repaired flag-stranded record through saveMessage; the hook is run under stubbed React hooks, and the load steps are the test's own sequence
+1475	7	kept	Hand-rolled renderer	no	-	the same payload keeps its content and passes validateMessage; overlaps 1474 in fixture, differs in the property
+1476	5	remove	-	no	1457	the seed text carrying flags is asserted earlier; other example data
+1477	5	remove	Hand-rolled renderer	no	1474	row D resolving to classic is 1351 and the cleared flag in the payload is 1474 again
+1478	7	kept	Hand-rolled renderer	no	-	Action Row variant: payload keeps content and the row and drops the flag; the row surviving the save is asserted nowhere else
+1479	5	remove	-	no	932	toggle round trip clearing content and keeping the Action Row is asserted earlier on the same class of record; no provider code runs
+1480	5	remove	Hand-rolled renderer	no	1478	restates 1478 and 1479 in one case
+1481	6	remove	-	no	310	draft-to-saved hash parity under trailing whitespace is forced earlier through the provider
+1482	5	remove	-	no	310	same parity with a nested field; both sides run the same shape, so only the normalise step can fail it, as in 310
+1483	5	remove	-	no	310	same parity with another nested field
+1484	6	remove	-	no	311	a normaliser that dropped component bodies already fails the provider parity case for a V2 message
+1485	5	remove	-	no	311	key stripping and the structural flag are forced by provider parity on a keyed V2 message and pinned on stripKeys itself
+1486	8	kept	-	no	-	failure path: a draft the shape rejects falls back instead of throwing inside the broadcast handler; asserted nowhere else
+1494	6	remove	-	no	1329	the same store write is asserted earlier with an empty report; this adds a non-empty report whose content is pinned at the ingress helper
+1581	8	kept	-	no	-	the save statement must not write the nonce column; stored data, only assertion
+1582	8	kept	-	no	-	the save statement returns the id and the database clock the nonce is minted from
+1583	8	kept	-	no	-	the replaced nonce is read under a row lock
+1584	10	kept	-	no	-	only assertion of the condition that lets a nonce move: null or ordering below under collation C; stored data
+1585	8	kept	-	no	-	commit is an update of the existing row, never an insert
+1586	8	kept	-	no	-	commit sets the nonce column and nothing else
+1587	8	kept	-	no	-	commit returns the replaced nonce, which decides which stored object is deleted
+1588	7	kept	-	no	-	bound parameters are the id and the new nonce in order
+1589	8	kept	-	no	-	nonce format: v, sixteen clock digits, sixteen hex characters
+1590	8	kept	-	no	-	boundary: a short clock is left-padded, which the ordering depends on
+1591	7	kept	-	no	-	the random part differs between calls with one clock

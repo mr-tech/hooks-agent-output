@@ -1,0 +1,117 @@
+id	score	disposition	class	generated	covering	reason
+1592	7	kept	-	no	-	ordering of minted nonces by clock through mintNonce; follows from the format pinned at 1589/1590 but states the commit comparison the format exists for; overlap partial
+1593	8	kept	-	no	-	boundary against stored legacy 32-hex nonces: a prefix change that still matches a rewritten format case fails only here
+1594	7	kept	-	no	-	drives isMessageValid to both verdicts (two true, one false) with literal expectations; an inverted or constant predicate fails here
+1595	5	remove	Self-referential oracle	no	1594	expected value computed by validateMessage, the function the predicate delegates to; verdicts otherwise as 1594 with other payloads
+1596	2	remove	-	no	left unasserted: nothing of the predicate - barrel and direct import are one module singleton	compares two imports of the same module; exercises no code of the predicate and cannot fail on any change to it
+1597	5	remove	-	no	1594	same flag-residue shape as the refusing payload of 1594 (content plus V2 flag, no components); no escaped provenance line
+1598	5	remove	-	no	1594	same flag-set bare Text Display shape as the first permitting payload of 1594
+1599	8	kept	-	no	-	absent username computes false: a decision row for stored records asserted nowhere else in the suite
+1600	9	kept	-	no	-	discriminating control of 1599: identical record plus a username computes true, and the only classic-content true verdict on the predicate
+1601	4	remove	-	no	left unasserted: the predicate leaves its argument unmutated	fails only if validation began mutating its input, which no plausible change to the verdict does
+1602	5	remove	-	no	1603	input the MessageData type excludes; reaches the ordinary empty-message refusal, not a distinct predicate branch
+1603	8	kept	-	no	-	the catch path: a throwing gate computes false, not an exception; removing the try/catch fails here first
+1604	6	remove	-	no	1603	same catch branch as 1603 with another throwing shape
+1605	8	kept	-	no	-	earliest assertion of the generator request body and the bearer header; the credential scheme is asserted nowhere else
+1606	8	kept	-	no	-	204 commits the new nonce to the row with no failure line: the success path driven directly
+1607	8	kept	-	yes	-	500 maps to status-500, anchored whole-line format, no commit, stored nonce unchanged
+1608	8	kept	-	yes	-	404 maps to status-404: its own decision row
+1609	8	kept	-	yes	-	200 is not success and maps to status-other: fails if success widened to any 2xx or response.ok
+1610	5	remove	-	yes	1609	302 is status-other as 200 is; any widening of success or misclassing of other fails 1609 first
+1611	7	kept	-	yes	-	503 is status-other, not status-500: the one row that fails if 500 widened to >= 500
+1612	8	kept	-	yes	-	rejected fetch maps to network-error: the only non-timeout catch-path row
+1613	5	remove	-	no	1607	the anchored whole-line regex of 1607 already refuses any added nonce, content, key or credential
+1614	8	kept	-	no	-	a failed generation sends no bucket command at all: direct assertion on a deletion path
+1615	8	kept	-	no	-	timeout boundary 39999/40000 ms, class no-answer-within-T, exact elapsed, no commit
+1616	7	kept	-	no	-	timer cleared after a 204: the request signal is not aborted later; fails if clearTimeout is dropped
+1617	5	remove	-	no	1607	one status-500 line as 1607; a dropped clearTimeout still writes one line, and exact elapsed is pinned at 1615
+1618	7	kept	-	no	-	final bucket state after an accepted commit; the replaced object is 10 minutes old so the sweep would delete it identically - does not isolate the replaced-nonce deletion, fails on a wrong key
+1619	9	kept	-	no	-	the one fixture where the replaced-nonce guard alone decides: null previous nonce sends no delete command
+1620	5	remove	-	no	1618	same fixture as 1618, whose exact key list already includes the committed object
+1621	8	kept	-	no	-	refused commit deletes only its own object and leaves the later nonce and an unrelated old object
+1622	8	kept	-	no	-	row gone: own object deleted, no insert issued, row not recreated
+1623	6	remove	-	no	1624	asserts the Prefix argument handed to the fake; the trailing slash is pinned behaviourally by 1624
+1624	9	kept	-	no	-	only fixture where the trailing slash decides: another message with a prefix-sharing id keeps its old object
+1625	8	kept	-	yes	-	sweep boundary: exactly 120000 ms older is deleted
+1626	8	kept	-	yes	-	sweep boundary: 119999 ms older is kept
+1627	5	remove	-	no	1626	another under-threshold age; measuring by the function clock already deletes the 119999 ms object of 1626
+1628	7	kept	-	no	-	object newer than the committed one is kept: fails on an absolute-difference or reversed comparison that 1625/1626 pass
+1629	8	kept	-	no	-	committed object absent from the listing: sweep deletes nothing and logs no error; removing the guard throws into the logged catch
+1630	7	kept	-	no	-	client built with the configured endpoint and path-style off; asserted nowhere else, weight not decidable from the code
+1631	8	kept	-	no	-	development environment row: lists and deletes under dev/
+1632	5	remove	-	no	1618	a dev/ prefix in production leaves the replaced object in place and fails the exact key list of 1618 first
+1633	9	kept	-	yes	-	two accepted saves in every order: the race where one save sweeps or deletes the other object before it commits is checked only here
+1634	7	kept	-	yes	-	as 1633 plus an old orphan that an accepted commit must sweep under every ordering; overlaps 1633 and 1625 in part
+1635	8	kept	-	yes	-	two accepted saves racing a message delete and purge: no row recreated and no object left behind, asserted nowhere else
+1636	5	remove	-	yes	1635	1635 with an orphan the purge removes; the orphan check needs a live row and adds nothing to 1635
+1637	5	remove	-	yes	1633	ok/fail: one accepted save beside a save that does nothing; saves share no state, so every invariant here is a sub-case of 1633
+1638	5	remove	-	yes	1634	ok/fail with orphan: single accepted save sweeping the orphan, a sub-case of 1634
+1639	5	remove	-	yes	1635	ok/fail with delete: single accepted save racing the delete, a sub-case of 1635
+1640	5	remove	-	yes	1635	ok/fail with delete and orphan: sub-case of 1635; the orphan check needs a live row
+1641	5	remove	-	yes	1633	ok/late: one accepted save beside a save that does nothing; saves share no state, so every invariant here is a sub-case of 1633
+1642	5	remove	-	yes	1634	ok/late with orphan: single accepted save sweeping the orphan, a sub-case of 1634
+1643	5	remove	-	yes	1635	ok/late with delete: single accepted save racing the delete, a sub-case of 1635
+1644	5	remove	-	yes	1635	ok/late with delete and orphan: sub-case of 1635; the orphan check needs a live row
+1645	5	remove	-	yes	1633	fail/ok: one accepted save beside a save that does nothing; saves share no state, so every invariant here is a sub-case of 1633
+1646	5	remove	-	yes	1634	fail/ok with orphan: single accepted save sweeping the orphan, a sub-case of 1634
+1647	5	remove	-	yes	1635	fail/ok with delete: single accepted save racing the delete, a sub-case of 1635
+1648	5	remove	-	yes	1635	fail/ok with delete and orphan: sub-case of 1635; the orphan check needs a live row
+1649	5	remove	-	yes	1607	fail/fail: no save commits, so the only production behaviour is no commit and no deletion on a failed generation
+1650	5	remove	-	yes	1607	fail/fail with orphan: no save commits, so the only production behaviour is no commit and no deletion on a failed generation
+1651	5	remove	-	yes	1607	fail/fail with delete: no save commits, so the only production behaviour is no commit and no deletion on a failed generation
+1652	5	remove	-	yes	1607	fail/fail with delete and orphan: no save commits, so the only production behaviour is no commit and no deletion on a failed generation
+1653	5	remove	-	yes	1607	fail/late: no save commits, so the only production behaviour is no commit and no deletion on a failed generation
+1654	5	remove	-	yes	1607	fail/late with orphan: no save commits, so the only production behaviour is no commit and no deletion on a failed generation
+1655	5	remove	-	yes	1607	fail/late with delete: no save commits, so the only production behaviour is no commit and no deletion on a failed generation
+1656	5	remove	-	yes	1607	fail/late with delete and orphan: no save commits, so the only production behaviour is no commit and no deletion on a failed generation
+1657	5	remove	-	yes	1633	late/ok: one accepted save beside a save that does nothing; saves share no state, so every invariant here is a sub-case of 1633
+1658	5	remove	-	yes	1634	late/ok with orphan: single accepted save sweeping the orphan, a sub-case of 1634
+1659	5	remove	-	yes	1635	late/ok with delete: single accepted save racing the delete, a sub-case of 1635
+1660	5	remove	-	yes	1635	late/ok with delete and orphan: sub-case of 1635; the orphan check needs a live row
+1661	5	remove	-	yes	1607	late/fail: no save commits, so the only production behaviour is no commit and no deletion on a failed generation
+1662	5	remove	-	yes	1607	late/fail with orphan: no save commits, so the only production behaviour is no commit and no deletion on a failed generation
+1663	5	remove	-	yes	1607	late/fail with delete: no save commits, so the only production behaviour is no commit and no deletion on a failed generation
+1664	5	remove	-	yes	1607	late/fail with delete and orphan: no save commits, so the only production behaviour is no commit and no deletion on a failed generation
+1665	5	remove	-	yes	1612	late/late: no save commits, so the only production behaviour is no commit and no deletion on a failed generation
+1666	5	remove	-	yes	1612	late/late with orphan: no save commits, so the only production behaviour is no commit and no deletion on a failed generation
+1667	5	remove	-	yes	1612	late/late with delete: no save commits, so the only production behaviour is no commit and no deletion on a failed generation
+1668	5	remove	-	yes	1612	late/late with delete and orphan: no save commits, so the only production behaviour is no commit and no deletion on a failed generation
+1669	2	remove	-	no	left unasserted: nothing of production - the count of the spec file own enumeration	counts the test generator rows and sequences; exercises no production code
+1670	6	remove	-	no	1633	one of the sequences 1633 already plays, with the same final nonce and object set its invariants require
+1782	5	remove	-	yes	1783	under-cap save with another count; the boundary is 1783
+1783	8	kept	-	yes	-	user cap boundary: 999 held still saves
+1784	8	kept	-	yes	-	user cap boundary: 1000 held refuses with the user wording and inserts nothing
+1785	7	kept	-	yes	-	1001 refuses: the row that fails if >= became ===; otherwise overlaps 1784
+1786	5	remove	-	no	1783	the fake answers by query text, so a mis-scoped count query fails 1783 the same way
+1787	8	kept	-	no	-	guild cap boundary: 999 held still saves, through the guild count query
+1788	8	kept	-	no	-	guild cap boundary: 1000 held refuses with the guild wording and inserts nothing
+1789	5	remove	-	no	1787	the fake answers by query text, so a mis-scoped count query fails 1787 the same way
+1790	9	kept	-	yes	-	the one fixture where the has-id conjunct alone decides: an existing message at the cap still saves
+1791	6	remove	-	yes	1790	same has-id conjunct as 1790 through the guild select
+1792	8	kept	-	no	-	one broadcast, on message-update-<id>, named message-update: channel and event asserted nowhere else
+1793	7	kept	-	yes	-	literal hash of the saved message carried through the real subscriber decoder; this shape survives an unquoted payload, so it pins the value, not the encoding
+1794	9	kept	-	yes	-	the one fixture where the JSON string encoding alone decides: a digits-only hash decodes as a number without it
+1795	6	remove	-	yes	1794	negative digits-only hash: decodes as a number without the string encoding exactly as 1794 does
+1796	6	remove	-	yes	1794	digits-e-digits hash: decodes as a number without the string encoding exactly as 1794 does
+1797	6	remove	-	yes	1794	negative digits-e-digits hash: decodes as a number without the string encoding exactly as 1794 does
+1798	6	remove	-	yes	1794	overflowing exponent hash: decodes as a number without the string encoding exactly as 1794 does
+1799	6	remove	-	yes	1794	negative overflowing exponent hash: decodes as a number without the string encoding exactly as 1794 does
+1800	5	remove	-	yes	1794	re-asserts hashes of 1796-1799 inputs plus one sibling each; the same dropped encoding fails 1794 first
+1801	5	remove	-	yes	1794	re-asserts hashes of 1796-1799 inputs plus one sibling each; the same dropped encoding fails 1794 first
+1802	5	remove	-	yes	1794	re-asserts hashes of 1796-1799 inputs plus one sibling each; the same dropped encoding fails 1794 first
+1803	9	kept	-	no	-	the one fixture where the has-id conjunct of the broadcast decides: a new message publishes nothing
+1804	8	kept	-	no	-	the save resolves while the generator request is still pending: an awaited continuation hangs here
+1805	4	remove	-	no	1807	call order only; the nonce needs the clock the insert returns, so the order cannot change without failing 1807
+1806	8	kept	-	no	-	exactly one promise handed to waitUntil, settling undefined after committing the minted nonce: the wiring is asserted nowhere else
+1807	8	kept	-	no	-	request carries the saved id, the message data and a nonce minted from the returned database clock
+1808	5	remove	-	no	1607	stored nonce unchanged after a 500 as 1607; the returned id comes from the fake row
+1809	8	kept	-	no	-	storage failure after a 204 is caught: the handed-off promise resolves, not rejects
+1810	8	kept	-	no	-	the upsert of an existing message carries the client id as a parameter, so the save updates its row; asserted nowhere else
+1811	2	remove	-	no	left unasserted: a new message insert carries no id	no parameter can be 42 for a message without an id, even if the id were assigned unconditionally; cannot fail
+1812	9	kept	-	no	-	the one fixture where the returned id, not the client id, decides what the generator is asked for
+1817	4	remove	-	no	1818	matches "valid" anywhere in the statement, which the conflict clause alone satisfies; the insert list is the values passed in
+1818	9	kept	-	no	-	the conflict update sets valid: without it an edited message keeps a stale stored verdict
+1819	5	remove	-	no	1818	same conflict-clause match as 1818 for both verdicts; the parameter check is satisfied by the insert values alone
+1820	8	kept	-	no	-	stored valid computed true for a sendable payload through buildMessageValues
+1821	8	kept	-	no	-	stored valid computed false for an unsendable payload: with 1820 pins the predicate wiring
+1822	8	kept	-	no	-	a client-supplied data.valid does not decide the stored verdict
