@@ -962,3 +962,13 @@ the uat agent, but just tell it what steps to do, not why it's doing them"*, the
 The brief `backlog-2026-11-18-briefs/uat-access-check.md` was rewritten to hold the steps, limits and delivery
 alone; the steps, accounts and limits are unchanged. `uat-access-check` respawned in category `access-defects`.
 The access handling question stays open (wait key `website-access-defects`).
+
+## 2026-11-19T09:01Z — browser check result: CONFIRMED on production; handling re-put
+
+`uat-access-check` reported by SendMessage, and this thread read its README (`verification/access-defects/
+browser-check/README.md`, agent-output `497f0de`) and the screenshot `02-account1-opens-6020.png`. On
+production `hooks.gg`, test account 1 (session user id `…788418`) opened test account 2's personal message
+6020 in the full editor, and the screenshot shows account 2's content `access-check 2026-11-19T08:57:52Z`. Account 2
+deleted 6020 at 09:00:05Z. The three screenshots are untracked, kept out of the commit under `~/.claude/CLAUDE.md`
+§ Git until he says. The session was not stopped at 09:01Z because it reads `shell`; the stop is retried at
+the next check. The handling question is put again as a selection.
