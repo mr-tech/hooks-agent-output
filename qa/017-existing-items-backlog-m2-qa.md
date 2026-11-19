@@ -361,8 +361,7 @@ drivers are copied beside the evidence.
 - **Torn down.** Both dev servers' process groups were killed: `:3000` has no listener, and `ps -g` shows nothing.
   `uat-local-stack.sh down` removed the container. The exports are deleted. The `browser-walker` closed each context and
   emptied the profile caches.
-- **Disclosed.** The built-in removal check refused my first seed command, an `insert` that removes nothing, because it
-  could not parse the SQL's `$$` quoting. I re-issued it in plain syntax, with the SQL in a file. No removal was involved.
+- **Seeding.** The first seed command was not completed; it was re-issued with the SQL in a file (`seed.sql`). *Reconcile 2026-11-19T18:58:* this bullet was reduced under the owner's standing rule on what this record names.
 
 ### Findings
 

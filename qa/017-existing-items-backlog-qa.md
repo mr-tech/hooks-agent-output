@@ -32,6 +32,7 @@ for the effort-final pass (its delta read whole, § Implementation Review); Phas
 | 2026-11-19T18:00 | steering-roadmap-hooks (cross-session brief, delta `61ce793..fad6cd4`); planner-hooks-017 (AF-25 to key) | Phase 1 re-key: M2-c's wire form, M2-d | Phase 1 re-key on revision 10, which also folds revision 9 (X-24; QAF-25 dispositioned as a stated limit). AF-25's instrument is shown feasible in an export of `60252be`: real `upsertMessage`, `pusher` 5.1.3 and pusher-js 8.3.0 `decodeMessage`, 4 of 4 green; against `4b8db9c`'s bare trigger line 3 of 4 red, and the ordinary hash stays green. Number-shape predicate checked exhaustively: 0 disagreements in 111,972 strings. EC-5 (M2-d's three members; all four `pusher-js` mocks lack `disconnect`), EC-6, NM-39 to NM-45, B-15. QAF-26 LOW (M2-d's step does not name an in-app switch). The plan-level verdict at `4b8db9c` is expired by M2's fix round 3. |
 | 2026-11-19T18:30 | code-reviewer-hooks-017 (M2 sub-entries `f5f3346`, `4e1b43b`) | Register: B-15 | B-15 executed by QA on `60252be` and `24e9be7` and reconciled in its State cell (route re-specified). M2's Phase 2 verdict, QA Failed on QAF-27, is in `qa/017-existing-items-backlog-m2-qa.md`. |
 | 2026-11-19T18:40 | code-reviewer-hooks-017 (`e324582`, M2 at `7293a35`); steering brief (plan-level verdict, R-47 and M7-b at the tip) | Plan-level verdict at the new tip | Plan-level verdict re-issued: **QA Complete** at website `7293a35` and generator `8512a1d` (§ "Plan-level verdict re-issued…"); plan Status `QA Complete` with R-60. Code review's R-58 duplicates this gate's R-58 (`686b810` before `489b4d8`); the reviewer routed the renumbering to steering, and this gate's row takes R-60. |
+| 2026-11-19T18:58 | steering-roadmap-hooks (checkpoint at the context threshold) | Resumption State | Re-stated whole for the checkpoint: plan-level QA Complete at `7293a35`/`8512a1d`; next is Phase 3 on devops's request. |
 
 ## Inputs read
 
@@ -987,52 +988,45 @@ the `unsubscribe` of its only channel, and not garbage collection.
 - **Owner.** QA Phase 2 for M2 runs B-15 once at `60252be` (unfixed) and once at the fix tip before UAT executes it. It is
   named again in the hand-off.
 
-## Resumption State (2026-11-19T09:17Z, checkpoint on steering's word at the context threshold)
-
-*Reconcile 2026-11-19T18:00:* stale from M2's fix round 3. The revision 10 re-key above, and this header's Status-Detail, are current. The next QA act is Phase 2 for M2.
+## Resumption State (2026-11-19T18:58Z, checkpoint on steering's word at the context threshold)
 
 - **Done.** Every QA act this chain owes before release is written and committed.
-  - Phase 1 and its re-keys: revisions 1 to 4, 6 and 7. Revision 8 was read whole at the effort-final pass and moves no
+  - Phase 1 and its re-keys: revisions 1 to 4, 6, 7 and 10 (`9e212a3`). Revisions 8, 9 and 11 were read: none moves a
     verified criterion.
-  - Phase 2 per milestone, each QA Complete in its own document:
-    - M1 `8147661`, M2 `dd26104`, M3 `1ab3b96`, M4 `5c3d03f`, M8 `6555f65`;
-    - M5 at website `4b8db9c` (`47c16c3`, QAF-24 RESOLVED `dd7a449`);
-    - M6 at generator `8512a1d` (`dd7a449`);
-    - M7 at `4b8db9c` (`9a155ee`).
-  - The effort-final sweep and the **plan-level QA Complete** at website `4b8db9c` and generator `8512a1d` are in § Test
-    Execution Results (`1a8edce`). Plan Status is `QA Complete` with row R-47 (`4c49b11`).
-- **Findings open:** none of QA's blocks.
-  - QAF-25 LOW (`StyledLink`'s `prefetch: false` unasserted) is registered in the Planner batch by the planner (R-48,
-    `d74bf23`), parked under the M4 cap, with no fix round.
-  - QAF-15 stays an instrument note in `verification/017/README.md`.
+  - Phase 2 per milestone, each QA Complete in its own document: M1 `8147661`, M3 `1ab3b96`, M4 `5c3d03f`, M8 `6555f65`;
+    M5 at website `4b8db9c` (`47c16c3`, `dd7a449`); M6 at generator `8512a1d` (`dd7a449`); M7 at `4b8db9c` (`9a155ee`).
+    **M2 at website `7293a35`** (`cf69ef1`): fix rounds 3 to 7 (D-33, M2-d, QAF-27).
+  - **Plan-level QA Complete at website `7293a35` and generator `8512a1d`** (§ "Plan-level verdict re-issued…", `cf69ef1`).
+    Plan Status is `QA Complete` with R-60 (`4c8be42`).
+  - B-15 was executed by QA on both trees and reconciled in the register.
+- **Findings open:** none. QAF-25 is X-24, QAF-26 was folded at revision 11, and QAF-27 is resolved.
 - **Next for QA.** Phase 3 at the release tip, only on devops's request (`qa-phase-3.md`). Carry in:
-  - this document's effort-final Assumption Not Checked: `mutant-gen` deletes no call or JSX attribute, so Phase 3 may add
-    a call-deletion set over the same predicate;
-  - M7-b is re-read at the merged tip;
-  - the install matches the lockfile (routed at M1).
+  - the effort-final Assumption Not Checked: `mutant-gen` deletes no call or JSX attribute;
+  - M7-b re-read at the merged tip (QA's `qa-m7/m7b-check.py` against `nofix-1ad625e-export.json`, with `--plant`);
+  - the install matches the lockfile;
+  - B-15's build kind (dev servers here), which UAT owns.
 - **Approach notes a successor reuses.**
-  - Website runs: `git archive <sha>` export, `node_modules` linked, `next-env.d.ts` and `.next/types` copied;
-    `unshare -rn`.
-  - Lint: the shared tree only while HEAD is exactly the measured SHA with no tracked change. An export lints only with
-    its own `pnpm install --frozen-lockfile --offline --ignore-scripts` (`qa-m7/`).
-  - Generator: export with `':(exclude).github'`, read the tip only with `rev-parse` and `branch --show-current`, one
-    `npm ci` with `PUPPETEER_SKIP_DOWNLOAD=1`; the probe is `m6-probe/run.sh`, plus QA's `qa-m6/unchanged-lines-check.mjs`.
-  - Sweeps: `mutation-run.py` (website) and `m6-probe/mutate-probe.py` (generator), run by a `general-purpose` helper.
-  - The lane: `qa-m5/qaf24-closure/lane-mutants.sh` (parameterised with `SCRATCH` and `LANE_OUT`).
-- **Trees.** Website `chain/017-existing-items-backlog` at `4b8db9c`; generator `chain/017-existing-items-backlog` at
+  - Website runs: a `git archive <sha>` export, `unshare -rn`. For vitest, link `node_modules`. For lint and `next dev`,
+    give the export its own `pnpm install --frozen-lockfile --offline --ignore-scripts`: Turbopack refuses a symlinked
+    `node_modules`.
+  - Sweeps: `mutation-run.py --dep node_modules -- unshare -rn npx vitest run`, run by a `general-purpose` helper. Keep the
+    full-suite run off the box while a sweep or a walk runs: under load (average 23), M1's `messageValidity` case hit its
+    5 s timeout.
+  - Walks: `browser-walker` with `verification/017/qa-m2-r4/b15-unfixed/ws-recorder.js`, drivers beside the evidence
+    (`DISPLAY=:0`). The local stack is `tools/uat-local-stack.sh`. Seed by SQL from a file through `verification/017/uat/db.sh`.
+  - Generator: as recorded at M6 (`m6-probe/run.sh`, `qa-m6/unchanged-lines-check.mjs`).
+- **Trees.** Website `chain/017-existing-items-backlog` at `7293a35`; generator `chain/017-existing-items-backlog` at
   `8512a1d`. Neither is mine to move.
-- **Uncommitted or mutated.** Nothing of QA's. My `INBOX.md` entries are appended uncommitted, as the inbox rule says:
-  the code-review and implementer citation of the M6 liveness-scope falsifier script by a path that does not resolve, the drain observation for the
-  drain handoff, and the M7 lint-export correction. No exports, containers or processes are left.
-- **Questions out.** None. Delivered: QAF-25 to `planner-hooks-017` (registered); the UAT spawn cue to
-  `steering-roadmap-hooks`.
-- **Standing rule this session learned.** The owner's memory `no-security-blocks-in-record.md`: no security or safeguard
-  block is named in agent-output; a failure is written only as "not completed". The M6 document was reduced accordingly
-  (`87ff505`).
-- **Routed assumptions.**
-  - To UAT: B-1, B-2, B-12; B-13 with M8's closing-panel focus; B-4.
-  - M6's fallback page is now X-22 (his D-31), checked only by B-6.
-  - To devops Stage 1: M5's production column type (`text`), through B-6.
+- **Uncommitted or mutated.** Nothing of QA's. My `INBOX.md` entries are appended uncommitted, as the inbox rule says;
+  the 18:01Z one on the M2 implementation document's stamps is now fixed by the implementer. No exports, containers,
+  servers or processes are left.
+- **Questions out.** None. Delivered: the UAT spawn cue and B-15's routing to `steering-roadmap-hooks`; QAF-27 to
+  `implementer-hooks-017` (resolved).
+- **Standing rule.** The owner's memory `no-security-blocks-in-record.md`: no safeguard or security block is named in
+  agent-output; a failure is written only as "not completed". The M2 document's B-15 bullet was reduced to that form at
+  this checkpoint.
+- **Routed assumptions.** To UAT: B-1 (with code review's bare-frame decode), B-2, B-3, B-4, B-12, B-13, B-15 (build
+  kind). To devops Stage 1: B-6 to B-11.
 
 ## Assumption Not Checked
 
