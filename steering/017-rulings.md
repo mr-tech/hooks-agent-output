@@ -678,3 +678,18 @@ refused send (its message 05:2xZ); `tmux -L agents list-sessions` carries no roa
 **Alias chain:** `steering-roadmap` (2026-11-18 to 05:1xZ) → `steeering-roadmap-hooks` (his rename,
 05:1xZ) → `steering-roadmap-hooks` (his rename, pending). Once ListAgents shows the new name, every
 live 017 session is told the return address.
+
+## 2026-11-19T05:53Z — standing check: M8 at QA; reviewer asked to checkpoint; standing file written
+
+Read this turn: code review Round 5 M8 APPROVED_WITH_COMMENTS at website `c37d41a` (`4950989`, R-30
+`225e4f3`); QA Phase 2 on M8 started by the reviewer's own delivery to `qa-hooks-017` (05:41:43Z, its
+transcript), the session busy. Prefixes (`cc-usage.py sessions`, 05:51Z): implementer 420K busy,
+code reviewer 354K idle, QA 211K busy, devops 228K, planner 289K, critic 243K. OOM count 0; usage
+`weekly_all` 86% live (Fable scoped 98%, closes nothing).
+- `code-reviewer-hooks-017` asked to `/checkpoint` (past 325K, at a seam); cleared once committed.
+- QA's addendum (Resumption State `689e510`, return address `steering-roadmap-hooks`) waits on its idle
+  notice; the implementer's checkpoint ask waits on its next idle seam.
+- Event log past 40 KB (55,030 bytes, `wc -c`): `steering/017-standing.md` written.
+- **This thread's gate event, disclosed in the round:** record-write-gate-hook refused a shell `sed -i`
+  on `017-standing.md` (the same command also read two other rulings files); re-issued as an Edit, the
+  form the gate names, and the reads separately.
