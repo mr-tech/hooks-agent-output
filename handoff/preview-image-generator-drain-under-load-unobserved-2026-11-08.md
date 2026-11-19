@@ -3,7 +3,7 @@ UUID: a1ef1314
 Status: Open
 Status-Detail: "Item 1 (the drain under load) is observed: plan 017's generator deploy stop at 2026-11-19T20:15:08Z drained a process holding a pool in 812 ms against the 12000 ms kill_timeout, no SIGKILL. Item 2 (Chromium after a SIGKILL'd stop with live browsers) is still unobserved: that stop ended in SIGINT, so no SIGKILL happened, and section [5] shows 0 orphaned Chromium. It stays open for item 2 only. Nothing blocks on it."
 Owning-Stage: devops (the stage that reads the generator host at a production deploy)
-Review-Trigger: for item 2 only: the next production stop of hooks-image-preview-generator-prod that ends in SIGKILL while the stopped process's span shows Created instance above 0 (any later prod.yml deploy or restart that reads that way); and before any PM2 upgrade on the generator host past 5.x
+Review-Trigger: "for item 2 only, the next production stop of hooks-image-preview-generator-prod that ends in SIGKILL while the stopped process's span shows Created instance above 0 (any later prod.yml deploy or restart that reads that way); and before any PM2 upgrade on the generator host past 5.x"
 ---
 
 # preview-image-generator: the drain under load and Chromium after a SIGKILL are unobserved
