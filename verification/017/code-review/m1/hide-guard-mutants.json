@@ -1,0 +1,17 @@
+[
+  {"id": "hide-noContentError", "file": "src/components/DiscordMessageEditor/index.tsx",
+   "old": "const noContentError = hideValidation ? '' : validateContentRequirements(message);",
+   "new": "const noContentError = validateContentRequirements(message);"},
+  {"id": "hide-embedCharacterError", "file": "src/components/DiscordMessageEditor/index.tsx",
+   "old": "const embedCharacterError = hideValidation ? '' : validateEmbedCharacterCount(embeds);",
+   "new": "const embedCharacterError = validateEmbedCharacterCount(embeds);"},
+  {"id": "hide-v2TextError", "file": "src/components/DiscordMessageEditor/index.tsx",
+   "old": "const v2TextError = hideValidation ? '' : validateDisplayableTextCount(components as SupportedTopLevelComponent[]);",
+   "new": "const v2TextError = validateDisplayableTextCount(components as SupportedTopLevelComponent[]);"},
+  {"id": "hide-componentCountError", "file": "src/components/DiscordMessageEditor/index.tsx",
+   "old": "const componentCountError = hideValidation ? '' : validateComponentCount(components);",
+   "new": "const componentCountError = validateComponentCount(components);"},
+  {"id": "hide-v2ComponentError", "file": "src/components/DiscordMessageEditor/index.tsx",
+   "old": "const v2ComponentError = hideValidation ? '' : validateV2Components(components, message.flags);",
+   "new": "const v2ComponentError = validateV2Components(components, message.flags);"}
+]

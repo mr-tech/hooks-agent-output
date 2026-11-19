@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/01141c37-1391-4a14-abd8-6cc1e138c507/scratchpad/cr/work/20261119T004045Z-p4035467/mutant-2
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (44 tests | 1 failed) 403ms
+     × renders no text for embed characters when validation is hidden 8ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 43 passed (44)
+   Start at  00:40:51
+   Duration  1.97s (transform 193ms, setup 15ms, import 807ms, tests 403ms, environment 616ms)
+

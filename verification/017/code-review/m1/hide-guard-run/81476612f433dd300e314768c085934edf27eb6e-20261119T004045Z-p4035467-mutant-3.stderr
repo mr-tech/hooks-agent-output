@@ -1,0 +1,21 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor error-line text > renders no text for displayable text when validation is hidden
+AssertionError: expected 'Components text exceeds 4000 characte…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Components text exceeds 4000 characters.
+
+ ❯ src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx:312:47
+    310|
+    311|   it.each(cases)('renders no text for %s when validation is hidden', a…
+    312|     expect(await renderedText(message, true)).toBe('');
+       |                                               ^
+    313|   });
+    314| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

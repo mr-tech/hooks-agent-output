@@ -1,0 +1,11 @@
+base only: ['src/utils/__tests__/messageStore.dropped-set-report.test.ts', 'src/utils/__tests__/messageValidity.predicate.test.ts', 'src/utils/__tests__/useApiMethods.json-editor-repair.test.ts', 'src/utils/__tests__/usePusher.hash-parity.test.ts']
+tip only: ['src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts', 'src/providers/MessageProvider/__tests__/usePusher.hash-parity.test.ts', 'src/server/api/utils/__tests__/messageValidity.predicate.test.ts', 'src/utils/redis/__tests__/messageStore.dropped-set-report.test.ts']
+SAME 1 -> 1 src/utils/redis/__tests__/messageStore.dropped-set-report.test.ts
+SAME 11 -> 11 src/server/api/utils/__tests__/messageValidity.predicate.test.ts
+SAME 7 -> 7 src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts
+SAME 6 -> 6 src/providers/MessageProvider/__tests__/usePusher.hash-parity.test.ts
+src/utils/__tests__/limits.import-validation.test.ts: 33 -> 19; removed 14; added 0; tip non-passed 0
+src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx: 33 -> 44; removed 0; added 11; tip non-passed 0
+other files whose cases differ: []
+base numTotalTests 1508 numPassedTests 1508 files 123 success True
+tip numTotalTests 1505 numPassedTests 1505 files 123 success True

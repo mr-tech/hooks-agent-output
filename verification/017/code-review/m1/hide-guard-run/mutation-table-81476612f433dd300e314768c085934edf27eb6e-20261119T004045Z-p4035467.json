@@ -1,0 +1,171 @@
+{
+ "sha": "81476612f433dd300e314768c085934edf27eb6e",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/hide-guard-mutants.json",
+ "command": [
+  "node_modules/.bin/vitest",
+  "run",
+  "--no-cache",
+  "--configLoader",
+  "runner",
+  "--config",
+  "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/vitest.probe.config.mjs",
+  "src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/hide-guard-mutants.json",
+   "blob": "ff53a9b9ea8d679d8a5cb1f3572b2e30b5abd636"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  },
+  {
+   "kind": "argument",
+   "path": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/vitest.probe.config.mjs",
+   "blob": "361b4c895da72529398b7a0339c60a645d6e0618"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/hide-guard-run/81476612f433dd300e314768c085934edf27eb6e-20261119T004045Z-p4035467-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/hide-guard-run/81476612f433dd300e314768c085934edf27eb6e-20261119T004045Z-p4035467-control-1.stderr",
+   "seconds": 2.7,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 44,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "hide-noContentError",
+   "run": "mutant-1",
+   "file": "src/components/DiscordMessageEditor/index.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 44,
+   "control_tests_run": 44,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor error-line text > renders no text for no content when validation is hidden"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.66,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/hide-guard-run/81476612f433dd300e314768c085934edf27eb6e-20261119T004045Z-p4035467-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/hide-guard-run/81476612f433dd300e314768c085934edf27eb6e-20261119T004045Z-p4035467-mutant-1.stderr"
+  },
+  {
+   "id": "hide-embedCharacterError",
+   "run": "mutant-2",
+   "file": "src/components/DiscordMessageEditor/index.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 44,
+   "control_tests_run": 44,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor error-line text > renders no text for embed characters when validation is hidden"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.68,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/hide-guard-run/81476612f433dd300e314768c085934edf27eb6e-20261119T004045Z-p4035467-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/hide-guard-run/81476612f433dd300e314768c085934edf27eb6e-20261119T004045Z-p4035467-mutant-2.stderr"
+  },
+  {
+   "id": "hide-v2TextError",
+   "run": "mutant-3",
+   "file": "src/components/DiscordMessageEditor/index.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 44,
+   "control_tests_run": 44,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor error-line text > renders no text for displayable text when validation is hidden"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.74,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/hide-guard-run/81476612f433dd300e314768c085934edf27eb6e-20261119T004045Z-p4035467-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/hide-guard-run/81476612f433dd300e314768c085934edf27eb6e-20261119T004045Z-p4035467-mutant-3.stderr"
+  },
+  {
+   "id": "hide-componentCountError",
+   "run": "mutant-4",
+   "file": "src/components/DiscordMessageEditor/index.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 44,
+   "control_tests_run": 44,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor error-line text > renders no text for component count when validation is hidden"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.68,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/hide-guard-run/81476612f433dd300e314768c085934edf27eb6e-20261119T004045Z-p4035467-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/hide-guard-run/81476612f433dd300e314768c085934edf27eb6e-20261119T004045Z-p4035467-mutant-4.stderr"
+  },
+  {
+   "id": "hide-v2ComponentError",
+   "run": "mutant-5",
+   "file": "src/components/DiscordMessageEditor/index.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 44,
+   "control_tests_run": 44,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx > DiscordMessageEditor error-line text > renders no text for V2 component reason when validation is hidden"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.82,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/hide-guard-run/81476612f433dd300e314768c085934edf27eb6e-20261119T004045Z-p4035467-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/hide-guard-run/81476612f433dd300e314768c085934edf27eb6e-20261119T004045Z-p4035467-mutant-5.stderr"
+  }
+ ],
+ "score": "5 of 5 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; hide-guard-mutants.json (blob ff53a9b9ea8d679d8a5cb1f3572b2e30b5abd636))"
+}

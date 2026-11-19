@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/01141c37-1391-4a14-abd8-6cc1e138c507/scratchpad/cr/work/20261119T004045Z-p4035467/mutant-4
+
+ ❯ |dom| src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx (44 tests | 1 failed) 425ms
+     × renders no text for component count when validation is hidden 10ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 43 passed (44)
+   Start at  00:40:57
+   Duration  1.95s (transform 192ms, setup 16ms, import 777ms, tests 425ms, environment 612ms)
+
