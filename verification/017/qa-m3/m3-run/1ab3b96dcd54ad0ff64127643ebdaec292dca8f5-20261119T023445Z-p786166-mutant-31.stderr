@@ -1,0 +1,134 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the tab > has one id for the life of the tab
+AssertionError: expected 'll6wsu8q1q' to be 'ue3dvgdx8z' // Object.is equality
+
+Expected: "ue3dvgdx8z"
+Received: "ll6wsu8q1q"
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:143:21
+    141| describe('messageDrafts, the tab', () => {
+    142|   it('has one id for the life of the tab', () => {
+    143|     expect(tabId()).toBe(tabId());
+       |                     ^
+    144|   });
+    145|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > writes the draft under its own key and also under the legacy message key
+AssertionError: expected [ '0:xkz4xi2ufq' ] to deeply equal [ '0:ncy4mh702x' ]
+
+- Expected
++ Received
+
+  [
+-   "0:ncy4mh702x",
++   "0:xkz4xi2ufq",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:185:35
+    183|     writeRouteZeroDraft(draft('legacy too', 5));
+    184|
+    185|     expect(Object.keys(stored())).toEqual([`0:${tabId()}`]);
+       |                                   ^
+    186|     expect(JSON.parse(window.localStorage.getItem('message') as string…
+    187|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > removes its own entry, and the legacy key when it holds that draft
+AssertionError: expected [ '0:gn1ywjr3i1' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "0:gn1ywjr3i1",
++ ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:194:35
+    192|     removeRouteZeroDraft({ content: 'gone' });
+    193|
+    194|     expect(Object.keys(stored())).toEqual([]);
+       |                                   ^
+    195|     expect(window.localStorage.getItem('message')).toBeNull();
+    196|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > turns a stored message with no id into this tab's route-0 entry, dated by its own timestamp
+AssertionError: expected undefined to deeply equal { Object (data, name, ...) }
+
+- Expected:
+{
+  "data": {
+    "content": "old draft",
+  },
+  "editedAt": 5,
+  "name": "Draft",
+}
+
++ Received:
+undefined
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:213:36
+    211|     window.localStorage.setItem('message', '{"name":"Draft","updatedAt…
+    212|
+    213|     expect(readDrafts()[tabKey()]).toEqual({ data: { content: 'old dra…
+       |                                    ^
+    214|   });
+    215|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload
+AssertionError: expected { …(2) } to deeply equal { …(2) }
+
+- Expected
++ Received
+
+@@ -1,8 +1,8 @@
+  {
+    "data": {
+-     "content": "from A",
++     "content": "from B",
+      "embeds": [
+        {
+          "_key": "77886905-c3b7-4d7c-b1dc-c4a3211d18fb",
+          "description": "An embed body",
+          "title": "An embed title",
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:208:21
+    206|     openTab('A');
+    207|     mount();
+    208|     expect(shown()).toEqual({ data: restoredData('from A'), name: 'New…
+       |                     ^
+    209|     unmountDom();
+    210|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds
+AssertionError: expected [ '0:tlq63qf159' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "0:tlq63qf159",
++ ]
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:345:25
+    343|     respond(0, '55');
+    344|
+    345|     expect(draftKeys()).toEqual([]);
+       |                         ^
+    346|     expect(window.localStorage.getItem('message')).toBeNull();
+    347|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+

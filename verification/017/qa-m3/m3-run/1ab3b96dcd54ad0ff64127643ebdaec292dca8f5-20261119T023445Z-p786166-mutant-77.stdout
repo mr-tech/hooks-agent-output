@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-77
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 1 failed) 88ms
+     × leaves the legacy key when it holds a different draft 12ms
+
+ Test Files  1 failed | 49 passed (50)
+      Tests  1 failed | 953 passed (954)
+   Start at  02:59:45
+   Duration  5.09s (transform 11.02s, setup 467ms, import 42.55s, tests 2.48s, environment 20.74s)
+

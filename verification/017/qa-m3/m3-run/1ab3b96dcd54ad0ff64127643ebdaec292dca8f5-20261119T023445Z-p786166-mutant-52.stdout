@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-52
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 1 failed) 76ms
+     × drops the write, without throwing, once no other entry remains to drop 10ms
+
+ Test Files  1 failed | 49 passed (50)
+      Tests  1 failed | 953 passed (954)
+   Start at  02:57:18
+   Duration  5.02s (transform 12.30s, setup 483ms, import 44.51s, tests 2.84s, environment 17.67s)
+

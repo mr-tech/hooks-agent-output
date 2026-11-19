@@ -1,0 +1,14 @@
+base: numTotalTests=1606 numPassedTests=1606 success=true files=129 statuses={"passed":1606}
+tip: numTotalTests=1620 numPassedTests=1620 success=true files=133 statuses={"passed":1620}
+base-only paths (0): 
+tip-only paths (4): src/app/_components/__tests__/NavMenu.sign-in-and-out.test.tsx src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx src/utils/__tests__/withLocalStorage.server-render.test.ts
+paths not explained by the rename map: 4 src/app/_components/__tests__/NavMenu.sign-in-and-out.test.tsx src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx src/utils/__tests__/withLocalStorage.server-render.test.ts
+changed src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx: base 25 tip 29 removed 0 added 4
+  + passed	MessageProvider, a stored draft of a saved message is shown with its own data and name when it is newer than the saved copy
+  + passed	MessageProvider, a stored route-0 draft is shown with its own data and name
+  + passed	MessageProvider, the store a browser holds from before shows the saved copy when the stored copy is exactly as new
+  + passed	MessageProvider, unsaved edits on a saved message when the session is lost leave no stored draft once they are typed back to the saved copy
+changed src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx: base 22 tip 23 removed 1 added 2
+  - passed	messageDrafts, the bound holds at most 20 entries, dropping the least recently edited first
+  + passed	messageDrafts, the bound holds at most 20 entries, dropping the least recently edited first, whatever order they were written in
+  + passed	messageDrafts, the bound keeps every entry when the serialised map is exactly one megabyte, and drops the oldest one character over

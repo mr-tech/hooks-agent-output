@@ -1,0 +1,15 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the tab > has a different id in a tab that starts with no session storage
+AssertionError: expected 'no-session-storage' not to be 'no-session-storage' // Object.is equality
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:150:25
+    148|     window.sessionStorage.clear();
+    149|
+    150|     expect(tabId()).not.toBe(first);
+       |                         ^
+    151|   });
+    152| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

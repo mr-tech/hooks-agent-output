@@ -1,0 +1,28 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-75
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 9 failed) 71ms
+     × holds at most 20 entries, dropping the least recently edited first, whatever order they were written in 19ms
+     × never drops the entry being written, even when it is the least recently edited 6ms
+     × holds at most one megabyte serialised, dropping the least recently edited first 8ms
+     × keeps every entry when the serialised map is exactly one megabyte, and drops the oldest one character over 9ms
+     × drops the least recently edited other entry and retries until the write lands 3ms
+     × keeps an entry another tab stored since this tab last wrote 1ms
+     × removes an entry only when its data satisfies the condition given 1ms
+     × with none of its own, copies the route-0 entry edited most recently under its own key 2ms
+     × does not migrate once the drafts map exists 2ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 8 failed) 235ms
+     × are shown again after signing in and opening the message 39ms
+     × are shown after a reload, as before 12ms
+     × leave no stored draft once they are typed back to the saved copy 9ms
+     × shows each tab its own last draft after a reload 10ms
+     × is shown with its own data and name 11ms
+     × is shown with its own data and name when it is newer than the saved copy 6ms
+     × of a saved message is removed when this tab saves what the draft holds 6ms
+     × discards the stored edits and shows the saved copy 6ms
+
+ Test Files  2 failed | 48 passed (50)
+      Tests  17 failed | 937 passed (954)
+   Start at  02:59:33
+   Duration  4.36s (transform 9.12s, setup 465ms, import 35.97s, tests 2.15s, environment 18.48s)
+

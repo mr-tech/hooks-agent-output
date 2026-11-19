@@ -1,0 +1,63 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands
+AssertionError: expected [ 'a', 'b' ] to deeply equal [ 'b', 'c' ]
+
+- Expected
++ Received
+
+  [
++   "a",
+    "b",
+-   "c",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:95:42
+     93|
+     94|     expect(landed).toBe(true);
+     95|     expect(Object.keys(stored()).sort()).toEqual(['b', 'c']);
+       |                                          ^
+     96|   });
+     97|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the write, without throwing, once no other entry remains to drop
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:107:20
+    105|     expect(() => { landed = writeDraft('b', entry(2)); }).not.toThrow(…
+    106|
+    107|     expect(landed).toBe(false);
+       |                    ^
+    108|   });
+    109| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/utils/__tests__/withLocalStorage.stored-keys.test.tsx > withLocalStorage, a write the browser refuses > reports that the write did not land
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/withLocalStorage.stored-keys.test.tsx:71:60
+     69|     refuseWrites();
+     70|
+     71|     expect(withLocalStorage('theme', 'dark').set('light')).toBe(false);
+       |                                                            ^
+     72|   });
+     73|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

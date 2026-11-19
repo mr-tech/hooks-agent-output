@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-63
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 1 failed) 270ms
+     × shows the intro message, and writes nothing, in a new tab with no draft anywhere 30ms
+
+ Test Files  1 failed | 49 passed (50)
+      Tests  1 failed | 953 passed (954)
+   Start at  02:58:25
+   Duration  4.56s (transform 9.90s, setup 265ms, import 38.81s, tests 2.38s, environment 17.33s)
+

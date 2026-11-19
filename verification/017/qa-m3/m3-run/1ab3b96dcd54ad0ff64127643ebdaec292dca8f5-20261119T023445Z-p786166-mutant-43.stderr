@@ -1,0 +1,47 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first, whatever order they were written in
+AssertionError: expected [ 'k7', 'k8', 'k9', 'k10', …(15) ] to deeply equal [ Array(20) ]
+
+- Expected
++ Received
+
+@@ -1,7 +1,6 @@
+  [
+-   "k6",
+    "k7",
+    "k8",
+    "k9",
+    "k10",
+    "k11",
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:31:18
+     29|     const keys = Object.keys(stored()).sort((a, b) => Number(a.slice(1…
+     30|
+     31|     expect(keys).toEqual(Array.from({ length: 20 }, (_, i) => `k${i + …
+       |                  ^
+     32|   });
+     33|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > never drops the entry being written, even when it is the least recently edited
+AssertionError: expected [ 'k4', 'k5', 'k6', 'k7', 'k8', …(14) ] to have a length of 20 but got 19
+
+- Expected
++ Received
+
+- 20
++ 19
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:41:35
+     39|     expect(Object.keys(stored())).toContain('k1');
+     40|     expect(Object.keys(stored())).not.toContain('k2');
+     41|     expect(Object.keys(stored())).toHaveLength(20);
+       |                                   ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

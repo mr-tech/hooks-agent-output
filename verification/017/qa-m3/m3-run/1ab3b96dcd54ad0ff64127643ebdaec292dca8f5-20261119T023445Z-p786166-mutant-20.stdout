@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-20
+
+ ❯ |dom| src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx (3 tests | 2 failed) 40ms
+     × signs out, leaving without the unsaved-changes prompt 25ms
+     × does not sign out when the server gave a session 7ms
+
+ Test Files  1 failed | 49 passed (50)
+      Tests  2 failed | 952 passed (954)
+   Start at  02:37:02
+   Duration  4.50s (transform 9.78s, setup 359ms, import 37.68s, tests 2.41s, environment 17.58s)
+

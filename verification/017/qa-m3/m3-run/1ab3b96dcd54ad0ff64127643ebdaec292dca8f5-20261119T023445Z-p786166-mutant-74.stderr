@@ -1,0 +1,60 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > turns a stored copy of saved message 42 into the entry for 42
+AssertionError: expected undefined to deeply equal { data: { content: 'edited' }, …(2) }
+
+- Expected:
+{
+  "data": {
+    "content": "edited",
+  },
+  "editedAt": 9,
+  "name": "Saved",
+}
+
++ Received:
+undefined
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:219:32
+    217|     window.localStorage.setItem('message', '{"id":"42","name":"Saved",…
+    218|
+    219|     expect(readDrafts()['42']).toEqual({ data: { content: 'edited' }, …
+       |                                ^
+    220|   });
+    221|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > restores a stored copy of message 42 that is newer than its saved copy
+AssertionError: expected { …(2) } to deeply equal { data: { …(2) }, …(1) }
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "newer local copy",
+-     "embeds": [
+-       {
+-         "_key": Any<String>,
+-         "description": "An embed body",
+-         "title": "An embed title",
++     "content": "saved copy",
+    },
+-     ],
+-   },
+-   "name": "Name kept with the local copy",
++   "name": "Stored",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:261:21
+    259|     mount();
+    260|
+    261|     expect(shown()).toEqual({ data: restoredData('newer local copy'), …
+       |                     ^
+    262|   });
+    263|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

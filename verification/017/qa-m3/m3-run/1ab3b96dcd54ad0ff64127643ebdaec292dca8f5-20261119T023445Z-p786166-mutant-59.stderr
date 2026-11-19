@@ -1,0 +1,30 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload
+AssertionError: expected { …(2) } to deeply equal { …(2) }
+
+- Expected
++ Received
+
+@@ -1,8 +1,8 @@
+  {
+    "data": {
+-     "content": "from A",
++     "content": "from B",
+      "embeds": [
+        {
+          "_key": "5f2d63e3-ddb1-4b53-817f-c3e15dd2a527",
+          "description": "An embed body",
+          "title": "An embed title",
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:208:21
+    206|     openTab('A');
+    207|     mount();
+    208|     expect(shown()).toEqual({ data: restoredData('from A'), name: 'New…
+       |                     ^
+    209|     unmountDom();
+    210|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

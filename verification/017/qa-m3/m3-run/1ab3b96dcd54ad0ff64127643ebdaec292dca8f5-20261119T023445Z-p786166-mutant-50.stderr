@@ -1,0 +1,38 @@
+
+<--- Last few GCs --->
+
+[952797:0xffd1000]    76892 ms: Scavenge (interleaved) 4093.2 (4097.8) -> 4092.6 (4098.0) MB, pooled: 0 MB, 13.30 / 0.00 ms  (average mu = 0.232, current mu = 0.175) allocation failure; 
+[952797:0xffd1000]    78510 ms: Mark-Compact (reduce) 4094.0 (4098.3) -> 4093.2 (4096.5) MB, pooled: 0 MB, 1300.15 / 0.00 ms  (+ 110.5 ms in 22 steps since start of marking, biggest step 5.1 ms, walltime since start of marking 1433 ms) (average mu = 0.189
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 0x735eec node::OOMErrorHandler(char const*, v8::OOMDetails const&) [/usr/local/bin/node]
+ 2: 0xbafc40  [/usr/local/bin/node]
+ 3: 0xbafd2f  [/usr/local/bin/node]
+ 4: 0xe48825  [/usr/local/bin/node]
+ 5: 0xe48852  [/usr/local/bin/node]
+ 6: 0xe48b4a  [/usr/local/bin/node]
+ 7: 0xe5906a  [/usr/local/bin/node]
+ 8: 0xe5d410  [/usr/local/bin/node]
+ 9: 0x18efec1  [/usr/local/bin/node]
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Worker forks emitted error.
+ ❯ EventEmitter.<anonymous> node_modules/.pnpm/vitest@4.1.2_@edge-runtime+vm@3.1.7_@types+node@22.15.29_jsdom@30.0.1_vite@8.0.3_@emnap_bd0a0fd291b70bfff8c568f5de1cd92b/node_modules/vitest/dist/chunks/cli-api.Bxr1Nn49.js:3447:22
+ ❯ EventEmitter.emit node:events:508:28
+ ❯ ChildProcess.emitUnexpectedExit node_modules/.pnpm/vitest@4.1.2_@edge-runtime+vm@3.1.7_@types+node@22.15.29_jsdom@30.0.1_vite@8.0.3_@emnap_bd0a0fd291b70bfff8c568f5de1cd92b/node_modules/vitest/dist/chunks/cli-api.Bxr1Nn49.js:3014:22
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+Caused by: Error: Worker exited unexpectedly
+ ❯ ChildProcess.emitUnexpectedExit node_modules/.pnpm/vitest@4.1.2_@edge-runtime+vm@3.1.7_@types+node@22.15.29_jsdom@30.0.1_vite@8.0.3_@emnap_bd0a0fd291b70bfff8c568f5de1cd92b/node_modules/vitest/dist/chunks/cli-api.Bxr1Nn49.js:3013:33
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+[vitest-pool]: Timeout terminating forks worker for test files /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-50/src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx.

@@ -1,0 +1,15 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key
+TypeError: Cannot read properties of undefined (reading 'editedAt')
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:172:21
+    170|
+    171|     expect(shown?.data).toEqual({ content: 'from B' });
+    172|     expect(stored()['0:C'].editedAt).toBe(2);
+       |                     ^
+    173|   });
+    174|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

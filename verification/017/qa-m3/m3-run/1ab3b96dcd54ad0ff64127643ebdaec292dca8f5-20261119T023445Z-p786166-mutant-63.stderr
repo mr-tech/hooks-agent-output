@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows the intro message, and writes nothing, in a new tab with no draft anywhere
+AssertionError: expected '{}' to be null
+
+- Expected:
+null
+
++ Received:
+"{}"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:239:58
+    237|
+    238|     expect(content()).toBe(INTRO_MESSAGE.data.content);
+    239|     expect(window.localStorage.getItem('messageDrafts')).toBeNull();
+       |                                                          ^
+    240|   });
+    241| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

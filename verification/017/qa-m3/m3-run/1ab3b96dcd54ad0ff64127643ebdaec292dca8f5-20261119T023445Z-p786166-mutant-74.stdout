@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-74
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 1 failed) 79ms
+     × turns a stored copy of saved message 42 into the entry for 42 12ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 1 failed) 195ms
+     × restores a stored copy of message 42 that is newer than its saved copy 18ms
+
+ Test Files  2 failed | 48 passed (50)
+      Tests  2 failed | 952 passed (954)
+   Start at  02:59:28
+   Duration  4.41s (transform 8.69s, setup 329ms, import 36.07s, tests 2.37s, environment 17.88s)
+

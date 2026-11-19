@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > leave no stored draft once they are typed back to the saved copy
+AssertionError: expected '{"42":{"data":{"content":"saved copy"…' to be '{}' // Object.is equality
+
+Expected: "{}"
+Received: "{"42":{"data":{"content":"saved copy"},"name":"Stored","editedAt":1795055784852}}"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:181:58
+    179|     act(() => { cur().updateMessage({ data: { content: 'saved copy' } …
+    180|
+    181|     expect(window.localStorage.getItem('messageDrafts')).toBe('{}');
+       |                                                          ^
+    182|   });
+    183|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

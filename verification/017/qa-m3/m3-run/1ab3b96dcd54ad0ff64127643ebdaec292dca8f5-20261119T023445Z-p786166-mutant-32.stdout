@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-32
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 1 failed) 85ms
+     × has a different id in a tab that starts with no session storage 17ms
+
+ Test Files  1 failed | 49 passed (50)
+      Tests  1 failed | 953 passed (954)
+   Start at  02:38:11
+   Duration  4.55s (transform 9.46s, setup 600ms, import 37.77s, tests 2.40s, environment 17.78s)
+

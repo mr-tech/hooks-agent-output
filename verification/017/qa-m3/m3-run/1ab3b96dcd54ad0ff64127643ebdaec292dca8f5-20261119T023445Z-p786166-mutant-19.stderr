@@ -1,0 +1,47 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx > SessionProvider, a page loaded with a session cookie the server did not accept > does not sign out when the server gave a session
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array []
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx:53:33
+     51|     mountDom(<SessionWrapper session={session}>{null}</SessionWrapper>…
+     52|
+     53|     expect(hoisted.signOut).not.toHaveBeenCalled();
+       |                                 ^
+     54|   });
+     55|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx > SessionProvider, a page loaded with a session cookie the server did not accept > does not sign out when there is no cookie
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array []
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx:59:33
+     57|     mountDom(<SessionWrapper session={null}>{null}</SessionWrapper>);
+     58|
+     59|     expect(hoisted.signOut).not.toHaveBeenCalled();
+       |                                 ^
+     60|   });
+     61| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

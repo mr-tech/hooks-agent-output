@@ -1,0 +1,148 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes one entry and leaves the others
+TypeError: only is not a function
+ ❯ Module.removeDraft src/utils/messageDrafts.ts:58:37
+     56| export function removeDraft(key: string, only?: (draft: MessageDraft) …
+     57|   const drafts = readDrafts();
+     58|   if (!(key in drafts) || (only || !only(drafts[key]))) return;
+       |                                     ^
+     59|   delete drafts[key];
+     60|   store().set(drafts);
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:125:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes an entry only when its data satisfies the condition given
+AssertionError: expected [ 'a' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "a",
++ ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:137:35
+    135|
+    136|     removeDraft('a', (e) => e.data.content === 'mine');
+    137|     expect(Object.keys(stored())).toEqual([]);
+       |                                   ^
+    138|   });
+    139| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > removes its own entry, and the legacy key when it holds that draft
+TypeError: only is not a function
+ ❯ removeDraft src/utils/messageDrafts.ts:58:37
+     56| export function removeDraft(key: string, only?: (draft: MessageDraft) …
+     57|   const drafts = readDrafts();
+     58|   if (!(key in drafts) || (only || !only(drafts[key]))) return;
+       |                                     ^
+     59|   delete drafts[key];
+     60|   store().set(drafts);
+ ❯ Module.removeRouteZeroDraft src/utils/messageDrafts.ts:88:3
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:192:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > leaves the legacy key when it holds a different draft
+TypeError: only is not a function
+ ❯ removeDraft src/utils/messageDrafts.ts:58:37
+     56| export function removeDraft(key: string, only?: (draft: MessageDraft) …
+     57|   const drafts = readDrafts();
+     58|   if (!(key in drafts) || (only || !only(drafts[key]))) return;
+       |                                     ^
+     59|   delete drafts[key];
+     60|   store().set(drafts);
+ ❯ Module.removeRouteZeroDraft src/utils/messageDrafts.ts:88:3
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:201:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > leave no stored draft once they are typed back to the saved copy
+TypeError: only is not a function
+ ❯ removeDraft src/utils/messageDrafts.ts:58:37
+     56| export function removeDraft(key: string, only?: (draft: MessageDraft) …
+     57|   const drafts = readDrafts();
+     58|   if (!(key in drafts) || (only || !only(drafts[key]))) return;
+       |                                     ^
+     59|   delete drafts[key];
+     60|   store().set(drafts);
+ ❯ src/providers/MessageProvider/index.tsx:175:7
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25989:20
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ commitHookEffectListMount node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13249:29
+ ❯ commitHookPassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13336:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15484:13
+ ❯ recursivelyTraversePassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15439:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15519:11
+ ❯ flushPassiveEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:18432:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > shows the saved copy when the stored copy is exactly as new
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > shows the saved copy when the stored copy is older
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, reloading a saved message > discards the stored edits and shows the saved copy
+TypeError: only is not a function
+ ❯ removeDraft src/utils/messageDrafts.ts:58:37
+     56| export function removeDraft(key: string, only?: (draft: MessageDraft) …
+     57|   const drafts = readDrafts();
+     58|   if (!(key in drafts) || (only || !only(drafts[key]))) return;
+       |                                     ^
+     59|   delete drafts[key];
+     60|   store().set(drafts);
+ ❯ src/providers/MessageProvider/index.tsx:211:9
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25989:20
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ commitHookEffectListMount node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13249:29
+ ❯ commitHookPassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13336:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15484:13
+ ❯ recursivelyTraversePassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15439:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15519:11
+ ❯ flushPassiveEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:18432:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds
+TypeError: only is not a function
+ ❯ removeDraft src/utils/messageDrafts.ts:58:37
+     56| export function removeDraft(key: string, only?: (draft: MessageDraft) …
+     57|   const drafts = readDrafts();
+     58|   if (!(key in drafts) || (only || !only(drafts[key]))) return;
+       |                                     ^
+     59|   delete drafts[key];
+     60|   store().set(drafts);
+ ❯ removeRouteZeroDraft src/utils/messageDrafts.ts:88:3
+ ❯ Object.onSuccess src/providers/MessageProvider/index.tsx:248:9
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:329:31
+ ❯ Proxy.process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ respond src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:328:5
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:343:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds
+AssertionError: expected [ '42' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "42",
++ ]
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:358:25
+    356|     respond(0, '42');
+    357|
+    358|     expect(draftKeys()).toEqual([]);
+       |                         ^
+    359|   });
+    360|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/10]⎯
+

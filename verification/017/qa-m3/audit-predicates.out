@@ -1,0 +1,12 @@
+NavMenu.sign-in-and-out.test.tsx pos=1 id-titles=0 id-comments=0 fakeTimers=1 realwait=0 src-text=0
+page.sign-in-exit.test.tsx pos=1 id-titles=0 id-comments=0 fakeTimers=1 realwait=0 src-text=0
+MessageProvider.own-save-notice.test.tsx pos=1 id-titles=0 id-comments=0 fakeTimers=0 realwait=0 src-text=0
+MessageProvider.save-step.test.tsx pos=1 id-titles=0 id-comments=0 fakeTimers=0 realwait=0 src-text=0
+MessageProvider.stored-draft.test.tsx pos=1 id-titles=0 id-comments=0 fakeTimers=1 realwait=0 src-text=0
+useApiMethods.json-editor-repair.test.ts pos=1 id-titles=0 id-comments=0 fakeTimers=0 realwait=0 src-text=0
+useApiMethods.own-save-record.test.tsx pos=1 id-titles=0 id-comments=0 fakeTimers=0 realwait=0 src-text=0
+SessionProvider.stale-cookie-sign-out.test.tsx pos=1 id-titles=0 id-comments=0 fakeTimers=0 realwait=0 src-text=0
+messageDrafts.bound-and-recency.test.tsx pos=1 id-titles=0 id-comments=0 fakeTimers=0 realwait=0 src-text=0
+withLocalStorage.server-render.test.ts pos=1 id-titles=0 id-comments=0 fakeTimers=0 realwait=0 src-text=0
+withLocalStorage.stored-keys.test.tsx pos=1 id-titles=0 id-comments=0 fakeTimers=0 realwait=0 src-text=0
+useUnloadAlert.act-suppression.test.tsx pos=1 id-titles=0 id-comments=0 fakeTimers=1 realwait=0 src-text=0

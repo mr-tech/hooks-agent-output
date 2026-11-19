@@ -1,0 +1,75 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key
+AssertionError: expected { content: 'a saved message' } to deeply equal { content: 'from B' }
+
+- Expected
++ Received
+
+  {
+-   "content": "from B",
++   "content": "a saved message",
+  }
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:171:25
+    169|     const shown = routeZeroDraftFor('C');
+    170|
+    171|     expect(shown?.data).toEqual({ content: 'from B' });
+       |                         ^
+    172|     expect(stored()['0:C'].editedAt).toBe(2);
+    173|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with no route-0 entry anywhere, shows nothing and writes nothing
+AssertionError: expected { …(3) } to be undefined
+
+- Expected:
+undefined
+
++ Received:
+{
+  "data": {
+    "content": "a saved message",
+  },
+  "editedAt": 3,
+  "name": "n",
+}
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:178:36
+    176|     writeDraft('77', entry(3, 'a saved message'));
+    177|
+    178|     expect(routeZeroDraftFor('C')).toBeUndefined();
+       |                                    ^
+    179|     expect(Object.keys(stored())).toEqual(['77']);
+    180|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are not shown at route 0 meanwhile, which shows its own draft
+AssertionError: expected 'unsaved edits on 42' to be 'Welcome to **Hooks.gg**, the ultimate…' // Object.is equality
+
+- Expected
++ Received
+
+- Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
+-
+- Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
+-
+- To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
+-
+- If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
+- _ _
++ unsaved edits on 42
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:163:23
+    161|     visit('/message/m/0/edit', 'unauthenticated');
+    162|
+    163|     expect(content()).toBe(INTRO_MESSAGE.data.content);
+       |                       ^
+    164|   });
+    165|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

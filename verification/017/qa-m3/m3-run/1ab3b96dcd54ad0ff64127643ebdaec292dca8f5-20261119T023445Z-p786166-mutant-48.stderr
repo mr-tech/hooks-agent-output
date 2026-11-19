@@ -1,0 +1,45 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > keeps every entry when the serialised map is exactly one megabyte, and drops the oldest one character over
+AssertionError: expected [ 'a', 'b' ] to deeply equal [ 'b' ]
+
+- Expected
++ Received
+
+  [
++   "a",
+    "b",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:68:35
+     66|     writeDraft('a', entry(1, 'y'.repeat(300_000)));
+     67|     writeDraft('b', exact(1));
+     68|     expect(Object.keys(stored())).toEqual(['b']);
+       |                                   ^
+     69|   });
+     70|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > still writes one entry that alone passes a megabyte
+AssertionError: expected [ 'old', 'huge' ] to deeply equal [ 'huge' ]
+
+- Expected
++ Received
+
+  [
++   "old",
+    "huge",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:76:35
+     74|     writeDraft('huge', entry(2, 'z'.repeat(MEGABYTE + 10)));
+     75|
+     76|     expect(Object.keys(stored())).toEqual(['huge']);
+       |                                   ^
+     77|   });
+     78| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

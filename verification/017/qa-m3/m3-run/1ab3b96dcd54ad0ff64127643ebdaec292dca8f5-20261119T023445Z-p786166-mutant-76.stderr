@@ -1,0 +1,50 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > writes the draft under its own key and also under the legacy message key
+AssertionError: expected null to match object { data: { content: 'legacy too' } }
+
+- Expected:
+{
+  "data": {
+    "content": "legacy too",
+  },
+}
+
++ Received:
+null
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:186:74
+    184|
+    185|     expect(Object.keys(stored())).toEqual([`0:${tabId()}`]);
+    186|     expect(JSON.parse(window.localStorage.getItem('message') as string…
+       |                                                                          ^
+    187|   });
+    188|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > leaves the legacy key when it holds a different draft
+AssertionError: expected null not to be null
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:203:56
+    201|     removeRouteZeroDraft({ content: 'something else' });
+    202|
+    203|     expect(window.localStorage.getItem('message')).not.toBeNull();
+       |                                                        ^
+    204|   });
+    205| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the legacy message key > holds the route-0 draft last written, for the code that reads it
+TypeError: Cannot convert undefined or null to object
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:321:19
+    319|     const legacy = JSON.parse(window.localStorage.getItem('message') a…
+    320|
+    321|     expect(Object.keys(legacy).sort()).toEqual(['data', 'name', 'updat…
+       |                   ^
+    322|     expect(legacy).toEqual({ name: 'New Message', updatedAt: 1_700_000…
+    323|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

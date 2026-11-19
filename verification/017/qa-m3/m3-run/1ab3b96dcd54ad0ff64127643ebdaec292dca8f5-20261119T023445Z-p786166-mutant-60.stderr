@@ -1,0 +1,51 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key
+AssertionError: expected undefined to deeply equal { content: 'from B' }
+
+- Expected:
+{
+  "content": "from B",
+}
+
++ Received:
+undefined
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:171:25
+    169|     const shown = routeZeroDraftFor('C');
+    170|
+    171|     expect(shown?.data).toEqual({ content: 'from B' });
+       |                         ^
+    172|     expect(stored()['0:C'].editedAt).toBe(2);
+    173|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently
+AssertionError: expected { …(2) } to deeply equal { …(2) }
+
+- Expected
++ Received
+
+@@ -1,8 +1,8 @@
+  {
+    "data": {
+-     "content": "from B",
++     "content": "from A",
+      "embeds": [
+        {
+          "_key": "a3b2f345-4e5b-4bf3-8c6f-49743bfeb49c",
+          "description": "An embed body",
+          "title": "An embed title",
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:223:21
+    221|     mount();
+    222|
+    223|     expect(shown()).toEqual({ data: restoredData('from B'), name: 'New…
+       |                     ^
+    224|   });
+    225|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

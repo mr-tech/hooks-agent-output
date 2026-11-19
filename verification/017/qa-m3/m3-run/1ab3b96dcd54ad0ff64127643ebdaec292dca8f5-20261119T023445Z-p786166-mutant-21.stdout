@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-21
+
+ ❯ |dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx (6 tests | 2 failed) 60ms
+     × does not prompt when there are none 14ms
+     × does not prompt while an exit that loses nothing is leaving the page 4ms
+ ❯ |dom| src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx (2 tests | 1 failed) 121ms
+     × signs in through the Log in button without the unsaved-changes prompt 49ms
+
+ Test Files  2 failed | 48 passed (50)
+      Tests  3 failed | 951 passed (954)
+   Start at  02:37:08
+   Duration  4.62s (transform 9.74s, setup 408ms, import 37.70s, tests 2.23s, environment 18.69s)
+

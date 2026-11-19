@@ -1,0 +1,79 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx > SessionProvider, a page loaded with a session cookie the server did not accept > signs out, leaving without the unsaved-changes prompt
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx:45:42
+     43|
+     44|     expect(hoisted.signOut).toHaveBeenCalledTimes(1);
+     45|     expect(hoisted.leavingDuringSignOut).toBe(true);
+       |                                          ^
+     46|   });
+     47|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/app/_components/__tests__/NavMenu.sign-in-and-out.test.tsx > NavMenu, the log in and log out item > signs in without the unsaved-changes prompt when signed out
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/_components/__tests__/NavMenu.sign-in-and-out.test.tsx:71:35
+     69|
+     70|     expect(hoisted.signIn).toHaveBeenCalledTimes(1);
+     71|     expect(hoisted.leavingDuring).toBe(true);
+       |                                   ^
+     72|     await act(async () => { finish(); });
+     73|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx > useUnloadAlert and the exits that lose nothing > does not prompt while an exit that loses nothing is leaving the page
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx:49:32
+     47|     const leaving = leaveWithoutAlert(() => new Promise<void>((resolve…
+     48|
+     49|     expect(unloadIsPrompted()).toBe(false);
+       |                                ^
+     50|     finish();
+     51|     await leaving;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx > the edit page, signed out with unsaved changes > signs in through the Log in button without the unsaved-changes prompt
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx:100:35
+     98|
+     99|     expect(hoisted.signIn).toHaveBeenCalledTimes(1);
+    100|     expect(hoisted.leavingDuring).toBe(true);
+       |                                   ^
+    101|     expect(unloadIsPrompted()).toBe(false);
+    102|     await act(async () => { finish(); });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+

@@ -1,0 +1,63 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-4
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx (3 tests | 3 failed) 70ms
+     × writes it as V2 without the embed, and the editor holds exactly what was written 54ms
+     × Save as Classic: the editor holds the classic message that was written, in Classic mode 5ms
+     × Save as Components V2: the editor holds the V2 message that was written, in V2 mode 9ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (37 tests | 37 failed) 159ms
+       × raises no notice in the saving tab: a classic message, nothing changed 44ms
+       × raises no notice in the saving tab: a classic message after an edit 6ms
+       × raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace 5ms
+       × raises no notice in the saving tab: a V2 message, nothing changed 10ms
+       × raises no notice in the saving tab: a V2 message after an edit 7ms
+       × raises no notice in the saving tab: a V2 message beside an empty embed 4ms
+       × raises no notice in the saving tab: a message not valid for sending, nothing changed 5ms
+       × raises no notice in the saving tab: a message not valid for sending, after an edit 3ms
+       × raises no notice after the content-loss dialog chose Classic 5ms
+       × raises no notice after the content-loss dialog chose V2 3ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 3ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 3ms
+       × raises no notice for either of two saves in flight when edits follow the second 3ms
+       × raises no notice in the saving tab: a classic message, nothing changed 2ms
+       × raises no notice in the saving tab: a classic message after an edit 2ms
+       × raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace 3ms
+       × raises no notice in the saving tab: a V2 message, nothing changed 2ms
+       × raises no notice in the saving tab: a V2 message after an edit 4ms
+       × raises no notice in the saving tab: a V2 message beside an empty embed 2ms
+       × raises no notice in the saving tab: a message not valid for sending, nothing changed 2ms
+       × raises no notice in the saving tab: a message not valid for sending, after an edit 2ms
+       × raises no notice after the content-loss dialog chose Classic 3ms
+       × raises no notice after the content-loss dialog chose V2 1ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 1ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 2ms
+       × raises no notice for either of two saves in flight when edits follow the second 2ms
+     × raises no notice for two identical saves, their broadcasts, and an edit after the second 5ms
+     × raises the notice when another tab saves content this tab never sent 2ms
+     × raises the notice when another tab saves while this tab has unsaved edits, naming the loss 2ms
+     × raises the notice when another tab saves a component-only edit 1ms
+     × raises the notice when another tab saves while this tab's own save is in flight 1ms
+     × raises the notice when another tab saves content this tab sent earlier and has already seen broadcast 1ms
+     × raises no notice when another tab saves what this tab already shows 1ms
+     × raises the notice for a later save of the content of a save that failed 3ms
+     × raises no notice for the broadcast of an identical save still in flight when one of two failed 3ms
+     × raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows 2ms
+     × raises no notice for a later save in flight when an earlier save, already broadcast, then reports failure 3ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 11 failed) 206ms
+     × is restored after sign-in, opening a saved message, and returning to route 0 53ms
+     × are shown again after signing in and opening the message 5ms
+     × are not shown at route 0 meanwhile, which shows its own draft 10ms
+     × are shown after a reload, as before 7ms
+     × leave no stored draft once they are typed back to the saved copy 3ms
+     × survive opening another saved message 4ms
+     × shows the saved copy when the stored copy is exactly as new 8ms
+     × shows the saved copy when the stored copy is older 4ms
+     × of a saved message is removed when this tab saves what the draft holds 3ms
+     × of a saved message stays when an edit was typed after Save 2ms
+     × discards the stored edits and shows the saved copy 4ms
+
+ Test Files  3 failed | 47 passed (50)
+      Tests  51 failed | 903 passed (954)
+   Start at  02:35:24
+   Duration  6.53s (transform 14.84s, setup 427ms, import 58.85s, tests 1.75s, environment 18.96s)
+

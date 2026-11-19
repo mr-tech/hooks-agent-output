@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-76
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 2 failed) 80ms
+     × writes the draft under its own key and also under the legacy message key 10ms
+     × leaves the legacy key when it holds a different draft 2ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 1 failed) 209ms
+     × holds the route-0 draft last written, for the code that reads it 26ms
+
+ Test Files  2 failed | 48 passed (50)
+      Tests  3 failed | 951 passed (954)
+   Start at  02:59:39
+   Duration  4.41s (transform 9.61s, setup 271ms, import 37.28s, tests 2.27s, environment 17.30s)
+

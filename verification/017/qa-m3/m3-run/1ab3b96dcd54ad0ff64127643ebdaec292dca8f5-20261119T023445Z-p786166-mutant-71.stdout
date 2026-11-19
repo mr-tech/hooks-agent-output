@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-71
+
+ ❯ |dom| src/utils/__tests__/withLocalStorage.stored-keys.test.tsx (9 tests | 1 failed) 18ms
+     × reports that the write did not land 8ms
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 2 failed) 98ms
+     × drops the least recently edited other entry and retries until the write lands 25ms
+     × drops the write, without throwing, once no other entry remains to drop 3ms
+
+ Test Files  2 failed | 48 passed (50)
+      Tests  3 failed | 951 passed (954)
+   Start at  02:59:11
+   Duration  4.37s (transform 8.27s, setup 374ms, import 36.74s, tests 2.20s, environment 17.41s)
+

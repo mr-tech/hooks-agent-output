@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-58
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 1 failed) 89ms
+     × removes an entry only when its data satisfies the condition given 15ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 2 failed) 266ms
+     × of a saved message is removed when this tab saves what the draft holds 24ms
+     × of a saved message stays when an edit was typed after Save 5ms
+
+ Test Files  2 failed | 48 passed (50)
+      Tests  3 failed | 951 passed (954)
+   Start at  02:57:57
+   Duration  4.62s (transform 9.87s, setup 582ms, import 38.80s, tests 2.46s, environment 17.66s)
+

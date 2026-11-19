@@ -1,0 +1,34 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-8
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx (2 tests | 2 failed) 51ms
+     × a code-fetch query error toasts (toast.error) 45ms
+     × an in-flight save toasts (toast.loading) 4ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 21 failed) 197ms
+     × is restored after sign-in, opening a saved message, and returning to route 0 56ms
+     × is restored after sign-in and a reload 6ms
+     × is restored in a tab opened later, when it was the last edited 6ms
+     × are shown again after signing in and opening the message 22ms
+     × are shown after a reload, as before 16ms
+     × leave no stored draft once they are typed back to the saved copy 4ms
+     × shows each tab its own last draft after a reload 2ms
+     × shows a new tab the draft edited most recently 4ms
+     × shows a new tab a draft whose tab has closed 2ms
+     × shows the intro message, and writes nothing, in a new tab with no draft anywhere 2ms
+     × restores a stored route-0 draft that has no id 4ms
+     × is shown with its own data and name 2ms
+     × holds the route-0 draft last written, for the code that reads it 5ms
+     × is removed from route 0 when a creating save succeeds 3ms
+     × of a saved message stays when an edit was typed after Save 7ms
+     × is false for an unedited message when authenticated 3ms
+     × is false for an unedited message when unauthenticated 4ms
+     × is false for an unedited message when loading 2ms
+     × is true for an edited message when authenticated 3ms
+     × is true for an edited message when unauthenticated 2ms
+     × is true for an edited message when loading 2ms
+
+ Test Files  2 failed | 48 passed (50)
+      Tests  23 failed | 931 passed (954)
+   Start at  02:35:51
+   Duration  5.06s (transform 11.64s, setup 602ms, import 44.24s, tests 2.21s, environment 17.28s)
+

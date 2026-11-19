@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-7
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx (2 tests | 2 failed) 97ms
+     × a code-fetch query error toasts (toast.error) 80ms
+     × an in-flight save toasts (toast.loading) 9ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 17 failed) 210ms
+     × is restored after sign-in, opening a saved message, and returning to route 0 58ms
+     × is restored after sign-in and a reload 7ms
+     × is restored in a tab opened later, when it was the last edited 10ms
+     × shows each tab its own last draft after a reload 3ms
+     × shows a new tab the draft edited most recently 4ms
+     × shows a new tab a draft whose tab has closed 2ms
+     × shows the intro message, and writes nothing, in a new tab with no draft anywhere 5ms
+     × restores a stored route-0 draft that has no id 3ms
+     × is shown with its own data and name 4ms
+     × holds the route-0 draft last written, for the code that reads it 5ms
+     × is removed from route 0 when a creating save succeeds 3ms
+     × is false for an unedited message when authenticated 2ms
+     × is false for an unedited message when unauthenticated 3ms
+     × is false for an unedited message when loading 3ms
+     × is true for an edited message when authenticated 2ms
+     × is true for an edited message when unauthenticated 2ms
+     × is true for an edited message when loading 2ms
+
+ Test Files  2 failed | 48 passed (50)
+      Tests  19 failed | 935 passed (954)
+   Start at  02:35:44
+   Duration  5.28s (transform 11.67s, setup 607ms, import 45.62s, tests 2.24s, environment 18.50s)
+

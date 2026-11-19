@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the write, without throwing, once no other entry remains to drop
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:107:20
+    105|     expect(() => { landed = writeDraft('b', entry(2)); }).not.toThrow(…
+    106|
+    107|     expect(landed).toBe(false);
+       |                    ^
+    108|   });
+    109| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

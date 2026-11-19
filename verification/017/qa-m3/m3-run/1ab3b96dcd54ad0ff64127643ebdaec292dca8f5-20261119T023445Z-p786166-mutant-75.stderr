@@ -1,0 +1,501 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 17 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first, whatever order they were written in
+AssertionError: expected [ 'k12' ] to deeply equal [ Array(20) ]
+
+- Expected
++ Received
+
+  [
+-   "k6",
+-   "k7",
+-   "k8",
+-   "k9",
+-   "k10",
+-   "k11",
+    "k12",
+-   "k13",
+-   "k14",
+-   "k15",
+-   "k16",
+-   "k17",
+-   "k18",
+-   "k19",
+-   "k20",
+-   "k21",
+-   "k22",
+-   "k23",
+-   "k24",
+-   "k25",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:31:18
+     29|     const keys = Object.keys(stored()).sort((a, b) => Number(a.slice(1…
+     30|
+     31|     expect(keys).toEqual(Array.from({ length: 20 }, (_, i) => `k${i + …
+       |                  ^
+     32|   });
+     33|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/17]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > never drops the entry being written, even when it is the least recently edited
+AssertionError: expected [ 'k1' ] to have a length of 20 but got 1
+
+- Expected
++ Received
+
+- 20
++ 1
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:41:35
+     39|     expect(Object.keys(stored())).toContain('k1');
+     40|     expect(Object.keys(stored())).not.toContain('k2');
+     41|     expect(Object.keys(stored())).toHaveLength(20);
+       |                                   ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/17]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most one megabyte serialised, dropping the least recently edited first
+AssertionError: expected [ 'c' ] to deeply equal [ 'b', 'c' ]
+
+- Expected
++ Received
+
+  [
+-   "b",
+    "c",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:50:42
+     48|     writeDraft('c', entry(3, big));
+     49|
+     50|     expect(Object.keys(stored()).sort()).toEqual(['b', 'c']);
+       |                                          ^
+     51|     expect((window.localStorage.getItem('messageDrafts') as string).le…
+     52|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/17]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > keeps every entry when the serialised map is exactly one megabyte, and drops the oldest one character over
+AssertionError: expected [ 'b' ] to deeply equal [ 'a', 'b' ]
+
+- Expected
++ Received
+
+  [
+-   "a",
+    "b",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:62:42
+     60|     writeDraft('a', entry(1, 'y'.repeat(300_000)));
+     61|     writeDraft('b', exact(0));
+     62|     expect(Object.keys(stored()).sort()).toEqual(['a', 'b']);
+       |                                          ^
+     63|     expect((window.localStorage.getItem('messageDrafts') as string).le…
+     64|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/17]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands
+AssertionError: expected [ 'c' ] to deeply equal [ 'b', 'c' ]
+
+- Expected
++ Received
+
+  [
+-   "b",
+    "c",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:95:42
+     93|
+     94|     expect(landed).toBe(true);
+     95|     expect(Object.keys(stored()).sort()).toEqual(['b', 'c']);
+       |                                          ^
+     96|   });
+     97|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/17]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > keeps an entry another tab stored since this tab last wrote
+AssertionError: expected [ 'c' ] to deeply equal [ 'a', 'b', 'c' ]
+
+- Expected
++ Received
+
+  [
+-   "a",
+-   "b",
+    "c",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:118:42
+    116|     writeDraft('c', entry(3));
+    117|
+    118|     expect(Object.keys(stored()).sort()).toEqual(['a', 'b', 'c']);
+       |                                          ^
+    119|   });
+    120|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/17]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes an entry only when its data satisfies the condition given
+AssertionError: expected [ 'a' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "a",
++ ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:137:35
+    135|
+    136|     removeDraft('a', (e) => e.data.content === 'mine');
+    137|     expect(Object.keys(stored())).toEqual([]);
+       |                                   ^
+    138|   });
+    139| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/17]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key
+AssertionError: expected undefined to deeply equal { content: 'from B' }
+
+- Expected:
+{
+  "content": "from B",
+}
+
++ Received:
+undefined
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:171:25
+    169|     const shown = routeZeroDraftFor('C');
+    170|
+    171|     expect(shown?.data).toEqual({ content: 'from B' });
+       |                         ^
+    172|     expect(stored()['0:C'].editedAt).toBe(2);
+    173|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/17]⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the store a browser holds from before > does not migrate once the drafts map exists
+AssertionError: expected { '0:92afrupz0k': { …(3) } } to deeply equal {}
+
+- Expected
++ Received
+
+- {}
++ {
++   "0:92afrupz0k": {
++     "data": {
++       "content": "old draft",
++     },
++     "editedAt": 5,
++     "name": "Draft",
++   },
++ }
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:235:26
+    233|     window.localStorage.setItem('messageDrafts', '{}');
+    234|
+    235|     expect(readDrafts()).toEqual({});
+       |                          ^
+    236|   });
+    237|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/17]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message
+AssertionError: expected { …(2) } to deeply equal { data: { …(2) }, name: 'Stored' }
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "unsaved edits on 42",
+-     "embeds": [
+-       {
+-         "_key": Any<String>,
+-         "description": "An embed body",
+-         "title": "An embed title",
+-       },
+-     ],
++     "content": "saved copy",
+    },
+    "name": "Stored",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:155:21
+    153|     visit('/message/m/42/edit', 'authenticated');
+    154|
+    155|     expect(shown()).toEqual(unsavedEdits);
+       |                     ^
+    156|   });
+    157|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/17]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before
+AssertionError: expected { …(2) } to deeply equal { data: { …(2) }, name: 'Stored' }
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "unsaved edits on 42",
+-     "embeds": [
+-       {
+-         "_key": Any<String>,
+-         "description": "An embed body",
+-         "title": "An embed title",
+-       },
+-     ],
++     "content": "saved copy",
+    },
+    "name": "Stored",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:172:21
+    170|     mount();
+    171|
+    172|     expect(shown()).toEqual(unsavedEdits);
+       |                     ^
+    173|   });
+    174|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/17]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > leave no stored draft once they are typed back to the saved copy
+AssertionError: expected '{"42":{"data":{"content":"unsaved edi…' to be '{}' // Object.is equality
+
+Expected: "{}"
+Received: "{"42":{"data":{"content":"unsaved edits on 42","embeds":[{"title":"An embed title","description":"An embed body","_key":"a8f18759-b33c-48bd-96d9-d9a71f10a256"}]},"name":"Stored","editedAt":1795057177267}}"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:181:58
+    179|     act(() => { cur().updateMessage({ data: { content: 'saved copy' } …
+    180|
+    181|     expect(window.localStorage.getItem('messageDrafts')).toBe('{}');
+       |                                                          ^
+    182|   });
+    183|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/17]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload
+AssertionError: expected { …(2) } to deeply equal { …(2) }
+
+- Expected
++ Received
+
+@@ -1,8 +1,8 @@
+  {
+    "data": {
+-     "content": "from A",
++     "content": "from B",
+      "embeds": [
+        {
+          "_key": "40f7e3ca-e79e-4047-9b6a-1e71b37e1a93",
+          "description": "An embed body",
+          "title": "An embed title",
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:208:21
+    206|     openTab('A');
+    207|     mount();
+    208|     expect(shown()).toEqual({ data: restoredData('from A'), name: 'New…
+       |                     ^
+    209|     unmountDom();
+    210|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/17]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a stored route-0 draft > is shown with its own data and name
+AssertionError: expected { data: { …(3) }, name: 'New Message' } to deeply equal { data: { …(2) }, …(1) }
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "seeded draft",
++     "content": "Welcome to **Hooks.gg**, the ultimate _free_ message building tool for community builders!
++
++ Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
++
++ To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
++
++ If you ever need any assistance, reach out to us in our [support server](https://hooks.gg/support) and we'll be happy to help you!
++ _ _",
+      "embeds": [
+        {
+          "_key": "1",
+-         "description": "An embed body",
+-         "title": "An embed title",
++         "color": 14895353,
++         "description": "We're excited to have you here!
++
++ This user-friendly interface makes it easy to create custom messages that fit your server's theme and tone. (Hint: Use the Actions menu to toggle between Edit Mode and View Mode.)
++
++ Here are just some of the exciting features you'll find in Hooks.gg.
++
++ _ _",
++         "fields": [
++           {
++             "_key": "1",
++             "name": "<:pointer_ol:987453923587686430>_ _ Fully-Interactive Message Editor",
++             "value": "Our message editor is easy to use and understand. No more needing to remember what's what, **if you want to change something, just click or tap it!**",
++           },
++           {
++             "_key": "2",
++             "name": "<:discord_ol:987449544012882061>_ _ Familiar Tools",
++             "value": "This editor brings you all the fancy features you're used to from Discord including `**inline formatting**` and an emoji picker built into supported inputs.",
++           },
++           {
++             "_key": "3",
++             "name": "<:folder_ol:987449556969078864>_ _ Saving to the Cloud",
++             "value": "All of your messages are saved securely to the cloud upon logging in, so you can access them from anywhere and never lose your progress.",
++           },
++           {
++             "_key": "4",
++             "name": "<:userplus_ol:987453943770656768>_ _ Shared Saves",
++             "value": "Saving messages to a Discord server you admin allows other admins of that server to also view and edit them, making it easy to collaborate with the team.",
++           },
++           {
++             "_key": "5",
++             "name": "<:download_ol:987449546915323924>_ _ Message Importing",
++             "value": "You can easily load messages already sent by webhooks directly into our editor, making it easy to edit and recreate responses.",
+            },
+          ],
++         "title": "About Hooks.gg",
++         "url": "https://hooks.gg",
++       },
++       {
++         "_key": "2",
++         "author": {
++           "name": "Your Wonderful Server",
+          },
+-   "name": "Name the user gave the draft",
++         "color": 5793266,
++         "description": "Hey there {user}! Welcome to our community. We're excited to have you here and hope you'll have a great time with us.
++
++ Take a moment to introduce yourself and let us know what brought you here. And if you have any questions or concerns, don't hesitate to reach out to one of our friendly moderators.
++
++ Thanks for joining us, and we look forward to getting to know you better!
++
++ _ _",
++         "fields": [
++           {
++             "_key": "1",
++             "inline": true,
++             "name": "Server Rules",
++             "value": "Please be sure to read through our server rules before posting. We want to make sure everyone feels safe and welcome here.",
++           },
++           {
++             "_key": "2",
++             "inline": true,
++             "name": "Channels",
++             "value": "We have a variety of channels for different topics, so feel free to jump in and join the conversation!",
++           },
++           {
++             "_key": "3",
++             "name": "Events",
++             "value": "We regularly host events and activities, so keep an eye out for announcements and join in on the fun!",
++           },
++         ],
++         "timestamp": "2026-11-19T02:59:37.119Z",
++         "title": "Example: Welcome to Our Server!",
++       },
++     ],
++     "username": "Hooks.gg Bot",
++   },
++   "name": "New Message",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:293:21
+    291|     mount();
+    292|
+    293|     expect(shown()).toEqual({ data: restoredData('seeded draft'), name…
+       |                     ^
+    294|   });
+    295| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/17]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a stored draft of a saved message > is shown with its own data and name when it is newer than the saved copy
+AssertionError: expected { …(2) } to deeply equal { data: { …(2) }, …(1) }
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "stored with the draft",
+-     "embeds": [
+-       {
+-         "_key": Any<String>,
+-         "description": "An embed body",
+-         "title": "An embed title",
++     "content": "saved copy",
+    },
+-     ],
+-   },
+-   "name": "Name stored with the draft",
++   "name": "Stored",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:307:21
+    305|     mount();
+    306|
+    307|     expect(shown()).toEqual({ data: restoredData('stored with the draf…
+       |                     ^
+    308|   });
+    309| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/17]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds
+AssertionError: expected [ '42' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "42",
++ ]
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:358:25
+    356|     respond(0, '42');
+    357|
+    358|     expect(draftKeys()).toEqual([]);
+       |                         ^
+    359|   });
+    360|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/17]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, reloading a saved message > discards the stored edits and shows the saved copy
+AssertionError: expected 'saved copy' to be 'stale edits' // Object.is equality
+
+Expected: "stale edits"
+Received: "saved copy"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:381:23
+    379|     hoisted.pathname = '/message/m/42/edit';
+    380|     mount();
+    381|     expect(content()).toBe('stale edits');
+       |                       ^
+    382|
+    383|     hoisted.stored = { ...hoisted.stored };
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/17]⎯
+

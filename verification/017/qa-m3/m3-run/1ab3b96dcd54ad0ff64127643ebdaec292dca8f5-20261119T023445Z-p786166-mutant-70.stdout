@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-70
+
+ ❯ |node| src/utils/__tests__/withLocalStorage.server-render.test.ts (2 tests | 1 failed) 9ms
+     × reports that a write did not land, without throwing 6ms
+
+ Test Files  1 failed | 49 passed (50)
+      Tests  1 failed | 953 passed (954)
+   Start at  02:59:05
+   Duration  4.35s (transform 8.32s, setup 363ms, import 34.74s, tests 2.08s, environment 18.60s)
+

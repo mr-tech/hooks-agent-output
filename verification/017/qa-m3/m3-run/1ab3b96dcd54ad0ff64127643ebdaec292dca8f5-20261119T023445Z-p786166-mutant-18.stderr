@@ -1,0 +1,15 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx > SessionProvider, a page loaded with a session cookie the server did not accept > signs out, leaving without the unsaved-changes prompt
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx:44:29
+     42|     mountDom(<SessionWrapper session={null}>{null}</SessionWrapper>);
+     43|
+     44|     expect(hoisted.signOut).toHaveBeenCalledTimes(1);
+       |                             ^
+     45|     expect(hoisted.leavingDuringSignOut).toBe(true);
+     46|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-24
+
+ ❯ |dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx (6 tests | 1 failed) 57ms
+     × prompts on unload while there are unsaved changes 30ms
+ ❯ |dom| src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx (2 tests | 1 failed) 113ms
+     × prompts on unload 74ms
+
+ Test Files  2 failed | 48 passed (50)
+      Tests  2 failed | 952 passed (954)
+   Start at  02:37:25
+   Duration  4.49s (transform 9.36s, setup 422ms, import 37.90s, tests 2.29s, environment 17.62s)
+

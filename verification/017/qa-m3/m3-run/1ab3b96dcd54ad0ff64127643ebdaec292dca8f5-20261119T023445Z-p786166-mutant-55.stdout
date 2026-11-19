@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m3/20261119T023445Z-p786166/mutant-55
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 3 failed) 90ms
+     × removes one entry and leaves the others 22ms
+     × removes an entry only when its data satisfies the condition given 4ms
+     × removes its own entry, and the legacy key when it holds that draft 3ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 4 failed) 231ms
+     × leave no stored draft once they are typed back to the saved copy 28ms
+     × is removed from route 0 when a creating save succeeds 9ms
+     × of a saved message is removed when this tab saves what the draft holds 10ms
+     × discards the stored edits and shows the saved copy 7ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (37 tests | 6 failed) 527ms
+       × raises no notice in the saving tab: a classic message, nothing changed 55ms
+       × raises no notice in the saving tab: a V2 message, nothing changed 6ms
+       × raises no notice in the saving tab: a message not valid for sending, nothing changed 5ms
+       × raises no notice in the saving tab: a classic message, nothing changed 4ms
+       × raises no notice in the saving tab: a V2 message, nothing changed 4ms
+       × raises no notice in the saving tab: a message not valid for sending, nothing changed 5ms
+
+ Test Files  3 failed | 47 passed (50)
+      Tests  13 failed | 941 passed (954)
+   Start at  02:57:38
+   Duration  4.84s (transform 11.46s, setup 460ms, import 41.34s, tests 2.44s, environment 17.91s)
+
