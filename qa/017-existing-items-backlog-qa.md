@@ -4,15 +4,15 @@ Origin: 017
 UUID: 5c3e9a71
 Verified-At: "1ad625e,8de2b53 — repos=website,preview-image-generator; Phase 1 base trees (the plan's surfaces read at these SHAs; the suite and the carried probes ran in an export of website 1ad625e). No verdict is carried at Phase 1."
 Status: Awaiting Implementation
-Status-Detail: "Phase 1 re-keyed to plan revision 3 (agent-output b3d811e). QAF-1 to QAF-12 resolved; the M5-e oracle re-keyed to form 3's LastModified reference (0 of 3120 violate under OQ-13 option a). Open for the planner: QAF-13 MEDIUM (form 3 with its own object absent from the listing), QAF-14 LOW (B-10's liveness precondition)."
+Status-Detail: "Phase 1 re-keyed to plan revision 4 (agent-output a97628d). QAF-1 to QAF-14 resolved; no open QA finding. The M5-e oracle matches revision 4 (0 of 3120 violate under OQ-13 option a; option b's limit counted). Phase 1 waits for implementation, which waits on the critic, his OQ-11 to OQ-13 and OQ-7's probe."
 Phase: 1
 ---
 
 # QA Report: Plan 017 — the existing-items backlog
 
-**Plan Reference**: `agent-output/planning/017-existing-items-backlog.md`, revision 3 (agent-output
-`b3d811e`), re-keyed in § "Phase 1 re-key on plan revision 3" (revision 2: § "Phase 1 re-key on plan
-revision 2"). The first pass read revision 1
+**Plan Reference**: `agent-output/planning/017-existing-items-backlog.md`, revision 4 (agent-output
+`a97628d`), re-keyed in § "Phase 1 re-key on plan revision 4" (earlier: §§ "Phase 1 re-key on plan
+revision 3" and "… revision 2"). The first pass read revision 1
 (`97e6814`; the R-4 registration at `d84b192` was read with it and changes no criterion).
 
 ## Changelog
@@ -23,6 +23,7 @@ revision 2"). The first pass read revision 1
 | 2026-11-18T23:45 | steering-roadmap (`steering/017-rulings.md` 23:41Z, `1cb801c`) | Make the B-7 / QAF-9 production-log read under the Standing Default | Phase 1 amendment. Read made, read-only, aggregates only: liveness met by function stderr, not by the tRPC `onError`, which is development-only (my earlier naming was wrong); retention under 1 day. QAF-9 and B-7 amended by reconcile lines. Routing it as owner-needing was my error. Process fact: the capture's README was first written by shell heredoc, outside the record-write rule, then re-written with the Write tool. The stamp gate refused this row's first stamp (typed `23:46`, clock `23:45`). Satisfied by the `date -u` minute in this row and in the three reconcile lines. |
 | 2026-11-19T00:11 | planner-hooks-017 (revision 2, agent-output `3d678cc`) | Phase 1 re-key, including the M5-e oracle | Phase 1 re-key. Oracle re-keyed to revision 2: 0 of 3120 interleavings violate; five mutants fire. Revision-1 run frozen beside it. Postgres probe P1–P3 on a throwaway container. QAF-1 to QAF-9 dispositioned (all RESOLVED). New: QAF-10 MEDIUM (stale replaced nonce), QAF-11 LOW (B-7 member outside its query), QAF-12 MEDIUM (dialog renderer and one slot). NM-22 to NM-25; EC-1 and EC-2; B-7 amended. |
 | 2026-11-19T00:22 | planner-hooks-017 (revision 3, agent-output `b3d811e`) | Phase 1 re-key, including the oracle's age reference | Phase 1 re-key. QAF-10 to QAF-12 resolved; EC-1 withdrawn. Oracle re-keyed to form 3's LastModified reference: option a 0/3120 violating, option b's stated limit counted; the revision-2 model is frozen. New: QAF-13 MEDIUM (absent reference), QAF-14 LOW (B-10 liveness); NM-26 to NM-28; B-7 and B-10 amended. |
+| 2026-11-19T00:25 | planner-hooks-017 (revision 4, agent-output `a97628d`) | Phase 1 re-key | Phase 1 re-key. QAF-13 and QAF-14 resolved; the oracle's run at revision 4 is byte-identical to the committed run. The LastModified assumption is closed into M5-c's stated residue (no measurement owed). NM-29 added. No finding on revision 4. |
 
 ## Inputs read
 
@@ -608,6 +609,36 @@ That would show as a broken preview right after a save, with the image's object 
 bucket. Owner: the implementer, as M5-c's first step against the real bucket's `dev/` prefix, two
 puts seconds apart and their listed `LastModified` compared. If that read is not run, devops at
 release readiness. Named again in the hand-off.
+*Reconcile 2026-11-19T00:25Z:* revision 4 (M5-c form 3) argues the bound holds whether the bucket
+stamps `LastModified` at a put's start or its end, since both fall inside the writing continuation's
+life. It states the residue: a disagreement of more than 60 s between the bucket's own servers'
+clocks. QA accepts the argument. The two-put check would write to the real bucket, which no stage
+does unasked, and the residue is now a stated limit of the plan, so no measurement is owed and this
+assumption is closed into that residue. This is not a verdict change.
+
+## Phase 1 re-key on plan revision 4 (agent-output `a97628d`)
+
+Read: the diff `b3d811e..a97628d` over the plan (48 added and 17 removed lines, `git diff
+--numstat`); M5-c form 3, M4-a and RK-7 re-read. The plan was unchanged since `a97628d` at the write.
+
+- QAF-13 MEDIUM Phase 1 RESOLVED — M5-c form 3 states "A listing that does not contain the committing
+  save's own object deletes nothing". The oracle already modelled that reading. Re-run at this
+  revision, `node oracle.mjs` is byte-identical to the committed `oracle-run.txt` (`cmp`): 0 of 3120
+  violating. NM-26 is the mutant against it.
+- QAF-14 LOW Phase 1 RESOLVED — RK-7 carries both liveness rows: a fixture line counted at M6 under
+  `verification/017/m6-probe/`, and the region's `Generated image` count above zero at each read.
+  B-10's precondition is unchanged from the 00:22Z reconcile.
+- AF-22 (M4-a): the guard captures `showConfirmation` from its own layout instance, and `StyledLink`
+  never calls `useConfirmation`. This is because the editor's instance shadows the layout's inside
+  `m/[id]/layout.tsx`. M4-b's tests mount the two-level layout with a `/send` member inside
+  `MessageProvider`. Named mutant added: NM-29 — `StyledLink` resolves the confirmation through
+  `useConfirmation`, so inside `m/[id]` it gets the editor's instance and shares its slot with the
+  update prompt (NM-25's failure, by shadowing) — M4-a, M4-b.
+- F-24 (M3-h reads the OQ-11 · OQ-12 four-pair table) and F-25 (M5-g's production falsifier is his
+  B-6 look) need no register change: B-6 already reads a saved message's new preview after both
+  deploys.
+
+No finding on revision 4.
 
 ## Assumption Not Checked
 
