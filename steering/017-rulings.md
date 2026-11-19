@@ -730,3 +730,29 @@ word, queued in `OWNER-QUEUE.md`. No coordinator: this thread asks him for its `
 Still owed on resumption: M5 QA Phase 2, M6 code review and QA, effort-final QA sweep, Planner batch
 fold, architect closing pass (≤ devops Stage 1), security on the generator delta, UAT, devops Stage 1;
 he is told the M8 cap (block 06:01Z) in this turn.
+
+## 2026-11-19T07:24Z — chain resumed (his word, relayed by the coordinator); premise re-read
+
+His words, relayed verbatim by `steering-coordinator` in this thread's spawn brief: *"continue the
+statbot and hooks threads"*, then *"\*steering threads"*. Under steering.md (Approvals move verbatim,
+inbound), a command the coordinating thread relays is acted on as his word: the chain resumes from the
+park. It waives no gate. This thread was respawned fresh as `steering-roadmap-hooks`; its coordinator
+is now `steering-coordinator`, which owns this thread's clear timing.
+**Premise re-read (07:23Z, this thread):** remote refs unchanged since the branch cuts (`git ls-remote`:
+website `master` `1ad625e`, generator `master` `87dcb41`, `prod` `8de2b53`), so nothing has shipped and
+items 2 to 4 stand unfixed in production. Chain tips unchanged since the park (`branch --show-current`,
+`log -1`): website `chain/017-existing-items-backlog` `4b8db9c`, generator same branch `8512a1d`; website
+holds only the untracked `.playwright-mcp/`, not the chain's. Plan revision 7, Status In Progress (its
+header; last commit `b2eefcd`, the planner's checkpoint). No `handoff/` record added since revision 7's
+commit `6ade256` (05:16:40Z; `git log --diff-filter=A --since` on `handoff/`, empty). Every Resumption
+State commit named in the docket is present (`git log --since=07:00Z`). OOM count 0. Usage
+(`plan-usage.py --json`, source live): session 0%, `weekly_all` 0% (reset since 06:54Z's 87%).
+**Acts:** `OWNER-QUEUE.md`'s park entry deleted (his word arrived). Started fresh from their Resumption
+States: `qa-hooks-017` (M5 Phase 2 document, then M6 and M7, then the effort-final sweep; brief
+`backlog-2026-11-18-briefs/qa-hooks-017-resume.md`) and `code-reviewer-hooks-017` (Round 7 on M6, then M7;
+`…/code-reviewer-hooks-017-resume.md`). Each brief's first deliverable is the premise re-read. Held until
+their trigger: implementer (on a finding routed to it), security (on the generator delta once M6 is
+approved), Planner batch fold with its critic read and the architect's closing pass (once M6 and M7 clear
+their gates), UAT, devops Stage 1. `017-brief-common.md` updated: both branches cut.
+**This thread's gate event, disclosed in the round:** `record-write-gate-hook` refused a python shell
+write to `OWNER-QUEUE.md`; re-issued with the Edit tool, the form the gate names.

@@ -24,6 +24,14 @@ origin/master`, read 23:2xZ). This chain's branch is not cut yet: steering cuts 
 start. Until steering records it, read website code at `origin/master` (`git show
 origin/master:<path>`) and run nothing in the shared tree — a gate stage that needs a build or a run
 uses an isolated export with its own install.
+**Updated 2026-11-19T07:24Z (resume after the park), superseding the two sentences above about the
+branch:** both chain branches are cut, `chain/017-existing-items-backlog`, no upstream — website from
+`1ad625e` (`steering/017-rulings.md` block 00:29Z), preview-image-generator at `8de2b53` (block
+05:21Z). Read 07:23Z (`git -C <repo> branch --show-current`, `log -1`): website at `4b8db9c`,
+generator at `8512a1d`, both on the chain branch; remote refs unchanged since the cut (`git
+ls-remote`: website `master` `1ad625e`, generator `master` `87dcb41`, `prod` `8de2b53`). The shared
+trees stay on the chain branch; the trees' switching is steering's and devops's alone. The chain was
+parked 07:15Z and resumed 07:24Z on his word (`steering/017-rulings.md` blocks 07:15Z and 07:24Z).
 
 Revision 1 answers (his, by selection): `steering/017-rulings.md` block "2026-11-18T23:26Z" — scope
 M1–M7 confirmed; OQ-7 proceeds open (the probe push before M5 is a later ask, by devops); Exclusions
