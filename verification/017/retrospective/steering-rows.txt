@@ -1,0 +1,36 @@
+=== steering-roadmap-hooks
+steering-roadmap-h [42803e0b] claude-opus,claude-sonn    157       398  28,445,253    243,937    77,596     8.95
+  own                         claude-opus                148       380  28,238,587    211,647    73,356     8.81
+  general-purpose-sonnet      claude-sonn                  9        18     206,666     32,290     4,240     0.14
+steering-roadmap-h [da93f9fd] claude-opus                 41        98   4,559,247     86,564    19,331     1.99
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      882     2,089 140,552,980  1,540,687   504,898    48.03
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp
+=== steering-roadmap
+steering-roadmap [93a69827]   claude-opus,claude-sonn    206       465  32,713,353    397,710   143,268    11.46
+  own                         claude-opus                163       379  31,587,334    260,933   116,413    10.73
+  general-purpose-sonnet      claude-sonn                 43        86   1,126,019    136,777    26,855     0.72
+steering-roadmap [d26a0751]   claude-opus                  7        14     471,077     85,148     4,560     0.87
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      572     1,289 108,771,725  1,125,109   426,147    36.18
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp
+=== steeering-roadmap-hooks
+----------------------------------------------------------------------------------------------------------------
+steeering-roadmap-hooks       claude-opus,claude-sonn    206       465  32,713,353    397,710   143,268    11.46
+  own                         claude-opus                163       379  31,587,334    260,933   116,413    10.73
+  general-purpose-sonnet      claude-sonn                 43        86   1,126,019    136,777    26,855     0.72
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      206       465  32,713,353    397,710   143,268    11.46
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp
+=== steering-coordinator
+steering-coordinat [390e0297] -                            0         0           0          0         0     0.00
+steering-coordinat [13eb294b] -                            0         0           0          0         0     0.00
+steering-coordinat [826c60d3] -                            0         0           0          0         0     0.00
+steering-coordinat [6071e0ba] claude-haik                 96       266  12,202,115    151,217    34,231     0.17
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                       96       266  12,202,115    151,217    34,231     0.17
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp

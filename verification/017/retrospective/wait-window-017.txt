@@ -1,0 +1,91 @@
+chain: sessions matching '*017' or '*017-<n>' from 2026-11-19T11:12 to 2026-11-19T17:49
+41 of 41 resolved from the registry cache (live entry gone): analyst-hooks-017, analyst-hooks-017, architect-hooks-017, architect-hooks-017, architect-hooks-017, code-reviewer-hooks-017, code-reviewer-hooks-017, code-reviewer-hooks-017, code-reviewer-hooks-017, code-reviewer-hooks-017, critic-hooks-017, critic-hooks-017, critic-hooks-017, critic-hooks-017, devops-hooks-017, devops-hooks-017, devops-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, planner-hooks-017, planner-hooks-017, planner-hooks-017, planner-hooks-017, qa-hooks-017, qa-hooks-017, qa-hooks-017, qa-hooks-017, qa-hooks-017, qa-hooks-017, qa-hooks-017, security-hooks-017, uat-hooks-017
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+analyst-hooks-017 [94e60526]  -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-18T22:12:49Z
+analyst-hooks-017 [f784e545]  -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-18T23:31:57Z
+architect-hooks-01 [c6e11521] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-18T23:27:24Z
+architect-hooks-01 [5bb9e83d] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T05:23:30Z
+architect-hooks-01 [e2a08817] claude-opus                 24        64   5,846,622      3,089     2,248     1.24
+                                main 24 req $1.24 · cached seen 2026-11-19T08:38:37Z
+code-reviewer-hook [01141c37] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T00:37:35Z
+code-reviewer-hook [2d84e546] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T02:40:06Z
+code-reviewer-hook [e0020673] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T05:54:12Z
+code-reviewer-hook [421aa0a1] claude-opus                 30        76   9,370,801     16,671     7,887     2.17
+                                main 30 req $2.17 · cached seen 2026-11-19T07:25:14Z
+code-reviewer-hook [eded5a52] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T18:15:57Z
+critic-hooks-017 [8498957e]   -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-18T23:27:24Z
+critic-hooks-017 [0cf1860c]   -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T00:03:04Z
+critic-hooks-017 [0de57f44]   -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T00:33:56Z
+critic-hooks-017 [952acccb]   claude-fabl                 24        64   5,450,697      3,114     2,152     5.62
+                                main 24 req $5.62 · cached seen 2026-11-19T08:31:52Z
+devops-hooks-017 [9e89aec4]   -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T04:46:26Z
+devops-hooks-017 [79f050e5]   -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T19:05:50Z
+devops-hooks-017 [3560e3e9]   -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T19:28:51Z
+implementer-hooks- [4fc9969e] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T00:30:01Z
+implementer-hooks- [1ac9ac0a] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T01:04:20Z
+implementer-hooks- [ab88c13d] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T02:08:22Z
+implementer-hooks- [dc7f7c17] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T02:39:21Z
+implementer-hooks- [9310d754] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T03:14:41Z
+implementer-hooks- [7af6b2ec] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T05:23:28Z
+implementer-hooks- [94290528] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T06:26:33Z
+implementer-hooks- [369fb70e] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T07:34:39Z
+implementer-hooks- [4c1656a7] claude-sonn                  9        28   2,065,670     10,907     5,746     0.31
+                                main 9 req $0.31 · cached seen 2026-11-19T10:32:48Z
+implementer-hooks- [9dec0e9a] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T11:28:36Z
+implementer-hooks- [8d91c11c] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T18:28:46Z
+planner-hooks-017 [0d9f0050]  -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-18T22:12:14Z
+planner-hooks-017 [d2c1f61a]  -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-18T23:32:16Z
+planner-hooks-017 [f8f3984e]  -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T00:30:18Z
+planner-hooks-017 [6026387e]  claude-opus                 24        64   5,555,038      3,080     2,264     1.18
+                                main 24 req $1.18 · cached seen 2026-11-19T08:27:48Z
+qa-hooks-017 [60eb0bf1]       -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-18T23:27:24Z
+qa-hooks-017 [635d459f]       -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T00:28:33Z
+qa-hooks-017 [daf5a54e]       -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T03:12:10Z
+qa-hooks-017 [be653729]       -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T05:23:30Z
+qa-hooks-017 [9cc539ba]       -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T07:25:14Z
+qa-hooks-017 [44f411da]       -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T09:17:37Z
+qa-hooks-017 [18779fa8]       -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T18:59:10Z
+security-hooks-017            claude-fabl                 21        56   6,240,173      2,693     1,890     6.39
+                                main 21 req $6.39 · cached seen 2026-11-19T07:56:58Z
+uat-hooks-017                 claude-opus                 21        56   5,548,732      2,682     2,308     1.18
+                                main 21 req $1.18 · cached seen 2026-11-19T09:15:50Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      153       408  40,077,733     42,236    24,495    18.08
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp

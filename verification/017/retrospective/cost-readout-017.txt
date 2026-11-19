@@ -1,0 +1,113 @@
+chain: sessions matching '*017' or '*017-<n>' from 2026-11-18T21:59 to 2026-11-19T20:14
+41 of 41 resolved from the registry cache (live entry gone): analyst-hooks-017, analyst-hooks-017, architect-hooks-017, architect-hooks-017, architect-hooks-017, code-reviewer-hooks-017, code-reviewer-hooks-017, code-reviewer-hooks-017, code-reviewer-hooks-017, code-reviewer-hooks-017, critic-hooks-017, critic-hooks-017, critic-hooks-017, critic-hooks-017, devops-hooks-017, devops-hooks-017, devops-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, implementer-hooks-017, planner-hooks-017, planner-hooks-017, planner-hooks-017, planner-hooks-017, qa-hooks-017, qa-hooks-017, qa-hooks-017, qa-hooks-017, qa-hooks-017, qa-hooks-017, qa-hooks-017, security-hooks-017, uat-hooks-017
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+analyst-hooks-017 [94e60526]  claude-opus                165       351  37,268,201    302,284   109,938    12.07
+                                main 165 req $12.07 · cached seen 2026-11-18T22:12:49Z
+analyst-hooks-017 [f784e545]  -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-18T23:31:57Z
+architect-hooks-01 [c6e11521] claude-opus                125       282  31,150,872    359,360    83,085    10.77
+                                main 125 req $10.77 · cached seen 2026-11-18T23:27:24Z
+architect-hooks-01 [5bb9e83d] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-19T05:23:30Z
+architect-hooks-01 [e2a08817] claude-opus                161       358  37,088,891    292,596    94,733    11.65
+                                main 161 req $11.65 · cached seen 2026-11-19T08:38:37Z
+code-reviewer-hook [01141c37] claude-opus                172       367  38,293,329    336,757   143,741    13.23
+                                main 172 req $13.23 · cached seen 2026-11-19T00:37:35Z
+code-reviewer-hook [2d84e546] claude-opus                131       282  32,052,225    326,482   106,315    11.15
+                                main 131 req $11.15 · cached seen 2026-11-19T02:40:06Z
+code-reviewer-hook [e0020673] claude-opus                133       285  25,847,412    262,282    99,706     9.26
+                                main 133 req $9.26 · cached seen 2026-11-19T05:54:12Z
+code-reviewer-hook [421aa0a1] claude-opus                220       495  55,685,218    351,909   159,070    17.14
+                                main 220 req $17.14 · cached seen 2026-11-19T07:25:14Z
+code-reviewer-hook [eded5a52] claude-opus                128       273  20,793,277    197,470    82,484     7.39
+                                main 128 req $7.39 · cached seen 2026-11-19T18:15:57Z
+critic-hooks-017 [8498957e]   claude-fabl                 37        76  11,288,535    410,027   149,256    26.95
+                                main 37 req $26.95 · cached seen 2026-11-18T23:27:24Z
+critic-hooks-017 [0cf1860c]   claude-fabl                 49       110  12,988,992    304,477    88,044    23.48
+                                main 49 req $23.48 · cached seen 2026-11-19T00:03:04Z
+critic-hooks-017 [0de57f44]   claude-fabl                 42        96   8,469,346    248,612    48,838    15.88
+                                main 42 req $15.88 · cached seen 2026-11-19T00:33:56Z
+critic-hooks-017 [952acccb]   claude-fabl                 87       204  18,921,190    248,196    72,367    27.51
+                                main 87 req $27.51 · cached seen 2026-11-19T08:31:52Z
+devops-hooks-017 [9e89aec4]   claude-sonn                113       246  18,827,854    260,632    83,112     3.72
+  own                         claude-sonn                107       234  18,709,370    233,203    79,047     3.59
+  general-purpose-sonnet      claude-sonn                  6        12     118,484     27,429     4,065     0.12
+                                main 107 req $3.59 · subagent 6 req $0.12 · cached seen 2026-11-19T04:46:26Z
+devops-hooks-017 [79f050e5]   claude-sonn                124       255  31,194,541    328,839   117,601     5.61
+                                main 124 req $5.61 · cached seen 2026-11-19T19:05:50Z
+devops-hooks-017 [3560e3e9]   claude-sonn                 59       128   8,136,409    141,497    39,105     1.77
+                                main 59 req $1.77 · cached seen 2026-11-19T19:28:51Z
+implementer-hooks- [4fc9969e] claude-sonn                 91       185  19,374,138    266,638    71,111     3.72
+                                main 91 req $3.72 · cached seen 2026-11-19T00:30:01Z
+implementer-hooks- [1ac9ac0a] claude-sonn                121       247  21,223,565    229,210    98,705     4.03
+                                main 121 req $4.03 · cached seen 2026-11-19T01:04:20Z
+implementer-hooks- [ab88c13d] claude-sonn                114       236  21,282,456    243,075   100,220     4.10
+                                main 114 req $4.10 · cached seen 2026-11-19T02:08:22Z
+implementer-hooks- [dc7f7c17] claude-sonn                151       317  40,474,969    346,580   150,122     6.94
+                                main 151 req $6.94 · cached seen 2026-11-19T02:39:21Z
+implementer-hooks- [9310d754] claude-sonn                104       236  19,742,970    235,756    90,587     3.82
+                                main 104 req $3.82 · cached seen 2026-11-19T03:14:41Z
+implementer-hooks- [7af6b2ec] claude-sonn                261       536 101,300,401    557,787   272,490    15.09
+                                main 261 req $15.09 · cached seen 2026-11-19T05:23:28Z
+implementer-hooks- [94290528] claude-sonn                 22        55   1,757,376     59,583    10,194     0.52
+                                main 22 req $0.52 · cached seen 2026-11-19T06:26:33Z
+implementer-hooks- [369fb70e] claude-sonn                102       227  17,917,675    251,026    67,178     3.47
+                                main 102 req $3.47 · cached seen 2026-11-19T07:34:39Z
+implementer-hooks- [4c1656a7] claude-sonn                 79       167  13,063,529    197,724    85,666     2.95
+                                main 79 req $2.95 · cached seen 2026-11-19T10:32:48Z
+implementer-hooks- [9dec0e9a] claude-sonn                 90       197  15,280,087    210,566    88,367     3.25
+                                main 90 req $3.25 · cached seen 2026-11-19T11:28:36Z
+implementer-hooks- [8d91c11c] claude-sonn                 59       129   7,735,323    146,225    39,568     1.75
+                                main 59 req $1.75 · cached seen 2026-11-19T18:28:46Z
+planner-hooks-017 [0d9f0050]  claude-haik,claude-opus    172       372  37,537,048    509,330   175,954    12.99
+  own                         claude-opus                143       312  36,202,738    362,745   134,052    12.82
+  general-purpose             claude-haik                 24        50   1,244,645    115,287    38,238     0.05
+  general-purpose-sonnet      claude-sonn                  5        10      89,665     31,298     3,664     0.12
+                                main 143 req $12.82 · subagent 29 req $0.17 · cached seen 2026-11-18T22:12:14Z
+planner-hooks-017 [d2c1f61a]  claude-opus                121       274  31,121,106    325,478   136,883    11.57
+                                main 121 req $11.57 · cached seen 2026-11-18T23:32:16Z
+planner-hooks-017 [f8f3984e]  claude-opus                136       322  26,744,343    262,275   104,948     9.55
+                                main 136 req $9.55 · cached seen 2026-11-19T00:30:18Z
+planner-hooks-017 [6026387e]  claude-opus                176       401  37,709,949    247,588    86,121    11.25
+                                main 176 req $11.25 · cached seen 2026-11-19T08:27:48Z
+qa-hooks-017 [60eb0bf1]       claude-opus,claude-sonn    189       398  42,480,341    413,014   147,807    14.32
+  own                         claude-opus                163       344  41,530,917    362,586   141,718    14.04
+  browser-walker              claude-sonn                 26        54     949,424     50,428     6,089     0.28
+                                main 163 req $14.04 · subagent 26 req $0.28 · cached seen 2026-11-18T23:27:24Z
+qa-hooks-017 [635d459f]       claude-haik,claude-opus    183       391  38,686,144    490,971   144,974    12.86
+  own                         claude-opus                156       331  38,276,330    338,334   123,160    12.83
+  general-purpose             claude-haik                 27        60     409,814    152,637    21,814     0.03
+                                main 156 req $12.83 · subagent 27 req $0.03 · cached seen 2026-11-19T00:28:33Z
+qa-hooks-017 [daf5a54e]       claude-haik,claude-opus    184       406  36,710,081    423,109   167,502    12.05
+  own                         claude-opus                147       326  34,410,765    324,704   125,653    11.99
+  general-purpose             claude-haik                 37        80   2,299,316     98,405    41,849     0.06
+                                main 147 req $11.99 · subagent 37 req $0.06 · cached seen 2026-11-19T03:12:10Z
+qa-hooks-017 [be653729]       claude-haik,claude-opus    210       454  42,710,855    497,336   166,157    14.19
+  own                         claude-opus                165       358  41,755,933    375,954   139,478    14.15
+  general-purpose             claude-haik                 45        96     954,922    121,382    26,679     0.04
+                                main 165 req $14.15 · subagent 45 req $0.04 · cached seen 2026-11-19T05:23:30Z
+qa-hooks-017 [9cc539ba]       claude-haik,claude-opus    227       489  53,153,743    500,598   160,505    16.49
+  own                         claude-opus                209       447  52,929,150    372,679   144,928    16.47
+  general-purpose             claude-haik                 18        42     224,593    127,919    15,577     0.03
+                                main 209 req $16.47 · subagent 18 req $0.03 · cached seen 2026-11-19T07:25:14Z
+qa-hooks-017 [44f411da]       claude-haik,claude-opus    223       482  41,749,970    524,829   159,799    13.61
+  own                         claude-opus                177       384  40,729,382    305,375   126,219    13.11
+  browser-walker              claude-sonn                 24        48     605,999    101,661    15,378     0.47
+  general-purpose             claude-haik                 22        50     414,589    117,793    18,202     0.03
+                                main 177 req $13.11 · subagent 46 req $0.50 · cached seen 2026-11-19T09:17:37Z
+qa-hooks-017 [18779fa8]       claude-haik,claude-opus    160       340  26,985,279    312,841   112,502     9.41
+  own                         claude-opus                145       306  26,742,772    247,199   103,144     9.39
+  general-purpose             claude-haik                 15        34     242,507     65,642     9,358     0.02
+                                main 145 req $9.39 · subagent 15 req $0.02 · cached seen 2026-11-19T18:59:10Z
+security-hooks-017            claude-fabl                 79       186  19,474,625    272,805    72,119    28.54
+                                main 79 req $28.54 · cached seen 2026-11-19T07:56:58Z
+uat-hooks-017                 claude-opus,claude-sonn    685     1,425  71,553,917  1,172,050   358,006    20.69
+  own                         claude-opus                185       421  40,475,003    304,842   129,388    13.12
+  browser-walker              claude-sonn                500     1,004  31,078,914    867,208   228,618     7.56
+                                main 185 req $13.12 · subagent 500 req $7.56 · cached seen 2026-11-19T09:15:50Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                     5685    12,2801,173,776,182 13,067,814 4,544,880   434.74
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp
