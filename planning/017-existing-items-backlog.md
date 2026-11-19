@@ -2,8 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: In Progress
-Status-Detail: "Revision 8 (the Planner batch fold) is APPROVED by the critic (56a602a). All eight milestones are QA Complete (M1 to M5, M7 and M8 at website 4b8db9c or earlier; M6 at generator 8512a1d); security APPROVED the generator delta (4ae4825). He accepted X-21 and X-22 (D-31, D-32). Next: UAT, then devops."
+Status: QA Complete
+Status-Detail: "Revision 8 (the Planner batch fold) is APPROVED by the critic (56a602a). QA Complete plan-level (qa/017-existing-items-backlog-qa.md, effort-final pass): all eight milestones QA Complete (M1 to M5, M7 and M8 at website 4b8db9c or earlier; M6 at generator 8512a1d), effort-final sweep run; security APPROVED the generator delta (4ae4825). He accepted X-21 and X-22 (D-31, D-32). Next: UAT, then devops."
 Revision: 8
 Plan-ID: 017
 Target-Release: "website master (Vercel production) first, then preview-image-generator prod (prod.yml), each push his word, run by devops. Order and reason: § Release and rollback. Neither package.json carries a version field (git show 1ad625e:package.json, 8de2b53:package.json), so no version artifact moves."
@@ -73,6 +73,7 @@ Architectural-Surface: "Yes; the architect's conformance pass is a named step (s
 | 2026-11-19T08:30 | 8 | planner-hooks-017 | Folds the Planner batch at the seam after M7's QA Phase 2 (R-44, `9a155ee`), on steering's brief: the M4-d table, M4-a's two interceptions and M3's fetch cell as the code reads (M4 document `c16132b`, CR-8); M6-c's class set closed at four (M6 Deviations, `008468b`); X-21 for security L-001 (`4ae4825`), X-22 for code review's Round 7 fallback assumption (`8296f7e`), X-23 for QAF-19. Scope delta: none in milestones or delivered behaviour; no code, test or verifier moves, and every corrected line describes code already reviewed and QA-passed. Against the original ask: as at revision 5. Gate rounds: the critic, one delta-bounded pass. |
 | 2026-11-19T08:42 | R-45 | planner-hooks-017 | Recorded the critic's verdict on revision 8: cycle 3 pass 1, APPROVED, no finding (`critiques/closed/017-existing-items-backlog-critique.md`, `56a602a`). Scope delta: none. |
 | 2026-11-19T08:42 | R-46 | planner-hooks-017 | Registered D-31 and D-32, his acceptance of X-22 and X-21; words in `steering/selection-ledger/2026-11-19.md` block "2026-11-19T08:41Z — steering-roadmap-hooks" and `steering/017-rulings.md` block 2026-11-19T08:41Z (`06f7f2f`). The same write carries the critique's label fixes left for it (`56a602a`): SL-3's third member (X-22's carrier) and SL-5's two lines (RK-8's record cell, the owed re-verdicts row order). Scope delta: none — registration only. |
+| 2026-11-19T09:14 | R-47 | qa-hooks-017 | QA, effort-final pass and plan-level verdict: **QA Complete** at website `4b8db9c` and generator `8512a1d` (`qa/017-existing-items-backlog-qa.md` § Test Execution Results). Website sweep over `1ad625e..4b8db9c`: 124 of 140 killed; 16 survivors each dispositioned (10 whitespace-only lines, 4 equivalent, 1 constant the plan does not name, and QAF-25); 1 ABORTED (out of memory, not credited). The generator was swept whole at M6. Revision 8's delta moves no verified criterion. QAF-25 LOW (`StyledLink`'s `prefetch: false` unasserted) goes to the Planner batch under the M4 cap. Status set to QA Complete. |
 
 ## Reading Order
 
