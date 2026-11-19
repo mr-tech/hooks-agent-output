@@ -496,3 +496,18 @@ fix round — a gate's severity-floor finding (GLOSSARY, "Severity floor") excep
 withdrawal has no assertion that fails, so the register's identity check is unasserted) is a
 severity-floor finding: it keeps its fix round. Told: `code-reviewer-hooks-017`, `qa-hooks-017`. He is
 told at this thread's next prompt to him, with the spend and hours above.
+
+## 2026-11-19T04:46Z — M1 to M4 through; M5-0 probe started; devops-hooks-017 spawned
+
+Read this turn: M4 code review sub-entry APPROVED at website `5c3d03f` (`33b90ce`, R-22 `8441052`); QA
+Phase 2 M4 refresh QA Complete at `5c3d03f` (`9f5dbb1`, R-23 `714e0fa`; QAF-18 resolved; QAF-19 LOW
+parked in the Planner batch, R-21 `2e8742e`, under the M4 cap). M1 to M3 as recorded earlier.
+- `implementer-hooks-017` told to write M5-0 limb 2's probe on a probe branch off `1ad625e` without
+  switching the shared website tree, and to message the branch and SHA to `devops-hooks-017`.
+- `devops-hooks-017` spawned (`tmux-agent spawn S017-backlog devops devops-hooks-017 /usr/local/bin/hooks
+  …`, effort high; brief `steering/backlog-2026-11-18-briefs/devops-hooks-017.md`, `dd8bf8a`), for M5-0
+  limb 2 alone: it asks him for the probe push in its own session (D-15); no approval is carried.
+- Not Stage 1: the architect's closing pass stays owed no later than devops Stage 1's message.
+- The reviewer's INBOX FYI (`ImageUploader`, `WarningDialog` bind Enter at the document, CR-9's class)
+  is outside the plan. It is a candidate rider for him: a refuting helper is checking the conclusion
+  before it is put.

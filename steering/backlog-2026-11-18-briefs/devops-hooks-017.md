@@ -7,7 +7,7 @@ move. Stage 1 comes later, by a separate brief.
 Common part: `/usr/local/bin/hooks/agent-output/steering/017-brief-common.md` (determination, stage
 set, prohibitions, architecture record, hazards). Read it before your first act.
 
-From `steering-roadmap`, 2026-11-19T04:5xZ. You are the session `devops-hooks-017`, launched in
+From `steering-roadmap`, 2026-11-19T04:46Z. You are the session `devops-hooks-017`, launched in
 `/usr/local/bin/hooks` (a cross-repository chain; `git -C <repo>` on every call).
 
 ## Your commission
