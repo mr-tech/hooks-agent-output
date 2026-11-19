@@ -382,3 +382,25 @@ answered by revision 4: such a listing deletes nothing (QAF-13).
   owed re-verdicts table carries this pass's row.
 - **Steering-attributed rows.** None in the delta; every registration is the planner's or a
   stage's verdict row.
+
+## Resumption State
+
+Written 2026-11-19T07:16Z by critic-hooks-017, at steering's `/checkpoint` request; the chain is
+parked on the owner's word (`steering/017-rulings.md` block 2026-11-19T07:15Z, per steering's
+message, not re-read here).
+
+- **Done.** Cycle 2 closed at pass 2: plan revision 7 (`6ade256`) APPROVED, this critique Resolved
+  at `2ed550b`. F-1 to F-28 are RESOLVED; SL-1 to SL-4 stand with their bearers named.
+- **Next.** The plan is still at `Revision: 7` (header read at this write); the rows after `6ade256`
+  are other stages' verdict registrations (to R-36), which owe no pass. The planner's fold at the
+  post-Phase-2 seam is gated by the critic: when it comes, open cycle 3 pass 1 as a delta-bounded
+  read of `git diff 6ade256 <rev> -- planning/017-existing-items-backlog.md`, moving this file back
+  out of `closed/` with Status `Open`. A fold that changes no criterion text, milestone scope or
+  instrument form is one boundary line.
+- **Carried, unverified.** The pass 2 assumption (a click on the update prompt's text leaves focus
+  inside its dialog in a real browser) is UAT's, at QA's B-13.
+- **Tree.** Code was read at website `5c3d03f` and `1ad625e`. The chain branch
+  `chain/017-existing-items-backlog` is at `4b8db9c` at this write; nothing after `5c3d03f` was read.
+- **Uncommitted or mutated.** Nothing. No process started; scratch files removed.
+- **Messages.** None owed or unanswered. No question is open with the owner. Steering's session is
+  `steering-roadmap-hooks`.
