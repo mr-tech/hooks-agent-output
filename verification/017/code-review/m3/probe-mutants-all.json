@@ -1,0 +1,44 @@
+[
+ {
+  "id": "p1-route-zero-restore-drops-name",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "makeEditable({ name: draft.name, data: draft.data, updatedAt: draft.editedAt })",
+  "new": "makeEditable({ name: 'New Message', data: draft.data, updatedAt: draft.editedAt })"
+ },
+ {
+  "id": "p2-route-zero-restore-drops-embeds",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "makeEditable({ name: draft.name, data: draft.data, updatedAt: draft.editedAt })",
+  "new": "makeEditable({ name: draft.name, data: { ...draft.data, embeds: [] }, updatedAt: draft.editedAt })"
+ },
+ {
+  "id": "p3-legacy-write-carries-an-id",
+  "file": "src/utils/messageDrafts.ts",
+  "old": "  legacyStore().set(message);",
+  "new": "  legacyStore().set({ ...message, id: 'x' } as ActiveMessage);"
+ },
+ {
+  "id": "p4-saved-message-restore-drops-embeds",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "...message, data: draft.data, name: draft.name, updatedAt: draft.editedAt,",
+  "new": "...message, data: { ...draft.data, embeds: [] }, name: draft.name, updatedAt: draft.editedAt,"
+ },
+ {
+  "id": "p5-migration-drops-embeds",
+  "file": "src/utils/messageDrafts.ts",
+  "old": "data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,",
+  "new": "data: { ...legacy.data, embeds: [] }, name: legacy.name, editedAt: legacy.updatedAt,"
+ },
+ {
+  "id": "p6-migration-drops-name",
+  "file": "src/utils/messageDrafts.ts",
+  "old": "data: legacy.data, name: legacy.name, editedAt: legacy.updatedAt,",
+  "new": "data: legacy.data, name: 'New Message', editedAt: legacy.updatedAt,"
+ },
+ {
+  "id": "p7-copy-in-drops-embeds",
+  "file": "src/utils/messageDrafts.ts",
+  "old": "  writeDraft(routeZeroKey(tab), drafts[newest]);\n  return drafts[newest];",
+  "new": "  writeDraft(routeZeroKey(tab), drafts[newest]);\n  return { ...drafts[newest], data: { ...drafts[newest].data, embeds: [] } };"
+ }
+]

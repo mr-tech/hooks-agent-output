@@ -2,10 +2,10 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Reviewed-At: "3498ef3 — repos=website; Round 3, M3 (implementation document e6588c0); M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
+Reviewed-At: "1ab3b96 — repos=website; Round 3 sub-entry, M3 fix confirmation (implementation document 5fb85ff); Round 3 was reviewed at 3498ef3; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
 Status: In Review
 Round: 3
-Verdict: REJECTED
+Verdict: APPROVED
 ---
 
 # Code Review: 017 — the existing-items backlog
@@ -25,6 +25,7 @@ Verdict: REJECTED
 | 2026-11-19T01:27 | qa-hooks-017 (QAF-17, `5630f1b`) | R2-reconcile: Round 2's verdict corrected | Round 2 reopened by correction: CR-5 MEDIUM (duplicates QAF-17) is a severity-floor finding I missed. Verdict APPROVED_WITH_COMMENTS → REJECTED; the fix is test-only and returns as a Round 2 sub-entry. Method observation for the retrospective: the reviewer checked the implementer's mutant list for coverage instead of enumerating the criterion's interleavings itself. |
 | 2026-11-19T01:48 | implementer-hooks-017 (fix SHA `dd26104`, M2 document `e088937`) | Round 2 sub-entry: confirm the test-only fix for CR-5, CR-3 and CR-4 | Round 2 sub-entry: APPROVED at `dd26104`. 4 of 4 re-attack mutants were killed as assertions (`verification/017/code-review/m2-fix/`). CR-5 and CR-3 are gone, CR-4 is recorded. M3's `index.tsx` change is outside this sub-entry, and M2's wiring there is untouched. |
 | 2026-11-19T02:25 | implementer-hooks-017 (M3 document `e6588c0`) | Round 3: review M3 at website `3498ef3` | Round 3, M3 only. REJECTED: CR-6 MEDIUM (the provider's restore sites are asserted on `content` only; probe mutants P1, P2 and P4 survived), CR-7 MEDIUM (M3-f's old-reader instrument was not run; P3 survived), CR-8 LOW (the fetch path removes `Sn` against the matrix's "nothing written"; record line). The criteria assessed are M3-a to M3-h, the Storage form and the Write matrix, as revision 4 states them at round open. Captures are in `verification/017/code-review/m3/`. Disclosed: CR-6's and CR-8's enumerations were written before they were run; both were then run, CR-8's matched, and CR-6's text was corrected to the predicate's 10 hits. |
+| 2026-11-19T02:32 | implementer-hooks-017 (fix SHA `1ab3b96`, M3 document `5fb85ff`) | Round 3 sub-entry: confirm the test-only fix for CR-6, CR-7 and CR-8 | Round 3 sub-entry: APPROVED at `1ab3b96`. P1 to P7 re-run by me, 7 of 7 killed as assertions (`verification/017/code-review/m3/fix-run/`). M3-f's `1ad625e` reader run and its negative control were read and discriminate. CR-6 and CR-7 are gone, CR-8 is recorded. Provenance note: the seed-writing tip test's source is to be added to the captures. |
 
 ## Scope and Tree
 
@@ -206,6 +207,28 @@ The shared `set` changes only where it was wrong for every key: it no longer thr
 Each new module's first row is its compile-time red. The rows added after the sweep say "Written first: No" and name the mutant that closes them, which is the honest form. The self-diagnosis (asserting example inputs, not the property that separates a rule from its near-miss) is accurate, and CR-6 is another member of it.
 
 Every M3-e fixture is a literal stored string, so axiom E holds there. `tdd-check.py` does not apply to TypeScript.
+
+### Round 3 sub-entry — fix confirmation at `1ab3b96`
+
+**Scope**: `git diff --numstat 3498ef3 1ab3b96` lists 1 file, `__tests__/MessageProvider.stored-draft.test.tsx` (+67 −22), so the fix is test-only. A filtered `--name-only | grep -vc` read 3; that was the output filter's artifact, and the file-based recount is the one recorded. The branch tip and the shared tree's HEAD were `1ab3b96` at the start and end, and the test file is byte-equal to its blob.
+
+**Re-attack** (`mutation-run.py --sha 1ab3b96`, my P1–P7, `verification/017/code-review/m3/probe-mutants-all.json`, `fix-run/`): 7 of 7 KILLED at 141 = 141 cases, each by `AssertionError`:
+- P1 (2 cases), P2 (8), P3 (1), P4 (4);
+- P5, P6, P7 (4 each).
+
+**CR-7 part 2, M3-f's named instrument** (read; the captures are the implementer's): `old-reader.route-zero-legacy.probe.test.tsx`, run in a `git archive 1ad625e` export. Its helpers `mountMessageProvider` and `messageProviderDeps` exist at `1ad625e` (`git cat-file -e`; `AUTH_MOCK` and `CONFIRMATION_PROVIDER_MOCK` found by `grep -c`, 2), so the provider and its harness are the base tree's.
+- **Positive run**: seeded with `legacy-string-tip-1ab3b96.json`, it shows the draft's name, content and embed (`old-reader-1ad625e.out`, 1 passed).
+- **Negative control**: the same string with an `id` shows the intro message and fails (`old-reader-1ad625e-control-with-id.out`, AssertionError). The instrument discriminates.
+- **Provenance note** (no finding): the tip-side test that wrote the seed string is not among the captures, only its log (`legacy-capture-tip-1ab3b96.out`). The string's content matches the tip fixture. The implementer is asked to add that source beside the probe, so the seed can be reproduced from the record.
+
+**Conventions**: `convention-check.js . --files` over the changed file gives 0 FAIL. The hand predicate over its added lines gives 0 ID-token and 0 comment hits.
+
+**Dispositions**:
+- **CR-6**: gone. The checks are P1, P2 and P4, each killed by the tightened `toEqual` cases on `data` and `name`, at `fix-run/`.
+- **CR-7**: gone. The check is P3, killed by "holds the route-0 draft last written, for the code that reads it" (keys and literal value). The named instrument's run and its negative control are captured under `verification/017/impl/m3/`.
+- **CR-8**: recorded as a deviation for the planner (M3 document, Outstanding Items). `no test`.
+
+**Sub-entry verdict**: APPROVED at `1ab3b96` for M3. The suite figure (1620 of 1620, exit 0) is the implementer's and was not re-run; that is QA's.
 
 ## Findings
 
