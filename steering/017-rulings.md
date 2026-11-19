@@ -1,6 +1,8 @@
 # Rulings — 017 (Hooks.gg backlog items 2 to 5)
 
-Planned chain steered by `steering-roadmap` (cwd `/usr/local/bin/hooks`, no alias). Planner session:
+Planned chain steered by `steering-roadmap-hooks` (cwd `/usr/local/bin/hooks`). Alias chain:
+`steering-roadmap` (2026-11-18 to 2026-11-19T05:1xZ) → `steeering-roadmap-hooks` (his rename) →
+`steering-roadmap-hooks` (his rename, 05:2xZ; block 2026-11-19T05:22Z). Planner session:
 `planner-hooks-017` (born `planner-hooks-new`; renamed by this thread at its next idle). The
 commission and the scoping determination are in the effort-wide file,
 `steering/backlog-2026-11-18-rulings.md`, blocks "2026-11-18T21:53Z — commission (his words)" and
