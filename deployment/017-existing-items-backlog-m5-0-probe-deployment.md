@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Status-Detail: "M5-0 limb 2 probe push, pre-push work done 2026-11-19T04:5xZ; the push waits on his approval (D-15), asked by selection prompt in this session. Scope: this probe only. Not a Stage 1 or Stage 2 record; the plan's release record is a separate document."
+Status-Detail: "M5-0 limb 2 probe run 2026-11-19T04:55Z–04:59Z on his approval (D-15): outcome kept alive; branch deleted; scope this probe only. Not a Stage 1 or Stage 2 record; the plan's release record is a separate document."
 ---
 
 # Deployment Record: plan 017, gate M5-0 limb 2 — the `waitUntil` probe push
@@ -19,6 +19,7 @@ Status-Detail: "M5-0 limb 2 probe push, pre-push work done 2026-11-19T04:5xZ; th
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-19T04:52 | steering-roadmap → devops-hooks-017 (brief) | M5-0 limb 2 probe push | Brief, common part, plan § M5-0 and D-15/D-17/D-19 read. Pre-push work: E-6 and the deploy mechanism established (below). The first probe tip `d9030b9` would not build on Preview; the repair came as `aca8cb3` from implementer-hooks-017. Approval not yet asked at this row. Disclosed in this round: the record repository ignores `*.log`, so the captures are `.txt`; and a `sed -i` of this document in a shell line was refused by `record-write-gate-hook`, re-issued with the Edit tool (not retried in the refused form). |
+| 2026-11-19T04:59 | owner → devops-hooks-017 (selection prompts, 04:55Z and ~04:58Z) | Push approval; bypass-secret revocation | Pushed `aca8cb3` to `probe/017-waituntil` 04:55:17Z; Preview Ready 04:56:07Z; both requests; logs read twice; outcome **kept alive**; branch deleted local and remote 04:57:41Z. `vercel curl` created a project bypass secret, disclosed to him and revoked at his word (0 entries read back 04:59Z). Record `42ccf5f` carried the pre-push state; this row and the sections below completed it. |
 
 ## The probe under push
 
@@ -78,27 +79,44 @@ Each row has a blank result and its abort criterion. Rows 1–6 are the first ru
 
 | # | Step | Command / instrument | Abort criterion | Result |
 |---|---|---|---|---|
-| 1 | Confirm the tip and that the remote has no probe ref | `git -C website rev-parse probe/017-waituntil` = `aca8cb3…`; `git -C website ls-remote --heads origin 'probe/*'` empty | tip differs from the SHA he approved, or the ref exists remotely: stop | |
-| 2 | Push the SHA to the probe ref | `git -C website push origin aca8cb312f5eef03a25e9383fa384d73fc01842a:refs/heads/probe/017-waituntil` | a classifier or hook denial is reported, never retried | |
-| 3 | Find the Preview deployment and wait for Ready | `npx vercel@66.2.0 ls --scope hooks-gg` (newest Preview row), `inspect`; poll with a bound of 12 reads, 15 s apart, exit non-zero after 3 consecutive unreadable reads | state Error/Canceled, or no deployment after the bound: outcome **not readable** (row 7) | |
-| 4 | Request `with` once | `npx vercel@66.2.0 curl "/api/waituntil-probe?id=with-<UTC stamp>" --deployment <URL>`, status recorded | 401/403 (protection) or non-200: not readable (row 7) | |
-| 5 | Request `without` once | same with `&mode=without` and `id=without-<UTC stamp>` | record only (H-2); not a gate | |
-| 6 | Wait ≥ 30 s, then read the runtime logs | `npx vercel@66.2.0 logs -p hooks-gg-website --scope hooks-gg --deployment <URL> --json -n 1000 -s 20m` (flags checked against `logs --help`); the capture to `verification/017/m5-0/devops/`; classify per D-19 on the `with` token | control line absent: not readable; control present, post-response absent: **not kept alive** (a failure, M5 and M6 stop); both present: **kept alive** | |
-| 7 | One repair and re-run, only for a not-readable first run | state the cause first; repair inside the approved push (a new commit on the probe branch from the implementer, or a bypass via `vercel curl`); push the same ref; repeat rows 3–6 | a second not-readable run goes to him; no further repair | |
-| 8 | Delete the probe branch after the read | `git -C website push origin --delete probe/017-waituntil`; `git -C website branch -D probe/017-waituntil`; `git ls-remote` empty; the Preview deployment is left to Vercel's retention (a deployment is not a branch; deleting it is not asked) | | |
+| 1 | Confirm the tip and that the remote has no probe ref | `git -C website rev-parse probe/017-waituntil` = `aca8cb3…`; `git -C website ls-remote --heads origin 'probe/*'` empty | tip differs from the SHA he approved, or the ref exists remotely: stop | 04:55:12Z: tip `aca8cb312f5eef03a25e9383fa384d73fc01842a`; `ls-remote` returned no `probe/*` ref. Continue. |
+| 2 | Push the SHA to the probe ref | `git -C website push origin aca8cb312f5eef03a25e9383fa384d73fc01842a:refs/heads/probe/017-waituntil` | a classifier or hook denial is reported, never retried | 04:55:17Z: `[new branch] aca8cb312f5eef03a25e9383fa384d73fc01842a -> probe/017-waituntil`; `ls-remote` then showed the ref at that SHA. No denial. Tree stayed on `chain/017-existing-items-backlog`. |
+| 3 | Find the Preview deployment and wait for Ready | `npx vercel@66.2.0 ls --scope hooks-gg` (newest Preview row), `inspect`; poll with a bound of 12 reads, 15 s apart, exit non-zero after 3 consecutive unreadable reads | state Error/Canceled, or no deployment after the bound: outcome **not readable** (row 7) | Reads at 04:55:27Z (Building, 8 s), 04:55:47Z (Building), 04:56:07Z (**Ready**, build 32 s). Deployment `dpl_3uSQzQSbhHnwacfAMut5PQggNfv5`, `https://hooks-gg-website-j8roqbrco-hooks-gg.vercel.app`; deployments API: `readyState READY`, `target` null (a Preview), branch `probe/017-waituntil`, commit `aca8cb312f5eef03a25e9383fa384d73fc01842a`. The `vercel.json` build override built on Vercel. |
+| 4 | Request `with` once | `npx vercel@66.2.0 curl "/api/waituntil-probe?id=with-<UTC stamp>" --deployment <URL>`, status recorded | 401/403 (protection) or non-200: not readable (row 7) | Request id `with-20261119T045623`: HTTP body `{"mode":"with","id":"with-20261119T045623"}` (the CLI's curl printed 43 bytes; the status code was not printed separately, the body is the route's 200 JSON). The function's control line is stamped 04:56:30.171Z. **Side effect, see "Side effect" below**: `vercel curl` created a project bypass secret on this call. |
+| 5 | Request `without` once | same with `&mode=without` and `id=without-<UTC stamp>` | record only (H-2); not a gate | Request id `without-20261119T045623`: body `{"mode":"without","id":"without-20261119T045623"}`; control line stamped 04:56:35.682Z. |
+| 6 | Wait ≥ 30 s, then read the runtime logs | `npx vercel@66.2.0 logs -p hooks-gg-website --scope hooks-gg --deployment <URL> --json -n 1000 -s 20m` (flags checked against `logs --help`); the capture to `verification/017/m5-0/devops/`; classify per D-19 on the `with` token | control line absent: not readable; control present, post-response absent: **not kept alive** (a failure, M5 and M6 stop); both present: **kept alive** | First read 04:56:45Z (22 s after the `with` request began, earlier than this row's 30 s; the 5 s line was already present, so the shorter wait cost nothing; disclosed): 3 records. Second read 04:57:34Z, `-s 30m`: the same 3 records, summary `recordsReturned 3`, no excluded interval, no further page. Classification in "Outcome": **kept alive**. Captures `probe-runtime-logs-first-run.jsonl`, `probe-runtime-logs-second-read.jsonl`. |
+| 7 | One repair and re-run, only for a not-readable first run | state the cause first; repair inside the approved push (a new commit on the probe branch from the implementer, or a bypass via `vercel curl`); push the same ref; repeat rows 3–6 | a second not-readable run goes to him; no further repair | Not run: the first run was readable and classified (no repair owed). |
+| 8 | Delete the probe branch after the read | `git -C website push origin --delete probe/017-waituntil`; `git -C website branch -D probe/017-waituntil`; `git ls-remote` empty; the Preview deployment is left to Vercel's retention (a deployment is not a branch; deleting it is not asked) | | 04:57:41Z: `git push origin --delete probe/017-waituntil` (`[deleted]`), `git branch -D probe/017-waituntil` (ok); `ls-remote --heads origin 'probe/*'` count 0 (`grep -c .`); `rev-parse --verify` of the local ref exit 1. The Preview deployment remains. |
 
 ## User Confirmation
 
-Asked in this session by selection prompt under the Escalation Form, 2026-11-19T04:5xZ. Response: pending.
+Asked in this session by selection prompt (the prompt gate flag `~/.claude/state/prompt-gate-off` absent), after the options were tested by a refuting helper and the pre-push reads above. Before the ask I re-read the plan's Decisions Register (D-15, D-19) and the chain's rulings file; neither answers the push itself (D-15: "the probe push is not approved by this answer").
+- Presented: push `probe/017-waituntil` at `aca8cb3`, run the test, record, delete the branch; one repair under the same approval (D-19). The options named what was read and what was not (GitHub-side automation, preview protection, a Vercel build).
+- Response: **"Agent: push the probe and run the test (Recommended)"**, on 2026-11-19T04:55Z (first command of the runbook at 04:55:12Z). Authorizer: the owner.
+- Second prompt (a side effect, below): "Agent: revoke the bypass secret I created (Recommended)", answered after the 04:57:41Z deletion; executed 04:58–04:59Z.
 
 ## Release Execution
 
-Pending his approval. No ref has moved; `git ls-remote --heads origin 'probe/*'` returned nothing at 04:52Z.
+Mode A. No release; no serving ref moved. The only ref moved was the probe ref: created at `aca8cb3` 04:55:17Z, deleted 04:57:41Z (runbook rows 2 and 8). The website `master` stayed at `1ad625e` (`ls-remote` at 04:52Z; not moved by any command here). Serving state is not a question for a probe: the deployment's evidence is the push (ref, SHA, time) and the deployments API row above.
+
+## Side effect — a project bypass secret created by `vercel curl`, and its revocation
+
+- What: the row-4 command `vercel curl … --deployment <URL>` printed "Added a Protection Bypass for Automation secret to project prj_nhlL7VUS0C9BzgD1Kvh3E1AUv72r. It stays on the project until you revoke it." I had read `vercel curl --help` ("automatic protection bypass") but not that it writes a project setting; it is a defect in my pre-run read of the instrument, not an owner-approved act.
+- Read after: `GET /v9/projects/<id>` (`protectionBypass` field, secret never printed): one entry, scope `automation-bypass`, created 2026-11-19T04:56:28.872Z, `isEnvVar: true`. Whether the project held a bypass entry before the request: **not established** (not read before).
+- Put to him as a second selection prompt; he chose to revoke. Revoked with `vercel project protection disable <project> --protection-bypass --protection-bypass-secret <secret>` (CLI output: `"protectionBypass": false`), the secret substituted out of the printed output. Read back at 04:59Z: `protectionBypass` entries 0; `vercel env ls` lines matching `AUTOMATION_BYPASS` count 0.
+- No other Vercel setting was written by this session. The reads were `env ls`, `api GET`, `ls`, `logs`.
 
 ## Outcome
 
-**Pending.** The outcome line the next stages read will be written here: `kept alive` · `not kept alive` · `not readable (first run)` · `not readable (second run, to him)`.
+**kept alive.** For the `mode=with` request the function wrote both lines under one request id (`2t9kz…`): `probe-control` at 2026-11-19T04:56:30.171Z and `probe-post-response … elapsedMs=5006` at 04:56:35.177Z, 5.006 s after the response began, on deployment `dpl_3uSQzQSbhHnwacfAMut5PQggNfv5` (preview, branch `probe/017-waituntil`, commit `aca8cb3`, runtime `nodejs24.x`, region `pdx1`), read with `npx vercel@66.2.0 logs … --deployment <URL> --json`. D-19: only "not kept alive" is a failure; this is not one. Gate M5-0 limb 2 is met; with limb 1 (AN-4, met), M5 and M6 code may start.
+
+- H-2 control (`mode=without`, request id `kppt6…`): `probe-control` at 04:56:35.682Z; **no** `probe-post-response` line in either read, the second at 04:57:34Z, 54 s after its response. The same timer not handed to `waitUntil` did not produce its line within that read; what it would do on a later invocation of the same instance was not read.
+- The first real members of the M5-f prefix query on a Preview deployment: 3 records, `level: error`, `stream: stderr`, `source: function`, `environment: preview` — the instrument (`--deployment`, no `-e`) returned them without the `-e production` that QA's B-7 read used.
+- Node: runtime observed `nodejs24.x`, satisfying `@vercel/functions` `engines.node >= 20`.
+- What this does not establish: behaviour under the production project's load, with a real generator call, or a post-response promise lasting up to T = 40 s (the probe's was 5 s). The M5-f window is the plan's, not this probe's.
 
 ## Post-Release Status
 
-Rollback: delete the probe branch (row 8). No release, no serving-ref move, nothing to revert. Known issues: none yet.
+Status Active (a probe record, not a plan release). Known issues: the Preview deployment `dpl_3uSQzQSbhHnwacfAMut5PQggNfv5` remains until Vercel expires it (deleting a deployment was not asked; the route is live at its URL, protected state not established). Rollback: nothing to revert; the branch is deleted. Scratch removed: the two exports and the install under the session scratchpad, the `vc` working directory. Local scratch commits `d9030b9` and `aca8cb3` are now unreachable from any ref (the branch was deleted as the plan requires); they are named here and in `verification/017/m5-0/README.md` and remain in the object store until git prunes.
+
+Next Actions: none with a trigger at or after this record's closure; no handoff is owed. Routing: `implementer-hooks-017` (M5 and M6 code may start on gate M5-0), naming this document.
