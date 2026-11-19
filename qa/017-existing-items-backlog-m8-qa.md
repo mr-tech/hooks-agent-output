@@ -28,6 +28,7 @@ form, UAT) is inherited.
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-19T05:56 | code-reviewer-hooks-017 (cross-session message; review `4950989`, plan R-30 `225e4f3`) | QA Phase 2 for M8 at website `c37d41a` | Phase 2, M8 only. Suite 1724 of 1724, exit 0; typecheck exit 0; 136 shared files keep the same case sets. QA's named set: 11 of 12 killed. `qa-warning-enabled-dropped` survives, and a probe shows it is not equivalent. **QA Failed** on QAF-22 MEDIUM. QAF-23 LOW duplicates CR-12. Process fact: NM-35's first form did not parse (ABORTED, my instrument) and was re-run corrected and alone. |
+| 2026-11-19T06:01 | steering-roadmap-hooks (cross-session message; rulings `9349040`) | M8 capped, block 06:01Z | QAF-23 is routed to the Planner batch as a stated limit and no longer rides QAF-22's round. QAF-22 keeps its round. The verdict is unmoved. |
 
 ## Criteria assessed
 
@@ -251,6 +252,11 @@ QAF-23 LOW Phase 2 Duplicates: CR-12 in code-review/017-existing-items-backlog-c
 - **What I checked.** `checkImage` (`ImageUploader.tsx` at `c37d41a`) consumes `onload`, `onerror` and `width > 0`. The fake
   fires `onload` in a microtask with `width = 1`, the shape of "the URL loaded". So naming it is the whole remedy, and its
   fidelity is not in question. Not blocking.
+- **Routing.** Steering capped M8 (`steering/017-rulings.md` block 2026-11-19T06:01Z, agent-output `9349040`): for M8, each
+  further gap below HIGH that is not a severity-floor finding goes to the plan's Planner batch as a stated limit, with no fix
+  round. QAF-22 keeps its round, and the ruling names nothing else. QAF-23 is below the floor, so it follows M4's precedent
+  (QAF-19 under the 04:14Z cap): it goes to the Planner batch through `planner-hooks-017` and does not ride QAF-22's round.
+  This pass's first hand-off had let it ride.
 
 ## Verdict
 
@@ -283,7 +289,7 @@ This pass assumes that in a real browser focus stays inside a closing headlessui
 
 ## Handoff
 
-- **QA Failed** goes to `implementer-hooks-017` for QAF-22 alone. QAF-23 LOW is one line in the M8 document, and it may ride
-  the same round.
+- **QA Failed** goes to `implementer-hooks-017` for QAF-22 alone.
+- **QAF-23** goes to `planner-hooks-017` for the Planner batch, as a stated limit under the 06:01Z cap.
 - **The equivalence correction** goes to `implementer-hooks-017` and `code-reviewer-hooks-017`, each for its own record (QAF-22).
 - **To UAT**, when the chain reaches it: B-13, with this pass's assumption (focus in a closing panel).
