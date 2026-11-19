@@ -605,7 +605,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Resumption State
 
-Updated at the Round 4 sub-entry (2026-11-19T03:37Z). Round 4 (M4) was REJECTED at `de06d95` and its fix was confirmed APPROVED at `a5dd76f`. Next: M5, M6 or M7, when the implementer hands one off (M5 and M6 wait on OQ-7). The scratch exports and the mutation work directory are deleted. The lines below are the Round 3 checkpoint's, kept where still true.
+Updated at the Round 4 sub-entry (2026-11-19T03:37Z). Round 4 (M4) was REJECTED at `de06d95` and its fix was confirmed APPROVED at `a5dd76f`. Next: the scoped confirmation of QAF-18's fix when it is handed here (a Round 4 sub-entry), then M5, M6 or M7 when the implementer hands one off (M5 and M6 wait on OQ-7). Steering has capped M4 (`steering/017-rulings.md` block 2026-11-19T04:14Z, `a805d4d`). From now on, an M4 finding below HIGH that is not a severity-floor finding is routed to the plan's Planner batch as a stated limit, with no fix round. HIGH, CRITICAL and severity-floor findings keep their fix rounds. The scratch exports and the mutation work directory are deleted. The lines below are the Round 3 checkpoint's, kept where still true.
 
 Written at the checkpoint steering-roadmap asked for (context threshold, 02:39Z), after the Round 3 sub-entry.
 
