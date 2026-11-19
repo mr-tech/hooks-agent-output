@@ -442,3 +442,28 @@ The production change is the deletion of an unreferenced export. The remaining f
 - M7-b at the tip re-derives CR-1's file.
 - CR-2 is routed to `agent-output/INBOX.md`.
 - M2 (`1c07354`, `736c7bf`) reaches this stage by the implementer's hand-off, on its own document and SHA.
+
+## Resumption State
+
+Written at the checkpoint steering-roadmap asked for (context threshold, 02:39Z), after the Round 3 sub-entry.
+
+- **Done**:
+  - Round 1 (M1, `8147661`) is APPROVED_WITH_COMMENTS, with CR-1 reconciled after QAF-15.
+  - Round 2 (M2): published APPROVED_WITH_COMMENTS at `ec984fe`, reconciled to REJECTED (CR-5 duplicates QAF-17), then the sub-entry APPROVED at `dd26104`.
+  - Round 3 (M3): REJECTED at `3498ef3` (CR-6, CR-7, CR-8), then the sub-entry APPROVED at `1ab3b96`.
+  - Plan rows R-8, R-10, R-12, R-13, R-15 and R-16 are mine.
+  - The QA hand-offs were sent for M1 (`725e441`), M2 (`fb4c5f3`) and M3 (`457d142`).
+- **Next**: M4, when the implementer hands it off on its own document and SHA. Open a Round 4. Read plan § `### M4` (revision 4; the criteria include M4-a to M4-d and D-20's own provider instance and dialog at the layout) and QA § M4. M5 and M6 wait on OQ-7; M7 comes last and re-derives CR-1's file (M7-b).
+- **Waiting on others, not blocking**:
+  - the implementer's add of the seed-writing tip test's source to `verification/017/impl/m3/` (asked in the Round 3 sub-entry message);
+  - QA Phase 2 for M3 at `1ab3b96`.
+- **Branch and HEAD**: website `chain/017-existing-items-backlog` at `1ab3b96` at this write. The shared tree was never moved by this session.
+- **Uncommitted**: `agent-output/INBOX.md` carries my two FYI entries (CR-2, and the M3 document's `Handoff-At` placeholder, which has since been fixed). The inbox is left uncommitted by rule, for its owning session. Nothing else of mine is uncommitted.
+- **Mutated state**: none. Every mutant ran in `mutation-run.py` exports, and the scratch `work*` folders are deleted.
+- **Instruments to reuse**:
+  - `verification/017/code-review/m1/vitest.probe.config.mjs` (dom project, `process.cwd()` in place of `__dirname`) for `mutation-run.py` with `--no-cache --configLoader runner`.
+  - Lint base counts come from `verification/017/entry/lint-1ad625e/nofix.json`, never a stdin lint (QAF-15).
+  - Path lists for commits go through a file, never through filtered output.
+- **Method lessons (for the retrospective)**:
+  - enumerate a criterion's interleavings and properties myself; never accept the implementer's mutant list as the coverage map (CR-5);
+  - run an enumeration before writing its result (Round 3 disclosure).
