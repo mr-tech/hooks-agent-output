@@ -154,3 +154,12 @@ through tRPC 11.10. The reason to fold: it sits at the fix's own number contract
 idle, and QA has not started. Folding now costs one delta review. A handoff would leave a known fault in a shape this chain wrote. The
 fixer folds it with a test. The reviewer reviews the delta. QA Phase 2 is spawned on that approval, at the new SHA.
 Relays: the fixer and the code reviewer.
+
+## 2026-11-19T23:23Z — code review APPROVED_WITH_COMMENTS at ed88e7c; QA Phase 2 spawned
+
+Read this turn: the review document (record `5fcb74e`) gives `Reviewed-At: ed88e7c…` and `Verdict: APPROVED_WITH_COMMENTS`, round 1
+sub-entry 1b. The fixer's `Handoff-At` is `ed88e7c`. Website log: `16bf24d` (fix), then `ed88e7c` (test), on
+`chain/fix-personal-message-access`. Per the reviewer's message: CR-6 is fixed (probe 24/24), the attack instrument passes 187/187, and
+no finding is open. Spawn cue acted on: `qa-hooks-fix-personal-message-access` spawned (`tmux-agent spawn`, cwd website, effort medium as
+printed), on its brief, for QA Phase 2 at `ed88e7c`. The security brief is written for its start on QA's verdict:
+`steering/fix-personal-message-access-brief-security.md`.
