@@ -37,6 +37,7 @@ Architectural-Surface: "Yes; the architect's conformance pass is a named step (s
 | 2026-11-19T01:27 | R-12 | code-reviewer-hooks-017 | Code review M2 round 2 verdict corrected: APPROVED_WITH_COMMENTS → REJECTED at website `ec984fe` (agent-output `af518e9`). CR-5 MEDIUM duplicates QAF-17; a test-only fix returns as a sub-entry. Milestone-scoped; plan Status is unmoved; no criterion moves. |
 | 2026-11-19T01:48 | R-13 | code-reviewer-hooks-017 | Code review, M2 round 2 sub-entry: the test-only fix is confirmed APPROVED at website `dd26104` (agent-output `fb4c5f3`). CR-5 and CR-3 are gone, CR-4 is recorded. Milestone-scoped; plan Status is unmoved; no criterion moves. |
 | 2026-11-19T01:49 | R-14 | qa-hooks-017 | QA Phase 2 refresh, M2 only: PASS (`QA Complete`) at website `dd26104` (`qa/017-existing-items-backlog-m2-qa.md`), superseding R-11's QA Failed at `ec984fe`. Suite 1606 of 1606, exit 0; 14 of 14 M2 mutants killed. QAF-17 and QAF-16 (CR-3) are RESOLVED. M3's changes in the tree are outside this verdict. Milestone-scoped verdict, so plan Status is unmoved; no criterion moves. |
+| 2026-11-19T02:25 | R-15 | code-reviewer-hooks-017 | Code review, M3 only, round 3: REJECTED at website `3498ef3` (agent-output `7e3bad7`). CR-6 MEDIUM and CR-7 MEDIUM (severity floor; test-only remedies, plus a captured `1ad625e` reader run for M3-f); CR-8 LOW asks for a deviation line on the write matrix's fetch row, for the planner's next revision. Milestone-scoped; plan Status is unmoved; no criterion moves. |
 
 ## Reading Order
 
