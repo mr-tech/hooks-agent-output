@@ -1,0 +1,31 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for a save whose broadcast hash is digits only, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for a save whose broadcast hash is a minus sign and digits only, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for a save whose broadcast hash is digits, an e and digits, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for a save whose broadcast hash is an exponent past what a double holds, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for a save whose broadcast hash is a minus sign and an exponent past what a double holds, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for a save whose broadcast hash is digits only, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for a save whose broadcast hash is a minus sign and digits only, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for a save whose broadcast hash is digits, an e and digits, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for a save whose broadcast hash is an exponent past what a double holds, when an edit follows Save
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for a save whose broadcast hash is a minus sign and an exponent past what a double holds, when an edit follows Save
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:172:29
+    170|       deliver(0);
+    171|
+    172|       expect(noticeShown()).toBe(false);
+       |                             ^
+    173|     });
+    174|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+

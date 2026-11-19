@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/mr-cr20/20261119T175913Z-p1359520/mutant-4
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (58 tests | 1 failed) 328ms
+     × raises no notice when another tab saves what this tab already shows, under a digits-only hash 8ms
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 68 passed (69)
+   Start at  17:59:26
+   Duration  2.12s (transform 396ms, setup 14ms, import 1.79s, tests 352ms, environment 671ms)
+

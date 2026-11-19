@@ -1,0 +1,150 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content this tab never sent
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:229:29
+    227|     broadcast(remoteHash({ content: 'from another tab' }));
+    228|
+    229|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    230|   });
+    231|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves while this tab has unsaved edits, naming the loss
+TypeError: Cannot read properties of undefined (reading 'message')
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:238:56
+    236|     broadcast(remoteHash({ content: 'from another tab' }));
+    237|
+    238|     expect((hoisted.confirm[0] as { message: string }).message).toCont…
+       |                                                        ^
+    239|   });
+    240|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content whose hash differs from the shown content's although both would read as one finite value
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content whose hash differs from the shown content's although both would read as Infinity
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content whose hash differs from the shown content's although both would read as -Infinity
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:271:29
+    269|     broadcast(otherHash);
+    270|
+    271|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    272|   });
+    273|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves a component-only edit
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:308:29
+    306|     broadcast(remoteHash({ components: [{ type: 1, components: [button…
+    307|
+    308|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    309|   });
+    310|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves while this tab's own save is in flight
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:318:29
+    316|     broadcast(remoteHash({ content: 'from another tab' }));
+    317|
+    318|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    319|   });
+    320|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves content this tab sent earlier and has already seen broadcast
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:331:29
+    329|     broadcast(sentHash(0));
+    330|
+    331|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    332|   });
+    333|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice for a later save of the content of a save that failed
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:352:29
+    350|     broadcast(sentHash(0));
+    351|
+    352|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    353|   });
+    354|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:376:29
+    374|     broadcast(sentHash(0));
+    375|
+    376|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    377|   });
+    378|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/10]⎯
+

@@ -1,0 +1,52 @@
+[
+ {
+  "id": "producer-sends-raw-hash",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "JSON.stringify(hashMessage(message))",
+  "new": "hashMessage(message)",
+  "tests": [
+   "src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts",
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx"
+  ]
+ },
+ {
+  "id": "producer-sends-object",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "JSON.stringify(hashMessage(message))",
+  "new": "({ hash: hashMessage(message) }) as never",
+  "tests": [
+   "src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts",
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx"
+  ]
+ },
+ {
+  "id": "record-compare-decoded",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": ".findIndex((record) => record === hash);",
+  "new": ".findIndex((record) => ((v: string): unknown => { try { return JSON.parse(v) as unknown; } catch { return v; } })(record) === hash);",
+  "tests": [
+   "src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts",
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx"
+  ]
+ },
+ {
+  "id": "shown-compare-decoded",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "hash !== shownHash)",
+  "new": "hash !== ((v: string): unknown => { try { return JSON.parse(v) as unknown; } catch { return v; } })(shownHash))",
+  "tests": [
+   "src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts",
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx"
+  ]
+ },
+ {
+  "id": "shown-compare-loose-number",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "hash !== shownHash)",
+  "new": "String(Number(hash)) !== String(Number(shownHash)) && hash !== shownHash)",
+  "tests": [
+   "src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts",
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx"
+  ]
+ }
+]

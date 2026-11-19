@@ -1,0 +1,20 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/mr-cr20/20261119T175913Z-p1359520/mutant-5
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (58 tests | 10 failed) 320ms
+     × raises the notice when another tab saves content this tab never sent 8ms
+     × raises the notice when another tab saves while this tab has unsaved edits, naming the loss 2ms
+     × raises the notice when another tab saves content whose hash differs from the shown content's although both would read as one finite value 4ms
+     × raises the notice when another tab saves content whose hash differs from the shown content's although both would read as Infinity 2ms
+     × raises the notice when another tab saves content whose hash differs from the shown content's although both would read as -Infinity 2ms
+     × raises the notice when another tab saves a component-only edit 2ms
+     × raises the notice when another tab saves while this tab's own save is in flight 2ms
+     × raises the notice when another tab saves content this tab sent earlier and has already seen broadcast 3ms
+     × raises the notice for a later save of the content of a save that failed 3ms
+     × raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows 2ms
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  10 failed | 59 passed (69)
+   Start at  17:59:29
+   Duration  2.08s (transform 397ms, setup 13ms, import 1.74s, tests 344ms, environment 645ms)
+
