@@ -1,0 +1,66 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > while its panel is still leaving after it is closed > answers nothing, with focus still inside the visible panel
+AssertionError: expected { close: 1, setImage: 1, …(3) } to deeply equal { close: +0, setImage: +0, …(3) }
+
+- Expected
++ Received
+
+  {
+-   "close": 0,
++   "close": 1,
+    "otherClose": 0,
+    "otherSetImage": 0,
+-   "setImage": 0,
++   "setImage": 1,
+    "updateConfirm": 0,
+  }
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:204:24
+    202|       enter();
+    203|
+    204|       expect(counts()).toEqual(NOTHING);
+       |                        ^
+    205|     });
+    206|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers nothing from a closed instance, even with focus resting in its hidden dialog
+AssertionError: expected { close: 1, setImage: 1, …(3) } to deeply equal { close: +0, setImage: +0, …(3) }
+
+- Expected
++ Received
+
+  {
+-   "close": 0,
++   "close": 1,
+    "otherClose": 0,
+    "otherSetImage": 0,
+-   "setImage": 0,
++   "setImage": 1,
+    "updateConfirm": 0,
+  }
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:276:24
+    274|       enter();
+    275|
+    276|       expect(counts()).toEqual(NOTHING);
+       |                        ^
+    277|     });
+    278|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

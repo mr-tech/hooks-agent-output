@@ -1,0 +1,20 @@
+[
+ {
+  "id": "NM-34-image-enabled-dropped",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "useDialogEnter(submit, isOpen)",
+  "new": "useDialogEnter(submit)"
+ },
+ {
+  "id": "qa-warning-enabled-dropped",
+  "file": "src/components/WarningDialog.tsx",
+  "old": "useDialogEnter(onConfirm, open)",
+  "new": "useDialogEnter(onConfirm)"
+ },
+ {
+  "id": "qa-hook-enabled-not-passed",
+  "file": "src/utils/hooks/useDialogEnter.ts",
+  "old": "{ enabled }, [enabled, answer]",
+  "new": "{}, [enabled, answer]"
+ }
+]

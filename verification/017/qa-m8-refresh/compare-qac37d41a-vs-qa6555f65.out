@@ -1,0 +1,9 @@
+base: numTotalTests=1724 numPassedTests=1724 success=true files=138 statuses={"passed":1724}
+tip: numTotalTests=1811 numPassedTests=1811 success=true files=143 statuses={"passed":1811}
+base-only paths (0): 
+tip-only paths (5): src/server/api/utils/__tests__/previewImage.commit-statement.test.ts src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts src/server/api/utils/__tests__/previewImage.interleavings.test.ts src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts
+paths not explained by the rename map: 5 src/server/api/utils/__tests__/previewImage.commit-statement.test.ts src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts src/server/api/utils/__tests__/previewImage.deletion-forms.test.ts src/server/api/utils/__tests__/previewImage.interleavings.test.ts src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts
+changed src/components/__tests__/ImageUploader.enter-scope.test.tsx: base 19 tip 20 removed 0 added 1
+  + passed	ImageUploader, the Enter key while its panel is still leaving after it is closed answers nothing, with focus still inside the visible panel
+changed src/components/__tests__/WarningDialog.enter-scope.test.tsx: base 12 tip 13 removed 0 added 1
+  + passed	WarningDialog, the Enter key alone answers nothing while its panel is still leaving after it is closed

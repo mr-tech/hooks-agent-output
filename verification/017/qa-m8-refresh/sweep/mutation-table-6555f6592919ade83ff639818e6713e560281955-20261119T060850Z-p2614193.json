@@ -1,0 +1,122 @@
+{
+ "sha": "6555f6592919ade83ff639818e6713e560281955",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/017/qa-m8-refresh/survivors.json",
+ "command": [
+  "unshare",
+  "-rn",
+  "npx",
+  "vitest",
+  "run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/017/qa-m8-refresh/survivors.json",
+   "blob": "63cdaff59758a0d936222e612c63334f93f3cf61"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/qa-m8-refresh/sweep/6555f6592919ade83ff639818e6713e560281955-20261119T060850Z-p2614193-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/qa-m8-refresh/sweep/6555f6592919ade83ff639818e6713e560281955-20261119T060850Z-p2614193-control-1.stderr",
+   "seconds": 22.59,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 1811,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "NM-34-image-enabled-dropped",
+   "run": "mutant-1",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1811,
+   "control_tests_run": 1811,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > while its panel is still leaving after it is closed > answers nothing, with focus still inside the visible panel",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers nothing from a closed instance, even with focus resting in its hidden dialog"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 27.56,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/qa-m8-refresh/sweep/6555f6592919ade83ff639818e6713e560281955-20261119T060850Z-p2614193-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/qa-m8-refresh/sweep/6555f6592919ade83ff639818e6713e560281955-20261119T060850Z-p2614193-mutant-1.stderr"
+  },
+  {
+   "id": "qa-warning-enabled-dropped",
+   "run": "mutant-2",
+   "file": "src/components/WarningDialog.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1811,
+   "control_tests_run": 1811,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > alone > answers nothing while its panel is still leaving after it is closed"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 24.4,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/qa-m8-refresh/sweep/6555f6592919ade83ff639818e6713e560281955-20261119T060850Z-p2614193-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/qa-m8-refresh/sweep/6555f6592919ade83ff639818e6713e560281955-20261119T060850Z-p2614193-mutant-2.stderr"
+  },
+  {
+   "id": "qa-hook-enabled-not-passed",
+   "run": "mutant-3",
+   "file": "src/utils/hooks/useDialogEnter.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1811,
+   "control_tests_run": 1811,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > while its panel is still leaving after it is closed > answers nothing, with focus still inside the visible panel",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers nothing from a closed instance, even with focus resting in its hidden dialog",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > alone > answers nothing while its panel is still leaving after it is closed"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 19.67,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/qa-m8-refresh/sweep/6555f6592919ade83ff639818e6713e560281955-20261119T060850Z-p2614193-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/qa-m8-refresh/sweep/6555f6592919ade83ff639818e6713e560281955-20261119T060850Z-p2614193-mutant-3.stderr"
+  }
+ ],
+ "score": "3 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; survivors.json (blob 63cdaff59758a0d936222e612c63334f93f3cf61))"
+}

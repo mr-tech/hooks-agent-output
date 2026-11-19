@@ -2,9 +2,9 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Verified-At: "c37d41a — repos=website; M8 only. The suite, the typecheck, the probes and the named sweep ran in isolated git archive exports of c37d41a. The branch had moved to 72a1755 (M5's 9909fb3 and 72a1755) by this pass's end; neither touches M8's files (git diff --quiet c37d41a 72a1755 over src/components, src/utils/hooks and the layout test: exit 0)."
-Status: QA Failed
-Status-Detail: "M8 fails at website c37d41a on QAF-22 MEDIUM: no case fails when WarningDialog's hotkey stops being gated on open. The implementer and code review recorded that mutant as equivalent; a probe shows it is not. The fix is test-only. Suite 1724 of 1724, exit 0. 11 of QA's 12 mutants are killed. Milestone-scoped, so plan Status is unmoved."
+Verified-At: "6555f65 — repos=website; M8 only, the refresh. The suite, the typecheck and the survivors' re-run ran in isolated git archive exports of 6555f65. The first pass ran at c37d41a. The range c37d41a..6555f65 also holds M5's 9909fb3 and 72a1755; M8's production files are byte-identical across it (git diff --quiet: exit 0), and M5's code is not verified here."
+Status: QA Complete
+Status-Detail: "M8 passes at website 6555f65. QAF-22 is RESOLVED: the new closing-window cases kill W's and I's dropped-enabled mutants. QAF-23 is RESOLVED (FakeImage named, d71c462). Suite 1811 of 1811, exit 0. Milestone-scoped, so plan Status is unmoved. The effort-final sweep is owed."
 Phase: 2
 ---
 
@@ -29,6 +29,7 @@ form, UAT) is inherited.
 |------|---------------|---------|---------|
 | 2026-11-19T05:56 | code-reviewer-hooks-017 (cross-session message; review `4950989`, plan R-30 `225e4f3`) | QA Phase 2 for M8 at website `c37d41a` | Phase 2, M8 only. Suite 1724 of 1724, exit 0; typecheck exit 0; 136 shared files keep the same case sets. QA's named set: 11 of 12 killed. `qa-warning-enabled-dropped` survives, and a probe shows it is not equivalent. **QA Failed** on QAF-22 MEDIUM. QAF-23 LOW duplicates CR-12. Process fact: NM-35's first form did not parse (ABORTED, my instrument) and was re-run corrected and alone. |
 | 2026-11-19T06:01 | steering-roadmap-hooks (cross-session message; rulings `9349040`) | M8 capped, block 06:01Z | QAF-23 is routed to the Planner batch as a stated limit and no longer rides QAF-22's round. QAF-22 keeps its round. The verdict is unmoved. |
+| 2026-11-19T06:10 | code-reviewer-hooks-017 (cross-session message; review `74263c8`, plan R-32 `6b95965`, R-33 `d827b5c`) | Scoped refresh of M8 at website `6555f65` | Refresh. The fix is one test-only commit over `72a1755`. Suite 1811 of 1811, exit 0; typecheck exit 0. M8's files each gain one case and lose none. The three `enabled` mutants were re-run at `6555f65`: all KILLED. **QA Complete** (M8-scoped), superseding the `c37d41a` QA Failed. QAF-22 and QAF-23 RESOLVED. QAF-23 needs no Planner batch row: the implementer named `FakeImage` before the cap's routing reached it. |
 
 ## Criteria assessed
 
@@ -212,51 +213,9 @@ So `enabled` decides while a dialog is closing. The mutant is not equivalent. Th
 
 ## Findings
 
-QAF-22 MEDIUM Phase 2
-- **What is missing.** No case fails when `WarningDialog`'s hotkey stops being gated on `open`.
-  - `qa-warning-enabled-dropped` (`useDialogEnter(onConfirm)`) survives the whole suite at `c37d41a`.
-  - The only closed-W case, "answers nothing once closed", mounts W never open. No panel exists, so the case passes whatever
-    `enabled` is.
-- **Why it is not equivalent.** The probe above: while W closes, its panel stays mounted and visible for the 75 ms leave with
-  focus still inside. Under the mutant one Enter then runs `onConfirm`, and at the tip it runs nothing. The equivalence
-  recorded in the implementation document's Test Execution Results ("SURVIVES … equivalent") and in code review Round 5's
-  instruments table ("It holds") rests on "a closed W renders no panel", which is false during the leave.
-- **Why it blocks.** M8-b's last row claims "nothing that W or I runs (each is enabled only while open, as at `1ad625e`)". M8
-  keeps the `open` argument for that reason. A claimed behaviour with no assertion that fails when it is lost is the severity
-  floor, MEDIUM, whatever the trigger's reach.
-- **Reach, as far as measured.** W's three callers pass `onConfirm={onDelete}` (`EmbedField.tsx`, `EmbedEditor/index.tsx`)
-  or `actions.delete` (`ComponentEditor.tsx`). Their only close paths are a button, Escape or an outside click, and in jsdom
-  Escape moved focus out of the panel. So I have not shown a browser path where a user's Enter lands in W's closing window with
-  focus off its buttons. For I it is the answer itself: Enter runs `submit`, which closes I with focus still in the visible
-  panel, so a second Enter within 75 ms is in the window. There the guard is asserted (NM-34 killed), but only through a hidden
-  dialog that the implementer's own Outstanding Items says a browser cannot focus.
-- **The fix** (test-only):
-  - *Minimum*: in `WarningDialog.enter-scope`, a W case in the probe's form: open, focus on its dialog element, `open` set
-    false, Enter at once, expecting `onConfirm` 0. Its red run is recorded under `qa-warning-enabled-dropped`, and it is
-    green at the tip.
-  - *Preferred*: the same form for I. Then NM-34's kill rests on a state a browser reaches, the visible closing panel, and the
-    hidden-dialog case no longer carries it alone. That answers the environment-fidelity convention's concern, which the
-    implementer recorded as an instrument limit.
-  - The probe's `Warning` and `Uploader` wrappers (`probe-closing-window/WarningDialog.closing-window.test.tsx`) show the
-    shape. They hold `open` in state and expose its setter.
-- **A routed correction.** The equivalence recorded by two prior gates is invalidated as a basis:
-  - for `implementer-hooks-017`, the Test Execution Results row of `implementation/017-existing-items-backlog-m8-implementation.md`;
-  - for `code-reviewer-hooks-017`, the instruments row "The equivalence claim for `row-warning-enabled-dropped`" of
-    `code-review/017-existing-items-backlog-code-review.md` Round 5.
+QAF-22 MEDIUM Phase 2 RESOLVED — the closing-window cases in `WarningDialog.enter-scope` and `ImageUploader.enter-scope` kill `qa-warning-enabled-dropped` and NM-34 at `6555f65`; both prior gates withdrew the equivalence (implementation `d71c462`, code review `74263c8` as CR-13). Refresh below; argument at agent-output `51b1b78`.
 
-  Each is told in this pass's hand-off.
-
-QAF-23 LOW Phase 2 Duplicates: CR-12 in code-review/017-existing-items-backlog-code-review.md
-- **What is missing.** `ImageUploader.enter-scope`'s `FakeImage` stands in for the browser's `Image`, and the M8 document
-  does not name it.
-- **What I checked.** `checkImage` (`ImageUploader.tsx` at `c37d41a`) consumes `onload`, `onerror` and `width > 0`. The fake
-  fires `onload` in a microtask with `width = 1`, the shape of "the URL loaded". So naming it is the whole remedy, and its
-  fidelity is not in question. Not blocking.
-- **Routing.** Steering capped M8 (`steering/017-rulings.md` block 2026-11-19T06:01Z, agent-output `9349040`): for M8, each
-  further gap below HIGH that is not a severity-floor finding goes to the plan's Planner batch as a stated limit, with no fix
-  round. QAF-22 keeps its round, and the ruling names nothing else. QAF-23 is below the floor, so it follows M4's precedent
-  (QAF-19 under the 04:14Z cap): it goes to the Planner batch through `planner-hooks-017` and does not ride QAF-22's round.
-  This pass's first hand-off had let it ride.
+QAF-23 LOW Phase 2 RESOLVED — `FakeImage` named with its fidelity in the M8 document's fix round (`d71c462`), so no Planner batch row is owed (CR-12 gone, `74263c8`). Argument at agent-output `51b1b78`.
 
 ## Verdict
 
@@ -276,6 +235,40 @@ The round has no production change, so it re-runs only the survivors it closes.
 Milestone-scoped: the plan's Status is unmoved. The effort-final sweep over the chain's production diff is still owed. Rows
 inherited and not discharged: B-13 (UAT).
 
+## Refresh at website `6555f65` (scoped to M8)
+
+**Stage start**: code review Round 5 sub-entry, APPROVED at `Reviewed-At: 6555f65` (agent-output `74263c8`; plan R-32
+`6b95965`, R-33 `d827b5c`), re-derived at the record. The branch `chain/017-existing-items-backlog` and the shared tree's HEAD
+were `6555f65`.
+
+**Scope, from executing both trees, not from the file list.**
+- `git log c37d41a..6555f65` holds three commits. `9909fb3` and `72a1755` are M5's, which code review left to M5's round.
+  `6555f65` is the fix.
+- `git diff --numstat 72a1755 6555f65` covers the two enter-scope test files, +26 −1 and +30 −1.
+- `git diff --quiet c37d41a 6555f65` over `src/utils/hooks`, M8's three components, `PresetDialog`, `src/providers`,
+  `src/styles` and the layout test gives exit 0. M8's production surface is unchanged.
+- The executed comparison below shows the suite agrees: only M8's two files move, by one case each. So the round re-runs only
+  the survivor it closes and the guards its new cases bear on.
+
+Every capture is under `verification/017/qa-m8-refresh/`.
+
+| Command | Result |
+|---|---|
+| `unshare -rn npx vitest run --reporter=json` in an export of `6555f65`, blobs checked (`vitest-6555f65.{json,out,exit}`) | 1811 of 1811 passed, 143 `testResults`, `success` true, process exit 0 |
+| `unshare -rn pnpm run typecheck` (`typecheck-6555f65.{out,exit}`) | exit 0 |
+| `qa-m1/suite-compare.mjs` against `qa-m8/vitest-c37d41a.json` (`compare-qac37d41a-vs-qa6555f65.out`) | No path is only in the base run. Five paths are only in the tip run, all M5's `src/server/api/utils/__tests__/` files. Two files changed: `ImageUploader.enter-scope` 19 → 20 and `WarningDialog.enter-scope` 12 → 13, 0 removed each. Every other shared file keeps its (title, status) set. |
+| `mutation-run.py --sha 6555f65`, whole suite, three mutants (`survivors.json` blob `63cdaff`, taken from `qa-m8/m8-mutants-qa.json`; `sweep/`, `sweep-run.{out,err,exit}`) | Control 1811, exit 0. `qa-warning-enabled-dropped` **KILLED**, 1: W "answers nothing while its panel is still leaving after it is closed". NM-34 KILLED, 2: I's new closing-window case and the hidden-dialog case. `qa-hook-enabled-not-passed` KILLED, 3: both new cases and the hidden-dialog case. |
+| Conventions audit, `qa-m8/audit-predicates-m8.sh 6555f65` (`audit-predicates.out`) | Unchanged from the first pass: ID tokens 0, positive control 2 of 2, positive form, no source-text read and no timers |
+| Seen-red coverage over the M8 files, all four QA kill tables (`seen-red-coverage.out`) | 33 cases, 19 reddened, 14 never reddened. The 14 are the first pass's 14 and stay non-discriminating for the reasons given there. W's never-open "answers nothing once closed" is one of them. The new closing-window case now carries W's guard. |
+
+The new cases assert `dialogOf(…).contains(document.activeElement)` before Enter. So a case cannot pass because the panel had
+already gone, and the window is shown live on each run. Their instruments are committed blobs (the fix commit), so the kills
+are scored.
+
+**Refresh verdict: QA Complete** for M8 at website `6555f65`. It supersedes the `c37d41a` QA Failed. Every M8-b row and M8-c
+position has a case, and every guard in M8's diff is reddened by a QA mutant. Milestone-scoped, so the plan's Status is unmoved.
+The effort-final sweep is still owed. Rows inherited and not discharged: B-13 (UAT).
+
 ## Assumption Not Checked
 
 This pass assumes that in a real browser focus stays inside a closing headlessui panel through its 75 ms leave, as jsdom shows
@@ -289,7 +282,10 @@ This pass assumes that in a real browser focus stays inside a closing headlessui
 
 ## Handoff
 
-- **QA Failed** goes to `implementer-hooks-017` for QAF-22 alone.
-- **QAF-23** goes to `planner-hooks-017` for the Planner batch, as a stated limit under the 06:01Z cap.
-- **The equivalence correction** goes to `implementer-hooks-017` and `code-reviewer-hooks-017`, each for its own record (QAF-22).
+- **QA Failed** (first pass): went to `implementer-hooks-017` for QAF-22 alone. It is discharged by the refresh: QA Complete at
+  `6555f65`.
+- **QAF-23**: first routed to `planner-hooks-017` for the Planner batch. Then held, and now not owed: it was resolved in the fix
+  round.
+- **The equivalence correction**: both records corrected (`d71c462`, `74263c8`).
+- **Implementer**: M8 is cleared at `6555f65`. Nothing more is owed for M8.
 - **To UAT**, when the chain reaches it: B-13, with this pass's assumption (focus in a closing panel).

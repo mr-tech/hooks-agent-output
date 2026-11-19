@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work-refresh/20261119T060850Z-p2614193/mutant-2
+
+ ❯ |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx (13 tests | 1 failed) 1194ms
+       × answers nothing while its panel is still leaving after it is closed 73ms
+
+ Test Files  1 failed | 142 passed (143)
+      Tests  1 failed | 1810 passed (1811)
+   Start at  06:09:43
+   Duration  22.07s (transform 45.08s, setup 2.48s, import 172.69s, tests 50.45s, environment 94.87s)
+
