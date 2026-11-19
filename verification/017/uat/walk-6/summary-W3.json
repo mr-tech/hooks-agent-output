@@ -1,0 +1,66 @@
+{
+ "run": "W3",
+ "runStart": "2026-11-19T10:37:25.566Z",
+ "landed": "_ _pKpW1pW2pW3",
+ "editAt": "2026-11-19T10:37:33.536Z",
+ "saveClickReturned": "2026-11-19T10:37:33.386Z",
+ "upserts": [
+  [
+   "2026-11-19T10:37:33.383Z",
+   "2026-11-19T10:37:33.762Z",
+   200,
+   true
+  ]
+ ],
+ "framesA": [
+  "2026-11-19T10:37:33.677Z"
+ ],
+ "framesB": [
+  "2026-11-19T10:37:33.677Z"
+ ],
+ "noticeA": {
+  "at": "2026-11-19T10:37:33.761Z",
+  "dialogs": [
+   "Message Update Detected\n\nThe message you are viewi"
+  ],
+  "toasts": [
+   "Toastify__toast--default:Saving message...",
+   "Toastify__toast--success:Message saved!",
+   "Toastify__toast--success:Message saved!",
+   "Toastify__toast--success:Message saved!",
+   "Toastify__toast--success:Message saved!",
+   "Toastify__toast--error:Error. Failed to save message. Please try again."
+  ]
+ },
+ "noticeB": {
+  "at": "2026-11-19T10:37:33.757Z",
+  "dialogs": [
+   "Message Update Detected\n\nThe message you are viewi"
+  ],
+  "toasts": []
+ },
+ "errorsA": [],
+ "logA": [],
+ "crashA": false,
+ "dismissA": "cancelled",
+ "dismissB": "cancelled",
+ "resaveNoticeA": null,
+ "resaveUpserts": [
+  [
+   "2026-11-19T10:37:49.426Z",
+   "2026-11-19T10:37:49.669Z",
+   200,
+   true
+  ]
+ ],
+ "nameAfter": "New Messagexxxx",
+ "resaveNoticeB": {
+  "at": "2026-11-19T10:37:49.751Z",
+  "dialogs": [
+   "Message Update Detected\n\nThe message you are viewi"
+  ],
+  "toasts": []
+ },
+ "bCapAfterReload": true,
+ "logAAll": []
+}

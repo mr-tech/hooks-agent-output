@@ -1,0 +1,61 @@
+{
+ "run": "X5",
+ "runStart": "2026-11-19T10:49:48.277Z",
+ "landed": "X1pX2pX3pX4pX5",
+ "editAt": "2026-11-19T10:49:49.308Z",
+ "saveClickReturned": "2026-11-19T10:49:49.192Z",
+ "upserts": [
+  [
+   "2026-11-19T10:49:49.172Z",
+   "2026-11-19T10:49:49.506Z",
+   200,
+   true
+  ]
+ ],
+ "framesA": [
+  "2026-11-19T10:49:49.432Z"
+ ],
+ "framesB": [
+  "2026-11-19T10:49:49.432Z"
+ ],
+ "noticeA": {
+  "at": "2026-11-19T10:49:49.503Z",
+  "dialogs": [
+   "Message Update Detected\n\nThe message you are viewi"
+  ],
+  "toasts": [
+   "Toastify__toast--default:Saving message..."
+  ]
+ },
+ "noticeB": {
+  "at": "2026-11-19T10:49:49.513Z",
+  "dialogs": [
+   "Message Update Detected\n\nThe message you are viewi"
+  ],
+  "toasts": []
+ },
+ "errorsA": [],
+ "logA": [],
+ "crashA": false,
+ "dismissA": "cancelled",
+ "dismissB": "cancelled",
+ "resaveNoticeA": null,
+ "resaveUpserts": [
+  [
+   "2026-11-19T10:50:00.966Z",
+   "2026-11-19T10:50:01.285Z",
+   200,
+   true
+  ]
+ ],
+ "nameAfter": "New Messagexxxxxxxxxxxxxxxxxx",
+ "resaveNoticeB": {
+  "at": "2026-11-19T10:50:00.905Z",
+  "dialogs": [
+   "Message Update Detected"
+  ],
+  "toasts": []
+ },
+ "bCapAfterReload": true,
+ "logAAll": []
+}

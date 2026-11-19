@@ -1,0 +1,51 @@
+{
+ "run": "X2",
+ "tab": "B",
+ "cap": {
+  "frames": [
+   [
+    "2026-11-19T10:48:27.802Z",
+    "{\"event\":\"pusher_internal:subscription_succeeded\",\"data\":\"{}\",\"channel\":\"message-update-900000000000001\"}"
+   ],
+   [
+    "2026-11-19T10:48:31.344Z",
+    "{\"event\":\"message-update\",\"data\":\"-10a501e4\",\"channel\":\"message-update-900000000000001\"}"
+   ],
+   [
+    "2026-11-19T10:48:43.081Z",
+    "{\"event\":\"message-update\",\"data\":\"-12e16f5e\",\"channel\":\"message-update-900000000000001\"}"
+   ]
+  ],
+  "upserts": [],
+  "errors": [],
+  "ui": [
+   [
+    "2026-11-19T10:48:27.041Z",
+    [],
+    []
+   ],
+   [
+    "2026-11-19T10:48:31.420Z",
+    [
+     "Message Update Detected\n\nThe message you are viewi"
+    ],
+    []
+   ],
+   [
+    "2026-11-19T10:48:42.732Z",
+    [
+     "Message Update Detected"
+    ],
+    []
+   ],
+   [
+    "2026-11-19T10:48:43.156Z",
+    [
+     "Message Update Detected\n\nThe message you are viewi"
+    ],
+    []
+   ]
+  ]
+ },
+ "log": []
+}

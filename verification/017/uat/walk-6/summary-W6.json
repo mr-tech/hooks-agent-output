@@ -1,0 +1,54 @@
+{
+ "run": "W6",
+ "runStart": "2026-11-19T10:43:26.210Z",
+ "toastsLingered": 6,
+ "landed": "W4pW5pW4pW5pW6",
+ "editAt": "2026-11-19T10:43:46.364Z",
+ "saveClickReturned": "2026-11-19T10:43:46.245Z",
+ "upserts": [
+  [
+   "2026-11-19T10:43:46.222Z",
+   "2026-11-19T10:43:46.661Z",
+   200,
+   true
+  ]
+ ],
+ "framesA": [
+  "2026-11-19T10:43:46.652Z"
+ ],
+ "framesB": [
+  "2026-11-19T10:43:46.653Z"
+ ],
+ "noticeA": null,
+ "noticeB": {
+  "at": "2026-11-19T10:43:46.739Z",
+  "dialogs": [
+   "Message Update Detected\n\nThe message you are viewi"
+  ],
+  "toasts": []
+ },
+ "errorsA": [],
+ "logA": [],
+ "crashA": false,
+ "dismissA": "n/a",
+ "dismissB": "cancelled",
+ "resaveNoticeA": null,
+ "resaveUpserts": [
+  [
+   "2026-11-19T10:43:57.785Z",
+   "2026-11-19T10:43:58.391Z",
+   200,
+   true
+  ]
+ ],
+ "nameAfter": "New Messagexxxxxxxxx",
+ "resaveNoticeB": {
+  "at": "2026-11-19T10:43:57.721Z",
+  "dialogs": [
+   "Message Update Detected"
+  ],
+  "toasts": []
+ },
+ "bCapAfterReload": true,
+ "logAAll": []
+}

@@ -1,0 +1,356 @@
+{
+ "run": "W3",
+ "tab": "A",
+ "cap": {
+  "frames": [
+   [
+    "2026-11-19T10:34:32.974Z",
+    "{\"event\":\"pusher_internal:subscription_succeeded\",\"data\":\"{}\",\"channel\":\"message-update-900000000000001\"}"
+   ],
+   [
+    "2026-11-19T10:35:45.235Z",
+    "{\"event\":\"message-update\",\"data\":\"-497cb822\",\"channel\":\"message-update-900000000000001\"}"
+   ],
+   [
+    "2026-11-19T10:35:58.321Z",
+    "{\"event\":\"message-update\",\"data\":\"7687c298\",\"channel\":\"message-update-900000000000001\"}"
+   ],
+   [
+    "2026-11-19T10:36:24.683Z",
+    "{\"event\":\"message-update\",\"data\":\"-7533226a\",\"channel\":\"message-update-900000000000001\"}"
+   ],
+   [
+    "2026-11-19T10:36:37.978Z",
+    "{\"event\":\"message-update\",\"data\":\"6a416b50\",\"channel\":\"message-update-900000000000001\"}"
+   ],
+   [
+    "2026-11-19T10:36:59.157Z",
+    "{\"event\":\"message-update\",\"data\":\"238d481f\",\"channel\":\"message-update-900000000000001\"}"
+   ],
+   [
+    "2026-11-19T10:37:12.419Z",
+    "{\"event\":\"message-update\",\"data\":\"-9cf9727\",\"channel\":\"message-update-900000000000001\"}"
+   ],
+   [
+    "2026-11-19T10:37:33.677Z",
+    "{\"event\":\"message-update\",\"data\":\"6286e037\",\"channel\":\"message-update-900000000000001\"}"
+   ],
+   [
+    "2026-11-19T10:37:49.663Z",
+    "{\"event\":\"message-update\",\"data\":\"-728ec0f\",\"channel\":\"message-update-900000000000001\"}"
+   ]
+  ],
+  "upserts": [
+   [
+    "2026-11-19T10:34:32.062Z",
+    "2026-11-19T10:34:32.325Z",
+    200,
+    true,
+    "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000001\",\"createdAt\":1795084472313,\"updatedAt\":1795084472311,\"previewImageNonce\":null,\"name\":\"New Message\",\"data\":{\"embeds\":[{\"url\":\"https://hooks.gg\",\"color\":14895353,\"title\":\"About Hooks.gg\",\"fields\":[{\"name\":\"<:pointer_ol:987453923587686430>_ _ Fully-Inter"
+   ],
+   [
+    "2026-11-19T10:35:44.869Z",
+    "2026-11-19T10:35:45.249Z",
+    500,
+    false,
+    "[{\"error\":{\"message\":\"planted\",\"code\":-32603,\"data\":{\"code\":\"INTERNAL_SERVER_ERROR\",\"httpStatus\":500}}}]"
+   ],
+   [
+    "2026-11-19T10:35:58.093Z",
+    "2026-11-19T10:35:58.323Z",
+    200,
+    true,
+    "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000001\",\"createdAt\":1795084472313,\"updatedAt\":1795084558120,\"previewImageNonce\":\"v1795084544907862a1b01cded32608f7\",\"name\":\"New Messagex\",\"data\":{\"embeds\":[{\"url\":\"https://hooks.gg\",\"color\":14895353,\"title\":\"About Hooks.gg\",\"fields\":[{\"name\":\"<:pointer_ol:98"
+   ],
+   [
+    "2026-11-19T10:36:24.441Z",
+    "2026-11-19T10:36:24.685Z",
+    200,
+    true,
+    "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000001\",\"createdAt\":1795084472313,\"updatedAt\":1795084584468,\"previewImageNonce\":\"v1795084558121340c3a043faa77762a2\",\"name\":\"New Messagex\",\"data\":{\"embeds\":[{\"url\":\"https://hooks.gg\",\"color\":14895353,\"title\":\"About Hooks.gg\",\"fields\":[{\"name\":\"<:pointer_ol:98"
+   ],
+   [
+    "2026-11-19T10:36:37.658Z",
+    "2026-11-19T10:36:37.982Z",
+    200,
+    true,
+    "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000001\",\"createdAt\":1795084472313,\"updatedAt\":1795084597683,\"previewImageNonce\":\"v17950845844696961a9c52bc610c5ea0\",\"name\":\"New Messagexx\",\"data\":{\"embeds\":[{\"url\":\"https://hooks.gg\",\"color\":14895353,\"title\":\"About Hooks.gg\",\"fields\":[{\"name\":\"<:pointer_ol:9"
+   ],
+   [
+    "2026-11-19T10:36:58.919Z",
+    "2026-11-19T10:36:59.160Z",
+    200,
+    true,
+    "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000001\",\"createdAt\":1795084472313,\"updatedAt\":1795084618948,\"previewImageNonce\":\"v179508459768479574d62d53e05325ac\",\"name\":\"New Messagexx\",\"data\":{\"embeds\":[{\"url\":\"https://hooks.gg\",\"color\":14895353,\"title\":\"About Hooks.gg\",\"fields\":[{\"name\":\"<:pointer_ol:9"
+   ],
+   [
+    "2026-11-19T10:37:12.135Z",
+    "2026-11-19T10:37:12.422Z",
+    200,
+    true,
+    "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000001\",\"createdAt\":1795084472313,\"updatedAt\":1795084632159,\"previewImageNonce\":\"v1795084618949777568819a29943181f\",\"name\":\"New Messagexxx\",\"data\":{\"embeds\":[{\"url\":\"https://hooks.gg\",\"color\":14895353,\"title\":\"About Hooks.gg\",\"fields\":[{\"name\":\"<:pointer_ol:"
+   ],
+   [
+    "2026-11-19T10:37:33.383Z",
+    "2026-11-19T10:37:33.762Z",
+    200,
+    true,
+    "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000001\",\"createdAt\":1795084472313,\"updatedAt\":1795084653411,\"previewImageNonce\":\"v17950846321614506913c101413342b1\",\"name\":\"New Messagexxx\",\"data\":{\"embeds\":[{\"url\":\"https://hooks.gg\",\"color\":14895353,\"title\":\"About Hooks.gg\",\"fields\":[{\"name\":\"<:pointer_ol:"
+   ],
+   [
+    "2026-11-19T10:37:49.426Z",
+    "2026-11-19T10:37:49.669Z",
+    200,
+    true,
+    "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000001\",\"createdAt\":1795084472313,\"updatedAt\":1795084669452,\"previewImageNonce\":\"v179508465341304151693a027c74aa9d\",\"name\":\"New Messagexxxx\",\"data\":{\"embeds\":[{\"url\":\"https://hooks.gg\",\"color\":14895353,\"title\":\"About Hooks.gg\",\"fields\":[{\"name\":\"<:pointer_ol"
+   ]
+  ],
+  "errors": [],
+  "ui": [
+   [
+    "2026-11-19T10:34:22.216Z",
+    [],
+    []
+   ],
+   [
+    "2026-11-19T10:34:29.019Z",
+    [
+     "Save As\nMessage Name\n(11 / 32)\nSave To(max 50 per "
+    ],
+    []
+   ],
+   [
+    "2026-11-19T10:34:32.568Z",
+    [],
+    []
+   ],
+   [
+    "2026-11-19T10:35:44.935Z",
+    [],
+    [
+     "Toastify__toast--default:Saving message..."
+    ]
+   ],
+   [
+    "2026-11-19T10:35:45.366Z",
+    [],
+    [
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:35:58.166Z",
+    [],
+    [
+     "Toastify__toast--default:Saving message...",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:35:58.440Z",
+    [],
+    [
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:36:24.507Z",
+    [],
+    [
+     "Toastify__toast--default:Saving message...",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:36:24.815Z",
+    [],
+    [
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:36:37.722Z",
+    [],
+    [
+     "Toastify__toast--default:Saving message...",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:36:38.115Z",
+    [],
+    [
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:36:45.691Z",
+    [],
+    [
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:36:58.991Z",
+    [],
+    [
+     "Toastify__toast--default:Saving message...",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:36:59.290Z",
+    [],
+    [
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:37:12.187Z",
+    [],
+    [
+     "Toastify__toast--default:Saving message...",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:37:12.542Z",
+    [],
+    [
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:37:33.450Z",
+    [],
+    [
+     "Toastify__toast--default:Saving message...",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:37:33.761Z",
+    [
+     "Message Update Detected\n\nThe message you are viewi"
+    ],
+    [
+     "Toastify__toast--default:Saving message...",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:37:33.890Z",
+    [
+     "Message Update Detected\n\nThe message you are viewi"
+    ],
+    [
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:37:41.390Z",
+    [
+     "Message Update Detected\n\nThe message you are viewi"
+    ],
+    [
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:37:45.237Z",
+    [
+     "Message Update Detected"
+    ],
+    [
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:37:47.452Z",
+    [],
+    [
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:37:49.491Z",
+    [],
+    [
+     "Toastify__toast--default:Saving message...",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ],
+   [
+    "2026-11-19T10:37:49.790Z",
+    [],
+    [
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--success:Message saved!",
+     "Toastify__toast--error:Error. Failed to save message. Please try again."
+    ]
+   ]
+  ]
+ },
+ "log": [
+  [
+   "2026-11-19T10:35:45.250Z",
+   "console.error",
+   "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+  ]
+ ]
+}

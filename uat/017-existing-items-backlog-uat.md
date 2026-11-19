@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: UAT Failed
-Status-Detail: "B-1 FAIL (UAT-1): the saving tab once raised 'Message Update Detected' for its own save, in M2-b's window (walk 3 run A1); not reproduced in five later window runs. Routed to implementer-hooks-017. B-2, B-3, B-4, B-12, B-13 EXECUTED and passed. Re-decision on the implementer's diagnosis."
+Status-Detail: "B-1 FAIL (UAT-1), reproduced: the saving tab raised 'Message Update Detected' for its own save in 2 of 15 further window runs (walk 6), no crash, upsert 200, no error toast in X5; with walk 3's A1, 3 of 21 captured window runs. Routed through steering-roadmap-hooks. B-2, B-3, B-4, B-12, B-13 EXECUTED and passed. Re-decision after a fix and a re-walk."
 Verified-At: "4b8db9c,8512a1d — repos=website,preview-image-generator; flows ran against git archive exports of both SHAs with their own installs (website next dev on 127.0.0.1:3000, generator under the M5 rig copy); plan read at Revision 9"
 Release-Decision: NOT APPROVED
 ---
@@ -19,6 +19,7 @@ Release-Decision: NOT APPROVED
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-19T10:29 | steering-roadmap-hooks (brief `steering/backlog-2026-11-18-briefs/uat-hooks-017.md`) | UAT on plan 017 at website `4b8db9c`, generator `8512a1d`; register rows B-1 to B-4, B-12, B-13 | Stage start re-derived: QA document `QA Complete`, `Verified-At` `4b8db9c,8512a1d`, committed at `1a8edce`, effort-final sweep 124 of 140 killed. Both shared trees on `chain/017-existing-items-backlog` at those SHAs. Five browser walks on a local stack. Five rows EXECUTED and passed; B-1 FAIL (UAT-1), routed to the implementer. NOT APPROVED. |
+| 2026-11-19T10:52 | implementer-hooks-017 (UAT-1 diagnosis, capture set); steering-roadmap-hooks (re-walk before any code change) | Re-walk B-1's M2-b window with the implementer's capture set | Walk 6 on a rebuilt stack at the same SHAs: the notice recurred in the saving tab in W3 and X5 (2 of 15 window runs), with every upsert 200, no crash or page error, and no error toast at X5. Candidate (1) is not supported at X5, and the crash precursor did not reproduce. In both recurrences the frame preceded the upsert response by 74–85 ms and the notice followed the response by 1–3 ms. Decision unchanged: NOT APPROVED. Stack removed again. |
 
 ## Stage start and identity
 
@@ -66,7 +67,7 @@ Authority for each row's prediction, instrument and subject: QA's register (`qa/
 
 | Row | State | Result |
 |---|---|---|
-| B-1 | EXECUTED 2026-11-19 — **FAIL** | Tab 2 shows the notice (M2-c holds). Tab 1 raised its own-save notice once in 6 captured runs that hit M2-b's window (walk 3 A1). Walk 1 also saw it once at about 09:23:45Z after a save at 09:22:38Z, but did not capture when it appeared, so that sighting is not weighed. UAT-1. |
+| B-1 | EXECUTED 2026-11-19 (walks 1–4; re-walked in walk 6) — **FAIL** | Tab 2 shows the notice (M2-c holds). Tab 1 raised its own-save notice once in 6 captured runs that hit M2-b's window (walk 3 A1). Walk 1 also saw it once at about 09:23:45Z after a save at 09:22:38Z, but did not capture when it appeared, so that sighting is not weighed. UAT-1. Walk 6 (re-walk with captures): recurred in 2 of 15 window runs (W3, X5), so 3 of 21 captured window runs in all. |
 | B-2 | EXECUTED 2026-11-19 | PASS (M3-a, M3-b) |
 | B-3 | EXECUTED 2026-11-19 | PASS |
 | B-4 | EXECUTED 2026-11-19 | PASS (stale, fresh, and first-failure default) |
@@ -76,6 +77,16 @@ Authority for each row's prediction, instrument and subject: QA's register (`qa/
 ## Findings
 
 UAT-1 HIGH — `website/src/providers/MessageProvider/usePusher.ts` (the own-save compare, M2). In walk 3 run A1, the saving tab A raised "Message Update Detected" for its own save. The content edit was verified; File > Save was clicked for real; the name was edited 133 ms after the upsert POST and before the broadcast reached A. A showed the notice at 10:05:19.423Z, B at .437Z. The server answered every upsert 200, so this is not M2's residue class (2) on the server side. The client's own view of that save was not captured. It did not reproduce in 5 later runs in the same window (walk 3 A2; walk 4 R1b–R4, with upsert bodies and Pusher frames captured in `walk-4/R1-partial.json` and `part1-results.md`). Just before A1, the helper had crashed tab A twice ("Application error", `TypeError … previousElementSibling` in a react-aria focus scope) by dispatching synthetic clicks on File, which no user does. Whether that state bears on A1 is not established. Against value statement 2 this is the defect itself, observed after the fix, so M2-b's "for every save" is not shown. Routed to `implementer-hooks-017` for diagnosis.
+
+**Walk 6, the re-walk (UAT-1 reproduced).** The implementer could neither name a defect nor place A1 outside the class. Its ranked candidates were (1) a client-side mutation error whose `onError` forgets the record, and (2) a second live handler binding; it named a capture set. Steering ordered a re-walk before any code change. Instrument: `verification/017/uat/b1-capture-init.js`, installed with `addInitScript`. It records inbound `message-update` frames, the `message.upsert` start, response and status, window errors and rejections, and dialog and react-toastify toast changes at 25 ms. Stack rebuilt from the same SHAs on a fresh database (`local-stack-up-2.txt`); M = 900000000000001 again, and the count below 900000000000001 was 0 after creation and at the end (`walk-6/db-*.txt`). Results (`walk-6/summary-*.json`, `<run>-A-cap.json`, `<run>-B-cap.json`):
+- **Recurred in the saving tab in W3 and X5, 2 of 15 window runs** (W1–W10; X1–X5 after the precursor attempt). B showed the notice in every run.
+- Every upsert answered 200, in the capture and in the server log (38 of 38). No page error, unhandled rejection or crash anywhere in the walk.
+- X5's toasts at the notice: only "Saving message...", no error toast. W3 still showed an error toast left over from control K.
+- In W3 and X5 the frame reached A 85 ms and 74 ms before the upsert response, and the notice appeared 1–3 ms after the response was logged. In the 13 clean runs, frame and response came within about 10 ms of each other (frame first by 2–10 ms, or after by 9 ms in W5).
+- Crash precursor: synthetic dispatch on File, then `element.click()` on File and Save, crashed nothing. A1's crash is not needed for the notice.
+- Control K: the page was planted a 500 while the server stored and broadcast the save. Seen: status 500, the error toast, frames in both tabs, B's notice. A raised no notice, because its frame arrived 14 ms before the 500 and consumed the record. M2's residue class (2) shows only when the response is handled first. K proves the capture sees each element; it is no test of the notice.
+
+Reading for the implementer (correlation over two runs, not a diagnosis): the notice is not raised when the frame arrives, but when a 200 response is handled about 80 ms after it. Candidate (1) is not supported at X5: no error toast and no page error. A second handler that would be consumed first is not what the timing shows, since the notice did not come at frame time. Either way the decision does not move: M2-b's "for every save" fails in about one window run in seven.
 
 ## Value Delivery Assessment
 
@@ -107,6 +118,7 @@ No core value is deferred. Known limits: X-14 (unstoppable navigations), X-22 (t
 ## Next Actions
 *Point-in-time list — later stage documents are authoritative on these items' current state.*
 - implementer: diagnose UAT-1 with the captures named above; then UAT re-walks B-1's window.
+- (walk 6) UAT-1 is reproduced with captures; it goes to the implementer through steering-roadmap-hooks (steering's routing, 10:3xZ). A fix moves the website tip and expires review, QA and this verdict at `4b8db9c`; UAT then re-walks B-1 with `b1-capture-init.js`.
 - devops: not before a UAT approval. The post-deploy rows B-6 to B-11 keep their carriers.
 
 ## Stack set up and removed
