@@ -26,7 +26,7 @@ are inherited.
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
-| 2026-11-19T07:31 | steering-roadmap-hooks (brief `qa-hooks-017-resume.md`, after the park and resume) | QA Phase 2 for M5 at website `4b8db9c` | Phase 2, M5 only. Premises re-read and holding. Suite 1814 of 1814, exit 0, reproduced this session. Node sweep 66 of 67 killed, with the one survivor equivalent. A shape set of 8 written this session: 8 of 8 killed. Lane 11 of 11, its sweep 3 of 4 killed. Oracle 0 of 3120. **QA Complete**, milestone-scoped. QAF-24 LOW. Process fact: my first write of plan row R-37 carried a typed stamp (07:36). `stamp-gate-hook` refused it as future-dated. I re-stamped it with `record-edit.js` `{now}` (07:33), which is the gate's stated remedy. |
+| 2026-11-19T07:31 | steering-roadmap-hooks (brief `qa-hooks-017-resume.md`, after the park and resume) | QA Phase 2 for M5 at website `4b8db9c` | Phase 2, M5 only. Premises re-read and holding. Suite 1814 of 1814, exit 0, reproduced this session. Node sweep 66 of 67 killed, with the one survivor equivalent. A shape set of 8 written this session: 8 of 8 killed. Lane 11 of 11, its sweep 3 of 4 killed. Oracle 0 of 3120. **QA Complete**, milestone-scoped. QAF-24 LOW. Process fact: my first write of plan row R-37 carried a typed stamp (07:36). `stamp-gate-hook` refused it as future-dated. I re-stamped it with `record-edit.js` `{now}` (07:33), which is the gate's stated remedy. Process fact: `record-write-gate-hook` refused my shell append of an `INBOX.md` entry (the code-review link failure from `check-repo.js`). I re-issued it as `record-edit.js` `append_file`, which is the gate's stated remedy. |
 
 ## Premise re-read (the brief's first deliverable)
 
