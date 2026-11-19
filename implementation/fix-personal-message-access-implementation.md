@@ -332,6 +332,11 @@ No time-based test enters the suite. The real-database driver's readiness loop i
 
 ## Verification
 
+**Correction (23:14Z).** The `.log` files named beside the captures in this document (`red-*.{json,log}`, `suite-*.{json,log}`,
+`pg/out*/pg-*.log`) were never committed: the record's `.gitignore` line 21 (`*.log`) excludes them, found by `git check-ignore -v`. The
+committed captures are the JSON reports, which carry each run's counts and per-case results. Exit codes are as stated in this document,
+and as `.exit` files for the real-database runs. The `.log` files stay on this box only.
+
 - **Existing tests:** step 2's command `npx vitest run --reporter=json --outputFile=…`. Base `787bec5`: 1857 cases, 144 files, exit 0.
   Fix `2e50cd9`: 1873 cases, 146 files, exit 0.
 - **Build:** `pnpm run typecheck` (both tsc programs), exit 0. Capture: `typecheck-2e50cd9.txt`. No package-manager operation ran, and the
