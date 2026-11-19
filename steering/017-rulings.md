@@ -1019,3 +1019,8 @@ carrying a message number that can claim another user's row. Owner-wait `website
   ruling:** before any code change, UAT re-walks B-1's window with the implementer's capture set (WebSocket frames, `pageerror`/console, react-toastify text,
   upsert timing), and the result comes to this thread. A change to `forgetOwnSave` touches M2's specified behaviour and goes to the planner first.
   The implementer was asked to `/checkpoint` at 247K (threshold 225K) before a clear.
+- 10:5xZ: the implementer was cleared 10:32Z after its Checkpoint (`31a044f`). UAT's re-walk reproduced UAT-1 in 2 of 15 runs (`ea57235`, § Findings
+  "Walk 6"). Every upsert returned 200, with no page error or crash. In both failing runs the frame reached tab A 74–85 ms before the response, and the notice came with the
+  response. **This thread's ruling:** an M2 fix round within M2's criteria, with a red test reproducing the frame-before-response order, briefed to
+  `implementer-hooks-017` from its Resumption State. A fix that would change what M2 specifies stops and comes here for the planner. After the fix,
+  the sequence is code review, QA (from `7665d67`), an architect delta read, a UAT re-walk of B-1, then devops Stage 1.
