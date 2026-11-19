@@ -1,0 +1,1 @@
+rows 36, interleavings 3120, violating 0, with late-write residue 736

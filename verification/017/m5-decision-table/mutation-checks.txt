@@ -156,20 +156,39 @@ rows 36, interleavings 3120, violating 336, with late-write residue 736
       [F1 X W1 P W2 C2 D2] E2:n2 prefix{n2}
 
 MUTANT sweep without the age guard:
-rows 36, interleavings 3120, violating 60, with late-write residue 692
-  s1=ok s2=ok delete=false orphan=false: 9/20
+rows 36, interleavings 3120, violating 48, with late-write residue 712
+  s1=ok s2=ok delete=false orphan=false: 6/20
       [W1 C1 W2 D1 C2 D2] B@C2,B@D2 prefix{}
       [W1 C1 W2 C2 D1 D2] B@D1,B@D2 prefix{}
-      [W1 C1 W2 C2 D2 D1] B@D1 prefix{}
-  s1=ok s2=ok delete=false orphan=true: 9/20
+      [W1 W2 C1 D1 C2 D2] B@C2,B@D2 prefix{}
+  s1=ok s2=ok delete=false orphan=true: 6/20
       [W1 C1 W2 D1 C2 D2] B@C2,B@D2 prefix{}
       [W1 C1 W2 C2 D1 D2] B@D1,B@D2 prefix{}
-      [W1 C1 W2 C2 D2 D1] B@D1 prefix{}
-  s1=ok s2=ok delete=true orphan=false: 21/560
+      [W1 W2 C1 D1 C2 D2] B@C2,B@D2 prefix{}
+  s1=ok s2=ok delete=true orphan=false: 18/560
       [W1 C1 W2 D1 C2 D2 X P] B@C2,B@D2 prefix{}
       [W1 C1 W2 D1 C2 X D2 P] B@C2 prefix{}
       [W1 C1 W2 D1 C2 X P D2] B@C2 prefix{}
-  s1=ok s2=ok delete=true orphan=true: 21/560
+  s1=ok s2=ok delete=true orphan=true: 18/560
       [W1 C1 W2 D1 C2 D2 X P] B@C2,B@D2 prefix{}
       [W1 C1 W2 D1 C2 X D2 P] B@C2 prefix{}
       [W1 C1 W2 D1 C2 X P D2] B@C2 prefix{}
+
+MUTANT sweep with its reference absent deletes every other object:
+rows 36, interleavings 3120, violating 12, with late-write residue 716
+  s1=ok s2=ok delete=false orphan=false: 3/20
+      [W1 C1 W2 C2 D2 D1] B@D1 prefix{}
+      [W1 W2 C1 C2 D2 D1] B@D1 prefix{}
+      [W2 W1 C1 C2 D2 D1] B@D1 prefix{}
+  s1=ok s2=ok delete=false orphan=true: 3/20
+      [W1 C1 W2 C2 D2 D1] B@D1 prefix{}
+      [W1 W2 C1 C2 D2 D1] B@D1 prefix{}
+      [W2 W1 C1 C2 D2 D1] B@D1 prefix{}
+  s1=ok s2=ok delete=true orphan=false: 3/560
+      [W1 C1 W2 C2 D2 D1 X P] B@D1 prefix{}
+      [W1 W2 C1 C2 D2 D1 X P] B@D1 prefix{}
+      [W2 W1 C1 C2 D2 D1 X P] B@D1 prefix{}
+  s1=ok s2=ok delete=true orphan=true: 3/560
+      [W1 C1 W2 C2 D2 D1 X P] B@D1 prefix{}
+      [W1 W2 C1 C2 D2 D1 X P] B@D1 prefix{}
+      [W2 W1 C1 C2 D2 D1 X P] B@D1 prefix{}

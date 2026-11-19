@@ -59,9 +59,14 @@ function interleave(chains) {
 
 const ORDER = { n0: 0, n1: 1, n2: 2 };
 
+const L = 120; // seconds, M5-c form 3
+const OLD = -1000; // LastModified of objects written before the window (at least L old)
+
 function run(seq, withOrphan, mut = {}) {
-  const objects = new Map([['n0', 'old']]);
-  if (withOrphan) objects.set('z', 'old');
+  // value = LastModified on the bucket's clock, in seconds; a window's events fall within 60 s
+  const objects = new Map([['n0', OLD]]);
+  if (withOrphan) objects.set('z', OLD);
+  let clock = 0;
   let rowExists = true;
   let committed = 'n0';
   const accepted = {};
@@ -77,7 +82,8 @@ function run(seq, withOrphan, mut = {}) {
     const n = `n${i}`;
     switch (ev[0]) {
       case 'W':
-        objects.set(n, 'fresh');
+        clock += 5; // every write in one window lands within 60 s of every other (D-10)
+        objects.set(n, clock);
         if (!seq.includes(`C${i}`)) lateWrites.add(n);
         break;
       case 'C': {
@@ -96,12 +102,21 @@ function run(seq, withOrphan, mut = {}) {
       case 'D':
         if (accepted[i]) {
           if (replaced[i] && !mut.noForm1) objects.delete(replaced[i]);
-          for (const [o, age] of [...objects]) {
-            if (o === n) continue;
-            if (mut.sweepNoAgeGuard || age === 'old') objects.delete(o);
+          // Form 3 (revision 3, OQ-13 option a): reference = this save's own object's LastModified
+          // in the same listing; delete others at least L before it. Reference absent from the
+          // listing (a later save's form 1 removed it): the spec reading is "delete nothing".
+          const ref = objects.get(n);
+          const sweep = !mut.optionB;
+          if (sweep && ref !== undefined) {
+            for (const [o, lm] of [...objects]) {
+              if (o === n) continue;
+              if (mut.sweepNoAgeGuard || lm <= ref - L) objects.delete(o);
+            }
+          } else if (sweep && mut.absentDeletesAll) {
+            for (const o of [...objects.keys()]) objects.delete(o);
           }
-          const extra = [...objects].filter(([o, age]) => o !== committed && age === 'old');
-          if (rowExists && extra.length) fails.push(`E3@${ev}`);
+          const extra = [...objects].filter(([o, lm]) => o !== committed && lm === OLD);
+          if (rowExists && ref !== undefined && extra.length) fails.push(mut.optionB ? `E3b@${ev}` : `E3@${ev}`);
         } else if (!mut.noForm2) {
           objects.delete(n);
         }
@@ -156,6 +171,7 @@ const MUTANTS = {
   'form 1 dropped (replaced object kept)': { noForm1: true },
   'form 2 dropped (refused save keeps its object)': { noForm2: true },
   'sweep without the age guard': { sweepNoAgeGuard: true },
+  'sweep with its reference absent deletes every other object': { absentDeletesAll: true },
 };
 
 const print = (rows) => {
@@ -178,6 +194,9 @@ if (process.argv.includes('--json')) {
     console.log(`\nMUTANT ${name}:`);
     print(table(m));
   }
+} else if (process.argv.includes('--option-b')) {
+  console.log('OQ-13 option b (form 3 removed): E3b marks an old orphan left after a commit (its stated limit)');
+  print(table({ optionB: true }));
 } else {
   print(table({}));
 }

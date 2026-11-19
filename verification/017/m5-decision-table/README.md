@@ -4,7 +4,25 @@ Written by `qa-hooks-017` at QA Phase 1 (plan 017, M5-e: "QA's executable oracle
 QA to this text before the implementer's tests read it"). An expected value is never computed from
 production code: the oracle is a model of the plan's text.
 
-## Current: revision 2 (agent-output `3d678cc`)
+## Current: revision 3 (agent-output `b3d811e`)
+
+`oracle.mjs` is the revision-2 model below, with two changes.
+- Objects carry `LastModified` values, and form 3's age reference is the committing save's own
+  object's `LastModified` in the same listing (AF-17), with L = 120 s.
+- A listing without that object deletes nothing (QA's reading; QAF-13 asks the plan to state it).
+
+Runs:
+- `node oracle.mjs` → `oracle-run.txt`: OQ-13 option a, 0 of 3120 violating.
+- `node oracle.mjs --option-b` → `oracle-run-option-b.txt`: form 3 removed. 220 interleavings flag
+  E3b, each an old orphan left (option b's stated limit) or `n0` present between a later save's
+  commit and the earlier save's form-1 delete. There is no B or E1 violation.
+- `--mutants` → `mutation-checks.txt`: the five mutants below plus "the sweep with its reference
+  absent deletes every other object", which fires on 12 interleavings, each a broken image (B).
+
+The revision-2 model and its runs are frozen as `oracle-rev2.mjs`, `oracle-rev2-run.txt` and
+`mutation-checks-rev2.txt`.
+
+## Revision 2 (agent-output `3d678cc`), frozen
 
 - `oracle.mjs` models two saves *s1*, *s2* of one message (s1 upserted first, so `n1` orders below
   `n2`).

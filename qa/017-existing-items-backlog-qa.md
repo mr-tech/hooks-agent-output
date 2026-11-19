@@ -4,14 +4,15 @@ Origin: 017
 UUID: 5c3e9a71
 Verified-At: "1ad625e,8de2b53 — repos=website,preview-image-generator; Phase 1 base trees (the plan's surfaces read at these SHAs; the suite and the carried probes ran in an export of website 1ad625e). No verdict is carried at Phase 1."
 Status: Awaiting Implementation
-Status-Detail: "Phase 1 re-keyed to plan revision 2 (agent-output 3d678cc). QAF-1 to QAF-9 resolved (the M5-e oracle re-keyed: 0 of 3120 interleavings violate). Open for the planner: QAF-10 MEDIUM (M5-a can learn a stale replaced nonce; needs a real-Postgres lane), QAF-12 MEDIUM (M4-a's provider move: renderer, /send update prompt, one dialog slot), QAF-11 LOW (B-7's member check)."
+Status-Detail: "Phase 1 re-keyed to plan revision 3 (agent-output b3d811e). QAF-1 to QAF-12 resolved; the M5-e oracle re-keyed to form 3's LastModified reference (0 of 3120 violate under OQ-13 option a). Open for the planner: QAF-13 MEDIUM (form 3 with its own object absent from the listing), QAF-14 LOW (B-10's liveness precondition)."
 Phase: 1
 ---
 
 # QA Report: Plan 017 — the existing-items backlog
 
-**Plan Reference**: `agent-output/planning/017-existing-items-backlog.md`, revision 2 (agent-output
-`3d678cc`), re-keyed in § "Phase 1 re-key on plan revision 2". The first pass read revision 1
+**Plan Reference**: `agent-output/planning/017-existing-items-backlog.md`, revision 3 (agent-output
+`b3d811e`), re-keyed in § "Phase 1 re-key on plan revision 3" (revision 2: § "Phase 1 re-key on plan
+revision 2"). The first pass read revision 1
 (`97e6814`; the R-4 registration at `d84b192` was read with it and changes no criterion).
 
 ## Changelog
@@ -21,6 +22,7 @@ Phase: 1
 | 2026-11-18T23:40 | steering-roadmap (brief `steering/backlog-2026-11-18-briefs/qa-hooks-017.md`) | Phase 1 test strategy on revision 1 | Phase 1. Strategy over M1–M7. Base suite re-derived in an export. AN-1 and AN-2 probes re-run at `1ad625e`. M5-e oracle written and mutation-checked. Local sign-in provisioned. G-6 walked. Register B-1 to B-11. Findings QAF-1 to QAF-9 go to `planner-hooks-017`. |
 | 2026-11-18T23:45 | steering-roadmap (`steering/017-rulings.md` 23:41Z, `1cb801c`) | Make the B-7 / QAF-9 production-log read under the Standing Default | Phase 1 amendment. Read made, read-only, aggregates only: liveness met by function stderr, not by the tRPC `onError`, which is development-only (my earlier naming was wrong); retention under 1 day. QAF-9 and B-7 amended by reconcile lines. Routing it as owner-needing was my error. Process fact: the capture's README was first written by shell heredoc, outside the record-write rule, then re-written with the Write tool. The stamp gate refused this row's first stamp (typed `23:46`, clock `23:45`). Satisfied by the `date -u` minute in this row and in the three reconcile lines. |
 | 2026-11-19T00:11 | planner-hooks-017 (revision 2, agent-output `3d678cc`) | Phase 1 re-key, including the M5-e oracle | Phase 1 re-key. Oracle re-keyed to revision 2: 0 of 3120 interleavings violate; five mutants fire. Revision-1 run frozen beside it. Postgres probe P1–P3 on a throwaway container. QAF-1 to QAF-9 dispositioned (all RESOLVED). New: QAF-10 MEDIUM (stale replaced nonce), QAF-11 LOW (B-7 member outside its query), QAF-12 MEDIUM (dialog renderer and one slot). NM-22 to NM-25; EC-1 and EC-2; B-7 amended. |
+| 2026-11-19T00:22 | planner-hooks-017 (revision 3, agent-output `b3d811e`) | Phase 1 re-key, including the oracle's age reference | Phase 1 re-key. QAF-10 to QAF-12 resolved; EC-1 withdrawn. Oracle re-keyed to form 3's LastModified reference: option a 0/3120 violating, option b's stated limit counted; the revision-2 model is frozen. New: QAF-13 MEDIUM (absent reference), QAF-14 LOW (B-10 liveness); NM-26 to NM-28; B-7 and B-10 amended. |
 
 ## Inputs read
 
@@ -518,6 +520,94 @@ hosted server's version was not read. The signature of falsity: two saves of one
 out of upsert order in production, visible as an older preview after a quick double save. Owner:
 devops, at release readiness (read `server_version` on the production database through whatever
 read access the release has), named again in the hand-off.
+
+## Phase 1 re-key on plan revision 3 (agent-output `b3d811e`)
+
+Read: the diff `3d678cc..b3d811e` over the plan (220 added and 133 removed lines, `git diff
+--numstat`), with M3-d, M4-a, M5-c, M5-f and RK-7 re-read whole. Before the write, the plan was
+confirmed unchanged since `b3d811e` (`git diff --quiet`, exit 0).
+
+### Dispositions re-derived
+
+- QAF-10 MEDIUM Phase 1 RESOLVED — M5-a reads the replaced nonce under the row lock; § Testing
+  Strategy names the real-Postgres lane (`verification/017/m5-pg/`, the implementer's, re-run by QA
+  at Phase 2). The probe form `WITH … FOR UPDATE` is the passing shape (`pg-order-probe/` P3).
+- QAF-11 LOW Phase 1 RESOLVED — M5-0 and M5-f read the probe with `--deployment <probe URL>`.
+- QAF-12 MEDIUM Phase 1 RESOLVED — M4-a: the guard has its own `ConfirmationProvider` instance and
+  `ConfirmationDialog` at `message/layout.tsx`; the editor's stay put, so `/send`'s update prompt is
+  unchanged and the two dialogs never share a slot. M4-b carries the both-dialogs member and the
+  preservation clause.
+- EC-1: withdrawn. M5-c form 3's reference is now the committed object's own `LastModified` in the
+  same listing (AF-17), so no header read is needed.
+
+### The oracle, re-keyed (`verification/017/m5-decision-table/`)
+
+`oracle.mjs` now carries `LastModified` values. Old objects are at least L old; every write in one
+window lands within 60 s of every other (D-10). Form 3 is keyed to the committing save's own
+object's `LastModified`. The revision-2 model is frozen as `oracle-rev2.mjs` with its runs.
+
+- OQ-13 option a (`node oracle.mjs`): **0 of 3120 interleavings violate**, with the reference-absent
+  case read as "the sweep deletes nothing".
+- OQ-13 option b (`--option-b`, form 3 removed): 220 interleavings flag E3b. Each is an old orphan
+  (`z`) left after a commit, which is option b's stated limit, or `n0` present between a later
+  save's commit and the earlier save's form-1 delete (transient). No B or E1 violation.
+- Mutants (`--mutants`): the five carried ones still fire (312, 1708, 20, 336, 48). A sixth, "the
+  sweep with its reference absent deletes every other object", fires on 12 interleavings, each a
+  **broken image** (QAF-13).
+
+### Findings on revision 3 (to `planner-hooks-017`)
+
+QAF-13 MEDIUM Phase 1 — **M5-c form 3 does not say what the sweep does when the committed object
+is absent from its own listing, and one natural answer deletes the committed image.** The
+interleaving is `W1 C1 W2 C2 D2 D1`:
+1. s1 commits `n1`.
+2. s2 commits `n2` and its form 1 deletes `n1`.
+3. s1's form 3 lists the prefix, but its reference `n1` is gone.
+
+A sweep that falls back to "no reference, so everything else is older" deletes `n2`. The row then
+names an object that no longer exists, a broken image (oracle mutant, B@D1 in 12 interleavings).
+Reading "no reference, so delete nothing" leaves 0 violations. Asked: M5-c form 3 states that a
+listing without the committing save's own object deletes nothing. NM-26.
+
+QAF-14 LOW Phase 1 — **B-10 (RK-7) reads "zero over the 30 days is no member observed" with no
+liveness precondition.** The count's shape is new (M6-c's `error-status` line, added to
+`pig-host-read.sh` in this chain), so a zero is evidence only after two checks:
+- the changed script has been seen to count one line of M6-c's exact shape, run locally against a
+  fixture as AN-4's scripts were;
+- the read region holds the deploy's own lines (a `Generated image` count since the deploy above
+  zero).
+
+Asked: RK-7's reader names both. B-10 is amended below.
+
+### Named mutants added
+
+- NM-26 — form 3's sweep, finding no committing object in its listing, deletes every other object
+  (or measures against the function's clock instead) — M5-c form 3, M5-b (QAF-13).
+- NM-27 — the D-18 suppression keys on `NavMenu`'s button rather than on the act, so the signed-in
+  Log out also leaves without its prompt — M3-d's table (Log out row, X-8).
+- NM-28 — the D-18 suppression lowers the unload flag and leaves it lowered when the sign-in does
+  not leave the page (cancelled or blocked), so a later close or reload loses its prompt — M3-d.
+
+### Register amendments
+
+- B-7, reconcile 2026-11-19T00:22Z: the reader is a crontab line installed by devops at Stage 1. It
+  runs every 12 h over 23-hour windows and counts the union of records by record id. Earliest read is
+  12 h after the website deploy. Artifact: `verification/017/post-deploy/b7/<UTC stamp>.json` (plan
+  M5-f "Reader"). The 00:11Z member check (`--deployment <probe URL>`) stands.
+- B-10, reconcile 2026-11-19T00:22Z: reader as RK-7 states. It is a crontab line, earliest 30 days
+  after the generator deploy, counting M6-c's `error-status` lines through `pig-host-read.sh`, with
+  artifact `verification/017/post-deploy/b10/<UTC stamp>.txt`. Liveness precondition before a zero
+  is read: QAF-14's two checks.
+
+### Assumption Not Checked (this pass)
+
+This pass assumes the bucket (DigitalOcean Spaces) reports `LastModified` at the write's completion
+on one clock for every object of a prefix, as S3 does, and does not test it. If it is false, two
+objects written seconds apart could differ by more than L, and a live save's object would be swept.
+That would show as a broken preview right after a save, with the image's object missing from the
+bucket. Owner: the implementer, as M5-c's first step against the real bucket's `dev/` prefix, two
+puts seconds apart and their listed `LastModified` compared. If that read is not run, devops at
+release readiness. Named again in the hand-off.
 
 ## Assumption Not Checked
 

@@ -1,0 +1,50 @@
+OQ-13 option b (form 3 removed): E3b marks an old orphan left after a commit (its stated limit)
+rows 36, interleavings 3120, violating 220, with late-write residue 736
+  s1=ok s2=ok delete=false orphan=false: 3/20
+      [W1 C1 W2 C2 D2 D1] E3b@D2 prefix{n2}
+      [W1 W2 C1 C2 D2 D1] E3b@D2 prefix{n2}
+      [W2 W1 C1 C2 D2 D1] E3b@D2 prefix{n2}
+  s1=ok s2=ok delete=false orphan=true: 20/20
+      [W1 C1 D1 W2 C2 D2] E3b@D1,E3b@D2 prefix{n2,z}
+      [W1 C1 W2 D1 C2 D2] E3b@D1,E3b@D2 prefix{n2,z}
+      [W1 C1 W2 C2 D1 D2] E3b@D1,E3b@D2 prefix{n2,z}
+  s1=ok s2=ok delete=true orphan=false: 9/560
+      [W1 C1 W2 C2 D2 D1 X P] E3b@D2 prefix{}
+      [W1 C1 W2 C2 D2 X D1 P] E3b@D2 prefix{}
+      [W1 C1 W2 C2 D2 X P D1] E3b@D2 prefix{}
+  s1=ok s2=ok delete=true orphan=true: 86/560
+      [W1 C1 D1 W2 C2 D2 X P] E3b@D1,E3b@D2 prefix{}
+      [W1 C1 D1 W2 C2 X D2 P] E3b@D1 prefix{}
+      [W1 C1 D1 W2 C2 X P D2] E3b@D1 prefix{}
+  s1=ok s2=fail delete=false orphan=true: 4/4
+      [W1 C1 D1 F2] E3b@D1 prefix{n1,z}
+      [W1 C1 F2 D1] E3b@D1 prefix{n1,z}
+      [W1 F2 C1 D1] E3b@D1 prefix{n1,z}
+  s1=ok s2=fail delete=true orphan=true: 6/60
+      [W1 C1 D1 F2 X P] E3b@D1 prefix{}
+      [W1 C1 D1 X F2 P] E3b@D1 prefix{}
+      [W1 C1 D1 X P F2] E3b@D1 prefix{}
+  s1=ok s2=late delete=false orphan=true: 14/14
+      [W1 C1 D1 F2 W2] E3b@D1 prefix{n1,n2,z}
+      [W1 C1 D1 F2] E3b@D1 prefix{n1,z}
+      [W1 C1 F2 D1 W2] E3b@D1 prefix{n1,n2,z}
+  s1=ok s2=late delete=true orphan=true: 27/270
+      [W1 C1 D1 F2 W2 X P] E3b@D1 prefix{}
+      [W1 C1 D1 F2 X P] E3b@D1 prefix{}
+      [W1 C1 D1 F2 X W2 P] E3b@D1 prefix{}
+  s1=fail s2=ok delete=false orphan=true: 4/4
+      [F1 W2 C2 D2] E3b@D2 prefix{n2,z}
+      [W2 F1 C2 D2] E3b@D2 prefix{n2,z}
+      [W2 C2 F1 D2] E3b@D2 prefix{n2,z}
+  s1=fail s2=ok delete=true orphan=true: 6/60
+      [F1 W2 C2 D2 X P] E3b@D2 prefix{}
+      [W2 F1 C2 D2 X P] E3b@D2 prefix{}
+      [W2 C2 F1 D2 X P] E3b@D2 prefix{}
+  s1=late s2=ok delete=false orphan=true: 14/14
+      [F1 W1 W2 C2 D2] E3b@D2 prefix{n1,n2,z}
+      [F1 W2 C2 D2] E3b@D2 prefix{n2,z}
+      [F1 W2 W1 C2 D2] E3b@D2 prefix{n1,n2,z}
+  s1=late s2=ok delete=true orphan=true: 27/270
+      [F1 W1 W2 C2 D2 X P] E3b@D2 prefix{}
+      [F1 W2 C2 D2 X P] E3b@D2 prefix{}
+      [F1 W2 W1 C2 D2 X P] E3b@D2 prefix{}
