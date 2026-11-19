@@ -632,3 +632,20 @@ Registered: D-30, R-25, agent-output `6daa353` (05:08Z; `git log -1` read by thi
 error: its message to the planner said "Noted from the plan itself (R-25, 2df9c3c)", echoing the
 planner's unread SHA (`2df9c3c` is not an object). The planner corrected its own SHA; this line corrects
 mine.
+
+## 2026-11-19T05:19Z — implementation of M5, M6 and M8 starts on revision 7
+
+Every pre-code gate has approved revision 7 (`6ade256`, 05:16:40Z), read this turn:
+- critic cycle 2 pass 2 APPROVED, critique Status "Resolved", F-1 to F-28 resolved (`2ed550b`);
+- architect delta read: APPROVED stands, no finding, AF-23 folded (`0e380fc`; R-27 `3a7d073`);
+- QA Phase 1 re-keyed to revision 7, no finding, QAF-20 and QAF-21 resolved (`qa/017-existing-items-backlog-qa.md`,
+  **`7eda138`**; R-28 `2b8aea5`).
+- Gate M5-0 met: limb 2 kept alive, limb 3 lasts (`deployment/017-existing-items-backlog-m5-0-probe-deployment.md`,
+  `8f26f37`), T = 40 s stands.
+- Open questions: none (`grep '^**OPEN QUESTION OQ-'` on the plan: 0 unresolved; 15 marked resolved).
+- Handoffs opened after revision 7: none (`git log --since=2026-11-19T05:16:40Z --diff-filter=A` on
+  `handoff/`, 0 paths; `git status --porcelain -- handoff/`, 0 lines).
+- Website: `chain/017-existing-items-backlog` at `5c3d03f`; tree clean but for the held `.playwright-mcp/`.
+**Implementation of M5, M6 and M8 starts on revision 7** (`6ade256`), QA Phase 1 at `7eda138`; M7 last
+(§ Plan). This lifts the 05:01Z hold. The generator branch is devops's to name (plan § Plan) before M6
+code in `preview-image-generator`.
