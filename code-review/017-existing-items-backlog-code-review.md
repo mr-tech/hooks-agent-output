@@ -1048,7 +1048,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Resumption State
 
-Updated at Round 7's verdict, 2026-11-19T07:34Z, by the resumed session. Previously written at the checkpoint for the chain's park, 2026-11-19T07:16Z (owner's word, "park the chain"; `steering/017-rulings.md` block 2026-11-19T07:15Z, `cffd802`; relayed by steering-roadmap-hooks). It was written with the Edit tool. The 05:52Z checkpoint's python-script disclosure stands in that revision's commit (`00e6bb8`), and Round 5's sub-entry repeats it (changelog 06:06).
+Checkpoint at steering's word (context threshold), 2026-11-19T18:2xZ, after Round 10's verdict. Earlier update: at Round 7's verdict, 2026-11-19T07:34Z, by the resumed session. Previously written at the checkpoint for the chain's park, 2026-11-19T07:16Z (owner's word, "park the chain"; `steering/017-rulings.md` block 2026-11-19T07:15Z, `cffd802`; relayed by steering-roadmap-hooks). It was written with the Edit tool. The 05:52Z checkpoint's python-script disclosure stands in that revision's commit (`00e6bb8`), and Round 5's sub-entry repeats it (changelog 06:06).
 
 - **Done**:
   - Round 1 (M1): APPROVED_WITH_COMMENTS at `8147661`.
@@ -1058,7 +1058,11 @@ Updated at Round 7's verdict, 2026-11-19T07:34Z, by the resumed session. Previou
   - Round 5 (M8): REJECTED after reconcile at `c37d41a` (CR-13 MEDIUM, a duplicate of QAF-22; CR-12 LOW), published as APPROVED_WITH_COMMENTS. Its sub-entry approved both at `6555f65`.
   - Round 6 (M5): APPROVED_WITH_COMMENTS at `f83f2ca` (CR-14 and CR-15 LOW). Its sub-entry approved both at `4b8db9c`. Instruments: `verification/017/code-review/m5/attack/` (`run.sh <sha> <out> [control id]`).
   - Round 7 (M6): REJECTED at generator `8512a1d` on CR-16 MEDIUM (record script), with CR-17 and CR-18 LOW. The generator code is sound. Instruments: `verification/017/code-review/m6/attack/run.sh <export> <out>`, `liveness-scope/run.sh <out>`, and `rig-tip/` and `rig-base/`.
-  - My plan rows: R-8, R-10, R-12, R-13, R-15, R-16, R-18, R-19, R-22, R-30, R-32, R-33, R-35, R-36 and R-38.
+  - Round 7's sub-entry: APPROVED at agent-output `008468b`. The QAF-24 lane check passed (Round 6 sub-entry, continued).
+  - Round 8 (M7): APPROVED_WITH_COMMENTS at `4b8db9c`. Its sub-entry confirmed CR-19 at `97e13e0`.
+  - Round 9 (M2 fix round 3, UAT-1): REJECTED at `42d15de` on CR-20. Its sub-entry APPROVED the producer-side fix at `60252be`.
+  - Round 10 (M2-d disconnect): REJECTED at `33e59f7` on CR-21, test-only. Instruments: `code-review/m2d/make-probe.py <export>` (mounted provider) and `make-nm44-probe.py <export> [--mutant]`, run with `code-review/m2-cr20/vitest.probe.config.mjs`.
+  - My plan rows: R-8, R-10, R-12, R-13, R-15, R-16, R-18, R-19, R-22, R-30, R-32, R-33, R-35, R-36, R-38, R-39, R-40, R-42, R-43, R-49, R-54 (committed inside the planner's `a971ed8`, verified) and R-56.
   - QA hand-offs were sent for each approval. The last two were for M5: `ecf3c9a9` at `f83f2ca`, then `ff73fabd` saying the tip is `4b8db9c`. QA Complete for M5 at `4b8db9c` (plan R-37).
 - **In flight**: Round 10 (M2-d) is REJECTED at `33e59f7` on CR-21 (test-only), waiting on the implementer.
 - **Next, on resume**: the Round 10 sub-entry. Re-run `code-review/m2d/make-nm44-probe.py --mutant` against the implementer's new case, which must go red, and confirm the diff is test-only. Re-read M7-b at the new tip.
@@ -1068,9 +1072,9 @@ Updated at Round 7's verdict, 2026-11-19T07:34Z, by the resumed session. Previou
 - **Waiting on others, not blocking**:
   - UAT B-3 (Round 4 assumption), B-13 (Round 5 and its sub-entry), and B-6 with a read-only prefix listing (Round 6 assumption) and the fallback-line look (Round 7 assumption).
 - **Questions sent**: none open.
-- **Branch and HEAD**: website `chain/017-existing-items-backlog` at `4b8db9c`, the reviewed M5 tip. preview-image-generator `chain/017-existing-items-backlog` at `8512a1d`, reviewed in Round 7 (REJECTED on a record finding). This session never moved either shared tree.
+- **Branch and HEAD**: website `chain/017-existing-items-backlog` at `33e59f7` (Round 10's tree). preview-image-generator `chain/017-existing-items-backlog` at `8512a1d`, approved in Round 7's sub-entry. This session never moved either shared tree.
 - **Uncommitted**: `agent-output/INBOX.md` holds my FYI entries: CR-2, the M3 `Handoff-At` placeholder (since fixed), CR-9's pre-existing members (now M8's), and the M4 document's citation of a missing M5 document (record-check failure at `implementation/017-existing-items-backlog-m4-implementation.md:400`). The inbox is left uncommitted by rule, for its owning session. Nothing else of mine is uncommitted.
-- **Mutated state**: none. Every mutant and attack ran in a `mutation-run.py` or `git archive` export, all of which are deleted. Round 7's generator exports in the scratchpad (`r7/tip`, `base`, `ctl-empty`) were removed at round end, and no process of theirs remains (`pgrep -fa`, 0). No `cr017-attack` container is left (`docker ps -a`), no `/dev/shm/cra.*` directory remains, and no process of mine is running (`pstree`). Evidence not yet recorded: none.
+- **Mutated state**: none. Every mutant and attack ran in a `mutation-run.py` or `git archive` export, all of which are deleted. Round 7's generator exports in the scratchpad (`r7/tip`, `base`, `ctl-empty`) were removed at round end, and no process of theirs remains (`pgrep -fa`, 0). Rounds 9 and 10's website exports (`r9`, `r10`, `r10b`, `mr-cr20`) were removed after each run. The lints ran read-only in the shared tree, which was never moved. No `cr017-attack` container is left (`docker ps -a`), no `/dev/shm/cra.*` directory remains, and no process of mine is running (`pstree`). Evidence not yet recorded: none.
 - **Instruments to reuse**:
   - `verification/017/code-review/m1/vitest.probe.config.mjs`, passed to `mutation-run.py` as `--config <abs path>` with `--dep node_modules -- node_modules/.bin/vitest run --no-cache --configLoader runner`;
   - `verification/017/code-review/m4/probe-enter-both/` (two-prompt Enter probe, with its README);
