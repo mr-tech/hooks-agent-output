@@ -1,0 +1,64 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves for the address, in this tab and with no second browser prompt, once confirmed
+AssertionError: expected "vi.fn()" to be called once with arguments: [ true ]
+
+Received:
+
+  1st vi.fn() call:
+
+  [
+-   true,
++   false,
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:298:29
+    296|
+    297|     expect(assigned).toHaveBeenCalledExactlyOnceWith(OUTSIDE);
+    298|     expect(leavingAtAssign).toHaveBeenCalledExactlyOnceWith(true);
+       |                             ^
+    299|     expect(hoisted.push).not.toHaveBeenCalled();
+    300|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed
+AssertionError: expected "vi.fn()" to be called once with arguments: [ true ]
+
+Received:
+
+  1st vi.fn() call:
+
+  [
+-   true,
++   false,
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:309:30
+    307|
+    308|     expect(replaced).toHaveBeenCalledExactlyOnceWith(OUTSIDE);
+    309|     expect(leavingAtReplace).toHaveBeenCalledExactlyOnceWith(true);
+       |                              ^
+    310|     expect(assigned).not.toHaveBeenCalled();
+    311|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

@@ -1,0 +1,734 @@
+stderr | src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx > NavMenu, its links away from an editor with unsaved changes > asks before Create Message leaves the page
+An update to Dropdown inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx > NavMenu, its links away from an editor with unsaved changes > asks before Servers leaves the page
+An update to Dropdown inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+stderr | src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx > NavMenu, its links away from an editor with unsaved changes > asks before Invite Bot, a link to another site, leaves the page
+An update to Dropdown inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar logo leaves the page
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar edit link leaves the page
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar terms link leaves the page
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar privacy link leaves the page
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar servers link leaves the page
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar account link leaves the page
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 39 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > asks first, and does not navigate, when the guard holds the destination
+AssertionError: expected 'go /message/f/0' to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go /message/f/0"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:113:39
+    111|     click(link('go /message/f/0'));
+    112|
+    113|     expect(document.body.textContent).toContain(TITLE);
+       |                                       ^
+    114|     expect(linkRouter.push).not.toHaveBeenCalled();
+    115|     expect(hoisted.push).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/39]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > asks for a link activated from the keyboard, a click with no pointer detail
+AssertionError: expected 'go /message/f/0' to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go /message/f/0"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:132:39
+    130|     click(link('go /message/f/0'), { detail: 0 });
+    131|
+    132|     expect(document.body.textContent).toContain(TITLE);
+       |                                       ^
+    133|     expect(linkRouter.push).not.toHaveBeenCalled();
+    134|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/39]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > keeps the user on the page when the prompt is cancelled
+AssertionError: no "Cancel" button in the dialog: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:49:105
+     47|     : Array.from(document.body.querySelectorAll('[role="dialog"]')).fi…
+     48|   const button = Array.from(scope?.querySelectorAll('button') ?? []).f…
+     49|   expect(button, `no "${text}" button in the dialog${title === undefin…
+       |                                                                                                         ^
+     50|   return button as HTMLElement;
+     51| }
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:140:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/39]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > navigates to the clicked destination when the prompt is confirmed
+AssertionError: no "Leave Page" button in the dialog: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:49:105
+     47|     : Array.from(document.body.querySelectorAll('[role="dialog"]')).fi…
+     48|   const button = Array.from(scope?.querySelectorAll('button') ?? []).f…
+     49|   expect(button, `no "${text}" button in the dialog${title === undefin…
+       |                                                                                                         ^
+     50|   return button as HTMLElement;
+     51| }
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:155:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/39]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > replaces the history entry on confirm for a link that replaces
+AssertionError: no "Leave Page" button in the dialog: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:49:105
+     47|     : Array.from(document.body.querySelectorAll('[role="dialog"]')).fi…
+     48|   const button = Array.from(scope?.querySelectorAll('button') ?? []).f…
+     49|   expect(button, `no "${text}" button in the dialog${title === undefin…
+       |                                                                                                         ^
+     50|   return button as HTMLElement;
+     51| }
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:165:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/39]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > keeps the newer guard when an older registration is withdrawn
+AssertionError: expected 'go home' to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go home"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:236:39
+    234|     click(link('go home'));
+    235|
+    236|     expect(document.body.textContent).toContain(TITLE);
+       |                                       ^
+    237|   });
+    238|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/39]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > asks first, and does not leave, when the guard holds a link to another site
+AssertionError: expected 'go https://discord.com/oauth2/authori…' to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go https://discord.com/oauth2/authorize?client_id=1"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:278:39
+    276|     click(link(`go ${OUTSIDE}`));
+    277|
+    278|     expect(document.body.textContent).toContain(TITLE);
+       |                                       ^
+    279|     expect(assigned).not.toHaveBeenCalled();
+    280|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/39]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves for the address, in this tab and with no second browser prompt, once confirmed
+AssertionError: no "Leave Page" button in the dialog: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:49:105
+     47|     : Array.from(document.body.querySelectorAll('[role="dialog"]')).fi…
+     48|   const button = Array.from(scope?.querySelectorAll('button') ?? []).f…
+     49|   expect(button, `no "${text}" button in the dialog${title === undefin…
+       |                                                                                                         ^
+     50|   return button as HTMLElement;
+     51| }
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:295:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/39]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed
+AssertionError: no "Leave Page" button in the dialog: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:49:105
+     47|     : Array.from(document.body.querySelectorAll('[role="dialog"]')).fi…
+     48|   const button = Array.from(scope?.querySelectorAll('button') ?? []).f…
+     49|   expect(button, `no "${text}" button in the dialog${title === undefin…
+       |                                                                                                         ^
+     50|   return button as HTMLElement;
+     51| }
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:306:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/39]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > stays when the prompt for a link to another site is cancelled
+AssertionError: no "Cancel" button in the dialog: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:49:105
+     47|     : Array.from(document.body.querySelectorAll('[role="dialog"]')).fi…
+     48|   const button = Array.from(scope?.querySelectorAll('button') ?? []).f…
+     49|   expect(button, `no "${text}" button in the dialog${title === undefin…
+       |                                                                                                         ^
+     50|   return button as HTMLElement;
+     51| }
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:317:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/39]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > reads a URL object as the address it holds
+AssertionError: no "Leave Page" button in the dialog: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:49:105
+     47|     : Array.from(document.body.querySelectorAll('[role="dialog"]')).fi…
+     48|   const button = Array.from(scope?.querySelectorAll('button') ?? []).f…
+     49|   expect(button, `no "${text}" button in the dialog${title === undefin…
+       |                                                                                                         ^
+     50|   return button as HTMLElement;
+     51| }
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:373:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/39]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > asks for a link to another site that names this tab as its target
+AssertionError: expected 'go https://discord.com/oauth2/authori…' to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go https://discord.com/oauth2/authorize?client_id=1"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:384:39
+    382|     click(link(`go ${OUTSIDE}`));
+    383|
+    384|     expect(document.body.textContent).toContain(TITLE);
+       |                                       ^
+    385|   });
+    386|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/39]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > treats an absolute address on this site as a link on this site
+AssertionError: no "Leave Page" button in the dialog: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:49:105
+     47|     : Array.from(document.body.querySelectorAll('[role="dialog"]')).fi…
+     48|   const button = Array.from(scope?.querySelectorAll('button') ?? []).f…
+     49|   expect(button, `no "${text}" button in the dialog${title === undefin…
+       |                                                                                                         ^
+     50|   return button as HTMLElement;
+     51| }
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:421:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/39]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > the link prompt beside the editor's own prompt > keeps both prompts open when they are raised together, each answered on its own
+AssertionError: expected 'raise editor promptgo homeMessage Upd…' to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "raise editor promptgo homeMessage Update DetectedmCancelReload"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:464:39
+    462|
+    463|     expect(document.body.textContent).toContain('Message Update Detect…
+    464|     expect(document.body.textContent).toContain(TITLE);
+       |                                       ^
+    465|
+    466|     press(dialogButton('Cancel', TITLE));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/39]⎯
+
+ FAIL  |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx > NavMenu, its links away from an editor with unsaved changes > asks before Create Message leaves the page
+ FAIL  |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx > NavMenu, its links away from an editor with unsaved changes > asks before Servers leaves the page
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx:82:24
+     80|     click(item(text));
+     81|
+     82|     expect(prompted()).toBe(true);
+       |                        ^
+     83|     expect(linkRouter.push).not.toHaveBeenCalled();
+     84|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/39]⎯
+
+ FAIL  |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx > NavMenu, its links away from an editor with unsaved changes > asks before Invite Bot, a link to another site, leaves the page
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx:91:24
+     89|     click(item('Invite Bot'));
+     90|
+     91|     expect(prompted()).toBe(true);
+       |                        ^
+     92|     expect(hoisted.assign).not.toHaveBeenCalled();
+     93|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/39]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > asks before the avatar link leaves the editor, and Cancel keeps the edits
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:260:24
+    258|
+    259|     click(linkTo('/message/f/0'));
+    260|     expect(prompted()).toBe(true);
+       |                        ^
+    261|     expect(linkRouter.push).not.toHaveBeenCalled();
+    262|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/39]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > navigates to the avatar link when the prompt is confirmed
+AssertionError: no dialog titled "You have unsaved changes!": expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/app/message/__tests__/layout.navigation-guard.test.tsx:186:49
+    184| function dialogButton(text: string, title: string) {
+    185|   const dialog = Array.from(document.body.querySelectorAll('[role="dia…
+    186|   expect(dialog, `no dialog titled "${title}"`).toBeTruthy();
+       |                                                 ^
+    187|   const found = Array.from(dialog?.querySelectorAll('button') ?? []).f…
+    188|   expect(found, `no "${text}" button`).toBeTruthy();
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:279:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/39]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > asks the same for a link rendered inside the editor's own providers
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:290:24
+    288|     click(link('inside the editor'));
+    289|
+    290|     expect(prompted()).toBe(true);
+       |                        ^
+    291|     expect(linkRouter.push).not.toHaveBeenCalled();
+    292|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/39]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > asks for a link activated from the keyboard
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:300:24
+    298|     click(linkTo('/message/f/0'), { detail: 0 });
+    299|
+    300|     expect(prompted()).toBe(true);
+       |                        ^
+    301|   });
+    302|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/39]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > link to https://other.example/message/m/4/edit: asks is true
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > link to /message/m/4/edit/extra: asks is true
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > link to /message/m/new: asks is true
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:328:24
+    326|     click(link(`to ${href}`));
+    327|
+    328|     expect(prompted()).toBe(asks);
+       |                        ^
+    329|   });
+    330|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/39]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar logo leaves the page
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar edit link leaves the page
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar terms link leaves the page
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar privacy link leaves the page
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar servers link leaves the page
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar account link leaves the page
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:361:24
+    359|     click(linkTo(href));
+    360|
+    361|     expect(prompted()).toBe(true);
+       |                        ^
+    362|     expect(linkRouter.push).not.toHaveBeenCalled();
+    363|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/39]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > search result to another message whose id starts with this one: asks is 4
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > search result to another message whose id is a prefix of this one: asks is 42
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:392:24
+    390|     click(linkTo(`/message/m/${other}/edit`));
+    391|
+    392|     expect(prompted()).toBe(asks);
+       |                        ^
+    393|     expect(linkRouter.push).toHaveBeenCalledTimes(asks ? 0 : 1);
+    394|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/39]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the crumb to the server's folder leaves the page
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:423:24
+    421|     click(linksTo('/message/f/123')[0]);
+    422|
+    423|     expect(prompted()).toBe(true);
+       |                        ^
+    424|     expect(linkRouter.push).not.toHaveBeenCalled();
+    425|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/39]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before either crumb to the user's folder leaves the page
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:434:24
+    432|     click(linksTo('/message/f/0')[1]);
+    433|
+    434|     expect(prompted()).toBe(true);
+       |                        ^
+    435|     expect(linkRouter.push).not.toHaveBeenCalled();
+    436|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/39]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:457:24
+    455|
+    456|     click(invite);
+    457|     expect(prompted()).toBe(true);
+       |                        ^
+    458|     expect(hoisted.assign).not.toHaveBeenCalled();
+    459|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/39]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > keeps both open when raised together, each answered on its own, with a link inside the editor
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:476:24
+    474|
+    475|     expect(document.body.textContent).toContain('Message Update Detect…
+    476|     expect(prompted()).toBe(true);
+       |                        ^
+    477|
+    478|     press(dialogButton('Cancel', TITLE));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[27/39]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first
+AssertionError: expected 2 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 2
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:507:79
+    505|     enter();
+    506|
+    507|     expect(hoisted.push.mock.calls.length + hoisted.reload.mock.calls.…
+       |                                                                               ^
+    508|     expect(hoisted.push).toHaveBeenCalledTimes(linkHasFocus ? 1 : 0);
+    509|     expect(hoisted.reload).toHaveBeenCalledTimes(linkHasFocus ? 0 : 1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[28/39]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > renders no editor prompt on the send page, and still asks for its links
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:530:24
+    528|
+    529|     click(link('inside the editor'));
+    530|     expect(prompted()).toBe(true);
+       |                        ^
+    531|   });
+    532| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[29/39]⎯
+

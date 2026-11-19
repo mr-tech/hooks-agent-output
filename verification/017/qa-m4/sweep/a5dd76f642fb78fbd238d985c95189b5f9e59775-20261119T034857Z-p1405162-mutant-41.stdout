@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/daf5a54e-bef7-4342-b313-0f6130283673/scratchpad/mr-work/20261119T034857Z-p1405162/mutant-41
+
+ ❯ |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx (4 tests | 2 failed) 651ms
+     × asks before Create Message leaves the page 315ms
+     × asks before Servers leaves the page 120ms
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 4 failed) 1412ms
+     × asks first, and does not navigate, when the guard holds the destination 91ms
+     × asks for a link activated from the keyboard, a click with no pointer detail 51ms
+     × keeps the user on the page when the prompt is cancelled 168ms
+     × replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed 66ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 12 failed) 3840ms
+     × asks before the avatar link leaves the editor, and Cancel keeps the edits 514ms
+     × asks the same for a link rendered inside the editor's own providers 229ms
+     × asks before the sidebar logo leaves the page 105ms
+     × asks before the sidebar edit link leaves the page 84ms
+     × asks before the sidebar terms link leaves the page 102ms
+     × asks before the sidebar privacy link leaves the page 97ms
+     × asks before the sidebar servers link leaves the page 74ms
+     × asks before the sidebar account link leaves the page 71ms
+     × search result to another message whose id starts with this one: asks is 4 87ms
+     × search result to another message whose id is a prefix of this one: asks is 42 99ms
+     × asks before the crumb to the server's folder leaves the page 83ms
+     × asks before either crumb to the user's folder leaves the page 74ms
+
+ Test Files  3 failed | 133 passed (136)
+      Tests  18 failed | 1675 passed (1693)
+   Start at  04:01:42
+   Duration  16.02s (transform 21.92s, setup 1.68s, import 117.38s, tests 33.57s, environment 77.08s)
+

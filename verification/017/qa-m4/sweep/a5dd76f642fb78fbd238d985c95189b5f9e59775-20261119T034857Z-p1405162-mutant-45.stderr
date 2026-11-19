@@ -1,0 +1,49 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > asks for a link activated from the keyboard, a click with no pointer detail
+AssertionError: expected 'go /message/f/0' to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go /message/f/0"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:132:39
+    130|     click(link('go /message/f/0'), { detail: 0 });
+    131|
+    132|     expect(document.body.textContent).toContain(TITLE);
+       |                                       ^
+    133|     expect(linkRouter.push).not.toHaveBeenCalled();
+    134|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > asks for a link activated from the keyboard
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:300:24
+    298|     click(linkTo('/message/f/0'), { detail: 0 });
+    299|
+    300|     expect(prompted()).toBe(true);
+       |                        ^
+    301|   });
+    302|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

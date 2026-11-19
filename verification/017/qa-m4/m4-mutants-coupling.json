@@ -1,0 +1,10 @@
+[
+ {"id": "qa-onclick-holds-every-link", "file": "src/components/StyledLink.tsx",
+  "old": "if (e.defaultPrevented || !opensInThisTab(e) || isOnThisSite(href)) return;",
+  "new": "if (e.defaultPrevented) return;",
+  "tests": ["src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx", "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"]},
+ {"id": "qa-onclick-holds-local-links-ignoring-modifiers", "file": "src/components/StyledLink.tsx",
+  "old": "if (e.defaultPrevented || !opensInThisTab(e) || isOnThisSite(href)) return;",
+  "new": "if (e.defaultPrevented || (!opensInThisTab(e) && !isOnThisSite(href))) return;",
+  "tests": ["src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx", "src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx"]}
+]

@@ -1,0 +1,28 @@
+[
+ {
+  "name": "qa-nm29-link-resolves-nearest-confirmation",
+  "edits": [
+   {
+    "file": "src/components/StyledLink.tsx",
+    "old": "import { useNavigationGuard } from '~/providers/NavigationGuardProvider';\n",
+    "new": "import { useNavigationGuard } from '~/providers/NavigationGuardProvider';\nimport { Context as ConfirmationContext } from '~/providers/ConfirmationProvider';\nimport { use } from 'react';\n"
+   },
+   {
+    "file": "src/components/StyledLink.tsx",
+    "old": "  const { intercept } = useNavigationGuard();\n",
+    "new": "  const { intercept: guardIntercept } = useNavigationGuard();\n  const nearest = use(ConfirmationContext);\n  const intercept = (l: Parameters<typeof guardIntercept>[0]) => guardIntercept({ ...l, show: nearest?.showConfirmation } as never);\n"
+   },
+   {
+    "file": "src/providers/NavigationGuardProvider.tsx",
+    "old": "    intercept({\n      href, external, replace, scroll,\n    }) {\n",
+    "new": "    intercept({\n      href, external, replace, scroll, show,\n    }: GuardedLink & { show?: typeof showConfirmation }) {\n"
+   },
+   {
+    "file": "src/providers/NavigationGuardProvider.tsx",
+    "old": "      showConfirmation({\n        enabled: true,\n",
+    "new": "      (show ?? showConfirmation)({\n        enabled: true,\n"
+   }
+  ],
+  "tests": []
+ }
+]

@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/daf5a54e-bef7-4342-b313-0f6130283673/scratchpad/mr-work/20261119T034857Z-p1405162/mutant-33
+
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 1 failed) 1570ms
+     × navigates as before on a page with no guard provider 19ms
+
+ Test Files  1 failed | 135 passed (136)
+      Tests  1 failed | 1692 passed (1693)
+   Start at  03:59:19
+   Duration  16.95s (transform 22.75s, setup 1.65s, import 123.92s, tests 35.25s, environment 84.18s)
+

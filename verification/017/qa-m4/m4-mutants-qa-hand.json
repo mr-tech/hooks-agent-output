@@ -1,0 +1,86 @@
+[
+ {
+  "id": "qa-nm8-same-message-by-prefix",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "&& /^\\/message\\/m\\/(\\d+)\\/(?:edit|send)\\/?$/.exec(url.pathname)?.[1] === messageId;",
+  "new": "&& url.pathname.startsWith(`/message/m/${messageId}`);"
+ },
+ {
+  "id": "qa-same-message-end-unanchored",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "(?:edit|send)\\/?$/",
+  "new": "(?:edit|send)\\/?/"
+ },
+ {
+  "id": "qa-same-message-origin-dropped",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "url.origin === window.location.origin\n    && /",
+  "new": "/"
+ },
+ {
+  "id": "qa-nm9-pointer-only",
+  "file": "src/components/StyledLink.tsx",
+  "old": "          if (intercept({ href: hrefToString(rest.href), replace, scroll })) e.preventDefault();\n        },\n        onClick: (e: MouseEvent<HTMLAnchorElement>) => {\n",
+  "new": "          if (Reflect.get(globalThis, 'qaPointer') !== false && intercept({ href: hrefToString(rest.href), replace, scroll })) e.preventDefault();\n        },\n        onClick: (e: MouseEvent<HTMLAnchorElement>) => {\n          Reflect.set(globalThis, 'qaPointer', e.detail > 0);\n          if (e.detail === 0) return;\n"
+ },
+ {
+  "id": "qa-nm24-modified-click-held",
+  "file": "src/components/StyledLink.tsx",
+  "old": "if (e.defaultPrevented || !opensInThisTab(e) || isOnThisSite(href)) return;",
+  "new": "if (e.defaultPrevented || isOnThisSite(href)) return;"
+ },
+ {
+  "id": "qa-nm25-editor-prompt-shares-layout-slot",
+  "file": "src/app/message/m/[id]/layout.tsx",
+  "old": "    <ConfirmationProvider>\n      <WebhookProvider>\n        <MessageProvider>\n          <Navigation key=\"navigation\" />\n          {children}\n        </MessageProvider>\n      </WebhookProvider>\n    </ConfirmationProvider>\n",
+  "new": "    <>\n      <WebhookProvider>\n        <MessageProvider>\n          <Navigation key=\"navigation\" />\n          {children}\n        </MessageProvider>\n      </WebhookProvider>\n    </>\n"
+ },
+ {
+  "id": "qa-enter-lone-dialog-dead",
+  "file": "src/components/ConfirmationDialog.tsx",
+  "old": "if (ref.current?.closest(",
+  "new": "if (document.querySelectorAll('[role=\"dialog\"]').length > 1 && ref.current?.closest("
+ },
+ {
+  "id": "qa-scroll-not-passed",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "(href, { scroll });",
+  "new": "(href, {});"
+ },
+ {
+  "id": "qa-replace-not-passed-local",
+  "file": "src/components/StyledLink.tsx",
+  "old": "const { replace, scroll } = rest;",
+  "new": "const { scroll } = rest; const replace = undefined;"
+ },
+ {
+  "id": "qa-external-confirm-without-suppression",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "void leaveWithoutAlert(async () => window.location[replace ? 'replace' : 'assign'](href));",
+  "new": "window.location[replace ? 'replace' : 'assign'](href);"
+ },
+ {
+  "id": "qa-guard-context-not-mounted",
+  "file": "src/app/message/layout.tsx",
+  "old": "      <NavigationGuardProvider>\n        <Redirects />\n        <Navigation key=\"navigation\" />\n        {children}\n        <ToastContainerWrapper />\n      </NavigationGuardProvider>\n",
+  "new": "      <>\n        <Redirects />\n        <Navigation key=\"navigation\" />\n        {children}\n        <ToastContainerWrapper />\n      </>\n"
+ },
+ {
+  "id": "qa-register-ignores-hasChanged",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "register((destination) => hasChanged && !isSameMessage",
+  "new": "register((destination) => !isSameMessage"
+ },
+ {
+  "id": "qa-unregister-unconditional",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "if (guardRef.current === guard) guardRef.current = null;",
+  "new": "guardRef.current = null;"
+ },
+ {
+  "id": "qa-url-href-read-as-path",
+  "file": "src/components/StyledLink.tsx",
+  "old": "if (href instanceof URL) return href.href;",
+  "new": "if (href instanceof URL) return href.pathname + href.search;"
+ }
+]

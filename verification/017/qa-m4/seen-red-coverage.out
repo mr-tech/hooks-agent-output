@@ -1,0 +1,14 @@
+M4-surface cases 79 reddened 66 never reddened 13
+NEVER StyledLink under the navigation guard leaves a ctrl-click to the browser, with no prompt
+NEVER StyledLink under the navigation guard leaves a meta-click to the browser, with no prompt
+NEVER StyledLink under the navigation guard leaves a shift-click to the browser, with no prompt
+NEVER StyledLink under the navigation guard leaves a alt-click to the browser, with no prompt
+NEVER StyledLink under the navigation guard leaves a link that opens a new tab to the browser, with no prompt
+NEVER NavMenu, its links away from an editor with unsaved changes does not ask for Support, which opens a new tab
+NEVER useUnloadAlert and route changes raises no confirmation on a route-change event while there are unsaved changes
+NEVER useUnloadAlert and the exits that lose nothing prompts on unload while there are unsaved changes
+NEVER useUnloadAlert and the exits that lose nothing does not prompt when there are none
+NEVER useUnloadAlert and the exits that lose nothing does not prompt while an exit that loses nothing is leaving the page
+NEVER useUnloadAlert and the exits that lose nothing prompts again once the exit has had time to leave and the page is still here
+NEVER useUnloadAlert and the exits that lose nothing prompts again at once when the exit fails
+NEVER useUnloadAlert and the exits that lose nothing hands back what the exit returned

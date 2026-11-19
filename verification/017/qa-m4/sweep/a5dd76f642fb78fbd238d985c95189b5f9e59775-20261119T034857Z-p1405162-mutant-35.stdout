@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/daf5a54e-bef7-4342-b313-0f6130283673/scratchpad/mr-work/20261119T034857Z-p1405162/mutant-35
+
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 1 failed) 4408ms
+     × stops asking once the editor has unmounted 87ms
+
+ Test Files  1 failed | 135 passed (136)
+      Tests  1 failed | 1692 passed (1693)
+   Start at  03:59:55
+   Duration  16.36s (transform 21.66s, setup 1.64s, import 119.64s, tests 35.93s, environment 79.08s)
+

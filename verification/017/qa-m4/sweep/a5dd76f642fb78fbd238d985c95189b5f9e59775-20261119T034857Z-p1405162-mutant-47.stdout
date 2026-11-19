@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/daf5a54e-bef7-4342-b313-0f6130283673/scratchpad/mr-work/20261119T034857Z-p1405162/mutant-47
+
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 4 failed) 6108ms
+     × keeps both open when raised together, each answered on its own, with a link inside the editor 242ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 1190ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 1196ms
+     × renders no editor prompt on the send page, and still asks for its links 47ms
+
+ Test Files  1 failed | 135 passed (136)
+      Tests  4 failed | 1689 passed (1693)
+   Start at  04:03:28
+   Duration  17.33s (transform 27.14s, setup 1.58s, import 132.13s, tests 37.43s, environment 79.08s)
+

@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/daf5a54e-bef7-4342-b313-0f6130283673/scratchpad/mr-work/20261119T034857Z-p1405162/mutant-11
+
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 2 failed) 1462ms
+     × leaves a ctrl-click on a link to another site to the browser, with no prompt 66ms
+     × leaves a meta-click on a link to another site to the browser, with no prompt 61ms
+
+ Test Files  1 failed | 135 passed (136)
+      Tests  2 failed | 1691 passed (1693)
+   Start at  03:52:19
+   Duration  17.14s (transform 25.21s, setup 1.55s, import 128.83s, tests 35.45s, environment 81.41s)
+

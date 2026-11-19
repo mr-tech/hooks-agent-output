@@ -24,6 +24,7 @@ revision 3" and "… revision 2"). The first pass read revision 1
 | 2026-11-19T00:11 | planner-hooks-017 (revision 2, agent-output `3d678cc`) | Phase 1 re-key, including the M5-e oracle | Phase 1 re-key. Oracle re-keyed to revision 2: 0 of 3120 interleavings violate; five mutants fire. Revision-1 run frozen beside it. Postgres probe P1–P3 on a throwaway container. QAF-1 to QAF-9 dispositioned (all RESOLVED). New: QAF-10 MEDIUM (stale replaced nonce), QAF-11 LOW (B-7 member outside its query), QAF-12 MEDIUM (dialog renderer and one slot). NM-22 to NM-25; EC-1 and EC-2; B-7 amended. |
 | 2026-11-19T00:22 | planner-hooks-017 (revision 3, agent-output `b3d811e`) | Phase 1 re-key, including the oracle's age reference | Phase 1 re-key. QAF-10 to QAF-12 resolved; EC-1 withdrawn. Oracle re-keyed to form 3's LastModified reference: option a 0/3120 violating, option b's stated limit counted; the revision-2 model is frozen. New: QAF-13 MEDIUM (absent reference), QAF-14 LOW (B-10 liveness); NM-26 to NM-28; B-7 and B-10 amended. |
 | 2026-11-19T00:25 | planner-hooks-017 (revision 4, agent-output `a97628d`) | Phase 1 re-key | Phase 1 re-key. QAF-13 and QAF-14 resolved; the oracle's run at revision 4 is byte-identical to the committed run. The LastModified assumption is closed into M5-c's stated residue (no measurement owed). NM-29 added. No finding on revision 4. |
+| 2026-11-19T04:14 | code-reviewer-hooks-017 (M4 hand-off, review `e12881a`) | Register rows from M4's Phase 2 | Phase 2, M4: B-12 appended (M4-b's two prompts and a lone prompt, by Enter, in a real browser), because B-3 as written does not observe the Round 4 assumption. The Resumption State was re-stated and its placeholder heading stamp replaced with the checkpoint's commit minute (03:11Z), as `check-repo.js` HEADING-STAMP flagged. The M4 verdict is in `qa/017-existing-items-backlog-m4-qa.md`. |
 
 ## Inputs read
 
@@ -303,6 +304,7 @@ record, are authoritative on each row's execution state once written; this table
 | B-9 | post-deploy-observable | His M3 and M4 look in production (the plan's "in production by him") | his look | owner | Website deploy live; B-11 | As B-2 and B-3 | As B-2 and B-3 | owner | carrier handoff (Stage 1) | open |
 | B-10 | post-deploy-observable | RK-7: the generator's failure-stack count after release, against AN-4's 15 | `verification/015/pig-host-read.sh` shapes plus AN-4's count script, over `ssh hooks-pig` | devops | Generator deploy live, plus 30 days of traffic (about 196 generations) | About 0.2 new stacks per 30 days at the old rate. A rise names stored messages whose `/preview` now answers an error status. | Stored messages stop re-imaging and stay stale | devops | carrier handoff (Stage 1) | open |
 | B-11 | post-deploy-observable | Running-code precondition for B-6 to B-9: production's deployment contains the release commit | `vercel inspect https://hooks.gg` (commit) with `merge-base --is-ancestor`; the generator host's start line after the `prod.yml` run | devops | Each deploy | Containment exit 0; a generator start after the push | If it is not contained, B-6 to B-9 read old code | devops | deployment record | open |
+| B-12 | observable pre-release | M4-b's "both stay open and each is answered on its own", in a real browser and with Enter. This is CR-9's and the Round 4 review's Assumption Not Checked, which B-3 as written does not observe. Added at M4's Phase 2 (`qa/017-existing-items-backlog-m4-qa.md`). | UAT stage browser, local stack, two tabs on one message, real Pusher app (B-1's set-up; depends on B-1's id move and the E-9 stub). **Limb 1:** in tab 1, with unsaved edits, click the user icon so the link prompt opens. Then save the same message in tab 2, so "Message Update Detected" opens in tab 1 above it. Count the open `[role="dialog"]` elements and note which one holds `document.activeElement`. Press Enter once. Record which prompt answered and whether the other is still open, then answer the other with a click. **Limb 2:** with a lone link prompt open, press Enter once. | uat; fallback subject the owner | M4 landed; B-1's two-tab set-up working | **Limb 1:** two dialogs open. One Enter answers only the focused one; the other stays open and is answered on its own. **Limb 2:** Enter answers the link prompt and the page navigates. | **Limb 1:** if one Enter answers both, a user who presses Enter to dismiss the update notice also leaves the page and loses his edits. If the link prompt vanishes when the update prompt arrives, his pending answer was dropped (NM-25 in a real browser). **Limb 2:** if Enter leaves a lone prompt open, a keyboard user cannot answer it (M4's Assumption Not Checked). | uat | the chain's UAT document (pass to be briefed) | open |
 
 G-6 (M4-c's browser red) was executed in this pass and is not a row: `g6-walk/`, result above.
 
@@ -640,43 +642,47 @@ Read: the diff `b3d811e..a97628d` over the plan (48 added and 17 removed lines, 
 
 No finding on revision 4.
 
-## Resumption State (2026-11-19T03:1xZ, checkpoint on steering's word)
+## Resumption State (2026-11-19T03:11Z, checkpoint on steering's word; re-stated 2026-11-19T04:14Z at M4's Phase 2)
 
 - **Done.** Phase 1 and its re-keys to revision 4 (`3af80aa`). Phase 2 per milestone, each in its own document:
   - M1: PASS at website `8147661`, `qa/017-existing-items-backlog-m1-qa.md` (`7d7eb50`, plan R-9).
   - M2: QA Failed at `ec984fe` (QAF-17), then PASS on the refresh at `dd26104`, `qa/017-existing-items-backlog-m2-qa.md`
     (`5630f1b`, then `b77fb74`; plan R-11, R-14).
   - M3: PASS at `1ab3b96` with the bounded E-7 sweep, `qa/017-existing-items-backlog-m3-qa.md` (`4fe859b`, plan R-17).
+  - M4: **QA Failed** at `a5dd76f`, `qa/017-existing-items-backlog-m4-qa.md` (plan R-20). The failure is QAF-18 MEDIUM, a
+    withdrawal case that cannot fail; the fix is test-only. QAF-19 LOW is beside it. Register row B-12 appended.
   - Findings: QAF-15 LOW is the lint stdin artifact, open as an instrument note in `verification/017/README.md` for M7-b.
-    QAF-16 and QAF-17 are RESOLVED.
-- **Next.** M4's Phase 2, when its code review hands off. Then M5 and M6 (after M5-0), and M7. Then the effort-final
-  sweep. Then the plan-level `QA Complete`, and UAT.
+    QAF-16 and QAF-17 are RESOLVED. QAF-18 is open with the implementer. QAF-19 went to the Planner batch under steering's 04:14Z M4 cap (`a805d4d`).
+- **Next.** M4's refresh, once QAF-18's test-only fix has passed code review's scoped check. Run the suite in an export of
+  the new tip, and re-run only `qa-unregister-unconditional` (its id in `verification/017/qa-m4/m4-mutants-all.json`)
+  against the new case. Then M5 and M6 (after M5-0), and M7. Then the effort-final sweep. Then the plan-level
+  `QA Complete`, and UAT.
 - **Approach, per milestone.** Make a new `qa/017-existing-items-backlog-m<n>-qa.md`. Then:
   1. Export the SHA with `git archive`, link `node_modules`, and copy `next-env.d.ts` and `.next/types/` from the shared
      tree, or the typecheck fails with TS2307.
   2. Run the suite and the typecheck under `unshare -rn`.
   3. Compare suites with `verification/017/qa-m1/suite-compare.mjs` against the previous milestone's run. The latest QA
-     run is `verification/017/qa-m3/vitest-1ab3b96.json`, with root `$SCRATCH/exp-1ab3b96`, which has been deleted;
-     pass the old root string anyway, since only the path prefix is used.
-  4. Build QA's mutant set as exact-once anchors, and have a `general-purpose` helper run it with
-     `~/.claude/tools/mutation-run.py ... --dep node_modules -- unshare -rn npx vitest run`, with tests scoped to the
-     surface's dirs.
-  5. Map every criterion member. Audit conventions with `qa-m1/audit-predicates.sh` or the M3 inline form.
-  6. Write the plan row with `record-edit.js` `2026-11-19T03:11` and `plan-row-commit.js`.
+     run is `verification/017/qa-m4/vitest-a5dd76f.json`, with root `$SCRATCH/exp-a5dd76f`. Pass that root string even
+     after the export is deleted, since only the path prefix is used.
+  4. Build QA's mutant set as exact-once anchors (`qa-m4/build-qa-mutants.py` is the latest form). Have a `general-purpose`
+     helper run it with `~/.claude/tools/mutation-run.py ... --dep node_modules -- unshare -rn npx vitest run`. The whole
+     suite takes about 17 s per run, so no test scope is needed.
+  5. Map every criterion member. Measure seen-red coverage over the milestone's test files before writing any completeness
+     sentence (`qa-m4/seen-red-coverage.out` shows the form). Audit conventions with a copy of `qa-m1/audit-predicates.sh`.
+  6. Write the plan row with `record-edit.js` `2026-11-19T04:14` and `plan-row-commit.js`.
 
   Milestone-specific notes:
-  - M4: NM-8, NM-9, NM-24, NM-25 and NM-29. M4-b mounts the two-level layout with a `/send` member.
-  - M5: the oracle `verification/017/m5-decision-table/oracle.mjs` (OQ-13 option a binds); re-run the real-Postgres lane
-    `verification/017/m5-pg/`; NM-10 to NM-23 and NM-26 to NM-28. The E-1 and E-2 guards get their own sweep.
+  - M5: the oracle is `verification/017/m5-decision-table/oracle.mjs` (OQ-13 option a binds). Re-run the real-Postgres
+    lane `verification/017/m5-pg/`. NM-10 to NM-23 and NM-26 to NM-28. The E-1 and E-2 guards get their own sweep.
   - Lint: never stdin against a moved tree (QAF-15). Base counts come from `entry/lint-1ad625e/nofix.json`.
-- **Trees.** The website chain branch was at `1ab3b96` or later at the checkpoint, and is not mine to move. No export or
-  work directory of mine remains in the scratchpad.
-- **Uncommitted or mutated.** Nothing of QA's. The `INBOX.md` entry (QAF-16's pre-existing stub) was appended
-  uncommitted, as inbox rules require.
-- **Evidence.** All committed under `verification/017/qa-m1/`, `qa-m2/`, `qa-m2-refresh/` and `qa-m3/`.
+- **Trees.** The website chain branch was at `a5dd76f` at this write, and it is not mine to move. My exports `exp-a5dd76f`
+  and `exp-probe` are deleted at the run's end.
+- **Uncommitted or mutated.** Nothing of QA's after this pass's commit. `INBOX.md` entries are appended uncommitted, as
+  inbox rules require.
+- **Evidence.** All committed under `verification/017/qa-m1/`, `qa-m2/`, `qa-m2-refresh/`, `qa-m3/` and `qa-m4/`.
 - **Questions out.** None.
-- **Routed assumptions.** To UAT: B-1 (the Pusher handler is bound once) and B-2 (the native `storage` event reaches
-  other tabs). To devops Phase 3: the install matches the lockfile.
+- **Routed assumptions.** To UAT: B-1 (the Pusher handler is bound once), B-2 (the native `storage` event reaches other
+  tabs), and B-12 (a lone prompt's focus sits on its confirm button). To devops Phase 3: the install matches the lockfile.
 
 ## Assumption Not Checked
 

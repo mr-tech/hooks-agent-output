@@ -1,0 +1,29 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/daf5a54e-bef7-4342-b313-0f6130283673/scratchpad/mr-work/20261119T034857Z-p1405162/mutant-23
+
+ ❯ |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx (4 tests | 1 failed) 693ms
+     × asks before Invite Bot, a link to another site, leaves the page 147ms
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 14 failed) 1414ms
+     × asks first, and does not leave, when the guard holds a link to another site 42ms
+     × hands the guard the full address of a link to another site 10ms
+     × leaves for the address, in this tab and with no second browser prompt, once confirmed 11ms
+     × replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed 6ms
+     × stays when the prompt for a link to another site is cancelled 9ms
+     × leaves a ctrl-click on a link to another site to the browser, with no prompt 44ms
+     × leaves a meta-click on a link to another site to the browser, with no prompt 51ms
+     × leaves a shift-click on a link to another site to the browser, with no prompt 34ms
+     × leaves a alt-click on a link to another site to the browser, with no prompt 37ms
+     × leaves a link to another site that opens a new tab to the browser, with no prompt 42ms
+     × reads a URL object as the address it holds 7ms
+     × asks for a link to another site that names this tab as its target 8ms
+     × leaves a link to another site that downloads to the browser, with no prompt 37ms
+     × leaves a middle-click on a link to another site to the browser, with no prompt 41ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 2 failed) 4081ms
+     × link to https://other.example/message/m/4/edit: asks is true 108ms
+     × asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed 80ms
+
+ Test Files  3 failed | 133 passed (136)
+      Tests  17 failed | 1676 passed (1693)
+   Start at  03:55:58
+   Duration  17.49s (transform 25.92s, setup 1.91s, import 130.71s, tests 36.21s, environment 83.30s)
+

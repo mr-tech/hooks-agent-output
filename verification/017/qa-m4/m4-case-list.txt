@@ -1,0 +1,75 @@
+## providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx 35
+  p StyledLink under the navigation guard navigates with no prompt when no guard is registered
+  p StyledLink under the navigation guard navigates with no prompt when the registered guard lets the destination through
+  p StyledLink under the navigation guard asks first, and does not navigate, when the guard holds the destination
+  p StyledLink under the navigation guard hands the guard the destination of the clicked link
+  p StyledLink under the navigation guard asks for a link activated from the keyboard, a click with no pointer detail
+  p StyledLink under the navigation guard keeps the user on the page when the prompt is cancelled
+  p StyledLink under the navigation guard navigates to the clicked destination when the prompt is confirmed
+  p StyledLink under the navigation guard replaces the history entry on confirm for a link that replaces
+  p StyledLink under the navigation guard leaves a ctrl-click to the browser, with no prompt
+  p StyledLink under the navigation guard leaves a meta-click to the browser, with no prompt
+  p StyledLink under the navigation guard leaves a shift-click to the browser, with no prompt
+  p StyledLink under the navigation guard leaves a alt-click to the browser, with no prompt
+  p StyledLink under the navigation guard leaves a link that opens a new tab to the browser, with no prompt
+  p StyledLink under the navigation guard stops holding once the registering component has unmounted
+  p StyledLink under the navigation guard keeps the newer guard when an older registration is withdrawn
+  p StyledLink under the navigation guard navigates as before on a page with no guard provider
+  p StyledLink given a path object hands the guard its path, query string and fragment
+  p StyledLink to another site under the navigation guard asks first, and does not leave, when the guard holds a link to another site
+  p StyledLink to another site under the navigation guard hands the guard the full address of a link to another site
+  p StyledLink to another site under the navigation guard leaves for the address, in this tab and with no second browser prompt, once confirmed
+  p StyledLink to another site under the navigation guard replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed
+  p StyledLink to another site under the navigation guard stays when the prompt for a link to another site is cancelled
+  p StyledLink to another site under the navigation guard lets the browser follow a link to another site when nothing is held
+  p StyledLink to another site under the navigation guard leaves a ctrl-click on a link to another site to the browser, with no prompt
+  p StyledLink to another site under the navigation guard leaves a meta-click on a link to another site to the browser, with no prompt
+  p StyledLink to another site under the navigation guard leaves a shift-click on a link to another site to the browser, with no prompt
+  p StyledLink to another site under the navigation guard leaves a alt-click on a link to another site to the browser, with no prompt
+  p StyledLink to another site under the navigation guard leaves a link to another site that opens a new tab to the browser, with no prompt
+  p StyledLink to another site under the navigation guard reads a URL object as the address it holds
+  p StyledLink to another site under the navigation guard asks for a link to another site that names this tab as its target
+  p StyledLink to another site under the navigation guard leaves a link to another site that downloads to the browser, with no prompt
+  p StyledLink to another site under the navigation guard leaves a middle-click on a link to another site to the browser, with no prompt
+  p StyledLink to another site under the navigation guard leaves a link to another site alone when its own click handler has already handled the click
+  p StyledLink to another site under the navigation guard treats an absolute address on this site as a link on this site
+  p the link prompt beside the editor's own prompt keeps both prompts open when they are raised together, each answered on its own
+## app/_components/__tests__/NavMenu.navigation-guard.test.tsx 4
+  p NavMenu, its links away from an editor with unsaved changes asks before Create Message leaves the page
+  p NavMenu, its links away from an editor with unsaved changes asks before Servers leaves the page
+  p NavMenu, its links away from an editor with unsaved changes asks before Invite Bot, a link to another site, leaves the page
+  p NavMenu, its links away from an editor with unsaved changes does not ask for Support, which opens a new tab
+## app/message/__tests__/layout.navigation-guard.test.tsx 33
+  p the editor routes, a link away with unsaved changes asks before the avatar link leaves the editor, and Cancel keeps the edits
+  p the editor routes, a link away with unsaved changes navigates to the avatar link when the prompt is confirmed
+  p the editor routes, a link away with unsaved changes asks the same for a link rendered inside the editor's own providers
+  p the editor routes, a link away with unsaved changes asks for a link activated from the keyboard
+  p the editor routes, a link away with unsaved changes does not ask while nothing has changed
+  p the editor routes, a link away with unsaved changes does not ask for the link to the same message's send page
+  p the editor routes, a link away with unsaved changes link to /message/m/4/edit/: asks is false
+  p the editor routes, a link away with unsaved changes link to /message/m/4/edit?tab=1: asks is false
+  p the editor routes, a link away with unsaved changes link to http://localhost:3000/message/m/4/send: asks is false
+  p the editor routes, a link away with unsaved changes link to https://other.example/message/m/4/edit: asks is true
+  p the editor routes, a link away with unsaved changes link to /message/m/4/edit/extra: asks is true
+  p the editor routes, a link away with unsaved changes link to /message/m/new: asks is true
+  p the editor routes, a link away with unsaved changes stops asking once the editor has unmounted
+  p the send route, a link away with unsaved changes asks before the sidebar logo leaves the page
+  p the send route, a link away with unsaved changes asks before the sidebar edit link leaves the page
+  p the send route, a link away with unsaved changes asks before the sidebar terms link leaves the page
+  p the send route, a link away with unsaved changes asks before the sidebar privacy link leaves the page
+  p the send route, a link away with unsaved changes asks before the sidebar servers link leaves the page
+  p the send route, a link away with unsaved changes asks before the sidebar account link leaves the page
+  p the send route, a link away with unsaved changes does not ask for a sidebar link when nothing has changed
+  p the send route, a link away with unsaved changes search result to another message whose id starts with this one: asks is 4
+  p the send route, a link away with unsaved changes search result to another message whose id is a prefix of this one: asks is 42
+  p the send route, a link away with unsaved changes search result to this message: asks is 4
+  p the send route, a link away with unsaved changes search result to this message, with a long id: asks is 42
+  p the send route, a link away with unsaved changes does not ask for the sidebar's edit link on the unsaved route
+  p the send page's own links asks before the crumb to the server's folder leaves the page
+  p the send page's own links asks before either crumb to the user's folder leaves the page
+  p the send page's own links does not ask for the links back to this message's editor
+  p the send page's own links asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed
+  p the link prompt and the editor's own prompt keeps both open when raised together, each answered on its own, with a link inside the editor
+  p the link prompt and the editor's own prompt answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first
+  p the link prompt and the editor's own prompt answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first
+  p the link prompt and the editor's own prompt renders no editor prompt on the send page, and still asks for its links

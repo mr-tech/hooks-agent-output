@@ -1,0 +1,20 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/daf5a54e-bef7-4342-b313-0f6130283673/scratchpad/mr-work2/20261119T041252Z-p1677458/mutant-2
+
+ ❯ |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx (4 tests | 1 failed) 338ms
+     × does not ask for Support, which opens a new tab 39ms
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 8 failed) 701ms
+     × navigates to the clicked destination when the prompt is confirmed 31ms
+     × replaces the history entry on confirm for a link that replaces 24ms
+     × leaves a ctrl-click to the browser, with no prompt 19ms
+     × leaves a meta-click to the browser, with no prompt 16ms
+     × leaves a shift-click to the browser, with no prompt 15ms
+     × leaves a alt-click to the browser, with no prompt 17ms
+     × leaves a link that opens a new tab to the browser, with no prompt 15ms
+     × treats an absolute address on this site as a link on this site 17ms
+
+ Test Files  2 failed (2)
+      Tests  9 failed | 30 passed (39)
+   Start at  04:13:00
+   Duration  2.30s (transform 379ms, setup 47ms, import 1.55s, tests 1.04s, environment 1.28s)
+

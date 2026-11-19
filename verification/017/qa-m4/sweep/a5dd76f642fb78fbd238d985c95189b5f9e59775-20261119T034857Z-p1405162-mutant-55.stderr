@@ -1,0 +1,55 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > reads a URL object as the address it holds
+AssertionError: no "Leave Page" button in the dialog: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:49:105
+     47|     : Array.from(document.body.querySelectorAll('[role="dialog"]')).fi…
+     48|   const button = Array.from(scope?.querySelectorAll('button') ?? []).f…
+     49|   expect(button, `no "${text}" button in the dialog${title === undefin…
+       |                                                                                                         ^
+     50|   return button as HTMLElement;
+     51| }
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:373:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:457:24
+    455|
+    456|     click(invite);
+    457|     expect(prompted()).toBe(true);
+       |                        ^
+    458|     expect(hoisted.assign).not.toHaveBeenCalled();
+    459|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

@@ -1,0 +1,47 @@
+{
+ "mutant": {
+  "name": "qa-nm29-link-resolves-nearest-confirmation",
+  "edits": [
+   {
+    "file": "src/components/StyledLink.tsx",
+    "old": "import { useNavigationGuard } from '~/providers/NavigationGuardProvider';\n",
+    "new": "import { useNavigationGuard } from '~/providers/NavigationGuardProvider';\nimport { Context as ConfirmationContext } from '~/providers/ConfirmationProvider';\nimport { use } from 'react';\n"
+   },
+   {
+    "file": "src/components/StyledLink.tsx",
+    "old": "  const { intercept } = useNavigationGuard();\n",
+    "new": "  const { intercept: guardIntercept } = useNavigationGuard();\n  const nearest = use(ConfirmationContext);\n  const intercept = (l: Parameters<typeof guardIntercept>[0]) => guardIntercept({ ...l, show: nearest?.showConfirmation } as never);\n"
+   },
+   {
+    "file": "src/providers/NavigationGuardProvider.tsx",
+    "old": "    intercept({\n      href, external, replace, scroll,\n    }) {\n",
+    "new": "    intercept({\n      href, external, replace, scroll, show,\n    }: GuardedLink & { show?: typeof showConfirmation }) {\n"
+   },
+   {
+    "file": "src/providers/NavigationGuardProvider.tsx",
+    "old": "      showConfirmation({\n        enabled: true,\n",
+    "new": "      (show ?? showConfirmation)({\n        enabled: true,\n"
+   }
+  ],
+  "tests": []
+ },
+ "exit": 1,
+ "failed": [
+  "the link prompt beside the editor's own prompt keeps both prompts open when they are raised together, each answered on its own",
+  "the editor routes, a link away with unsaved changes asks before the avatar link leaves the editor, and Cancel keeps the edits",
+  "the editor routes, a link away with unsaved changes navigates to the avatar link when the prompt is confirmed",
+  "the editor routes, a link away with unsaved changes asks the same for a link rendered inside the editor's own providers",
+  "the editor routes, a link away with unsaved changes asks for a link activated from the keyboard",
+  "the editor routes, a link away with unsaved changes link to https://other.example/message/m/4/edit: asks is true",
+  "the editor routes, a link away with unsaved changes link to /message/m/4/edit/extra: asks is true",
+  "the editor routes, a link away with unsaved changes link to /message/m/new: asks is true",
+  "the send page's own links asks before the crumb to the server's folder leaves the page",
+  "the send page's own links asks before either crumb to the user's folder leaves the page",
+  "the send page's own links asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed",
+  "the link prompt and the editor's own prompt keeps both open when raised together, each answered on its own, with a link inside the editor",
+  "the link prompt and the editor's own prompt answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first",
+  "the link prompt and the editor's own prompt answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first",
+  "the link prompt and the editor's own prompt renders no editor prompt on the send page, and still asks for its links"
+ ],
+ "verdict": "killed"
+}

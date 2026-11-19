@@ -1,0 +1,8 @@
+skipped src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx (test file)
+skipped src/app/message/__tests__/layout.navigation-guard.test.tsx (test file)
+skipped src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx (test file)
+skipped src/components/__tests__/helpers/click.ts (test file)
+skipped src/components/__tests__/helpers/linkNavigation.tsx (test file)
+skipped src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (test file)
+skipped src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx (test file)
+41 mutants written; dropped (not unique) 0

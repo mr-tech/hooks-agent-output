@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/daf5a54e-bef7-4342-b313-0f6130283673/scratchpad/mr-work/20261119T034857Z-p1405162/mutant-45
+
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 1 failed) 1324ms
+     × asks for a link activated from the keyboard, a click with no pointer detail 15ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 1 failed) 4042ms
+     × asks for a link activated from the keyboard 112ms
+
+ Test Files  2 failed | 134 passed (136)
+      Tests  2 failed | 1691 passed (1693)
+   Start at  04:02:53
+   Duration  15.93s (transform 20.77s, setup 1.39s, import 119.73s, tests 32.73s, environment 77.24s)
+

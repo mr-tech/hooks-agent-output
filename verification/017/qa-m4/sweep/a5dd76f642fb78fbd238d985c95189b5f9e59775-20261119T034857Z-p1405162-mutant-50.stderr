@@ -1,0 +1,29 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > replaces the history entry on confirm for a link that replaces
+AssertionError: expected "vi.fn()" to be called once with arguments: [ '/message/f/0', { scroll: false } ]
+
+Number of calls: 0
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:167:29
+    165|     press(dialogButton('Leave Page'));
+    166|
+    167|     expect(hoisted.replace).toHaveBeenCalledExactlyOnceWith('/message/…
+       |                             ^
+    168|     expect(hoisted.push).not.toHaveBeenCalled();
+    169|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,40 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/daf5a54e-bef7-4342-b313-0f6130283673/scratchpad/mr-work/20261119T034857Z-p1405162/mutant-32
+
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 30 failed) 3408ms
+     × asks before the avatar link leaves the editor, and Cancel keeps the edits 488ms
+     × navigates to the avatar link when the prompt is confirmed 131ms
+     × asks the same for a link rendered inside the editor's own providers 120ms
+     × asks for a link activated from the keyboard 141ms
+     × does not ask for the link to the same message's send page 163ms
+     × link to /message/m/4/edit/: asks is false 121ms
+     × link to /message/m/4/edit?tab=1: asks is false 111ms
+     × link to http://localhost:3000/message/m/4/send: asks is false 135ms
+     × link to https://other.example/message/m/4/edit: asks is true 75ms
+     × link to /message/m/4/edit/extra: asks is true 67ms
+     × link to /message/m/new: asks is true 59ms
+     × asks before the sidebar logo leaves the page 91ms
+     × asks before the sidebar edit link leaves the page 102ms
+     × asks before the sidebar terms link leaves the page 92ms
+     × asks before the sidebar privacy link leaves the page 79ms
+     × asks before the sidebar servers link leaves the page 65ms
+     × asks before the sidebar account link leaves the page 54ms
+     × search result to another message whose id starts with this one: asks is 4 90ms
+     × search result to another message whose id is a prefix of this one: asks is 42 75ms
+     × search result to this message: asks is 4 103ms
+     × search result to this message, with a long id: asks is 42 80ms
+     × does not ask for the sidebar's edit link on the unsaved route 98ms
+     × asks before the crumb to the server's folder leaves the page 91ms
+     × asks before either crumb to the user's folder leaves the page 69ms
+     × does not ask for the links back to this message's editor 88ms
+     × asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed 103ms
+     × keeps both open when raised together, each answered on its own, with a link inside the editor 88ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 88ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 100ms
+     × renders no editor prompt on the send page, and still asks for its links 33ms
+
+ Test Files  1 failed | 135 passed (136)
+      Tests  30 failed | 1663 passed (1693)
+   Start at  03:59:01
+   Duration  17.01s (transform 23.69s, setup 1.84s, import 128.90s, tests 33.52s, environment 80.51s)
+

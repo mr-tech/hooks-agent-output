@@ -1,0 +1,29 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a ctrl-click on a link to another site to the browser, with no prompt
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a meta-click on a link to another site to the browser, with no prompt
+AssertionError: expected 'go https://discord.com/oauth2/authori…' not to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go https://discord.com/oauth2/authorize?client_id=1You have unsaved changes!Are you sure you want to leave this page? Changes you made may not be saved.CancelLeave Page"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:350:43
+    348|     click(link(`go ${OUTSIDE}`), init);
+    349|
+    350|     expect(document.body.textContent).not.toContain(TITLE);
+       |                                           ^
+    351|   });
+    352|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+

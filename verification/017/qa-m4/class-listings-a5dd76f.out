@@ -1,0 +1,49 @@
+# next/link importers
+a5dd76f:src/app/message/m/[id]/_layout/Navigation.tsx
+a5dd76f:src/components/StyledLink.tsx
+# StyledLink importers
+a5dd76f:src/app/_components/CookieConsent.tsx
+a5dd76f:src/app/_components/LandingCTA.tsx
+a5dd76f:src/app/_layout/Footer.tsx
+a5dd76f:src/app/message/_layout/Header.tsx
+a5dd76f:src/app/message/_layout/Sidebar.tsx
+a5dd76f:src/app/message/f/[id]/page.tsx
+a5dd76f:src/app/message/m/[id]/_layout/Navigation.tsx
+a5dd76f:src/app/message/m/[id]/send/page.tsx
+a5dd76f:src/app/message/page.tsx
+a5dd76f:src/components/Dropdown.tsx
+a5dd76f:src/components/InfoPanel.tsx
+# raw anchors
+a5dd76f:src/app/legal/privacy/page.tsx:149:          <a href="https://hooks.gg" rel="external nofollow noopener noreferrer" target="_blank">https://hooks.gg</a>
+a5dd76f:src/app/legal/privacy/page.tsx:383:          <a href="https://discord.com/privacy" rel="external nofollow noopener noreferrer" target="_blank">https://discord.com/privacy</a>
+a5dd76f:src/app/legal/privacy/page.tsx:386:          <a href="https://discord.com/terms" rel="external nofollow noopener noreferrer" target="_blank">https://discord.com/terms</a>
+a5dd76f:src/app/legal/privacy/page.tsx:389:          <a href="https://discord.com/developers/docs/legal" rel="external nofollow noopener noreferrer" target="_blank">https://discord.com/developers/docs/legal</a>
+a5dd76f:src/app/legal/privacy/page.tsx:398:          <a href="https://vercel.com/legal/privacy-policy" rel="external nofollow noopener noreferrer" target="_blank">https://vercel.com/legal/privacy-policy</a>
+a5dd76f:src/app/legal/privacy/page.tsx:401:          <a href="https://vercel.com/legal/terms" rel="external nofollow noopener noreferrer" target="_blank">https://vercel.com/legal/terms</a>
+a5dd76f:src/app/legal/privacy/page.tsx:410:          <a href="https://railway.app/legal/privacy" rel="external nofollow noopener noreferrer" target="_blank">https://railway.app/legal/privacy</a>
+a5dd76f:src/app/legal/privacy/page.tsx:413:          <a href="https://railway.app/legal/terms" rel="external nofollow noopener noreferrer" target="_blank">https://railway.app/legal/terms</a>
+a5dd76f:src/app/legal/privacy/page.tsx:431:          <a href="https://stripe.com/us/privacy" rel="external nofollow noopener noreferrer" target="_blank">https://stripe.com/us/privacy</a>
+a5dd76f:src/app/legal/privacy/page.tsx:439:          <a href="https://www.paypal.com/webapps/mpp/ua/privacy-full" rel="external nofollow noopener noreferrer" target="_blank">https://www.paypal.com/webapps/mpp/ua/privacy-full</a>
+a5dd76f:src/app/legal/privacy/page.tsx:883:          <a href="mailto:support@hooks.gg">support@hooks.gg</a>
+a5dd76f:src/app/legal/privacy/page.tsx:890:          <a href="https://support@hooks.gg" rel="external nofollow noopener noreferrer" target="_blank">https://support@hooks.gg</a>
+a5dd76f:src/app/legal/privacy/page.tsx:928:          <a href="http://www.networkadvertising.org/choices/" rel="external nofollow noopener noreferrer" target="_blank">http://www.networkadvertising.org/choices/</a>
+a5dd76f:src/app/legal/privacy/page.tsx:935:          <a href="http://www.youronlinechoices.com/" rel="external nofollow noopener noreferrer" target="_blank">http://www.youronlinechoices.com/</a>
+a5dd76f:src/app/legal/privacy/page.tsx:942:          <a href="http://optout.aboutads.info/?c=2&amp;lang=EN" rel="external nofollow noopener noreferrer" target="_blank">http://optout.aboutads.info/?c=2&amp;lang=EN</a>
+a5dd76f:src/app/legal/privacy/page.tsx:995:          <a href="mailto:support@hooks.gg">support@hooks.gg</a>
+a5dd76f:src/app/legal/privacy/page.tsx:1002:          <a href="https://hooks.gg/support" rel="external nofollow noopener noreferrer" target="_blank">https://hooks.gg/support</a>
+a5dd76f:src/app/legal/terms/page.tsx:126:          <a href="https://hooks.gg" rel="external nofollow noopener noreferrer" target="_blank">https://hooks.gg</a>
+a5dd76f:src/app/legal/terms/page.tsx:274:          <a href="mailto:support@hooks.gg">support@hooks.gg</a>
+a5dd76f:src/app/legal/terms/page.tsx:281:          <a href="https://hooks.gg/support" rel="external nofollow noopener noreferrer" target="_blank">https://hooks.gg/support</a>
+a5dd76f:src/app/page.tsx:143:          <a href="#" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Get started</a>
+a5dd76f:src/app/page.tsx:144:          <a href="#" class="text-sm font-semibold leading-6 text-white">Learn more <span aria-hidden="true">→</span></a>
+Binary file a5dd76f:src/assets/img/product_image.png matches
+a5dd76f:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx:89:          <a
+a5dd76f:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx:52:        <a
+a5dd76f:src/kysely-adapter/index.ts:4: *  <p style={{fontWeight: "normal"}}><a href="https://kysely.dev/">Kysely</a> adapter for Auth.js / NextAuth.js.</p>
+a5dd76f:src/kysely-adapter/index.ts:5: *  <a href="https://kysely.dev/">
+# useConfirmation( callers
+a5dd76f:src/app/message/m/[id]/_components/JsonModalBody.tsx:52:  const { withConfirmation } = useConfirmation();
+a5dd76f:src/app/message/m/[id]/_layout/Navigation.tsx:84:  const { withConfirmation } = useConfirmation();
+a5dd76f:src/components/ConfirmationDialog.tsx:39:  const { props } = useConfirmation();
+a5dd76f:src/providers/MessageProvider/usePusher.ts:48:  const { showConfirmation } = useConfirmation();
+a5dd76f:src/providers/NavigationGuardProvider.tsx:35:  const { showConfirmation } = useConfirmation();

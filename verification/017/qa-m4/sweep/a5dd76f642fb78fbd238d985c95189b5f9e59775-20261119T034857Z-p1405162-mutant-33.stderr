@@ -1,0 +1,26 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > navigates as before on a page with no guard provider
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:248:29
+    246|     click(link('go home'));
+    247|
+    248|     expect(linkRouter.push).toHaveBeenCalledTimes(1);
+       |                             ^
+    249|   });
+    250| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/daf5a54e-bef7-4342-b313-0f6130283673/scratchpad/mr-work/20261119T034857Z-p1405162/mutant-53
+
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 2 failed) 4496ms
+     × does not ask while nothing has changed 170ms
+     × does not ask for a sidebar link when nothing has changed 87ms
+ ❯ |node| src/server/api/utils/__tests__/messageValidity.predicate.test.ts (11 tests | 1 failed) 5019ms
+     × imports the gate directly, not via the `~/utils` barrel: the exported symbol is identical either way 5007ms
+
+ Test Files  2 failed | 134 passed (136)
+      Tests  3 failed | 1690 passed (1693)
+   Start at  04:05:18
+   Duration  27.15s (transform 84.89s, setup 1.74s, import 236.99s, tests 47.81s, environment 92.63s)
+

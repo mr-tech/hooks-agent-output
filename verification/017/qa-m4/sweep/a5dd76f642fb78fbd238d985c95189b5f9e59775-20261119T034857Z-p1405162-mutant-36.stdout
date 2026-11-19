@@ -1,0 +1,29 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/daf5a54e-bef7-4342-b313-0f6130283673/scratchpad/mr-work/20261119T034857Z-p1405162/mutant-36
+
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 7 failed) 1633ms
+     × navigates with no prompt when no guard is registered 132ms
+     × navigates with no prompt when the registered guard lets the destination through 41ms
+     × hands the guard the destination of the clicked link 43ms
+     × stops holding once the registering component has unmounted 66ms
+     × hands the guard its path, query string and fragment 36ms
+     × hands the guard the full address of a link to another site 35ms
+     × lets the browser follow a link to another site when nothing is held 69ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 11 failed) 4541ms
+     × does not ask while nothing has changed 113ms
+     × does not ask for the link to the same message's send page 97ms
+     × link to /message/m/4/edit/: asks is false 109ms
+     × link to /message/m/4/edit?tab=1: asks is false 99ms
+     × link to http://localhost:3000/message/m/4/send: asks is false 67ms
+     × stops asking once the editor has unmounted 116ms
+     × does not ask for a sidebar link when nothing has changed 91ms
+     × search result to this message: asks is 4 72ms
+     × search result to this message, with a long id: asks is 42 74ms
+     × does not ask for the sidebar's edit link on the unsaved route 98ms
+     × does not ask for the links back to this message's editor 159ms
+
+ Test Files  2 failed | 134 passed (136)
+      Tests  18 failed | 1675 passed (1693)
+   Start at  04:00:13
+   Duration  16.51s (transform 22.59s, setup 1.24s, import 124.92s, tests 34.60s, environment 78.60s)
+

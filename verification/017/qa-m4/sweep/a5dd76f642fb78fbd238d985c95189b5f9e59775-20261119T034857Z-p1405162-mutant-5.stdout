@@ -1,0 +1,28 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/daf5a54e-bef7-4342-b313-0f6130283673/scratchpad/mr-work/20261119T034857Z-p1405162/mutant-5
+
+ ❯ |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx (4 tests | 1 failed) 674ms
+     × asks before Invite Bot, a link to another site, leaves the page 132ms
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 10 failed) 1049ms
+     × navigates to the clicked destination when the prompt is confirmed 71ms
+     × replaces the history entry on confirm for a link that replaces 67ms
+     × asks first, and does not leave, when the guard holds a link to another site 12ms
+     × hands the guard the full address of a link to another site 8ms
+     × leaves for the address, in this tab and with no second browser prompt, once confirmed 12ms
+     × replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed 6ms
+     × stays when the prompt for a link to another site is cancelled 9ms
+     × reads a URL object as the address it holds 7ms
+     × asks for a link to another site that names this tab as its target 10ms
+     × treats an absolute address on this site as a link on this site 52ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 5 failed) 4379ms
+     × navigates to the avatar link when the prompt is confirmed 238ms
+     × link to https://other.example/message/m/4/edit: asks is true 63ms
+     × asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed 111ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 193ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 230ms
+
+ Test Files  3 failed | 133 passed (136)
+      Tests  16 failed | 1677 passed (1693)
+   Start at  03:50:29
+   Duration  17.31s (transform 25.46s, setup 1.19s, import 129.03s, tests 36.25s, environment 82.47s)
+

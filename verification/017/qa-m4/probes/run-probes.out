@@ -1,0 +1,5 @@
+lone-enter tip exit 0 [('passed', 'probe: Enter with one confirmation open answers the link prompt alone on Enter'), ('passed', 'probe: Enter with one confirmation open answers the update prompt alone on Enter')]
+lone-enter mutant exit 0 [('passed', 'probe: Enter with one confirmation open answers the link prompt alone on Enter'), ('passed', 'probe: Enter with one confirmation open answers the update prompt alone on Enter')]
+stable-withdraw tip exit 0 [('passed', 'probe: withdrawal with stable guard identities keeps the newer guard when an older registration is withdrawn, each guard one function')]
+stable-withdraw mutant exit 1 [('failed', 'probe: withdrawal with stable guard identities keeps the newer guard when an older registration is withdrawn, each guard one function')]
+0

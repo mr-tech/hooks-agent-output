@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/daf5a54e-bef7-4342-b313-0f6130283673/scratchpad/mr-work/20261119T034857Z-p1405162/mutant-43
+
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 1 failed) 4076ms
+     × link to /message/m/4/edit/extra: asks is true 51ms
+
+ Test Files  1 failed | 135 passed (136)
+      Tests  1 failed | 1692 passed (1693)
+   Start at  04:02:17
+   Duration  16.99s (transform 23.76s, setup 1.47s, import 126.99s, tests 35.72s, environment 80.68s)
+

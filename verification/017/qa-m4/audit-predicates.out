@@ -1,0 +1,19 @@
+# tree a5dd76f
+# ID-token class (case-insensitive) over title-call lines, comment lines, basename; positive basename form
+src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx titles=0 comments=0 basename=0 positive-form=1
+src/app/message/__tests__/layout.navigation-guard.test.tsx titles=0 comments=0 basename=0 positive-form=1
+src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx titles=0 comments=0 basename=0 positive-form=1
+src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx titles=0 comments=0 basename=0 positive-form=1
+src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx titles=0 comments=0 basename=0 positive-form=1
+src/components/__tests__/helpers/click.ts titles=0 comments=0 basename=0 positive-form=0
+src/components/__tests__/helpers/linkNavigation.tsx titles=0 comments=0 basename=0 positive-form=0
+# positive control for the ID-token predicate (expect 2 of 2 lines)
+2
+# class-table predicates: source-text (readFileSync|__filename|__dirname|import.meta), time-based (timers, clock reads), local render/mount function, DOM harness use, project imports
+src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx source-text=0 time=0 local-render-fn=0 dom-harness=3 project-imports=5
+src/app/message/__tests__/layout.navigation-guard.test.tsx source-text=0 time=0 local-render-fn=1 dom-harness=3 project-imports=8
+src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx source-text=0 time=0 local-render-fn=2 dom-harness=10 project-imports=8
+src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx source-text=0 time=2 local-render-fn=0 dom-harness=8 project-imports=3
+src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx source-text=0 time=1 local-render-fn=0 dom-harness=4 project-imports=4
+src/components/__tests__/helpers/click.ts source-text=0 time=0 local-render-fn=0 dom-harness=0 project-imports=0
+src/components/__tests__/helpers/linkNavigation.tsx source-text=0 time=0 local-render-fn=0 dom-harness=0 project-imports=0

@@ -1,0 +1,31 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/daf5a54e-bef7-4342-b313-0f6130283673/scratchpad/mr-work/20261119T034857Z-p1405162/mutant-28
+
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 21 failed) 5242ms
+     × asks before the avatar link leaves the editor, and Cancel keeps the edits 467ms
+     × navigates to the avatar link when the prompt is confirmed 125ms
+     × asks the same for a link rendered inside the editor's own providers 129ms
+     × asks for a link activated from the keyboard 135ms
+     × link to https://other.example/message/m/4/edit: asks is true 84ms
+     × link to /message/m/4/edit/extra: asks is true 98ms
+     × link to /message/m/new: asks is true 64ms
+     × asks before the sidebar logo leaves the page 81ms
+     × asks before the sidebar edit link leaves the page 95ms
+     × asks before the sidebar terms link leaves the page 52ms
+     × asks before the sidebar privacy link leaves the page 52ms
+     × asks before the sidebar servers link leaves the page 61ms
+     × asks before the sidebar account link leaves the page 52ms
+     × search result to another message whose id starts with this one: asks is 4 72ms
+     × search result to another message whose id is a prefix of this one: asks is 42 88ms
+     × asks before the crumb to the server's folder leaves the page 72ms
+     × asks before either crumb to the user's folder leaves the page 57ms
+     × keeps both open when raised together, each answered on its own, with a link inside the editor 114ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 1158ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 1147ms
+     × renders no editor prompt on the send page, and still asks for its links 48ms
+
+ Test Files  1 failed | 135 passed (136)
+      Tests  21 failed | 1672 passed (1693)
+   Start at  03:57:31
+   Duration  16.99s (transform 25.05s, setup 1.75s, import 126.83s, tests 36.38s, environment 80.34s)
+
