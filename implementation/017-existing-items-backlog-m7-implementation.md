@@ -22,6 +22,7 @@ Handoff-At: f83f2ca — repos=website; M7-b read at the website chain tip as of 
 | Date | Agent | Change |
 |---|---|---|
 | 2026-11-19T06:25 | implementer-hooks-017 | M7-b read at website `f83f2ca`: no rule count above the base in any of 59 changed lintable files. No source change. Handed to code review as a record-only milestone. |
+| 2026-11-19T08:00 | implementer-hooks-017 (resumed) | Round 8 CR-19 (LOW, record line). The Deviations text now states the shared-tree read as a departure from M7-b's "in an export", with its reason. M7-b was re-read at the tip `4b8db9c` by code review's Round 8 (`verification/017/code-review/m7/`: 59 files, 0 rule counts above the base, a second instrument agreeing, 3 of 3 planted controls firing). I did not re-run it, so `Handoff-At` stays `f83f2ca` (my read) and the `4b8db9c` reading is the reviewer's, cited here; QA Phase 2 re-runs M7-b independently at the tip. |
 
 ## Implementation Summary
 
@@ -49,7 +50,7 @@ M7 touches no user-visible surface and changes no source.
 
 ## Deviations
 
-None. One method note: the baseline was taken "through the shared install" and so was this read, from the website tree at `f83f2ca` (the tree held no tracked change; `git status` showed only the held `.playwright-mcp`). An export of the tip does not lint:
+One departure from the plan's named instrument (CR-19, Round 8). M7-b names its instrument as "the same two commands at the tip, in an export". They ran in the shared tree instead, not in an export, and this is a deviation, not a method note: an export cannot lint, for the reason below. The baseline was taken "through the shared install" and so was this read, from the website tree at `f83f2ca` (the tree held no tracked change; `git status` showed only the held `.playwright-mcp`). An export of the tip does not lint:
 ESLint refuses with "couldn't determine the plugin `react` uniquely" because two versions of `eslint-plugin-react` sit in the shared `node_modules/.pnpm`, and an export symlinks it; the shared tree resolves one.
 
 ## Files Modified
