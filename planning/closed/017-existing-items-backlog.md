@@ -1399,29 +1399,4 @@ revision 1, `upload-message-dialog-closes-on-first-portal-load-2026-11-08` is cl
 
 ## Resumption State
 
-Written 2026-11-19T08:30Z by planner-hooks-017, at revision 8.
-
-- **Done.** Revision 8 folds the Planner batch at the post-Phase-2 seam (every milestone QA Complete,
-  M7 last, R-44). Premise re-read first: the plan body is unchanged since revision 7 (`6ade256`; the
-  diff to `9ead369` touches only Status-Detail, changelog rows R-27 to R-44, the owed re-verdicts and
-  this section); website at `4b8db9c` on `chain/017-existing-items-backlog`, `origin/master`
-  `1ad625e` by `git ls-remote`; the generator tip `8512a1d` is the gate documents' (not read here).
-- **Next.** The critic approved revision 8 (`56a602a`); R-45 records it. R-46 registers D-31 and D-32
-  (he accepted X-22 and X-21) and brings the critique's SL-3 third member and SL-5's two lines into
-  agreement. R-48 parks QAF-25 LOW; revision 9 folds it as X-24 on steering's brief (09:16Z), before
-  devops Stage 1, and goes to critic-hooks-017; steering starts the architect's closing pass after
-  the critic's read; the critic approved revision 9 (`5f892f5`, R-50). R-51 registers D-33 to D-35
-  (17:49Z). Revision 10 writes D-34's criterion as M2-d and states D-33's exact equality in M2-c, on
-  steering's word (block 17:51Z); all three pre-code gates passed it (R-52, R-53, R-55). Revision 11
-  folds their findings (F-29 with QAF-26, SL-5's third member, AF-25, AF-26); the critic's cycle 4
-  pass 2 is owed. The
-  website access defects in the 08:41Z rulings block are not 017's and are not registered. Disclosed: the stamp gate refused
-  R-45's and R-46's first stamps (08:43, typed a minute ahead of the clock); both were re-stamped
-  from `date -u`.
-- **In flight.** None. **Uncommitted.** The INBOX.md entry for X-13, kept for the record's owner.
-- **Gate refusals, disclosed.** The record-write gate refused a `sed -i` that stamped this revision's
-  time into the plan; the stamp was made with the Edit tool. That refusal showed that three earlier
-  writes of this pass (the Planner batch dispositions, this section, and the header, changelog and
-  owed re-verdict rows) had gone through a shell `python3` script, which the gate's standard rules
-  out and did not catch. Their content was read back in the diff before commit; no write was
-  re-issued to get past the gate.
+Closed at devops Stage 1 (2026-11-19T19:13Z); nothing resumes from this document.
