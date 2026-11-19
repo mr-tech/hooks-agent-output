@@ -972,3 +972,17 @@ production `hooks.gg`, test account 1 (session user id `…788418`) opened test 
 deleted 6020 at 09:00:05Z. The three screenshots are untracked, kept out of the commit under `~/.claude/CLAUDE.md`
 § Git until he says. The session was not stopped at 09:01Z because it reads `shell`; the stop is retried at
 the next check. The handling question is put again as a selection.
+
+## 2026-11-19T09:01Z — his answers: fix right after 017; screenshots left out (selection)
+
+Ledger: `steering/selection-ledger/2026-11-19.md` block "2026-11-19T09:01Z — steering-roadmap-hooks". Put and
+answered 09:01Z. Premises: the browser check (README `497f0de`, screenshot read) for the read defect; code and
+the local run (block 08:12Z, `bafdbdb`) for the save-with-number defect, not tried live (stated in the question).
+1. "Access bugs" — options: **Fix right after 017 (Recommended)** — "A small fixer chain starts once 017 is
+   released. 017's QA sweep, UAT and release are not held up. The bug stays on production until that fix ships." /
+   *Fix now, in parallel* / *Add to 017* / *Write up, accept for now*. **Chosen by selection: "Fix right after 017".**
+2. "Screenshots" — options: **Leave them out** — "They stay untracked on this box." / *Commit them*. **Chosen by
+   selection: "Leave them out".**
+Effect: once 017 is released, this thread runs a scoping determination (with the scope sweep) for one fixer chain
+covering both defects: personal-message reads limited to the owner (block 08:41Z, "No, owner only"), and a save
+carrying a message number that can claim another user's row. Owner-wait `website-access-defects` cleared.
