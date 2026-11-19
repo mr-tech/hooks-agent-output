@@ -253,3 +253,7 @@ answered by revision 4: such a listing deletes nothing (QAF-13).
 - **RK-7.** The liveness precondition names its runner, its capture path and what makes a zero
   readable.
 - **Owed re-verdicts.** Three rows for revision 4; the architect's is its closing pass.
+
+## Resumption State
+
+Written at steering's `/checkpoint` request after closure (critic-hooks-017). Done: cycle 1 closed at pass 4, plan revision 4 (`a97628d`) APPROVED, this critique Resolved at `77dfec4`; his answers to OQ-11 to OQ-13 are all option (a) (`steering/017-rulings.md` block 00:27Z, per steering's message, not re-read here). Next: if a planner revision folding those answers changes criterion text, milestone scope or an instrument's form, open cycle 2 pass 1 as a delta-bounded read of `git diff a97628d <rev> -- planning/017-existing-items-backlog.md`, moving this file back out of `closed/` with Status `Open`; a fold that only marks the three questions resolved and drops the option-(b) text is a boundary line. Code was read at website `1ad625e` and generator `8de2b53`; no chain branch existed at those reads. Nothing uncommitted, no process started, scratch files removed. Messages sent and unanswered: none owed. No question is open with the owner.
