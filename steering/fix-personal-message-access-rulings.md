@@ -92,3 +92,25 @@ Disclosure: the record-write gate refused this block's first write, a shell here
   session 1%, `weekly_all` 19%.
 - Disclosure: the stamp gate refused this block's first heading, which was typed a minute ahead of the clock (22:38Z against 22:37Z),
   and it was committed that way at `9943a73`. It now carries the `date -u` minute.
+
+## 2026-11-19T22:59Z — fixer handoff at 2e50cd9; two members ruled in (this thread's error); code reviewer spawned
+
+Fixer message, 22:5xZ. Fix at website `2e50cd9` on `chain/fix-personal-message-access` (`git log`, read this turn). Document
+`implementation/fix-personal-message-access-implementation.md` (record `a7e9e8c`): `Status: Active`, `Handoff-At: 2e50cd9…`. 83 production
+lines added, by its count. Spawn cue acted on: `code-reviewer-hooks-fix-personal-message-access` spawned (`tmux-agent spawn`, cwd website,
+effort medium as printed).
+**Ruling (this thread's): two of its "Observed outside the scope" items are in scope.** The words of the option he chose (block 22:35Z) are
+"puts the owner check inside the save/update/delete queries" and "cleans up oddly formatted message numbers". My bounded scope statement
+named only S6a and S7 for the owner term, and only S7, S8 and S9 for canonical ids. That narrowed the option's words, and it was my error;
+the check that would have caught it is reading the scope statement against the chosen option's text before sending. Both members are in
+the swept region (S6, S8), so this is a recorded ruling, not a re-scope. The amended scope statement:
+- an owner term in the delete query of S8 (`message.delete`) as well as in S6a and S7;
+- a canonical id at the `message.upsert` input (S6a/S6b, `optionalIdMessageShape.id`) as well as at S7, S8 and S9.
+**Out, each to a handoff** (guild messages are outside his "personal" words, and existence is not a read of a row):
+- the hydrated recent list returning server-message rows for stored numbers (S1b's family);
+- `getOne` on an absent number failing differently from `NOT_FOUND`.
+**Owner-needing, held to the release seam:** the production read of rows planted at browser-sent numbers (the document's Diagnosis,
+"Residue already in production"). It does not block code review or QA. No agent read path to hooks.gg's production database is recorded.
+I searched `memory/hazards.md`, the architecture record, and the record for "production database" and `claude-ro`. `.env.local` values
+are never read. It goes to him with the release question, after a refutation helper reads the fix at its final SHA.
+Relays: the fixer (a blocking change to its work) and the code reviewer (hold: the handoff will move off `2e50cd9`).
