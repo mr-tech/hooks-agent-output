@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/01141c37-1391-4a14-abd8-6cc1e138c507/scratchpad/cr/work5/20261119T023056Z-p758007/mutant-4
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 4 failed) 112ms
+     × are shown again after signing in and opening the message 11ms
+     × are shown after a reload, as before 5ms
+     × restores a stored copy of message 42 that is newer than its saved copy 2ms
+     × is shown with its own data and name when it is newer than the saved copy 5ms
+
+ Test Files  1 failed | 11 passed (12)
+      Tests  4 failed | 137 passed (141)
+   Start at  02:31:11
+   Duration  2.58s (transform 2.10s, setup 505ms, import 8.98s, tests 838ms, environment 12.05s)
+

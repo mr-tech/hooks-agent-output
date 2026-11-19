@@ -1,0 +1,2 @@
+SKIP id-token, basename: /usr/local/bin/hooks/agent-output/CLAUDE.md states an ID-token class this checker does not implement verbatim (the hooks line at cca22fd) — the checks did not run
+convention-check: 1 file(s) examined, 0 not examined, 1 test file(s); 0 FAIL, 0 CANDIDATE, 1 SKIP

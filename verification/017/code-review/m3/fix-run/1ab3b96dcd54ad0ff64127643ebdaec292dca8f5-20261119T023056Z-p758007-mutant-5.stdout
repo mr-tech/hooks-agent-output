@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/01141c37-1391-4a14-abd8-6cc1e138c507/scratchpad/cr/work5/20261119T023056Z-p758007/mutant-5
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 2 failed) 106ms
+     × turns a stored message with no id into this tab's route-0 entry, dated by its own timestamp 12ms
+     × turns a stored copy of saved message 42 into the entry for 42 4ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 2 failed) 109ms
+     × restores a stored route-0 draft that has no id 9ms
+     × restores a stored copy of message 42 that is newer than its saved copy 3ms
+
+ Test Files  2 failed | 10 passed (12)
+      Tests  4 failed | 137 passed (141)
+   Start at  02:31:14
+   Duration  2.53s (transform 1.93s, setup 425ms, import 9.18s, tests 872ms, environment 11.31s)
+

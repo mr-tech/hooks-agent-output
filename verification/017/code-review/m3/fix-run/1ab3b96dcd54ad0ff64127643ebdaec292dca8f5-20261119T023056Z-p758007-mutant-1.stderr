@@ -1,0 +1,55 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > restores a stored route-0 draft that has no id
+AssertionError: expected { data: { …(2) }, name: 'New Message' } to deeply equal { data: { …(2) }, …(1) }
+
+- Expected
++ Received
+
+@@ -7,7 +7,7 @@
+          "description": "An embed body",
+          "title": "An embed title",
+        },
+      ],
+    },
+-   "name": "Name the user gave the draft",
++   "name": "New Message",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:249:21
+    247|     mount();
+    248|
+    249|     expect(shown()).toEqual({ data: restoredData('kept from before'), …
+       |                     ^
+    250|   });
+    251|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a stored route-0 draft > is shown with its own data and name
+AssertionError: expected { data: { …(2) }, name: 'New Message' } to deeply equal { data: { …(2) }, …(1) }
+
+- Expected
++ Received
+
+@@ -7,7 +7,7 @@
+          "description": "An embed body",
+          "title": "An embed title",
+        },
+      ],
+    },
+-   "name": "Name the user gave the draft",
++   "name": "New Message",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:293:21
+    291|     mount();
+    292|
+    293|     expect(shown()).toEqual({ data: restoredData('seeded draft'), name…
+       |                     ^
+    294|   });
+    295| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/01141c37-1391-4a14-abd8-6cc1e138c507/scratchpad/cr/work5/20261119T023056Z-p758007/mutant-1
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 2 failed) 124ms
+     × restores a stored route-0 draft that has no id 10ms
+     × is shown with its own data and name 3ms
+
+ Test Files  1 failed | 11 passed (12)
+      Tests  2 failed | 139 passed (141)
+   Start at  02:31:00
+   Duration  2.68s (transform 2.15s, setup 332ms, import 9.40s, tests 808ms, environment 13.47s)
+

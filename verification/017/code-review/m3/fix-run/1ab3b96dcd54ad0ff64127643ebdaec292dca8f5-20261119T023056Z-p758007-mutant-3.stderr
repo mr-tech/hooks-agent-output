@@ -1,0 +1,26 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the legacy message key > holds the route-0 draft last written, for the code that reads it
+AssertionError: expected [ 'data', 'id', 'name', 'updatedAt' ] to deeply equal [ 'data', 'name', 'updatedAt' ]
+
+- Expected
++ Received
+
+  [
+    "data",
++   "id",
+    "name",
+    "updatedAt",
+  ]
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:321:40
+    319|     const legacy = JSON.parse(window.localStorage.getItem('message') a…
+    320|
+    321|     expect(Object.keys(legacy).sort()).toEqual(['data', 'name', 'updat…
+       |                                        ^
+    322|     expect(legacy).toEqual({ name: 'New Message', updatedAt: 1_700_000…
+    323|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

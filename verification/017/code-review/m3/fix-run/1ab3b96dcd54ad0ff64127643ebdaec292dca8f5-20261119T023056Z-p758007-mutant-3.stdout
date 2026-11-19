@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/01141c37-1391-4a14-abd8-6cc1e138c507/scratchpad/cr/work5/20261119T023056Z-p758007/mutant-3
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 1 failed) 104ms
+     × holds the route-0 draft last written, for the code that reads it 10ms
+
+ Test Files  1 failed | 11 passed (12)
+      Tests  1 failed | 140 passed (141)
+   Start at  02:31:07
+   Duration  2.56s (transform 2.37s, setup 403ms, import 9.34s, tests 783ms, environment 11.66s)
+
