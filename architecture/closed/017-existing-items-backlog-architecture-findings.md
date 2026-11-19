@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Resolved
-Status-Detail: "Closing pass on plan revision 8 (record 5e36106): APPROVED stands, no finding sent to the planner (AF-24 INFO). Every open item is discharged: system-architecture.md reconciled from the release trees website 4b8db9c and generator 8512a1d (D-006 added), website.md A-7/A-8 restated, preview-image-generator.md A-2 added, diagram updated. Anchored to those two trees: a release tree that moves before devops's pushes needs a re-read of its delta, which is steering's to route."
+Status-Detail: "Closing pass on plan revision 9 (record bcc23c6, X-24): APPROVED stands, no finding, no record change. Revision 8 (record 5e36106) was read at 2a9db38: no finding sent to the planner (AF-24 INFO). Every open item is discharged: system-architecture.md reconciled from the release trees website 4b8db9c and generator 8512a1d (D-006 added), website.md A-7/A-8 restated, preview-image-generator.md A-2 added, diagram updated. Anchored to those two trees: a release tree that moves before devops's pushes needs a re-read of its delta, which is steering's to route."
 ---
 
 # Architecture Findings — Plan 017: the existing-items backlog (conformance pass)
@@ -19,6 +19,7 @@ Status-Detail: "Closing pass on plan revision 8 (record 5e36106): APPROVED stand
 | 2026-11-19T05:08 | Conformance read, plan rev 6 (record `21e61eb`; diff `a97628d..21e61eb`, taking in revision 5 `5155e68`, which was never routed, and registration rows R-6 to R-24), briefed by steering-roadmap. Rulings read: `steering/017-rulings.md` blocks 04:50Z, 05:01Z and 05:06Z. | M8's form was read against website `5c3d03f`. The sibling it mirrors, `ConfirmationDialog.tsx` `Inner` (a ref inside the panel, with `closest('[role="dialog"]')` containing `document.activeElement`), is as the plan cites it. Both members still carry the dead `tagName` compare. The Architectural-Surface line's M8 sentence is correct: M8 adds no surface and narrows two leaf dialogs to M4's approved form. X-20's carrier, the Problem Areas row restated at the closing pass, is accepted and added to the open items. M5-0 limb 3 and its outcomes are sound. Its result on a Preview carries to production only if the 60 s limit is project-wide, which the plan marks unread for a Preview. AF-23 INFO is offered. **APPROVED** stands. |
 | 2026-11-19T05:17 | Delta read, plan rev 7 (record `6ade256`; diff `21e61eb..6ade256`, taking in R-25 and R-26), briefed by steering-roadmap | AF-23 is folded as written, and its argument is retired to a disposition line. The critic's F-26 to F-28 and SL-4, QA's QAF-20 and QAF-21, and limb 3's result were read as the delta. No finding. **APPROVED** stands. |
 | 2026-11-19T08:44 | Closing pass, plan rev 8 (record `5e36106`; diff `6ade256..5e36106`, the Planner batch fold), briefed by steering-roadmap-hooks (`steering/backlog-2026-11-18-briefs/architect-hooks-017-closing.md`). Release trees read: website `4b8db9c`, generator `8512a1d`. His X-21 and X-22 acceptances read in `steering/017-rulings.md` block 08:41Z (`06f7f2f`). | Premises re-read and held. The delta's forms conform. M4-a's `onClick` path is a necessary deviation (AF-24 INFO). No defect, so nothing goes to the planner. Open items 1 to 4 and the master document's lag are discharged: Runtime Flow 3, Components, Data Boundaries, Dependencies, Quality Attributes, Problem Areas (two resolved, four restated, five registered), D-006, Roadmap Readiness, Recommendations 1, 4 and 6, the diagram, `website.md` A-7/A-8 and `preview-image-generator.md` A-1, A-2, P-2 and P-6. **APPROVED** stands. Closed `Resolved`. |
+| 2026-11-19T09:18 | Closing pass, plan rev 9 (record `bcc23c6`; diff `5e36106..bcc23c6`), briefed by steering-roadmap-hooks by message. The critic approved revision 9 (`5f892f5`). Release trees re-read: website `4b8db9c`, generator `8512a1d`, unchanged. | The delta is X-24 (QAF-25, `StyledLink`'s `prefetch: false` default unasserted), D-31 and D-32 (his X-22 and X-21 acceptances, already landed as accepted at `2a9db38`), RK-8's firing history, and the X-21/X-22 cells. X-24's premise holds: `mergeProps({ prefetch: false }, …)` is in `StyledLink.tsx` at both `1ad625e` and `4b8db9c`. It is a test gap, not a form, so no pattern or Problem Area moves. No finding. **APPROVED** stands; the document stays `Resolved`. |
 
 ## Scope and instrument
 
@@ -194,7 +195,8 @@ meaning of 204), and A-1 is extended by section [7]'s two lines.
 ## Verdict
 
 **APPROVED** at plan revision 2 (record `3d678cc`), and it stands at revisions 3 (record `b3d811e`) and 4 (record `a97628d`), with no finding open on revision 4. It stands at revision 6 (record `21e61eb`) and revision 7 (record `6ade256`), with no finding open.
-It stands at revision 8 (record `5e36106`), read by the closing pass, with no finding open (AF-24 INFO, accepted).
+It stands at revision 8 (record `5e36106`), read by the closing pass, with no finding open (AF-24 INFO, accepted),
+and at revision 9 (record `bcc23c6`), whose delta is X-24 alone in substance, with no finding.
 
 ## Open items — all discharged at the closing pass
 
