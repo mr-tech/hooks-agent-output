@@ -1112,3 +1112,16 @@ Correction to the question text: it said revisions 8, 9 and 10 were "each read b
 9 were (`56a602a`, `5f892f5`; closing passes). Revision 10's reads are owed. The option text said so correctly.
 Next: `qa-hooks-017` briefed for the Phase 1 re-key on revision 10. When the critic, architect and QA have all passed it, the
 implementer codes the disconnect.
+
+## 2026-11-19T18:01Z — M2-d (the disconnect) implementation starts on revision 10
+
+Every pre-code gate has passed revision 10 (`fad6cd4`), read this turn:
+- Critic: APPROVED, F-29 MEDIUM on walk-step wording (`012ee2b`, R-53 `39e1940`).
+- Architect: delta read, APPROVED stands, AF-25 LOW and AF-26 INFO (`410044e`, R-52 `544eebe`).
+- QA Phase 1: re-keyed to revision 10, Status "Awaiting Implementation", EC-5 and EC-6, QAF-26 LOW, which does not hold the code
+  (`qa/017-existing-items-backlog-qa.md` § "Phase 1 re-key on plan revision 10", **`9e212a3`**).
+Plan `Revision: 10`, with no unresolved `OPEN QUESTION` (count 0). No `handoff/` record added since `fad6cd4` (17:52:25Z): log count 0,
+`status --porcelain` 0.
+**M2-d starts on revision 10, QA Phase 1 at `9e212a3`.** It is its own round after the D-33 fix, which was handed to code review at
+website `60252be` (M2 implementation § Fix Round 4, `77e71db`). The planner folds F-29, SL-5, AF-25 and QAF-26 as revision 11; none
+changes what M2-d requires of the code (its message, and QA's).
