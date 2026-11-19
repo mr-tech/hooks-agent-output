@@ -74,6 +74,7 @@ Architectural-Surface: "Yes; the architect's conformance pass is a named step (s
 | 2026-11-19T08:42 | R-45 | planner-hooks-017 | Recorded the critic's verdict on revision 8: cycle 3 pass 1, APPROVED, no finding (`critiques/closed/017-existing-items-backlog-critique.md`, `56a602a`). Scope delta: none. |
 | 2026-11-19T08:42 | R-46 | planner-hooks-017 | Registered D-31 and D-32, his acceptance of X-22 and X-21; words in `steering/selection-ledger/2026-11-19.md` block "2026-11-19T08:41Z — steering-roadmap-hooks" and `steering/017-rulings.md` block 2026-11-19T08:41Z (`06f7f2f`). The same write carries the critique's label fixes left for it (`56a602a`): SL-3's third member (X-22's carrier) and SL-5's two lines (RK-8's record cell, the owed re-verdicts row order). Scope delta: none — registration only. |
 | 2026-11-19T09:14 | R-47 | qa-hooks-017 | QA, effort-final pass and plan-level verdict: **QA Complete** at website `4b8db9c` and generator `8512a1d` (`qa/017-existing-items-backlog-qa.md` § Test Execution Results). Website sweep over `1ad625e..4b8db9c`: 124 of 140 killed; 16 survivors each dispositioned (10 whitespace-only lines, 4 equivalent, 1 constant the plan does not name, and QAF-25); 1 ABORTED (out of memory, not credited). The generator was swept whole at M6. Revision 8's delta moves no verified criterion. QAF-25 LOW (`StyledLink`'s `prefetch: false` unasserted) goes to the Planner batch under the M4 cap. Status set to QA Complete. |
+| 2026-11-19T09:15 | R-48 | planner-hooks-017 | Registered QAF-25 LOW in the Planner batch, parked under steering's M4 cap (`qa/017-existing-items-backlog-qa.md`, `1a8edce`; `steering/017-rulings.md` block 2026-11-19T04:14Z). Scope delta: none — registration only. |
 
 ## Reading Order
 
@@ -1342,6 +1343,7 @@ revision 1, `upload-message-dialog-closes-on-first-portal-load-2026-11-08` is cl
 | M3's write matrix, row "Message *n* opened (fetch)": the Sn cell is "removed when the fetched copy is shown", not "nothing written" | CR-8 LOW (`code-review/017-existing-items-backlog-code-review.md`); M3 document, CR-8 deviation | Discharged at revision 8: the matrix cell reads as the code does. |
 | M6's setup failures carry no class line: is a fifth class wanted? | `implementation/017-existing-items-backlog-m6-implementation.md` § Deviations (`008468b`); code review Round 7 CR-17 | Discharged at revision 8: M6-c states the class set closed at the four; no fifth class. |
 | Security L-001 LOW: the request `id` reaches the generator's logs unescaped | `security/017-preview-image-generator-security-audit.md` § Low Findings (`4ae4825`) | Discharged at revision 8: Exclusions X-21, accepted by him (D-32). |
+| QAF-25 LOW: `StyledLink`'s rewritten `LinkProxy` keeps `mergeProps({ prefetch: false }, rest, …)` (website `4b8db9c`), and no case fails when the default is lost (mutant `prefetch: true` survives the suite). M4 claims `StyledLink`'s props unchanged, and they are | `qa/017-existing-items-backlog-qa.md` § Test Execution Results, Findings (effort-final pass), agent-output `1a8edce`; steering's M4 cap (`steering/017-rulings.md` block 2026-11-19T04:14Z) | Parked, LOW. Proposed fold: an Exclusions row in X-23's form, a stated limit under the M4 cap, naming the unasserted property "a `StyledLink` renders `next/link` with `prefetch` false unless the caller passes one". Folds at the next planning pass, or on steering's brief where devops Stage 1 finds it unfolded (devops.md step 2c). |
 | Code review Round 7 assumption: a `/preview` fallback render is stored as the preview | `code-review/017-existing-items-backlog-code-review.md` § Assumption Not Checked, Round 7 (`8296f7e`) | Discharged at revision 8: Exclusions X-22, accepted by him (D-31). |
 
 ## Resumption State
@@ -1355,7 +1357,7 @@ Written 2026-11-19T08:30Z by planner-hooks-017, at revision 8.
   `1ad625e` by `git ls-remote`; the generator tip `8512a1d` is the gate documents' (not read here).
 - **Next.** The critic approved revision 8 (`56a602a`); R-45 records it. R-46 registers D-31 and D-32
   (he accepted X-22 and X-21) and brings the critique's SL-3 third member and SL-5's two lines into
-  agreement. The website access defects in the same rulings block are not 017's and are not
+  agreement. R-48 parks QAF-25 LOW as a Planner batch row, unfolded. The website access defects in the same rulings block are not 017's and are not
   registered. No pass is owed until a gate or a ruling arrives. Disclosed: the stamp gate refused
   R-45's and R-46's first stamps (08:43, typed a minute ahead of the clock); both were re-stamped
   from `date -u`.
