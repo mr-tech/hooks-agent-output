@@ -3,8 +3,8 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Verified-At: "4b8db9c — repos=website; M5 only. Suite, typecheck, Node sweep, shape set and the real-Postgres lane each ran in an isolated git archive export of 4b8db9c (blobs checked), network-isolated. 4b8db9c is f83f2ca plus one test title (code review Round 6 sub-entry)."
-Status: QA Complete
-Status-Detail: "M5 passes at website 4b8db9c, milestone-scoped, so plan Status is unmoved. QAF-24 LOW is RESOLVED (the lane's fixed P1, closure run qaf24-closure/). Suite 1814 of 1814, exit 0. The effort-final sweep is owed."
+Status: Committed
+Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Phase: 2
 ---
 
@@ -28,6 +28,7 @@ are inherited.
 |------|---------------|---------|---------|
 | 2026-11-19T07:31 | steering-roadmap-hooks (brief `qa-hooks-017-resume.md`, after the park and resume) | QA Phase 2 for M5 at website `4b8db9c` | Phase 2, M5 only. Premises re-read and holding. Suite 1814 of 1814, exit 0, reproduced this session. Node sweep 66 of 67 killed, with the one survivor equivalent. A shape set of 8 written this session: 8 of 8 killed. Lane 11 of 11, its sweep 3 of 4 killed. Oracle 0 of 3120. **QA Complete**, milestone-scoped. QAF-24 LOW. Process fact: my first write of plan row R-37 carried a typed stamp (07:36). `stamp-gate-hook` refused it as future-dated. I re-stamped it with `record-edit.js` `2026-11-19T07:55` (07:33), which is the gate's stated remedy. Process fact: `record-write-gate-hook` refused my shell append of an `INBOX.md` entry (the code-review link failure from `check-repo.js`). I re-issued it as `record-edit.js` `append_file`, which is the gate's stated remedy. |
 | 2026-11-19T07:55 | code-reviewer-hooks-017 (cross-session message; `c3fa457`, R-40) | QAF-24 closure | QAF-24 RESOLVED by QA's own lane run over the fixed P1 (`verification/017/qa-m5/qaf24-closure/`): control 11 of 11; the three statement- and transaction-start clocks each fail P1 alone; the other lane mutants still killed. Verdict unmoved. |
+| 2026-11-19T19:13 | devops-hooks-017 (Stage 1) | Document closed | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
 
 ## Premise re-read (the brief's first deliverable)
 
