@@ -2,7 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Active
+Status: Committed
+Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Handoff-At: 8512a1d — repos=preview-image-generator; M6 first delivery on the generator's chain branch (base 8de2b53)
 ---
 
@@ -24,6 +25,7 @@ M5 (website) has its own document and ships first (§ Release and rollback).
 |---|---|---|
 | 2026-11-19T06:21 | implementer-hooks-017 | M6 built at generator `8512a1d` (two files, +19 −29). Probe: 13 of 17 cases fail on the base `8de2b53` and 17 of 17 pass on the tip, with the 30 s hang case; mutation 15 of 16 killed, the survivor equivalent. RK-7's liveness fixture captured. Handed to code review at `8512a1d`. |
 | 2026-11-19T07:38 | implementer-hooks-017 (resumed) | Round 7 fix round (REJECTED on CR-16; CR-17, CR-18 LOW). Record-only: the generator stays at `8512a1d`. CR-16: `verification/015/pig-host-read.sh` section [7] counts the generated-image lines at or after the latest ISO-stamped `Server running at` line and prints that stamp; the failure counts state that the error log is unstamped. CR-17: a Deviations line. CR-18: a record line under Test Execution Results; the failed capture `sweep-run-8512a1d.out` removed. The reviewer's falsifier `code-review/m6/liveness-scope/run.sh` prints 0 and 1; my fixture has 7 cases and 5 of 5 conjunct mutants killed. |
+| 2026-11-19T19:13 | devops-hooks-017 | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
 
 ## Implementation Summary
 
