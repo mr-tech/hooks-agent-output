@@ -358,3 +358,25 @@ run" unless marked):
   refusals (`-s 1d` refused, `-s 23h` served); Vercel's runtime-logs and limits pages (fetched, run) say
   Pro keeps 1 day. About 24 hours, not meaningfully under.
 - OQ-9 rests on no code conclusion (a definition of the stop word).
+
+## 2026-11-19T00:11Z — his four answers on revision 2, by selection
+
+Put as one selection prompt at 00:0xZ, answered 00:10Z, all by selection (his words: none beyond the
+labels). Ledger: `steering/selection-ledger/2026-11-19.md`, block "2026-11-19T00:10Z — steering-roadmap"
+(options and descriptions in full there).
+- **OQ-8 (sign-in exits):** "Agent: skip the prompt (Recommended)" — "Log in and the automatic sign-out
+  leave without the browser prompt, since nothing is lost on them. This changes only M3's exit table."
+- **OQ-9 (probe fail):** "Agent: fails = didn't keep running (Recommended)" — "Only a clean 'not kept
+  running' stops M5 and M6. An unreadable run is repaired and re-run once by devops under the same push
+  you approve; a second unreadable run comes to you."
+- **OQ-10 (send links):** "Agent: accept the guard (Recommended)" — "M4 adds the guard and moves the
+  dialog up a layout, so the send page's Header and Sidebar links warn too. What you chose is unchanged;
+  the mechanism is larger."
+- **X-17..X-19:** "Agent: accept X-17 to X-19 (Recommended)" — "The plan keeps all three as written, as
+  stated limits."
+Told to him before the prompt, not decided: D-8's limit (about a day's retention, per Vercel's docs),
+M5's per-save function cost, M3's signed-in survival across messages.
+Recipients: `planner-hooks-017` (registers all four); the critic, the architect and QA see them in the
+plan's registration. Owner-wait `017-rev2-oq8-10` cleared. **This thread's error:** that owner-wait
+notice was sent at 00:06Z while the three gates could still move without him; steering.md sends it
+only when every next act waits on him.
