@@ -1,0 +1,205 @@
+{
+ "label": "W2-resync",
+ "t0": "2026-11-19T18:48:25.287Z",
+ "cancel1": [],
+ "nameBeforeSave": "New Messagexx",
+ "saveAt": "2026-11-19T18:48:25.389Z",
+ "A": {
+  "frames": [
+   [
+    "2026-11-19T18:48:25.640Z",
+    "{\"event\":\"message-update\",\"data\":\"\\\"-104d3efa\\\"\",\"channel\":\"message-update-900000000000001\"}"
+   ]
+  ],
+  "decoded": [
+   [
+    "2026-11-19T18:48:25.637Z",
+    "{}",
+    "object",
+    "[object Object]"
+   ],
+   [
+    "2026-11-19T18:48:25.640Z",
+    "\"-104d3efa\"",
+    "string",
+    "-104d3efa"
+   ]
+  ],
+  "upserts": [
+   [
+    "2026-11-19T18:48:25.386Z",
+    "2026-11-19T18:48:25.637Z",
+    200,
+    true
+   ]
+  ],
+  "errors": [],
+  "ui": [
+   [
+    "2026-11-19T18:48:25.402Z",
+    [],
+    [
+     "Toastify__toast--default:Saving message..."
+    ]
+   ],
+   [
+    "2026-11-19T18:48:25.754Z",
+    [],
+    [
+     "Toastify__toast--success:Message saved!"
+    ]
+   ]
+  ],
+  "sockets": [
+   [
+    0,
+    "2026-11-19T18:46:06.380Z",
+    "2026-11-19T18:46:06.551Z",
+    "2026-11-19T18:46:27.483Z"
+   ],
+   [
+    1,
+    "2026-11-19T18:46:32.542Z",
+    "2026-11-19T18:46:32.719Z",
+    "2026-11-19T18:46:47.962Z"
+   ],
+   [
+    2,
+    "2026-11-19T18:46:53.010Z",
+    "2026-11-19T18:46:53.197Z",
+    null
+   ]
+  ]
+ },
+ "B": {
+  "frames": [
+   [
+    "2026-11-19T18:48:25.638Z",
+    "{\"event\":\"message-update\",\"data\":\"\\\"-104d3efa\\\"\",\"channel\":\"message-update-900000000000001\"}"
+   ]
+  ],
+  "decoded": [
+   [
+    "2026-11-19T18:48:25.638Z",
+    "\"-104d3efa\"",
+    "string",
+    "-104d3efa"
+   ]
+  ],
+  "upserts": [],
+  "errors": [],
+  "ui": [
+   [
+    "2026-11-19T18:48:25.674Z",
+    [
+     "Message Update Detected\n\nThe message you are viewi"
+    ],
+    []
+   ]
+  ],
+  "sockets": [
+   [
+    0,
+    "2026-11-19T18:48:11.343Z",
+    "2026-11-19T18:48:11.525Z",
+    null
+   ]
+  ]
+ },
+ "noticeA": [],
+ "noticeB": [
+  "Message Update Detected\n\nThe message you are viewing has been updated. Would you like to reload it?\n\nCancel\nReload"
+ ],
+ "cancel2": [
+  [
+   "B",
+   "2026-11-19T18:48:31.404Z",
+   "Message Update Detected\n\nThe message you are viewing has been updated. Would you like to reload it?\n\nCancel\nReload",
+   [
+    "",
+    "Cancel",
+    "Reload"
+   ]
+  ]
+ ],
+ "Bdump_before_reload": {
+  "frames": [
+   [
+    "2026-11-19T18:48:11.582Z",
+    "{\"event\":\"pusher_internal:subscription_succeeded\",\"data\":\"{}\",\"channel\":\"message-update-900000000000001\"}"
+   ],
+   [
+    "2026-11-19T18:48:15.387Z",
+    "{\"event\":\"message-update\",\"data\":\"\\\"3339e100\\\"\",\"channel\":\"message-update-900000000000001\"}"
+   ],
+   [
+    "2026-11-19T18:48:25.638Z",
+    "{\"event\":\"message-update\",\"data\":\"\\\"-104d3efa\\\"\",\"channel\":\"message-update-900000000000001\"}"
+   ]
+  ],
+  "decoded": [
+   [
+    "2026-11-19T18:48:11.582Z",
+    "{}",
+    "object",
+    "[object Object]"
+   ],
+   [
+    "2026-11-19T18:48:15.387Z",
+    "\"3339e100\"",
+    "string",
+    "3339e100"
+   ],
+   [
+    "2026-11-19T18:48:25.638Z",
+    "\"-104d3efa\"",
+    "string",
+    "-104d3efa"
+   ]
+  ],
+  "upserts": [],
+  "errors": [],
+  "ui": [
+   [
+    "2026-11-19T18:48:10.968Z",
+    [],
+    []
+   ],
+   [
+    "2026-11-19T18:48:25.674Z",
+    [
+     "Message Update Detected\n\nThe message you are viewi"
+    ],
+    []
+   ],
+   [
+    "2026-11-19T18:48:31.507Z",
+    [
+     "Message Update Detected"
+    ],
+    []
+   ],
+   [
+    "2026-11-19T18:48:31.642Z",
+    [],
+    []
+   ]
+  ],
+  "sockets": [
+   [
+    0,
+    "2026-11-19T18:48:11.343Z",
+    "2026-11-19T18:48:11.525Z",
+    null
+   ]
+  ]
+ },
+ "Bsockets_after_reload": [
+  [
+   0,
+   "2026-11-19T18:48:32.151Z",
+   "2026-11-19T18:48:32.320Z",
+   null
+  ]
+ ]
+}

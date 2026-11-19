@@ -2,15 +2,15 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: UAT Failed
-Status-Detail: "B-1 FAIL (UAT-1), reproduced: the saving tab raised 'Message Update Detected' for its own save in 2 of 15 further window runs (walk 6), no crash, upsert 200, no error toast in X5; with walk 3's A1, 3 of 21 captured window runs. Routed through steering-roadmap-hooks. B-2, B-3, B-4, B-12, B-13 EXECUTED and passed. Re-decision after a fix and a re-walk."
-Verified-At: "4b8db9c,8512a1d — repos=website,preview-image-generator; flows ran against git archive exports of both SHAs with their own installs (website next dev on 127.0.0.1:3000, generator under the M5 rig copy); plan read at Revision 9"
-Release-Decision: NOT APPROVED
+Status: UAT Complete
+Status-Detail: "APPROVED FOR RELEASE at website 7293a35, generator 8512a1d (pass 2, production build). B-1, B-15, B-12 limb 1 and B-13 limbs 1–3 were re-walked there and pass. B-2, B-3, B-4, B-12 limb 2 and B-13 limb 4 carry from pass 1, because no production line on their path moved. Post-deploy rows B-6 to B-11 gate nothing here. Next: devops."
+Verified-At: "7293a35,8512a1d — repos=website,preview-image-generator; pass 2 ran on git archive exports with their own installs, website as a production build (next build, next start) on 127.0.0.1:3000, generator under the M5 rig copy; plan read at Revision 11. Pass 1's verdict at 4b8db9c,8512a1d (next dev) is expired."
+Release-Decision: APPROVED FOR RELEASE
 ---
 
 # UAT Report: Plan 017 — the existing-items backlog
 
-**Plan Reference**: `agent-output/planning/017-existing-items-backlog.md` (Revision 9, agent-output `bcc23c6`)
+**Plan Reference**: `agent-output/planning/017-existing-items-backlog.md`: Revision 11 for pass 2 (agent-output `4c8be42`); Revision 9 for pass 1 (`bcc23c6`)
 **Date**: 2026-11-19
 **UAT Agent**: Product Owner (UAT), session `uat-hooks-017`
 
@@ -20,6 +20,7 @@ Release-Decision: NOT APPROVED
 |------|---------------|---------|---------|
 | 2026-11-19T10:29 | steering-roadmap-hooks (brief `steering/backlog-2026-11-18-briefs/uat-hooks-017.md`) | UAT on plan 017 at website `4b8db9c`, generator `8512a1d`; register rows B-1 to B-4, B-12, B-13 | Stage start re-derived: QA document `QA Complete`, `Verified-At` `4b8db9c,8512a1d`, committed at `1a8edce`, effort-final sweep 124 of 140 killed. Both shared trees on `chain/017-existing-items-backlog` at those SHAs. Five browser walks on a local stack. Five rows EXECUTED and passed; B-1 FAIL (UAT-1), routed to the implementer. NOT APPROVED. |
 | 2026-11-19T10:52 | implementer-hooks-017 (UAT-1 diagnosis, capture set); steering-roadmap-hooks (re-walk before any code change) | Re-walk B-1's M2-b window with the implementer's capture set | Walk 6 on a rebuilt stack at the same SHAs: the notice recurred in the saving tab in W3 and X5 (2 of 15 window runs), with every upsert 200, no crash or page error, and no error toast at X5. Candidate (1) is not supported at X5, and the crash precursor did not reproduce. In both recurrences the frame preceded the upsert response by 74–85 ms and the notice followed the response by 1–3 ms. Decision unchanged: NOT APPROVED. Stack removed again. |
+| 2026-11-19T19:03 | steering-roadmap-hooks (re-walk brief by message) | UAT re-walk at website `7293a35`, generator `8512a1d` (plan-level QA Complete, `cf69ef1`); rows B-1 to B-4, B-12, B-13, B-15; code review's and QA's routed assumptions | Pass 2 on a production build. B-1 re-walked: 0 own-save notices in 16 valid window and plain runs, frames are JSON text decoded as strings. B-15 passes twice (one socket per tab across an in-app switch). B-12 limb 1 and B-13 limbs 1–3 pass after the recorder's control. The rest carry from pass 1, their paths unchanged. Bare number-shaped frames decode to numbers. O-1 recorded (four `/preview` error statuses, pre-existing surface). APPROVED FOR RELEASE; pass 1's verdict at `4b8db9c` expired. Stack removed. |
 
 ## Stage start and identity
 
@@ -67,12 +68,13 @@ Authority for each row's prediction, instrument and subject: QA's register (`qa/
 
 | Row | State | Result |
 |---|---|---|
-| B-1 | EXECUTED 2026-11-19 (walks 1–4; re-walked in walk 6) — **FAIL** | Tab 2 shows the notice (M2-c holds). Tab 1 raised its own-save notice once in 6 captured runs that hit M2-b's window (walk 3 A1). Walk 1 also saw it once at about 09:23:45Z after a save at 09:22:38Z, but did not capture when it appeared, so that sighting is not weighed. UAT-1. Walk 6 (re-walk with captures): recurred in 2 of 15 window runs (W3, X5), so 3 of 21 captured window runs in all. |
-| B-2 | EXECUTED 2026-11-19 | PASS (M3-a, M3-b) |
-| B-3 | EXECUTED 2026-11-19 | PASS |
-| B-4 | EXECUTED 2026-11-19 | PASS (stale, fresh, and first-failure default) |
-| B-12 | EXECUTED 2026-11-19 | PASS (limbs 1 and 2) |
-| B-13 | EXECUTED 2026-11-19 | PASS (limbs 1–4; limbs 1–2 read by the recorder after its controls) |
+| B-1 | EXECUTED 2026-11-19 at `7293a35` (walk 7) — PASS. *Pass 1 at `4b8db9c`: FAIL, below.* | Tab 2 shows the notice (M2-c holds). Tab 1 raised its own-save notice once in 6 captured runs that hit M2-b's window (walk 3 A1). Walk 1 also saw it once at about 09:23:45Z after a save at 09:22:38Z, but did not capture when it appeared, so that sighting is not weighed. UAT-1. Walk 6 (re-walk with captures): recurred in 2 of 15 window runs (W3, X5), so 3 of 21 captured window runs in all. |
+| B-2 | EXECUTED 2026-11-19 (pass 1; path unchanged at `7293a35`) | PASS (M3-a, M3-b) |
+| B-3 | EXECUTED 2026-11-19 (pass 1; path unchanged) | PASS |
+| B-4 | EXECUTED 2026-11-19 (pass 1; save path smoke-checked at `7293a35`) | PASS (stale, fresh, and first-failure default) |
+| B-12 | EXECUTED 2026-11-19 (limb 1 at `7293a35`, walk 8; limb 2 pass 1) | PASS (limbs 1 and 2) |
+| B-13 | EXECUTED 2026-11-19 (limbs 1–3 at `7293a35`, walk 8; limb 4 pass 1) | PASS (limbs 1–4; limbs 1–2 read by the recorder after its controls, both passes) |
+| B-15 | EXECUTED 2026-11-19 at `7293a35`, production build (walk 7) | PASS, two runs: one open Pusher socket per tab after each in-app switch; the old editor's socket closed on leaving; marker kept |
 
 ## Findings
 
@@ -88,11 +90,54 @@ UAT-1 HIGH — `website/src/providers/MessageProvider/usePusher.ts` (the own-sav
 
 Reading for the implementer (correlation over two runs, not a diagnosis): the notice is not raised when the frame arrives, but when a 200 response is handled about 80 ms after it. Candidate (1) is not supported at X5: no error toast and no page error. A second handler that would be consumed first is not what the timing shows, since the notice did not come at frame time. Either way the decision does not move: M2-b's "for every save" fails in about one window run in seven.
 
+*Reconcile, pass 2:* UAT-1 is resolved by the fix the owner chose. Under the exact hash fix (`steering/017-rulings.md` block 2026-11-19T17:49Z, D-33), the producer sends the hash as JSON text and the tab compares exact strings. Code review found the mechanism (CR-20): pusher-js decoded number-shaped hashes such as W3's `6286e037` and X5's `-5e72712` into numbers. Re-walked at `7293a35` below: 0 own-save notices in 16 window and plain runs.
+
+## Pass 2 — re-walk at website `7293a35`, generator `8512a1d`
+
+**Stage start.** Steering's brief by message, 2026-11-19 (18:3xZ): rows B-1 to B-4, B-12, B-13 and B-15, at the plan-level QA Complete SHAs. Re-derived at 18:39Z:
+- `qa/017-existing-items-backlog-qa.md`: `Status: QA Complete`, `Verified-At` `7293a35,8512a1d`, last commit `cf69ef1`.
+- Shared trees: website `7293a35`, generator `8512a1d`, both on `chain/017-existing-items-backlog`.
+- Plan at Revision 11 (`4c8be42`); Revision 11's delta is M2-d's walk wording, which B-15 carries.
+
+Authority for B-15's prediction and instrument: QA's register row B-15 (re-read at this write).
+
+**What moved, and what was re-walked.** `git -C website diff --stat 4b8db9c 7293a35`: the production change is `src/providers/MessageProvider/usePusher.ts` (9 lines) and `src/server/api/utils/shared.ts` (2 lines, the broadcast trigger); the rest is tests.
+- Re-walked: every row whose prompt is raised through that path: B-1, B-15 (new), B-12 limb 1 and B-13 limbs 1–3, with the recorder's control re-run.
+- Carried from pass 1: B-2 (M3), B-3 and B-12 limb 2 (M4), B-4 (M5/M6) and B-13 limb 4 (a lone dialog). None of their paths changed.
+- `shared.ts` runs on every save, so the walk's saves served as B-4's smoke check. The rig log shows 35 preview writes, each followed by the website's list request, and 33 batch deletes (`rig-log-3.jsonl`). Preview handling still runs on every save at the new tip.
+
+**Build**: the same rig and local stack as pass 1. The website export of `7293a35` was built as a **production build** (`next build`, exit 0; `next start -H 127.0.0.1 -p 3000`), with the rig's environment set at build and at start and read back from `/proc/<pid>/environ`. That answers QA's M2 Assumption Not Checked: B-15 ran on a production build. Fresh database from `uat-local-stack.sh up` (`local-stack-up-3.txt`); messages written 900000000000001 and 900000000000002 only, and the count below 900000000000001 was 0 after the first save and at the end of both walks (`walk-7/db-*.txt`, walk 8). Instruments, each saved where it is named:
+- `b1-capture-init-2.js`, a copy of walk 6's script that adds the decoded value of each `message-update` frame and every WebSocket's open and close;
+- `trigger-bare-frame.mjs`, which sends one bare-data `message-update` on a local id's channel, with credentials read from `.env.local` and never printed;
+- `enter-recorder.js`, as in pass 1.
+
+| Flow | Action | Expected | Observed | Result |
+|------|--------|----------|----------|--------|
+| B-15 run 1 | M1's editor, `__qaDoc = 1`, then in-app to M2: user menu → Servers → My Account → M2's card | 1 Pusher socket at M1; marker kept; 1 open at M2; M1's closed at the switch | 1 open at M1; M1's socket closed 18:46:27.483 on leaving; none opened on `/message` or `/message/f/0`; M2's opened 18:46:32.719; 1 open; `__qaDoc` = 1 (`walk-7/part1-run1-M1-to-M2.json`) | PASS |
+| B-15 run 2 | The same, M2 → M1 | As run 1 | M2's socket closed 18:46:47.962; 1 open at M1; marker kept (`part1-run2-M2-to-M1.json`) | PASS |
+| B-1 / M2-b | 15 window runs: A saves, name edited 30 ms after, 10 s capture | A never; B every run | A: no notice in 13 valid runs. B: notice in all 13. W2 and W3 were void: the typed word did not land, so A saved only a name change and B, correctly, showed nothing (`walk-7/part2-W*.json`) | PASS |
+| B-1 / M2, plain and re-sync | P1–P3, plus 15 re-sync saves of A's pending name edit | A never; B every save | A: none. B: a notice for every save | PASS |
+| B-1 frame form (code review Round 9 assumption) | Every captured frame in A and B | Data is JSON text, decoded to the exact string | Every frame `"data":"\"<hash>\""`, decoded `typeof string`, including number-shaped `"-104d3efa"`-style hashes | PASS |
+| Bare number-shaped frame (QAF-27 assumption) | `trigger-bare-frame.mjs` with `6286e037`, `12345`, `-5e72712`; A and B with no unsaved edits | Record the decoded type | pusher-js's parse returned `number` 6.286e+40, `number` 12345, `number` -Infinity, in both tabs. Both tabs raised the notice, which is right under M2-c for a broadcast matching neither tab (`walk-7/part3-*.json`) | recorded |
+| B-12 limb 1 | Link prompt L open; B saves; one Enter | Focused prompt only | Focus on Reload in U; one Enter ran Reload; L stayed open with focus on Leave Page; Cancel kept the URL (`walk-8/results.md`) | PASS |
+| B-13 control C1 | Planted Delete + Reload in one task | min = first − 1 | 8 / 7 / 8 | instrument valid |
+| B-13 limbs 1–3 | W, then I, then W with no click, under U; one Enter | Reload only | Fields 8/8/8 in L1 and L3; marker never visible in L2; Reload ran each time; focus a DIV in U for L1 and L2, Reload for L3 | PASS |
+
+Limits of the instruments:
+- QAF-27: the decode was observed at pusher-js's own `JSON.parse` call; that the `bind` callback receives the decoded value unchanged is inferred, not instrumented. The notice decision cannot tell it either way, since a string `6286e037` would also differ from both tabs' content. By code review's own "if false" text, the consequence is benign either way.
+- Code review Round 10's assumption (`disconnect()` closes the socket in a browser) is discharged by B-15: close events seen, and no socket reopened after the leave.
+- Walk 8's per-limb returns were transcribed by hand (`walk-8/results.md`); the run_code sandbox could not write files, and walk 7 used a loopback file sink (`walk-7/sink.mjs`, stopped).
+- A helper's shell write of `walk-8/end.txt` was refused by the record-write hook, and the results went through the Write tool instead (a format gate satisfied).
+
+**Observation O-1 (not a row, routed to steering).** During walk 7 the website's D-8 line logged `preview-image-failure id=900000000000001 class=status-500` four times, for four consecutive saves between 18:48:15Z and 18:48:46Z (W2, its re-sync, W3, its re-sync). The generator's class was `error-status`: the website's own `/preview` page answered its page load with an HTTP error status. Saves before (18:48:04) and after (from 18:49) rendered. W2's message data equalled the 18:48:04 save's, and only the name differed, so the cause is not visible here; the data `/preview` received was not captured (`walk-7/preview-failures-website.txt`, `preview-failures-generator.txt`).
+- Item 2's value held through it: the stored preview stayed on the last good image.
+- `/preview` is unchanged since `1ad625e` (X-22), so this is no delta of 017's. It is a pre-existing surface no 017 criterion covers. The owner's B-6 look and B-10's failure-stack count are the post-deploy instruments that would see it in production.
+
 ## Value Delivery Assessment
 
 Against the plan's Value Statement (§ "Value Statement and Business Objective", items 1–5):
 - **1, stale not broken previews**: delivered. With the generator down, the list kept the old preview, unbroken, and the save went through. With it up, the new one showed. A new message whose first render failed showed a default image, not a broken one.
-- **2, the saving tab is not told about its own save**: largely delivered, not shown. The cross-tab notice is kept, and ordinary saves never raised it in the saving tab. One captured own-save notice in the in-flight window remains unexplained (UAT-1).
+- **2, the saving tab is not told about its own save**: delivered at `7293a35`. There were no own-save notices in 16 window and plain runs or in 15 re-sync saves, and the other tab was told every time. At `4b8db9c` it failed about one window run in seven (UAT-1, pass 1), which is the number-shaped hash case the exact hash fix removes. The editor also leaves no extra Pusher connection behind when you switch messages (M2-d, B-15).
 - **3, signed-out edits not lost without a warning**: delivered. Drafts survive sign-in, a new tab and the expired-session sign-out. Link prompts now work signed in and signed out, with Cancel and Leave Page behaving.
 - **4, hygiene**: no user-visible flow; QA's verdict carries it.
 - **5, one Enter answers one dialog**: delivered. Enter in the update prompt runs Reload only, both for the link prompt and for the delete and image dialogs underneath. A lone delete dialog still answers Enter.
@@ -100,26 +145,29 @@ Against the plan's Value Statement (§ "Value Statement and Business Objective",
 No core value is deferred. Known limits: X-14 (unstoppable navigations), X-22 (the `/preview` fallback image, the owner's B-6 look), and the post-deploy rows B-6 to B-11.
 
 ## Objective Alignment Assessment
-**Does code meet original plan objective?**: PARTIAL
-**Evidence**: Items 1, 3 and 5 behave as stated on a running build at the verified SHAs. Item 2's cross-tab half holds; its own-tab half failed once in its distinguishing window (UAT-1).
-**Drift Detected**: none in scope or behaviour. The difference is a single defect observation against M2-b, not a divergence from the objective.
+**Does code meet original plan objective?**: YES
+**Evidence**: All five value statements behave as stated on a running build at the verified SHAs: items 1, 3 and 5 per pass 1 (their paths unchanged since), and item 2 per pass 2 on a production build of `7293a35`.
+**Drift Detected**: none in scope or behaviour. M2-d (closing the editor's Pusher connection) entered by the owner's selection (D-34), not by drift.
 
 ## Release Decision
-**Final Status**: NOT APPROVED
-**Rationale**: QA is complete and five of six pre-release rows pass. B-1 failed once in the case that distinguishes the fix. A FAIL on a blocking row routes to the implementer and is not weighed away by later clean runs, because "for every save" is M2-b's claim. The decision is re-taken on the implementer's diagnosis: a fix (which expires this verdict and its predecessors at `4b8db9c`), or a demonstration that A1 arose from a state outside the class, such as the helper's synthetic-event crash, re-walked here.
-**Recommended Version**: minor bump for the website (user-visible behaviour: link prompts, draft survival, preview fallback, Enter scoping); patch for the generator (it writes only a confirmed image and deletes nothing). This applies when approved.
+**Final Status**: APPROVED FOR RELEASE
+**Identity**: website `7293a35`, generator `8512a1d`. These are the trees QA's plan-level verdict was reached at (`Verified-At`, `cf69ef1`), re-derived from the shared trees at 18:39Z. Any change to production code in either repository expires those verdicts and this one.
+**Rationale**: QA is complete at these SHAs. Every pre-release row this stage owns has reached EXECUTED and passed: B-1, B-12 limb 1, B-13 limbs 1–3 and B-15 at `7293a35`; B-2, B-3, B-4, B-12 limb 2 and B-13 limb 4 at `4b8db9c`, whose paths the delta does not touch, with B-4's save path smoke-checked at the new tip. UAT-1's case passes on every run under captures. Post-deploy rows B-6 to B-11 gate nothing here and keep their carriers. O-1 is a pre-existing `/preview` behaviour outside the delta, and item 2's stale-not-broken value held through it.
+*Pass 1's decision, NOT APPROVED at `4b8db9c` (2026-11-19T10:29), is expired by the website's move through M2's fix rounds and is kept above as history.*
+**Recommended Version**: minor bump for the website (user-visible behaviour: link prompts, draft survival, preview fallback, Enter scoping, the own-save notice); patch for the generator (it writes only a confirmed image and deletes nothing).
 **Key Changes for Changelog**:
 - Previews keep the last good image when a new one cannot be made, instead of breaking.
-- "Message Update Detected" is meant for other tabs' saves, not your own (pending UAT-1).
+- "Message Update Detected" now appears only when another tab or person saved, not for your own save.
 - Unsaved message drafts survive sign-in, a second tab and an expired session; links away from an editor with unsaved changes ask first.
 - Enter answers only the dialog that holds focus.
 - New operator-visible signal: a `preview-image-failure id=<id> class=<class> elapsedMs=<n>` line in the website's function log (stdout) on each failed preview generation (D-8).
+- Operator-visible: the editor closes its Pusher connection when you leave or switch messages (M2-d), so Pusher's concurrent-connection count per editing user should drop to one per open editor.
 
 ## Next Actions
 *Point-in-time list — later stage documents are authoritative on these items' current state.*
-- implementer: diagnose UAT-1 with the captures named above; then UAT re-walks B-1's window.
-- (walk 6) UAT-1 is reproduced with captures; it goes to the implementer through steering-roadmap-hooks (steering's routing, 10:3xZ). A fix moves the website tip and expires review, QA and this verdict at `4b8db9c`; UAT then re-walks B-1 with `b1-capture-init.js`.
-- devops: not before a UAT approval. The post-deploy rows B-6 to B-11 keep their carriers.
+- devops: prepare the release at website `7293a35`, generator `8512a1d`. B-6 to B-11 are post-deploy rows with their carriers created at Stage 1.
+- O-1 (four `/preview` error-status answers on the local production build, cause not captured) goes to steering for routing. No 017 criterion requires it, so it is a stated limit here; B-6 and B-10 are the post-deploy instruments that would see it in production.
+- Pass 1's items on UAT-1 are closed: the fix landed (D-33), and pass 2 re-walked it.
 
 ## Stack set up and removed
-Set up: exports under this session's scratchpad (`web/`, `gen/`), the rig (`rig-uat.mjs`, ports 39001 and 39002), `next dev` on 127.0.0.1:3000, and container `hooks-postgres-local`. Removed: the rig and `next dev` stopped by SIGINT (no matching process in `ps`; ports 3000, 39001 and 39002 not listening); the container removed by `uat-local-stack.sh down` (`local-stack-down.txt`); both exports deleted. The `.env.local` symlink lived only inside the website export.
+Set up: exports under this session's scratchpad (`web/`, `gen/`), the rig (`rig-uat.mjs`, ports 39001 and 39002), `next dev` on 127.0.0.1:3000, and container `hooks-postgres-local`. Removed: the rig and `next dev` stopped by SIGINT (no matching process in `ps`; ports 3000, 39001 and 39002 not listening); the container removed by `uat-local-stack.sh down` (`local-stack-down.txt`); both exports deleted. The `.env.local` symlink lived only inside the website export. Walk 6 rebuilt the same stack and removed it the same way (`local-stack-down-2.txt`). Pass 2 set it up a third time with a production server (`next start`) and removed it: rig and server stopped by SIGINT, ports 3000, 39001 and 39002 not listening, no matching process in `ps`, container removed (`local-stack-down-3.txt`), exports deleted. Walk 7's loopback sink on port 39777 was stopped by the helper (no listener, no process).

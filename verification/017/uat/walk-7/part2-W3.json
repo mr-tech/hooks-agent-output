@@ -1,0 +1,128 @@
+{
+ "label": "W3",
+ "plain": false,
+ "startedAt": "2026-11-19T18:48:36.072Z",
+ "word": "ww5afqb",
+ "typedVerified": false,
+ "afterFileClickEditorOpen": 0,
+ "saveClickReturnedAt": "2026-11-19T18:48:36.306Z",
+ "editAt": [
+  "2026-11-19T18:48:36.365Z",
+  "New Messagexxx"
+ ],
+ "A": {
+  "frames": [
+   [
+    "2026-11-19T18:48:36.550Z",
+    "{\"event\":\"message-update\",\"data\":\"\\\"-104d3efa\\\"\",\"channel\":\"message-update-900000000000001\"}"
+   ]
+  ],
+  "decoded": [
+   [
+    "2026-11-19T18:48:36.221Z",
+    "{}",
+    "object",
+    "[object Object]"
+   ],
+   [
+    "2026-11-19T18:48:36.365Z",
+    "{}",
+    "object",
+    "[object Object]"
+   ],
+   [
+    "2026-11-19T18:48:36.550Z",
+    "\"-104d3efa\"",
+    "string",
+    "-104d3efa"
+   ],
+   [
+    "2026-11-19T18:48:36.552Z",
+    "{}",
+    "object",
+    "[object Object]"
+   ]
+  ],
+  "upserts": [
+   [
+    "2026-11-19T18:48:36.295Z",
+    "2026-11-19T18:48:36.552Z",
+    200,
+    true
+   ]
+  ],
+  "errors": [],
+  "ui": [
+   [
+    "2026-11-19T18:48:36.305Z",
+    [],
+    [
+     "Toastify__toast--default:Saving message..."
+    ]
+   ],
+   [
+    "2026-11-19T18:48:36.676Z",
+    [],
+    [
+     "Toastify__toast--success:Message saved!"
+    ]
+   ],
+   [
+    "2026-11-19T18:48:42.526Z",
+    [],
+    []
+   ]
+  ],
+  "sockets": [
+   [
+    0,
+    "2026-11-19T18:46:06.380Z",
+    "2026-11-19T18:46:06.551Z",
+    "2026-11-19T18:46:27.483Z"
+   ],
+   [
+    1,
+    "2026-11-19T18:46:32.542Z",
+    "2026-11-19T18:46:32.719Z",
+    "2026-11-19T18:46:47.962Z"
+   ],
+   [
+    2,
+    "2026-11-19T18:46:53.010Z",
+    "2026-11-19T18:46:53.197Z",
+    null
+   ]
+  ]
+ },
+ "B": {
+  "frames": [
+   [
+    "2026-11-19T18:48:36.575Z",
+    "{\"event\":\"message-update\",\"data\":\"\\\"-104d3efa\\\"\",\"channel\":\"message-update-900000000000001\"}"
+   ]
+  ],
+  "decoded": [
+   [
+    "2026-11-19T18:48:36.576Z",
+    "\"-104d3efa\"",
+    "string",
+    "-104d3efa"
+   ]
+  ],
+  "upserts": [],
+  "errors": [],
+  "ui": [],
+  "sockets": [
+   [
+    0,
+    "2026-11-19T18:48:32.151Z",
+    "2026-11-19T18:48:32.320Z",
+    null
+   ]
+  ]
+ },
+ "noticeA": [],
+ "noticeB": [],
+ "pageerrorsA": [],
+ "pageerrorsB": []
+}

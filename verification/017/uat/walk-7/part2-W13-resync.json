@@ -1,0 +1,235 @@
+{
+ "label": "W13-resync",
+ "t0": "2026-11-19T18:53:31.385Z",
+ "cancel1": [
+  [
+   "B",
+   "2026-11-19T18:53:31.393Z",
+   "Message Update Detected\n\nThe message you are viewing has been updated. Would you like to reload it?\n\nCancel\nReload",
+   [
+    "",
+    "Cancel",
+    "Reload"
+   ]
+  ]
+ ],
+ "nameBeforeSave": "New Messagexxxxxxxxxxxxx",
+ "saveAt": "2026-11-19T18:53:32.094Z",
+ "A": {
+  "frames": [
+   [
+    "2026-11-19T18:53:32.388Z",
+    "{\"event\":\"message-update\",\"data\":\"\\\"-d8735b4\\\"\",\"channel\":\"message-update-900000000000001\"}"
+   ]
+  ],
+  "decoded": [
+   [
+    "2026-11-19T18:53:32.388Z",
+    "\"-d8735b4\"",
+    "string",
+    "-d8735b4"
+   ],
+   [
+    "2026-11-19T18:53:32.389Z",
+    "{}",
+    "object",
+    "[object Object]"
+   ]
+  ],
+  "upserts": [
+   [
+    "2026-11-19T18:53:32.091Z",
+    "2026-11-19T18:53:32.389Z",
+    200,
+    true
+   ]
+  ],
+  "errors": [],
+  "ui": [
+   [
+    "2026-11-19T18:53:32.103Z",
+    [],
+    [
+     "Toastify__toast--default:Saving message..."
+    ]
+   ],
+   [
+    "2026-11-19T18:53:32.501Z",
+    [],
+    [
+     "Toastify__toast--success:Message saved!"
+    ]
+   ]
+  ],
+  "sockets": [
+   [
+    0,
+    "2026-11-19T18:46:06.380Z",
+    "2026-11-19T18:46:06.551Z",
+    "2026-11-19T18:46:27.483Z"
+   ],
+   [
+    1,
+    "2026-11-19T18:46:32.542Z",
+    "2026-11-19T18:46:32.719Z",
+    "2026-11-19T18:46:47.962Z"
+   ],
+   [
+    2,
+    "2026-11-19T18:46:53.010Z",
+    "2026-11-19T18:46:53.197Z",
+    null
+   ]
+  ]
+ },
+ "B": {
+  "frames": [
+   [
+    "2026-11-19T18:53:32.387Z",
+    "{\"event\":\"message-update\",\"data\":\"\\\"-d8735b4\\\"\",\"channel\":\"message-update-900000000000001\"}"
+   ]
+  ],
+  "decoded": [
+   [
+    "2026-11-19T18:53:32.387Z",
+    "\"-d8735b4\"",
+    "string",
+    "-d8735b4"
+   ]
+  ],
+  "upserts": [],
+  "errors": [],
+  "ui": [
+   [
+    "2026-11-19T18:53:32.412Z",
+    [
+     "Message Update Detected\n\nThe message you are viewi"
+    ],
+    []
+   ]
+  ],
+  "sockets": [
+   [
+    0,
+    "2026-11-19T18:53:15.958Z",
+    "2026-11-19T18:53:16.325Z",
+    null
+   ]
+  ]
+ },
+ "noticeA": [],
+ "noticeB": [
+  "Message Update Detected\n\nThe message you are viewing has been updated. Would you like to reload it?\n\nCancel\nReload"
+ ],
+ "cancel2": [
+  [
+   "B",
+   "2026-11-19T18:53:38.110Z",
+   "Message Update Detected\n\nThe message you are viewing has been updated. Would you like to reload it?\n\nCancel\nReload",
+   [
+    "",
+    "Cancel",
+    "Reload"
+   ]
+  ]
+ ],
+ "Bdump_before_reload": {
+  "frames": [
+   [
+    "2026-11-19T18:53:16.410Z",
+    "{\"event\":\"pusher_internal:subscription_succeeded\",\"data\":\"{}\",\"channel\":\"message-update-900000000000001\"}"
+   ],
+   [
+    "2026-11-19T18:53:21.538Z",
+    "{\"event\":\"message-update\",\"data\":\"\\\"-79aed7ee\\\"\",\"channel\":\"message-update-900000000000001\"}"
+   ],
+   [
+    "2026-11-19T18:53:32.387Z",
+    "{\"event\":\"message-update\",\"data\":\"\\\"-d8735b4\\\"\",\"channel\":\"message-update-900000000000001\"}"
+   ]
+  ],
+  "decoded": [
+   [
+    "2026-11-19T18:53:16.410Z",
+    "{}",
+    "object",
+    "[object Object]"
+   ],
+   [
+    "2026-11-19T18:53:21.538Z",
+    "\"-79aed7ee\"",
+    "string",
+    "-79aed7ee"
+   ],
+   [
+    "2026-11-19T18:53:32.387Z",
+    "\"-d8735b4\"",
+    "string",
+    "-d8735b4"
+   ]
+  ],
+  "upserts": [],
+  "errors": [],
+  "ui": [
+   [
+    "2026-11-19T18:53:15.879Z",
+    [],
+    []
+   ],
+   [
+    "2026-11-19T18:53:21.567Z",
+    [
+     "Message Update Detected\n\nThe message you are viewi"
+    ],
+    []
+   ],
+   [
+    "2026-11-19T18:53:31.491Z",
+    [
+     "Message Update Detected"
+    ],
+    []
+   ],
+   [
+    "2026-11-19T18:53:31.597Z",
+    [],
+    []
+   ],
+   [
+    "2026-11-19T18:53:32.412Z",
+    [
+     "Message Update Detected\n\nThe message you are viewi"
+    ],
+    []
+   ],
+   [
+    "2026-11-19T18:53:38.173Z",
+    [
+     "Message Update Detected"
+    ],
+    []
+   ],
+   [
+    "2026-11-19T18:53:38.297Z",
+    [],
+    []
+   ]
+  ],
+  "sockets": [
+   [
+    0,
+    "2026-11-19T18:53:15.958Z",
+    "2026-11-19T18:53:16.325Z",
+    null
+   ]
+  ]
+ },
+ "Bsockets_after_reload": [
+  [
+   0,
+   "2026-11-19T18:53:38.791Z",
+   "2026-11-19T18:53:38.960Z",
+   null
+  ]
+ ]
+}

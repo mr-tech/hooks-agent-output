@@ -1,0 +1,126 @@
+{
+ "label": "W12",
+ "plain": false,
+ "startedAt": "2026-11-19T18:52:57.020Z",
+ "word": "w84u2u5",
+ "typedVerified": true,
+ "afterFileClickEditorOpen": 0,
+ "saveClickReturnedAt": "2026-11-19T18:52:58.429Z",
+ "editAt": [
+  "2026-11-19T18:52:58.483Z",
+  "New Messagexxxxxxxxxxxx"
+ ],
+ "A": {
+  "frames": [
+   [
+    "2026-11-19T18:52:58.665Z",
+    "{\"event\":\"message-update\",\"data\":\"\\\"2f3daf05\\\"\",\"channel\":\"message-update-900000000000001\"}"
+   ]
+  ],
+  "decoded": [
+   [
+    "2026-11-19T18:52:58.373Z",
+    "{}",
+    "object",
+    "[object Object]"
+   ],
+   [
+    "2026-11-19T18:52:58.665Z",
+    "\"2f3daf05\"",
+    "string",
+    "2f3daf05"
+   ]
+  ],
+  "upserts": [
+   [
+    "2026-11-19T18:52:58.426Z",
+    "2026-11-19T18:52:58.667Z",
+    200,
+    true
+   ]
+  ],
+  "errors": [],
+  "ui": [
+   [
+    "2026-11-19T18:52:58.436Z",
+    [],
+    [
+     "Toastify__toast--default:Saving message..."
+    ]
+   ],
+   [
+    "2026-11-19T18:52:58.801Z",
+    [],
+    [
+     "Toastify__toast--success:Message saved!"
+    ]
+   ],
+   [
+    "2026-11-19T18:53:04.652Z",
+    [],
+    []
+   ]
+  ],
+  "sockets": [
+   [
+    0,
+    "2026-11-19T18:46:06.380Z",
+    "2026-11-19T18:46:06.551Z",
+    "2026-11-19T18:46:27.483Z"
+   ],
+   [
+    1,
+    "2026-11-19T18:46:32.542Z",
+    "2026-11-19T18:46:32.719Z",
+    "2026-11-19T18:46:47.962Z"
+   ],
+   [
+    2,
+    "2026-11-19T18:46:53.010Z",
+    "2026-11-19T18:46:53.197Z",
+    null
+   ]
+  ]
+ },
+ "B": {
+  "frames": [
+   [
+    "2026-11-19T18:52:58.665Z",
+    "{\"event\":\"message-update\",\"data\":\"\\\"2f3daf05\\\"\",\"channel\":\"message-update-900000000000001\"}"
+   ]
+  ],
+  "decoded": [
+   [
+    "2026-11-19T18:52:58.665Z",
+    "\"2f3daf05\"",
+    "string",
+    "2f3daf05"
+   ]
+  ],
+  "upserts": [],
+  "errors": [],
+  "ui": [
+   [
+    "2026-11-19T18:52:58.690Z",
+    [
+     "Message Update Detected\n\nThe message you are viewi"
+    ],
+    []
+   ]
+  ],
+  "sockets": [
+   [
+    0,
+    "2026-11-19T18:52:53.127Z",
+    "2026-11-19T18:52:53.292Z",
+    null
+   ]
+  ]
+ },
+ "noticeA": [],
+ "noticeB": [
+  "Message Update Detected\n\nThe message you are viewing has been updated. Would you like to reload it?\n\nCancel\nReload"
+ ],
+ "pageerrorsA": [],
+ "pageerrorsB": []
+}

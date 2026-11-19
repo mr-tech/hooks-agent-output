@@ -1,0 +1,56 @@
+2026-11-19T18:48:05.905Z Generated image for message 900000000000001 with nonce v1795114084329540c1a0536dd08705f0 in 1570ms
+2026-11-19T18:48:15.221Z POST /generate
+2026-11-19T18:48:15.221Z Acquired instance 1.
+2026-11-19T18:48:16.281Z Releasing instance 1.
+preview-image-failure id=900000000000001 class=error-status elapsedMs=1060
+PreviewFailure [Error]: Preview render failed: error-status
+    at generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/0c4445dc-bc45-4d83-81cc-0b109667699e/scratchpad/gen/src/generateImage.ts:37:45)
+    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/0c4445dc-bc45-4d83-81cc-0b109667699e/scratchpad/gen/src/getPool.ts:88:14)
+    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/0c4445dc-bc45-4d83-81cc-0b109667699e/scratchpad/gen/src/generateImage.ts:53:17) {
+  failureClass: 'error-status',
+  original: undefined
+}
+2026-11-19T18:48:25.410Z POST /generate
+2026-11-19T18:48:25.411Z Acquired instance 2.
+2026-11-19T18:48:26.468Z Releasing instance 2.
+preview-image-failure id=900000000000001 class=error-status elapsedMs=1058
+PreviewFailure [Error]: Preview render failed: error-status
+    at generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/0c4445dc-bc45-4d83-81cc-0b109667699e/scratchpad/gen/src/generateImage.ts:37:45)
+    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/0c4445dc-bc45-4d83-81cc-0b109667699e/scratchpad/gen/src/getPool.ts:88:14)
+    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/0c4445dc-bc45-4d83-81cc-0b109667699e/scratchpad/gen/src/generateImage.ts:53:17) {
+  failureClass: 'error-status',
+  original: undefined
+}
+2026-11-19T18:48:36.311Z POST /generate
+2026-11-19T18:48:36.311Z Acquired instance 1.
+2026-11-19T18:48:37.378Z Releasing instance 1.
+preview-image-failure id=900000000000001 class=error-status elapsedMs=1067
+PreviewFailure [Error]: Preview render failed: error-status
+    at generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/0c4445dc-bc45-4d83-81cc-0b109667699e/scratchpad/gen/src/generateImage.ts:37:45)
+    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/0c4445dc-bc45-4d83-81cc-0b109667699e/scratchpad/gen/src/getPool.ts:88:14)
+    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/0c4445dc-bc45-4d83-81cc-0b109667699e/scratchpad/gen/src/generateImage.ts:53:17) {
+  failureClass: 'error-status',
+  original: undefined
+}
+2026-11-19T18:48:46.495Z POST /generate
+2026-11-19T18:48:46.495Z Acquired instance 2.
+2026-11-19T18:48:47.552Z Releasing instance 2.
+preview-image-failure id=900000000000001 class=error-status elapsedMs=1058
+PreviewFailure [Error]: Preview render failed: error-status
+    at generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/0c4445dc-bc45-4d83-81cc-0b109667699e/scratchpad/gen/src/generateImage.ts:37:45)
+    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/0c4445dc-bc45-4d83-81cc-0b109667699e/scratchpad/gen/src/getPool.ts:88:14)
+    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/0c4445dc-bc45-4d83-81cc-0b109667699e/scratchpad/gen/src/generateImage.ts:53:17) {
+  failureClass: 'error-status',
+  original: undefined
+--
+2026-11-19T18:58:40.245Z Generated image for message 900000000000001 with nonce v17951147191480595b1a07a6af7048d9 in 1092ms
+2026-11-19T18:59:09.916Z POST /generate
+2026-11-19T18:59:09.917Z Acquired instance 2.
+2026-11-19T18:59:10.981Z Releasing instance 2.
+preview-image-failure id=900000000000001 class=error-status elapsedMs=1064
+PreviewFailure [Error]: Preview render failed: error-status
+    at generateMessagePreviewImage (/tmp/claude-1000/-usr-local-bin-hooks/0c4445dc-bc45-4d83-81cc-0b109667699e/scratchpad/gen/src/generateImage.ts:37:45)
+    at async Pool.pool.use (/tmp/claude-1000/-usr-local-bin-hooks/0c4445dc-bc45-4d83-81cc-0b109667699e/scratchpad/gen/src/getPool.ts:88:14)
+    at async exports.default (/tmp/claude-1000/-usr-local-bin-hooks/0c4445dc-bc45-4d83-81cc-0b109667699e/scratchpad/gen/src/generateImage.ts:53:17) {
+  failureClass: 'error-status',
+  original: undefined

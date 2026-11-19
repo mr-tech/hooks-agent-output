@@ -1,0 +1,7 @@
+{"run":"1 M1->M2","qaDocAfter":1,
+"urls":["18:46:27 /message/m/900000000000001/edit","18:46:29 /message (Servers)","18:46:32 /message/f/0 (My Account)","18:46:35 /message/m/900000000000002/edit (M2 card link goes direct to edit; no Edit click needed)"],
+"M1 socket (editor at 18:46:06, __cap id0)":{"created":"18:46:06.380","open":"18:46:06.551","close":"18:46:27.483Z"},
+"M2 socket (__cap id1)":{"created":"18:46:32.542","open":"18:46:32.719","close":null},
+"open pusher sockets before switch":1,"open pusher sockets after":1,
+"sockets opened on /message or /message/f/0":"none (cap shows only ids 0,1)",
+"playwright ws events":[["gateway.discord.gg (discord widget, not pusher)","18:44:41.469",null],["pusher","18:45:50.015","18:45:59.476"],["pusher","18:45:59.496",null,"note: destroyed by page.goto at 18:46:06; Playwright emitted no close event"],["pusher M1","18:46:06.512","18:46:27.484"],["pusher M2","18:46:32.660",null]]}

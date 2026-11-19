@@ -1,0 +1,141 @@
+{
+ "at": "2026-11-19T18:56:37.821Z",
+ "pageerrorsT": [],
+ "pageerrorsB": [],
+ "capErrorsA": [],
+ "capErrorsB": [],
+ "wsT": [
+  {
+   "url": "wss://gateway.discord.gg/",
+   "created": "2026-11-19T18:44:41.469Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:45:50.015Z",
+   "closed": "2026-11-19T18:45:59.476Z"
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:45:59.496Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:46:06.512Z",
+   "closed": "2026-11-19T18:46:27.484Z"
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:46:32.660Z",
+   "closed": "2026-11-19T18:46:47.965Z"
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:46:53.155Z",
+   "closed": null
+  }
+ ],
+ "wsB": [
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:47:29.849Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:48:11.467Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:48:32.261Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:48:53.325Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:49:44.187Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:50:07.087Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:50:30.249Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:50:56.231Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:51:19.076Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:51:41.966Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:52:04.985Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:52:30.325Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:52:53.236Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:53:16.249Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:53:38.901Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:54:04.327Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:54:27.228Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:54:49.961Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:55:12.822Z",
+   "closed": null
+  },
+  {
+   "url": "wss://ws-us2.pusher.com/app/4821480ae69616d5d06f",
+   "created": "2026-11-19T18:55:35.668Z",
+   "closed": null
+  }
+ ]
+}

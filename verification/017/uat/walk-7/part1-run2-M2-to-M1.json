@@ -1,0 +1,6 @@
+{"run":"2 M2->M1","qaDocAfter":1,
+"urls":["18:46:47 /message/m/900000000000002/edit","18:46:50 /message","18:46:52 /message/f/0","18:46:55 /message/m/900000000000001/edit (direct to edit)"],
+"M2 socket (__cap id1)":{"created":"18:46:32.542","open":"18:46:32.719","close":"18:46:47.962Z"},
+"M1 socket (__cap id2)":{"created":"18:46:53.010","open":"18:46:53.197","close":null},
+"open pusher sockets after":1,"sockets opened on /message or /message/f/0":"none",
+"playwright ws":[["M2","18:46:32.660","18:46:47.965"],["M1","18:46:53.155",null]]}

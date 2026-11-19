@@ -1,0 +1,1 @@
+down: removed hooks-postgres-local (the image stays)
