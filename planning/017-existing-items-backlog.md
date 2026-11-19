@@ -3,13 +3,13 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: In Progress
-Status-Detail: "Revision 4 in implementation by implementer-hooks-017 on website chain/017-existing-items-backlog (steering's start, rulings block 2026-11-19T00:29Z). M1 first. M5 and M6 code wait on OQ-7 (the waitUntil probe push, his word through devops, D-15)."
-Revision: 4
+Status-Detail: "Revision 5 at the gates (critic, architect, QA Phase 1 re-key). It adds M8, the two dialogs' Enter (D-26), whose code waits for those three gates and for OQ-14. M1 to M4 are through code review and QA Phase 2 at website 5c3d03f (steering, rulings block 2026-11-19T04:46Z). M5 and M6 code wait on OQ-7 (the waitUntil probe, M5-0, in progress; his word through devops, D-15). M7 is last."
+Revision: 5
 Plan-ID: 017
 Target-Release: "website master (Vercel production) first, then preview-image-generator prod (prod.yml), each push his word, run by devops. Order and reason: § Release and rollback. Neither package.json carries a version field (git show 1ad625e:package.json, 8de2b53:package.json), so no version artifact moves."
 Epic-Alignment: "Hooks.gg existing-items queue: the commission of 2026-11-18T21:53Z (items 2 to 5 of the five-item ranking), under his 2026-11-11 ruling that new feature work waits until the existing items are handled (steering/queue-hooks-rulings.md, selection 2)."
 Lane: "full chain, set by the scoping determination (rulings block 2026-11-18T21:59Z, Pipeline). Not proposed small: M5 changes the shared save path and a second service's contract; M2 changes the notice every editor tab runs; M3 changes the browser-stored draft every editor reads; M4 adds a context above every /message page."
-Architectural-Surface: "Yes; the architect's conformance pass is a named step (stage set). (1) A cross-repo contract: bucket deletion moves from the generator to the website, the stored preview nonce commits only after the generator's answer, and the key form [dev/]previews/<id>/<nonce>.jpeg is decided on each side by a named variable (M5, M6). (2) Post-response work in the save path through @vercel/functions waitUntil, a new dependency (M5). (3) A stored representation: the browser's draft storage, a new typed key and a per-tab id (M3). (4) A navigation-guard context mounted at src/app/message/layout.tsx, with its own ConfirmationProvider instance and ConfirmationDialog (M4). Architecture lines the chain closes or invalidates: system-architecture.md Runtime Flow 3 (who deletes; the key form), Problem Areas rows 'A failed preview generation shows a broken image', 'enforceImportMutualExclusivity is dead', 'ESLint carries known findings'; Recommendations 1, 4, 6; website.md A-6 (persist also records the tab's own save), A-7 (the draft key and its one reader), A-8 (the providers below the message layout's header and sidebar)."
+Architectural-Surface: "Yes; the architect's conformance pass is a named step (stage set). (1) A cross-repo contract: bucket deletion moves from the generator to the website, the stored preview nonce commits only after the generator's answer, and the key form [dev/]previews/<id>/<nonce>.jpeg is decided on each side by a named variable (M5, M6). (2) Post-response work in the save path through @vercel/functions waitUntil, a new dependency (M5). (3) A stored representation: the browser's draft storage, a new typed key and a per-tab id (M3). (4) A navigation-guard context mounted at src/app/message/layout.tsx, with its own ConfirmationProvider instance and ConfirmationDialog (M4). Architecture lines the chain closes or invalidates: system-architecture.md Runtime Flow 3 (who deletes; the key form), Problem Areas rows 'A failed preview generation shows a broken image', 'enforceImportMutualExclusivity is dead', 'ESLint carries known findings'; Recommendations 1, 4, 6; website.md A-6 (persist also records the tab's own save), A-7 (the draft key and its one reader), A-8 (the providers below the message layout's header and sidebar). From M8 (revision 5): system-architecture.md Problem Areas row 'Enter-to-confirm in dialogs rests on an unidentified mechanism'. Its dead compare is gone at all three sites; the stopping mechanism stays unidentified (X-20). M8 adds no architectural surface: it changes where two leaf dialogs' Enter listens, in the form M4 gave ConfirmationDialog."
 ---
 
 # Plan 017 — the existing-items backlog: stale previews, the saving tab's own notice, signed-out edits, hygiene
@@ -46,6 +46,7 @@ Architectural-Surface: "Yes; the architect's conformance pass is a named step (s
 | 2026-11-19T04:16 | R-21 | planner-hooks-017 | Registered QAF-19 LOW (`qa/017-existing-items-backlog-m4-qa.md`, `de8d171`) in the Planner batch as a stated limit under steering's M4 cap (`steering/017-rulings.md` block 2026-11-19T04:14Z, `a805d4d`). Scope delta: none (registration only). |
 | 2026-11-19T04:20 | R-22 | code-reviewer-hooks-017 | Code review, M4 round 4 sub-entry: QAF-18's test-only fix is confirmed APPROVED at website `5c3d03f` (agent-output `33b90ce`). 4 of 4 registration mutants were killed, QA's `qa-unregister-unconditional` among them. Milestone-scoped; plan Status is unmoved; no criterion moves. |
 | 2026-11-19T04:22 | R-23 | qa-hooks-017 | QA Phase 2, M4 refresh: PASS (`QA Complete`) at website `5c3d03f` (`qa/017-existing-items-backlog-m4-qa.md`), superseding R-20's QA Failed at `a5dd76f`. The round is one test-only commit. Suite 1693 of 1693, exit 0. `qa-unregister-unconditional` is killed by the repaired case, so QAF-18 is RESOLVED. QAF-19 stays parked (R-21). Milestone-scoped verdict, so plan Status is unmoved; no criterion moves. |
+| 2026-11-19T04:57 | 5 | planner-hooks-017 | Adds M8 from his 04:50Z selection (D-26; `steering/017-rulings.md` block 2026-11-19T04:50Z, `ac98bf6`) and steering's brief: in `WarningDialog` and `ImageUploader`, Enter answers only the dialog holding focus, with CR-9's Preferred form mirrored from M4's `ConfirmationDialog` (`a5dd76f`). Value statement 5 is proposed for his approval (OQ-14); X-7 is retired into M8-d, with X-20 for what stays; RK-11 is added. The three M4 and M3 record corrections are carried as Planner batch rows to the post-Phase-2 seam, not folded, because they change no code, test or verifier. Scope delta: M8 added (one milestone, two leaf files, after code start, by his selection); no other milestone moves; against the original ask, item 4's work grows by M8. Gate rounds: the critic, the architect and QA Phase 1 on revision 5, then one code review and one QA Phase 2 for M8; the stated-limit alternative was his declined option "record it, don't fix". No standing verdict expires (M8's files are outside M1 to M4's diffs). |
 
 ## Reading Order
 
@@ -61,14 +62,17 @@ Owed re-verdicts:
 
 | Limb | Decidable since | Owning gate | State |
 |---|---|---|---|
-| Revision 4 delta (OQ-11/OQ-12 table, M3-h, M4-a dialog reach, M5-c missing-reference rule, M5-g falsifier, RK-7 liveness) | revision 4 commit | critic, cycle 1 pass 4 | owed |
+| Revision 4 delta (OQ-11/OQ-12 table, M3-h, M4-a dialog reach, M5-c missing-reference rule, M5-g falsifier, RK-7 liveness) | revision 4 commit | critic, cycle 1 pass 4 | passed: APPROVED, critique closed (`77dfec4`) |
 | M5-c's missing-reference rule (QAF-13) in the oracle; M4-b's two-level layout member; B-10's liveness rows | revision 4 commit | QA Phase 1 re-key | passed, no finding (`3af80aa`) |
-| Revision 4 delta, as a conformance read (steering's routing, 00:27Z block) | revision 4 commit | architect, conformance read | owed |
+| Revision 4 delta, as a conformance read (steering's routing, 00:27Z block) | revision 4 commit | architect, conformance read | passed: APPROVED, no finding (`96b4b62`) |
+| Revision 5 delta: M8, D-26, OQ-14 and value statement 5, X-7 retired, X-20, RK-11, § Plan's order line | revision 5 commit | critic, new cycle | owed |
+| The same delta, as a conformance read (the Architectural-Surface line's M8 sentence included) | revision 5 commit | architect, conformance read | owed |
+| M8-a to M8-d keyed into the register and named mutants; M8's human-observable row | revision 5 commit | QA Phase 1 re-key | owed |
 
 ## Value Statement and Business Objective
 
-One statement per item. Each is delivered by this chain and none is deferred. He approved all four
-as worded (D-7).
+One statement per item. Each is delivered by this chain and none is deferred. He approved the first
+four as worded (D-7). The fifth, added with M8 at revision 5, is proposed for his approval (OQ-14).
 
 1. **Stale, not broken, previews (item 2).** As a Hooks user who has saved a message, I want the
    message's preview image to keep showing the last image that was made when a new one cannot be
@@ -88,6 +92,12 @@ as worded (D-7).
    the dead mode-rule function removed or rerouted, six test files moved beside their modules and the
    editor's error-line text asserted, so that the next change to these files starts from a clean,
    checked base. No behaviour changes.
+5. **One Enter answers one dialog (M8; proposed, OQ-14).** As a Hooks user editing a message, I
+   want Enter to answer only the dialog I am in, so that a keystroke meant for a delete warning or
+   the image dialog does not also answer "Message Update Detected" and throw my edits away. The
+   defect, verbatim from the reviewer's FYI (`agent-output/INBOX.md`, 2026-11-19,
+   code-reviewer-hooks-017): *"While one of them is open and the editor's update prompt ("Message
+   Update Detected") is raised by another tab's save, one Enter would answer both."*
 
 The defect statements, quoted from their reports: item 2, the handoff: *"So the failure mode is a
 **broken image**, not a stale one."* Item 3: his BC-14 sentence above. Item 4, the handoff: *"every
@@ -129,7 +139,7 @@ steering-roadmap from option text this planner drafted.
 | D-13 | AN-4's host read is made without asking him | 2026-11-18 | Agent-authored, by steering-roadmap: a read through the read-only alias `ssh hooks-pig` is made under the lifecycle Standing Default (`steering/017-rulings.md` block 23:15Z). Not his words. | Withdrawal by him or by steering. |
 | D-14 | Scope M1 to M7 confirmed; implementation waits for the critic, the architect and QA Phase 1 to approve | 2026-11-18 | Selected: "Agent: confirm M1–M7 (Recommended)". Shown: "The critic, the architect and QA Phase 1 start on revision 1 now. Implementation waits until those three gates approve." Selection-prompt answer, 2026-11-18T23:26Z; ledger `steering/selection-ledger/2026-11-18.md` block "2026-11-18T23:26Z — steering-roadmap"; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. |
 | D-15 | OQ-7 proceeds open; the probe push is not approved by this answer | 2026-11-18 | Selected: "Agent: proceed with it open (Recommended)". Shown: "The gates and M1–M4 and M7 go ahead. Before M5 code, a devops session asks you for the probe push. If the probe fails, M5 and M6 stop and come back to you with the fallback." Selection-prompt answer, 2026-11-18T23:26Z; ledger `steering/selection-ledger/2026-11-18.md` block "2026-11-18T23:26Z — steering-roadmap"; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. The chosen option's stop condition, verbatim: "If the probe fails, M5 and M6 stop and come back to you with the fallback." Which probe outcome "fails" names is OQ-9. |
-| D-16 | Exclusions X-1 to X-16 accepted as written; X-13's placement question stays in the record's inbox | 2026-11-18 | Selected: "Agent: accept all 16 (Recommended)". Shown: "The plan keeps X-1 to X-16 as written. X-13's question about a test-placement exception in CLAUDE.md stays in the record's inbox for that record's owner." Selection-prompt answer, 2026-11-18T23:26Z; ledger `steering/selection-ledger/2026-11-18.md` block "2026-11-18T23:26Z — steering-roadmap"; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. Revision 2 restated X-5's reason (AF-2) and added X-17 to X-19, which D-21 covers. |
+| D-16 | Exclusions X-1 to X-16 accepted as written; X-13's placement question stays in the record's inbox | 2026-11-18 | Selected: "Agent: accept all 16 (Recommended)". Shown: "The plan keeps X-1 to X-16 as written. X-13's question about a test-placement exception in CLAUDE.md stays in the record's inbox for that record's owner." Selection-prompt answer, 2026-11-18T23:26Z; ledger `steering/selection-ledger/2026-11-18.md` block "2026-11-18T23:26Z — steering-roadmap"; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. Revision 2 restated X-5's reason (AF-2) and added X-17 to X-19, which D-21 covers. Revision 5 retires X-7 under D-26. |
 | D-17 | QA's read of Vercel production runtime logs is made without asking him | 2026-11-18 | Agent-authored, by steering-roadmap: the read is made under the lifecycle Standing Default (`steering/017-rulings.md` block 2026-11-18T23:41Z). Not his words. Result: `verification/017/qa-phase1/vercel-runtime-logs/` (record `06511f1`). | Withdrawal by him or by steering. |
 | D-18 | OQ-8: the edit page's sign-in exits and the expired-session sign-out leave without the browser prompt | 2026-11-19 | Selected: "Agent: skip the prompt (Recommended)". Shown: "Log in and the automatic sign-out leave without the browser prompt, since nothing is lost on them. This changes only M3's exit table." Selection-prompt answer, 2026-11-19T00:10Z; ledger `steering/selection-ledger/2026-11-19.md` block "2026-11-19T00:10Z — steering-roadmap" (question 1); rulings block `steering/017-rulings.md` 2026-11-19T00:11Z; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. Criteria: M3-d's exit table. |
 | D-19 | OQ-9: D-15's "fails" means not kept alive; a not-readable run is repaired and re-run once by devops under the same push, and a second not-readable run goes to him | 2026-11-19 | Selected: "Agent: fails = didn't keep running (Recommended)". Shown: "Only a clean 'not kept running' stops M5 and M6. An unreadable run is repaired and re-run once by devops under the same push you approve; a second unreadable run comes to you." Same ledger block (question 2) and rulings block; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. Stop condition, verbatim: "a second unreadable run comes to you." Criteria: M5-0 limb 2. |
@@ -139,6 +149,7 @@ steering-roadmap from option text this planner drafted.
 | D-23 | OQ-12: the shared storage code stops throwing on a full store for every key, and the draft store drops an old draft and retries | 2026-11-19 | Selected: "Agent: fix in shared code (Recommended)". Shown: "The shared storage code stops throwing for every stored setting, and the draft store drops an old draft and retries. This fixes the shared bug once, where it lives." Same ledger block (question 2) and rulings block; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. Criteria: M3 "Storage form" (Quota), M3-g, M3-h. |
 | D-24 | OQ-13: each successful save sweeps that message's leftover images more than 120 s older than the committed one | 2026-11-19 | Selected: "Agent: sweep after each save (Recommended)". Shown: "After each successful save, delete that message's leftover images more than 120 s older than the current one. Only the latest image is kept again; it costs one storage listing per save." Same ledger block (question 3) and rulings block; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. Criteria: M5-c form 3. |
 | D-25 | X-18's third case accepted: two tabs on one saved message share one stored draft | 2026-11-19 | Selected: "Agent: accept it (Recommended)". Shown: "X-18 keeps its third case as a known limit. Two tabs on one message overwrite each other's draft, as they do today." Same ledger block (question 4) and rulings block; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. |
+| D-26 | The two dialogs' page-wide Enter is added to 017 as revision 5: the implementer applies M4's reviewed fix to both dialogs, through code review and QA, and it ships in 017's release | 2026-11-19 | Selected: "Agent: add it to 017 (Recommended)". Shown: "The planner adds it to 017 as revision 5. The critic, architect and QA read the change, then the implementer applies M4's already-reviewed fix to both dialogs, through code review and QA. It ships in 017's release. Cost: one plan revision and its gate reads, plus one small fix round (estimated, not measured)." Selection-prompt answer, 2026-11-19T04:50Z; ledger `steering/selection-ledger/2026-11-19.md` block "2026-11-19T04:50Z — steering-roadmap" (question 1); rulings block `steering/017-rulings.md` 2026-11-19T04:50Z (`ac98bf6`), which carries the option text and the cost he saw; option text agent-authored (steering-roadmap). | Owner withdrawal only. Criteria: M8. Retires X-7 (M8-d removes the dead compare at both remaining sites); D-16's acceptance of X-7 as written is superseded for that row. The value statement M8 adds is OQ-14's, put to him on its own. |
 
 ## Assumptions and open questions
 
@@ -194,6 +205,15 @@ OPEN QUESTION [RESOLVED]: OQ-13, the leftover-object sweep. Answered by D-24: op
 form 3. (Revision 3's "a few objects a year" for option (b) is withdrawn: it was taken from the
 generator's failures, a different event from a lost continuation, whose rate is unmeasured;
 steering's correction in the question put at 00:2xZ.)
+
+**OPEN QUESTION OQ-14 (blocks M8 code only).** M8 is added after code start, so it either amends
+the value statement or leaves the chain. Proposed: statement 5 in § Value Statement, put to him as
+its own text, separate from any ship question. Statements 1 to 4 are unchanged. The opening line
+read "He approved all four as worded (D-7)." and now reads "He approved the first four as worded
+(D-7). The fifth, added with M8 at revision 5, is proposed for his approval (OQ-14)." If he rewords
+statement 5, the next revision re-reads M8's criteria against his words. No new capability is
+proposed: M8 reuses `ConfirmationDialog`'s scoped Enter (`a5dd76f`), read at website `5c3d03f`
+(`git show 5c3d03f:src/components/ConfirmationDialog.tsx`).
 
 Revision 0's scope assumptions, each now stated as a criterion: unit and reach (M5-a), layer (both
 repositories, M5 and M6), whether item 3 is live (M2), and severity (M3).
@@ -273,10 +293,12 @@ raising gate's.
 ## Plan
 
 Milestones run in the order below. M1 moves files that M2 edits, so it lands first. M7 records lint
-at the chain tip, so it lands last. One branch per repository: website `chain/017-existing-items-backlog`
+at the chain tip, so it lands last. M8, added at revision 5 and written after M7, runs after M4,
+beside M5 and M6 (no shared file), and lands before M7's tip read. One branch per repository: website `chain/017-existing-items-backlog`
 (steering cuts it at implementation start) and preview-image-generator `chain/017-…` off `prod`
 (devops names it). The re-derivation gate: the owner's implementation approval is expected to
-cover M1 to M7 together, which leaves the gate's population empty. Any milestone added after
+cover M1 to M7 together, which leaves the gate's population empty. M8's premise is argued against
+M1 to M4's landed behaviour (M8, "Re-derivation gate"). Any milestone added after
 approval is marked `PREMISE-STALE` when an earlier milestone's product behaviour ships, until a
 plan revision re-argues it.
 
@@ -878,6 +900,120 @@ tests (workspace `CLAUDE.md`). Verification is by probe under `verification/017/
 - **M7-c — nothing enforces lint** (chain A CR-3). Recorded, not fixed, under D-9: Exclusions X-12.
 - Release readiness: § Release and rollback. QA Phase 3 runs at the merged tip in each repository.
 
+### M8 — One Enter answers only the dialog that holds focus: the delete warnings and the image dialog (added by his selection, D-26)
+
+Added at revision 5 (D-26). It is a numbered milestone, not a named rider, because its two files are
+outside every approved milestone's diff. Surfaces at website `5c3d03f`, the same text as at `1ad625e`
+(`git diff --stat 1ad625e 5c3d03f` over both files prints nothing, this planner, 2026-11-19T04:5xZ):
+- `src/components/WarningDialog.tsx` `WarningDialog`: "Delete Field?", "Delete Embed?" and
+  `` `Delete ${label}?` ``, rendered by `EmbedField.tsx`, `EmbedEditor/index.tsx` and `ComponentEditor.tsx`;
+- `src/components/ImageUploader.tsx` `ImageUploader`: rendered through `components/dynamics/ImageUploader`
+  by `Author.tsx`, `EmbedAuthor.tsx`, `EmbedFooter.tsx`, `EmbedImage.tsx` and `EmbedThumbnail.tsx`. It is
+  mounted with `unmount={false}`, so several instances live on the edit page at once, each with its
+  hotkey enabled only while it is open.
+
+The defect, verbatim from the reviewer's FYI (`agent-output/INBOX.md`, 2026-11-19, code-reviewer-hooks-017):
+*"While one of them is open and the editor's update prompt ("Message Update Detected") is raised by
+another tab's save, one Enter would answer both."* Steering's helper executed it at `5c3d03f` (rulings
+block 2026-11-19T04:50Z): one Enter on the document fired `["warn.confirm","img.close","img.set","reload"]`.
+That run did not cover focus sitting in the other dialog.
+
+- **M8-a — the class and its members** (CR-9's class). A dialog whose Enter answer listens at the
+  document, so a key meant for one open dialog answers another. Locating instruments, over production
+  source (`':!**/__tests__/**'`):
+  - `git grep -n "useHotkeys(\['enter'\]"`;
+  - `git grep -n "addEventListener('keydown'"` for a raw listener.
+
+  At `5c3d03f` (this planner, 2026-11-19T04:5xZ) the first gives 3 hits and the second gives 0:
+  - `ConfirmationDialog.tsx` `Inner` is a non-member: it has been scoped to its own dialog since `a5dd76f` (M4, CR-9).
+  - `WarningDialog.tsx` and `ImageUploader.tsx` are the members.
+
+  The other `useHotkeys` sites are outside the class: `esc` in `Sidebar.tsx` and `m/[id]/_layout/Navigation.tsx`
+  closes the sidebar, and `edit/page.tsx` `useRegisterHotkeys` binds `HOT_KEY_MAP`'s `ctrl+…` keys
+  (`src/constants/index.ts`), not a dialog's answer.
+
+  The grep only locates; what judges a hit is M8-b's property. The predicate has a real member
+  (`WarningDialog.tsx` at `5c3d03f`) and a real non-member (`ConfirmationDialog.tsx` at `a5dd76f`).
+  M8's first step re-runs both listings at the chain tip and writes them to the implementation
+  document. A hit found there that this list lacks gets its disposition before code review.
+- **M8-b — the property.** For each member and each mounted instance of it, while it is open, an
+  Enter keypress runs its answer only when `document.activeElement` lies inside that instance's own
+  dialog element. The answer is `onConfirm` for `WarningDialog`, and `submit` for `ImageUploader`
+  (set only while an image is loaded). With `ConfirmationDialog`'s scoping, one Enter answers at most
+  one open dialog, the one holding focus. Every other open dialog stays open and unanswered, and can be
+  answered on its own afterwards.
+
+  Decision table over the finite combination of which dialogs are open and where focus is. W is a
+  `WarningDialog` instance, I an `ImageUploader` instance, U the editor's `ConfirmationDialog`
+  instance and L the layout's link prompt (M4). U's reachable way to open over W or I is another tab's
+  save (`usePusher`'s update prompt, raised through `showConfirmation`).
+
+  | Open | Focus in | One Enter answers | Every other open dialog |
+  |---|---|---|---|
+  | W alone | W | W, as at `1ad625e` (M8-c) | — |
+  | I alone | I | I, as at `1ad625e` (M8-c) | — |
+  | W and U | W | W only | U open, unanswered, answerable on its own |
+  | W and U | U | U only | W open, unanswered, answerable on its own |
+  | I and U | I | I only | U open, unanswered, answerable on its own |
+  | I and U | U | U only | I open, unanswered, answerable on its own |
+  | U and L | either | M4-b, unchanged | M4-b |
+  | W or I, with L | — | unreachable: L opens only on a link click and W or I only on a user act in the editor, and each is blocked by the other's modal (CR-9, "Outside M4's change"); no case owed | — |
+  | W and I | — | unreachable for the same reason; no case owed | — |
+  | none of W, I | anywhere | nothing that W or I runs (each is enabled only while open, as at `1ad625e`) | — |
+
+  Which dialog takes focus when U opens over W or I is headlessui's choice. The tests leave it to the
+  DOM and assert that the dialog answered is the one focused (M4's form for CR-9). A real browser's
+  choice is RK-11's.
+- **M8-c — a lone dialog behaves as at `1ad625e`.** For each member open alone, and for every focus
+  position inside its panel, one Enter has the same effect as at `1ad625e`. The positions:
+  - W: the close button, Cancel, and the confirm button;
+  - I: the close button, the URL field, Cancel, Clear and Save, each with and without a loaded image.
+
+  Expected values are literals recorded from a run of the same cases at `1ad625e`. They are never
+  derived from the code under test.
+
+  What this limb rests on, read at react-hotkeys-hook 5.2.4 (the lockfile's version, `pnpm-lock.yaml`;
+  the installed `dist/index.js` keydown handler, read 2026-11-19T04:5xZ):
+  - The hook ignores a keydown from a form field (`input`, `textarea`, `select`, role `textbox` and the
+    others in its list) unless `enableOnFormTags` is set. So Enter in the URL field never fires I's
+    hotkey, before or after.
+  - Given its returned ref, the hook fires only when the active element is that element or inside it.
+    This is a second admitted form of the scope.
+
+  Plan 015's D30 kept "a Cancel key press never deletes" as already true, on a real-Chrome read
+  (`verification/015/m3-chrome-read/README.md`). Here that property is the Cancel row of this limb:
+  Enter on a focused Cancel runs no confirm, after M8 as before. What stops it stays unidentified (X-20).
+
+  The one change: while a dialog is open, Enter with focus outside every dialog stops answering it.
+  headlessui's focus trap keeps focus inside the open panel, so ordinary input cannot reach that state
+  (CR-9's Preferred form, its stated cost).
+- **M8-d — the dead compare goes.** At the milestone tip, `git grep -c "tagName !== '~/components/Button'" -- src`
+  prints no line. Counts by the same command:
+  - `1ad625e`: 3 (`ConfirmationDialog`, `ImageUploader`, `WarningDialog`);
+  - `5c3d03f`: 2 (`ImageUploader`, `WarningDialog`).
+
+  This retires X-7.
+- **The form, mirrored.** Sibling: website `a5dd76f` `src/components/ConfirmationDialog.tsx:Inner`. It
+  puts a ref inside the panel, and its handler checks
+  `ref.current?.closest('[role="dialog"]')?.contains(document.activeElement)`. The implementer may
+  instead lift that one check into a shared function that all three dialogs call. In that case
+  `ConfirmationDialog`'s behaviour stays as approved at `5c3d03f`, and its cases pass unchanged.
+  Either way one form serves all three (his standing mirroring rule). No deviation.
+- **Human-observable form.** Two tabs on one saved message, signed in:
+  1. In tab A, open a field's "Delete Field?" (or the image dialog, with a loaded image).
+  2. Save from tab B, so that "Message Update Detected" appears in A.
+  3. Press Enter once.
+
+  Exactly one dialog answers, the one holding focus, and the other stays open and can be answered on
+  its own. QA registers it as a pre-release row (B-12's kind), walked by UAT on the local stack before
+  release. After deploy it can be checked in production by the same act.
+- **Order.** M8 code starts once the critic, the architect and QA Phase 1 have approved revision 5,
+  and once OQ-14 is answered. It shares no file with M5 or M6, so it may run beside them. It lands
+  before M7's tip read, since M7-b counts lint over every changed file, these two included.
+- **Re-derivation gate.** M8 is written against website `5c3d03f`, after M1 to M4 landed, so its
+  premise is argued against their behaviour. It is not marked `PREMISE-STALE`.
+- Rollback: `git -C website revert <M8 commit>`, party as M1.
+
 ## Testing Strategy
 
 - **Website.** The standard is `agent-output/CLAUDE.md` § Test Conventions: vitest, placement and
@@ -886,6 +1022,8 @@ tests (workspace `CLAUDE.md`). Verification is by probe under `verification/017/
   - M2 and M3: DOM tests mounting the real `MessageProvider`, with AN-1's and AN-2's probes as the
     carried instruments; M3-g and M3-e with literal stored strings;
   - M4: DOM tests of the link class, mounting the message layout's guard context;
+  - M8: DOM tests with the real hotkey library, each member open beside the editor's confirmation
+    dialog in both orders and open alone, M8-c's expectations as literals from a `1ad625e` run;
   - M5: Node tests of `upsertMessage`'s continuation, with fetch, the bucket, the database and
     `waitUntil` substituted (the substitute records the promise and the test settles it),
     mirroring `src/server/api/utils/__tests__/shared.upsert-valid.test.ts` and its
@@ -948,6 +1086,7 @@ Run once at the named trees by this planner on 2026-11-18, captures under `verif
 | RK-8 | M4 misses a link | M4-d's table re-derived at the tip against its three listings (the `next/link` and `StyledLink` importers, and the string `onPress` item sites) | SL-2 (critique pass 2): three members found missing from revision 2's table, added at revision 3 |
 | RK-9 | The database clock steps backwards between two saves of one message, so a later save's nonce sorts below an earlier one's and is refused: the earlier save's preview shows until the next save | None measured: the clock order is Observed on Postgres 16.16 (QA's P1) and production's version is unread; a member shows as a stale preview after a save, never a broken one (M5-b holds either way), seen in his look (B-6) | — |
 | RK-10 | The website's and generator's `dev/` predicates disagree on an environment, so deletions miss (a leak) | M5-g; the local walk's recorded values | — |
+| RK-11 | When the update prompt opens over an open delete warning or image dialog, a browser leaves focus in the dialog underneath, so Enter answers that one and not the one on top | Which dialog takes focus is headlessui's choice, and jsdom cannot show a browser's. M8-b holds either way (exactly one answers, the focused one). Falsifier: UAT's real-browser walk of M8's human-observable form (QA registers the row, B-12's kind) | — |
 
 ## Release and rollback
 
@@ -985,7 +1124,7 @@ Run once at the named trees by this planner on 2026-11-18, captures under `verif
   workflow or `deploy.sh` file is edited.
 - Launch directory for spanning stages: `/usr/local/bin/hooks` (two product repositories and the
   record).
-- QA sequencing: QA Phase 1 runs before implementation (stage set); its re-key to revision 2 is owed.
+- QA sequencing: QA Phase 1 runs before implementation (stage set); its re-key to revision 5 runs before M8 code.
 
 ## Entry facts (per repository)
 
@@ -1029,7 +1168,7 @@ revision 1, `upload-message-dialog-closes-on-first-portal-load-2026-11-08` is cl
 | qa-014-bc7-closing-observation-and-test-inventory-2026-11-10 | QA's, at Phase 1. |
 | preview-image-generator-api-key-in-workflow-files, -host-security-posture, -generic-pool-private-field | Not fired (no workflow, `deploy.sh` or puppeteer/generic-pool pin change). |
 | anchored-popover-first-load-test-is-order-dependent-2026-11-18 | Not fired: its test file is not edited by this chain. |
-| the other nine | Not fired (re-checked against M1 to M7 at revision 2). |
+| the other nine | Not fired (re-checked against M1 to M7 at revision 2). At revision 5, no open handoff names M8's surfaces: `grep -il` for `hotkey`, `WarningDialog`, `ImageUploader` and `tagName` over `handoff/*.md` hit 4 files, each on unrelated text ("implementer-", read at 2026-11-19T04:5xZ). |
 
 ## Exclusions
 
@@ -1041,7 +1180,7 @@ revision 1, `upload-message-dialog-closes-on-first-portal-load-2026-11-08` is cl
 | X-4 | `/generate` body validation | The request contract is unchanged (M6), so the determination's rider condition does not fire | `architecture/system-architecture.md` Problem Areas row |
 | X-5 | project-utils schema change | The order two saves need rides in the nonce itself, minted from the database clock (M5-a, AF-2's option a); every reader of the nonce only interpolates or passes it | Stated limit |
 | X-6 | The Pusher app per environment | Determination Out | Stated limit |
-| X-7 | The Enter-key compare in the dialogs | Determination Out (015 D30, X-18) | Architecture Problem Areas row |
+| X-7 | The Enter-key compare in the dialogs | Retired at revision 5 by D-26. M4 removed it from `ConfirmationDialog` (`a5dd76f`), and M8-d removes it from the other two. What stays is X-20. | — (retired) |
 | X-8 | A prompt on the signed-in Log out beyond today's | Determination Out. M3's source fix also keeps the edits through Log out; the browser's unload prompt there is unchanged (M3-d). | Stated limit |
 | X-9 | Delete, Clear, Load and mode-switch confirmations | Determination Out; they work for both | Stated limit |
 | X-10 | Recommendations 2, 3 and 5; `TODO.md` items | Determination Out. Recommendation 3 binds M5's lockfile step. | Stated limit |
@@ -1054,6 +1193,7 @@ revision 1, `upload-message-dialog-closes-on-first-portal-load-2026-11-08` is cl
 | X-17 | A fallback at the preview read sites (`getPreviewImageUrl` and its callers) | The determination puts them in scope only if the design adds a fallback there; M5-b makes every committed nonce name an existing object, so none is added | Stated limit |
 | X-18 | Draft-store residue: an entry for a deleted message until eviction; two tabs sharing one id after the browser duplicates a tab; two tabs editing one saved message, which share its one entry (last writer wins, as today) | None loses work today's store keeps; the first is bounded by M3-h's bound under OQ-11 (a), and by the quota under (b) | Stated limit (the third member added at revision 3, F-23; D-21 accepted the row as written at revision 2) |
 | X-19 | Orphan preview objects whose 204 no continuation processed, under a message never saved again or deleted | M5-c's residue; removing them needs a sweep outside a save, which no design here has | Stated limit; RK-2 |
+| X-20 | What stops Enter on a focused Cancel from running confirm stays unidentified | M8 keeps its effect as at `1ad625e` (M8-c) and names no mechanism. Identifying it was outside the determination (015 D30 and its X-18) and outside D-26's option. | `architecture/system-architecture.md` Problem Areas row "Enter-to-confirm in dialogs rests on an unidentified mechanism", restated by the architect's closing pass |
 
 ## Planner batch
 
@@ -1063,29 +1203,28 @@ revision 1, `upload-message-dialog-closes-on-first-portal-load-2026-11-08` is cl
 | Nothing enforces lint (chain A CR-3) | `code-review/closed/fix-dialog-closes-on-first-portal-load-code-review.md` CR-3 | Discharged at revision 1: M7-c, X-12. |
 | Base moved to website `1ad625e` | steering-roadmap | Discharged at revision 1: every cited line re-read at `1ad625e`, or shown unchanged from `395510e` by `git diff --quiet`; suite and lint re-taken there. |
 | QAF-19 LOW: website `src/app/message/__tests__/layout.navigation-guard.test.tsx`, `it.each` "search result to %s: asks is %s", fills its second format slot with the row's current-id column, so the titles print an id ("… asks is 4") where the expectation belongs. The assertions are correct; only a failing run's title would misstate what was expected | `qa/017-existing-items-backlog-m4-qa.md` QAF-19 (agent-output `de8d171`), routed under steering's M4 cap (`steering/017-rulings.md` block 2026-11-19T04:14Z, `a805d4d`) | Parked as a stated limit with no fix round, per the cap. Changes no criterion, test assertion or verifier. Gets its fold disposition at the post-Phase-2 seam. |
+| M4-d's member table, four corrections: `NavMenu`'s Invite Bot (another site; a member, which Next's `onNavigate` never reaches), Support (`newTab`; not a member), `InfoPanel`'s bot invitation on `/send` (a member), and the cookie notice's "Learn more" (new tab; not a member) | `implementation/017-existing-items-backlog-m4-implementation.md` § "Class re-derivation at the tip" (`c16132b`); `steering/017-rulings.md` block 2026-11-19T02:43Z | Carried to the post-Phase-2 seam of the last milestone. Each member was dispositioned and covered at M4's code review and QA Phase 2 (`5c3d03f`), so the table's text changes no code, test or verifier. |
+| M4-a's "the one interception Next 16.1.6 offers": `StyledLink` also intercepts a plain click on a link to another site, from `onClick` | M4 document § Deviations (`c16132b`); rulings block 2026-11-19T02:43Z | Carried to the same seam, for the same reason. |
+| M3's write matrix, row "Message *n* opened (fetch)": the Sn cell is "removed when the fetched copy is shown", not "nothing written" | CR-8 LOW (`code-review/017-existing-items-backlog-code-review.md`); M3 document, CR-8 deviation | Carried to the same seam. The code is kept, reviewed and QA-passed at M3 (`1ab3b96`). |
 
 ## Resumption State
 
-Written 2026-11-19T00:3xZ at steering's /checkpoint request (planner-hooks-017).
+Written 2026-11-19T04:57Z by planner-hooks-017, at revision 5.
 
-- **Done.** Revision 4 is committed (`a97628d`). Registrations R-5 (`5c9e785`, D-18 to D-21) and R-6
-  (`99643d4`, D-22 to D-25) are committed. Gates on revision 4: QA's Phase 1 re-key passed with no
-  finding (`3af80aa`); critique cycle 1 pass 4 APPROVED, with the critique closed at
-  `critiques/closed/017-existing-items-backlog-critique.md` (`77dfec4`, per steering, not re-read
-  by this planner); the architect's conformance read of revision 4 is owed (briefed by steering).
-- **Next.** When the architect's verdict arrives: if it approves, bring the owed re-verdicts table
-  and Status current (a Status write, not a revision) and report to steering that the plan is ready
-  for implementation, apart from OQ-7, which blocks M5 and M6 code only. If it raises findings,
-  fold them into revision 5 and re-cue the critic, plus QA if a criterion moves. A recommendation
-  that changes no criterion parks as a Planner batch row.
-- **Open items carried.** OQ-7: the `waitUntil` probe push needs his approval (D-15). D-19 governs
-  how its result is read. The INBOX.md entry "2026-11-18 — planner-hooks-017 — DECISION NEEDED" (X-13
-  placement) stays uncommitted on purpose, for the record's owning session.
-- **Branches.** None cut for 017. Website `master` `1ad625e`; generator `prod` `8de2b53`.
+- **Done.** Revision 5 is written: M8 (D-26), OQ-14 with value statement 5, X-7 retired, X-20, RK-11,
+  and three Planner batch rows carried. Revision 4's gates all passed: critic `77dfec4`, architect
+  `96b4b62`, QA `3af80aa`. M1 to M4 are through code review and QA Phase 2 at website `5c3d03f`.
+- **Next.** Revision 5 goes to the critic, the architect and QA Phase 1, routed by steering as at
+  revision 2; fold their findings in one revision. OQ-14 goes to him through steering. M8 code starts
+  on all three approvals and OQ-14's answer.
+- **Open items carried.** OQ-7: M5-0's probe, in progress with devops-hooks-017. The Planner batch
+  holds QAF-19 and the three record corrections, folded at the post-Phase-2 seam. The INBOX.md entry
+  "2026-11-18 — planner-hooks-017 — DECISION NEEDED" (X-13) stays for the record's owning session.
+- **Branches.** Website `chain/017-existing-items-backlog` at `5c3d03f`. The generator's branch is not
+  yet cut (devops names it before M6).
 - **Uncommitted or mutated.** Nothing of this planner's beyond that INBOX entry.
-- **Gate refusal this run, disclosed.** At the checkpoint, the record-write gate refused a shell
-  heredoc append to this plan (an empty append). It was not re-issued in that form, and this
-  section was written with the Edit tool.
-- **Messages sent.** Revision 2, 3 and 4 cues went to the critic, the architect and QA. Owner items
-  and registration reports went to steering-roadmap. No reply is owed to this planner except the
-  architect's verdict on revision 4.
+- **Gate refusal disclosed at the 00:3xZ checkpoint, kept here.** The record-write gate refused a shell
+  heredoc append to this plan (an empty append). It was not re-issued in that form, and that section
+  was written with the Edit tool.
+- **Messages sent.** Revision 5's cue goes to steering-roadmap, which routes it to the critic, the
+  architect and QA, and puts OQ-14 to him. Owed to this planner: the three gates' verdicts on revision 5.
