@@ -1,0 +1,10 @@
+runtime log lines 6 | distinct requestIds 1
+atS 5 elapsedMs 5015 ts-minus-control 5015 diff-ms 0
+atS 15 elapsedMs 15015 ts-minus-control 15014 diff-ms -1
+atS 30 elapsedMs 30015 ts-minus-control 30014 diff-ms -1
+atS 45 elapsedMs 45015 ts-minus-control 45015 diff-ms 0
+atS 55 elapsedMs 55015 ts-minus-control 55014 diff-ms -1
+summary record [{'type': 'summary', 'recordsReturned': 6, 'timeRange': {'start': '2026-11-19T04:42:36.128Z', 'end': '2026-11-19T05:12:36.128Z'}, 'pagination': {'hasMore': False, 'next': None}, 'excludedIntervals': []}]
+request-log records 2
+  {"type": "request", "data": {"timestamp": "2026-11-19T05:11:02.621Z", "projectId": "prj_nhlL7VUS0C9BzgD1Kvh3E1AUv72r", "requestId": "4rr8m-1795065062621-55fc0dfccaee", "deploymentId": "dpl_DAPQmKvKyG6X9nhpKQXkJqtjuw5R", "environment": "preview", "requestHostname": "hooks-gg-website-680ul3owe-hooks-gg.vercel.app", "requestPath": "/api/waituntil-span-probe", "requestMethod": "GET", "httpStatus": 200, "route": "/api/waituntil-span-probe", "pathType": "streaming_func", "cacheResult": "MISS", "edgeNetworkRegion": "pdx1", "service": "/api/waituntil-span-probe", "clientIpCountry": "US", "clientUserAg
+  {"type": "summary", "recordsReturned": 1, "timeRange": {"start": "2026-11-19T03:14:02.000Z", "end": "2026-11-19T05:14:02.000Z"}, "pagination": {"hasMore": false, "next": null}, "excludedIntervals": []}
