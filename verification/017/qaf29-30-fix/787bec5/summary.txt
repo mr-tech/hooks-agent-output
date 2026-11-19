@@ -1,0 +1,10 @@
+control exit 0 failed 0 of 66
+index.tsx:153:stmt exit 1 failed 1 of 66
+    ned at route 0 becomes this tab's route-0 draft, shown when route 0 is opened again without the code
+ConfirmationDialog.tsx:17:attr:2 exit 1 failed 1 of 66
+    essage and its footer in one wrapper that takes no box of its own, so the panel's layout spaces them
+WarningDialog.tsx:23:attr:2 exit 1 failed 1 of 66
+    essage and its footer in one wrapper that takes no box of its own, so the panel's layout spaces them
+ImageUploader.tsx:96:attr:2 exit 1 failed 1 of 66
+     field and its footer in one wrapper that takes no box of its own, so the panel's layout spaces them
+leftover exports: 0
