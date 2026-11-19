@@ -2,10 +2,10 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Reviewed-At: "8512a1d — repos=preview-image-generator; Round 7 sub-entry, M6 record fix at agent-output 008468b; Round 7, M6 (implementation document 4c4e948; record change verification/015/pig-host-read.sh at agent-output 4c4e948); website was last reviewed at 4b8db9c, Round 6 sub-entry, M5 title fix (record line 838c571); Round 6, M5, was reviewed at f83f2ca (implementation document 521a89f); M8 was confirmed at 6555f65 (Round 5 sub-entry, implementation document d71c462); Round 5, M8, was reviewed at c37d41a (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
+Reviewed-At: "4b8db9c,8512a1d — repos=website,preview-image-generator; Round 8, M7 read at website 4b8db9c (implementation document fc87937, Handoff-At f83f2ca); Round 7 sub-entry, M6 record fix at agent-output 008468b; Round 7, M6 (implementation document 4c4e948; record change verification/015/pig-host-read.sh at agent-output 4c4e948); website was last reviewed at 4b8db9c, Round 6 sub-entry, M5 title fix (record line 838c571); Round 6, M5, was reviewed at f83f2ca (implementation document 521a89f); M8 was confirmed at 6555f65 (Round 5 sub-entry, implementation document d71c462); Round 5, M8, was reviewed at c37d41a (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
 Status: In Review
-Round: 7
-Verdict: APPROVED
+Round: 8
+Verdict: APPROVED_WITH_COMMENTS
 ---
 
 # Code Review: 017 — the existing-items backlog
@@ -37,6 +37,7 @@ Verdict: APPROVED
 | 2026-11-19T07:34 | steering-roadmap-hooks (resume brief `steering/backlog-2026-11-18-briefs/code-reviewer-hooks-017-resume.md`); implementer-hooks-017 (M6 document `4c4e948`) | Resume, premise re-read, Round 7: review M6 at generator `8512a1d` | Fresh session after the park. Premise re-read recorded: the generator tip `8512a1d`, website `4b8db9c`, plan revision 7 (no hunk in `### M6` or `### M7` since `6ade256`) and M6's `Handoff-At` all hold. M7's `Handoff-At` `f83f2ca` is behind the website tip. Round 7, M6 only: REJECTED on CR-16 MEDIUM. `pig-host-read.sh` section [7]'s liveness count is over the whole log, not since the deploy, so RK-7 precondition (2) cannot fail (falsifier reads 3 where 0 is wanted). CR-17 LOW: setup failures carry no class line, an undeclared decision. CR-18 LOW: a failed sweep capture sits beside the cited one. The generator code itself is sound: `tsc -b` and eslint pass, the rig re-run gives 17 of 17 at the tip and is red at the base, and my attack passes 6 of 6 with 2 controls firing. The fix is record-only and returns as a Round 7 sub-entry. The criteria assessed are M6-0, M6-a to M6-c and X-4, as revision 7 states them at round open. Captures are in `verification/017/code-review/m6/`. Gate disclosed: the stamp gate refused plan row R-38 as first typed (07:36 against the clock's 07:34), and I had also placed it above R-37. I re-stamped it from `date -u` and moved it below R-37 with a python script, not the Edit tool, against the lifecycle rule for record documents. The error was mine, and the diff was read before commit. |
 | 2026-11-19T07:41 | implementer-hooks-017 (record fix agent-output `008468b`; generator unchanged at `8512a1d`) | Round 7 sub-entry: confirm the record fix for CR-16, CR-17 and CR-18 | Round 7 sub-entry: APPROVED. My falsifier, unedited, reads 0 and 1 (it read 3 and 4 before the fix). The implementer's 7 cases are red at `4c4e948`, and 5 of 5 scope mutants are killed. My two break cases (`liveness-scope/break.sh`): a restart after the deploy reads a conservative 0, and pm2-prefixed lines read NOT READ. CR-16 to CR-18 are gone and collapsed to disposition lines. M6 goes to QA Phase 2 at `8512a1d`. M5's QAF-24 lane change in the same commit is outside this sub-entry. Disclosed: the collapse was written by a python script, not the Edit tool, against the lifecycle rule for record documents. The error was mine, and the diff was read before commit. |
 | 2026-11-19T07:42 | implementer-hooks-017 (QAF-24 lane fix, agent-output `008468b`; website unchanged at `4b8db9c`) | Round 6 sub-entry, continued: scoped check of the lane fix for QA's QAF-24 | Round 6 sub-entry, continued: the scoped check passes. I re-ran the lane: control 11 of 11, exit 0, and the `now()`, `statement_timestamp()` and `transaction_timestamp()` mutants each fail exactly P1 as an assertion (`verification/017/code-review/m5/qaf24-rerun/`), on real Postgres 16 with no leftover container. QAF-24's closure is QA's. The M5 verdict does not move. |
+| 2026-11-19T07:59 | steering-roadmap-hooks (cue 07:5xZ; resume brief item 2); implementer-hooks-017 (M7 document `fc87937`) | Round 8: review M7 | Round 8, M7 only. APPROVED_WITH_COMMENTS. The criteria assessed are M7-a, M7-b, M7-c and release readiness, as revision 7 states them at round open. I read M7-b at the actual tip `4b8db9c` (the document's `Handoff-At` is `f83f2ca`): 59 files, 0 rule counts above the base, two instruments agreeing, and 3 of 3 planted controls firing. CR-1's file reads 7 → 5. CR-19 LOW is a record line. Captures are in `verification/017/code-review/m7/`. The lint ran read-only in the shared tree at `4b8db9c`, which was not moved. |
 
 ## Scope and Tree
 
@@ -523,6 +524,30 @@ I am a fresh session, resumed from the Resumption State below (agent-output `225
 
 **TDD Table Present**: Yes. **All Rows Complete**: Yes. The repository has no tests, and the instrument is the probe, red at `8de2b53` and green at `8512a1d`. I reproduced both. `tdd-check.py` reads Python only and does not apply. The probe's expectations are literals (statuses, the key form, the line regex) and are not computed from `generateImage.ts`, so they are independent (axiom E). The shim stands in for three outcomes a stub page cannot produce (`screenshot` rejecting, `goto` resolving `null` or 199). It sits outside the production source, and the document names it under Outstanding Items. No bug-form test was added, and no time-based test entered a suite.
 
+## Round 8 — M7 at website `f83f2ca` (`Handoff-At`) against the tip `4b8db9c`
+
+### Scope and tree
+
+- **Criteria assessed** (recorded before the M7 document or its captures were read): M7-a (the baseline at `1ad625e`, 314 errors and 367 warnings in 112 files before fixes, and 50 errors and 364 warnings in 71 files after the lint script's fixes, recorded as accepted), M7-b (at the chain's website tip, for every file the chain changed, each rule's no-fix count no higher than at `1ad625e`, and every new file at zero; the instrument is the same two commands in an export, compared per file and per rule), M7-c (nothing enforces lint; X-12, recorded and not fixed), and "release readiness", as plan § Plan `### M7` states them in revision 7. The plan's last commit at round open is `b23a226` (R-41). Its rows since revision 7 are registration only, and no hunk falls in `### M7`. Carried: M7-b re-derives CR-1's file (`limits.import-validation.test.ts`).
+- **Tree, premise**: the document's `Handoff-At` is `f83f2ca`, and the chain's website tip is `4b8db9c` (`chain/017-existing-items-backlog`, read 07:57Z). M7-b names "the chain's website tip", so the criterion binds to `4b8db9c`. A read at `f83f2ca` holds there only if the one commit between them leaves every count unchanged.
+- **Files reviewed**: the M7 document (agent-output `fc87937`) and `verification/017/impl/m7/` (`compare.mjs`, `chain-name-status.txt`, both reports with their exit files, `m7b-compare.out`, `rule-totals.out`). M7 changes no source, so no website file is under review. The shared website tree was `4b8db9c` and clean apart from the untracked `.playwright-mcp/` (17 PNGs) at the round's start and end. I did not move it.
+
+### Instruments and reproduction (Round 8)
+
+| Claim under review | Instrument (this round) | Result |
+|---|---|---|
+| M7-b at the chain's tip `4b8db9c` | `npx eslint . -f json` in the shared tree at `4b8db9c` (read-only, no `--fix`), then `compare.mjs` over `git diff -M --name-status 1ad625e 4b8db9c -- . ':!pnpm-lock.yaml'` against the planner's `entry/lint-1ad625e/nofix.json` (`code-review/m7/`) | Holds: 59 changed lintable files, 0 rule counts above the base, 0 new files with findings, 0 not linted. The name-status gives 60 paths, the same set as the implementer's at `f83f2ca`. |
+| The count, by a second instrument | `code-review/m7/recheck.py`: a per-(path, rule) `Counter`, renames mapped to the old path by status letter, membership taken from the tip report rather than an extension list | Agrees: 59 files, 0 worse, 0 lintable files not linted. |
+| Both instruments discriminate | 3 planted controls in doctored tip reports, each read back: a modified file +1 on a rule it carries (`global.d.ts`, 13 → 14), an added file with one finding (`NavMenu.navigation-guard.test.tsx`, 0 → 1), and a renamed file +1 against its old path (`useApiMethods.json-editor-repair.test.ts`, 4 → 5) | Each control raises each instrument to exactly 1 above (`recheck.out`). The implementer's swapped-report control covered only the modified limb. |
+| `f83f2ca` and `4b8db9c` give the same reading | Per-file (rule, line) message lists in the implementer's `nofix-f83f2ca.json` and mine | Same path set (484 files), 0 files differ. Both have 112 files with messages, 314 errors and 365 warnings. The title-only commit moves nothing. |
+| CR-1's file (M7-b) | `limits.import-validation.test.ts` in the three reports | Base: `import/order` 1, `import/first` 1, `no-non-null-assertion` 5 (7). At `f83f2ca` and `4b8db9c`: 1, 1 and 3 (5). This matches the reconciled CR-1 (7 → 5). |
+| The base and tip ran the same linter | `git diff 1ad625e 4b8db9c -- pnpm-lock.yaml`, `grep -c eslint`; the resolved `node_modules/eslint-plugin-react` | 0 eslint lines in the lockfile diff. The shared tree resolves `eslint-plugin-react@7.33.2`. A second copy, `7.37.5`, also sits in `.pnpm`, which is the export failure the document records. |
+| M7-a, M7-c | Read: `entry/lint-1ad625e/summary.txt` totals against the base report (454 files, 112 with messages, 314 errors, 367 warnings); Exclusions X-12 | M7-a's no-fix totals reproduce from the base report. The fix-dry-run figure (50 and 364) is the planner's capture and the critic's re-sum, and I did not re-derive it. M7-c is recorded. |
+
+### TDD compliance (Round 8)
+
+Not owed. M7 adds no source and no test. The record instrument's control is extended above.
+
 ## Findings
 
 ### Critical
@@ -634,6 +659,14 @@ CR-3 MEDIUM Round 2
 
 ### Low/Info
 
+CR-19 LOW Round 8
+**A departure from the plan's instrument, recorded as no deviation**: M7-b names its instrument as "the same two commands at the tip, in an export". The M7 document ran them in the shared tree, because an export cannot lint (two `eslint-plugin-react` versions). It records this under Deviations as "None. One method note".
+- **Location**: `implementation/017-existing-items-backlog-m7-implementation.md` § Deviations, at `fc87937`. Its `Handoff-At` also stays `f83f2ca`, while the tip is `4b8db9c`.
+- **Class**: a criterion's named instrument replaced without a Deviations line.
+- **Enumeration**: M7 has one named instrument (M7-b's), so there is 1 member. The check reads only M7's own criterion text against its document. It cannot see an instrument substitution in another milestone's document, which earlier rounds checked per milestone.
+- **Impact, as measured**: none on the reading. The shared tree was clean at both SHAs, the lockfile moved no eslint package, and two instruments with three controls give the same result at `4b8db9c` (above).
+- **Required Action**: one Deviations line naming the substitution and its reason, and the `Handoff-At` moved to `4b8db9c` with this round's reading cited, or a line saying M7-b was re-read there. `no test`. This finding does not hold the round.
+
 CR-17 LOW Round 7
 RESOLVED at agent-output `008468b`: the M6 document's Deviations states that setup failures carry no class line, and why; the fifth-class question is the planner's. `no test` (argument in `8296f7e`).
 
@@ -730,6 +763,14 @@ No finding changes a decision. The two above go to their stated carriers.
 
 ## Verdict
 
+**Round 8 (M7, read at website `4b8db9c`; document `Handoff-At` `f83f2ca`) — Status**: APPROVED_WITH_COMMENTS
+**Rationale**: M7-b holds at the chain's actual tip.
+- Every one of the 59 changed lintable files has no rule above its `1ad625e` count, and the new files have none. Two differently shaped instruments agree, and each fires on all three planted limbs.
+- CR-1's file reads 7 → 5.
+- M7-a reproduces from the base report, and M7-c is recorded.
+
+CR-19 is a LOW record line. The tip may still move before release, and QA Phase 2 and Phase 3 re-run M7-b there (the document's Outstanding Items; plan § M7).
+
 **Round 7 sub-entry (M6, generator `8512a1d`, record fix at agent-output `008468b`) — Status**: APPROVED. CR-16, CR-17 and CR-18 are gone (see the sub-entry). M6 goes to QA Phase 2 at `8512a1d`, then to the security review the stage set names.
 
 **Round 7 (M6 at generator `8512a1d`) — Status**: REJECTED
@@ -819,6 +860,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Required Actions
 
+- Round 8 (APPROVED_WITH_COMMENTS): CR-19, a Deviations line for the shared-tree lint and the `Handoff-At` brought to `4b8db9c` (or a re-read line). It does not block.
 - Round 7: none outstanding. CR-16 to CR-18 were confirmed at agent-output `008468b`. Previously (REJECTED), to the implementer:
   - CR-16: scope section [7]'s generated-image count to the latest ISO-stamped `Server running at` line (Preferred: also state the failure counts' bound in the output). Move the fixture's ready line before its generated lines. Then `verification/017/code-review/m6/liveness-scope/run.sh` must print 0 for its case and 1 for its control.
   - CR-17: a Deviations line in the M6 document (setup failures carry no class line, and why).
@@ -872,7 +914,13 @@ The production change is the deletion of an unreferenced export. The remaining f
   - **If false**: a production preview image shows the line "Invalid message data." for a saved message, with no `preview-image-failure` line on either service for that save.
   - **Owner**: UAT at B-6, the post-deploy look, under the production release of M5 with M6, with this step added: open the preview images of the messages saved in the look and check none shows the fallback line.
 
+- Round 8: this review assumes that the planner's base report `verification/017/entry/lint-1ad625e/nofix.json` is what the shared install gives for `1ad625e` today. I compared against it and did not re-lint `1ad625e`: an export cannot lint, and the shared tree is not mine to move. The lockfile shows no eslint change across the chain. What I did not test is whether the installed plugin set changed outside the lockfile since the capture.
+  - **If false**: a lint of `1ad625e` with today's install (a detached worktree resolving `eslint-plugin-react@7.33.2`) shows a per-file, per-rule count different from the capture for any of the 30 modified or renamed files. A file where the base rises can then hide a chain-added finding.
+  - **Owner**: QA, at Phase 3's M7-b re-run on the merged tip (plan § M7, "Run … by QA at Phase 2"). That run re-lints both trees with the install it uses.
+
 ## Next Steps
+
+- Round 8: M7 goes to QA (`qa-hooks-017`) for its Phase 2 re-run of M7-b at the tip. CR-19 is for the implementer's next write. This was the last milestone for code review. Every milestone M1 to M8 now has a code-review verdict. Each round was milestone-scoped, so plan-level Status stays unmoved, and steering is told.
 
 - Round 7: the fix is confirmed at agent-output `008468b`. QA Phase 2 for M6 at `8512a1d` (`qa-hooks-017`) is next, then the security review. Section [7]'s "since the latest process start" bound is for B-10's read. Previously: to the implementer for CR-16 to CR-18. UAT B-6 closes the Round 7 assumption. M7 follows the sub-entry. Its `Handoff-At` `f83f2ca` is behind the website tip `4b8db9c` (see the premise re-read).
 
@@ -906,8 +954,8 @@ Updated at Round 7's verdict, 2026-11-19T07:34Z, by the resumed session. Previou
   - Round 7 (M6): REJECTED at generator `8512a1d` on CR-16 MEDIUM (record script), with CR-17 and CR-18 LOW. The generator code is sound. Instruments: `verification/017/code-review/m6/attack/run.sh <export> <out>`, `liveness-scope/run.sh <out>`, and `rig-tip/` and `rig-base/`.
   - My plan rows: R-8, R-10, R-12, R-13, R-15, R-16, R-18, R-19, R-22, R-30, R-32, R-33, R-35, R-36 and R-38.
   - QA hand-offs were sent for each approval. The last two were for M5: `ecf3c9a9` at `f83f2ca`, then `ff73fabd` saying the tip is `4b8db9c`. QA Complete for M5 at `4b8db9c` (plan R-37).
-- **In flight**: nothing. Round 7's sub-entry is APPROVED at `008468b`, and M6 was handed to QA. The QAF-24 lane fix passed its scoped check (Round 6 sub-entry, continued).
-- **Next, on resume**: M7. Re-derive its `Handoff-At` (`f83f2ca` against the tip `4b8db9c`) and CR-1's file (M7-b). Re-run `liveness-scope/run.sh` against the fixed `pig-host-read.sh`: it must print 0 for its case and 1 for its control. Re-run the implementer's corrected fixture, and break the new scope predicate too (an out log whose only ready line is untimestamped; generated lines on both sides of the boundary). Check that `8512a1d` is unchanged, or review the delta if it moved. On APPROVED, hand to `qa-hooks-017` for M6's Phase 2. Then M7, last: re-derive its `Handoff-At` (`f83f2ca` against the tip `4b8db9c`) and CR-1's file (M7-b).
+- **In flight**: nothing. Round 8 (M7) is APPROVED_WITH_COMMENTS, read at `4b8db9c` (captures `verification/017/code-review/m7/`). Every milestone has a code-review verdict.
+- **Next, on resume**: a sub-entry only if the tip moves or a fix round arrives. Re-run `code-review/m7/recheck.py` and `compare.mjs` at the new tip. Re-run `liveness-scope/run.sh` against the fixed `pig-host-read.sh`: it must print 0 for its case and 1 for its control. Re-run the implementer's corrected fixture, and break the new scope predicate too (an out log whose only ready line is untimestamped; generated lines on both sides of the boundary). Check that `8512a1d` is unchanged, or review the delta if it moved. On APPROVED, hand to `qa-hooks-017` for M6's Phase 2. Then M7, last: re-derive its `Handoff-At` (`f83f2ca` against the tip `4b8db9c`) and CR-1's file (M7-b).
 - **Standing rules**: steering's M4 cap (`steering/017-rulings.md` block 2026-11-19T04:14Z, `a805d4d`) and M8 cap (block 2026-11-19T06:01Z, `9349040`). For M4 and M8, a finding below HIGH that is not a severity-floor finding goes to the Planner batch as a stated limit, with no fix round. Steering is now `steering-roadmap-hooks`.
 - **Waiting on others, not blocking**:
   - UAT B-3 (Round 4 assumption), B-13 (Round 5 and its sub-entry), and B-6 with a read-only prefix listing (Round 6 assumption) and the fallback-line look (Round 7 assumption).
