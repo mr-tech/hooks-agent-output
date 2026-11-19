@@ -2,15 +2,15 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Verified-At: "4b8db9c,8512a1d — repos=website,preview-image-generator; the effort-final pass: the website sweep ran in git archive exports of 4b8db9c; the generator's whole diff was swept at M6 in exports of 8512a1d. Milestone verdicts are in the -m<n>-qa documents at their own SHAs. Phase 1 read the base trees 1ad625e,8de2b53."
-Status: Awaiting Implementation
-Status-Detail: "The plan-level QA Complete at website 4b8db9c is expired by M2's fix rounds 3 to 6. M2's Phase 2 at website 24e9be7 is QA Failed on QAF-27 MEDIUM (test-only; qa/017-existing-items-backlog-m2-qa.md). B-15 was executed by QA on both trees. Next: M2's refresh at the fix tip, with the plan-level verdict and M7-b re-issued there."
-Phase: 1
+Verified-At: "7293a35,8512a1d — repos=website,preview-image-generator; plan-level verdict re-issued after M2's fix rounds 3 to 7: the suite, typecheck, M7-b and the closing survivors ran at 7293a35 in git archive exports; M2's sweep of 4b8db9c..24e9be7 is in the M2 document; the generator is unchanged at 8512a1d. Milestone verdicts are in the -m<n>-qa documents at their own SHAs."
+Status: QA Complete
+Status-Detail: "Plan-level QA Complete at website 7293a35 and generator 8512a1d: M1 to M8 each QA Complete in its own document (M2 at 7293a35); the effort's production diff is swept (1ad625e..4b8db9c at the effort-final pass, 4b8db9c..24e9be7 in M2's pass), every survivor dispositioned; suite 1853/1853, exit 0; M7-b 0 above base. No QA finding open. Next: UAT (B-1 to B-4, B-12, B-13, B-15)."
+Phase: 2
 ---
 
 # QA Report: Plan 017 — the existing-items backlog
 
-**Plan Reference**: `agent-output/planning/017-existing-items-backlog.md`, revision 10 (agent-output `fad6cd4`)
+**Plan Reference**: `agent-output/planning/017-existing-items-backlog.md`, revision 11 (agent-output `a971ed8`)
 for the effort-final pass (its delta read whole, § Implementation Review); Phase 1 read revision 7 (agent-output
 `6ade256`), re-keyed in § "Phase 1 re-key on plan revision 7" (earlier: §§ "… revision 6", "… revision 4",
 "… revision 3" and "… revision 2"; revision 5 was never routed and is read inside revision 6's diff). The first pass read revision 1
@@ -31,6 +31,7 @@ for the effort-final pass (its delta read whole, § Implementation Review); Phas
 | 2026-11-19T09:14 | steering-roadmap-hooks (brief `qa-hooks-017-resume.md`, work item 3); plan revision 8 (`36a842f`) | Effort-final sweep and plan-level verdict | Phase 2, effort-final. Website `1ad625e..4b8db9c`: 175 generated, 34 identical to M5's run at this tip, 141 run: 124 of 140 KILLED, 16 SURVIVED, 1 ABORTED (heap out of memory, not credited). Every survivor dispositioned. QAF-25 LOW (`StyledLink`'s `prefetch: false` unasserted) to the Planner batch under the M4 cap. The generator was swept whole at M6. Revision 8 read whole: no verified criterion moved. **QA Complete**, plan-level. |
 | 2026-11-19T18:00 | steering-roadmap-hooks (cross-session brief, delta `61ce793..fad6cd4`); planner-hooks-017 (AF-25 to key) | Phase 1 re-key: M2-c's wire form, M2-d | Phase 1 re-key on revision 10, which also folds revision 9 (X-24; QAF-25 dispositioned as a stated limit). AF-25's instrument is shown feasible in an export of `60252be`: real `upsertMessage`, `pusher` 5.1.3 and pusher-js 8.3.0 `decodeMessage`, 4 of 4 green; against `4b8db9c`'s bare trigger line 3 of 4 red, and the ordinary hash stays green. Number-shape predicate checked exhaustively: 0 disagreements in 111,972 strings. EC-5 (M2-d's three members; all four `pusher-js` mocks lack `disconnect`), EC-6, NM-39 to NM-45, B-15. QAF-26 LOW (M2-d's step does not name an in-app switch). The plan-level verdict at `4b8db9c` is expired by M2's fix round 3. |
 | 2026-11-19T18:30 | code-reviewer-hooks-017 (M2 sub-entries `f5f3346`, `4e1b43b`) | Register: B-15 | B-15 executed by QA on `60252be` and `24e9be7` and reconciled in its State cell (route re-specified). M2's Phase 2 verdict, QA Failed on QAF-27, is in `qa/017-existing-items-backlog-m2-qa.md`. |
+| 2026-11-19T18:40 | code-reviewer-hooks-017 (`e324582`, M2 at `7293a35`); steering brief (plan-level verdict, R-47 and M7-b at the tip) | Plan-level verdict at the new tip | Plan-level verdict re-issued: **QA Complete** at website `7293a35` and generator `8512a1d` (§ "Plan-level verdict re-issued…"); plan Status `QA Complete` with R-60. Code review's R-58 duplicates this gate's R-58 (`686b810` before `489b4d8`); the reviewer routed the renumbering to steering, and this gate's row takes R-60. |
 
 ## Inputs read
 
@@ -1153,3 +1154,32 @@ sets, reach every decision the effort added, and does not test it.
   added calls leaves 1814 of 1814 green.
 - **Owner.** QA Phase 3 at the release tip, which may add a call-deletion set over the same predicate. Named again in
   the hand-off.
+
+## Plan-level verdict re-issued at website `7293a35` and generator `8512a1d`
+
+**Brief**: `steering-roadmap-hooks` (17:5xZ): "QA Phase 2 for M2, including your plan-level verdict, with R-47 and M7-b
+re-read at that tip". **Plan**: revision 11 (`a971ed8`). Revisions 9 to 11 move no criterion verified here, other than
+M2's, which M2's passes verified (`qa/017-existing-items-backlog-m2-qa.md`).
+
+Basis, each re-derived at the trees:
+- **Production since the effort-final pass.** `git diff --numstat 4b8db9c 7293a35`, outside `__tests__`, changes two
+  files: `usePusher.ts` (6 added, 3 removed) and `shared.ts` (1 added, 1 removed). `git diff -U0` shows the `shared.ts`
+  change is its one `pusher.trigger` line, which revision 10 puts on M2's surface. No other milestone's surface moved, so
+  the M1 and M3 to M8 verdicts stand at their SHAs, as § "Milestone surfaces at the tip" records.
+- **Sweep coverage of the effort's production diff.** `1ad625e..4b8db9c` was swept at the effort-final pass (above).
+  `4b8db9c..24e9be7` was swept in M2's pass: 17 of 19 and 5 of 8, with the two survivors closed at `7293a35`.
+  `24e9be7..7293a35` has no production line. Every survivor is dispositioned.
+- **Generator.** The chain branch is still at `8512a1d` (`git -C preview-image-generator rev-parse HEAD`,
+  `branch --show-current`). M6's verdict and the security approval (`4ae4825`) stand.
+- **Suite and typecheck at `7293a35`.** 1853 of 1853, 144 files, exit 0; typecheck exit 0.
+- **M7-b at `7293a35`.** 60 changed lintable files, 0 above the base, 3 of 3 plants found.
+- **Findings.** None of QA's is open. QAF-25 is stated limit X-24, QAF-26 was folded at revision 11, and QAF-27 is
+  resolved.
+
+**QA Complete for plan 017 at website `7293a35` and generator `8512a1d`.** The plan's Status moves to `QA Complete` (R-60).
+Rows inherited and not discharged go to their owners:
+- UAT, pre-release: B-1 to B-4, B-12, B-13 and B-15.
+- devops's Stage 1 carrier, post-deploy: B-6 to B-11.
+
+A release tip carries its own verdict (Phase 3). Assumptions Not Checked routed to UAT: B-15's build kind (M2's pass), and
+the bare-frame decode at B-1 (code review's).

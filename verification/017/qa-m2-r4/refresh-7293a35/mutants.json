@@ -1,0 +1,14 @@
+[
+ {
+  "id": "loose record compare",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "(record) => record === hash",
+  "new": "(record) => record == hash"
+ },
+ {
+  "id": "loose shown compare",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "hash !== shownHash",
+  "new": "hash != shownHash"
+ }
+]

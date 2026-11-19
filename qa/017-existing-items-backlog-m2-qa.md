@@ -2,9 +2,9 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Verified-At: "24e9be7 — repos=website; M2's fix rounds 3 to 6 (range 4b8db9c..24e9be7), suites, typecheck, lint and sweeps in isolated git archive exports; B-15 walked on dev servers of 60252be and 24e9be7. The dd26104 anchor (QA Complete) is superseded."
-Status: QA Failed
-Status-Detail: "M2 fails at website 24e9be7 on QAF-27 MEDIUM, a severity-floor finding that keeps its round under the 18:13Z cap: a payload that is not a string is never asserted to raise the notice, so loose compares survive. Fix is test-only, and two cases are shown to kill both. Everything else holds: M2-c's four sub-classes on the real wire, M2-d's members, B-15 on both trees (2 open unfixed, 1 fixed), suite 1851/1851 with exit 0, typecheck 0, M7-b 0 above base. The plan-level verdict is re-issued at the fix tip."
+Verified-At: "7293a35 — repos=website; refresh of M2 on QAF-27's test-only round (24e9be7..7293a35: one test file). The 24e9be7 pass (suites, sweeps, B-15 on dev servers of 60252be and 24e9be7) carries: no production line changed since."
+Status: QA Complete
+Status-Detail: "M2 passes at website 7293a35: QAF-27 is resolved (both loose-compare mutants killed, each by its own case), suite 1853/1853 with exit 0, typecheck 0, M7-b 0 above base. Supersedes the 24e9be7 QA Failed. Milestone-scoped; the plan-level verdict is in qa/017-existing-items-backlog-qa.md."
 Phase: 2
 ---
 
@@ -27,6 +27,7 @@ is M2's operator-observed row and is unchanged.
 | 2026-11-19T01:24 | code-reviewer-hooks-017 (cross-session message; review round 2 `45d2c8d`) | QA Phase 2 for M2 at website `ec984fe`, with CR-3 inside QAF-16's disposition | Phase 2, M2 only. No steering brief arrived; I read the Decisions Register and both Assumption Not Checked sections myself. Suite 1542 of 1542, exit 0; typecheck 0. The AN-1 probe re-run at `8147661` and `ec984fe`: the outside-class member raises the notice at `8147661` and no member does at `ec984fe`. QA's 12 mutants: 11 killed, 1 survived. **QA Failed**: QAF-17 MEDIUM (the survivor's case, written and shown red and green). QAF-16 dispositioned together with CR-3 (fix seen at `442059d`, re-read at the refresh). Gate disclosed: record-write-gate-hook refused a shell heredoc append to `INBOX.md`; the entry was re-issued through `record-edit.js` `append_file`. |
 | 2026-11-19T01:48 | implementer-hooks-017 (cross-session message: QAF-17 at `bce3119`, tip `dd26104`) | Scoped refresh of M2 at website `dd26104` | Refresh. Suite 1606 of 1606, exit 0; typecheck 0. The M2 mutant set was re-anchored and run, plus two new mutants: 14 of 14 killed. QAF-17 and QAF-16 (CR-3) are RESOLVED. The committed AN-1 probe is out of date for M3's `onSuccess`; a copy that passes the mutation variables shows all 24 rows `notice: false`. **QA Complete** (M2-scoped), superseding the `ec984fe` QA Failed. |
 | 2026-11-19T18:30 | code-reviewer-hooks-017 (Round 9 sub-entry `f5f3346` at `60252be`; Round 10 sub-entry `4e1b43b` at `24e9be7`); steering-roadmap-hooks (tip moved; M2 cap, 18:13Z) | QA Phase 2 for M2's fix rounds 3 to 6, with M7-b re-read | Phase 2, M2-scoped, range `4b8db9c..24e9be7`. Sweeps: 17 of 19 at `60252be` and 5 of 8 at `24e9be7`; survivors are the two loose compares (QAF-27 MEDIUM, severity floor) and `channel.unbind()` (equivalent, an unchanged line). B-15 walked on both trees: 2 open sockets unfixed, 1 open and 1 closed fixed. Suite 1851/1851 with exit 0 on a quiet re-run (the first run's one failure was a load timeout in M1's file); typecheck 0; M7-b 0 above base. **QA Failed** on QAF-27. |
+| 2026-11-19T18:40 | code-reviewer-hooks-017 (Round 10 sub-entry continued, `e324582`, APPROVED at `7293a35`) | Refresh on QAF-27's fix | Refresh, test-only diff. 2 of 2 survivors killed, each by its own case; suite 1853/1853, exit 0; typecheck 0; M7-b 0 above base. QAF-27 RESOLVED. **QA Complete** at `7293a35`. |
 
 ## Criteria assessed (recorded before execution)
 
@@ -415,3 +416,26 @@ second effect run, could change the count in either direction, and B-15 ran on d
   `verification/017/qa-m2-r4/`.
 - **UAT**: B-15 is re-specified to the route above, with this pass's readings as the reference. It also carries the
   build-kind assumption.
+
+## Refresh at website `7293a35` (QAF-27's test-only round)
+
+**Stage start**: code review Round 10 sub-entry (continued), APPROVED at website `7293a35` (agent-output `e324582`; its plan
+row is `489b4d8`). I re-derived it at the record. **Implementation**: M2 § Fix Round 7 (`57df990`), `Handoff-At: 7293a35`.
+The diff `24e9be7..7293a35` changes one file, `MessageProvider.own-save-notice.test.tsx` (22 added lines, no production
+path; `git diff --numstat`). So this refresh re-runs only the survivors the round closes, plus the suite, the typecheck
+and M7-b.
+
+| Command (export of `7293a35` with its own offline install, `unshare -rn`; `verification/017/qa-m2-r4/refresh-7293a35/`) | Result |
+|---|---|
+| `mutation-run.py`, the two loose compares (`mutants.json`; kill table `sweep/mutation-table-7293a35…-20261119T183750Z-p1880809.json`) | **2 of 2 killed**, count checked; control 1853, exit 0. `record == hash` is killed by "raises the notice when a payload that is not a string arrives while this tab holds a record of a save with the same digits" alone. `hash != shownHash` is killed by "… arrives with the digits of the shown content's hash" alone. |
+| Full suite | **1853 of 1853, 144 files, exit 0** (`full-suite.{json,exit}`); 1851 + 2 |
+| `pnpm run typecheck` | **exit 0**, both programs |
+| M7-b: `eslint . -f json`, then `qa-m7/m7b-check.py` against `nofix-1ad625e-export.json` | 60 changed lintable files, **0** above the base; `--plant` 3 of 3 |
+
+QAF-27 MEDIUM Phase 2 RESOLVED — two cases added at `7293a35`; each kills its loose-compare mutant alone (above).
+
+**Verdict: QA Complete for M2 at website `7293a35`**, superseding the `24e9be7` QA Failed. The `24e9be7` pass's findings
+on everything else carry, because no production line has changed since. B-15's readings carry for the same reason.
+Code review's new routed assumption, that a bare number-shaped frame reaches the bind callback as a number in a browser, is
+UAT's at B-1. Rows inherited and not discharged: B-1, B-12, B-15 (UAT's). This pass's Assumption Not Checked is the
+`24e9be7` pass's (the build kind of B-15), unchanged.
