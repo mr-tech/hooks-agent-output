@@ -640,28 +640,43 @@ Read: the diff `b3d811e..a97628d` over the plan (48 added and 17 removed lines, 
 
 No finding on revision 4.
 
-## Resumption State (2026-11-19T00:28Z, checkpoint on steering's word)
+## Resumption State (2026-11-19T03:1xZ, checkpoint on steering's word)
 
-- **Done:** Phase 1 on revision 1, then re-keys on revisions 2, 3 and 4. The last re-key, at plan
-  `a97628d`, is QA commit `3af80aa`. QAF-1 to QAF-14 are all RESOLVED, and no QA finding is open.
-  Status `Awaiting Implementation`.
-- **Next:** at the next plan revision, re-key from the diff `a97628d..<new>` over the plan, then:
-  - re-run `verification/017/m5-decision-table/oracle.mjs` (default, `--option-b`, `--mutants`)
-    against any M5-a/M5-c/M5-e change, freezing the current model as `oracle-rev4.mjs` first if the
-    rules change;
-  - re-check the register rows B-1 to B-11 against any change to the readers or the walks.
+- **Done.** Phase 1 and its re-keys to revision 4 (`3af80aa`). Phase 2 per milestone, each in its own document:
+  - M1: PASS at website `8147661`, `qa/017-existing-items-backlog-m1-qa.md` (`7d7eb50`, plan R-9).
+  - M2: QA Failed at `ec984fe` (QAF-17), then PASS on the refresh at `dd26104`, `qa/017-existing-items-backlog-m2-qa.md`
+    (`5630f1b`, then `b77fb74`; plan R-11, R-14).
+  - M3: PASS at `1ab3b96` with the bounded E-7 sweep, `qa/017-existing-items-backlog-m3-qa.md` (`4fe859b`, plan R-17).
+  - Findings: QAF-15 LOW is the lint stdin artifact, open as an instrument note in `verification/017/README.md` for M7-b.
+    QAF-16 and QAF-17 are RESOLVED.
+- **Next.** M4's Phase 2, when its code review hands off. Then M5 and M6 (after M5-0), and M7. Then the effort-final
+  sweep. Then the plan-level `QA Complete`, and UAT.
+- **Approach, per milestone.** Make a new `qa/017-existing-items-backlog-m<n>-qa.md`. Then:
+  1. Export the SHA with `git archive`, link `node_modules`, and copy `next-env.d.ts` and `.next/types/` from the shared
+     tree, or the typecheck fails with TS2307.
+  2. Run the suite and the typecheck under `unshare -rn`.
+  3. Compare suites with `verification/017/qa-m1/suite-compare.mjs` against the previous milestone's run. The latest QA
+     run is `verification/017/qa-m3/vitest-1ab3b96.json`, with root `$SCRATCH/exp-1ab3b96`, which has been deleted;
+     pass the old root string anyway, since only the path prefix is used.
+  4. Build QA's mutant set as exact-once anchors, and have a `general-purpose` helper run it with
+     `~/.claude/tools/mutation-run.py ... --dep node_modules -- unshare -rn npx vitest run`, with tests scoped to the
+     surface's dirs.
+  5. Map every criterion member. Audit conventions with `qa-m1/audit-predicates.sh` or the M3 inline form.
+  6. Write the plan row with `record-edit.js` `2026-11-19T03:11` and `plan-row-commit.js`.
 
-  When OQ-13 is answered, record which oracle mode (a or b) binds. At Phase 2, QA re-runs the
-  implementer's real-Postgres lane `verification/017/m5-pg/` and the AN-1 red at `a74b9e2`, and
-  sweeps NM-1 to NM-29.
-- **Trees:** website on `master` at `1ad625e`, no chain branch cut. Generator `prod` at `8de2b53`.
-  Nothing of QA's is uncommitted.
-- **Mutated state:** none. The scratch export, the local stack, the dev server and the probe
-  container were all removed (§ Premises; `pg-order-probe/`).
-- **Evidence:** every run is committed under `verification/017/qa-phase1/` and
-  `verification/017/m5-decision-table/`. None is unrecorded.
-- **Questions out:** none open. The owner-needing item of 23:40Z was answered by steering at 23:41Z
-  (a Standing Default, so the read was made).
+  Milestone-specific notes:
+  - M4: NM-8, NM-9, NM-24, NM-25 and NM-29. M4-b mounts the two-level layout with a `/send` member.
+  - M5: the oracle `verification/017/m5-decision-table/oracle.mjs` (OQ-13 option a binds); re-run the real-Postgres lane
+    `verification/017/m5-pg/`; NM-10 to NM-23 and NM-26 to NM-28. The E-1 and E-2 guards get their own sweep.
+  - Lint: never stdin against a moved tree (QAF-15). Base counts come from `entry/lint-1ad625e/nofix.json`.
+- **Trees.** The website chain branch was at `1ab3b96` or later at the checkpoint, and is not mine to move. No export or
+  work directory of mine remains in the scratchpad.
+- **Uncommitted or mutated.** Nothing of QA's. The `INBOX.md` entry (QAF-16's pre-existing stub) was appended
+  uncommitted, as inbox rules require.
+- **Evidence.** All committed under `verification/017/qa-m1/`, `qa-m2/`, `qa-m2-refresh/` and `qa-m3/`.
+- **Questions out.** None.
+- **Routed assumptions.** To UAT: B-1 (the Pusher handler is bound once) and B-2 (the native `storage` event reaches
+  other tabs). To devops Phase 3: the install matches the lockfile.
 
 ## Assumption Not Checked
 
