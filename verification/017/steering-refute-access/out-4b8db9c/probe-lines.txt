@@ -1,0 +1,23 @@
+PROBE C1 A saved personal message id 1
+PROBE C1 row owner/guild {"id":"1","fk_users_id":"1","fk_guilds_id":null}
+PROBE C1 B getOne returned {"id":"1","name":"A-private","data":{"embeds":[],"content":"A SECRET CONTENT","components":[]}}
+PROBE C1 control unauthenticated getOne UNAUTHORIZED: User is not authenticated.
+PROBE C1 control B upsert-with-A-id (ownership check path) NOT_FOUND: One of the provided messages does not exist.
+PROBE C1 control B delete A id NOT_FOUND: One of the provided messages does not exist.
+PROBE C1 control B getOne nonexistent INTERNAL_SERVER_ERROR: no result
+PROBE C1 control B get("0") list own 0
+PROBE C2 sequence at start {"last_value":"1","is_called":false}
+PROBE C2 B upsert id=3 (nonexistent) error null
+PROBE C2 rows after claim [{"id":"3","fk_users_id":"2","name":"B-claim","data":{"embeds":[],"content":"B CLAIM","components":[]}}]
+PROBE C2 sequence after claim {"last_value":"1","is_called":false}
+PROBE C2 A new save #1 returned id 1
+PROBE C2 A new save #2 returned id 2
+PROBE C2 A new save #3 returned id 3
+PROBE C2 rows after victim saves [{"id":"1","fk_users_id":"1","name":"A-new-1","data":{"embeds":[],"content":"A SECRET 1","components":[]}},{"id":"2","fk_users_id":"1","name":"A-new-2","data":{"embeds":[],"content":"A SECRET 2","components":[]}},{"id":"3","fk_users_id":"2","name":"A-new-3","data":{"embeds":[],"content":"A SECRET 3","components":[]}}]
+PROBE C2 B getOne(3) reads {"name":"A-new-3","data":{"embeds":[],"content":"A SECRET 3","components":[]}}
+PROBE C2 victim re-save of id 3 (own content) NOT_FOUND: One of the provided messages does not exist.
+PROBE C2 victim getAll ids ["1","2"]
+PROBE C2 claimant getAll ids ["3"]
+PROBE C2 victim delete 3 NOT_FOUND: One of the provided messages does not exist.
+ ✓ probe/probe.test.ts > C1 > B reads A personal message by id via message.getOne 73ms
+ ✓ probe/probe.test.ts > C2 > claim a future id, sequence reaches it, victim lands in claimant row 77ms

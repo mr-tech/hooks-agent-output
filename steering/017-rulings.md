@@ -800,3 +800,26 @@ helper is trying to refute both by execution at website `1ad625e` (production) a
 `verification/017/steering-refute-access/`). The question goes to him in plain-message form once it
 returns (017 can still move without him).
 Planner fold: held until M7's QA Phase 2 passes (the planner's Resumption State, plan § Resumption State).
+
+## 2026-11-19T08:12Z — refutation result; the access question put to him (plain message)
+
+Refutation helper (`general-purpose-sonnet`), briefed with the claims alone, ran them through the real
+`message` tRPC router (`createCaller`, faked session, real `authorizeUser`/`upsertMessage`, real
+`postgres:16`, network-isolated, capped) at website `1ad625e` and `4b8db9c`
+(`verification/017/steering-refute-access/`, `out-*/probe-lines.txt`). Result: **both confirmed at both
+SHAs, not refuted.** C1: user B's `getOne('1')` returned user A's personal message content; controls
+(unauthenticated, B's upsert and delete of A's id) refused. C2: B's upsert with a nonexistent `id:'3'`
+inserted row 3 owned by B; A's third new save landed in row 3 (owner stays B, content A's); B read it; A's
+re-save and delete of 3 → `NOT_FOUND`. Run exit 1 from an ioredis rejection on the helper's dummy port, 2 of
+2 cases passed. Not exercised: Next middleware or Vercel rules in front of the API, the Prisma-generated
+constraints, production's sequence height. C3 (`delete` with " 5"/"05" leaves previews) read from code, not
+run. Premise read this turn (`git grep -n getOne 1ad625e -- src`): callers are the editor's
+`MessageProvider` (`index.tsx:188`, loads the message being edited by the URL's id) and the guild message
+list's copy-to-clipboard (`f/[id]/page.tsx:181`). Whether reading another user's personal message by
+number is intended is not stated in any record security searched (its § Outside, search at 08:05Z).
+Put to him as a plain message (017 can still move without him), with one `owner-wait` notice. Options:
+(1) a follow-up fixer chain on the website, started when 017 has released and the tree is free — both
+defects; C1's intended behaviour asked first (security's recommendation); (2) a rider on 017 now — moves
+017's release tip, re-opens code review, QA and UAT on the new tip; (3) record it as a handoff and accept
+for now. Plus his answer on C1: is a signed-in user meant to open another user's personal message by its
+number? Recommendation, this thread's: (1).

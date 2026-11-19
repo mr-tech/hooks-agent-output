@@ -1,0 +1,101 @@
+
+[1m[46m RUN [49m[22m [36mv4.1.2 [39m[90m/tmp/claude-1000/-usr-local-bin-hooks/1e3df200-4da0-4c3a-92ef-a122badb1209/scratchpad/exp-4b8db9c[39m
+
+[90mstderr[2m | probe/probe.test.ts
+[22m[39m[ioredis] Unhandled error event: RangeError: Port should be >= 0 and < 65536. Received type number (NaN).
+    at lookupAndConnect (node:net:1338:5)
+    at Socket.connect (node:net:1293:5)
+    at connect (node:net:245:17)
+    at /tmp/claude-1000/-usr-local-bin-hooks/1e3df200-4da0-4c3a-92ef-a122badb1209/scratchpad/exp-4b8db9c/node_modules/.pnpm/ioredis@5.3.1/node_modules/ioredis/built/connectors/StandaloneConnector.js:54:66
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC1[2m > [22m[2mB reads A personal message by id via message.getOne
+[22m[39mPROBE C1 A saved personal message id 1
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC1[2m > [22m[2mB reads A personal message by id via message.getOne
+[22m[39mPROBE C1 row owner/guild {"id":"1","fk_users_id":"1","fk_guilds_id":null}
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC1[2m > [22m[2mB reads A personal message by id via message.getOne
+[22m[39mPROBE C1 B getOne returned {"id":"1","name":"A-private","data":{"embeds":[],"content":"A SECRET CONTENT","components":[]}}
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC1[2m > [22m[2mB reads A personal message by id via message.getOne
+[22m[39mPROBE C1 control unauthenticated getOne UNAUTHORIZED: User is not authenticated.
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC1[2m > [22m[2mB reads A personal message by id via message.getOne
+[22m[39mPROBE C1 control B upsert-with-A-id (ownership check path) NOT_FOUND: One of the provided messages does not exist.
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC1[2m > [22m[2mB reads A personal message by id via message.getOne
+[22m[39mPROBE C1 control B delete A id NOT_FOUND: One of the provided messages does not exist.
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC1[2m > [22m[2mB reads A personal message by id via message.getOne
+[22m[39mPROBE C1 control B getOne nonexistent INTERNAL_SERVER_ERROR: no result
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC1[2m > [22m[2mB reads A personal message by id via message.getOne
+[22m[39mPROBE C1 control B get("0") list own 0
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC2[2m > [22m[2mclaim a future id, sequence reaches it, victim lands in claimant row
+[22m[39mPROBE C2 sequence at start {"last_value":"1","is_called":false}
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC2[2m > [22m[2mclaim a future id, sequence reaches it, victim lands in claimant row
+[22m[39mPROBE C2 B upsert id=3 (nonexistent) error null
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC2[2m > [22m[2mclaim a future id, sequence reaches it, victim lands in claimant row
+[22m[39mPROBE C2 rows after claim [{"id":"3","fk_users_id":"2","name":"B-claim","data":{"embeds":[],"content":"B CLAIM","components":[]}}]
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC2[2m > [22m[2mclaim a future id, sequence reaches it, victim lands in claimant row
+[22m[39mPROBE C2 sequence after claim {"last_value":"1","is_called":false}
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC2[2m > [22m[2mclaim a future id, sequence reaches it, victim lands in claimant row
+[22m[39mPROBE C2 A new save #1 returned id 1
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC2[2m > [22m[2mclaim a future id, sequence reaches it, victim lands in claimant row
+[22m[39mPROBE C2 A new save #2 returned id 2
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC2[2m > [22m[2mclaim a future id, sequence reaches it, victim lands in claimant row
+[22m[39mPROBE C2 A new save #3 returned id 3
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC2[2m > [22m[2mclaim a future id, sequence reaches it, victim lands in claimant row
+[22m[39mPROBE C2 rows after victim saves [{"id":"1","fk_users_id":"1","name":"A-new-1","data":{"embeds":[],"content":"A SECRET 1","components":[]}},{"id":"2","fk_users_id":"1","name":"A-new-2","data":{"embeds":[],"content":"A SECRET 2","components":[]}},{"id":"3","fk_users_id":"2","name":"A-new-3","data":{"embeds":[],"content":"A SECRET 3","components":[]}}]
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC2[2m > [22m[2mclaim a future id, sequence reaches it, victim lands in claimant row
+[22m[39mPROBE C2 B getOne(3) reads {"name":"A-new-3","data":{"embeds":[],"content":"A SECRET 3","components":[]}}
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC2[2m > [22m[2mclaim a future id, sequence reaches it, victim lands in claimant row
+[22m[39mPROBE C2 victim re-save of id 3 (own content) NOT_FOUND: One of the provided messages does not exist.
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC2[2m > [22m[2mclaim a future id, sequence reaches it, victim lands in claimant row
+[22m[39mPROBE C2 victim getAll ids ["1","2"]
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC2[2m > [22m[2mclaim a future id, sequence reaches it, victim lands in claimant row
+[22m[39mPROBE C2 claimant getAll ids ["3"]
+
+[90mstdout[2m | probe/probe.test.ts[2m > [22m[2mC2[2m > [22m[2mclaim a future id, sequence reaches it, victim lands in claimant row
+[22m[39mPROBE C2 victim delete 3 NOT_FOUND: One of the provided messages does not exist.
+
+ [32m✓[39m probe/probe.test.ts[2m > [22mC1[2m > [22mB reads A personal message by id via message.getOne[32m 73[2mms[22m[39m
+ [32m✓[39m probe/probe.test.ts[2m > [22mC2[2m > [22mclaim a future id, sequence reaches it, victim lands in claimant row[32m 77[2mms[22m[39m
+[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Unhandled Errors [49m[22m[31m⎯⎯⎯⎯⎯⎯[39m
+[31m[1m
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.[22m[39m
+
+[31m⎯⎯⎯⎯[39m[1m[41m Unhandled Rejection [49m[22m[31m⎯⎯⎯⎯⎯[39m
+[31m[1mRangeError[22m: Port should be >= 0 and < 65536. Received type number (NaN).[39m
+[90m [2m❯[22m lookupAndConnect node:net:[2m1338:5[22m[39m
+[90m [2m❯[22m Socket.connect node:net:[2m1293:5[22m[39m
+[90m [2m❯[22m connect node:net:[2m245:17[22m[39m
+[90m [2m❯[22m node_modules/.pnpm/ioredis@5.3.1/node_modules/ioredis/built/connectors/StandaloneConnector.js:[2m54:66[22m[39m
+[90m [2m❯[22m processTicksAndRejections node:internal/process/task_queues:[2m85:11[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22m[39m
+[31m[1mSerialized Error:[22m[39m [90m{ code: 'ERR_SOCKET_BAD_PORT' }[39m
+[31mThis error originated in "[1mprobe/probe.test.ts[22m" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.[39m
+[31m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[39m
+
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m2 passed[39m[22m[90m (2)[39m
+[2m     Errors [22m [1m[31m1 error[39m[22m
+[2m   Start at [22m 08:11:49
+[2m   Duration [22m 2.88s[2m (transform 629ms, setup 0ms, import 2.40s, tests 216ms, environment 0ms)[22m
+
