@@ -662,3 +662,17 @@ print no line of it. devops-hooks-017 reported the same refusal and did not re-i
 Also: the session was renamed by him to `steeering-roadmap-hooks` (05:1xZ). Stage briefs name
 `steering-roadmap` as the return address, and devops-hooks-017's first send to it was refused (no
 session carries the name). The name question is put to him.
+
+## 2026-11-19T05:22Z — this thread's name (his selection)
+
+Selection put and answered 05:22Z (ledger `steering/selection-ledger/2026-11-19.md`, this thread's block
+of that minute). Chosen: **"You: /rename steering-roadmap-hooks (Recommended)"**: "You type /rename
+steering-roadmap-hooks here (the three e's look like a typo). Then I tell each live 017 session to use
+that name and note it in the rulings file. tmux-agent rename can't do it: this session isn't on the
+agents tmux server." Not chosen: "Agent: keep steeering-roadmap-hooks"; "You: /rename steering-roadmap".
+Premises, read this turn: ListAgents 05:19Z ("This session is steeering-roadmap-hooks [ab3009]"); devops's
+refused send (its message 05:2xZ); `tmux -L agents list-sessions` carries no roadmap session, and
+`tmux-agent rename` acts only on agents-server panes (`~/.local/bin/tmux-agent` lines 45, 275 to 283).
+**Alias chain:** `steering-roadmap` (2026-11-18 to 05:1xZ) → `steeering-roadmap-hooks` (his rename,
+05:1xZ) → `steering-roadmap-hooks` (his rename, pending). Once ListAgents shows the new name, every
+live 017 session is told the return address.
