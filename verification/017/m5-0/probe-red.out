@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9310d754-fa77-4013-bace-ca59bb63d5de/scratchpad/probe-wt
+
+ ❯ |node| src/utils/__tests__/waituntil-probe.post-response-line.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/waituntil-probe.post-response-line.test.ts [ src/utils/__tests__/waituntil-probe.post-response-line.test.ts ]
+Error: Cannot find module '~/pages/api/waituntil-probe' imported from /tmp/claude-1000/-usr-local-bin-hooks/9310d754-fa77-4013-bace-ca59bb63d5de/scratchpad/probe-wt/src/utils/__tests__/waituntil-probe.post-response-line.test.ts
+ ❯ src/utils/__tests__/waituntil-probe.post-response-line.test.ts:3:1
+      1| import { afterEach, beforeEach, describe, expect, it, vi } from 'vites…
+      2|
+      3| import handler from '~/pages/api/waituntil-probe';
+       | ^
+      4|
+      5| import type { NextApiRequest, NextApiResponse } from 'next';
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  04:47:25
+   Duration  193ms (transform 32ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+
