@@ -1,0 +1,28 @@
+# query-core 5.90.20 (node_modules/.pnpm/@tanstack+query-core@5.90.20), read at ec984fe's install
+## mutation.js 155-166 (hook-level options, per Mutation)
+      } catch (e) {
+        void Promise.reject(e);
+      }
+      try {
+        await this.options.onError?.(
+          error,
+          variables,
+          this.state.context,
+          mutationFnContext
+        );
+      } catch (e) {
+        void Promise.reject(e);
+## mutationObserver.js 55-62, 76-80 (per-call options bound to the observer's latest mutate)
+  }
+  mutate(variables, options) {
+    this.#mutateOptions = options;
+    this.#currentMutation?.removeObserver(this);
+    this.#currentMutation = this.#client.getMutationCache().build(this.#client, this.options);
+    this.#currentMutation.addObserver(this);
+    return this.#currentMutation.execute(variables);
+  }
+    notifyManager.batch(() => {
+      if (this.#mutateOptions && this.hasListeners()) {
+        const variables = this.#currentResult.variables;
+        const onMutateResult = this.#currentResult.context;
+        const context = {

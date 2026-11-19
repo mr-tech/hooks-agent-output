@@ -2,9 +2,9 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Reviewed-At: "8147661 — repos=website; M1 only (implementation document 2bace82); the chain branch moved to 736c7bf (M2, 1c07354 and 736c7bf) during the round, outside this verdict"
+Reviewed-At: "ec984fe — repos=website; Round 2, M2 (implementation document 057109c); Round 1, M1, was reviewed at 8147661"
 Status: In Review
-Round: 1
+Round: 2
 Verdict: APPROVED_WITH_COMMENTS
 ---
 
@@ -21,6 +21,7 @@ Verdict: APPROVED_WITH_COMMENTS
 |------|---------------|---------|---------|
 | 2026-11-19T00:44 | steering-roadmap (brief `steering/backlog-2026-11-18-briefs/code-reviewer-hooks-017.md`, `7655982`) | Round 1: review M1 at website `8147661` | Round 1, M1 only. APPROVED_WITH_COMMENTS: CR-1 LOW (the 5 eslint FAILs left in `limits.import-validation.test.ts` are covered by D-9), CR-2 INFO (comments in two moved files fail the allowlist; out of the change's lines and owed elsewhere). The criteria assessed are M1-a, M1-b and M1-c as revision 4 states them at round open. Captures are in `verification/017/code-review/m1/`. Handed to `qa-hooks-017`. Gate disclosed: the stamp gate refused this row as first written (typed 00:47 against the clock's 00:44); it was re-stamped with `record-edit.js` `2026-11-19T00:44`. |
 | 2026-11-19T00:58 | qa-hooks-017 (QAF-15) | Reconcile CR-1's base lint figure | Round 1 reconcile: CR-1's base figure of 21 corrected to 7 (base-tree lint); 7 → 5, so M7-b holds and the verdict does not move. CR-2 re-checked on the 8147661 export and holds. |
+| 2026-11-19T01:17 | implementer-hooks-017 (cross-session hand-off; M2 document `057109c`) | Round 2: review M2 at website `ec984fe` | Round 2, M2 only. APPROVED_WITH_COMMENTS: CR-3 MEDIUM (`useSaveWith`'s hook-style name hides a hook called outside a render from `rules-of-hooks`; positive control at line 160; routed to QAF-16's disposition at QA Phase 2), CR-4 LOW (M2-a's eleventh member, "fails shape", has no case and no recorded disposition; it is unobservable at the client). The criteria assessed are M2-a, M2-b, M2-c and the Window, as revision 4 states them at round open. Captures are in `verification/017/code-review/m2/`. Gate disclosed: the record-write gate refused a shell heredoc that drafted this round's section into a scratch file, reading it as a shell write to a record document; the section was then written into this document with the Edit tool. |
 
 ## Scope and Tree
 
@@ -97,6 +98,50 @@ Expectations are independent: each expected string is a literal and none is read
 
 No bug-form test was added, so no escaped provenance is owed. No time-based test was added.
 
+## Round 2 — M2 at `ec984fe`
+
+### Scope and tree
+
+- **Criteria assessed** (recorded before the diff was read): M2-a, M2-b, M2-c and the "Window" paragraph, as plan § Plan `### M2` states them in revision 4. I read the plan as the diff from `9d4f3e1` to HEAD: only changelog rows R-8 and R-9 were added, and no criterion changed.
+- **Tree**: website `ec984fe`, the implementation document's `Handoff-At` (agent-output `057109c`; `ef2adee` corrects one stamp only). M2's commits are `1c07354`, `736c7bf`, `53c3c58` and `ec984fe`, over M1 `8147661`. The branch tip was `ec984fe` at round start. At round end it was `d9ebe97` (M3: `messageDrafts.ts`, `withLocalStorage.ts`, `global.d.ts` and two new test files; `git diff --name-only ec984fe d9ebe97` shows 0 paths under `MessageProvider/`). This verdict binds to `ec984fe`, and M3 is outside it.
+- **Files reviewed**:
+  - `usePusher.ts`, `useApiMethods.ts` and `index.tsx` under `src/providers/MessageProvider/`;
+  - the new `__tests__/MessageProvider.own-save-notice.test.tsx` (byte-equal to the `ec984fe` blob, `git hash-object`);
+  - `__tests__/useApiMethods.json-editor-repair.test.ts` and `__tests__/usePusher.update-prompt.test.tsx`.
+- **Not in this tree**: M3's uncommitted `src/utils/withLocalStorage.ts` and the untracked `withLocalStorage.stored-keys.test.tsx` were in the shared tree during the convention check. They are excluded by path.
+- **No running instance**: M2 adds no security boundary, auth gate or irreversible action. It changes when an existing dialog shows. Adversarial execution is not owed.
+
+### Architecture alignment (Round 2)
+
+**Alignment Status**: ALIGNED. The record and the broadcast compare hash one form, `hashMessage(normalizeForHash(·))` (Runtime Flow 1b, `website.md` A-6).
+
+The ref is created once in `MessageProvider` and passed to both hooks, as `messageRef` is. The broadcast handler still compares against the current content, so the cross-tab flag D-5 keeps is unchanged for every hash the tab holds no record of.
+
+`website.md` A-6 ("persist also records the tab's own save") is named in the plan header among the lines the architect's closing pass reconciles.
+
+### Instruments and reproduction (Round 2)
+
+| Claim under review | Instrument (this round) | Result |
+|---|---|---|
+| The record is written in `persist` and nowhere else; a new persisting path inherits it (plan M2, "Surfaces") | Write surface of the records ref: `git grep -n "ownSaveRecordsRef\|recordsRef\|recordOwnSave\|forgetOwnSave" ec984fe -- src ':!**/__tests__/**'`. Second instrument: every caller of the two hooks whose signatures changed (`git grep -nE "usePusher\(\|useApiMethods\("`), which `tsc` (the implementer's typecheck exit 0) holds to the new required parameter. | One creation (`index.tsx`, `useRef<string[]>`), one push (`recordOwnSave`, from `persist` only), two removals (`forgetOwnSave` from the hook-level `onError`; the splice in the `message-update` handler). The production callers are `index.tsx` only; the test callers are the two edited files. |
+| No other client save produces a broadcast, so none needs a record | Every client `api.message.upsert` call site: `git grep -n "upsertMessage\|message\.upsert" ec984fe -- src ':!**/__tests__/**' ':!src/server/**'`, each payload read | 4 paths outside `persist`: `NewMessageModal`, `SaveAsMenu`, `f/[id]/page.tsx` and `m/new/page.tsx`. Each sends a message with no `id` (`saveAsPayload`, `copyIntroMessage`). `upsertMessage` triggers Pusher only `if (message.id)` (`shared.ts` `upsertMessage`), so none of the four reaches a subscribed editor. |
+| The tests' broadcast hash is what the server sends | `src/server/api/routers/message.ts` `upsert`, `.input(z.object({ message: optionalIdMessageShape }))`, passing `input.message` to `upsertMessage`, which sends `hashMessage(message)` | The test's `serverHashOf` is `hashMessage(z.object({ message: optionalIdMessageShape }).parse(input).message)`: the router's own input schema and the production hash. This is the real reader, not an invented value (Iron Law 5). The client side under test, `normalizeForHash`'s `discordMessageShape.safeParse`, is a separate path, so expected and actual are independent (axiom E). |
+| The hook-level `onError` fires for every mutation; per-call callbacks fire only for the latest (implementation document, Patterns Extended) | Installed `@tanstack/query-core` 5.90.20 source (`verification/017/code-review/m2/query-core-onError.txt`) | `Mutation.execute` calls `this.options.onError(error, variables, …)` on each mutation built from the observer's options. `MutationObserver.mutate` replaces `#mutateOptions` and its `#currentMutation` on each call, and its `#notify` runs only those. The claim holds, and so does the test's `fail(i)` call shape `(error, variables)`. |
+| M2-a: absence over AN-1's eleven members, both orders | The new file's `it.each` rows against `verification/017/analysis/an1/rows-395510e.json` | 10 of 11 members are present, each in both orders. "not-valid (fails shape) / nothing changed" is absent. AN-1's own row for it records `serverParse: rejected`, `broadcast: none (route rejects input before upsertMessage; no pusher.trigger)`. See CR-4. |
+| M2-b, M2-c, multiplicity, failure and the Window | The implementer's mutant captures (`verification/017/impl/m2/`), read, not re-run | NM-2 to NM-5 and three `m2-*` mutants were killed. `m2-record-not-normalized` survived at `1c07354` and was killed after `736c7bf`. The sweep killed 13 of 14 at `736c7bf`; the survivor `splice(index, 2)` was killed after `53c3c58`, and the sweep killed 14 of 14 at `ec984fe`. M2-c's members each assert `confirm` length 1, and the equal-content member asserts no notice. The hazard-4 limb is covered by `nm5-current-clause-dropped` and `m2-own-clause-dropped`. |
+| Lint: M7-b holds for M2's files | `convention-check.js website --since=8147661` with the tree at `ec984fe` (`verification/017/code-review/m2/convention-check-since-8147661.out`), plus a per-rule base-against-tip count for the one file that carries findings (`useApiMethods-test-lint-base-vs-tip.out`). The base is the whole-tree capture `entry/lint-1ad625e/nofix.json`, not a stdin lint (the QAF-15 artifact). | 45 FAIL: 42 in `useApiMethods.json-editor-repair.test.ts` and 3 in M3's uncommitted files. That file has 42 at base and 42 at tip, equal rule by rule. `usePusher.ts`, `useApiMethods.ts`, `index.tsx`, the new test file and `usePusher.update-prompt.test.tsx` have 0 each. The implementer's 47 at hand-off included M1's 5 under `--since=1ad625e`, so 47 − 5 = 42 reconciles. The equal count hides one blinded site (CR-3). |
+| Conventions the checker skipped (id-token, basename) | By hand over `git diff -U0 8147661 ec984fe -- src` | 283 added lines: 0 ID-token hits and 0 comment lines. The new basename `MessageProvider.own-save-notice.test.tsx` has the positive form, and its module segment is the folder module `MessageProvider/index.tsx`. Helpers come from the existing `__tests__/helpers/`. |
+
+### TDD compliance (Round 2)
+
+**TDD Table Present**: Yes. **All Rows Complete**: Yes.
+
+The red ran before the implementation: 5 failed of 32 at the M1 tip with the new file only (`impl/m2/red-pre-impl.json`). The M2-a and M2-c members pass both before and after the change, as a pinned absence and a kept behaviour. Each has a named mutant red.
+
+The test added after a survivor (`53c3c58`) is spec-form, not bug-form. No escaped provenance is claimed, so none is owed. No time-based test was added. `tdd-check.py` applies to Python sources only and was not run.
+
+One weakness: the two new cases in `useApiMethods.json-editor-repair.test.ts` assert only the record count, not its value. The value is asserted through the mount file's broadcast cases and `m2-record-not-normalized`, so that is not a gap. Where the two cases live is CR-3's subject.
+
 ## Findings
 
 ### Critical
@@ -106,9 +151,41 @@ None
 None
 
 ### Medium
-None
+
+CR-3 MEDIUM Round 2
+**Checks that cannot fail**: a test helper's hook-style name hides a hook called outside a render from `react-hooks/rules-of-hooks`.
+- **Location**: `src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts` at `ec984fe`, `describe('useApiMethods saveMessage, the record of the tab\'s own save')`, `function useSaveWith`.
+- **Class**: a test helper that calls a React hook outside any render, and is named as a hook so that `react-hooks/rules-of-hooks` treats it as one and stops reporting the call.
+- **Enumeration**: `git grep -nE "^\s*(export\s+)?(async\s+)?function use[A-Z]…|^\s*(export\s+)?const use[A-Z]… =" ec984fe -- 'src/**/__tests__/**' 'bot/**'` gives 7 hits (`verification/017/code-review/m2/hook-named-test-helpers.out`). One is a member: `useSaveWith`, which calls `useApiMethods`. The other six (`useAccount`, `useLookupError`, `useDatabase` ×2, `useCounts`, `useRows`) are server-test fixture setters. Their files import no React and call no hook (`grep -c`, 0 each), so they are outside the class.
+  - Blind spot: the predicate cannot see a hook reached through an alias (`const f = useApiMethods`), or a helper defined as a method or object property.
+- **Issue**: the file's sibling helper `loadAndSaveViaShippedProvider` does the same thing, and lint reports it (`react-hooks/rules-of-hooks`, line 48, one of the file's 42 base findings). The implementation document lists "a hook called from a non-hook name" among the six findings M2 added at `53c3c58` and "removed" at `ec984fe`.
+
+  The finding was not removed: the helper was renamed `useSaveWith`, which the rule takes for a custom hook. Positive control: the same bytes with the helper renamed `saveWith` give 43 findings, including `rules-of-hooks` at line 160 (`verification/017/code-review/m2/eslint-renamed-control.out`).
+
+  The call still runs `useApiMethods` outside a render, under the file's `useState`/`useCallback` stub. That stub is QAF-16's subject: it holds one value per call site and cannot represent a re-render. M7-b's per-rule count stays at 42, so the criterion passes, but the lint gate's control over this file has been blinded at a new site. This is the form-not-substance pattern ("changes the action's form so the control no longer sees it"). There is no runtime magnitude: test code only.
+- **Required Action**: eliminate the class. Do not rename the helper back and leave it at that, since that only restores the finding.
+  - **Preferred (structural)**: run `useApiMethods` inside a real render, as QAF-16 asks. Mount a probe component with `createRoot` and `act` (Test Conventions, "DOM component tests") in a `.test.tsx`, where `useState` is React's own, and read the records ref after `saveMessage()`.
+
+    The implementer says the no-id case cannot move to the mount. That holds only for the broadcast route. In a direct render of the hook, with the ref passed in, the ref is observable without any channel.
+
+    The falsity signature the cases must show: with `if (payload.id)` removed from `persist` (`m2-id-guard-dropped`), the no-id case fails as an assertion, never a timeout. With the `recordOwnSave` call removed, the id case fails.
+  - **Minimum**: give the helper a non-hook name and accept the `rules-of-hooks` finding as base-equivalent. This is permitted only if QA's QAF-16 disposition keeps the stub. M7-b then reads 43 against 42, a rise, which needs the owner's D-9 reading through steering. Hence Preferred.
+  - **Callers**: `useSaveWith` has two (the two `it` cases). Both move to whichever form is chosen, and nothing outside the file calls it.
+- **Carrier**: QA Phase 2 for M2, as part of QAF-16's disposition (`qa/017-existing-items-backlog-m1-qa.md` names QAF-16 as carried to M2's pass). It goes to the implementer if QA routes a fix. It does not hold this verdict.
 
 ### Low/Info
+
+CR-4 LOW Round 2
+**Criterion coverage**: one of M2-a's eleven members has no case and no stated disposition.
+- **Location**: `src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx` at `ec984fe`, the `it.each` "raises no notice in the saving tab: %s" and the dialog cases. Also the implementation document `implementation/017-existing-items-backlog-m2-implementation.md`, Entry Conditions and TDD table.
+- **Class**: a member a criterion enumerates, absent from the delivered instrument with no recorded reason.
+- **Enumeration**: the plan's M2-a list (11 members) against the new file's rows (8 `it.each` rows plus 2 dialog cases, so 10 in each order) and AN-1's `rows-395510e.json` member names (11 plus the outside-class row). One is absent: "not-valid (fails shape) / nothing changed".
+- **Issue**: the member's absence of a notice holds trivially in production. The router rejects shape-failing input before `upsertMessage` runs, so no broadcast exists (AN-1's row: `broadcast: none`). The one thing M2 adds for it is a record that the failed save's `onError` must forget, and that is asserted by "raises the notice for a later save of the content of a save that failed".
+
+  So no behaviour is unasserted, and the severity floor does not apply. But the plan says M2-a is carried "for each of AN-1's eleven members", and neither the file nor the document says why this one was not.
+- **Required Action**: record the member's disposition in the M2 implementation document: unobservable at the client (no broadcast), its record-removal covered by the failed-save case. No test is owed.
+  - **Structural**: none. The fixture's oracle `upsertInput.parse` throws on a shape-failing payload, so the class cannot be expressed in this oracle.
+  - **Carrier**: the implementer's next document write (M3's document, which is open). It does not hold the verdict.
 
 CR-1 LOW Round 1
 **Lint**: five eslint findings remain in a test file M1 edited.
@@ -143,7 +220,10 @@ No finding changes a decision. The two above go to their stated carriers.
 
 ## Verdict
 
-**Status**: APPROVED_WITH_COMMENTS
+**Round 2 (M2 at `ec984fe`) — Status**: APPROVED_WITH_COMMENTS
+**Rationale**: M2-b, M2-c and the Window each have a case that a named mutant reddens. The record has exactly one writer and two removers, and no other client save can produce a broadcast. The test's broadcast hash is the router's own parse and hash. The `onError` semantics M2 relies on hold in the installed `query-core`. M2-a is met for 10 of its 11 members; the eleventh is unobservable, which the record must say (CR-4). CR-3 is a lint control blinded in test code, routed to QAF-16's disposition at QA Phase 2. Neither finding changes product behaviour or a criterion's outcome.
+
+**Round 1 (M1 at `8147661`) — Status**: APPROVED_WITH_COMMENTS
 **Rationale**: every M1 criterion is met at `8147661` and reproduced here by an instrument the implementer did not author.
 - **M1-a**: 4 renames, blob-identical, with per-file case and pass sets identical by path.
 - **M1-b**: no reference remains anywhere in the repository; the 19 surviving cases are identical by title; typecheck exit 0 is the implementer's capture.
@@ -153,15 +233,21 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Required Actions
 
-None required. Optional: none beyond CR-1's M7-b re-derivation, which is already a criterion.
+- Round 2: CR-3, via QAF-16's disposition (Preferred: a real render; no `use` rename). CR-4: a disposition line in the M2 document. Neither blocks QA.
+- Round 1: none beyond CR-1's M7-b re-derivation, which is already a criterion.
 
 ## Assumption Not Checked
 
 - Round 1: this review assumes that the implementer's tip capture `verification/017/impl/m1/vitest-m1.json` (1505 of 1505, exit 0) is a run of the tree at `8147661`. I recounted from the capture and did not re-run the suite.
   - **If false**: a QA Phase 2 run at `8147661` shows a `numTotalTests` other than 1505, or a `testResults` path set that differs by membership from the capture's 123 paths, or a non-zero exit.
-  - **Owner**: QA Phase 2 (`qa-hooks-017`).
+  - **Owner**: QA Phase 2 (`qa-hooks-017`). Closed by QA at agent-output `7d7eb50` (1505 of 1505, exit 0, path set equal by membership).
+- Round 2: this review assumes that the tRPC transport delivers the client's `message` to the router unchanged apart from the input schema's parse. If it did not, the server's `hashMessage(message)` would differ from the record `hashMessage(normalizeForHash(payload))` for a real save. The test models the server as `optionalIdMessageShape.parse` plus `hashMessage` over the captured mutation input, and never sends a request through the transport.
+  - **If false**: with Pusher delivering, a real two-tab walk shows tab 1 raising "Message Update Detected" for its own save with an edit typed in flight (M2-b fails), while tab 2's notice (M2-c) still shows.
+  - **Owner**: UAT, walk B-1 on a local build (plan M2 "Human-observable form"). In production, his B-8 look exercises it only when the in-flight window is hit.
 
 ## Next Steps
+
+- Round 2: QA Phase 2 for M2 at `ec984fe` (`qa-hooks-017`), with CR-3 inside QAF-16's disposition. CR-4 goes to the implementer's next document write. UAT B-1 closes the Round 2 assumption.
 
 - QA Phase 2 for M1 at `8147661` (`qa-hooks-017`). That run closes the assumption above.
 - The architect's closing pass reconciles `system-architecture.md`'s Problem Areas row and Recommendation 6 (plan header `Architectural-Surface`).

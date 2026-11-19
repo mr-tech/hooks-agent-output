@@ -1,0 +1,7 @@
+ec984fe:src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts:158:  function useSaveWith(message: Partial<ActiveMessage>) {
+ec984fe:src/server/__tests__/auth.sign-out.test.ts:62:function useAccount(account: { access_token: string | null } | null) {
+ec984fe:src/server/__tests__/auth.sign-out.test.ts:73:function useLookupError(error: Error) {
+ec984fe:src/server/api/utils/__tests__/authorizeGuildUser.in-predicate.test.ts:21:function useDatabase(rows: unknown[]) {
+ec984fe:src/server/api/utils/__tests__/shared.message-cap.test.ts:33:function useCounts({ user, guild }: { user: number, guild: number }) {
+ec984fe:src/server/api/utils/__tests__/user.in-predicate.test.ts:15:function useDatabase(messageRows: unknown[]) {
+ec984fe:src/utils/__tests__/redis.cached-null-hit.test.ts:43:function useRows(rows: unknown[]) {

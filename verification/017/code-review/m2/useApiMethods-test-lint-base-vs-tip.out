@@ -1,0 +1,15 @@
+# base: entry/lint-1ad625e/nofix.json (whole-tree lint at 1ad625e, old path src/utils/__tests__/, same blob as 8147661); tip: eslint in the shared tree with HEAD = ec984fe and the file byte-equal to the ec984fe blob
+base 42 tip 42
+@typescript-eslint/member-delimiter-style       3   3 
+@typescript-eslint/no-explicit-any             12  12 
+@typescript-eslint/no-non-null-assertion        1   1 
+@typescript-eslint/no-unsafe-argument           9   9 
+@typescript-eslint/no-unsafe-call               1   1 
+@typescript-eslint/no-unsafe-return             1   1 
+@typescript-eslint/no-unused-vars               1   1 
+function-paren-newline                          2   2 
+import/first                                    6   6 
+max-len                                         1   1 
+object-curly-newline                            4   4 
+react-hooks/rules-of-hooks                      1   1 
+tip rules-of-hooks line 48 React Hook "useApiMethods" is called in function "loadAndSaveViaShippedProvider" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use".
