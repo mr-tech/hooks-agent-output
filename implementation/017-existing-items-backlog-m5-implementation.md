@@ -220,3 +220,15 @@ sleeps 2 s inside its transactions to hold a row lock; it is outside the standin
 ## Next Steps
 
 Code review at website `f83f2ca` (M5 range `c37d41a..f83f2ca`), then QA Phase 2 for M5 (its pg lane re-run, EC-2). Then M6's document (generator `8512a1d`), and M7 last.
+
+## Resumption State
+
+Written 2026-11-19T07:16 by implementer-hooks-017 at steering's checkpoint request; chain 017 is parked on the owner's word (`steering/017-rulings.md` block 2026-11-19T07:15Z, `cffd802`). The shell append that first tried to write this section was refused by `record-write-gate-hook`; it is re-issued here with the Edit tool.
+
+- **Done (M5):** dependency `9909fb3`, code `72a1755`, survivor cases `f83f2ca`, then the Round 6 fix round: CR-15 (website `4b8db9c`, the interleavings case retitled by behaviour, 38 of 38 before and after) and CR-14 (agent-output `838c571`, the `previewWorld` line under Files Created). Code review approved the Round 6 sub-entry at website `4b8db9c` (agent-output `6e4436d`); QA was told the tip is `4b8db9c`. `Handoff-At` stays `f83f2ca` (the retitle is a title-only commit on top of it).
+- **Next:** QA Phase 2 for M5 (its pg lane re-run, EC-2) is QA's. M6's document (generator `8512a1d`, `4c4e948`) is already written and is in code review (Round 7). M7 comes last. Nothing is owed from me on M5; a QA or review finding on M5 would start a fix round with the Class Sweep table.
+- **Branch and HEAD:** website on `chain/017-existing-items-backlog`, HEAD `4b8db9c`; agent-output on its `master`.
+- **Uncommitted or locally mutated:** none of mine. The tree's other modified or untracked files (`INBOX.md`, `steering/selection-ledger/2026-11-19.md`, `verification/016/uat/...` images, `.playwright-mcp`) are other sessions' work. No export, container or process of mine is running.
+- **Evidence run, not yet recorded:** none. This round's before/after runs (`previewImage.interleavings.test.ts`, 38 of 38 each) are summarised in the changelog row; their JSON sat in the session scratchpad only, not in `verification/017/`. Re-run if QA wants the files.
+- **Questions sent:** none open. The full suite was not re-run for the title-only change (last full run: 1814 of 1814 exit 0 at `f83f2ca`).
+- **On resuming:** read this document, then the latest rulings block in `steering/017-rulings.md` for what the owner has decided about the parked chain. Arm the cache-warm wake first (CronList, then CronCreate).
