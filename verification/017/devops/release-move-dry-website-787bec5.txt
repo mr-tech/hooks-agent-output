@@ -1,0 +1,10 @@
+repo     /usr/local/bin/hooks/website
+ref      master
+target   787bec5627702d2881b826e596ec2b8f8853c4fa
+remote   origin/master 1ad625e2161b58c5f870c9db369f4056df690a03
+local    master 1ad625e2161b58c5f870c9db369f4056df690a03
+untracked 17 path(s) left alone
+evidence reason dry run before the fresh QA Phase 3 record exists; release-tip fix code-review APPROVED at 787bec5 (agent-output a081c89)
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+DRY RUN: every check passed; nothing moved
