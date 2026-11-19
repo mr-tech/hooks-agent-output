@@ -140,3 +140,33 @@ Anything folded after this read is read once by the closing pass, which steering
 4. X-20's carrier: restate the Problem Areas row "Enter-to-confirm in dialogs rests on an unidentified mechanism" from
    the implemented M4 and M8. The dead compare is gone at all three sites, and the stopping mechanism is still
    unidentified.
+
+## Resumption State
+
+Written 2026-11-19T05:21Z by architect-hooks-017, at a checkpoint steering asked for after the revision-7 delta read.
+
+- **Done.** The conformance pass on revision 1 (`406b34a`) and the delta reads on revisions 2, 3, 4, 6 and 7
+  (`5ee7b89`, `26f648e`, `96b4b62`, `635868d`, `0e380fc`) are all committed. APPROVED stands at plan revision 7
+  (`6ade256`). AF-1 to AF-23 are resolved or folded, and no finding is open. `website.md` A-7 and A-8 were landed at
+  `406b34a`, and the master changelog row at the same commit.
+- **Next: the closing pass.** Steering briefs it, no later than devops Stage 1. Its scope is the four Open items
+  above:
+  1. Read the plan as a diff from `6ade256` to its last revision. Read the implemented website tree at the chain
+     tip, and the generator's chain branch once devops cuts it.
+  2. Reconcile `system-architecture.md`: Runtime Flow 3 (who deletes, the commit protocol, the key contract
+     `[dev/]previews/<id>/<nonce>.jpeg`); Problem Areas (the preview-failure row and the
+     `enforceImportMutualExclusivity` row resolved, ESLint restated from M7-a with its count and instrument, the
+     Enter row restated per X-20); Recommendations 1, 4 and 6; and an ADR for `@vercel/functions` (`waitUntil`; M5-0
+     limbs 2 and 3, `d61f445` and `8f26f37`). Update the diagram if Runtime Flow 3's edges change.
+  3. Restate `website.md` A-7 to M3's implemented `messageDrafts` form, and A-8 to M4's guard context.
+  4. Add an agent-designed `preview-image-generator.md` entry for the key contract and the meaning of 204.
+  5. The master document also lags chain A (website `1ad625e`) and plan 016's closure in its Roadmap Readiness
+     text. Reconcile that in the same pass.
+  6. Close this document `Resolved` once every open item is discharged.
+- **Approach in flight.** None. No read or edit is half-done.
+- **Branch and HEAD.** The website tree was on `chain/017-existing-items-backlog` at `5c3d03f` at 05:21Z, read
+  only, never written by this session. Every architect read used `git show <ref>:<path>`.
+- **Uncommitted or locally mutated.** Nothing of this session's. The scratchpad holds diff copies only.
+- **Evidence.** `verification/017/architect-delta/` (AF-16's measurement), committed at `5ee7b89`.
+- **Questions sent.** None to the owner. Every delivery went to `planner-hooks-017` or `steering-roadmap`, and every
+  answer it needed has been received.
