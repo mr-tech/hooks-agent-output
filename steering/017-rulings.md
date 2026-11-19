@@ -915,3 +915,26 @@ steering-roadmap-hooks". Premises: blocks 08:12Z (access run, `bafdbdb`) and 08:
    record's problem-area row on /generate's input carries it for later."
 Recipients: X-21/X-22 → `planner-hooks-017` (registration, with the critique's SL-3/SL-5 label fixes) and
 `architect-hooks-017` (was told both pending). C1 intent → held for the access chain's determination.
+Registered by the planner: R-45 (critic rev 8), R-46 (D-31 X-22, D-32 X-21) at agent-output `36a842f`, with the
+critique's SL-3/SL-5 label fixes; revision stays 8.
+
+## 2026-11-19T08:43Z — second ask on the access defects: his question, and the full-path trace
+
+Re-put 08:41Z as a selection (options: fix after 017 ships (Recommended) / add to 017 now / fix now,
+separately / write up, accept). Ledger: same day file, next block. **His typed answer (his words):**
+*"Follow the chain from website, through the request, to the database. Are you absolutely sure there's no
+filtering mechanism that would make it so that the actual query can only get a message the user owns?"* —
+a question, no option chosen. Trace this thread ran at website `1ad625e` (production): `src/middleware.ts`
+(matcher `/message/(.*)`, `/api/guilds/(.*)`, `/preview`; it only copies headers; `/api/trpc` is not
+matched) → `src/pages/api/trpc/[trpc].ts` (`createNextApiHandler`, router and context only) →
+`src/server/api/trpc.ts` `createTRPCContext` (session from next-auth) and `protectedProcedure` =
+`enforceUserIsAuthed` (checks a session exists, nothing else) → `routers/message.ts:51-61` `getOne` (personal
+branch: `authorizeUser(session.user.id)`, no message id) → `utils/user.ts` `authorizeUser` (owner compare only
+when message ids are passed) → `utils/shared.ts:134` `getMessage` (`WHERE Messages.id = id`, no owner term) →
+project-utils `749606d` (the lockfile pin) `src/postgres.ts` (one `pg` Pool on `DATABASE_URL`, no per-request
+identity). No per-user DB context anywhere (`git grep -q 'set_config|SET ROLE|SET app.|current_setting'` at
+`1ad625e` -- src → exit 1) and no RLS or policy in project-utils (`git grep -q -i 'row level|create policy|enable
+row|set_config|current_setting'` -- src prisma → exit 1; no migration files tracked). `vercel.json` holds only a
+cron; `next.config.js` redirects touch `/support` and `/message/m/:id` only. Not readable from this box: the
+production database's own settings ("no DB instrument on this box"); any policy there could not tell callers
+apart, since every query runs on one pooled login with no caller identity.
