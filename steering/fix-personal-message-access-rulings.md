@@ -71,3 +71,22 @@ and S11 NOT REFUTED; S11's NextAuth path was not run.
 the S7, S8 and S9 inputs. All of it is in website alone. Out: S5, S16 and S17 (no record; X-21 carries S17). S14, S15 and S1b get one
 handoff each. The stage set is as in block 20:30Z. Owner-wait `access-fix-scope` resolved (`challenge-alert.js resolved`, exit 0).
 Disclosure: the record-write gate refused this block's first write, a shell heredoc. It was re-issued with the Edit tool.
+
+## 2026-11-19T22:38Z — chain started: handoffs, branch, briefs, fixer spawned, standing check armed
+
+- **Exclusion handoffs** (helper subagent, `6f333f0`, check-repo PASS exit 0):
+  - `handoff/cron-endpoint-key-is-a-fixed-value-2026-11-19.md` (S14)
+  - `handoff/pusher-message-update-channels-are-public-2026-11-19.md` (S15)
+  - `handoff/authorize-guild-admin-tests-membership-not-admin-bits-2026-11-19.md` (S1b)
+  The helper chose each record's Owning-Stage ("steering thread …") and its event triggers; the sources name neither. The record-write
+  gate refused the helper's first shell write, and it re-issued the write with the Write tool.
+- **Chain branch:** website `chain/fix-personal-message-access`, cut 22:36Z with `git switch --no-track -c … origin/master` at `787bec5`.
+  There is no upstream (`@{u}` fatal). The tree before the switch was `master` at `787bec5`, and `git status --porcelain` showed only
+  `?? .playwright-mcp/`: screenshots from 2026-11-11, not this chain's. The switch touches no file (same commit), so I treated it as
+  a clean tree and recorded it here. The lockfile is unchanged.
+- **Briefs:** `steering/fix-personal-message-access-brief-common.md` (`860d50e`), and the fixer, code-reviewer and qa briefs (`66fcfd6`).
+- **Spawned** `fixer-hooks-fix-personal-message-access` (`tmux-agent spawn`, category `fix-personal-message-access`, cwd website, effort
+  medium as printed). The code reviewer and QA are spawned when they can start: on the fixer's handoff, and on the review's approval at
+  20 or more lines. Security comes after QA.
+- **Standing check** armed as a one-shot, id `846d57b8`, for 23:07Z. It replaces the cache-warm wake. OOM count 0. Usage live 22:37Z:
+  session 1%, `weekly_all` 19%.
