@@ -1080,3 +1080,19 @@ Recipients: `planner-hooks-017` (registers all three, and says whether 2 needs a
 from its Resumption State `9245904`; 2 once the planner disposes it; 3 releases its held documents);
 `code-reviewer-hooks-017` (CR-20's remedy chosen; Round 9's verdict stands until the new tip); `uat-hooks-017` (with 1, the
 B-1 re-walk need not place runs by frame hash). Owner-wait keys `m2-hash-residue` and `block-rule-lookback` cleared.
+
+## 2026-11-19T17:51Z — D-33 to D-35 registered; D-34 needs revision 10; this thread's option-text error
+
+The planner registered all three (R-51, agent-output `61ce793`, read this turn: plan Status In Progress, Revision 9; D-34 row
+line 200). D-33 is registration only, and the implementer proceeds. **D-34 needs revision 10**: it adds a criterion to an open
+milestone (proposed M2-d: whenever `usePusher`'s effect ends, on unmount or an id change, the instance that effect created is
+disconnected; negative instrument a mounted MessageProvider test, red at the current cleanup; UAT form, one Pusher WebSocket
+after opening a second message in the same tab). Gates before the disconnect is coded: the critic, a QA Phase 1 re-key and the
+architect's delta read on revision 10. The hash fix is not held by them.
+This thread's decision: revision 10 goes ahead. It stays within his choice ("fix it in 017"), adds no milestone and changes no other
+criterion. The gates read it while the hash fix is in implementation and review.
+**This thread's error:** question 2's option text ("New code that can share the hash fix's round on the same file") left out
+that a criterion change on an open milestone costs a planning revision and three gate reads, and that the disconnect waits for them.
+steering.md (Planner) requires a prompt on a criterion change to an open milestone to state the rounds each option triggers.
+The check that would have caught it: before putting an option that adds code to an open milestone, ask the planner whether it
+needs a criterion. Told to him in this turn, with the choice to switch to X-25.
