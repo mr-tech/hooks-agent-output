@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r10/60252be
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.disconnect-probe.test.tsx (59 tests | 1 failed | 58 skipped) 56ms
+     × disconnects once when the provider unmounts, and not before 54ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.disconnect-probe.test.tsx > probe: the mounted provider closes its Pusher connection > disconnects once when the provider unmounts, and not before
+AssertionError: expected +0 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.disconnect-probe.test.tsx:403:29
+    401|     expect(g.__disconnects).toBe(0);
+    402|     unmountDom();
+    403|     expect(g.__disconnects).toBe(1);
+       |                             ^
+    404|   });
+    405| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 58 skipped (59)
+   Start at  18:10:30
+   Duration  3.48s (transform 558ms, setup 22ms, import 1.85s, tests 56ms, environment 1.19s)
+

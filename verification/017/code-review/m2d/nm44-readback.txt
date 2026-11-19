@@ -1,0 +1,3 @@
+42:let latestPusher: Pusher | null = null;
+63:    latestPusher = pusher;
+85:      latestPusher?.disconnect();

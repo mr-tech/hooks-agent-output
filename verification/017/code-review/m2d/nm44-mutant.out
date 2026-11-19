@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/421aa0a1-10e1-4633-b21d-b3c6ef1cc5ca/scratchpad/r10b/mutant
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/usePusher.two-instances-probe.test.tsx (8 tests | 1 failed) 29ms
+     × disconnects only the unmounted instance's connection 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePusher.two-instances-probe.test.tsx > probe: two hook instances at once > disconnects only the unmounted instance's connection
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/providers/MessageProvider/__tests__/usePusher.two-instances-probe.test.tsx:164:45
+    162|     expect(hoisted.instances).toHaveLength(2);
+    163|     act(() => { ra.unmount(); });
+    164|     expect(hoisted.instances[0].disconnect).toHaveBeenCalledTimes(1);
+       |                                             ^
+    165|     expect(hoisted.instances[1].disconnect).not.toHaveBeenCalled();
+    166|     act(() => { rb.unmount(); });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 passed (8)
+   Start at  18:11:10
+   Duration  1.27s (transform 127ms, setup 15ms, import 508ms, tests 29ms, environment 588ms)
+

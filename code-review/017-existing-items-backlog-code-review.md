@@ -2,10 +2,10 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Reviewed-At: "60252be,8512a1d — repos=website,preview-image-generator; Round 9 sub-entry, CR-20 fix at website 60252be (implementation document 77e71db); Round 9, M2 fix round 3 at website 42d15de (implementation document 9a950f3); Round 8, M7 read at website 4b8db9c (implementation document fc87937, Handoff-At f83f2ca); Round 7 sub-entry, M6 record fix at agent-output 008468b; Round 7, M6 (implementation document 4c4e948; record change verification/015/pig-host-read.sh at agent-output 4c4e948); website was last reviewed at 4b8db9c, Round 6 sub-entry, M5 title fix (record line 838c571); Round 6, M5, was reviewed at f83f2ca (implementation document 521a89f); M8 was confirmed at 6555f65 (Round 5 sub-entry, implementation document d71c462); Round 5, M8, was reviewed at c37d41a (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
+Reviewed-At: "33e59f7,8512a1d — repos=website,preview-image-generator; Round 10, M2-d at website 33e59f7 (implementation document 668ae57); Round 9 sub-entry, CR-20 fix at website 60252be (implementation document 77e71db); Round 9, M2 fix round 3 at website 42d15de (implementation document 9a950f3); Round 8, M7 read at website 4b8db9c (implementation document fc87937, Handoff-At f83f2ca); Round 7 sub-entry, M6 record fix at agent-output 008468b; Round 7, M6 (implementation document 4c4e948; record change verification/015/pig-host-read.sh at agent-output 4c4e948); website was last reviewed at 4b8db9c, Round 6 sub-entry, M5 title fix (record line 838c571); Round 6, M5, was reviewed at f83f2ca (implementation document 521a89f); M8 was confirmed at 6555f65 (Round 5 sub-entry, implementation document d71c462); Round 5, M8, was reviewed at c37d41a (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
 Status: In Review
-Round: 9
-Verdict: APPROVED
+Round: 10
+Verdict: REJECTED
 ---
 
 # Code Review: 017 — the existing-items backlog
@@ -41,6 +41,7 @@ Verdict: APPROVED
 | 2026-11-19T08:00 | implementer-hooks-017 (record fix agent-output `97e13e0`) | Round 8 sub-entry: confirm CR-19 | Round 8 sub-entry: APPROVED. `97e13e0` changes only the M7 document (+2 −1): the Deviations line and a changelog row citing Round 8's `4b8db9c` reading. CR-19 is gone and collapsed to its disposition line (written with the Edit tool). The website is unchanged at `4b8db9c`. |
 | 2026-11-19T11:12 | implementer-hooks-017 (M2 document `9a950f3`, fix round 3 for UAT-1) | Round 9: review M2's production fix at website `42d15de` | Round 9, M2 fix round 3. REJECTED on CR-20 MEDIUM: comparing the delivered value lets distinct hashes that deliver as the same number suppress another tab's notice (M2-c, hazard 4). My probe is red at `42d15de` on both the shown-content and the record compare (pair `p10`/`p20`, both `-Infinity`) and green at `4b8db9c`. The criteria assessed are M2-a, M2-b, M2-c and the Window (`### M2`, unchanged from revision 7 to 9). The implementer's two questions are answered in the round. Captures are in `verification/017/code-review/m2-uat1/`. The probe ran in `git archive` exports in the scratchpad. |
 | 2026-11-19T18:01 | implementer-hooks-017 (fix SHA `60252be`, M2 document `77e71db`; owner's choice in `steering/017-rulings.md` block 17:49Z) | Round 9 sub-entry: confirm the CR-20 fix | Round 9 sub-entry: APPROVED at `60252be`. The diff is CR-20's sites only. 5 of 5 of my mutants were killed (control 69, count checked). The departure on where the red lives (the producer pin, 8 of 8 at `42d15de`) is accepted, with reasons. M7-b was re-read at `60252be`: 60 files, 0 above the base. CR-20 is collapsed to its disposition line (Edit tool). M2 goes to QA. |
+| 2026-11-19T18:13 | implementer-hooks-017 (M2 document `668ae57`, Fix Round 5) | Round 10: review M2-d at website `33e59f7` | Round 10, M2-d. REJECTED on CR-21 MEDIUM (test-only): no case pins "touches no other instance", and nm44 is live under two simultaneous instances. The production line holds against the mounted provider (probe green at `33e59f7`, red at `60252be`). Departures 1, 3 and 4 are accepted. The criteria assessed are M2-d as revision 11 states it. Captures are in `verification/017/code-review/m2d/`, and M7-b at `33e59f7` is in `m7/tip-33e59f7/`. |
 
 ## Scope and Tree
 
@@ -588,6 +589,33 @@ Not owed. M7 adds no source and no test. The record instrument's control is exte
 | Conventions | `convention-check.js website --since=4b8db9c` (`convention-check-since-4b8db9c.out`), plus the ID-token class by hand over the added titles | 0 FAIL, 0 CANDIDATE, 18 SKIP (17 `.playwright-mcp` PNGs and the ID-token limb). By hand: the `it.each` rows' `c24`, `c60` and so on are fixture content (data), outside the token class. The new titles name behaviours. No comment was added. |
 | Suite, typecheck, sweep | The implementer's captures, read and not re-run (QA's) | The document reports 1829/1829 with exit 0, typecheck exit 0, red 13 of 50 before the fix, and a sweep of 8 of 8 at `42d15de`. |
 
+## Round 10 — M2-d (the Pusher disconnect) at website `33e59f7`
+
+### Scope and tree
+
+- **Criteria assessed** (recorded before the diff was read): M2-d as plan § Plan `### M2` states it in revision 11 (plan last commit `a971ed8`). The criterion has three parts:
+  - **Property**: whenever `usePusher`'s effect ends, the Pusher instance that effect run created is disconnected, and it touches no other instance.
+  - **Members**: the provider unmounts; the id changes to another message's; the message stops being an `ApiMessage`.
+  - **Red**: at `1ad625e` and `42d15de`.
+  - **Instrument named by the plan**: "a mounted `MessageProvider` whose Pusher mock records `disconnect` per instance, one case per member".
+
+  Also assessed: QA's EC-6 wire cases as the hand-off names them, and M2-a to M2-c and the Window, which must stay unchanged (the production delta is one line).
+- **Why a numbered round**: M2-d is a new production line, outside every earlier finding's scope.
+- **Tree**: website `33e59f7`, one commit over `60252be`, the shared HEAD at round open (18:09Z). Six files: `usePusher.ts` +1, `usePusher.update-prompt.test.tsx` +55 −2, `shared.upsert-broadcast.test.ts` +45 −42, and one mock line each in `layout.navigation-guard`, `stored-draft` and `own-save-notice`. The document is M2 § "Fix Round 5" (agent-output `668ae57`).
+
+### Instruments and reproduction (Round 10)
+
+| Claim under review | Instrument (this round) | Result |
+|---|---|---|
+| The production line | Read `usePusher.ts` at `33e59f7` | `pusher.disconnect()` follows `pusher.unsubscribe(…)` in the effect's cleanup and closes over that run's own `pusher`. It holds. |
+| Departure 1: the hook-level test stands in for the plan's "mounted `MessageProvider`" | Read `MessageProvider/index.tsx`: `messageRef = useLatest(message)` before `usePusher(messageRef, …)` in the same render. `react-use@17.4.0` `useLatest` assigns `ref.current = value` during render. Then my mounted-provider probe (`code-review/m2d/make-probe.py`) mounts the real provider on a stored message and unmounts it. | Accepted. The provider's dependency is the same ref, assigned before `usePusher` reads it in the same render, so the hook test's ref-then-rerender is the provider's sequence. The probe gives 0 disconnects while mounted and 1 after unmount at `33e59f7` (exit 0), and fails at `60252be` (`AssertionError: expected +0 to be 1`). The route-to-id step stays UAT's (B-15), as the document says. |
+| Departure 2: nm44 (the cleanup disconnects a module-level "latest" instance) is equivalent | Run: `code-review/m2d/make-nm44-probe.py` applies nm44 (read back in `nm44-readback.txt`) and adds one case with two hook instances mounted at once in two roots, unmounting the first | **Not equivalent.** Unmutated: 8 of 8 pass. Under nm44, the two-instance case fails: `expected "vi.fn()" to be called 1 times, but got 0 times`, because the second instance's connection is closed instead (`nm44-mutant.out`). React's cleanup-before-body ordering holds for one instance's runs, not across instances. This is CR-21. |
+| Departure 3: dropping `channel.unbind()` survives | Read | That line is unchanged, and `disconnect` closes the socket the binding lives on, so it is outside this round. Not a finding. |
+| Departure 4, and the wire file's oracle | Read `shared.upsert-broadcast.test.ts`: the real `pusher` with only `Pusher.prototype.post` spied; the frame built from the posted body; `decodeMessage` imported from `pusher-js/src/core/connection/protocol/protocol` through a variable specifier | Accepted. The decode is now the library's own reader, not a transcription (Iron Law 5), and the expected hashes are literals. The variable specifier keeps the library's TypeScript out of `tsconfig.test.json`, at the cost of a hand-declared `SubscriberProtocol` type, which is a typecheck blind spot on one call. The frame wrapper `{event, channel, data}` is the one remaining transcription, of what Pusher's service relays. |
+| Conventions | `convention-check.js website --since=60252be` (`m2d/convention-check-since-60252be.out`) | 0 FAIL, 0 CANDIDATE. The new titles name behaviours, and no comment was added. |
+| M7-b at the new tip | `compare.mjs` and `recheck.py` at `33e59f7` (`code-review/m7/tip-33e59f7/`) | 60 files, 0 rule counts above the base, from both instruments. |
+| Suite, typecheck, mutants | The document's captures, read and not re-run | 1850 of 1850 with exit 0, typecheck exit 0, red 3 of 3 at `60252be`. nm39, nm40, nm42, nm43 and nm45 killed. |
+
 ## Findings
 
 ### Critical
@@ -619,6 +647,14 @@ CR-9 HIGH Round 4
   - **Pre-existing members**: `ImageUploader` and `WarningDialog` are routed to `agent-output/INBOX.md` (they are not M4's). Applying the Preferred form to all three is cheaper than leaving two copies of the class.
 
 ### Medium
+
+CR-21 MEDIUM Round 10
+**A stated property with no case that fails when it is lost**: M2-d says each effect run's instance is disconnected "so … disconnecting it touches no other instance". No case mounts two hook instances at once, so a cleanup that closes a different instance passes all three member cases. nm44 does exactly that, and it survives the suite. The implementer recorded nm44 as equivalent, and it is not.
+- **Location**: `src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx`, the describe "the connection closes with its effect", at `33e59f7`. Production `usePusher.ts` is correct.
+- **Class**: an M2-d clause ("its own instance", "no other instance") that no case discriminates.
+- **Enumeration**: M2-d's clauses are the three members (each has a case, killed by nm42, nm43 and nm45), "the instance that effect run created", and "touches no other instance". The last two share one gap: every case holds at most one live hook instance. That gives 1 gap, and its member mutant nm44 is shown live by `code-review/m2d/nm44-mutant.out`. The predicate reads only M2-d's sentence. It cannot see a property implied elsewhere in M2.
+- **Reachability**: today one `MessageProvider` mounts `usePusher` per page (`git grep -n "usePusher(" 33e59f7 -- src ':!**/__tests__/**'` gives 1 site), so two live instances need a second mount. That is unreachable today. An unreachable failure is not a reason to leave a stated property unpinned, and the class needs a test only.
+- **Required Action** (test-only): add one case with two hook instances mounted at once, unmounting one. Only that instance's `disconnect` may be called, and the other must stay open, then close on its own unmount. Under nm44 it must fail as an assertion (the unmounted instance's spy at 0), and it must pass at `33e59f7`. My probe (`make-nm44-probe.py`) is one such shape. The fixture property that matters: the instance unmounted first must not be the one created last.
 
 CR-20 MEDIUM Round 9
 RESOLVED at website `60252be` (Preferred, on the owner's choice, `steering/017-rulings.md` block 2026-11-19T17:49Z). The producer sends `JSON.stringify(hashMessage(message))`, and the consumer compares exact strings (`asDelivered` removed). Accepted departure: the red at `42d15de` lives in the producer pin (8 of 8 red), and the consumer's colliding-pair cases are red under decoded-compare mutants. Checks: `src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts`, the colliding-pair cases in `MessageProvider.own-save-notice.test.tsx`, and `verification/017/code-review/m2-cr20/` (5 of 5 killed) (argument in `d8aa235`).
@@ -801,6 +837,15 @@ No finding changes a decision. The two above go to their stated carriers.
 
 ## Verdict
 
+**Round 10 (M2-d at website `33e59f7`) — Status**: REJECTED
+**Rationale**: the production line is right.
+- The real mounted provider reaches it: my probe passes at `33e59f7` and fails at `60252be`.
+- The three members each have a discriminating case.
+- The wire file now decodes with pusher-js's own reader.
+- Departures 1, 3 and 4 are accepted.
+
+The verdict is REJECTED on CR-21 alone, a severity-floor finding with a test-only fix. M2-d's "touches no other instance" has no case that fails when it is lost, and the mutant the implementer called equivalent is live under two simultaneous instances. The fix returns as a Round 10 sub-entry.
+
 **Round 9 sub-entry (M2 at website `60252be`) — Status**: APPROVED. CR-20 is gone: the hash crosses the wire as JSON text, and both compares are exact (see the sub-entry). The departure from my wording on where the red lives is accepted. M2 goes to QA, then to the architect's read and UAT's B-1 re-walk. M7-b holds at `60252be`.
 
 **Round 9 (M2 fix round 3, UAT-1, at website `42d15de`) — Status**: REJECTED
@@ -907,6 +952,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Required Actions
 
+- Round 10 (REJECTED), to the implementer: CR-21. Add a two-instance case (one hook instance unmounted while another stays mounted). It must be red as an assertion under nm44 and green at `33e59f7`. Return the fix SHA for a Round 10 sub-entry.
 - Round 9: none outstanding. CR-20 was confirmed at `60252be`. Previously (REJECTED), to the implementer: CR-20. The producer sends `JSON.stringify(hashMessage(message))` (`shared.ts`), and the consumer compares exact strings (`asDelivered` removed). Add search-found colliding-pair cases for the shown-content and record compares, red at `42d15de` and green after. Return the fix SHA for a Round 9 sub-entry. Then QA, the architect's read and UAT's re-walk of B-1, as the document plans.
 - Round 8: none outstanding. CR-19 was confirmed at agent-output `97e13e0`.
 - Round 7: none outstanding. CR-16 to CR-18 were confirmed at agent-output `008468b`. Previously (REJECTED), to the implementer:
@@ -970,7 +1016,13 @@ The production change is the deletion of an unreferenced export. The remaining f
   - **If false**: on UAT's B-1 re-walk with the frame captured, a frame whose payload is a JSON string still reaches the handler as something other than that string. That shows as tab A raising the notice for its own save with a quoted hash in the captured frame.
   - **Owner**: UAT, B-1 re-walk on the local stack, capturing frames as walk 6 did.
 
+- Round 10: this review assumes that pusher-js 8.3.0's `disconnect()` closes the instance's socket and stops its reconnection timers in a browser, as its name and the mocks presume. Every case here mocks pusher-js, and the provider probe counts calls, not closed sockets.
+  - **If false**: on B-15's walk, with the network panel open, leaving a message page (or switching message) leaves a `wss://ws-*.pusher.com` connection open, or a new one opens after the leave.
+  - **Owner**: UAT, B-15 on the local stack.
+
 ## Next Steps
+
+- Round 10: to the implementer (`implementer-hooks-017`) for CR-21 (test-only), then a Round 10 sub-entry, then QA for M2-d.
 
 - Round 9: the fix is confirmed at `60252be`. QA (`qa-hooks-017`) is next for M2 at `60252be`, then the architect's read and UAT's B-1 re-walk. The Pusher disconnect (M2-d) reaches code review on its own hand-off after revision 10's re-key. Previously: to the implementer for CR-20.
 
@@ -1008,8 +1060,8 @@ Updated at Round 7's verdict, 2026-11-19T07:34Z, by the resumed session. Previou
   - Round 7 (M6): REJECTED at generator `8512a1d` on CR-16 MEDIUM (record script), with CR-17 and CR-18 LOW. The generator code is sound. Instruments: `verification/017/code-review/m6/attack/run.sh <export> <out>`, `liveness-scope/run.sh <out>`, and `rig-tip/` and `rig-base/`.
   - My plan rows: R-8, R-10, R-12, R-13, R-15, R-16, R-18, R-19, R-22, R-30, R-32, R-33, R-35, R-36 and R-38.
   - QA hand-offs were sent for each approval. The last two were for M5: `ecf3c9a9` at `f83f2ca`, then `ff73fabd` saying the tip is `4b8db9c`. QA Complete for M5 at `4b8db9c` (plan R-37).
-- **In flight**: nothing. Round 9's sub-entry is APPROVED at `60252be` (CR-20), and M2 was handed to QA.
-- **Next, on resume**: the M2-d Pusher disconnect when it is handed off after revision 10's re-key. That is a new production line, so it opens Round 10 unless it stays within a finding's scope. Re-read M7-b at whatever tip it lands on (`code-review/m7/recheck.py`, `compare.mjs`).
+- **In flight**: Round 10 (M2-d) is REJECTED at `33e59f7` on CR-21 (test-only), waiting on the implementer.
+- **Next, on resume**: the Round 10 sub-entry. Re-run `code-review/m2d/make-nm44-probe.py --mutant` against the implementer's new case, which must go red, and confirm the diff is test-only. Re-read M7-b at the new tip.
 - **Standing rule since 17:49Z**: no safeguard or security block is written into agent-output. A failure is noted only as "not completed", and the reason goes to chat. Re-run `liveness-scope/run.sh` against the fixed `pig-host-read.sh`: it must print 0 for its case and 1 for its control. Re-run the implementer's corrected fixture, and break the new scope predicate too (an out log whose only ready line is untimestamped; generated lines on both sides of the boundary). Check that `8512a1d` is unchanged, or review the delta if it moved. On APPROVED, hand to `qa-hooks-017` for M6's Phase 2. Then M7, last: re-derive its `Handoff-At` (`f83f2ca` against the tip `4b8db9c`) and CR-1's file (M7-b).
 - **Standing rules**: steering's M4 cap (`steering/017-rulings.md` block 2026-11-19T04:14Z, `a805d4d`) and M8 cap (block 2026-11-19T06:01Z, `9349040`). For M4 and M8, a finding below HIGH that is not a severity-floor finding goes to the Planner batch as a stated limit, with no fix round. Steering is now `steering-roadmap-hooks`.
 - **Waiting on others, not blocking**:
