@@ -1,0 +1,13 @@
+NM-30-warning-unscoped KILLED 17.61
+NM-31-image-unscoped KILLED 18.55
+NM-32-gate-any-dialog KILLED 19.32
+NM-33-gate-content-wrapper-only KILLED 18.83
+NM-34-image-enabled-dropped KILLED 18.26
+NM-35-ref-shared-across-instances ABORTED 16.07
+NM-36-enable-on-form-tags KILLED 17.11
+NM-37-image-submit-without-image KILLED 17.26
+NM-38-confirmation-unscoped KILLED 20.39
+qa-warning-enabled-dropped SURVIVED 22.41
+qa-confirmation-enter-disabled KILLED 17.02
+qa-hook-enabled-not-passed KILLED 17.35
+10 of 11 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 1, control-failed 0; m8-mutants-qa.json (blob a1c17caf0f2d556d5f721ead0ed0b4eb96a85d17))

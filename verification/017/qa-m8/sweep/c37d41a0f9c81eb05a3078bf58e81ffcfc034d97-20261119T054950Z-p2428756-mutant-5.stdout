@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work/20261119T054950Z-p2428756/mutant-5
+
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (19 tests | 1 failed) 1292ms
+       × answers nothing from a closed instance, even with focus resting in its hidden dialog 80ms
+
+ Test Files  1 failed | 137 passed (138)
+      Tests  1 failed | 1723 passed (1724)
+   Start at  05:51:24
+   Duration  17.15s (transform 23.28s, setup 1.40s, import 128.14s, tests 36.81s, environment 83.06s)
+

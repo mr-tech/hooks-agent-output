@@ -1,0 +1,2 @@
+NM-35-ref-shared-across-instances KILLED 16.59
+1 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; m8-mutants-qa-nm35.json (blob 1a1d2c6ae4ca3414d5bbfcdbb96795d98e6767fa))

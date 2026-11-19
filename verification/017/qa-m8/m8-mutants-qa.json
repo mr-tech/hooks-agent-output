@@ -1,0 +1,74 @@
+[
+ {
+  "id": "NM-30-warning-unscoped",
+  "file": "src/components/WarningDialog.tsx",
+  "old": "import useDialogEnter from '~/utils/hooks/useDialogEnter';",
+  "new": "import { useHotkeys as qaUseHotkeys } from 'react-hotkeys-hook';\nimport { useRef as qaUseRef } from 'react';\nconst useDialogEnter = (a: (() => void) | undefined, enabled = true) => {\n  const r = qaUseRef<HTMLDivElement>(null);\n  qaUseHotkeys(['enter'], () => { a?.(); }, { enabled }, [enabled, a]);\n  return r;\n};"
+ },
+ {
+  "id": "NM-31-image-unscoped",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "import useDialogEnter from '~/utils/hooks/useDialogEnter';",
+  "new": "import { useHotkeys as qaUseHotkeys } from 'react-hotkeys-hook';\nimport { useRef as qaUseRef } from 'react';\nconst useDialogEnter = (a: (() => void) | undefined, enabled = true) => {\n  const r = qaUseRef<HTMLDivElement>(null);\n  qaUseHotkeys(['enter'], () => { a?.(); }, { enabled }, [enabled, a]);\n  return r;\n};"
+ },
+ {
+  "id": "NM-32-gate-any-dialog",
+  "file": "src/utils/hooks/useDialogEnter.ts",
+  "old": "ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)",
+  "new": "document.activeElement?.closest('[role=\"dialog\"]')"
+ },
+ {
+  "id": "NM-33-gate-content-wrapper-only",
+  "file": "src/utils/hooks/useDialogEnter.ts",
+  "old": "ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)",
+  "new": "ref.current?.contains(document.activeElement)"
+ },
+ {
+  "id": "NM-34-image-enabled-dropped",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "useDialogEnter(submit, isOpen)",
+  "new": "useDialogEnter(submit)"
+ },
+ {
+  "id": "NM-35-ref-shared-across-instances",
+  "file": "src/utils/hooks/useDialogEnter.ts",
+  "old": "const ref = useRef<HTMLDivElement>(null);",
+  "new": "const qaHeld = useRef<HTMLDivElement>(null); void qaHeld;\n  const ref = (Reflect.get(globalThis, 'qaSharedRef') ?? Reflect.set(globalThis, 'qaSharedRef', { current: null }) && Reflect.get(globalThis, 'qaSharedRef')) as { current: HTMLDivElement | null };"
+ },
+ {
+  "id": "NM-36-enable-on-form-tags",
+  "file": "src/utils/hooks/useDialogEnter.ts",
+  "old": "{ enabled }, [enabled, answer]",
+  "new": "{ enabled, enableOnFormTags: true }, [enabled, answer]"
+ },
+ {
+  "id": "NM-37-image-submit-without-image",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "useDialogEnter(submit, isOpen)",
+  "new": "useDialogEnter(onSetImage, isOpen)"
+ },
+ {
+  "id": "NM-38-confirmation-unscoped",
+  "file": "src/components/ConfirmationDialog.tsx",
+  "old": "import useDialogEnter from '~/utils/hooks/useDialogEnter';",
+  "new": "import { useHotkeys as qaUseHotkeys } from 'react-hotkeys-hook';\nimport { useRef as qaUseRef } from 'react';\nconst useDialogEnter = (a: (() => void) | undefined, enabled = true) => {\n  const r = qaUseRef<HTMLDivElement>(null);\n  qaUseHotkeys(['enter'], () => { a?.(); }, { enabled }, [enabled, a]);\n  return r;\n};"
+ },
+ {
+  "id": "qa-warning-enabled-dropped",
+  "file": "src/components/WarningDialog.tsx",
+  "old": "useDialogEnter(onConfirm, open)",
+  "new": "useDialogEnter(onConfirm)"
+ },
+ {
+  "id": "qa-confirmation-enter-disabled",
+  "file": "src/components/ConfirmationDialog.tsx",
+  "old": "useDialogEnter(onConfirm)",
+  "new": "useDialogEnter(onConfirm, false)"
+ },
+ {
+  "id": "qa-hook-enabled-not-passed",
+  "file": "src/utils/hooks/useDialogEnter.ts",
+  "old": "{ enabled }, [enabled, answer]",
+  "new": "{}, [enabled, answer]"
+ }
+]

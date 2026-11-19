@@ -1,0 +1,78 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 32 ⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx [ src/components/__tests__/ImageUploader.enter-scope.test.tsx ]
+ FAIL  |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx [ src/components/__tests__/ImageUploader.url-validation.test.tsx ]
+ FAIL  |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx [ src/components/__tests__/WarningDialog.enter-scope.test.tsx ]
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx [ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx ]
+ FAIL  |dom| src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx [ src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx ]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx [ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx ]
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx [ src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx ]
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx [ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx ]
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx [ src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx ]
+ FAIL  |dom| src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx [ src/app/message/_layout/__tests__/Header.search-result-dates.test.tsx ]
+ FAIL  |dom| src/app/message/f/[id]/__tests__/page.message-list.test.tsx [ src/app/message/f/[id]/__tests__/page.message-list.test.tsx ]
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx [ src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx ]
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx [ src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx ]
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx [ src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx ]
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx [ src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx ]
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx [ src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx ]
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.empty-embeds-beside-v2.test.tsx [ src/app/message/m/[id]/_components/__tests__/SaveAsMenu.empty-embeds-beside-v2.test.tsx ]
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx [ src/app/message/m/[id]/_components/__tests__/SaveAsMenu.opens-with-current-values.test.tsx ]
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx [ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.open-category.test.tsx ]
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.url-and-thread-controls.test.tsx [ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.url-and-thread-controls.test.tsx ]
+Error: Transform failed with 1 error:
+
+[31m[PARSE_ERROR] Error:[0m Logical expressions and coalesce expressions cannot be mixed
+   [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/utils/hooks/useDialogEnter.ts:8:16 [38;5;246m][0m
+   [38;5;246m│[0m
+ [38;5;246m8 │[0m [38;5;249m [0m[38;5;249m [0m[38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249mr[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249m([0mReflect.get(globalThis, 'qaSharedRef') ?? Reflect.set(globalThis, 'qaSharedRef', { current: null }) && Reflect.get(globalThis, 'qaSharedRef')[38;5;249m)[0m[38;5;249m [0m[38;5;249ma[0m[38;5;249ms[0m[38;5;249m [0m[38;5;249m{[0m[38;5;249m [0m[38;5;249mc[0m[38;5;249mu[0m[38;5;249mr[0m[38;5;249mr[0m[38;5;249me[0m[38;5;249mn[0m[38;5;249mt[0m[38;5;249m:[0m[38;5;249m [0m[38;5;249mH[0m[38;5;249mT[0m[38;5;249mM[0m[38;5;249mL[0m[38;5;249mD[0m[38;5;249mi[0m[38;5;249mv[0m[38;5;249mE[0m[38;5;249ml[0m[38;5;249me[0m[38;5;249mm[0m[38;5;249me[0m[38;5;249mn[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249m|[0m[38;5;249m [0m[38;5;249mn[0m[38;5;249mu[0m[38;5;249ml[0m[38;5;249ml[0m[38;5;249m [0m[38;5;249m}[0m[38;5;249m;[0m
+ [38;5;240m  │[0m                ──────────────────────────────────────────────────────────────────────┬──────────────────────────────────────────────────────────────────────  
+ [38;5;240m  │[0m                                                                                      ╰──────────────────────────────────────────────────────────────────────── 
+ [38;5;240m  │[0m 
+ [38;5;240m  │[0m [38;5;115mHelp[0m: Wrap either expression by parentheses
+[38;5;246m───╯[0m
+
+  Plugin: vite:oxc
+  File: /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work/20261119T054950Z-p2428756/mutant-6/src/utils/hooks/useDialogEnter.ts
+ ❯ transformWithOxc node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:3720:19
+ ❯ TransformPluginContext.transform node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:3788:26
+ ❯ EnvironmentPluginContainer.transform node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:30048:51
+ ❯ loadAndTransform node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:24177:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/32]⎯
+
+ FAIL  |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx [ src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx ]
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx [ src/app/message/__tests__/layout.navigation-guard.test.tsx ]
+ FAIL  |dom| src/app/preview/__tests__/page.invalid-data.test.tsx [ src/app/preview/__tests__/page.invalid-data.test.tsx ]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx [ src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx ]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx [ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx ]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx [ src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx ]
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.border-colour.test.tsx [ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.border-colour.test.tsx ]
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.empty-embed-hidden.test.tsx [ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedEditor.empty-embed-hidden.test.tsx ]
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx [ src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx ]
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/SaveAsMenu.readable-mutation-error.test.tsx [ src/app/message/m/[id]/_components/__tests__/SaveAsMenu.readable-mutation-error.test.tsx ]
+ FAIL  |dom| src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx [ src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx ]
+ FAIL  |dom| src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx [ src/app/message/m/[id]/send/_components/WebhookMenu/__tests__/WebhookMenu.failed-webhook-load.test.tsx ]
+Error: Transform failed with 1 error:
+
+[31m[PARSE_ERROR] Error:[0m Logical expressions and coalesce expressions cannot be mixed
+   [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/utils/hooks/useDialogEnter.ts:8:16 [38;5;246m][0m
+   [38;5;246m│[0m
+ [38;5;246m8 │[0m [38;5;249m [0m[38;5;249m [0m[38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249mr[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249m([0mReflect.get(globalThis, 'qaSharedRef') ?? Reflect.set(globalThis, 'qaSharedRef', { current: null }) && Reflect.get(globalThis, 'qaSharedRef')[38;5;249m)[0m[38;5;249m [0m[38;5;249ma[0m[38;5;249ms[0m[38;5;249m [0m[38;5;249m{[0m[38;5;249m [0m[38;5;249mc[0m[38;5;249mu[0m[38;5;249mr[0m[38;5;249mr[0m[38;5;249me[0m[38;5;249mn[0m[38;5;249mt[0m[38;5;249m:[0m[38;5;249m [0m[38;5;249mH[0m[38;5;249mT[0m[38;5;249mM[0m[38;5;249mL[0m[38;5;249mD[0m[38;5;249mi[0m[38;5;249mv[0m[38;5;249mE[0m[38;5;249ml[0m[38;5;249me[0m[38;5;249mm[0m[38;5;249me[0m[38;5;249mn[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249m|[0m[38;5;249m [0m[38;5;249mn[0m[38;5;249mu[0m[38;5;249ml[0m[38;5;249ml[0m[38;5;249m [0m[38;5;249m}[0m[38;5;249m;[0m
+ [38;5;240m  │[0m                ──────────────────────────────────────────────────────────────────────┬──────────────────────────────────────────────────────────────────────  
+ [38;5;240m  │[0m                                                                                      ╰──────────────────────────────────────────────────────────────────────── 
+ [38;5;240m  │[0m 
+ [38;5;240m  │[0m [38;5;115mHelp[0m: Wrap either expression by parentheses
+[38;5;246m───╯[0m
+
+  Plugin: vite:oxc
+  File: /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work/20261119T054950Z-p2428756/mutant-6/src/utils/hooks/useDialogEnter.ts
+ ❯ transformWithOxc node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:3720:19
+ ❯ TransformPluginContext.transform node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:3788:26
+ ❯ EnvironmentPluginContainer.transform node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:30048:51
+ ❯ loadAndTransform node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:24177:26
+ ❯ fetchModule node_modules/.pnpm/vite@8.0.3_@emnapi+core@1.9.1_@emnapi+runtime@1.8.1_@types+node@22.15.29_sass@1.56.2/node_modules/vite/dist/node/chunks/node.js:22997:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/32]⎯
+

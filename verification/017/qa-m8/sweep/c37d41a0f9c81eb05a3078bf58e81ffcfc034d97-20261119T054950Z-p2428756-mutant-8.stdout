@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work/20261119T054950Z-p2428756/mutant-8
+
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (19 tests | 1 failed) 1419ms
+       × with focus on its dialog element runs only what that control does 81ms
+
+ Test Files  1 failed | 137 passed (138)
+      Tests  1 failed | 1723 passed (1724)
+   Start at  05:52:16
+   Duration  16.17s (transform 21.73s, setup 1.70s, import 117.56s, tests 35.84s, environment 78.68s)
+

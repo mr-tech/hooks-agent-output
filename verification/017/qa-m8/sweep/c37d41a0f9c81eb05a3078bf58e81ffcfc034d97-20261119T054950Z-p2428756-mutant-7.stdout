@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/mut-work/20261119T054950Z-p2428756/mutant-7
+
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (19 tests | 1 failed) 1314ms
+       × with focus on its URL field runs only what that control does 69ms
+
+ Test Files  1 failed | 137 passed (138)
+      Tests  1 failed | 1723 passed (1724)
+   Start at  05:51:59
+   Duration  16.05s (transform 21.89s, setup 1.56s, import 118.80s, tests 35.36s, environment 76.40s)
+

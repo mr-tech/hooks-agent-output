@@ -1,0 +1,161 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the update prompt with focus on its dialog element
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the update prompt with focus on its message text
+AssertionError: expected { close: 1, setImage: 1, …(3) } to deeply equal { close: +0, setImage: +0, …(3) }
+
+- Expected
++ Received
+
+  {
+-   "close": 0,
++   "close": 1,
+    "otherClose": 0,
+    "otherSetImage": 0,
+-   "setImage": 0,
++   "setImage": 1,
+    "updateConfirm": 1,
+  }
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:194:24
+    192|       enter();
+    193|
+    194|       expect(counts()).toEqual({ ...NOTHING, updateConfirm: 1 });
+       |                        ^
+    195|       expect(dialogs(IMAGE_TITLE)).toHaveLength(1);
+    196|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the image dialog with focus on its dialog element
+AssertionError: expected { close: +0, setImage: +0, …(3) } to deeply equal { close: 1, setImage: 1, …(3) }
+
+- Expected
++ Received
+
+  {
+-   "close": 1,
++   "close": 0,
+    "otherClose": 0,
+    "otherSetImage": 0,
+-   "setImage": 1,
++   "setImage": 0,
+    "updateConfirm": 0,
+  }
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:205:24
+    203|       enter();
+    204|
+    205|       expect(counts()).toEqual({ ...NOTHING, close: 1, setImage: 1 });
+       |                        ^
+    206|       expect(dialogs(UPDATE)).toHaveLength(1);
+    207|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the first is the open one
+AssertionError: expected { close: +0, setImage: +0, …(3) } to deeply equal { close: 1, setImage: 1, …(3) }
+
+- Expected
++ Received
+
+  {
+-   "close": 1,
++   "close": 0,
+    "otherClose": 0,
+    "otherSetImage": 0,
+-   "setImage": 1,
++   "setImage": 0,
+    "updateConfirm": 0,
+  }
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:269:24
+    267|         ? { ...NOTHING, close: 1, setImage: 1 }
+    268|         : { ...NOTHING, otherClose: 1, otherSetImage: 1 };
+    269|       expect(counts()).toEqual(expected);
+       |                        ^
+    270|     });
+    271|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the update prompt with focus on its dialog element
+ FAIL  |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the update prompt with focus on its message text
+AssertionError: expected { warnConfirm: 1, warnClose: +0, …(1) } to deeply equal { Object (warnConfirm, warnClose, ...) }
+
+- Expected
++ Received
+
+  {
+    "updateConfirm": 1,
+    "warnClose": 0,
+-   "warnConfirm": 0,
++   "warnConfirm": 1,
+  }
+
+ ❯ src/components/__tests__/WarningDialog.enter-scope.test.tsx:144:24
+    142|       enter();
+    143|
+    144|       expect(counts()).toEqual({ warnConfirm: 0, warnClose: 0, updateC…
+       |                        ^
+    145|       expect(document.body.textContent).toContain(WARNING);
+    146|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the warning with focus on its dialog element
+ FAIL  |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the warning with focus on its message text
+AssertionError: expected { Object (warnConfirm, warnClose, ...) } to deeply equal { warnConfirm: 1, warnClose: +0, …(1) }
+
+- Expected
++ Received
+
+  {
+    "updateConfirm": 0,
+    "warnClose": 0,
+-   "warnConfirm": 1,
++   "warnConfirm": 0,
+  }
+
+ ❯ src/components/__tests__/WarningDialog.enter-scope.test.tsx:157:24
+    155|       enter();
+    156|
+    157|       expect(counts()).toEqual({ warnConfirm: 1, warnClose: 0, updateC…
+       |                        ^
+    158|       expect(document.body.textContent).toContain(UPDATE);
+    159|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first
+AssertionError: expected +0 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:499:79
+    497|     enter();
+    498|
+    499|     expect(hoisted.push.mock.calls.length + hoisted.reload.mock.calls.…
+       |                                                                               ^
+    500|     expect(hoisted.push).toHaveBeenCalledTimes(linkHasFocus ? 1 : 0);
+    501|     expect(hoisted.reload).toHaveBeenCalledTimes(linkHasFocus ? 0 : 1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+

@@ -1,0 +1,5 @@
+base: numTotalTests=1693 numPassedTests=1693 success=true files=136 statuses={"passed":1693}
+tip: numTotalTests=1724 numPassedTests=1724 success=true files=138 statuses={"passed":1724}
+base-only paths (0): 
+tip-only paths (2): src/components/__tests__/ImageUploader.enter-scope.test.tsx src/components/__tests__/WarningDialog.enter-scope.test.tsx
+paths not explained by the rename map: 2 src/components/__tests__/ImageUploader.enter-scope.test.tsx src/components/__tests__/WarningDialog.enter-scope.test.tsx

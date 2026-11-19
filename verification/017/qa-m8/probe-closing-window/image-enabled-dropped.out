@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/be653729-405e-4194-a476-a39d049f5dba/scratchpad/exp-probe-image-enabled-dropped
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  05:47:16
+   Duration  1.64s (transform 201ms, setup 19ms, import 731ms, tests 214ms, environment 563ms)
+

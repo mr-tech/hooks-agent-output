@@ -1,0 +1,8 @@
+[
+ {
+  "id": "NM-35-ref-shared-across-instances",
+  "file": "src/utils/hooks/useDialogEnter.ts",
+  "old": "const ref = useRef<HTMLDivElement>(null);",
+  "new": "const qaHeld = useRef<HTMLDivElement>(null); void qaHeld;\n  if (!Reflect.get(globalThis, 'qaSharedRef')) Reflect.set(globalThis, 'qaSharedRef', { current: null });\n  const ref = Reflect.get(globalThis, 'qaSharedRef') as { current: HTMLDivElement | null };"
+ }
+]

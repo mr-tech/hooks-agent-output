@@ -1,0 +1,19 @@
+# website c37d41a, production source (':!**/__tests__/**')
+## useHotkeys(['enter']
+c37d41a:src/utils/hooks/useDialogEnter.ts:9:  useHotkeys(['enter'], () => {
+exit 0
+## addEventListener('keydown'
+exit 1
+## useDocumentEventListener('keydown'
+c37d41a:src/components/EmojiPicker/Root.tsx:58:  useDocumentEventListener('keydown', (e: KeyboardEvent) => {
+exit 0
+## M8-d: git grep -c tagName !== '~/components/Button' -- src
+exit 1
+## positive control: the same M8-d command at 5c3d03f
+5c3d03f:src/components/ImageUploader.tsx:1
+5c3d03f:src/components/WarningDialog.tsx:1
+exit 0
+## useDialogEnter( callers
+c37d41a:src/components/ConfirmationDialog.tsx:14:  const ref = useDialogEnter(onConfirm);
+c37d41a:src/components/ImageUploader.tsx:86:  const ref = useDialogEnter(submit, isOpen);
+c37d41a:src/components/WarningDialog.tsx:19:  const ref = useDialogEnter(onConfirm, open);

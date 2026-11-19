@@ -1,0 +1,515 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+stderr | src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > leaves the warning answerable on its own after the update prompt is answered
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > leaves the warning answerable on its own after the update prompt is answered
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to w inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to w inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to w inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to w inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Button inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Button inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the update prompt with focus on its dialog element
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the update prompt with focus on its message text
+AssertionError: expected { close: 1, setImage: 1, …(3) } to deeply equal { close: +0, setImage: +0, …(3) }
+
+- Expected
++ Received
+
+  {
+-   "close": 0,
++   "close": 1,
+    "otherClose": 0,
+    "otherSetImage": 0,
+-   "setImage": 0,
++   "setImage": 1,
+    "updateConfirm": 1,
+  }
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:194:24
+    192|       enter();
+    193|
+    194|       expect(counts()).toEqual({ ...NOTHING, updateConfirm: 1 });
+       |                        ^
+    195|       expect(dialogs(IMAGE_TITLE)).toHaveLength(1);
+    196|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the image dialog with focus on its dialog element
+AssertionError: expected { close: 1, setImage: 1, …(3) } to deeply equal { close: 1, setImage: 1, …(3) }
+
+- Expected
++ Received
+
+  {
+    "close": 1,
+    "otherClose": 0,
+    "otherSetImage": 0,
+    "setImage": 1,
+-   "updateConfirm": 0,
++   "updateConfirm": 1,
+  }
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:205:24
+    203|       enter();
+    204|
+    205|       expect(counts()).toEqual({ ...NOTHING, close: 1, setImage: 1 });
+       |                        ^
+    206|       expect(dialogs(UPDATE)).toHaveLength(1);
+    207|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/11]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers nothing from a closed instance, even with focus resting in its hidden dialog
+AssertionError: expected { close: +0, setImage: +0, …(3) } to deeply equal { close: +0, setImage: +0, …(3) }
+
+- Expected
++ Received
+
+  {
+    "close": 0,
+-   "otherClose": 0,
+-   "otherSetImage": 0,
++   "otherClose": 1,
++   "otherSetImage": 1,
+    "setImage": 0,
+    "updateConfirm": 0,
+  }
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:251:24
+    249|       enter();
+    250|
+    251|       expect(counts()).toEqual(NOTHING);
+       |                        ^
+    252|     });
+    253|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/11]⎯
+
+ FAIL  |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the update prompt with focus on its dialog element
+ FAIL  |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the update prompt with focus on its message text
+AssertionError: expected { warnConfirm: 1, warnClose: +0, …(1) } to deeply equal { Object (warnConfirm, warnClose, ...) }
+
+- Expected
++ Received
+
+  {
+    "updateConfirm": 1,
+    "warnClose": 0,
+-   "warnConfirm": 0,
++   "warnConfirm": 1,
+  }
+
+ ❯ src/components/__tests__/WarningDialog.enter-scope.test.tsx:144:24
+    142|       enter();
+    143|
+    144|       expect(counts()).toEqual({ warnConfirm: 0, warnClose: 0, updateC…
+       |                        ^
+    145|       expect(document.body.textContent).toContain(WARNING);
+    146|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/11]⎯
+
+ FAIL  |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the warning with focus on its dialog element
+ FAIL  |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the warning with focus on its message text
+AssertionError: expected { warnConfirm: 1, warnClose: +0, …(1) } to deeply equal { warnConfirm: 1, warnClose: +0, …(1) }
+
+- Expected
++ Received
+
+  {
+-   "updateConfirm": 0,
++   "updateConfirm": 1,
+    "warnClose": 0,
+    "warnConfirm": 1,
+  }
+
+ ❯ src/components/__tests__/WarningDialog.enter-scope.test.tsx:157:24
+    155|       enter();
+    156|
+    157|       expect(counts()).toEqual({ warnConfirm: 1, warnClose: 0, updateC…
+       |                        ^
+    158|       expect(document.body.textContent).toContain(UPDATE);
+    159|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/11]⎯
+
+ FAIL  |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > leaves the warning answerable on its own after the update prompt is answered
+AssertionError: expected { warnConfirm: 2, warnClose: +0, …(1) } to deeply equal { warnConfirm: 1, warnClose: +0, …(1) }
+
+- Expected
++ Received
+
+  {
+    "updateConfirm": 1,
+    "warnClose": 0,
+-   "warnConfirm": 1,
++   "warnConfirm": 2,
+  }
+
+ ❯ src/components/__tests__/WarningDialog.enter-scope.test.tsx:182:24
+    180|       enter();
+    181|
+    182|       expect(counts()).toEqual({ warnConfirm: 1, warnClose: 0, updateC…
+       |                        ^
+    183|     });
+    184|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/11]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first
+AssertionError: expected 2 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 2
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:499:79
+    497|     enter();
+    498|
+    499|     expect(hoisted.push.mock.calls.length + hoisted.reload.mock.calls.…
+       |                                                                               ^
+    500|     expect(hoisted.push).toHaveBeenCalledTimes(linkHasFocus ? 1 : 0);
+    501|     expect(hoisted.reload).toHaveBeenCalledTimes(linkHasFocus ? 0 : 1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/11]⎯
+
