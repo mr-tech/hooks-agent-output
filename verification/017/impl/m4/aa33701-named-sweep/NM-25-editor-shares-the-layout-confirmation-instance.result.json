@@ -1,0 +1,26 @@
+{
+ "mutant": {
+  "name": "NM-25-editor-shares-the-layout-confirmation-instance",
+  "edits": [
+   {
+    "file": "src/app/message/m/[id]/layout.tsx",
+    "old": "    <ConfirmationProvider>\n",
+    "new": "    <>\n"
+   },
+   {
+    "file": "src/app/message/m/[id]/layout.tsx",
+    "old": "    </ConfirmationProvider>\n",
+    "new": "    </>\n"
+   }
+  ],
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "the link prompt and the editor's own prompt keeps both open when raised together, each answered on its own, with a link inside the editor",
+  "the link prompt and the editor's own prompt renders no editor prompt on the send page, and still asks for its links"
+ ],
+ "verdict": "killed"
+}

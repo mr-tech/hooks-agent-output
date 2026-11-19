@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/dc7f7c17-de1d-4d69-9814-e02d82748e0c/scratchpad/mut-m4/20261119T030441Z-p1027527/mutant-7
+
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (34 tests | 2 failed) 1364ms
+     × leaves a link to another site that opens a new tab to the browser, with no prompt 20ms
+     × asks for a link to another site that names this tab as its target 4ms
+
+ Test Files  1 failed | 12 passed (13)
+      Tests  2 failed | 166 passed (168)
+   Start at  03:05:24
+   Duration  4.71s (transform 2.66s, setup 344ms, import 12.80s, tests 4.50s, environment 10.93s)
+

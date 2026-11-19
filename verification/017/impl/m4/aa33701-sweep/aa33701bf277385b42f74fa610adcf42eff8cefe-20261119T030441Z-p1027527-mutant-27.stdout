@@ -1,0 +1,29 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/dc7f7c17-de1d-4d69-9814-e02d82748e0c/scratchpad/mut-m4/20261119T030441Z-p1027527/mutant-27
+
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (31 tests | 19 failed) 1041ms
+     × asks before the avatar link leaves the editor, and Cancel keeps the edits 154ms
+     × navigates to the avatar link when the prompt is confirmed 47ms
+     × asks the same for a link rendered inside the editor's own providers 40ms
+     × asks for a link activated from the keyboard 33ms
+     × link to https://other.example/message/m/4/edit: asks is true 27ms
+     × link to /message/m/4/edit/extra: asks is true 28ms
+     × link to /message/m/new: asks is true 25ms
+     × asks before the sidebar logo leaves the page 37ms
+     × asks before the sidebar edit link leaves the page 27ms
+     × asks before the sidebar terms link leaves the page 22ms
+     × asks before the sidebar privacy link leaves the page 25ms
+     × asks before the sidebar servers link leaves the page 21ms
+     × asks before the sidebar account link leaves the page 21ms
+     × search result to another message whose id starts with this one: asks is 4 26ms
+     × search result to another message whose id is a prefix of this one: asks is 42 24ms
+     × asks before the crumb to the server's folder leaves the page 29ms
+     × asks before either crumb to the user's folder leaves the page 25ms
+     × keeps both open when raised together, each answered on its own, with a link inside the editor 40ms
+     × renders no editor prompt on the send page, and still asks for its links 21ms
+
+ Test Files  1 failed | 12 passed (13)
+      Tests  19 failed | 149 passed (168)
+   Start at  03:07:53
+   Duration  3.82s (transform 2.89s, setup 338ms, import 13.51s, tests 3.69s, environment 10.33s)
+

@@ -1,0 +1,21 @@
+{
+ "mutant": {
+  "name": "NM-8-same-message-by-prefix",
+  "edits": [
+   {
+    "file": "src/providers/MessageProvider/index.tsx",
+    "old": "    && /^\\/message\\/m\\/(\\d+)\\/(?:edit|send)\\/?$/.exec(url.pathname)?.[1] === messageId;",
+    "new": "    && url.pathname.startsWith(`/message/m/${messageId}`);"
+   }
+  ],
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "the editor routes, a link away with unsaved changes link to /message/m/4/edit/extra: asks is true",
+  "the send route, a link away with unsaved changes search result to another message whose id starts with this one: asks is 4"
+ ],
+ "verdict": "killed"
+}

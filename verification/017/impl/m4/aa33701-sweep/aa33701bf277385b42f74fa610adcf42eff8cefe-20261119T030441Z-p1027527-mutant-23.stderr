@@ -1,0 +1,135 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > navigates to the clicked destination when the prompt is confirmed
+AssertionError: expected "vi.fn()" to be called once with arguments: [ '/message/f/0', …(1) ]
+
+Number of calls: 0
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:156:26
+    154|     press(dialogButton('Leave Page'));
+    155|
+    156|     expect(hoisted.push).toHaveBeenCalledExactlyOnceWith('/message/f/0…
+       |                          ^
+    157|     expect(hoisted.replace).not.toHaveBeenCalled();
+    158|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > replaces the history entry on confirm for a link that replaces
+AssertionError: expected "vi.fn()" to be called once with arguments: [ '/message/f/0', { scroll: false } ]
+
+Number of calls: 0
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:166:29
+    164|     press(dialogButton('Leave Page'));
+    165|
+    166|     expect(hoisted.replace).toHaveBeenCalledExactlyOnceWith('/message/…
+       |                             ^
+    167|     expect(hoisted.push).not.toHaveBeenCalled();
+    168|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/11]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a ctrl-click on a link to another site to the browser, with no prompt
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a meta-click on a link to another site to the browser, with no prompt
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a shift-click on a link to another site to the browser, with no prompt
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a alt-click on a link to another site to the browser, with no prompt
+AssertionError: expected 'go https://discord.com/oauth2/authori…' not to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go https://discord.com/oauth2/authorize?client_id=1You have unsaved changes!Are you sure you want to leave this page? Changes you made may not be saved.CancelLeave Page"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:335:43
+    333|     click(link(`go ${OUTSIDE}`), init);
+    334|
+    335|     expect(document.body.textContent).not.toContain(TITLE);
+       |                                           ^
+    336|   });
+    337|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/11]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a link to another site that opens a new tab to the browser, with no prompt
+AssertionError: expected 'go https://discord.com/oauth2/authori…' not to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go https://discord.com/oauth2/authorize?client_id=1You have unsaved changes!Are you sure you want to leave this page? Changes you made may not be saved.CancelLeave Page"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:343:43
+    341|     click(link(`go ${OUTSIDE}`));
+    342|
+    343|     expect(document.body.textContent).not.toContain(TITLE);
+       |                                           ^
+    344|   });
+    345|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/11]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a link to another site that downloads to the browser, with no prompt
+AssertionError: expected 'go https://discord.com/oauth2/authori…' not to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go https://discord.com/oauth2/authorize?client_id=1You have unsaved changes!Are you sure you want to leave this page? Changes you made may not be saved.CancelLeave Page"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:377:43
+    375|     click(link(`go ${OUTSIDE}`));
+    376|
+    377|     expect(document.body.textContent).not.toContain(TITLE);
+       |                                           ^
+    378|   });
+    379|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/11]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a middle-click on a link to another site to the browser, with no prompt
+AssertionError: expected 'go https://discord.com/oauth2/authori…' not to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go https://discord.com/oauth2/authorize?client_id=1You have unsaved changes!Are you sure you want to leave this page? Changes you made may not be saved.CancelLeave Page"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:390:43
+    388|     act(() => { anchor.dispatchEvent(event); });
+    389|
+    390|     expect(document.body.textContent).not.toContain(TITLE);
+       |                                           ^
+    391|   });
+    392|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/11]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > treats an absolute address on this site as a link on this site
+AssertionError: expected "vi.fn()" to be called once with arguments: [ …(2) ]
+
+Number of calls: 0
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:408:26
+    406|     press(dialogButton('Leave Page'));
+    407|
+    408|     expect(hoisted.push).toHaveBeenCalledExactlyOnceWith(own, { scroll…
+       |                          ^
+    409|     expect(assigned).not.toHaveBeenCalled();
+    410|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/11]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > navigates to the avatar link when the prompt is confirmed
+AssertionError: expected "vi.fn()" to be called once with arguments: [ '/message/f/0', …(1) ]
+
+Number of calls: 0
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:270:26
+    268|     press(dialogButton('Leave Page', TITLE));
+    269|
+    270|     expect(hoisted.push).toHaveBeenCalledExactlyOnceWith('/message/f/0…
+       |                          ^
+    271|   });
+    272|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/11]⎯
+

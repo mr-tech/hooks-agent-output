@@ -1,0 +1,25 @@
+CANDIDATE wall-clock src/app/message/__tests__/layout.navigation-guard.test.tsx:256 — setTimeout outside a gated directory — a time-based cell is not in the standing suite: "await act(async () => { await new Promise((r) => { setTimeout(r, 400); }); });"
+CANDIDATE wall-clock src/app/message/__tests__/layout.navigation-guard.test.tsx:468 — setTimeout outside a gated directory — a time-based cell is not in the standing suite: "await act(async () => { await new Promise((r) => { setTimeout(r, 400); }); });"
+CANDIDATE wall-clock src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:143 — setTimeout outside a gated directory — a time-based cell is not in the standing suite: "await act(async () => { await new Promise((r) => { setTimeout(r, 400); }); });"
+CANDIDATE wall-clock src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:306 — setTimeout outside a gated directory — a time-based cell is not in the standing suite: "await act(async () => { await new Promise((r) => { setTimeout(r, 400); }); });"
+SKIP .playwright-mcp/a2-empty-textdisplay.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a2-v2b.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a4-send-empty.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a6-state.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a7-send-filled.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b1-section.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b2-thumb.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b3-gallery-alt.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b3-gallery.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-41-text-displays-base.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-41-text-displays-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-content-2100-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-control-valid-v2-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-embed-description-4097-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-empty-username-base.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-empty-username-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-fresh-text-display-tip.png: not examined — extension .png is outside the examined set
+SKIP src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx: not examined — no added lines
+SKIP src/utils/hooks/useUnloadAlert.ts: not examined — no added lines
+SKIP id-token, basename: /usr/local/bin/hooks/agent-output/CLAUDE.md states an ID-token class this checker does not implement verbatim (the hooks line at cca22fd) — the checks did not run
+convention-check: 9 file(s) examined, 19 not examined, 5 test file(s); 0 FAIL, 4 CANDIDATE, 20 SKIP

@@ -1,0 +1,259 @@
+Not implemented: navigation to another Document
+stderr | src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx > NavMenu, its links away from an editor with unsaved changes > asks before Invite Bot, a link to another site, leaves the page
+An update to Dropdown inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 13 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > navigates to the clicked destination when the prompt is confirmed
+AssertionError: expected "vi.fn()" to be called once with arguments: [ '/message/f/0', …(1) ]
+
+Number of calls: 0
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:156:26
+    154|     press(dialogButton('Leave Page'));
+    155|
+    156|     expect(hoisted.push).toHaveBeenCalledExactlyOnceWith('/message/f/0…
+       |                          ^
+    157|     expect(hoisted.replace).not.toHaveBeenCalled();
+    158|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/13]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > replaces the history entry on confirm for a link that replaces
+AssertionError: expected "vi.fn()" to be called once with arguments: [ '/message/f/0', { scroll: false } ]
+
+Number of calls: 0
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:166:29
+    164|     press(dialogButton('Leave Page'));
+    165|
+    166|     expect(hoisted.replace).toHaveBeenCalledExactlyOnceWith('/message/…
+       |                             ^
+    167|     expect(hoisted.push).not.toHaveBeenCalled();
+    168|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/13]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > asks first, and does not leave, when the guard holds a link to another site
+AssertionError: expected 'go https://discord.com/oauth2/authori…' to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go https://discord.com/oauth2/authorize?client_id=1"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:277:39
+    275|     click(link(`go ${OUTSIDE}`));
+    276|
+    277|     expect(document.body.textContent).toContain(TITLE);
+       |                                       ^
+    278|     expect(assigned).not.toHaveBeenCalled();
+    279|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/13]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > hands the guard the full address of a link to another site
+AssertionError: expected "vi.fn()" to be called once with arguments: [ Array(1) ]
+
+Number of calls: 0
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:287:19
+    285|     click(link(`go ${OUTSIDE}`));
+    286|
+    287|     expect(guard).toHaveBeenCalledExactlyOnceWith(OUTSIDE);
+       |                   ^
+    288|   });
+    289|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/13]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves for the address, in this tab and with no second browser prompt, once confirmed
+AssertionError: no "Leave Page" button in the dialog: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:54:105
+     52|     : Array.from(document.body.querySelectorAll('[role="dialog"]')).fi…
+     53|   const button = Array.from(scope?.querySelectorAll('button') ?? []).f…
+     54|   expect(button, `no "${text}" button in the dialog${title === undefin…
+       |                                                                                                         ^
+     55|   return button as HTMLElement;
+     56| }
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:294:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/13]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > stays when the prompt for a link to another site is cancelled
+AssertionError: no "Cancel" button in the dialog: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:54:105
+     52|     : Array.from(document.body.querySelectorAll('[role="dialog"]')).fi…
+     53|   const button = Array.from(scope?.querySelectorAll('button') ?? []).f…
+     54|   expect(button, `no "${text}" button in the dialog${title === undefin…
+       |                                                                                                         ^
+     55|   return button as HTMLElement;
+     56| }
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:305:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/13]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > reads a URL object as the address it holds
+AssertionError: no "Leave Page" button in the dialog: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:54:105
+     52|     : Array.from(document.body.querySelectorAll('[role="dialog"]')).fi…
+     53|   const button = Array.from(scope?.querySelectorAll('button') ?? []).f…
+     54|   expect(button, `no "${text}" button in the dialog${title === undefin…
+       |                                                                                                         ^
+     55|   return button as HTMLElement;
+     56| }
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:358:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/13]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > asks for a link to another site that names this tab as its target
+AssertionError: expected 'go https://discord.com/oauth2/authori…' to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go https://discord.com/oauth2/authorize?client_id=1"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:369:39
+    367|     click(link(`go ${OUTSIDE}`));
+    368|
+    369|     expect(document.body.textContent).toContain(TITLE);
+       |                                       ^
+    370|   });
+    371|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/13]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > treats an absolute address on this site as a link on this site
+AssertionError: expected "vi.fn()" to be called once with arguments: [ …(2) ]
+
+Number of calls: 0
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:408:26
+    406|     press(dialogButton('Leave Page'));
+    407|
+    408|     expect(hoisted.push).toHaveBeenCalledExactlyOnceWith(own, { scroll…
+       |                          ^
+    409|     expect(assigned).not.toHaveBeenCalled();
+    410|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/13]⎯
+
+ FAIL  |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx > NavMenu, its links away from an editor with unsaved changes > asks before Invite Bot, a link to another site, leaves the page
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx:98:24
+     96|     click(item('Invite Bot'));
+     97|
+     98|     expect(prompted()).toBe(true);
+       |                        ^
+     99|     expect(hoisted.assign).not.toHaveBeenCalled();
+    100|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/13]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > navigates to the avatar link when the prompt is confirmed
+AssertionError: expected "vi.fn()" to be called once with arguments: [ '/message/f/0', …(1) ]
+
+Number of calls: 0
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:270:26
+    268|     press(dialogButton('Leave Page', TITLE));
+    269|
+    270|     expect(hoisted.push).toHaveBeenCalledExactlyOnceWith('/message/f/0…
+       |                          ^
+    271|   });
+    272|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/13]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > link to https://other.example/message/m/4/edit: asks is true
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:317:24
+    315|     click(link(`to ${href}`));
+    316|
+    317|     expect(prompted()).toBe(asks);
+       |                        ^
+    318|   });
+    319|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/13]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:446:24
+    444|
+    445|     click(invite);
+    446|     expect(prompted()).toBe(true);
+       |                        ^
+    447|     expect(hoisted.assign).not.toHaveBeenCalled();
+    448|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/13]⎯
+

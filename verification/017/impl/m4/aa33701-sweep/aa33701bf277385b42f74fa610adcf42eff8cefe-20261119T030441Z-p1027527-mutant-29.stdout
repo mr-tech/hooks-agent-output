@@ -1,0 +1,36 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/dc7f7c17-de1d-4d69-9814-e02d82748e0c/scratchpad/mut-m4/20261119T030441Z-p1027527/mutant-29
+
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (31 tests | 26 failed) 1098ms
+     × asks before the avatar link leaves the editor, and Cancel keeps the edits 142ms
+     × navigates to the avatar link when the prompt is confirmed 38ms
+     × asks the same for a link rendered inside the editor's own providers 30ms
+     × asks for a link activated from the keyboard 35ms
+     × does not ask for the link to the same message's send page 55ms
+     × link to /message/m/4/edit/: asks is false 47ms
+     × link to /message/m/4/edit?tab=1: asks is false 40ms
+     × link to http://localhost:3000/message/m/4/send: asks is false 40ms
+     × link to /message/m/4/edit/extra: asks is true 25ms
+     × link to /message/m/new: asks is true 27ms
+     × asks before the sidebar logo leaves the page 35ms
+     × asks before the sidebar edit link leaves the page 26ms
+     × asks before the sidebar terms link leaves the page 21ms
+     × asks before the sidebar privacy link leaves the page 19ms
+     × asks before the sidebar servers link leaves the page 22ms
+     × asks before the sidebar account link leaves the page 21ms
+     × search result to another message whose id starts with this one: asks is 4 26ms
+     × search result to another message whose id is a prefix of this one: asks is 42 30ms
+     × search result to this message: asks is 4 35ms
+     × search result to this message, with a long id: asks is 42 36ms
+     × does not ask for the sidebar's edit link on the unsaved route 39ms
+     × asks before the crumb to the server's folder leaves the page 30ms
+     × asks before either crumb to the user's folder leaves the page 24ms
+     × does not ask for the links back to this message's editor 40ms
+     × keeps both open when raised together, each answered on its own, with a link inside the editor 36ms
+     × renders no editor prompt on the send page, and still asks for its links 10ms
+
+ Test Files  1 failed | 12 passed (13)
+      Tests  26 failed | 142 passed (168)
+   Start at  03:08:04
+   Duration  3.79s (transform 2.98s, setup 254ms, import 13.46s, tests 3.59s, environment 10.71s)
+

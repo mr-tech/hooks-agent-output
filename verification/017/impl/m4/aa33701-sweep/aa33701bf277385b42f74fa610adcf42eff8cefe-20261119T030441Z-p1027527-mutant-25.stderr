@@ -1,0 +1,56 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves for the address, in this tab and with no second browser prompt, once confirmed
+AssertionError: expected "vi.fn()" to be called once with arguments: [ Array(1) ]
+
+Number of calls: 0
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:296:22
+    294|     press(dialogButton('Leave Page'));
+    295|
+    296|     expect(assigned).toHaveBeenCalledExactlyOnceWith(OUTSIDE);
+       |                      ^
+    297|     expect(leavingAtAssign).toHaveBeenCalledExactlyOnceWith(true);
+    298|     expect(hoisted.push).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > reads a URL object as the address it holds
+AssertionError: expected "vi.fn()" to be called once with arguments: [ Array(1) ]
+
+Number of calls: 0
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:360:22
+    358|     press(dialogButton('Leave Page'));
+    359|
+    360|     expect(assigned).toHaveBeenCalledExactlyOnceWith(OUTSIDE);
+       |                      ^
+    361|     expect(hoisted.push).not.toHaveBeenCalled();
+    362|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:451:28
+    449|     press(dialogButton('Leave Page', TITLE));
+    450|
+    451|     expect(hoisted.assign).toHaveBeenCalledTimes(1);
+       |                            ^
+    452|     expect(hoisted.assign.mock.calls[0][0]).toContain('guild_id=123');
+    453|     expect(hoisted.push).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

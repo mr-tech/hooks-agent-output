@@ -1,0 +1,70 @@
+[
+ {
+  "name": "NM-8-same-message-by-prefix",
+  "edits": [
+   {
+    "file": "src/providers/MessageProvider/index.tsx",
+    "old": "    && /^\\/message\\/m\\/(\\d+)\\/(?:edit|send)\\/?$/.exec(url.pathname)?.[1] === messageId;",
+    "new": "    && url.pathname.startsWith(`/message/m/${messageId}`);"
+   }
+  ],
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "NM-9-guard-on-pointer-clicks-only",
+  "edits": [
+   {
+    "file": "src/components/StyledLink.tsx",
+    "old": "const LinkProxy: FC<",
+    "new": "let lastDetail = 1;\nconst LinkProxy: FC<"
+   },
+   {
+    "file": "src/components/StyledLink.tsx",
+    "old": "          const { replace, scroll } = rest;\n          if (intercept(",
+    "new": "          const { replace, scroll } = rest;\n          if (lastDetail > 0 && intercept("
+   },
+   {
+    "file": "src/components/StyledLink.tsx",
+    "old": "        onClick: (e: MouseEvent<HTMLAnchorElement>) => {\n",
+    "new": "        onClick: (e: MouseEvent<HTMLAnchorElement>) => {\n          lastDetail = e.detail;\n"
+   }
+  ],
+  "tests": [
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "name": "NM-24-modified-click-on-another-site-is-prompted",
+  "edits": [
+   {
+    "file": "src/components/StyledLink.tsx",
+    "old": "if (e.defaultPrevented || !opensInThisTab(e) || isOnThisSite(href)) return;",
+    "new": "if (e.defaultPrevented || isOnThisSite(href)) return;"
+   }
+  ],
+  "tests": [
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx"
+  ]
+ },
+ {
+  "name": "NM-25-editor-shares-the-layout-confirmation-instance",
+  "edits": [
+   {
+    "file": "src/app/message/m/[id]/layout.tsx",
+    "old": "    <ConfirmationProvider>\n",
+    "new": "    <>\n"
+   },
+   {
+    "file": "src/app/message/m/[id]/layout.tsx",
+    "old": "    </ConfirmationProvider>\n",
+    "new": "    </>\n"
+   }
+  ],
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ }
+]

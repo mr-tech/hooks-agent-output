@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/dc7f7c17-de1d-4d69-9814-e02d82748e0c/scratchpad/mut-m4/20261119T030441Z-p1027527/mutant-9
+
+ ❯ |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx (4 tests | 1 failed) 357ms
+     × asks before Invite Bot, a link to another site, leaves the page 37ms
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (34 tests | 11 failed) 887ms
+     × asks first, and does not leave, when the guard holds a link to another site 10ms
+     × hands the guard the full address of a link to another site 4ms
+     × leaves for the address, in this tab and with no second browser prompt, once confirmed 11ms
+     × stays when the prompt for a link to another site is cancelled 3ms
+     × leaves a ctrl-click on a link to another site to the browser, with no prompt 14ms
+     × leaves a meta-click on a link to another site to the browser, with no prompt 13ms
+     × leaves a shift-click on a link to another site to the browser, with no prompt 13ms
+     × leaves a alt-click on a link to another site to the browser, with no prompt 12ms
+     × reads a URL object as the address it holds 2ms
+     × asks for a link to another site that names this tab as its target 2ms
+     × leaves a middle-click on a link to another site to the browser, with no prompt 13ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (31 tests | 2 failed) 2030ms
+     × link to https://other.example/message/m/4/edit: asks is true 31ms
+     × asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed 32ms
+
+ Test Files  3 failed | 10 passed (13)
+      Tests  14 failed | 154 passed (168)
+   Start at  03:05:36
+   Duration  4.69s (transform 2.58s, setup 372ms, import 12.91s, tests 4.02s, environment 10.86s)
+

@@ -1,0 +1,32 @@
+{
+ "mutant": {
+  "name": "NM-9-guard-on-pointer-clicks-only",
+  "edits": [
+   {
+    "file": "src/components/StyledLink.tsx",
+    "old": "const LinkProxy: FC<",
+    "new": "let lastDetail = 1;\nconst LinkProxy: FC<"
+   },
+   {
+    "file": "src/components/StyledLink.tsx",
+    "old": "          const { replace, scroll } = rest;\n          if (intercept(",
+    "new": "          const { replace, scroll } = rest;\n          if (lastDetail > 0 && intercept("
+   },
+   {
+    "file": "src/components/StyledLink.tsx",
+    "old": "        onClick: (e: MouseEvent<HTMLAnchorElement>) => {\n",
+    "new": "        onClick: (e: MouseEvent<HTMLAnchorElement>) => {\n          lastDetail = e.detail;\n"
+   }
+  ],
+  "tests": [
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "StyledLink under the navigation guard asks for a link activated from the keyboard, a click with no pointer detail",
+  "the editor routes, a link away with unsaved changes asks for a link activated from the keyboard"
+ ],
+ "verdict": "killed"
+}

@@ -1,0 +1,29 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/dc7f7c17-de1d-4d69-9814-e02d82748e0c/scratchpad/mut-m4/20261119T030441Z-p1027527/mutant-40
+
+ ❯ |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx (4 tests | 2 failed) 414ms
+     × asks before Create Message leaves the page 275ms
+     × asks before Servers leaves the page 58ms
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (34 tests | 3 failed) 1345ms
+     × asks first, and does not navigate, when the guard holds the destination 79ms
+     × asks for a link activated from the keyboard, a click with no pointer detail 32ms
+     × keeps the user on the page when the prompt is cancelled 440ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (31 tests | 12 failed) 1690ms
+     × asks before the avatar link leaves the editor, and Cancel keeps the edits 174ms
+     × asks the same for a link rendered inside the editor's own providers 62ms
+     × asks before the sidebar logo leaves the page 43ms
+     × asks before the sidebar edit link leaves the page 36ms
+     × asks before the sidebar terms link leaves the page 41ms
+     × asks before the sidebar privacy link leaves the page 36ms
+     × asks before the sidebar servers link leaves the page 38ms
+     × asks before the sidebar account link leaves the page 40ms
+     × search result to another message whose id starts with this one: asks is 4 42ms
+     × search result to another message whose id is a prefix of this one: asks is 42 40ms
+     × asks before the crumb to the server's folder leaves the page 42ms
+     × asks before either crumb to the user's folder leaves the page 37ms
+
+ Test Files  3 failed | 10 passed (13)
+      Tests  17 failed | 151 passed (168)
+   Start at  03:09:07
+   Duration  4.59s (transform 2.91s, setup 426ms, import 13.03s, tests 4.23s, environment 11.84s)
+

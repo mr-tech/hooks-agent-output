@@ -1,0 +1,18 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/dc7f7c17-de1d-4d69-9814-e02d82748e0c/scratchpad/mut-m4/20261119T030441Z-p1027527/mutant-21
+
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (34 tests | 8 failed) 1516ms
+     × leaves a ctrl-click on a link to another site to the browser, with no prompt 26ms
+     × leaves a meta-click on a link to another site to the browser, with no prompt 17ms
+     × leaves a shift-click on a link to another site to the browser, with no prompt 19ms
+     × leaves a alt-click on a link to another site to the browser, with no prompt 19ms
+     × leaves a link to another site that opens a new tab to the browser, with no prompt 25ms
+     × leaves a link to another site that downloads to the browser, with no prompt 30ms
+     × leaves a middle-click on a link to another site to the browser, with no prompt 23ms
+     × leaves a link to another site alone when its own click handler has already handled the click 18ms
+
+ Test Files  1 failed | 12 passed (13)
+      Tests  8 failed | 160 passed (168)
+   Start at  03:07:17
+   Duration  5.05s (transform 2.81s, setup 373ms, import 13.28s, tests 4.90s, environment 11.17s)
+

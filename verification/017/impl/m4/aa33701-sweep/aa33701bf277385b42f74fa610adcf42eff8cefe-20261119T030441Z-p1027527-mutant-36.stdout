@@ -1,0 +1,63 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/dc7f7c17-de1d-4d69-9814-e02d82748e0c/scratchpad/mut-m4/20261119T030441Z-p1027527/mutant-36
+
+ ❯ |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx (4 tests | 3 failed) 336ms
+     × asks before Create Message leaves the page 207ms
+     × asks before Servers leaves the page 51ms
+     × asks before Invite Bot, a link to another site, leaves the page 45ms
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (34 tests | 17 failed) 376ms
+     × navigates with no prompt when no guard is registered 114ms
+     × navigates with no prompt when the registered guard lets the destination through 34ms
+     × asks first, and does not navigate, when the guard holds the destination 8ms
+     × asks for a link activated from the keyboard, a click with no pointer detail 6ms
+     × keeps the user on the page when the prompt is cancelled 7ms
+     × navigates to the clicked destination when the prompt is confirmed 5ms
+     × replaces the history entry on confirm for a link that replaces 5ms
+     × stops holding once the registering component has unmounted 36ms
+     × keeps the newer guard when an older registration is withdrawn 5ms
+     × asks first, and does not leave, when the guard holds a link to another site 7ms
+     × leaves for the address, in this tab and with no second browser prompt, once confirmed 5ms
+     × stays when the prompt for a link to another site is cancelled 4ms
+     × lets the browser follow a link to another site when nothing is held 24ms
+     × reads a URL object as the address it holds 5ms
+     × asks for a link to another site that names this tab as its target 6ms
+     × treats an absolute address on this site as a link on this site 5ms
+     × keeps both prompts open when they are raised together, each answered on its own 22ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (31 tests | 31 failed) 1153ms
+     × asks before the avatar link leaves the editor, and Cancel keeps the edits 157ms
+     × navigates to the avatar link when the prompt is confirmed 45ms
+     × asks the same for a link rendered inside the editor's own providers 37ms
+     × asks for a link activated from the keyboard 42ms
+     × does not ask while nothing has changed 56ms
+     × does not ask for the link to the same message's send page 45ms
+     × link to /message/m/4/edit/: asks is false 40ms
+     × link to /message/m/4/edit?tab=1: asks is false 46ms
+     × link to http://localhost:3000/message/m/4/send: asks is false 47ms
+     × link to https://other.example/message/m/4/edit: asks is true 29ms
+     × link to /message/m/4/edit/extra: asks is true 40ms
+     × link to /message/m/new: asks is true 25ms
+     × stops asking once the editor has unmounted 39ms
+     × asks before the sidebar logo leaves the page 30ms
+     × asks before the sidebar edit link leaves the page 24ms
+     × asks before the sidebar terms link leaves the page 20ms
+     × asks before the sidebar privacy link leaves the page 19ms
+     × asks before the sidebar servers link leaves the page 27ms
+     × asks before the sidebar account link leaves the page 21ms
+     × does not ask for a sidebar link when nothing has changed 34ms
+     × search result to another message whose id starts with this one: asks is 4 28ms
+     × search result to another message whose id is a prefix of this one: asks is 42 24ms
+     × search result to this message: asks is 4 35ms
+     × search result to this message, with a long id: asks is 42 34ms
+     × does not ask for the sidebar's edit link on the unsaved route 34ms
+     × asks before the crumb to the server's folder leaves the page 34ms
+     × asks before either crumb to the user's folder leaves the page 23ms
+     × does not ask for the links back to this message's editor 38ms
+     × asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed 31ms
+     × keeps both open when raised together, each answered on its own, with a link inside the editor 37ms
+     × renders no editor prompt on the send page, and still asks for its links 11ms
+
+ Test Files  3 failed | 10 passed (13)
+      Tests  51 failed | 117 passed (168)
+   Start at  03:08:44
+   Duration  3.94s (transform 3.17s, setup 300ms, import 13.44s, tests 2.64s, environment 11.14s)
+

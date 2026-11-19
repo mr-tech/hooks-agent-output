@@ -1,0 +1,4 @@
+NM-8-same-message-by-prefix exit 1 failed cases 2 killed
+NM-9-guard-on-pointer-clicks-only exit 1 failed cases 2 killed
+NM-24-modified-click-on-another-site-is-prompted exit 1 failed cases 7 killed
+NM-25-editor-shares-the-layout-confirmation-instance exit 1 failed cases 2 killed

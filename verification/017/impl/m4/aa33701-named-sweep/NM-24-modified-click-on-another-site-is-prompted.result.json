@@ -1,0 +1,26 @@
+{
+ "mutant": {
+  "name": "NM-24-modified-click-on-another-site-is-prompted",
+  "edits": [
+   {
+    "file": "src/components/StyledLink.tsx",
+    "old": "if (e.defaultPrevented || !opensInThisTab(e) || isOnThisSite(href)) return;",
+    "new": "if (e.defaultPrevented || isOnThisSite(href)) return;"
+   }
+  ],
+  "tests": [
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx"
+  ]
+ },
+ "exit": 1,
+ "failed": [
+  "StyledLink to another site under the navigation guard leaves a ctrl-click on a link to another site to the browser, with no prompt",
+  "StyledLink to another site under the navigation guard leaves a meta-click on a link to another site to the browser, with no prompt",
+  "StyledLink to another site under the navigation guard leaves a shift-click on a link to another site to the browser, with no prompt",
+  "StyledLink to another site under the navigation guard leaves a alt-click on a link to another site to the browser, with no prompt",
+  "StyledLink to another site under the navigation guard leaves a link to another site that opens a new tab to the browser, with no prompt",
+  "StyledLink to another site under the navigation guard leaves a link to another site that downloads to the browser, with no prompt",
+  "StyledLink to another site under the navigation guard leaves a middle-click on a link to another site to the browser, with no prompt"
+ ],
+ "verdict": "killed"
+}

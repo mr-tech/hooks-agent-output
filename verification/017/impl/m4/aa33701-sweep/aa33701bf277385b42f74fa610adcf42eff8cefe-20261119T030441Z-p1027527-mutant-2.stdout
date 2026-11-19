@@ -1,0 +1,35 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/dc7f7c17-de1d-4d69-9814-e02d82748e0c/scratchpad/mut-m4/20261119T030441Z-p1027527/mutant-2
+
+ ❯ |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx (4 tests | 1 failed) 353ms
+     × asks before Invite Bot, a link to another site, leaves the page 38ms
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (34 tests | 11 failed) 828ms
+     × hands the guard the destination of the clicked link 42ms
+     × navigates to the clicked destination when the prompt is confirmed 22ms
+     × replaces the history entry on confirm for a link that replaces 21ms
+     × hands the guard its path, query string and fragment 14ms
+     × asks first, and does not leave, when the guard holds a link to another site 5ms
+     × hands the guard the full address of a link to another site 2ms
+     × leaves for the address, in this tab and with no second browser prompt, once confirmed 3ms
+     × stays when the prompt for a link to another site is cancelled 3ms
+     × reads a URL object as the address it holds 22ms
+     × asks for a link to another site that names this tab as its target 3ms
+     × treats an absolute address on this site as a link on this site 18ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (31 tests | 11 failed) 2119ms
+     × navigates to the avatar link when the prompt is confirmed 88ms
+     × does not ask for the link to the same message's send page 37ms
+     × link to /message/m/4/edit/: asks is false 36ms
+     × link to /message/m/4/edit?tab=1: asks is false 44ms
+     × link to http://localhost:3000/message/m/4/send: asks is false 36ms
+     × link to https://other.example/message/m/4/edit: asks is true 25ms
+     × search result to this message: asks is 4 30ms
+     × search result to this message, with a long id: asks is 42 33ms
+     × does not ask for the sidebar's edit link on the unsaved route 30ms
+     × does not ask for the links back to this message's editor 34ms
+     × asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed 49ms
+
+ Test Files  3 failed | 10 passed (13)
+      Tests  23 failed | 145 passed (168)
+   Start at  03:04:54
+   Duration  4.76s (transform 2.40s, setup 285ms, import 12.57s, tests 4.03s, environment 10.80s)
+

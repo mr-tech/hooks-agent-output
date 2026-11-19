@@ -1,0 +1,91 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a ctrl-click on a link to another site to the browser, with no prompt
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a meta-click on a link to another site to the browser, with no prompt
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a shift-click on a link to another site to the browser, with no prompt
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a alt-click on a link to another site to the browser, with no prompt
+AssertionError: expected 'go https://discord.com/oauth2/authori…' not to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go https://discord.com/oauth2/authorize?client_id=1You have unsaved changes!Are you sure you want to leave this page? Changes you made may not be saved.CancelLeave Page"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:335:43
+    333|     click(link(`go ${OUTSIDE}`), init);
+    334|
+    335|     expect(document.body.textContent).not.toContain(TITLE);
+       |                                           ^
+    336|   });
+    337|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a link to another site that opens a new tab to the browser, with no prompt
+AssertionError: expected 'go https://discord.com/oauth2/authori…' not to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go https://discord.com/oauth2/authorize?client_id=1You have unsaved changes!Are you sure you want to leave this page? Changes you made may not be saved.CancelLeave Page"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:343:43
+    341|     click(link(`go ${OUTSIDE}`));
+    342|
+    343|     expect(document.body.textContent).not.toContain(TITLE);
+       |                                           ^
+    344|   });
+    345|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a link to another site that downloads to the browser, with no prompt
+AssertionError: expected 'go https://discord.com/oauth2/authori…' not to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go https://discord.com/oauth2/authorize?client_id=1You have unsaved changes!Are you sure you want to leave this page? Changes you made may not be saved.CancelLeave Page"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:377:43
+    375|     click(link(`go ${OUTSIDE}`));
+    376|
+    377|     expect(document.body.textContent).not.toContain(TITLE);
+       |                                           ^
+    378|   });
+    379|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a middle-click on a link to another site to the browser, with no prompt
+AssertionError: expected 'go https://discord.com/oauth2/authori…' not to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go https://discord.com/oauth2/authorize?client_id=1You have unsaved changes!Are you sure you want to leave this page? Changes you made may not be saved.CancelLeave Page"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:390:43
+    388|     act(() => { anchor.dispatchEvent(event); });
+    389|
+    390|     expect(document.body.textContent).not.toContain(TITLE);
+       |                                           ^
+    391|   });
+    392|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a link to another site alone when its own click handler has already handled the click
+AssertionError: expected 'go https://discord.com/oauth2/authori…' not to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go https://discord.com/oauth2/authorize?client_id=1You have unsaved changes!Are you sure you want to leave this page? Changes you made may not be saved.CancelLeave Page"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:398:43
+    396|     click(link(`go ${OUTSIDE}`));
+    397|
+    398|     expect(document.body.textContent).not.toContain(TITLE);
+       |                                           ^
+    399|   });
+    400|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+
