@@ -141,3 +141,16 @@ This thread's routing:
 Relays: the fixer and the code reviewer.
 Handoffs (helper subagent, `3a22a16`, check-repo PASS exit 0): CR-3 `handoff/update-preferences-recent-message-ids-accepts-non-int8-2026-11-19.md`;
 CR-4 `handoff/upsert-message-count-problem-area-false-after-access-fix-2026-11-19.md` (Owning-Stage architect, trigger this chain's release).
+
+## 2026-11-19T23:17Z — code review APPROVED_WITH_COMMENTS at 12bcd75; CR-6 folded in before QA
+
+Read this turn: `code-review/fix-personal-message-access-code-review.md` (record `c4a3804`): `Reviewed-At: 12bcd75…`, `Verdict:
+APPROVED_WITH_COMMENTS`, round 1 sub-entry 1a. The fixer's `Handoff-At` is `12bcd75`. Website log: `5d9678d` (test), then `12bcd75`
+(fix). Per the reviewer's message: CR-1, CR-2 and CR-5 are fixed; its attack instrument passes 187/187 at `12bcd75`. 116 production
+lines, so QA Phase 2 is owed.
+**CR-6 (LOW), this thread's ruling: fold it in before QA starts.** In zod 3.22, `messageIdShape`'s `.refine` still runs `BigInt()` after a
+failed `.regex`, so `safeParse` throws on `1e3` or `１`. The router still refuses with `BAD_REQUEST`, per the reviewer's measurement
+through tRPC 11.10. The reason to fold: it sits at the fix's own number contract (the CR-2 site), it is a one-shape change, the fixer is
+idle, and QA has not started. Folding now costs one delta review. A handoff would leave a known fault in a shape this chain wrote. The
+fixer folds it with a test. The reviewer reviews the delta. QA Phase 2 is spawned on that approval, at the new SHA.
+Relays: the fixer and the code reviewer.
