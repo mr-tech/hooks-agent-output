@@ -117,3 +117,25 @@ Relays: the fixer (a blocking change to its work) and the code reviewer (hold: t
 Handoffs for the two out items (helper subagent, `92c140d`, check-repo PASS exit 0):
 `handoff/hydrated-recent-list-returns-guild-message-rows-2026-11-19.md` and
 `handoff/get-one-absent-number-fails-without-not-found-2026-11-19.md`.
+
+## 2026-11-19T23:09Z — code review round 1 REJECTED at d597734 (CR-1); CR-2 to CR-5 routed
+
+The fixer handed off round 2 at website `d597734` (record `98a103e`; 107 production lines added, by its count). The code reviewer's
+message at 23:0xZ, and `code-review/fix-personal-message-access-code-review.md` (record `1504b59`, read this turn: `Reviewed-At:
+d597734…`, `Status: In Review`), give round 1 as REJECTED on CR-1 (MEDIUM): a missing client test of MessageProvider's redirect when a
+save lands at a new number. That goes to the fixer as a test-only diff. The ownership property held under the reviewer's attack
+instrument: 187/187 at `d597734`; 52 red at `787bec5`.
+This thread's routing:
+- **CR-2 (LOW), in scope:** `messageIdShape`, and `getOne`'s regex, admit digits beyond int8. It is the fix's own number contract, so
+  it falls inside his option's words "cleans up oddly formatted message numbers". The fixer takes it in its next round, together with
+  CR-1.
+- **CR-3 (INFO), handoff:** `user.updatePreferences` accepts any string in `recentMessageIds`, so a non-int8 entry fails that user's own
+  session. It is pre-existing at `787bec5`, self-only, and at an input this fix does not canonicalise.
+- **CR-4 (INFO), handoff, owning stage the architect:** the Problem Areas row "`upsertMessage` counts the owner's messages on every
+  save" becomes false at release. Trigger: this chain's release.
+- **CR-5 (INFO), the fixer's design choice:** the fate of the draft under the dead number is a mechanism inside the agreed scope (Standing
+  Default). The fixer decides it, records it as agent-authored, and the CR-1 test states it. Dropping the old draft is a one-line
+  production change, and it is within scope on this ruling.
+- Assumption Not Checked (that the session carries the caller's own id): the security stage and the post-deploy browser check own it, as
+  the reviewer says.
+Relays: the fixer and the code reviewer.
