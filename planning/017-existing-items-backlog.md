@@ -2,8 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: QA Complete
-Status-Detail: "Plan-level QA Complete at website 7293a35 and generator 8512a1d (R-60): M2's fix rounds 3 to 7 (D-33 exact hash, D-34 disconnect, QAF-27) pass QA, and M1 and M3 to M8 keep their verdicts. Security APPROVED the generator delta (4ae4825). The critic's cycle 4 pass 2 on revision 11 is owed (wording only). Next: UAT (B-1 to B-4, B-12, B-13, B-15), then devops."
+Status: UAT Approved
+Status-Detail: "UAT APPROVED FOR RELEASE at website 7293a35, generator 8512a1d (R-61; uat/017-existing-items-backlog-uat.md, pass 2 on a production build): every pre-release row EXECUTED and passed, B-15 included. Post-deploy rows B-6 to B-11 keep their carriers. Next: devops."
 Revision: 11
 Plan-ID: 017
 Target-Release: "website master (Vercel production) first, then preview-image-generator prod (prod.yml), each push his word, run by devops. Order and reason: § Release and rollback. Neither package.json carries a version field (git show 1ad625e:package.json, 8de2b53:package.json), so no version artifact moves."
@@ -90,6 +90,7 @@ Architectural-Surface: "Yes; the architect's conformance pass is a named step (s
 | 2026-11-19T18:31 | R-58 | qa-hooks-017 | QA Phase 2, M2's fix rounds 3 to 6, at website `24e9be7` (`qa/017-existing-items-backlog-m2-qa.md`, `7f758aa`): **QA Failed** on QAF-27 MEDIUM, a severity-floor finding that keeps its round under the 18:13Z cap. Nothing asserts that a payload which is not a string raises the notice, so the loose compares survive; the fix is test-only, and two cases are shown to kill both. Everything else holds: M2-c's four number-shaped sub-classes on the real wire, M2-d's members and no-other-instance property, B-15 on both trees (2 open sockets unfixed, 1 fixed), suite 1851/1851 with exit 0, typecheck 0, M7-b 0 above base. Milestone-scoped; plan Status is unmoved; R-47's plan-level verdict is expired and is re-issued at the fix tip. Scope delta: none. |
 | 2026-11-19T18:36 | R-59 | code-reviewer-hooks-017 | Code review, M2, round 10 sub-entry continued: APPROVED at website `7293a35` for QA's QAF-27 fix (`code-review/017-existing-items-backlog-code-review.md`). The diff is test-only. Both loose compares and both `String()` coercions are killed, each by one new case (`verification/017/code-review/m2-qaf27-7293a35/`). M7-b holds at `7293a35`. M2 goes to QA's refresh. This is milestone-scoped, so Status is unmoved. |
 | 2026-11-19T18:41 | R-60 | qa-hooks-017 | QA Phase 2: M2 refreshed to **QA Complete** at website `7293a35` (QAF-27 resolved; `qa/017-existing-items-backlog-m2-qa.md`), and the **plan-level QA Complete** re-issued at website `7293a35` and generator `8512a1d` (`qa/017-existing-items-backlog-qa.md` § "Plan-level verdict re-issued…", `cf69ef1`). R-47's verdict at `4b8db9c` is superseded. Suite 1853/1853 with exit 0, typecheck 0, M7-b 0 above base; the effort's production diff is swept end to end. Status set to QA Complete. Scope delta: none. |
+| 2026-11-19T19:03 | R-61 | uat-hooks-017 | UAT pass 2: **APPROVED FOR RELEASE** at website `7293a35`, generator `8512a1d`, plan read at Revision 11 (`uat/017-existing-items-backlog-uat.md`). B-1, B-15, B-12 limb 1 and B-13 limbs 1–3 were re-walked on a production build; the rest carry from pass 1 at `4b8db9c`, their paths unchanged. Pass 1's NOT APPROVED (UAT-1) is expired, resolved by D-33. O-1 (pre-existing `/preview` error statuses, local) goes to steering. Status UAT Approved; no criterion moves. |
 
 ## Reading Order
 
