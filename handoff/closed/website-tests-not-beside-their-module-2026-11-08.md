@@ -1,7 +1,7 @@
 ---
 UUID: 6cc21df2
-Status: Open
-Status-Detail: "Six website test files that predate chain 015 likely sit in a __tests__/ directory other than the one beside their production module (Test Conventions, Placement). Each needs a read to confirm its module, then a rename with identical per-file case count and pass set. Outside plan 015's pool (D6); nothing blocks on it."
+Status: Addressed
+Status-Detail: "Discharged by plan 017 M1-a and X-13 (plan disposition table, planning/closed/017-existing-items-backlog.md line 1347): M1-a moved the files beside their modules; X-13, accepted by the owner, keeps cron.scheduled-selection and interactions-edge.signature-before-parse in src/server/api/__tests__/ because a test file under src/pages/api/ would be built as an API route. M1 QA Complete at website 8147661; released at website master 787bec5 (2026-11-19T20:11Z)."
 Owning-Stage: planner
 Review-Trigger: when any of the six files named below is next edited, or when the next website test-cleanup effort is scoped
 ---
@@ -55,3 +55,4 @@ plan 015's Planner batch; the planner excluded them from the chain at plan revis
 | 2026-11-10T10:15 | steering-cleanup-hooks | `Review-Trigger` fired and was read: the comment sweep (website `6d78b19`, chain `fix-agent-comment-sweep-merge`) edited three of the six files — `messageValidity.predicate`, `useApiMethods.json-editor-repair`, `usePusher.hash-parity` — by removing comments only; none was moved (devops's read, `deployment/closed/fix-agent-comment-sweep-merge-deployment.md`). The relocation this handoff carries is still owed; it stays Open for the planner, and the trigger can fire again. |
 | 2026-11-11T09:04 | steering-queue-hooks | Inbox entry from `code-reviewer-fix-website-save-gate-embeds` demoted here: its CR-2 (`code-review/fix-website-save-gate-embeds-code-review.md`) re-enumerated the same six files at website `6d78b19` and names the enumeration's blind spot. No member added. |
 | 2026-11-11T09:15 | steering-queue-hooks | Reconcile: the row above was stamped `2026-11-11T09:05` when written; its commit `ce7e6ac` is 09:04:30Z, so the stamp was a minute ahead of the clock (written without a `date -u` read; this thread's error). Stamp corrected to 09:04. Route: an inbox entry from `researcher-hooks-text-limit`, from `check-repo.js`'s CHANGELOG-ROW-VS-COMMIT failure. |
+| 2026-11-19T20:24 | steering-roadmap-hooks | Document closed. Status: Addressed. Plan 017 M1-a moved the files and X-13 (accepted by the owner) keeps two where they are (the plan's handoff disposition table, line 1347); M1 QA Complete; released at website `787bec5`. Closed at chain 017's closure. |
