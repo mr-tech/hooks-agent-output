@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Status-Detail: "Delta read on plan revision 4 (record a97628d): APPROVED stands, with no finding open; AF-22 is folded. Open until the closing pass, no later than devops Stage 1: AF-9's reconciliation of Runtime Flow 3 and preview-image-generator.md, the Problem Areas rows the plan closes, and the ADR for @vercel/functions."
+Status-Detail: "Conformance read on plan revision 6 (record 21e61eb): APPROVED stands; AF-23 INFO is offered, not required. Open until the closing pass, no later than devops Stage 1: AF-9's reconciliation of Runtime Flow 3 and preview-image-generator.md, the Problem Areas rows the plan closes, and the ADR for @vercel/functions."
 ---
 
 # Architecture Findings — Plan 017: the existing-items backlog (conformance pass)
@@ -16,6 +16,7 @@ Status-Detail: "Delta read on plan revision 4 (record a97628d): APPROVED stands,
 | 2026-11-19T00:07 | Delta pass, plan rev 2 (record `3d678cc`), on the planner's word (`planner-hooks-017`). The diff was read from the last text this architect read, `d84b192`, to `3d678cc`, which takes in the planner's `a3c1e83` checkpoint. | Each of AF-1 to AF-7 is answered in the form this pass asked for, or in a stricter one: the order token comes from the database clock under the row lock, and the reader of the key prefix (`getCDNUrl`) is named. Their arguments are retired below to one disposition line each. The new forms were read against the base: the ordered nonce's sort, L against the continuation's life, the guard context, and the draft store's form and matrix. Three items are raised from that read, none required: AF-16 LOW (the draft map is written whole on every edit), AF-17 INFO (a bucket-clock reference that needs no response header) and AF-18 LOW (when the new preview shows after a save). **APPROVED.** |
 | 2026-11-19T00:20 | Delta read, plan rev 3 (record `b3d811e`; diff `3d678cc..b3d811e`, which takes in `5c9e785`'s R-5 registration), on the planner's word. | Each of AF-16 to AF-18 is folded: the byte bound is offered to him as OQ-11 (a), M5-c form 3 measures age against the committed object, and the M5 walk reads the preview after a reload. M5-c form 3's revised argument was re-derived: a later save's object is written after the committed save's upsert, so it is at most 60 s older than the committed object and is never collected. The argument holds and is stricter than AF-17's. M5-a's locked read of the replaced nonce (QAF-10), with a real-Postgres lane, conforms. M4-a's changed dialog form (its own `ConfirmationProvider` instance at the layout, QAF-12) was read against `ConfirmationProvider.tsx`: it conforms, with AF-22 LOW recommended. Nothing raised against unchanged text. **APPROVED** stands. |
 | 2026-11-19T00:28 | Delta read, plan rev 4 (record `a97628d`; diff `b3d811e..a97628d`), briefed by steering-roadmap as the conformance read of the revision the critic reads before implementation | AF-22 is folded in the form it asked for, and its argument is retired to a disposition line. QAF-13's rule was re-derived and holds. F-24's table, F-25's falsifier and QAF-14's precondition were read. No finding. His OQ-11 to OQ-13 answers, all option (a) (`steering/017-rulings.md` block 2026-11-19T00:27Z), are the forms this pass read. **APPROVED** stands. |
+| 2026-11-19T05:08 | Conformance read, plan rev 6 (record `21e61eb`; diff `a97628d..21e61eb`, taking in revision 5 `5155e68`, which was never routed, and registration rows R-6 to R-24), briefed by steering-roadmap. Rulings read: `steering/017-rulings.md` blocks 04:50Z, 05:01Z and 05:06Z. | M8's form was read against website `5c3d03f`. The sibling it mirrors, `ConfirmationDialog.tsx` `Inner` (a ref inside the panel, with `closest('[role="dialog"]')` containing `document.activeElement`), is as the plan cites it. Both members still carry the dead `tagName` compare. The Architectural-Surface line's M8 sentence is correct: M8 adds no surface and narrows two leaf dialogs to M4's approved form. X-20's carrier, the Problem Areas row restated at the closing pass, is accepted and added to the open items. M5-0 limb 3 and its outcomes are sound. Its result on a Preview carries to production only if the 60 s limit is project-wide, which the plan marks unread for a Preview. AF-23 INFO is offered. **APPROVED** stands. |
 
 ## Scope and instrument
 
@@ -66,6 +67,25 @@ Where s1's reference is still listed, n2 is newer than it and is spared. The `La
 holds, with its bucket-clock residue stated. M5-g's falsifier, his B-6 look, is sound: the image shows only if the
 writer's and reader's prefixes agree. RK-7's liveness precondition (QAF-14) is also read and sound.
 
+## Findings on revisions 5 and 6 (conformance read)
+
+### AF-23 INFO — M8: the dialog-scope check would then live in three copies, so lifting it is the preferable option
+
+- **Form** (read at website `5c3d03f`): `ConfirmationDialog.tsx` `Inner` checks
+  `ref.current?.closest('[role="dialog"]')?.contains(document.activeElement)` inside its `useHotkeys(['enter'])`.
+  `WarningDialog.tsx` and `ImageUploader.tsx` each bind `useHotkeys(['enter'])` with the dead
+  `tagName !== '~/components/Button'` compare. M8 mirrors the check into both, or lets the implementer lift it into one
+  shared function ("The form, mirrored"). Both forms follow the current pattern.
+- **Option pair**: "follow the current pattern" means a third inline copy, which works. Lifting is preferable: one
+  function, for example a hook that takes the ref and the answer, used by all three dialogs. Three inline copies of one
+  scope predicate is the drift shape `website.md` A-3 records, and a fourth dialog would then have one form to reach
+  for. Not required. Lifting must leave `ConfirmationDialog`'s approved cases passing unchanged, as M8 already says.
+- **Mechanism note for M8's tests**: in both members the hotkey hook sits above the panel. `WarningDialog` renders
+  `PresetDialog`, and `ImageUploader` renders the dialog with `unmount={false}`, so several closed instances stay
+  mounted. So the ref must sit inside each instance's panel, as `Inner` does, for `closest('[role="dialog"]')` to name
+  that instance's dialog. M8-b's per-instance property already demands it. Stated here only so a ref on the outer
+  component is recognised as wrong.
+
 ## Alternative recorded
 
 ### AF-8 INFO — a stable-key design would remove the commit protocol, the deletion transfer and OQ-7
@@ -112,7 +132,7 @@ reconciliation (A-7 and A-8 restated, the key contract added to `preview-image-g
 
 ## Verdict
 
-**APPROVED** at plan revision 2 (record `3d678cc`), and it stands at revisions 3 (record `b3d811e`) and 4 (record `a97628d`), with no finding open on revision 4.
+**APPROVED** at plan revision 2 (record `3d678cc`), and it stands at revisions 3 (record `b3d811e`) and 4 (record `a97628d`), with no finding open on revision 4. It stands at revision 6 (record `21e61eb`), with AF-23 INFO offered and not required.
 Anything folded after this read is read once by the closing pass, which steering starts no later than devops Stage 1.
 
 ## Open items (closing no later than devops Stage 1)
@@ -121,4 +141,7 @@ Anything folded after this read is read once by the closing pass, which steering
 2. Reconciliation of the master document's Problem Areas rows the plan closes: the preview-failure row, the dead
    mode-rule function, and the ESLint row restated from M7-a. Also `website.md` A-7 and A-8 restated to the
    implemented M3 and M4, and an ADR for `@vercel/functions`, all at the closing pass.
-3. Anything folded after revision 4, read once at the closing pass.
+3. Anything folded after revision 6, read once at the closing pass.
+4. X-20's carrier: restate the Problem Areas row "Enter-to-confirm in dialogs rests on an unidentified mechanism" from
+   the implemented M4 and M8. The dead compare is gone at all three sites, and the stopping mechanism is still
+   unidentified.
