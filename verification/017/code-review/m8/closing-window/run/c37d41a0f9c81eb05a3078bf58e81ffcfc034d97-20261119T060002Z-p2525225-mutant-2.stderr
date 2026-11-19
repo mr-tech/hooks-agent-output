@@ -1,0 +1,29 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers nothing from a closed instance, even with focus resting in its hidden dialog
+AssertionError: expected { close: 1, setImage: 1, …(3) } to deeply equal { close: +0, setImage: +0, …(3) }
+
+- Expected
++ Received
+
+  {
+-   "close": 0,
++   "close": 1,
+    "otherClose": 0,
+    "otherSetImage": 0,
+-   "setImage": 0,
++   "setImage": 1,
+    "updateConfirm": 0,
+  }
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:251:24
+    249|       enter();
+    250|
+    251|       expect(counts()).toEqual(NOTHING);
+       |                        ^
+    252|     });
+    253|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

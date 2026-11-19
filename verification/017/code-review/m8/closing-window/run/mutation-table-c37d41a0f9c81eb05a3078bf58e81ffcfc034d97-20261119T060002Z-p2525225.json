@@ -1,0 +1,112 @@
+{
+ "sha": "c37d41a0f9c81eb05a3078bf58e81ffcfc034d97",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "mutants.json",
+ "command": [
+  "node_modules/.bin/vitest",
+  "run",
+  "--no-cache",
+  "--configLoader",
+  "runner",
+  "--config",
+  "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/vitest.probe.config.mjs"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "mutants.json",
+   "blob": "85e748a2998cfecf1d262ecf77a5ec45c928f1d5"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  },
+  {
+   "kind": "argument",
+   "path": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/vitest.probe.config.mjs",
+   "blob": "361b4c895da72529398b7a0339c60a645d6e0618"
+  }
+ ],
+ "controls": {
+  "[\"src/components/__tests__/WarningDialog.enter-scope.test.tsx\", \"src/components/__tests__/ImageUploader.enter-scope.test.tsx\", \"src/app/message/__tests__/layout.navigation-guard.test.tsx\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/closing-window/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T060002Z-p2525225-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/closing-window/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T060002Z-p2525225-control-1.stderr",
+   "seconds": 4.57,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 64,
+   "tests": [
+    "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+    "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "warning-enabled-dropped",
+   "run": "mutant-1",
+   "file": "src/components/WarningDialog.tsx",
+   "tests": [
+    "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+    "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 11.09,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/closing-window/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T060002Z-p2525225-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/closing-window/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T060002Z-p2525225-mutant-1.stderr"
+  },
+  {
+   "id": "image-enabled-dropped",
+   "run": "mutant-2",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [
+    "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+    "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers nothing from a closed instance, even with focus resting in its hidden dialog"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 10.0,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/closing-window/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T060002Z-p2525225-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/closing-window/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T060002Z-p2525225-mutant-2.stderr"
+  }
+ ],
+ "score": "1 of 2 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob 85e748a2998cfecf1d262ecf77a5ec45c928f1d5))"
+}

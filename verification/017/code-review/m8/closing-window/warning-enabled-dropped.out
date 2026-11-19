@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/e0020673-6e57-4ff1-90d8-a95a22085569/scratchpad/exp-probe-warning-enabled-dropped
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  06:00:39
+   Duration  1.87s (transform 238ms, setup 23ms, import 806ms, tests 212ms, environment 676ms)
+

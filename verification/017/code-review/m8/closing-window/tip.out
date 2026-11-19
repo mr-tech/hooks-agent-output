@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/e0020673-6e57-4ff1-90d8-a95a22085569/scratchpad/exp-probe-tip
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  06:00:36
+   Duration  2.05s (transform 296ms, setup 27ms, import 930ms, tests 251ms, environment 711ms)
+
