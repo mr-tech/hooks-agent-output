@@ -710,3 +710,7 @@ M5 and M6 work in the same window, so M8 alone is not separated.
 For M8, each further gap below HIGH goes to the plan's Planner batch as a stated limit without a fix
 round, a gate's severity-floor finding excepted. QAF-22, raised before the cap, keeps its fix round.
 Told: `qa-hooks-017`, `code-reviewer-hooks-017`. He is told at this thread's next prompt to him.
+Update 06:07Z: the reviewer then recorded a Round 5 reconcile, M8 REJECTED at `c37d41a` on CR-13 MEDIUM
+(it duplicates QAF-22; `c44cf87`, 06:02:51Z), so M8's gate count is 1 code-review rejection and 1 QA
+Failed. Its sub-entry APPROVED the fix at website `6555f65` (`74263c8`, 06:06:45Z), delivered to QA and
+the implementer (its transcript, 06:07:12Z and 06:07:14Z).
