@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3b/web-work/20261119T200709Z-p3083232/mutant-2
+
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (21 tests | 1 failed) 1407ms
+     × keeps its URL field and its footer in one wrapper that takes no box of its own, so the panel's layout spaces them 52ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  1 failed | 1856 passed (1857)
+   Start at  20:07:46
+   Duration  16.48s (transform 22.10s, setup 1.98s, import 123.18s, tests 36.37s, environment 75.35s)
+

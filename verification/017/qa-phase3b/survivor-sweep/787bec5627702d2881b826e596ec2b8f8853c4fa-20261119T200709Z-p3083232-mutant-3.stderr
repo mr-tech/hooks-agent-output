@@ -1,0 +1,33 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog and ConfirmationDialog, the body inside the panel > WarningDialog keeps its message and its footer in one wrapper that takes no box of its own, so the panel's layout spaces them
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/WarningDialog.enter-scope.test.tsx:230:52
+    228|     const wrapper = bodyWrapperOf(title);
+    229|
+    230|     expect(wrapper.classList.contains('contents')).toBe(true);
+       |                                                    ^
+    231|     expect(wrapper.contains(dialogOf(title).querySelector('p'))).toBe(…
+    232|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

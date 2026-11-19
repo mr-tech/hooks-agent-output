@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/18779fa8-e611-4462-bd45-efeeebb984d1/scratchpad/p3b/web-work/20261119T200709Z-p3083232/mutant-4
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (30 tests | 1 failed) 207ms
+     × becomes this tab's route-0 draft, shown when route 0 is opened again without the code 33ms
+
+ Test Files  1 failed | 143 passed (144)
+      Tests  1 failed | 1856 passed (1857)
+   Start at  20:08:21
+   Duration  15.93s (transform 19.93s, setup 2.29s, import 115.51s, tests 34.91s, environment 74.34s)
+

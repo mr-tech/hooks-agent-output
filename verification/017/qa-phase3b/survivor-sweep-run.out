@@ -1,0 +1,5 @@
+ConfirmationDialog.tsx:17:attr:2 KILLED 17.33
+ImageUploader.tsx:96:attr:2 KILLED 17.54
+WarningDialog.tsx:23:attr:2 KILLED 16.92
+index.tsx:153:stmt KILLED 17.01
+4 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; survivor-mutants.json (blob 23fc3b687a6fd2ab3145ce257b84c75c7a47cea5))

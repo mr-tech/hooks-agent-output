@@ -1,0 +1,157 @@
+{
+ "sha": "787bec5627702d2881b826e596ec2b8f8853c4fa",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/017/qa-phase3b/survivor-mutants.json",
+ "command": [
+  "unshare",
+  "-rn",
+  "npx",
+  "vitest",
+  "run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/017/qa-phase3b/survivor-mutants.json",
+   "blob": "23fc3b687a6fd2ab3145ce257b84c75c7a47cea5"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/qa-phase3b/survivor-sweep/787bec5627702d2881b826e596ec2b8f8853c4fa-20261119T200709Z-p3083232-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/qa-phase3b/survivor-sweep/787bec5627702d2881b826e596ec2b8f8853c4fa-20261119T200709Z-p3083232-control-1.stderr",
+   "seconds": 17.95,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 1857,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "ConfirmationDialog.tsx:17:attr:2",
+   "run": "mutant-1",
+   "file": "src/components/ConfirmationDialog.tsx",
+   "tests": [],
+   "carried": {
+    "op": "attr",
+    "line": 17,
+    "text": "className=\"contents\""
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1857,
+   "control_tests_run": 1857,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog and ConfirmationDialog, the body inside the panel > ConfirmationDialog keeps its message and its footer in one wrapper that takes no box of its own, so the panel's layout spaces them"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 17.33,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/qa-phase3b/survivor-sweep/787bec5627702d2881b826e596ec2b8f8853c4fa-20261119T200709Z-p3083232-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/qa-phase3b/survivor-sweep/787bec5627702d2881b826e596ec2b8f8853c4fa-20261119T200709Z-p3083232-mutant-1.stderr"
+  },
+  {
+   "id": "ImageUploader.tsx:96:attr:2",
+   "run": "mutant-2",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [],
+   "carried": {
+    "op": "attr",
+    "line": 96,
+    "text": "className=\"contents\""
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1857,
+   "control_tests_run": 1857,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the body inside the panel > keeps its URL field and its footer in one wrapper that takes no box of its own, so the panel's layout spaces them"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 17.54,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/qa-phase3b/survivor-sweep/787bec5627702d2881b826e596ec2b8f8853c4fa-20261119T200709Z-p3083232-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/qa-phase3b/survivor-sweep/787bec5627702d2881b826e596ec2b8f8853c4fa-20261119T200709Z-p3083232-mutant-2.stderr"
+  },
+  {
+   "id": "WarningDialog.tsx:23:attr:2",
+   "run": "mutant-3",
+   "file": "src/components/WarningDialog.tsx",
+   "tests": [],
+   "carried": {
+    "op": "attr",
+    "line": 23,
+    "text": "className=\"contents\""
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1857,
+   "control_tests_run": 1857,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog and ConfirmationDialog, the body inside the panel > WarningDialog keeps its message and its footer in one wrapper that takes no box of its own, so the panel's layout spaces them"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 16.92,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/qa-phase3b/survivor-sweep/787bec5627702d2881b826e596ec2b8f8853c4fa-20261119T200709Z-p3083232-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/qa-phase3b/survivor-sweep/787bec5627702d2881b826e596ec2b8f8853c4fa-20261119T200709Z-p3083232-mutant-3.stderr"
+  },
+  {
+   "id": "index.tsx:153:stmt",
+   "run": "mutant-4",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {
+    "op": "stmt",
+    "line": 153,
+    "text": "writeRouteZeroDraft(tmp);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1857,
+   "control_tests_run": 1857,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a share code opened at route 0 > becomes this tab's route-0 draft, shown when route 0 is opened again without the code"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 17.01,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/qa-phase3b/survivor-sweep/787bec5627702d2881b826e596ec2b8f8853c4fa-20261119T200709Z-p3083232-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/qa-phase3b/survivor-sweep/787bec5627702d2881b826e596ec2b8f8853c4fa-20261119T200709Z-p3083232-mutant-4.stderr"
+  }
+ ],
+ "score": "4 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; survivor-mutants.json (blob 23fc3b687a6fd2ab3145ce257b84c75c7a47cea5))"
+}
