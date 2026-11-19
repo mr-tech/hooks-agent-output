@@ -26,6 +26,7 @@ whose fix round `dd26104` is APPROVED (code review round 2 sub-entry, `fb4c5f3`)
 | 2026-11-19T02:17 | implementer-hooks-017 | Resumed after the checkpoint. The 14 self-check survivors dispositioned (9 closed by cases at `08124a4`, 5 stated equivalent), QA's NM-6, NM-7, NM-27 and NM-28 run against the built code, a mounted test added for the edit page's Log in (`3498ef3`), convention-check FAILs that were M3's removed, full suite and typecheck at `3498ef3`. Handed to code review at `3498ef3`; Resumption State removed. |
 | 2026-11-19T02:19 | implementer-hooks-017 | Checkpoint at the hand-off seam (context 212K) before M4: Resumption State written; no change to the handed-over tree. |
 | 2026-11-19T02:29 | implementer-hooks-017 | Fix round 1 on code review Round 3 (REJECTED at `3498ef3`: CR-6, CR-7, CR-8), tests only: the provider's restore cases compare name and data whole, the legacy key's form is asserted as literals, the `1ad625e` reader is run on the tip's string, CR-8 recorded as a deviation. Handoff-At moved to `1ab3b96`. |
+| 2026-11-19T02:33 | implementer-hooks-017 | Code review confirmed the fix APPROVED at `1ab3b96`; at its request the tip-side capture test's source added under `verification/017/impl/m3/`. No website change. |
 
 ## Implementation Summary
 
@@ -239,7 +240,10 @@ No production line changed: `git diff --name-only 3498ef3 1ab3b96` lists only `M
 - **CR-7.** Part 1: "holds the route-0 draft last written, for the code that reads it" parses the legacy string and
   asserts its keys are exactly `data`, `name`, `updatedAt` and its value equals `{ name: 'New Message', updatedAt:
   1700000000000, data: … }` under a frozen `Date`. Part 2, the named instrument: `legacy-string-tip-1ab3b96.json` is the
-  string a tip run wrote (captured by a throw-away case in a `git archive 1ab3b96` export, `legacy-capture-tip-1ab3b96.out`);
+  string a tip run wrote (captured by `legacy-capture.tip.test.tsx`, a copy of the stored-draft test's header plus one case,
+  run in a `git archive 1ab3b96` export with `LEGACY_OUT` set, log `legacy-capture-tip-1ab3b96.out`; the source was added
+  to the record after the review asked, regenerated from `1ab3b96` and re-run: it reproduces the string except the random
+  `_key`);
   `old-reader.route-zero-legacy.probe.test.tsx` mounts the `1ad625e` `MessageProvider` at route 0 in a `git archive 1ad625e`
   export (that tree's own helpers), seeds `localStorage.message` with that string and asserts the old reader shows the
   draft's name and content and its embed: exit 0 (`old-reader-1ad625e.out`). Negative control: the same string with an `id`
