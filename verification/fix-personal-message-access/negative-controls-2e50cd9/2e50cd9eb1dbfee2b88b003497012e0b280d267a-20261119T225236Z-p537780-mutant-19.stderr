@@ -1,0 +1,36 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.delete > checks, deletes and clears the previews of the canonical number when the browser sends leading zeros
+AssertionError: expected [ '00900000000000101' ] to not include '00900000000000101'
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:300:30
+    298|
+    299|     for (const { parameters } of captured.queries) {
+    300|       expect(parameters).not.toContain(`00${OWNED_ID}`);
+       |                              ^
+    301|     }
+    302|     expect(boundTo(writesOf('Messages')[0], 'id')).toBe(OWNED_ID);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.delete > refuses a number that is not digits before any query
+AssertionError: promise resolved "undefined" instead of rejecting
+
+- Expected:
+Error {
+  "message": "rejected promise",
+}
+
++ Received:
+undefined
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:307:65
+    305|
+    306|   it('refuses a number that is not digits before any query', async () …
+    307|     await expect(callerAs(OWNER).delete({ id: ` ${OWNED_ID}` })).rejec…
+       |                                                                 ^
+    308|
+    309|     expect(captured.queries).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

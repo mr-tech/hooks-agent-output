@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/b5afe525-3f83-48b3-a08e-9d337a51fe7f/scratchpad/mut-work/20261119T225236Z-p537780/mutant-6
+
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (12 tests | 2 failed) 31ms
+     × writes a personal message only where the caller still owns the row 5ms
+     × writes a server message only where the row still belongs to that server, for any of its admins 3ms
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 10 passed (12)
+   Start at  22:52:54
+   Duration  1.12s (transform 195ms, setup 0ms, import 970ms, tests 31ms, environment 0ms)
+

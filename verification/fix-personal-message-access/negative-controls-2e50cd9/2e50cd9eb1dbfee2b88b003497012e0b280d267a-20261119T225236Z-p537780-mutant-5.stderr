@@ -1,0 +1,24 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert with a message number no row holds > announces no update on the number the browser sent
+AssertionError: expected [ 'message-update-900000000000500' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "message-update-900000000000500",
++ ]
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:222:28
+    220|     await callerAs(OTHER).upsert({ message: draft(UNUSED_ID) });
+    221|
+    222|     expect(mocks.channels).toEqual([]);
+       |                            ^
+    223|   });
+    224|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,568 @@
+{
+ "sha": "2e50cd9eb1dbfee2b88b003497012e0b280d267a",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls.mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls.mutants.json",
+   "blob": "d6ee10859323a6a0a3646f674262b1611f5d63fe"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[\"src/server/api/routers/__tests__/message.personal-ownership.test.ts\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-control-1.stderr",
+   "seconds": 2.09,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 12,
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "passed": true
+  },
+  "[\"src/server/__tests__/auth.hydrated-recent-messages.test.ts\", \"src/server/api/utils/__tests__/shared.in-predicates.test.ts\"]": {
+   "id": "control-2",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-control-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-control-2.stderr",
+   "seconds": 1.95,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 6,
+   "tests": [
+    "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+    "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+   ],
+   "passed": true
+  },
+  "[\"src/server/__tests__/auth.hydrated-recent-messages.test.ts\"]": {
+   "id": "control-3",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-control-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-control-3.stderr",
+   "seconds": 2.0,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 2,
+   "tests": [
+    "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "getOne-caller-identity",
+   "run": "mutant-1",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.getOne on a personal message > returns the message to the user who owns it"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.08,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-1.stderr"
+  },
+  {
+   "id": "getOne-message-id-dropped",
+   "run": "mutant-2",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.getOne on a personal message > refuses another signed-in user, with none of the message in the outcome"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.14,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-2.stderr"
+  },
+  {
+   "id": "create-cap-boundary",
+   "run": "mutant-3",
+   "file": "src/server/api/utils/shared.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert with a message number no row holds > refuses at the per-user cap, and creates no row"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.1,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-3.stderr"
+  },
+  {
+   "id": "create-at-client-id",
+   "run": "mutant-4",
+   "file": "src/server/api/utils/shared.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert with a message number no row holds > never writes a row at the number the browser sent"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.12,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-4.stderr"
+  },
+  {
+   "id": "broadcast-guard-updated",
+   "run": "mutant-5",
+   "file": "src/server/api/utils/shared.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert with a message number no row holds > announces no update on the number the browser sent"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.15,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-5.stderr"
+  },
+  {
+   "id": "update-skipped",
+   "run": "mutant-6",
+   "file": "src/server/api/utils/shared.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert of an existing message > writes a personal message only where the caller still owns the row",
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert of an existing message > writes a server message only where the row still belongs to that server, for any of its admins"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.11,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-6.stderr"
+  },
+  {
+   "id": "save-owner-term-user",
+   "run": "mutant-7",
+   "file": "src/server/api/utils/shared.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert of an existing message > writes a personal message only where the caller still owns the row"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.12,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-7.stderr"
+  },
+  {
+   "id": "save-owner-term-guild",
+   "run": "mutant-8",
+   "file": "src/server/api/utils/shared.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert of an existing message > writes a server message only where the row still belongs to that server, for any of its admins"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.23,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-8.stderr"
+  },
+  {
+   "id": "save-owner-term-choice",
+   "run": "mutant-9",
+   "file": "src/server/api/utils/shared.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert of an existing message > writes a personal message only where the caller still owns the row",
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert of an existing message > writes a server message only where the row still belongs to that server, for any of its admins"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.09,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-9.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-9.stderr"
+  },
+  {
+   "id": "recent-data-owner-term-user",
+   "run": "mutant-10",
+   "file": "src/server/api/utils/shared.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.updateRecentMessageData > writes a personal message only where the caller still owns the row"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.09,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-10.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-10.stderr"
+  },
+  {
+   "id": "recent-data-owner-term-guild",
+   "run": "mutant-11",
+   "file": "src/server/api/utils/shared.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.updateRecentMessageData > writes a server message only where the row still belongs to that server"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.2,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-11.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-11.stderr"
+  },
+  {
+   "id": "recent-data-call-site-user",
+   "run": "mutant-12",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.updateRecentMessageData > writes a personal message only where the caller still owns the row"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.11,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-12.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-12.stderr"
+  },
+  {
+   "id": "recent-data-call-site-guild",
+   "run": "mutant-13",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.updateRecentMessageData > writes a server message only where the row still belongs to that server"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.09,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-13.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-13.stderr"
+  },
+  {
+   "id": "recent-list-owner-term",
+   "run": "mutant-14",
+   "file": "src/server/api/utils/shared.ts",
+   "tests": [
+    "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+    "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 6,
+   "control_tests_run": 6,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out another user's personal message stored in the preferences",
+    "|node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > binds a non-empty id list as parameters of one in-list, beside the caller as owner"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.97,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-14.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-14.stderr"
+  },
+  {
+   "id": "recent-list-server-rows",
+   "run": "mutant-15",
+   "file": "src/server/api/utils/shared.ts",
+   "tests": [
+    "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+    "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 6,
+   "control_tests_run": 6,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > binds a non-empty id list as parameters of one in-list, beside the caller as owner"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.94,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-15.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-15.stderr"
+  },
+  {
+   "id": "recent-list-call-site-user",
+   "run": "mutant-16",
+   "file": "src/server/auth.ts",
+   "tests": [
+    "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2,
+   "control_tests_run": 2,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent personal message the signed-in user owns",
+    "|node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out another user's personal message stored in the preferences"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.01,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-16.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-16.stderr"
+  },
+  {
+   "id": "id-shape-digits-only",
+   "run": "mutant-17",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.delete > refuses a number that is not digits before any query"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.15,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-17.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-17.stderr"
+  },
+  {
+   "id": "id-shape-canonical",
+   "run": "mutant-18",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.updateRecentMessageData > reads, checks and writes the canonical number when the browser sends leading zeros",
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.delete > checks, deletes and clears the previews of the canonical number when the browser sends leading zeros"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.14,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-18.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-18.stderr"
+  },
+  {
+   "id": "delete-input-shape",
+   "run": "mutant-19",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.delete > checks, deletes and clears the previews of the canonical number when the browser sends leading zeros",
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.delete > refuses a number that is not digits before any query"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.09,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-19.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-19.stderr"
+  },
+  {
+   "id": "recent-data-input-shape",
+   "run": "mutant-20",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.updateRecentMessageData > reads, checks and writes the canonical number when the browser sends leading zeros"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.14,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-20.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-2e50cd9/2e50cd9eb1dbfee2b88b003497012e0b280d267a-20261119T225236Z-p537780-mutant-20.stderr"
+  }
+ ],
+ "score": "20 of 20 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; negative-controls.mutants.json (blob d6ee10859323a6a0a3646f674262b1611f5d63fe))"
+}

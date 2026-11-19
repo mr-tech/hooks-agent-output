@@ -1,0 +1,15 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert with a message number no row holds > never writes a row at the number the browser sent
+AssertionError: expected [ 2026-11-19T22:52:51.353Z, 'n', …(5) ] to not include '900000000000500'
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:215:39
+    213|     const inserts = writesOf('Messages').filter(({ sql }) => sql.start…
+    214|     expect(inserts).toHaveLength(1);
+    215|     expect(inserts[0].parameters).not.toContain(UNUSED_ID);
+       |                                       ^
+    216|     expect(saved?.id).toBe(SERVER_ASSIGNED_ID);
+    217|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

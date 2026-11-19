@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert of an existing message > writes a server message only where the row still belongs to that server, for any of its admins
+AssertionError: expected undefined to be '700000000000001' // Object.is equality
+
+- Expected:
+"700000000000001"
+
++ Received:
+undefined
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:252:48
+    250|     expect(writes).toHaveLength(1);
+    251|     expect(boundTo(writes[0], 'id')).toBe(GUILD_MESSAGE_ID);
+    252|     expect(boundTo(writes[0], 'fk_guilds_id')).toBe(GUILD.rowId);
+       |                                                ^
+    253|     expect(boundTo(writes[0], 'fk_users_id')).toBeUndefined();
+    254|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

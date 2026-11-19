@@ -1,0 +1,27 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.updateRecentMessageData > reads, checks and writes the canonical number when the browser sends leading zeros
+AssertionError: expected [ '00900000000000101' ] to not include '00900000000000101'
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:289:30
+    287|     expect(captured.queries.length).toBeGreaterThan(0);
+    288|     for (const { parameters } of captured.queries) {
+    289|       expect(parameters).not.toContain(`00${OWNED_ID}`);
+       |                              ^
+    290|     }
+    291|     expect(boundTo(writesOf('Messages')[0], 'id')).toBe(OWNED_ID);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.delete > checks, deletes and clears the previews of the canonical number when the browser sends leading zeros
+AssertionError: expected [ '00900000000000101' ] to not include '00900000000000101'
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:300:30
+    298|
+    299|     for (const { parameters } of captured.queries) {
+    300|       expect(parameters).not.toContain(`00${OWNED_ID}`);
+       |                              ^
+    301|     }
+    302|     expect(boundTo(writesOf('Messages')[0], 'id')).toBe(OWNED_ID);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

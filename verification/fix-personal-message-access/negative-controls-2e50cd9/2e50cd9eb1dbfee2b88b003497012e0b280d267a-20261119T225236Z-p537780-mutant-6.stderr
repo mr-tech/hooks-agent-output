@@ -1,0 +1,41 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert of an existing message > writes a personal message only where the caller still owns the row
+AssertionError: expected undefined to be '900000000000101' // Object.is equality
+
+- Expected:
+"900000000000101"
+
++ Received:
+undefined
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:241:38
+    239|     const writes = writesOf('Messages');
+    240|     expect(writes).toHaveLength(1);
+    241|     expect(boundTo(writes[0], 'id')).toBe(OWNED_ID);
+       |                                      ^
+    242|     expect(boundTo(writes[0], 'fk_users_id')).toBe(OWNER.dbUserId);
+    243|     expect(mocks.channels).toEqual([`message-update-${OWNED_ID}`]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert of an existing message > writes a server message only where the row still belongs to that server, for any of its admins
+AssertionError: expected undefined to be '900000000000201' // Object.is equality
+
+- Expected:
+"900000000000201"
+
++ Received:
+undefined
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:251:38
+    249|     const writes = writesOf('Messages');
+    250|     expect(writes).toHaveLength(1);
+    251|     expect(boundTo(writes[0], 'id')).toBe(GUILD_MESSAGE_ID);
+       |                                      ^
+    252|     expect(boundTo(writes[0], 'fk_guilds_id')).toBe(GUILD.rowId);
+    253|     expect(boundTo(writes[0], 'fk_users_id')).toBeUndefined();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
