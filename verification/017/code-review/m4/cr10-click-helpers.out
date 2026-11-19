@@ -1,0 +1,4 @@
+de06d95:src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx:45:function click(el: Element) {
+de06d95:src/app/message/__tests__/layout.navigation-guard.test.tsx:171:function click(el: Element, init: MouseEventInit = {}) {
+de06d95:src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx:57:function click(el: HTMLElement) {
+de06d95:src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:37:function click(el: Element, init: MouseEventInit = {}) {

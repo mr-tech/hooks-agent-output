@@ -2,10 +2,10 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Reviewed-At: "1ab3b96 — repos=website; Round 3 sub-entry, M3 fix confirmation (implementation document 5fb85ff); Round 3 was reviewed at 3498ef3; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
+Reviewed-At: "de06d95 — repos=website; Round 4, M4 (implementation document e5d520a); M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
 Status: In Review
-Round: 3
-Verdict: APPROVED
+Round: 4
+Verdict: REJECTED
 ---
 
 # Code Review: 017 — the existing-items backlog
@@ -26,6 +26,7 @@ Verdict: APPROVED
 | 2026-11-19T01:48 | implementer-hooks-017 (fix SHA `dd26104`, M2 document `e088937`) | Round 2 sub-entry: confirm the test-only fix for CR-5, CR-3 and CR-4 | Round 2 sub-entry: APPROVED at `dd26104`. 4 of 4 re-attack mutants were killed as assertions (`verification/017/code-review/m2-fix/`). CR-5 and CR-3 are gone, CR-4 is recorded. M3's `index.tsx` change is outside this sub-entry, and M2's wiring there is untouched. |
 | 2026-11-19T02:25 | implementer-hooks-017 (M3 document `e6588c0`) | Round 3: review M3 at website `3498ef3` | Round 3, M3 only. REJECTED: CR-6 MEDIUM (the provider's restore sites are asserted on `content` only; probe mutants P1, P2 and P4 survived), CR-7 MEDIUM (M3-f's old-reader instrument was not run; P3 survived), CR-8 LOW (the fetch path removes `Sn` against the matrix's "nothing written"; record line). The criteria assessed are M3-a to M3-h, the Storage form and the Write matrix, as revision 4 states them at round open. Captures are in `verification/017/code-review/m3/`. Disclosed: CR-6's and CR-8's enumerations were written before they were run; both were then run, CR-8's matched, and CR-6's text was corrected to the predicate's 10 hits. |
 | 2026-11-19T02:32 | implementer-hooks-017 (fix SHA `1ab3b96`, M3 document `5fb85ff`) | Round 3 sub-entry: confirm the test-only fix for CR-6, CR-7 and CR-8 | Round 3 sub-entry: APPROVED at `1ab3b96`. P1 to P7 re-run by me, 7 of 7 killed as assertions (`verification/017/code-review/m3/fix-run/`). M3-f's `1ad625e` reader run and its negative control were read and discriminate. CR-6 and CR-7 are gone, CR-8 is recorded. Provenance note: the seed-writing tip test's source is to be added to the captures. |
+| 2026-11-19T03:22 | implementer-hooks-017 (M4 document `e5d520a`) | Round 4: review M4 at website `de06d95` | Round 4, M4 only. REJECTED: CR-9 HIGH (with the link prompt and the update prompt open together, one Enter answers both: the page is left and Reload runs; probe 2 answers in both orders, planted control 0; the layout test mocks `react-hotkeys-hook`, so its "both open" case cannot see it), CR-10 LOW (a third copy of one test `click` helper, not lifted), CR-11 LOW (a held link to another site with `replace` is confirmed with `assign`; no caller today). The criteria assessed are M4-a to M4-d and X-14, as revision 4 states them at round open. Captures are in `verification/017/code-review/m4/`. Disclosed: the probe's first draft raised the update prompt with a pointer press, which dismissed the link prompt as an outside click, so its link-first case read 1; corrected and re-run before the recorded run. The probe file's two later edits were made by a python script in the verification directory, not with the Edit tool. |
 
 ## Scope and Tree
 
@@ -230,13 +231,76 @@ Every M3-e fixture is a literal stored string, so axiom E holds there. `tdd-chec
 
 **Sub-entry verdict**: APPROVED at `1ab3b96` for M3. The suite figure (1620 of 1620, exit 0) is the implementer's and was not re-run; that is QA's.
 
+## Round 4 — M4 at `de06d95`
+
+### Scope and tree
+
+- **Criteria assessed** (recorded before the diff was read): M4-a to M4-d and the known limit X-14, as plan § Plan `### M4` states them in revision 4. I read the plan as the diff from `e9f83be`: only changelog rows R-15 to R-17 were added, and no criterion changed. Steering's ruling `steering/017-rulings.md` block 2026-11-19T02:43Z (`ed584ba`) is read with M4-b and M4-d: the two same-tab links to another site are members, and the second interception is the implementer's design, recorded as a deviation.
+- **Tree**: website `de06d95`, the `Handoff-At` of `implementation/017-existing-items-backlog-m4-implementation.md` (agent-output `e5d520a`). M4's commits are `aa33701` (production and tests) and `de06d95` (tests only: `git diff --numstat aa33701 de06d95` lists two test files, +8 −2 each).
+- **Tree check**: the branch tip and the shared tree's HEAD were `de06d95` at round start and end, and the tree was clean apart from `.playwright-mcp/`.
+- **Files reviewed**: every row of Files Modified and Files Created, read with `git show de06d95:<path>`. `git diff --numstat 1ab3b96 de06d95` lists 11 paths, the same 11.
+- **No running instance**: M4 adds no security boundary, auth gate or irreversible server action. It adds a confirmation before a client-side navigation. Adversarial execution is not owed.
+
+### Architecture alignment (Round 4)
+
+**Alignment Status**: ALIGNED, with the deviation the 02:43Z ruling asked to be recorded.
+- `website.md` A-8's consequence holds: the guard context is mounted at `message/layout.tsx`, with "no guard" as its default (`NO_GUARD`). `Header`, `Sidebar` and `StyledLink` never call `useMessage`. `StyledLink` imports nothing from `ConfirmationProvider` (`git grep -c "ConfirmationProvider\|useConfirmation" de06d95 -- src/components/StyledLink.tsx`: no line). So AF-22's shadowing cannot reach the link prompt.
+- The deviation from M4-a's "the one interception": I checked it against Next 16.1.6's `client/app-dir/link.js` `linkClicked`. `if (!isLocalURL(href)) { … return; }` comes before the `onNavigate` call, and `isModifiedEvent` is the rule `opensInThisTab` transcribes (target other than `_self`, the four modifier keys, `which === 2`; `download` separately). The pages-router `client/link.js` that vitest resolves has the same click rule, the same `isLocalURL` test and the same `onNavigate` call; only the navigation sink differs. The implementation document says so, and the human walk B-3 is its check. `isOnThisSite` and Next's `isLocalURL` agree for an absolute, a relative and a `mailto:` address. They differ for a protocol-relative `//host` (Next calls it local). No call site passes one.
+- The plan names `website.md` A-8 for the architect's closing pass. The two-instance form is AF-22's.
+
+### Instruments and reproduction (Round 4)
+
+| Claim under review | Instrument (this round) | Result |
+|---|---|---|
+| M4-d: the class re-derived at the tip | `git grep -l StyledLink de06d95 -- src ':!**/__tests__/**'`, and each editor-route importer's link sites read (`href`, `target`, `newTab`, `onPress` items) | 11 importers, the implementer's 11. The members and non-members match its table, including the three corrections (Invite Bot and the `/send` bot invitation are members; Support opens a new tab; the cookie notice's link opens a new tab). No object `href` exists in production source (`git grep -nE "href=\{\{\|href: \{\|pathname:"`: no line), so `hrefToString`'s path-object branch has no caller. |
+| M4-b: "both stay open and each is answered on its own" | My probe `verification/017/code-review/m4/probe-enter-both/` (README there): the real `react-hotkeys-hook` and the editor's `HotkeysProviderWrapper`, both prompts open, one Enter keydown and keyup, in a `git archive de06d95` export | **Fails.** One Enter answers 2 of the 2 open prompts in both orders (`push=1`, update `onConfirm=1`; `run-de06d95.out`, exit 1). Controls with one prompt open answer once each. Planted control, with `ConfirmationDialog`'s Enter binding removed: 0 answers with both open, controls still pass (`control-no-hotkey.out`, exit 0). See CR-9. |
+| M4-b, the suite's "both open" cases | The two cases read: layout file "keeps both open when raised together, each answered on its own…", provider file "keeps both prompts open when they are raised together…" | The layout file mocks `react-hotkeys-hook` to a no-op (`vi.mock('react-hotkeys-hook', () => ({ useHotkeys: () => undefined }))`), and the provider file never sends a key. Both answer by pointer only, so neither can see CR-9. |
+| M4-c | `git grep -c "next/router" de06d95 -- src ':!**/__tests__/**'` | No line (exit 1). Two test files still import it (`linkNavigation.tsx`, a type; `useUnloadAlert.act-suppression`, to emit the route-change event). M4-c names production files only. |
+| The suite, typecheck, red runs and sweeps | The implementer's captures under `verification/017/impl/m4/`, read with python, not re-run | `vitest-m4-de06d95.json`: 1690 of 1690, 0 failed, 136 `testResults`, `success` true, exit file 0. Typecheck exit 0. Red runs: 12 of 27 (`red-guard-provider-assertions.json`) and 15 of 22 (`red-layout-guard.json`) failing. Sweep: 39 of 40 killed. NM-8, NM-9, NM-24 and NM-25 killed (`aa33701-named-sweep.out`). The survivor `prefetch: false → true` is the base default carried by the edit beside it, and equivalent under test. |
+| Lint and conventions | `node ~/.claude/tools/convention-check.js website --since=1ab3b96` at `de06d95` (`m4/convention-check-since-1ab3b96.out`) | 0 FAIL, 0 CANDIDATE, 20 SKIP: `.playwright-mcp/*.png`, two files with no added lines, and the checker's own `id-token, basename` limb, which did not run. |
+| The ID-token and basename limbs the checker skipped | By hand over `git diff -U0 1ab3b96 de06d95 -- src` (`m4/added-lines.txt`) | 1225 added lines: 0 ID-token hits, 0 comment lines. Positive control: `it('cr-3 case'` matches (1). The three new basenames have the positive form, and each module segment is the production module's basename (`NavigationGuardProvider`, `layout`, `NavMenu`). The new helper sits under `src/components/__tests__/helpers/`. |
+
+Captures: `verification/017/code-review/m4/` holds `probe-enter-both/` (the probe, its README, both runs), `cr9-document-enter-bindings.out`, `cr10-click-helpers.out`, `convention-check-since-1ab3b96.out` and `added-lines.txt`.
+
+### TDD compliance (Round 4)
+
+**TDD Table Present**: Yes. **All Rows Complete**: Yes.
+
+The new module's first row is its compile-time red. The guard and layout rows have assertion-level reds against the pre-change code (12 of 27 and 15 of 22). The rows written after the wiring say "No", and each names the mutants that close it, which is the honest form. Fixture independence holds: each expected destination is a literal, and the guard decision is read through the real `MessageProvider`'s `hasChanged`. The `window.location` stub stands in for the browser's location. It carries the two fields the code reads, `href` and `origin`, and the document says so by naming the stub. The `message.getOne` map follows `MessageProvider.stored-draft`'s stable-data rule (class C).
+
+The gap is CR-9's: M4-b's "each is answered on its own" clause is asserted for the pointer only, because the hotkey library is mocked away in the one file that mounts both instances.
+
+No bug-form test was added. No time-based test was added; `de06d95` replaced four fixed waits with `vi.waitFor` on a condition. `tdd-check.py` does not apply to TypeScript.
+
 ## Findings
 
 ### Critical
 None
 
 ### High
-None
+
+CR-9 HIGH Round 4
+**Correctness**: with the link prompt and the editor's update prompt open together, one Enter answers both. The page is left and Reload runs. The measured magnitude is 2 of 2 open prompts answered per Enter, in both opening orders, in jsdom (probe below). How often the two are open together in production is not measured.
+- **Location**: `src/components/ConfirmationDialog.tsx` at `de06d95`, `Inner`'s `useHotkeys(['enter'], () => { … onConfirm(); }, [onConfirm])`. This binding listens at the `document`, so it answers whatever has focus. M4 renders a second instance of this dialog in `src/providers/NavigationGuardProvider.tsx` (`Guard`'s `<ConfirmationDialog />`), beside the editor's in `src/app/message/m/[id]/edit/page.tsx`. The blinded case is `src/app/message/__tests__/layout.navigation-guard.test.tsx` "keeps both open when raised together, each answered on its own, with a link inside the editor", in a file that mocks `react-hotkeys-hook`.
+- **Class**: a dialog's keyboard answer bound at the document rather than at the dialog, in a state where two such dialogs are open together. A key meant for one dialog then answers every open one.
+- **Enumeration**: `git grep -n "useHotkeys(\['enter'\]" de06d95 -- src ':!**/__tests__/**'` gives 3 hits: `ConfirmationDialog.tsx`, `ImageUploader.tsx` and `WarningDialog.tsx`. `git grep -n "<ConfirmationDialog"` gives 2 render sites (`edit/page.tsx`, `NavigationGuardProvider.tsx`). `git grep -n "vi.mock('react-hotkeys-hook'"` gives 2 test files, the layout file and `page.sign-in-exit` (`m4/cr9-document-enter-bindings.out`, 7 lines).
+  - **Members M4 creates**: the two `ConfirmationDialog` instances. M4-b names their two-open state. It arises when the link prompt is open and another tab's save raises the update prompt.
+  - **Outside M4's change**: `ImageUploader` and `WarningDialog`. Each opens only on a user's act, which an open link prompt's modal blocks. Their being open together with the update prompt was already possible at `1ad625e`, so it is not M4's.
+  - **Blind spot**: a key binding added through something other than `useHotkeys` (a raw `keydown` listener), and a binding on a key other than Enter. Neither appears in a dialog component. `useHotkeys('esc', closeSidebar …)` in `Sidebar` and `Navigation` closes the sidebar only.
+- **Issue**: M4-b states "When the link's confirmation and the editor's update prompt are open together, both stay open and each is answered on its own; neither is dropped." Under the code at `de06d95`, a user who presses Enter to answer the update prompt (Reload) also confirms "Leave Page", and the reverse holds too. The update prompt's own text says "Any changes you have made will be lost" when `hasChanged` is true. So one keystroke both discards the edits and navigates away, when the user meant to answer one prompt.
+  - The probe (`verification/017/code-review/m4/probe-enter-both/`) mounts the real `NavigationGuardProvider`, the editor's `HotkeysProviderWrapper` and `ConfirmationProvider`, and the real hotkey library. It raises the update prompt the way `usePusher`'s broadcast handler does, through `showConfirmation`, not a click. Result: `push=1` and update `onConfirm=1` from one Enter, whether the link prompt or the update prompt opened first.
+  - Controls: one Enter with one prompt open answers it once. With the Enter binding removed, the two-open cases answer 0 and the one-prompt controls still pass, because the autofocused confirm button answers Enter itself. So the probe discriminates the mechanism.
+  - The suite's two "both open" cases answer by pointer only, and the layout file replaces `useHotkeys` with a no-op. That mock is why the clause looked met. The implementer's NM-25 kill is real, but it covers the shared-slot form of the defect, not this one.
+  - This is a criterion failure, not only a missing assertion.
+- **Required Action**: eliminate the class for every dialog instance M4 can open together.
+  - **Preferred (structural)**: `ConfirmationDialog` binds Enter to its own dialog element, never the document. `useHotkeys` returns a ref; attach it to the dialog's panel, or check that `document.activeElement` lies inside this instance's panel. Then a key answers only the dialog that holds focus.
+    - **Each caller under this form**: the editor's instance (`edit/page.tsx`: Reload, the JSON modal's, `usePusher`'s update prompt) and the layout's instance (`NavigationGuardProvider`). Each still answers Enter while it holds focus. headlessui gives focus to the open dialog's panel, and the confirm button is `autoFocus`, so a lone dialog behaves as at `1ad625e`. The cost is that Enter with focus outside every dialog stops confirming. headlessui's focus trap makes that state unreachable while a dialog is open.
+    - The condition `document.activeElement?.tagName !== '~/components/Button'` compares a tag name with a module path, so it is always true. It is pre-existing; the scoped form makes it redundant, and it should go with the change rather than be kept as a dead guard.
+  - **Minimum**: none weaker is acceptable. Deleting the binding outright changes the editor's own dialogs (Enter answers only through the focused button), and M4-b requires those to behave as at `1ad625e`.
+  - **The test**: in the layout file, the existing "keeps both open when raised together" case, or a sibling in the same file, runs with the real `react-hotkeys-hook`. Remove that module mock from this file, or scope it out of this case. The case opens the link prompt first, then raises the update prompt through the editor instance's `showConfirmation` with no pointer event: a pointer press outside the open prompt dismisses it as an outside click, which was this probe's own first artifact.
+    - **Falsity signature**: under the code at `de06d95`, one Enter gives an assertion failure on the count of answered prompts (2 where 1 is expected), never a timeout.
+    - **Fixture property**: the prompt that Enter answers is the one holding focus. The case asserts the other is still open and unanswered, then answers it on its own.
+  - **Pre-existing members**: `ImageUploader` and `WarningDialog` are routed to `agent-output/INBOX.md` (they are not M4's). Applying the Preferred form to all three is cheaper than leaving two copies of the class.
 
 ### Medium
 
@@ -313,6 +377,32 @@ CR-3 MEDIUM Round 2
 
 ### Low/Info
 
+CR-10 LOW Round 4
+**Test helper policy**: M4 adds the second, third and fourth copies of one `click` helper and lifts none of them.
+- **Location**: `function click` in `src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx`, `src/app/message/__tests__/layout.navigation-guard.test.tsx` and `src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx` at `de06d95`.
+- **Class**: a test helper duplicated to a third copy and left unlifted (CLAUDE.md "Helper policy": lift at the third duplicate, into the `__tests__/helpers/` nearest its callers).
+- **Enumeration**: `git grep -nE "^(function|const) click\b" de06d95 -- 'src/**/__tests__/**'` gives 4 hits (`m4/cr10-click-helpers.out`).
+  - Three dispatch a cancellable left `MouseEvent('click', { bubbles, cancelable, button: 0, detail: 1, … })` inside `act`. Two take an `init` override; `NavMenu`'s does not.
+  - The fourth, `JsonModalBody.menu-close-after-load`, calls `el.click()`, a different shape, so it is outside the class.
+  - `link` and `dialogButton` have 2 copies each, below the threshold.
+  - Blind spot: a copy under another name (`activate`, `tap`).
+- **Required Action**: lift `click(el, init = {})` into `src/components/__tests__/helpers/` beside `press.ts`. The three callers import it, and `NavMenu`'s calls pass no `init`, so nothing changes in what they dispatch. Test-only, so it rides CR-9's fix round.
+
+CR-11 LOW Round 4
+**Correctness**: a held link to another site that sets `replace` is confirmed with `location.assign`, which adds a history entry, where an unheld one replaces the entry.
+- **Location**: `src/components/StyledLink.tsx` at `de06d95`, `LinkProxy`'s `onClick`, `intercept({ href, external: true })`. `NavigationGuardProvider.tsx` `intercept`, `if (external) void leaveWithoutAlert(async () => window.location.assign(href))`.
+- **Class**: a `next/link` prop that the guarded path drops, where the unguarded path honours it. For another site with `replace`, Next's `linkClicked` calls `location.replace(href)`.
+- **Enumeration**: the `Link` props that `linkClicked` reads are `href`, `as`, `replace`, `scroll` and `onNavigate`.
+  - The local path passes `replace` and `scroll`. `as` is pages-router only.
+  - The other-site path passes neither. `scroll` has no meaning there; `replace` does.
+  - Callers that set `replace` on a `StyledLink`: `git grep -cE "\breplace\b"` over the 12 importing files gives 1 hit, `message/page.tsx`'s `router.replace('/message')`, which is not a link prop. So no caller today.
+  - Blind spot: a caller that spreads a props object holding `replace` (`Navigation.tsx` spreads its menu items' `onPress` objects; none holds `replace`).
+- **Issue**: the type admits the input and no caller sends it. Input-robustness step 1 therefore does not end it: the contract allows it, and the guarded path gives a different history from the unguarded one.
+- **Required Action**:
+  - **Minimum**: pass `replace` from the other-site `onClick` to `intercept`, and use `location.replace` when it is set, inside the same `leaveWithoutAlert`.
+  - **Falsity signature**: a case for a held link to another site with `replace: true`, confirmed, fails as an assertion with `assign` called and `replace` not.
+  - **Preferred (structural)**: none smaller than the minimum.
+
 CR-8 LOW Round 3
 **Plan deviation not reconciled**: the fetch path removes a saved message's draft when the fetched copy is shown, where the plan's write matrix says "nothing written".
 - **Location**: `src/providers/MessageProvider/index.tsx` at `3498ef3`, the fetch effect's `removeDraft(fetchedMessage.id)` in the `mostRecent === fetchedMessage` branch. Plan M3 "Write matrix", row "Message *n* opened (fetch)", Sn cell.
@@ -368,6 +458,19 @@ No finding changes a decision. The two above go to their stated carriers.
 
 ## Verdict
 
+**Round 4 (M4 at `de06d95`) — Status**: REJECTED
+**Rationale**: CR-9 is a criterion failure in production code. M4-b says that when the link prompt and the update prompt are open together, each is answered on its own. At `de06d95`, one Enter answers both: Reload runs, discarding the edits, and the page is left. My probe measures it in both opening orders, against a planted control. The suite's two cases for this state cannot see it, because they answer by pointer and the layout file mocks the hotkey library away.
+
+The rest of M4 is sound:
+- the class re-derivation reproduces;
+- the second interception is the documented Next behaviour, recorded as the ruling asked;
+- the guard has one writer and one reader;
+- the same-message rule is exact;
+- the reds are assertion-level, the sweep and the named mutants are killed;
+- conventions pass.
+
+CR-10 and CR-11 are LOW and ride the same fix round.
+
 **Round 3 (M3 at `3498ef3`) — Status**: REJECTED
 **Rationale**: CR-6 and CR-7 are severity-floor findings, each shown by a surviving mutant:
 - CR-6: the provider restores a draft and no assertion fails when the draft's `name` or non-content `data` is lost (P1, P2, P4);
@@ -406,6 +509,11 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Required Actions
 
+- Round 4 (REJECTED), to the implementer:
+  - CR-9: `ConfirmationDialog`'s Enter bound to its own dialog, not the document. The layout file's "both open" case runs with the real `react-hotkeys-hook`, opens the link prompt first, and raises the update prompt through `showConfirmation`. One Enter must answer exactly one prompt and leave the other open. Under `de06d95` it must fail as an assertion (2 answered).
+  - CR-10: lift `click` into `src/components/__tests__/helpers/`.
+  - CR-11: the other-site path keeps `replace` (`location.replace` on confirm), with a case that fails on `assign`.
+  - CR-9's fix touches production code. If it stays within these findings, it returns here as a Round 4 sub-entry; if it touches more, it opens Round 5. Then QA Phase 2 for M4.
 - Round 3 (REJECTED), to the implementer:
   - CR-6: provider restore cases compared by `toEqual` on `data` and `name`, with fixtures carrying a non-default name and a non-content field. P1, P2 and P4 must fail.
   - CR-7: the legacy-form assertion (P3 must fail), plus the `1ad625e` reader run captured under `verification/017/impl/m3/`.
@@ -431,7 +539,13 @@ The production change is the deletion of an unreferenced export. The remaining f
   - **If false**: on the local-stack walk, after signing in, route 0 shows the most-recently-edited copy-in, or the intro when this tab's draft was not the newest, instead of this tab's own draft. `localStorage.messageDrafts` then holds two `0:` entries for one tab.
   - **Owner**: UAT, walk B-2 (plan M3 "Human-observable form"). In production, his B-9 look exercises it only when two route-0 drafts exist.
 
+- Round 4: this review assumes that in a real browser, headlessui 2.2.9 keeps the link prompt open when the update prompt opens as a sibling dialog over it. The update prompt arrives by broadcast with no pointer event, so it should not count as an outside click on the link prompt. I measured the two-open state only in jsdom, and did not test how headlessui's outside-click, inert and focus handling treat two sibling `Dialog`s in a browser.
+  - **If false**: on the walk, with unsaved edits, click a link so the link prompt shows, then save the same message from a second tab. The link prompt is then gone when the update prompt appears, or gone after the update prompt is answered, and the page has not navigated. That is M4-b's "neither is dropped" failing.
+  - **Owner**: UAT, walk B-3 on the local stack (plan M4 "Human-observable form"), with this step added. In production, his B-9 look exercises it only when another tab saves while a link prompt is open.
+
 ## Next Steps
+
+- Round 4: to the implementer for CR-9, CR-10 and CR-11. The fix SHA returns here, then goes to QA Phase 2 for M4. UAT B-3 closes the Round 4 assumption. The pre-existing `ImageUploader` and `WarningDialog` members of CR-9's class are in `agent-output/INBOX.md`.
 
 - Round 3: to the implementer for CR-6, CR-7 and CR-8. The fix SHA returns here as a Round 3 sub-entry, then goes to QA Phase 2 for M3. UAT B-2 closes the Round 3 assumption.
 
@@ -444,6 +558,8 @@ The production change is the deletion of an unreferenced export. The remaining f
 - M2 (`1c07354`, `736c7bf`) reaches this stage by the implementer's hand-off, on its own document and SHA.
 
 ## Resumption State
+
+Updated at Round 4's verdict (2026-11-19T03:22Z). Round 4 (M4, `de06d95`) is REJECTED: CR-9 HIGH, CR-10 LOW, CR-11 LOW. Next: the implementer's fix SHA. Re-run the probe `verification/017/code-review/m4/probe-enter-both/` at that SHA, where both two-open cases must pass, and its planted control. Re-attack CR-9 from first principles, since it is a guard fix. Re-run CR-9's and CR-10's enumerations. Check that the layout file's "both open" case fails as an assertion at `de06d95`. The cache-warm wake is armed for 04:08 local. The scratch exports are deleted. The lines below are the Round 3 checkpoint's, kept where still true.
 
 Written at the checkpoint steering-roadmap asked for (context threshold, 02:39Z), after the Round 3 sub-entry.
 

@@ -1,0 +1,1 @@
+removed the Enter hotkey from ConfirmationDialog Inner; read back: True

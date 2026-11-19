@@ -1,0 +1,7 @@
+de06d95:src/components/ConfirmationDialog.tsx:14:  useHotkeys(['enter'], () => {
+de06d95:src/components/ImageUploader.tsx:86:  useHotkeys(['enter'], () => {
+de06d95:src/components/WarningDialog.tsx:19:  useHotkeys(['enter'], () => {
+de06d95:src/app/message/m/[id]/edit/page.tsx:176:                  <ConfirmationDialog />
+de06d95:src/providers/NavigationGuardProvider.tsx:68:      <ConfirmationDialog />
+de06d95:src/app/message/__tests__/layout.navigation-guard.test.tsx:53:vi.mock('react-hotkeys-hook', () => ({ useHotkeys: () => undefined }));
+de06d95:src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx:24:vi.mock('react-hotkeys-hook', () => ({ useHotkeys: () => undefined }));
