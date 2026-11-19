@@ -50,3 +50,24 @@ and the check-then-write race (read from code only).
 `security` on the change (it changes an authentication boundary on production; this thread's choice, recorded here), then devops for
 website `master` (his word needed). No plan, critic, Phase 1 or UAT. Post-deploy: the browser check, walked by a uat-role session on the
 test accounts (screenshots stay untracked, his 09:01Z ruling).
+
+## 2026-11-19T22:35Z — scope: fix all three, with query hardening (his selection)
+
+Selection prompt put 22:3xZ. Blocking prompts were back on, per steering-coordinator; the flag `~/.claude/state/prompt-gate-off` was
+absent this turn. The question was first put in plain text at 20:3xZ and re-stated at 21:1xZ while prompts were off. Answered 22:35Z.
+Selection-ledger day file `steering/selection-ledger/2026-11-19.md`, block "2026-11-19T22:35Z — steering-roadmap-hooks", header
+"Access fix".
+- **Agent: fix all three (Recommended)** — CHOSEN, by selection. Its description: "Agent fixes 1–3. It also puts the owner check inside
+  the save/update/delete queries (today the check and the write are separate queries) and cleans up oddly formatted message numbers, so
+  deleting a message no longer leaves its preview images behind. Then a test per case, code review, QA, a security review, and a
+  production push that needs your word."
+- Agent: fix only 1 and 2. Bug 3 and the query hardening each go to a handoff record for later.
+- Agent: don't fix now. Each of the three goes to a handoff record and this fix closes. The holes stay open on production.
+Under every option the question kept three items out, each with its own handoff record: the cron key `vercel` (S14), the public Pusher
+channels (S15) and the guild-admin membership check (S1b). The options' wording is this thread's.
+Premises read this turn: live website `master` is `787bec5` (`ls-remote`, 22:32Z). `refutation.md` was read whole at 21:1xZ: S2, S6b
+and S11 NOT REFUTED; S11's NextAuth path was not run.
+**Scope statement, now bounded.** In scope: S2 with S18, S6b, S11, an owner term in the S6a and S7 write queries, and a canonical id at
+the S7, S8 and S9 inputs. All of it is in website alone. Out: S5, S16 and S17 (no record; X-21 carries S17). S14, S15 and S1b get one
+handoff each. The stage set is as in block 20:30Z. Owner-wait `access-fix-scope` resolved (`challenge-alert.js resolved`, exit 0).
+Disclosure: the record-write gate refused this block's first write, a shell heredoc. It was re-issued with the Edit tool.
