@@ -766,3 +766,20 @@ session was live, per its brief. This thread's determination: start `implementer
 Resumption State (`2496978`; brief `backlog-2026-11-18-briefs/implementer-hooks-017-resume.md`). Reason:
 the fix is in the tree before M6/M7 QA and the effort-final sweep, and M6's review may route to it anyway.
 If the fix moves the website tip, M5's verdict at `4b8db9c` expires and goes back through review and QA.
+
+## 2026-11-19T07:56Z — standing check: M6 through review and QA; security started; M7 review driven
+
+Read this turn: fix rounds record-only at agent-output `008468b` (QAF-24 lane; CR-16 to CR-18), no source
+tip moved (website `4b8db9c` by `log -1`; generator `8512a1d` from the review's `Reviewed-At`, see the
+disclosure). Code review Round 7 sub-entry: M6 APPROVED at generator `8512a1d` (`a010246`, R-39); QAF-24
+scoped check passes (`c3fa457`, R-40). QA Phase 2 M6: QA Complete at `8512a1d` (`dd7a449`, R-41), no
+finding; QA reports QAF-24 resolved by its own closure run. Plan revision 7, unchanged. Sessions
+(`cc-usage.py sessions`): QA 297K busy, code reviewer 234K idle 13 min, implementer 199K idle; each wake
+ARMED. OOM 0. Usage live: session 8%, `weekly_all` 2%.
+- QA's spawn cue (M6 QA Complete) acted on: `security-hooks-017` started on the generator delta
+  `8de2b53..8512a1d` (brief `backlog-2026-11-18-briefs/security-hooks-017.md`).
+- The code reviewer is idle with M7 owed by its brief and nothing working on it: sent a message to open M7.
+- **This thread's gate events, disclosed in the round:** `secret-file-gate-hook` refused a compound check
+  command that included `git -C preview-image-generator log -1 --format=%h`, then refused the same read
+  with `--name-only`, a form its message lists. Not re-issued in any other form; the generator tip is
+  taken from code review's committed `Reviewed-At`.
