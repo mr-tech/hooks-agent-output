@@ -565,3 +565,30 @@ the implementer raised the same point.
   revision for the gates to read.
 - Revision 5 is not yet routed to the gates: OQ-14 goes to him first (steering.md, Planner). A
   refuting helper is running the focus cases behind statement 5's wording.
+
+## 2026-11-19T05:01Z — OQ-14: value statement 5, corrected wording (his selection)
+
+Selection prompt, put and answered 05:01Z; ledger `steering/selection-ledger/2026-11-19.md` block
+"2026-11-19T05:01Z — steering-roadmap". Chosen by selection; option text is this thread's.
+- **Agent: use corrected wording (Recommended)** — CHOSEN. "Statement 5 reads: "As a Hooks user editing
+  a message, I want Enter to answer only the dialog I am in, so that pressing Enter on 'Message Update
+  Detected' does not also delete an embed field or set an image in the dialog underneath." The planner
+  registers it; M8's fix is unchanged."
+- Agent: use planner's wording — "Statement 5 goes in as the planner wrote it. Its reason describes the
+  opposite direction from what the test run showed; M8's fix is unchanged."
+- Agent: drop M8 from 017 — "No fifth statement. M8 leaves chain 017 and the two dialogs' Enter defect
+  is recorded for later. Nothing about it is fixed in this release."
+Premises, read this turn: OQ-14 open, plan `5155e68` lines 95 and 209 (statement 5 proposed; OQ-14 blocks
+M8 code only). The direction, executed: refuting `general-purpose-sonnet` helper, jsdom, real
+`WarningDialog`, `ConfirmationDialog` (through `ConfirmationProvider`) and `ImageUploader` at website
+`5c3d03f`, capped scope; raw results
+`/tmp/claude-1000/-usr-local-bin-hooks/93a69827-827d-45ac-a165-718bbb9fbdbd/scratchpad/focus-refute-res.txt`.
+Focus on WarningDialog's text: `["warn.onConfirm"]`, no Reload. Focus on the confirmation's text:
+`["warn.onConfirm","RELOAD"]`. ImageUploader likewise (`["img.onClose","img.submit","RELOAD"]`). Focus on a
+react-aria `Button`: Enter never reaches `document`, so only that button's own action fires. Reload
+discards local edits (`usePusher.ts:70-71`, `useApiMethods.ts:27-32`, `MessageProvider/index.tsx:220-238`).
+Which element a real browser focuses when the update prompt opens over another dialog: read from code
+(headlessui 2.2.9 FocusTrap; Reload has `autoFocus`), not run. That is the plan's RK-11, settled by UAT.
+"Either wording leaves M8's fix the same": M8-b's property (Enter answers only the dialog holding focus)
+is the same under both, read at plan lines 939 to 966.
+Recipients: `planner-hooks-017` (register the statement and resolve OQ-14).
