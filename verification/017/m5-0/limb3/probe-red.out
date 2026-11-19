@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9310d754-fa77-4013-bace-ca59bb63d5de/scratchpad/probe-wt3
+
+ ❯ |node| src/utils/__tests__/waituntil-span-probe.post-response-lines.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/__tests__/waituntil-span-probe.post-response-lines.test.ts [ src/utils/__tests__/waituntil-span-probe.post-response-lines.test.ts ]
+Error: Cannot find module '~/pages/api/waituntil-span-probe' imported from /tmp/claude-1000/-usr-local-bin-hooks/9310d754-fa77-4013-bace-ca59bb63d5de/scratchpad/probe-wt3/src/utils/__tests__/waituntil-span-probe.post-response-lines.test.ts
+ ❯ src/utils/__tests__/waituntil-span-probe.post-response-lines.test.ts:5:1
+      3| } from 'vitest';
+      4|
+      5| import handler from '~/pages/api/waituntil-span-probe';
+       | ^
+      6|
+      7| import type { NextApiRequest, NextApiResponse } from 'next';
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  05:08:11
+   Duration  448ms (transform 31ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+
