@@ -1,0 +1,248 @@
+- generic [ref=e1] [box=0,0,1350,64]:
+  - main [ref=e2] [box=0,0,1350,64]:
+    - generic [ref=e3] [box=0,0,1350,64]:
+      - generic [ref=e4] [box=8,10,321,44]:
+        - link [ref=e58] [cursor=pointer] [box=8,12,40,40]:
+          - /url: /message/f/0
+        - generic [ref=e5] [box=56,10,273,44]:
+          - textbox "Message Name" [ref=e62] [box=64,10,234,24]:
+            - /placeholder: New Message
+            - text: New Message New Message
+          - list [ref=e7] [box=56,34,273,20]:
+            - listitem [ref=e8] [box=56,34,39,20]:
+              - button "File" [ref=e9] [cursor=pointer] [box=56,34,39,20]
+            - listitem [ref=e10] [box=95,34,57,20]:
+              - button "Edit" [ref=e11] [cursor=pointer] [box=103,34,41,20]
+            - listitem [ref=e12] [box=152,34,64,20]:
+              - button "View" [ref=e13] [cursor=pointer] [box=160,34,48,20]
+            - listitem [ref=e14] [box=217,34,63,20]:
+              - button "Help" [ref=e15] [cursor=pointer] [box=225,34,47,20]
+            - listitem [ref=e16] [box=279,34,50,20]:
+              - link "Send" [ref=e17] [cursor=pointer] [box=279,35,50,17]:
+                - /url: /message/m/900000000000001/send
+      - generic [ref=e18] [box=1234,12,108,40]:
+        - button "toggle site theme" [ref=e19] [cursor=pointer] [box=1234,16,32,32]
+        - button "user menu" [ref=e22] [cursor=pointer] [box=1274,12,68,40]:
+          - img "User Avatar" [ref=e23] [box=1278,16,32,32]
+        - dialog [box=0,0,0,0]
+    - generic [ref=e32] [box=332,96,672,2441]:
+      - generic [ref=e67] [box=332,120,656,2393]:
+        - button "Classic Components V2" [ref=e69] [cursor=pointer] [box=404,122,176,36]:
+          - generic [ref=e70] [box=408,126,57,28]: Classic
+          - generic [ref=e71] [box=465,126,111,28]: Components V2
+        - generic [ref=e72] [box=404,166,584,288]:
+          - button "edit avatar icon" [ref=e73] [cursor=pointer] [box=348,166,40,40]:
+            - img "user avatar" [ref=e74] [box=348,166,40,40]
+          - generic [ref=e75] [box=404,168,218,19]:
+            - generic [ref=e76] [box=404,168,120,19]:
+              - text: Hooks.gg Bot
+              - generic [ref=e77] [box=496,168,27,15]: BOT
+            - generic [box=531,168,90,20]:
+              - time [box=531,171,90,15]: Today at 9:42 AM
+          - button "Welcome to Hooks.gg, the ultimate free message building tool for community builders! Here you can easily create beautiful custom messages for your server to engage and communicate with your members. To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages. If you ever need any assistance, reach out to us in our support server and we'll be happy to help you! typedA1 secondxyxyxyxyxyxyxyqqqqqqqqqqqqqqqqqqqqqq limb2editb13L1 b13L2 b13L3" [ref=e80] [cursor=pointer] [box=404,190,584,264]:
+            - generic [ref=e81] [box=404,190,584,44]:
+              - text: Welcome to
+              - strong [ref=e82] [box=488,191,65,19]: Hooks.gg
+              - text: ", the ultimate"
+              - emphasis [ref=e83] [box=644,191,24,19]: free
+              - text: message building tool for community builders!
+            - generic [ref=e84] [box=404,234,584,66]: Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
+            - generic [ref=e85] [box=404,300,584,66]: To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
+            - generic [ref=e86] [box=404,366,584,88]:
+              - text: If you ever need any assistance, reach out to us in our
+              - link "support server" [ref=e87] [box=760,367,96,19]:
+                - /url: https://hooks.gg/support
+              - text: and we'll be happy to help you!
+              - emphasis [ref=e88] [box=404,411,3,19]
+              - text: typedA1 secondxyxyxyxyxyxyxyqqqqqqqqqqqqqqqqqqqqqq limb2editb13L1 b13L2 b13L3
+        - generic [ref=e89] [box=404,454,584,2009]:
+          - article [ref=e90] [box=404,456,520,1177]:
+            - generic [ref=e91] [box=360,456,44,60]:
+              - button "Embed actions" [ref=e93] [cursor=pointer] [box=368,456,28,28]
+              - button [ref=e96] [cursor=pointer] [box=370,492,24,24]:
+                - img "Color Picker" [ref=e97] [box=370,492,24,24]
+            - generic [ref=e99] [box=408,456,516,1177]:
+              - generic [ref=e100] [box=420,472,392,24]:
+                - button "edit embed author icon" [ref=e101] [cursor=pointer] [box=420,472,32,24]
+                - generic [ref=e103] [box=452,473,100,22]:
+                  - generic "author name" [ref=e104] [box=452,473,80,22]: Author Name
+                  - button "show embed author link" [ref=e105] [cursor=pointer] [box=536,473,16,22]
+                - dialog [box=408,456,0,0]
+              - generic [ref=e109] [box=420,496,392,30]:
+                - generic [ref=e112] [box=420,496,392,30]:
+                  - button "About Hooks.gg" [ref=e114] [cursor=pointer] [box=420,504,109,22]
+                  - button "show embed title url" [ref=e116] [cursor=pointer] [box=533,499,16,24]
+                - dialog [box=408,456,0,0]
+              - 'button "We''re excited to have you here! This user-friendly interface makes it easy to create custom messages that fit your server''s theme and tone. (Hint: Use the Actions menu to toggle between Edit Mode and View Mode.) Here are just some of the exciting features you''ll find in Hooks.gg." [ref=e121] [cursor=pointer] [box=420,534,392,144]':
+                - generic [ref=e122] [box=420,534,392,36]: We're excited to have you here!
+                - generic [ref=e123] [box=420,570,392,72]: "This user-friendly interface makes it easy to create custom messages that fit your server's theme and tone. (Hint: Use the Actions menu to toggle between Edit Mode and View Mode.)"
+                - generic [ref=e124] [box=420,642,392,36]: Here are just some of the exciting features you'll find in Hooks.gg.
+                - generic [box=420,678,392,0]:
+                  - emphasis [box=420,678,0,0]
+              - generic [ref=e125] [box=420,686,392,631]:
+                - generic [ref=e126] [box=420,686,361,132]:
+                  - generic [ref=e127] [box=420,686,361,108]:
+                    - generic [ref=e128] [box=420,686,361,108]:
+                      - generic [ref=e129] [box=420,686,361,52]:
+                        - generic [ref=e327] [box=420,686,361,52]:
+                          - textbox "message content" [active] [ref=e330] [box=428,694,309,36]:
+                            - generic [ref=e332] [box=428,695,274,34]:
+                              - generic [ref=e333] [box=428,695,223,16]: <:pointer_ol:987453923587686430>
+                              - generic [ref=e334] [box=650,695,6,16]: _
+                              - generic [ref=e336] [box=659,695,6,16]: _
+                              - generic [ref=e337] [box=428,695,274,34]: Fully-Interactive Message Editor
+                          - button "😀" [ref=e338] [cursor=pointer] [box=745,698,36,28]
+                        - dialog [box=420,686,0,0]
+                      - button [ref=e136] [cursor=pointer] [box=420,740,361,54]:
+                        - generic [ref=e137] [box=420,740,361,54]:
+                          - text: Our message editor is easy to use and understand. No more needing to remember what's what,
+                          - strong [ref=e138] [box=420,759,331,34]: if you want to change something, just click or tap it!
+                    - dialog [ref=e341] [box=420,794,120,40]:
+                      - button "move embed field left" [box=420,794,40,40]
+                      - button "move embed field right" [ref=e342] [cursor=pointer] [box=460,794,40,40]
+                      - button "delete embed field" [ref=e345] [cursor=pointer] [box=500,794,40,40]
+                  - generic [ref=e139] [cursor=pointer] [box=420,794,361,24]:
+                    - generic [ref=e140] [box=419,806,1,1]:
+                      - checkbox "Inline" [box=419,820,0,0]
+                    - text: Inline
+                - generic [ref=e143] [box=420,826,361,99]:
+                  - generic [ref=e145] [box=420,826,361,75]:
+                    - button [ref=e147] [cursor=pointer] [box=420,826,361,18]:
+                      - generic [ref=e148] [box=420,826,361,18]:
+                        - img "<:discord_ol:987449544012882061>" [ref=e150] [box=420,826,18,18]
+                        - emphasis [ref=e151] [box=438,827,3,16]
+                        - text: Familiar Tools
+                    - button [ref=e153] [cursor=pointer] [box=420,846,361,55]:
+                      - generic [ref=e154] [box=420,846,361,55]:
+                        - text: This editor brings you all the fancy features you're used to from Discord including
+                        - code [ref=e155] [box=554,865,155,19]: "**inline formatting**"
+                        - text: and an emoji picker built into supported inputs.
+                  - generic [ref=e156] [cursor=pointer] [box=420,901,361,24]:
+                    - generic [ref=e157] [box=419,913,1,1]:
+                      - checkbox "Inline" [box=419,927,0,0]
+                    - text: Inline
+                - generic [ref=e160] [box=420,933,361,98]:
+                  - generic [ref=e162] [box=420,933,361,74]:
+                    - button [ref=e164] [cursor=pointer] [box=420,933,361,18]:
+                      - generic [ref=e165] [box=420,933,361,18]:
+                        - img "<:folder_ol:987449556969078864>" [ref=e167] [box=420,933,18,18]
+                        - emphasis [ref=e168] [box=438,934,3,16]
+                        - text: Saving to the Cloud
+                    - button "All of your messages are saved securely to the cloud upon logging in, so you can access them from anywhere and never lose your progress." [ref=e170] [cursor=pointer] [box=420,953,361,54]
+                  - generic [ref=e172] [cursor=pointer] [box=420,1007,361,24]:
+                    - generic [ref=e173] [box=419,1019,1,1]:
+                      - checkbox "Inline" [box=419,1033,0,0]
+                    - text: Inline
+                - generic [ref=e176] [box=420,1039,361,98]:
+                  - generic [ref=e178] [box=420,1039,361,74]:
+                    - button [ref=e180] [cursor=pointer] [box=420,1039,361,18]:
+                      - generic [ref=e181] [box=420,1039,361,18]:
+                        - img "<:userplus_ol:987453943770656768>" [ref=e183] [box=420,1039,18,18]
+                        - emphasis [ref=e184] [box=438,1040,3,16]
+                        - text: Shared Saves
+                    - button "Saving messages to a Discord server you admin allows other admins of that server to also view and edit them, making it easy to collaborate with the team." [ref=e186] [cursor=pointer] [box=420,1059,361,54]
+                  - generic [ref=e188] [cursor=pointer] [box=420,1113,361,24]:
+                    - generic [ref=e189] [box=419,1125,1,1]:
+                      - checkbox "Inline" [box=419,1139,0,0]
+                    - text: Inline
+                - generic [ref=e192] [box=420,1145,361,98]:
+                  - generic [ref=e194] [box=420,1145,361,74]:
+                    - button [ref=e196] [cursor=pointer] [box=420,1145,361,18]:
+                      - generic [ref=e197] [box=420,1145,361,18]:
+                        - img "<:download_ol:987449546915323924>" [ref=e199] [box=420,1145,18,18]
+                        - emphasis [ref=e200] [box=438,1146,3,16]
+                        - text: Message Importing
+                    - button "You can easily load messages already sent by webhooks directly into our editor, making it easy to edit and recreate responses." [ref=e202] [cursor=pointer] [box=420,1165,361,54]
+                  - generic [ref=e204] [cursor=pointer] [box=420,1219,361,24]:
+                    - generic [ref=e205] [box=419,1231,1,1]:
+                      - checkbox "Inline" [box=419,1245,0,0]
+                    - text: Inline
+                - button "Add Field" [ref=e208] [cursor=pointer] [box=420,1251,361,66]
+              - button "edit embed image" [ref=e214] [cursor=pointer] [box=420,1333,256,256]:
+                - img "embed main" [ref=e215] [box=420,1333,256,256]
+              - button "edit embed thumbnail" [ref=e219] [cursor=pointer] [box=828,472,80,80]:
+                - img "embed rich thumbnail" [ref=e220] [box=828,472,80,80]
+              - generic [ref=e221] [box=420,1597,488,20]:
+                - button "edit embed footer icon" [ref=e222] [cursor=pointer] [box=420,1597,28,20]:
+                  - img "embed footer icon" [ref=e223] [box=420,1597,20,20]
+                - generic [ref=e224] [box=448,1599,250,16]:
+                  - generic "footer text" [ref=e225] [box=448,1599,141,16]: Click or tap to edit footer text.
+                  - generic [ref=e226] [box=592,1599,5,16]: •
+                  - button "Today at 12:00 AM" [ref=e227] [cursor=pointer] [box=601,1599,96,16]
+                  - dialog [box=408,456,0,0]
+          - article [ref=e228] [box=404,1637,520,824]:
+            - generic [ref=e229] [box=360,1637,44,60]:
+              - button "Embed actions" [ref=e231] [cursor=pointer] [box=368,1637,28,28]
+              - button [ref=e234] [cursor=pointer] [box=370,1673,24,24]:
+                - img "Color Picker" [ref=e235] [box=370,1673,24,24]
+            - generic [ref=e237] [box=408,1637,516,824]:
+              - generic [ref=e238] [box=420,1653,392,24]:
+                - button "edit embed author icon" [ref=e239] [cursor=pointer] [box=420,1653,32,24]
+                - generic [ref=e241] [box=452,1654,156,22]:
+                  - generic "author name" [ref=e242] [box=452,1654,136,22]: Your Wonderful Server
+                  - button "show embed author link" [ref=e243] [cursor=pointer] [box=591,1654,16,22]
+                - dialog [box=408,1637,0,0]
+              - generic [ref=e247] [box=420,1677,392,30]:
+                - generic [ref=e250] [box=420,1677,392,30]:
+                  - 'button "Example: Welcome to Our Server!" [ref=e252] [cursor=pointer] [box=420,1685,228,22]'
+                  - button "show embed title url" [ref=e254] [cursor=pointer] [box=651,1680,16,24]
+                - dialog [box=408,1637,0,0]
+              - 'button "Hey there {user}! Welcome to our community. We''re excited to have you here and hope you''ll have a great time with us. Take a moment to introduce yourself and let us know what brought you here. And if you have any questions or concerns, don''t hesitate to reach out to one of our friendly moderators. Thanks for joining us, and we look forward to getting to know you better!" [ref=e259] [cursor=pointer] [box=420,1715,392,180]':
+                - generic [ref=e260] [box=420,1715,392,54]: "Hey there {user}! Welcome to our community. We're excited to have you here and hope you'll have a great time with us."
+                - generic [ref=e261] [box=420,1769,392,72]: Take a moment to introduce yourself and let us know what brought you here. And if you have any questions or concerns, don't hesitate to reach out to one of our friendly moderators.
+                - generic [ref=e262] [box=420,1841,392,54]: Thanks for joining us, and we look forward to getting to know you better!
+                - generic [box=420,1895,392,0]:
+                  - emphasis [box=420,1895,0,0]
+              - generic [ref=e263] [box=420,1903,392,242]:
+                - generic [ref=e264] [box=420,1903,361,80]:
+                  - generic [ref=e266] [box=420,1903,361,56]:
+                    - button "Channels" [ref=e268] [cursor=pointer] [box=420,1903,361,18]
+                    - button "We have a variety of channels for different topics, so feel free to jump in and join the conversation!" [ref=e271] [cursor=pointer] [box=420,1923,361,36]
+                  - generic [ref=e273] [cursor=pointer] [box=420,1959,361,24]:
+                    - generic [ref=e274] [box=419,1971,1,1]:
+                      - checkbox "Inline" [checked] [box=419,1985,0,0]
+                    - text: Inline
+                - generic [ref=e278] [box=420,1991,361,80]:
+                  - generic [ref=e280] [box=420,1991,361,56]:
+                    - button "Events" [ref=e282] [cursor=pointer] [box=420,1991,361,18]
+                    - button "We regularly host events and activities, so keep an eye out for announcements and join in on the fun!" [ref=e285] [cursor=pointer] [box=420,2011,361,36]
+                  - generic [ref=e287] [cursor=pointer] [box=420,2047,361,24]:
+                    - generic [ref=e288] [box=419,2059,1,1]:
+                      - checkbox "Inline" [box=419,2073,0,0]
+                    - text: Inline
+                - button "Add Field" [ref=e291] [cursor=pointer] [box=420,2079,361,66]
+              - button "edit embed image" [ref=e297] [cursor=pointer] [box=420,2161,256,256]:
+                - img "embed main" [ref=e298] [box=420,2161,256,256]
+              - button "edit embed thumbnail" [ref=e302] [cursor=pointer] [box=828,1653,80,80]:
+                - img "embed rich thumbnail" [ref=e303] [box=828,1653,80,80]
+              - generic [ref=e304] [box=420,2425,488,20]:
+                - button "edit embed footer icon" [ref=e305] [cursor=pointer] [box=420,2425,28,20]:
+                  - img "embed footer icon" [ref=e306] [box=420,2425,20,20]
+                - generic [ref=e307] [box=448,2427,242,16]:
+                  - generic "footer text" [ref=e308] [box=448,2427,141,16]: Click or tap to edit footer text.
+                  - generic [ref=e309] [box=592,2427,5,16]: •
+                  - button "Today at 9:19 AM" [ref=e310] [cursor=pointer] [box=601,2427,88,16]
+                  - dialog [box=408,1637,0,0]
+        - button "Add Embed" [ref=e311] [cursor=pointer] [box=404,2471,120,40]
+      - button "toggle message view mode" [ref=e315] [cursor=pointer] [box=1262,812,56,56]
+      - button "save message" [ref=e323] [cursor=pointer] [box=956,116,32,32]
+  - button "Open Next.js Dev Tools" [ref=e53] [cursor=pointer] [box=22,830,32,32]
+  - alert [ref=e57] [box=-1,63,1,1]
+  - generic [box=0,64,1350,0]:
+    - generic [box=0,64,1350,0]:
+      - region "Notifications Alt+T" [box=0,64,1350,0]
+    - generic [box=0,64,1350,0]: https://example.com/image.png
+    - generic [box=0,64,1350,0]: https://example.com/image.png
+    - generic [box=0,64,1350,0]: https://example.com/image.png
+    - generic [box=0,64,1350,0]: https://example.com/image.png
+    - generic [box=0,64,1350,0]: https://example.com/image.png
+    - generic [box=0,64,1350,0]: https://example.com/image.png
+    - generic [box=0,64,1350,0]: https://example.com/image.png
+    - generic [box=0,64,1350,0]: https://example.com/image.png
+    - generic [box=0,64,1350,0]: https://example.com/image.png
+  - generic [box=0,64,1350,0]:
+    - dialog [box=0,0,0,0]
+  - generic [box=0,64,1350,0]:
+    - dialog [box=0,0,0,0]
+  - generic [box=0,64,1350,0]:
+    - dialog [box=0,0,0,0]

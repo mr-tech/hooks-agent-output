@@ -1,7 +1,7 @@
 ---
 UUID: 4e5ca400
-Status: Open
-Status-Detail: "Owed by the next UAT or QA browser walk on a stack built by tools/uat-local-stack.sh: record the first save's message id and the count of 'Messages' ids below 900000000000001 after it. Unchecked assumption of the fix-uat-local-stack-id-sequence code review; nothing blocks on it."
+Status: Addressed
+Status-Detail: "Discharged by uat-hooks-017's walk on a uat-local-stack.sh stack (2026-11-19): first save id 900000000000001; count of ids below 900000000000001 was 0 after it and after every later save (ids written: 900000000000001, 900000000000002). Record: uat/017-existing-items-backlog-uat.md, Flow Execution."
 Owning-Stage: uat (or qa, whichever next walks a local website build); steering names this file in that walk's brief
 Review-Trigger: "when the next browser walk on a stack built by tools/uat-local-stack.sh is briefed"
 ---
@@ -47,3 +47,4 @@ item carried only in a steering memory file, which stage sessions do not load.
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-11T20:17 | steering-queue-hooks | Created at the close-out of `fix-uat-local-stack-id-sequence`. |
+| 2026-11-19T10:30 | uat-hooks-017 | Document closed | Status: Addressed. First save id 900000000000001; count below 900000000000001 = 0 (`verification/017/uat/walk-1/S2-db.txt`, `messages-final.txt`). |

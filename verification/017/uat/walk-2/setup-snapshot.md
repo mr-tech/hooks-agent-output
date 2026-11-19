@@ -1,0 +1,128 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - link [ref=e58] [cursor=pointer]:
+          - /url: /message/f/0
+        - generic [ref=e5]:
+          - textbox "Message Name" [ref=e62]:
+            - /placeholder: New Message
+            - text: New Message New Message
+          - list [ref=e7]:
+            - listitem [ref=e8]:
+              - button "File" [ref=e9] [cursor=pointer]
+            - listitem [ref=e10]:
+              - button "Edit" [ref=e11] [cursor=pointer]
+            - listitem [ref=e12]:
+              - button "View" [ref=e13] [cursor=pointer]
+            - listitem [ref=e14]:
+              - button "Help" [ref=e15] [cursor=pointer]
+            - listitem [ref=e16]:
+              - link "Send" [ref=e17] [cursor=pointer]:
+                - /url: /message/m/900000000000001/send
+      - generic [ref=e18]:
+        - button "toggle site theme" [ref=e19] [cursor=pointer]
+        - button "user menu" [ref=e22] [cursor=pointer]:
+          - img "User Avatar" [ref=e23]
+        - dialog
+    - generic [ref=e32]:
+      - generic [ref=e67]:
+        - generic [ref=e72]:
+          - img "user avatar" [ref=e327]
+          - generic [ref=e75]:
+            - generic [ref=e76]:
+              - text: Hooks.gg Bot
+              - generic [ref=e77]: BOT
+            - generic:
+              - time: Today at 9:42 AM
+          - generic [ref=e328]:
+            - generic [ref=e329]:
+              - text: Welcome to
+              - strong [ref=e330]: Hooks.gg
+              - text: ", the ultimate"
+              - emphasis [ref=e331]: free
+              - text: message building tool for community builders!
+            - generic [ref=e332]: Here you can easily create beautiful custom messages for your server to engage and communicate with your members.
+            - generic [ref=e333]: To get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.
+            - generic [ref=e334]:
+              - text: If you ever need any assistance, reach out to us in our
+              - link "support server" [ref=e335] [cursor=pointer]:
+                - /url: https://hooks.gg/support
+              - text: and we'll be happy to help you!
+              - emphasis [ref=e336]
+              - text: typedA1 secondxyxyxyxyxyxyxyqqqqqqqqqqqqqqqqqqqqqq limb2editb13L1 b13L2 b13L3
+        - generic [ref=e89]:
+          - article [ref=e90]:
+            - generic [ref=e99]:
+              - link "About Hooks.gg" [ref=e337] [cursor=pointer]:
+                - /url: https://hooks.gg
+              - generic [ref=e339]:
+                - generic [ref=e340]: We're excited to have you here!
+                - generic [ref=e341]: "This user-friendly interface makes it easy to create custom messages that fit your server's theme and tone. (Hint: Use the Actions menu to toggle between Edit Mode and View Mode.)"
+                - generic [ref=e342]: Here are just some of the exciting features you'll find in Hooks.gg.
+                - generic:
+                  - emphasis
+              - generic [ref=e125]:
+                - generic [ref=e126]:
+                  - generic [ref=e343]:
+                    - img "<:pointer_ol:987453923587686430>" [ref=e345] [cursor=pointer]
+                    - emphasis [ref=e346]
+                    - text: Fully-Interactive Message Editor
+                  - generic [ref=e348]:
+                    - text: Our message editor is easy to use and understand. No more needing to remember what's what,
+                    - strong [ref=e349]: if you want to change something, just click or tap it!
+                - generic [ref=e143]:
+                  - generic [ref=e350]:
+                    - img "<:discord_ol:987449544012882061>" [ref=e352] [cursor=pointer]
+                    - emphasis [ref=e353]
+                    - text: Familiar Tools
+                  - generic [ref=e355]:
+                    - text: This editor brings you all the fancy features you're used to from Discord including
+                    - code [ref=e356]: "**inline formatting**"
+                    - text: and an emoji picker built into supported inputs.
+                - generic [ref=e160]:
+                  - generic [ref=e357]:
+                    - img "<:folder_ol:987449556969078864>" [ref=e359] [cursor=pointer]
+                    - emphasis [ref=e360]
+                    - text: Saving to the Cloud
+                  - generic [ref=e361]: All of your messages are saved securely to the cloud upon logging in, so you can access them from anywhere and never lose your progress.
+                - generic [ref=e176]:
+                  - generic [ref=e363]:
+                    - img "<:userplus_ol:987453943770656768>" [ref=e365] [cursor=pointer]
+                    - emphasis [ref=e366]
+                    - text: Shared Saves
+                  - generic [ref=e367]: Saving messages to a Discord server you admin allows other admins of that server to also view and edit them, making it easy to collaborate with the team.
+                - generic [ref=e192]:
+                  - generic [ref=e369]:
+                    - img "<:download_ol:987449546915323924>" [ref=e371] [cursor=pointer]
+                    - emphasis [ref=e372]
+                    - text: Message Importing
+                  - generic [ref=e373]: You can easily load messages already sent by webhooks directly into our editor, making it easy to edit and recreate responses.
+          - article [ref=e228]:
+            - generic [ref=e237]:
+              - generic [ref=e238]: Your Wonderful Server
+              - generic [ref=e247]: "Example: Welcome to Our Server!"
+              - generic [ref=e377]:
+                - generic [ref=e378]: "Hey there {user}! Welcome to our community. We're excited to have you here and hope you'll have a great time with us."
+                - generic [ref=e379]: Take a moment to introduce yourself and let us know what brought you here. And if you have any questions or concerns, don't hesitate to reach out to one of our friendly moderators.
+                - generic [ref=e380]: Thanks for joining us, and we look forward to getting to know you better!
+                - generic:
+                  - emphasis
+              - generic [ref=e263]:
+                - generic [ref=e264]:
+                  - generic [ref=e265]: Channels
+                  - generic [ref=e382]: We have a variety of channels for different topics, so feel free to jump in and join the conversation!
+                - generic [ref=e278]:
+                  - generic [ref=e279]: Events
+                  - generic [ref=e385]: We regularly host events and activities, so keep an eye out for announcements and join in on the fun!
+              - generic [ref=e304]: Today at 9:19 AM
+      - button "toggle message view mode" [ref=e315] [cursor=pointer]
+      - button "save message" [ref=e323] [cursor=pointer]
+  - button "Open Next.js Dev Tools" [ref=e53] [cursor=pointer]
+  - alert [ref=e57]
+  - generic:
+    - generic:
+      - region "Notifications Alt+T"
+    - generic: https://example.com/image.png
+  - generic:
+    - dialog

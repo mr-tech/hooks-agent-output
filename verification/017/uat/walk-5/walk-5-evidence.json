@@ -1,0 +1,7 @@
+{"utc_start":"2026-11-19T10:23:22Z","utc_end":"2026-11-19T10:28:30Z",
+"part1":{"control_m3bctl2":{"rendered":true,"storage_key":"messageDrafts","leave_prompt":"beforeunload (accepted)","after_reload_shown":true,"result":"PASS"},
+"main_m3bmark2":{"committed_rendered":true,"storage_key":"messageDrafts","sessions_deleted":"DELETE 1","reload_leave_prompt":"beforeunload appeared (expected none)","landing":"/message/m/0/edit","marker_in_storage_after_reload":"messageDrafts","route0_shows_marker":false,"route0_showed":"m3adraft","login_leave_prompt":"none","after_signin_M_editor_shows_m3bmark2":true,"storage_after":"messageDrafts"}},
+"part2":{"P0":{"src":"http://127.0.0.1:39001/bucket/dev/previews/900000000000001/v1795083621276378ee8b3b7f5cfa61a0.jpeg","complete":true,"naturalWidth":192,"nonce":"v1795083621276378ee8b3b7f5cfa61a0"},
+"P1":{"src":"same as P0","naturalWidth":192,"nonce":"v1795083621276378ee8b3b7f5cfa61a0","rig":"generator exited 10:24:57Z"},
+"P2":{"src":"http://127.0.0.1:39001/bucket/dev/previews/900000000000001/v17950839533773991288a1fb688125e9.jpeg","naturalWidth":192,"nonce":"v17950839533773991288a1fb688125e9","rig":"generator started 10:25:42Z"},
+"N":{"newId":900000000000002,"method":"File > Save as... (File > Save disabled on route 0)","card_img_src":"https://cdn.discordapp.com/embed/avatars/0.png","naturalWidth":256,"nonce":"(empty)","generator":"stopped 10:26:31Z; restarted at end"}}}

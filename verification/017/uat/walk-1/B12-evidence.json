@@ -1,0 +1,8 @@
+{"walk":"B-12","M":"900000000000001",
+"limb1":{"step1_afterLinkClick":{"t":"2026-11-19T09:25:08.911Z","dialog":"You have unsaved changes!","activeElement":"BUTTON 'Leave Page' inside 'You have unsaved changes!'"},
+ "step2":"B saved at 2026-11-19 09:25:22.562 UTC (B's typed text did not land; saved content equal to server text; save still raised prompt in A)",
+ "step3_t":"2026-11-19T09:25:34.360Z","openDialogs":["You have unsaved changes!","Message Update Detected"],"count":2,"activeElement":{"tag":"BUTTON","text":"Reload","closestDialog":"Message Update Detected"},
+ "step4_before_Enter":{"t":"2026-11-19T09:25:38.861Z","url":"/message/m/900000000000001/edit","contentEndsWith":"qqqq12 (A's unsaved '12')"},
+ "step4_after_Enter":{"t":"2026-11-19T09:25:40.430Z","url":"/message/m/900000000000001/edit","dialogsOpen":["You have unsaved changes!"],"contentEndsWith":"qqqq (A's '12' gone = Reload ran)","activeElement":"BUTTON Leave Page in 'You have unsaved changes!'"},
+ "step5":"clicked Cancel on link prompt; t=09:25:45.899 url /message/m/900000000000001/edit, no dialogs open"},
+"limb2":{"t_beforeEnter":"2026-11-19T09:25:52.858Z","dialogs":["You have unsaved changes!"],"activeElement":"BUTTON 'Leave Page' in 'You have unsaved changes!'","afterEnter":{"t":"2026-11-19T09:25:55.375Z","url":"/message/f/0"}}}

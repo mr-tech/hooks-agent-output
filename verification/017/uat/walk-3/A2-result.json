@@ -1,0 +1,3 @@
+{"run":"A2","tabA":{"contentTyped":"-save-pA1pA2 (verified)","preSaveClick":"2026-11-19T10:05:53.398Z","saveRequestPOST":"2026-11-19T10:05:53.467Z","editAt":"2026-11-19T10:05:53.607Z","dialogLog":"none within 10 s (log only initial empty entry)","toast":"not observed (selector matched none)"},
+"tabB":{"dialogLog":[["2026-11-19T10:05:53.842Z","Message Update Detected"]]},
+"note":"first A2 attempt aborted: text landed as 'pA1p' (pA2 partly dropped), reloaded and rerun"}
