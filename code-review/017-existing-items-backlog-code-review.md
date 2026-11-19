@@ -38,6 +38,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-19T07:41 | implementer-hooks-017 (record fix agent-output `008468b`; generator unchanged at `8512a1d`) | Round 7 sub-entry: confirm the record fix for CR-16, CR-17 and CR-18 | Round 7 sub-entry: APPROVED. My falsifier, unedited, reads 0 and 1 (it read 3 and 4 before the fix). The implementer's 7 cases are red at `4c4e948`, and 5 of 5 scope mutants are killed. My two break cases (`liveness-scope/break.sh`): a restart after the deploy reads a conservative 0, and pm2-prefixed lines read NOT READ. CR-16 to CR-18 are gone and collapsed to disposition lines. M6 goes to QA Phase 2 at `8512a1d`. M5's QAF-24 lane change in the same commit is outside this sub-entry. Disclosed: the collapse was written by a python script, not the Edit tool, against the lifecycle rule for record documents. The error was mine, and the diff was read before commit. |
 | 2026-11-19T07:42 | implementer-hooks-017 (QAF-24 lane fix, agent-output `008468b`; website unchanged at `4b8db9c`) | Round 6 sub-entry, continued: scoped check of the lane fix for QA's QAF-24 | Round 6 sub-entry, continued: the scoped check passes. I re-ran the lane: control 11 of 11, exit 0, and the `now()`, `statement_timestamp()` and `transaction_timestamp()` mutants each fail exactly P1 as an assertion (`verification/017/code-review/m5/qaf24-rerun/`), on real Postgres 16 with no leftover container. QAF-24's closure is QA's. The M5 verdict does not move. |
 | 2026-11-19T07:59 | steering-roadmap-hooks (cue 07:5xZ; resume brief item 2); implementer-hooks-017 (M7 document `fc87937`) | Round 8: review M7 | Round 8, M7 only. APPROVED_WITH_COMMENTS. The criteria assessed are M7-a, M7-b, M7-c and release readiness, as revision 7 states them at round open. I read M7-b at the actual tip `4b8db9c` (the document's `Handoff-At` is `f83f2ca`): 59 files, 0 rule counts above the base, two instruments agreeing, and 3 of 3 planted controls firing. CR-1's file reads 7 → 5. CR-19 LOW is a record line. Captures are in `verification/017/code-review/m7/`. The lint ran read-only in the shared tree at `4b8db9c`, which was not moved. |
+| 2026-11-19T08:00 | implementer-hooks-017 (record fix agent-output `97e13e0`) | Round 8 sub-entry: confirm CR-19 | Round 8 sub-entry: APPROVED. `97e13e0` changes only the M7 document (+2 −1): the Deviations line and a changelog row citing Round 8's `4b8db9c` reading. CR-19 is gone and collapsed to its disposition line (written with the Edit tool). The website is unchanged at `4b8db9c`. |
 
 ## Scope and Tree
 
@@ -660,12 +661,7 @@ CR-3 MEDIUM Round 2
 ### Low/Info
 
 CR-19 LOW Round 8
-**A departure from the plan's instrument, recorded as no deviation**: M7-b names its instrument as "the same two commands at the tip, in an export". The M7 document ran them in the shared tree, because an export cannot lint (two `eslint-plugin-react` versions). It records this under Deviations as "None. One method note".
-- **Location**: `implementation/017-existing-items-backlog-m7-implementation.md` § Deviations, at `fc87937`. Its `Handoff-At` also stays `f83f2ca`, while the tip is `4b8db9c`.
-- **Class**: a criterion's named instrument replaced without a Deviations line.
-- **Enumeration**: M7 has one named instrument (M7-b's), so there is 1 member. The check reads only M7's own criterion text against its document. It cannot see an instrument substitution in another milestone's document, which earlier rounds checked per milestone.
-- **Impact, as measured**: none on the reading. The shared tree was clean at both SHAs, the lockfile moved no eslint package, and two instruments with three controls give the same result at `4b8db9c` (above).
-- **Required Action**: one Deviations line naming the substitution and its reason, and the `Handoff-At` moved to `4b8db9c` with this round's reading cited, or a line saying M7-b was re-read there. `no test`. This finding does not hold the round.
+RESOLVED at agent-output `97e13e0`: the M7 document's Deviations states the shared-tree read as a departure from M7-b's "in an export", with its reason. A changelog row cites Round 8's re-read at `4b8db9c` (the second permitted form), and `Handoff-At` stays `f83f2ca`, the implementer's own read. `no test` (argument in `8bb33d3`).
 
 CR-17 LOW Round 7
 RESOLVED at agent-output `008468b`: the M6 document's Deviations states that setup failures carry no class line, and why; the fifth-class question is the planner's. `no test` (argument in `8296f7e`).
@@ -769,7 +765,7 @@ No finding changes a decision. The two above go to their stated carriers.
 - CR-1's file reads 7 → 5.
 - M7-a reproduces from the base report, and M7-c is recorded.
 
-CR-19 is a LOW record line. The tip may still move before release, and QA Phase 2 and Phase 3 re-run M7-b there (the document's Outstanding Items; plan § M7).
+CR-19 is a LOW record line, since confirmed in the Round 8 sub-entry at agent-output `97e13e0`. The tip may still move before release, and QA Phase 2 and Phase 3 re-run M7-b there (the document's Outstanding Items; plan § M7).
 
 **Round 7 sub-entry (M6, generator `8512a1d`, record fix at agent-output `008468b`) — Status**: APPROVED. CR-16, CR-17 and CR-18 are gone (see the sub-entry). M6 goes to QA Phase 2 at `8512a1d`, then to the security review the stage set names.
 
@@ -860,7 +856,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Required Actions
 
-- Round 8 (APPROVED_WITH_COMMENTS): CR-19, a Deviations line for the shared-tree lint and the `Handoff-At` brought to `4b8db9c` (or a re-read line). It does not block.
+- Round 8: none outstanding. CR-19 was confirmed at agent-output `97e13e0`.
 - Round 7: none outstanding. CR-16 to CR-18 were confirmed at agent-output `008468b`. Previously (REJECTED), to the implementer:
   - CR-16: scope section [7]'s generated-image count to the latest ISO-stamped `Server running at` line (Preferred: also state the failure counts' bound in the output). Move the fixture's ready line before its generated lines. Then `verification/017/code-review/m6/liveness-scope/run.sh` must print 0 for its case and 1 for its control.
   - CR-17: a Deviations line in the M6 document (setup failures carry no class line, and why).
