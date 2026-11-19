@@ -3,13 +3,13 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Status-Detail: "Revision 2: the critic's pass 1 (F-1 to F-18), the architect's conformance pass (AF-1 to AF-9) and QA Phase 1 (QAF-1 to QAF-9) folded. Ready for critique pass 2, the architect's delta pass and QA's Phase 1 re-key. OQ-8 to OQ-10 and X-17 to X-19 answered by him (D-18 to D-21, R-5). Blocks before code: OQ-7 (the waitUntil probe, before M5 and M6 code). M1, M2 and M7 wait only on the gates and the chain branch."
-Revision: 2
+Status-Detail: "Revision 3: critique pass 2 (F-19 to F-23, SL-1, SL-2), the architect's delta approval (AF-16 to AF-18) and QA's Phase 1 re-key (QAF-10 to QAF-12, EC-1, EC-2) folded. Ready for critique pass 3, the architect's delta read and QA's re-key. Blocks before code: OQ-11 and OQ-12 (his, before M3 code), OQ-13 (his, before M5 code), OQ-7 (the waitUntil probe, before M5 and M6 code). M1, M2 and M7 wait only on the gates and the chain branch."
+Revision: 3
 Plan-ID: 017
 Target-Release: "website master (Vercel production) first, then preview-image-generator prod (prod.yml), each push his word, run by devops. Order and reason: § Release and rollback. Neither package.json carries a version field (git show 1ad625e:package.json, 8de2b53:package.json), so no version artifact moves."
 Epic-Alignment: "Hooks.gg existing-items queue: the commission of 2026-11-18T21:53Z (items 2 to 5 of the five-item ranking), under his 2026-11-11 ruling that new feature work waits until the existing items are handled (steering/queue-hooks-rulings.md, selection 2)."
 Lane: "full chain, set by the scoping determination (rulings block 2026-11-18T21:59Z, Pipeline). Not proposed small: M5 changes the shared save path and a second service's contract; M2 changes the notice every editor tab runs; M3 changes the browser-stored draft every editor reads; M4 adds a context above every /message page."
-Architectural-Surface: "Yes; the architect's conformance pass is a named step (stage set). (1) A cross-repo contract: bucket deletion moves from the generator to the website, the stored preview nonce commits only after the generator's answer, and the key form [dev/]previews/<id>/<nonce>.jpeg is decided on each side by a named variable (M5, M6). (2) Post-response work in the save path through @vercel/functions waitUntil, a new dependency (M5). (3) A stored representation: the browser's draft storage, a new typed key and a per-tab id (M3). (4) A navigation-guard context mounted at src/app/message/layout.tsx, with ConfirmationProvider moved there (M4). Architecture lines the chain closes or invalidates: system-architecture.md Runtime Flow 3 (who deletes; the key form), Problem Areas rows 'A failed preview generation shows a broken image', 'enforceImportMutualExclusivity is dead', 'ESLint carries known findings'; Recommendations 1, 4, 6; website.md A-6 (persist also records the tab's own save), A-7 (the draft key and its one reader), A-8 (the providers below the message layout's header and sidebar)."
+Architectural-Surface: "Yes; the architect's conformance pass is a named step (stage set). (1) A cross-repo contract: bucket deletion moves from the generator to the website, the stored preview nonce commits only after the generator's answer, and the key form [dev/]previews/<id>/<nonce>.jpeg is decided on each side by a named variable (M5, M6). (2) Post-response work in the save path through @vercel/functions waitUntil, a new dependency (M5). (3) A stored representation: the browser's draft storage, a new typed key and a per-tab id (M3). (4) A navigation-guard context mounted at src/app/message/layout.tsx, with its own ConfirmationProvider instance and ConfirmationDialog (M4). Architecture lines the chain closes or invalidates: system-architecture.md Runtime Flow 3 (who deletes; the key form), Problem Areas rows 'A failed preview generation shows a broken image', 'enforceImportMutualExclusivity is dead', 'ESLint carries known findings'; Recommendations 1, 4, 6; website.md A-6 (persist also records the tab's own save), A-7 (the draft key and its one reader), A-8 (the providers below the message layout's header and sidebar)."
 ---
 
 # Plan 017 — the existing-items backlog: stale previews, the saving tab's own notice, signed-out edits, hygiene
@@ -26,6 +26,7 @@ Architectural-Surface: "Yes; the architect's conformance pass is a named step (s
 | 2026-11-18T23:27 | R-4 | planner-hooks-017 | Registered D-14 to D-16, his three selections on revision 1; words in `steering/017-rulings.md` block 2026-11-18T23:26Z (`dda0356`) and the 23:26Z ledger block. Scope delta: none (registration only). |
 | 2026-11-18T23:57 | 2 | planner-hooks-017 | Folds the three gate verdicts on revision 1: critique cycle 1 pass 1 (`aa2e8ef`, F-1 to F-18), the architect's conformance pass (`406b34a`, AF-1 to AF-9) and QA Phase 1 (`d1add83`, `06511f1`, QAF-1 to QAF-9 with the QAF-9 reconcile); disposition of every finding in § "Gate findings folded". OQ-8 to OQ-10 opened for him; D-17 registered (steering's 23:41Z Standing Default). Scope delta: no milestone added or removed; M3 gains a named storage form, a write matrix, a preservation limb for the other stored keys and an unload-exit table; M4 gains a navigation-guard context and moves `ConfirmationProvider` up a layout (OQ-10); M5 gains an ordered nonce, a deletion form, the cross-repo key contract and a fixed log prefix; M5-0 gains three outcomes and a control line; M6 gains a provision step and per-class failure lines. Against the original ask: what each item delivers is unchanged; the mechanism under items 2 and 4 is larger. |
 | 2026-11-19T00:12 | R-5 | planner-hooks-017 | Registered D-18 to D-21, his four selections on revision 2 (OQ-8, OQ-9, OQ-10, X-17 to X-19); words in `steering/selection-ledger/2026-11-19.md` block "2026-11-19T00:10Z — steering-roadmap" and `steering/017-rulings.md` block 2026-11-19T00:11Z (`7c14195`). Scope delta: none — registration only. |
+| 2026-11-19T00:15 | 3 | planner-hooks-017 | Folds critique cycle 1 pass 2 (`51805f4`: F-19 to F-23; SL-1 and SL-2 members fixed), the architect's delta approval (`5ee7b89`: AF-16 to AF-18), QA's Phase 1 re-key (`df45dde`: QAF-10 to QAF-12, EC-1, EC-2, NM-22 to NM-25), his D-18 to D-21 into the criteria, and steering's two candidates (`steering/017-rulings.md` block 00:06Z), each re-derived. M4's dialog form now rides D-20 (its own provider instance at the layout instead of moving the editor's); disposition table § "Gate findings folded". OQ-11 to OQ-13 opened for him (F-19). Scope delta: no milestone added or removed; M3 gains a byte bound and a matrix row; M4's dialog form changes inside D-20; M5 gains a lock-read statement form, a real-Postgres lane, an age reference on the committed object and a 12-hour reader. Against the original ask: what each item delivers is unchanged. |
 
 ## Reading Order
 
@@ -41,9 +42,9 @@ Owed re-verdicts:
 
 | Limb | Decidable since | Owning gate | State |
 |---|---|---|---|
-| Revision 2 whole (every milestone) | revision 2 commit | critic, cycle 1 pass 2 | owed |
-| AF-1 to AF-5 answers (M3, M4, M5, M6 key contract) | revision 2 commit | architect, delta pass | owed |
-| M5-e oracle re-keyed to M5-a and M5-c as restated; M3-g and M3-h populations; M5-g | revision 2 commit | QA Phase 1 re-key | owed |
+| Revision 3 delta (M3 bound and matrix, M4-a dialog form, M5-a statement form, M5-c age reference, M5-f reader, RK-7) | revision 3 commit | critic, cycle 1 pass 3 | owed |
+| M4-a's dialog form; M5-c's age reference (AF-17); M3's byte bound (AF-16) | revision 3 commit | architect, delta read | owed |
+| M5-c form 3 re-keyed to the committed object's `LastModified`; M4-b's two-dialog member; the real-Postgres lane; B-7 and B-10 readers | revision 3 commit | QA Phase 1 re-key | owed |
 
 ## Value Statement and Business Objective
 
@@ -101,7 +102,7 @@ steering-roadmap from option text this planner drafted.
 | D-5 | Cross-tab divergence is flagged, not coordinated | 2026-08-24 | *"…flag when front-end state doesn't match back-end because of a different tab saving"*. `architecture/website.md` W-6 | Owner withdrawal only. M2 keeps the cross-tab flag (BC-14 limb c) and adds no merge or lock. |
 | D-6 | No new feature work in this chain | 2026-11-11 | *"…this new stuff is planned after the existing items are handled"*. `steering/queue-hooks-rulings.md`, selection 2 | Owner withdrawal only. |
 | D-7 | The four user stories are approved as worded | 2026-11-18 | Selected: "Agent: proceed on all four (Recommended)". Shown: "The planner writes milestones for all four stories as worded, in revision 1." | Owner withdrawal only. |
-| D-8 | The website logs one line per failed or unreachable preview; nothing user-facing | 2026-11-18 | Selected: "Agent: website logs failures (Recommended)". Shown: "The website writes one line per failed or unreachable preview to Vercel's logs. No user sees anything; failures become countable." | Owner withdrawal only. Consequence: the website learns each generation's outcome after the save replies, so M5's mechanism is post-response work (OQ-3). Limit of the selection, stated to him at revision 2 and not a reopening: a line lasts under a day in Vercel's logs (D-17's read), so "countable" holds for a reader that runs at least daily (M5-f). Criteria: M5-f. |
+| D-8 | The website logs one line per failed or unreachable preview; nothing user-facing | 2026-11-18 | Selected: "Agent: website logs failures (Recommended)". Shown: "The website writes one line per failed or unreachable preview to Vercel's logs. No user sees anything; failures become countable." | Owner withdrawal only. Consequence: the website learns each generation's outcome after the save replies, so M5's mechanism is post-response work (OQ-3). Limit of the selection, stated to him at revision 2 and not a reopening: a line lasts about a day in Vercel's logs (Vercel's Pro documentation: 1 day; the CLI refuses `-s 1d` and serves `-s 23h`, D-17's read), so "countable" holds for a reader that runs at intervals shorter than that window: every 12 hours (M5-f). Criteria: M5-f. |
 | D-9 | Lint: record the base result as accepted, fix none | 2026-11-18 | Selected: "Agent: accept, fix none (Recommended)". Shown: "Record today's result as the known baseline; no source files change, so the chain's diff stays on its four items." | Owner withdrawal only. Criteria: M7-a, M7-b; Exclusions X-11, X-12. |
 | D-10 | The Vercel project settings are read read-only under the hooks-gg team | 2026-11-18 | Selected: "Agent: read under hooks-gg (Recommended)". Shown: "The analyst runs 'vercel project inspect hooks-gg-website --scope hooks-gg', read-only, and records both values." | Executed by the analyst (analysis 017 `1534ec4`, G-1): a 60 s function timeout (Observed); no Fluid compute (Inference: AN-3 grades "the default is the effective setting" so; no criterion rests on it). Reopens on a change to the project's function settings (the same read). |
 | D-11 | Item 4: fix the stored-draft losses at their source and turn the existing warnings on signed out | 2026-11-18 | Selected: "Agent: fix at source + warnings (Recommended)". Shown: "Fix the shared-draft losses at their source, so a draft survives sign-in, another tab and the expired-session sign-out, and turn the existing warnings on for signed-out users too. More work than the handoff; revision 1 prices it." | Owner withdrawal only. Criteria: M3. Price: M3's scope (§ Plan). The sign-in exit's warning, which the shown text did not cover, is OQ-8; it does not reopen this row. |
@@ -109,7 +110,7 @@ steering-roadmap from option text this planner drafted.
 | D-13 | AN-4's host read is made without asking him | 2026-11-18 | Agent-authored, by steering-roadmap: a read through the read-only alias `ssh hooks-pig` is made under the lifecycle Standing Default (`steering/017-rulings.md` block 23:15Z). Not his words. | Withdrawal by him or by steering. |
 | D-14 | Scope M1 to M7 confirmed; implementation waits for the critic, the architect and QA Phase 1 to approve | 2026-11-18 | Selected: "Agent: confirm M1–M7 (Recommended)". Shown: "The critic, the architect and QA Phase 1 start on revision 1 now. Implementation waits until those three gates approve." Selection-prompt answer, 2026-11-18T23:26Z; ledger `steering/selection-ledger/2026-11-18.md` block "2026-11-18T23:26Z — steering-roadmap"; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. |
 | D-15 | OQ-7 proceeds open; the probe push is not approved by this answer | 2026-11-18 | Selected: "Agent: proceed with it open (Recommended)". Shown: "The gates and M1–M4 and M7 go ahead. Before M5 code, a devops session asks you for the probe push. If the probe fails, M5 and M6 stop and come back to you with the fallback." Selection-prompt answer, 2026-11-18T23:26Z; ledger `steering/selection-ledger/2026-11-18.md` block "2026-11-18T23:26Z — steering-roadmap"; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. The chosen option's stop condition, verbatim: "If the probe fails, M5 and M6 stop and come back to you with the fallback." Which probe outcome "fails" names is OQ-9. |
-| D-16 | Exclusions X-1 to X-16 accepted as written; X-13's placement question stays in the record's inbox | 2026-11-18 | Selected: "Agent: accept all 16 (Recommended)". Shown: "The plan keeps X-1 to X-16 as written. X-13's question about a test-placement exception in CLAUDE.md stays in the record's inbox for that record's owner." Selection-prompt answer, 2026-11-18T23:26Z; ledger `steering/selection-ledger/2026-11-18.md` block "2026-11-18T23:26Z — steering-roadmap"; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. Revision 2 restates X-5's reason (AF-2) and adds X-17 to X-19; those are not covered by this row and go to him in the revision-2 report. |
+| D-16 | Exclusions X-1 to X-16 accepted as written; X-13's placement question stays in the record's inbox | 2026-11-18 | Selected: "Agent: accept all 16 (Recommended)". Shown: "The plan keeps X-1 to X-16 as written. X-13's question about a test-placement exception in CLAUDE.md stays in the record's inbox for that record's owner." Selection-prompt answer, 2026-11-18T23:26Z; ledger `steering/selection-ledger/2026-11-18.md` block "2026-11-18T23:26Z — steering-roadmap"; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. Revision 2 restated X-5's reason (AF-2) and added X-17 to X-19, which D-21 covers. |
 | D-17 | QA's read of Vercel production runtime logs is made without asking him | 2026-11-18 | Agent-authored, by steering-roadmap: the read is made under the lifecycle Standing Default (`steering/017-rulings.md` block 2026-11-18T23:41Z). Not his words. Result: `verification/017/qa-phase1/vercel-runtime-logs/` (record `06511f1`). | Withdrawal by him or by steering. |
 | D-18 | OQ-8: the edit page's sign-in exits and the expired-session sign-out leave without the browser prompt | 2026-11-19 | Selected: "Agent: skip the prompt (Recommended)". Shown: "Log in and the automatic sign-out leave without the browser prompt, since nothing is lost on them. This changes only M3's exit table." Selection-prompt answer, 2026-11-19T00:10Z; ledger `steering/selection-ledger/2026-11-19.md` block "2026-11-19T00:10Z — steering-roadmap" (question 1); rulings block `steering/017-rulings.md` 2026-11-19T00:11Z; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. Criteria: M3-d's exit table. |
 | D-19 | OQ-9: D-15's "fails" means not kept alive; a not-readable run is repaired and re-run once by devops under the same push, and a second not-readable run goes to him | 2026-11-19 | Selected: "Agent: fails = didn't keep running (Recommended)". Shown: "Only a clean 'not kept running' stops M5 and M6. An unreadable run is repaired and re-run once by devops under the same push you approve; a second unreadable run comes to you." Same ledger block (question 2) and rulings block; option text agent-authored (steering-roadmap, from this plan). | Owner withdrawal only. Stop condition, verbatim: "a second unreadable run comes to you." Criteria: M5-0 limb 2. |
@@ -143,40 +144,34 @@ project is unestablished (AN-3 G-2; Inference from Vercel's documentation, not e
 settles it before M5 or M6 code starts. His word is needed for the probe deployment (a push; see
 M5-0). Everything else proceeds. The render-time half is closed by AN-4 (M5-0 limb 1).
 
-**OPEN QUESTION OQ-8 (his; blocks M3 code).** Once M3-d drops the session condition from
-`hasChanged`, the edit page's own sign-in controls raise the browser's "Changes you made may not be
-saved." on a signed-out user's first sign-in after an edit, and the expired-session sign-out raises it
-for a signed-in user with unsaved edits. Read at website `1ad625e`: `src/app/message/m/[id]/edit/page.tsx`
-mounts `useUnloadAlert(hasChanged)`; its `InfoPanel` `onContinue` calls `signIn('discord', …)`;
-`src/app/message/m/[id]/_layout/Navigation.tsx` mounts `NavMenu`, whose button calls `signIn` signed
-out and `signOut` signed in (`src/app/_components/NavMenu.tsx`); `src/providers/SessionProvider.tsx`
-calls `signOut()` when a session cookie outlives its session. react-use 17.4.0 `useBeforeUnload`
-blocks every unload while its flag is true, and next-auth 4.24.5 `signIn` and `signOut` leave the page
-by assigning `window.location.href` (read by this planner in the shared install, the versions named
-here: `next-auth/react/index.js` `signIn` and `signOut`; `react-use/lib/useBeforeUnload.js`, which
-calls `preventDefault` and sets `returnValue`). M3-a and M3-b
-guarantee these exits lose nothing. Options: (a) **these three exits leave without the browser
-prompt** (Recommended: the prompt warns of a loss that M3 removes); (b) they keep the prompt, as
-"turn the existing warnings on" reads literally. Log out keeps today's prompt either way (it prompts
-signed in at `1ad625e`; X-8). The table is M3-d.
+OPEN QUESTION [RESOLVED]: OQ-8, the sign-in exits. Answered by D-18: they leave without the
+prompt (M3-d, which carries the reads the question rested on).
 
-**OPEN QUESTION OQ-9 (his confirmation; blocks acting on gate M5-0's result).** D-15's stop
-condition reads "If the probe fails, M5 and M6 stop and come back to you with the fallback." M5-0
-now has three outcomes: kept alive, not kept alive, and not readable (a control line before the
-response is also missing, so the instrument or the deployment failed, not `waitUntil`). Proposed
-(Recommended): "fails" means **not kept alive**; a not-readable run is repaired and re-run by devops
-under the same approved push, and goes to him only if a second run is also not readable. The
-alternative is that any run without the post-response line stops M5 and M6.
+OPEN QUESTION [RESOLVED]: OQ-9, the probe's "fails". Answered by D-19 (M5-0).
 
-**OPEN QUESTION OQ-10 (his confirmation; blocks M4 code).** The architect (AF-4) and the critic (F-1)
-found that the Header and Sidebar on the send page render above `MessageProvider` and
-`ConfirmationProvider`, so `StyledLink` there cannot see unsaved edits or open the dialog. Delivering
-D-12 on the send page needs a small navigation-guard context at `src/app/message/layout.tsx` and
-`ConfirmationProvider` moved up to that layout (M4-a). What he selected is unchanged; the mechanism
-under it is larger, and it reaches every `/message` page (with no guard registered outside an
-editor, those pages behave as today). Options: (a) **accept the form** (Recommended); (b) exclude
-the send page's Header and Sidebar links from M4, an Exclusions row, leaving every `/send` link that
-leaves the editor unguarded.
+OPEN QUESTION [RESOLVED]: OQ-10, the send page's links. Answered by D-20 (M4-a).
+
+**OPEN QUESTION OQ-11 (his; blocks M3 code; F-19 item 1, AF-16).** The draft store's bound. Each
+option's cost: (a) **at most 20 entries and at most 1 MB serialised, evicting the least recently
+edited entry** (Recommended): the store and its per-keystroke cost stay small (the architect measured
+17.2 ms to serialise and 5.1 ms to parse a 7.4 MB map, `verification/017/architect-delta/`); what it
+gives up is a silent loss, the oldest draft, for a browser past the bound, which D-11's text did not
+show him. (b) **No bound but the browser's quota**: no draft is ever evicted; what it gives up is
+the per-keystroke cost growing with the store, and when storage fills, the newest write is dropped
+(the edits stay on the page only).
+
+**OPEN QUESTION OQ-12 (his; blocks M3 code; F-19 item 2).** The quota error. (a) **The shared `set`
+stops throwing for every stored key, and the draft store evicts and retries** (Recommended; his
+standing rule fixes a shared bug once, in the shared code). (b) **Stated limit**: no code changes on
+the quota path; a full origin storage makes every later edit throw inside the editor's store effect,
+as it can today, and the same for theme and preferences writes.
+
+**OPEN QUESTION OQ-13 (his; blocks M5 code; F-19 item 3).** The leftover-object sweep (M5-c form 3).
+(a) **After each commit, delete the message's leftover objects at least 120 s older than the
+committed one** (Recommended): keep-only-latest (D-3) is restored at the next save; it costs one
+listing per successful save. (b) **Stated limit, no sweep**: forms 1 and 2 still remove every object a
+continuation processed; an object whose 204 no continuation processed stays for good. At AN-4's
+rate (15 non-successes in 16847 requests, most of them timeouts) that is a few objects a year.
 
 Revision 0's scope assumptions, each now stated as a criterion: unit and reach (M5-a), layer (both
 repositories, M5 and M6), whether item 3 is live (M2), and severity (M3).
@@ -206,7 +201,7 @@ raising gate's.
 
 | Finding | Disposition | Where |
 |---|---|---|
-| F-1 HIGH, AF-4 HIGH | Form named: a guard context at `message/layout.tsx`, `ConfirmationProvider` moved there; the class enumerated with where each member renders | M4-a, M4-d; OQ-10 |
+| F-1 HIGH, AF-4 HIGH | Form named: a guard context at `message/layout.tsx` with its own dialog (revision 3, QAF-12); the class enumerated with where each member renders | M4-a, M4-d; OQ-10 |
 | F-2 HIGH | The unload class enumerated; the sign-in and forced sign-out members put to him | M3-d; OQ-8 |
 | F-3 MEDIUM, AF-1 HIGH, QAF-1 HIGH, QAF-2 MEDIUM, QAF-5 MEDIUM | Deletion form named (replaced nonce, refused commit's own object, an age-guarded sweep); the table's dimensions are each save's write, answer, commit and deletes, plus a message delete; the orphan residue stated over its class | M5-c, M5-e; RK-2, RK-5 |
 | F-4 MEDIUM, AF-2 HIGH, QAF-3 MEDIUM | Order token named: an ordered nonce minted from the database clock in the upsert's own statement; conditional update; X-5's reason restated | M5-a; X-5; RK-9 |
@@ -231,6 +226,21 @@ raising gate's.
 | QAF-8 LOW | Raw anchors dispositioned; the human-observable names a link the page renders | M4-d, M4 "Human-observable form" |
 | QA, Premises: local sign-in provisioned; G-6 verified | The production fallback removed; M4-c's red recorded as Verified | M3, M4-c |
 | Critic's question on the Fluid-compute label | Relabelled as Inference | D-10; § Validation |
+| F-19 MEDIUM (pass 2) | Each of the three mechanisms put to him beside its stated-limit form | OQ-11 to OQ-13 |
+| F-20 LOW | Reader every 12 h against the 23 h window, deduplicated by record; artifact path named; D-8's sentence corrected | M5-f; D-8 |
+| F-21 LOW | RK-7's read is a crontab line with an earliest time and an artifact; the read is M6-c's `error-status` count | RK-7 |
+| F-22 LOW | Order token stated as two properties, SQL illustrative; P1 and P2 Observed on Postgres 16.16 (QA); production's version and the host's `ENV` carried with named falsifiers | M5-a; M5-g |
+| F-23 LOW | Matrix row for two tabs on one saved message; X-18 member | M3 "Write matrix"; X-18 |
+| SL-1 members 1 to 3 | Text made to agree: M2's errored-but-stored save named as residue in one place; M3-a and M3-b hold for entries still stored; L's migration row reworded | M2 "Window"; M3-a, M3-b; M3 "Storage form" |
+| SL-2 members 1 to 3 | Added to M4-d's table; the third listing added to the tip re-derivation; the deviation sentence corrected | M4-a, M4-d |
+| AF-16 LOW | Byte bound offered as OQ-11 (a) | M3 "Storage form"; OQ-11 |
+| AF-17 INFO | Adopted: age measured against the committed object's `LastModified` in the same listing; EC-1 not needed | M5-c |
+| AF-18 LOW | The list shows the new preview on its next fetch | M5 "Human-observable form" |
+| QAF-10 MEDIUM | The replaced nonce is read under the row lock; a real-Postgres lane runs the shipped statements (EC-2) | M5-a; § Testing Strategy |
+| QAF-11 LOW | M5-0 reads its member with `--deployment <probe URL>` | M5-0 |
+| QAF-12 MEDIUM | The guard renders its own provider instance and dialog at the layout; the editor's provider and dialog stay where they are, so `/send`'s update prompt is unchanged and the two dialogs never share a slot | M4-a, M4-b |
+| Steering candidate 1 (`SessionProvider` effect) | Re-derived at source: keyed on the server-given `session` prop, so it runs at page load; the expired-session member is expected empty (Inference); D-18 covers it either way | M3-d |
+| Steering candidate 2 (retention) | Re-derived: about a day (Vercel's documentation 1 day; the CLI's 1 d refusal) | D-8; M5-f |
 
 ## Plan
 
@@ -329,11 +339,12 @@ is taken there and nowhere else. A new persisting path inherits it by going thro
   keeps its current condition (`hasChangedRef`).
 - **Window: how long T keeps a record.** It must outlast the save's round trip and Pusher's
   delivery, and it must not suppress a different tab's save. So a record lives from the send until
-  an equal broadcast or the mutation's error, and no clock ends it. Residue, a bounded class (RK-3):
-  a remote save whose content equals a record T still holds. Its members: a save whose broadcast
-  Pusher never delivers, and a save that succeeds on the server while the client sees an error.
-  Equal content is no divergence to flag; the record suppresses only a later remote save of exactly
-  that content. QA's Assumption Not Checked (Pusher delivers a save's broadcast back to its sender)
+  an equal broadcast or the mutation's error, and no clock ends it. Residue, two bounded classes
+  (RK-3). (1) A remote save whose content equals a record T still holds, the record left by a save
+  whose broadcast Pusher never delivers: the record suppresses only a later remote save of exactly
+  that content, and equal content is no divergence to flag. (2) A save that succeeds on the server
+  while the client sees an error: its record is already dropped, so if T edits before its broadcast
+  arrives, T raises the notice for its own save, which is M2-b's residue. QA's Assumption Not Checked (Pusher delivers a save's broadcast back to its sender)
   is UAT's at B-1.
 - **Human-observable form.** Two tabs on one message. In tab 1, start typing, press Save while still
   typing, and keep typing until the saved toast shows. Tab 1 shows no "Message Update Detected"; tab 2
@@ -374,22 +385,27 @@ changes only where it is wrong for every key: `set` does not catch `setItem`'s q
   survives a reload and an OAuth round trip in the same tab, and a new tab has none. Deviation, with
   its reason: no sibling uses `sessionStorage`; per-tab identity that survives a reload has no
   sibling.
-- The legacy key `message` is kept, with one meaning: the most recently written route-0 draft. It is
-  written beside every route-0 entry write and nowhere else (M3-f).
+- The legacy key `message` is read once, as migration input (the matrix's first row), and from then
+  on is written only beside a route-0 entry write, so after the first route-0 write it holds the most
+  recently written route-0 draft (M3-f). Until that write it may still hold a copy of a saved message,
+  as `1ad625e` left it.
 - Most-recent rule: a tab at route 0 that has no entry of its own copies the route-0 entry with the
   greatest `editedAt` under its own key and shows it. With none, it shows the intro message and writes
   nothing until an edit.
-- Bound: at most 20 entries. A write that would make 21 first evicts the least recently edited
-  entry other than the one being written. The value is agent-chosen; it is decided by keeping many
-  times the drafts a user works on at once while the store stays far below an origin's quota of
-  about 5 MB. No live population exists (a new key), so the count is read on the walk (B-2) rather
-  than measured beforehand. The quota path below bounds size, which the count does not, because a
-  not-valid draft can be of any size the JSON editor admits.
-- Quota: shared `withLocalStorage.set` stops throwing when `setItem` throws and reports that the
-  write did not land, dispatching no `storage` event for it. The draft store then evicts the least
-  recently edited entry other than the one being written and retries, until the write lands or no
-  other entry remains. Then the write is dropped: the edits stay on the page, and no error reaches
-  the editor.
+- Bound (OQ-11, option a as written; option b removes this item): at most 20 entries and at most
+  1 MB serialised. A write that would pass either first evicts the least recently edited entries
+  other than the one being written. The values are agent-chosen. They are decided by two things: the
+  whole map is read and written on every keystroke and re-parsed by every other tab (AF-16; 17.2 ms
+  to serialise and 5.1 ms to parse a 7.4 MB map on this box, `verification/017/architect-delta/`),
+  so 1 MB keeps that well under a frame; and 20 is many times the drafts a user works on at once. No
+  live population exists (a new key), so the count and size are read on the walk (B-2) rather than
+  measured beforehand. One entry larger than 1 MB is still written (the entry being written is never
+  evicted), and the quota path bounds it.
+- Quota (OQ-12, option a as written; option b removes this item): shared `withLocalStorage.set`
+  stops throwing when `setItem` throws and reports that the write did not land, dispatching no
+  `storage` event for it. The draft store then evicts the least recently edited entry other than the
+  one being written and retries, until the write lands or no other entry remains. Then the write is
+  dropped: the edits stay on the page, and no error reaches the editor.
 
 **Write matrix.** Rows are transitions; each cell names the stored class it writes and the writing
 path at the tip (today's path at `1ad625e` in brackets, the precedent). R0: this tab's route-0 entry.
@@ -407,6 +423,7 @@ Sn: message *n*'s entry. L: the legacy `message` key.
 | An edit on *n* | — | written while `data` differs from the saved copy; removed when equal (`message` effect) | — |
 | This tab saves *n* | — | removed if its `data` equals what was saved (upsert `onSuccess`) | — |
 | Another tab saves *n* | — | that tab removes Sn only if Sn's `data` equals what it saved; a diverged Sn stays | — |
+| Two tabs edit *n* at once, neither saving | — | one Sn, the last writer's: today's one-key behaviour for that pair (residue, X-18); a save by either raises the other's notice (D-5) | — |
 | Message *m* opened while Sn exists | — | Sn untouched | — |
 | Message *n* deleted | — | unread from then on; leaves by eviction (residue, X-18) | — |
 | Sign-out of any kind; the redirect to route 0 | nothing written by the sign-out; route 0 per the rows above | untouched | — |
@@ -420,7 +437,9 @@ another message (the row "Message *m* opened"), where today the fetch overwrites
 Steering told him at 22:32Z that a source fix would likely do this; it does.
 
 The loss class is AN-2's rows (`verification/017/analysis/an2/rows-395510e.json`, re-run at
-`1ad625e` by QA with identical rows). Where each limb's red comes from is stated on the limb.
+`1ad625e` by QA with identical rows). Where each limb's red comes from is stated on the limb. M3-a
+and M3-b hold for an entry still stored: an entry evicted under the bound or dropped by the quota
+path (M3-h) is their residue.
 
 - **M3-a (S2). Red at `1ad625e`.** A signed-out draft at route 0 is restored unchanged (deep-equal
   `data` and `name`) after each of: sign in, then open any saved message, then return to route 0;
@@ -449,11 +468,23 @@ The loss class is AN-2's rows (`verification/017/analysis/an2/rows-395510e.json`
   |---|---|---|
   | Close, reload, typed URL or bookmark | signed out | the browser's "Changes you made may not be saved." (new; shown to him in D-11) |
   | Same | signed in | the same prompt (unchanged) |
-  | `InfoPanel` "Log in" (`signIn`) | signed out | per OQ-8 |
-  | `NavMenu` sign-in (`signIn`) | signed out | per OQ-8 |
-  | `SessionProvider` `signOut()` on an expired session | was signed in | per OQ-8 (today no prompt, because the status has turned) |
+  | `InfoPanel` "Log in" (`signIn`) | signed out | no prompt (D-18) |
+  | `NavMenu` sign-in (`signIn`) | signed out | no prompt (D-18) |
+  | `SessionProvider` `signOut()` on an expired session | was signed in | no prompt (D-18) |
   | `NavMenu` Log out (`signOut`) | signed in | the prompt (unchanged; X-8) |
   | Raw anchors in the embed preview (`EmbedAuthor`, `EmbedTitle`) | either | none: `target='_blank'`, so the page does not unload |
+
+  Reads under the table, at `1ad625e`: `edit/page.tsx` mounts `useUnloadAlert(hasChanged)`, and its
+  `InfoPanel` `onContinue` calls `signIn('discord', …)`; `m/[id]/_layout/Navigation.tsx` mounts
+  `NavMenu`, whose button calls `signIn` signed out and `signOut` signed in. react-use 17.4.0
+  `useBeforeUnload` calls `preventDefault` and sets `returnValue` whenever its flag is true, and
+  next-auth 4.24.5 `signIn` and `signOut` leave by assigning `window.location.href` (read by this
+  planner in the shared install: `react-use/lib/useBeforeUnload.js`; `next-auth/react/index.js`
+  `signIn`, `signOut`). `SessionProvider.tsx` `SessionWrapper` calls `signOut()` from an effect keyed
+  on `!!session`, where `session` is the prop the server rendered the page with, so it runs when a
+  page loads with a stale cookie, before the editor has a message to differ from its saved copy. So
+  its row's member is expected empty (Inference: read, not run; steering's helper read the same,
+  block 00:06Z). D-18 covers it either way.
 
   The Reload confirmation stays unreachable signed out, because route 0 is never a saved message
   (AN-2). The update prompt's loss sentence stays unreachable signed out, because `usePusher.ts`
@@ -475,11 +506,14 @@ The loss class is AN-2's rows (`verification/017/analysis/an2/rows-395510e.json`
   stores the string `1ad625e` stores for the same value; and a write in one tab updates the other
   tabs as today. Fixtures are literal stored strings per key. The one change on these keys, stated:
   a write refused for quota no longer throws.
-- **M3-h — the bound holds. Red from a mutation** (eviction removed). For every sequence of writes,
-  the map holds at most 20 entries; an eviction never removes the entry being written; and a write
-  refused for quota leaves the editor working with the edits on the page. Declined work's fate, in
-  operator terms: an evicted entry is gone. The group most exposed is a browser with more than 20
-  route-0 drafts or unsaved messages, which loses the least recently edited first.
+- **M3-h — the bound holds. Red from a mutation** (eviction removed). Under OQ-11 (a): for every
+  sequence of writes, the map holds at most 20 entries and at most 1 MB serialised unless one entry
+  alone exceeds it; an eviction never removes the entry being written. Under OQ-12 (a): a write
+  refused for quota leaves the editor working with the edits on the page. Each half is removed with
+  its option if he chooses (b). Declined work's fate, in
+  operator terms: an evicted entry is gone. The group most exposed is a browser past the bound (more
+  than 20 route-0 drafts or unsaved messages, or a megabyte of them), which loses the least recently
+  edited first.
 - **Human-observable form.** Signed out at `/message/m/0/edit`: type a draft, sign in with the test
   account, open a saved message, return to the new-message page. The draft is there. Walked before
   release by UAT on the local stack (`tools/uat-local-stack.sh`), where QA Phase 1 showed Discord
@@ -496,23 +530,35 @@ Surfaces at `1ad625e`: `src/components/StyledLink.tsx`; `src/app/message/layout.
 `src/app/message/m/[id]/layout.tsx`; `src/providers/ConfirmationProvider.tsx`;
 `src/providers/MessageProvider/index.tsx`; `src/utils/hooks/useUnloadAlert.ts`.
 
-- **M4-a — the form** (AF-4; subject to OQ-10). A navigation-guard context is mounted in
+- **M4-a — the form** (AF-4; D-20). A navigation-guard context is mounted in
   `src/app/message/layout.tsx`, inside `Providers`, around `Navigation` and the children. Its value
   outside any registration is "no guard". `MessageProvider`, which owns `hasChanged` and spans both
   `/edit` and `/send`, registers its guard while mounted and removes it on unmount. `StyledLink` calls
-  the registered guard from `<Link onNavigate>` (the one interception Next 16.1.6 offers, AN-2). The
-  confirmation is the site's `ConfirmationProvider` dialog, moved from `m/[id]/layout.tsx` up to
-  `message/layout.tsx` (its imports at `1ad625e` are React only, AF-4), so the Header, the Sidebar and
-  the editor's Reload all use the one provider. Sibling, mirrored: `Navigation.tsx` Reload's use of
-  that dialog. Deviation, with its reason: the guard hook returns "no guard" outside its provider
-  instead of throwing, as the provider pattern's hooks do (`useMessage`), because `StyledLink` renders
-  on pages with no editor (`CookieConsent`, `LandingCTA`, `_layout/Footer`, `Dropdown`, `InfoPanel`).
-  `StyledLink`'s props are unchanged.
+  the registered guard from `<Link onNavigate>` (the one interception Next 16.1.6 offers, AN-2).
+  - *The dialog* (QAF-12). The guard context mounts its own instance of the site's
+    `ConfirmationProvider` and renders the site's `ConfirmationDialog` inside it, at
+    `message/layout.tsx`. The editor's provider in `m/[id]/layout.tsx` and its `ConfirmationDialog` in
+    `m/[id]/edit/page.tsx` stay where they are. Reasons, read at `1ad625e`: `ConfirmationDialog` is
+    rendered only by `edit/page.tsx`, so moving the editor's provider would leave `/send` without a
+    renderer, and mounting one there would newly show `usePusher`'s "Message Update Detected" on
+    `/send`, where today it sets the provider's props with nothing rendering them; and the provider
+    holds one props slot that `showConfirmation` overwrites, so a shared instance would drop one of
+    two dialogs opened together. Sibling, mirrored with no code change: `ConfirmationProvider` and
+    `ConfirmationDialog` as `Navigation.tsx`'s Reload uses them. This rides D-20 ("moves the dialog up
+    a layout"): a dialog now lives at the layout, and the send page's Header and Sidebar links warn.
+  - *Deviation, with its reason*: the guard hook returns "no guard" outside its provider instead of
+    throwing, as the provider pattern's hooks do (`useMessage`), because `StyledLink` renders on pages
+    with no editor (`CookieConsent`, `LandingCTA`, `_layout/Footer`), and `Dropdown` and `InfoPanel`
+    render on both kinds of page.
+  - `StyledLink`'s props are unchanged.
 - **M4-b — the property.** For every link in M4-d's class, when `hasChanged` is true, activating it by
   pointer click or by keyboard (a click with `detail: 0`) shows the confirmation first; Cancel leaves
   the user on the page with the edits intact; confirm navigates. When `hasChanged` is false, no
   confirmation is shown. A link to the same message's `/edit` or `/send` never prompts, the id
-  compared exactly, never as a prefix. On every page with no editor mounted, every `StyledLink`
+  compared exactly, never as a prefix. When the link's confirmation and the editor's update prompt
+  are open together, both stay open and each is answered on its own; neither is dropped. The editor's
+  own confirmations (Reload, the JSON modal's, the editor's `showConfirmation`) behave as at `1ad625e`,
+  and `/send` still renders no update prompt. On every page with no editor mounted, every `StyledLink`
   navigates as at `1ad625e`.
 - **M4-c — the dead guard is removed.** At the milestone tip, `git grep -c "next/router" -- src`
   (production files) returns no line, and `useUnloadAlert` keeps only `useBeforeUnload`. Red:
@@ -533,9 +579,14 @@ Surfaces at `1ad625e`: `src/components/StyledLink.tsx`; `src/app/message/layout.
   | Header link to the current message | the same | `/send` | no: same message |
   | Sidebar `/`, `/message`, `/message/f/<guild>`, `/message/f/0`, `/message/m/0/edit`, `/legal/*`, `StyledLink` | `message/_layout/Sidebar.tsx`, above the editor's providers | `/send` | yes |
   | Raw anchors `href={url}` in `EmbedAuthor.tsx`, `EmbedTitle.tsx` | the editor | `/edit` | no: `target='_blank'` |
+  | `/message/f/<guild>` and `/message/f/0`, `StyledLink` | `m/[id]/send/page.tsx`, inside `MessageProvider` | `/send` | yes |
+  | `NavMenu`'s string items `/message/m/new`, `/support`, `/message`, through `Dropdown`'s `StyledLink` | `NavMenu`, mounted by `m/[id]/_layout/Navigation.tsx` and by `message/_layout/Header.tsx` | `/edit`, `/send` | yes |
+  | `InfoPanel`'s `StyledLink` | `InfoPanel`, rendered only when `onContinue` is a URL; both editor pages pass a callback | — | no member at `1ad625e` |
 
-  M4's first step re-derives this table at the chain tip from the `next/link` importers and every
-  `StyledLink` importer (`git grep -l`), path and symbol, and writes it to the implementation
+  The last three rows are the critic's SL-2 members (critique pass 2, read at `1ad625e`). M4's first
+  step re-derives this table at the chain tip from three listings — the `next/link` importers, every
+  `StyledLink` importer (`git grep -l`), and the string `onPress` item sites, because `Dropdown`
+  takes its hrefs from its callers — path and symbol, and writes it to the implementation
   document. A member found at the tip that is not in this table is added to the table with its
   disposition before code review.
 - **Known limit (X-14).** A navigation made by code (`router.push`/`replace`), a `redirect()`, or
@@ -564,15 +615,18 @@ Surfaces at `1ad625e`: `src/components/StyledLink.tsx`; `src/app/message/layout.
    preview deployment built, requests the route, and reads the deployment's runtime logs with the
    instrument QA showed returns runtime records (`npx vercel@66.2.0 logs … --json`,
    `verification/017/qa-phase1/vercel-runtime-logs/`; `vercel logs` on CLI 29.1.1 returns build-log
-   lines only), within the retention window (under a day, D-17). Before the push, devops establishes
-   what the preview deployment's environment connects to (QA's E-6). The probe branch is never merged
-   and is deleted after the read, by devops.
+   lines only), scoped to the probe with `--deployment <probe URL>` (QAF-11; B-7's production query
+   cannot see a preview deployment), within the retention window (about a day, D-17). The capture,
+   the probe lines as the prefix query's first real member, goes under `verification/017/m5-0/`.
+   Before the push, devops establishes what the preview deployment's environment connects to (QA's
+   E-6). The probe branch is never merged and is deleted after the read, by devops.
 
    Outcomes: **kept alive** (both lines present); **not kept alive** (the control line present, the
-   post-response line absent); **not readable** (the control line absent, or no deployment). Which
-   outcome D-15's "fails" names is OQ-9.
+   post-response line absent); **not readable** (the control line absent, or no deployment). Under
+   D-19, only "not kept alive" is a failure. A not-readable run is repaired and re-run once by devops
+   under the same approved push; a second not-readable run goes to him.
 
-If the probe fails in OQ-9's sense, M5 and M6 stop and the plan goes to him with the fallback: the
+If the probe fails (D-19), M5 and M6 stop and the plan goes to him with the fallback: the
 save awaits only the generator's acknowledgement, the generator copies the last good image under the
 new nonce when a render fails, and render failures are logged on the generator host instead of in
 Vercel. That fallback departs from D-8's words, so it is his call. A second candidate goes beside it
@@ -595,19 +649,25 @@ or storage failure); 404 (wrong key, path or method); any other status; a networ
 unreachable, reset); no answer within T; the continuation ended by the platform's limit.
 
 - **M5-a — the stored nonce moves only on success, in save order.**
-  - *Order token.* The order of two saves of one message is the order of their upserts on its row.
-    Each upsert's statement returns the database's clock as read under the row's lock
-    (`clock_timestamp()` in the upsert's `RETURNING`), and the save's nonce is minted from it after
-    the upsert: `v`, then that time in microseconds zero-padded to a fixed width, then 16 random hex
-    characters. Every existing nonce is 32 hex characters (`genUuid().replace(/-/g, '')`), so every
-    new nonce sorts above every old one under `COLLATE "C"`. Ties are broken by the random part. No
-    reader of the nonce parses it (AF-2's `git grep previewImageNonce` at `1ad625e`: `getPreviewImageUrl`
-    and the generator's key interpolate it; the shapes and selects pass it through).
+  - *Order token, two properties.* (1) Two saves of one message are ordered as their upserts on its
+    row are, with no clock other than the database's. (2) Every new nonce sorts above every existing
+    nonce, and the order is independent of the database's collation. ILLUSTRATIVE ONLY, the form AF-2
+    proposed: each upsert's statement returns `clock_timestamp()`, read under the row's lock, and the
+    nonce is `v`, then that time in microseconds zero-padded to a fixed width, then 16 random hex
+    characters, compared under `COLLATE "C"`; ties break on the random part. Existing nonces are 32 hex
+    characters (`genUuid().replace(/-/g, '')`). Both properties are **Observed** for that form on
+    Postgres 16.16 by QA's probe (`verification/017/qa-phase1/pg-order-probe/`, P1: tokens follow lock
+    order; P2: new above old under `C` and `en_US`). Production's Postgres version is unread and no
+    instrument on this box reads it (X-2); the falsifier is RK-9's. No reader of the nonce parses it
+    (AF-2's `git grep previewImageNonce` at `1ad625e`: `getPreviewImageUrl` and the generator's key
+    interpolate it; the shapes and selects pass it through).
   - *The upsert no longer writes `previewImageNonce`* (`buildMessageValues`, `buildUpsertMessageQuery`
     `doUpdateSet`). A new message's row starts with none.
-  - *Commit.* After a 204, the continuation runs one conditional update: set the nonce to *s*'s where
-    the row is *m* and its nonce is null or sorts below *s*'s under `COLLATE "C"`, learning in the same
-    statement the nonce it replaced. It never inserts.
+  - *Commit.* After a 204, the continuation runs one conditional update: the nonce becomes *s*'s
+    where the row is *m* and its nonce is null or sorts below *s*'s. The nonce it replaced is read
+    under the same row lock as the update (QAF-10: QA's probe P3 shows a subquery read outside the
+    lock returning a stale value under a concurrent commit, while a locked read returns the current
+    one). It never inserts.
   - *Property.* For every set of saves of *m*, after their continuations, the row's nonce is the
     greatest-ordered nonce among the saves whose 204 was processed while the row existed; with none,
     it is the nonce the row held before them. The row's other columns are written as today. The
@@ -622,15 +682,18 @@ unreachable, reset); no answer within T; the continuation ended by the platform'
   1. a commit deletes the object of the nonce it replaced, when that nonce is not null;
   2. a continuation whose commit is refused (a later save has committed, or the row is gone) deletes
      its own object;
-  3. after its commit, a continuation lists the message's prefix and deletes every object other than
-     the one it committed whose age is at least **L = 120 s**, the age measured on the bucket's clock
-     (the listing response's `Date` against each object's `LastModified`), never the function's.
-     L must outlast the whole life of any continuation (60 s, D-10), inside which its object is
-     written and committed, so an in-flight save's object is never collected; the other 60 s cover
-     the `Date` header's one-second resolution with room to spare.
+  3. (OQ-13, option a as written; option b removes this form) after its commit, a continuation lists
+     the message's prefix and deletes every object other than the one it committed whose
+     `LastModified` is at least **L = 120 s** before the committed object's `LastModified` in the
+     same listing (AF-17): both times are the bucket's clock, never the function's, so no header read
+     is needed (QA's EC-1 falls away). L must cover the earliest any in-flight save's object can be
+     written: a later save's continuation starts after the committed save's started, and each writes
+     its object within its own life (60 s, D-10), so a later in-flight object is at most 60 s older
+     than the committed one and is never collected; the other 60 s are margin.
 
   Property: after every completed commit's deletes, the prefix holds the committed object plus only
-  objects younger than L at its listing. Keep-only-latest (D-3) is restored at the message's first
+  objects written after it or less than L before it. An earlier save still in flight may have its
+  object collected; its commit is refused and its own delete then finds nothing, which is harmless. Keep-only-latest (D-3) is restored at the message's first
   completed commit at least L after an extra object was written. The brief coexistence is a new
   requirement justified by D-2, against D-3. Residue, a bounded class (RK-2): every object whose 204
   no continuation processed (the continuation ended by the platform, or "no answer within T" with
@@ -644,9 +707,10 @@ unreachable, reset); no answer within T; the continuation ended by the platform'
   plus a delete of the message (row delete, then the delete route's purge) at any position. The
   outcomes are M5-a's property, M5-b, M5-c's property and residue, and: after a message delete, no
   continuation recreates the row, and every object a continuation wrote after processing its 204 is
-  deleted by that continuation. QA's executable oracle (`verification/017/m5-decision-table/`,
-  82 interleavings over 9 class pairs at Phase 1) is re-keyed by QA to this text before the
-  implementer's tests read it. An expected value is never computed from production code.
+  deleted by that continuation. QA's executable oracle (`verification/017/m5-decision-table/`; at
+  revision 2, 36 rows and 3120 interleavings with message deletes and an old orphan, 0 violating, five
+  mutants each firing, QA's re-key at `df45dde`) is re-keyed by QA to form 3's revision-3 age
+  reference before the implementer's tests read it. An expected value is never computed from production code.
 - **M5-f — one log line per failure** (D-8). For every save whose outcome class is 500, 404, another
   status, a network error or no answer within T, exactly one line is written to the function's log.
   It opens with the fixed prefix `preview-image-failure` (`git grep -c` is 0 in both repositories at
@@ -660,15 +724,19 @@ unreachable, reset); no answer within T; the continuation ended by the platform'
   **T = 40 s**, which holds for a save whose own work before the continuation takes up to 15 s. The
   save's own duration is unmeasured; a longer one can lose its line (RK-2).
   - *Instrument.* Vercel's runtime logs for the production deployment. Reset semantics: retention
-    is under a day on this project (`-s 1d` refused, `-s 23h` served; D-17's read). Feeds: one line
-    per failing save. Window: the 23 hours before each read. Non-zero precedent: function stderr is
-    readable today, 246 production records in 23 h, 14 on `/api/trpc/message.get` (D-17's read). The
-    query selects on the prefix, never on `level:error`, which already counts about 240 unrelated
-    lines a day. The read is QA's B-7: a daily crontab reader installed by devops at Stage 1, with
-    the `/api/auth/session` cold-start lines as its non-member control and M5-0's probe lines as its
-    first real member.
+    is about a day on this project (Vercel's Pro documentation: 1 day; the CLI refuses `-s 1d` and
+    serves `-s 23h`; D-17's read). Feeds: one line per failing save. Window: the 23 hours before each
+    read. Non-zero precedent: function stderr is readable today, 246 production records in 23 h, 14 on
+    `/api/trpc/message.get` (D-17's read). The query selects on the prefix, never on `level:error`,
+    which already counts about 240 unrelated lines a day.
+  - *Reader* (QA's B-7). A crontab line on this box, installed by devops at Stage 1, runs every 12
+    hours, so consecutive 23-hour windows overlap and no hour goes unread (F-20); counts are taken
+    over the union of records, each record counted once by its id. Earliest read: 12 hours after the
+    website deploy. Artifact: `verification/017/post-deploy/b7/<UTC stamp>.json`, one per read.
+    Non-member control: the `/api/auth/session` cold-start lines. First real member: M5-0's probe
+    lines, read with `--deployment` (M5-0).
   - *What a count can say.* At AN-4's rate (15 non-successes in 16847 requests; 196 generations in
-    30 days) a daily count is expected to read zero whether the line works or not. B-7 is a health
+    30 days) a count is expected to read zero whether the line works or not. B-7 is a health
     check; the fixed-versus-unfixed distinction for item 2 is B-4, before release.
 - **M5-g — the key contract** (AF-3, QAF-4). Every object key is `[dev/]previews/<message id>/<nonce>.jpeg`.
   The `dev/` prefix is decided on the website by `env.NODE_ENV === 'development'` (the deleter,
@@ -676,17 +744,23 @@ unreachable, reset); no answer within T; the continuation ended by the platform'
   `src/utils/getCDNUrl.ts`, `/dev`), and on the generator by `config.ENV === 'development'`
   (`src/generateImage.ts`; `src/config.ts` reads `process.env.ENV`). Property: on every environment
   where both run, the website's deletion prefix equals the generator's write prefix. Production: the
-  website's `NODE_ENV` is `production`; the generator's `ENV` on its host is unread, and production
-  previews resolve under `previews/` without `dev/` (Inference from the working production images,
-  chain 016's post-deploy looks). The local walk records both variables' names and values. Every
+  website's `NODE_ENV` is `production`; the generator's `ENV` on its host is unread (its `.env`
+  holds secrets, and no read here prints it), and production previews resolve under `previews/`
+  without `dev/` (Inference from the working production images, chain 016's post-deploy looks). Its
+  falsifier, after both deploys: devops saves the test account's message and requests that message's
+  preview URL, without `dev/`, recording the status in the deployment record (a 200 is the
+  agreement; part of B-11). The local walk records both variables' names and values. Every
   listing keeps the trailing `/` after the id (QA's NM-13). Tests use literal keys.
 - **Cost** (AF-7). Each save now holds a function instance for the generator's round trip (AN-4
   median 2197 ms, bound T = 40 s) on a project without Fluid compute (D-10, Inference), where today
   it holds none. His valuation that costs are immaterial (`preview-image-generator.md` P-1) rests on
-  facts holding, so the cost is put in front of him in the revision-2 report.
+  facts holding, so the cost was put in front of him with revision 2 (steering's 00:11Z block).
 - **Human-observable form.** On a local build with the generator stopped, save an edit to a message
   that has a preview. The message list keeps showing the old preview. Start the generator and save
-  again: the new preview shows. Walked by UAT on the local stack (QA's B-4). The rig, built by the
+  again: the new preview shows on the list's next fetch, a reload, because the message list learns
+  a committed nonce only when it refetches (`message/page.tsx`, `f/[id]/page.tsx`; AF-18), so a walk
+  reads it after a reload and never reads an unreloaded stale thumbnail as a failure. Walked by UAT
+  on the local stack (QA's B-4). The rig, built by the
   implementer as M5's last step and handed to UAT: a loopback S3 stub that serves the objects it
   stores over HTTP; `CDN_ENDPOINT` and `NEXT_PUBLIC_CDN_HOST` pointed at it in the process
   environment and checked on the stub's request log, because `.env.local`'s `CDN_ENDPOINT` is a real
@@ -695,7 +769,7 @@ unreachable, reset); no answer within T; the continuation ended by the platform'
   the built server with dead endpoints and has no S3 stub or answering `/preview`, so it is not a
   precedent for this rig. Every process the rig starts is stopped, and its files removed, by the
   stage that started it on every exit path. In production, his look after the deploy: a normal save
-  updates the preview (QA's B-6).
+  updates the preview, seen after a reload of the list (QA's B-6).
 - Rollback: `git -C website revert <M5 commit>`, party as M1; the revert carries the lockfile back.
   The order against the generator is in § Release and rollback.
 
@@ -772,10 +846,17 @@ tests (workspace `CLAUDE.md`). Verification is by probe under `verification/017/
   - M5: Node tests of `upsertMessage`'s continuation, with fetch, the bucket, the database and
     `waitUntil` substituted (the substitute records the promise and the test settles it),
     mirroring `src/server/api/utils/__tests__/shared.upsert-valid.test.ts` and its
-    `helpers/capturingDatabase`; the M5-e oracle read by them once QA has re-keyed it.
+    `helpers/capturingDatabase`; the M5-e oracle read by them once QA has re-keyed it;
+  - M5, real Postgres (QAF-10, QA's EC-2): the shipped upsert and commit statements, run against a
+    throwaway Postgres container on this box with two concurrent sessions, because the Node tests
+    substitute the database and cannot tell a locked read of the replaced nonce from an unlocked one.
+    QA's `verification/017/qa-phase1/pg-order-probe/` is the prototype. The implementer runs it at
+    M5 under `verification/017/m5-pg/` and removes the container on every exit path; QA re-runs it at
+    Phase 2. It is outside the standing suite, so these limbs have no standing instrument.
   A run counts only with process exit 0 beside the counters, and `pnpm run typecheck` covers both
   programs. Critical scenarios: every limb red where the limb names its red, and the M5-e table.
-  QA's named mutants NM-1 to NM-21 bind the implementer (QA Phase 1, § Named mutants).
+  QA's named mutants NM-1 to NM-25 bind the implementer (QA Phase 1 and its revision-2 re-key,
+  § Named mutants).
 - **Generator.** No suite. The M6 probe (M6-0's rig) runs on this box.
 - **Hosts and instruments per milestone.**
   - This box: vitest, the probes, lint, the local walks.
@@ -807,21 +888,22 @@ Run once at the named trees by this planner on 2026-11-18, captures under `verif
   (Observed) and no Fluid compute (Inference) (analyst, 2026-11-18T23:12Z,
   `an3/vercel-api-project-record-extract.txt`). Production served `395510e` at 2026-11-18
   (`an3/vercel-inspect.txt`); chain A's release then moved `master` to `1ad625e` (`git ls-remote`,
-  22:4xZ). Runtime-log retention under a day (QA, 2026-11-18T23:43Z, D-17).
+  22:4xZ). Runtime-log retention about a day (QA, 2026-11-18T23:43Z, D-17: the CLI refuses
+  `-s 1d` and serves `-s 23h`; Vercel's Pro documentation says 1 day, steering's read, block 00:06Z).
 
 ## Risks
 
 | RK | Risk | Falsifier (carrier) | Record per review pass |
 |---|---|---|---|
 | RK-1 | `waitUntil` does not keep post-response work alive in this route, so previews stop updating | M5-0 limb 2; after release, his look at a saved message's preview (QA's B-6) | — |
-| RK-2 | A continuation ends before it processes its answer (the platform's cut, a save longer than 15 s, a render past T): a stale preview (safe), an orphan object (M5-c's residue), and a "no answer" line or none | AN-4: max 26275 ms over 16832 successes; after release, B-7's daily count of `preview-image-failure` lines with class "no answer within T" | — |
+| RK-2 | A continuation ends before it processes its answer (the platform's cut, a save longer than 15 s, a render past T): a stale preview (safe), an orphan object (M5-c's residue), and a "no answer" line or none | AN-4: max 26275 ms over 16832 successes; after release, B-7's 12-hourly count of `preview-image-failure` lines with class "no answer within T" | — |
 | RK-3 | Own-save recognition suppresses a real remote update (hazard 4) | M2-c's members; residue as stated in M2 | — |
 | RK-4 | The storage change loses a draft already in a user's browser at first load | M3-e's fixtures | — |
-| RK-5 | Two saves of one message, or a save and a delete, commit the wrong nonce, delete the committed object or resurrect a row | M5-e's oracle, re-keyed to revision 2 | — |
+| RK-5 | Two saves of one message, or a save and a delete, commit the wrong nonce, delete the committed object or resurrect a row | M5-e's oracle (re-keyed to revision 2 at `df45dde`, 0 of 3120 violating; owed again for revision 3's age reference); the real-Postgres lane | — |
 | RK-6 | The generator deploy stops a process mid-render | `handoff/preview-image-generator-drain-under-load-unobserved-2026-11-08.md`, devops's read | — |
-| RK-7 | Stored messages whose `/preview` render answers an error status stop being re-imaged and keep their stale image (unclosed-assumptions item 7) | QA's B-10: devops reads the generator's failure count 30 days after the generator deploy, against AN-4's 15, through the carrier handoff devops mints at Stage 1 | — |
-| RK-8 | M4 misses a link | M4-d's table re-derived at the tip against `git grep -l` of the `next/link` and `StyledLink` importers | — |
-| RK-9 | The database clock steps backwards between two saves of one message, so a later save's nonce sorts below an earlier one's and is refused: the earlier save's preview shows until the next save | none measured; a stale preview, never a broken one (M5-b holds either way) | — |
+| RK-7 | Stored messages whose `/preview` render answers an error status stop being re-imaged and keep their stale image (unclosed-assumptions item 7) | QA's B-10. Reader: a crontab line on this box installed by devops at Stage 1, earliest read 30 days after the generator deploy, running `verification/015/pig-host-read.sh` with M6-c's shape through `ssh hooks-pig`. The read is the count of M6-c's `preview-image-failure` lines of class `error-status` since the deploy; each counted line is a member (a stored message whose render answers an error status and keeps a stale image), and zero over the 30 days is no member observed. Artifact: `verification/017/post-deploy/b10/<UTC stamp>.txt`. Carrier for the result: the handoff devops mints at Stage 1. | — |
+| RK-8 | M4 misses a link | M4-d's table re-derived at the tip against its three listings (the `next/link` and `StyledLink` importers, and the string `onPress` item sites) | SL-2 (critique pass 2): three members found missing from revision 2's table, added at revision 3 |
+| RK-9 | The database clock steps backwards between two saves of one message, so a later save's nonce sorts below an earlier one's and is refused: the earlier save's preview shows until the next save | None measured: the clock order is Observed on Postgres 16.16 (QA's P1) and production's version is unread; a member shows as a stale preview after a save, never a broken one (M5-b holds either way), seen in his look (B-6) | — |
 | RK-10 | The website's and generator's `dev/` predicates disagree on an environment, so deletions miss (a leak) | M5-g; the local walk's recorded values | — |
 
 ## Release and rollback
@@ -927,7 +1009,7 @@ revision 1, `upload-message-dialog-closes-on-first-portal-load-2026-11-08` is cl
 | X-15 | `beforeunload` on the send page | `useUnloadAlert` is mounted on the edit page only. Edits survive in storage (M3), so closing the send page loses nothing. | Stated limit |
 | X-16 | Pre-013 history of the own-tab notice (G-5) | No criterion rests on it | Stated limit |
 | X-17 | A fallback at the preview read sites (`getPreviewImageUrl` and its callers) | The determination puts them in scope only if the design adds a fallback there; M5-b makes every committed nonce name an existing object, so none is added | Stated limit |
-| X-18 | Draft-store residue: an entry for a deleted message until eviction; two tabs sharing one id after the browser duplicates a tab | Neither loses work today's store keeps; both are bounded by M3-h's 20 entries | Stated limit |
+| X-18 | Draft-store residue: an entry for a deleted message until eviction; two tabs sharing one id after the browser duplicates a tab; two tabs editing one saved message, which share its one entry (last writer wins, as today) | None loses work today's store keeps; the first is bounded by M3-h's bound under OQ-11 (a), and by the quota under (b) | Stated limit (the third member added at revision 3, F-23; D-21 accepted the row as written at revision 2) |
 | X-19 | Orphan preview objects whose 204 no continuation processed, under a message never saved again or deleted | M5-c's residue; removing them needs a sweep outside a save, which no design here has | Stated limit; RK-2 |
 
 ## Planner batch
