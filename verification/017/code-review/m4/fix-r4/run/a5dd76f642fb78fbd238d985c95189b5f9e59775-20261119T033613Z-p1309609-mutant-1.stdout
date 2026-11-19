@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2d84e546-bc6d-4e4c-9ace-a079ac110fd8/scratchpad/mr-work/20261119T033613Z-p1309609/mutant-1
+
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 2 failed) 1471ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 64ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 57ms
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  2 failed | 66 passed (68)
+   Start at  03:36:18
+   Duration  3.46s (transform 571ms, setup 25ms, import 2.02s, tests 2.07s, environment 1.23s)
+

@@ -1,0 +1,2 @@
+a5dd76f:src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx:57:function click(el: HTMLElement) {
+a5dd76f:src/components/__tests__/helpers/click.ts:3:export default function click(el: Element, init: MouseEventInit = {}) {

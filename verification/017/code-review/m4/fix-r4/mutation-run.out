@@ -1,0 +1,7 @@
+cr9-guard-dropped KILLED 4.2
+cr9-guard-never KILLED 4.33
+cr9-scope-content-only KILLED 4.25
+cr9-scope-any-dialog KILLED 4.2
+cr11-confirm-always-assign KILLED 4.28
+cr11-replace-not-passed KILLED 4.37
+6 of 6 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; fix-mutants.json (blob aa930afbf7bdcedabf93cac5ff89808ed96f173b))

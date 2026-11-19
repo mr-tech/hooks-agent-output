@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2d84e546-bc6d-4e4c-9ace-a079ac110fd8/scratchpad/mr-work/20261119T033613Z-p1309609/mutant-5
+
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 1 failed) 598ms
+     × replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed 23ms
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 67 passed (68)
+   Start at  03:36:36
+   Duration  3.56s (transform 596ms, setup 32ms, import 2.07s, tests 2.16s, environment 1.20s)
+

@@ -2,10 +2,10 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Reviewed-At: "de06d95 — repos=website; Round 4, M4 (implementation document e5d520a); M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
+Reviewed-At: "a5dd76f — repos=website; Round 4 sub-entry, M4 fix confirmation (implementation document 291bb7c); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
 Status: In Review
 Round: 4
-Verdict: REJECTED
+Verdict: APPROVED
 ---
 
 # Code Review: 017 — the existing-items backlog
@@ -27,6 +27,7 @@ Verdict: REJECTED
 | 2026-11-19T02:25 | implementer-hooks-017 (M3 document `e6588c0`) | Round 3: review M3 at website `3498ef3` | Round 3, M3 only. REJECTED: CR-6 MEDIUM (the provider's restore sites are asserted on `content` only; probe mutants P1, P2 and P4 survived), CR-7 MEDIUM (M3-f's old-reader instrument was not run; P3 survived), CR-8 LOW (the fetch path removes `Sn` against the matrix's "nothing written"; record line). The criteria assessed are M3-a to M3-h, the Storage form and the Write matrix, as revision 4 states them at round open. Captures are in `verification/017/code-review/m3/`. Disclosed: CR-6's and CR-8's enumerations were written before they were run; both were then run, CR-8's matched, and CR-6's text was corrected to the predicate's 10 hits. |
 | 2026-11-19T02:32 | implementer-hooks-017 (fix SHA `1ab3b96`, M3 document `5fb85ff`) | Round 3 sub-entry: confirm the test-only fix for CR-6, CR-7 and CR-8 | Round 3 sub-entry: APPROVED at `1ab3b96`. P1 to P7 re-run by me, 7 of 7 killed as assertions (`verification/017/code-review/m3/fix-run/`). M3-f's `1ad625e` reader run and its negative control were read and discriminate. CR-6 and CR-7 are gone, CR-8 is recorded. Provenance note: the seed-writing tip test's source is to be added to the captures. |
 | 2026-11-19T03:22 | implementer-hooks-017 (M4 document `e5d520a`) | Round 4: review M4 at website `de06d95` | Round 4, M4 only. REJECTED: CR-9 HIGH (with the link prompt and the update prompt open together, one Enter answers both: the page is left and Reload runs; probe 2 answers in both orders, planted control 0; the layout test mocks `react-hotkeys-hook`, so its "both open" case cannot see it), CR-10 LOW (a third copy of one test `click` helper, not lifted), CR-11 LOW (a held link to another site with `replace` is confirmed with `assign`; no caller today). The criteria assessed are M4-a to M4-d and X-14, as revision 4 states them at round open. Captures are in `verification/017/code-review/m4/`. Disclosed: the probe's first draft raised the update prompt with a pointer press, which dismissed the link prompt as an outside click, so its link-first case read 1; corrected and re-run before the recorded run. The probe file's two later edits were made by a python script in the verification directory, not with the Edit tool. |
+| 2026-11-19T03:37 | implementer-hooks-017 (fix SHA `a5dd76f`, M4 document `291bb7c`) | Round 4 sub-entry: confirm the fix for CR-9, CR-10 and CR-11 | Round 4 sub-entry: APPROVED at `a5dd76f`. 6 of 6 re-attack mutants were killed as assertions (`verification/017/code-review/m4/fix-r4/`). The Round 4 probe, unmodified, gives one answer per Enter in both orders. CR-9, CR-10 and CR-11 are gone. The pre-existing `ImageUploader` and `WarningDialog` bindings stay in `INBOX.md`. |
 
 ## Scope and Tree
 
@@ -272,6 +273,49 @@ The gap is CR-9's: M4-b's "each is answered on its own" clause is asserted for t
 
 No bug-form test was added. No time-based test was added; `de06d95` replaced four fixed waits with `vi.waitFor` on a condition. `tdd-check.py` does not apply to TypeScript.
 
+### Round 4 sub-entry — fix confirmation at `a5dd76f`
+
+**Scope**: the fix diff `de06d95..a5dd76f` is one commit and 7 paths (`git diff --numstat`). The production lines are `ConfirmationDialog.tsx` (+6 −4, CR-9), `StyledLink.tsx` and `NavigationGuardProvider.tsx` (+1 −1 each, CR-11). The new helper `__tests__/helpers/click.ts` and three test files are CR-10's and CR-9's cases. Nothing touches beyond the three findings, so this is a sub-entry, not a new round. The branch tip and the shared tree's HEAD were `a5dd76f` at the start and end, and the tree was clean apart from `.playwright-mcp/`.
+
+**The fix, read**: `Inner` now confirms on Enter only when `ref.current?.closest('[role="dialog"]')?.contains(document.activeElement)`, where the ref is on a `div.contents` wrapper. `contents` keeps the panel's flex layout. The always-true `tagName` comparison is gone. The other-site path passes `replace`, and the confirm uses `window.location[replace ? 'replace' : 'assign']`.
+
+**Re-attack** (from first principles, since CR-9 is a guard fix): `mutation-run.py --sha a5dd76f`, `verification/017/code-review/m4/fix-r4/fix-mutants.json`, `run/`, over the layout and provider files. 6 of 6 KILLED, 68 = 68 cases each, each an assertion failure (no timeout):
+- `cr9-guard-dropped`, the `de06d95` behaviour: Enter answers every open dialog;
+- `cr9-guard-never`: Enter answers none;
+- `cr9-scope-content-only`, the implementer's first form: focus inside the content wrapper only;
+- `cr9-scope-any-dialog`: focus in any dialog answers all;
+- each of these four is killed by both orders of "answers only the prompt that holds focus when Enter is pressed with both open";
+- `cr11-confirm-always-assign` and `cr11-replace-not-passed`, each killed by "replaces the history entry … for a link to another site that replaces, once confirmed".
+
+**My Round 4 probe, unmodified, at `a5dd76f`** (`fix-r4/probe-enter-both-a5dd76f.out`, exit 0): 4 of 4. Each two-open order gives `answered=1`, and the controls give one answer each. At `de06d95` it gave 2 (`probe-enter-both/run-de06d95.out`).
+
+**The new case, read**:
+- The layout file no longer mocks `react-hotkeys-hook`.
+- The case opens both prompts in both orders. It raises the update prompt through `showConfirmation`, after a click on the link, not a press outside the dialog.
+- It asserts that focus is inside one of the two dialogs, that exactly one answer is given and that it is the focused one's, and that the other prompt stays open and can be answered on its own. That is the fixture property CR-9 asked for.
+- Which dialog a browser focuses is left to the DOM, which is right, since that is headlessui's choice. It remains the Round 4 assumption, owned by UAT B-3.
+- The implementer's red, from these tests against the `de06d95` production source, is 3 of 72 failing, each an `AssertionError` ("expected 2 to be 1" ×2, and CR-11's case): `verification/017/impl/m4/r4-fix/red-pre-change-tests-at-tip.json`, read with python.
+
+**Sweeps re-run** (`fix-r4/cr9-enumeration-a5dd76f.out`, `fix-r4/cr10-enumeration-a5dd76f.out`):
+- CR-9: 3 document-level Enter bindings, as before. `ConfirmationDialog`'s is now scoped. `ImageUploader` and `WarningDialog` are unchanged: they are pre-existing, in `INBOX.md`, and the implementer has put their fixing to steering. The `react-hotkeys-hook` mock now remains only in `page.sign-in-exit`, which renders no second dialog.
+- CR-10: `click` is defined once, in `helpers/click.ts`, plus `JsonModalBody`'s `el.click()` form, which is outside the class. A second, differently phrased predicate (`new MouseEvent('click'`) finds:
+  - two inline dispatches in pre-existing files, which are not helpers;
+  - the provider file's two hand-built events, which need `defaultPrevented` and `which`;
+  - the two helpers.
+
+  So no copy is hidden under another name.
+
+**Conventions**: `convention-check.js website --since=de06d95` gives 0 FAIL, 0 CANDIDATE and 18 SKIP, with the id-token limb skipped (`fix-r4/convention-check-since-de06d95.out`). My hand predicate over the 86 added lines gives 0 ID-token hits and 0 comment lines.
+
+**Not re-run here**: the suite (1693 of 1693, exit 0) and typecheck (exit 0) are the implementer's. Its full-suite capture is named `vitest-full-worktree`, a working-tree run, so QA's export run is the tree's figure.
+
+**Dispositions**:
+- **CR-9**: gone. The checks are both orders of "answers only the prompt that holds focus when Enter is pressed with both open" in `layout.navigation-guard.test.tsx`, killed by the four CR-9 mutants at `fix-r4/run/`, and the probe `probe-enter-both/`.
+- **CR-10**: gone. `no test`, since this is a helper-policy class; the enumeration above is the check.
+- **CR-11**: gone. The check is "replaces the history entry … for a link to another site that replaces, once confirmed", killed by both CR-11 mutants.
+
+**Sub-entry verdict**: APPROVED at `a5dd76f` for M4.
+
 ## Findings
 
 ### Critical
@@ -458,6 +502,8 @@ No finding changes a decision. The two above go to their stated carriers.
 
 ## Verdict
 
+**Round 4 sub-entry (M4 at `a5dd76f`) — Status**: APPROVED. CR-9, CR-10 and CR-11 are each gone, with a failing check captured for each (see the sub-entry). M4 goes to QA Phase 2. The Round 4 assumption, that a browser keeps the link prompt open under the update prompt, stays with UAT B-3.
+
 **Round 4 (M4 at `de06d95`) — Status**: REJECTED
 **Rationale**: CR-9 is a criterion failure in production code. M4-b says that when the link prompt and the update prompt are open together, each is answered on its own. At `de06d95`, one Enter answers both: Reload runs, discarding the edits, and the page is left. My probe measures it in both opening orders, against a planted control. The suite's two cases for this state cannot see it, because they answer by pointer and the layout file mocks the hotkey library away.
 
@@ -545,7 +591,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Next Steps
 
-- Round 4: to the implementer for CR-9, CR-10 and CR-11. The fix SHA returns here, then goes to QA Phase 2 for M4. UAT B-3 closes the Round 4 assumption. The pre-existing `ImageUploader` and `WarningDialog` members of CR-9's class are in `agent-output/INBOX.md`.
+- Round 4: the fix is confirmed at `a5dd76f`. QA Phase 2 for M4 (`qa-hooks-017`) is next. Previously: to the implementer for CR-9, CR-10 and CR-11. UAT B-3 closes the Round 4 assumption. The pre-existing `ImageUploader` and `WarningDialog` members of CR-9's class are in `agent-output/INBOX.md`.
 
 - Round 3: to the implementer for CR-6, CR-7 and CR-8. The fix SHA returns here as a Round 3 sub-entry, then goes to QA Phase 2 for M3. UAT B-2 closes the Round 3 assumption.
 
@@ -559,7 +605,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Resumption State
 
-Updated at Round 4's verdict (2026-11-19T03:22Z). Round 4 (M4, `de06d95`) is REJECTED: CR-9 HIGH, CR-10 LOW, CR-11 LOW. Next: the implementer's fix SHA. Re-run the probe `verification/017/code-review/m4/probe-enter-both/` at that SHA, where both two-open cases must pass, and its planted control. Re-attack CR-9 from first principles, since it is a guard fix. Re-run CR-9's and CR-10's enumerations. Check that the layout file's "both open" case fails as an assertion at `de06d95`. The cache-warm wake is armed for 04:08 local. The scratch exports are deleted. The lines below are the Round 3 checkpoint's, kept where still true.
+Updated at the Round 4 sub-entry (2026-11-19T03:37Z). Round 4 (M4) was REJECTED at `de06d95` and its fix was confirmed APPROVED at `a5dd76f`. Next: M5, M6 or M7, when the implementer hands one off (M5 and M6 wait on OQ-7). The scratch exports and the mutation work directory are deleted. The lines below are the Round 3 checkpoint's, kept where still true.
 
 Written at the checkpoint steering-roadmap asked for (context threshold, 02:39Z), after the Round 3 sub-entry.
 

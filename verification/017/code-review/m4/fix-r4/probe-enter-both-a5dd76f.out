@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2d84e546-bc6d-4e4c-9ace-a079ac110fd8/scratchpad/exp-a5dd76f
+
+stdout | src/providers/__tests__/NavigationGuardProvider.enter-key.probe.test.tsx > probe: the Enter key with the link prompt and the update prompt open together > control A: the update prompt alone is answered by one Enter
+PROBE control-A updateConfirmed=1 push=0
+
+stdout | src/providers/__tests__/NavigationGuardProvider.enter-key.probe.test.tsx > probe: the Enter key with the link prompt and the update prompt open together > control B: the link prompt alone is answered by one Enter
+PROBE control-B updateConfirmed=0 push=1
+
+stdout | src/providers/__tests__/NavigationGuardProvider.enter-key.probe.test.tsx > probe: the Enter key with the link prompt and the update prompt open together > M4-b: one Enter answers at most one of two open prompts
+PROBE both-open updateConfirmed=1 push=0 answered=1
+
+ ✓ |dom| src/providers/__tests__/NavigationGuardProvider.enter-key.probe.test.tsx > probe: the Enter key with the link prompt and the update prompt open together > control A: the update prompt alone is answered by one Enter 123ms
+ ✓ |dom| src/providers/__tests__/NavigationGuardProvider.enter-key.probe.test.tsx > probe: the Enter key with the link prompt and the update prompt open together > control B: the link prompt alone is answered by one Enter 46ms
+stdout | src/providers/__tests__/NavigationGuardProvider.enter-key.probe.test.tsx > probe: the Enter key with the link prompt and the update prompt open together > M4-b, production order: link prompt first, then the update prompt; one Enter answers at most one
+PROBE both-open-link-first updateConfirmed=0 push=1 answered=1
+PROBE both-open-link-first dialogs-after-enter=["You have unsaved changes!","Message Update Detected"]
+
+ ✓ |dom| src/providers/__tests__/NavigationGuardProvider.enter-key.probe.test.tsx > probe: the Enter key with the link prompt and the update prompt open together > M4-b: one Enter answers at most one of two open prompts 91ms
+ ✓ |dom| src/providers/__tests__/NavigationGuardProvider.enter-key.probe.test.tsx > probe: the Enter key with the link prompt and the update prompt open together > M4-b, production order: link prompt first, then the update prompt; one Enter answers at most one 77ms
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  03:37:05
+   Duration  2.30s (transform 304ms, setup 35ms, import 1.08s, tests 341ms, environment 704ms)
+

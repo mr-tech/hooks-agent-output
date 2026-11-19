@@ -1,0 +1,62 @@
+[
+ {
+  "id": "cr9-guard-dropped",
+  "file": "src/components/ConfirmationDialog.tsx",
+  "old": "if (ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)) onConfirm();",
+  "new": "onConfirm();",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx"
+  ]
+ },
+ {
+  "id": "cr9-guard-never",
+  "file": "src/components/ConfirmationDialog.tsx",
+  "old": "if (ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)) onConfirm();",
+  "new": "if (ref.current === undefined) onConfirm();",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx"
+  ]
+ },
+ {
+  "id": "cr9-scope-content-only",
+  "file": "src/components/ConfirmationDialog.tsx",
+  "old": "if (ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)) onConfirm();",
+  "new": "if (ref.current?.contains(document.activeElement)) onConfirm();",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx"
+  ]
+ },
+ {
+  "id": "cr9-scope-any-dialog",
+  "file": "src/components/ConfirmationDialog.tsx",
+  "old": "if (ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)) onConfirm();",
+  "new": "if (document.activeElement?.closest('[role=\"dialog\"]')) onConfirm();",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx"
+  ]
+ },
+ {
+  "id": "cr11-confirm-always-assign",
+  "file": "src/providers/NavigationGuardProvider.tsx",
+  "old": "window.location[replace ? 'replace' : 'assign'](href)",
+  "new": "window.location.assign(href)",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx"
+  ]
+ },
+ {
+  "id": "cr11-replace-not-passed",
+  "file": "src/components/StyledLink.tsx",
+  "old": "intercept({ href, external: true, replace: rest.replace })",
+  "new": "intercept({ href, external: true })",
+  "tests": [
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx",
+   "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx"
+  ]
+ }
+]
