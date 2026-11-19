@@ -72,7 +72,7 @@ the S7, S8 and S9 inputs. All of it is in website alone. Out: S5, S16 and S17 (n
 handoff each. The stage set is as in block 20:30Z. Owner-wait `access-fix-scope` resolved (`challenge-alert.js resolved`, exit 0).
 Disclosure: the record-write gate refused this block's first write, a shell heredoc. It was re-issued with the Edit tool.
 
-## 2026-11-19T22:38Z — chain started: handoffs, branch, briefs, fixer spawned, standing check armed
+## 2026-11-19T22:37Z — chain started: handoffs, branch, briefs, fixer spawned, standing check armed
 
 - **Exclusion handoffs** (helper subagent, `6f333f0`, check-repo PASS exit 0):
   - `handoff/cron-endpoint-key-is-a-fixed-value-2026-11-19.md` (S14)
@@ -90,3 +90,5 @@ Disclosure: the record-write gate refused this block's first write, a shell here
   20 or more lines. Security comes after QA.
 - **Standing check** armed as a one-shot, id `846d57b8`, for 23:07Z. It replaces the cache-warm wake. OOM count 0. Usage live 22:37Z:
   session 1%, `weekly_all` 19%.
+- Disclosure: the stamp gate refused this block's first heading, which was typed a minute ahead of the clock (22:38Z against 22:37Z),
+  and it was committed that way at `9943a73`. It now carries the `date -u` minute.
