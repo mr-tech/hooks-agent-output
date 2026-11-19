@@ -1173,3 +1173,18 @@ Path: the implementer adds the tests (`implementer-hooks-017` and `devops-hooks-
 review checks the test-only diff, then the architect does a delta read at the new website tip (devops step 2c; the closing pass at
 `0fbb246` expires with the tree), then a fresh QA Phase 3 on devops's request, and then devops's 2B ask. Website tip `7293a35` (`rev-parse`).
 Disclosure: the record-write gate refused this block's first write through a shell heredoc; it was re-issued with the Edit tool, the form the gate names.
+
+## 2026-11-19T20:21Z — 017 released; close-out started
+
+Fix round: code review APPROVED website `787bec5` (`a081c89`); the architect's delta read holds there (`eb46ec9`); release-tip QA
+Release Verified (`c09fd41`, per devops's record). His release approval was by selection in devops's session at 20:11Z ("Agent: release
+both, website then generator"; `c0a8304`). Live, read this turn with `ls-remote`: website `master` `787bec5`, generator `prod` and
+`master` `8512a1d`. Deployment record Released and closed (`deployment/closed/017-existing-items-backlog-deployment.md`, `b222b02`).
+The chain branches are deleted in both repositories (devops).
+Still open for closure: the security audit (`security/017-preview-image-generator-security-audit.md`, Active; its closer is the security
+stage) and two check-repo problems in the implementer's closed M6 (line 27) and M2 (line 32) documents. Carried: post-deploy rows B-6 to
+B-11 and F-1 to F-7 in `handoff/017-existing-items-backlog-post-deploy-2026-11-19.md`, readers B7R and B10R. His looks B-6, B-8 and B-9
+are live now. `handoff/preview-image-failure-shows-broken-not-stale-2026-08-24.md` closes Addressed against B-6 to B-9 once he reports them.
+The audit's § "Outside the reviewed delta" (three website observations) is carried by the access-defects fixer determination
+(his "Fix right after 017", block 09:01Z), which starts now with the scope sweep.
+Code review's record items: no plan row for the release-tip cycle (this thread's word, 20:0xZ).
