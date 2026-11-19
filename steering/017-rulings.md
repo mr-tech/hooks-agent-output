@@ -380,3 +380,24 @@ Recipients: `planner-hooks-017` (registers all four); the critic, the architect 
 plan's registration. Owner-wait `017-rev2-oq8-10` cleared. **This thread's error:** that owner-wait
 notice was sent at 00:06Z while the three gates could still move without him; steering.md sends it
 only when every next act waits on him.
+
+## 2026-11-19T00:21Z — revision 3 received; OQ-11, OQ-12, OQ-13 and X-18's third member put to him
+
+Planner message (00:1xZ): revision 3 at `b3d811e` (read this turn: `Revision: 3`; OQ-11..OQ-13 text;
+X-18 row line 1012). Folds critique pass 2 (`51805f4`), architect delta (`5ee7b89`), QA re-key
+(`df45dde`), D-18..D-21; planner sent the delta to the three gates. Scope delta, its words: "no
+milestone added or removed … What each item delivers is unchanged." Judged mechanism inside scope;
+the three mechanisms and X-18's widened row go to him. Gates not held; no owner-wait (gates can move).
+Premises — `general-purpose-sonnet` helper, conclusions alone (read from code, not run, unless marked):
+- OQ-12: `src/utils/withLocalStorage.ts:12-17` `setItem` uncaught; `useLocalStorage.ts:27` uncaught;
+  editor store effect `MessageProvider/index.tsx:165-169` unguarded; no `error.tsx` in the tree.
+  **Partly refuted as worded**: the first write that does not fit throws in the provider's effect and,
+  with no boundary above it, takes the page down to Next's default error screen — not "every later edit
+  throws". Theme's press handler throws without unmounting.
+- OQ-13 (b)'s "a few objects a year": **refuted as a measure**. AN-4's 15 are generator non-successes; the
+  event (a 204 no continuation processed) is website-side, the continuation does not exist yet (M5's
+  design), and no read in the record measures it. Rate unmeasured.
+- OQ-11's cost figure: **not refuted** — `verification/017/architect-delta/m3-draft-map-serialise-cost.txt:3`,
+  Node v24 V8 run per its README (JSON only; no browser or `setItem`; a lower bound by its own words).
+- X-18: today's draft key is the constant `'message'` (`useLocalStorage.ts:42`), shared by every message
+  in the origin; "last writer wins, as today" holds and today is wider.
