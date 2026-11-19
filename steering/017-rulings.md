@@ -332,3 +332,29 @@ retention window; QA held it as outside D-10's single selected read.
   redeploy, env, or settings change; a refused read recorded, not re-issued.
 - Other gates on revision 1 at 23:41Z: architect `406b34a` APPROVED_WITH_CHANGES (AF-1..AF-5); QA Phase 1
   `d1add83` findings QAF-1..QAF-9 to the planner; critic pass 1 not yet committed.
+
+## 2026-11-19T00:06Z — revision 2 received; OQ-8, OQ-9, OQ-10 and X-17..X-19 put to him
+
+Planner message (00:0xZ): revision 2 at `3d678cc` (read this turn: `Revision: 2`; changelog row 23:57;
+OQ-8 lines 141-156, OQ-9 158-164, OQ-10 166-175; X-17..X-19 lines 924-926). It folds critique pass 1,
+architect AF-1..AF-9, QA QAF-1..QAF-9; the planner sent the delta to the critic, the architect and QA
+itself (next-act table). Scope delta, its words: "no milestone added or removed … what each item
+delivers is unchanged; the mechanism under items 2 and 4 is larger." Judged by this thread a mechanism
+change inside the agreed scope, not milestone-level; its one reach change (M4's context over every
+`/message` page) is OQ-10, put to him. Gates not held.
+Premises — `general-purpose-sonnet` helper briefed with the conclusions alone (all "read from code, not
+run" unless marked):
+- OQ-8: every link holds at `1ad625e` — react-use 17.4.0 `useBeforeUnload` prevents every unload while
+  its flag is true; next-auth 4.24.5 `signIn('discord')` (line 331) and `signOut` (line 426) assign
+  `window.location.href`. Today `hasChanged` requires `status === 'authenticated'`
+  (`MessageProvider/index.tsx:112-115`), so the prompt arises only once M3-d drops that condition, as the
+  plan says. **Partly refuted for the expired-session member**: `SessionProvider.tsx:13-15` runs
+  `signOut()` in an effect keyed on `[!!session]`, which the helper read as firing at page load with an
+  expired session, before any edit exists.
+- OQ-10: **not refuted** — `src/app/message/layout.tsx` renders Navigation (Header, Sidebar on `/send`)
+  beside, not inside, `src/app/message/m/[id]/layout.tsx:12-22` where `MessageProvider` and
+  `ConfirmationProvider` mount.
+- D-8's limit ("a failure line lasts under a day"): **partly refuted as worded** — QA's record rests on CLI
+  refusals (`-s 1d` refused, `-s 23h` served); Vercel's runtime-logs and limits pages (fetched, run) say
+  Pro keeps 1 day. About 24 hours, not meaningfully under.
+- OQ-9 rests on no code conclusion (a definition of the stop word).
