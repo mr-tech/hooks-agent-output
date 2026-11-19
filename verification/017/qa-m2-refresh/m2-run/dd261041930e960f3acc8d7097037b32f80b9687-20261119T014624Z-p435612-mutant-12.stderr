@@ -1,0 +1,41 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for the broadcast of an identical save still in flight when one of two failed
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:285:27
+    283|     broadcast(sentHash(1));
+    284|
+    285|     expect(noticeShown()).toBe(false);
+       |                           ^
+    286|   });
+    287|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises no notice for a later save in flight when an earlier save, already broadcast, then reports failure
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:312:27
+    310|     broadcast(sentHash(1));
+    311|
+    312|     expect(noticeShown()).toBe(false);
+       |                           ^
+    313|   });
+    314| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

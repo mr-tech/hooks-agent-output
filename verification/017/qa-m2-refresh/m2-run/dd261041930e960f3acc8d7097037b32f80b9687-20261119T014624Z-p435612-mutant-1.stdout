@@ -1,0 +1,17 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m2r/20261119T014624Z-p435612/mutant-1
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/useApiMethods.own-save-record.test.tsx (2 tests | 1 failed) 98ms
+     × records one hash for a message that has an id 89ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (37 tests | 5 failed) 572ms
+       × raises no notice for either of two saves in flight when edits follow the second 19ms
+       × raises no notice for either of two saves in flight when edits follow the second 5ms
+     × raises no notice for two identical saves, their broadcasts, and an edit after the second 5ms
+     × raises no notice for the broadcast of an identical save still in flight when one of two failed 3ms
+     × raises no notice for a later save in flight when an earlier save, already broadcast, then reports failure 6ms
+
+ Test Files  2 failed | 6 passed (8)
+      Tests  6 failed | 80 passed (86)
+   Start at  01:46:30
+   Duration  4.54s (transform 4.53s, setup 223ms, import 17.16s, tests 1.37s, environment 6.50s)
+

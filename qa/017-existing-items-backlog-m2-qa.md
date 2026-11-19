@@ -2,9 +2,9 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Verified-At: "ec984fe — repos=website; M2 only. The suite, the typecheck, the mutant run and the AN-1 re-run all ran in isolated git archive exports. The chain branch is at 442059d (M3, plus the QAF-16 test move), which is outside this verdict."
-Status: QA Failed
-Status-Detail: "M2's behaviour holds at website ec984fe, but QAF-17 MEDIUM blocks: an M2-b interleaving has no assertion, so a coupling mutant survives. The fix is test-only and is the implementer's. A scoped refresh is owed at the commit that lands it, which also re-reads QAF-16 (442059d)."
+Verified-At: "dd26104 — repos=website; M2 refresh, scoped to M2 (usePusher.ts and useApiMethods.ts unchanged since ec984fe; index.tsx's M2 lines unchanged). The suite, the typecheck, the 14-mutant run and the AN-1 re-run ran in isolated git archive exports. The earlier anchor ec984fe (QA Failed) is superseded."
+Status: QA Complete
+Status-Detail: "M2 passes at website dd26104: QAF-17 and QAF-16 are resolved, and 14 of 14 mutants are killed. Milestone-scoped, so plan Status is unmoved. M3's changes in the tree are outside this verdict. The effort-final mutation sweep is owed."
 Phase: 2
 ---
 
@@ -25,6 +25,7 @@ is M2's operator-observed row and is unchanged.
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-19T01:24 | code-reviewer-hooks-017 (cross-session message; review round 2 `45d2c8d`) | QA Phase 2 for M2 at website `ec984fe`, with CR-3 inside QAF-16's disposition | Phase 2, M2 only. No steering brief arrived; I read the Decisions Register and both Assumption Not Checked sections myself. Suite 1542 of 1542, exit 0; typecheck 0. The AN-1 probe re-run at `8147661` and `ec984fe`: the outside-class member raises the notice at `8147661` and no member does at `ec984fe`. QA's 12 mutants: 11 killed, 1 survived. **QA Failed**: QAF-17 MEDIUM (the survivor's case, written and shown red and green). QAF-16 dispositioned together with CR-3 (fix seen at `442059d`, re-read at the refresh). Gate disclosed: record-write-gate-hook refused a shell heredoc append to `INBOX.md`; the entry was re-issued through `record-edit.js` `append_file`. |
+| 2026-11-19T01:48 | implementer-hooks-017 (cross-session message: QAF-17 at `bce3119`, tip `dd26104`) | Scoped refresh of M2 at website `dd26104` | Refresh. Suite 1606 of 1606, exit 0; typecheck 0. The M2 mutant set was re-anchored and run, plus two new mutants: 14 of 14 killed. QAF-17 and QAF-16 (CR-3) are RESOLVED. The committed AN-1 probe is out of date for M3's `onSuccess`; a copy that passes the mutation variables shows all 24 rows `notice: false`. **QA Complete** (M2-scoped), superseding the `ec984fe` QA Failed. |
 
 ## Criteria assessed (recorded before execution)
 
@@ -163,68 +164,83 @@ exact-tree lint instrument short of an export with its own install. M7-b's chain
 
 ## Findings
 
-QAF-17 MEDIUM Phase 2 — M2-b's class has no assertion for another tab's broadcast arriving inside T's window, so the
-handler's guard that only a **matching** broadcast consumes a record is never seen failing.
+QAF-17 MEDIUM Phase 2 RESOLVED. QA's case landed verbatim at website `bce3119`. The mutant
+`qa-coupling-any-broadcast-consumes-a-record` is KILLED at `dd26104`, by that case alone (`qa-m2-refresh/m2-run/`).
 
-The mutant `qa-coupling-any-broadcast-consumes-a-record` survives the whole `MessageProvider` folder at `ec984fe`. It
-replaces `if (ownSaveIndex >= 0) ownSaveRecordsRef.current.splice(ownSaveIndex, 1);` with
-`ownSaveRecordsRef.current.splice(Math.max(ownSaveIndex, 0), 1);`.
+QAF-16 LOW Phase 2 RESOLVED (Preferred form) — Duplicates: CR-3 in code-review/017-existing-items-backlog-code-review.md
+- The chain's two `persist` record cases now render `useApiMethods` inside `createRoot`/`act`, in
+  `useApiMethods.own-save-record.test.tsx` (`442059d`). Its harness is `saveRecords` with an inner `Harness` component.
+- No hook-named helper remains in `MessageProvider/__tests__/`: `git grep -nE "function use[A-Z]|const use[A-Z][A-Za-z]* = "
+  dd26104` gives no line.
+- CR-3's two falsity signatures hold at `dd26104`, both as AssertionError with no timeout:
+  - `qa-id-guard-dropped`: "expected [ '-6d44f0da' ] to deeply equal []";
+  - `qa-record-call-removed`: "expected [] to have a length of 1 but got +0".
+- The pre-existing stub in `json-editor-repair` is the `INBOX.md` entry of this pass's first round.
 
-In operator terms: T saves; another tab's save reaches T first; T keeps typing; then T's own broadcast arrives and T warns
-about its own save. That is item 3's symptom, back by a different interleaving. The case "raises the notice when another
-tab saves while this tab's own save is in flight" stops after the other tab's broadcast and never delivers T's own.
+CR-4: the disposition line is in the M2 implementation document (implementer, per its message). This pass's AN-1 re-runs
+show `notice: false` for the member at both `ec984fe` and `dd26104`.
 
-This is a behaviour M2-b claims, with no assertion that fails when it is lost, so the severity floor makes it MEDIUM and
-blocking.
+## Refresh at website `dd26104` (scoped to M2)
 
-**Remedy (test-only, spec-form):** tighten that case, or add beside it the case QA wrote and ran:
-`survivor-close/MessageProvider.own-save-notice.with-qa-case.test.tsx`, the last `it`, "raises only the other tab's notice
-when its save arrives between this tab's save and that save's broadcast, and an edit follows". It is green at `ec984fe` and
-red under the mutant alone.
+**Stage start**: code review round 2 sub-entry, APPROVED at `Reviewed-At: dd26104` (`code-review/017-existing-items-backlog-code-review.md`, agent-output `fb4c5f3`; plan row R-13 `d55890e`), re-derived at the record. It arrived while this pass was running, after the implementer's hand-off message. The reviewer re-attacked four mutants of its own, all killed, in `code-review/m2-fix/run/`. That is a third driver, and it agrees with this run on the coupling mutant and on CR-3's signatures.
 
-**Owner:** `implementer-hooks-017`.
+The tree adds commits beyond `ec984fe`:
+- `442059d`, `bce3119` and `dd26104` are test-only (`git show --stat`).
+- `d9ebe97`, `79144cb` and `536b8e6` are M3. They change `MessageProvider/index.tsx` and are not yet code-reviewed; they
+  are outside this verdict except where they touch M2's surface.
 
-QAF-16 LOW Phase 2 — disposition, with CR-3 folded in. Duplicates: CR-3 in code-review/017-existing-items-backlog-code-review.md
+M2's production lines were checked:
+- `git diff ec984fe dd26104` over `usePusher.ts` and `useApiMethods.ts` is empty.
+- In `index.tsx`, no changed line touches `ownSaveRecordsRef`, `forgetOwnSave`, `usePusher(`, `onError` or `upsert`.
+  That was a `grep` over the diff's +/− lines, which printed none.
+- M3 did change `onSuccess`, which now reads the mutation variables. Because of that change and the line above, the
+  whole M2 mutant set was re-run, not only the survivor.
 
-This chain's part is the two new `persist` record cases, run under the `useState` stub through `useSaveWith`. A hook-style
-name hides them from `rules-of-hooks`, which I reproduced (above).
+The export `$SCRATCH/exp-dd26104` was built as before (generated type inputs hashed, no `.env*`, `unshare -rn`). Captures
+are in `verification/017/qa-m2-refresh/`.
 
-**Ruling: the Preferred form.** The cases run `useApiMethods` inside a real `createRoot`/`act` render. The Minimum form,
-a bare rename that keeps the stub and raises M7-b to 43, is not taken.
+| Command | Result | Capture |
+|---|---|---|
+| `npx vitest run --reporter=json` | 1606 of 1606, 129 files, `success` true, **exit 0** | `vitest-dd26104.*` |
+| `pnpm run typecheck` | **exit 0** | `typecheck-dd26104.*` |
+| `suite-compare.mjs`, QA's `ec984fe` run against this run | 1542 → 1606. Five tip-only files (the M3 tests and `useApiMethods.own-save-record`). `own-save-notice` went 35 → 37, adding QAF-17's case and the implementer's case for a failure after broadcast. `json-editor-repair` went 9 → 7, the two cases moved to the real render. Nothing else was removed. | `compare-qaec984fe-vs-qadd26104.out` |
+| M2 mutant set, re-anchored at `dd26104`, plus two new mutants (`mutation-run.py` blob `b26916e`, the `MessageProvider/__tests__` folder, control 86 tests) | see the score below | `m2-mutants-qa-dd26104.json`, `m2-run/mutation-table-…-20261119T014624Z-p435612.json` |
+| AN-1 probe | The committed probe errors at `dd26104`: 22 of 25 fail with `TypeError: Cannot destructure property 'message' of 'undefined'` at `index.tsx` `onSuccess`. The probe calls `onSuccess(msg)` without the variables, which react-query always passes and which M3's `onSuccess` now reads. That is an instrument gap, not a product fault. A copy with that one change, `an1-rerun/own-save-broadcast.probe.variables.tsx`, passes 25 of 25 (exit 0), and all 24 rows show `notice: false`. | `an1-rerun/` (both runs) |
 
-Website `442059d` ("the own-save record's persist cases render the hook for real …", test files only: `json-editor-repair`
-−25, new `useApiMethods.own-save-record.test.tsx` +42) appears to do this. It is outside this verdict and is read at the
-refresh. The refresh checks two things:
-- the falsity signatures CR-3 names: under `qa-id-guard-dropped` the no-id case fails by assertion, and with the
-  `recordOwnSave` call removed the id case fails;
-- no hook-named helper is left in either file.
+**Mutant score.** 14 of 14 KILLED, count-checked, over every mutant in `m2-mutants-qa-dd26104.json` (blob `f90f78d`); stillborn,
+aborted and not-applied were all 0. The 14 are the 12 from the `ec984fe` pass plus two new ones:
+- `qa-record-call-removed`, the `recordOwnSave` call deleted from `persist`;
+- `qa-coupling-forget-consumes-any-record`, where `forgetOwnSave` splices index 0 when there is no match.
 
-The pre-existing part, `loadAndSaveViaShippedProvider` under the same stub (its `rules-of-hooks` finding at line 48 is
-visible), predates this chain. It goes to `agent-output/INBOX.md` as a test-tree item, appended in this round.
+**Seen-red, for the new cases:**
+- QAF-17's case is reddened by `qa-coupling-any-broadcast-consumes-a-record` (alone), `qa-coupling-any-record-suppresses`
+  and `qa-record-call-removed`.
+- The implementer's `dd26104` case is reddened by `qa-coupling-forget-consumes-any-record` (alone) and
+  `qa-record-call-removed`.
+- `own-save-record`'s id case is reddened by `qa-record-call-removed` and `nm2`; its no-id case by `qa-id-guard-dropped`.
 
-CR-4 (the 11th M2-a member) agrees with this pass. The member is unobservable through a broadcast, and the AN-1 re-run
-shows `notice: false` for it at hook level. The disposition line is the implementer's, as the code review routed it.
+The implementer's own capture (`impl/m2/bce3119-fix-mutants/`) agrees on the first survivor. These are two different
+drivers, run by two different sessions.
+
+**Lint for the new test file:** not measured here. It is M3's code review's, and M7-b's at the chain tip (QAF-15's
+instrument note).
 
 ## Verdict
 
-**QA FAILED for M2 at website `ec984fe`**, on QAF-17 alone. Everything M2 claims holds at `ec984fe`:
-- the suite passes, exit 0;
-- the AN-1 instrument shows M2-b fixed and M2-a's absence kept;
-- 11 of 12 discriminating mutants were killed, including every named one.
+**PASS. M2 is `QA Complete` at website `dd26104`**, scoped to M2's surface:
+- M2-a: 10 members by case and the 11th by the AN-1 re-run, both orders;
+- M2-b: the class members, now including another tab's broadcast inside T's window, and a failure after broadcast;
+- M2-c: every member, each conjunct carrying the decision alone;
+- the Window paragraph: records are per send, removed once by an equal broadcast or by the mutation's error.
 
-But one member of M2-b's class carries no assertion.
+All 14 discriminating mutants are killed. The `ec984fe` verdict, QA Failed, is superseded by this pass, as dated in the
+changelog.
 
-**Path to a pass:** the implementer lands QAF-17's case, which is test-only. QA then runs a scoped refresh at that commit:
-- the suite;
-- the surviving mutant and `qa-coupling-any-record-suppresses`, its sibling;
-- QAF-16's two signatures at `442059d` or later.
-
-The refresh's tree will also carry M3's production change to `MessageProvider/index.tsx` (`git diff --stat ec984fe 442059d`:
-+38/−21). So the refresh re-runs the whole M2 mutant set there, not only the survivor: a production change to M2's surface
-expires this verdict.
+M3's changes in this tree are judged by M3's code review and QA pass, not here. A later production change to
+`usePusher.ts`, `useApiMethods.ts`, or `index.tsx`'s M2 lines expires this verdict. The effort-final sweep stays owed.
 
 Rows inherited and not discharged: B-1 to B-11 (B-1 is M2's, UAT's). Code review round 2's Assumption Not Checked, on the
-tRPC transport, is UAT's at B-1, as routed.
+tRPC transport, is UAT's at B-1.
 
 ## Assumption Not Checked
 
@@ -237,7 +253,6 @@ Owner: UAT at B-1, which runs on the real Pusher client.
 
 ## Handoff
 
-- **`implementer-hooks-017`**: QAF-17 (test-only remedy, case supplied) and CR-4's disposition line. Then QA's scoped
-  refresh at the landing commit.
-- **`code-reviewer-hooks-017`**: QAF-16's disposition of CR-3.
-- **`agent-output/INBOX.md`**: the pre-existing stub.
+- **UAT**: M2 is ready for B-1 once the chain reaches UAT. Its brief comes from steering.
+- **`implementer-hooks-017`**: nothing owed for M2.
+- **Steering**: no owner-needing item.

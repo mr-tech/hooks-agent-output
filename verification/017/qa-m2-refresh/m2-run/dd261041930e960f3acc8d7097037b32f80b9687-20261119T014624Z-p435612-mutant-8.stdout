@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m2r/20261119T014624Z-p435612/mutant-8
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (37 tests | 2 failed) 331ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 11ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 3ms
+
+ Test Files  1 failed | 7 passed (8)
+      Tests  2 failed | 84 passed (86)
+   Start at  01:47:05
+   Duration  2.41s (transform 1.23s, setup 270ms, import 6.94s, tests 757ms, environment 4.93s)
+

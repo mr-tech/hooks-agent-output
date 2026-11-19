@@ -1,0 +1,128 @@
+[
+ {
+  "id": "nm2-latest-send-only",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "recordsRef.current.push(hashOf(payload));",
+  "new": "recordsRef.current = [hashOf(payload)];",
+  "tests": [
+   "src/providers/MessageProvider/__tests__"
+  ]
+ },
+ {
+  "id": "nm3-set-not-per-send",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "recordsRef.current.push(hashOf(payload));",
+  "new": "if (!recordsRef.current.includes(hashOf(payload))) recordsRef.current.push(hashOf(payload));",
+  "tests": [
+   "src/providers/MessageProvider/__tests__"
+  ]
+ },
+ {
+  "id": "nm4-record-kept-after-broadcast",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "if (ownSaveIndex >= 0) ownSaveRecordsRef.current.splice(ownSaveIndex, 1);",
+  "new": "if (ownSaveIndex >= 0) ownSaveRecordsRef.current.splice(ownSaveIndex, 0);",
+  "tests": [
+   "src/providers/MessageProvider/__tests__"
+  ]
+ },
+ {
+  "id": "nm5-current-clause-dropped",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "ownSaveIndex < 0 && hash !== hashMessage(normalizeForHash(messageRef.current))",
+  "new": "ownSaveIndex < 0",
+  "tests": [
+   "src/providers/MessageProvider/__tests__"
+  ]
+ },
+ {
+  "id": "qa-own-clause-dropped",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "if (ownSaveIndex < 0 && hash",
+  "new": "if (hash",
+  "tests": [
+   "src/providers/MessageProvider/__tests__"
+  ]
+ },
+ {
+  "id": "qa-id-guard-dropped",
+  "file": "src/providers/MessageProvider/useApiMethods.ts",
+  "old": "if (payload.id) recordOwnSave(",
+  "new": "recordOwnSave(",
+  "tests": [
+   "src/providers/MessageProvider/__tests__"
+  ]
+ },
+ {
+  "id": "qa-failed-save-record-kept",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "forgetOwnSave(ownSaveRecordsRef, sent);",
+  "new": "",
+  "tests": [
+   "src/providers/MessageProvider/__tests__"
+  ]
+ },
+ {
+  "id": "qa-record-not-normalized",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "hashMessage(\n  normalizeForHash(payload as Pick<ActiveMessage, 'name' | 'data'>),\n)",
+  "new": "hashMessage(payload as unknown as Pick<ActiveMessage, 'name' | 'data'>)",
+  "tests": [
+   "src/providers/MessageProvider/__tests__"
+  ]
+ },
+ {
+  "id": "qa-forget-removes-two",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "if (index >= 0) recordsRef.current.splice(index, 1);",
+  "new": "if (index >= 0) recordsRef.current.splice(index, 2);",
+  "tests": [
+   "src/providers/MessageProvider/__tests__"
+  ]
+ },
+ {
+  "id": "qa-coupling-any-broadcast-consumes-a-record",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "if (ownSaveIndex >= 0) ownSaveRecordsRef.current.splice(ownSaveIndex, 1);",
+  "new": "ownSaveRecordsRef.current.splice(Math.max(ownSaveIndex, 0), 1);",
+  "tests": [
+   "src/providers/MessageProvider/__tests__"
+  ]
+ },
+ {
+  "id": "qa-coupling-any-record-suppresses",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "if (ownSaveIndex < 0 && hash",
+  "new": "if (ownSaveRecordsRef.current.length === 0 && ownSaveIndex < 0 && hash",
+  "tests": [
+   "src/providers/MessageProvider/__tests__"
+  ]
+ },
+ {
+  "id": "qa-forget-clears-all",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "if (index >= 0) recordsRef.current.splice(index, 1);",
+  "new": "recordsRef.current.length = 0;",
+  "tests": [
+   "src/providers/MessageProvider/__tests__"
+  ]
+ },
+ {
+  "id": "qa-record-call-removed",
+  "file": "src/providers/MessageProvider/useApiMethods.ts",
+  "old": "if (payload.id) recordOwnSave(ownSaveRecordsRef, payload);",
+  "new": "",
+  "tests": [
+   "src/providers/MessageProvider/__tests__"
+  ]
+ },
+ {
+  "id": "qa-coupling-forget-consumes-any-record",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "if (index >= 0) recordsRef.current.splice(index, 1);",
+  "new": "recordsRef.current.splice(Math.max(index, 0), 1);",
+  "tests": [
+   "src/providers/MessageProvider/__tests__"
+  ]
+ }
+]

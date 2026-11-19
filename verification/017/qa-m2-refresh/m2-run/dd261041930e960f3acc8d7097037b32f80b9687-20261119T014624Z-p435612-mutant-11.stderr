@@ -1,0 +1,41 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises the notice when another tab saves while this tab's own save is in flight
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:239:29
+    237|     broadcast(remoteHash({ content: 'from another tab' }));
+    238|
+    239|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    240|   });
+    241|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:297:29
+    295|     broadcast(sentHash(0));
+    296|
+    297|     expect(hoisted.confirm).toHaveLength(1);
+       |                             ^
+    298|   });
+    299|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/mut-work-m2r/20261119T014624Z-p435612/mutant-14
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (37 tests | 1 failed) 241ms
+     × raises no notice for a later save in flight when an earlier save, already broadcast, then reports failure 8ms
+
+ Test Files  1 failed | 7 passed (8)
+      Tests  1 failed | 85 passed (86)
+   Start at  01:47:26
+   Duration  2.28s (transform 1.06s, setup 91ms, import 7.07s, tests 573ms, environment 5.03s)
+

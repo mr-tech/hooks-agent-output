@@ -1,0 +1,89 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/635d459f-3974-430d-82de-77272b9e33d1/scratchpad/exp-dd26104
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx (25 tests | 22 failed) 202ms
+     × classic / nothing changed [broadcast-then-response] 23ms
+     × classic / after an edit [broadcast-then-response] 5ms
+     × classic / after an edit leaving trailing whitespace [broadcast-then-response] 4ms
+     × v2 / nothing changed [broadcast-then-response] 4ms
+     × v2 / after an edit [broadcast-then-response] 3ms
+     × v2 / beside an empty embed (gate drops it, no dialog) [broadcast-then-response] 3ms
+     × dialog / v2 with content, choose Classic [broadcast-then-response] 61ms
+     × dialog / v2 with content, choose V2 [broadcast-then-response] 24ms
+     × not-valid (passes shape, valid=false) / nothing changed [broadcast-then-response] 2ms
+     × not-valid (passes shape, valid=false) / after an edit [broadcast-then-response] 2ms
+     × OUTSIDE CLASS: classic / edit typed after Save, before delivery [broadcast-then-response] 3ms
+     × classic / nothing changed [response-then-broadcast] 2ms
+     × classic / after an edit [response-then-broadcast] 2ms
+     × classic / after an edit leaving trailing whitespace [response-then-broadcast] 3ms
+     × v2 / nothing changed [response-then-broadcast] 2ms
+     × v2 / after an edit [response-then-broadcast] 2ms
+     × v2 / beside an empty embed (gate drops it, no dialog) [response-then-broadcast] 2ms
+     × dialog / v2 with content, choose Classic [response-then-broadcast] 21ms
+     × dialog / v2 with content, choose V2 [response-then-broadcast] 19ms
+     × not-valid (passes shape, valid=false) / nothing changed [response-then-broadcast] 2ms
+     × not-valid (passes shape, valid=false) / after an edit [response-then-broadcast] 2ms
+     × OUTSIDE CLASS: classic / edit typed after Save, before delivery [response-then-broadcast] 2ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 22 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > classic / nothing changed [broadcast-then-response]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > classic / after an edit [broadcast-then-response]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > classic / after an edit leaving trailing whitespace [broadcast-then-response]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > v2 / nothing changed [broadcast-then-response]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > v2 / after an edit [broadcast-then-response]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > v2 / beside an empty embed (gate drops it, no dialog) [broadcast-then-response]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > dialog / v2 with content, choose Classic [broadcast-then-response]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > dialog / v2 with content, choose V2 [broadcast-then-response]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > not-valid (passes shape, valid=false) / nothing changed [broadcast-then-response]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > not-valid (passes shape, valid=false) / after an edit [broadcast-then-response]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > OUTSIDE CLASS: classic / edit typed after Save, before delivery [broadcast-then-response]
+TypeError: Cannot destructure property 'message' of 'undefined' as it is undefined.
+ ❯ Object.onSuccess src/providers/MessageProvider/index.tsx:244:33
+    242|       }
+    243|     },
+    244|     onSuccess: (msg, { message: sent }) => {
+       |                                 ^
+    245|       if (msg.id === message?.id) {
+    246|         removeDraft(msg.id, (draft) => sameJson(stripKeys({ name: draf…
+ ❯ src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx:127:25
+ ❯ Proxy.process.env.NODE_ENV.exports.act ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ deliverResponse src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx:126:33
+ ❯ run src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx:133:66
+ ❯ src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx:165:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/22]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > classic / nothing changed [response-then-broadcast]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > classic / after an edit [response-then-broadcast]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > classic / after an edit leaving trailing whitespace [response-then-broadcast]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > v2 / nothing changed [response-then-broadcast]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > v2 / after an edit [response-then-broadcast]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > v2 / beside an empty embed (gate drops it, no dialog) [response-then-broadcast]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > dialog / v2 with content, choose Classic [response-then-broadcast]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > dialog / v2 with content, choose V2 [response-then-broadcast]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > not-valid (passes shape, valid=false) / nothing changed [response-then-broadcast]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > not-valid (passes shape, valid=false) / after an edit [response-then-broadcast]
+ FAIL  |dom| src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx > own-tab broadcast > OUTSIDE CLASS: classic / edit typed after Save, before delivery [response-then-broadcast]
+TypeError: Cannot destructure property 'message' of 'undefined' as it is undefined.
+ ❯ Object.onSuccess src/providers/MessageProvider/index.tsx:244:33
+    242|       }
+    243|     },
+    244|     onSuccess: (msg, { message: sent }) => {
+       |                                 ^
+    245|       if (msg.id === message?.id) {
+    246|         removeDraft(msg.id, (draft) => sameJson(stripKeys({ name: draf…
+ ❯ src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx:127:25
+ ❯ Proxy.process.env.NODE_ENV.exports.act ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ deliverResponse src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx:126:33
+ ❯ run src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx:133:94
+ ❯ src/providers/MessageProvider/__tests__/own-save-broadcast.probe.test.tsx:165:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/22]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  22 failed | 3 passed (25)
+   Start at  01:47:16
+   Duration  2.28s (transform 313ms, setup 23ms, import 1.05s, tests 202ms, environment 855ms)
+
