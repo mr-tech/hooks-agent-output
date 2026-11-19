@@ -1,0 +1,75 @@
+{
+ "sha": "5c3d03feae70e107d150c46ef4c72133e47dedf3",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/017/qa-m4-refresh/survivor.json",
+ "command": [
+  "unshare",
+  "-rn",
+  "npx",
+  "vitest",
+  "run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/017/qa-m4-refresh/survivor.json",
+   "blob": "2b52be4a930d25fbc0b3da632ea94dbe2e84f7c1"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/qa-m4-refresh/sweep/5c3d03feae70e107d150c46ef4c72133e47dedf3-20261119T042122Z-p1771226-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/qa-m4-refresh/sweep/5c3d03feae70e107d150c46ef4c72133e47dedf3-20261119T042122Z-p1771226-control-1.stderr",
+   "seconds": 17.13,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 1693,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "qa-unregister-unconditional",
+   "run": "mutant-1",
+   "file": "src/providers/NavigationGuardProvider.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1693,
+   "control_tests_run": 1693,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > keeps the newer guard when an older registration is withdrawn"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 17.2,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/qa-m4-refresh/sweep/5c3d03feae70e107d150c46ef4c72133e47dedf3-20261119T042122Z-p1771226-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/qa-m4-refresh/sweep/5c3d03feae70e107d150c46ef4c72133e47dedf3-20261119T042122Z-p1771226-mutant-1.stderr"
+  }
+ ],
+ "score": "1 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; survivor.json (blob 2b52be4a930d25fbc0b3da632ea94dbe2e84f7c1))"
+}

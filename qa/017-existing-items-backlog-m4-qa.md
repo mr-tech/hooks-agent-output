@@ -2,9 +2,9 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Verified-At: "a5dd76f — repos=website; M4 only. The suite and the typecheck ran in an isolated git archive export of a5dd76f; the mutation runs in the runner's own exports, and the probes in a second export."
-Status: QA Failed
-Status-Detail: "M4 fails at website a5dd76f on QAF-18 MEDIUM: the case for an older guard's withdrawal cannot fail, so the identity check in NavigationGuardProvider's register has no assertion (survivor qa-unregister-unconditional). The fix is test-only and goes to the implementer. Suite 1693 of 1693 with exit 0; 52 of 55 mutants killed, and NM-29 killed. Milestone-scoped, so plan Status is unmoved."
+Verified-At: "5c3d03f — repos=website; M4 only, the refresh. The suite, the typecheck and the survivor's re-run ran in isolated git archive exports of 5c3d03f. The first pass ran at a5dd76f; 5c3d03f differs from it in one test file."
+Status: QA Complete
+Status-Detail: "M4 passes at website 5c3d03f. QAF-18 is RESOLVED: qa-unregister-unconditional is killed by the repaired case. Suite 1693 of 1693, exit 0. QAF-19 LOW is parked in the Planner batch (R-21). Milestone-scoped, so plan Status is unmoved. The effort-final sweep is owed."
 Phase: 2
 ---
 
@@ -26,6 +26,7 @@ tree's HEAD were `a5dd76f` at this pass's start and end.
 |------|---------------|---------|---------|
 | 2026-11-19T03:49 | code-reviewer-hooks-017 (cross-session message; review `e12881a`) | QA Phase 2 for M4 at website `a5dd76f` | Phase 2, M4 only. Started. Steering's brief for M4 has not arrived, so the stage start is the committed review verdict. |
 | 2026-11-19T04:10 | (this pass) | — | Suite 1693 of 1693, exit 0; typecheck exit 0. The class listings were re-derived at the tip and match. Sweep over M4's production diff: 41 generated mutants plus 14 of QA's, 52 of 55 killed. NM-29 was placed as a two-file mutant and killed (15 cases). Two survivors were probed in an isolated export. **QA Failed**: QAF-18 MEDIUM (the withdrawal case cannot fail) and QAF-19 LOW (a title prints the wrong column). B-12 appended to the register. Steering's 04:14Z cap (`a805d4d`) arrived before commit: QAF-18 keeps its round as a severity-floor finding, and QAF-19 goes to the Planner batch. |
+| 2026-11-19T04:22 | code-reviewer-hooks-017 (cross-session message; review `33b90ce`, plan R-22 `8441052`) | Scoped refresh of M4 at website `5c3d03f` | Refresh. The fix round is one test-only commit over `a5dd76f`. Suite 1693 of 1693, exit 0, the same case set in every file; typecheck exit 0. `qa-unregister-unconditional` was re-run at `5c3d03f` and is killed by the repaired case, as an assertion. **QA Complete** (M4-scoped), superseding the `a5dd76f` QA Failed. QAF-18 RESOLVED. Process fact: the one-mutant re-run was not delegated to a helper. |
 
 ## Criteria assessed
 
@@ -208,6 +209,37 @@ change. A production change in the round would widen the re-run to that round's 
 Milestone-scoped: the plan's Status is unmoved. Rows inherited and not discharged: B-3 (UAT), B-9 (owner, production) and
 the new B-12 (UAT).
 
+## Refresh at website `5c3d03f` (scoped to M4)
+
+**Stage start**: code review's Round 4 sub-entry, APPROVED at `Reviewed-At: 5c3d03f` (agent-output `33b90ce`; plan R-22
+`8441052`), re-derived at the record. The branch `chain/017-existing-items-backlog` and the shared tree's HEAD were `5c3d03f`.
+
+**Scope, from executing both trees, not from the file list.** `git log a5dd76f..5c3d03f` holds one commit.
+`git diff --numstat a5dd76f 5c3d03f` shows one path,
+`src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx`, +5 −2, now blob `4cd2db0`. The production
+source is unchanged, so the round re-runs only the survivor it closes.
+
+Every capture is under `verification/017/qa-m4-refresh/`.
+
+| Command | Result |
+|---|---|
+| `unshare -rn npx vitest run --reporter=json` in an export of `5c3d03f` (`vitest-5c3d03f.{json,out,exit}`) | 1693 of 1693 passed, 136 `testResults`, `success` true, process exit 0 |
+| `unshare -rn pnpm run typecheck` (`typecheck-5c3d03f.{out,exit}`) | exit 0 |
+| `qa-m1/suite-compare.mjs` against `qa-m4/vitest-a5dd76f.json` (`compare-qaa5dd76f-vs-qa5c3d03f.out`) | No path only in either run. Every file has the same case and status set. The two runs differ in no case, which agrees with the one-file diff. |
+| `mutation-run.py --sha 5c3d03f`, the whole suite, `qa-unregister-unconditional` alone (`survivor.json`, `sweep/`, `sweep-run.{out,err,exit}`) | Control 1693 of 1693 passed, exit 0. **KILLED**, with 1 failing case: provider "keeps the newer guard when an older registration is withdrawn", `AssertionError: expected 'go home' to contain 'You have unsaved changes!'`. The same mutant survived at `a5dd76f`. |
+
+The repaired case's instrument is blob `4cd2db0`, which is committed, so the kill is scored.
+
+QAF-18 MEDIUM Phase 2 RESOLVED. The case now uses one function per guard for its whole life (module constants
+`OLDER_LETS_THROUGH` and `NEWER_HOLDS`). It is red under `qa-unregister-unconditional` and green at `5c3d03f`. The identity
+check in `NavigationGuardProvider`'s `register` now has an assertion that fails when the check is lost.
+
+QAF-19 LOW stays parked, as a stated limit in the plan's Planner batch (R-21, agent-output `2e8742e`).
+
+**Refresh verdict: QA Complete** for M4 at website `5c3d03f`. It supersedes the `a5dd76f` QA Failed. Milestone-scoped, so
+the plan's Status is unmoved. The effort-final sweep is still owed. Rows inherited and not discharged: B-3 and B-12 (UAT), and
+B-9 (owner, production).
+
 ## Assumption Not Checked
 
 This pass assumes the following and does not test it: in a real browser, with one confirmation open, focus sits on its
@@ -218,7 +250,8 @@ autofocused confirm button, so Enter answers that prompt through the button or t
 
 ## Handoff
 
-- **QA Failed**: to `implementer-hooks-017` for QAF-18 alone, test-only, then code review's scoped check, then this stage's
-  refresh.
+- **QA Failed** (first pass): went to `implementer-hooks-017` for QAF-18 alone. It is discharged by the refresh above: QA
+  Complete at `5c3d03f`.
+- **Implementer**: M4 is cleared at `5c3d03f`. Nothing more is owed for M4.
 - **QAF-19**: to `planner-hooks-017`, for the Planner batch as a stated limit (the 04:14Z cap).
 - **To UAT**, when the chain reaches it: B-3 and B-12.

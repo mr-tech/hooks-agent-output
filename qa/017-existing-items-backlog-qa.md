@@ -649,14 +649,11 @@ No finding on revision 4.
   - M2: QA Failed at `ec984fe` (QAF-17), then PASS on the refresh at `dd26104`, `qa/017-existing-items-backlog-m2-qa.md`
     (`5630f1b`, then `b77fb74`; plan R-11, R-14).
   - M3: PASS at `1ab3b96` with the bounded E-7 sweep, `qa/017-existing-items-backlog-m3-qa.md` (`4fe859b`, plan R-17).
-  - M4: **QA Failed** at `a5dd76f`, `qa/017-existing-items-backlog-m4-qa.md` (plan R-20). The failure is QAF-18 MEDIUM, a
-    withdrawal case that cannot fail; the fix is test-only. QAF-19 LOW is beside it. Register row B-12 appended.
+  - M4: QA Failed at `a5dd76f` (QAF-18), then PASS on the refresh at `5c3d03f`, `qa/017-existing-items-backlog-m4-qa.md`
+    (plan R-20, R-23). Register row B-12 appended.
   - Findings: QAF-15 LOW is the lint stdin artifact, open as an instrument note in `verification/017/README.md` for M7-b.
-    QAF-16 and QAF-17 are RESOLVED. QAF-18 is open with the implementer. QAF-19 went to the Planner batch under steering's 04:14Z M4 cap (`a805d4d`).
-- **Next.** M4's refresh, once QAF-18's test-only fix has passed code review's scoped check. Run the suite in an export of
-  the new tip, and re-run only `qa-unregister-unconditional` (its id in `verification/017/qa-m4/m4-mutants-all.json`)
-  against the new case. Then M5 and M6 (after M5-0), and M7. Then the effort-final sweep. Then the plan-level
-  `QA Complete`, and UAT.
+    QAF-16 and QAF-17 are RESOLVED. QAF-18 is RESOLVED (refresh at `5c3d03f`). QAF-19 went to the Planner batch under steering's 04:14Z M4 cap (`a805d4d`).
+- **Next.** M5 and M6 (after M5-0), and M7. Then the effort-final sweep. Then the plan-level `QA Complete`, and UAT.
 - **Approach, per milestone.** Make a new `qa/017-existing-items-backlog-m<n>-qa.md`. Then:
   1. Export the SHA with `git archive`, link `node_modules`, and copy `next-env.d.ts` and `.next/types/` from the shared
      tree, or the typecheck fails with TS2307.
