@@ -1,0 +1,5 @@
+lintable changed files: 59 (M 25, A 30, R 4); violations: 3
+VIOLATION M src/@types/global.d.ts src/@types/global.d.ts planted-rule 0 1
+VIOLATION A None src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx planted-rule 0 1
+VIOLATION R src/utils/__tests__/useApiMethods.json-editor-repair.test.ts src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts planted-rule 0 1
+plants found 3 of 3
