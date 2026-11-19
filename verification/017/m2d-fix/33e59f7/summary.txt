@@ -1,0 +1,35 @@
+control exit 0 failed 0 of 159
+nm39-producer-bare-hash exit 1 failed 9 of 159
+    bscriber decodes it carries the exact hash string of the saved message when the hash has digits only
+    it carries the exact hash string of the saved message when the hash has a minus sign and digits only
+     decodes it carries the exact hash string of the saved message when the hash has digits, an e and 00
+    rries the exact hash string of the saved message when the hash has a minus sign, digits, an e and 02
+    es the exact hash string of the saved message when the hash has an exponent past what a double holds
+     string of the saved message when the hash has a minus sign and an exponent past what a double holds
+    e, as a subscriber decodes it keeps two saves apart whose hashes would both read as one finite value
+    d message, as a subscriber decodes it keeps two saves apart whose hashes would both read as Infinity
+     message, as a subscriber decodes it keeps two saves apart whose hashes would both read as -Infinity
+nm40-producer-encodes-twice exit 1 failed 10 of 159
+    r decodes it carries the exact hash string of the saved message when the hash has letters and digits
+    bscriber decodes it carries the exact hash string of the saved message when the hash has digits only
+    it carries the exact hash string of the saved message when the hash has a minus sign and digits only
+     decodes it carries the exact hash string of the saved message when the hash has digits, an e and 00
+    rries the exact hash string of the saved message when the hash has a minus sign, digits, an e and 02
+    es the exact hash string of the saved message when the hash has an exponent past what a double holds
+     string of the saved message when the hash has a minus sign and an exponent past what a double holds
+    e, as a subscriber decodes it keeps two saves apart whose hashes would both read as one finite value
+    d message, as a subscriber decodes it keeps two saves apart whose hashes would both read as Infinity
+     message, as a subscriber decodes it keeps two saves apart whose hashes would both read as -Infinity
+nm42-no-disconnect exit 1 failed 3 of 159
+    ion closes with its effect keeps the connection open while mounted and closes it once when unmounted
+    loses the connection of the message it leaves and keeps the one it opens when the message id changes
+    ses with its effect closes the connection and opens none when the message stops being an API message
+nm43-disconnect-unmount-only-effect exit 1 failed 2 of 159
+    loses the connection of the message it leaves and keeps the one it opens when the message id changes
+    ses with its effect closes the connection and opens none when the message stops being an API message
+nm44-disconnect-latest-instance exit 0 failed 0 of 159
+nm45-disconnect-in-effect-body exit 1 failed 2 of 159
+    ion closes with its effect keeps the connection open while mounted and closes it once when unmounted
+    loses the connection of the message it leaves and keeps the one it opens when the message id changes
+disconnect-before-unsubscribe-dropped-unbind exit 0 failed 0 of 159
+leftover exports: 0

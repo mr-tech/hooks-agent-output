@@ -3,7 +3,7 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Active
-Handoff-At: 60252be — repos=website; fix round 4 (CR-20), production change in shared.ts and usePusher.ts; supersedes 42d15de (fix round 3); the Pusher disconnect (M2-d) is not in this hand-off
+Handoff-At: 33e59f7 — repos=website; M2-d (the Pusher disconnect) and EC-6's wire cases, on top of 60252be (CR-20, code review APPROVED at f5f3346)
 ---
 
 # Implementation 017 — M2: the saving tab recognises its own save (item 3)
@@ -26,6 +26,7 @@ chain branch `chain/017-existing-items-backlog`; M1 is `8147661` (`implementatio
 | 2026-11-19T01:34 | implementer-hooks-017 | Fix round 2 on QAF-17 / CR-5 (QA's case), CR-3 (real render, `442059d`), CR-4 (disposition line), plus a class-sweep case: tests only, no production change. Handoff-At moved to `dd26104`. |
 | 2026-11-19T11:05 | implementer-hooks-017 | Fix round 3 on UAT-1 (B-1 recurred in walk 6): root cause found and fixed at website `8e1ccef`, covering case tightened at `42d15de`. A production change, so QA, code review, the architect read and UAT's re-walk of B-1 follow. Handoff-At moved to `42d15de`. See § Fix Round 3. |
 | 2026-11-19T18:20 | implementer-hooks-017 | Fix round 4 on CR-20 (code review Round 9), on his answer (`steering/017-rulings.md` block 2026-11-19T17:49Z, D-33): the producer sends the hash JSON-encoded, the handler compares strings exactly, `asDelivered` removed. Red first at `42d15de`, built and committed at website `60252be`. Handoff-At moved to `60252be`. M2-d (disconnect) held for QA's re-key. See § Fix Round 4. |
+| 2026-11-19T18:35 | implementer-hooks-017 | M2-d built on steering's word (`steering/017-rulings.md` block 2026-11-19T18:01Z; entry conditions EC-5 and EC-6 of QA's Phase 1 re-key `9e212a3`): `usePusher`'s cleanup disconnects its run's Pusher instance; the producer cases now decode the real `pusher` frame with pusher-js's own `decodeMessage`. Committed at website `33e59f7`. Handoff-At moved to `33e59f7`. See § Fix Round 5. |
 
 ## Implementation Summary
 
@@ -375,10 +376,95 @@ Website tip moves `42d15de` to `60252be` (production: `shared.ts`, `usePusher.ts
 the architect's read of the wire, and UAT's re-walk of B-1, which no longer needs to place runs by frame hash.
 Not done: the disconnect (M2-d). QA's AF-25 (a case running pusher-js's real decode over the producer's frame) is the architect's LOW recommendation held for the planner's fold; the producer file's decode is a transcription of it.
 
+## Fix Round 5 — M2-d (the tab's Pusher connection closes with its effect) and EC-6 (the wire case)
+
+Brief: `steering-roadmap-hooks`, 2026-11-19: the disconnect hold lifted; all three pre-code reads of plan revision 10 have passed (critic `012ee2b`, architect `410044e`, QA Phase 1 re-key `9e212a3`).
+Entry conditions: QA's EC-5 (one case per member of M2-d, each `new Pusher` with its own spies) and EC-6 (AF-25's wire case). Code review approved the hash fix at `60252be` (review `f5f3346`); this round sits on it.
+
+### Entry Conditions (this round)
+
+| Condition | Where satisfied | Pinned by |
+|---|---|---|
+| EC-5, one case per member: unmount; the id changes; the message stops being an `ApiMessage` | `usePusher.update-prompt.test.tsx`, a new `describe` of 3 cases; each `new Pusher` pushes its own instance with its own `disconnect` spy onto `hoisted.instances`, in construction order | those 3 cases; mutants `nm42`, `nm43`, `nm45` |
+| EC-5, "extend `usePusher.update-prompt.test.tsx` or say why the mounted-provider file is the place" | extended. The three members are the hook's effect and its dependency, `messageRef.current`'s `id`, which the provider passes as `useLatest(message)`; the harness's `messageRef` is that ref. The mounted provider adds the pathname-to-id step (`useParsePathname`), which the criterion does not name; no harness extension (`navigationMock`) was needed | not owed |
+| EC-5, all four `pusher-js` mocks gain `disconnect`, case counts and pass sets unchanged, exit 0 | `layout.navigation-guard`, `MessageProvider.stored-draft`, `MessageProvider.own-save-notice` each gained `disconnect: () => undefined`; the fourth is the spied mock above. Full suite 1850 of 1850, exit 0 | the full suite |
+| EC-6, the real `pusher` with only `post` replaced, the frame decoded by pusher-js's own `Protocol.decodeMessage`; the ordinary hash and one member of each number-shaped sub-class; red against `4b8db9c`'s bare trigger line | `shared.upsert-broadcast.test.ts` rewritten on that form: 12 cases; the transcription `deliveredToSubscribers` and the `pusher` class mock are gone | mutant `nm39-producer-bare-hash` (the bare line): 9 killed; `nm40-producer-encodes-twice`: 10 killed |
+
+The wire file imports pusher-js's protocol source through a variable specifier (`await import(PROTOCOL_MODULE)`): a static import puts the library's own TypeScript into the test program, and `pnpm run typecheck` then reports 4 errors in `node_modules/.pnpm/pusher-js@8.3.0/…/protocol.ts` and `message-types.ts` that are not this project's (measured, exit 2). The result is typed by a local interface (`SubscriberProtocol`).
+
+### Change
+
+`src/providers/MessageProvider/usePusher.ts`: the effect's cleanup gains `pusher.disconnect();` after `pusher.unsubscribe(...)`. Nothing else in the production code. Each effect run constructs its own instance, so the instance disconnected is the one that run created.
+
+### User-visible flows
+
+| Flow | Surface | Trigger | What happens next | Rung |
+|---|---|---|---|---|
+| Leaving a message's editor in-app | the browser's open WebSocket count, no on-screen element | an in-app link to another message's editor, or leaving the editor | the first message's Pusher socket is closed, one open socket remains | the existing effect cleanup, one line added; nothing new to see |
+
+No flow holds a decision, so no ask is owed. M2-d's human-observable step is QA's B-15, walked by UAT beside B-1.
+
+### Patterns Extended
+
+| Surface | Pattern |
+|---|---|
+| The cleanup | the effect's own `channel.unbind()` and `pusher.unsubscribe(...)`; `disconnect` after them |
+| Tests | `usePusher.update-prompt.test.tsx` (the plan's named test for the surface), its harness and mock extended: instances recorded, `messageRef` mutable and reset in `beforeEach`; `shared.upsert-broadcast.test.ts` rewritten on the real transport |
+
+### TDD Compliance
+
+Red run before the fix (`verification/017/m2d-fix/red-pre-fix-60252be/red.json`, `.out`: the extended `usePusher.update-prompt.test.tsx` and the rewritten `shared.upsert-broadcast.test.ts` against the unchanged `usePusher.ts` of `60252be`):
+3 failed, 16 passed of 19. The 3 are the M2-d cases, `AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times`. The 12 wire cases passed at `60252be` (the producer is already right there), as predicted.
+
+TDD Gate: Test `keeps the connection open while mounted and closes it once when unmounted` fails as expected: `AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times`. Proceeding to implementation.
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| `usePusher` cleanup, member 1: the provider unmounts | `usePusher.update-prompt.test.tsx` | Yes | Yes (red file above); mutants `nm42-no-disconnect` (3 killed), `nm45-disconnect-in-effect-body` (its "not disconnected while mounted" half) | AssertionError: 0 calls against 1 | Yes |
+| `usePusher` cleanup, member 2: the id changes (instance 1 disconnected once, instance 2 open until unmount) | same | Yes | Yes (red file above); `nm42`; `nm43-disconnect-unmount-only-effect` (instance 1 never disconnected on the change) | AssertionError | Yes |
+| `usePusher` cleanup, member 3: the message stops being an `ApiMessage` (one disconnect, no new instance) | same | Yes | Yes (red file above); `nm42`; `nm43` | AssertionError | Yes |
+| producer broadcast on the real transport, 12 cases (the rewrite of the file's 11) | `shared.upsert-broadcast.test.ts` | rewritten | Green at `60252be` by construction; red from `nm39` (9) and `nm40` (10), the two producer mutants QA named | AssertionError: `number` against `string`; quotes in the decoded value | Yes |
+
+Survivors, both reported, neither dispositioned away:
+- `nm44-disconnect-latest-instance` (QA's mutant: disconnect the latest instance, held in a module variable, instead of this run's): **survived** (0 of 159 failed). React runs a run's cleanup before the next run's body,
+  so at cleanup time the latest instance is that run's own; the two forms never differ in an order React produces. Disposition: equivalent under React's effect ordering; no case can tell them apart
+  without an effect order React does not produce; the id-change case asserts the exact per-instance calls and passes under it. QA's expectation for NM-44 (instance 2 not disconnected, instance 1 disconnected) holds for both forms.
+- an extra, not QA's: dropping `channel.unbind()` (line unchanged by this diff) survives; `disconnect` closes the socket the binding lives on. A pre-existing line, outside this round; named for QA.
+
+Mutants (isolated exports of `git archive 33e59f7`, exact-once edits, network isolated, process group killed at 300 s; driver `verification/017/m2d-fix/run-mutants.py`, results `33e59f7/summary.txt`, `leftover exports: 0`):
+control 0 of 159 failed; `nm39` 9, `nm40` 10, `nm42` 3, `nm43` 2, `nm45` 2 killed; `nm44` and the `unbind` extra survived. NM-41 (the consumer parses one side) is the earlier round's `record-decoded` and `shown-decoded`, whose guards this diff does not touch.
+
+Self-check sweep (`mutant-gen.js --range 60252be..33e59f7`): 0 operator mutants (the one added production line is a statement call; the files changed under test are test files, which the tool names as skipped). The named mutants above stand in.
+QA's Named mutants NM-2 to NM-5 not re-run: `git diff -U0 60252be 33e59f7` over `usePusher.ts` and `shared.ts` shows one added line, `pusher.disconnect();`; their guards (the record push, the splice, the shown-content clause) are untouched.
+
+### Class Sweep
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| M2-d. Class: a pusher-js instance this tab constructs that its effect's cleanup does not close; and a test mock of `pusher-js` without `disconnect`. Derived by me; the criterion carries none. | `grep -rn "new Pusher(" src --include=*.ts --include=*.tsx --exclude-dir=__tests__`; `grep -rln "pusher-js" src ... --exclude-dir=__tests__`; `grep -rn "disconnect" src ... --exclude-dir=__tests__`; `grep -rc "vi.mock('pusher-js'" src` | `new Pusher(`: 2: `usePusher.ts:57` (pusher-js, the client) and `shared.ts:266` (the `pusher` server package, an HTTP client with no connection and no `disconnect`). `pusher-js` imports: 1 file, `usePusher.ts`. `disconnect` in production: 1 (`usePusher.ts:82`, new). Test mocks of `pusher-js`: 4 files, 1 each | `usePusher.ts:57`: fixed. `shared.ts:266`: not applicable, no connection. The 4 mocks: all define `disconnect` now (the file grep counts: `layout.navigation-guard` 1, `stored-draft` 1, `own-save-notice` 1, `update-prompt` 9). Residual 0 (before: 1 unclosed instance site, 3 mocks without `disconnect`) |
+
+### Test Execution Results (fix round 5)
+
+| Command | Result |
+|---|---|
+| Red, the extended and rewritten files against the unchanged production of `60252be` | 3 failed of 19 (above) |
+| Full suite at `33e59f7`, network isolated | 1850 of 1850, 144 files by the reporter's `testResults`, vitest exit 0 (`m2d-fix/green/full-suite.json`, `.exit`); 1846 + 3 cases + 1 case = 1850 |
+| `pnpm run typecheck` at `33e59f7` | exit 0, both programs (`m2d-fix/green/typecheck.exit`) |
+| `eslint` on the six files | exit 0 |
+| `convention-check.js website --since=60252be` | 0 FAIL, 0 CANDIDATE, 18 SKIP (17 `.playwright-mcp` images, held, not mine; the ID-token/basename check, which the tool says it does not implement verbatim: unchecked, not passed; by hand no new file, titles carry no ID token) (`convention-check-33e59f7.out`) |
+
+Two gate stops this round, met by changing the work: the comment gate on a comment in the new file (removed in the first round, not re-added) and `prefer-arrow-callback`, `member-delimiter-style` and typecheck findings on the first forms of the wire file (arrow `post` spy, interfaces, the variable specifier above).
+
+### Hand-off
+
+Website tip moves `60252be` to `33e59f7` (production: `usePusher.ts`, one line; tests: the five files above). This expires, at `60252be`: nothing the reviewer approved, which is the hash fix. M2's QA Phase 2 is owed on the whole of `42d15de..33e59f7`;
+QA's Assumption Not Checked (an in-app switch leaves the first socket open on the unfixed tree) is B-15's first run, QA's, before UAT executes it.
+
 ## Outstanding Items
 
 - Fix round 3: nothing owed before hand-off. The walk of B-1 at the tip is UAT's.
 - Fix round 4: the Pusher disconnect (D-34, M2-d) is owed and held for QA Phase 1's re-key of revision 10; it will be its own round on `usePusher.ts`'s cleanup. Fix Round 3's follow-up (1), the producer-side exact fix, is done here.
+- Fix round 5: the disconnect is built (Fix Round 5). Open: `nm44` survives as an equivalent under React's effect ordering, and dropping `channel.unbind()` survives (unchanged line) — both for QA's Phase 2 judgement. The pathname-to-id step of the mounted provider is not exercised by the member-2 case; B-15 (UAT) is its observation.
 - Nothing owed before hand-off.
 - The records are never cleared when the message id changes in a mounted provider; they are bounded by the
   plan's residue class (1) (RK-3). Not asserted.
@@ -404,7 +490,8 @@ Not done: the disconnect (M2-d). QA's AF-25 (a case running pusher-js's real dec
 
 ## Next Steps
 
-Fix round 4: code review at website `60252be` (range `42d15de..60252be`, `code-reviewer-hooks-017`, its Round 9 sub-entry; re-read M7-b at the new tip), then QA Phase 2, the architect's wire read, UAT's B-1 re-walk; the disconnect round after QA's re-key.
+Fix round 5: code review at website `33e59f7` (range `60252be..33e59f7`, `code-reviewer-hooks-017`), then QA Phase 2 on `42d15de..33e59f7` with B-15's first run, the architect's wire read, UAT's B-1 and B-15 walks.
+Fix round 4 (approved, review `f5f3346`): code review at website `60252be` (range `42d15de..60252be`, `code-reviewer-hooks-017`, its Round 9 sub-entry; re-read M7-b at the new tip), then QA Phase 2, the architect's wire read, UAT's B-1 re-walk; the disconnect round after QA's re-key.
 
 Fix round 3: code review at website `42d15de` (range `4b8db9c..42d15de`, `code-reviewer-hooks-017`), then QA Phase 2 for the fix, an architect delta read, and UAT's re-walk of B-1.
 Earlier rounds: code review of M2 at `ec984fe`, then M3 (done).
