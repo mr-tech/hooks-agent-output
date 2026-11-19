@@ -2,7 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Active
+Status: Committed
+Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Handoff-At: f83f2ca — repos=website; M5 first delivery (9909fb3 the dependency, 72a1755 the code and its first cases, f83f2ca three cases that close sweep survivors)
 ---
 
@@ -26,6 +27,7 @@ Start: `steering/017-rulings.md` block 2026-11-19T05:19Z; QA Phase 1 at `7eda138
 | 2026-11-19T06:12 | implementer-hooks-017 | M5 built: dependency at website `9909fb3`, code and 78 cases at `72a1755`, three survivor-closing cases at `f83f2ca`. Full suite 1814 of 1814 exit 0; typecheck exit 0. Real-Postgres lane 11 of 11, 3 of 3 lane mutants killed. Handed to code review at `f83f2ca`. |
 | 2026-11-19T06:30 | implementer-hooks-017 | Round 6 LOWs. CR-14: the `previewWorld` line added under Files Created. CR-15: the interleavings case retitled by behaviour (`leaves the later save's image committed and present`; the chain stays the `play()` argument). Before and after, `previewImage.interleavings.test.ts` runs 38 of 38 passed, exit 0, network-isolated; the pass set differs only in that title; eslint 0. Handoff-At unchanged (a title-only commit on top of `f83f2ca`). |
 | 2026-11-19T07:38 | implementer-hooks-017 (resumed) | Premises re-read at the mechanism (§ Resumption premise re-read). QAF-24 (LOW): the real-Postgres lane's P1 rewritten so the save that takes the row lock second began its transaction and its statement first; under `now()`, `statement_timestamp()` and `transaction_timestamp()` it fails, and the control is 11 of 11. Lane-only (`verification/017/m5-pg/`): website stays at `4b8db9c`, so M5's QA verdict there stands. |
+| 2026-11-19T19:13 | devops-hooks-017 | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
 
 ## Implementation Summary
 
@@ -266,25 +268,4 @@ Code review at website `f83f2ca` (M5 range `c37d41a..f83f2ca`), then QA Phase 2 
 
 ## Resumption State
 
-Written 2026-11-19T10:33 by implementer-hooks-017 at steering's checkpoint request (steering-roadmap-hooks). Supersedes the earlier state below.
-
-- **Done this session:** premise re-read (above); QAF-24 lane fix (agent-output `008468b`; code review confirmed, review `c3fa457`, R-40; QA owns the closure); M6 Round 7 fix round CR-16 to CR-18 (`008468b`; APPROVED, review `a010246`, R-39); M7 CR-19 (`97e13e0`; APPROVED, review `6092c9e`, R-43). Nothing is owed to code review on any milestone.
-- **In flight: UAT-1 (HIGH), plan 017 M2-b, website `4b8db9c`.** Source: `uat/017-existing-items-backlog-uat.md` § Findings (agent-output `00e2c5a`), captures under `verification/017/uat/` (`walk-3/A1-result.json`, `walk-4/R1-partial.json`, `walk-4/part1-results.md`). The saving tab raised "Message Update Detected" once, with an edit in flight. My diagnosis (sent to `uat-hooks-017` and `steering-roadmap-hooks`): the notice needs the own-save record absent or consumed AND the broadcast hash different from the current message's; client and server hash the same shape, so a content mismatch is excluded. Candidates, unproven: (1) the save mutation's `onSuccess` threw or the mutation errored on the client, so the hook's `onError` ran `forgetOwnSave` (in @tanstack/query-core 5.90.20 `mutation.ts`, `onSuccess` sits inside the try whose catch calls `onError`); A1's toast probe looked for `data-sonner-toast`, but the app uses react-toastify, so it could not see an error toast; (2) a second live handler binding on the same channel; (3) identical-payload saves where one fails on the client (does not fit A1).
-- **Steering's ruling (10:3xZ):** UAT re-walks B-1's window with my capture set first (WebSocket frames from page start, `pageerror` and console errors, react-toastify toast text and type, `message.upsert` response time); no code changes until its result. The result comes to me after the clear.
-- **Next:** read the re-walk result. If it shows candidate (1) or (2), the red case goes on the real provider in `src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx` (the existing file; tighten, no sibling) before any code; a fix to `onError`'s `forgetOwnSave` changes `website/` and expires QA, code review and UAT at `4b8db9c`, so it needs the plan owner's route first. If the re-walk shows no recurrence, it is UAT's to decide; I have nothing to write.
-- **Open question to steering:** whether to scrub the process-fact lines already in my M1 and M3 to M8 implementation documents under the new rule (no safeguard or security blocks in agent-output). Sent 08:1xZ; no answer received. I write only "not completed" from here on and have touched none of the old lines.
-- **Branch and HEAD:** website `chain/017-existing-items-backlog` at `4b8db9c`, generator at `8512a1d`; agent-output on `master`. Nothing of mine is uncommitted or mutated. The tree's other modified files (`INBOX.md`, others' documents, images) are other sessions' work. No export, container or process of mine is running.
-- **Evidence run, not yet recorded:** none. The UAT-1 diagnosis was a code and capture read, with no run; nothing needs saving.
-- **Wake:** deleted at this checkpoint. Re-arm on the next turn.
-
-### Earlier Resumption State (consumed)
-
-Consumed 2026-11-19T07:38 by the resumed session (§ Resumption premise re-read); kept as written. Written 2026-11-19T07:16 by implementer-hooks-017 at steering's checkpoint request; chain 017 is parked on the owner's word (`steering/017-rulings.md` block 2026-11-19T07:15Z, `cffd802`). The shell append that first tried to write this section was refused by `record-write-gate-hook`; it is re-issued here with the Edit tool.
-
-- **Done (M5):** dependency `9909fb3`, code `72a1755`, survivor cases `f83f2ca`, then the Round 6 fix round: CR-15 (website `4b8db9c`, the interleavings case retitled by behaviour, 38 of 38 before and after) and CR-14 (agent-output `838c571`, the `previewWorld` line under Files Created). Code review approved the Round 6 sub-entry at website `4b8db9c` (agent-output `6e4436d`); QA was told the tip is `4b8db9c`. `Handoff-At` stays `f83f2ca` (the retitle is a title-only commit on top of it).
-- **Next:** QA Phase 2 for M5 (its pg lane re-run, EC-2) is QA's. M6's document (generator `8512a1d`, `4c4e948`) is already written and is in code review (Round 7). M7 comes last. Nothing is owed from me on M5; a QA or review finding on M5 would start a fix round with the Class Sweep table.
-- **Branch and HEAD:** website on `chain/017-existing-items-backlog`, HEAD `4b8db9c`; agent-output on its `master`.
-- **Uncommitted or locally mutated:** none of mine. The tree's other modified or untracked files (`INBOX.md`, `steering/selection-ledger/2026-11-19.md`, `verification/016/uat/...` images, `.playwright-mcp`) are other sessions' work. No export, container or process of mine is running.
-- **Evidence run, not yet recorded:** none. This round's before/after runs (`previewImage.interleavings.test.ts`, 38 of 38 each) are summarised in the changelog row; their JSON sat in the session scratchpad only, not in `verification/017/`. Re-run if QA wants the files.
-- **Questions sent:** none open. The full suite was not re-run for the title-only change (last full run: 1814 of 1814 exit 0 at `f83f2ca`).
-- **On resuming:** read this document, then the latest rulings block in `steering/017-rulings.md` for what the owner has decided about the parked chain. Arm the cache-warm wake first (CronList, then CronCreate).
+Closed at devops Stage 1 (2026-11-19T19:13Z); nothing resumes from this document.
