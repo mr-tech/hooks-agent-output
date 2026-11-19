@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/eded5a52-a0f4-44e6-82d8-56dbcd3e0493/scratchpad/mr-qaf27/20261119T183425Z-p1834317/mutant-4
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (60 tests | 1 failed) 256ms
+     × raises the notice when a payload that is not a string arrives with the digits of the shown content's hash 7ms
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 67 passed (68)
+   Start at  18:34:37
+   Duration  1.87s (transform 269ms, setup 34ms, import 1.35s, tests 285ms, environment 1.28s)
+

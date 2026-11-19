@@ -1,0 +1,3 @@
+7293a35:src/providers/MessageProvider/usePusher.ts:62:    channel.bind('message-update', (hash: unknown) => {
+7293a35:src/server/api/utils/shared.ts:274:    await pusher.trigger(genMessageChannelKey(message.id), 'message-update', JSON.stringify(hashMessage(message)));
+7293a35:src/utils/index.ts:473:  return `message-update-${id}`;

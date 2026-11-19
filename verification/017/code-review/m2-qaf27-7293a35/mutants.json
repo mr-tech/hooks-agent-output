@@ -1,0 +1,42 @@
+[
+ {
+  "id": "record-loose",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "(record) => record === hash",
+  "new": "(record) => record == hash",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx"
+  ]
+ },
+ {
+  "id": "shown-loose",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "hash !== shownHash",
+  "new": "hash != shownHash",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx"
+  ]
+ },
+ {
+  "id": "record-string-coerced",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "(record) => record === hash",
+  "new": "(record) => record === String(hash)",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx"
+  ]
+ },
+ {
+  "id": "shown-string-coerced",
+  "file": "src/providers/MessageProvider/usePusher.ts",
+  "old": "hash !== shownHash",
+  "new": "String(hash) !== shownHash",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx",
+   "src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx"
+  ]
+ }
+]
