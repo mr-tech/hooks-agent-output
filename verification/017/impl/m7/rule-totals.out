@@ -1,0 +1,4 @@
+== nofix (rule: base -> tip, differing only)
+  warn @typescript-eslint/no-non-null-assertion: 53 -> 51
+== fixdry (rule: base -> tip, differing only)
+  warn @typescript-eslint/no-non-null-assertion: 53 -> 51
