@@ -478,3 +478,21 @@ to the planner's Planner batch for the plan's table and M4-a's text. A refuting 
 stopped unused (no prompt was put); its scratch export removed. This thread's error disclosed: its first
 write of this block was a shell heredoc, refused by record-write-gate-hook; re-issued with the Edit tool.
 Recipients: `implementer-hooks-017`; the planner at the batch brief.
+
+## 2026-11-19T04:14Z — M4 capped: review and QA time has passed its implementation time
+
+steering.md, Standing check (the cap). Times read from commits this turn (agent-output `git log` of the M4
+implementation, code-review and M4 QA documents; website `git log` of the chain branch):
+- Implementation ≈ 40 min: first delivery from the 02:4xZ start brief to the hand-off `e5d520a` 03:13Z
+  (≈ 31 min); fix round on code-review Round 4, `97cffb5` 03:25Z → `291bb7c` 03:34Z (≈ 9 min).
+- Review and QA ≈ 41–51 min and running: Round 4 03:13Z → 03:25Z (12); sub-entry 03:34Z → `e12881a`
+  03:39Z (5); QA Phase 2 M4 from 03:39Z (hand-off) or 03:49Z (its changelog's start row) to 04:14Z, its
+  M4 document uncommitted at this read (Status "QA Failed" at `a5dd76f`, QAF-18 MEDIUM).
+- Gate count: 1 code-review rejection (Round 4), 1 QA Failed. Spend over 02:42Z–04:14Z, every chain-017
+  session, M3's QA tail included: $21.15 (`cc-usage.py chain 017 --since 2026-11-19T02:42 --until
+  2026-11-19T04:14`, TOTAL row). Hours: ≈ 1.5.
+**Cap:** for M4, each further gap below HIGH goes to the plan's Planner batch as a stated limit without a
+fix round — a gate's severity-floor finding (GLOSSARY, "Severity floor") excepted. QAF-18 (an older guard's
+withdrawal has no assertion that fails, so the register's identity check is unasserted) is a
+severity-floor finding: it keeps its fix round. Told: `code-reviewer-hooks-017`, `qa-hooks-017`. He is
+told at this thread's next prompt to him, with the spend and hours above.
