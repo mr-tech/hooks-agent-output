@@ -3,8 +3,8 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Verified-At: "1ab3b96 — repos=website; M3 only. The suite, the typecheck, the E-7 sweep and the M3-f revert check all ran in isolated git archive exports of 1ab3b96, and of 1ad625e for the old reader."
-Status: Committed
-Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Phase: 2
 ---
 
@@ -26,6 +26,7 @@ and B-9 (his production look) are M3's rows and are unchanged.
 |------|---------------|---------|---------|
 | 2026-11-19T03:00 | code-reviewer-hooks-017 (cross-session message; review `457d142`) | QA Phase 2 for M3 at website `1ab3b96` | Phase 2, M3 only. Suite 1620 of 1620, exit 0; typecheck 0. M3 changes E-7 (the users' browser-storage rewrite), so this milestone's bounded sweep ran over M3's production diff: 73 mutants generated plus 6 of QA's; 73 of 78 detected, the 5 survivors equivalent. M3-f's revert check was reproduced with this pass's own capture plus a planted control. Every criterion member was dispositioned. **QA Complete** (M3-scoped). No finding. |
 | 2026-11-19T19:13 | devops-hooks-017 (Stage 1) | Document closed | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
+| 2026-11-19T20:18 | devops-hooks-017 (Stage 2) | Document closed | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Criteria assessed (recorded before execution)
 

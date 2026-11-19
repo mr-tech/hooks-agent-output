@@ -3,8 +3,8 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Verified-At: "7293a35,8512a1d — repos=website,preview-image-generator; plan-level verdict re-issued after M2's fix rounds 3 to 7: the suite, typecheck, M7-b and the closing survivors ran at 7293a35 in git archive exports; M2's sweep of 4b8db9c..24e9be7 is in the M2 document; the generator is unchanged at 8512a1d. Milestone verdicts are in the -m<n>-qa documents at their own SHAs."
-Status: Committed
-Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Phase: 2
 ---
 
@@ -34,6 +34,7 @@ for the effort-final pass (its delta read whole, § Implementation Review); Phas
 | 2026-11-19T18:40 | code-reviewer-hooks-017 (`e324582`, M2 at `7293a35`); steering brief (plan-level verdict, R-47 and M7-b at the tip) | Plan-level verdict at the new tip | Plan-level verdict re-issued: **QA Complete** at website `7293a35` and generator `8512a1d` (§ "Plan-level verdict re-issued…"); plan Status `QA Complete` with R-60. Code review's R-58 duplicates this gate's R-58 (`686b810` before `489b4d8`); the reviewer routed the renumbering to steering, and this gate's row takes R-60. |
 | 2026-11-19T18:58 | steering-roadmap-hooks (checkpoint at the context threshold) | Resumption State | Re-stated whole for the checkpoint: plan-level QA Complete at `7293a35`/`8512a1d`; next is Phase 3 on devops's request. |
 | 2026-11-19T19:13 | devops-hooks-017 (Stage 1) | Document closed | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
+| 2026-11-19T20:18 | devops-hooks-017 (Stage 2) | Document closed | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Inputs read
 
@@ -991,7 +992,7 @@ the `unsubscribe` of its only channel, and not garbage collection.
 
 ## Resumption State
 
-Closed at devops Stage 1 (2026-11-19T19:13Z); nothing resumes from this document.
+Closed at devops Phase 2D (2026-11-19T20:18Z); nothing resumes from this document.
 
 ## Assumption Not Checked
 

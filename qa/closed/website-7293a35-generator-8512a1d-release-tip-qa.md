@@ -3,8 +3,8 @@ ID: n/a
 Origin: "release chain/017-existing-items-backlog -> website 7293a3567f8166c6160f31fa4517674c6b19401e, preview-image-generator 8512a1d003af7fdbce56b85ef27218dd885becd1"
 UUID: 5f116a62
 Verified-At: "7293a35,8512a1d — repos=website,preview-image-generator; the assembled tip is a fast-forward in both repositories, so its trees are the plan-level Phase 2 Verified-At trees (qa/closed/017-existing-items-backlog-qa.md, cf69ef1)"
-Status: Release Verification Failed
-Status-Detail: "Failed on QAF-29 MEDIUM and QAF-30 MEDIUM (severity floor; test-only remedies, no production change). Handed back to the implementer; the fixed tip 787bec5 is Release Verified in qa/website-787bec5-generator-8512a1d-release-tip-qa.md. QAF-28 LOW routed to devops."
+Status: Superseded
+Status-Detail: "Superseded by qa/closed/website-787bec5-generator-8512a1d-release-tip-qa.md (Release Verified, agent-output c09fd41) after the test-only fix for QAF-29 and QAF-30; closed by devops Phase 2D. Anchor fields above keep the values the document was written at."
 Phase: 3
 ---
 
@@ -23,6 +23,7 @@ verdicts are in `qa/closed/017-existing-items-backlog-m1-qa.md` to `-m8-qa.md`. 
 |---|---|---|
 | 2026-11-19T19:51 | qa-hooks-017 (devops-hooks-017's request, message 4cccfcec; addendum after agent-output `21d55f9`) | Phase 3. Tip re-derived. Step 1b: 22 open handoffs, 3 named by this verdict or a production push, each dispositioned. Step 2: no gated time-based set exists. Carried items: the fresh install matches the lockfile (M1's assumption discharged); suite 1853 of 1853 exit 0 and typecheck exit 0 at the tip in that install; M7-b holds at the tip; the call-deletion set kills 53 of 58 (website) and 3 of 3 (generator). New: QAF-28 LOW, QAF-29 MEDIUM, QAF-30 MEDIUM. **Release Verification Failed.** devops's runbook rows B-7, B-10, B-11 read against the register. |
 | 2026-11-19T20:08 | qa-hooks-017 (devops-hooks-017's request at website 787bec5) | Successor named | The tip moved to website `787bec5` (the test-only QAF-29/QAF-30 fix). Its verdict, **Release Verified**, is `qa/website-787bec5-generator-8512a1d-release-tip-qa.md`. This document's verdict stands for its own tree, `7293a35`, which will not ship. |
+| 2026-11-19T20:18 | devops-hooks-017 | Document closed. Status: Superseded by the Release Verified record at website 787bec5 and generator 8512a1d (agent-output c09fd41). |
 
 ## The tip, re-derived
 

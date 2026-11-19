@@ -2,8 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Committed
-Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 ---
 
 # Analysis 017 — the existing-items backlog: AN-1 (item 3), AN-2 (item 4), AN-3 (item 2)
@@ -18,6 +18,7 @@ Status-Detail: "Committed at release identifier chain/017-existing-items-backlog
 | 2026-11-18T23:14 | analyst-hooks-017 | AN-4 (G-3: production render-time distribution from the generator's out log on the host, via `ssh hooks-pig`) was requested by planner-hooks-017 by message. **Held, not started.** It is absent from the committed plan (`grep -n "AN-4"` at `bcb2e15`: no hit), and the brief excludes host acts ("Production: no host act and no hooks.gg save is part of this commission"). Put to steering-roadmap as an owner-needing item (msg `fb230ece`). G-2's preview-deployment probe: not to be run (planner). |
 | 2026-11-18T23:19 | analyst-hooks-017 | AN-4 run. Commissioned in the plan at `43129a3` (R-3); route per the steering ruling of 23:15Z and the brief amendment `6c17041`. Two read-only host reads over `ssh hooks-pig` as `claude-ro`. G-3 resolved: § AN-4. |
 | 2026-11-19T19:13 | devops-hooks-017 | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
+| 2026-11-19T20:18 | devops-hooks-017 | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Value Statement and Business Objective
 
@@ -249,4 +250,4 @@ Two scripts were streamed with `ssh hooks-pig 'bash -s' < <script>` and ran as `
 
 ## Resumption State
 
-Closed at devops Stage 1 (2026-11-19T19:13Z); nothing resumes from this document.
+Closed at devops Phase 2D (2026-11-19T20:18Z); nothing resumes from this document.

@@ -2,7 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Active
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Handoff-At: 787bec5 — repos=website; QAF-29 at 391c88b, QAF-30 at 787bec5, both test-only on 7293a35
 ---
 
@@ -22,6 +23,7 @@ Website chain branch `chain/017-existing-items-backlog`, tip before this round `
 | Date | Agent | Change |
 |---|---|---|
 | 2026-11-19T19:57 | implementer-hooks-017 | Release-tip QA Phase 3 (`qa/website-7293a35-generator-8512a1d-release-tip-qa.md`, agent-output `4914aaa`) failed on QAF-29 MEDIUM and QAF-30 MEDIUM, both severity-floor and test-only. Steering's block 2026-11-19T19:54Z (`steering/017-rulings.md`, `11b2574`) gives both their round. Four tests added: QAF-29 at website `391c88b`, QAF-30 at `787bec5`. Handoff-At `787bec5`. |
+| 2026-11-19T20:18 | devops-hooks-017 | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Implementation Summary
 

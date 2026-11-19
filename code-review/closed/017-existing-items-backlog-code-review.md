@@ -3,8 +3,8 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Reviewed-At: "7293a35,8512a1d — repos=website,preview-image-generator; Round 10 sub-entry continued, QAF-27 fix at website 7293a35 (implementation document 57df990); Round 10 sub-entry, CR-21 fix at website 24e9be7 (implementation document b7d0a2a); Round 10, M2-d at website 33e59f7 (implementation document 668ae57); Round 9 sub-entry, CR-20 fix at website 60252be (implementation document 77e71db); Round 9, M2 fix round 3 at website 42d15de (implementation document 9a950f3); Round 8, M7 read at website 4b8db9c (implementation document fc87937, Handoff-At f83f2ca); Round 7 sub-entry, M6 record fix at agent-output 008468b; Round 7, M6 (implementation document 4c4e948; record change verification/015/pig-host-read.sh at agent-output 4c4e948); website was last reviewed at 4b8db9c, Round 6 sub-entry, M5 title fix (record line 838c571); Round 6, M5, was reviewed at f83f2ca (implementation document 521a89f); M8 was confirmed at 6555f65 (Round 5 sub-entry, implementation document d71c462); Round 5, M8, was reviewed at c37d41a (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
-Status: Committed
-Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Round: 10
 Verdict: APPROVED
 ---
@@ -46,6 +46,7 @@ Verdict: APPROVED
 | 2026-11-19T18:20 | implementer-hooks-017 (fix SHA `24e9be7`, M2 document `b7d0a2a`); steering-roadmap-hooks (resume from `b6449a1`) | Round 10 sub-entry: confirm the CR-21 fix | Round 10 sub-entry: APPROVED at `24e9be7`. The diff is test-only: one file, +29 −2. 3 of 3 of my cross-instance mutants were killed, nm44 by the new case alone, as an assertion (`verification/017/code-review/m2d/cr21-fix-24e9be7/`). CR-21 is gone and collapsed to its disposition line. Conventions: 0 FAIL and 0 CANDIDATE, with the ID-token and basename checks (SKIPped by the tool) run by hand: 0 hits, controls fire. M7-b holds at `24e9be7` (`m7/tip-24e9be7/`). A reconcile note names Round 10's unrecorded SKIP. Disclosed: the header's `Reviewed-At` and `Verdict` were written by an ad-hoc python script (exact-match asserted, the diff read before commit), not the Edit tool, against the lifecycle rule for record documents. The error was mine, a repeat of the Round 5 sub-entry's. The rest was written with the Edit tool. |
 | 2026-11-19T18:36 | implementer-hooks-017 (fix SHA `7293a35`, M2 document `57df990`, for QA's QAF-27) | Round 10 sub-entry, continued: confirm the QAF-27 fix | Round 10 sub-entry, continued: APPROVED at `7293a35`. The diff is test-only: one file, +22. 4 of 4 of my mutants were killed (two loose compares and two `String()` coercions), each by one new case alone, as an assertion (`verification/017/code-review/m2-qaf27-7293a35/`). The broadcast has one consumer. Conventions: 0 FAIL and 0 CANDIDATE, with the ID-token and basename checks run by hand: 0 hits, controls fire. M7-b holds at `7293a35` (`m7/tip-7293a35/`). Every write in this entry was made with the Edit tool. Gate disclosed: the stamp gate refused this row and plan row R-58 as first typed (18:37 against the clock's 18:36). Both were re-stamped from `date -u`. |
 | 2026-11-19T19:13 | devops-hooks-017 (Stage 1) | Document closed | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
+| 2026-11-19T20:18 | devops-hooks-017 (Stage 2) | Document closed | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Scope and Tree
 
@@ -1116,4 +1117,4 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Resumption State
 
-Closed at devops Stage 1 (2026-11-19T19:13Z); nothing resumes from this document.
+Closed at devops Phase 2D (2026-11-19T20:18Z); nothing resumes from this document.

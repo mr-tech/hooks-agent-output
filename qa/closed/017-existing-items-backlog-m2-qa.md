@@ -3,8 +3,8 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Verified-At: "7293a35 — repos=website; refresh of M2 on QAF-27's test-only round (24e9be7..7293a35: one test file). The 24e9be7 pass (suites, sweeps, B-15 on dev servers of 60252be and 24e9be7) carries: no production line changed since."
-Status: Committed
-Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Phase: 2
 ---
 
@@ -29,6 +29,7 @@ is M2's operator-observed row and is unchanged.
 | 2026-11-19T18:30 | code-reviewer-hooks-017 (Round 9 sub-entry `f5f3346` at `60252be`; Round 10 sub-entry `4e1b43b` at `24e9be7`); steering-roadmap-hooks (tip moved; M2 cap, 18:13Z) | QA Phase 2 for M2's fix rounds 3 to 6, with M7-b re-read | Phase 2, M2-scoped, range `4b8db9c..24e9be7`. Sweeps: 17 of 19 at `60252be` and 5 of 8 at `24e9be7`; survivors are the two loose compares (QAF-27 MEDIUM, severity floor) and `channel.unbind()` (equivalent, an unchanged line). B-15 walked on both trees: 2 open sockets unfixed, 1 open and 1 closed fixed. Suite 1851/1851 with exit 0 on a quiet re-run (the first run's one failure was a load timeout in M1's file); typecheck 0; M7-b 0 above base. **QA Failed** on QAF-27. |
 | 2026-11-19T18:40 | code-reviewer-hooks-017 (Round 10 sub-entry continued, `e324582`, APPROVED at `7293a35`) | Refresh on QAF-27's fix | Refresh, test-only diff. 2 of 2 survivors killed, each by its own case; suite 1853/1853, exit 0; typecheck 0; M7-b 0 above base. QAF-27 RESOLVED. **QA Complete** at `7293a35`. |
 | 2026-11-19T19:13 | devops-hooks-017 (Stage 1) | Document closed | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
+| 2026-11-19T20:18 | devops-hooks-017 (Stage 2) | Document closed | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Criteria assessed (recorded before execution)
 

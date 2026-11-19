@@ -2,8 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Committed
-Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Revision: 11
 Plan-ID: 017
 Target-Release: "website master (Vercel production) first, then preview-image-generator prod (prod.yml), each push his word, run by devops. Order and reason: § Release and rollback. Neither package.json carries a version field (git show 1ad625e:package.json, 8de2b53:package.json), so no version artifact moves."
@@ -93,6 +93,7 @@ Architectural-Surface: "Yes; the architect's conformance pass is a named step (s
 | 2026-11-19T19:03 | R-61 | uat-hooks-017 | UAT pass 2: **APPROVED FOR RELEASE** at website `7293a35`, generator `8512a1d`, plan read at Revision 11 (`uat/017-existing-items-backlog-uat.md`). B-1, B-15, B-12 limb 1 and B-13 limbs 1–3 were re-walked on a production build; the rest carry from pass 1 at `4b8db9c`, their paths unchanged. Pass 1's NOT APPROVED (UAT-1) is expired, resolved by D-33. O-1 (pre-existing `/preview` error statuses, local) goes to steering. Status UAT Approved; no criterion moves. |
 | 2026-11-19T19:13 | R-62 | devops-hooks-017 | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
 | 2026-11-19T19:13 | R-63 | planner-hooks-017 | Registered D-36, his O-1 selection (release, watch production); words in `steering/selection-ledger/2026-11-19.md` block "2026-11-19T19:13Z — steering-roadmap-hooks" and `steering/017-rulings.md` block 2026-11-19T19:13Z (`5c3b1d9`). Scope delta: none — registration only. |
+| 2026-11-19T20:18 | R-64 | devops-hooks-017 | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Reading Order
 
@@ -1401,4 +1402,4 @@ revision 1, `upload-message-dialog-closes-on-first-portal-load-2026-11-08` is cl
 
 ## Resumption State
 
-Closed at devops Stage 1 (2026-11-19T19:13Z); nothing resumes from this document.
+Closed at devops Phase 2D (2026-11-19T20:18Z); nothing resumes from this document.

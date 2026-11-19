@@ -2,8 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Committed
-Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Handoff-At: 5c3d03f — repos=website; M4 fix round (CR-9, CR-10, CR-11 at a5dd76f; QAF-18 at 5c3d03f); first delivery was de06d95
 ---
 
@@ -31,6 +31,7 @@ code review APPROVED at `1ab3b96`, QA Phase 2 for M3 still running at this write
 | 2026-11-19T03:34 | implementer-hooks-017 | Fix round on code review Round 4 (REJECTED at `de06d95`: CR-9 HIGH, CR-10 LOW, CR-11 LOW), by `code-reviewer-hooks-017`'s message. Fixed at website `a5dd76f`; full suite 1693 of 1693 exit 0; typecheck exit 0. Handed back to the reviewer. Section `## Fix Round 4` below. |
 | 2026-11-19T04:18 | implementer-hooks-017 | QA Phase 2 for M4 failed at `a5dd76f` on QAF-18 MEDIUM (`qa/017-existing-items-backlog-m4-qa.md`, agent-output `de8d171`); test-only fix at website `5c3d03f`, section `### QAF-18` below. Full suite 1693 of 1693 exit 0; typecheck exit 0. |
 | 2026-11-19T19:13 | devops-hooks-017 | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
+| 2026-11-19T20:18 | devops-hooks-017 | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Implementation Summary
 
@@ -386,4 +387,4 @@ First delivery, kept: code review at `de06d95` (M4 range `1ab3b96..de06d95`), th
 
 ## Resumption State
 
-Closed at devops Stage 1 (2026-11-19T19:13Z); nothing resumes from this document.
+Closed at devops Phase 2D (2026-11-19T20:18Z); nothing resumes from this document.

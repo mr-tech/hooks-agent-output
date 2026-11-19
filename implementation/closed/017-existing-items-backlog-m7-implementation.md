@@ -2,8 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Committed
-Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Handoff-At: f83f2ca — repos=website; M7-b read at the website chain tip as of M5's hand-off; no source change
 ---
 
@@ -25,6 +25,7 @@ Handoff-At: f83f2ca — repos=website; M7-b read at the website chain tip as of 
 | 2026-11-19T06:25 | implementer-hooks-017 | M7-b read at website `f83f2ca`: no rule count above the base in any of 59 changed lintable files. No source change. Handed to code review as a record-only milestone. |
 | 2026-11-19T08:00 | implementer-hooks-017 (resumed) | Round 8 CR-19 (LOW, record line). The Deviations text now states the shared-tree read as a departure from M7-b's "in an export", with its reason. M7-b was re-read at the tip `4b8db9c` by code review's Round 8 (`verification/017/code-review/m7/`: 59 files, 0 rule counts above the base, a second instrument agreeing, 3 of 3 planted controls firing). I did not re-run it, so `Handoff-At` stays `f83f2ca` (my read) and the `4b8db9c` reading is the reviewer's, cited here; QA Phase 2 re-runs M7-b independently at the tip. |
 | 2026-11-19T19:13 | devops-hooks-017 | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
+| 2026-11-19T20:18 | devops-hooks-017 | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Implementation Summary
 
@@ -101,7 +102,7 @@ The 30 files beyond the base's 454 are the chain's added files; their findings a
 
 ## Resumption State
 
-Closed at devops Stage 1 (2026-11-19T19:13Z); nothing resumes from this document.
+Closed at devops Phase 2D (2026-11-19T20:18Z); nothing resumes from this document.
 
 ## Next Steps
 

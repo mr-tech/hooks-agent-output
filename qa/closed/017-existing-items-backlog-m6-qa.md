@@ -3,8 +3,8 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Verified-At: "8512a1d — repos=preview-image-generator; M6 only. The probe, QA's unchanged-lines check and QA's mutant set ran in git archive exports of 8512a1d (and of 8de2b53 for the red), each excluding .github, with one npm ci from the identical lockfile, network-isolated."
-Status: Committed
-Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Phase: 2
 ---
 
@@ -28,6 +28,7 @@ B-11 are inherited.
 |------|---------------|---------|---------|
 | 2026-11-19T07:54 | code-reviewer-hooks-017 (cross-session message; review `a010246`, plan R-39 `2208314`) | QA Phase 2 for M6 at generator `8512a1d` | Phase 2, M6 only. The probe reproduces: 17 of 17 at the tip, 13 of 17 failing at the base. QA's unchanged-lines check passes on both trees, and its control fires. QA's mutant set: 20 of 21 killed, the survivor equivalent. **QA Complete**, milestone-scoped. No finding. Process fact: my first compound read was not completed. I read the record alone and read the generator tip with `rev-parse` and `branch --show-current`. I made every export with `':(exclude).github'`. |
 | 2026-11-19T19:13 | devops-hooks-017 (Stage 1) | Document closed | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
+| 2026-11-19T20:18 | devops-hooks-017 (Stage 2) | Document closed | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Criteria assessed
 

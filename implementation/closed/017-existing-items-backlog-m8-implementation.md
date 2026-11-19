@@ -2,8 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Committed
-Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Handoff-At: 6555f65 — repos=website; M8 fix round on QAF-22 (test-only, 6555f65); first delivery was c37d41a (production at a5069d6)
 ---
 
@@ -27,6 +27,7 @@ Start: `steering/017-rulings.md` block 2026-11-19T05:19Z (`04a5e55`); QA Phase 1
 | 2026-11-19T05:35 | implementer-hooks-017 | M8 built and committed at website `a5069d6` (production and 29 cases), `7780dac` (one case), `c37d41a` (one case). Full suite 1724 of 1724, exit 0; typecheck exit 0. Handed to code review at `c37d41a`. |
 | 2026-11-19T06:01 | implementer-hooks-017 | Fix round on QA Phase 2 (QA Failed at `c37d41a`, QAF-22 MEDIUM, QAF-23 LOW) and code review Round 5 (CR-12 LOW). Test-only at website `6555f65`; full suite 1811 of 1811 exit 0 (the tree now holds M5's tests too); typecheck exit 0. Section `## Fix Round (QAF-22, QAF-23, CR-12)` below. The 05:35 row's claim that `row-warning-enabled-dropped` is equivalent was false and is corrected in place. |
 | 2026-11-19T19:13 | devops-hooks-017 | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
+| 2026-11-19T20:18 | devops-hooks-017 | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Implementation Summary
 

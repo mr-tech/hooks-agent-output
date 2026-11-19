@@ -3,8 +3,8 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Verified-At: "6555f65 — repos=website; M8 only, the refresh. The suite, the typecheck and the survivors' re-run ran in isolated git archive exports of 6555f65. The first pass ran at c37d41a. The range c37d41a..6555f65 also holds M5's 9909fb3 and 72a1755; M8's production files are byte-identical across it (git diff --quiet: exit 0), and M5's code is not verified here."
-Status: Committed
-Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Phase: 2
 ---
 
@@ -31,6 +31,7 @@ form, UAT) is inherited.
 | 2026-11-19T06:01 | steering-roadmap-hooks (cross-session message; rulings `9349040`) | M8 capped, block 06:01Z | QAF-23 is routed to the Planner batch as a stated limit and no longer rides QAF-22's round. QAF-22 keeps its round. The verdict is unmoved. |
 | 2026-11-19T06:10 | code-reviewer-hooks-017 (cross-session message; review `74263c8`, plan R-32 `6b95965`, R-33 `d827b5c`) | Scoped refresh of M8 at website `6555f65` | Refresh. The fix is one test-only commit over `72a1755`. Suite 1811 of 1811, exit 0; typecheck exit 0. M8's files each gain one case and lose none. The three `enabled` mutants were re-run at `6555f65`: all KILLED. **QA Complete** (M8-scoped), superseding the `c37d41a` QA Failed. QAF-22 and QAF-23 RESOLVED. QAF-23 needs no Planner batch row: the implementer named `FakeImage` before the cap's routing reached it. |
 | 2026-11-19T19:13 | devops-hooks-017 (Stage 1) | Document closed | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
+| 2026-11-19T20:18 | devops-hooks-017 (Stage 2) | Document closed | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Criteria assessed
 

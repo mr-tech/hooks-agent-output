@@ -2,8 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Committed
-Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Handoff-At: 7293a35 — repos=website; fix round 7 (QAF-27, test-only) on 24e9be7 (CR-21, test-only) on 33e59f7 (M2-d, EC-6) on 60252be (CR-20, code review APPROVED at f5f3346)
 ---
 
@@ -31,6 +31,7 @@ chain branch `chain/017-existing-items-backlog`; M1 is `8147661` (`implementatio
 | 2026-11-19T18:14 | implementer-hooks-017 | Fix round 6 on CR-21 (code review Round 10, `cfbdb2e`): one case, two hooks mounted at once, test-only; website `24e9be7`. My disposition of `nm44` as equivalent (Fix Round 5) is withdrawn. Handoff-At moved to `24e9be7`. See § Fix Round 6. Stamp corrected on 2026-11-19T18:33 from 18:50 (later than the commit), to the commit's own time. |
 | 2026-11-19T18:34 | implementer-hooks-017 | Fix round 7 on QAF-27 (QA Phase 2 for M2 at `24e9be7`, MEDIUM, test-only): two cases for a payload that is not a string, website `7293a35`. Handoff-At moved to `7293a35`. See § Fix Round 7. |
 | 2026-11-19T19:13 | devops-hooks-017 | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
+| 2026-11-19T20:18 | devops-hooks-017 | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Implementation Summary
 

@@ -3,8 +3,8 @@ ID: n/a
 Origin: "release chain/017-existing-items-backlog -> website 787bec5627702d2881b826e596ec2b8f8853c4fa, preview-image-generator 8512a1d003af7fdbce56b85ef27218dd885becd1"
 UUID: b53c1bae
 Verified-At: "787bec5,8512a1d — repos=website,preview-image-generator; website tree e4f7c052, a fast-forward of origin/master 1ad625e; generator unchanged from the plan-level Verified-At, a fast-forward of origin/prod 8de2b53"
-Status: Release Verified
-Status-Detail: "Release Verified at website 787bec5 and generator 8512a1d. QAF-29 and QAF-30 resolved by the test-only fix; QAF-28 resolved by devops's G9 limb 2. Supersedes the failed verdict at 7293a35 (qa/website-7293a35-generator-8512a1d-release-tip-qa.md)."
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Phase: 3
 ---
 
@@ -25,6 +25,7 @@ document (agent-output `a05505e`) and its code review, APPROVED at `787bec5` (`a
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-19T20:08 | qa-hooks-017 (devops-hooks-017's request at website 787bec5; code review `a081c89`) | Phase 3 at the new tip. Fresh install, suite 1857 of 1857 exit 0, typecheck exit 0. The per-case comparison against `7293a35` moves exactly 4 added cases in the 3 fix files. 0 production lines differ. The 4 survivors are re-run at the tip, 4 of 4 killed, each by one new case. M7-b holds. Step 1b's sweep is identical. G9 limb 2 is read. QAF-28, QAF-29, QAF-30 resolved. **Release Verified.** |
+| 2026-11-19T20:18 | devops-hooks-017 | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## The tip, re-derived
 

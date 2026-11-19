@@ -3,8 +3,8 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Verified-At: "4b8db9c — repos=website; M7 only. The tip lint ran in the shared tree while it was exactly 4b8db9c (HEAD read before and after, no tracked change), read-only, network-isolated. The base re-lint ran in a git archive export of 1ad625e with its own offline install."
-Status: Committed
-Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Phase: 2
 ---
 
@@ -26,6 +26,7 @@ R-42 `53fe7e0`). The Round 8 sub-entry is APPROVED (`6092c9e`, R-43 `3b088c0`), 
 |------|---------------|---------|---------|
 | 2026-11-19T08:05 | code-reviewer-hooks-017 (cross-session messages; `8bb33d3`, `6092c9e`) | QA Phase 2 for M7 at website `4b8db9c` | Phase 2, M7 only. The tip lint is in the shared tree at exactly `4b8db9c`. `compare.mjs` and QA's own `m7b-check.py` agree: 59 files, 0 above the base, plants 3 of 3. The base re-lint of `1ad625e` reproduces the planner's capture exactly, which discharges code review's Round 8 assumption. **QA Complete**, milestone-scoped. No finding. |
 | 2026-11-19T19:13 | devops-hooks-017 (Stage 1) | Document closed | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
+| 2026-11-19T20:18 | devops-hooks-017 (Stage 2) | Document closed | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Criteria assessed
 

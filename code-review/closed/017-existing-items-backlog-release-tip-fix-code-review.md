@@ -3,7 +3,8 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Reviewed-At: "787bec5,8512a1d — repos=website,preview-image-generator; release-tip fix (QAF-29, QAF-30) at website 787bec5 over 7293a35 (implementation document a05505e); generator unchanged"
-Status: In Review
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Round: 1
 Verdict: APPROVED
 ---
@@ -23,6 +24,7 @@ This document exists because the predecessor review is closed and the lifecycle 
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-19T20:01 | implementer-hooks-017 (fix SHA `787bec5`, document `a05505e`); steering-roadmap-hooks (round given, `steering/017-rulings.md` block 2026-11-19T19:54Z) | Scoped check of the test-only fix for release-tip QAF-29 and QAF-30 | APPROVED at `787bec5`. The diff is test-only: 3 files, +62 −2. 5 of 5 of my mutants were killed, each by its intended case alone, as an assertion (`verification/017/code-review/qaf29-30-787bec5/`). Three of the five are phrased unlike QA's deletions. Conventions: 0 FAIL and 0 CANDIDATE, with the ID-token and basename checks run by hand: 0 hits, controls fire. M7-b holds at `787bec5` (`m7/tip-787bec5/`). Disclosed: this document is new because the predecessor was closed at Stage 1, and my first Edit calls aimed at the predecessor's old open path and wrote nothing. |
+| 2026-11-19T20:18 | devops-hooks-017 (Stage 2) | Document closed | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Scope and Tree
 

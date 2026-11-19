@@ -2,8 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: Committed
-Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Handoff-At: f83f2ca — repos=website; M5 first delivery (9909fb3 the dependency, 72a1755 the code and its first cases, f83f2ca three cases that close sweep survivors)
 ---
 
@@ -28,6 +28,7 @@ Start: `steering/017-rulings.md` block 2026-11-19T05:19Z; QA Phase 1 at `7eda138
 | 2026-11-19T06:30 | implementer-hooks-017 | Round 6 LOWs. CR-14: the `previewWorld` line added under Files Created. CR-15: the interleavings case retitled by behaviour (`leaves the later save's image committed and present`; the chain stays the `play()` argument). Before and after, `previewImage.interleavings.test.ts` runs 38 of 38 passed, exit 0, network-isolated; the pass set differs only in that title; eslint 0. Handoff-At unchanged (a title-only commit on top of `f83f2ca`). |
 | 2026-11-19T07:38 | implementer-hooks-017 (resumed) | Premises re-read at the mechanism (§ Resumption premise re-read). QAF-24 (LOW): the real-Postgres lane's P1 rewritten so the save that takes the row lock second began its transaction and its statement first; under `now()`, `statement_timestamp()` and `transaction_timestamp()` it fails, and the control is 11 of 11. Lane-only (`verification/017/m5-pg/`): website stays at `4b8db9c`, so M5's QA verdict there stands. |
 | 2026-11-19T19:13 | devops-hooks-017 | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
+| 2026-11-19T20:18 | devops-hooks-017 | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Implementation Summary
 
@@ -268,4 +269,4 @@ Code review at website `f83f2ca` (M5 range `c37d41a..f83f2ca`), then QA Phase 2 
 
 ## Resumption State
 
-Closed at devops Stage 1 (2026-11-19T19:13Z); nothing resumes from this document.
+Closed at devops Phase 2D (2026-11-19T20:18Z); nothing resumes from this document.

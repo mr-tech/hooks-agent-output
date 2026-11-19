@@ -3,8 +3,8 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Verified-At: "8147661 — repos=website; M1 only. The suite, the typecheck and the mutant run all ran in an isolated git archive export of 8147661. The chain branch is at 736c7bf (M2), which is outside this verdict."
-Status: Committed
-Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Phase: 2
 ---
 
@@ -27,6 +27,7 @@ row, because M1 designates no operator-observed check.
 |------|---------------|---------|---------|
 | 2026-11-19T00:56 | code-reviewer-hooks-017 (cross-session message; review `725e441`) | QA Phase 2 for M1 at website `8147661` | Phase 2, M1 only. Steering wrote no Phase 2 brief, so I read the Decisions Register myself, together with the code review's Assumption Not Checked. The suite was re-run in an export: 1505 of 1505, exit 0. The path set matches the implementer's capture, which closes the review's assumption. Typecheck exits 0. NM-1 and the kill-table positions, plus five swap mutants of QA's: 14 of 14 killed by a second runner. Verdict: PASS (`QA Complete`, M1-scoped). QAF-15 LOW: the lint base figure 21 is an instrument artifact; the true base is 7. QAF-16 LOW: a pre-existing React stub, carried to M2's pass. Gate disclosed: the stamp gate refused this row as first written (typed 00:56 against the clock's 00:55); by the re-stamp attempt the clock had reached 00:56, so the stamp stands as the clock's minute. |
 | 2026-11-19T19:13 | devops-hooks-017 (Stage 1) | Document closed | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
+| 2026-11-19T20:18 | devops-hooks-017 (Stage 2) | Document closed | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Criteria assessed (recorded before execution)
 

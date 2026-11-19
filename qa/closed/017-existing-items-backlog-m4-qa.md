@@ -3,8 +3,8 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Verified-At: "5c3d03f — repos=website; M4 only, the refresh. The suite, the typecheck and the survivor's re-run ran in isolated git archive exports of 5c3d03f. The first pass ran at a5dd76f; 5c3d03f differs from it in one test file."
-Status: Committed
-Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
+Status: Released
+Status-Detail: "Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Phase: 2
 ---
 
@@ -28,6 +28,7 @@ tree's HEAD were `a5dd76f` at this pass's start and end.
 | 2026-11-19T04:10 | (this pass) | — | Suite 1693 of 1693, exit 0; typecheck exit 0. The class listings were re-derived at the tip and match. Sweep over M4's production diff: 41 generated mutants plus 14 of QA's, 52 of 55 killed. NM-29 was placed as a two-file mutant and killed (15 cases). Two survivors were probed in an isolated export. **QA Failed**: QAF-18 MEDIUM (the withdrawal case cannot fail) and QAF-19 LOW (a title prints the wrong column). B-12 appended to the register. Steering's 04:14Z cap (`a805d4d`) arrived before commit: QAF-18 keeps its round as a severity-floor finding, and QAF-19 goes to the Planner batch. |
 | 2026-11-19T04:22 | code-reviewer-hooks-017 (cross-session message; review `33b90ce`, plan R-22 `8441052`) | Scoped refresh of M4 at website `5c3d03f` | Refresh. The fix round is one test-only commit over `a5dd76f`. Suite 1693 of 1693, exit 0, the same case set in every file; typecheck exit 0. `qa-unregister-unconditional` was re-run at `5c3d03f` and is killed by the repaired case, as an assertion. **QA Complete** (M4-scoped), superseding the `a5dd76f` QA Failed. QAF-18 RESOLVED. Process fact: the one-mutant re-run was not delegated to a helper. |
 | 2026-11-19T19:13 | devops-hooks-017 (Stage 1) | Document closed | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
+| 2026-11-19T20:18 | devops-hooks-017 (Stage 2) | Document closed | Document closed. Status: Released. Plan 017 released: website master 787bec5 (2026-11-19T20:11:47Z) and generator prod 8512a1d (20:14:17Z); release-tip verdict agent-output c09fd41. Deployment record deployment/closed/017-existing-items-backlog-deployment.md. |
 
 ## Criteria assessed
 
