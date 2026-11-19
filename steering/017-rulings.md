@@ -895,3 +895,23 @@ not ping all the other agents about this"*. Effect for this thread: owner questi
 prompts as they arise, not held back as plain messages. No other session is told (his words). The three
 open asks (blocks 08:12Z and 08:36Z: the website access defects and C1's intent, X-22, X-21) are put now as
 one selection prompt; the answered prompt is recorded as its own block.
+
+## 2026-11-19T08:41Z — selection prompt: access defects, C1 intent, X-22, X-21
+
+Put 08:39Z, answered 08:41Z. Ledger: `steering/selection-ledger/2026-11-19.md` block "2026-11-19T08:41Z —
+steering-roadmap-hooks". Premises: blocks 08:12Z (access run, `bafdbdb`) and 08:36Z/08:38Z (X-22 run,
+`6c236f8`; B-6 correction); plan rows X-21/X-22 (`planning/017-existing-items-backlog.md:1323-1324`).
+1. "Access bugs" — options: *Fix after 017 ships (Recommended)* — small fixer chain after 017 releases, 017
+   not held / *Add them to 017 now* — release waits, review, QA, UAT again / *Write up, accept for now*.
+   **His typed answer (his words, not a selection):** *"There's no way I messed that up. For real?"* — a
+   question; no option chosen. Answered in this turn with the code (`message.ts:51-61` at `1ad625e`: personal
+   branch calls `authorizeUser(session.user.id)` with no message id; `upsert`/`delete` pass `message.id`,
+   lines 194, 208) and the run (`bafdbdb`). Still open.
+2. "Shared reads" — chosen by selection: **No, owner only** — "The fix blocks reading another user's
+   personal message entirely."
+3. "X-22" — chosen by selection: **Accept the exclusion (Recommended)** — "017 ships as is. Item 2 was about a
+   broken image; this is a present image showing an error, and no saveable message was found that reaches it."
+4. "X-21" — chosen by selection: **Accept the exclusion (Recommended)** — "017 ships as is; the architecture
+   record's problem-area row on /generate's input carries it for later."
+Recipients: X-21/X-22 → `planner-hooks-017` (registration, with the critique's SL-3/SL-5 label fixes) and
+`architect-hooks-017` (was told both pending). C1 intent → held for the access chain's determination.
