@@ -714,3 +714,19 @@ Update 06:07Z: the reviewer then recorded a Round 5 reconcile, M8 REJECTED at `c
 (it duplicates QAF-22; `c44cf87`, 06:02:51Z), so M8's gate count is 1 code-review rejection and 1 QA
 Failed. Its sub-entry APPROVED the fix at website `6555f65` (`74263c8`, 06:06:45Z), delivered to QA and
 the implementer (its transcript, 06:07:12Z and 06:07:14Z).
+
+## 2026-11-19T07:15Z — chain parked (his command)
+
+His words, typed: *"park the chain"*. Parked on his word (steering.md, Parking); it resumes on his word.
+State at the park, read this turn: plan revision 7 `6ade256`, Status In Progress. M1–M4 and M8 through
+code review and QA Phase 2 (M8 at website `6555f65`, `ebebc72`). M5 code review APPROVED at website
+`4b8db9c` (`6e4436d`), QA Phase 2 on M5 in progress (QA busy, no M5 QA document committed). M6 handed to
+code review at generator `8512a1d` (`4c4e948`), Round 7 not committed. M7 handed off at `f83f2ca`
+(`0d5e412`). Branch tips: website `4b8db9c`, generator `8512a1d`.
+Acts: every live 017 stage session asked for `/checkpoint` at its nearest seam and stopped once its
+Checkpoint is committed (architect and analyst already checkpointed and cleared: stopped directly).
+This thread's standing check deleted; its Checkpoint is the docket. No timed event: the carrier is his
+word, queued in `OWNER-QUEUE.md`. No coordinator: this thread asks him for its `/clear`.
+Still owed on resumption: M5 QA Phase 2, M6 code review and QA, effort-final QA sweep, Planner batch
+fold, architect closing pass (≤ devops Stage 1), security on the generator delta, UAT, devops Stage 1;
+he is told the M8 cap (block 06:01Z) in this turn.
