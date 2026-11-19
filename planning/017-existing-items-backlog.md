@@ -3,8 +3,8 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: In Progress
-Status-Detail: "M2 is open again on UAT-1 (fix round 3). Code review rejected website 42d15de on CR-20 (R-49). He chose the exact hash fix in 017 (D-33, implementer under way) and the Pusher disconnect in 017 (D-34), whose criterion is owed as a revision before its code. Revision 9 is APPROVED by the critic (5f892f5). The other seven milestones keep their QA Complete verdicts (M6 at generator 8512a1d), and security APPROVED the generator delta (4ae4825). Next: M2's round through code review and QA, then UAT's B-1 re-walk, then devops."
-Revision: 9
+Status-Detail: "M2 is open again on UAT-1 (fix round 3). Code review rejected website 42d15de on CR-20 (R-49). He chose the exact hash fix in 017 (D-33, implementer under way) and the Pusher disconnect in 017 (D-34). Revision 10 writes D-34 as M2-d; its critic, QA Phase 1 re-key and architect reads are owed, and the disconnect code waits for them. The other seven milestones keep their QA Complete verdicts (M6 at generator 8512a1d), and security APPROVED the generator delta (4ae4825). Next: M2's round through code review and QA, then UAT's B-1 re-walk, then devops."
+Revision: 10
 Plan-ID: 017
 Target-Release: "website master (Vercel production) first, then preview-image-generator prod (prod.yml), each push his word, run by devops. Order and reason: § Release and rollback. Neither package.json carries a version field (git show 1ad625e:package.json, 8de2b53:package.json), so no version artifact moves."
 Epic-Alignment: "Hooks.gg existing-items queue: the commission of 2026-11-18T21:53Z (items 2 to 5 of the five-item ranking), under his 2026-11-11 ruling that new feature work waits until the existing items are handled (steering/queue-hooks-rulings.md, selection 2)."
@@ -79,6 +79,7 @@ Architectural-Surface: "Yes; the architect's conformance pass is a named step (s
 | 2026-11-19T11:12 | R-49 | code-reviewer-hooks-017 | Code review, M2 fix round 3 (UAT-1), round 9: REJECTED at website `42d15de` (`code-review/017-existing-items-backlog-code-review.md`). The diagnosis holds: pusher-js 8.3.0 `JSON.parse`s number-shaped hash strings. CR-20 MEDIUM, a severity-floor finding: comparing the delivered value lets distinct hashes that deliver equal (every ±Infinity hash, `1e10`/`10e9`, and so on) suppress another tab's notice. That breaks M2-c and hazard 4. A probe is red at `42d15de` and green at `4b8db9c` (`verification/017/code-review/m2-uat1/`). This instantiates RK-3 residue (1) beyond "equal content". Remedy: the producer sends the hash JSON-encoded, and the consumer compares exact strings. Milestone-scoped; plan Status is unmoved; no criterion moves. |
 | 2026-11-19T17:50 | R-50 | planner-hooks-017 | Recorded the critic's read of revision 9: cycle 3 pass 2, APPROVED, no finding (`critiques/closed/017-existing-items-backlog-critique.md`, `5f892f5`). Scope delta: none. |
 | 2026-11-19T17:50 | R-51 | planner-hooks-017 | Registered D-33 to D-35, his three selections of 17:49Z (the exact hash fix in 017, the Pusher disconnect in 017, the block rule for new writes only); words in `steering/selection-ledger/2026-11-19.md` block "2026-11-19T17:49Z — steering-roadmap-hooks" and `steering/017-rulings.md` block 2026-11-19T17:49Z (`de08a04`). Status set to In Progress: M2 has code open again. Scope delta: none — registration only; D-34's criterion is owed as a revision. |
+| 2026-11-19T17:51 | 10 | planner-hooks-017 | Writes D-34 as M2-d (the Pusher instance each `usePusher` effect run creates is disconnected when that effect ends; three members), and states D-33's exact string equality in M2-c with the JSON-encoded broadcast; on steering's word (`steering/017-rulings.md` block 2026-11-19T17:51Z, `bc18caa`), after code review CR-20 (R-49). M2-d reaches no value statement: it closes a connection the editor leaves open, which he added to 017 by selection (D-34). Scope delta: M2 gains criterion M2-d and one surface line (`shared.ts`'s trigger), a milestone-level delta on an open milestone that he ruled at 17:49Z; no milestone is added. Since approval: revisions 8 to 10. Gate rounds: the critic, QA Phase 1's re-key and the architect's delta read, then code review and QA Phase 2 for M2's round; the disconnect code waits for the three pre-code reads, while the hash fix (D-33, no criterion change) does not. Against the original ask: item 3 grows by one connection-close line. |
 
 ## Reading Order
 
@@ -105,6 +106,9 @@ Owed re-verdicts:
 | AF-23's fold, the line "The form, mirrored" only | revision 7 commit | architect, delta read | passed: APPROVED stands, no finding; AF-23 closed (`0e380fc`) |
 | Revision 8 delta: M3 matrix fetch cell, M4-a, M4-d's table, M6-c's closed class set, X-21 to X-23, the Planner batch | revision 8 commit | critic, delta-bounded (the fold's one gate) | passed: APPROVED, cycle 3 pass 1, no finding (`56a602a`) |
 | Revision 9 delta: X-24 and its Planner batch disposition | revision 9 commit | critic, delta-bounded | passed: APPROVED, cycle 3 pass 2, no finding (`5f892f5`) |
+| Revision 10 delta: M2-d, M2-c's equality sentence, M2's surfaces line, M2's human-observable M2-d step, D-34's consequence | revision 10 commit | critic, delta-bounded (new cycle) | owed |
+| The same delta, re-keyed: M2-d's members against named cases; M2-c's exact equality; M2-d's human-observable step as a register row | revision 10 commit | QA Phase 1 re-key | owed |
+| The same delta, as a conformance read (the wire form on the `message-update` broadcast) | revision 10 commit | architect, delta read | owed |
 
 ## Value Statement and Business Objective
 
@@ -197,7 +201,7 @@ steering-roadmap from option text this planner drafted.
 | D-31 | X-22 accepted: a `/preview` fallback render stored as the preview stays outside 017, and 017 ships as is | 2026-11-19 | Selected: "Accept the exclusion (Recommended)". Shown: "017 ships as is. Item 2 was about a broken image; this is a present image showing an error, and no saveable message was found that reaches it." Selection-prompt answer, 2026-11-19T08:41Z; ledger `steering/selection-ledger/2026-11-19.md` block "2026-11-19T08:41Z — steering-roadmap-hooks" (question 3, which told him only his own post-deploy look at one message checks it); rulings block `steering/017-rulings.md` 2026-11-19T08:41Z (`06f7f2f`); option text agent-authored (steering-roadmap-hooks), from this plan's X-22 options and steering's run (block 08:36Z). | Reopened by a saved message whose preview shows "Invalid message data.", observable through his B-6 look or a report against X-22. Exclusions X-22. |
 | D-32 | X-21 accepted: the generator's request `id` reaches its logs unescaped, and 017 ships as is | 2026-11-19 | Selected: "Accept the exclusion (Recommended)". Shown: "017 ships as is; the architecture record's problem-area row on /generate's input carries it for later." Same route, question 4, same ledger and rulings blocks; option text agent-authored (steering-roadmap-hooks). | Reopened by a way to reach `/generate`'s `id` without the API key, observable through the architecture Problem Areas row on `/generate`'s input or a security audit. Exclusions X-21. |
 | D-33 | M2's hash clash takes the exact fix in 017: the website sends the save's hash as text and the tab compares it as text | 2026-11-19 | Selected: "Agent: exact fix in 017 (Recommended)". Shown: "One more implementer round: the website sends the save code as text and the tab compares it as text. Code review and QA run again on that file, plus a quick check of the one sending line. Your UAT re-walk then exercises the fix on every save. What M2 promises doesn't change." Selection-prompt answer, 2026-11-19T17:49Z; ledger `steering/selection-ledger/2026-11-19.md` block "2026-11-19T17:49Z — steering-roadmap-hooks" (question 1); rulings block `steering/017-rulings.md` 2026-11-19T17:49Z (`de08a04`); option text agent-authored (steering-roadmap-hooks), from this planner's option (a) of 11:1xZ. | Owner withdrawal only. Consequence: M2's criteria are unchanged; `shared.ts`'s one trigger line joins M2's surfaces (code review CR-20's remedy). |
-| D-34 | The editor's Pusher connection is closed in 017: `pusher.disconnect()` in `usePusher`'s effect cleanup | 2026-11-19 | Selected: "Agent: fix it in 017". Shown: "Adds one disconnect line to the cleanup. New code that can share the hash fix's round on the same file, if you chose that fix." Same route, question 2; option text agent-authored (steering-roadmap-hooks). Not chosen: X-25 with a handoff. | Owner withdrawal only. Consequence: new work in M2 that no criterion covers; its criterion is written by a revision (Status-Detail). |
+| D-34 | The editor's Pusher connection is closed in 017: `pusher.disconnect()` in `usePusher`'s effect cleanup | 2026-11-19 | Selected: "Agent: fix it in 017". Shown: "Adds one disconnect line to the cleanup. New code that can share the hash fix's round on the same file, if you chose that fix." Same route, question 2; option text agent-authored (steering-roadmap-hooks). Not chosen: X-25 with a handoff. | Owner withdrawal only. Consequence: new work in M2; its criterion is M2-d (revision 10). |
 | D-35 | His rule against recording safeguard and security blocks applies to new writes only; records already written stay as they are | 2026-11-19 | Selected: "Agent: only new writes (Recommended)". Shown: "Records already written stay as they are. The rule applies from now on." Same route, question 3; option text agent-authored (steering-roadmap-hooks). | Owner withdrawal only. Consequence: this plan's earlier text is unchanged. |
 ## Assumptions and open questions
 
@@ -398,7 +402,8 @@ No production behaviour changes. Surfaces read at website `1ad625e`.
 ### M2 — The saving tab recognises its own save (item 3)
 
 Surfaces: `src/providers/MessageProvider/usePusher.ts`, `useApiMethods.ts` `persist`,
-`MessageProvider/index.tsx` (wiring), read at `1ad625e`. Sibling, mirrored: `website.md` A-6. The
+`MessageProvider/index.tsx` (wiring), read at `1ad625e`; from revision 10, the one `pusher.trigger`
+line in `src/server/api/utils/shared.ts` `upsertMessage` (D-33). Sibling, mirrored: `website.md` A-6. The
 editor persists its own message through one step, `persist`, and the tab's record of what it sent
 is taken there and nowhere else. A new persisting path inherits it by going through `persist`.
 
@@ -428,7 +433,20 @@ is taken there and nowhere else. A new persisting path inherits it by going thro
   another tab's save of a component-only edit, a field edit and a name change; T with and without
   unsaved edits; another tab's save arriving while T's own save is in flight; and another tab saving
   content T sent earlier and has already seen broadcast, after T has moved on. The loss sentence
-  keeps its current condition (`hasChangedRef`).
+  keeps its current condition (`hasChangedRef`). Equality here is exact string equality of the hash
+  the producer computed. The producer sends it JSON-encoded (`JSON.stringify(hashMessage(…))` at
+  `shared.ts`'s one `pusher.trigger`), so pusher-js's decode (`decodeMessage`, `JSON.parse` of string
+  data, pusher-js 8.3.0) returns the same string, and the handler compares strings (D-33; code review
+  CR-20).
+- **M2-d — the tab's Pusher connection closes with its effect** (D-34). Whenever `usePusher`'s
+  effect ends, the Pusher instance that effect run created is disconnected, so no connection it
+  opened stays open after its effect ends. Members, from the effect's dependency (the message's id
+  while it is an `ApiMessage`) and React's cleanup: the provider unmounts; the id changes to another
+  message's; the message stops being an `ApiMessage`. Each effect run constructs its own instance
+  (`usePusher.ts` at `1ad625e`, `new Pusher(…)` inside the `useEffect`, cleanup `channel.unbind()` and
+  `pusher.unsubscribe(…)` only), so disconnecting it touches no other instance. Red at `1ad625e` and
+  at `42d15de`: the cleanup never calls `disconnect`. Negative-criterion instrument: a mounted
+  `MessageProvider` whose Pusher mock records `disconnect` per instance, one case per member.
 - **Window: how long T keeps a record.** It must outlast the save's round trip and Pusher's
   delivery, and it must not suppress a different tab's save. So a record lives from the send until
   an equal broadcast or the mutation's error, and no clock ends it. Residue, two bounded classes
@@ -446,7 +464,9 @@ is taken there and nowhere else. A new persisting path inherits it by going thro
   `website`" (ids moved past 900000000000001 before the first save); that walk fires
   `handoff/local-walk-save-can-write-a-client-sent-low-message-id-2026-11-11.md`, and its brief names
   it. In production after the deploy, his look (QA's B-8). The production look confirms tab 2's
-  notice (M2-c) and confirms M2-b only when the window is hit.
+  notice (M2-c) and confirms M2-b only when the window is hit. M2-d: in one tab, open a message's
+  editor, then open a second message's editor in the same tab; the browser's network panel shows one
+  open Pusher WebSocket, not two. Walked by UAT beside B-1, on the same local build.
 - Negative-criterion instrument: the carried AN-1 probe and `MessageProvider/__tests__/usePusher.update-prompt.test.tsx`
   (4 cases at base, none on own-save recognition), tightened first. Rollback: as M1.
 
@@ -1368,7 +1388,9 @@ Written 2026-11-19T08:30Z by planner-hooks-017, at revision 8.
   agreement. R-48 parks QAF-25 LOW; revision 9 folds it as X-24 on steering's brief (09:16Z), before
   devops Stage 1, and goes to critic-hooks-017; steering starts the architect's closing pass after
   the critic's read; the critic approved revision 9 (`5f892f5`, R-50). R-51 registers D-33 to D-35
-  (17:49Z). D-34's criterion for M2 is owed as revision 10, sent to steering first under its cap. The
+  (17:49Z). Revision 10 writes D-34's criterion as M2-d and states D-33's exact equality in M2-c, on
+  steering's word (block 17:51Z); the critic, QA Phase 1's re-key and the architect's delta read
+  are owed on it before the disconnect code. The
   website access defects in the 08:41Z rulings block are not 017's and are not registered. Disclosed: the stamp gate refused
   R-45's and R-46's first stamps (08:43, typed a minute ahead of the clock); both were re-stamped
   from `date -u`.
