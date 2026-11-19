@@ -1,0 +1,28 @@
+== src/server/api/utils/__tests__/messageValidity.predicate.test.ts (git archive 8147661)
+comment-gate — exp
+  scope    named files only (1) — every comment in scope
+  files    1 named, tests included
+  skipped  outside root, extension outside EXT, missing, test files without --tests
+
+  14 prose comments in 1 files — 14 lines, 1,108 chars (~277 tokens)
+  0 tool-directed comments left alone
+
+   share   lines  file
+     21%      14  src/server/api/utils/__tests__/messageValidity.predicate.test.ts
+                  └ L14, 1 lines: Expected values are the send-gate partition's own frozen ver…
+
+exit 1
+== src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts (git archive 8147661)
+comment-gate — exp
+  scope    named files only (1) — every comment in scope
+  files    1 named, tests included
+  skipped  outside root, extension outside EXT, missing, test files without --tests
+
+  7 prose comments in 1 files — 7 lines, 563 chars (~141 tokens)
+  0 tool-directed comments left alone
+
+   share   lines  file
+      9%       7  src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts
+                  └ L10, 1 lines: `useApiMethods` uses `useState` for the row-E `pendingSaveCh…
+
+exit 1
