@@ -1014,3 +1014,8 @@ carrying a message number that can claim another user's row. Owner-wait `website
   (walk 3 run A1, 10:05:19Z) and stayed clean in five later window runs. UAT routed UAT-1 directly to `implementer-hooks-017` for diagnosis.
   Re-decision rests on that diagnosis: either a fix, which moves the website tip, after which code review, QA, an architect delta read and a UAT re-walk of B-1 follow; or a
   showing that A1 lies outside the class. The low-id walk handoff is Addressed and closed by UAT. Devops Stage 1 waits.
+- 10:3xZ: the implementer's UAT-1 diagnosis (sent to UAT; no code changed) is unproven. It names candidates: a client-side mutation error reaching
+  `onError` → `forgetOwnSave` before the broadcast arrives (most likely), or a duplicate live binding. It cannot place A1 outside the class. **This thread's
+  ruling:** before any code change, UAT re-walks B-1's window with the implementer's capture set (WebSocket frames, `pageerror`/console, react-toastify text,
+  upsert timing), and the result comes to this thread. A change to `forgetOwnSave` touches M2's specified behaviour and goes to the planner first.
+  The implementer was asked to `/checkpoint` at 247K (threshold 225K) before a clear.
