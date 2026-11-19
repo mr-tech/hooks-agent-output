@@ -487,3 +487,27 @@ F-18 LOW cycle 1 pass 1 OPEN — Reading Order rows do not use the plan's headin
   (`steering/017-rulings.md`, block 23:24Z); Turbopack, which that block names as Next 16's default
   builder, was not run. The exclusion is the conservative direction either way. It is noted
   because the brief lists it as unchecked.
+
+## Resumption State
+
+Written 2026-11-19T00:02Z at steering's `/checkpoint` request (critic-hooks-017).
+
+- **Done.** Cycle 1 pass 1 on plan revision 1, read whole at `d84b192` (boundary to `a3c1e83`
+  verified: Resumption State only). Critique committed at `8bc0488`, amended at `aa2e8ef` after the
+  seam read of the architect's (`406b34a`) and QA's (`d1add83`, `06511f1`) documents. Verdict
+  REQUEST REVISION; F-1 to F-18 all OPEN.
+- **Next.** Cycle 1 pass 2 on revision 2, when steering's message names it. Delta-bounded: read
+  `git diff a3c1e83 <rev 2> -- planning/017-existing-items-backlog.md` whole and verify its
+  boundary; escalate to a whole read only where the delta reshapes a milestone (F-1 may reshape
+  M4). Disposition each of F-1 to F-18 against the diff; collapse resolved ones to one line. Watch
+  for a second instance of a shape pass 1 raised (the stop authority binds from then). Re-read
+  before the pass: planner.md § Boundaries to § Version Management, the code-review-checklist
+  skill, the lifecycle skill, `steering/017-rulings.md` blocks after 23:41Z.
+- **Code read at.** Website `1ad625e` (`origin/master`), generator `8de2b53` (`origin/prod`),
+  project-utils `749606d`. No chain branch was cut when this was written; re-derive the refs.
+- **Uncommitted or mutated.** Nothing. Scratch files removed; no process started.
+- **Evidence not recorded elsewhere.** None; every read is cited in the body.
+- **Messages sent.** One, to `planner-hooks-017`: the critique's path and `aa2e8ef` (msg
+  `9677b4c6`). None to steering. No reply owed. No question is open with the owner.
+- **Gate event.** One secret-file gate refusal, recorded under Assumption Not Checked; not
+  re-issued.
