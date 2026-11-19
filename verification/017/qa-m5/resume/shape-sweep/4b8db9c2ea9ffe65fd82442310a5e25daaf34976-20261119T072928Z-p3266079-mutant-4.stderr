@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.commit-statement.test.ts > the upsert statement no longer writes the preview nonce > names no nonce column in its insert or its conflict update
+AssertionError: expected 'insert into "Messages" ("updatedAt", …' not to match /previewImageNonce/
+
+- Expected:
+/previewImageNonce/
+
++ Received:
+"insert into \"Messages\" (\"updatedAt\", \"name\", \"data\", \"valid\", \"fk_users_id\") values ($1, $2, $3, $4, $5) on conflict (\"id\") do update set \"name\" = $6, \"data\" = $7, \"valid\" = $8, \"updatedAt\" = $9, \"previewImageNonce\" = $10 returning \"id\", (extract(epoch from clock_timestamp()) * 1000000)::bigint::text as \"savedAtMicros\""
+
+ ❯ src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:33:30
+     31|
+     32|   it('names no nonce column in its insert or its conflict update', () …
+     33|     expect(compiled.sql).not.toMatch(/previewImageNonce/);
+       |                              ^
+     34|   });
+     35|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

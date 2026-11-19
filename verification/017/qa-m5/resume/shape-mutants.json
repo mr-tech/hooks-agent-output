@@ -1,0 +1,10 @@
+[
+  {"id": "sr-commit-read-unlocked", "file": "src/server/api/utils/previewImage.ts", "old": ".forUpdate())", "new": ")", "tests": ["src/server/api/utils/__tests__"]},
+  {"id": "sr-commit-returns-new-nonce", "file": "src/server/api/utils/previewImage.ts", "old": ".returning('replaced.prev');", "new": ".returning('Messages.previewImageNonce as prev');", "tests": ["src/server/api/utils/__tests__"]},
+  {"id": "sr-commit-sets-another-column", "file": "src/server/api/utils/previewImage.ts", "old": ".set({ previewImageNonce: nonce })", "new": ".set({ previewImageNonce: nonce, updatedAt: new Date() })", "tests": ["src/server/api/utils/__tests__"]},
+  {"id": "sr-upsert-writes-nonce-on-conflict", "file": "src/server/api/utils/shared.ts", "old": "updatedAt: values.updatedAt,", "new": "updatedAt: values.updatedAt, previewImageNonce: null,", "tests": ["src/server/api/utils/__tests__"]},
+  {"id": "sr-nonce-random-fixed", "file": "src/server/api/utils/previewImage.ts", "old": "randomBytes(8).toString('hex')", "new": "'0123456789abcdef'", "tests": ["src/server/api/utils/__tests__"]},
+  {"id": "sr-request-no-bearer", "file": "src/server/api/utils/previewImage.ts", "old": "Authorization: `Bearer ${env.PREVIEW_IMAGE_API_KEY}`,", "new": "", "tests": ["src/server/api/utils/__tests__"]},
+  {"id": "sr-request-body-drops-message", "file": "src/server/api/utils/previewImage.ts", "old": "body: JSON.stringify({ id, nonce, message }),", "new": "body: JSON.stringify({ id, nonce }),", "tests": ["src/server/api/utils/__tests__"]},
+  {"id": "sr-prefix-always-dev", "file": "src/server/api/utils/previewBucket.ts", "old": "env.NODE_ENV === 'development' ? 'dev/' : ''", "new": "'dev/'", "tests": ["src/server/api/utils/__tests__"]}
+]

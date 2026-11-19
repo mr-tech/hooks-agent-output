@@ -1,0 +1,9 @@
+sr-commit-read-unlocked KILLED 2.82
+sr-commit-returns-new-nonce KILLED 2.82
+sr-commit-sets-another-column KILLED 3.14
+sr-upsert-writes-nonce-on-conflict KILLED 2.91
+sr-nonce-random-fixed KILLED 2.8
+sr-request-no-bearer KILLED 2.76
+sr-request-body-drops-message KILLED 2.77
+sr-prefix-always-dev KILLED 3.05
+8 of 8 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; shape-mutants.json (blob 34bcd239203c6eab616a9186df79f6a8ae646f32))

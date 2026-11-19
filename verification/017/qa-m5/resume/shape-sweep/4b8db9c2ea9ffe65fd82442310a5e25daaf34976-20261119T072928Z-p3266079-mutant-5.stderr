@@ -1,0 +1,15 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.commit-statement.test.ts > the ordered nonce > draws the random part afresh on each call
+AssertionError: expected 'v17635092000000000123456789abcdef' not to be 'v17635092000000000123456789abcdef' // Object.is equality
+ ❯ src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:81:47
+     79|
+     80|   it('draws the random part afresh on each call', () => {
+     81|     expect(mintNonce('1763509200000000')).not.toBe(mintNonce('17635092…
+       |                                               ^
+     82|   });
+     83|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

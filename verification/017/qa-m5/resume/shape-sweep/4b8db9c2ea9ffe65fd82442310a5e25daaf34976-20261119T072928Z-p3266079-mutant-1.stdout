@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/mr-work/20261119T072928Z-p3266079/mutant-1
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.commit-statement.test.ts (13 tests | 1 failed) 12ms
+     × reads the nonce it replaces under the row lock 5ms
+
+ Test Files  1 failed | 15 passed (16)
+      Tests  1 failed | 233 passed (234)
+   Start at  07:29:32
+   Duration  1.60s (transform 3.53s, setup 0ms, import 10.02s, tests 1.62s, environment 2ms)
+

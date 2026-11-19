@@ -1,0 +1,3 @@
+absent | insert into "Messages" ("a") values ($1) | [1]
+undefined | insert into "Messages" ("a") values ($1) | [1]
+control x | insert into "Messages" ("a", "id") values ($1, $2) | [1,"x"]

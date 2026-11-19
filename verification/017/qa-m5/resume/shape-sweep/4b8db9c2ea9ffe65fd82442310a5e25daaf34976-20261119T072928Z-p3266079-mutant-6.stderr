@@ -1,0 +1,15 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > the request to the generator > posts the id, the nonce and the message, with a bearer credential
+TypeError: Cannot read properties of undefined (reading 'startsWith')
+ ❯ src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts:50:52
+     48|     expect(world.requests).toHaveLength(1);
+     49|     expect(world.requests[0].body).toEqual({ id: '42', nonce: NEW_NONC…
+     50|     expect(world.requests[0].headers.Authorization.startsWith('Bearer …
+       |                                                    ^
+     51|     world.requests[0].answer.resolve({ status: 204 });
+     52|     await done;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

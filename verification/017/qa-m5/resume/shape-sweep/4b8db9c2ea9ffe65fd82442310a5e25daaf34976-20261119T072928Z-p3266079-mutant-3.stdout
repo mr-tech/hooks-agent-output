@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/mr-work/20261119T072928Z-p3266079/mutant-3
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.commit-statement.test.ts (13 tests | 3 failed) 16ms
+     × updates the existing row and never inserts 5ms
+     × writes no other column 2ms
+     × carries the message id and the new nonce as parameters 3ms
+
+ Test Files  1 failed | 15 passed (16)
+      Tests  3 failed | 231 passed (234)
+   Start at  07:29:38
+   Duration  1.83s (transform 4.85s, setup 0ms, import 12.94s, tests 1.73s, environment 2ms)
+

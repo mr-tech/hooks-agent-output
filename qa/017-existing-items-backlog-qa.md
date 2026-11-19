@@ -857,7 +857,10 @@ assumption.
 
 ## Resumption State (2026-11-19T07:17Z, checkpoint on steering's word: chain parked, rulings block 07:15Z, `cffd802`)
 
-- **In flight: M5 Phase 2, measured, not yet written.** Stage start: code review Round 6 sub-entry APPROVED at
+- *Reconcile 2026-11-19T07:3xZ (after the resume):* M5 Phase 2 is **written**: QA Complete at `4b8db9c`,
+  `qa/017-existing-items-backlog-m5-qa.md`, plan R-37. QAF-24 LOW was minted there. The draft below is superseded by
+  that document. Next: M6, then M7, then the effort-final sweep.
+- **In flight (at the park): M5 Phase 2, measured, not yet written.** Stage start: code review Round 6 sub-entry APPROVED at
   `Reviewed-At: 4b8db9c` (agent-output `6e4436d`, plan R-36 `3c36764`). `4b8db9c` is `f83f2ca` plus one test title. No
   `qa/017-existing-items-backlog-m5-qa.md` exists yet. Every capture below is committed under `verification/017/qa-m5/`;
   the next session writes the document from them. No re-run is needed unless the tip has moved.

@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/mr-work/20261119T072928Z-p3266079/mutant-4
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.commit-statement.test.ts (13 tests | 1 failed) 12ms
+     × names no nonce column in its insert or its conflict update 6ms
+
+ Test Files  1 failed | 15 passed (16)
+      Tests  1 failed | 233 passed (234)
+   Start at  07:29:42
+   Duration  1.65s (transform 2.97s, setup 0ms, import 9.71s, tests 1.77s, environment 4ms)
+

@@ -1,0 +1,13 @@
+diff --git a/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/shared.ts.orig b/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/exp-4b8db9c/src/server/api/utils/shared.ts
+index 8eb427f..e1252c8 100644
+--- a/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/shared.ts.orig
++++ b/tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/exp-4b8db9c/src/server/api/utils/shared.ts
+@@ -252,7 +252,7 @@ export async function upsertMessage(
+     fk_guilds_id: isUserSelect(select) ? null : await upsertGuild(select.guild.id),
+   };
+ 
+-  if (message.id) values.id = message.id;
++  if (true) values.id = message.id;
+ 
+   const { id, savedAtMicros } = await buildUpsertMessageQuery(database, values)
+     .executeTakeFirstOrThrow();

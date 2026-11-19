@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.commit-statement.test.ts > the commit statement > hands back the replaced nonce
+AssertionError: expected 'with "replaced" as (select "previewIm…' to match /returning "replaced"\."prev"$/
+
+- Expected:
+/returning "replaced"\."prev"$/
+
++ Received:
+"with \"replaced\" as (select \"previewImageNonce\" as \"prev\" from \"Messages\" where \"id\" = $1 for update) update \"Messages\" set \"previewImageNonce\" = $2 from \"replaced\" where \"Messages\".\"id\" = $3 and (\"Messages\".\"previewImageNonce\" is null or \"Messages\".\"previewImageNonce\" collate \"C\" < $4) returning \"Messages\".\"previewImageNonce\" as \"prev\""
+
+ ❯ src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:63:26
+     61|
+     62|   it('hands back the replaced nonce', () => {
+     63|     expect(compiled.sql).toMatch(/returning "replaced"\."prev"$/);
+       |                          ^
+     64|   });
+     65|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

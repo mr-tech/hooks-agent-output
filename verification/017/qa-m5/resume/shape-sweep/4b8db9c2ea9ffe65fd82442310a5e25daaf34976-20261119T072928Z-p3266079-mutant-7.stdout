@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/mr-work/20261119T072928Z-p3266079/mutant-7
+
+ ❯ |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts (13 tests | 1 failed) 37ms
+     × posts the id, the nonce and the message, with a bearer credential 14ms
+ ❯ |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts (9 tests | 1 failed) 38ms
+     × sends the saved id and a nonce minted from the database clock the statement returned 8ms
+
+ Test Files  2 failed | 14 passed (16)
+      Tests  2 failed | 232 passed (234)
+   Start at  07:29:51
+   Duration  1.53s (transform 3.00s, setup 0ms, import 9.36s, tests 1.68s, environment 2ms)
+

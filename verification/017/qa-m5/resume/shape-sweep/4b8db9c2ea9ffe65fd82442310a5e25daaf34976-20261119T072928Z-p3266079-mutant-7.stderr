@@ -1,0 +1,54 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts > the request to the generator > posts the id, the nonce and the message, with a bearer credential
+AssertionError: expected { id: '42', …(1) } to deeply equal { id: '42', …(2) }
+
+- Expected
++ Received
+
+  {
+    "id": "42",
+-   "message": {
+-     "components": [],
+-     "content": "PLANTED-MESSAGE-CONTENT",
+-     "embeds": [],
+-     "username": "U",
+-   },
+    "nonce": "v1763509200000001PLANTEDNONCEHEX",
+  }
+
+ ❯ src/server/api/utils/__tests__/previewImage.continuation-outcomes.test.ts:49:36
+     47|
+     48|     expect(world.requests).toHaveLength(1);
+     49|     expect(world.requests[0].body).toEqual({ id: '42', nonce: NEW_NONC…
+       |                                    ^
+     50|     expect(world.requests[0].headers.Authorization.startsWith('Bearer …
+     51|     world.requests[0].answer.resolve({ status: 204 });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts > a save of an existing message > sends the saved id and a nonce minted from the database clock the statement returned
+AssertionError: expected undefined to deeply equal { content: 'Hi', username: 'U', …(2) }
+
+- Expected:
+{
+  "components": [],
+  "content": "Hi",
+  "embeds": [],
+  "username": "U",
+}
+
++ Received:
+undefined
+
+ ❯ src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:98:44
+     96|     expect(world.requests[0].body.id).toBe('42');
+     97|     expect(world.requests[0].body.nonce).toMatch(/^v1763509200123456[0…
+     98|     expect(world.requests[0].body.message).toEqual(data);
+       |                                            ^
+     99|     world.requests[0].answer.resolve({ status: 500 });
+    100|     await Promise.all(hoisted.waited);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

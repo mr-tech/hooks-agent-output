@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/previewImage.commit-statement.test.ts > the commit statement > reads the nonce it replaces under the row lock
+AssertionError: expected 'with "replaced" as (select "previewIm…' to match /^with "replaced" as \(select "preview…/
+
+- Expected:
+/^with "replaced" as \(select "previewImageNonce" as "prev" from "Messages" where "id" = \$1 for update\) /
+
++ Received:
+"with \"replaced\" as (select \"previewImageNonce\" as \"prev\" from \"Messages\" where \"id\" = $1) update \"Messages\" set \"previewImageNonce\" = $2 from \"replaced\" where \"Messages\".\"id\" = $3 and (\"Messages\".\"previewImageNonce\" is null or \"Messages\".\"previewImageNonce\" collate \"C\" < $4) returning \"replaced\".\"prev\""
+
+ ❯ src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:45:26
+     43|
+     44|   it('reads the nonce it replaces under the row lock', () => {
+     45|     expect(compiled.sql).toMatch(/^with "replaced" as \(select "previe…
+       |                          ^
+     46|   });
+     47|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
