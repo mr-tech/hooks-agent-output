@@ -1,0 +1,43 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-47
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (37 tests | 1 failed) 479ms
+     × raises the notice when another tab saves while this tab has unsaved edits, naming the loss 16ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 24 failed) 4860ms
+     × asks before the avatar link leaves the editor, and Cancel keeps the edits 381ms
+     × navigates to the avatar link when the prompt is confirmed 114ms
+     × asks the same for a link rendered inside the editor's own providers 104ms
+     × asks for a link activated from the keyboard 115ms
+     × does not ask while nothing has changed 169ms
+     × link to https://other.example/message/m/4/edit: asks is true 78ms
+     × link to /message/m/4/edit/extra: asks is true 84ms
+     × link to /message/m/new: asks is true 60ms
+     × asks before the sidebar logo leaves the page 71ms
+     × asks before the sidebar edit link leaves the page 77ms
+     × asks before the sidebar terms link leaves the page 45ms
+     × asks before the sidebar privacy link leaves the page 61ms
+     × asks before the sidebar servers link leaves the page 52ms
+     × asks before the sidebar account link leaves the page 50ms
+     × does not ask for a sidebar link when nothing has changed 102ms
+     × search result to another message whose id starts with this one: asks is 4 84ms
+     × search result to another message whose id is a prefix of this one: asks is 42 54ms
+     × asks before the crumb to the server's folder leaves the page 54ms
+     × asks before either crumb to the user's folder leaves the page 44ms
+     × asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed 79ms
+     × keeps both open when raised together, each answered on its own, with a link inside the editor 136ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 1107ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 1112ms
+     × renders no editor prompt on the send page, and still asks for its links 42ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 6 failed) 210ms
+     × is false for an unedited message when authenticated 28ms
+     × is false for an unedited message when unauthenticated 4ms
+     × is false for an unedited message when loading 3ms
+     × is true for an edited message when authenticated 5ms
+     × is true for an edited message when unauthenticated 4ms
+     × is true for an edited message when loading 5ms
+
+ Test Files  3 failed | 140 passed (143)
+      Tests  31 failed | 1783 passed (1814)
+   Start at  08:20:47
+   Duration  15.54s (transform 19.39s, setup 898ms, import 116.00s, tests 35.58s, environment 71.51s)
+

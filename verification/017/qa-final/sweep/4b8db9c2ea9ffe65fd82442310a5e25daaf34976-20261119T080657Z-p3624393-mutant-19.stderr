@@ -1,0 +1,47 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves a link to another site that opens a new tab to the browser, with no prompt
+AssertionError: expected 'go https://discord.com/oauth2/authori…' not to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go https://discord.com/oauth2/authorize?client_id=1You have unsaved changes!Are you sure you want to leave this page? Changes you made may not be saved.CancelLeave Page"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:361:43
+    359|     click(link(`go ${OUTSIDE}`));
+    360|
+    361|     expect(document.body.textContent).not.toContain(TITLE);
+       |                                           ^
+    362|   });
+    363|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > asks for a link to another site that names this tab as its target
+AssertionError: expected 'go https://discord.com/oauth2/authori…' to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go https://discord.com/oauth2/authorize?client_id=1"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:387:39
+    385|     click(link(`go ${OUTSIDE}`));
+    386|
+    387|     expect(document.body.textContent).toContain(TITLE);
+       |                                       ^
+    388|   });
+    389|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

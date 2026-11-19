@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-62
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (37 tests | 1 failed) 648ms
+     × raises the notice for a later save of the content of a save that failed 38ms
+
+ Test Files  1 failed | 142 passed (143)
+      Tests  1 failed | 1813 passed (1814)
+   Start at  08:25:06
+   Duration  17.04s (transform 22.55s, setup 1.57s, import 127.44s, tests 37.65s, environment 77.76s)
+

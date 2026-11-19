@@ -1,0 +1,41 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload
+AssertionError: expected { …(2) } to deeply equal { …(2) }
+
+- Expected
++ Received
+
+@@ -1,8 +1,8 @@
+  {
+    "data": {
+-     "content": "from A",
++     "content": "from B",
+      "embeds": [
+        {
+          "_key": "830372e7-cdd7-483e-9824-fef60923c60c",
+          "description": "An embed body",
+          "title": "An embed title",
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:208:21
+    206|     openTab('A');
+    207|     mount();
+    208|     expect(shown()).toEqual({ data: restoredData('from A'), name: 'New…
+       |                     ^
+    209|     unmountDom();
+    210|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

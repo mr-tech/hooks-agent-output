@@ -1,0 +1,24 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-35
+
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 10 failed) 1458ms
+     × navigates to the clicked destination when the prompt is confirmed 83ms
+     × replaces the history entry on confirm for a link that replaces 52ms
+     × leaves a ctrl-click on a link to another site to the browser, with no prompt 43ms
+     × leaves a meta-click on a link to another site to the browser, with no prompt 38ms
+     × leaves a shift-click on a link to another site to the browser, with no prompt 37ms
+     × leaves a alt-click on a link to another site to the browser, with no prompt 34ms
+     × leaves a link to another site that opens a new tab to the browser, with no prompt 33ms
+     × leaves a link to another site that downloads to the browser, with no prompt 31ms
+     × leaves a middle-click on a link to another site to the browser, with no prompt 28ms
+     × treats an absolute address on this site as a link on this site 34ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 3 failed) 3675ms
+     × navigates to the avatar link when the prompt is confirmed 198ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 138ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 194ms
+
+ Test Files  2 failed | 141 passed (143)
+      Tests  13 failed | 1801 passed (1814)
+   Start at  08:17:18
+   Duration  16.08s (transform 21.02s, setup 1.61s, import 120.01s, tests 35.12s, environment 75.76s)
+

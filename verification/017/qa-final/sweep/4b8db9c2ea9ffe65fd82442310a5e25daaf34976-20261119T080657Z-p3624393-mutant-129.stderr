@@ -1,0 +1,35 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a tab at route 0 > with none of its own, copies the route-0 entry edited most recently under its own key
+AssertionError: expected { content: 'from A' } to deeply equal { content: 'from B' }
+
+- Expected
++ Received
+
+  {
+-   "content": "from B",
++   "content": "from A",
+  }
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:171:25
+    169|     const shown = routeZeroDraftFor('C');
+    170|
+    171|     expect(shown?.data).toEqual({ content: 'from B' });
+       |                         ^
+    172|     expect(stored()['0:C'].editedAt).toBe(2);
+    173|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

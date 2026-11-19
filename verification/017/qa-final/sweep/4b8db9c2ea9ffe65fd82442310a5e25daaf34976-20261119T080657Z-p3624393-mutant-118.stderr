@@ -1,0 +1,49 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+<--- Last few GCs --->
+
+[140681:0xf266000]    58629 ms: Scavenge (interleaved) 4093.1 (4097.0) -> 4092.6 (4102.0) MB, pooled: 0 MB, 10.82 / 0.00 ms  (average mu = 0.264, current mu = 0.201) allocation failure; 
+[140681:0xf266000]    59907 ms: Mark-Compact (reduce) 4095.9 (4102.0) -> 4094.3 (4097.3) MB, pooled: 0 MB, 812.77 / 0.00 ms  (+ 272.1 ms in 53 steps since start of marking, biggest step 8.3 ms, walltime since start of marking 1123 ms) (average mu = 0.225,
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 0x735eec node::OOMErrorHandler(char const*, v8::OOMDetails const&) [/usr/local/bin/node]
+ 2: 0xbafc40  [/usr/local/bin/node]
+ 3: 0xbafd2f  [/usr/local/bin/node]
+ 4: 0xe48825  [/usr/local/bin/node]
+ 5: 0xe48852  [/usr/local/bin/node]
+ 6: 0xe48b4a  [/usr/local/bin/node]
+ 7: 0xe5906a  [/usr/local/bin/node]
+ 8: 0xe5d410  [/usr/local/bin/node]
+ 9: 0x18efec1  [/usr/local/bin/node]
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Worker forks emitted error.
+ ❯ EventEmitter.<anonymous> node_modules/.pnpm/vitest@4.1.2_@edge-runtime+vm@3.1.7_@types+node@22.15.29_jsdom@30.0.1_vite@8.0.3_@emnap_bd0a0fd291b70bfff8c568f5de1cd92b/node_modules/vitest/dist/chunks/cli-api.Bxr1Nn49.js:3447:22
+ ❯ EventEmitter.emit node:events:508:28
+ ❯ ChildProcess.emitUnexpectedExit node_modules/.pnpm/vitest@4.1.2_@edge-runtime+vm@3.1.7_@types+node@22.15.29_jsdom@30.0.1_vite@8.0.3_@emnap_bd0a0fd291b70bfff8c568f5de1cd92b/node_modules/vitest/dist/chunks/cli-api.Bxr1Nn49.js:3014:22
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+Caused by: Error: Worker exited unexpectedly
+ ❯ ChildProcess.emitUnexpectedExit node_modules/.pnpm/vitest@4.1.2_@edge-runtime+vm@3.1.7_@types+node@22.15.29_jsdom@30.0.1_vite@8.0.3_@emnap_bd0a0fd291b70bfff8c568f5de1cd92b/node_modules/vitest/dist/chunks/cli-api.Bxr1Nn49.js:3013:33
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+[vitest-pool]: Timeout terminating forks worker for test files /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-118/src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx.

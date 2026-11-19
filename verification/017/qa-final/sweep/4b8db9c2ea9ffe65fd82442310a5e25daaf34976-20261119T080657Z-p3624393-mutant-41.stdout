@@ -1,0 +1,96 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-41
+
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 32 failed) 726ms
+     × asks before the avatar link leaves the editor, and Cancel keeps the edits 95ms
+     × navigates to the avatar link when the prompt is confirmed 25ms
+     × asks the same for a link rendered inside the editor's own providers 25ms
+     × asks for a link activated from the keyboard 25ms
+     × does not ask while nothing has changed 25ms
+     × does not ask for the link to the same message's send page 27ms
+     × link to /message/m/4/edit/: asks is false 22ms
+     × link to /message/m/4/edit?tab=1: asks is false 21ms
+     × link to http://localhost:3000/message/m/4/send: asks is false 27ms
+     × link to https://other.example/message/m/4/edit: asks is true 23ms
+     × link to /message/m/4/edit/extra: asks is true 15ms
+     × link to /message/m/new: asks is true 16ms
+     × stops asking once the editor has unmounted 18ms
+     × asks before the sidebar logo leaves the page 23ms
+     × asks before the sidebar edit link leaves the page 8ms
+     × asks before the sidebar terms link leaves the page 9ms
+     × asks before the sidebar privacy link leaves the page 10ms
+     × asks before the sidebar servers link leaves the page 9ms
+     × asks before the sidebar account link leaves the page 11ms
+     × does not ask for a sidebar link when nothing has changed 9ms
+     × search result to another message whose id starts with this one: asks is 4 12ms
+     × search result to another message whose id is a prefix of this one: asks is 42 10ms
+     × search result to this message: asks is 4 10ms
+     × search result to this message, with a long id: asks is 42 8ms
+     × asks before the crumb to the server's folder leaves the page 53ms
+     × asks before either crumb to the user's folder leaves the page 15ms
+     × does not ask for the links back to this message's editor 24ms
+     × asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed 17ms
+     × keeps both open when raised together, each answered on its own, with a link inside the editor 8ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 11ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 12ms
+     × renders no editor prompt on the send page, and still asks for its links 8ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (37 tests | 37 failed) 160ms
+       × raises no notice in the saving tab: a classic message, nothing changed 46ms
+       × raises no notice in the saving tab: a classic message after an edit 5ms
+       × raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace 5ms
+       × raises no notice in the saving tab: a V2 message, nothing changed 5ms
+       × raises no notice in the saving tab: a V2 message after an edit 7ms
+       × raises no notice in the saving tab: a V2 message beside an empty embed 4ms
+       × raises no notice in the saving tab: a message not valid for sending, nothing changed 3ms
+       × raises no notice in the saving tab: a message not valid for sending, after an edit 3ms
+       × raises no notice after the content-loss dialog chose Classic 5ms
+       × raises no notice after the content-loss dialog chose V2 3ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 2ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 1ms
+       × raises no notice for either of two saves in flight when edits follow the second 3ms
+       × raises no notice in the saving tab: a classic message, nothing changed 2ms
+       × raises no notice in the saving tab: a classic message after an edit 2ms
+       × raises no notice in the saving tab: a classic message after an edit leaving trailing whitespace 12ms
+       × raises no notice in the saving tab: a V2 message, nothing changed 2ms
+       × raises no notice in the saving tab: a V2 message after an edit 2ms
+       × raises no notice in the saving tab: a V2 message beside an empty embed 1ms
+       × raises no notice in the saving tab: a message not valid for sending, nothing changed 2ms
+       × raises no notice in the saving tab: a message not valid for sending, after an edit 2ms
+       × raises no notice after the content-loss dialog chose Classic 2ms
+       × raises no notice after the content-loss dialog chose V2 2ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 4ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 4ms
+       × raises no notice for either of two saves in flight when edits follow the second 3ms
+     × raises no notice for two identical saves, their broadcasts, and an edit after the second 2ms
+     × raises the notice when another tab saves content this tab never sent 3ms
+     × raises the notice when another tab saves while this tab has unsaved edits, naming the loss 3ms
+     × raises the notice when another tab saves a component-only edit 2ms
+     × raises the notice when another tab saves while this tab's own save is in flight 3ms
+     × raises the notice when another tab saves content this tab sent earlier and has already seen broadcast 3ms
+     × raises no notice when another tab saves what this tab already shows 1ms
+     × raises the notice for a later save of the content of a save that failed 1ms
+     × raises no notice for the broadcast of an identical save still in flight when one of two failed 2ms
+     × raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows 2ms
+     × raises no notice for a later save in flight when an earlier save, already broadcast, then reports failure 3ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx (3 tests | 3 failed) 60ms
+     × writes it as V2 without the embed, and the editor holds exactly what was written 46ms
+     × Save as Classic: the editor holds the classic message that was written, in Classic mode 6ms
+     × Save as Components V2: the editor holds the V2 message that was written, in V2 mode 6ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 11 failed) 274ms
+     × is restored after sign-in, opening a saved message, and returning to route 0 86ms
+     × are shown again after signing in and opening the message 4ms
+     × are not shown at route 0 meanwhile, which shows its own draft 3ms
+     × are shown after a reload, as before 3ms
+     × leave no stored draft once they are typed back to the saved copy 5ms
+     × survive opening another saved message 4ms
+     × shows the saved copy when the stored copy is exactly as new 24ms
+     × shows the saved copy when the stored copy is older 5ms
+     × of a saved message is removed when this tab saves what the draft holds 2ms
+     × of a saved message stays when an edit was typed after Save 3ms
+     × discards the stored edits and shows the saved copy 5ms
+
+ Test Files  4 failed | 139 passed (143)
+      Tests  83 failed | 1731 passed (1814)
+   Start at  08:19:04
+   Duration  17.28s (transform 21.18s, setup 2.75s, import 122.84s, tests 29.60s, environment 67.22s)
+

@@ -1,0 +1,28 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-16
+
+ ❯ |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx (4 tests | 1 failed) 641ms
+     × asks before Invite Bot, a link to another site, leaves the page 118ms
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 10 failed) 937ms
+     × navigates to the clicked destination when the prompt is confirmed 84ms
+     × replaces the history entry on confirm for a link that replaces 56ms
+     × asks first, and does not leave, when the guard holds a link to another site 12ms
+     × hands the guard the full address of a link to another site 6ms
+     × leaves for the address, in this tab and with no second browser prompt, once confirmed 9ms
+     × replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed 6ms
+     × stays when the prompt for a link to another site is cancelled 7ms
+     × reads a URL object as the address it holds 7ms
+     × asks for a link to another site that names this tab as its target 11ms
+     × treats an absolute address on this site as a link on this site 43ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 5 failed) 3703ms
+     × navigates to the avatar link when the prompt is confirmed 182ms
+     × link to https://other.example/message/m/4/edit: asks is true 85ms
+     × asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed 74ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 155ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 202ms
+
+ Test Files  3 failed | 140 passed (143)
+      Tests  16 failed | 1798 passed (1814)
+   Start at  08:11:43
+   Duration  16.39s (transform 20.26s, setup 1.59s, import 122.69s, tests 33.96s, environment 77.00s)
+

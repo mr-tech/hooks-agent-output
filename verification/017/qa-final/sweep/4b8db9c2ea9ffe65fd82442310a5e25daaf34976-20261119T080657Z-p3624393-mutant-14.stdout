@@ -1,0 +1,36 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-14
+
+ ❯ |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx (4 tests | 1 failed) 598ms
+     × asks before Invite Bot, a link to another site, leaves the page 111ms
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 12 failed) 1000ms
+     × hands the guard the destination of the clicked link 55ms
+     × navigates to the clicked destination when the prompt is confirmed 49ms
+     × replaces the history entry on confirm for a link that replaces 55ms
+     × hands the guard its path, query string and fragment 69ms
+     × asks first, and does not leave, when the guard holds a link to another site 16ms
+     × hands the guard the full address of a link to another site 6ms
+     × leaves for the address, in this tab and with no second browser prompt, once confirmed 6ms
+     × replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed 5ms
+     × stays when the prompt for a link to another site is cancelled 6ms
+     × reads a URL object as the address it holds 54ms
+     × asks for a link to another site that names this tab as its target 8ms
+     × treats an absolute address on this site as a link on this site 48ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 11 failed) 4153ms
+     × navigates to the avatar link when the prompt is confirmed 226ms
+     × does not ask for the link to the same message's send page 109ms
+     × link to /message/m/4/edit/: asks is false 145ms
+     × link to /message/m/4/edit?tab=1: asks is false 104ms
+     × link to http://localhost:3000/message/m/4/send: asks is false 120ms
+     × link to https://other.example/message/m/4/edit: asks is true 86ms
+     × search result to this message: asks is 4 73ms
+     × search result to this message, with a long id: asks is 42 85ms
+     × does not ask for the sidebar's edit link on the unsaved route 86ms
+     × does not ask for the links back to this message's editor 107ms
+     × asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed 144ms
+
+ Test Files  3 failed | 140 passed (143)
+      Tests  24 failed | 1790 passed (1814)
+   Start at  08:11:08
+   Duration  16.49s (transform 23.33s, setup 2.11s, import 126.38s, tests 35.42s, environment 74.38s)
+

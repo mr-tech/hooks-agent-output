@@ -1,0 +1,59 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+stderr | src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it
+An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+
+stderr | src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it
+An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+
+stderr | src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > loads and previews a URL whose path ends in an image extension
+An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.png.html without loading it
+ FAIL  |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > refuses https://example.com/a.txt?file=b.png without loading it
+AssertionError: expected <img draggable="false" …(2)></img> to be null
+
+- Expected:
+null
+
++ Received:
+<img
+  alt="upload preview"
+  class="h-full min-h-fit"
+  draggable="false"
+/>
+
+ ❯ src/components/__tests__/ImageUploader.url-validation.test.tsx:61:70
+     59|     expect(loads).toEqual([]);
+     60|     expect(document.body.textContent).toContain('Invalid url.');
+     61|     expect(document.body.querySelector('img[alt="upload preview"]')).t…
+       |                                                                      ^
+     62|   });
+     63|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx > ImageUploader, the image URL field > loads and previews a URL whose path ends in an image extension
+AssertionError: expected null not to be null
+ ❯ src/components/__tests__/ImageUploader.url-validation.test.tsx:69:74
+     67|     expect(loads).toEqual(['https://example.com/a.png?size=2']);
+     68|     expect(document.body.textContent).not.toContain('Invalid url.');
+     69|     expect(document.body.querySelector('img[alt="upload preview"]')).n…
+       |                                                                          ^
+     70|   });
+     71| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+

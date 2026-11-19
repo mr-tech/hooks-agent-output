@@ -1,0 +1,35 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > keeps every entry when the serialised map is exactly one megabyte, and drops the oldest one character over
+AssertionError: expected [ 'b' ] to deeply equal [ 'a', 'b' ]
+
+- Expected
++ Received
+
+  [
+-   "a",
+    "b",
+  ]
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:62:42
+     60|     writeDraft('a', entry(1, 'y'.repeat(300_000)));
+     61|     writeDraft('b', exact(0));
+     62|     expect(Object.keys(stored()).sort()).toEqual(['a', 'b']);
+       |                                          ^
+     63|     expect((window.localStorage.getItem('messageDrafts') as string).le…
+     64|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

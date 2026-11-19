@@ -1,0 +1,17 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-99
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 2 failed) 235ms
+     × shows each tab its own last draft after a reload 48ms
+     × is removed from route 0 when a creating save succeeds 5ms
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 4 failed) 98ms
+     × has one id for the life of the tab 27ms
+     × writes the draft under its own key and also under the legacy message key 5ms
+     × removes its own entry, and the legacy key when it holds that draft 3ms
+     × turns a stored message with no id into this tab's route-0 entry, dated by its own timestamp 2ms
+
+ Test Files  2 failed | 141 passed (143)
+      Tests  6 failed | 1808 passed (1814)
+   Start at  08:37:21
+   Duration  17.76s (transform 25.24s, setup 2.01s, import 133.29s, tests 38.66s, environment 82.03s)
+

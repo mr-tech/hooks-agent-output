@@ -1,0 +1,44 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-31
+
+ ❯ |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx (4 tests | 2 failed) 563ms
+     × asks before Create Message leaves the page 258ms
+     × asks before Servers leaves the page 76ms
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 10 failed) 810ms
+     × asks first, and does not navigate, when the guard holds the destination 14ms
+     × hands the guard the destination of the clicked link 10ms
+     × asks for a link activated from the keyboard, a click with no pointer detail 10ms
+     × keeps the user on the page when the prompt is cancelled 8ms
+     × navigates to the clicked destination when the prompt is confirmed 8ms
+     × replaces the history entry on confirm for a link that replaces 8ms
+     × keeps the newer guard when an older registration is withdrawn 9ms
+     × hands the guard its path, query string and fragment 7ms
+     × treats an absolute address on this site as a link on this site 6ms
+     × keeps both prompts open when they are raised together, each answered on its own 66ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 20 failed) 5002ms
+     × asks before the avatar link leaves the editor, and Cancel keeps the edits 372ms
+     × navigates to the avatar link when the prompt is confirmed 113ms
+     × asks the same for a link rendered inside the editor's own providers 92ms
+     × asks for a link activated from the keyboard 102ms
+     × link to /message/m/4/edit/extra: asks is true 116ms
+     × link to /message/m/new: asks is true 64ms
+     × asks before the sidebar logo leaves the page 84ms
+     × asks before the sidebar edit link leaves the page 129ms
+     × asks before the sidebar terms link leaves the page 60ms
+     × asks before the sidebar privacy link leaves the page 61ms
+     × asks before the sidebar servers link leaves the page 69ms
+     × asks before the sidebar account link leaves the page 60ms
+     × search result to another message whose id starts with this one: asks is 4 74ms
+     × search result to another message whose id is a prefix of this one: asks is 42 86ms
+     × asks before the crumb to the server's folder leaves the page 63ms
+     × asks before either crumb to the user's folder leaves the page 43ms
+     × keeps both open when raised together, each answered on its own, with a link inside the editor 113ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 1100ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 1126ms
+     × renders no editor prompt on the send page, and still asks for its links 38ms
+
+ Test Files  3 failed | 140 passed (143)
+      Tests  32 failed | 1782 passed (1814)
+   Start at  08:16:10
+   Duration  15.70s (transform 20.90s, setup 1.42s, import 118.23s, tests 34.45s, environment 72.96s)
+

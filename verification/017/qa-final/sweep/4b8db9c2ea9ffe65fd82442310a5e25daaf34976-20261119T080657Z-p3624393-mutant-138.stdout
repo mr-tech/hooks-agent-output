@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-138
+
+ ❯ |node| src/utils/__tests__/withLocalStorage.server-render.test.ts (2 tests | 1 failed) 12ms
+     × reports that a write did not land, without throwing 9ms
+
+ Test Files  1 failed | 142 passed (143)
+      Tests  1 failed | 1813 passed (1814)
+   Start at  09:09:00
+   Duration  16.37s (transform 21.33s, setup 1.67s, import 121.27s, tests 36.51s, environment 75.91s)
+

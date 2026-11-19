@@ -1,0 +1,33 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, a write the browser refuses > drops the least recently edited other entry and retries until the write lands
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:94:20
+     92|     const landed = writeDraft('c', entry(3));
+     93|
+     94|     expect(landed).toBe(true);
+       |                    ^
+     95|     expect(Object.keys(stored()).sort()).toEqual(['b', 'c']);
+     96|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

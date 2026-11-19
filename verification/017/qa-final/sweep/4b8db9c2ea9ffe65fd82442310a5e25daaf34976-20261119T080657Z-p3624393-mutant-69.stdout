@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-69
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (37 tests | 4 failed) 646ms
+       × raises no notice for either of two saves in flight when edits follow the second 47ms
+       × raises no notice for either of two saves in flight when edits follow the second 14ms
+     × raises no notice for two identical saves, their broadcasts, and an edit after the second 7ms
+     × raises no notice for a later save in flight when an earlier save, already broadcast, then reports failure 15ms
+
+ Test Files  1 failed | 142 passed (143)
+      Tests  4 failed | 1810 passed (1814)
+   Start at  08:27:15
+   Duration  17.81s (transform 23.58s, setup 1.84s, import 132.39s, tests 39.57s, environment 82.83s)
+

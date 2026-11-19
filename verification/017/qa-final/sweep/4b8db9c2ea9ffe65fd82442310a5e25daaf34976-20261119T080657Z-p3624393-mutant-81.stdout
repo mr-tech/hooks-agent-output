@@ -1,0 +1,51 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-81
+
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 14 failed) 516ms
+     × asks first, and does not navigate, when the guard holds the destination 17ms
+     × asks for a link activated from the keyboard, a click with no pointer detail 14ms
+     × keeps the user on the page when the prompt is cancelled 10ms
+     × navigates to the clicked destination when the prompt is confirmed 8ms
+     × replaces the history entry on confirm for a link that replaces 13ms
+     × keeps the newer guard when an older registration is withdrawn 9ms
+     × asks first, and does not leave, when the guard holds a link to another site 9ms
+     × leaves for the address, in this tab and with no second browser prompt, once confirmed 8ms
+     × replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed 11ms
+     × stays when the prompt for a link to another site is cancelled 9ms
+     × reads a URL object as the address it holds 12ms
+     × asks for a link to another site that names this tab as its target 13ms
+     × treats an absolute address on this site as a link on this site 8ms
+     × keeps both prompts open when they are raised together, each answered on its own 115ms
+ ❯ |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx (4 tests | 3 failed) 562ms
+     × asks before Create Message leaves the page 327ms
+     × asks before Servers leaves the page 89ms
+     × asks before Invite Bot, a link to another site, leaves the page 77ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 22 failed) 3214ms
+     × asks before the avatar link leaves the editor, and Cancel keeps the edits 496ms
+     × navigates to the avatar link when the prompt is confirmed 133ms
+     × asks the same for a link rendered inside the editor's own providers 108ms
+     × asks for a link activated from the keyboard 128ms
+     × link to https://other.example/message/m/4/edit: asks is true 83ms
+     × link to /message/m/4/edit/extra: asks is true 100ms
+     × link to /message/m/new: asks is true 61ms
+     × asks before the sidebar logo leaves the page 102ms
+     × asks before the sidebar edit link leaves the page 93ms
+     × asks before the sidebar terms link leaves the page 55ms
+     × asks before the sidebar privacy link leaves the page 67ms
+     × asks before the sidebar servers link leaves the page 58ms
+     × asks before the sidebar account link leaves the page 92ms
+     × search result to another message whose id starts with this one: asks is 4 91ms
+     × search result to another message whose id is a prefix of this one: asks is 42 96ms
+     × asks before the crumb to the server's folder leaves the page 69ms
+     × asks before either crumb to the user's folder leaves the page 57ms
+     × asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed 83ms
+     × keeps both open when raised together, each answered on its own, with a link inside the editor 135ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 150ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 145ms
+     × renders no editor prompt on the send page, and still asks for its links 23ms
+
+ Test Files  3 failed | 140 passed (143)
+      Tests  39 failed | 1775 passed (1814)
+   Start at  08:31:12
+   Duration  19.50s (transform 30.85s, setup 1.82s, import 150.29s, tests 40.48s, environment 88.67s)
+

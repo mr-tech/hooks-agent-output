@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-87
+
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (20 tests | 2 failed) 1356ms
+       × answers only the update prompt with focus on its dialog element 92ms
+       × answers only the update prompt with focus on its message text 103ms
+ ❯ |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx (13 tests | 3 failed) 1908ms
+       × answers only the update prompt with focus on its dialog element 99ms
+       × answers only the update prompt with focus on its message text 72ms
+       × leaves the warning answerable on its own after the update prompt is answered 1111ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 2 failed) 3718ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 163ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 152ms
+
+ Test Files  3 failed | 140 passed (143)
+      Tests  7 failed | 1807 passed (1814)
+   Start at  08:33:14
+   Duration  18.27s (transform 24.92s, setup 1.54s, import 136.33s, tests 39.98s, environment 82.72s)
+

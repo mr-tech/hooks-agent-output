@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-112
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 5 failed) 80ms
+     × holds at most 20 entries, dropping the least recently edited first, whatever order they were written in 30ms
+     × never drops the entry being written, even when it is the least recently edited 3ms
+     × holds at most one megabyte serialised, dropping the least recently edited first 8ms
+     × keeps every entry when the serialised map is exactly one megabyte, and drops the oldest one character over 14ms
+     × still writes one entry that alone passes a megabyte 6ms
+
+ Test Files  1 failed | 142 passed (143)
+      Tests  5 failed | 1809 passed (1814)
+   Start at  08:50:51
+   Duration  15.93s (transform 18.87s, setup 1.42s, import 117.49s, tests 34.54s, environment 74.93s)
+

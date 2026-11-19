@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-116
+
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 2 failed) 146ms
+     × keeps every entry when the serialised map is exactly one megabyte, and drops the oldest one character over 47ms
+     × still writes one entry that alone passes a megabyte 37ms
+
+ Test Files  1 failed | 142 passed (143)
+      Tests  2 failed | 1812 passed (1814)
+   Start at  09:01:25
+   Duration  17.48s (transform 22.80s, setup 1.74s, import 130.40s, tests 37.10s, environment 81.61s)
+

@@ -1,0 +1,156 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown again after signing in and opening the message
+AssertionError: expected { …(2) } to deeply equal { data: { …(2) }, name: 'Stored' }
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "unsaved edits on 42",
+-     "embeds": [
+-       {
+-         "_key": Any<String>,
+-         "description": "An embed body",
+-         "title": "An embed title",
+-       },
+-     ],
++     "content": "saved copy",
+    },
+    "name": "Stored",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:155:21
+    153|     visit('/message/m/42/edit', 'authenticated');
+    154|
+    155|     expect(shown()).toEqual(unsavedEdits);
+       |                     ^
+    156|   });
+    157|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, unsaved edits on a saved message when the session is lost > are shown after a reload, as before
+AssertionError: expected { …(2) } to deeply equal { data: { …(2) }, name: 'Stored' }
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "unsaved edits on 42",
+-     "embeds": [
+-       {
+-         "_key": Any<String>,
+-         "description": "An embed body",
+-         "title": "An embed title",
+-       },
+-     ],
++     "content": "saved copy",
+    },
+    "name": "Stored",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:172:21
+    170|     mount();
+    171|
+    172|     expect(shown()).toEqual(unsavedEdits);
+       |                     ^
+    173|   });
+    174|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > restores a stored copy of message 42 that is newer than its saved copy
+AssertionError: expected { …(2) } to deeply equal { data: { …(2) }, …(1) }
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "newer local copy",
+-     "embeds": [
+-       {
+-         "_key": Any<String>,
+-         "description": "An embed body",
+-         "title": "An embed title",
++     "content": "saved copy",
+    },
+-     ],
+-   },
+-   "name": "Name kept with the local copy",
++   "name": "Stored",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:261:21
+    259|     mount();
+    260|
+    261|     expect(shown()).toEqual({ data: restoredData('newer local copy'), …
+       |                     ^
+    262|   });
+    263|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a stored draft of a saved message > is shown with its own data and name when it is newer than the saved copy
+AssertionError: expected { …(2) } to deeply equal { data: { …(2) }, …(1) }
+
+- Expected
++ Received
+
+  {
+    "data": {
+-     "content": "stored with the draft",
+-     "embeds": [
+-       {
+-         "_key": Any<String>,
+-         "description": "An embed body",
+-         "title": "An embed title",
++     "content": "saved copy",
+    },
+-     ],
+-   },
+-   "name": "Name stored with the draft",
++   "name": "Stored",
+  }
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:307:21
+    305|     mount();
+    306|
+    307|     expect(shown()).toEqual({ data: restoredData('stored with the draf…
+       |                     ^
+    308|   });
+    309| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, reloading a saved message > discards the stored edits and shows the saved copy
+AssertionError: expected 'saved copy' to be 'stale edits' // Object.is equality
+
+Expected: "stale edits"
+Received: "saved copy"
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:381:23
+    379|     hoisted.pathname = '/message/m/42/edit';
+    380|     mount();
+    381|     expect(content()).toBe('stale edits');
+       |                       ^
+    382|
+    383|     hoisted.stored = { ...hoisted.stored };
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+

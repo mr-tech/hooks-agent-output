@@ -1,0 +1,21 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-125
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 6 failed) 233ms
+     × leave no stored draft once they are typed back to the saved copy 30ms
+     × shows the saved copy when the stored copy is exactly as new 3ms
+     × shows the saved copy when the stored copy is older 2ms
+     × is removed from route 0 when a creating save succeeds 15ms
+     × of a saved message is removed when this tab saves what the draft holds 12ms
+     × discards the stored edits and shows the saved copy 3ms
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 4 failed) 99ms
+     × removes one entry and leaves the others 14ms
+     × removes an entry only when its data satisfies the condition given 5ms
+     × removes its own entry, and the legacy key when it holds that draft 2ms
+     × leaves the legacy key when it holds a different draft 1ms
+
+ Test Files  2 failed | 141 passed (143)
+      Tests  10 failed | 1804 passed (1814)
+   Start at  09:05:12
+   Duration  16.53s (transform 22.24s, setup 2.03s, import 123.14s, tests 35.64s, environment 78.25s)
+

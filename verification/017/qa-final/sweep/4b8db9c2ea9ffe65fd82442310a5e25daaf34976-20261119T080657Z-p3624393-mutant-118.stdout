@@ -1,0 +1,10 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-118
+
+
+ Test Files  142 passed (143)
+      Tests  1791 passed (1814)
+     Errors  1 error
+   Start at  09:02:05
+   Duration  71.31s (transform 23.37s, setup 1.91s, import 134.78s, tests 39.54s, environment 84.73s)
+

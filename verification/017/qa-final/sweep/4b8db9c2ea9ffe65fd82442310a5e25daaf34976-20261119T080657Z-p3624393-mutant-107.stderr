@@ -1,0 +1,55 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, the bound > holds at most 20 entries, dropping the least recently edited first, whatever order they were written in
+AssertionError: expected [ 'k1', 'k2', 'k3', 'k4', 'k5', …(15) ] to deeply equal [ Array(20) ]
+
+- Expected
++ Received
+
+@@ -1,18 +1,18 @@
+  [
++   "k1",
++   "k2",
++   "k3",
++   "k4",
++   "k5",
+    "k6",
+    "k7",
+    "k8",
+    "k9",
+    "k10",
+    "k11",
+    "k12",
+-   "k13",
+-   "k14",
+-   "k15",
+-   "k16",
+-   "k17",
+    "k18",
+    "k19",
+    "k20",
+    "k21",
+    "k22",
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:31:18
+     29|     const keys = Object.keys(stored()).sort((a, b) => Number(a.slice(1…
+     30|
+     31|     expect(keys).toEqual(Array.from({ length: 20 }, (_, i) => `k${i + …
+       |                  ^
+     32|   });
+     33|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

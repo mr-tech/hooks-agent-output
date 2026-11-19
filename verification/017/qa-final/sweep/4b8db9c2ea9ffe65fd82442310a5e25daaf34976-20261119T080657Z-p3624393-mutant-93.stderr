@@ -1,0 +1,140 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > leaves for the address, in this tab and with no second browser prompt, once confirmed
+AssertionError: expected "vi.fn()" to be called once with arguments: [ true ]
+
+Received:
+
+  1st vi.fn() call:
+
+  [
+-   true,
++   false,
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:301:29
+    299|
+    300|     expect(assigned).toHaveBeenCalledExactlyOnceWith(OUTSIDE);
+    301|     expect(leavingAtAssign).toHaveBeenCalledExactlyOnceWith(true);
+       |                             ^
+    302|     expect(hoisted.push).not.toHaveBeenCalled();
+    303|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed
+AssertionError: expected "vi.fn()" to be called once with arguments: [ true ]
+
+Received:
+
+  1st vi.fn() call:
+
+  [
+-   true,
++   false,
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:312:30
+    310|
+    311|     expect(replaced).toHaveBeenCalledExactlyOnceWith(OUTSIDE);
+    312|     expect(leavingAtReplace).toHaveBeenCalledExactlyOnceWith(true);
+       |                              ^
+    313|     expect(assigned).not.toHaveBeenCalled();
+    314|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |dom| src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx > SessionProvider, a page loaded with a session cookie the server did not accept > signs out, leaving without the unsaved-changes prompt
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/providers/__tests__/SessionProvider.stale-cookie-sign-out.test.tsx:45:42
+     43|
+     44|     expect(hoisted.signOut).toHaveBeenCalledTimes(1);
+     45|     expect(hoisted.leavingDuringSignOut).toBe(true);
+       |                                          ^
+     46|   });
+     47|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |dom| src/app/_components/__tests__/NavMenu.sign-in-and-out.test.tsx > NavMenu, the log in and log out item > signs in without the unsaved-changes prompt when signed out
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/_components/__tests__/NavMenu.sign-in-and-out.test.tsx:71:35
+     69|
+     70|     expect(hoisted.signIn).toHaveBeenCalledTimes(1);
+     71|     expect(hoisted.leavingDuring).toBe(true);
+       |                                   ^
+     72|     await act(async () => { finish(); });
+     73|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx > useUnloadAlert and the exits that lose nothing > does not prompt while an exit that loses nothing is leaving the page
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx:60:32
+     58|     const leaving = leaveWithoutAlert(() => new Promise<void>((resolve…
+     59|
+     60|     expect(unloadIsPrompted()).toBe(false);
+       |                                ^
+     61|     finish();
+     62|     await leaving;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx > the edit page, signed out with unsaved changes > signs in through the Log in button without the unsaved-changes prompt
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx:99:35
+     97|
+     98|     expect(hoisted.signIn).toHaveBeenCalledTimes(1);
+     99|     expect(hoisted.leavingDuring).toBe(true);
+       |                                   ^
+    100|     expect(unloadIsPrompted()).toBe(false);
+    101|     await act(async () => { finish(); });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+

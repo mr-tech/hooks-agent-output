@@ -1,0 +1,31 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-83
+
+ ❯ |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx (4 tests | 2 failed) 741ms
+     × asks before Create Message leaves the page 368ms
+     × asks before Servers leaves the page 127ms
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 5 failed) 1492ms
+     × asks first, and does not navigate, when the guard holds the destination 115ms
+     × asks for a link activated from the keyboard, a click with no pointer detail 68ms
+     × keeps the user on the page when the prompt is cancelled 143ms
+     × keeps the newer guard when an older registration is withdrawn 56ms
+     × replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed 51ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 12 failed) 4446ms
+     × asks before the avatar link leaves the editor, and Cancel keeps the edits 603ms
+     × asks the same for a link rendered inside the editor's own providers 215ms
+     × asks before the sidebar logo leaves the page 96ms
+     × asks before the sidebar edit link leaves the page 82ms
+     × asks before the sidebar terms link leaves the page 112ms
+     × asks before the sidebar privacy link leaves the page 104ms
+     × asks before the sidebar servers link leaves the page 94ms
+     × asks before the sidebar account link leaves the page 109ms
+     × search result to another message whose id starts with this one: asks is 4 103ms
+     × search result to another message whose id is a prefix of this one: asks is 42 103ms
+     × asks before the crumb to the server's folder leaves the page 108ms
+     × asks before either crumb to the user's folder leaves the page 82ms
+
+ Test Files  3 failed | 140 passed (143)
+      Tests  19 failed | 1795 passed (1814)
+   Start at  08:31:52
+   Duration  18.35s (transform 25.78s, setup 2.28s, import 134.84s, tests 40.62s, environment 87.13s)
+

@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-6
+
+ ❯ |dom| src/components/__tests__/ImageUploader.url-validation.test.tsx (3 tests | 3 failed) 417ms
+     × refuses https://example.com/a.png.html without loading it 234ms
+     × refuses https://example.com/a.txt?file=b.png without loading it 75ms
+     × loads and previews a URL whose path ends in an image extension 105ms
+
+ Test Files  1 failed | 142 passed (143)
+      Tests  3 failed | 1811 passed (1814)
+   Start at  08:08:47
+   Duration  16.18s (transform 20.41s, setup 1.80s, import 118.52s, tests 35.68s, environment 76.11s)
+

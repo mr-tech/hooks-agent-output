@@ -2,15 +2,16 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Verified-At: "1ad625e,8de2b53 — repos=website,preview-image-generator; Phase 1 base trees (the plan's surfaces read at these SHAs; the suite and the carried probes ran in an export of website 1ad625e). No verdict is carried at Phase 1."
-Status: Awaiting Implementation
-Status-Detail: "Phase 1 re-keyed to plan revision 7 (agent-output 6ade256), with no finding. QAF-20 and QAF-21 are RESOLVED. Limb 3 lasts, re-read from its capture. NM-30 to NM-38 keyed to revision 7's rows; EC-3 and EC-4 added; B-14 executed. M1 to M4 passed Phase 2 (their own documents). M5, M6 and M8 code may start on the critic's revision 7 pass and steering's hold."
-Phase: 1
+Verified-At: "4b8db9c,8512a1d — repos=website,preview-image-generator; the effort-final pass: the website sweep ran in git archive exports of 4b8db9c; the generator's whole diff was swept at M6 in exports of 8512a1d. Milestone verdicts are in the -m<n>-qa documents at their own SHAs. Phase 1 read the base trees 1ad625e,8de2b53."
+Status: QA Complete
+Status-Detail: "Plan-level QA Complete at website 4b8db9c and generator 8512a1d: M1 to M8 each QA Complete in its own document; effort-final sweep 124 of 140 killed, every survivor dispositioned (equivalent, whitespace-only, or no criterion member), plus QAF-25 LOW to the Planner batch under the M4 cap. Revision 8 moves no verified criterion. Next: UAT (B-1 to B-4, B-12, B-13)."
+Phase: 2
 ---
 
 # QA Report: Plan 017 — the existing-items backlog
 
-**Plan Reference**: `agent-output/planning/017-existing-items-backlog.md`, revision 7 (agent-output
+**Plan Reference**: `agent-output/planning/017-existing-items-backlog.md`, revision 8 (agent-output `36a842f`)
+for the effort-final pass (its delta read whole, § Implementation Review); Phase 1 read revision 7 (agent-output
 `6ade256`), re-keyed in § "Phase 1 re-key on plan revision 7" (earlier: §§ "… revision 6", "… revision 4",
 "… revision 3" and "… revision 2"; revision 5 was never routed and is read inside revision 6's diff). The first pass read revision 1
 (`97e6814`; the R-4 registration at `d84b192` was read with it and changes no criterion).
@@ -27,6 +28,7 @@ Phase: 1
 | 2026-11-19T04:14 | code-reviewer-hooks-017 (M4 hand-off, review `e12881a`) | Register rows from M4's Phase 2 | Phase 2, M4: B-12 appended (M4-b's two prompts and a lone prompt, by Enter, in a real browser), because B-3 as written does not observe the Round 4 assumption. The Resumption State was re-stated and its placeholder heading stamp replaced with the checkpoint's commit minute (03:11Z), as `check-repo.js` HEADING-STAMP flagged. The M4 verdict is in `qa/017-existing-items-backlog-m4-qa.md`. |
 | 2026-11-19T05:12 | steering-roadmap (cross-session brief; plan revision 6, agent-output `21e61eb`) | Phase 1 re-key: M8 and M5-0 limb 3 | Phase 1 re-key. M8-a's listings and M8-d's counts re-run at `1ad625e`, `a5dd76f` and `5c3d03f`: the plan's figures hold. Limb 2's capture: 3 prefix members and 1 non-member. The 05:01Z focus capture preserved under `qa-phase1-r6/`. New: QAF-20 MEDIUM (M8's focus positions never reach the changed hotkey; the human-observable form reads the same on both trees) and QAF-21 MEDIUM (limb 3 cannot tell a kept-alive function from a resumed one; its outcomes do not cover every subset of the lines). NM-30 to NM-38; B-13 and B-14 appended; B-5 reconciled. The brief's two premises (Resumption State at `84cad8d`; the stamp at line 643) were stale, both already settled at `de8d171`. |
 | 2026-11-19T05:18 | planner-hooks-017 (revision 7, agent-output `6ade256`) | Phase 1 re-key | Phase 1 re-key. QAF-20 and QAF-21 RESOLVED at the plan text. Limb 3 re-read from its committed capture: 6 lines, one `requestId`, timestamps within 1 ms of `elapsedMs`, one request in the request log, so **Lasts** holds by revision 7's read rule. M8-a's third listing: 1 non-member hit. NM-30 to NM-38 keyed to revision 7's rows; EC-3 and EC-4 added so NM-33 and NM-35 have a killing case. B-14 executed. No finding on revision 7. |
+| 2026-11-19T09:14 | steering-roadmap-hooks (brief `qa-hooks-017-resume.md`, work item 3); plan revision 8 (`36a842f`) | Effort-final sweep and plan-level verdict | Phase 2, effort-final. Website `1ad625e..4b8db9c`: 175 generated, 34 identical to M5's run at this tip, 141 run: 124 of 140 KILLED, 16 SURVIVED, 1 ABORTED (heap out of memory, not credited). Every survivor dispositioned. QAF-25 LOW (`StyledLink`'s `prefetch: false` unasserted) to the Planner batch under the M4 cap. The generator was swept whole at M6. Revision 8 read whole: no verified criterion moved. **QA Complete**, plan-level. |
 
 ## Inputs read
 
@@ -857,9 +859,10 @@ assumption.
 
 ## Resumption State (2026-11-19T07:17Z, checkpoint on steering's word: chain parked, rulings block 07:15Z, `cffd802`)
 
-- *Reconcile 2026-11-19T07:3xZ (after the resume):* M5 Phase 2 is **written**: QA Complete at `4b8db9c`,
-  `qa/017-existing-items-backlog-m5-qa.md`, plan R-37. QAF-24 LOW was minted there. The draft below is superseded by
-  that document. Next: M6, then M7, then the effort-final sweep.
+- *Reconcile 2026-11-19T07:3xZ to 09:0xZ (after the resume):* M5 (`47c16c3`), M6 (`dd7a449`) and M7 (`9a155ee`) Phase 2 are
+  written, each QA Complete. QAF-24 is RESOLVED. The effort-final sweep and the plan-level QA Complete are in § Test
+  Execution Results; QAF-25 LOW went to the Planner batch under the M4 cap. Everything below is the park-time state,
+  superseded. Next for QA: Phase 3 at the release tip, on devops's request.
 - **In flight (at the park): M5 Phase 2, measured, not yet written.** Stage start: code review Round 6 sub-entry APPROVED at
   `Reviewed-At: 4b8db9c` (agent-output `6e4436d`, plan R-36 `3c36764`). `4b8db9c` is `f83f2ca` plus one test title. No
   `qa/017-existing-items-backlog-m5-qa.md` exists yet. Every capture below is committed under `verification/017/qa-m5/`;
@@ -966,8 +969,113 @@ Pusher app), named again in the hand-off.
 
 ## Implementation Review (Post-Implementation)
 
-*Phase 2.*
+*Phase 2.* Each milestone's Phase 2 is in its own document: `qa/017-existing-items-backlog-m1-qa.md` to `-m8-qa.md`. All
+eight are QA Complete:
+- M1 to M4 and M8 at their refresh tips (`8147661`, `dd26104`, `1ab3b96`, `5c3d03f`, `6555f65`);
+- M5 and M7 at website `4b8db9c`;
+- M6 at generator `8512a1d`.
+
+This section is the effort-final pass: the sweep each milestone pass named as owed, and the plan-level verdict.
+
+**Revision 8 does not expire a milestone verdict.** Its body delta (`655fe13..36a842f`, read whole) touches:
+- M3's matrix fetch cell (CR-8, already the reviewed code);
+- M4-a's second interception (`StyledLink`'s `onClick` for a link to another site);
+- M4-d's table (Invite Bot and `InfoPanel`'s bot invitation added; Support and "Learn more" are not members);
+- M6-c's class set, closed at four;
+- X-21 to X-23, and the Planner batch.
+
+Each corrected member was already verified:
+- The M4 document maps Invite Bot and the bot invitation to cases and kills (its coverage table rows "`NavMenu` Create
+  Message, Servers, Invite Bot" and "`InfoPanel` bot invitation").
+- This sweep kills every generated mutant on `StyledLink.tsx`'s `onClick` path, lines 37 to 42.
+- M6's pass verified the four classes and the `setup-rejects` case.
+
+No criterion this gate verified moved, so the verdicts stand at their SHAs.
 
 ## Test Execution Results
 
-*Phase 2.*
+### Effort-final sweep
+
+**Scope** (qa.md: the production code the effort changed, `git diff <chain base>..<tip>` over production paths):
+- **Website `1ad625e..4b8db9c`.** `mutant-gen.js --range 1ad625e..4b8db9c` wrote 175 mutants
+  (`verification/017/qa-final/website-mutants-gen.{json,out}`). Test files are skipped by the generator.
+  - 34 of them, on `previewImage.ts`, `previewBucket.ts` and `shared.ts`, are identical by (file, old, new, id) to M5's
+    generated set run at this same tip (`qa-m5/m5-mutants-gen.json`; all killed or equivalent there). Those files are
+    unchanged before `c37d41a`.
+  - This run took the other 141 (`website-mutants-final.json`, blob `a2a4246`, committed at `178b37f` before the run).
+- **Generator `8de2b53..8512a1d`.** M6's milestone sweep was already the whole generator diff (`qa-m6/`, 20 of 21 killed,
+  the survivor equivalent), so it is not re-run.
+- **E-7** (`messageDrafts.ts`, `withLocalStorage.ts`, `useLocalStorage.ts`) is unchanged since M3's bounded sweep at
+  `1ab3b96` (`git diff --numstat` prints nothing). Its generated mutants are in this set.
+
+**Run.** `mutation-run.py --sha 4b8db9c --dep node_modules --timeout 300 -- unshare -rn npx vitest run`, whole suite,
+through a `general-purpose` helper. The table is
+`qa-final/sweep/mutation-table-4b8db9c2…-20261119T080657Z-p3624393.json`, with runner blob `b26916e` and the mutants
+blob above.
+- Control: 1814 cases, exit 0.
+- **124 of 140 KILLED** (denominator: mutants whose suite started under a passing control; stillborn 0, not-applied 0,
+  aborted 1). 16 SURVIVED, 1 ABORTED. Four kills came by the 300 s per-run timeout, which counts as a kill: `messageDrafts.ts` 38
+  walk-last, 40 num, 46 `&&` and 46 `>`. Each turns a bounded eviction loop unbounded.
+
+**Every survivor, dispositioned.**
+
+| Survivor | Disposition | Evidence |
+|---|---|---|
+| `ImageUploader.tsx` 97 `true`, 97 `num`, 101 `true`, 101 `num`, 101 `true:2`, 116 `true`, 121 `false`, 147 `not`, 147 `&&`, 147 `not:2` (10) | **Outside the predicate.** These lines changed by indentation only. M8's behavioural change in this file is the import, `useDialogEnter`'s call and the wrapper `div`. The mutated values (layout classes, `draggable`, and Clear's and Save's `isDisabled`) are the base's own behaviour, re-indented. `mutant-gen` selects whitespace-changed lines; the effort's predicate is behaviour changed. | `git diff -w -U0 1ad625e 4b8db9c -- src/components/ImageUploader.tsx`: 8 changed lines (`grep -c`), none at these lines |
+| `StyledLink.tsx` 34 `false` (`mergeProps({ prefetch: false }, …)` → `prefetch: true`) | **QAF-25 LOW** (below). It is the base's value (`1ad625e` line 12), carried onto a line M4 rewrote. No case asserts it. | Kill table: SURVIVED, no failing case |
+| `leaveWithoutAlert.ts` 1 `num` (`REARM_MS` 2000 → 2001) | **No criterion member.** The plan names no re-arm delay (`grep -c -i -E 're-?arm\|REARM_MS\|2000 ?ms'` over the plan: 0). That the flag re-arms, and when it does not (exit rejects), is killed at lines 3, 8, 11 and 14. An off-by-one on an unspecified constant is residue. | Kill table rows `leaveWithoutAlert.ts` 3, 8, 11, 14: KILLED |
+| `messageDrafts.ts` 19 `num:2`, `num:3` (`slice(2, 12)` → `(3, 12)`, `(2, 13)`) | **Equivalent.** The tab id's only specified properties are a random id made on first need and kept in `sessionStorage` (plan M3, lines 464 to 469 at revision 8). A different slice of the same random string is still such an id. | Plan text; `19:num` (the radix) and `18:if-false` KILLED |
+| `withLocalStorage.ts` 13 `if-false` (`typeof window === 'undefined'` guard dropped in `set`) | **Equivalent.** Where `window` is undefined, `localStorage` is too, so `localStorage.setItem` throws a `ReferenceError` inside the `try`, and the `catch` returns `false`, the guard's own value. Where `window` exists, the guard is false anyway. | Source at `4b8db9c` lines 12 to 18; `13:===` and `13:false` KILLED |
+| `withLocalStorage.ts` 19 `true` (`new Event('storage', { bubbles: true })` → `false`) | **Equivalent.** The event is dispatched on `window`, which has no ancestor to bubble to. Listeners on `window` receive it either way. | Source line 19 |
+| `messageDrafts.ts` 50 `if-false`, **ABORTED** (`if (oldest === undefined) return false;` dropped) | **Not a survivor, and not credited as a kill.** The retry loop never ends: the worker running `messageDrafts.bound-and-recency` dies with a JavaScript heap out-of-memory error, 1791 of 1814 cases run, and the suite exits non-zero. Its two siblings on line 50 are KILLED by the dedicated cases "drops the least recently edited other entry and retries until the write lands" (`===`) and "drops the write, without throwing, once no other entry remains to drop" (`false`). | `sweep/…-mutant-118.{stdout,stderr}` ("FATAL ERROR: … JavaScript heap out of memory"; "Tests 1791 passed (1814)") |
+
+So no survivor shows a behaviour the effort changed going unasserted, except QAF-25. QAF-25 is a value the effort carried
+over on a rewritten line.
+
+### Findings (effort-final pass)
+
+QAF-25 LOW Phase 2 — `StyledLink`'s rewritten `LinkProxy` keeps `prefetch: false`, and no case fails when it is lost.
+- **Property wanted checked.** A `StyledLink` renders its `next/link` with `prefetch={false}` unless the caller passes one.
+- **Failure scenario.** A later edit of the `mergeProps` call that M4 rewrote drops or flips the default. Every
+  `StyledLink` on the site then prefetches its route in production, and the suite stays green
+  (`StyledLink.tsx:34:false` survives).
+- **Why LOW and not the severity floor.** The plan does not claim this preservation. M4 claims `StyledLink`'s props
+  unchanged, which they are, and prefetch is internal.
+- **Route.** M4 is capped (steering's block 2026-11-19T04:14Z): below HIGH, a gap on M4 goes to the plan's Planner batch
+  as a stated limit with no fix round. So it goes to `planner-hooks-017` for the Planner batch, by SendMessage, or to
+  `steering-roadmap-hooks` if that session is not live.
+
+### Plan-level verdict
+
+**QA Complete** for plan 017 at website `4b8db9c` and generator `8512a1d`:
+- every milestone M1 to M8 has a QA Complete Phase 2 at a SHA whose milestone surface is unchanged to these tips;
+- the effort-final sweep is run and every survivor dispositioned;
+- revision 8 moves no verified criterion;
+- QAF-25 LOW is a Planner batch limit under the M4 cap and does not block.
+
+The plan's Status moves to `QA Complete`. Rows inherited and not discharged go to UAT and devops: B-1, B-2, B-3, B-4,
+B-12, B-13 (UAT, pre-release); B-6 to B-11 (post-deploy, devops's Stage 1 carrier). A release tip carries its own
+verdict (Phase 3).
+
+### Milestone surfaces at the tip (settled, not assumed)
+
+Each production file the effort changed is mapped to the commits that touched it, over `1ad625e..4b8db9c`
+(`qa-final/production-file-commits.txt`, 24 files). Every commit in the range belongs to a milestone that passed code
+review and its own Phase 2. Where a later milestone touched an earlier one's file (`MessageProvider/index.tsx`: M2, M3,
+M4; `StyledLink.tsx` and `NavigationGuardProvider.tsx`: M4's two rounds; `messageDrafts.ts`: M3's two commits;
+`useUnloadAlert.ts`: M3 and M4; `ConfirmationDialog.tsx`: M4 and M8), the later milestone's pass ran the whole suite. The
+earlier milestone's cases stayed green there and are green at `4b8db9c`. This sweep mutated the tip's lines under the
+whole suite, so the earlier milestones' cases had the chance to kill a mutant of a later edit.
+
+### Assumption Not Checked (effort-final pass)
+
+This pass assumes that the operator classes `mutant-gen` generates, together with each milestone's named and coupling
+sets, reach every decision the effort added, and does not test it.
+- **What the generator does not make.** It does not delete a statement or a call (for example, the fetch effect's
+  `removeDraft`, or a `waitUntil(...)` wrapper), and it does not drop a JSX attribute.
+- **The milestone sets.** They placed such mutants only where Phase 1 named them (NM-10 to NM-38, and the coupling sets
+  at M4, M5 and M8).
+- **Signature if false.** A call-deletion mutant of a changed line survives the suite: removing one of the effort's
+  added calls leaves 1814 of 1814 green.
+- **Owner.** QA Phase 3 at the release tip, which may add a call-deletion set over the same predicate. Named again in
+  the hand-off.

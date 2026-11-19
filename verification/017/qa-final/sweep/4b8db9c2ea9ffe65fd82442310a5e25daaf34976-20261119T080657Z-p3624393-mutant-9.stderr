@@ -1,0 +1,182 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on Clear runs only what that control does
+AssertionError: expected <div class="relative z-10" …(7)>…(2)</div> to be <button …(4)></button> // Object.is equality
+
+- Expected
++ Received
+
++ <div
++   aria-labelledby="react-aria-_r_1s_-title"
++   aria-modal="true"
++   class="relative z-10"
++   data-headlessui-state="open"
++   data-open=""
++   id="react-aria-_r_1s_"
++   role="dialog"
++   tabindex="-1"
++ >
++   <div
++     aria-hidden="true"
++     class="fixed inset-0 bg-black/60"
++   />
++   <div
++     class="fixed inset-0 overflow-y-auto"
++   >
++     <div
++       class="flex justify-center items-center min-h-screen xs:p-4"
++     >
++       <div
++         class="flex flex-col gap-4 max-w-xl w-full rounded bg-secondary p-4 shadow drop-shadow dark:bg-primary xs:w-96 sm:w-3/4"
++         data-headlessui-state="open"
++         data-open=""
++         id="headlessui-dialog-panel-_r_23_"
++       >
++         <div
++           class="flex justify-between w-full"
++         >
++           <h2
++             class="font-bold"
++             data-headlessui-state="open"
++             data-open=""
++             id="react-aria-_r_1s_-title"
++           >
++             Enter Image URL
++           </h2>
++           <button
++             aria-label="close modal"
++             class="disabled:opacity-50"
++             data-react-aria-pressable="true"
++             tabindex="0"
++             type="button"
++           >
++             <svg
++               aria-hidden="true"
++               class="h-6 w-6 text-mute"
++               fill="currentColor"
++               viewBox="0 0 20 20"
++               xmlns="http://www.w3.org/2000/svg"
++             >
++               <path
++                 d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"
++               />
++             </svg>
++           </button>
++         </div>
++         <div
++           class="contents"
++         >
++           <div
++             class="flex flex-col gap-2"
++           >
++             <div
++               class="flex flex-col grow gap-1"
++             >
++               <div
++                 class="flex items-center gap-1"
++               >
++                 <label
++                   class="inline-block text-sm"
++                   for="react-aria-_r_25_"
++                   id="react-aria-_r_27_"
++                 >
++                   Image URL
++                 </label>
++               </div>
++               <input
++                 aria-labelledby="react-aria-_r_27_"
++                 class="bg-input w-full py-1 px-2 rounded no-drag !transition-none focus:placeholder:text-transparent disabled:opacity-50"
++                 id="react-aria-_r_25_"
++                 inputmode="url"
++                 placeholder="https://example.com/image.png"
++                 tabindex="0"
++                 type="text"
++                 value="https://example.com/a.png"
++               />
++             </div>
++             <div
++               class="flex justify-center items-center relative m-auto h-fit max-w-[16rem] overflow-hidden rounded"
++               style="width: 16rem; height: fit-content;"
++             >
++               <img
++                 alt="upload preview"
++                 class="h-full min-h-fit"
++                 draggable="false"
++                 src="https://example.com/a.png"
++               />
++             </div>
++           </div>
++           <div
++             class="flex justify-between gap-2 w-full"
++           >
++             <button
++               class="flex items-center justify-center gap-1 py-2 px-4 font-bold text-blue-400 enabled:hover:underline enabled:focus:underline decoration-1 enabled:cursor-pointer rounded transition-colors disabled:opacity-50"
++               data-react-aria-pressable="true"
++               tabindex="0"
++               type="button"
++             >
++               Cancel
++             </button>
++             <div
++               class="flex gap-2"
++             >
+                <button
+                  class="flex items-center justify-center gap-1 py-2 px-4 text-sm rounded transition bg-secondary dark:bg-tertiary enabled:hover:bg-tertiary dark:enabled:hover:bg-zinc-700 shadow disabled:saturate-0 rounded transition-colors disabled:opacity-50"
+                  data-react-aria-pressable="true"
+                  disabled=""
+                  type="button"
+                >
+                  Clear
++               </button>
++               <button
++                 class="flex items-center justify-center gap-1 py-2 px-4 transition-[filter,_background-color] rounded text-white font-semibold highlight-white/20 dark:highlight-white/20 bg-green-500 enabled:hover:bg-green-600 disabled:saturate-0 rounded transition-colors disabled:opacity-50"
++                 data-react-aria-pressable="true"
++                 tabindex="0"
++                 type="button"
++               >
++                 <svg
++                   aria-hidden="true"
++                   class="h-6 w-6"
++                   fill="currentColor"
++                   viewBox="0 0 20 20"
++                   xmlns="http://www.w3.org/2000/svg"
++                 >
++                   <path
++                     clip-rule="evenodd"
++                     d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
++                     fill-rule="evenodd"
++                   />
++                 </svg>
++                 Save
+                </button>
++             </div>
++           </div>
++         </div>
++       </div>
++     </div>
++   </div>
++ </div>
+
+ ❯ focusAndCheck src/components/__tests__/ImageUploader.enter-scope.test.tsx:86:34
+     84| function focusAndCheck(el: HTMLElement) {
+     85|   act(() => { el.focus(); });
+     86|   expect(document.activeElement).toBe(el);
+       |                                  ^
+     87| }
+     88|
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:146:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

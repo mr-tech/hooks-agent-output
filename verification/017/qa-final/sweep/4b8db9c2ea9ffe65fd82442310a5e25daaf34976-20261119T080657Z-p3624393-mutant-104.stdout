@@ -1,0 +1,32 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-104
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 10 failed) 236ms
+     × are shown again after signing in and opening the message 37ms
+     × are shown after a reload, as before 8ms
+     × leave no stored draft once they are typed back to the saved copy 8ms
+     × shows each tab its own last draft after a reload 12ms
+     × restores a stored route-0 draft that has no id 9ms
+     × restores a stored copy of message 42 that is newer than its saved copy 3ms
+     × is shown with its own data and name 7ms
+     × is shown with its own data and name when it is newer than the saved copy 5ms
+     × of a saved message is removed when this tab saves what the draft holds 7ms
+     × discards the stored edits and shows the saved copy 5ms
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 11 failed) 119ms
+     × holds at most 20 entries, dropping the least recently edited first, whatever order they were written in 49ms
+     × never drops the entry being written, even when it is the least recently edited 6ms
+     × holds at most one megabyte serialised, dropping the least recently edited first 9ms
+     × keeps every entry when the serialised map is exactly one megabyte, and drops the oldest one character over 21ms
+     × drops the least recently edited other entry and retries until the write lands 4ms
+     × keeps an entry another tab stored since this tab last wrote 2ms
+     × removes an entry only when its data satisfies the condition given 2ms
+     × with none of its own, copies the route-0 entry edited most recently under its own key 2ms
+     × turns a stored message with no id into this tab's route-0 entry, dated by its own timestamp 1ms
+     × turns a stored copy of saved message 42 into the entry for 42 1ms
+     × does not migrate once the drafts map exists 1ms
+
+ Test Files  2 failed | 141 passed (143)
+      Tests  21 failed | 1793 passed (1814)
+   Start at  08:38:55
+   Duration  18.07s (transform 27.48s, setup 2.03s, import 131.35s, tests 43.41s, environment 82.18s)
+

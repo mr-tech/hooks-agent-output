@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-13
+
+ ❯ |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx (4 tests | 1 failed) 611ms
+     × asks before Invite Bot, a link to another site, leaves the page 140ms
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 10 failed) 949ms
+     × hands the guard the destination of the clicked link 47ms
+     × navigates to the clicked destination when the prompt is confirmed 50ms
+     × replaces the history entry on confirm for a link that replaces 48ms
+     × asks first, and does not leave, when the guard holds a link to another site 11ms
+     × hands the guard the full address of a link to another site 8ms
+     × leaves for the address, in this tab and with no second browser prompt, once confirmed 9ms
+     × replaces the history entry, with no second browser prompt, for a link to another site that replaces, once confirmed 7ms
+     × stays when the prompt for a link to another site is cancelled 19ms
+     × asks for a link to another site that names this tab as its target 6ms
+     × treats an absolute address on this site as a link on this site 56ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 10 failed) 4069ms
+     × navigates to the avatar link when the prompt is confirmed 245ms
+     × does not ask for the link to the same message's send page 81ms
+     × link to /message/m/4/edit/: asks is false 84ms
+     × link to /message/m/4/edit?tab=1: asks is false 107ms
+     × link to http://localhost:3000/message/m/4/send: asks is false 79ms
+     × link to https://other.example/message/m/4/edit: asks is true 75ms
+     × search result to this message: asks is 4 74ms
+     × search result to this message, with a long id: asks is 42 95ms
+     × does not ask for the sidebar's edit link on the unsaved route 79ms
+     × does not ask for the links back to this message's editor 81ms
+
+ Test Files  3 failed | 140 passed (143)
+      Tests  21 failed | 1793 passed (1814)
+   Start at  08:10:50
+   Duration  16.21s (transform 19.73s, setup 1.45s, import 121.20s, tests 35.14s, environment 76.16s)
+

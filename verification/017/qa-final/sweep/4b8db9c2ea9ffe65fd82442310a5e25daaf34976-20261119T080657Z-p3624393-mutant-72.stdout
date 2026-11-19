@@ -1,0 +1,20 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-72
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (37 tests | 10 failed) 1172ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 43ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 15ms
+       × raises no notice for either of two saves in flight when edits follow the second 26ms
+       × raises no notice when an edit is typed after Save and before the broadcast arrives 6ms
+       × raises no notice for a save that carries a field the server drops, when an edit follows Save 6ms
+       × raises no notice for either of two saves in flight when edits follow the second 15ms
+     × raises no notice for two identical saves, their broadcasts, and an edit after the second 5ms
+     × raises no notice for the broadcast of an identical save still in flight when one of two failed 7ms
+     × raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows 7ms
+     × raises no notice for a later save in flight when an earlier save, already broadcast, then reports failure 10ms
+
+ Test Files  1 failed | 142 passed (143)
+      Tests  10 failed | 1804 passed (1814)
+   Start at  08:28:12
+   Duration  19.68s (transform 29.08s, setup 2.17s, import 143.66s, tests 42.50s, environment 90.65s)
+

@@ -1,0 +1,1165 @@
+stderr | src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx > NavMenu, its links away from an editor with unsaved changes > asks before Create Message leaves the page
+An update to Dropdown inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx > NavMenu, its links away from an editor with unsaved changes > asks before Servers leaves the page
+An update to Dropdown inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+stderr | src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar logo leaves the page
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar edit link leaves the page
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar terms link leaves the page
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar privacy link leaves the page
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar servers link leaves the page
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar account link leaves the page
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to w inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to w inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to LinkProxy inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+Headless UI has polyfilled `Element.prototype.getAnimations` for your tests.
+Please install a proper polyfill e.g. `jsdom-testing-mocks`, to silence these warnings.
+
+Example usage:
+```js
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
+mockAnimationsApi()
+```
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to w inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to w inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Fe inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to Ie inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 32 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > asks first, and does not navigate, when the guard holds the destination
+AssertionError: expected 'go /message/f/0' to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go /message/f/0"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:115:39
+    113|     click(link('go /message/f/0'));
+    114|
+    115|     expect(document.body.textContent).toContain(TITLE);
+       |                                       ^
+    116|     expect(linkRouter.push).not.toHaveBeenCalled();
+    117|     expect(hoisted.push).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/32]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > hands the guard the destination of the clicked link
+AssertionError: expected "vi.fn()" to be called once with arguments: [ '/message/m/12/edit' ]
+
+Number of calls: 0
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:126:19
+    124|     click(link('go /message/m/12/edit'));
+    125|
+    126|     expect(guard).toHaveBeenCalledExactlyOnceWith('/message/m/12/edit'…
+       |                   ^
+    127|   });
+    128|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/32]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > asks for a link activated from the keyboard, a click with no pointer detail
+AssertionError: expected 'go /message/f/0' to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go /message/f/0"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:134:39
+    132|     click(link('go /message/f/0'), { detail: 0 });
+    133|
+    134|     expect(document.body.textContent).toContain(TITLE);
+       |                                       ^
+    135|     expect(linkRouter.push).not.toHaveBeenCalled();
+    136|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/32]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > keeps the user on the page when the prompt is cancelled
+AssertionError: no "Cancel" button in the dialog: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:51:105
+     49|     : Array.from(document.body.querySelectorAll('[role="dialog"]')).fi…
+     50|   const button = Array.from(scope?.querySelectorAll('button') ?? []).f…
+     51|   expect(button, `no "${text}" button in the dialog${title === undefin…
+       |                                                                                                         ^
+     52|   return button as HTMLElement;
+     53| }
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:142:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/32]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > navigates to the clicked destination when the prompt is confirmed
+AssertionError: no "Leave Page" button in the dialog: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:51:105
+     49|     : Array.from(document.body.querySelectorAll('[role="dialog"]')).fi…
+     50|   const button = Array.from(scope?.querySelectorAll('button') ?? []).f…
+     51|   expect(button, `no "${text}" button in the dialog${title === undefin…
+       |                                                                                                         ^
+     52|   return button as HTMLElement;
+     53| }
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:157:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/32]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > replaces the history entry on confirm for a link that replaces
+AssertionError: no "Leave Page" button in the dialog: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:51:105
+     49|     : Array.from(document.body.querySelectorAll('[role="dialog"]')).fi…
+     50|   const button = Array.from(scope?.querySelectorAll('button') ?? []).f…
+     51|   expect(button, `no "${text}" button in the dialog${title === undefin…
+       |                                                                                                         ^
+     52|   return button as HTMLElement;
+     53| }
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:167:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/32]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink under the navigation guard > keeps the newer guard when an older registration is withdrawn
+AssertionError: expected 'go home' to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "go home"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:238:39
+    236|     click(link('go home'));
+    237|
+    238|     expect(document.body.textContent).toContain(TITLE);
+       |                                       ^
+    239|     expect(linkRouter.push).not.toHaveBeenCalled();
+    240|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/32]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink given a path object > hands the guard its path, query string and fragment
+AssertionError: expected "vi.fn()" to be called once with arguments: [ '/message/f/0?a=1#top' ]
+
+Number of calls: 0
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:269:19
+    267|     click(link('go object'));
+    268|
+    269|     expect(guard).toHaveBeenCalledExactlyOnceWith('/message/f/0?a=1#to…
+       |                   ^
+    270|   });
+    271| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/32]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > StyledLink to another site under the navigation guard > treats an absolute address on this site as a link on this site
+AssertionError: no "Leave Page" button in the dialog: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:51:105
+     49|     : Array.from(document.body.querySelectorAll('[role="dialog"]')).fi…
+     50|   const button = Array.from(scope?.querySelectorAll('button') ?? []).f…
+     51|   expect(button, `no "${text}" button in the dialog${title === undefin…
+       |                                                                                                         ^
+     52|   return button as HTMLElement;
+     53| }
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:424:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/32]⎯
+
+ FAIL  |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx > the link prompt beside the editor's own prompt > keeps both prompts open when they are raised together, each answered on its own
+AssertionError: expected 'raise editor promptgo homeMessage Upd…' to contain 'You have unsaved changes!'
+
+Expected: "You have unsaved changes!"
+Received: "raise editor promptgo homeMessage Update DetectedmCancelReload"
+
+ ❯ src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx:467:39
+    465|
+    466|     expect(document.body.textContent).toContain('Message Update Detect…
+    467|     expect(document.body.textContent).toContain(TITLE);
+       |                                       ^
+    468|
+    469|     press(dialogButton('Cancel', TITLE));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/32]⎯
+
+ FAIL  |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx > NavMenu, its links away from an editor with unsaved changes > asks before Create Message leaves the page
+ FAIL  |dom| src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx > NavMenu, its links away from an editor with unsaved changes > asks before Servers leaves the page
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx:82:24
+     80|     click(item(text));
+     81|
+     82|     expect(prompted()).toBe(true);
+       |                        ^
+     83|     expect(linkRouter.push).not.toHaveBeenCalled();
+     84|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/32]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > asks before the avatar link leaves the editor, and Cancel keeps the edits
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:252:24
+    250|
+    251|     click(linkTo('/message/f/0'));
+    252|     expect(prompted()).toBe(true);
+       |                        ^
+    253|     expect(linkRouter.push).not.toHaveBeenCalled();
+    254|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/32]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > navigates to the avatar link when the prompt is confirmed
+AssertionError: no dialog titled "You have unsaved changes!": expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ dialogButton src/app/message/__tests__/layout.navigation-guard.test.tsx:187:49
+    185| function dialogButton(text: string, title: string) {
+    186|   const dialog = Array.from(document.body.querySelectorAll('[role="dia…
+    187|   expect(dialog, `no dialog titled "${title}"`).toBeTruthy();
+       |                                                 ^
+    188|   const found = Array.from(dialog?.querySelectorAll('button') ?? []).f…
+    189|   expect(found, `no "${text}" button`).toBeTruthy();
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:271:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/32]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > asks the same for a link rendered inside the editor's own providers
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:282:24
+    280|     click(link('inside the editor'));
+    281|
+    282|     expect(prompted()).toBe(true);
+       |                        ^
+    283|     expect(linkRouter.push).not.toHaveBeenCalled();
+    284|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/32]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > asks for a link activated from the keyboard
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:292:24
+    290|     click(linkTo('/message/f/0'), { detail: 0 });
+    291|
+    292|     expect(prompted()).toBe(true);
+       |                        ^
+    293|   });
+    294|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/32]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > link to /message/m/4/edit/extra: asks is true
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > link to /message/m/new: asks is true
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:320:24
+    318|     click(link(`to ${href}`));
+    319|
+    320|     expect(prompted()).toBe(asks);
+       |                        ^
+    321|   });
+    322|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/32]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar logo leaves the page
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar edit link leaves the page
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar terms link leaves the page
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar privacy link leaves the page
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar servers link leaves the page
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > asks before the sidebar account link leaves the page
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:353:24
+    351|     click(linkTo(href));
+    352|
+    353|     expect(prompted()).toBe(true);
+       |                        ^
+    354|     expect(linkRouter.push).not.toHaveBeenCalled();
+    355|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/32]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > search result to another message whose id starts with this one: asks is 4
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > search result to another message whose id is a prefix of this one: asks is 42
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:384:24
+    382|     click(linkTo(`/message/m/${other}/edit`));
+    383|
+    384|     expect(prompted()).toBe(asks);
+       |                        ^
+    385|     expect(linkRouter.push).toHaveBeenCalledTimes(asks ? 0 : 1);
+    386|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/32]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the crumb to the server's folder leaves the page
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:415:24
+    413|     click(linksTo('/message/f/123')[0]);
+    414|
+    415|     expect(prompted()).toBe(true);
+       |                        ^
+    416|     expect(linkRouter.push).not.toHaveBeenCalled();
+    417|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/32]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before either crumb to the user's folder leaves the page
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:426:24
+    424|     click(linksTo('/message/f/0')[1]);
+    425|
+    426|     expect(prompted()).toBe(true);
+       |                        ^
+    427|     expect(linkRouter.push).not.toHaveBeenCalled();
+    428|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/32]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > keeps both open when raised together, each answered on its own, with a link inside the editor
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:468:24
+    466|
+    467|     expect(document.body.textContent).toContain('Message Update Detect…
+    468|     expect(prompted()).toBe(true);
+       |                        ^
+    469|
+    470|     press(dialogButton('Cancel', TITLE));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/32]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:505:26
+    503|     await vi.waitFor(async () => {
+    504|       await act(async () => {});
+    505|       expect(prompted()).toBe(!linkHasFocus);
+       |                          ^
+    506|       expect(updatePrompted()).toBe(linkHasFocus);
+    507|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/32]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > renders no editor prompt on the send page, and still asks for its links
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:522:24
+    520|
+    521|     click(link('inside the editor'));
+    522|     expect(prompted()).toBe(true);
+       |                        ^
+    523|   });
+    524| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/32]⎯
+

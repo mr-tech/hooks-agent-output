@@ -1,0 +1,60 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-52
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx (3 tests | 3 failed) 115ms
+     × choosing Classic rewrites the doc to the classic disposition, does not close the modal 75ms
+     × choosing Components V2 rewrites the doc to the v2 disposition, does not close the modal 24ms
+     × choosing an option clears both choice states — the dismissed-choice Resolve notice does not return 13ms
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx (4 tests | 4 failed) 123ms
+     × a conflicting edit rests on the dismissed-choice notice with a Resolve link, not the choice buttons 69ms
+     × the resting conflict state leaves the menu closeable 22ms
+     × the Resolve link reopens the choice buttons (pendingChoice stays reachable) 17ms
+     × V2 components beside an empty embed land as V2 with no choice 12ms
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx (4 tests | 4 failed) 126ms
+     × renders the settled notice inline as the JSON is edited, before Load is ever pressed 82ms
+     × never fires toast.warn for the settled notice 15ms
+     × an edit that no longer settles-with-notice clears the previous notice 15ms
+     × an invalid edit clears a previously settled notice and shows the parse error instead 12ms
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx (5 tests | 5 failed) 125ms
+     × a conforming draft enables Copy, and pressing it copies the pretty-printed JSON 76ms
+     × a draft that is not JSON disables Copy and Pretty print together 14ms
+     × a draft that is JSON but does not conform disables Copy 16ms
+     × pressing Copy on a draft that is not JSON copies nothing and throws nothing 9ms
+     × pressing Copy on a draft that does not conform copies nothing and throws nothing 7ms
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx (3 tests | 3 failed) 97ms
+     × a row D draft (V2 flag + classic content, no V2 components) enables Load with no floor error shown 68ms
+     × a row D draft carrying a non-V2 action row also enables Load 14ms
+     × control: a genuinely empty draft leaves Load disabled and shows the floor error 12ms
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx (3 tests | 3 failed) 85ms
+     × holds the menu open while the Load confirmation is showing 62ms
+     × lets the menu close again after the Load is confirmed 11ms
+     × lets the menu close again after the Load is cancelled 10ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 1 failed) 3180ms
+     × does not ask for the sidebar's edit link on the unsaved route 34ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 17 failed) 178ms
+     × is restored after sign-in, opening a saved message, and returning to route 0 48ms
+     × is restored after sign-in and a reload 3ms
+     × is restored in a tab opened later, when it was the last edited 6ms
+     × shows each tab its own last draft after a reload 4ms
+     × shows a new tab the draft edited most recently 3ms
+     × shows a new tab a draft whose tab has closed 3ms
+     × shows the intro message, and writes nothing, in a new tab with no draft anywhere 4ms
+     × restores a stored route-0 draft that has no id 3ms
+     × is shown with its own data and name 5ms
+     × holds the route-0 draft last written, for the code that reads it 4ms
+     × is removed from route 0 when a creating save succeeds 2ms
+     × is false for an unedited message when authenticated 3ms
+     × is false for an unedited message when unauthenticated 3ms
+     × is false for an unedited message when loading 3ms
+     × is true for an edited message when authenticated 2ms
+     × is true for an edited message when unauthenticated 2ms
+     × is true for an edited message when loading 2ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx (2 tests | 2 failed) 58ms
+     × a code-fetch query error toasts (toast.error) 50ms
+     × an in-flight save toasts (toast.loading) 6ms
+
+ Test Files  9 failed | 134 passed (143)
+      Tests  42 failed | 1772 passed (1814)
+   Start at  08:22:12
+   Duration  16.08s (transform 21.28s, setup 2.13s, import 119.46s, tests 26.33s, environment 70.23s)
+

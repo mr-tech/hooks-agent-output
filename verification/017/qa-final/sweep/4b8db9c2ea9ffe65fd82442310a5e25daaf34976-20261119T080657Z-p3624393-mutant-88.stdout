@@ -1,0 +1,29 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-88
+
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (20 tests | 8 failed) 1865ms
+       × with focus on its dialog element runs only what that control does 152ms
+       × sets the loaded image when Enter is pressed with focus off its buttons 122ms
+       × sets an image that loaded after the dialog opened when Enter is pressed off its buttons 211ms
+       × answers only the update prompt with focus on its dialog element 126ms
+       × answers only the update prompt with focus on its message text 154ms
+       × answers only the image dialog with focus on its dialog element 87ms
+       × answers only the open instance when the first is the open one 58ms
+       × answers only the open instance when the second is the open one 72ms
+ ❯ |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx (13 tests | 7 failed) 2412ms
+       × with focus on its dialog element runs only what that control does 167ms
+       × with focus on its message text runs only what that control does 64ms
+       × answers only the update prompt with focus on its dialog element 152ms
+       × answers only the update prompt with focus on its message text 83ms
+       × answers only the warning with focus on its dialog element 168ms
+       × answers only the warning with focus on its message text 190ms
+       × leaves the warning answerable on its own after the update prompt is answered 1128ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 2 failed) 4229ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 138ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 106ms
+
+ Test Files  3 failed | 140 passed (143)
+      Tests  17 failed | 1797 passed (1814)
+   Start at  08:33:34
+   Duration  18.94s (transform 28.02s, setup 1.90s, import 142.38s, tests 42.91s, environment 86.07s)
+

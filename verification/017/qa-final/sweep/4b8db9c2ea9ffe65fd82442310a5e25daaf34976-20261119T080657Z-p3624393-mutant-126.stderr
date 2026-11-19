@@ -1,0 +1,77 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes an entry only when its data satisfies the condition given
+AssertionError: expected [] to deeply equal [ 'a' ]
+
+- Expected
++ Received
+
+- [
+-   "a",
+- ]
++ []
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:134:35
+    132|
+    133|     removeDraft('a', (e) => e.data.content === 'other');
+    134|     expect(Object.keys(stored())).toEqual(['a']);
+       |                                   ^
+    135|
+    136|     removeDraft('a', (e) => e.data.content === 'mine');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message is removed when this tab saves what the draft holds
+AssertionError: expected [ '42' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "42",
++ ]
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:358:25
+    356|     respond(0, '42');
+    357|
+    358|     expect(draftKeys()).toEqual([]);
+       |                         ^
+    359|   });
+    360|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message stays when an edit was typed after Save
+AssertionError: expected [] to deeply equal [ '42' ]
+
+- Expected
++ Received
+
+- [
+-   "42",
+- ]
++ []
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:371:25
+    369|     respond(0, '42');
+    370|
+    371|     expect(draftKeys()).toEqual(['42']);
+       |                         ^
+    372|   });
+    373| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

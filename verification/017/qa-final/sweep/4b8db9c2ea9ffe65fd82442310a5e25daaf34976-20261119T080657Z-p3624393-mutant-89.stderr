@@ -1,0 +1,71 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx > useUnloadAlert and the exits that lose nothing > does not prompt when there are none
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx:52:32
+     50|     mountDom(<Guarded block={false} />);
+     51|
+     52|     expect(unloadIsPrompted()).toBe(false);
+       |                                ^
+     53|   });
+     54|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx > useUnloadAlert and the exits that lose nothing > does not prompt while an exit that loses nothing is leaving the page
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx:60:32
+     58|     const leaving = leaveWithoutAlert(() => new Promise<void>((resolve…
+     59|
+     60|     expect(unloadIsPrompted()).toBe(false);
+       |                                ^
+     61|     finish();
+     62|     await leaving;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx > the edit page, signed out with unsaved changes > signs in through the Log in button without the unsaved-changes prompt
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx:100:32
+     98|     expect(hoisted.signIn).toHaveBeenCalledTimes(1);
+     99|     expect(hoisted.leavingDuring).toBe(true);
+    100|     expect(unloadIsPrompted()).toBe(false);
+       |                                ^
+    101|     await act(async () => { finish(); });
+    102|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

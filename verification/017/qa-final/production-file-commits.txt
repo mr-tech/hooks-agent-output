@@ -1,0 +1,24 @@
+src/@types/global.d.ts: 3498ef3 d9ebe97 
+src/app/_components/NavMenu.tsx: 536b8e6 
+src/app/message/layout.tsx: aa33701 
+src/app/message/m/[id]/edit/page.tsx: 536b8e6 
+src/components/ConfirmationDialog.tsx: a5069d6 a5dd76f 
+src/components/ImageUploader.tsx: a5069d6 
+src/components/StyledLink.tsx: a5dd76f aa33701 
+src/components/WarningDialog.tsx: a5069d6 
+src/providers/MessageProvider/index.tsx: aa33701 79144cb 1c07354 
+src/providers/MessageProvider/useApiMethods.ts: ec984fe 1c07354 
+src/providers/MessageProvider/usePusher.ts: 1c07354 
+src/providers/NavigationGuardProvider.tsx: a5dd76f aa33701 
+src/providers/SessionProvider.tsx: 536b8e6 
+src/server/api/utils/deleteMessagePreviewImages.ts: 72a1755 
+src/server/api/utils/previewBucket.ts: 72a1755 
+src/server/api/utils/previewImage.ts: 72a1755 
+src/server/api/utils/shared.ts: 72a1755 
+src/utils/hooks/useDialogEnter.ts: a5069d6 
+src/utils/hooks/useLocalStorage.ts: 79144cb 
+src/utils/hooks/useUnloadAlert.ts: aa33701 536b8e6 
+src/utils/index.ts: 8147661 
+src/utils/leaveWithoutAlert.ts: 536b8e6 
+src/utils/messageDrafts.ts: 79144cb d9ebe97 
+src/utils/withLocalStorage.ts: d9ebe97 

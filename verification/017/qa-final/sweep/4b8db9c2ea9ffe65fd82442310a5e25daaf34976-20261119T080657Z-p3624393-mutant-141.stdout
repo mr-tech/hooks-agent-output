@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-141
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 1 failed) 224ms
+     × shows each tab its own last draft after a reload 26ms
+ ❯ |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx (23 tests | 8 failed) 112ms
+     × holds at most 20 entries, dropping the least recently edited first, whatever order they were written in 44ms
+     × never drops the entry being written, even when it is the least recently edited 6ms
+     × holds at most one megabyte serialised, dropping the least recently edited first 14ms
+     × keeps every entry when the serialised map is exactly one megabyte, and drops the oldest one character over 14ms
+     × drops the least recently edited other entry and retries until the write lands 3ms
+     × keeps an entry another tab stored since this tab last wrote 2ms
+     × shows its own draft 2ms
+     × with none of its own, copies the route-0 entry edited most recently under its own key 1ms
+ ❯ |dom| src/utils/__tests__/withLocalStorage.stored-keys.test.tsx (9 tests | 1 failed) 18ms
+     × reports that a write which landed did 7ms
+
+ Test Files  3 failed | 140 passed (143)
+      Tests  10 failed | 1804 passed (1814)
+   Start at  09:09:53
+   Duration  16.17s (transform 20.06s, setup 1.90s, import 119.99s, tests 35.46s, environment 76.43s)
+

@@ -1,0 +1,136 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx > messageDrafts, reads at write time > removes an entry only when its data satisfies the condition given
+AssertionError: expected [] to deeply equal [ 'a' ]
+
+- Expected
++ Received
+
+- [
+-   "a",
+- ]
++ []
+
+ ❯ src/utils/__tests__/messageDrafts.bound-and-recency.test.tsx:134:35
+    132|
+    133|     removeDraft('a', (e) => e.data.content === 'other');
+    134|     expect(Object.keys(stored())).toEqual(['a']);
+       |                                   ^
+    135|
+    136|     removeDraft('a', (e) => e.data.content === 'mine');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a classic message, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a V2 message, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice in the saving tab: a message not valid for sending, nothing changed
+TypeError: Cannot read properties of undefined (reading 'name')
+ ❯ src/providers/MessageProvider/index.tsx:259:73
+    257|     onSuccess: (msg, { message: sent }) => {
+    258|       if (msg.id === message?.id) {
+    259|         removeDraft(msg.id, (draft) => sameJson(stripKeys({ name: draf…
+       |                                                                         ^
+    260|       } else if (!message?.id) {
+    261|         removeRouteZeroDraft(message?.data as ActiveMessage['data']);
+ ❯ removeDraft src/utils/messageDrafts.ts:58:37
+ ❯ Object.onSuccess src/providers/MessageProvider/index.tsx:259:9
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:101:29
+ ❯ Proxy.process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ respond src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:100:3
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:116:92
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:136:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives before the response > raises no notice for either of two saves in flight when edits follow the second
+TypeError: Cannot read properties of undefined (reading 'name')
+ ❯ src/providers/MessageProvider/index.tsx:259:73
+    257|     onSuccess: (msg, { message: sent }) => {
+    258|       if (msg.id === message?.id) {
+    259|         removeDraft(msg.id, (draft) => sameJson(stripKeys({ name: draf…
+       |                                                                         ^
+    260|       } else if (!message?.id) {
+    261|         removeRouteZeroDraft(message?.data as ActiveMessage['data']);
+ ❯ removeDraft src/utils/messageDrafts.ts:58:37
+ ❯ Object.onSuccess src/providers/MessageProvider/index.tsx:259:9
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:101:29
+ ❯ Proxy.process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ respond src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:100:3
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:116:92
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:186:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a classic message, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a V2 message, nothing changed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice in the saving tab: a message not valid for sending, nothing changed
+TypeError: Cannot read properties of undefined (reading 'name')
+ ❯ src/providers/MessageProvider/index.tsx:259:73
+    257|     onSuccess: (msg, { message: sent }) => {
+    258|       if (msg.id === message?.id) {
+    259|         removeDraft(msg.id, (draft) => sameJson(stripKeys({ name: draf…
+       |                                                                         ^
+    260|       } else if (!message?.id) {
+    261|         removeRouteZeroDraft(message?.data as ActiveMessage['data']);
+ ❯ removeDraft src/utils/messageDrafts.ts:58:37
+ ❯ Object.onSuccess src/providers/MessageProvider/index.tsx:259:9
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:101:29
+ ❯ Proxy.process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ respond src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:100:3
+ ❯ orders src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:117:67
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:136:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx > MessageProvider, the saving tab and its own save > the broadcast arrives after the response > raises no notice for either of two saves in flight when edits follow the second
+TypeError: Cannot read properties of undefined (reading 'name')
+ ❯ src/providers/MessageProvider/index.tsx:259:73
+    257|     onSuccess: (msg, { message: sent }) => {
+    258|       if (msg.id === message?.id) {
+    259|         removeDraft(msg.id, (draft) => sameJson(stripKeys({ name: draf…
+       |                                                                         ^
+    260|       } else if (!message?.id) {
+    261|         removeRouteZeroDraft(message?.data as ActiveMessage['data']);
+ ❯ removeDraft src/utils/messageDrafts.ts:58:37
+ ❯ Object.onSuccess src/providers/MessageProvider/index.tsx:259:9
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:101:29
+ ❯ Proxy.process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ respond src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:100:3
+ ❯ orders src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:117:67
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:186:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > of a saved message stays when an edit was typed after Save
+AssertionError: expected [] to deeply equal [ '42' ]
+
+- Expected
++ Received
+
+- [
+-   "42",
+- ]
++ []
+
+ ❯ src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:371:25
+    369|     respond(0, '42');
+    370|
+    371|     expect(draftKeys()).toEqual(['42']);
+       |                         ^
+    372|   });
+    373| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+

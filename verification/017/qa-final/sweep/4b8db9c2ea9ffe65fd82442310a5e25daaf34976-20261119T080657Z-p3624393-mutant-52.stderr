@@ -1,0 +1,136 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 42 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send route, a link away with unsaved changes > does not ask for the sidebar's edit link on the unsaved route
+TypeError: Cannot read properties of null (reading 'name')
+ ❯ src/providers/MessageProvider/index.tsx:184:48
+    182|   useEffect(() => {
+    183|     if (!message?.name && message === loadedRef.current) return;
+    184|     const name = savedMessage?.name ?? message.name;
+       |                                                ^
+    185|     if (!message.id) {
+    186|       writeRouteZeroDraft({ ...message, name });
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25989:20
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ commitHookEffectListMount node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13249:29
+ ❯ commitHookPassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13336:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15484:13
+ ❯ recursivelyTraversePassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15439:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15476:11
+ ❯ recursivelyTraversePassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15439:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15718:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/42]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in, opening a saved message, and returning to route 0
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored after sign-in and a reload
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a signed-out draft at route 0 > is restored in a tab opened later, when it was the last edited
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows each tab its own last draft after a reload
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab the draft edited most recently
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows a new tab a draft whose tab has closed
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, two tabs at route 0 > shows the intro message, and writes nothing, in a new tab with no draft anywhere
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the store a browser holds from before > restores a stored route-0 draft that has no id
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, a stored route-0 draft > is shown with its own data and name
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the legacy message key > holds the route-0 draft last written, for the code that reads it
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, the draft after a save > is removed from route 0 when a creating save succeeds
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when authenticated
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when unauthenticated
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is false for an unedited message when loading
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when authenticated
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when unauthenticated
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx > MessageProvider, hasChanged for every session status > is true for an edited message when loading
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx > MessageProvider — transient notices still use toast (not a blanket removal) > a code-fetch query error toasts (toast.error)
+ FAIL  |dom| src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx > MessageProvider — transient notices still use toast (not a blanket removal) > an in-flight save toasts (toast.loading)
+TypeError: Cannot read properties of null (reading 'name')
+ ❯ src/providers/MessageProvider/index.tsx:184:48
+    182|   useEffect(() => {
+    183|     if (!message?.name && message === loadedRef.current) return;
+    184|     const name = savedMessage?.name ?? message.name;
+       |                                                ^
+    185|     if (!message.id) {
+    186|       writeRouteZeroDraft({ ...message, name });
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25989:20
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ commitHookEffectListMount node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13249:29
+ ❯ commitHookPassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13336:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15484:13
+ ❯ recursivelyTraversePassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15439:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15519:11
+ ❯ flushPassiveEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:18432:9
+ ❯ node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17923:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/42]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx > JsonModalBody — choosing Classic/V2 rewrites the editor > choosing Classic rewrites the doc to the classic disposition, does not close the modal
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx > JsonModalBody — choosing Classic/V2 rewrites the editor > choosing Components V2 rewrites the doc to the v2 disposition, does not close the modal
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx > JsonModalBody — choosing Classic/V2 rewrites the editor > choosing an option clears both choice states — the dismissed-choice Resolve notice does not return
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx > JsonModalBody — conflict resting state > a conflicting edit rests on the dismissed-choice notice with a Resolve link, not the choice buttons
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx > JsonModalBody — conflict resting state > the resting conflict state leaves the menu closeable
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx > JsonModalBody — conflict resting state > the Resolve link reopens the choice buttons (pendingChoice stays reachable)
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx > JsonModalBody — conflict resting state > V2 components beside an empty embed land as V2 with no choice
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx > JsonModalBody — Copy to Clipboard needs a draft that parses and conforms > a conforming draft enables Copy, and pressing it copies the pretty-printed JSON
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx > JsonModalBody — Copy to Clipboard needs a draft that parses and conforms > a draft that is not JSON disables Copy and Pretty print together
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx > JsonModalBody — Copy to Clipboard needs a draft that parses and conforms > a draft that is JSON but does not conform disables Copy
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx > JsonModalBody — Copy to Clipboard needs a draft that parses and conforms > pressing Copy on a draft that is not JSON copies nothing and throws nothing
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.copy-needs-valid-draft.test.tsx > JsonModalBody — Copy to Clipboard needs a draft that parses and conforms > pressing Copy on a draft that does not conform copies nothing and throws nothing
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx > JsonModalBody — Load floors the RESOLVED draft, not the unresolved one > a row D draft (V2 flag + classic content, no V2 components) enables Load with no floor error shown
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx > JsonModalBody — Load floors the RESOLVED draft, not the unresolved one > a row D draft carrying a non-V2 action row also enables Load
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx > JsonModalBody — Load floors the RESOLVED draft, not the unresolved one > control: a genuinely empty draft leaves Load disabled and shows the floor error
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx > JsonModalBody — Load-site settled notice > renders the settled notice inline as the JSON is edited, before Load is ever pressed
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx > JsonModalBody — Load-site settled notice > never fires toast.warn for the settled notice
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx > JsonModalBody — Load-site settled notice > an edit that no longer settles-with-notice clears the previous notice
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx > JsonModalBody — Load-site settled notice > an invalid edit clears a previously settled notice and shows the parse error instead
+TypeError: Cannot read properties of null (reading 'name')
+ ❯ src/providers/MessageProvider/index.tsx:184:48
+    182|   useEffect(() => {
+    183|     if (!message?.name && message === loadedRef.current) return;
+    184|     const name = savedMessage?.name ?? message.name;
+       |                                                ^
+    185|     if (!message.id) {
+    186|       writeRouteZeroDraft({ ...message, name });
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25989:20
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ commitHookEffectListMount node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13249:29
+ ❯ commitHookPassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13336:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15484:13
+ ❯ recursivelyTraversePassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15439:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15519:11
+ ❯ flushPassiveEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:18432:9
+ ❯ flushPendingEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:18358:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/42]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx > JsonModalBody — the menu may close once the Load confirmation resolves > holds the menu open while the Load confirmation is showing
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx > JsonModalBody — the menu may close once the Load confirmation resolves > lets the menu close again after the Load is confirmed
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/JsonModalBody.menu-close-after-load.test.tsx > JsonModalBody — the menu may close once the Load confirmation resolves > lets the menu close again after the Load is cancelled
+TypeError: Cannot read properties of null (reading 'name')
+ ❯ src/providers/MessageProvider/index.tsx:184:48
+    182|   useEffect(() => {
+    183|     if (!message?.name && message === loadedRef.current) return;
+    184|     const name = savedMessage?.name ?? message.name;
+       |                                                ^
+    185|     if (!message.id) {
+    186|       writeRouteZeroDraft({ ...message, name });
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25989:20
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ commitHookEffectListMount node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13249:29
+ ❯ commitHookPassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:13336:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15484:13
+ ❯ recursivelyTraversePassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15439:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15718:11
+ ❯ recursivelyTraversePassiveMountEffects node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15439:11
+ ❯ commitPassiveMountOnFiber node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:15476:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/42]⎯
+

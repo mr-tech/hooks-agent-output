@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-80
+
+ ❯ |dom| src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx (35 tests | 4 failed) 1594ms
+     × navigates with no prompt when no guard is registered 74ms
+     × navigates with no prompt when the registered guard lets the destination through 14ms
+     × stops holding once the registering component has unmounted 7ms
+     × lets the browser follow a link to another site when nothing is held 9ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 7 failed) 5685ms
+     × does not ask while nothing has changed 93ms
+     × does not ask for the link to the same message's send page 61ms
+     × stops asking once the editor has unmounted 74ms
+     × does not ask for a sidebar link when nothing has changed 54ms
+     × search result to this message: asks is 4 84ms
+     × search result to this message, with a long id: asks is 42 44ms
+     × does not ask for the links back to this message's editor 54ms
+
+ Test Files  2 failed | 141 passed (143)
+      Tests  11 failed | 1803 passed (1814)
+   Start at  08:30:49
+   Duration  21.42s (transform 32.31s, setup 2.57s, import 160.36s, tests 49.38s, environment 98.44s)
+

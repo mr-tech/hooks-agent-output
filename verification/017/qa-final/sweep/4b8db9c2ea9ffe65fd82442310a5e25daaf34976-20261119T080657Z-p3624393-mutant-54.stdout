@@ -1,0 +1,18 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-54
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx (29 tests | 8 failed) 228ms
+     × is restored after sign-in, opening a saved message, and returning to route 0 54ms
+     × is restored after sign-in and a reload 21ms
+     × is restored in a tab opened later, when it was the last edited 14ms
+     × shows each tab its own last draft after a reload 15ms
+     × shows a new tab the draft edited most recently 13ms
+     × shows a new tab a draft whose tab has closed 9ms
+     × holds the route-0 draft last written, for the code that reads it 6ms
+     × is removed from route 0 when a creating save succeeds 5ms
+
+ Test Files  1 failed | 142 passed (143)
+      Tests  8 failed | 1806 passed (1814)
+   Start at  08:22:46
+   Duration  15.58s (transform 19.12s, setup 1.08s, import 114.60s, tests 35.05s, environment 72.82s)
+

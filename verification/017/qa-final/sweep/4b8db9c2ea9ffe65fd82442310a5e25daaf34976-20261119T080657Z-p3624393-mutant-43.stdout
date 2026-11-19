@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-43
+
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 9 failed) 3869ms
+     × does not ask for the link to the same message's send page 131ms
+     × link to /message/m/4/edit/: asks is false 87ms
+     × link to /message/m/4/edit?tab=1: asks is false 118ms
+     × link to http://localhost:3000/message/m/4/send: asks is false 64ms
+     × link to https://other.example/message/m/4/edit: asks is true 68ms
+     × search result to this message: asks is 4 71ms
+     × search result to this message, with a long id: asks is 42 106ms
+     × does not ask for the sidebar's edit link on the unsaved route 75ms
+     × does not ask for the links back to this message's editor 75ms
+
+ Test Files  1 failed | 142 passed (143)
+      Tests  9 failed | 1805 passed (1814)
+   Start at  08:19:39
+   Duration  15.70s (transform 19.52s, setup 1.63s, import 116.82s, tests 34.78s, environment 73.42s)
+

@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/9cc539ba-82ed-4ea3-9afb-cbe6b4709ebe/scratchpad/final-work/20261119T080657Z-p3624393/mutant-70
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx (37 tests | 7 failed) 537ms
+     × raises the notice when another tab saves content this tab never sent 15ms
+     × raises the notice when another tab saves while this tab has unsaved edits, naming the loss 12ms
+     × raises the notice when another tab saves a component-only edit 5ms
+     × raises the notice when another tab saves while this tab's own save is in flight 4ms
+     × raises the notice when another tab saves content this tab sent earlier and has already seen broadcast 5ms
+     × raises the notice for a later save of the content of a save that failed 5ms
+     × raises only the other tab's notice when its save arrives between this tab's save and that save's broadcast, and an edit follows 5ms
+ ❯ |dom| src/providers/MessageProvider/__tests__/usePusher.update-prompt.test.tsx (4 tests | 4 failed) 41ms
+     × names the loss when the composer already had changes at subscription 23ms
+     × names the loss when the composer changed after the subscription was made 4ms
+     × does not name the loss when the composer has no changes 4ms
+     × does not name the loss when the composer returned to no changes after the subscription was made 8ms
+
+ Test Files  2 failed | 141 passed (143)
+      Tests  11 failed | 1803 passed (1814)
+   Start at  08:27:34
+   Duration  17.56s (transform 24.19s, setup 1.67s, import 130.07s, tests 39.23s, environment 82.09s)
+
