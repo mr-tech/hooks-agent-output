@@ -1,0 +1,341 @@
+=== src/server.ts
+     1	import http from 'http';
+     2	
+     3	import config from './config';
+     4	import generateImage, { PreviewFailure } from './generateImage';
+     5	import { checkPoolShape, getExistingPool } from './getPool';
+     6	
+     7	import type { IncomingMessage, ServerResponse } from 'http';
+     8	
+     9	const _debug = console.debug;
+    10	console.debug = (...args: unknown[]) => {
+    11	  _debug(new Date(), ...args);
+    12	};
+    13	
+    14	// this function takes in a http server request and parses the json body into an object that can be used
+    15	function processImage(req: IncomingMessage, res: ServerResponse) {
+    16	  let body = '';
+    17	  req.on('data', (chunk: Buffer) => {
+    18	    body += chunk.toString();
+    19	  });
+    20	
+    21	  req.on('end', () => {
+    22	    let parsedBody: { id: string, nonce: string, message: Record<string, unknown> };
+    23	    try {
+    24	      parsedBody = JSON.parse(body) as typeof parsedBody;
+    25	      if (typeof parsedBody !== 'object' || parsedBody === null) throw new TypeError('Request body is not an object.');
+    26	    } catch (err) {
+    27	      res.writeHead(500);
+    28	      res.end();
+    29	      console.error(err);
+    30	      return;
+    31	    }
+    32	    const { id, nonce, message } = parsedBody;
+    33	    const start = Date.now();
+    34	    generateImage(id, nonce, message).then(() => {
+    35	      console.debug(`Generated image for message ${id} with nonce ${nonce} in ${Date.now() - start}ms`);
+    36	      res.writeHead(204);
+    37	      res.end();
+    38	    }).catch((err) => {
+    39	      if (err instanceof PreviewFailure) console.error(`preview-image-failure id=${id} class=${err.failureClass} elapsedMs=${Date.now() - start}`);
+    40	      res.writeHead(500);
+    41	      res.end();
+    42	      console.error(err);
+    43	    });
+    44	  });
+    45	}
+    46	
+    47	const server = http.createServer((req, res) => {
+    48	  console.debug(req.method, req.url);
+    49	  if (req.method === 'POST' && req.url === '/generate' && req.headers.authorization === config.API_KEY) {
+    50	    processImage(req, res);
+    51	  } else {
+    52	    res.writeHead(404);
+    53	    res.end();
+    54	  }
+    55	});
+    56	let shutdownStarted = false;
+    57	
+    58	async function shutdown(trigger: string) {
+    59	  if (shutdownStarted) return;
+    60	  shutdownStarted = true;
+    61	  const start = Date.now();
+    62	  console.debug(`Server received ${trigger}. Closing server.`);
+    63	  setTimeout(() => { process.exit(0); }, 10e3);
+    64	  const pool = getExistingPool();
+    65	  try {
+    66	    await Promise.all([
+    67	      new Promise((resolve) => {
+    68	        server.close(() => {
+    69	          console.debug('Server closed.');
+    70	          resolve(null);
+    71	        });
+    72	        server.closeIdleConnections();
+    73	      }),
+    74	      pool ? pool.drain().then(() => pool.clear()) : Promise.resolve(),
+    75	    ]);
+    76	    console.debug(`Drain complete in ${Date.now() - start}ms.`);
+    77	  } catch (err) {
+    78	    console.debug(`Drain failed after ${Date.now() - start}ms: ${err instanceof Error ? err.message : String(err)}`);
+    79	    console.error(err);
+    80	  }
+    81	  process.exit(0);
+    82	}
+    83	
+    84	process.on('message', (message) => {
+    85	  if (message === 'shutdown') void shutdown('shutdown message');
+    86	});
+    87	process.on('SIGINT', () => { void shutdown('SIGINT'); });
+    88	
+    89	checkPoolShape();
+    90	server.listen(Number(config.SERVER_PORT), config.SERVER_HOST, () => {
+    91	  console.debug(`Server running at http://${config.SERVER_HOST}:${config.SERVER_PORT}/`);
+    92	  process.send?.('ready');
+    93	});
+=== src/generateImage.ts
+     1	import { PutObjectCommand, S3 } from '@aws-sdk/client-s3';
+     2	
+     3	import config from './config';
+     4	import getPool from './getPool';
+     5	
+     6	import type { Browser } from 'puppeteer';
+     7	
+     8	const getS3 = () => new S3({
+     9	  forcePathStyle: false,
+    10	  endpoint: config.CDN_ENDPOINT,
+    11	  region: 'us-east-1',
+    12	  credentials: {
+    13	    accessKeyId: config.CDN_KEY,
+    14	    secretAccessKey: config.CDN_SECRET,
+    15	  },
+    16	});
+    17	export type PreviewFailureClass = 'goto-rejected' | 'error-status' | 'screenshot' | 'put';
+    18	
+    19	export class PreviewFailure extends Error {
+    20	  constructor(public failureClass: PreviewFailureClass, public original?: unknown) {
+    21	    super(`Preview render failed: ${failureClass}`);
+    22	  }
+    23	}
+    24	
+    25	async function generateMessagePreviewImage(browser: Browser, data: Record<string, unknown>) {
+    26	  const page = await browser.newPage();
+    27	
+    28	  try {
+    29	    await page.setViewport({ width: 720, height: 840, deviceScaleFactor: 1 / 3.75 });
+    30	
+    31	    const url = new URL(config.PREVIEW_ENDPOINT);
+    32	    url.searchParams.append('data', JSON.stringify(data));
+    33	
+    34	    const response = await page.goto(url.toString(), { waitUntil: 'networkidle0' })
+    35	      .catch((err) => { throw new PreviewFailure('goto-rejected', err); });
+    36	    const status = response?.status() ?? 0;
+    37	    if (status < 200 || status > 299) throw new PreviewFailure('error-status');
+    38	
+    39	    return await page.screenshot({
+    40	      type: 'jpeg',
+    41	      quality: 90,
+    42	    }).catch((err) => { throw new PreviewFailure('screenshot', err); });
+    43	  } finally {
+    44	    await page.close().catch((err) => { console.error(err); });
+    45	  }
+    46	}
+    47	
+    48	export default async (
+    49	  messageId: string,
+    50	  nonce: string,
+    51	  message: Record<string, unknown>,
+    52	) => {
+    53	  const image = await getPool().use((p) => generateMessagePreviewImage(p, message));
+    54	
+    55	  await getS3().send(new PutObjectCommand({
+    56	    Bucket: config.CDN_BUCKET,
+    57	    Key: `${config.ENV === 'development' ? 'dev/' : ''}previews/${messageId}/${nonce}.jpeg`,
+    58	    ContentType: 'image/jpeg',
+    59	    Body: image,
+    60	    ACL: 'public-read',
+    61	  })).catch((err) => { throw new PreviewFailure('put', err); });
+    62	};
+=== src/config.ts
+     1	if (!process.env.API_KEY) {
+     2	  console.error('API_KEY is not set. Refusing to start.');
+     3	  process.exit(2);
+     4	}
+     5	
+     6	const env = {
+     7	  ENV: process.env.ENV,
+     8	  SERVER_PORT: process.env.SERVER_PORT,
+     9	  SERVER_HOST: process.env.SERVER_HOST,
+    10	  CDN_ENDPOINT: process.env.CDN_ENDPOINT,
+    11	  CDN_KEY: process.env.CDN_KEY,
+    12	  CDN_SECRET: process.env.CDN_SECRET,
+    13	  CDN_BUCKET: process.env.CDN_BUCKET,
+    14	  PREVIEW_ENDPOINT: process.env.PREVIEW_ENDPOINT,
+    15	  API_KEY: `Bearer ${process.env.API_KEY}`,
+    16	};
+    17	
+    18	export default env as Record<keyof typeof env, string>;
+=== src/getPool.ts
+     1	import genericPool from 'generic-pool';
+     2	import puppeteer from 'puppeteer';
+     3	
+     4	import type { Factory, Options as GenericPoolOptions, Pool } from 'generic-pool';
+     5	import type { Browser as BrowserBase, PuppeteerLaunchOptions } from 'puppeteer';
+     6	
+     7	interface Browser extends BrowserBase { _useCount: number, _id: number }
+     8	
+     9	interface Config extends GenericPoolOptions {
+    10	  max?: number;
+    11	  min?: number;
+    12	  idleTimeoutMillis?: number;
+    13	  maxUses?: number;
+    14	  testOnBorrow?: boolean;
+    15	  puppeteerLaunchOptions?: PuppeteerLaunchOptions;
+    16	  validator?: (instance: Browser) => Promise<boolean>;
+    17	}
+    18	
+    19	type WaitingQueue = { dequeue?: () => undefined | { reject: (err: unknown) => void } };
+    20	const waitingQueueDequeue = (pool: Pool<Browser>) => {
+    21	  const queue = (pool as unknown as { _waitingClientsQueue?: WaitingQueue })._waitingClientsQueue;
+    22	  return queue?.dequeue?.bind(queue);
+    23	};
+    24	
+    25	let currentId = 0;
+    26	const createPool = ({
+    27	  max = 10,
+    28	  // optional. if you set this, make sure to drain() (see step 3)
+    29	  min = 2,
+    30	  // specifies how long a resource can stay idle in pool before being removed
+    31	  idleTimeoutMillis = 30000,
+    32	  // specifies the maximum number of times a resource can be reused before being destroyed
+    33	  maxUses = 50,
+    34	  testOnBorrow = true,
+    35	  puppeteerLaunchOptions = {},
+    36	  validator = () => Promise.resolve(true),
+    37	  ...otherConfig
+    38	}: Config = {}) => {
+    39	  const poolRef = { pool: null as unknown as Pool<Browser> };
+    40	  // TODO: randomly destroy old instances to avoid resource leak?
+    41	  const factory = {
+    42	    create: async () => {
+    43	      try {
+    44	        const browser = await puppeteer.launch(puppeteerLaunchOptions);
+    45	        const tmp = browser as Browser;
+    46	        tmp._useCount = 0;
+    47	        tmp._id = ++currentId;
+    48	        console.debug(`Created instance ${tmp._id}. Active instances: ${poolRef.pool.size}.`);
+    49	        return tmp;
+    50	      } catch (err) {
+    51	        console.error(err);
+    52	        throw err;
+    53	      }
+    54	    },
+    55	
+    56	    destroy: (instance: Browser) => {
+    57	      console.debug(`Destroying instance ${instance._id}. Active instances: ${poolRef.pool.size}.`);
+    58	      return instance.close();
+    59	    },
+    60	    validate: (instance: Browser) => validator(instance)
+    61	      .then((valid) => Promise.resolve(valid && (maxUses <= 0 || instance._useCount < maxUses))),
+    62	  };
+    63	  const config: GenericPoolOptions = {
+    64	    max,
+    65	    min,
+    66	    idleTimeoutMillis,
+    67	    testOnBorrow,
+    68	    ...otherConfig,
+    69	  };
+    70	  const pool = genericPool.createPool<Browser>(factory as Factory<Browser>, config);
+    71	  poolRef.pool = pool;
+    72	
+    73	  const genericAcquire = pool.acquire.bind(pool);
+    74	  const genericRelease = pool.release.bind(pool);
+    75	  pool.acquire = () => genericAcquire().then((instance) => {
+    76	    console.debug(`Acquired instance ${instance._id}.`);
+    77	    instance._useCount += 1;
+    78	    return instance;
+    79	  });
+    80	
+    81	  pool.release = (instance: Browser) => {
+    82	    console.debug(`Releasing instance ${instance._id}.`);
+    83	    return genericRelease(instance);
+    84	  };
+    85	  pool.use = async (fn) => {
+    86	    const resource = await pool.acquire();
+    87	    try {
+    88	      return await fn(resource);
+    89	    } finally {
+    90	      await pool.release(resource);
+    91	    }
+    92	  };
+    93	
+    94	  const dequeueWaiting = waitingQueueDequeue(pool);
+    95	  if (dequeueWaiting) pool.on('factoryCreateError', (err) => { dequeueWaiting()?.reject(err); });
+    96	
+    97	  return pool;
+    98	};
+    99	
+   100	// To avoid breaking backwards compatibility
+   101	// https://github.com/binded/phantom-pool/issues/12
+   102	createPool.default = createPool;
+   103	
+   104	const minimal_args = [
+   105	  '--autoplay-policy=user-gesture-required',
+   106	  '--disable-background-networking',
+   107	  '--disable-background-timer-throttling',
+   108	  '--disable-backgrounding-occluded-windows',
+   109	  '--disable-breakpad',
+   110	  '--disable-client-side-phishing-detection',
+   111	  '--disable-component-update',
+   112	  '--disable-default-apps',
+   113	  '--disable-dev-shm-usage',
+   114	  '--disable-domain-reliability',
+   115	  '--disable-extensions',
+   116	  '--disable-features=AudioServiceOutOfProcess',
+   117	  '--disable-hang-monitor',
+   118	  '--disable-ipc-flooding-protection',
+   119	  '--disable-notifications',
+   120	  '--disable-offer-store-unmasked-wallet-cards',
+   121	  '--disable-popup-blocking',
+   122	  '--disable-print-preview',
+   123	  '--disable-prompt-on-repost',
+   124	  '--disable-renderer-backgrounding',
+   125	  '--disable-setuid-sandbox',
+   126	  '--disable-speech-api',
+   127	  '--disable-sync',
+   128	  '--hide-scrollbars',
+   129	  '--ignore-gpu-blacklist',
+   130	  '--metrics-recording-only',
+   131	  '--mute-audio',
+   132	  '--no-default-browser-check',
+   133	  '--no-first-run',
+   134	  '--no-pings',
+   135	  '--no-sandbox',
+   136	  '--no-zygote',
+   137	  '--password-store=basic',
+   138	  '--use-gl=swiftshader',
+   139	  '--use-mock-keychain',
+   140	];
+   141	
+   142	export const checkPoolShape = () => {
+   143	  const probe = genericPool.createPool<Browser>({
+   144	    create: () => Promise.reject(new Error('shape probe')),
+   145	    destroy: () => Promise.resolve(),
+   146	  }, { autostart: false, min: 0, max: 1 });
+   147	  if (!waitingQueueDequeue(probe)) {
+   148	    console.error('generic-pool no longer exposes _waitingClientsQueue.dequeue, which the browser-launch failure handler needs. A failed browser launch will not reject the waiting request.');
+   149	  }
+   150	};
+   151	
+   152	const globalForPool = { pool: null as unknown as Pool<Browser> };
+   153	export const getExistingPool = () => globalForPool.pool ?? null;
+   154	export default () => {
+   155	  if (!globalForPool.pool) {
+   156	    globalForPool.pool = createPool({
+   157	      puppeteerLaunchOptions: {
+   158	        headless: 'new',
+   159	        args: minimal_args,
+   160	      },
+   161	    });
+   162	  }
+   163	  return globalForPool.pool;
+   164	};

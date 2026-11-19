@@ -1,0 +1,629 @@
+=== src/pages/api/messages/codes/[code].ts
+     1	import { z } from 'zod';
+     2	
+     3	import type { NextApiRequest, NextApiResponse } from 'next';
+     4	
+     5	import messageStore from '~/utils/redis/messageStore';
+     6	
+     7	interface GuildRequest extends NextApiRequest {
+     8	  query: { code: string };
+     9	}
+    10	
+    11	const queryShape = z.object({
+    12	  code: z.string(),
+    13	}).strict();
+    14	
+    15	export default async function handler(req: GuildRequest, res: NextApiResponse) {
+    16	  if (req.method !== 'GET') return res.status(405).send('Method Not Allowed');
+    17	  try {
+    18	    const { code } = queryShape.parse(req.query);
+    19	
+    20	    const message = await messageStore.retrieve(code);
+    21	    return res.status(200).json(message);
+    22	  } catch (error) {
+    23	    if (error instanceof z.ZodError) return res.status(400).end();
+    24	    console.error(error);
+    25	    return res.status(500).end();
+    26	  }
+    27	}
+=== src/pages/api/cron.ts
+     1	import { parseExpression } from 'cron-parser';
+     2	import { isApiError } from 'paracord';
+     3	import { getPostgres, type DatabaseSchema } from 'project-utils';
+     4	
+     5	import type { UpdateObject } from 'kysely';
+     6	import type { NextApiRequest, NextApiResponse } from 'next';
+     7	
+     8	import { getApi } from '~/utils/discord';
+     9	
+    10	const database = getPostgres();
+    11	
+    12	export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    13	  const api = getApi();
+    14	
+    15	  if (req.query.key !== 'vercel') {
+    16	    res.status(404).end();
+    17	    return;
+    18	  }
+    19	
+    20	  const scheduled = await database
+    21	    .selectFrom('ScheduledMessages')
+    22	    .leftJoin('Messages', 'ScheduledMessages.fk_messages_id', 'Messages.id')
+    23	    .select(['ScheduledMessages.id', 'ScheduledMessages.cron', 'ScheduledMessages.webhookUrl', 'Messages.data'])
+    24	    .where('ScheduledMessages.sendAt', '<=', new Date())
+    25	    .where('ScheduledMessages.sent', '=', false)
+    26	    .where('ScheduledMessages.error', 'is', null)
+    27	    .execute();
+    28	  // .scheduledMessage.findMany({
+    29	  //   where: {
+    30	  //     sendAt: { lte: new Date() },
+    31	  //     sent: false,
+    32	  //     error: null,
+    33	  //   },
+    34	  //   select: {
+    35	  //     id: true,
+    36	  //     cron: true,
+    37	  //     webhookUrl: true,
+    38	  //     message: { select: { data: true } },
+    39	  //   },
+    40	  // });
+    41	
+    42	  const promises = scheduled.map(async ({
+    43	    id, cron, webhookUrl, data,
+    44	  }) => {
+    45	    try {
+    46	      await api.request('post', webhookUrl, { data });
+    47	
+    48	      let update: UpdateObject<DatabaseSchema, 'ScheduledMessages'>;
+    49	      if (cron) {
+    50	        const newSendAt = parseExpression(cron).next().toDate();
+    51	        update = { sent: false, error: null, sendAt: newSendAt };
+    52	      } else {
+    53	        update = { sent: true, error: null };
+    54	      }
+    55	      await database
+    56	        .updateTable('ScheduledMessages')
+    57	        .where('id', '=', id)
+    58	        .set(update)
+    59	        .execute();
+    60	      // .scheduledMessage.update({
+    61	      //   where,
+    62	      //   data: update,
+    63	      // });
+    64	    } catch (err) {
+    65	      const message = isApiError(err) || err instanceof Error ? err.message : 'An unknown error occurred.';
+    66	      await database
+    67	        .updateTable('ScheduledMessages')
+    68	        .where('id', '=', id)
+    69	        .set({ error: message, sent: true })
+    70	        .execute();
+    71	      // .scheduledMessage.update({
+    72	      //   where,
+    73	      //   data: { error: message, sent: true },
+    74	      // });
+    75	    }
+    76	  });
+    77	
+    78	  await Promise.allSettled(promises);
+    79	
+    80	  res.status(200).json({ success: true });
+    81	}
+=== src/middleware.ts
+     1	import { NextResponse } from 'next/server';
+     2	
+     3	import type { NextRequest } from 'next/server';
+     4	
+     5	export const config = {
+     6	  matcher: ['/message/(.*)', '/api/guilds/(.*)', '/preview'],
+     7	};
+     8	
+     9	export default function middleware(request: NextRequest) {
+    10	  // Clone the request headers
+    11	  // You can modify them with headers API: https://developer.mozilla.org/en-US/docs/Web/API/Headers
+    12	  const requestHeaders = new Headers(request.headers);
+    13	
+    14	  requestHeaders.set('x-pathname', request.nextUrl.pathname);
+    15	
+    16	  const queryString = request.url.split('?')[1];
+    17	  if (queryString) {
+    18	    const queryParams = new URLSearchParams(queryString);
+    19	    // Add new request headers
+    20	    requestHeaders.set('x-query-params', encodeURIComponent(queryParams.toString()));
+    21	  }
+    22	
+    23	  // You can also set request headers in NextResponse.rewrite
+    24	  return NextResponse.next({
+    25	    request: {
+    26	      // New request headers
+    27	      headers: requestHeaders,
+    28	    },
+    29	  });
+    30	}
+=== src/server/api/utils/deleteMessagePreviewImages.ts
+     1	import { DeleteObjectsCommand, ListObjectsCommand } from '@aws-sdk/client-s3';
+     2	
+     3	import { getS3, previewPrefix } from './previewBucket';
+     4	
+     5	import { env } from '~/env.mjs';
+     6	
+     7	export default async (messageId: string) => {
+     8	  const s3Client = getS3();
+     9	  const { Contents } = await s3Client.send(new ListObjectsCommand({
+    10	    Bucket: env.CDN_BUCKET,
+    11	    Prefix: previewPrefix(messageId),
+    12	  }));
+    13	  if (Contents?.length) {
+    14	    await s3Client.send(new DeleteObjectsCommand({
+    15	      Bucket: env.CDN_BUCKET,
+    16	      Delete: {
+    17	        Objects: Contents.map(({ Key }) => ({ Key })),
+    18	      },
+    19	    }));
+    20	  }
+    21	};
+=== src/server/api/utils/previewBucket.ts
+     1	import { S3 } from '@aws-sdk/client-s3';
+     2	
+     3	import { env } from '~/env.mjs';
+     4	
+     5	export const getS3 = () => new S3({
+     6	  forcePathStyle: false,
+     7	  endpoint: env.CDN_ENDPOINT,
+     8	  region: 'us-east-1',
+     9	  credentials: {
+    10	    accessKeyId: env.CDN_KEY,
+    11	    secretAccessKey: env.CDN_SECRET,
+    12	  },
+    13	});
+    14	
+    15	export const previewPrefix = (messageId: string) => `${env.NODE_ENV === 'development' ? 'dev/' : ''}previews/${messageId}/`;
+    16	
+    17	export const previewKey = (messageId: string, nonce: string) => `${previewPrefix(messageId)}${nonce}.jpeg`;
+=== src/server/api/utils/previewImage.ts
+     1	import { randomBytes } from 'crypto';
+     2	import { DeleteObjectsCommand, ListObjectsCommand } from '@aws-sdk/client-s3';
+     3	import { sql } from 'kysely';
+     4	import { getPostgres } from 'project-utils';
+     5	
+     6	import { getS3, previewKey, previewPrefix } from './previewBucket';
+     7	
+     8	import type { Kysely } from 'kysely';
+     9	import type { DatabaseSchema } from 'project-utils';
+    10	
+    11	import { env } from '~/env.mjs';
+    12	
+    13	export const PREVIEW_ANSWER_TIMEOUT_MS = 40_000;
+    14	export const SWEEP_AGE_MS = 120_000;
+    15	export const PREVIEW_FAILURE_PREFIX = 'preview-image-failure';
+    16	
+    17	export const mintNonce = (clockMicros: string) => `v${clockMicros.padStart(16, '0')}${randomBytes(8).toString('hex')}`;
+    18	
+    19	export const buildCommitPreviewNonceQuery = (
+    20	  database: Kysely<DatabaseSchema>,
+    21	  id: string,
+    22	  nonce: string,
+    23	) => database
+    24	  .with('replaced', (qb) => qb
+    25	    .selectFrom('Messages')
+    26	    .select('previewImageNonce as prev')
+    27	    .where('id', '=', id)
+    28	    .forUpdate())
+    29	  .updateTable('Messages')
+    30	  .from('replaced')
+    31	  .set({ previewImageNonce: nonce })
+    32	  .where('Messages.id', '=', id)
+    33	  .where((eb) => eb.or([
+    34	    eb('Messages.previewImageNonce', 'is', null),
+    35	    sql<boolean>`"Messages"."previewImageNonce" collate "C" < ${nonce}`,
+    36	  ]))
+    37	  .returning('replaced.prev');
+    38	
+    39	type FailureClass = 'status-500' | 'status-404' | 'status-other' | 'network-error' | 'no-answer-within-T';
+    40	
+    41	const logFailure = (id: string, failureClass: FailureClass, elapsedMs: number) => {
+    42	  console.error(`${PREVIEW_FAILURE_PREFIX} id=${id} class=${failureClass} elapsedMs=${elapsedMs}`);
+    43	};
+    44	
+    45	function failureClassOf(status: number): FailureClass {
+    46	  if (status === 500) return 'status-500';
+    47	  if (status === 404) return 'status-404';
+    48	  return 'status-other';
+    49	}
+    50	
+    51	async function requestPreview(
+    52	  id: string,
+    53	  nonce: string,
+    54	  message: MessageData,
+    55	): Promise<null | FailureClass> {
+    56	  const controller = new AbortController();
+    57	  let timedOut = false;
+    58	  const timer = setTimeout(() => { timedOut = true; controller.abort(); }, PREVIEW_ANSWER_TIMEOUT_MS);
+    59	
+    60	  try {
+    61	    const response = await fetch(env.PREVIEW_IMAGE_URL, {
+    62	      method: 'POST',
+    63	      body: JSON.stringify({ id, nonce, message }),
+    64	      headers: {
+    65	        'Content-Type': 'application/json',
+    66	        Authorization: `Bearer ${env.PREVIEW_IMAGE_API_KEY}`,
+    67	      },
+    68	      signal: controller.signal,
+    69	    });
+    70	    return response.status === 204 ? null : failureClassOf(response.status);
+    71	  } catch (_) {
+    72	    return timedOut ? 'no-answer-within-T' : 'network-error';
+    73	  } finally {
+    74	    clearTimeout(timer);
+    75	  }
+    76	}
+    77	
+    78	async function deleteObjects(keys: string[]) {
+    79	  if (!keys.length) return;
+    80	  await getS3().send(new DeleteObjectsCommand({
+    81	    Bucket: env.CDN_BUCKET,
+    82	    Delete: { Objects: keys.map((Key) => ({ Key })) },
+    83	  }));
+    84	}
+    85	
+    86	async function sweepOlderObjects(id: string, committedKey: string) {
+    87	  const { Contents } = await getS3().send(new ListObjectsCommand({
+    88	    Bucket: env.CDN_BUCKET,
+    89	    Prefix: previewPrefix(id),
+    90	  }));
+    91	  const committedAt = Contents?.find(({ Key }) => Key === committedKey)?.LastModified;
+    92	  if (!committedAt) return;
+    93	
+    94	  await deleteObjects((Contents ?? [])
+    95	    .filter(({ Key, LastModified }) => Key !== committedKey
+    96	      && !!LastModified
+    97	      && committedAt.getTime() - LastModified.getTime() >= SWEEP_AGE_MS)
+    98	    .map(({ Key }) => Key as string));
+    99	}
+   100	
+   101	export async function runPreviewContinuation({ id, nonce, message }: {
+   102	  id: string;
+   103	  nonce: string;
+   104	  message: MessageData;
+   105	}) {
+   106	  const start = Date.now();
+   107	  try {
+   108	    const failure = await requestPreview(id, nonce, message);
+   109	    if (failure) {
+   110	      logFailure(id, failure, Date.now() - start);
+   111	      return;
+   112	    }
+   113	
+   114	    const committed = await buildCommitPreviewNonceQuery(getPostgres(), id, nonce).execute();
+   115	    if (!committed.length) {
+   116	      await deleteObjects([previewKey(id, nonce)]);
+   117	      return;
+   118	    }
+   119	
+   120	    const [{ prev }] = committed;
+   121	    if (prev) await deleteObjects([previewKey(id, prev)]);
+   122	    await sweepOlderObjects(id, previewKey(id, nonce));
+   123	  } catch (err) {
+   124	    console.error(err);
+   125	  }
+   126	}
+=== src/server/api/utils/shared.ts
+     1	import { TRPCError } from '@trpc/server';
+     2	import { waitUntil } from '@vercel/functions';
+     3	import { sql } from 'kysely';
+     4	import { getPostgres } from 'project-utils';
+     5	import Pusher from 'pusher';
+     6	
+     7	import { isMessageValid } from './messageValidity';
+     8	import { mintNonce, runPreviewContinuation } from './previewImage';
+     9	
+    10	import type { InsertObject, Kysely } from 'kysely';
+    11	import type { DatabaseSchema } from 'project-utils';
+    12	import type { IncomingMessage, RecentMessageData } from './shapes';
+    13	
+    14	import { MAX_MESSAGES } from '~/constants';
+    15	import { env } from '~/env.mjs';
+    16	import { genMessageChannelKey, hashMessage } from '~/utils';
+    17	
+    18	type Select = { dbUserId: string } | { guild: { id: string } };
+    19	function isUserSelect(select: Select): select is { dbUserId: string } {
+    20	  return 'dbUserId' in select;
+    21	}
+    22	
+    23	type DatabaseMessage = {
+    24	  id: string;
+    25	  name: string;
+    26	  createdAt: Date;
+    27	  guildId?: string | null;
+    28	  updatedAt: Date;
+    29	  previewImageNonce: null | string;
+    30	  recentWebhookId: null | string;
+    31	  recentThreadId: null | string;
+    32	  recentMessageId: null | string;
+    33	  data: unknown;
+    34	};
+    35	
+    36	interface DatabaseScheduledMessage extends DatabaseMessage {
+    37	  scheduledMessageId: string | null;
+    38	  scheduledMessageCron: string | null;
+    39	  scheduledMessageError: string | null;
+    40	  scheduledMessageSendAt: Date | null;
+    41	  scheduledMessageSent: boolean | null;
+    42	}
+    43	
+    44	function isScheduledMessage(
+    45	  message: DatabaseMessage | DatabaseScheduledMessage,
+    46	): message is DatabaseScheduledMessage {
+    47	  return 'scheduledMessageId' in message;
+    48	}
+    49	
+    50	export function mapMessage(
+    51	  message: DatabaseMessage | DatabaseScheduledMessage,
+    52	) {
+    53	  const {
+    54	    id, guildId, createdAt, updatedAt, name, previewImageNonce, data,
+    55	    recentWebhookId, recentThreadId, recentMessageId,
+    56	  } = message;
+    57	  const tmp: ApiMessage = {
+    58	    id: String(id),
+    59	    createdAt: createdAt.getTime(),
+    60	    updatedAt: updatedAt.getTime(),
+    61	    previewImageNonce,
+    62	    name,
+    63	    data: data as MessageData,
+    64	    recentWebhookId,
+    65	    recentThreadId,
+    66	    recentMessageId,
+    67	  };
+    68	
+    69	  if (guildId) tmp.guildId = guildId;
+    70	
+    71	  if (
+    72	    isScheduledMessage(message)
+    73	    && message.scheduledMessageId
+    74	    && message.scheduledMessageSendAt
+    75	    && message.scheduledMessageSent !== null
+    76	  ) {
+    77	    const {
+    78	      scheduledMessageCron, scheduledMessageError, scheduledMessageId,
+    79	      scheduledMessageSendAt, scheduledMessageSent,
+    80	    } = message;
+    81	    tmp.scheduledMessage = {
+    82	      id: scheduledMessageId,
+    83	      cron: scheduledMessageCron,
+    84	      error: scheduledMessageError,
+    85	      sendAt: scheduledMessageSendAt.getTime(),
+    86	      sent: scheduledMessageSent,
+    87	    };
+    88	  }
+    89	
+    90	  return tmp;
+    91	}
+    92	
+    93	function mapPartialApiMessage({
+    94	  id, createdAt, updatedAt, name, guildId, previewImageNonce,
+    95	}: Pick<DatabaseMessage, 'id' | 'createdAt' | 'updatedAt' | 'name' | 'previewImageNonce' | 'guildId'>) {
+    96	  const tmp: PartialApiMessage = {
+    97	    id,
+    98	    createdAt: createdAt.getTime(),
+    99	    updatedAt: updatedAt.getTime(),
+   100	    name,
+   101	    previewImageNonce,
+   102	  };
+   103	
+   104	  if (guildId) tmp.guildId = guildId;
+   105	  return tmp;
+   106	}
+   107	
+   108	export async function getUserRecentMessages(messageIds: string[]): Promise<PartialApiMessage[]> {
+   109	  if (!messageIds.length) return [];
+   110	
+   111	  const messages = getPostgres()
+   112	    .selectFrom('Messages')
+   113	    .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+   114	    .select([
+   115	      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',
+   116	      'Messages.previewImageNonce', 'Guilds.guildId as guildId',
+   117	    ])
+   118	    .where('Messages.id', 'in', messageIds)
+   119	    .execute();
+   120	
+   121	  return (await messages).map(mapPartialApiMessage);
+   122	}
+   123	
+   124	export async function getUserMessages(dbUserId: string) {
+   125	  const messages = await getPostgres()
+   126	    .selectFrom('Messages')
+   127	    .select([
+   128	      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',
+   129	      'Messages.previewImageNonce',
+   130	    ])
+   131	    .where('Messages.fk_users_id', '=', dbUserId)
+   132	    .execute();
+   133	
+   134	  return messages.map(mapPartialApiMessage);
+   135	}
+   136	
+   137	export async function getMessage(id: string) {
+   138	  const message = await getPostgres()
+   139	    .selectFrom('Messages')
+   140	    .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+   141	    .leftJoin('ScheduledMessages', 'ScheduledMessages.fk_messages_id', 'Messages.id')
+   142	    .select([
+   143	      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',
+   144	      'Messages.data', 'Messages.previewImageNonce',
+   145	      'Messages.recentMessageId', 'Messages.recentThreadId', 'Messages.recentWebhookId',
+   146	      'Guilds.guildId as guildId',
+   147	      'ScheduledMessages.id as scheduledMessageId', 'ScheduledMessages.cron as scheduledMessageCron',
+   148	      'ScheduledMessages.error as scheduledMessageError', 'ScheduledMessages.sendAt as scheduledMessageSendAt',
+   149	      'ScheduledMessages.sent as scheduledMessageSent',
+   150	    ])
+   151	    .where('Messages.id', '=', id)
+   152	    .executeTakeFirstOrThrow();
+   153	  return mapMessage(message);
+   154	}
+   155	
+   156	export async function getPartialMessages(
+   157	  userId: string,
+   158	  guilds: UserGuild[],
+   159	) {
+   160	  const query = getPostgres()
+   161	    .selectFrom('Messages')
+   162	    .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+   163	    .select([
+   164	      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',
+   165	      'Messages.previewImageNonce', 'Guilds.guildId as guildId',
+   166	    ]);
+   167	
+   168	  const messages = await (guilds.length
+   169	    ? query.where(({
+   170	      or, exists, eb, selectFrom,
+   171	    }) => or([
+   172	      eb('Messages.fk_users_id', '=', userId),
+   173	      exists(selectFrom('Guilds')
+   174	        .select('Guilds.id')
+   175	        .where('Guilds.guildId', 'in', guilds.map(({ id }) => id))
+   176	        .whereRef('Messages.fk_guilds_id', '=', 'Guilds.id')),
+   177	    ]))
+   178	    : query.where('Messages.fk_users_id', '=', userId)
+   179	  ).execute();
+   180	
+   181	  return messages.map(mapPartialApiMessage);
+   182	}
+   183	
+   184	async function upsertGuild(guildId: string) {
+   185	  const guild = await getPostgres()
+   186	    .insertInto('Guilds')
+   187	    .values({ guildId, provider: 'discord' })
+   188	    .onConflict((oc) => oc.columns(['provider', 'guildId']).doUpdateSet({ guildId }))
+   189	    .returning(['id'])
+   190	    .executeTakeFirstOrThrow();
+   191	
+   192	  return guild.id;
+   193	}
+   194	
+   195	export function buildMessageValues(
+   196	  message: Pick<IncomingMessage, 'name' | 'data'>,
+   197	  select: { dbUserId: string } | { guild: { id: string } },
+   198	): Omit<InsertObject<DatabaseSchema, 'Messages'>, 'fk_guilds_id'> & { fk_guilds_id?: string | null } {
+   199	  return {
+   200	    updatedAt: new Date(),
+   201	    name: message.name,
+   202	    data: message.data,
+   203	    valid: isMessageValid(message.data),
+   204	    fk_users_id: isUserSelect(select) ? select.dbUserId : null,
+   205	  };
+   206	}
+   207	
+   208	export function buildUpsertMessageQuery(
+   209	  database: Kysely<DatabaseSchema>,
+   210	  values: InsertObject<DatabaseSchema, 'Messages'>,
+   211	) {
+   212	  return database
+   213	    .insertInto('Messages')
+   214	    .values(values)
+   215	    .onConflict((oc) => oc
+   216	      .column('id')
+   217	      .doUpdateSet({
+   218	        name: values.name,
+   219	        data: values.data,
+   220	        valid: values.valid,
+   221	        updatedAt: values.updatedAt,
+   222	      }))
+   223	    .returning([
+   224	      'id',
+   225	      sql<string>`(extract(epoch from clock_timestamp()) * 1000000)::bigint::text`.as('savedAtMicros'),
+   226	    ]);
+   227	}
+   228	
+   229	export async function upsertMessage(
+   230	  message: IncomingMessage,
+   231	  select: Select,
+   232	) {
+   233	  const database = getPostgres();
+   234	  let messageCountQuery = database.selectFrom('Messages').select(database.fn.countAll().as('count'));
+   235	  if (isUserSelect(select)) {
+   236	    messageCountQuery = messageCountQuery.where('fk_users_id', '=', select.dbUserId);
+   237	  } else {
+   238	    const guildId = await upsertGuild(select.guild.id);
+   239	    messageCountQuery = messageCountQuery.where('fk_guilds_id', '=', guildId);
+   240	  }
+   241	
+   242	  const { count: messageCount } = await messageCountQuery.executeTakeFirstOrThrow();
+   243	  if (!message.id && Number(messageCount) >= MAX_MESSAGES) {
+   244	    throw new TRPCError({
+   245	      code: 'BAD_REQUEST',
+   246	      message: `You have reached the limit of ${MAX_MESSAGES} messages per ${isUserSelect(select) ? 'user' : 'guild'}.`,
+   247	    });
+   248	  }
+   249	
+   250	  const values: InsertObject<DatabaseSchema, 'Messages'> = {
+   251	    ...buildMessageValues(message, select),
+   252	    fk_guilds_id: isUserSelect(select) ? null : await upsertGuild(select.guild.id),
+   253	  };
+   254	
+   255	  if (message.id) values.id = message.id;
+   256	
+   257	  const { id, savedAtMicros } = await buildUpsertMessageQuery(database, values)
+   258	    .executeTakeFirstOrThrow();
+   259	
+   260	  const newMessagePromise = getMessage(id);
+   261	
+   262	  waitUntil(runPreviewContinuation({ id, nonce: mintNonce(savedAtMicros), message: message.data }));
+   263	
+   264	  message && hashMessage(message);
+   265	  if (message.id) {
+   266	    const pusher = new Pusher({
+   267	      appId: env.PUSHER_APP_ID,
+   268	      key: env.NEXT_PUBLIC_PUSHER_KEY,
+   269	      secret: env.PUSHER_SECRET,
+   270	      cluster: env.NEXT_PUBLIC_PUSHER_CLUSTER,
+   271	      useTLS: true,
+   272	    });
+   273	
+   274	    await pusher.trigger(genMessageChannelKey(message.id), 'message-update', JSON.stringify(hashMessage(message)));
+   275	  }
+   276	
+   277	  return newMessagePromise;
+   278	}
+   279	
+   280	export async function updateRecentMessageData(message: RecentMessageData) {
+   281	  await getPostgres()
+   282	    .updateTable('Messages')
+   283	    .set({
+   284	      recentWebhookId: message.recentWebhookId,
+   285	      recentThreadId: message.recentThreadId,
+   286	      recentMessageId: message.recentMessageId,
+   287	    })
+   288	    .where('id', '=', message.id)
+   289	    .execute();
+   290	}
+=== src/server/api/utils/getAccount.ts
+     1	import { TRPCError } from '@trpc/server';
+     2	import { getPostgres } from 'project-utils';
+     3	
+     4	export default async (userId: DiscordId) => {
+     5	  const account = await getPostgres()
+     6	    .selectFrom('Accounts')
+     7	    .select('userId')
+     8	    .where('provider', '=', 'discord')
+     9	    .where('providerAccountId', '=', userId)
+    10	    .executeTakeFirst();
+    11	  // .account.findUnique({
+    12	  //   where: {
+    13	  //     provider_providerAccountId: {
+    14	  //       provider: 'discord',
+    15	  //       providerAccountId: userId,
+    16	  //     },
+    17	  //   },
+    18	  //   select: { userId: true },
+    19	  // });
+    20	
+    21	  if (!account) {
+    22	    throw new TRPCError({
+    23	      code: 'NOT_FOUND',
+    24	      message: 'Account does not exist.',
+    25	    });
+    26	  }
+    27	
+    28	  return account;
+    29	};

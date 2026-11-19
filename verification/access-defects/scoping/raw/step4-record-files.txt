@@ -1,0 +1,17 @@
+architecture/closed/015-bug-evaluation-fixes-architecture-findings.md:4
+architecture/preview-image-generator.md:1
+architecture/system-architecture.md:1
+architecture/website.md:1
+handoff/closed/bug-evaluation-fixes-post-deploy-2026-11-08.md:1
+handoff/closed/local-walk-save-can-write-a-client-sent-low-message-id-2026-11-11.md:4
+handoff/closed/uat-local-stack-up-reuses-low-message-ids-2026-11-11.md:2
+handoff/preview-image-generator-host-security-posture-2026-11-08.md:1
+planning/closed/014-test-suite-cleanup.md:5
+planning/closed/015-bug-evaluation-fixes.md:4
+planning/closed/016-send-check-validity.md:1
+planning/closed/017-existing-items-backlog.md:6
+research/closed/components-v2-editing-flows-2026-08-23.md:1
+research/codebase-bug-evaluation-2026-11-08.md:1
+research/competitive-feature-landscape-2026-11-08.md:1
+security/closed/015-preview-image-generator-security-audit.md:1
+security/closed/017-preview-image-generator-security-audit.md:5

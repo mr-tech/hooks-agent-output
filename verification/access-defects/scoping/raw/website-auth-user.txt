@@ -1,0 +1,411 @@
+=== src/server/auth.ts
+     1	import { type GetServerSidePropsContext } from 'next';
+     2	import {
+     3	  getServerSession,
+     4	  type DefaultSession,
+     5	  type NextAuthOptions,
+     6	  type Session as NextAuthSession,
+     7	  type User,
+     8	} from 'next-auth';
+     9	import DiscordProvider from 'next-auth/providers/discord';
+    10	import { getPostgres } from 'project-utils';
+    11	
+    12	import { getUserRecentMessages } from './api/utils/shared';
+    13	
+    14	import type { AdapterSession, AdapterUser } from 'next-auth/adapters';
+    15	import type { JWT } from 'next-auth/jwt';
+    16	import type { APIUser as DiscordUser } from 'discord-api-types/v10';
+    17	import type { AuthedKysely } from '~/kysely-adapter';
+    18	import type { Database } from '~/kysely-adapter/database';
+    19	
+    20	import { env } from '~/env.mjs';
+    21	import { KyselyAdapter } from '~/kysely-adapter';
+    22	import constructImageUrl from '~/utils/constructImageUrl';
+    23	import getBaseUrl from '~/utils/getBaseUrl';
+    24	import redis from '~/utils/redis';
+    25	import { getClient } from '~/utils/redis/client';
+    26	import formatKey from '~/utils/redis/formatKey';
+    27	
+    28	/**
+    29	 * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
+    30	 * object and keep type safety.
+    31	 *
+    32	 * @see https://next-auth.js.org/getting-started/typescript#module-augmentation
+    33	 */
+    34	declare module 'next-auth' {
+    35	
+    36	  interface Session extends DefaultSession {
+    37	    user: {
+    38	      id: string;
+    39	      image: string;
+    40	      guilds: UserGuild[];
+    41	      preferences: null | UserPreference;
+    42	    } & DefaultSession['user'];
+    43	
+    44	    hydration?: {
+    45	      messages?: PartialApiMessage[];
+    46	      guild?: Guild;
+    47	    };
+    48	  }
+    49	
+    50	  interface DefaultUser {
+    51	    preferences: null | UserPreference;
+    52	  }
+    53	
+    54	  // interface User {
+    55	  //   // ...other properties
+    56	  //   // role: UserRole;
+    57	  // }
+    58	}
+    59	
+    60	async function revokeAccessToken(accessToken: string) {
+    61	  const myHeaders = new Headers();
+    62	  myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
+    63	
+    64	  const urlencoded = new URLSearchParams();
+    65	  urlencoded.append('client_id', env.NEXT_PUBLIC_DISCORD_CLIENT_ID);
+    66	  urlencoded.append('client_secret', env.DISCORD_CLIENT_SECRET);
+    67	  urlencoded.append('token', accessToken);
+    68	
+    69	  await fetch('https://discord.com/api/v10/oauth2/token/revoke', {
+    70	    method: 'POST',
+    71	    headers: myHeaders,
+    72	    body: urlencoded,
+    73	  }).catch(() => {});
+    74	}
+    75	
+    76	async function removeUserSession(sessionToken: string, userDbId: string) {
+    77	  let account;
+    78	  try {
+    79	    account = await getPostgres()
+    80	      .selectFrom('Accounts')
+    81	      .select(['access_token', 'providerAccountId'])
+    82	      .where('userId', '=', userDbId)
+    83	      .executeTakeFirst();
+    84	  } catch (err) {
+    85	    await redis.clearUser(userDbId, sessionToken).catch(() => {});
+    86	    throw err;
+    87	  }
+    88	
+    89	  if (!account) {
+    90	    await redis.clearUser(userDbId, sessionToken);
+    91	    return;
+    92	  }
+    93	
+    94	  if (account.access_token) await revokeAccessToken(account.access_token);
+    95	
+    96	  await Promise.all([
+    97	    redis.clearUser(userDbId, sessionToken, account.providerAccountId),
+    98	    getPostgres()
+    99	      .updateTable('Accounts')
+   100	      .set({ access_token: null, refresh_token: null })
+   101	      .where('provider', '=', 'discord')
+   102	      .where('providerAccountId', '=', account.providerAccountId)
+   103	      .execute(),
+   104	  ]);
+   105	}
+   106	
+   107	interface AuthCallbackParams {
+   108	  session: NextAuthSession;
+   109	  user: User | AdapterUser;
+   110	  token: JWT;
+   111	}
+   112	async function authCallback({ session, user }: AuthCallbackParams): Promise<NextAuthSession> {
+   113	  if (session.user) {
+   114	    const account = await redis.fetchUserAccount(user.id as unknown as string);
+   115	
+   116	    if (!account) {
+   117	      // @ts-expect-error - `{}` is a valid return for unauthenticated users. client will handle de-authenticating.
+   118	      return {};
+   119	    }
+   120	
+   121	    const { access_token, providerAccountId } = account;
+   122	
+   123	    const guilds = access_token ? await redis.fetchUserGuilds(providerAccountId, access_token) : [];
+   124	
+   125	    session.user.id = providerAccountId;
+   126	    session.user.guilds = guilds;
+   127	  }
+   128	
+   129	  return session;
+   130	}
+   131	
+   132	async function hydratedAuthCallback(params: AuthCallbackParams): Promise<NextAuthSession> {
+   133	  const { session, user } = params;
+   134	
+   135	  if (session.user) {
+   136	    const { preferences } = user;
+   137	
+   138	    const messagePromise = Promise.resolve(preferences?.recentMessageIds
+   139	      ? getUserRecentMessages(preferences.recentMessageIds)
+   140	      : []);
+   141	    messagePromise.catch(() => {});
+   142	
+   143	    const userDbId = user.id;
+   144	    const account = await redis.fetchUserAccount(userDbId);
+   145	
+   146	    if (!account) {
+   147	      // @ts-expect-error - `{}` is a valid return for unauthenticated users. client will handle de-authenticating.
+   148	      return {};
+   149	    }
+   150	
+   151	    const { access_token, providerAccountId } = account;
+   152	
+   153	    const [guilds, messages] = await Promise.all([
+   154	      access_token ? redis.fetchUserGuilds(providerAccountId, access_token) : ([] as UserGuild[]),
+   155	      messagePromise,
+   156	    ]);
+   157	
+   158	    if (process.env.NODE_ENV === 'development') {
+   159	      guilds.push({
+   160	        id: '1',
+   161	        name: 'A'.repeat(32),
+   162	        icon: null,
+   163	        owner: true,
+   164	        permissions: '0',
+   165	      });
+   166	    }
+   167	
+   168	    // `session.user` object is not the same as `params.user`
+   169	    session.user.id = providerAccountId;
+   170	    session.user.guilds = guilds;
+   171	    session.user.preferences = user.preferences;
+   172	    session.hydration = { messages };
+   173	
+   174	    if (preferences?.recentGuild && guilds.some(({ id }) => id === preferences.recentGuild)) {
+   175	      // preload recent guild to cache in anticipation of user visiting it
+   176	      redis.fetchGuild(preferences.recentGuild).catch(() => {});
+   177	    }
+   178	  }
+   179	
+   180	  return session;
+   181	}
+   182	
+   183	/**
+   184	 * Options for NextAuth.js used to configure adapters, providers, callbacks, etc.
+   185	 *
+   186	 * @see https://next-auth.js.org/configuration/options
+   187	 */
+   188	const baseAuthOptions: NextAuthOptions = {
+   189	  // debug: true,
+   190	  pages: {
+   191	    signIn: '/',
+   192	    signOut: '/',
+   193	    error: '/',
+   194	    verifyRequest: '/',
+   195	    newUser: '/',
+   196	  },
+   197	  // secret: env.NEXTAUTH_SECRET,
+   198	  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+   199	  adapter: KyselyAdapter(getPostgres() as unknown as AuthedKysely<Database>),
+   200	  providers: [
+   201	    DiscordProvider({
+   202	      issuer: 'https://discord.com',
+   203	      clientId: env.NEXT_PUBLIC_DISCORD_CLIENT_ID,
+   204	      clientSecret: env.DISCORD_CLIENT_SECRET,
+   205	      authorization: { params: { scope: 'identify guilds' } },
+   206	      userinfo: `${env.DISCORD_URL}/users/@me`,
+   207	      profile(profile: Pick<DiscordUser, 'id' | 'username' | 'avatar' | 'username' | 'discriminator'>) {
+   208	        return {
+   209	          id: profile.id,
+   210	          name: '',
+   211	          image: constructImageUrl(profile.id, profile.avatar, profile.discriminator),
+   212	          preferences: {},
+   213	          // userId: profile.id,
+   214	          // foo: 'bar'
+   215	        };
+   216	      },
+   217	    }),
+   218	  ],
+   219	  events: {
+   220	    signIn: async ({
+   221	      user, account, profile, isNewUser,
+   222	    }) => {
+   223	      if (!isNewUser && account) {
+   224	        await getPostgres()
+   225	          .updateTable('Accounts')
+   226	          .set({
+   227	            access_token: account.access_token,
+   228	            refresh_token: account.refresh_token,
+   229	            scope: account.scope,
+   230	            expires_at: account.expires_at,
+   231	          })
+   232	          .where('provider', '=', 'discord')
+   233	          .where('providerAccountId', '=', account.providerAccountId)
+   234	          .execute();
+   235	
+   236	        // Update user avatar on every sign-in to keep it fresh
+   237	        // profile.image is the freshly-computed avatar URL from the profile() callback
+   238	        // Do NOT use user.image — it contains the stale DB value for returning users
+   239	        const freshImage = (profile as { image?: string } | undefined)?.image;
+   240	        if (freshImage) {
+   241	          await getPostgres()
+   242	            .updateTable('Users')
+   243	            .set({ image: freshImage })
+   244	            .where('id', '=', user.id)
+   245	            .execute();
+   246	        }
+   247	
+   248	        // Invalidate Redis cache to prevent stale tokens causing login loops
+   249	        // sessionToken is not available in signIn event, so delete keys directly
+   250	        await getClient().pipeline()
+   251	          .del(formatKey('user-access-token', user.id))
+   252	          .del(formatKey('user-guilds', account.providerAccountId))
+   253	          .exec();
+   254	      }
+   255	    },
+   256	    signOut: async (params) => {
+   257	      if (params.session) {
+   258	        const {
+   259	          sessionToken, userId: userDbId,
+   260	        } = params.session as unknown as AdapterSession;
+   261	        await removeUserSession(sessionToken, userDbId);
+   262	      }
+   263	    },
+   264	  },
+   265	};
+   266	
+   267	interface NextContext {
+   268	  req: GetServerSidePropsContext['req'];
+   269	  res: GetServerSidePropsContext['res'];
+   270	}
+   271	export const hydratedAuthOptions: NextAuthOptions = {
+   272	  ...baseAuthOptions,
+   273	  callbacks: {
+   274	    session: hydratedAuthCallback,
+   275	    redirect: async ({ url }) => {
+   276	      const baseUrl = getBaseUrl();
+   277	      if (url === `${baseUrl}/message/m/0/edit`) {
+   278	        return `${baseUrl}/message`;
+   279	      }
+   280	      return url;
+   281	    },
+   282	  },
+   283	};
+   284	
+   285	const authOptions: NextAuthOptions = {
+   286	  ...baseAuthOptions,
+   287	  callbacks: {
+   288	    session: authCallback,
+   289	    redirect: async ({ url }) => {
+   290	      const baseUrl = getBaseUrl();
+   291	      if (url === `${baseUrl}/message/m/0/edit`) {
+   292	        return `${baseUrl}/message`;
+   293	      }
+   294	      return url;
+   295	    },
+   296	  },
+   297	};
+   298	
+   299	/**
+   300	 * Wrapper for `getServerSession` so that you don't need to import the `authOptions` in every file.
+   301	 *
+   302	 * @see https://next-auth.js.org/configuration/nextjs
+   303	 */
+   304	export const getServerAuthSession = (ctx: NextContext) => getServerSession(ctx.req, ctx.res, authOptions);
+   305	
+   306	export const getHydratedServerAuthSession = (ctx: NextContext) => getServerSession(ctx.req, ctx.res, hydratedAuthOptions);
+=== src/server/api/routers/user.ts
+     1	import { z } from 'zod';
+     2	
+     3	import { partialMessageShape } from '../utils/shapes';
+     4	import { authorizeUser } from '../utils/user';
+     5	
+     6	import { createTRPCRouter, protectedProcedure } from '~/server/api/trpc';
+     7	
+     8	export default createTRPCRouter({
+     9	  getPreferences: protectedProcedure
+    10	    .query(async ({ ctx: { session, database } }) => {
+    11	      const { account } = await authorizeUser(session.user.id);
+    12	
+    13	      const preferences = ((await database
+    14	        .selectFrom('Users')
+    15	        .select('preferences')
+    16	        .where('id', '=', account.userId)
+    17	        .executeTakeFirst()
+    18	        // .user.findUnique({
+    19	        // where: { id: account.userId },
+    20	        // select: { preferences: true },
+    21	      // })
+    22	      )?.preferences ?? {}) as UserPreference;
+    23	
+    24	      return preferences;
+    25	    }),
+    26	
+    27	  updatePreferences: protectedProcedure
+    28	    .input(z.object({
+    29	      recentGuild: z.string().optional(),
+    30	      recentWebhook: z.string().optional(),
+    31	      recentMessageIds: z.array(z.string()).optional(),
+    32	      message: partialMessageShape.nullable().optional(),
+    33	    }))
+    34	    .mutation(async ({ ctx: { session, database }, input: preferences }) => {
+    35	      const { account } = await authorizeUser(session.user.id);
+    36	
+    37	      if (preferences.recentMessageIds) {
+    38	        preferences.recentMessageIds = preferences.recentMessageIds.slice(0, 10);
+    39	      }
+    40	
+    41	      const oldPreferences = ((await database
+    42	        .selectFrom('Users')
+    43	        .select('preferences')
+    44	        .where('id', '=', account.userId)
+    45	        .executeTakeFirst()
+    46	      //   .user.findUnique({
+    47	      //   where: { id: account.userId },
+    48	      //   select: { preferences: true },
+    49	      // })
+    50	      )?.preferences ?? {}) as UserPreference;
+    51	
+    52	      await database
+    53	        .updateTable('Users')
+    54	        .set({ preferences: { ...oldPreferences, ...preferences } })
+    55	        .where('id', '=', account.userId)
+    56	        .execute();
+    57	
+    58	      // .user.update({
+    59	      //   where: { id: account.userId },
+    60	      //   data: { preferences: { ...oldPreferences, ...preferences } },
+    61	      // });
+    62	
+    63	      return null;
+    64	    }),
+    65	
+    66	  // updateMessages: protectedProcedure
+    67	  //   .input(z.object({ messages: z.array(idMessageShape).min(1) }))
+    68	  //   .mutation(async ({ ctx: { session, req }, input: { messages } }) => batchUpdateMessages(session.user.id, req, messages)),
+    69	});
+=== src/server/api/routers/guild.ts
+     1	import { getGuild, getGuildMessages, getWebhooksAndChannels } from '../utils/guild';
+     2	import { discordIdShape } from '../utils/shapes';
+     3	
+     4	import { createTRPCRouter, protectedProcedure } from '~/server/api/trpc';
+     5	
+     6	export default createTRPCRouter({
+     7	  getGuild: protectedProcedure
+     8	    .input(discordIdShape)
+     9	    .query(({ input: id, ctx: { req } }) => getGuild(id, req)),
+    10	
+    11	  getMessages: protectedProcedure
+    12	    .input(discordIdShape)
+    13	    .query(async ({ input: id, ctx: { req } }) => getGuildMessages(id, req)),
+    14	
+    15	  // updateMessages: protectedProcedure
+    16	  //   .input(z.object({ messages: z.array(idMessageShape).min(1), guildId: discordIdShape }))
+    17	  //   .mutation(async ({ ctx: { session, req }, input: { messages, guildId } }) => batchUpdateMessages(session.user.id, req, messages, guildId)),
+    18	
+    19	  getWebhooksAndChannels: protectedProcedure
+    20	    .input(discordIdShape)
+    21	    .query(({ input: id, ctx: { req } }) => getWebhooksAndChannels(id, req)),
+    22	});
+=== src/server/api/utils/messageValidity.ts
+     1	import { validateMessage } from '~/utils/limits';
+     2	
+     3	// eslint-disable-next-line import/prefer-default-export
+     4	export function isMessageValid(data: MessageData): boolean {
+     5	  try {
+     6	    return validateMessage(data) === '';
+     7	  } catch {
+     8	    return false;
+     9	  }
+    10	}

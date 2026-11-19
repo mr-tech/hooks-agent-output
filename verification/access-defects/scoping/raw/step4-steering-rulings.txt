@@ -1,0 +1,13 @@
+steering/017-rulings.md:795:code no open chain changes, read from code, not run: (1) `message.getOne` lets any signed-in user read
+steering/017-rulings.md:807:`message` tRPC router (`createCaller`, faked session, real `authorizeUser`/`upsertMessage`, real
+steering/017-rulings.md:810:SHAs, not refuted.** C1: user B's `getOne('1')` returned user A's personal message content; controls
+steering/017-rulings.md:816:run. Premise read this turn (`git grep -n getOne 1ad625e -- src`): callers are the editor's
+steering/017-rulings.md:908:   branch calls `authorizeUser(session.user.id)` with no message id; `upsert`/`delete` pass `message.id`,
+steering/017-rulings.md:931:`enforceUserIsAuthed` (checks a session exists, nothing else) → `routers/message.ts:51-61` `getOne` (personal
+steering/017-rulings.md:932:branch: `authorizeUser(session.user.id)`, no message id) → `utils/user.ts` `authorizeUser` (owner compare only
+steering/017-rulings.md:954:`access-defects`; evidence to `verification/access-defects/browser-check/`. Not chain 017's work.
+steering/017-rulings.md:963:alone; the steps, accounts and limits are unchanged. `uat-access-check` respawned in category `access-defects`.
+steering/017-rulings.md:964:The access handling question stays open (wait key `website-access-defects`).
+steering/017-rulings.md:968:`uat-access-check` reported by SendMessage, and this thread read its README (`verification/access-defects/
+steering/017-rulings.md:988:carrying a message number that can claim another user's row. Owner-wait `website-access-defects` cleared.
+steering/017-rulings.md:1188:The audit's § "Outside the reviewed delta" (three website observations) is carried by the access-defects fixer determination

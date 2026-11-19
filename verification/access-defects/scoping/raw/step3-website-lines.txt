@@ -1,0 +1,222 @@
+### authorizeUser
+origin/master:src/server/api/routers/message.ts:14:import { authorizeUser } from '../utils/user';
+origin/master:src/server/api/routers/message.ts:35:    ({ account: { userId } } = await authorizeUser(providerUserId, messageIds));
+origin/master:src/server/api/routers/message.ts:58:        await authorizeUser(session.user.id);
+origin/master:src/server/api/routers/message.ts:194:      const { account: { userId } } = await authorizeUser(session.user.id, message.id);
+origin/master:src/server/api/routers/message.ts:208:      await authorizeUser(session.user.id, message.id);
+origin/master:src/server/api/routers/user.ts:4:import { authorizeUser } from '../utils/user';
+origin/master:src/server/api/routers/user.ts:11:      const { account } = await authorizeUser(session.user.id);
+origin/master:src/server/api/routers/user.ts:35:      const { account } = await authorizeUser(session.user.id);
+origin/master:src/server/api/utils/__tests__/user.in-predicate.test.ts:7:import { authorizeUser } from '~/server/api/utils/user';
+origin/master:src/server/api/utils/__tests__/user.in-predicate.test.ts:26:describe('authorizeUser', () => {
+origin/master:src/server/api/utils/__tests__/user.in-predicate.test.ts:28:    const result = await authorizeUser('d1', []);
+origin/master:src/server/api/utils/__tests__/user.in-predicate.test.ts:37:    const result = await authorizeUser('d1', ['m1', 'm2']);
+origin/master:src/server/api/utils/__tests__/user.in-predicate.test.ts:48:    await authorizeUser('d1', 'm1');
+origin/master:src/server/api/utils/__tests__/user.in-predicate.test.ts:57:    await expect(authorizeUser('d1', ['m1'])).rejects.toThrow('One of the provided messages does
+origin/master:src/server/api/utils/user.ts:7:export async function authorizeUser(
+### authorizeGuildUser
+origin/master:src/server/api/routers/message.ts:6:import authorizeGuildUser from '../utils/authorizeGuildUser';
+origin/master:src/server/api/routers/message.ts:33:    ({ account: { userId } } = await authorizeGuildUser(req, guildId, messageIds));
+origin/master:src/server/api/routers/message.ts:56:        await authorizeGuildUser(req, message.guildId);
+origin/master:src/server/api/routers/message.ts:190:        const { guild } = await authorizeGuildUser(req, message.guildId, message.id);
+origin/master:src/server/api/routers/message.ts:204:        await authorizeGuildUser(req, message.guildId, message.id);
+origin/master:src/server/api/utils/__tests__/authorizeGuildUser.in-predicate.test.ts:9:import authorizeGuildUser from '~/server/api/utils/authorizeGuildUser';
+origin/master:src/server/api/utils/__tests__/authorizeGuildUser.in-predicate.test.ts:28:describe('authorizeGuildUser', () => {
+origin/master:src/server/api/utils/__tests__/authorizeGuildUser.in-predicate.test.ts:30:    const result = await authorizeGuildUser(req, 'g1', []);
+origin/master:src/server/api/utils/__tests__/authorizeGuildUser.in-predicate.test.ts:39:    const result = await authorizeGuildUser(req, 'g1', ['m1', 'm2']);
+origin/master:src/server/api/utils/__tests__/authorizeGuildUser.in-predicate.test.ts:50:    await authorizeGuildUser(req, 'g1', 'm1');
+origin/master:src/server/api/utils/__tests__/authorizeGuildUser.in-predicate.test.ts:58:    await expect(authorizeGuildUser(req, 'g1', ['m1'])).rejects.toThrow('One of th
+### authorizeGuildAdmin
+origin/master:src/server/api/routers/__tests__/message.get-from-url.test.ts:8:  authorizeGuildAdmin: vi.fn(),
+origin/master:src/server/api/routers/__tests__/message.get-from-url.test.ts:20:vi.mock('../../utils/authorizeGuildAdmin', () => ({ default: mocks.authorizeGuildAdmin }));
+origin/master:src/server/api/routers/__tests__/message.get-from-url.test.ts:33:  mocks.authorizeGuildAdmin.mockReset().mockResolvedValue(undefined);
+origin/master:src/server/api/routers/__tests__/message.get-from-url.test.ts:52:    expect(mocks.authorizeGuildAdmin.mock.calls[0][0]).toBe('111');
+origin/master:src/server/api/routers/__tests__/message.get-from-url.test.ts:63:    expect(mocks.authorizeGuildAdmin).not.toHaveBeenCalled();
+origin/master:src/server/api/routers/__tests__/message.get-from-url.test.ts:148:    mocks.authorizeGuildAdmin.mockRejectedValue(new TRPCError({ code: 'FORBIDDEN', message
+origin/master:src/server/api/routers/message.ts:5:import authorizeGuildAdmin from '../utils/authorizeGuildAdmin';
+origin/master:src/server/api/routers/message.ts:83:        authorizeGuildAdmin(guildId, req),
+origin/master:src/server/api/utils/__tests__/authorizeGuildUser.in-predicate.test.ts:14:vi.mock('~/server/api/utils/authorizeGuildAdmin', () => ({
+origin/master:src/server/api/utils/authorizeGuildUser.ts:4:import authorizeGuildAdmin from './authorizeGuildAdmin';
+origin/master:src/server/api/utils/authorizeGuildUser.ts:42:  const { account, guild } = await authorizeGuildAdmin(guildId, req);
+origin/master:src/server/api/utils/guild.ts:5:import authorizeGuildAdmin from './authorizeGuildAdmin';
+origin/master:src/server/api/utils/guild.ts:14:    await authorizeGuildAdmin(guildId, req);
+origin/master:src/server/api/utils/guild.ts:49:  await authorizeGuildAdmin(guildId, req);
+origin/master:src/server/api/utils/guild.ts:77:    await authorizeGuildAdmin(guildId, req);
+### authorizeAction
+origin/master:src/server/api/routers/message.ts:25:async function authorizeAction(
+origin/master:src/server/api/routers/message.ts:229:      await authorizeAction(session.user.id, req, message.guildId, id);
+### getMessage
+origin/master:src/app/_components/Providers.tsx:32:function getMessage(encodedQuery: string) {
+origin/master:src/app/_components/Providers.tsx:46:    getMessage(hdrs.get('x-query-params') ?? ''),
+origin/master:src/providers/MessageProvider/index.tsx:36:function getMessage(
+origin/master:src/providers/MessageProvider/index.tsx:221:      const mostRecent = getMessage(fetchedMessage, ignoreLocalRef);
+origin/master:src/server/api/routers/message.ts:12:  getMessage, getPartialMessages, getUserMessages, updateRecentMessageData, upsertMessage,
+origin/master:src/server/api/routers/message.ts:54:      const message = await getMessage(messageId);
+origin/master:src/server/api/routers/message.ts:202:      const message = await getMessage(input.id);
+origin/master:src/server/api/utils/shared.ts:137:export async function getMessage(id: string) {
+origin/master:src/server/api/utils/shared.ts:260:  const newMessagePromise = getMessage(id);
+### upsertMessage
+origin/master:src/app/message/_components/NewMessageModal.tsx:76:    mutate: upsertMessage, isPending: isSavingMessage, error: messageError,
+origin/master:src/app/message/_components/NewMessageModal.tsx:155:    void upsertMessage({
+origin/master:src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:3: * `upsertMessage`. Mounted for real and driven through the JSON load t
+origin/master:src/app/message/f/[id]/page.tsx:125:  const { mutate: upsertMessage, isPending: isMessageLoading } = api.message.upsert.useMutation({
+origin/master:src/app/message/f/[id]/page.tsx:342:                      onPress={() => upsertMessage({
+origin/master:src/app/message/m/[id]/_components/SaveAsMenu.tsx:44:    mutate: upsertMessage, isPending: isSavingMessage, error: messageError,
+origin/master:src/app/message/m/[id]/_components/SaveAsMenu.tsx:54:    void upsertMessage({
+origin/master:src/app/message/m/new/page.tsx:39:    mutateAsync: upsertMessage, isPending: isLoading,
+origin/master:src/app/message/m/new/page.tsx:58:            onPress={() => upsertMessage({ message: copyIntroMessage() })}
+origin/master:src/app/message/m/new/page.tsx:68:              onPress={() => upsertMessage({ message: copyIntroMessage(guild.id) })}
+origin/master:src/providers/MessageProvider/index.tsx:251:  const { mutate: upsertMessage, isPending: isSaving } = api.message.upsert.useMutation({
+origin/master:src/providers/MessageProvider/index.tsx:309:    upsertMessage,
+origin/master:src/providers/MessageProvider/useApiMethods.ts:23:  upsertMessage: (opts: RouterInputs['message']['upsert']) => unknown,
+origin/master:src/providers/MessageProvider/useApiMethods.ts:75:    upsertMessage({ message: payload });
+origin/master:src/server/api/routers/message.ts:12:  getMessage, getPartialMessages, getUserMessages, updateRecentMessageData, upsertMessage,
+origin/master:src/server/api/routers/message.ts:191:        return upsertMessage(message, { guild });
+origin/master:src/server/api/routers/message.ts:196:      return upsertMessage(message, { dbUserId: userId });
+origin/master:src/server/api/utils/__tests__/shared.message-cap.test.ts:9:import { upsertMessage } from '~/server/api/utils/shared';
+origin/master:src/server/api/utils/__tests__/shared.message-cap.test.ts:61:    await upsertMessage(newMessage, userSelect);
+origin/master:src/server/api/utils/__tests__/shared.message-cap.test.ts:69:    await expect(upsertMessage(newMessage, userSelect)).rejects.toThrow(USER_LIMIT);
+origin/master:src/server/api/utils/__tests__/shared.message-cap.test.ts:77:    await upsertMessage(newMessage, userSelect);
+origin/master:src/server/api/utils/__tests__/shared.message-cap.test.ts:87:    await upsertMessage(newMessage, guildSelect);
+origin/master:src/server/api/utils/__tests__/shared.message-cap.test.ts:95:    await expect(upsertMessage(newMessage, guildSelect)).rejects.toThrow(GUILD_LIMIT);
+origin/master:src/server/api/utils/__tests__/shared.message-cap.test.ts:103:    await upsertMessage(newMessage, guildSelect);
+origin/master:src/server/api/utils/__tests__/shared.message-cap.test.ts:116:    await upsertMessage(existingMessage, select);
+origin/master:src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts:10:import { upsertMessage } from '~/server/api/utils/shared';
+origin/master:src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts:63:  await upsertMessage(messageWith(content), userSelect);
+origin/master:src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts:107:    await upsertMessage({ ...messageWith('p0'), id: undefined } as unknown as IncomingMes
+origin/master:src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:11:import { upsertMessage } from '~/server/api/utils/shared';
+origin/master:src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:68:    const saved = await upsertMessage(existingMessage, userSelect);
+origin/master:src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:77:    await upsertMessage(existingMessage, userSelect);
+origin/master:src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:85:    await upsertMessage(existingMessage, userSelect);
+origin/master:src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:94:    await upsertMessage(existingMessage, userSelect);
+origin/master:src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:104:    const saved = await upsertMessage(existingMessage, userSelect);
+origin/master:src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:114:    await upsertMessage(existingMessage, userSelect);
+origin/master:src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:124:    await upsertMessage(existingMessage, userSelect);
+origin/master:src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:132:    await upsertMessage(newMessage, userSelect);
+origin/master:src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:142:    await upsertMessage(newMessage, userSelect);
+origin/master:src/server/api/utils/shared.ts:229:export async function upsertMessage(
+### buildUpsertMessageQuery
+origin/master:src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:11:import { buildMessageValues, buildUpsertMessageQuery } from '~/server/api/utils/shar
+origin/master:src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:30:  const compiled = buildUpsertMessageQuery(database, values as never).compile();
+origin/master:src/server/api/utils/__tests__/shared.upsert-valid.test.ts:11:import { buildMessageValues, buildUpsertMessageQuery } from '~/server/api/utils/shared';
+origin/master:src/server/api/utils/__tests__/shared.upsert-valid.test.ts:36:    const compiled = buildUpsertMessageQuery(database, values()).compile();
+origin/master:src/server/api/utils/__tests__/shared.upsert-valid.test.ts:41:    const compiled = buildUpsertMessageQuery(database, values()).compile();
+origin/master:src/server/api/utils/__tests__/shared.upsert-valid.test.ts:47:    const compiledTrue = buildUpsertMessageQuery(database, values({ valid: true })).compile();
+origin/master:src/server/api/utils/__tests__/shared.upsert-valid.test.ts:48:    const compiledFalse = buildUpsertMessageQuery(database, values({ valid: false })).compile(
+origin/master:src/server/api/utils/shared.ts:208:export function buildUpsertMessageQuery(
+origin/master:src/server/api/utils/shared.ts:257:  const { id, savedAtMicros } = await buildUpsertMessageQuery(database, values)
+### buildMessageValues
+origin/master:src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:11:import { buildMessageValues, buildUpsertMessageQuery } from '~/server/api/utils/shar
+origin/master:src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:29:  const values = buildMessageValues({ name: 'n', data } as never, { dbUserId: 'u1' }
+origin/master:src/server/api/utils/__tests__/shared.upsert-valid.test.ts:11:import { buildMessageValues, buildUpsertMessageQuery } from '~/server/api/utils/shared';
+origin/master:src/server/api/utils/__tests__/shared.upsert-valid.test.ts:58:describe('buildMessageValues computes `valid` from the predicate, never from the caller', () =
+origin/master:src/server/api/utils/__tests__/shared.upsert-valid.test.ts:60:    const built = buildMessageValues(
+origin/master:src/server/api/utils/__tests__/shared.upsert-valid.test.ts:68:    const built = buildMessageValues(
+origin/master:src/server/api/utils/__tests__/shared.upsert-valid.test.ts:76:    const built = buildMessageValues(
+origin/master:src/server/api/utils/shared.ts:195:export function buildMessageValues(
+origin/master:src/server/api/utils/shared.ts:251:    ...buildMessageValues(message, select),
+### getOne
+origin/master:src/app/message/__tests__/layout.navigation-guard.test.tsx:100:      'message.getOne': () => (/\/m\/0\//.test(hoisted.pathname)
+origin/master:src/app/message/f/[id]/__tests__/page.message-list.test.tsx:49:        getOne: { useQuery: () => noQuery },
+origin/master:src/app/message/f/[id]/page.tsx:181:  } = api.message.getOne.useQuery(copyMessageId, {
+origin/master:src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:54:    queryData: { 'message.getOne': () => hoisted.stored },
+origin/master:src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:46:    queryData: { 'message.getOne': () => hoisted.stored },
+origin/master:src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:56:      'message.getOne': () => (hoisted.pathname.includes('/m/0/') ? undefin
+origin/master:src/providers/MessageProvider/index.tsx:211:  } = api.message.getOne.useQuery(paramMessageId, {
+origin/master:src/providers/MessageProvider/index.tsx:297:      void trpc.message.getOne.invalidate();
+origin/master:src/server/api/routers/message.ts:51:  getOne: protectedProcedure
+### upsert
+origin/master:src/app/message/_components/NewMessageModal.tsx:77:  } = api.message.upsert.useMutation({
+origin/master:src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:36:      'message.upsert': (_opts, input) => { capturedUpsertInput = inpu
+origin/master:src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx:2: * `NewMessageModal` renders its own `message.upsert` mutation's er
+origin/master:src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx:28:      'message.upsert': () => ({ message: JSON.stringify([{
+origin/master:src/app/message/f/[id]/__tests__/page.message-list.test.tsx:42:        upsert: { useMutation: () => noMutation },
+origin/master:src/app/message/f/[id]/page.tsx:125:  const { mutate: upsertMessage, isPending: isMessageLoading } = api.message.upsert.useMutation({
+origin/master:src/app/message/m/[id]/_components/SaveAsMenu.tsx:45:  } = api.message.upsert.useMutation({
+origin/master:src/app/message/m/[id]/_components/__tests__/SaveAsMenu.empty-embeds-beside-v2.test.tsx:18:    onMutation: { 'message.upsert': (_opts, input) => { hoisted.i
+origin/master:src/app/message/m/[id]/_components/__tests__/SaveAsMenu.readable-mutation-error.test.tsx:2: * `SaveAsMenu` renders its own `message.upsert` mutation's error
+origin/master:src/app/message/m/[id]/_components/__tests__/SaveAsMenu.readable-mutation-error.test.tsx:25:      'message.upsert': () => ({ message: JSON.stringify([{
+origin/master:src/app/message/m/new/page.tsx:40:  } = api.message.upsert.useMutation({
+origin/master:src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:56:      'message.upsert': (opts, input) => { hoisted.mutOpts.push(opts); h
+origin/master:src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx:47:    onMutation: { 'message.upsert': (_opts, input) => { hoisted.inputs.push(in
+origin/master:src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx:60:      'message.upsert': (opts, input) => { hoisted.mutOpts.push(opts); hois
+origin/master:src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx:21:      'message.upsert': (opts) => { capturedOnMutate = opts.onMutate as 
+origin/master:src/providers/MessageProvider/index.tsx:251:  const { mutate: upsertMessage, isPending: isSaving } = api.message.upsert.useMutation({
+origin/master:src/providers/MessageProvider/useApiMethods.ts:23:  upsertMessage: (opts: RouterInputs['message']['upsert']) => unknown,
+origin/master:src/server/api/routers/message.ts:186:  upsert: protectedProcedure
+origin/master:src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:28:describe('the upsert statement no longer writes the preview nonce', () => {
+origin/master:src/utils/__tests__/formatMutationError.zod-issue-formatting.test.ts:6: * Whether the two `message.upsert` error surfaces (`SaveAsMenu.tsx`, `NewMessageModa
+origin/master:src/utils/maps/AggregateMap.ts:12:  public upsert(key: K, ...values: P[]) {
+origin/master:src/utils/maps/ExtendedMap.ts:9:  public upsert(key: K, value: T) {
+origin/master:src/utils/maps/SumMap.ts:2:  public upsert(key: K, ...values: number[]) {
+origin/master:src/utils/maps/UpsertArrayMap.ts:2:  public upsert(key: K, ...values: T[]) {
+origin/master:src/utils/maps/UpsertMapMap.ts:49:  public upsert(key: K, innerKey: V, value: T) {
+origin/master:src/utils/maps/UpsertMapMap.ts:55:    values.upsert(innerKey, value);
+origin/master:src/utils/maps/UpsertSetMap.ts:2:  public upsert(key: K, ...values: T[]) {
+origin/master:src/utils/maps/__tests__/UpsertMapMap.delete.test.ts:7:  map.upsert('a', 0, 'a0');
+origin/master:src/utils/maps/__tests__/UpsertMapMap.delete.test.ts:8:  map.upsert('a', 1, 'a1');
+origin/master:src/utils/maps/__tests__/UpsertMapMap.delete.test.ts:9:  map.upsert('b', 0, 'b0');
+origin/master:src/utils/redis/index.ts:64:  WAITING_MAP.upsert(key, { deferred, timeout });
+origin/master:src/utils/redis/index.ts:304:          threadMap.upsert(t.parent_id, { id: t.id, name: t.name });
+### updateRecentMessageData
+origin/master:src/app/message/m/[id]/send/__tests__/page.send-in-flight.test.tsx:43:    updateRecentMessageData: vi.fn(),
+origin/master:src/app/message/m/[id]/send/page.tsx:71:    toggleSuppressPings, updateRecentMessageData,
+origin/master:src/app/message/m/[id]/send/page.tsx:102:        updateRecentMessageData({
+origin/master:src/providers/MessageProvider/index.tsx:84:  updateRecentMessageData: (arg: RecentMessageData) => void;
+origin/master:src/providers/MessageProvider/index.tsx:295:  const { mutate: updateRecentMessageData } = api.message.updateRecentMessageData.useMutation({
+origin/master:src/providers/MessageProvider/index.tsx:345:    updateRecentMessageData,
+origin/master:src/server/api/routers/message.ts:12:  getMessage, getPartialMessages, getUserMessages, updateRecentMessageData, upsertMessage,
+origin/master:src/server/api/routers/message.ts:199:  updateRecentMessageData: protectedProcedure
+origin/master:src/server/api/routers/message.ts:205:        return updateRecentMessageData(input);
+origin/master:src/server/api/routers/message.ts:209:      return updateRecentMessageData(input);
+origin/master:src/server/api/utils/shared.ts:280:export async function updateRecentMessageData(message: RecentMessageData) {
+### deleteMessagePreviewImages
+origin/master:src/server/api/routers/message.ts:7:import deleteMessagePreviewImages from '../utils/deleteMessagePreviewImages';
+origin/master:src/server/api/routers/message.ts:232:      await deleteMessagePreviewImages(id);
+### getUserRecentMessages
+origin/master:src/server/__tests__/auth.hydrated-session.test.ts:28:  getUserRecentMessages: () => {
+origin/master:src/server/api/utils/__tests__/shared.in-predicates.test.ts:7:import { getPartialMessages, getUserRecentMessages } from '~/server/api/utils/shared';
+origin/master:src/server/api/utils/__tests__/shared.in-predicates.test.ts:34:describe('getUserRecentMessages', () => {
+origin/master:src/server/api/utils/__tests__/shared.in-predicates.test.ts:36:    expect(await getUserRecentMessages([])).toEqual([]);
+origin/master:src/server/api/utils/__tests__/shared.in-predicates.test.ts:41:    const result = await getUserRecentMessages(['m1', 'm2']);
+origin/master:src/server/api/utils/shared.ts:108:export async function getUserRecentMessages(messageIds: string[]): Promise<PartialApiMessage[]> {
+origin/master:src/server/auth.ts:12:import { getUserRecentMessages } from './api/utils/shared';
+origin/master:src/server/auth.ts:139:      ? getUserRecentMessages(preferences.recentMessageIds)
+### getOldMessages
+origin/master:src/server/api/utils/authorizeGuildUser.ts:8:async function getOldMessages(
+origin/master:src/server/api/utils/authorizeGuildUser.ts:41:  const oldMessagesPromise = messageIds && getOldMessages(guildId, messageIds);
+### recentMessageIds
+origin/master:src/@types/global.d.ts:70:    recentMessageIds?: string[];
+origin/master:src/app/message/page.tsx:74:      for (const id of session.user.preferences?.recentMessageIds ?? []) {
+origin/master:src/providers/MessageProvider/usePreferences.ts:9:  const recentMessageIds = useMemo(() => {
+origin/master:src/providers/MessageProvider/usePreferences.ts:12:    for (const id of session?.user?.preferences?.recentMessageIds ?? []) {
+origin/master:src/providers/MessageProvider/usePreferences.ts:18:  }, [session?.user?.preferences?.recentMessageIds, message?.id]);
+origin/master:src/providers/MessageProvider/usePreferences.ts:21:    recentMessageIds: recentMessageIds ?? session?.user?.preferences?.recentMessageIds,
+origin/master:src/server/__tests__/auth.hydrated-session.test.ts:43:function hydrate(user: object = { id: 'fixture-user', preferences: { recentMessageIds: ['m1'] } }) {
+origin/master:src/server/api/routers/user.ts:31:      recentMessageIds: z.array(z.string()).optional(),
+origin/master:src/server/api/routers/user.ts:37:      if (preferences.recentMessageIds) {
+origin/master:src/server/api/routers/user.ts:38:        preferences.recentMessageIds = preferences.recentMessageIds.slice(0, 10);
+origin/master:src/server/auth.ts:138:    const messagePromise = Promise.resolve(preferences?.recentMessageIds
+origin/master:src/server/auth.ts:139:      ? getUserRecentMessages(preferences.recentMessageIds)
+### fk_users_id
+origin/master:src/server/api/utils/__tests__/shared.in-predicates.test.ts:59:    expect(sql).toContain('"Messages"."fk_users_id" = $1');
+origin/master:src/server/api/utils/__tests__/shared.in-predicates.test.ts:69:    expect(sql).toContain('"Messages"."fk_users_id" = $1');
+origin/master:src/server/api/utils/__tests__/shared.message-cap.test.ts:38:      if (sql.includes('"fk_users_id" = $1') && parameters[0] === 'u1') return [{ count: String
+origin/master:src/server/api/utils/__tests__/shared.upsert-valid.test.ts:27:    fk_users_id: 'u1',
+origin/master:src/server/api/utils/__tests__/user.in-predicate.test.ts:35:    useDatabase([{ fk_users_id: 'u1' }, { fk_users_id: 'u1' }]);
+origin/master:src/server/api/utils/__tests__/user.in-predicate.test.ts:46:    useDatabase([{ fk_users_id: 'u1' }]);
+origin/master:src/server/api/utils/__tests__/user.in-predicate.test.ts:55:    useDatabase([{ fk_users_id: 'someone-else' }]);
+origin/master:src/server/api/utils/shared.ts:131:    .where('Messages.fk_users_id', '=', dbUserId)
+origin/master:src/server/api/utils/shared.ts:172:      eb('Messages.fk_users_id', '=', userId),
+origin/master:src/server/api/utils/shared.ts:178:    : query.where('Messages.fk_users_id', '=', userId)
+origin/master:src/server/api/utils/shared.ts:204:    fk_users_id: isUserSelect(select) ? select.dbUserId : null,
+origin/master:src/server/api/utils/shared.ts:236:    messageCountQuery = messageCountQuery.where('fk_users_id', '=', select.dbUserId);
+origin/master:src/server/api/utils/user.ts:19:      .select('fk_users_id')
+origin/master:src/server/api/utils/user.ts:24:    //   select: { fk_users_id: true },
+origin/master:src/server/api/utils/user.ts:27:    if (oldMessages.some((message) => message.fk_users_id !== account.userId)) {
+### optionalIdMessageShape
+origin/master:src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:13:import { optionalIdMessageShape } from '~/server/api/utils/shapes';
+origin/master:src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx:61:const upsertInput = z.object({ message: optionalIdMessageShape });
+origin/master:src/server/api/routers/message.ts:10:import { optionalIdMessageShape, recentMessageDataShape, userOrDiscordIdShape } from '../utils/shapes';
+origin/master:src/server/api/routers/message.ts:187:    .input(z.object({ message: optionalIdMessageShape }))
+origin/master:src/server/api/utils/shapes.ts:350:export const optionalIdMessageShape = messageShape.extend({

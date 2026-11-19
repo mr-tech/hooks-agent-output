@@ -1,0 +1,38 @@
+     1	import { TRPCError } from '@trpc/server';
+     2	import { getPostgres } from 'project-utils';
+     3	
+     4	import getAccount from './getAccount';
+     5	
+     6	// eslint-disable-next-line import/prefer-default-export
+     7	export async function authorizeUser(
+     8	  userId: string,
+     9	  messageIds?: null | string | string[],
+    10	) {
+    11	  const account = await getAccount(userId);
+    12	
+    13	  if (messageIds) {
+    14	    messageIds = typeof messageIds === 'string' ? [messageIds] : messageIds;
+    15	    if (!messageIds.length) return { account, oldMessageCount: 0 };
+    16	
+    17	    const oldMessages = await getPostgres()
+    18	      .selectFrom('Messages')
+    19	      .select('fk_users_id')
+    20	      .where('id', 'in', messageIds)
+    21	      .execute();
+    22	    // .message.findMany({
+    23	    //   where: { id: { in: messageIds.map((id) => BigInt(id)) } },
+    24	    //   select: { fk_users_id: true },
+    25	    // });
+    26	
+    27	    if (oldMessages.some((message) => message.fk_users_id !== account.userId)) {
+    28	      throw new TRPCError({
+    29	        code: 'NOT_FOUND',
+    30	        message: 'One of the provided messages does not exist.',
+    31	      });
+    32	    }
+    33	
+    34	    return { account, oldMessageCount: oldMessages.length };
+    35	  }
+    36	
+    37	  return { account, oldMessageCount: 0 };
+    38	}

@@ -1,0 +1,155 @@
+# step 1 predicates: git grep -c -E <pred> <ref> -- <paths>  (counts = per-file lines, total summed)
+## website origin/master src bot : input\.id|input: *\{? *id|messageId|messageIds
+origin/master:bot/utils/DiscordMessage.ts:2
+origin/master:src/@types/global.d.ts:1
+origin/master:src/app/message/_components/NewMessageModal.tsx:6
+origin/master:src/app/message/m/[id]/send/_components/EditMessageMenu.tsx:2
+origin/master:src/constants/index.ts:1
+origin/master:src/providers/MessageProvider/index.tsx:5
+origin/master:src/providers/WebhookProvider.tsx:7
+origin/master:src/server/api/routers/guild.ts:3
+origin/master:src/server/api/routers/message.ts:10
+origin/master:src/server/api/utils/authorizeGuildUser.ts:7
+origin/master:src/server/api/utils/deleteMessagePreviewImages.ts:2
+origin/master:src/server/api/utils/previewBucket.ts:2
+origin/master:src/server/api/utils/shared.ts:3
+origin/master:src/server/api/utils/user.ts:6
+origin/master:src/utils/hooks/index.ts:3
+origin/master:src/utils/hooks/useValidateWebhook.ts:5
+origin/master:src/utils/parseMessageId.ts:1
+origin/master:src/utils/redis/messageStore.ts:5
+TOTAL 71
+## website origin/master src bot : z\.object\(\{ *(id|code|messageId)
+origin/master:src/server/api/routers/message.ts:2
+TOTAL 2
+## website origin/master src bot : 'Messages'|"Messages"|Messages\.
+origin/master:src/app/message/f/[id]/page.tsx:3
+origin/master:src/app/message/page.tsx:3
+origin/master:src/pages/api/cron.ts:5
+origin/master:src/pages/api/v1/guilds/[guildId]/messages.ts:3
+origin/master:src/pages/api/v1/guilds/[guildId]/messages/[id].ts:4
+origin/master:src/scripts/backfillValid.ts:3
+origin/master:src/server/api/routers/message.ts:4
+origin/master:src/server/api/utils/authorizeGuildUser.ts:5
+origin/master:src/server/api/utils/guild.ts:10
+origin/master:src/server/api/utils/previewImage.ts:5
+origin/master:src/server/api/utils/shared.ts:32
+origin/master:src/server/api/utils/user.ts:3
+TOTAL 80
+## website origin/master src bot : onConflict|on conflict
+origin/master:src/app/legal/terms/page.tsx:1
+origin/master:src/server/api/utils/shared.ts:2
+TOTAL 3
+## website origin/master src bot : deleteMessagePreviewImages|previewPrefix|previewKey|previews/
+origin/master:src/server/api/routers/message.ts:2
+origin/master:src/server/api/utils/deleteMessagePreviewImages.ts:2
+origin/master:src/server/api/utils/previewBucket.ts:2
+origin/master:src/server/api/utils/previewImage.ts:5
+origin/master:src/utils/index.ts:1
+TOTAL 12
+## website origin/master src bot : getFromCode|messageStore|retrieve\(
+origin/master:bot/serverCommands.ts:2
+origin/master:src/app/message/_components/NewMessageModal.tsx:2
+origin/master:src/pages/api/messages/codes/[code].ts:2
+origin/master:src/providers/MessageProvider/index.tsx:1
+origin/master:src/server/api/routers/message.ts:4
+origin/master:src/utils/maps/ExtendedMap.ts:1
+origin/master:src/utils/redis/messageStore.ts:1
+TOTAL 13
+## website origin/master src bot : authorizeUser|authorizeGuildUser|authorizeGuildAdmin|authorizeAction
+origin/master:src/server/api/routers/message.ts:14
+origin/master:src/server/api/routers/user.ts:3
+origin/master:src/server/api/utils/authorizeGuildUser.ts:2
+origin/master:src/server/api/utils/guild.ts:4
+origin/master:src/server/api/utils/user.ts:1
+TOTAL 24
+## website origin/master src bot : protectedProcedure|publicProcedure
+origin/master:src/server/api/routers/guild.ts:5
+origin/master:src/server/api/routers/message.ts:9
+origin/master:src/server/api/routers/user.ts:4
+origin/master:src/server/api/trpc.ts:2
+TOTAL 20
+## website origin/master src bot : getMessage|getUserRecentMessages|getPartialMessages|getUserMessages|upsertMessage|updateRecentMessageData
+origin/master:src/app/_components/Providers.tsx:2
+origin/master:src/app/message/_components/NewMessageModal.tsx:2
+origin/master:src/app/message/f/[id]/page.tsx:2
+origin/master:src/app/message/m/[id]/_components/SaveAsMenu.tsx:2
+origin/master:src/app/message/m/[id]/send/page.tsx:2
+origin/master:src/app/message/m/new/page.tsx:3
+origin/master:src/providers/MessageProvider/index.tsx:7
+origin/master:src/providers/MessageProvider/useApiMethods.ts:2
+origin/master:src/server/api/routers/guild.ts:1
+origin/master:src/server/api/routers/message.ts:10
+origin/master:src/server/api/utils/shared.ts:7
+origin/master:src/server/auth.ts:2
+TOTAL 42
+## website origin/master src bot : fk_users_id
+origin/master:src/server/api/utils/shared.ts:5
+origin/master:src/server/api/utils/user.ts:3
+TOTAL 8
+## website origin/master src bot : recentMessageIds
+origin/master:src/@types/global.d.ts:1
+origin/master:src/app/message/page.tsx:1
+origin/master:src/providers/MessageProvider/usePreferences.ts:4
+origin/master:src/server/api/routers/user.ts:3
+origin/master:src/server/auth.ts:2
+TOTAL 11
+## website origin/master src bot : message-update|genMessageChannelKey|pusher
+origin/master:src/providers/MessageProvider/usePusher.ts:7
+origin/master:src/server/api/utils/shared.ts:4
+origin/master:src/utils/index.ts:2
+TOTAL 13
+## project-utils 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f : input\.id|input: *\{? *id|messageId|messageIds
+TOTAL 0
+## preview-image-generator origin/prod src : input\.id|input: *\{? *id|messageId|messageIds
+origin/prod:src/generateImage.ts:2
+TOTAL 2
+## project-utils 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f : z\.object\(\{ *(id|code|messageId)
+TOTAL 0
+## preview-image-generator origin/prod src : z\.object\(\{ *(id|code|messageId)
+TOTAL 0
+## project-utils 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f : 'Messages'|"Messages"|Messages\.
+749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f:prisma/schema.prisma:1
+TOTAL 1
+## preview-image-generator origin/prod src : 'Messages'|"Messages"|Messages\.
+TOTAL 0
+## project-utils 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f : onConflict|on conflict
+TOTAL 0
+## preview-image-generator origin/prod src : onConflict|on conflict
+TOTAL 0
+## project-utils 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f : deleteMessagePreviewImages|previewPrefix|previewKey|previews/
+TOTAL 0
+## preview-image-generator origin/prod src : deleteMessagePreviewImages|previewPrefix|previewKey|previews/
+origin/prod:src/generateImage.ts:1
+TOTAL 1
+## project-utils 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f : getFromCode|messageStore|retrieve\(
+TOTAL 0
+## preview-image-generator origin/prod src : getFromCode|messageStore|retrieve\(
+TOTAL 0
+## project-utils 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f : authorizeUser|authorizeGuildUser|authorizeGuildAdmin|authorizeAction
+TOTAL 0
+## preview-image-generator origin/prod src : authorizeUser|authorizeGuildUser|authorizeGuildAdmin|authorizeAction
+TOTAL 0
+## project-utils 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f : protectedProcedure|publicProcedure
+TOTAL 0
+## preview-image-generator origin/prod src : protectedProcedure|publicProcedure
+TOTAL 0
+## project-utils 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f : getMessage|getUserRecentMessages|getPartialMessages|getUserMessages|upsertMessage|updateRecentMessageData
+TOTAL 0
+## preview-image-generator origin/prod src : getMessage|getUserRecentMessages|getPartialMessages|getUserMessages|upsertMessage|updateRecentMessageData
+TOTAL 0
+## project-utils 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f : fk_users_id
+749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f:prisma/schema.prisma:4
+749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f:src/generated/Database/types.ts:2
+749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f:src/generated/db/types.ts:2
+TOTAL 8
+## preview-image-generator origin/prod src : fk_users_id
+TOTAL 0
+## project-utils 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f : recentMessageIds
+TOTAL 0
+## preview-image-generator origin/prod src : recentMessageIds
+TOTAL 0
+## project-utils 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f : message-update|genMessageChannelKey|pusher
+TOTAL 0
+## preview-image-generator origin/prod src : message-update|genMessageChannelKey|pusher
+TOTAL 0

@@ -1,0 +1,235 @@
+     1	import { TRPCError } from '@trpc/server';
+     2	import { z } from 'zod';
+     3	import { EmbedType, type APIMessage as Message, type UserFlags } from 'discord-api-types/v10';
+     4	
+     5	import authorizeGuildAdmin from '../utils/authorizeGuildAdmin';
+     6	import authorizeGuildUser from '../utils/authorizeGuildUser';
+     7	import deleteMessagePreviewImages from '../utils/deleteMessagePreviewImages';
+     8	import getAccount from '../utils/getAccount';
+     9	import { getGuildMessages } from '../utils/guild';
+    10	import { optionalIdMessageShape, recentMessageDataShape, userOrDiscordIdShape } from '../utils/shapes';
+    11	import {
+    12	  getMessage, getPartialMessages, getUserMessages, updateRecentMessageData, upsertMessage,
+    13	} from '../utils/shared';
+    14	import { authorizeUser } from '../utils/user';
+    15	
+    16	import type { NextApiRequest } from 'next';
+    17	
+    18	import { DISCORD_MESSAGE_LINK_REGEX } from '~/constants';
+    19	import { createTRPCRouter, protectedProcedure } from '~/server/api/trpc';
+    20	import { getApi } from '~/utils/discord';
+    21	import discordResponseToMessage from '~/utils/discordResponseToMessage';
+    22	import redis from '~/utils/redis';
+    23	import messageStore from '~/utils/redis/messageStore';
+    24	
+    25	async function authorizeAction(
+    26	  providerUserId: DiscordId,
+    27	  req: NextApiRequest,
+    28	  guildId: null | undefined | string,
+    29	  messageIds: undefined | null | string | string[],
+    30	) {
+    31	  let userId: string;
+    32	  if (guildId) {
+    33	    ({ account: { userId } } = await authorizeGuildUser(req, guildId, messageIds));
+    34	  } else {
+    35	    ({ account: { userId } } = await authorizeUser(providerUserId, messageIds));
+    36	  }
+    37	  return userId;
+    38	}
+    39	
+    40	export default createTRPCRouter({
+    41	  get: protectedProcedure
+    42	    .input(userOrDiscordIdShape)
+    43	    .query(async ({ input: id, ctx: { req, session } }) => {
+    44	      if (id === '0') {
+    45	        const { userId } = await getAccount(session.user.id);
+    46	        return getUserMessages(userId);
+    47	      }
+    48	      return getGuildMessages(id, req);
+    49	    }),
+    50	
+    51	  getOne: protectedProcedure
+    52	    .input(z.string().regex(/^[0-9]+$/))
+    53	    .query(async ({ input: messageId, ctx: { req, session } }): Promise<ApiMessage | null> => {
+    54	      const message = await getMessage(messageId);
+    55	      if (message.guildId) {
+    56	        await authorizeGuildUser(req, message.guildId);
+    57	      } else {
+    58	        await authorizeUser(session.user.id);
+    59	      }
+    60	      return message;
+    61	    }),
+    62	
+    63	  getAll: protectedProcedure
+    64	    .query(async ({ ctx: { session } }) => {
+    65	      const { userId } = await getAccount(session.user.id);
+    66	      return getPartialMessages(userId, session.user.guilds);
+    67	    }),
+    68	
+    69	  getFromUrl: protectedProcedure
+    70	    .input(z.object({ url: z.string().url().regex(DISCORD_MESSAGE_LINK_REGEX) }))
+    71	    .query(async ({ ctx: { req }, input: { url } }) => {
+    72	      const match = url.match(DISCORD_MESSAGE_LINK_REGEX);
+    73	      if (!match) {
+    74	        throw new TRPCError({
+    75	          code: 'BAD_REQUEST',
+    76	          message: 'Invalid URL.',
+    77	        });
+    78	      }
+    79	
+    80	      const { guildId, channelId, messageId } = match.groups as Record<'guildId' | 'channelId' | 'messageId', string>;
+    81	
+    82	      await Promise.all([
+    83	        authorizeGuildAdmin(guildId, req),
+    84	        redis.fetchGuild(guildId),
+    85	      ]);
+    86	
+    87	      const channel = await redis.fetchChannel(channelId);
+    88	      if (!('guild_id' in channel) || channel.guild_id !== guildId) {
+    89	        throw new TRPCError({
+    90	          code: 'NOT_FOUND',
+    91	          message: 'Message not found. Is the bot in this guild?',
+    92	        });
+    93	      }
+    94	
+    95	      const { data: message, status } = await getApi().request<Message>('GET', `/channels/${channelId}/messages/${messageId}`, { validateStatus: null });
+    96	
+    97	      switch (status) {
+    98	        case 200: {
+    99	          const { data, droppedComponentTypes } = discordResponseToMessage(message);
+   100	          return { guildId, message: data, droppedComponentTypes };
+   101	        }
+   102	        case 401:
+   103	          throw new TRPCError({
+   104	            code: 'UNAUTHORIZED',
+   105	            message: 'Missing permissions. Make sure the bot has access to this guild in Discord.',
+   106	          });
+   107	        case 403:
+   108	          throw new TRPCError({
+   109	            code: 'FORBIDDEN',
+   110	            message: 'Missing permissions. Make sure the bot has access to this guild in Discord.',
+   111	          });
+   112	        case 404:
+   113	          throw new TRPCError({
+   114	            code: 'NOT_FOUND',
+   115	            message: 'Message not found. Is the bot in this guild?',
+   116	          });
+   117	        default:
+   118	          throw new TRPCError({
+   119	            code: 'INTERNAL_SERVER_ERROR',
+   120	            message: 'An unknown error occurred. Please try again later or contact support.',
+   121	          });
+   122	      }
+   123	    }),
+   124	
+   125	  getFromCode: protectedProcedure
+   126	    .input(z.object({ code: z.string() }))
+   127	    .query(async ({ input: { code } }) => {
+   128	      if (process.env.NODE_ENV === 'development') {
+   129	        ({ code } = await messageStore.store('158446181310136320', '503782944117227531', {
+   130	          id: '1135299649184485458',
+   131	          content: '',
+   132	          channel_id: '915343868994662430',
+   133	          author: {
+   134	            id: '972367920380411954',
+   135	            username: 'Test',
+   136	            avatar: null,
+   137	            discriminator: '0000',
+   138	            global_name: null,
+   139	            public_flags: 0 as UserFlags,
+   140	            bot: true,
+   141	          },
+   142	          embeds: [
+   143	            {
+   144	              type: EmbedType.Rich,
+   145	              fields: [
+   146	                {
+   147	                  name: '1',
+   148	                  value: 'Test1',
+   149	                  inline: false,
+   150	                },
+   151	                {
+   152	                  name: '2',
+   153	                  value: '2',
+   154	                  inline: true,
+   155	                },
+   156	                {
+   157	                  name: '3',
+   158	                  value: '3',
+   159	                  inline: true,
+   160	                },
+   161	                {
+   162	                  name: '4',
+   163	                  value: '4',
+   164	                  inline: false,
+   165	                },
+   166	              ],
+   167	              footer: {
+   168	                text: 'Powered by Hooks.gg',
+   169	              },
+   170	            },
+   171	          ],
+   172	        }));
+   173	      }
+   174	
+   175	      const res = await messageStore.retrieve(code);
+   176	      if (!res) {
+   177	        throw new TRPCError({
+   178	          code: 'NOT_FOUND',
+   179	          message: 'This message is no longer valid.',
+   180	        });
+   181	      }
+   182	
+   183	      return res;
+   184	    }),
+   185	
+   186	  upsert: protectedProcedure
+   187	    .input(z.object({ message: optionalIdMessageShape }))
+   188	    .mutation(async ({ ctx: { req, session }, input: { message } }) => {
+   189	      if (message.guildId) {
+   190	        const { guild } = await authorizeGuildUser(req, message.guildId, message.id);
+   191	        return upsertMessage(message, { guild });
+   192	      }
+   193	
+   194	      const { account: { userId } } = await authorizeUser(session.user.id, message.id);
+   195	
+   196	      return upsertMessage(message, { dbUserId: userId });
+   197	    }),
+   198	
+   199	  updateRecentMessageData: protectedProcedure
+   200	    .input(recentMessageDataShape)
+   201	    .mutation(async ({ ctx: { req, session }, input }) => {
+   202	      const message = await getMessage(input.id);
+   203	      if (message.guildId) {
+   204	        await authorizeGuildUser(req, message.guildId, message.id);
+   205	        return updateRecentMessageData(input);
+   206	      }
+   207	
+   208	      await authorizeUser(session.user.id, message.id);
+   209	      return updateRecentMessageData(input);
+   210	    }),
+   211	
+   212	  delete: protectedProcedure
+   213	    .input(z.object({ id: z.string() }))
+   214	    .mutation(async ({ ctx: { req, session, database }, input: { id } }) => {
+   215	      const message = await database
+   216	        .selectFrom('Messages')
+   217	        .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+   218	        .select('Guilds.guildId')
+   219	        .where('Messages.id', '=', id)
+   220	        .executeTakeFirst();
+   221	      // .message.findUnique({ where: { id: BigInt(id) }, select: { guild: { select: { guildId: true } } } });
+   222	      if (!message) {
+   223	        throw new TRPCError({
+   224	          code: 'NOT_FOUND',
+   225	          message: 'This message does not exist.',
+   226	        });
+   227	      }
+   228	
+   229	      await authorizeAction(session.user.id, req, message.guildId, id);
+   230	
+   231	      await database.deleteFrom('Messages').where('id', '=', id).execute();
+   232	      await deleteMessagePreviewImages(id);
+   233	      // .message.delete({ where: { id: BigInt(id) } });
+   234	    }),
+   235	});

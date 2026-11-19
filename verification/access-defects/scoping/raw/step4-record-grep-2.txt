@@ -1,0 +1,5 @@
+handoff/closed/local-walk-save-can-write-a-client-sent-low-message-id-2026-11-11.md:13:`tools/uat-local-stack.sh up` (from record `7d59233`) moves `"Messages_id_seq"` to
+handoff/closed/local-walk-save-can-write-a-client-sent-low-message-id-2026-11-11.md:36:`project-utils/prisma/schema.prisma`, `model Message`, `id BigInt @id @default(autoincrement())`.
+handoff/closed/uat-local-stack-up-reuses-low-message-ids-2026-11-11.md:20:container never has its low ids counted. On reuse, `up` moves `"Messages_id_seq"` to
+security/closed/017-preview-image-generator-security-audit.md:6:Status-Detail: "Review Complete 2026-11-19: pre-release security gate on the preview-image-generator delta 8de2b53..8512a1d (M6) APPROVED, no required control. The reviewed tip is the SHA released
+security/closed/017-preview-image-generator-security-audit.md:125:- **A signed-in user can read any personal message by its number.** `message.getOne` loads the message, then for a message with no guild calls `authorizeUser(session.user.id)` with no message id

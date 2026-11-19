@@ -1,0 +1,662 @@
+=== src/server/api/utils/authorizeGuildUser.ts
+     1	import { TRPCError } from '@trpc/server';
+     2	import { getPostgres } from 'project-utils';
+     3	
+     4	import authorizeGuildAdmin from './authorizeGuildAdmin';
+     5	
+     6	import type { NextApiRequest } from 'next';
+     7	
+     8	async function getOldMessages(
+     9	  guildId: DiscordId,
+    10	  messageIds: string | string[],
+    11	) {
+    12	  messageIds = typeof messageIds === 'string' ? [messageIds] : messageIds;
+    13	  if (!messageIds.length) return [];
+    14	
+    15	  const oldMessages = await getPostgres()
+    16	    .selectFrom('Messages')
+    17	    .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+    18	    .select('Guilds.guildId')
+    19	    .where('Messages.id', 'in', messageIds)
+    20	    .execute();
+    21	  // .message.findMany({
+    22	  //   where: { id: { in: messageIds.map((id) => BigInt(id)) } },
+    23	  //   select: { guild: { select: { guildId: true } } },
+    24	  // });
+    25	
+    26	  if (oldMessages.some((message) => message.guildId !== guildId)) {
+    27	    throw new TRPCError({
+    28	      code: 'NOT_FOUND',
+    29	      message: 'One of the provided messages does not exist.',
+    30	    });
+    31	  }
+    32	
+    33	  return oldMessages;
+    34	}
+    35	
+    36	export default async (
+    37	  req: NextApiRequest,
+    38	  guildId: DiscordId,
+    39	  messageIds?: undefined | null | string | string[],
+    40	) => {
+    41	  const oldMessagesPromise = messageIds && getOldMessages(guildId, messageIds);
+    42	  const { account, guild } = await authorizeGuildAdmin(guildId, req);
+    43	
+    44	  if (oldMessagesPromise) {
+    45	    const oldMessages = await oldMessagesPromise;
+    46	    return { account, guild, oldMessageCount: oldMessages.length };
+    47	  }
+    48	
+    49	  return { account, guild, oldMessageCount: 0 };
+    50	};
+=== src/server/api/utils/authorizeGuildAdmin.ts
+     1	import { TRPCError } from '@trpc/server';
+     2	
+     3	import type { NextApiRequest } from 'next';
+     4	
+     5	import getServerSideSessionCookie from '~/utils/getServerSideSessionCookie';
+     6	import redis from '~/utils/redis';
+     7	
+     8	export default async (guildId: DiscordId, req: NextApiRequest) => {
+     9	  const sessionToken = await getServerSideSessionCookie(req);
+    10	  if (!sessionToken) {
+    11	    throw new TRPCError({
+    12	      code: 'UNAUTHORIZED',
+    13	      message: 'No session token provided.',
+    14	    });
+    15	  }
+    16	
+    17	  if (typeof sessionToken !== 'string') {
+    18	    throw new TRPCError({
+    19	      code: 'UNAUTHORIZED',
+    20	      message: 'Invalid session token provided.',
+    21	    });
+    22	  }
+    23	
+    24	  const account = await redis.fetchAccountFromSession(sessionToken);
+    25	  if (!account?.access_token) {
+    26	    throw new TRPCError({
+    27	      code: 'UNAUTHORIZED',
+    28	      message: 'User is not authenticated.',
+    29	    });
+    30	  }
+    31	
+    32	  const userGuilds = await redis.fetchUserGuilds(account.providerAccountId, account.access_token);
+    33	  if (!userGuilds) {
+    34	    throw new TRPCError({
+    35	      code: 'UNAUTHORIZED',
+    36	      message: 'Failed to fetch user servers.',
+    37	    });
+    38	  }
+    39	
+    40	  const guild = userGuilds.find(({ id }) => id === guildId);
+    41	  if (!guild) {
+    42	    throw new TRPCError({
+    43	      code: 'FORBIDDEN',
+    44	      message: 'User does not have permission to access to this server.',
+    45	    });
+    46	  }
+    47	
+    48	  return { account, guild };
+    49	};
+=== src/server/api/utils/guild.ts
+     1	import { TRPCError } from '@trpc/server';
+     2	import { isApiError } from 'paracord';
+     3	import { getPostgres } from 'project-utils';
+     4	
+     5	import authorizeGuildAdmin from './authorizeGuildAdmin';
+     6	import { mapMessage } from './shared';
+     7	
+     8	import type { NextApiRequest } from 'next';
+     9	
+    10	import redis from '~/utils/redis';
+    11	
+    12	export async function getGuild(guildId: DiscordId, req: NextApiRequest) {
+    13	  try {
+    14	    await authorizeGuildAdmin(guildId, req);
+    15	    return await redis.fetchGuild(guildId);
+    16	  } catch (err) {
+    17	    if (err instanceof TRPCError) {
+    18	      if (err.code === 'NOT_FOUND') return null;
+    19	      throw err;
+    20	    }
+    21	
+    22	    if (isApiError(err)) {
+    23	      switch (err.response?.status) {
+    24	        case 404: return null;
+    25	        default:
+    26	      }
+    27	    }
+    28	
+    29	    console.error(err);
+    30	    throw new TRPCError({
+    31	      code: 'INTERNAL_SERVER_ERROR',
+    32	      message: 'An unknown error occurred. Please try again later or contact support.',
+    33	    });
+    34	  }
+    35	
+    36	  // try {
+    37	  //   const response = await fetch(`${getBaseUrl()}/api/discord/guilds/${id}`, { headers: { cookie: document.cookie } });
+    38	
+    39	  //   const guild: Guild = await response.json();
+    40	
+    41	  //   return Object.keys(guild).length > 0 ? guild : null;
+    42	  // } catch (err) {
+    43	  //   console.error(err);
+    44	  // }
+    45	  // return null;
+    46	}
+    47	
+    48	export async function getGuildMessages(guildId: string, req: NextApiRequest) {
+    49	  await authorizeGuildAdmin(guildId, req);
+    50	
+    51	  const messages = await getPostgres()
+    52	    .selectFrom('Messages')
+    53	    .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+    54	    .leftJoin('ScheduledMessages', 'ScheduledMessages.fk_messages_id', 'Messages.id')
+    55	    .select([
+    56	      'Messages.id', 'Messages.createdAt', 'Messages.updatedAt', 'Messages.name',
+    57	      'Messages.data', 'Messages.previewImageNonce',
+    58	      'Messages.recentMessageId', 'Messages.recentThreadId', 'Messages.recentWebhookId',
+    59	      'Guilds.guildId as guildId',
+    60	      'ScheduledMessages.id as scheduledMessageId', 'ScheduledMessages.cron as scheduledMessageCron',
+    61	      'ScheduledMessages.error as scheduledMessageError', 'ScheduledMessages.sendAt as scheduledMessageSendAt',
+    62	      'ScheduledMessages.sent as scheduledMessageSent',
+    63	    ])
+    64	    .where(({
+    65	      exists, selectFrom,
+    66	    }) => exists(selectFrom('Guilds')
+    67	      .select('Guilds.id')
+    68	      .where('Guilds.guildId', '=', guildId)
+    69	      .whereRef('Messages.fk_guilds_id', '=', 'Guilds.id')))
+    70	    .execute();
+    71	
+    72	  return messages.map(mapMessage);
+    73	}
+    74	
+    75	export async function getWebhooksAndChannels(guildId: DiscordId, req: NextApiRequest) {
+    76	  try {
+    77	    await authorizeGuildAdmin(guildId, req);
+    78	    return await redis.fetchWebhooksAndChannels(guildId);
+    79	  } catch (err) {
+    80	    if (err instanceof TRPCError) throw err;
+    81	
+    82	    if (isApiError(err)) {
+    83	      switch (err.response?.status) {
+    84	        case 404:
+    85	          throw new TRPCError({
+    86	            code: 'NOT_FOUND',
+    87	            message: 'The bot is not in this server.',
+    88	          });
+    89	        default:
+    90	      }
+    91	    }
+    92	
+    93	    console.error(err);
+    94	    throw new TRPCError({
+    95	      code: 'INTERNAL_SERVER_ERROR',
+    96	      message: 'An unknown error occurred. Please try again later or contact support.',
+    97	    });
+    98	  }
+    99	}
+=== src/server/api/utils/shapes.ts
+     1	import { z } from 'zod';
+     2	
+     3	import {
+     4	  MAX_ACTION_ROW_BUTTONS, MAX_BUTTON_LABEL_LENGTH,
+     5	  MAX_COMPONENTS_DISPLAYABLE_TEXT,
+     6	  MAX_EMBEDS, MAX_EMBED_AUTHOR_NAME_LENGTH, MAX_EMBED_DESCRIPTION_LENGTH,
+     7	  MAX_EMBED_FIELDS, MAX_EMBED_FIELD_NAME_LENGTH, MAX_EMBED_FIELD_VALUE_LENGTH,
+     8	  MAX_EMBED_FOOTER_TEXT_LENGTH, MAX_EMBED_TITLE_LENGTH,
+     9	  MAX_MEDIA_GALLERY_ITEMS,
+    10	  MAX_MESSAGE_CONTENT_LENGTH, MAX_MESSAGE_NAME_LENGTH, MAX_NAME_LENGTH,
+    11	  MAX_SECTION_TEXT_COMPONENTS,
+    12	  MAX_TEXT_DISPLAY_CONTENT_LENGTH,
+    13	  MAX_TOTAL_COMPONENTS,
+    14	} from '~/constants';
+    15	
+    16	export interface RecentMessageData {
+    17	  id: string;
+    18	  recentWebhookId: string;
+    19	  recentThreadId: null | string;
+    20	  recentMessageId: string;
+    21	}
+    22	
+    23	export interface IncomingMessage {
+    24	  id?: string;
+    25	  guildId?: null | string;
+    26	  name: string;
+    27	  data: MessageData;
+    28	}
+    29	
+    30	export interface UpdateMessage {
+    31	  id: string;
+    32	  name: string;
+    33	  data: MessageData;
+    34	}
+    35	
+    36	export const discordIdShape = z.string().regex(/^[0-9]{17,23}$/);
+    37	export const userOrDiscordIdShape = z.string().regex(/^(0|[0-9]{17,23})$/);
+    38	
+    39	// Components V2 Zod schemas
+    40	
+    41	const emojiShape = z.object({
+    42	  id: z.string().optional(),
+    43	  name: z.string().optional(),
+    44	  animated: z.boolean().optional(),
+    45	});
+    46	
+    47	const linkButtonShape = z.object({
+    48	  type: z.literal(2),
+    49	  style: z.literal(5),
+    50	  label: z.string().trim().max(MAX_BUTTON_LABEL_LENGTH).optional(),
+    51	  emoji: emojiShape.optional(),
+    52	  url: z.string().trim().url(),
+    53	  disabled: z.boolean().optional(),
+    54	});
+    55	
+    56	const actionRowShape = z.object({
+    57	  type: z.literal(1),
+    58	  components: z.array(linkButtonShape).max(MAX_ACTION_ROW_BUTTONS),
+    59	});
+    60	
+    61	const textDisplayShape = z.object({
+    62	  type: z.literal(10),
+    63	  content: z.string().max(MAX_TEXT_DISPLAY_CONTENT_LENGTH),
+    64	});
+    65	
+    66	const thumbnailShape = z.object({
+    67	  type: z.literal(11),
+    68	  media: z.object({ url: z.string().trim().url() }),
+    69	  description: z.string().optional(),
+    70	  spoiler: z.boolean().optional(),
+    71	});
+    72	
+    73	const sectionShape = z.object({
+    74	  type: z.literal(9),
+    75	  components: z.array(textDisplayShape).max(MAX_SECTION_TEXT_COMPONENTS),
+    76	  accessory: z.union([thumbnailShape, linkButtonShape]),
+    77	});
+    78	
+    79	const mediaGalleryItemShape = z.object({
+    80	  media: z.object({ url: z.string().trim().url() }),
+    81	  description: z.string().optional(),
+    82	  spoiler: z.boolean().optional(),
+    83	});
+    84	
+    85	const mediaGalleryShape = z.object({
+    86	  type: z.literal(12),
+    87	  items: z.array(mediaGalleryItemShape).max(MAX_MEDIA_GALLERY_ITEMS),
+    88	});
+    89	
+    90	const fileShape = z.object({
+    91	  type: z.literal(13),
+    92	  file: z.object({ url: z.string().trim().url() }),
+    93	  spoiler: z.boolean().optional(),
+    94	});
+    95	
+    96	const separatorShape = z.object({
+    97	  type: z.literal(14),
+    98	  divider: z.boolean(),
+    99	  spacing: z.union([z.literal(1), z.literal(2)]),
+   100	});
+   101	
+   102	export const containerChildShape = z.discriminatedUnion('type', [
+   103	  actionRowShape,
+   104	  textDisplayShape,
+   105	  sectionShape,
+   106	  mediaGalleryShape,
+   107	  fileShape,
+   108	  separatorShape,
+   109	]);
+   110	
+   111	const containerShape = z.object({
+   112	  type: z.literal(17),
+   113	  components: z.array(containerChildShape),
+   114	  accent_color: z.number().int().min(0).max(0xffffff)
+   115	    .optional(),
+   116	  spoiler: z.boolean().optional(),
+   117	});
+   118	
+   119	export const topLevelComponentShape = z.discriminatedUnion('type', [
+   120	  actionRowShape,
+   121	  textDisplayShape,
+   122	  sectionShape,
+   123	  mediaGalleryShape,
+   124	  fileShape,
+   125	  separatorShape,
+   126	  containerShape,
+   127	]);
+   128	
+   129	export const embedShape = z.object({
+   130	  author: z.object({
+   131	    name: z.string().trim().max(MAX_EMBED_AUTHOR_NAME_LENGTH),
+   132	    url: z.string().trim().url().optional(),
+   133	    icon_url: z.string().trim().url().optional(),
+   134	  }).optional(),
+   135	  url: z.string().trim().url().optional(),
+   136	  description: z.string().trim().max(MAX_EMBED_DESCRIPTION_LENGTH).optional(),
+   137	  color: z.number().int().min(0).max(0xffffff)
+   138	    .optional(),
+   139	  title: z.string().trim().max(MAX_EMBED_TITLE_LENGTH).optional(),
+   140	  fields: z.array(
+   141	    z.object({
+   142	      name: z.string().trim().max(MAX_EMBED_FIELD_NAME_LENGTH),
+   143	      value: z.string().trim().max(MAX_EMBED_FIELD_VALUE_LENGTH),
+   144	      inline: z.boolean().optional(),
+   145	    }),
+   146	  ).max(MAX_EMBED_FIELDS).optional(),
+   147	  timestamp: z.string().trim().datetime().optional(),
+   148	  footer: z.object({
+   149	    text: z.string().trim().max(MAX_EMBED_FOOTER_TEXT_LENGTH),
+   150	    icon_url: z.string().trim().url().optional(),
+   151	  }).optional(),
+   152	  image: z.object({
+   153	    url: z.string().trim().url(),
+   154	  }).optional(),
+   155	  thumbnail: z.object({
+   156	    url: z.string().trim().url(),
+   157	  }).optional(),
+   158	});
+   159	
+   160	function sumDisplayableText(
+   161	  components: { type: number, content?: string, components?: unknown[] }[],
+   162	): number {
+   163	  let total = 0;
+   164	  for (const c of components) {
+   165	    if (c.type === 10 && typeof c.content === 'string') {
+   166	      total += c.content.length;
+   167	    } else if ((c.type === 9 || c.type === 17) && Array.isArray(c.components)) {
+   168	      total += sumDisplayableText(c.components as typeof components);
+   169	    }
+   170	  }
+   171	  return total;
+   172	}
+   173	
+   174	function refineDisplayableText(data: { components?: unknown[] }, ctx: z.RefinementCtx) {
+   175	  if (!data.components) return;
+   176	  const total = sumDisplayableText(data.components as Parameters<typeof sumDisplayableText>[0]);
+   177	  if (total > MAX_COMPONENTS_DISPLAYABLE_TEXT) {
+   178	    ctx.addIssue({
+   179	      code: z.ZodIssueCode.too_big,
+   180	      maximum: MAX_COMPONENTS_DISPLAYABLE_TEXT,
+   181	      type: 'string',
+   182	      inclusive: true,
+   183	      path: ['components'],
+   184	      message: `Components displayable text size exceeds maximum size of ${MAX_COMPONENTS_DISPLAYABLE_TEXT}`,
+   185	    });
+   186	  }
+   187	}
+   188	
+   189	const discordMessageBaseShape = z.object({
+   190	  content: z.string().trim().max(MAX_MESSAGE_CONTENT_LENGTH).optional(),
+   191	  username: z.string().trim().max(MAX_NAME_LENGTH).optional(),
+   192	  avatar_url: z.string().trim().url().optional(),
+   193	  allowed_mentions: z.object({
+   194	    parse: z.array(z.union([z.literal('user'), z.literal('here'), z.literal('everyone')])).optional(),
+   195	    users: z.array(discordIdShape).optional(),
+   196	    roles: z.array(discordIdShape).optional(),
+   197	    replied_user: z.boolean().optional(),
+   198	  }).optional(),
+   199	  embeds: z.array(embedShape).max(MAX_EMBEDS).optional(),
+   200	  components: z.array(topLevelComponentShape).max(MAX_TOTAL_COMPONENTS).optional(),
+   201	  flags: z.number().int().nonnegative().optional(),
+   202	});
+   203	
+   204	export const discordMessageShape = discordMessageBaseShape
+   205	  .superRefine(refineDisplayableText) as z.ZodEffects<typeof discordMessageBaseShape, MessageData>;
+   206	
+   207	const LINK_BUTTON_STYLE = 5;
+   208	const SECTION_TYPE = 9;
+   209	const ACTION_ROW_TYPE = 1;
+   210	const CONTAINER_TYPE = 17;
+   211	const BUTTON_TYPE = 2;
+   212	const THUMBNAIL_TYPE = 11;
+   213	
+   214	export const SUPPORTED_TOP_LEVEL_TYPES = new Set([1, 9, 10, 12, 13, 14, 17]);
+   215	export const SUPPORTED_CONTAINER_CHILD_TYPES = new Set([1, 9, 10, 12, 13, 14]);
+   216	
+   217	const COMPONENT_TYPE_LABELS: Record<number, string> = {
+   218	  [BUTTON_TYPE]: 'Button',
+   219	  3: 'Select Menu',
+   220	  4: 'Text Input',
+   221	  5: 'User Select Menu',
+   222	  6: 'Role Select Menu',
+   223	  7: 'Mentionable Select Menu',
+   224	  8: 'Channel Select Menu',
+   225	  [THUMBNAIL_TYPE]: 'Thumbnail',
+   226	};
+   227	
+   228	function labelFor(type: number): string {
+   229	  return COMPONENT_TYPE_LABELS[type] ?? `type ${type}`;
+   230	}
+   231	
+   232	function isSupportedAccessory(accessory: unknown): boolean {
+   233	  if (typeof accessory !== 'object' || accessory === null) return false;
+   234	  const { type, style } = accessory as { type: number, style?: number };
+   235	  if (type === THUMBNAIL_TYPE) return true;
+   236	  return type === BUTTON_TYPE && style === LINK_BUTTON_STYLE;
+   237	}
+   238	
+   239	function accessoryLabel(accessory: unknown): string {
+   240	  if (typeof accessory !== 'object' || accessory === null) return labelFor(SECTION_TYPE);
+   241	  return labelFor((accessory as { type: number }).type);
+   242	}
+   243	
+   244	function filterActionRowButtons(
+   245	  row: Record<string, unknown>,
+   246	  dropped?: Set<string>,
+   247	): Record<string, unknown> | null {
+   248	  const buttons = Array.isArray(row.components) ? row.components as Record<string, unknown>[] : [];
+   249	  const kept = buttons.filter((button) => {
+   250	    if (button.type === BUTTON_TYPE && button.style === LINK_BUTTON_STYLE) return true;
+   251	    dropped?.add(labelFor(button.type as number));
+   252	    return false;
+   253	  });
+   254	  if (kept.length === 0) return null;
+   255	  return { ...row, components: kept };
+   256	}
+   257	
+   258	function filterSection(
+   259	  section: Record<string, unknown>,
+   260	  dropped?: Set<string>,
+   261	): Record<string, unknown> | null {
+   262	  if (!isSupportedAccessory(section.accessory)) {
+   263	    dropped?.add(accessoryLabel(section.accessory));
+   264	    return null;
+   265	  }
+   266	  return section;
+   267	}
+   268	
+   269	function filterContainerChild(
+   270	  child: Record<string, unknown>,
+   271	  dropped?: Set<string>,
+   272	): Record<string, unknown> | null {
+   273	  if (!SUPPORTED_CONTAINER_CHILD_TYPES.has(child.type as number)) {
+   274	    dropped?.add(labelFor(child.type as number));
+   275	    return null;
+   276	  }
+   277	  if (child.type === ACTION_ROW_TYPE) return filterActionRowButtons(child, dropped);
+   278	  if (child.type === SECTION_TYPE) return filterSection(child, dropped);
+   279	  return child;
+   280	}
+   281	
+   282	function filterTopLevelComponent(
+   283	  component: Record<string, unknown>,
+   284	  dropped?: Set<string>,
+   285	): Record<string, unknown> | null {
+   286	  if (!SUPPORTED_TOP_LEVEL_TYPES.has(component.type as number)) {
+   287	    dropped?.add(labelFor(component.type as number));
+   288	    return null;
+   289	  }
+   290	  if (component.type === ACTION_ROW_TYPE) return filterActionRowButtons(component, dropped);
+   291	  if (component.type === SECTION_TYPE) return filterSection(component, dropped);
+   292	  if (component.type === CONTAINER_TYPE && Array.isArray(component.components)) {
+   293	    const children = (component.components as Record<string, unknown>[])
+   294	      .map((child) => (typeof child === 'object' && child !== null ? filterContainerChild(child, dropped) : null))
+   295	      .filter((child): child is Record<string, unknown> => child !== null);
+   296	    if (children.length === 0) return null;
+   297	    return { ...component, components: children };
+   298	  }
+   299	  return component;
+   300	}
+   301	
+   302	function filterSupportedComponents(components: unknown): unknown {
+   303	  if (!Array.isArray(components)) return components;
+   304	  return (components as unknown[])
+   305	    .map((c) => (typeof c === 'object' && c !== null ? filterTopLevelComponent(c as Record<string, unknown>) : null))
+   306	    .filter(Boolean);
+   307	}
+   308	
+   309	export function describeUnsupportedComponentTypes(components: unknown): string[] {
+   310	  const dropped = new Set<string>();
+   311	  if (!Array.isArray(components)) return [];
+   312	  (components as unknown[]).forEach((c) => {
+   313	    if (typeof c === 'object' && c !== null) filterTopLevelComponent(c as Record<string, unknown>, dropped);
+   314	  });
+   315	  return [...dropped];
+   316	}
+   317	
+   318	export function describeDroppedComponentTypesNotice(
+   319	  droppedComponentTypes: readonly string[],
+   320	): string {
+   321	  return `Not supported on Hooks.gg: ${droppedComponentTypes.join(', ')}`;
+   322	}
+   323	
+   324	/** Lenient schema for JSON import — filters unsupported component types instead of rejecting. */
+   325	export const discordMessageImportShape = discordMessageBaseShape.extend({
+   326	  components: z.preprocess(
+   327	    filterSupportedComponents,
+   328	    z.array(topLevelComponentShape).max(MAX_TOTAL_COMPONENTS).optional(),
+   329	  ),
+   330	}).superRefine(refineDisplayableText);
+   331	
+   332	export const recentMessageDataShape = z.object({
+   333	  id: z.string(),
+   334	  recentWebhookId: discordIdShape,
+   335	  recentThreadId: discordIdShape.nullable(),
+   336	  recentMessageId: discordIdShape,
+   337	}) satisfies z.ZodType<RecentMessageData>;
+   338	
+   339	export const messageShape = z.object({
+   340	  name: z.string().min(1).max(MAX_MESSAGE_NAME_LENGTH),
+   341	  guildId: discordIdShape.nullable().optional(),
+   342	  data: discordMessageShape,
+   343	}) satisfies z.ZodType<IncomingMessage>;
+   344	
+   345	export const partialMessageShape = messageShape.extend({
+   346	  id: z.string().optional(),
+   347	  name: z.string().min(1).max(MAX_MESSAGE_NAME_LENGTH).optional(),
+   348	}) satisfies z.ZodType<Omit<IncomingMessage, 'name' | 'guildId'> & Partial<Pick<IncomingMessage, 'name' | 'guildId'>>>;
+   349	
+   350	export const optionalIdMessageShape = messageShape.extend({
+   351	  id: z.string().optional(),
+   352	}) satisfies z.ZodType<IncomingMessage>;
+   353	
+   354	export const idMessageShape = messageShape.extend({
+   355	  id: z.string(),
+   356	}) satisfies z.ZodType<UpdateMessage>;
+=== src/pages/api/v1/guilds/[guildId]/messages.ts
+     1	import { getPostgres } from 'project-utils';
+     2	import { z } from 'zod';
+     3	
+     4	import type { NextApiRequest, NextApiResponse } from 'next';
+     5	
+     6	import { discordIdShape } from '~/server/api/utils/shapes';
+     7	
+     8	interface GuildRequest extends NextApiRequest {
+     9	  query: { guildId: string };
+    10	}
+    11	
+    12	interface ResponseMessage {
+    13	  id: number;
+    14	  data: MessageData;
+    15	  name: string;
+    16	  valid?: boolean;
+    17	}
+    18	
+    19	const queryShape = z.object({ guildId: discordIdShape }).strict();
+    20	
+    21	export default async function handler(req: GuildRequest, res: NextApiResponse<ResponseMessage[]>) {
+    22	  const key = process.env.STATBOT_API_KEY;
+    23	  if (!key || req.headers.authorization !== `Bearer ${key}`) return res.status(401).end();
+    24	  if (req.method !== 'GET') return res.status(405).end();
+    25	  try {
+    26	    const { guildId } = queryShape.parse(req.query);
+    27	
+    28	    const messages = await getPostgres()
+    29	      .selectFrom('Messages')
+    30	      .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+    31	      .select(['Messages.id', 'Messages.name', 'Messages.data', 'Messages.valid'])
+    32	      .where('Guilds.guildId', '=', guildId)
+    33	      .execute();
+    34	    // .message.findMany({
+    35	    //   where: { guild: { guildId } },
+    36	    //   select: selectMessage,
+    37	    // });
+    38	
+    39	    return res.status(200).json(messages.map<ResponseMessage>((m) => ({
+    40	      id: Number(m.id),
+    41	      name: m.name,
+    42	      data: m.data as MessageData,
+    43	      ...(m.valid !== null ? { valid: m.valid as boolean } : {}),
+    44	    })));
+    45	  } catch (error) {
+    46	    if (error instanceof z.ZodError) return res.status(400).end();
+    47	    console.error(error);
+    48	    return res.status(500).end();
+    49	  }
+    50	}
+=== src/pages/api/v1/guilds/[guildId]/messages/[id].ts
+     1	import { getPostgres } from 'project-utils';
+     2	import { z } from 'zod';
+     3	
+     4	import type { NextApiRequest, NextApiResponse } from 'next';
+     5	
+     6	import { discordIdShape } from '~/server/api/utils/shapes';
+     7	
+     8	interface GuildRequest extends NextApiRequest {
+     9	  query: { guildId: string, id: string };
+    10	}
+    11	
+    12	interface ResponseMessage {
+    13	  id: number;
+    14	  data: MessageData;
+    15	  name: string;
+    16	  valid?: boolean;
+    17	}
+    18	
+    19	const queryShape = z.object({ guildId: discordIdShape, id: z.number({ coerce: true }) }).strict();
+    20	
+    21	export default async function handler(req: GuildRequest, res: NextApiResponse<ResponseMessage>) {
+    22	  const key = process.env.STATBOT_API_KEY;
+    23	  if (!key || req.headers.authorization !== `Bearer ${key}`) return res.status(401).end();
+    24	  if (req.method !== 'GET') return res.status(405).end();
+    25	  try {
+    26	    const { guildId, id } = queryShape.parse(req.query);
+    27	
+    28	    const message = await getPostgres()
+    29	      .selectFrom('Messages')
+    30	      .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+    31	      .select(['Messages.id', 'Messages.name', 'Messages.data', 'Messages.valid', 'Guilds.guildId'])
+    32	      .where('Messages.id', '=', id.toString())
+    33	      .executeTakeFirst();
+    34	
+    35	    // .message.findUnique({
+    36	    //   where: { id },
+    37	    //   select: selectMessage,
+    38	    // });
+    39	    if (message?.guildId !== guildId) return res.status(404).end();
+    40	
+    41	    return res.status(200).json({
+    42	      id: Number(message.id),
+    43	      name: message.name,
+    44	      data: message.data as MessageData,
+    45	      ...(message.valid !== null ? { valid: message.valid as boolean } : {}),
+    46	    });
+    47	  } catch (error) {
+    48	    if (error instanceof z.ZodError) return res.status(400).end();
+    49	    console.error(error);
+    50	    return res.status(500).end();
+    51	  }
+    52	}
