@@ -2,8 +2,8 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Status: UAT Complete
-Status-Detail: "APPROVED FOR RELEASE at website 7293a35, generator 8512a1d (pass 2, production build). B-1, B-15, B-12 limb 1 and B-13 limbs 1–3 were re-walked there and pass. B-2, B-3, B-4, B-12 limb 2 and B-13 limb 4 carry from pass 1, because no production line on their path moved. Post-deploy rows B-6 to B-11 gate nothing here. Next: devops."
+Status: Committed
+Status-Detail: "Committed at release identifier chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) by devops Stage 1 at 2026-11-19T19:13Z; closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md."
 Verified-At: "7293a35,8512a1d — repos=website,preview-image-generator; pass 2 ran on git archive exports with their own installs, website as a production build (next build, next start) on 127.0.0.1:3000, generator under the M5 rig copy; plan read at Revision 11. Pass 1's verdict at 4b8db9c,8512a1d (next dev) is expired."
 Release-Decision: APPROVED FOR RELEASE
 ---
@@ -21,6 +21,7 @@ Release-Decision: APPROVED FOR RELEASE
 | 2026-11-19T10:29 | steering-roadmap-hooks (brief `steering/backlog-2026-11-18-briefs/uat-hooks-017.md`) | UAT on plan 017 at website `4b8db9c`, generator `8512a1d`; register rows B-1 to B-4, B-12, B-13 | Stage start re-derived: QA document `QA Complete`, `Verified-At` `4b8db9c,8512a1d`, committed at `1a8edce`, effort-final sweep 124 of 140 killed. Both shared trees on `chain/017-existing-items-backlog` at those SHAs. Five browser walks on a local stack. Five rows EXECUTED and passed; B-1 FAIL (UAT-1), routed to the implementer. NOT APPROVED. |
 | 2026-11-19T10:52 | implementer-hooks-017 (UAT-1 diagnosis, capture set); steering-roadmap-hooks (re-walk before any code change) | Re-walk B-1's M2-b window with the implementer's capture set | Walk 6 on a rebuilt stack at the same SHAs: the notice recurred in the saving tab in W3 and X5 (2 of 15 window runs), with every upsert 200, no crash or page error, and no error toast at X5. Candidate (1) is not supported at X5, and the crash precursor did not reproduce. In both recurrences the frame preceded the upsert response by 74–85 ms and the notice followed the response by 1–3 ms. Decision unchanged: NOT APPROVED. Stack removed again. |
 | 2026-11-19T19:03 | steering-roadmap-hooks (re-walk brief by message) | UAT re-walk at website `7293a35`, generator `8512a1d` (plan-level QA Complete, `cf69ef1`); rows B-1 to B-4, B-12, B-13, B-15; code review's and QA's routed assumptions | Pass 2 on a production build. B-1 re-walked: 0 own-save notices in 16 valid window and plain runs, frames are JSON text decoded as strings. B-15 passes twice (one socket per tab across an in-app switch). B-12 limb 1 and B-13 limbs 1–3 pass after the recorder's control. The rest carry from pass 1, their paths unchanged. Bare number-shaped frames decode to numbers. O-1 recorded (four `/preview` error statuses, pre-existing surface). APPROVED FOR RELEASE; pass 1's verdict at `4b8db9c` expired. Stack removed. |
+| 2026-11-19T19:13 | devops-hooks-017 (Stage 1) | Document closed | Document closed. Status: Committed. Plan 017 is committed on chain/017-existing-items-backlog (website 7293a35, generator 8512a1d) at devops Stage 1; the release is Stage 2. |
 
 ## Stage start and identity
 
