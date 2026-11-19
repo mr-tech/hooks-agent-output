@@ -756,3 +756,13 @@ approved), Planner batch fold with its critic read and the architect's closing p
 their gates), UAT, devops Stage 1. `017-brief-common.md` updated: both branches cut.
 **This thread's gate event, disclosed in the round:** `record-write-gate-hook` refused a python shell
 write to `OWNER-QUEUE.md`; re-issued with the Edit tool, the form the gate names.
+
+## 2026-11-19T07:34Z — M5 QA Complete; implementer started for QAF-24
+
+Read this turn: `qa/017-existing-items-backlog-m5-qa.md` header at agent-output `10e4627`, Status QA
+Complete, `Verified-At` `4b8db9c`; plan R-37 (`6f98995`). QAF-24 LOW (the real-Postgres lane's P1 cannot
+tell `clock_timestamp()` from `now()`) routed by `qa-hooks-017` to this thread because no implementer
+session was live, per its brief. This thread's determination: start `implementer-hooks-017` now from its
+Resumption State (`2496978`; brief `backlog-2026-11-18-briefs/implementer-hooks-017-resume.md`). Reason:
+the fix is in the tree before M6/M7 QA and the effort-final sweep, and M6's review may route to it anyway.
+If the fix moves the website tip, M5's verdict at `4b8db9c` expires and goes back through review and QA.
