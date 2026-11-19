@@ -2,10 +2,10 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Reviewed-At: "f83f2ca — repos=website; Round 6, M5 (implementation document 521a89f); M8 was confirmed at 6555f65 (Round 5 sub-entry, implementation document d71c462); Round 5, M8, was reviewed at c37d41a (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
+Reviewed-At: "4b8db9c — repos=website; Round 6 sub-entry, M5 title fix (record line 838c571); Round 6, M5, was reviewed at f83f2ca (implementation document 521a89f); M8 was confirmed at 6555f65 (Round 5 sub-entry, implementation document d71c462); Round 5, M8, was reviewed at c37d41a (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
 Status: In Review
 Round: 6
-Verdict: APPROVED_WITH_COMMENTS
+Verdict: APPROVED
 ---
 
 # Code Review: 017 — the existing-items backlog
@@ -33,6 +33,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-19T06:01 | qa-hooks-017 (QAF-22, `8e73691`; plan R-31 `f35d750`) | R5-reconcile: Round 5's verdict corrected | Round 5 reopened by correction: CR-13 MEDIUM (duplicates QAF-22) is a severity-floor finding I missed. Verdict APPROVED_WITH_COMMENTS → REJECTED. I reproduced QA's probe and ran the two dropped-`enabled` mutants: W SURVIVED and I was KILLED (`verification/017/code-review/m8/closing-window/`). The fix is test-only and returns as a Round 5 sub-entry. Method observation for the retrospective: I settled an equivalence claim by reading the closed state when a run of under a minute would have settled it. This is the second severity-floor miss QA caught on this chain, after CR-5. |
 | 2026-11-19T06:06 | implementer-hooks-017 (fix SHA `6555f65`, M8 document `d71c462`) | Round 5 sub-entry: confirm the test-only fix for CR-13 (QAF-22) and CR-12 | Round 5 sub-entry: APPROVED at `6555f65`. 4 of 4 re-attack mutants were killed as assertions (`verification/017/code-review/m8/fix-6555f65/`). Both dropped-`enabled` mutants now fail the new closing-window cases. CR-13 and CR-12 are gone. The fix commit touches only the two enter-scope test files over `72a1755`. M5's `9909fb3` and `72a1755` lie inside `c37d41a..6555f65` and are outside this sub-entry. Gate disclosed: the stamp gate refused plan row R-32 as first typed (06:05 against the clock's 06:03); it was re-stamped from `date -u` and committed (`6b95965`). Disclosed: this row, and the collapse of CR-13 and CR-12 to disposition lines, were written by an ad-hoc python script, not the Edit tool or `record-edit.js`, against the lifecycle rule for record documents. The error was mine, the same one the Resumption State records. The rest of the sub-entry was written with the Edit tool, and the diff was read before commit. |
 | 2026-11-19T06:28 | implementer-hooks-017 (M5 document `521a89f`) | Round 6: review M5 at website `f83f2ca` | Round 6, M5 only. APPROVED_WITH_COMMENTS. CR-14 LOW: `previewWorld` decides commits by a JavaScript copy of the SQL predicate, which the M5 document does not name (record line). CR-15 LOW: one interleavings title matches the ID-token class (`D1`, `D2`). The criteria assessed are M5-a to M5-g, the lockfile and the rig, as revision 7 states them at round open. Adversarial execution against a running deletion path (real Postgres 16, the real SDK to an S3 stub, a scripted generator, network-isolated): 14 of 14, and 4 of 4 planted defects fire. Captures are in `verification/017/code-review/m5/`. Disclosed: the attack's first two runs failed on my harness (a missing table, a log slice, a race reading the generator's second request), corrected before the recorded run. M6 (generator `8512a1d`) is queued as Round 7. |
+| 2026-11-19T06:31 | implementer-hooks-017 (website `4b8db9c`, M5 document `838c571`) | Round 6 sub-entry: confirm CR-14 and CR-15 | Round 6 sub-entry: APPROVED at `4b8db9c` (a title-only diff over `f83f2ca`). CR-15's sweep was re-run over the titles at `4b8db9c` (0 hits) and over the executed full names at `f83f2ca` (only the title now changed). CR-14's line is present. Both are gone. |
 
 ## Scope and Tree
 
@@ -445,6 +446,13 @@ A 302 with a `Location` (`fetch` follows redirects) is outside the class, becaus
 
 The fidelity gap in the shared world is CR-14.
 
+### Round 6 sub-entry — fix confirmation at `4b8db9c`
+
+- **Tree**: website `4b8db9c`, one commit over `f83f2ca`. `git diff --numstat f83f2ca 4b8db9c` gives 1 file, +1 −1: the interleavings title only. It was the shared HEAD at the start and end. The record line is agent-output `838c571` (+3 lines in the M5 document: the `previewWorld` line and a changelog row).
+- **CR-15 sweep, re-run with two instruments**: the ID-token predicate over every `it`, `test` and `describe` call line in M5's test files at `4b8db9c` gives 0 hits. Breaking that predicate's blind spot for titles built at run time: the same predicate over the reporter's executed `fullName`s at `f83f2ca` (`impl/m5/vitest-m5-f83f2ca.json`) gives exactly 1 hit, the title now changed. The new title occurs once in its file (`grep -c` 1).
+- **CR-14**: the line names the transcription, the row lock not modelled, and the three owning instruments.
+- **Run**: the implementer's 38 of 38 before and after, with the pass set differing only in the title, is read and not re-run. A title-only diff leaves no behaviour to re-attack.
+
 ## Findings
 
 ### Critical
@@ -554,23 +562,10 @@ CR-3 MEDIUM Round 2
 ### Low/Info
 
 CR-14 LOW Round 6
-**Fixture stand-in not named**: the shared world decides whether a commit is accepted by its own JavaScript copy of the SQL predicate. The M5 document does not say so.
-- **Location**: `src/server/api/utils/__tests__/helpers/previewWorld.ts` at `f83f2ca`, `reset`'s capturing-database handler: `if (query.sql.startsWith('with "replaced"'))`, then `world.row.exists && (world.row.nonce === null || world.row.nonce < next)`.
-- **Class**: a stand-in for what the database returns, invented by the test and not named in the author's document (testing-patterns Iron Law 5).
-- **Enumeration**: `git grep -n "startsWith('with \"replaced\"')" f83f2ca -- src` gives 1 hit. The world's other database answer is `world.other`, which returns `[]` by default for every other statement. `grep -c "transcri\|stands in\|stand-in" implementation/017-existing-items-backlog-m5-implementation.md` gives 0. Blind spot: a stand-in in a test-local `createCapturingDatabase` handler outside the helper. `git grep -c "createCapturingDatabase("` gives 6 files. The one M5 touched besides the helper is `shared.message-cap`, whose handler answers the upsert with a clock; I read it through its +3 −2 diff only. The other three are outside M5.
-- **Issue**: the world ignores the statement's text beyond its prefix, so the 3120 interleavings check the continuation's sequencing given a correct database, not the statement.
-  - The statement's semantics are held elsewhere. The compiled-shape cases (`previewImage.commit-statement`) are standing. The Postgres lane (EC-2, QA's re-run) is not standing, and neither is this round's attack (`commit-unconditional` fires there).
-  - So in the standing suite, the predicate is guarded only by its compiled text.
-  - This is a sound design, but a reader of the interleavings file cannot tell it from the record.
-- **Required Action**: one line in the M5 document beside `previewWorld`. It names the transcribed predicate and the row lock it does not model, and the instruments that own the statement: the shape cases, the lane and `code-review/m5/attack/`. `no test`. It does not hold the verdict.
+RESOLVED at agent-output `838c571`: the M5 document names `previewWorld`'s transcribed commit predicate, says the row lock is not modelled, and names the shape cases, the lane and `code-review/m5/attack/` as the statement's owners. `no test` (argument in `2d4cf2e`).
 
 CR-15 LOW Round 6
-**Test naming**: one title carries tokens from the workspace's ID-token class.
-- **Location**: `src/server/api/utils/__tests__/previewImage.interleavings.test.ts` at `f83f2ca`, `it('W1 C1 W2 C2 D2 D1 leaves the later save\'s image committed and present')`.
-- **Class**: a `describe`/`it`/`test` title that matches the ID-token class `\b(…|d|…)-?[0-9]+[a-z]?\b` (CLAUDE.md, "Negative form": zero matches in titles outside a `// escaped:` line).
-- **Enumeration**: the class predicate, case-insensitive, over the 1132 lines M5 adds (`m5/added-lines.txt`) gives 2 hits. One is this title. The other is its `play(['W1', …, 'D1'], false)` argument, which is fixture data the test computes over, so it is exempt. `convention-check.js` skipped this limb ("does not implement verbatim"). Blind spot: a title built at run time, such as an `it.each` format over row names, is seen only through its template.
-- **Issue**: `D1` and `D2` here are interleaving events, not decision ids. The predicate cannot tell the two apart in a title, and the convention applies it to titles without exception.
-- **Required Action**: retitle by behaviour, for example "a later save's delete of the earlier image, before the earlier sweep, leaves the later image committed and present". Keep the chain in the `play` argument. Test-only, at the implementer's next write, with the per-file case count and pass set unchanged. It does not hold the verdict.
+RESOLVED at website `4b8db9c`: retitled "leaves the later save's image committed and present", with the chain kept as the `play()` argument. Check: the ID-token predicate over M5's test titles at `4b8db9c` gives 0 hits, and over the reporter's executed full names at `f83f2ca` it gives exactly this 1, so the 36 expanded `it.each` rows are clean (argument in `2d4cf2e`).
 
 CR-12 LOW Round 5
 RESOLVED at agent-output `d71c462`: the M8 document's Fix Round names `FakeImage`, what it stands in for and the path it leaves untested. `no test` (argument in `4950989`).
@@ -656,6 +651,8 @@ No finding changes a decision. The two above go to their stated carriers.
 
 ## Verdict
 
+**Round 6 sub-entry (M5 at `4b8db9c`) — Status**: APPROVED. CR-14 and CR-15 are gone (see the sub-entry). The tip moved by one title, so M5's QA Phase 2 may run at `4b8db9c`.
+
 **Round 6 (M5 at `f83f2ca`) — Status**: APPROVED_WITH_COMMENTS
 **Rationale**: M5-a to M5-g hold against a running instance I attacked, not only against the implementer's substituted world.
 - Over the request's outcome classes, two saves in both orders, a delete mid-render, a prefix collision and the bucket's own times, the row and the bucket end exactly as the oracle says, and each failure writes exactly one line with the plan's fields.
@@ -732,7 +729,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Required Actions
 
-- Round 6 (APPROVED_WITH_COMMENTS), to the implementer's next write: CR-14, a line in the M5 document naming `previewWorld`'s transcribed commit predicate and the instruments that own the statement. CR-15, the interleavings title retitled by behaviour. Neither holds QA.
+- Round 6: none outstanding. CR-14 and CR-15 were confirmed at `838c571` and `4b8db9c`.
 - Round 5: none outstanding. CR-13 and CR-12 were confirmed at `6555f65` and `d71c462`. Previously (REJECTED after reconcile): the closing-window cases and the `FakeImage` line.
 - Round 4 (REJECTED), to the implementer:
   - CR-9: `ConfirmationDialog`'s Enter bound to its own dialog, not the document. The layout file's "both open" case runs with the real `react-hotkeys-hook`, opens the link prompt first, and raises the update prompt through `showConfirmation`. One Enter must answer exactly one prompt and leave the other open. Under `de06d95` it must fail as an assertion (2 answered).
@@ -804,7 +801,7 @@ Written at the checkpoint steering-roadmap-hooks asked for (context 354K, thresh
   - Round 3 (M3): REJECTED at `3498ef3`, then APPROVED at `1ab3b96`.
   - Round 4 (M4): REJECTED at `de06d95` (CR-9 HIGH, CR-10 and CR-11 LOW). Its sub-entry approved CR-9 to CR-11 at `a5dd76f` and QAF-18 at `5c3d03f`.
   - Round 5 (M8): REJECTED after reconcile at `c37d41a` (CR-13 MEDIUM, a duplicate of QAF-22; CR-12 LOW), published as APPROVED_WITH_COMMENTS. Its sub-entry approved both at `6555f65`.
-  - Round 6 (M5): APPROVED_WITH_COMMENTS at `f83f2ca` (CR-14 and CR-15 LOW). Instruments: `verification/017/code-review/m5/attack/` (`run.sh <sha> <out> [control id]`).
+  - Round 6 (M5): APPROVED_WITH_COMMENTS at `f83f2ca` (CR-14 and CR-15 LOW). Its sub-entry approved both at `4b8db9c`. Instruments: `verification/017/code-review/m5/attack/` (`run.sh <sha> <out> [control id]`).
   - My plan rows: R-8, R-10, R-12, R-13, R-15, R-16, R-18, R-19, R-22 and R-30.
   - QA hand-offs were sent for each approval, the last for M8 (msg `dd56c5ed`).
 - **Next**: Round 7, M6 at preview-image-generator `8512a1d` (implementation document agent-output `4c4e948`). It must see "204 means an object was stored" hold (Round 6's observation). Then M7. Previously: M5, M6 or M7, when handed off. Open Round 6. Read the plan as the diff from `225e4f3`: that milestone's section, the Decisions Register rows it cites, and its Reading Order row. M5 and M6 rest on M5-0's probe results (D-27, D-30). M7 comes last and re-derives CR-1's file (M7-b).
