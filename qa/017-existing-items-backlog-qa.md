@@ -857,107 +857,50 @@ assumption.
   stale, on saves whose render was quick.
 - **Owner.** devops at Stage 1, through B-7's carrier. Named again in the hand-off.
 
-## Resumption State (2026-11-19T07:17Z, checkpoint on steering's word: chain parked, rulings block 07:15Z, `cffd802`)
+## Resumption State (2026-11-19T09:17Z, checkpoint on steering's word at the context threshold)
 
-- *Reconcile 2026-11-19T07:3xZ to 09:0xZ (after the resume):* M5 (`47c16c3`), M6 (`dd7a449`) and M7 (`9a155ee`) Phase 2 are
-  written, each QA Complete. QAF-24 is RESOLVED. The effort-final sweep and the plan-level QA Complete are in § Test
-  Execution Results; QAF-25 LOW went to the Planner batch under the M4 cap. Everything below is the park-time state,
-  superseded. Next for QA: Phase 3 at the release tip, on devops's request.
-- **In flight (at the park): M5 Phase 2, measured, not yet written.** Stage start: code review Round 6 sub-entry APPROVED at
-  `Reviewed-At: 4b8db9c` (agent-output `6e4436d`, plan R-36 `3c36764`). `4b8db9c` is `f83f2ca` plus one test title. No
-  `qa/017-existing-items-backlog-m5-qa.md` exists yet. Every capture below is committed under `verification/017/qa-m5/`;
-  the next session writes the document from them. No re-run is needed unless the tip has moved.
-  - Suite at `4b8db9c`: 1814 of 1814, 143 files, exit 0; typecheck exit 0 (`vitest-4b8db9c.*`, `typecheck-4b8db9c.*`).
-    Compared against `qa-m8-refresh/vitest-6555f65.json` (`compare-qa6555f65-vs-qa4b8db9c.out`): the only movement is
-    `f83f2ca`'s 3 cases and 2 retitles.
-  - TDD gate: passes. The "No" rows (deletion forms, interleavings, survivor cases) are closed by implementer.md's own
-    remedy, a stub-tree red (`impl/m5/red-stub-deletions-f83f2ca.json`) then green.
-  - Lockfile (`lockfile-check.out`): +80 −0. `paracord` still pinned at `3f20308…`. The 9 named packages were added.
-  - The M5-e oracle at blob `30dc18a`: 0 of 3120 violate (`oracle-run-30dc18a.txt`), identical to its committed run.
-    The test and the oracle enumerate the same 3120 (row, sequence) pairs by membership (`enum-compare/compare.{cjs,out}`;
-    the planted control drops 472).
-  - Real-Postgres lane at `4b8db9c`'s source, from QA's runner copy `pg-lane/run-qa.sh` (container `qa017-pglane`, never
-    the implementer's name): 11 of 11, PostgreSQL 16.16 (`pg-lane/out-4b8db9c/`). Container, socket and link all removed.
-  - Node sweep (`m5-mutants-all.json` blob `0d2f23e`, 34 generated + 33 QA, `sweep/`): 66 of 67 killed. The survivor,
-    `qa-sweep-committed-key-conjunct-dropped`, is **equivalent**: the committed object's age against itself is 0, which
-    `>= SWEEP_AGE_MS` excludes while L > 0. Every named mutant is killed: NM-10 to NM-17, NM-23a–c, NM-26, both
-    decision constants in both directions, the coupling disjuncts and conjuncts. NM-21 is not placed (one UPDATE
-    statement; reason in `build-qa-mutants.py`).
-  - Lane sweep (`lane-mutants.sh`, `lane-sweep/summary.txt`): the control passes 11 of 11. NM-22 (unlocked read) is killed
-    by P3, `qa-collate-dropped` by the nB/na case, and NM-11 by 2 cases. **`qa-clock-now`** (`clock_timestamp()` →
-    `now()`) **survives the lane**: P1's arrangement starts the second statement after the first has its clock, so it
-    cannot tell a lock-order clock from a statement-start clock. In the Node suite only the commit-statement shape case
-    (a compiled-SQL text match) kills it. Draft disposition: QAF-24 LOW, not severity-floor because an assertion does fail.
-    The lane's P1 should start the first session's transaction before the second statement and take the row lock after it.
-    Route: the implementer's next write; no M5 cap is recorded. The lane-sweep exit 1 is the script's last `grep -c` (0
-    containers), not a lane failure.
-  - Seen-red (`seen-red-coverage.{py,out}`, over M5's 7 test files): 104 cases, 85 reddened, 19 never. The 19:
-    - commit-statement shape cases, the request-body case, the fresh-random case and the production-prefix direction:
-      unswept by the Node set, not shown non-discriminating;
-    - the enumeration-count case: an instrument by design;
-    - pre-existing cap and `valid` cases outside M5's diff.
-  - Audits:
-    - Conventions (`audit-predicates-m5.sh`, `.out`): clean. The 7 timer hits are fake timers; GLOSSARY's time-based test
-      spends wall-clock time, so they are not one.
-    - M5-f assertions: the exact class literal, an integer ms, one line per save, and booleans on a planted nonce,
-      content, key and credential.
-    - E-1's ordering: one `upsertMessage` behind both tRPC branches, one continuation.
-    - Nesting/schema: `project-utils/prisma/schema.prisma` (`749606d`) declares `previewImageNonce String?`, which is
-      `text`, so the 33-character nonce fits.
-  - Fixture limits to record: `previewWorld` cannot express an extra INSERT (NM-21's class), an object with no
-    `LastModified`, or S3 refusing an empty `DeleteObjects`. Also: `ListObjects` is not paginated, and a prefix past 1000
-    objects makes the sweep delete nothing, which is the safe direction.
-  - Draft verdict: **QA Complete** for M5 at `4b8db9c`, milestone-scoped. QAF-24 LOW is a comment. The effort-final sweep is owed.
-  - Draft Assumption Not Checked: production's live `Messages."previewImageNonce"` column is the schema's `text`. If false,
-    every commit fails with "value too long" in unprefixed `console.error` lines, and previews never move. Owner: devops
-    Stage 1, through B-6's look.
-  - Last steps once written: plan row R-37 (check the highest R first), commit, then SendMessage to the implementer only
-    for QAF-24. Consuming stage for a milestone pass: none beyond that.
-- **Done before this.** Phase 1 and its re-keys: revision 4 (`3af80aa`), revision 6 (`b974198`, QAF-20 and QAF-21 MEDIUM), and
-  revision 7 (`7eda138`, no finding; both resolved; EC-3 and EC-4; B-14 executed, Lasts). Phase 2 per milestone, each in its own document:
-  - M8: QA Failed at `c37d41a` (QAF-22 MEDIUM, QAF-23 LOW), then QA Complete on the refresh at `6555f65`,
-    `qa/017-existing-items-backlog-m8-qa.md` (`8e73691`, `51b1b78`, `ebebc72`; plan R-31, R-34). Both are resolved.
-  - M1: PASS at website `8147661`, `qa/017-existing-items-backlog-m1-qa.md` (`7d7eb50`, plan R-9).
-  - M2: QA Failed at `ec984fe` (QAF-17), then PASS on the refresh at `dd26104`, `qa/017-existing-items-backlog-m2-qa.md`
-    (`5630f1b`, then `b77fb74`; plan R-11, R-14).
-  - M3: PASS at `1ab3b96` with the bounded E-7 sweep, `qa/017-existing-items-backlog-m3-qa.md` (`4fe859b`, plan R-17).
-  - M4: QA Failed at `a5dd76f` (QAF-18), then PASS on the refresh at `5c3d03f`, `qa/017-existing-items-backlog-m4-qa.md`
-    (plan R-20, R-23). Register row B-12 appended.
-  - Findings: QAF-15 LOW is the lint stdin artifact, open as an instrument note in `verification/017/README.md` for M7-b.
-    QAF-16 and QAF-17 are RESOLVED. QAF-18 is RESOLVED (refresh at `5c3d03f`). QAF-19 went to the Planner batch under steering's 04:14Z M4 cap (`a805d4d`).
-- **Next.** On resumption, write M5's document from the captures above. Then M6's Phase 2 once its code review (Round 7,
-  generator `8512a1d`) is committed, then M7 (handed off at `f83f2ca`). Then the effort-final sweep over the chain's
-  production diff (seeded at E-1, E-2 and E-7), the plan-level `QA Complete`, and UAT.
-- **Approach, per milestone.** Make a new `qa/017-existing-items-backlog-m<n>-qa.md`. Then:
-  1. Export the SHA with `git archive`, link `node_modules`, and copy `next-env.d.ts` and `.next/types/` from the shared
-     tree, or the typecheck fails with TS2307.
-  2. Run the suite and the typecheck under `unshare -rn`.
-  3. Compare suites with `verification/017/qa-m1/suite-compare.mjs` against the previous milestone's run. The latest QA
-     run is `verification/017/qa-m4/vitest-a5dd76f.json`, with root `$SCRATCH/exp-a5dd76f`. Pass that root string even
-     after the export is deleted, since only the path prefix is used.
-  4. Build QA's mutant set as exact-once anchors (`qa-m4/build-qa-mutants.py` is the latest form). Have a `general-purpose`
-     helper run it with `~/.claude/tools/mutation-run.py ... --dep node_modules -- unshare -rn npx vitest run`. The whole
-     suite takes about 17 s per run, so no test scope is needed.
-  5. Map every criterion member. Measure seen-red coverage over the milestone's test files before writing any completeness
-     sentence (`qa-m4/seen-red-coverage.out` shows the form). Audit conventions with a copy of `qa-m1/audit-predicates.sh`.
-  6. Write the plan row with `record-edit.js` `2026-11-19T04:14` and `plan-row-commit.js`.
-
-  Milestone-specific notes:
-  - M5: the oracle is `verification/017/m5-decision-table/oracle.mjs` (OQ-13 option a binds). Re-run the real-Postgres
-    lane `verification/017/m5-pg/`. NM-10 to NM-23 and NM-26 to NM-28. The E-1 and E-2 guards get their own sweep.
-  - Lint: never stdin against a moved tree (QAF-15). Base counts come from `entry/lint-1ad625e/nofix.json`.
-- **Trees.** The website chain branch and the shared tree's HEAD were `4b8db9c` at this write; the generator's tip was
-  `8512a1d`. Neither is mine to move. The last suite base for comparison is `qa-m5/vitest-4b8db9c.json`, root
-  `$SCRATCH/exp-4b8db9c` (the export is deleted at this checkpoint; the root string still works as a prefix).
-- **Uncommitted or mutated.** Nothing of QA's after this checkpoint's commit. The `INBOX.md` entries are appended
-  uncommitted, as inbox rules require.
-- **Evidence.** All committed under `verification/017/qa-m1/` to `qa-m4/`, `qa-m8/`, `qa-m8-refresh/` and `qa-m5/`.
-- **Questions out.** None. A planner request (QAF-23) was sent and then closed: no Planner batch row is owed.
-- **Instruments a successor reuses.** `qa-m8/seen-red-coverage.py` (M8 form) and `qa-m5/seen-red-coverage.py`, which takes
-  the file list as its second argument. `qa-m5/pg-lane/run-qa.sh` (QA's lane runner) and `qa-m5/lane-mutants.sh`.
-  `qa-m5/enum-compare/compare.cjs`.
-- **Routed assumptions.** To UAT: B-1 (the Pusher handler is bound once), B-2 (the native `storage` event reaches other
-  tabs), and B-12 (a lone prompt's focus sits on its confirm button). To devops Phase 3: the install matches the lockfile.
+- **Done.** Every QA act this chain owes before release is written and committed.
+  - Phase 1 and its re-keys: revisions 1 to 4, 6 and 7. Revision 8 was read whole at the effort-final pass and moves no
+    verified criterion.
+  - Phase 2 per milestone, each QA Complete in its own document:
+    - M1 `8147661`, M2 `dd26104`, M3 `1ab3b96`, M4 `5c3d03f`, M8 `6555f65`;
+    - M5 at website `4b8db9c` (`47c16c3`, QAF-24 RESOLVED `dd7a449`);
+    - M6 at generator `8512a1d` (`dd7a449`);
+    - M7 at `4b8db9c` (`9a155ee`).
+  - The effort-final sweep and the **plan-level QA Complete** at website `4b8db9c` and generator `8512a1d` are in § Test
+    Execution Results (`1a8edce`). Plan Status is `QA Complete` with row R-47 (`4c49b11`).
+- **Findings open:** none of QA's blocks.
+  - QAF-25 LOW (`StyledLink`'s `prefetch: false` unasserted) is registered in the Planner batch by the planner (R-48,
+    `d74bf23`), parked under the M4 cap, with no fix round.
+  - QAF-15 stays an instrument note in `verification/017/README.md`.
+- **Next for QA.** Phase 3 at the release tip, only on devops's request (`qa-phase-3.md`). Carry in:
+  - this document's effort-final Assumption Not Checked: `mutant-gen` deletes no call or JSX attribute, so Phase 3 may add
+    a call-deletion set over the same predicate;
+  - M7-b is re-read at the merged tip;
+  - the install matches the lockfile (routed at M1).
+- **Approach notes a successor reuses.**
+  - Website runs: `git archive <sha>` export, `node_modules` linked, `next-env.d.ts` and `.next/types` copied;
+    `unshare -rn`.
+  - Lint: the shared tree only while HEAD is exactly the measured SHA with no tracked change. An export lints only with
+    its own `pnpm install --frozen-lockfile --offline --ignore-scripts` (`qa-m7/`).
+  - Generator: export with `':(exclude).github'`, read the tip only with `rev-parse` and `branch --show-current`, one
+    `npm ci` with `PUPPETEER_SKIP_DOWNLOAD=1`; the probe is `m6-probe/run.sh`, plus QA's `qa-m6/unchanged-lines-check.mjs`.
+  - Sweeps: `mutation-run.py` (website) and `m6-probe/mutate-probe.py` (generator), run by a `general-purpose` helper.
+  - The lane: `qa-m5/qaf24-closure/lane-mutants.sh` (parameterised with `SCRATCH` and `LANE_OUT`).
+- **Trees.** Website `chain/017-existing-items-backlog` at `4b8db9c`; generator `chain/017-existing-items-backlog` at
+  `8512a1d`. Neither is mine to move.
+- **Uncommitted or mutated.** Nothing of QA's. My `INBOX.md` entries are appended uncommitted, as the inbox rule says:
+  the code-review and implementer citation of `code-review/m6/liveness-scope/run.sh`, the drain observation for the
+  drain handoff, and the M7 lint-export correction. No exports, containers or processes are left.
+- **Questions out.** None. Delivered: QAF-25 to `planner-hooks-017` (registered); the UAT spawn cue to
+  `steering-roadmap-hooks`.
+- **Standing rule this session learned.** The owner's memory `no-security-blocks-in-record.md`: no security or safeguard
+  block is named in agent-output; a failure is written only as "not completed". The M6 document was reduced accordingly
+  (`87ff505`).
+- **Routed assumptions.**
+  - To UAT: B-1, B-2, B-12; B-13 with M8's closing-panel focus; B-4.
+  - M6's fallback page is now X-22 (his D-31), checked only by B-6.
+  - To devops Stage 1: M5's production column type (`text`), through B-6.
 
 ## Assumption Not Checked
 
