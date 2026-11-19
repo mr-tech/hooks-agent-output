@@ -1,0 +1,21 @@
+
+ACTIVE_AFTER_OPEN warning: DIV:Warnwarn msg inDialog=Warnwarn msg
+RESULT warning | other-button | focus=BUTTON:WarnOK | Enter on activeElement fired=[] | Enter on document fired=["warn.onConfirm"]
+ACTIVE_AFTER_OPEN warning: DIV:Warnwarn msg inDialog=Warnwarn msg
+RESULT warning | other-text | focus=P:warn msg | Enter on activeElement fired=["warn.onConfirm"] | Enter on document fired=["warn.onConfirm"]
+ACTIVE_AFTER_OPEN warning: DIV:Warnwarn msg inDialog=Warnwarn msg
+RESULT warning | confirm-button | focus=BUTTON:Reload | Enter on activeElement fired=[] | Enter on document fired=["warn.onConfirm","RELOAD"]
+ACTIVE_AFTER_OPEN warning: DIV:Warnwarn msg inDialog=Warnwarn msg
+RESULT warning | confirm-text | focus=P:m | Enter on activeElement fired=["warn.onConfirm","RELOAD"] | Enter on document fired=["warn.onConfirm"]
+ACTIVE_AFTER_OPEN image: DIV:Enter Image  inDialog=Enter Image 
+RESULT image | other-button | focus=BUTTON:Cancel | Enter on activeElement fired=[] | Enter on document fired=["img.onClose","img.submit"]
+ACTIVE_AFTER_OPEN image: DIV:Enter Image  inDialog=Enter Image 
+RESULT image | other-text | focus=LABEL:Image URL | Enter on activeElement fired=["img.onClose","img.submit"] | Enter on document fired=["img.onClose","img.submit"]
+ACTIVE_AFTER_OPEN image: DIV:Enter Image  inDialog=Enter Image 
+RESULT image | other-input | focus=INPUT: | Enter on activeElement fired=[] | Enter on document fired=["img.onClose","img.submit"]
+ACTIVE_AFTER_OPEN image: DIV:Enter Image  inDialog=Enter Image 
+RESULT image | confirm-button | focus=BUTTON:Reload | Enter on activeElement fired=[] | Enter on document fired=["img.onClose","img.submit","RELOAD"]
+ACTIVE_AFTER_OPEN image: DIV:Enter Image  inDialog=Enter Image 
+RESULT image | confirm-text | focus=P:m | Enter on activeElement fired=["img.onClose","img.submit","RELOAD"] | Enter on document fired=["img.onClose","img.submit"]
+BTN reload | keydown reached document=false | after keydown=[] | after keyup=["RELOAD"]
+BTN other | keydown reached document=false | after keydown=[] | after keyup=["warn.onConfirm","warn.onClose"]

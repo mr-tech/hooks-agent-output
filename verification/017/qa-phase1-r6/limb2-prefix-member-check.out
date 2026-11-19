@@ -1,0 +1,6 @@
+file verification/017/m5-0/devops/probe-runtime-logs-first-run.jsonl
+0 shape data type log | member True | preview-image-failure probe-control mode=without id=without-20261119T045623 | requestPath /api/waituntil-probe
+1 shape data type log | member True | preview-image-failure probe-post-response mode=with id=with-20261119T045623 elapsedMs=5006 | requestPath /api/waituntil-probe
+2 shape data type log | member True | preview-image-failure probe-control mode=with id=with-20261119T045623 | requestPath /api/waituntil-probe
+3 shape flat type summary | member False |  | requestPath None
+# negative control: a real non-member string from the plan, the /api/auth/session cold-start line class, is not in this file; the in-file non-member is any record not starting with the prefix

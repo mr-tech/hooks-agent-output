@@ -4,15 +4,15 @@ Origin: 017
 UUID: 5c3e9a71
 Verified-At: "1ad625e,8de2b53 — repos=website,preview-image-generator; Phase 1 base trees (the plan's surfaces read at these SHAs; the suite and the carried probes ran in an export of website 1ad625e). No verdict is carried at Phase 1."
 Status: Awaiting Implementation
-Status-Detail: "Phase 1 re-keyed to plan revision 4 (agent-output a97628d). QAF-1 to QAF-14 resolved; no open QA finding. The M5-e oracle matches revision 4 (0 of 3120 violate under OQ-13 option a; option b's limit counted). Phase 1 waits for implementation, which waits on the critic, his OQ-11 to OQ-13 and OQ-7's probe."
+Status-Detail: "Phase 1 re-keyed to plan revision 6 (agent-output 21e61eb). Two new findings go to the planner: QAF-20 MEDIUM, M8's focus positions never reach the changed hotkey; QAF-21 MEDIUM, M5-0 limb 3's read cannot tell a kept-alive function from a resumed one. B-13 and B-14 appended; NM-30 to NM-38 added. M1 to M4 passed Phase 2 (their own documents). M5, M6 and M8 code wait on this re-key, the critic and the architect."
 Phase: 1
 ---
 
 # QA Report: Plan 017 — the existing-items backlog
 
-**Plan Reference**: `agent-output/planning/017-existing-items-backlog.md`, revision 4 (agent-output
-`a97628d`), re-keyed in § "Phase 1 re-key on plan revision 4" (earlier: §§ "Phase 1 re-key on plan
-revision 3" and "… revision 2"). The first pass read revision 1
+**Plan Reference**: `agent-output/planning/017-existing-items-backlog.md`, revision 6 (agent-output
+`21e61eb`), re-keyed in § "Phase 1 re-key on plan revision 6" (earlier: §§ "… revision 4", "… revision 3"
+and "… revision 2"; revision 5 was never routed and is read inside revision 6's diff). The first pass read revision 1
 (`97e6814`; the R-4 registration at `d84b192` was read with it and changes no criterion).
 
 ## Changelog
@@ -25,6 +25,7 @@ revision 3" and "… revision 2"). The first pass read revision 1
 | 2026-11-19T00:22 | planner-hooks-017 (revision 3, agent-output `b3d811e`) | Phase 1 re-key, including the oracle's age reference | Phase 1 re-key. QAF-10 to QAF-12 resolved; EC-1 withdrawn. Oracle re-keyed to form 3's LastModified reference: option a 0/3120 violating, option b's stated limit counted; the revision-2 model is frozen. New: QAF-13 MEDIUM (absent reference), QAF-14 LOW (B-10 liveness); NM-26 to NM-28; B-7 and B-10 amended. |
 | 2026-11-19T00:25 | planner-hooks-017 (revision 4, agent-output `a97628d`) | Phase 1 re-key | Phase 1 re-key. QAF-13 and QAF-14 resolved; the oracle's run at revision 4 is byte-identical to the committed run. The LastModified assumption is closed into M5-c's stated residue (no measurement owed). NM-29 added. No finding on revision 4. |
 | 2026-11-19T04:14 | code-reviewer-hooks-017 (M4 hand-off, review `e12881a`) | Register rows from M4's Phase 2 | Phase 2, M4: B-12 appended (M4-b's two prompts and a lone prompt, by Enter, in a real browser), because B-3 as written does not observe the Round 4 assumption. The Resumption State was re-stated and its placeholder heading stamp replaced with the checkpoint's commit minute (03:11Z), as `check-repo.js` HEADING-STAMP flagged. The M4 verdict is in `qa/017-existing-items-backlog-m4-qa.md`. |
+| 2026-11-19T05:12 | steering-roadmap (cross-session brief; plan revision 6, agent-output `21e61eb`) | Phase 1 re-key: M8 and M5-0 limb 3 | Phase 1 re-key. M8-a's listings and M8-d's counts re-run at `1ad625e`, `a5dd76f` and `5c3d03f`: the plan's figures hold. Limb 2's capture: 3 prefix members and 1 non-member. The 05:01Z focus capture preserved under `qa-phase1-r6/`. New: QAF-20 MEDIUM (M8's focus positions never reach the changed hotkey; the human-observable form reads the same on both trees) and QAF-21 MEDIUM (limb 3 cannot tell a kept-alive function from a resumed one; its outcomes do not cover every subset of the lines). NM-30 to NM-38; B-13 and B-14 appended; B-5 reconciled. The brief's two premises (Resumption State at `84cad8d`; the stamp at line 643) were stale, both already settled at `de8d171`. |
 
 ## Inputs read
 
@@ -297,7 +298,7 @@ record, are authoritative on each row's execution state once written; this table
 | B-2 | observable pre-release | M3-a and M3-b human-observable | UAT browser on the local stack, signed in through Discord to loopback | uat | M3 landed | The signed-out draft is there after sign-in → open message → back. Message *n*'s unsaved edits are back after the forced sign-out. | If the draft is gone, item 4's main loss is not fixed | uat | UAT document | open |
 | B-3 | observable pre-release | M4 human-observable | UAT browser, local stack: with unsaved edits, click a link away from the editor that the page renders (QAF-8). Cancel, then confirm. | uat | M4 landed | A confirmation appears. Cancel keeps the edits; confirm navigates. | If the click navigates without asking, M4 is unfixed (G-6 shows that today) | uat | UAT document | open |
 | B-4 | observable pre-release | M5 human-observable | UAT browser, local stack, local generator from the chain tip, loopback S3 stub | uat | M5 and M6 landed | Generator stopped: the old preview still shows after a save. Generator running: the new one shows. | If the image breaks, item 2 is unfixed | uat | UAT document | open |
-| B-5 | observable pre-release | M5-0 limb 2 (`waitUntil` from a Pages API route), with the run without `waitUntil` beside it | the preview deployment's runtime logs | devops; push behind his approval (D-15) | Before M5 code | The line appears with `waitUntil`; H-2's run is recorded beside it | If it is absent, M5 and M6 stop and go to him with the fallback (D-15) | devops | devops's M5-0 record under `verification/017/m5-0/` | open |
+| B-5 | observable pre-release | M5-0 limb 2 (`waitUntil` from a Pages API route), with the run without `waitUntil` beside it | the preview deployment's runtime logs | devops; push behind his approval (D-15) | Before M5 code | The line appears with `waitUntil`; H-2's run is recorded beside it | If it is absent, M5 and M6 stop and go to him with the fallback (D-15) | devops | devops's M5-0 record under `verification/017/m5-0/` | open. *Reconcile 2026-11-19T05:12Z:* limb 2 ran on his approval (D-27), and the outcome is **kept alive**: under one request id the post-response line came 5006 ms after the control line, and `mode=without` wrote the control line alone (`deployment/017-existing-items-backlog-m5-0-probe-deployment.md`, `d61f445`, which is authoritative on this row's execution). This pass re-read the capture: 3 prefix members and 1 summary non-member (`qa-phase1-r6/limb2-prefix-member-check.out`). Limb 3 is B-14. |
 | B-6 | post-deploy-observable | RK-1, in his terms: after the website and generator deploys, he edits and saves one of his messages and looks at its preview in the message list | his look | owner | Both deploys live; the running-code precondition B-11 passed | The preview shows the new edit within a minute | If it still shows the old one, post-response work is not running in production (RK-1) | owner | carrier handoff created by devops at Stage 1 | open |
 | B-7 | post-deploy-observable | D-8's failure line is readable in production | Vercel runtime logs for the production deployment, read by devops | devops | Website deploy live. **Liveness precondition:** one existing server line (the tRPC `onError` `console.error` in `pages/api/trpc/[trpc].ts`) shown readable first. Not yet established; owner-needing (above). *Reconcile 2026-11-18T23:45Z:* liveness **met** by a different line. The tRPC `onError` is development-only. Function stderr is readable in production, 14 records on `/api/trpc/message.get` in 23 h (`qa-phase1/vercel-runtime-logs/`). Retention is under one day, so the reader runs at least daily, as a crontab reader installed by devops at Stage 1. The count command is `npx vercel@66.2.0 logs -p hooks-gg-website --scope hooks-gg -e production -s 23h --json -q '<D-8 fixed prefix>'`, with the existing `/api/auth/session` cold-start lines as its negative control. | At AN-4's rate (15 non-successes in 16847 requests; 196 generations in 30 days), the expected count of failure lines is about 0.17 per 30 days. **A zero is evidence of nothing.** This row is a health check. The fixed-versus-unfixed distinction for item 2 is B-4, pre-release. | If no failure line can be read even under a planted failure, D-8's countability is not delivered | devops | carrier handoff (Stage 1) | open |
 | B-8 | post-deploy-observable | His BC-14 report, in his terms: two tabs on one message in production; in tab 1 he saves and keeps typing at once | his look | owner | Website deploy live; B-11 | Tab 1 shows no "Message Update Detected"; tab 2 shows it. Unfixed production shows it in tab 1 (AN-1 outside-class member, verified at hook level), so this row distinguishes fixed from unfixed. | If tab 1 shows it, his report stands | owner | carrier handoff (Stage 1) | open |
@@ -305,6 +306,8 @@ record, are authoritative on each row's execution state once written; this table
 | B-10 | post-deploy-observable | RK-7: the generator's failure-stack count after release, against AN-4's 15 | `verification/015/pig-host-read.sh` shapes plus AN-4's count script, over `ssh hooks-pig` | devops | Generator deploy live, plus 30 days of traffic (about 196 generations) | About 0.2 new stacks per 30 days at the old rate. A rise names stored messages whose `/preview` now answers an error status. | Stored messages stop re-imaging and stay stale | devops | carrier handoff (Stage 1) | open |
 | B-11 | post-deploy-observable | Running-code precondition for B-6 to B-9: production's deployment contains the release commit | `vercel inspect https://hooks.gg` (commit) with `merge-base --is-ancestor`; the generator host's start line after the `prod.yml` run | devops | Each deploy | Containment exit 0; a generator start after the push | If it is not contained, B-6 to B-9 read old code | devops | deployment record | open |
 | B-12 | observable pre-release | M4-b's "both stay open and each is answered on its own", in a real browser and with Enter. This is CR-9's and the Round 4 review's Assumption Not Checked, which B-3 as written does not observe. Added at M4's Phase 2 (`qa/017-existing-items-backlog-m4-qa.md`). | UAT stage browser, local stack, two tabs on one message, real Pusher app (B-1's set-up; depends on B-1's id move and the E-9 stub). **Limb 1:** in tab 1, with unsaved edits, click the user icon so the link prompt opens. Then save the same message in tab 2, so "Message Update Detected" opens in tab 1 above it. Count the open `[role="dialog"]` elements and note which one holds `document.activeElement`. Press Enter once. Record which prompt answered and whether the other is still open, then answer the other with a click. **Limb 2:** with a lone link prompt open, press Enter once. | uat; fallback subject the owner | M4 landed; B-1's two-tab set-up working | **Limb 1:** two dialogs open. One Enter answers only the focused one; the other stays open and is answered on its own. **Limb 2:** Enter answers the link prompt and the page navigates. | **Limb 1:** if one Enter answers both, a user who presses Enter to dismiss the update notice also leaves the page and loses his edits. If the link prompt vanishes when the update prompt arrives, his pending answer was dropped (NM-25 in a real browser). **Limb 2:** if Enter leaves a lone prompt open, a keyboard user cannot answer it (M4's Assumption Not Checked). | uat | the chain's UAT document (pass to be briefed) | open |
+| B-13 | observable pre-release | M8's human-observable form, M8-b and M8-c, in a real browser. Settles M8-b, M8-c and RK-11. Added at the revision 6 re-key. | UAT stage browser, local stack, two tabs A and B on one saved message, signed in (B-1's set-up and id move; the E-9 stub). Before every Enter, record `document.activeElement` (tag, text, and the dialog holding it). **Limb 1, distinguishing:** in A, open a field's "Delete Field?". Save from B so "Message Update Detected" opens in A over it. Click U's message text, so focus lies in U off its buttons. Press Enter once. Record which dialogs answered: did the field go, and did Reload run? **Limb 2:** the same with the image dialog (an image loaded) in place of W. **Limb 3, RK-11:** the same set-up as limb 1, but Enter straight after U opens, with no click. **Limb 4, M8-c:** W alone. Click its text, then press Enter once. | uat; fallback subject the owner | M8 landed; B-1's two-tab set-up working | **Limbs 1 and 2:** Reload only; W or I stays open and is answered on its own. At website `5c3d03f` (unfixed), the helper's jsdom capture predicts W's confirm (or I's set) and Reload together. One observation of two answers refutes the fix by construction. **Limb 3:** Reload only on both trees, if U focuses its autofocused Reload. That makes it a health check and RK-11's reading, not the distinguishing limb. **Limb 4:** the field is deleted, as at `1ad625e`. | **Limbs 1 and 2:** if one Enter answers both, a user who presses Enter to take the update notice also deletes the field, or sets the image, in the dialog underneath. **Limb 3:** if the active element after U opens is in W or I, RK-11's premise is wrong, and the plan learns which dialog a browser focuses. **Limb 4:** if a lone W no longer answers Enter with focus on its text, M8 changed the lone dialog (M8-c, NM-33). If, in limb 1 or 2, the click leaves focus on a button or outside every dialog, the limb read nothing: say so, and do not record a pass. | uat | the chain's UAT document (pass to be briefed) | open |
+| B-14 | observable pre-release | M5-0 limb 3, post-response life across T (OQ-15 option a). Settles M5-f's T = 40 s premise and RK-2's platform cut. Depends on OQ-15. Added at the revision 6 re-key. | **Primary:** the probe deployment's runtime logs, `npx vercel@66.2.0 logs … --deployment <probe URL> --json` (limb 2's instrument; the records carry `timestamp`, `requestId` and `message`). Read with QAF-21's checks: every line carries the probing request's `requestId`; each line's `timestamp` minus the request's start agrees with its `elapsedMs` within a stated tolerance; no other request reaches the deployment until 60 s after the probing request starts. | devops; his push (OQ-15) | His OQ-15 answer is (a). The limb 3 branch is built. E-6 (what the preview connects to) is established before the push. The project's protection-bypass entries are counted before the run and restored after it (D-28). | **Lasts:** five lines, at 5, 15, 30, 45 and 55 s, under one `requestId`, each timestamp agreeing with its `elapsedMs`. That is the platform documentation's reading (Inference), and limb 2 saw 5 s. **Cut at L:** an unbroken run from the 5 s line, ending at L < 55 s. **Not readable:** no control line, no deployment, or an absent line with a later one present (QAF-21). | If the read is **Cut at L**, M5 and M6 code stop and a revision re-derives T against L (the plan's limb 3). If lines appear late, or under a second request's `requestId`, the run measured a resumed function, not one kept alive, and is **not readable**, never Lasts. If he answers (b), the row closes **dropped** by the pre-declared disposition: RK-2 carries 5 s to 55 s as Inference, and no instrument, before or after release, sees a cut. | devops | devops's M5-0 record (`deployment/017-existing-items-backlog-m5-0-probe-deployment.md`), capture under `verification/017/m5-0/limb3/` | open |
 
 G-6 (M4-c's browser red) was executed in this pass and is not a row: `g6-walk/`, result above.
 
@@ -642,6 +645,138 @@ Read: the diff `b3d811e..a97628d` over the plan (48 added and 17 removed lines, 
 
 No finding on revision 4.
 
+## Phase 1 re-key on plan revision 6 (agent-output `21e61eb`)
+
+**Brief**: steering-roadmap, cross-session message at 05:1xZ. The brief names "owed re-verdicts" row 3 of the plan's
+Reading Order: M8-a to M8-d keyed into the register and named mutants; M8's human-observable row; and M5-0 limb 3's
+outcomes and capture. Two of the brief's premises were stale when it was read:
+- "your Resumption State is at 84cad8d": this document re-stated it at `de8d171` and again at `9f5dbb1`.
+- "the HEADING-STAMP placeholder at line 643": removed at `de8d171`. `grep -c 'T03:1x'` gives 0.
+
+**Read**: the diff `a97628d..21e61eb` over the plan (264 added and 45 removed lines, `git diff --numstat`), which spans
+revisions 5 and 6. Read whole: § `### M8`, M5-0 limb 3, OQ-15 and the M5-f lines the diff touches. Read as diff hunks:
+RK-2, RK-11, X-7, X-20, the Testing Strategy's M8 line and the Planner batch. Also read:
+- steering's 04:50Z and 05:01Z ruling blocks;
+- the 05:01Z refuting helper's raw capture, which sits in another session's scratchpad. I copied it to
+  `verification/017/qa-phase1-r6/focus-refute-res.copy.txt`; its sha256 matches the source, prefix `850499a51c1b5820`;
+- limb 2's runtime-log capture `verification/017/m5-0/devops/probe-runtime-logs-first-run.jsonl` (`d61f445`).
+
+Dispositions on revision 4 that this delta touches: none. QAF-1 to QAF-14 stay RESOLVED, and the M5-e oracle is not touched
+by revisions 5 and 6 (no hunk in M5-a to M5-e).
+
+### New measurements (captures under `verification/017/qa-phase1-r6/`)
+
+- **M8-a's locating instruments at three trees** (`m8-class-listings.out`, over production source):
+  - `useHotkeys(['enter']` gives 3 hits at each of `1ad625e`, `a5dd76f` and `5c3d03f`: `ConfirmationDialog`,
+    `ImageUploader` and `WarningDialog`.
+  - `addEventListener('keydown'` gives no line (exit 1) at all three.
+  - M8-d's count, `tagName !== '~/components/Button'`: 3 at `1ad625e`; 2 at `a5dd76f` and at `5c3d03f`
+    (`ImageUploader` and `WarningDialog`).
+
+  So the plan's figures hold. The predicate has a real member (`WarningDialog` at `5c3d03f`) and a real non-member
+  (`ConfirmationDialog` at `a5dd76f`, scoped by M4).
+- **Where Enter reaches the document**, from the helper's capture (jsdom; real `WarningDialog`, `ImageUploader` and
+  `ConfirmationDialog` at website `5c3d03f`). Each line is a keydown dispatched on `document.activeElement`, as a real key
+  press is:
+
+  | Focus | Enter fires (website `5c3d03f`, unfixed) |
+  |---|---|
+  | W's text, U not open | `warn.onConfirm` |
+  | U's text, with W open underneath | `warn.onConfirm`, `RELOAD`: **the defect** |
+  | U's text, with I open underneath | `img.onClose`, `img.submit`, `RELOAD`: **the defect** |
+  | A react-aria `Button` (U's Reload; W's own) | keydown does not reach `document`; on keyup only that button's press runs (`RELOAD`; `warn.onConfirm` and `warn.onClose`) |
+  | I's URL `input` | nothing (the hook ignores form tags) |
+  | Right after a dialog opens | `document.activeElement` is the dialog's own `DIV`, off its buttons |
+
+  So the defect shows only while focus sits in a dialog **off its buttons**. Focus on a button gives one answer before the
+  fix as after it. In the code, U's Reload carries `autoFocus`, so in a real browser it may be the element U focuses
+  (RK-11). If it is, an Enter pressed straight after U opens answers Reload alone on the unfixed tree too.
+- **M5-f's first real member** (`limb2-prefix-member-check.out`). Limb 2's first-run capture holds 4 records. 3 are `log`
+  records whose `message` starts with `preview-image-failure` (`probe-control mode=without`, `probe-post-response mode=with
+  … elapsedMs=5006`, `probe-control mode=with`), each with `requestPath /api/waituntil-probe`. The 4th is a `summary`
+  record and does not match. So the prefix predicate accepts 3 real members and rejects a real non-member, as the plan's
+  "3 records" says. B-7's production negative control (the `/api/auth/session` lines) stands as recorded at revision 1.
+
+### Findings on revision 6 (to `planner-hooks-017`)
+
+QAF-20 MEDIUM Phase 1
+- **What is missing.** M8-b's and M8-c's focus positions never make the changed code carry the decision.
+  - M8-c lists, for W, the close button, Cancel and the confirm button. For I it lists the close button, the URL field,
+    Cancel, Clear and Save.
+  - Every one is a react-aria `Button`, whose Enter never reaches `document`, or a form field, which the hook ignores.
+    Neither reaches the hotkey M8 changes.
+  - M8-b's table says "Focus in W" and "Focus in U" without saying where in the dialog.
+- **The consequence.** A U-focused case with focus on U's autofocused Reload passes at website `5c3d03f`, with the defect
+  in place. Its red run cannot be recorded, and a fix that leaves W's or I's hotkey unscoped passes it.
+- **The human-observable form shares the gap.** "Press Enter once" names no focus position, so in a real browser that
+  focuses Reload, the walk reads the same before and after the fix.
+- **The property this asks to be checked.** M8-b's "Focus in" column names the position, "in the dialog, off its
+  buttons" (the panel or its text). The red rows are W and U, and I and U, with focus in U off its buttons: at `5c3d03f`
+  each fires the member and Reload. The W-focused and I-focused rows are positive controls that stay green at `5c3d03f`.
+  M8-c adds the same off-button position for W and I, alone. Its `1ad625e` literal is the hotkey's answer (W:
+  `onConfirm`; I: `onClose` and `submit` with an image loaded). Only there does the hotkey decide alone (NM-33).
+- **Register.** B-13 below already places focus off the buttons, so the row does not wait on the plan's wording.
+
+QAF-21 MEDIUM Phase 1
+- **What is missing.** M5-0 limb 3's outcomes are read from the probe's own lines and their self-reported elapsed
+  milliseconds. Nothing in the read can tell a function that ran on to 55 s from one that was suspended after the response
+  and resumed by a later request to the same deployment. A timer resumed that way writes its 30, 45 and 55 s lines late,
+  with an `elapsedMs` that still reads correct. That is a false **Lasts**, and T = 40 s would then ship resting on it.
+- **Also undefined.** The three outcomes do not cover every subset of the five lines. For example, the 5, 30 and 45 s lines
+  present with 15 absent is neither "all five" nor "the last line at L < 55 s with every line before it".
+- **The property this asks to be checked.**
+  - Each line's platform `timestamp` minus the request's start agrees with its `elapsedMs` within a stated tolerance.
+  - Every line carries the probing request's `requestId`.
+  - No other request reaches the probe deployment until 60 s after the probing request starts. Limb 2's `mode=without`
+    request is sent after that window, or to a second route.
+  - Any absent line with a later line present is **not readable**, a log-delivery fault, never a cut. L is the last line
+    of an unbroken run from the 5 s line.
+- **Register.** B-14 below carries these as its instrument. They are owed to the plan's limb 3 text as well, because devops
+  works from the plan.
+
+### Named mutants added (M8)
+
+- NM-30: `WarningDialog`'s Enter answers whatever holds focus (the `5c3d03f` behaviour). Its red row is W and U, focus in
+  U off its buttons. M8-b.
+- NM-31: the same for `ImageUploader`. Its red row is I and U, focus in U off its buttons. M8-b.
+- NM-32: the gate accepts focus inside any dialog (`document.querySelector('[role="dialog"]')`, or any
+  `[role="dialog"]` that contains the focus), so with U focused, W still answers. M8-b.
+- NM-33: the gate tests only the content wrapper (`ref.current.contains`), so a lone W or I with focus on its panel
+  root, off its buttons, stops answering. The implementer's first form for CR-9 was this. M8-c, off-button position.
+- NM-34: `ImageUploader`'s hotkey stays enabled while closed. It is mounted with `unmount={false}`, so a closed instance
+  answers an Enter meant for an open one. M8-b's last row.
+- NM-35: one ref shared by every `ImageUploader` instance (module scope, or the first mounted instance's), so an
+  instance's gate looks at another instance's dialog. M8-b, "each mounted instance".
+- NM-36: `enableOnFormTags` set, so Enter in I's URL field submits. M8-c, the URL-field row.
+- NM-37: I's answer runs `submit` with no image loaded. M8-b, "set only while an image is loaded".
+- NM-38: lifting the shared check into one function changes `ConfirmationDialog`'s scope (for example `closest` dropped).
+  M4's Enter cases must stay green unchanged. M8's "form, mirrored" line.
+
+M8 adds no entry to the Irreversible Side-Effect Register. W's confirm and I's submit change editor state in the page,
+which is not I/O leaving the process. A wrong answer is a lost field or image in unsaved edits, which B-13's failure mode
+states. So M8's Phase 2 sweep is owed by the named mutants above, not by the register.
+
+**Entry condition** (for the implementer):
+- M8's DOM cases use the real `react-hotkeys-hook`, as M4's Enter case does after CR-9; a module mock of the library hides
+  the defect (M4's Round 4).
+- Every case sets focus by moving `document.activeElement` to the stated element, and asserts it before the Enter.
+- The `1ad625e` literals for M8-c are recorded from a run in an export of `1ad625e`.
+
+### Register amendments
+
+Appended: B-13 (M8's human-observable form) and B-14 (M5-0 limb 3). B-5 carries a reconcile line for limb 2's run. The
+register's other rows are unchanged; the check predicate was "a row whose instrument or premise names M5-0, M5-f, a
+dialog's Enter, or B-12's two-prompt set-up". Its matches were B-5, B-7 (M5-f's prefix and first member: re-checked
+above, unchanged) and B-12 (M4's two prompts; M8 does not touch `ConfirmationDialog` beyond NM-38's no-change, so it is
+unchanged).
+
+### Assumption Not Checked (this pass)
+
+This pass assumes that the helper's jsdom capture carries over to a real browser in one respect: Enter on a focused
+react-aria `Button` never reaches `document`. It does not test that. If it is false, the U-on-Reload position is a red row
+too. QAF-20's rows stay right, but B-13's limb 2 may then read "two answered" at the unfixed tree where it predicts one.
+The owner is UAT, at B-13. Named again in the hand-off.
+
 ## Resumption State (2026-11-19T03:11Z, checkpoint on steering's word; re-stated 2026-11-19T04:14Z at M4's Phase 2)
 
 - **Done.** Phase 1 and its re-keys to revision 4 (`3af80aa`). Phase 2 per milestone, each in its own document:
@@ -653,7 +788,7 @@ No finding on revision 4.
     (plan R-20, R-23). Register row B-12 appended.
   - Findings: QAF-15 LOW is the lint stdin artifact, open as an instrument note in `verification/017/README.md` for M7-b.
     QAF-16 and QAF-17 are RESOLVED. QAF-18 is RESOLVED (refresh at `5c3d03f`). QAF-19 went to the Planner batch under steering's 04:14Z M4 cap (`a805d4d`).
-- **Next.** M5 and M6 (after M5-0), and M7. Then the effort-final sweep. Then the plan-level `QA Complete`, and UAT.
+- **Next.** The planner folds QAF-20 and QAF-21; this stage re-keys on the revision that follows. Then M5 and M6 (after M5-0 limb 3, B-14), M8 and M7. Then the effort-final sweep. Then the plan-level `QA Complete`, and UAT.
 - **Approach, per milestone.** Make a new `qa/017-existing-items-backlog-m<n>-qa.md`. Then:
   1. Export the SHA with `git archive`, link `node_modules`, and copy `next-env.d.ts` and `.next/types/` from the shared
      tree, or the typecheck fails with TS2307.

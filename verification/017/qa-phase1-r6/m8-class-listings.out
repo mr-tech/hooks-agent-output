@@ -1,0 +1,28 @@
+# 1ad625e useHotkeys(['enter'] production
+1ad625e:src/components/ConfirmationDialog.tsx:14:  useHotkeys(['enter'], () => {
+1ad625e:src/components/ImageUploader.tsx:86:  useHotkeys(['enter'], () => {
+1ad625e:src/components/WarningDialog.tsx:19:  useHotkeys(['enter'], () => {
+# 1ad625e addEventListener('keydown' production
+exit 1
+# 1ad625e tagName compare count
+1ad625e:src/components/ConfirmationDialog.tsx:1
+1ad625e:src/components/ImageUploader.tsx:1
+1ad625e:src/components/WarningDialog.tsx:1
+# a5dd76f useHotkeys(['enter'] production
+a5dd76f:src/components/ConfirmationDialog.tsx:16:  useHotkeys(['enter'], () => {
+a5dd76f:src/components/ImageUploader.tsx:86:  useHotkeys(['enter'], () => {
+a5dd76f:src/components/WarningDialog.tsx:19:  useHotkeys(['enter'], () => {
+# a5dd76f addEventListener('keydown' production
+exit 1
+# a5dd76f tagName compare count
+a5dd76f:src/components/ImageUploader.tsx:1
+a5dd76f:src/components/WarningDialog.tsx:1
+# 5c3d03f useHotkeys(['enter'] production
+5c3d03f:src/components/ConfirmationDialog.tsx:16:  useHotkeys(['enter'], () => {
+5c3d03f:src/components/ImageUploader.tsx:86:  useHotkeys(['enter'], () => {
+5c3d03f:src/components/WarningDialog.tsx:19:  useHotkeys(['enter'], () => {
+# 5c3d03f addEventListener('keydown' production
+exit 1
+# 5c3d03f tagName compare count
+5c3d03f:src/components/ImageUploader.tsx:1
+5c3d03f:src/components/WarningDialog.tsx:1
