@@ -938,3 +938,19 @@ row|set_config|current_setting'` -- src prisma → exit 1; no migration files tr
 cron; `next.config.js` redirects touch `/support` and `/message/m/:id` only. Not readable from this box: the
 production database's own settings ("no DB instrument on this box"); any policy there could not tell callers
 apart, since every query runs on one pooled login with no caller identity.
+
+## 2026-11-19T08:45Z — browser check: his order and design (selections)
+
+Third access ask re-put 08:44Z (ledger block "2026-11-19T08:44Z — steering-roadmap-hooks"; same four
+options). **His typed answer:** *"Own more check using a browser"* — read by this thread as "one more check
+using a browser"; no handling option chosen, so the handling question is still open. Design put 08:45Z
+(ledger block "2026-11-19T08:45Z — steering-roadmap-hooks"): C1 only on production (C2 there would capture a
+real user's next message), driven by a uat-role session (its definition carries test account 1's browser;
+this thread has none). Options: *Your throwaway message (Recommended)* — he saves one, test account 1 opens it,
+read only / **Test account 2's message** — account 2 signs in to hooks.gg in its own new Chrome profile (a
+Discord challenge is his) and saves a throwaway message; account 1 opens it / *You check it yourself*.
+**Chosen by selection: "Test account 2's message".** `uat-access-check` started (brief
+`backlog-2026-11-18-briefs/uat-access-check.md`, Duties negated: UAT document and release verdict), category
+`access-defects`; evidence to `verification/access-defects/browser-check/`. Not chain 017's work.
+**This thread's gate event, disclosed in the round:** `record-write-gate-hook` refused a shell `sed -i` on
+the brief (a block-heading fix); re-issued with the Edit tool, the form the gate names.
