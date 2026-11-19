@@ -1,0 +1,3 @@
+src/components/__tests__/ImageUploader.enter-scope.test.tsx
+src/components/__tests__/WarningDialog.enter-scope.test.tsx
+src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx

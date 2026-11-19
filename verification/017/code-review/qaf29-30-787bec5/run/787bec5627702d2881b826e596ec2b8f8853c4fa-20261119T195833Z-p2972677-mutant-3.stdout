@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/eded5a52-a0f4-44e6-82d8-56dbcd3e0493/scratchpad/mr-qaf2930/20261119T195833Z-p2972677/mutant-3
+
+ ❯ |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx (15 tests | 1 failed) 508ms
+     × ConfirmationDialog keeps its message and its footer in one wrapper that takes no box of its own, so the panel's layout spaces them 28ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 65 passed (66)
+   Start at  19:58:45
+   Duration  2.22s (transform 640ms, setup 62ms, import 2.61s, tests 1.16s, environment 1.87s)
+

@@ -1,0 +1,4 @@
+second instrument at tip: files 60, worse 0 [], not-linted lintable []
+control modified+1: src/@types/global.d.ts @typescript-eslint/no-unused-vars base 13 -> planted 14 | compare.mjs: changed lintable files compared: 60; rule counts above the base: 1 | second: worse 1
+control added-with-finding: src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx no-console base 0 -> planted 1 | compare.mjs: changed lintable files compared: 60; rule counts above the base: 1 | second: worse 1
+control renamed+1: src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts object-curly-newline base 4 -> planted 5 | compare.mjs: changed lintable files compared: 60; rule counts above the base: 1 | second: worse 1

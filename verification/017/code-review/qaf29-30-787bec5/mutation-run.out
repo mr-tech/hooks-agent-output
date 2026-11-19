@@ -1,0 +1,6 @@
+r0-write-deleted KILLED 3.0
+r0-write-wrong-data KILLED 2.91
+confirmation-box-class KILLED 2.93
+warning-footer-outside KILLED 2.88
+uploader-class-dropped KILLED 2.98
+5 of 5 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob b956f0e2d3c4d3de42f8f491a3e20b072d79e973))

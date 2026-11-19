@@ -1,0 +1,65 @@
++++ b/src/components/__tests__/ImageUploader.enter-scope.test.tsx
++function bodyWrapperOf(title: string) {
++  const footer = controlOf(dialogOf(title), 'Cancel').parentElement as HTMLElement;
++  return footer.parentElement as HTMLElement;
++}
++
++
++describe('ImageUploader, the body inside the panel', () => {
++  it('keeps its URL field and its footer in one wrapper that takes no box of its own, so the panel\'s layout spaces them', async () => {
++    await mountUploader({ image: URL_A, withUpdate: false });
++
++    const wrapper = bodyWrapperOf(IMAGE_TITLE);
++
++    expect(wrapper.classList.contains('contents')).toBe(true);
++    expect(wrapper.contains(dialogOf(IMAGE_TITLE).querySelector('input'))).toBe(true);
++  });
++});
++++ b/src/components/__tests__/WarningDialog.enter-scope.test.tsx
++function bodyWrapperOf(title: string) {
++  const footer = buttonOf(title, 'Cancel').parentElement as HTMLElement;
++  return footer.parentElement as HTMLElement;
++}
++
++
++describe('WarningDialog and ConfirmationDialog, the body inside the panel', () => {
++  it.each([
++    ['WarningDialog', WARNING],
++    ['ConfirmationDialog', UPDATE],
++  ])('%s keeps its message and its footer in one wrapper that takes no box of its own, so the panel\'s layout spaces them', async (_name, title) => {
++    await mountWarning({ withUpdate: true });
++
++    const wrapper = bodyWrapperOf(title);
++
++    expect(wrapper.classList.contains('contents')).toBe(true);
++    expect(wrapper.contains(dialogOf(title).querySelector('p'))).toBe(true);
++  });
++});
++++ b/src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx
++  search: '',
++  fromCode: undefined as unknown,
++  useSearchParams: () => new URLSearchParams(hoisted.search),
++    queryData: {
++      'message.getOne': () => (hoisted.pathname.includes('/m/0/') ? undefined : hoisted.stored),
++      'message.getFromCode': () => hoisted.fromCode,
++    },
++  hoisted.search = '';
++  hoisted.fromCode = undefined;
++describe('MessageProvider, a share code opened at route 0', () => {
++  const SHARED = { messageId: '1135299649184485458', guildId: '1', data: { content: 'shared by code' } };
++
++  it('becomes this tab\'s route-0 draft, shown when route 0 is opened again without the code', () => {
++    hoisted.search = 'code=abc';
++    hoisted.fromCode = SHARED;
++    mount();
++    expect(content()).toBe('shared by code');
++    unmountDom();
++
++    hoisted.search = '';
++    hoisted.fromCode = undefined;
++    mount();
++
++    expect(shown()).toEqual({ data: { content: 'shared by code' }, name: 'New Message' });
++  });
++});
++

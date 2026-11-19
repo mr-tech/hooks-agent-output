@@ -1,0 +1,6 @@
+basename ImageUploader.enter-scope.test.tsx positive True id-token False
+basename WarningDialog.enter-scope.test.tsx positive True id-token False
+basename MessageProvider.stored-draft.test.tsx positive True id-token False
+added lines 65 id-token hits 0
+comment lines added 0
+control True True

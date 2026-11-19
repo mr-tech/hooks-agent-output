@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the body inside the panel > keeps its URL field and its footer in one wrapper that takes no box of its own, so the panel's layout spaces them
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:310:52
+    308|     const wrapper = bodyWrapperOf(IMAGE_TITLE);
+    309|
+    310|     expect(wrapper.classList.contains('contents')).toBe(true);
+       |                                                    ^
+    311|     expect(wrapper.contains(dialogOf(IMAGE_TITLE).querySelector('input…
+    312|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

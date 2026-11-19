@@ -1,0 +1,57 @@
+[
+ {
+  "id": "r0-write-deleted",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "      writeRouteZeroDraft(tmp);\n      loadedRef.current = tmp;",
+  "new": "      loadedRef.current = tmp;",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx",
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx"
+  ]
+ },
+ {
+  "id": "r0-write-wrong-data",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "      writeRouteZeroDraft(tmp);\n      loadedRef.current = tmp;",
+  "new": "      writeRouteZeroDraft({ ...tmp, data: { content: '' } });\n      loadedRef.current = tmp;",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx",
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx"
+  ]
+ },
+ {
+  "id": "confirmation-box-class",
+  "file": "src/components/ConfirmationDialog.tsx",
+  "old": "<div ref={ref} className=\"contents\">",
+  "new": "<div ref={ref} className=\"flex flex-col\">",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx",
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx"
+  ]
+ },
+ {
+  "id": "warning-footer-outside",
+  "file": "src/components/WarningDialog.tsx",
+  "old": "<div ref={ref} className=\"contents\">\n        <p className=\"text-sm\">{message}</p>\n",
+  "new": "<div ref={ref} className=\"contents\">\n        <p className=\"text-sm\">{message}</p>\n      </div>\n      <div>\n",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx",
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx"
+  ]
+ },
+ {
+  "id": "uploader-class-dropped",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "<div ref={ref} className=\"contents\">",
+  "new": "<div ref={ref}>",
+  "tests": [
+   "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx",
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx"
+  ]
+ }
+]
