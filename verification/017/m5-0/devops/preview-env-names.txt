@@ -1,0 +1,50 @@
+# vercel@66.2.0 env ls --scope hooks-gg (project hooks-gg-website), read 2026-11-19; NAME and TARGETS only; the value column (encrypted blobs) is dropped and was never decoded
+ CDN_BUCKET | Preview, Production
+ CDN_ENDPOINT | Preview, Production
+ CDN_KEY | Preview, Production
+ CDN_SECRET | Preview, Production
+ DATABASE_PRIVATE_URL | Production
+ DATABASE_URL | Production
+ DISCORD_BOT_TOKEN | Production, Preview, Development
+ DISCORD_CLIENT_SECRET | Production, Preview, Development
+ DISCORD_PUBLIC_KEY | Development, Preview, Production
+ DISCORD_URL | Production, Preview, Development
+ ENABLE_EXPERIMENTAL_COREPACK | Development, Preview, Production
+ ENCRYPTION_IV | Production, Preview, Development
+ ENCRYPTION_KEY | Production, Preview, Development
+ GITHUB_USER_ACCESS_TOKEN | Production, Preview, Development
+ GITHUB_USER | Development, Preview, Production
+ HOOKS_API_TOKEN | Production, Preview, Development
+ NEXTAUTH_SECRET | Production, Preview, Development
+ NEXTAUTH_URL | Preview
+ NEXT_PUBLIC_CDN_HOST | Development, Preview, Production
+ NEXT_PUBLIC_DISCORD_CLIENT_ID | Production, Preview, Development
+ NEXT_PUBLIC_PUSHER_CLUSTER | Development, Preview, Production
+ NEXT_PUBLIC_PUSHER_KEY | Development, Preview, Production
+ NEXT_TELEMETRY_DISABLED | Development, Preview, Production
+ NO_TS_TUNE | Production
+ PGDATABASE | Production
+ PGDATA | Production
+ PGHOST | Production
+ PGPASSWORD | Production
+ PGPORT | Production
+ PGUSER | Production
+ POSTGRES_DB | Production
+ POSTGRES_PASSWORD | Production
+ POSTGRES_USER | Production
+ PREVIEW_IMAGE_API_KEY | Production, Preview
+ PREVIEW_IMAGE_URL | Preview
+ PREVIEW_IMAGE_URL | Production
+ PUSHER_APP_ID | Development, Preview, Production
+ PUSHER_SECRET | Development, Preview, Production
+ RAILWAY_RUN_AS_ROOT | Production
+ RAILWAY_RUN_UID | Production
+ REDISHOST | Production
+ REDIS_PASSWORD | Production
+ REDISPASSWORD | Production
+ REDISPORT | Production
+ REDIS_PRIVATE_URL | Production
+ REDIS_URL | Production
+ REDISUSER | Production
+ SSL_CERT_DAYS | Production
+ STATBOT_API_KEY | Production, Preview, Development
