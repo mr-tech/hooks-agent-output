@@ -24,6 +24,7 @@ Start: `steering/017-rulings.md` block 2026-11-19T05:19Z; QA Phase 1 at `7eda138
 | Date | Agent | Change |
 |---|---|---|
 | 2026-11-19T06:12 | implementer-hooks-017 | M5 built: dependency at website `9909fb3`, code and 78 cases at `72a1755`, three survivor-closing cases at `f83f2ca`. Full suite 1814 of 1814 exit 0; typecheck exit 0. Real-Postgres lane 11 of 11, 3 of 3 lane mutants killed. Handed to code review at `f83f2ca`. |
+| 2026-11-19T06:30 | implementer-hooks-017 | Round 6 LOWs. CR-14: the `previewWorld` line added under Files Created. CR-15: the interleavings case retitled by behaviour (`leaves the later save's image committed and present`; the chain stays the `play()` argument). Before and after, `previewImage.interleavings.test.ts` runs 38 of 38 passed, exit 0, network-isolated; the pass set differs only in that title; eslint 0. Handoff-At unchanged (a title-only commit on top of `f83f2ca`). |
 
 ## Implementation Summary
 
@@ -120,6 +121,8 @@ under `verification/017/impl/m5/`.
 | `src/server/api/utils/__tests__/helpers/previewWorld.ts` | the in-memory bucket, row, generator and fetch the tests share |
 | `verification/017/m5-pg/` | the real-Postgres lane (README, `run.sh`, `pg-lane.test.ts`, config, stub) |
 | `verification/017/m5-rig/` | the local-walk rig for UAT (`rig.mjs`, `self-test.mjs`, README) |
+
+`previewWorld` (the helper above) decides commit acceptance in its handler with a JavaScript copy of the SQL predicate (nonce null or lower) and does not model the row lock. The instruments that own the statement itself are the commit-statement shape cases (`previewImage.commit-statement.test.ts`), the real-Postgres lane (`verification/017/m5-pg/`), and the attack probes (`verification/017/code-review/m5/attack/`). No test (code review Round 6, CR-14).
 
 ## Patterns Extended
 
