@@ -194,3 +194,16 @@ by its message). Code review and QA now both anchor at `75f1543`. Security is ru
 A `general-purpose-sonnet` helper was started to refute the fixer's "Residue already in production" conclusion, limbs (a) to (c), through
 `appRouter.createCaller` at `75f1543` against a throwaway postgres. This is ahead of the release prompt, per steering.md, Prompting the
 owner.
+
+## 2026-11-19T23:53Z — residue refutation result: (a) and (b) NOT REFUTED, (c) REFUTED as worded
+
+Record: `verification/access-defects/scoping/residue-refutation.md` (`c4b843d`), copied from the helper's scratch result.
+- (a): at `75f1543`, a save drawing a planted id fails once (pg 23505 surfaced as INTERNAL_SERVER_ERROR), and the row is unchanged.
+- (b): at `787bec5`, the collision writes B's name and data onto A's row.
+- (c): the fixer's suggested query `id >= last_value` also returns the latest legitimate row when `is_called` is true. The corrected
+  read for his release question:
+  `select id, fk_users_id, "createdAt" from "Messages" where id > (select last_value from "Messages_id_seq") or (id = (select last_value from "Messages_id_seq") and not (select is_called from "Messages_id_seq"));`
+  The sequence cache above 1 was not tested.
+- The query in the fixer's document (§ Diagnosis) is the uncorrected one. The correction goes to its owner, the fixer (cleared), by
+  pointer in the next necessary send. The release question uses the corrected read.
+- What no query reaches: (b)'s rows the sequence has already passed. That stays a stated limit.
