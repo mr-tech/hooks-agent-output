@@ -1,0 +1,547 @@
++import enter from '~/components/__tests__/helpers/enter';
++import { memo } from 'react';
++import useDialogEnter from '~/utils/hooks/useDialogEnter';
++  const ref = useDialogEnter(onConfirm);
++import useDialogEnter from '~/utils/hooks/useDialogEnter';
++  const ref = useDialogEnter(submit, isOpen);
++      <div ref={ref} className="contents">
++        <div className={styles.flex({ col: true, gap: 2 })}>
++          <TextField
++            inputMode='url'
++            label='Image URL'
++            outerClassName={styles.flex({ col: true, gap: 1, grow: true })}
++            labelClassName='text-sm'
++            inputClassName='bg-input w-full py-1 px-2 rounded'
++            errorClassName='mt-2'
++            placeholder='https://example.com/image.png'
++            onChange={setImageInput}
++            value={imageInput}
++            errorMessage={imageError}
++          />
++          {!localImage ? null : (
++            <div
++              style={{
++                width: '16rem',
++                height: aspectRatio ? `calc(16rem/${aspectRatio})` : 'fit-content',
++              }}
++              className={classNames(styles.flex({ c: true }), 'relative m-auto h-fit max-w-[16rem] overflow-hidden rounded')}
++            >
++              {ringMask ? CropRingOverlay : null}
++              {/* eslint-disable-next-line @next/next/no-img-element */}
++              <img
++                draggable={false}
++                className={classNames(aspectRatio ? 'w-full min-w-fit' : '', 'h-full min-h-fit')}
++                src={localImage}
++                alt="upload preview"
++              />
++            </div>
++          )}
++        </div>
++        <DialogFooter>
++            preset='hyperlink'
++            onPress={onCancel}
++            Cancel
++          <StyledButtonGroup>
++            <Button
++              preset='tertiary'
++              onPress={onClear}
++              isDisabled={!localImage}
++            >
++              Clear
++            </Button>
++            <Button
++              preset='success'
++              onPress={onSetImage}
++              isDisabled={!localImage && !image}
++            >
++              <CheckIcon className={styles.icon} />
++              Save
++            </Button>
++          </StyledButtonGroup>
++        </DialogFooter>
++      </div>
++import useDialogEnter from '~/utils/hooks/useDialogEnter';
++  const ref = useDialogEnter(onConfirm, open);
++      <div ref={ref} className="contents">
++      </div>
++import { act } from 'react';
++import {
++  afterEach, beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import ConfirmationDialog from '../ConfirmationDialog';
++import ImageUploader from '../ImageUploader';
++
++import enter from './helpers/enter';
++import { mountDom, unmountDom } from './helpers/dom';
++
++import ConfirmationProvider, { useConfirmation } from '~/providers/ConfirmationProvider';
++
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++
++const IMAGE_TITLE = 'Enter Image URL';
++const UPDATE = 'Message Update Detected';
++const URL_A = 'https://example.com/a.png';
++
++class FakeImage {
++  width = 1;
++
++  onload: (() => void) | null = null;
++
++  onerror: (() => void) | null = null;
++
++  set src(_url: string) {
++    queueMicrotask(() => this.onload?.());
++  }
++}
++
++const calls = {
++  close: vi.fn(),
++  setImage: vi.fn(),
++  otherClose: vi.fn(),
++  otherSetImage: vi.fn(),
++  updateConfirm: vi.fn(),
++};
++let raise: () => void = () => undefined;
++
++const Capture = () => {
++  const { showConfirmation } = useConfirmation();
++  raise = () => showConfirmation({
++    enabled: true,
++    title: UPDATE,
++    message: 'This message was saved in another tab.',
++    confirmText: 'Reload',
++    onConfirm: calls.updateConfirm,
++  });
++  return null;
++};
++
++function dialogs(title: string) {
++  return Array.from(document.body.querySelectorAll<HTMLElement>('[role="dialog"]'))
++    .filter((d) => d.textContent?.includes(title));
++}
++
++function dialogOf(title: string, index = 0) {
++  const found = dialogs(title)[index];
++  expect(found, `no dialog titled "${title}" at ${index}`).toBeTruthy();
++  return found;
++}
++
++function controlOf(root: HTMLElement, text: string) {
++  const found = Array.from(root.querySelectorAll<HTMLElement>('button'))
++    .find((b) => b.textContent?.includes(text) || b.getAttribute('aria-label')?.includes(text));
++  expect(found, `no "${text}" button`).toBeTruthy();
++  return found as HTMLElement;
++}
++
++function messageTextOf(title: string) {
++  const found = Array.from(dialogOf(title).querySelectorAll<HTMLElement>('p'))[0];
++  found.tabIndex = -1;
++  return found;
++}
++
++function typeInto(input: HTMLInputElement, value: string) {
++  act(() => {
++    Reflect.set(HTMLInputElement.prototype, 'value', value, input);
++    input.dispatchEvent(new Event('input', { bubbles: true }));
++  });
++}
++
++function focusAndCheck(el: HTMLElement) {
++  act(() => { el.focus(); });
++  expect(document.activeElement).toBe(el);
++}
++
++const counts = () => ({
++  close: calls.close.mock.calls.length,
++  setImage: calls.setImage.mock.calls.length,
++  otherClose: calls.otherClose.mock.calls.length,
++  otherSetImage: calls.otherSetImage.mock.calls.length,
++  updateConfirm: calls.updateConfirm.mock.calls.length,
++});
++const NOTHING = {
++  close: 0, setImage: 0, otherClose: 0, otherSetImage: 0, updateConfirm: 0,
++};
++
++async function mountUploader({ image, withUpdate }: { image?: string, withUpdate: boolean }) {
++  mountDom(
++    <ConfirmationProvider>
++      <Capture />
++      <ImageUploader isOpen image={image} onClose={calls.close} setImage={calls.setImage} />
++      {withUpdate ? <ConfirmationDialog /> : null}
++    </ConfirmationProvider>,
++  );
++  await act(async () => {});
++  if (withUpdate) {
++    act(() => { raise(); });
++    await act(async () => {});
++  }
++}
++
++beforeEach(() => {
++  vi.stubGlobal('Image', FakeImage);
++  Object.values(calls).forEach((c) => c.mockClear());
++});
++afterEach(() => {
++  unmountDom();
++  vi.unstubAllGlobals();
++});
++
++describe('ImageUploader, the Enter key', () => {
++  describe('alone, with an image loaded', () => {
++    it.each([
++      ['its dialog element', () => dialogOf(IMAGE_TITLE), { close: 1, setImage: 1 }],
++      ['its URL field', () => dialogOf(IMAGE_TITLE).querySelector('input') as HTMLElement, {}],
++      ['its close button', () => controlOf(dialogOf(IMAGE_TITLE), 'close modal'), { close: 1 }],
++      ['Cancel', () => controlOf(dialogOf(IMAGE_TITLE), 'Cancel'), { close: 1 }],
++      ['Clear', () => controlOf(dialogOf(IMAGE_TITLE), 'Clear'), {}],
++      ['Save', () => controlOf(dialogOf(IMAGE_TITLE), 'Save'), { close: 1, setImage: 1 }],
++    ])('with focus on %s runs only what that control does', async (_name, target, expected) => {
++      await mountUploader({ image: URL_A, withUpdate: false });
++      await act(async () => {});
++      focusAndCheck(target());
++
++      enter();
++
++      expect(counts()).toEqual({ ...NOTHING, ...expected });
++    });
++
++    it('sets the loaded image when Enter is pressed with focus off its buttons', async () => {
++      await mountUploader({ image: URL_A, withUpdate: false });
++      await act(async () => {});
++      focusAndCheck(dialogOf(IMAGE_TITLE));
++
++      enter();
++
++      expect(calls.setImage).toHaveBeenCalledWith(URL_A);
++    });
++  });
++
++  describe('alone, with no image loaded', () => {
++    it('sets an image that loaded after the dialog opened when Enter is pressed off its buttons', async () => {
++      await mountUploader({ image: undefined, withUpdate: false });
++      typeInto(dialogOf(IMAGE_TITLE).querySelector('input') as HTMLInputElement, URL_A);
++      await act(async () => {});
++      await act(async () => {});
++      focusAndCheck(dialogOf(IMAGE_TITLE));
++
++      enter();
++
++      expect(calls.setImage).toHaveBeenCalledWith(URL_A);
++      expect(counts()).toEqual({ ...NOTHING, close: 1, setImage: 1 });
++    });
++
++    it.each([
++      ['its dialog element', () => dialogOf(IMAGE_TITLE), {}],
++      ['its URL field', () => dialogOf(IMAGE_TITLE).querySelector('input') as HTMLElement, {}],
++      ['its close button', () => controlOf(dialogOf(IMAGE_TITLE), 'close modal'), { close: 1 }],
++      ['Cancel', () => controlOf(dialogOf(IMAGE_TITLE), 'Cancel'), { close: 1 }],
++    ])('with focus on %s runs only what that control does', async (_name, target, expected) => {
++      await mountUploader({ image: undefined, withUpdate: false });
++      focusAndCheck(target());
++
++      enter();
++
++      expect(counts()).toEqual({ ...NOTHING, ...expected });
++    });
++  });
++
++  describe('beside the editor\'s update prompt, with an image loaded', () => {
++    it.each([
++      ['its dialog element', () => dialogOf(UPDATE)],
++      ['its message text', () => messageTextOf(UPDATE)],
++    ])('answers only the update prompt with focus on %s', async (_name, target) => {
++      await mountUploader({ image: URL_A, withUpdate: true });
++      await act(async () => {});
++      focusAndCheck(target());
++
++      enter();
++
++      expect(counts()).toEqual({ ...NOTHING, updateConfirm: 1 });
++      expect(dialogs(IMAGE_TITLE)).toHaveLength(1);
++    });
++
++    it('answers only the image dialog with focus on its dialog element', async () => {
++      await mountUploader({ image: URL_A, withUpdate: true });
++      await act(async () => {});
++      focusAndCheck(dialogOf(IMAGE_TITLE));
++
++      enter();
++
++      expect(counts()).toEqual({ ...NOTHING, close: 1, setImage: 1 });
++      expect(dialogs(UPDATE)).toHaveLength(1);
++    });
++
++    it('answers only the update prompt\'s Reload with focus on it', async () => {
++      await mountUploader({ image: URL_A, withUpdate: true });
++      await act(async () => {});
++      focusAndCheck(controlOf(dialogOf(UPDATE), 'Reload'));
++
++      enter();
++
++      expect(counts()).toEqual({ ...NOTHING, updateConfirm: 1 });
++    });
++  });
++
++  describe('with two instances mounted, as the edit page mounts them', () => {
++    async function mountTwo({ firstOpen }: { firstOpen: boolean }) {
++      mountDom(
++        <>
++          <ImageUploader
++            isOpen={firstOpen}
++            image={URL_A}
++            onClose={calls.close}
++            setImage={calls.setImage}
++          />
++          <ImageUploader
++            isOpen={!firstOpen}
++            image={URL_A}
++            onClose={calls.otherClose}
++            setImage={calls.otherSetImage}
++          />
++        </>,
++      );
++      await act(async () => {});
++      await act(async () => {});
++    }
++
++    it('answers nothing from a closed instance, even with focus resting in its hidden dialog', async () => {
++      await mountTwo({ firstOpen: false });
++      const closed = Array.from(document.body.querySelectorAll<HTMLElement>('[role="dialog"]'))
++        .find((d) => d.hidden);
++      expect(closed, 'no closed image dialog').toBeTruthy();
++      focusAndCheck(closed as HTMLElement);
++
++      enter();
++
++      expect(counts()).toEqual(NOTHING);
++    });
++
++    it.each([
++      ['first', true],
++      ['second', false],
++    ])('answers only the open instance when the %s is the open one', async (_name, firstOpen) => {
++      await mountTwo({ firstOpen });
++      const open = Array.from(document.body.querySelectorAll<HTMLElement>('[role="dialog"]'))
++        .find((d) => d.textContent?.includes(IMAGE_TITLE) && !d.hidden && d.getAttribute('hidden') === null);
++      expect(open, 'no open image dialog').toBeTruthy();
++      focusAndCheck(open as HTMLElement);
++
++      enter();
++
++      const expected = firstOpen
++        ? { ...NOTHING, close: 1, setImage: 1 }
++        : { ...NOTHING, otherClose: 1, otherSetImage: 1 };
++      expect(counts()).toEqual(expected);
++    });
++  });
++});
++import { act } from 'react';
++import {
++  afterEach, beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import ConfirmationDialog from '../ConfirmationDialog';
++import WarningDialog from '../WarningDialog';
++
++import enter from './helpers/enter';
++import { mountDom, unmountDom } from './helpers/dom';
++
++import ConfirmationProvider, { useConfirmation } from '~/providers/ConfirmationProvider';
++
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++
++const WARNING = 'Delete Field?';
++const UPDATE = 'Message Update Detected';
++
++const calls = {
++  warnConfirm: vi.fn(),
++  warnClose: vi.fn(),
++  updateConfirm: vi.fn(),
++};
++let raise: () => void = () => undefined;
++
++const Capture = () => {
++  const { showConfirmation } = useConfirmation();
++  raise = () => showConfirmation({
++    enabled: true,
++    title: UPDATE,
++    message: 'This message was saved in another tab.',
++    confirmText: 'Reload',
++    onConfirm: calls.updateConfirm,
++  });
++  return null;
++};
++
++function dialogOf(title: string) {
++  const found = Array.from(document.body.querySelectorAll<HTMLElement>('[role="dialog"]'))
++    .find((d) => d.textContent?.includes(title));
++  expect(found, `no dialog titled "${title}"`).toBeTruthy();
++  return found as HTMLElement;
++}
++
++function buttonOf(title: string, text: string) {
++  const found = Array.from(dialogOf(title).querySelectorAll('button'))
++    .find((b) => b.textContent?.includes(text) || b.getAttribute('aria-label')?.includes(text));
++  expect(found, `no "${text}" button in "${title}"`).toBeTruthy();
++  return found as HTMLElement;
++}
++
++function textOf(title: string) {
++  const found = Array.from(dialogOf(title).querySelectorAll<HTMLElement>('p'))[0];
++  found.tabIndex = -1;
++  return found;
++}
++
++function focusAndCheck(el: HTMLElement) {
++  act(() => { el.focus(); });
++  expect(document.activeElement).toBe(el);
++}
++
++async function mountWarning({ withUpdate }: { withUpdate: boolean }) {
++  mountDom(
++    <ConfirmationProvider>
++      <Capture />
++      <WarningDialog
++        title={WARNING}
++        message="This will delete the field."
++        open
++        confirmText="Delete"
++        onClose={calls.warnClose}
++        onConfirm={calls.warnConfirm}
++      />
++      {withUpdate ? <ConfirmationDialog /> : null}
++    </ConfirmationProvider>,
++  );
++  await act(async () => {});
++  if (withUpdate) {
++    act(() => { raise(); });
++    await act(async () => {});
++  }
++}
++
++const counts = () => ({
++  warnConfirm: calls.warnConfirm.mock.calls.length,
++  warnClose: calls.warnClose.mock.calls.length,
++  updateConfirm: calls.updateConfirm.mock.calls.length,
++});
++
++beforeEach(() => {
++  Object.values(calls).forEach((c) => c.mockClear());
++});
++afterEach(() => {
++  unmountDom();
++});
++
++describe('WarningDialog, the Enter key', () => {
++  describe('alone', () => {
++    it.each([
++      ['its dialog element', () => dialogOf(WARNING), { warnConfirm: 1, warnClose: 0 }],
++      ['its message text', () => textOf(WARNING), { warnConfirm: 1, warnClose: 0 }],
++      ['its close button', () => buttonOf(WARNING, 'close modal'), { warnConfirm: 0, warnClose: 1 }],
++      ['Cancel', () => buttonOf(WARNING, 'Cancel'), { warnConfirm: 0, warnClose: 1 }],
++      ['the confirm button', () => buttonOf(WARNING, 'Delete'), { warnConfirm: 1, warnClose: 1 }],
++    ])('with focus on %s runs only what that control does', async (_name, target, expected) => {
++      await mountWarning({ withUpdate: false });
++      focusAndCheck(target());
++
++      enter();
++
++      expect(counts()).toEqual({ ...expected, updateConfirm: 0 });
++    });
++
++    it('answers nothing once closed', async () => {
++      mountDom(
++        <WarningDialog
++          title={WARNING}
++          message="This will delete the field."
++          open={false}
++          confirmText="Delete"
++          onClose={calls.warnClose}
++          onConfirm={calls.warnConfirm}
++        />,
++      );
++      await act(async () => {});
++
++      enter();
++
++      expect(counts()).toEqual({ warnConfirm: 0, warnClose: 0, updateConfirm: 0 });
++    });
++  });
++
++  describe('beside the editor\'s update prompt', () => {
++    it.each([
++      ['its dialog element', () => dialogOf(UPDATE)],
++      ['its message text', () => textOf(UPDATE)],
++    ])('answers only the update prompt with focus on %s', async (_name, target) => {
++      await mountWarning({ withUpdate: true });
++      focusAndCheck(target());
++
++      enter();
++
++      expect(counts()).toEqual({ warnConfirm: 0, warnClose: 0, updateConfirm: 1 });
++      expect(document.body.textContent).toContain(WARNING);
++    });
++
++    it.each([
++      ['its dialog element', () => dialogOf(WARNING)],
++      ['its message text', () => textOf(WARNING)],
++    ])('answers only the warning with focus on %s', async (_name, target) => {
++      await mountWarning({ withUpdate: true });
++      focusAndCheck(target());
++
++      enter();
++
++      expect(counts()).toEqual({ warnConfirm: 1, warnClose: 0, updateConfirm: 0 });
++      expect(document.body.textContent).toContain(UPDATE);
++    });
++
++    it('answers only the update prompt\'s Reload with focus on it', async () => {
++      await mountWarning({ withUpdate: true });
++      focusAndCheck(buttonOf(UPDATE, 'Reload'));
++
++      enter();
++
++      expect(counts()).toEqual({ warnConfirm: 0, warnClose: 0, updateConfirm: 1 });
++    });
++
++    it('leaves the warning answerable on its own after the update prompt is answered', async () => {
++      await mountWarning({ withUpdate: true });
++      focusAndCheck(dialogOf(UPDATE));
++      enter();
++      await vi.waitFor(async () => {
++        await act(async () => {});
++        expect(document.body.textContent).not.toContain(UPDATE);
++      });
++
++      focusAndCheck(dialogOf(WARNING));
++      enter();
++
++      expect(counts()).toEqual({ warnConfirm: 1, warnClose: 0, updateConfirm: 1 });
++    });
++  });
++});
++import { act } from 'react';
++
++export default function enter() {
++  const target = document.activeElement ?? document.body;
++  const init = {
++    key: 'Enter', code: 'Enter', bubbles: true, cancelable: true,
++  };
++  act(() => { target.dispatchEvent(new KeyboardEvent('keydown', init)); });
++  act(() => { target.dispatchEvent(new KeyboardEvent('keyup', init)); });
++}
++'use client';
++
++import { useRef } from 'react';
++import { useHotkeys } from 'react-hotkeys-hook';
++
++export default (answer: (() => void) | undefined, enabled = true) => {
++  const ref = useRef<HTMLDivElement>(null);
++
++  useHotkeys(['enter'], () => {
++    if (ref.current?.closest('[role="dialog"]')?.contains(document.activeElement)) answer?.();
++  }, { enabled }, [enabled, answer]);
++
++  return ref;
++};

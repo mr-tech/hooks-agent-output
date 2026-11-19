@@ -1,0 +1,28 @@
+## useHotkeys enter
+c37d41a:src/utils/hooks/useDialogEnter.ts:9:  useHotkeys(['enter'], () => {
+## raw keydown
+## useDocumentEventListener keydown
+c37d41a:src/components/EmojiPicker/Root.tsx:58:  useDocumentEventListener('keydown', (e: KeyboardEvent) => {
+## second instrument: any keydown/onKeyDown/useHotkeys
+c37d41a:src/app/message/_layout/Sidebar.tsx:44:  useHotkeys('esc', closeSidebar, { enabled: showSidebar }, [showSidebar]);
+c37d41a:src/app/message/m/[id]/_layout/Navigation.tsx:100:  useHotkeys('esc', closeSidebar, { enabled: showSidebar }, [showSidebar]);
+c37d41a:src/app/message/m/[id]/_layout/Navigation.tsx:374:              onKeyDown={(e) => { if (e.key === 'Escape') hideMenu(); }}
+c37d41a:src/app/message/m/[id]/edit/page.tsx:80:    useHotkeys(keys, callback, {
+c37d41a:src/components/AnchoredPopover/Trigger.tsx:24:    delete props.onKeyDown;
+c37d41a:src/components/DiscordContentEditor/Desktop.tsx:105:            onKeyDown={onBlurKey}
+c37d41a:src/components/DiscordContentEditor/index.tsx:35:  onKeyDown?: KeyboardEventHandler<HTMLDivElement>;
+c37d41a:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx:137:                onKeyDown={onBlurKey}
+c37d41a:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx:119:            onKeyDown={onBlurKey}
+c37d41a:src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx:98:                onKeyDown={onBlurKey}
+c37d41a:src/components/EmojiPicker/Root.tsx:58:  useDocumentEventListener('keydown', (e: KeyboardEvent) => {
+c37d41a:src/components/SlateEditor/index.tsx:17:  onCopy, onKeyDown, renderElementFactory, RenderLeaf, withEmojis, withNormalizeNode,
+c37d41a:src/components/SlateEditor/index.tsx:49:    initialValue, className, onChange, emojiParser, contentParser, onKeyDown: propsOnKeyDown,
+c37d41a:src/components/SlateEditor/index.tsx:136:          onKeyDown={useCallback(onKeyDown(editor, partialMarkdown, propsOnKeyDown), [])}
+c37d41a:src/components/SlateEditor/utils/index.tsx:10:export { default as onKeyDown } from './onKeyDown';
+c37d41a:src/utils/hooks/useDialogEnter.ts:9:  useHotkeys(['enter'], () => {
+## M8-d
+exit 1
+## useDialogEnter callers
+c37d41a:src/components/ConfirmationDialog.tsx:14:  const ref = useDialogEnter(onConfirm);
+c37d41a:src/components/ImageUploader.tsx:86:  const ref = useDialogEnter(submit, isOpen);
+c37d41a:src/components/WarningDialog.tsx:19:  const ref = useDialogEnter(onConfirm, open);

@@ -1,0 +1,316 @@
+{
+ "sha": "c37d41a0f9c81eb05a3078bf58e81ffcfc034d97",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/probe-mutants.json",
+ "command": [
+  "node_modules/.bin/vitest",
+  "run",
+  "--no-cache",
+  "--configLoader",
+  "runner",
+  "--config",
+  "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/vitest.probe.config.mjs"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/probe-mutants.json",
+   "blob": "c9be3f7a95d8a8bfe2b114e3911c951da85f66f7"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  },
+  {
+   "kind": "argument",
+   "path": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m1/vitest.probe.config.mjs",
+   "blob": "361b4c895da72529398b7a0339c60a645d6e0618"
+  }
+ ],
+ "controls": {
+  "[\"src/components/__tests__/WarningDialog.enter-scope.test.tsx\", \"src/components/__tests__/ImageUploader.enter-scope.test.tsx\", \"src/app/message/__tests__/layout.navigation-guard.test.tsx\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-control-1.stderr",
+   "seconds": 4.37,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 64,
+   "tests": [
+    "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+    "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "gate-parent-of-focus",
+   "run": "mutant-1",
+   "file": "src/utils/hooks/useDialogEnter.ts",
+   "tests": [
+    "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+    "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on its dialog element runs only what that control does",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > sets the loaded image when Enter is pressed with focus off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the update prompt with focus on its dialog element",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the image dialog with focus on its dialog element",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the first is the open one",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the second is the open one",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > alone > with focus on its dialog element runs only what that control does",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the update prompt with focus on its dialog element",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the warning with focus on its dialog element",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > leaves the warning answerable on its own after the update prompt is answered",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.27,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-mutant-1.stderr"
+  },
+  {
+   "id": "gate-any-ancestor-panel",
+   "run": "mutant-2",
+   "file": "src/utils/hooks/useDialogEnter.ts",
+   "tests": [
+    "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+    "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > with focus on its dialog element runs only what that control does",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with an image loaded > sets the loaded image when Enter is pressed with focus off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the update prompt with focus on its dialog element",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the image dialog with focus on its dialog element",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the first is the open one",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers only the open instance when the second is the open one",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > alone > with focus on its dialog element runs only what that control does",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the update prompt with focus on its dialog element",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the warning with focus on its dialog element",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > leaves the warning answerable on its own after the update prompt is answered",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.17,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-mutant-2.stderr"
+  },
+  {
+   "id": "gate-focus-anywhere-in-document",
+   "run": "mutant-3",
+   "file": "src/utils/hooks/useDialogEnter.ts",
+   "tests": [
+    "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+    "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the update prompt with focus on its dialog element",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the update prompt with focus on its message text",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the image dialog with focus on its dialog element",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers nothing from a closed instance, even with focus resting in its hidden dialog",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the update prompt with focus on its dialog element",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the update prompt with focus on its message text",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the warning with focus on its dialog element",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the warning with focus on its message text",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > leaves the warning answerable on its own after the update prompt is answered",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.56,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-mutant-3.stderr"
+  },
+  {
+   "id": "enabled-ignored",
+   "run": "mutant-4",
+   "file": "src/utils/hooks/useDialogEnter.ts",
+   "tests": [
+    "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+    "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > with two instances mounted, as the edit page mounts them > answers nothing from a closed instance, even with focus resting in its hidden dialog"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.26,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-mutant-4.stderr"
+  },
+  {
+   "id": "answer-dep-dropped",
+   "run": "mutant-5",
+   "file": "src/utils/hooks/useDialogEnter.ts",
+   "tests": [
+    "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+    "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.54,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-mutant-5.stderr"
+  },
+  {
+   "id": "image-submit-always",
+   "run": "mutant-6",
+   "file": "src/components/ImageUploader.tsx",
+   "tests": [
+    "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+    "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > with focus on its dialog element runs only what that control does"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.29,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-mutant-6.stderr"
+  },
+  {
+   "id": "warning-answer-is-close",
+   "run": "mutant-7",
+   "file": "src/components/WarningDialog.tsx",
+   "tests": [
+    "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+    "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > alone > with focus on its dialog element runs only what that control does",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > alone > with focus on its message text runs only what that control does",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the warning with focus on its dialog element",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the warning with focus on its message text",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > leaves the warning answerable on its own after the update prompt is answered"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.41,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-mutant-7.stderr"
+  },
+  {
+   "id": "confirmation-answer-is-cancel",
+   "run": "mutant-8",
+   "file": "src/components/ConfirmationDialog.tsx",
+   "tests": [
+    "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+    "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+    "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 64,
+   "control_tests_run": 64,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the update prompt with focus on its dialog element",
+    "|dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > beside the editor's update prompt, with an image loaded > answers only the update prompt with focus on its message text",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the update prompt with focus on its dialog element",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > answers only the update prompt with focus on its message text",
+    "|dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx > WarningDialog, the Enter key > beside the editor's update prompt > leaves the warning answerable on its own after the update prompt is answered",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the link prompt and the editor's own prompt > answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.25,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/017/code-review/m8/run/c37d41a0f9c81eb05a3078bf58e81ffcfc034d97-20261119T053814Z-p2348771-mutant-8.stderr"
+  }
+ ],
+ "score": "8 of 8 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; probe-mutants.json (blob c9be3f7a95d8a8bfe2b114e3911c951da85f66f7))"
+}

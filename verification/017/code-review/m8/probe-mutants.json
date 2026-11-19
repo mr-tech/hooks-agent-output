@@ -1,0 +1,90 @@
+[
+ {
+  "id": "gate-parent-of-focus",
+  "file": "src/utils/hooks/useDialogEnter.ts",
+  "old": "if (ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)) answer?.();",
+  "new": "if (ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement?.parentElement ?? null)) answer?.();",
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "id": "gate-any-ancestor-panel",
+  "file": "src/utils/hooks/useDialogEnter.ts",
+  "old": "if (ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)) answer?.();",
+  "new": "if (ref.current?.parentElement?.contains(document.activeElement)) answer?.();",
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "id": "gate-focus-anywhere-in-document",
+  "file": "src/utils/hooks/useDialogEnter.ts",
+  "old": "if (ref.current?.closest('[role=\"dialog\"]')?.contains(document.activeElement)) answer?.();",
+  "new": "if (ref.current?.ownerDocument.contains(document.activeElement)) answer?.();",
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "id": "enabled-ignored",
+  "file": "src/utils/hooks/useDialogEnter.ts",
+  "old": "}, { enabled }, [enabled, answer]);",
+  "new": "}, { enabled: true }, [enabled, answer]);",
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "id": "answer-dep-dropped",
+  "file": "src/utils/hooks/useDialogEnter.ts",
+  "old": "}, { enabled }, [enabled, answer]);",
+  "new": "}, { enabled }, [enabled]);",
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "id": "image-submit-always",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "  if (localImage) submit = onSetImage;",
+  "new": "  submit = onSetImage;",
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "id": "warning-answer-is-close",
+  "file": "src/components/WarningDialog.tsx",
+  "old": "useDialogEnter(onConfirm, open)",
+  "new": "useDialogEnter(onClose, open)",
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ },
+ {
+  "id": "confirmation-answer-is-cancel",
+  "file": "src/components/ConfirmationDialog.tsx",
+  "old": "useDialogEnter(onConfirm)",
+  "new": "useDialogEnter(onCancel)",
+  "tests": [
+   "src/components/__tests__/WarningDialog.enter-scope.test.tsx",
+   "src/components/__tests__/ImageUploader.enter-scope.test.tsx",
+   "src/app/message/__tests__/layout.navigation-guard.test.tsx"
+  ]
+ }
+]

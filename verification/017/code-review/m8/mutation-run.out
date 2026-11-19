@@ -1,0 +1,9 @@
+gate-parent-of-focus KILLED 4.27
+gate-any-ancestor-panel KILLED 4.17
+gate-focus-anywhere-in-document KILLED 4.56
+enabled-ignored KILLED 4.26
+answer-dep-dropped KILLED 4.54
+image-submit-always KILLED 4.29
+warning-answer-is-close KILLED 4.41
+confirmation-answer-is-cancel KILLED 4.25
+8 of 8 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; probe-mutants.json (blob c9be3f7a95d8a8bfe2b114e3911c951da85f66f7))

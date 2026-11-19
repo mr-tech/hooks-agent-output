@@ -1,0 +1,18 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > sets an image that loaded after the dialog opened when Enter is pressed off its buttons
+AssertionError: expected "vi.fn()" to be called with arguments: [ 'https://example.com/a.png' ]
+
+Number of calls: 0
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:164:30
+    162|       enter();
+    163|
+    164|       expect(calls.setImage).toHaveBeenCalledWith(URL_A);
+       |                              ^
+    165|       expect(counts()).toEqual({ ...NOTHING, close: 1, setImage: 1 });
+    166|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2d84e546-bc6d-4e4c-9ace-a079ac110fd8/scratchpad/mr-m8/20261119T053814Z-p2348771/mutant-5
+
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (19 tests | 1 failed) 563ms
+       × sets an image that loaded after the dialog opened when Enter is pressed off its buttons 29ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 63 passed (64)
+   Start at  05:38:37
+   Duration  3.81s (transform 1.04s, setup 79ms, import 3.17s, tests 2.53s, environment 2.11s)
+

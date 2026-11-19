@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks/2d84e546-bc6d-4e4c-9ace-a079ac110fd8/scratchpad/mr-m8/20261119T053814Z-p2348771/mutant-2
+
+ ❯ |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx (19 tests | 7 failed) 569ms
+       × with focus on its dialog element runs only what that control does 103ms
+       × sets the loaded image when Enter is pressed with focus off its buttons 18ms
+       × sets an image that loaded after the dialog opened when Enter is pressed off its buttons 25ms
+       × answers only the update prompt with focus on its dialog element 36ms
+       × answers only the image dialog with focus on its dialog element 28ms
+       × answers only the open instance when the first is the open one 22ms
+       × answers only the open instance when the second is the open one 21ms
+ ❯ |dom| src/components/__tests__/WarningDialog.enter-scope.test.tsx (12 tests | 4 failed) 1397ms
+       × with focus on its dialog element runs only what that control does 95ms
+       × answers only the update prompt with focus on its dialog element 38ms
+       × answers only the warning with focus on its dialog element 29ms
+       × leaves the warning answerable on its own after the update prompt is answered 1029ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 2 failed) 1426ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the link prompt first 59ms
+     × answers only the prompt that holds focus when Enter is pressed with both open, the update prompt first 54ms
+
+ Test Files  3 failed (3)
+      Tests  13 failed | 51 passed (64)
+   Start at  05:38:23
+   Duration  3.46s (transform 795ms, setup 46ms, import 2.88s, tests 3.39s, environment 1.87s)
+

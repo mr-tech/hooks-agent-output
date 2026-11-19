@@ -2,10 +2,10 @@
 ID: 017
 Origin: 017
 UUID: 5c3e9a71
-Reviewed-At: "5c3d03f — repos=website; Round 4 sub-entry, M4 fix confirmation of CR-9 to CR-11 at a5dd76f and QAF-18 at 5c3d03f (implementation document c16132b); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
+Reviewed-At: "c37d41a — repos=website; Round 5, M8 (implementation document 167ec86); M4 was confirmed at 5c3d03f (CR-9 to CR-11 at a5dd76f, QAF-18 at 5c3d03f); Round 4 was reviewed at de06d95; M3 was confirmed at 1ab3b96; M2 was confirmed at dd26104; Round 1, M1, was reviewed at 8147661"
 Status: In Review
-Round: 4
-Verdict: APPROVED
+Round: 5
+Verdict: APPROVED_WITH_COMMENTS
 ---
 
 # Code Review: 017 — the existing-items backlog
@@ -29,6 +29,7 @@ Verdict: APPROVED
 | 2026-11-19T03:22 | implementer-hooks-017 (M4 document `e5d520a`) | Round 4: review M4 at website `de06d95` | Round 4, M4 only. REJECTED: CR-9 HIGH (with the link prompt and the update prompt open together, one Enter answers both: the page is left and Reload runs; probe 2 answers in both orders, planted control 0; the layout test mocks `react-hotkeys-hook`, so its "both open" case cannot see it), CR-10 LOW (a third copy of one test `click` helper, not lifted), CR-11 LOW (a held link to another site with `replace` is confirmed with `assign`; no caller today). The criteria assessed are M4-a to M4-d and X-14, as revision 4 states them at round open. Captures are in `verification/017/code-review/m4/`. Disclosed: the probe's first draft raised the update prompt with a pointer press, which dismissed the link prompt as an outside click, so its link-first case read 1; corrected and re-run before the recorded run. The probe file's two later edits were made by a python script in the verification directory, not with the Edit tool. |
 | 2026-11-19T03:37 | implementer-hooks-017 (fix SHA `a5dd76f`, M4 document `291bb7c`) | Round 4 sub-entry: confirm the fix for CR-9, CR-10 and CR-11 | Round 4 sub-entry: APPROVED at `a5dd76f`. 6 of 6 re-attack mutants were killed as assertions (`verification/017/code-review/m4/fix-r4/`). The Round 4 probe, unmodified, gives one answer per Enter in both orders. CR-9, CR-10 and CR-11 are gone. The pre-existing `ImageUploader` and `WarningDialog` bindings stay in `INBOX.md`. |
 | 2026-11-19T04:19 | implementer-hooks-017 (fix SHA `5c3d03f`, M4 document `c16132b`) | Round 4 sub-entry: confirm QA's QAF-18 fix (test-only) | Round 4 sub-entry, continued: APPROVED at `5c3d03f`. 4 of 4 registration mutants were killed as assertions (`verification/017/code-review/m4/fix-qaf18/`), QA's survivor `qa-unregister-unconditional` among them. QAF-18 is gone. |
+| 2026-11-19T05:40 | implementer-hooks-017 (M8 document `167ec86`) | Round 5: review M8 at website `c37d41a` | Round 5, M8 only. APPROVED_WITH_COMMENTS. CR-12 LOW: the image dialog's cases replace the browser's `Image` with a stand-in that always loads, and the M8 document does not name it; the remedy is a record line. The criteria assessed are M8-a to M8-d, M8-b's decision table and "The form, mirrored", as revision 7 states them at round open. 8 of 8 reviewer mutants were killed as assertions. M8's cases run against `1ad625e` pass every "alone" row (M8-c). Captures are in `verification/017/code-review/m8/`. |
 
 ## Scope and Tree
 
@@ -330,6 +331,42 @@ No bug-form test was added. No time-based test was added; `de06d95` replaced fou
 - **Disposition**: QAF-18 is gone. The check is the tightened withdrawal case, killed by the four mutants above.
 - **Verdict**: APPROVED at `5c3d03f` for M4, which covers CR-9 to CR-11 and QAF-18. QA's refresh follows.
 
+## Round 5 — M8 at `c37d41a`
+
+### Scope and tree
+
+- **Criteria assessed** (recorded before the diff was read): M8-a to M8-d, M8-b's decision table and "The form, mirrored", as plan § Plan `### M8` states them in revision 7 (plan commit `6ade256`, last row R-29 at `98017a5`).
+- **Tree**: website `c37d41a`, the `Handoff-At` of `implementation/017-existing-items-backlog-m8-implementation.md` (agent-output `167ec86`). M8's commits are `a5069d6`, `7780dac` and `c37d41a` over `5c3d03f`. `git diff --numstat 5c3d03f c37d41a` lists 8 paths, which are the document's Files Modified and Files Created.
+- **Tree check**: the branch tip and the shared tree's HEAD were `c37d41a` at round start and end, and the tree was clean apart from `.playwright-mcp/`.
+- **No running instance**: M8 changes which open dialog a key answers. It adds no security boundary and no irreversible server action. Adversarial execution is not owed.
+
+### Architecture alignment (Round 5)
+
+**Alignment Status**: ALIGNED. M8 is the plan's preferred form (AF-23). One hook, `src/utils/hooks/useDialogEnter.ts`, holds the check, and `git grep -n "useDialogEnter("` gives 3 callers: `ConfirmationDialog`, `ImageUploader` and `WarningDialog`. No inline copy remains, so `website.md` A-3's drift shape is avoided. Each caller's ref sits on a `div.contents` inside its own panel, as "Where the ref goes" requires. The file and import shape mirrors `useUnloadAlert` (a default export, imported by path rather than through a barrel). The re-indent in `ImageUploader.tsx` is layout only: `git diff -w 5c3d03f c37d41a` shows +4 −4 (the imports, the hook call, and the wrapper's open and close).
+
+### Instruments and reproduction (Round 5)
+
+| Claim under review | Instrument (this round) | Result |
+|---|---|---|
+| M8-a: the class at the tip | The plan's three listings, plus a second, differently shaped predicate for any key handler: `useHotkeys(`, `onKeyDown`, and `'keydown'` in either quote form (`m8/m8a-listings-c37d41a.out`) | One document-level Enter binding remains, `useDialogEnter.ts`. There is no raw `keydown` listener, and `useDocumentEventListener('keydown'` gives `EmojiPicker/Root.tsx` (Shift tracking, the plan's non-member). The second predicate finds `esc`, the `ctrl+…` map and element-level `onKeyDown` props. An element-level handler hears only its own element's keys, so it is outside the class. |
+| M8-d | `git grep -c "tagName !== '~/components/Button'" c37d41a -- src` | No line (exit 1). |
+| M8-b's table and the form | My own mutants, not QA's list: `mutation-run.py --sha c37d41a`, `m8/probe-mutants.json`, `run/`, over the two new files and the layout file | 8 of 8 KILLED, 64 = 64 cases each, each an `AssertionError`: `gate-parent-of-focus` (13 cases), `gate-any-ancestor-panel` (13), `gate-focus-anywhere-in-document` (11), `enabled-ignored` (1, the closed image instance), `answer-dep-dropped` (1, the image loaded after opening), `image-submit-always` (1), `warning-answer-is-close` (5) and `confirmation-answer-is-cancel` (7). |
+| M8-c: a lone dialog behaves as at `1ad625e`, its literals recorded there | M8's two test files and `helpers/enter.ts`, run in a `git archive 1ad625e` export (`m8/tests-c37d41a-at-1ad625e.out`) | Every "alone" row passes at `1ad625e` (18 rows by the reporter's ✓ lines, 0 failing). The 9 failing rows all have two dialogs open, plus the closed-instance row. At `1ad625e` the open instance's unscoped hotkey answers, which is the defect M8 removes. So the literals are the base's own behaviour, not the code under test's (axiom E). |
+| The equivalence claim for `row-warning-enabled-dropped` | Read: `PresetDialog` passes `unmount` through to `Transition` and `Dialog`. `WarningDialog` passes none, so headlessui's default unmounts a closed panel and the ref is null. | It holds. A closed `WarningDialog` has no element for focus to rest in, so `enabled` cannot decide. |
+| The suite, typecheck, reds and named mutants | The implementer's captures under `verification/017/impl/m8/`, read with python, not re-run | 1724 of 1724, 0 failed, 138 `testResults`, `success` true, exit file 0. Typecheck exit 0. Reds at `5c3d03f`: 3 of 12 (warning) and 2 of 17 (image), each the W-and-U or I-and-U rows. NM-30 to NM-38 are killed, NM-34 after `c37d41a`. |
+| Conventions | `convention-check.js website --since=5c3d03f` (`m8/convention-check-since-5c3d03f.out`), and a hand predicate over the 547 added lines (`m8/added-lines.txt`) | 0 FAIL, 0 CANDIDATE and 20 SKIP, with the id-token limb skipped. The hand predicate gives 0 ID-token hits (NM- included) and 0 comment lines. The basenames `WarningDialog.enter-scope` and `ImageUploader.enter-scope` take the positive form, and the helper sits under `src/components/__tests__/helpers/`. |
+
+### TDD compliance (Round 5)
+
+**TDD Table Present**: Yes. **All Rows Complete**: Yes.
+- The two-dialog rows have assertion-level reds at `5c3d03f`.
+- The "alone" rows are the no-change limb. Their literals come from the `1ad625e` export, and I reproduced that above.
+- The two rows added after the first green say "No" and name the mutant that closed each.
+- Both extractions are claimed behaviour-preserving: the test helper `enter`, and `ConfirmationDialog`'s check moved into the hook. Each is backed by an execution of both trees over the layout file (33 = 33 cases, the same titles) and by NM-38.
+- No bug-form test was added, and no time-based test.
+
+The fixture gap is CR-12.
+
 ## Findings
 
 ### Critical
@@ -435,6 +472,17 @@ CR-3 MEDIUM Round 2
 
 ### Low/Info
 
+CR-12 LOW Round 5
+**Fixture stand-in not named**: `ImageUploader.enter-scope.test.tsx` replaces the browser's `Image` with `FakeImage`, which always loads, with `width = 1`, on a microtask. The M8 document does not name it.
+- **Location**: `src/components/__tests__/ImageUploader.enter-scope.test.tsx` at `c37d41a`: `class FakeImage` and `beforeEach`'s `vi.stubGlobal('Image', FakeImage)`.
+- **Class**: a stand-in for what a browser API returns, invented by the test and not named in the author's document (testing-patterns Iron Law 5; CLAUDE.md "Environment-fidelity convention").
+- **Enumeration**: `git grep -n "stubGlobal('Image'" c37d41a -- src` gives 1 hit, this file. `grep -c "FakeImage\|stubGlobal" implementation/017-existing-items-backlog-m8-implementation.md` gives 0. The predicate cannot see a stand-in installed some other way, such as a `vi.mock` of a module that wraps `Image`; none exists for `checkImage`.
+- **Issue**: under jsdom, `Image` exists but never fires `onload`, which is the "present but inert" global the convention warns about. So the stand-in is needed to reach the "image loaded" state.
+  - No assertion is about loading itself. The stand-in sets up the precondition, a loaded `localImage`, and the property under test is where Enter is answered, which does not read the stand-in.
+  - Its behaviour, an asynchronous `onload` with a positive width for a valid URL, is a browser's for a loadable image, but nothing measured that.
+  - It is the author's to name, so a reader can see that the loaded state is set up, not observed.
+- **Required Action**: one line in the M8 implementation document, beside "Instrument limit". It names `FakeImage`, says what it stands in for, and states that no M8 assertion reads it. `no test`. This does not hold the verdict.
+
 CR-10 LOW Round 4
 **Test helper policy**: M4 adds the second, third and fourth copies of one `click` helper and lifts none of them.
 - **Location**: `function click` in `src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx`, `src/app/message/__tests__/layout.navigation-guard.test.tsx` and `src/app/_components/__tests__/NavMenu.navigation-guard.test.tsx` at `de06d95`.
@@ -516,6 +564,15 @@ No finding changes a decision. The two above go to their stated carriers.
 
 ## Verdict
 
+**Round 5 (M8 at `c37d41a`) — Status**: APPROVED_WITH_COMMENTS
+**Rationale**: M8-a to M8-d are met and reproduced by instruments the implementer did not author.
+- The class has one member left, the lifted and scoped hook, and the dead compare is gone.
+- Each row of M8-b's table is held by a case that 8 independent mutants of the gate, the enable flag, the dependency list and each caller's answer turn red as assertions.
+- M8-c's lone-dialog literals are the base tree's own behaviour, re-run here at `1ad625e`.
+- The form is AF-23's: one shared check, with the ref inside each instance's panel.
+
+CR-12 is a record line.
+
 **Round 4 sub-entry (M4 at `5c3d03f`) — Status**: APPROVED. QA's QAF-18 is confirmed at `5c3d03f`, the test-only fix over `a5dd76f`. CR-9, CR-10 and CR-11 are each gone, with a failing check captured for each (see the sub-entry). M4 goes to QA Phase 2. The Round 4 assumption, that a browser keeps the link prompt open under the update prompt, stays with UAT B-3.
 
 **Round 4 (M4 at `de06d95`) — Status**: REJECTED
@@ -569,6 +626,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Required Actions
 
+- Round 5 (APPROVED_WITH_COMMENTS): CR-12, a line in the M8 document naming `FakeImage`, at the implementer's next write. It does not hold QA.
 - Round 4 (REJECTED), to the implementer:
   - CR-9: `ConfirmationDialog`'s Enter bound to its own dialog, not the document. The layout file's "both open" case runs with the real `react-hotkeys-hook`, opens the link prompt first, and raises the update prompt through `showConfirmation`. One Enter must answer exactly one prompt and leave the other open. Under `de06d95` it must fail as an assertion (2 answered).
   - CR-10: lift `click` into `src/components/__tests__/helpers/`.
@@ -603,7 +661,13 @@ The production change is the deletion of an unreferenced export. The remaining f
   - **If false**: on the walk, with unsaved edits, click a link so the link prompt shows, then save the same message from a second tab. The link prompt is then gone when the update prompt appears, or gone after the update prompt is answered, and the page has not navigated. That is M4-b's "neither is dropped" failing.
   - **Owner**: UAT, walk B-3 on the local stack (plan M4 "Human-observable form"), with this step added. In production, his B-9 look exercises it only when another tab saves while a link prompt is open.
 
+- Round 5: this review assumes that in a real browser, Enter on a focused react-aria `Button` never reaches the document, and that when "Message Update Detected" opens over an open delete warning or image dialog, focus lands inside the update prompt. Both are RK-11's. The tests place focus by hand and hold either way: exactly the focused dialog answers. What they cannot show is which dialog a user's Enter reaches in a browser.
+  - **If false**: on B-13's walk (two tabs, a delete warning open in tab A, a save from tab B), one Enter with focus on the update prompt's text both reloads and deletes the field. Or focus starts in the warning after the prompt opens, so Enter deletes the field and leaves the update prompt open.
+  - **Owner**: UAT, walk B-13 on the local stack (plan M8 "Human-observable form"). In production, the same act after deploy.
+
 ## Next Steps
+
+- Round 5: QA Phase 2 for M8 at `c37d41a` (`qa-hooks-017`). CR-12 goes to the implementer's next document write. UAT B-13 closes the Round 5 assumption.
 
 - Round 4: the fix is confirmed at `a5dd76f`. QA Phase 2 for M4 (`qa-hooks-017`) is next. Previously: to the implementer for CR-9, CR-10 and CR-11. UAT B-3 closes the Round 4 assumption. The pre-existing `ImageUploader` and `WarningDialog` members of CR-9's class are in `agent-output/INBOX.md`.
 
@@ -619,7 +683,7 @@ The production change is the deletion of an unreferenced export. The remaining f
 
 ## Resumption State
 
-Updated at the Round 4 sub-entry (2026-11-19T03:37Z). Round 4 (M4) was REJECTED at `de06d95` and its fix was confirmed APPROVED at `a5dd76f`. QAF-18's fix was confirmed at `5c3d03f` (2026-11-19T04:19Z). Next: M5, M6 or M7 when the implementer hands one off (M5 and M6 wait on OQ-7). Steering has capped M4 (`steering/017-rulings.md` block 2026-11-19T04:14Z, `a805d4d`). From now on, an M4 finding below HIGH that is not a severity-floor finding is routed to the plan's Planner batch as a stated limit, with no fix round. HIGH, CRITICAL and severity-floor findings keep their fix rounds. The scratch exports and the mutation work directory are deleted. The lines below are the Round 3 checkpoint's, kept where still true.
+Updated at the Round 4 sub-entry (2026-11-19T03:37Z). Round 4 (M4) was REJECTED at `de06d95` and its fix was confirmed APPROVED at `a5dd76f`. QAF-18's fix was confirmed at `5c3d03f` (2026-11-19T04:19Z). Round 5 (M8, `c37d41a`) is APPROVED_WITH_COMMENTS (2026-11-19T05:40Z): CR-12 LOW is a record line. Next: M5, M6 or M7 when the implementer hands one off (M5 and M6 wait on OQ-7). Steering has capped M4 (`steering/017-rulings.md` block 2026-11-19T04:14Z, `a805d4d`). From now on, an M4 finding below HIGH that is not a severity-floor finding is routed to the plan's Planner batch as a stated limit, with no fix round. HIGH, CRITICAL and severity-floor findings keep their fix rounds. The scratch exports and the mutation work directory are deleted. The lines below are the Round 3 checkpoint's, kept where still true.
 
 Written at the checkpoint steering-roadmap asked for (context threshold, 02:39Z), after the Round 3 sub-entry.
 
