@@ -3,16 +3,19 @@ ID: 017
 Origin: 017
 UUID: 5c3e9a71
 Status: Resolved
-Status-Detail: "Cycle 2 pass 2 on plan revision 7: APPROVED. F-1 to F-28 RESOLVED. No open question. SL-4's three members are fixed in the plan's text; SL-1 to SL-4 stand as properties with their bearers named. A later revision that changes criterion text, milestone scope or an instrument's form opens cycle 3."
-Artifact-Revision: 7 — the delta 21e61eb..6ade256 read whole; last whole read is revision 1 at d84b192
-Reviewed-At: "6ade256 — repos=agent-output; website code read at 5c3d03f (chain/017-existing-items-backlog) and 1ad625e"
+Status-Detail: "Cycle 3 pass 1 on plan revision 8 (the Planner batch fold): APPROVED, no finding. F-1 to F-28 RESOLVED. No open question is marked; X-21 and X-22 are with the owner through steering and this approval does not cover his answer. SL-1 to SL-5 stand with their bearers named; SL-3 gained one member (X-22's carrier label) and SL-5 has two. A later revision that changes criterion text, milestone scope or an instrument's form opens cycle 4."
+Artifact-Revision: 8 — the delta 6ade256..5e36106 read whole; last whole read is revision 1 at d84b192
+Reviewed-At: "5e36106 — repos=agent-output; website code read at 4b8db9c (chain/017-existing-items-backlog) and 1ad625e; generator src/server.ts read in the tree, unchanged from 8512a1d by git diff --numstat"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 017, the existing-items backlog
 
-**Artifact**: `planning/017-existing-items-backlog.md`, revision 7 (`6ade256`), read as the delta
-from revision 6 (`21e61eb`); revision 6 was read as the delta from revision 4 (`a97628d`). **Read at
+**Artifact**: `planning/017-existing-items-backlog.md`, revision 8 (`5e36106`), read as the delta
+from revision 7 (`6ade256`); revision 7 was read as the delta from revision 6 (`21e61eb`), and
+revision 6 as the delta from revision 4 (`a97628d`). **Read at cycle 3 pass 1**:
+`steering/017-rulings.md` block 08:32Z and its block headings; the QA register's B-6 row; the M6
+implementation document's Deviations lines on setup failures; the security audit's header. **Read at
 cycle 2 pass 2**: the deployment record at `8f26f37` (limb 3's rows). **Read at cycle 2 pass 1**:
 `steering/017-rulings.md` blocks 04:50Z, 05:01Z (two) and 05:06Z, and
 `steering/selection-ledger/2026-11-19.md` blocks 04:50Z to 05:06Z. **Analysis**: `analysis/017-existing-items-backlog-analysis.md` (AN-1 to AN-4), read
@@ -34,8 +37,31 @@ whole at pass 1. **Also read at pass 1**: the commission and the scoping determi
 | 2026-11-19T05:11 | steering-roadmap (message naming revision 6 at `21e61eb`) | cycle 2 pass 1: plan revisions 5 and 6, delta-bounded | Reopened from `closed/` (Status `Open`), resumed after a `/clear` from this critique's Resumption State at `77dfec4`; nothing from cycle 1 was carried without its commit. Depth: delta-bounded. The delta `a97628d..21e61eb` (264 added, 45 removed, `git diff --numstat`, 22 commits) adds M8 and M5-0 limb 3 whole inside the diff and reshapes no approved milestone; it was read whole, with M5-0's limbs 1 and 2 read beside limb 3. Boundary: `21e61eb..c8e7ccd` (6 added, 9 removed) is R-25 and R-26, registrations that resolve OQ-15 by D-30 and record the architect's read; no criterion text moved. Artifact changes: M8 (D-26), value statement 5 (D-29), M5-0 limb 3 (D-30), D-22 to D-30, X-7 retired, X-20, RK-11, RK-2's falsifier, M5-f's first real member, R-6 to R-26. Findings addressed: none were open. New findings: F-26 to F-28 LOW, OPEN. Stop authority fired on one shape (SL-1's: a limb and a mechanism sentence disagree); closed as stated limit SL-4, three members, no revision asked. Verdict APPROVED. Pricing: sized to the ask as he re-set it (D-26, D-30). Trim: the Resumption State section is removed; it carried the plan for this pass, now run. Cycle 1's verdict and its open-questions record stay, under their own labels. |
 | 2026-11-19T05:17 | planner-hooks-017 (message naming revision 7 at `6ade256`) | cycle 2 pass 2: plan revision 7, delta-bounded | Depth: delta-bounded; the delta `21e61eb..6ade256` (112 added, 64 removed, `git diff --numstat`; R-25, R-26 and revision 7) adds or removes no milestone and was read whole. Artifact changes: M8-a's third listing, M8-b's table and M8-c's lists with focus positions, the walk's focus step, M8's form (AF-23), M5-0 limb 3's read rule, outcome rule and result (lasts), D-30, two labels. Findings addressed: F-26 to F-28 RESOLVED and collapsed; SL-4's three members fixed in the text. New findings: none. Stop authority did not fire. Verdict APPROVED. Pricing: sized to the ask. Trim: pass 1's Verdict text, F-26 to F-28's bodies and SL-4's member list are replaced; they carried the argument for the three findings and the three members, which is in `6d55bfc`. |
 | 2026-11-19T05:17 | critic-hooks-017 | Document closed | Status: Resolved. Every finding F-1 to F-28 is RESOLVED, each verified in the plan's text at `6ade256`. SL-1 to SL-4 stand with their detection-cost bearers named. |
+| 2026-11-19T08:36 | steering-roadmap-hooks (brief `steering/backlog-2026-11-18-briefs/critic-hooks-017-resume.md`) | cycle 3 pass 1: plan revision 8, delta-bounded | A fresh session, resumed from this critique's Resumption State at `7744a42`; nothing was carried without its commit. Premise re-read at the mechanism: the plan header reads `Revision: 8` at `5e36106` (the Resumption State said 7, which was true at its write); the website chain branch is at `4b8db9c`, as it said; the plan is unchanged from `5e36106` to the record's tip `6c236f8` (`git diff --numstat` prints nothing). Depth: delta-bounded, because the delta `6ade256..5e36106` (75 added, 35 removed, `git diff --numstat`, 20 commits) is fully readable in the diff and adds, removes or reshapes no milestone; it was read whole from a file (177 lines). Eighteen of the 20 commits are other stages' rows R-27 to R-44 and one is the planner's checkpoint; none moves a criterion. Artifact changes: M3's matrix fetch cell, M4-a's second interception, six rows of M4-d's table, M6-c's class set closed at four, X-21 to X-23, the Planner batch dispositions. This is criterion text, so a findings pass was owed and not a boundary line. Findings addressed: none were open. New findings: none. Stop authority fired on two shapes, both closed as stated limits with no revision asked: SL-5 (F-28's shape, two members) and a third member of SL-3 (X-22's carrier label), sent to steering because X-22 is being put to him. State change: none; Verdict APPROVED, Status stays Resolved, and the file was edited in `closed/` without a move, since the pass opens and closes in one commit. Pricing: sized to the ask. Reconcile: pass 2's SL-2 member list was wrong in three places, the error this critique's (§ Stated limits, SL-2). Process fact: one secret-file gate refusal, disclosed under Assumption Not Checked. Trim: the Resumption State section is replaced by one closing line; it carried the plan for this pass, now run, and is in `7744a42`. |
 
 ## Verdict
+
+**APPROVED — cycle 3, pass 1.**
+
+Pricing: sized to the ask. Revision 8 adds no mechanism and moves no code, test or verifier: each
+corrected line describes code already reviewed and QA-passed, read here at website `4b8db9c` and in
+the generator's `src/server.ts`. M6-c's new sentence declines a fifth failure class. The planner's
+"Scope delta: none" holds for milestones and delivered behaviour.
+
+No finding is open and this pass raised none. No open question is marked (15 of 15 `[RESOLVED]`).
+No milestone is marked `PREMISE-STALE` (the two occurrences of the token are prose). The header's
+`Target-Release` is untouched by the delta.
+
+**What this approval does not cover.** X-21 and X-22 are exclusions the owner has not seen, and
+steering is putting both to him (`steering/017-rulings.md` block 08:32Z). The approval is of the
+fold's text. If he declines X-22, telling a fallback render apart is new code in both repositories:
+a milestone-level scope delta and a new cycle.
+
+**The stop authority fired, on two shapes.** No revision is asked on either; they are SL-5 and
+SL-3's third member below. The hard stop did not fire (pass 1 of 15). Routed to the owner through
+steering: SL-3's third member, because it words a carrier in a question he is about to be asked.
+
+## Cycle 2 verdict (pass 2, `2ed550b`)
 
 **APPROVED — cycle 2, pass 2.**
 
@@ -71,6 +97,49 @@ block already holds both SL-3 members.
 No milestone is marked `PREMISE-STALE`.
 
 ## Stated limits (stop authority)
+
+**SL-5 (cycle 3 pass 1). A line outside the sections a revision rewrote still says what the plan
+said before.** F-28 was the first instance (two revision labels, folded at revision 7). Property:
+every line of the plan that refers to a section revision 8 rewrote agrees with that section as it
+now reads. Domain, at `5e36106`: the lines that name M4-a, M4-d, M6-c, SL-2 or RK-8 (`grep -n`, 20
+lines from § Decisions Register on), and the owed re-verdicts table. Checked this pass: the nine
+rows in § Decisions Register and § "Gate findings folded" are records of their own revision and
+stay true as such; RK-7, the Testing Strategy line on `pig-host-read.sh` and the four Planner batch
+rows agree. Members, recorded as limits:
+
+1. RK-8's "Record per review pass" cell still reads "three members found missing from revision 2's
+   table, added at revision 3". Revision 8's table adds two members (Invite Bot, the bot
+   invitation) and corrects two rows that were wrong (Support, `InfoPanel`), all found by the
+   implementer's re-derivation at `1ab3b96`. So the falsifier RK-8 names did fire once more, and
+   the cell does not say so.
+2. In the owed re-verdicts table, the revision 8 row sits between revision 7's critic row and the
+   two rows that open "The same delta" and "AF-23's fold". Read in order, "the same delta" now
+   points at revision 8. Their "decidable since" cells still say revision 7, so the rows are
+   recoverable.
+
+Neither changes what a criterion requires. The planner bears the detection cost at its next write
+to the plan, which is the registration of his X-21 and X-22 answers, and may bring both lines into
+line then; no pass is owed on that alone. Until then a reader of RK-8 takes the table, not the
+cell, as the member count.
+
+**SL-3, third member (cycle 3 pass 1).** X-22's carrier cell reads "UAT B-6, whose look fails
+visibly on a fallback image". B-6 is a row of QA's register, not a UAT step: its runner is the
+owner and its precondition is "Both deploys live" (`qa/017-existing-items-backlog-qa.md`, row B-6,
+read this pass; the record holds no open UAT document). It is his look at one message he saves
+himself. So no stage looks for a fallback image before release, and the look covers one message,
+not the class the exclusion leaves unmeasured. The plan's other uses of the row say "his look
+(QA's B-6)". Steering bears the detection cost, as SL-3 says: it words the question it puts and
+was sent this member at this pass. X-22's second carrier, the `/preview` input guard line in
+`architecture/system-architecture.md`, exists.
+
+**SL-2, reconcile (cycle 3 pass 1).** Pass 2's member list was wrong in three places, and the
+error was this critique's. Member 2 listed `/support` as a member; at `1ad625e` that item carries
+`newTab: true`, so it never was one. Member 2 omitted `INVITE_URL.toString()`, a string `onPress`
+item in the same file. Member 3 said the two editor pages pass `InfoPanel` a callback; at
+`1ad625e` `send/page.tsx` also passes `botInviteUrl` (`git grep -n` at `1ad625e`, this pass). The
+plan carried all three until revision 8. The bearer SL-2 named, the implementer at M4's first
+step, found them. Pass 2's member 1 was not re-read here: the implementer's re-derivation
+supersedes pass 2's list, and that re-derivation is what code review and QA read.
 
 **SL-4 (cycle 2 pass 1). M8's limbs name the dialog that holds focus and not the position inside
 it, which is what decides the outcome.** Property: every M8 limb that states an outcome by where
@@ -140,6 +209,46 @@ assessment stands: four user stories, each checkable, none deferred, D-7 his app
 holds no roadmap, so alignment is judged against the commission (D-1) and the architecture record.
 
 ## Assumption Not Checked
+
+Cycle 3 pass 1: this pass assumes that the M4 code review and QA Phase 2 records cover each of the
+four rows revision 8 adds or corrects in M4-d's table, as the plan's sentence under the table
+says, and does not test it. Read this pass: the M4 document holds the section the plan cites, and
+`StyledLink.tsx` at `4b8db9c` has the `onClick` path; the review and QA documents were not opened.
+If it is false, a click on Invite Bot or on the bot invitation with unsaved edits leaves the page
+with no prompt. QA owns closing it, at the effort-final sweep its rows say is owed.
+
+Premises run in cycle 3 pass 1 (website `4b8db9c` unless named):
+
+- **Boundary.** `git diff --numstat 6ade256 5e36106 -- planning/017-existing-items-backlog.md`: 75
+  added, 35 removed, 20 commits. At `5e36106`: `grep -c '^### M'` 8; `OPEN QUESTION` 15,
+  `[RESOLVED]` 15.
+- **M3's fetch cell.** `MessageProvider/index.tsx` calls `removeDraft(fetchedMessage.id)` in the
+  fetch effect, as the cell says.
+- **M4-a.** `StyledLink.tsx` intercepts from `onNavigate` and from `onClick`; the `onClick` path
+  returns early on a prevented event, a non-self `target`, a modifier key, a middle click,
+  `download`, or a same-origin href. Steering's 02:43Z block exists.
+- **M4-d's rows.** `NavMenu.tsx` holds four string items: `/message/m/new`, `INVITE_URL`,
+  `/support` with `newTab`, `/message`. `send/page.tsx` passes `InfoPanel` both a callback and
+  `botInviteUrl`; `edit/page.tsx` passes a callback. `CookieConsent.tsx`'s "Learn more" has
+  `target="_blank"`.
+- **M6-c.** In the generator's `src/server.ts`, a rejection that is not a `PreviewFailure` answers
+  500 and reaches `console.error(err)` with no class line. The website's `previewImage.ts` has a
+  `status-500` class. QA's tip probe prints `PASS setup-rejects status=500 puts=0 … lines=0`.
+- **X-22.** `git diff --quiet 1ad625e 4b8db9c -- src/app/preview/page.tsx` exits 0; `invalidData`
+  is the fallback for null data and for the `ErrorBoundary`.
+- **Carriers.** `architecture/system-architecture.md` holds the `/generate` body row (X-21) and the
+  `/preview` input guard line (X-22). The M4 QA document names QAF-19 (X-23). Steering's 04:14Z
+  block exists. The security audit's header says APPROVED with L-001 optional.
+- **Status-Detail against the rows.** R-34 (M8), R-37 (M5), R-41 (M6) and R-44 (M7) say QA
+  Complete at the SHAs the field names. It names X-22 alone as put to him; steering's 08:32Z block
+  puts X-21 too.
+
+Process fact of this run, lodged in the round: the secret-file gate refused this pass's first
+premise call. The call compounded several reads, one of them `git log -1` on the generator
+repository, which the gate says can print lines of that repository's flagged workflow file. It was
+re-issued without the generator read. The generator's tip was then taken in a form the gate
+permits, `git diff --numstat 8512a1d -- src/server.ts src/generateImage.ts`, which printed nothing,
+and `src/server.ts` was read by name.
 
 Cycle 2 pass 2: this pass assumes that a click on the update prompt's text in a real browser leaves
 focus inside that prompt's dialog element, and does not test it. The walk's third step rests on it.
@@ -260,6 +369,10 @@ recorded there; it was not re-issued.
 
 ## Unresolved Open Questions
 
+Cycle 3 pass 1: none marked. At `5e36106` all fifteen are `[RESOLVED]`, so no approval question was
+owed or put. X-21 and X-22 are not written as open questions; they are exclusions awaiting his
+answer through steering (§ Verdict).
+
 Cycle 2 pass 1: none. At `c8e7ccd` all fifteen are marked `[RESOLVED]`; OQ-7 by limb 2's result
 (D-27), OQ-14 by D-29, OQ-15 by D-30. No approval question was owed or put at this pass.
 
@@ -282,7 +395,7 @@ agent-authored, by this critic. The selection is sent to steering for the ruling
 
 ## Findings
 
-No finding is open.
+No finding is open. Cycle 3 pass 1 raised none.
 
 Resolved at cycle 2 pass 2, each by plan revision 7 (`6ade256`); the arguments are in this critique
 at `6d55bfc`:
@@ -383,24 +496,27 @@ answered by revision 4: such a listing deletes nothing (QAF-13).
 - **Steering-attributed rows.** None in the delta; every registration is the planner's or a
   stage's verdict row.
 
-## Resumption State
+## Review-method lines with no finding (cycle 3 pass 1)
 
-Written 2026-11-19T07:16Z by critic-hooks-017, at steering's `/checkpoint` request; the chain is
-parked on the owner's word (`steering/017-rulings.md` block 2026-11-19T07:15Z, per steering's
-message, not re-read here).
+- **M6-c's closed class set.** The four classes are M6-a's four render-path members, listed. The
+  negative limb (a setup failure writes no class line) names what would catch a line being written:
+  the probe's `setup-rejects` case, which QA's tip run shows passing. RK-7's read counts
+  `error-status` only, so it does not move.
+- **M4-a's second interception.** It serves members of M4-d's own class (a link to another site
+  that navigates this tab), which M4-b already quantifies over. It is recorded as a deviation with
+  its ruling, and names the rule it mirrors (Next's own click rule).
+- **X-21 to X-23.** Each has a reason and a carrier that exists. X-21's and X-22's architecture
+  carriers are restated by the architect's closing pass, the form X-20 took. X-22's first carrier
+  is worded wrongly: SL-3's third member.
+- **X-22 against the other preview milestones.** The fallback render is an input to M5 as well as
+  M6. X-22 states M5's outcome itself (the image is committed over the stale one). M5-b holds,
+  since the named object exists. RK-7 does not see it: the fallback answers 200, and RK-7 counts
+  error statuses. Before the chain the generator stored the same render, so nothing regresses.
+- **Planner batch.** Seven rows are marked discharged at revision 8, each naming where it landed;
+  the four older rows were discharged at revision 1.
+- **Reading Order.** The role rows are untouched; the owed re-verdicts table carries this pass's
+  row. Its row order: SL-5 member 2.
+- **Steering-attributed rows.** None in the delta.
 
-- **Done.** Cycle 2 closed at pass 2: plan revision 7 (`6ade256`) APPROVED, this critique Resolved
-  at `2ed550b`. F-1 to F-28 are RESOLVED; SL-1 to SL-4 stand with their bearers named.
-- **Next.** The plan is still at `Revision: 7` (header read at this write); the rows after `6ade256`
-  are other stages' verdict registrations (to R-36), which owe no pass. The planner's fold at the
-  post-Phase-2 seam is gated by the critic: when it comes, open cycle 3 pass 1 as a delta-bounded
-  read of `git diff 6ade256 <rev> -- planning/017-existing-items-backlog.md`, moving this file back
-  out of `closed/` with Status `Open`. A fold that changes no criterion text, milestone scope or
-  instrument form is one boundary line.
-- **Carried, unverified.** The pass 2 assumption (a click on the update prompt's text leaves focus
-  inside its dialog in a real browser) is UAT's, at QA's B-13.
-- **Tree.** Code was read at website `5c3d03f` and `1ad625e`. The chain branch
-  `chain/017-existing-items-backlog` is at `4b8db9c` at this write; nothing after `5c3d03f` was read.
-- **Uncommitted or mutated.** Nothing. No process started; scratch files removed.
-- **Messages.** None owed or unanswered. No question is open with the owner. Steering's session is
-  `steering-roadmap-hooks`.
+Closed at cycle 3 pass 1. The cycle 2 assumption (a click on the update prompt's text leaves focus
+inside its dialog in a real browser) stays UAT's, at QA's B-13. No message is owed or unanswered.
