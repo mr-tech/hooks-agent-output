@@ -640,6 +640,29 @@ Read: the diff `b3d811e..a97628d` over the plan (48 added and 17 removed lines, 
 
 No finding on revision 4.
 
+## Resumption State (2026-11-19T00:28Z, checkpoint on steering's word)
+
+- **Done:** Phase 1 on revision 1, then re-keys on revisions 2, 3 and 4. The last re-key, at plan
+  `a97628d`, is QA commit `3af80aa`. QAF-1 to QAF-14 are all RESOLVED, and no QA finding is open.
+  Status `Awaiting Implementation`.
+- **Next:** at the next plan revision, re-key from the diff `a97628d..<new>` over the plan, then:
+  - re-run `verification/017/m5-decision-table/oracle.mjs` (default, `--option-b`, `--mutants`)
+    against any M5-a/M5-c/M5-e change, freezing the current model as `oracle-rev4.mjs` first if the
+    rules change;
+  - re-check the register rows B-1 to B-11 against any change to the readers or the walks.
+
+  When OQ-13 is answered, record which oracle mode (a or b) binds. At Phase 2, QA re-runs the
+  implementer's real-Postgres lane `verification/017/m5-pg/` and the AN-1 red at `a74b9e2`, and
+  sweeps NM-1 to NM-29.
+- **Trees:** website on `master` at `1ad625e`, no chain branch cut. Generator `prod` at `8de2b53`.
+  Nothing of QA's is uncommitted.
+- **Mutated state:** none. The scratch export, the local stack, the dev server and the probe
+  container were all removed (§ Premises; `pg-order-probe/`).
+- **Evidence:** every run is committed under `verification/017/qa-phase1/` and
+  `verification/017/m5-decision-table/`. None is unrecorded.
+- **Questions out:** none open. The owner-needing item of 23:40Z was answered by steering at 23:41Z
+  (a Standing Default, so the read was made).
+
 ## Assumption Not Checked
 
 This pass assumes that Pusher delivers a save's broadcast back to the tab that sent it in
