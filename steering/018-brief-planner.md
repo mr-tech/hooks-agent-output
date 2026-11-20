@@ -2,7 +2,8 @@
 
 Duties negated: none.
 
-Common part: `/usr/local/bin/hooks/agent-output/steering/website-deps-upgrade-brief-common.md`, read whole. It names his word, the
+Common part: `/usr/local/bin/hooks/agent-output/steering/018-brief-common.md` (sent under its first name,
+`website-deps-upgrade-brief-common.md`, renamed at minting), read whole. It names his word, the
 scoping determination, his three answers, the stage set, the standing prohibitions and the hazard-bearing analysis.
 
 - **You:** session `planner-hooks-website-deps-upgrade` (category `website-deps-upgrade`). cwd `/usr/local/bin/hooks/website`.
