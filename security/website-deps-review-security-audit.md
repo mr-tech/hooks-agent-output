@@ -17,6 +17,7 @@ Kind: dependency-audit
 | 2026-11-20T01:57 | steering-roadmap-hooks → security-hooks-website-deps (brief `steering/website-deps-review-brief-security.md`; owner selection recorded in `steering/fix-personal-message-access-rulings.md`, block 2026-11-20T01:34Z, question "Deps review") | Dependency-only review of website at `983681c`: for each audit finding, whether hooks.gg reaches the vulnerable code, where it ships and how it is reached. No remediation. | Initial assessment. 141 advisory entries dispositioned: 5 reached, 5 conditional, 13 self-hosting only, 56 precondition absent, 2 dev server only, 28 build time only, 32 never loaded. H-001, H-002, M-001 OPEN. Verdict BLOCKED_PENDING_REMEDIATION. |
 | 2026-11-20T02:01 | steering-roadmap-hooks → security-hooks-website-deps (message 02:0xZ; `steering/website-deps-review-rulings.md`, block 2026-11-20T01:59Z, record `57c41b8`, read by this stage) | The owner's three scope answers, and where the two confirmations go | Fix routing recorded on H-001, H-002, M-001 and I-2; all three findings stay OPEN. The four owner-needing items collapsed to their dispositions. A-1's and A-4's settling reads named. One premise of mine corrected (process record). No re-review: the tree has not moved. |
 | 2026-11-20T02:23 | code-reviewer-hooks-fix-message-page-header-decode → security-hooks-website-deps (message 02:1xZ; code review record `d67e7d5`) | Security on the H-001 fix, website `983681c..7923a1d` | H-001 moves OPEN → VERIFIED at `7923a1d`; the verdict on the change is in `security/fix-message-page-header-decode-security-audit.md`. A production build of the base reproduces H-001. I-2's outcome, A-1's pre-push read, A-2's static pages and a new I-6 recorded. One wording error of mine in a message recorded (process record). This document's own verdict is unchanged: it binds to `983681c`. |
+| 2026-11-20T02:34 | steering-roadmap-hooks → security-hooks-website-deps (message, "run /checkpoint") | Wrap up for a clear | Checkpoint: Resumption State written at the end of this document. Nothing else changed. |
 
 ## Metadata
 
@@ -277,3 +278,28 @@ All under `verification/website-deps-review/security/`.
 | `probe-query-string-decode.mjs` → `out/probe-query-string-decode-983681c.txt` | H-001, library timing. |
 | `request-x-query-params.sh` → `out/request-x-query-params-983681c.txt`, `out/next-dev-983681c.log` | H-001, end to end on a local dev server. |
 | `zodSaveSchema.cost-probe.test.ts` → `out/probe-zod-save-schema-983681c.txt` | M-001, cost against the site's schema. |
+
+## Resumption State
+
+Written 2026-11-20T02:34 at a checkpoint steering asked for. Session `security-hooks-website-deps`, launched `--agent security`, cwd `/usr/local/bin/hooks/website`.
+
+**Done.**
+- The dependency review at website `983681c`: this document, first committed at agent-output `1248690`. All 141 advisory entries are dispositioned.
+- The owner's routing recorded (`8fd74ff`): rulings in `steering/website-deps-review-rulings.md`, blocks 2026-11-20T01:59Z and 02:03Z.
+- Security on the H-001 fix: `security/fix-message-page-header-decode-security-audit.md`, APPROVED at website `7923a1d`, committed at `5640deb`. The spawn cue for devops was sent to steering (message `40596fea`).
+
+**Open in this document.**
+- H-001 HIGH: VERIFIED at `7923a1d`, not yet on production as far as this session has read (`origin/master` read `983681c` in the workspace clone at this checkpoint; no fetch was made).
+- H-002 HIGH and M-001 MEDIUM: OPEN, for the separate chain the owner chose, which steering opens after H-001 ships. No chain id exists yet.
+- A-1 and A-4 wait on post-deploy reads that steering and devops carry.
+
+**Next, when a brief arrives.**
+1. If H-001's fix has been released: set H-001 to CLOSED here, collapse its block to one disposition line citing the release record, and re-read A-1 and A-4 against the post-deploy reads. Then close `security/fix-message-page-header-decode-security-audit.md` (`Review Complete`, move to `security/closed/`) once its chain has closed.
+2. For the H-002 and M-001 chain: security on that change. H-002's bar is `next` 16.2.5 or later resolved in the lockfile (16.4.5 clears all 42 Next.js entries). M-001's bar is a save request whose arrays are refused before one issue is recorded per element. Re-run `pnpm audit --prod --json` at the new lockfile and join it with `verification/website-deps-review/security/dispositions.json` through `apply-dispositions.js --allow-unused`; a new entry needs its own disposition. The zod probe is `verification/website-deps-review/security/zodSaveSchema.cost-probe.test.ts`, with its usage in its header. I-6 applies if that chain pins a transitive version.
+3. This document closes (`Review Complete`) when H-002 and M-001 are closed or carried by a handoff.
+
+**Approach that worked, for the next pass.** An isolated `git archive` export under the session scratchpad with `pnpm install --frozen-lockfile --offline --ignore-scripts`, no `.env` file and `SKIP_ENV_VALIDATION=1`; `next build` and `next start` on loopback inside `systemd-run --user --scope` caps; requests by `verification/website-deps-review/security/request-x-query-params.sh`.
+
+**Tree at this checkpoint.** website branch `chain/fix-message-page-header-decode`, HEAD `7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe`; this session wrote nothing there. agent-output `master`.
+
+**Uncommitted or locally mutated:** nothing of this session's. **Evidence run but not recorded:** none. **Processes and scratch:** no server, scope or export is left; the scratchpad is empty. **Questions awaiting an answer:** none. **Sessions messaged:** `steering-roadmap-hooks` only.

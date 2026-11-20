@@ -15,6 +15,7 @@ Kind: code-audit
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-20T02:22 | code-reviewer-hooks-fix-message-page-header-decode → security-hooks-website-deps (message 02:1xZ; code review record `d67e7d5`, APPROVED at `7923a1d`; stage set in `steering/website-deps-review-rulings.md`, block 2026-11-20T02:03Z) | Security on the change `983681c..7923a1d` | Initial assessment. Verdict APPROVED. H-001 exercised on production builds: base slow, fix flat. Audit at the fix lockfile: 127 entries, 14 fewer, none new. No finding against the change. |
+| 2026-11-20T02:34 | steering-roadmap-hooks → security-hooks-website-deps (message, "run /checkpoint") | Wrap up for a clear | Checkpoint: Resumption State written at the end of this document. The verdict and its tree are unchanged. |
 
 ## Metadata
 
@@ -125,3 +126,11 @@ None owed. The change's test drives the composed component with the header and h
 - **An instrument error of mine, fixed in the round.** My first lockfile comparison missed `snapshots` keys written `key: {}` and reported 22 removed. The corrected instrument reports 43, and the output file is the corrected run's.
 - **An instrument extended.** `verification/website-deps-review/security/apply-dispositions.js` gained an `--allow-unused` argument, for a tree where a fix removed packages. Without the argument it reproduces the base table byte for byte (`cmp` exit 0).
 - **Builds and the production rule.** The code reviewer did not build, because a build in the shared tree runs beside `.env.local`. My exports hold no `.env` file, so the builds had no configured host to reach. I did not check what a build fetches on its own, such as the web font the layout declares.
+
+## Resumption State
+
+Written 2026-11-20T02:34 at a checkpoint steering asked for. The full state of this session is in `security/website-deps-review-security-audit.md`, Resumption State.
+
+- **Done:** the verdict above, APPROVED at website `7923a1d`, committed at agent-output `5640deb`; the devops spawn cue sent to steering.
+- **Next:** nothing is owed before the push. If the tree under review moves past `7923a1d` before release, the verdict has expired and the delta is re-reviewed. When the chain closes, set `Status: Review Complete`, name the carrier of each relied-on post-deploy read, and move this file to `security/closed/`.
+- **Nothing uncommitted, nothing running, no question open.**
