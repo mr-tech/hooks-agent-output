@@ -1,0 +1,6 @@
+2026-11-20T02:20:49Z
+ps matches for next start / next-server / the two ports:
+(end of ps matches)
+listeners on 39417/39418: 0
+inactive
+inactive

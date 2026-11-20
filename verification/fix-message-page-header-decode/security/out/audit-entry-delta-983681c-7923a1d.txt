@@ -1,0 +1,4 @@
+entries only at base: 14
+{"tar-fs":6,"sanitize-html":6,"decode-uri-component":2}
+entries only at fix: 0 
+sharp at fix: GHSA-f88m-g3jw-g9cj:0.34.5 .>next>sharp | GHSA-rgj7-g3m4-5g8c:0.34.5 .>next>sharp | GHSA-wq5f-xc86-pv6w:0.34.5 .>next>sharp

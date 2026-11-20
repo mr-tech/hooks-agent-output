@@ -1,0 +1,2 @@
+image optimiser on port 39417	status=200	type=image/png	bytes=2948
+image optimiser on port 39418	status=200	type=image/png	bytes=2948

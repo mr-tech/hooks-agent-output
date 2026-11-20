@@ -1,0 +1,26 @@
+▲ Next.js 16.1.6
+- Local:         http://127.0.0.1:39417
+- Network:       http://127.0.0.1:39417
+
+✓ Starting...
+✓ Ready in 210ms
+[ioredis] Unhandled error event: RangeError: Port should be >= 0 and < 65536. Received type number (NaN).
+    at lookupAndConnect (node:net:1338:5)
+    at Socket.connect (node:net:1293:5)
+    at connect (node:net:245:17)
+    at /tmp/claude-1000/-usr-local-bin-hooks-website/9b1a5ec4-ceb8-4180-b353-f16c949f6dcf/scratchpad/export-983681c/node_modules/.pnpm/ioredis@5.3.1/node_modules/ioredis/built/connectors/StandaloneConnector.js:54:66
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+RangeError: Port should be >= 0 and < 65536. Received type number (NaN).
+    at ignore-listed frames {
+  code: 'ERR_SOCKET_BAD_PORT'
+}
+⨯ unhandledRejection:  RangeError: Port should be >= 0 and < 65536. Received type number (NaN).
+    at ignore-listed frames {
+  code: 'ERR_SOCKET_BAD_PORT'
+}
+⨯ URIError: URI malformed
+    at decodeURIComponent (<anonymous>)
+    at <unknown> (.next/server/chunks/ssr/_62198579._.js:4:44945)
+    at F (.next/server/chunks/ssr/_62198579._.js:4:45069) {
+  digest: '710857285'
+}

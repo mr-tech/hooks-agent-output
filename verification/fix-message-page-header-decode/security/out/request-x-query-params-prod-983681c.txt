@@ -1,0 +1,7 @@
+== base 983681c, production build (next start), 127.0.0.1:39417
+warm-up, no header	status=200	time_total=0.256589s
+tokens=0, no header	status=200	time_total=0.021801s
+tokens=200, header 1004 bytes, no query string	status=200	time_total=0.842987s
+tokens=400, header 2004 bytes, no query string	status=200	time_total=3.195798s
+tokens=0, no header	status=200	time_total=0.019092s
+control: tokens=400 header AND a query string (?a=1)	status=200	time_total=0.018231s

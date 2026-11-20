@@ -1,0 +1,2 @@
+malformed header value (%E0%A4%A) on port 39417	status=200	time_total=0.013108s
+malformed header value (%E0%A4%A) on port 39418	status=200	time_total=0.019910s

@@ -1,0 +1,9 @@
+== fix 7923a1d, production build (next start), 127.0.0.1:39418
+warm-up, no header	status=200	time_total=0.247653s
+tokens=0, no header	status=200	time_total=0.023828s
+tokens=200, header 1004 bytes, no query string	status=200	time_total=0.018652s
+tokens=400, header 2004 bytes, no query string	status=200	time_total=0.016741s
+tokens=800, header 4004 bytes, no query string	status=200	time_total=0.015742s
+tokens=1600, header 8004 bytes, no query string	status=200	time_total=0.015877s
+tokens=0, no header	status=200	time_total=0.015126s
+control: tokens=400 header AND a query string (?a=1)	status=200	time_total=0.016818s

@@ -1,11 +1,12 @@
-// Usage: node apply-dispositions.js <pnpm-audit.json> <dispositions.json> <out-prefix>
+// Usage: node apply-dispositions.js <pnpm-audit.json> <dispositions.json> <out-prefix> [--allow-unused]
 // Joins every advisory of the audit with its reachability disposition and writes
 //   <out-prefix>-dispositions.tsv   one row per advisory entry
 //   <out-prefix>-disposition-summary.txt   counts by disposition and severity
 // It fails, writing nothing, if an advisory has no disposition or a disposition key matches nothing.
 const fs = require('fs');
 
-const [, , auditPath, dispPath, outPrefix] = process.argv;
+const allowUnused = process.argv.includes('--allow-unused');
+const [, , auditPath, dispPath, outPrefix] = process.argv.filter((a) => a !== '--allow-unused');
 const audit = JSON.parse(fs.readFileSync(auditPath, 'utf8'));
 const disp = JSON.parse(fs.readFileSync(dispPath, 'utf8'));
 delete disp._about;
@@ -39,8 +40,10 @@ for (const a of Object.values(audit.advisories)) {
     rows.push({ a, d: distinct[0], versions, paths, units: versions.length });
   }
 }
+// With --allow-unused (a later tree, where a fix removed packages) the unmatched keys are listed in the
+// summary; without it they are an error, so a first pass cannot carry a key that names nothing.
 const unusedKeys = Object.keys(disp).filter((k) => !used.has(k) && disp[k].how);
-if (unusedKeys.length) throw new Error(`disposition keys matching no advisory: ${unusedKeys.join(', ')}`);
+if (unusedKeys.length && !allowUnused) throw new Error(`disposition keys matching no advisory: ${unusedKeys.join(', ')}`);
 
 rows.sort((x, y) => dispOrder.indexOf(x.d.disp) - dispOrder.indexOf(y.d.disp)
   || sevOrder.indexOf(x.a.severity) - sevOrder.indexOf(y.a.severity)
@@ -89,6 +92,7 @@ const summary = [
   'Distinct GHSA ids per disposition:',
   ...dispOrder.filter((d) => rows.some((r) => r.d.disp === d))
     .map((d) => `${d}\t${new Set(rows.filter((r) => r.d.disp === d).map((r) => r.a.github_advisory_id)).size}`),
+  ...(unusedKeys.length ? ['', `Disposition keys matching no advisory in this audit: ${unusedKeys.join(', ')}`] : []),
 ].join('\n');
 fs.writeFileSync(`${outPrefix}-disposition-summary.txt`, `${summary}\n`);
 console.log(summary);

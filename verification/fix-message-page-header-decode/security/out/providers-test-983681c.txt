@@ -1,0 +1,2 @@
+JSON report written to /usr/local/bin/hooks/agent-output/verification/fix-message-page-header-decode/security/out/providers-test-983681c.json
+exit=1

@@ -1,0 +1,25 @@
+## git grep -c at 7923a1d (per file; absent file = 0 lines)
+decode-uri-component	base=3	fix=0
+query-string	base=3	fix=0
+sanitize-html	base=6	fix=0
+sharp@0.32	base=2	fix=0
+sharp@0.34.5	base=2	fix=2
+tar-fs	base=6	fix=0
+prebuild-install	base=3	fix=0
+## readers and writers of the two middleware headers at 7923a1d, non-test
+7923a1d:src/app/_navigation/Redirects/Server.tsx:5:  const pathname = (await headers()).get('x-pathname') ?? '';
+7923a1d:src/middleware.ts:14:  requestHeaders.set('x-pathname', request.nextUrl.pathname);
+7923a1d:src/middleware.ts:20:    requestHeaders.set('x-query-params', encodeURIComponent(queryParams.toString()));
+## request-derived reads in Providers.tsx at 7923a1d
+20:    const response = await fetch(`${getBaseUrl()}/api/auth/session?hydrate=true`, { headers: { cookie } });
+32:  const hdrs = await headers();
+33:  const session = await getSession(hdrs.get('cookie') ?? '');
+## imports of removed packages at 7923a1d (static, dynamic, require), all tracked files but the lockfile
+(end; exit of last grep: 1)
+## overrides / patchedDependencies sections in the fix lockfile
+7:patchedDependencies:
+## package.json diff
+0	4	package.json
+0	338	pnpm-lock.yaml
+1	15	src/app/_components/Providers.tsx
+51	0	src/app/_components/__tests__/Providers.request-headers.test.ts
