@@ -1,0 +1,14 @@
+install-frozen: exit 0
+build: exit 0
+tsconfig after build: identical to committed
+tsconfig after build: cmp to git show b0b0158:tsconfig.json equal
+build log lines matching 'mandatory': 0
+typecheck: exit 0
+ts-node-T: exit 0
+ts-node-typed: exit 0
+highlightAuto: static=1 server=2
+registerLanguage: static=1 server=2
+void0 receivers: 0
+negative control files: 0
+suite: exit 0
+done
