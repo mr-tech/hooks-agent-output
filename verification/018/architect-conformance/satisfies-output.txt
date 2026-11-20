@@ -1,0 +1,16 @@
+== base
+tsc exit 0
+== m1
+m1.ts(351,4): error TS1360: Type 'ZodObject<{ name: ZodString; guildId: ZodOptional<ZodNullable<ZodString>>; data: ZodEffects<ZodObject<{ content: ZodOptional<ZodString>; ... 5 more ...; flags: ZodOptional<...>; }, "strip", ZodTypeAny, { ...; }, { ...; }>, MessageData, { ...; }>; }, "strip", ZodTypeAny, { ...; }, { ...; }>' does not satisfy the expected type 'ZodType<IncomingMessage, ZodTypeDef, IncomingMessage>'.
+  The types of '_input.data' are incompatible between these types.
+    Type '{ content?: string | undefined; username?: string | undefined; avatar_url?: string | undefined; allowed_mentions?: { parse?: ("user" | "here" | "everyone")[] | undefined; users?: string[] | undefined; roles?: string[] | undefined; replied_user?: boolean | undefined; } | undefined; embeds?: { ...; }[] | undefined; co...' is not assignable to type 'MessageData'.
+      Type '{ content?: string | undefined; username?: string | undefined; avatar_url?: string | undefined; allowed_mentions?: { parse?: ("user" | "here" | "everyone")[] | undefined; users?: string[] | undefined; roles?: string[] | undefined; replied_user?: boolean | undefined; } | undefined; embeds?: { ...; }[] | undefined; co...' is not assignable to type '{ username?: string | undefined; avatar_url?: string | undefined; embeds?: Embed[] | undefined; components?: SupportedTopLevelComponent[] | undefined; flags?: number | undefined; allowed_mentions?: { ...; } | undefined; thread_name?: string | undefined; }'.
+        Types of property 'components' are incompatible.
+          Type 'unknown[] | undefined' is not assignable to type 'SupportedTopLevelComponent[] | undefined'.
+            Type 'unknown[]' is not assignable to type 'SupportedTopLevelComponent[]'.
+              Type 'unknown' is not assignable to type 'SupportedTopLevelComponent'.
+m1.ts(356,4): error TS1360: Type 'ZodObject<{ data: ZodEffects<ZodObject<{ content: ZodOptional<ZodString>; username: ZodOptional<ZodString>; avatar_url: ZodOptional<ZodString>; allowed_mentions: ZodOptional<...>; embeds: ZodOptional<...>; components: ZodOptional<...>; flags: ZodOptional<...>; }, "strip", ZodTypeAny, { ...; }, { ...; }>, MessageData...' does not satisfy the expected type 'ZodType<Omit<IncomingMessage, "name" | "guildId"> & Partial<Pick<IncomingMessage, "name" | "guildId">>, ZodTypeDef, Omit<...> & Partial<...>>'.
+  Types of property '_input' are incompatible.
+    Type '{ data: { content?: string | undefined; username?: string | undefined; avatar_url?: string | undefined; allowed_mentions?: { parse?: ("user" | "here" | "everyone")[] | undefined; users?: string[] | undefined; roles?: string[] | undefined; replied_user?: boolean | undefined; } | undefined; embeds?: { ...; }[] | undef...' is not assignable to type 'Omit<IncomingMessage, "name" | "guildId"> & Partial<Pick<IncomingMessage, "name" | "guildId">>'.
+      Type '{ data: { content?: string | undefined; username?: string | undefined; avatar_url?: string | undefined; allowed_mentions?: { parse?: ("user" | "here" | "everyone")[] | undefined; users?: string[] | undefined; roles?: string[] | undefined; replied_user?: boolean | undefined; } | undefined; embeds?: { ...; }[] | undef...' is not assignable to type 'Omit<IncomingMessage, "name" | "guildId">'.
+tsc exit 2

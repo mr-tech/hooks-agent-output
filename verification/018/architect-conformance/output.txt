@@ -1,0 +1,8 @@
+superjson ok, bytes 28611 base depth 1000 success false issues 2 [["too_big","components"],["invalid_union_discriminator","components.0.components.0.type"]] 
+superjson ok, bytes 28611 m1 depth 1000 success false issues 1 [["too_big","components"]] 
+superjson ok, bytes 29961 base depth 1050 success false issues 2 [["too_big","components"],["invalid_union_discriminator","components.0.components.0.type"]] 
+superjson ok, bytes 29961 m1 depth 1050 success false issues 1 [["too_big","components"]] 
+superjson threw RangeError Maximum call stack size exceeded 
+superjson threw RangeError Maximum call stack size exceeded 
+superjson threw RangeError Maximum call stack size exceeded 
+superjson threw RangeError Maximum call stack size exceeded 

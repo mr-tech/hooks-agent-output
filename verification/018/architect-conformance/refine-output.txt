@@ -1,0 +1,6 @@
+base | 41 valid text displays, 100 chars each | issues 2 | [["too_big",40,"components"],["too_big",4000,"components"]]
+base | 41 text displays, 100 chars each, one bad type | issues 2 | [["too_big",40,"components"],["invalid_union_discriminator",null,"components.0.type"]]
+base | 41 text displays, 5000 chars each (each element invalid) | issues 43 | [["too_big",40,"components"],["too_big",4000,"components.0.content"],["too_big",4000,"components.1.content"],["too_big",4000,"components.2.content"]]
+m1 | 41 valid text displays, 100 chars each | issues 2 | [["too_big",40,"components"],["too_big",4000,"components"]]
+m1 | 41 text displays, 100 chars each, one bad type | issues 1 | [["too_big",40,"components"]]
+m1 | 41 text displays, 5000 chars each (each element invalid) | issues 2 | [["too_big",40,"components"],["too_big",4000,"components"]]
