@@ -99,9 +99,14 @@ Test Conventions: `/usr/local/bin/hooks/agent-output/CLAUDE.md`, "Test Conventio
    `src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx:12`).
 6. **pnpm and `overrides`:** `package.json`'s `overrides` key is not honoured by pnpm (audit I-6). A pin must be written where pnpm
    reads it and proved from the lockfile.
-7. **The preview:** a branch push makes a Vercel preview (two READY previews from `probe/017-waituntil*`, 2026-11-19, `vercel api`).
-   Preview has no Postgres or Redis keys, and it shares Discord and Pusher keys with production (env key names and targets, values
-   unread). Signed-in and saving flows cannot run there.
+7. **The preview:** Preview has no Postgres or Redis keys, and it shares Discord and Pusher keys with production (env key names and
+   targets, values unread). Signed-in and saving flows cannot run there.
+   **Corrected 2026-11-20T03:5xZ (critique F-1, `ac93b5a`):** this item said a plain branch push makes a Vercel preview. That was
+   wrong. The two READY previews it cited were built from `probe/017-waituntil` at `aca8cb3`, whose one change is `vercel.json`
+   `"buildCommand": "SKIP_ENV_VALIDATION=1 next build"` (`verification/017/m5-0/README.md`). A build with the Preview names alone
+   exits 1 in `src/env.mjs` (`verification/017/m5-0/devops/probe-build-preview-env-no-skip.txt`). Whether the dynamic routes serve
+   on a preview is unrun. The error is this thread's. The check that would have caught it: reading that README before citing the
+   previews.
 8. **Image serving:** `verification/website-deps-review/scoping/a1-vercel-image-config.json`. Steering reads it as Vercel's image
    service answering `/_next/image` (an inference, block 02:53Z). At 16.4.6 security's A-1 is moot for its Next.js entries (security's
    reading).

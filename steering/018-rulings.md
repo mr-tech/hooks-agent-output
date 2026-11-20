@@ -58,3 +58,18 @@ wording this thread's):
   - `architect-hooks-018`, brief `steering/018-brief-architect.md`;
   - `qa-hooks-018`, brief `steering/018-brief-qa.md` (`96612e1`).
 - The critic is set to medium once its first pass is committed.
+
+## 2026-11-20T03:59Z — critique F-1: the preview premise in his 03:08Z option was wrong; held for the planner's probe
+
+By the critic's message, `critiques/018-next-upgrade-save-size-cap-critique.md` at `ac93b5a`, F-1 (REQUEST REVISION, with the planner).
+- **This thread's error.** Block 02:53Z and the 03:08Z "Preview" option said a branch push makes a Vercel preview. The option's words
+  were: "Agent pushes the chain branch (preview only, production untouched). UAT loads the public pages, images and the sign-in
+  redirect on the preview."
+  - The two READY previews cited were built from `probe/017-waituntil` at `aca8cb3`. That branch sets `vercel.json`
+    `"buildCommand": "SKIP_ENV_VALIDATION=1 next build"` (`verification/017/m5-0/README.md`).
+  - A build with the Preview names alone exits 1 in `src/env.mjs` (`verification/017/m5-0/devops/probe-build-preview-env-no-skip.txt`).
+  - The check that would have caught it: reading that README before citing the previews.
+- **Correction:** `steering/018-brief-common.md` hazard 7 is corrected in place (this commit).
+- **Held:** the critic routed the unrun limb to the planner: a build with the Preview names, served, then two GETs. Whether the preview
+  can still deliver what he chose decides whether his selection reopens (escalation.md: a corrected premise reopens it only where it
+  changes the scope he chose). On the planner's result, steering puts it to him if it does, with the probe as a premise.
