@@ -3,7 +3,7 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Status: Open
-Status-Detail: "Cycle 1 pass 1 on plan revision 1: REQUEST REVISION. 15 findings open (3 HIGH, 7 MEDIUM, 5 LOW). F-1 carries an item for the owner, routed through steering."
+Status-Detail: "Cycle 1 pass 1 on plan revision 1: REQUEST REVISION. 15 findings open (3 HIGH, 7 MEDIUM, 5 LOW); F-2, F-8 and F-11 duplicate QA's QAF-1, QAF-2 and QAF-3. F-1 carries an item for the owner, routed through steering."
 Artifact-Revision: 1 — read whole at c2a6b85
 Reviewed-At: "c2a6b85 — repos=agent-output; website code read at 7923a1d (origin/master)"
 Verdict: REQUEST REVISION
@@ -20,6 +20,9 @@ Verdict: REQUEST REVISION
 State); `verification/website-deps-review/scoping/sweep-unbounded-input.md` (whole) and `sweep-next-upgrade.md` (§4 to §6 and
 the steering addendum); `architecture/website.md` W-2, A-1 and A-4; the planner's probes under `verification/018/planning/`
 (all but the release-notes file); chain 017's preview record under `verification/017/m5-0/`; and website source at `7923a1d`.
+**Read at the seam, after this critique's first commit (`da790b7`)**: the architect's AF-1 to AF-4
+(`architecture/018-next-upgrade-save-size-cap-architecture-findings.md`, `81b0d58`) and QA's QAF-1 to QAF-5
+(`qa/018-next-upgrade-save-size-cap-qa.md`, `e1b25c7`), to mark duplicates.
 **Roadmap**: `roadmap/` is empty (`ls`), so there is no Master Product Objective to check against. Alignment is judged
 against the rulings and the architecture record.
 
@@ -27,7 +30,7 @@ against the rulings and the architecture record.
 
 | Date | Handoff | Request | Summary |
 |---|---|---|---|
-| 2026-11-20T03:55 | steering-roadmap-hooks (brief `steering/018-brief-critic.md`) | cycle 1 pass 1: plan revision 1, whole-document read | First pass of the cycle, so the whole plan was read at `c2a6b85`. Artifact changes: none before this pass. New findings: F-1 to F-15 (3 HIGH, 7 MEDIUM, 5 LOW), all OPEN. Verdict REQUEST REVISION. F-1 carries a question for the owner on D-3, sent to steering. |
+| 2026-11-20T03:55 | steering-roadmap-hooks (brief `steering/018-brief-critic.md`) | cycle 1 pass 1: plan revision 1, whole-document read | First pass of the cycle, so the whole plan was read at `c2a6b85`. Artifact changes: none before this pass. New findings: F-1 to F-15 (3 HIGH, 7 MEDIUM, 5 LOW), all OPEN. Verdict REQUEST REVISION. F-1 carries a question for the owner on D-3, sent to steering. At the seam, after `da790b7`, the architect's and QA's documents on this revision were read: F-2, F-8 and F-11 are marked as duplicates of QAF-1, QAF-2 and QAF-3, and F-3 is narrowed to the limb QAF-2 does not carry. No severity or verdict moved. |
 
 ## Verdict
 
@@ -43,9 +46,9 @@ Three findings stop approval:
   site's environment check needs five variables that the Preview target does not have. Chain 017's record shows this, and
   shows that the only two previews ever built carried a build-command override this plan does not have.
 - **F-2.** The list form OQ-3 was closed on throws instead of refusing when an over-limit list holds `null`, at 3 of the 11
-  sites. I ran it.
-- **F-3.** M1-f and M1-g describe error displays that the editor's Save does not have. A user whose stored message exceeds
-  a new bound would get a toast telling him to try again, with no reason.
+  sites. I ran it on a replica; QA ran it on the site's own module and found the same (QAF-1).
+- **F-3.** M1-f says the editor tells the user why a save is refused. It does not: the editor's Save shows a fixed toast.
+  A user whose stored message exceeds a new bound would be told to try again, with no reason.
 
 Five findings share one shape (F-1, F-2, F-3, F-4, F-8): the plan says what a page shows, what a build does or who reads a
 schema, and the statement was not read at the receiving end. The class is stated once under Findings, with a prediction for
@@ -121,10 +124,13 @@ F-1 HIGH cycle 1 pass 1 — OPEN — M5 cannot run as written: a plain chain-bra
   Register in Risks as a prediction: "a push whose tree has no build-command override does not reach READY in the Preview
   environment". Falsifier: such a push reaching READY.
 
-F-2 HIGH cycle 1 pass 1 — OPEN — The list form OQ-3 was closed on throws on `null` elements at three sites
+F-2 HIGH cycle 1 pass 1 — OPEN — The list form OQ-3 was closed on throws on `null` elements at three sites. Duplicates: QAF-1 in qa/018-next-upgrade-save-size-cap-qa.md
 - **Location**: plan § Assumptions, OQ-3; M1-a; M1-c. Website `src/server/api/utils/shapes.ts` `sumDisplayableText`,
   `refineDisplayableText`, `discordMessageShape`; `src/providers/MessageProvider/usePusher.ts` `normalizeForHash`.
 - **Description**:
+  - QA's QAF-1 is the same defect, run on the site's own module; where the two differ in detail, QAF-1's run governs.
+    The architect's AF-2 names the same mechanism and says the raw walk "takes no harm". Both runs show that a `null`
+    element throws, so that sentence does not hold for this element kind. Its extra-issue limb is a separate matter.
   - OQ-3's probe (`verification/018/planning/zod-length-first/probe.cjs`) parses a bare list of strings. In the site's
     schema, three of the 11 lists (S10, S4, S2) sit under `discordMessageShape`'s `superRefine(refineDisplayableText)`.
     `sumDisplayableText` reads `c.type` on every element of `data.components` and recurses into the children of types 9
@@ -149,28 +155,30 @@ F-2 HIGH cycle 1 pass 1 — OPEN — The list form OQ-3 was closed on throws on 
   over its bound) and says that a refusal is a returned issue, never a throw. The plan states what the refinement does on
   a refused list. The mechanism stays the planner's and the implementer's.
 
-F-3 HIGH cycle 1 pass 1 — OPEN — M1-f and M1-g name error displays the editor's Save does not have
+F-3 HIGH cycle 1 pass 1 — OPEN — M1-f's stated fate is false: the editor's Save shows a fixed toast, not the bound's issue
 - **Location**: plan M1-f, M1-g. Website `src/providers/MessageProvider/index.tsx` `upsertMessage` `onError`;
-  `src/app/message/m/[id]/_components/JsonModalBody.tsx` (the effect on `messageString`; `confirmText: 'Load'`);
-  `src/utils/formatMutationError.ts` and its call sites.
-- **Description**: three statements, each checked in the code.
-  1. The editor's Save shows no issues. `upsertMessage`'s `onError` ignores the error and shows the fixed toast "Error.
-     Failed to save message. Please try again." `formatMutationError` is called in two places, `NewMessageModal.tsx` and
-     `SaveAsMenu.tsx` (`git grep -n "formatMutationError("`, non-test files).
-  2. The JSON view's error lines are made in the browser. `JsonModalBody` parses the pasted text with
-     `discordMessageImportShape` in an effect and shows `formatZodIssues` of the result. Its button is "Load", and a draft
-     that fails the parse cannot be loaded. No request is sent, so the walk needs no session and never reaches
-     `message.upsert`.
-  3. The base figure is 150, not 151. S7 has no bound at `7923a1d` (the plan's own table), so 150 invalid ids give 150
-     issues and no length issue. The number carries no instrument.
-- **Impact**: M1-g cannot be walked as written. Walked as the product behaves, it shows the shared schema in the browser,
-  not the server refusing a save. M1-f's stated fate is false where it matters: a user whose stored message exceeds a new
-  bound (S4, S6, S7 or S8) presses Save and is told to try again, with no reason, every time. The number of such messages
-  is unknown (RK-3). 0 of the 2 displays these criteria name exist on the Save path.
-- **Recommendation**: restate M1-f and M1-g from the code: where the bound's issue is shown today (the JSON view on open
-  or paste, and Save As), what Save shows, and what the most exposed user sees. If the reason-less toast stays, it is a
-  stated limit with an Exclusions row. Showing the reason on Save is more than the ask and is his to choose. M1-g names an
-  observation the server path has before release, or says there is none and why. Publish 150 with its run.
+  `src/utils/formatMutationError.ts` and its call sites; `src/app/message/m/[id]/_components/JsonModalBody.tsx` (the effect
+  on `messageString`; `confirmText: 'Load'`).
+- **Description**:
+  - The editor's Save shows no issues. `upsertMessage`'s `onError` ignores the error and shows the fixed toast "Error.
+    Failed to save message. Please try again." `formatMutationError` is called in two places, `NewMessageModal.tsx` and
+    `SaveAsMenu.tsx` (`git grep -n "formatMutationError("`, non-test files). So the server's issue lines appear on create
+    and on Save As only.
+  - M1-f says a stored message over a new bound "cannot be saved again until the list is shortened, and the editor says so
+    with the bound's issue at the list's path". On Save it does not. The bound's issue appears only if the user opens the
+    JSON view, where the browser's own parse shows it.
+  - M1-g's other two defects are QA's QAF-2 (`qa/018-next-upgrade-save-size-cap-qa.md`, defects 1 and 2), and this pass's
+    reads agree with both: the JSON view's lines are made in the browser by `discordMessageImportShape` with no request
+    sent, and the base figure is 150, not 151.
+  - One correction to carry into the fold. QAF-2 proposes the observable "Pressing Save shows one line naming the 100
+    bound". That holds on Save As, which QAF-2 itself names as the display path. The editor's Save shows the toast.
+- **Impact**: M1-f's stated fate is false where it matters. A user whose stored message exceeds a new bound (S4, S6, S7 or
+  S8) presses Save and is told to try again, with no reason, every time. The number of such messages is unknown (RK-3).
+  Of the 2 displays M1-f and M1-g name, neither exists on the editor's Save path.
+- **Recommendation**: restate M1-f from the code: where the bound's issue is shown today (the JSON view on open or paste,
+  and Save As), what Save shows, and what the most exposed user sees. If the reason-less toast stays, it is a stated limit
+  with an Exclusions row. Showing the reason on Save is more than the ask and is his to choose. M1-g names an observation
+  the server path has before release, or says there is none and why.
 
 **The class, stated once.** F-1, F-2, F-3, F-4 and F-8 are one shape: a criterion, a closed question or a decision row
 says what code, a build or a host does, and no read at the receiving end supports it. planner.md already states the
@@ -237,10 +245,11 @@ F-7 MEDIUM cycle 1 pass 1 — OPEN — M2-c has no base reading for the build or
 - **Recommendation**: run both at `7923a1d` in the form M2-c will use, with the build's environment form named, and record
   the exit codes in V-1 and V-2.
 
-F-8 MEDIUM cycle 1 pass 1 — OPEN — M1 moves bounds in shapes that three browser surfaces parse, and no criterion names them
+F-8 MEDIUM cycle 1 pass 1 — OPEN — M1 moves bounds in shapes that three browser surfaces parse, and no criterion names them. Duplicates: QAF-2 in qa/018-next-upgrade-save-size-cap-qa.md
 - **Location**: plan § M1 class; M1-c; M1-d ("its refusal set does not move"). Website `shapes.ts`
   `discordMessageImportShape`; `JsonModalBody.tsx`; `NewMessageJsonInput.tsx`; `usePusher.ts` `normalizeForHash`.
-- **Description**: besides the two procedures, the changed shapes are parsed by `JsonModalBody.tsx` and
+- **Description**: the import shape's limb is QAF-2's defect 3. Beyond QAF-2, this finding adds the third consumer,
+  `normalizeForHash`, and the W-2 reading under Impact. Besides the two procedures, the changed shapes are parsed by `JsonModalBody.tsx` and
   `NewMessageJsonInput.tsx` (through `discordMessageImportShape`) and by `normalizeForHash` (through
   `discordMessageShape`); the list is from `git grep` over importers of `utils/shapes`, non-test files.
   `discordMessageImportShape` extends `discordMessageBaseShape` and uses `topLevelComponentShape`, so S4, S6, S7 and S8
@@ -283,7 +292,7 @@ F-10 MEDIUM cycle 1 pass 1 — OPEN — M3-c's class of causes is incomplete and
 
 ### Low
 
-F-11 LOW cycle 1 pass 1 — OPEN — M1-e names one of the two branches that send the recent list
+F-11 LOW cycle 1 pass 1 — OPEN — M1-e names one of the two branches that send the recent list. Duplicates: QAF-3 in qa/018-next-upgrade-save-size-cap-qa.md
 - **Location**: plan M1-e. Website `src/providers/MessageProvider/usePreferences.ts`.
 - **Description**: with a message open the hook composes the list. With none it forwards the stored list whole
   (`recentMessageIds ?? session?.user?.preferences?.recentMessageIds`). A stored list of 50 with no message open is sent
@@ -365,6 +374,8 @@ F-15 LOW cycle 1 pass 1 — OPEN — Text left at revision 0, and a probe note t
   (`website/node_modules/zod`, 3.22.4) under `timeout 60`. Nothing was written to or run inside the website tree. The
   script is deleted at run end; what it built and printed is in the Appendix. It is a replica, not the site's module, and
   F-2 asks the planner to re-run it against the real one.
+- **Seam order.** This critique was committed at `da790b7` before the architect's and QA's documents were opened. The
+  duplicate marks and F-3's narrowing are a second commit of the same pass.
 - **Two commands of mine failed and were re-run in another form.** `jq` on `.eslintrc.json` stopped at the comment on line
   16; the count was taken with a comment-stripping node script. A `grep -o` with a long bounded repeat exceeded the
   search tool's limits; the lines were read with a short python extraction. No control blocked anything.
