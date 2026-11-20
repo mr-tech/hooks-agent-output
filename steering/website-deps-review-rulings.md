@@ -167,3 +167,18 @@ in devops's session ("Agent: push master to 7923a1d (Recommended)"). The chain b
   to the architect.
 - **Retrospective:** this fixer chain took no rejected round, no QA failure, no re-scope and no owner-needing block, so it joins the next
   fixer batch (steering.md, Fixer).
+
+## 2026-11-20T02:42Z — security closed its fix audit; chain closed out; a correction to block 02:18Z
+
+- `security/closed/fix-message-page-header-decode-security-audit.md`, Review Complete (`cd2e816`). Its one owed item, the post-push
+  `/_next/image` read, is carried by P-1. `security/website-deps-review-security-audit.md` (`4bccf05`) records H-001 CLOSED by the
+  release; H-002 and M-001 stay OPEN, and the document stays Active.
+- Every stage document of `fix-message-page-header-decode` is closed (`ls -d */fix-message-page-header-decode*` outside `closed/`: none
+  but this chain's verification and steering files). P-1 is carried by its handoff and read by P1R from crontab.
+- **Stopped** (`tmux-agent stop`, all idle): fixer, code-reviewer, qa and devops `-hooks-fix-message-page-header-decode`. The standing
+  check `27cceb8d` is deleted, and a cache-warm wake is armed.
+- **Correction (security's, 02:4xZ), to block 02:18Z:** the post-push image request cannot decide which component serves
+  `/_next/image`, because Vercel's service and Next.js's own optimiser would both answer 200. P-1 decides only whether images still
+  answer without the direct `sharp`. Security's A-1 (13 host-only dispositions, two critical) stays unsettled until a `vercel api`
+  project read, which no block has recorded. It goes moot for the ten Next.js entries if the H-002 chain raises `next` to 16.4.5 or
+  later. Carried into that chain's scoping.
