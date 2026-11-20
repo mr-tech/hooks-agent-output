@@ -3,7 +3,7 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Status: Active
-Status-Detail: "Conformance pass on plan revision 1 (record c2a6b85): APPROVED_WITH_CHANGES. AF-1 and AF-2 are required before implementation approval; AF-3 and AF-4 recommended. Open items 1-3 below are this document's to discharge at the closing pass."
+Status-Detail: "Plan revision 2 (record 7a1bd46): APPROVED. AF-1 to AF-4 are resolved; AF-2 carries a correction of this architect's own claim. AF-7 registers a Problem Area and asks no plan change. Open items 1-3 below are discharged at the closing pass."
 ---
 
 # Architecture Findings — Plan 018: Next.js 16.4.6 and the save-list cap (conformance pass)
@@ -13,6 +13,7 @@ Status-Detail: "Conformance pass on plan revision 1 (record c2a6b85): APPROVED_W
 | Date | Event | Summary |
 |---|---|---|
 | 2026-11-20T03:39 | Conformance pass, plan rev 1 (record `c2a6b85`), briefed by steering-roadmap-hooks (`steering/018-brief-architect.md`). Rulings read: `steering/018-rulings.md` block 2026-11-20T03:25Z. | Every concrete form the plan writes was read against website `origin/master` `7923a1d` (`git show`; nothing run in the shared tree). The length-first cap was run against the real save schema in a scratch copy (`verification/018/architect-conformance/`). Two changes are required (AF-1, AF-2), two are recommended (AF-3, AF-4), two Problem Areas are registered (AF-5, AF-6), and the forms in "Conforming forms" conform. The master document's direct-`sharp` line is reconciled (the `INBOX.md` entry of `devops-hooks-fix-message-page-header-decode`). **APPROVED_WITH_CHANGES.** |
+| 2026-11-20T04:08 | Delta read, plan rev 2 (record `7a1bd46`; diff `c2a6b85..7a1bd46`), on the planner's word (`planner-hooks-018`, by message). | AF-1 to AF-4 are folded and retired to disposition lines. The cap moved from a dirty pipe to a fatal length issue that aborts the parse. Its mechanism was re-read in zod 3.22.4 source, and the planner's run was read (`abort-form-probe/`: `export.diff`, `README.md`, `table.md`, `typecheck.log`). AF-2's claim that `sumDisplayableText` "takes no harm" over raw elements was wrong, and this architect corrects it in place (QAF-1 found the `null` throw). The other forms of the delta conform: the M1-a to M1-h restatements, M4's enumerated class, and M5 under OQ-5's recommended option. AF-7 INFO registers the editor's reason-less Save toast (X-18) as a Problem Area. **APPROVED.** |
 
 ## Scope and instrument
 
@@ -23,74 +24,23 @@ Read at website `7923a1d`: `src/server/api/utils/shapes.ts` (whole), `src/consta
 `ZodEffects` refinement were read in the installed `node_modules/zod/lib/types.js` and `types.d.ts`. Next 16.1.6's middleware
 warning was read in the installed `node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js`. Not read: Next 16.4.6's
 source, the probe's `eslint.config.mjs` beyond the plan's account of it, Discord's documentation (the plan's helper read).
+At revision 2 the following were also read: `MessageProvider/index.tsx`'s save `onError` (the fixed toast) and the
+`formatMutationError` call sites.
 
 ## Findings
 
-### AF-1 MEDIUM — The length-first list form changes the save schema's input type and breaks its `satisfies` locks (required)
+### AF-1 MEDIUM RESOLVED — The list form widened the schema's input type and broke its `satisfies` locks. Plan rev 2 M1-d: a typed helper exported from `shapes.ts`, typecheck exit 0 with every `satisfies` unchanged (`verification/018/planning/abort-form-probe/typecheck.log`). Argument at `81b0d58`.
 
-**Form.** M1-d: one shared definition at all 11 sites, the OQ-3 form (`z.array(z.unknown()).max(n).pipe(z.array(element))`).
-**Pattern today.** `z.array(element).max(CONST)` inline, at six sites in `shapes.ts` (`actionRowShape`, `sectionShape`,
-`mediaGalleryShape`, embed `fields`, `discordMessageBaseShape.embeds` and `.components`) and the import shape. **Deviation:
-necessary** — zod 3.22.4's array keeps validating elements after a failed length check, so the current form cannot meet M-001's bar
-(`verification/website-deps-review/scoping/refute-zod-max/output.txt`).
+### AF-2 MEDIUM RESOLVED — An over-limit top-level list got a second issue from `refineDisplayableText`. Plan rev 2 M1-d makes the length issue fatal, so the parse aborts and no parent refinement runs. M1-a and M1-c are restated (one issue, no displayable-text issue; the refusal set does not move). Run: `abort-form-probe/`, 182 over-limit rows with one issue each and 0 throws. The mechanism was re-read in zod 3.22.4 `lib/types.js` (`ZodEffects` `addIssue`: `fatal` → `status.abort()`; the refinement branch returns `INVALID` on an aborted inner before `executeRefinement`; `ZodPipeline` returns `INVALID` on an aborted first stage). Argument at `81b0d58`.
 
-**What the deviation changes for readers.** `ZodPipeline<A, B>` declares its input as `A["_input"]` (zod `types.d.ts`), so every
-piped list's input type becomes `unknown[]`. Readers of the input form:
-- `shapes.ts` `messageShape` and `partialMessageShape` (`satisfies z.ZodType<IncomingMessage>` and its partial). With the
-  top-level `components` alone piped, `tsc` refuses both (TS1360; `satisfies-output.txt`, exit 2; base exit 0).
-  `optionalIdMessageShape` and `idMessageShape` extend `messageShape`.
-- `RouterInputs` (`src/utils/api.ts`), and through it `useApiMethods.ts`'s `upsertMessage` argument type and the five
-  `api.message.upsert.useMutation` call sites (`NewMessageModal.tsx`, `message/f/[id]/page.tsx`, `SaveAsMenu.tsx`,
-  `message/m/new/page.tsx`, `MessageProvider/index.tsx`). Their list arguments would accept any element type (`types-output.txt`).
-- `api.user.updatePreferences` (`useUpdatePreferences.ts`), whose `recentMessageIds` would accept `unknown[]`.
+**Correction (2026-11-20T04:08):** AF-2 as committed at `81b0d58` said that `sumDisplayableText`, walking the raw elements of a
+dirty over-limit list, "takes no harm". That is wrong. A `null` element makes it read `.type` of `null` and throw a `TypeError`,
+which QA Phase 1 found (QAF-1; critique F-2). My probe tested deep nesting only, never a `null` element, and I wrote the conclusion
+wider than the run. The error was mine. The abort form removes the path, so no plan change follows from the correction.
 
-The likely repair under the typecheck gate is to loosen or delete the `satisfies` clauses, which removes the lock the master
-document lists under Quality Attributes ("`satisfies z.ZodType<...>` locks Zod schemas to TS types").
+### AF-3 LOW RESOLVED — Recent-ids bound, slice and client cut as one quantity. Plan rev 2 M1 table S11: `MAX_RECENT_MESSAGE_IDS` (10) in the barrel, read by the slice, the client cut and the bound as `+ 1`, with the open-message and loaded-bundle reason stated.
 
-**Required change.** M1-d names the shared definition's declared type: the output and input of `z.array(element)`, with the one cast
-inside the helper. The helper lives in `shapes.ts` beside `discordIdShape` and is exported for `routers/user.ts`, which already
-imports `partialMessageShape` from there. An acceptance line: `pnpm run typecheck` exits 0 with every `satisfies` clause in
-`shapes.ts` unchanged from `7923a1d`. Run: such a helper typechecks with the clauses as they are (exit 0) and gives the same issue
-lists as the bare pipe (`m1typed.ts`, `refine-output.txt`). Option pair: "accept the deviation with the typed helper"
-(recommended) / "follow the current pattern" (not available: it fails M-001's bar).
-
-### AF-2 MEDIUM — M1-a's "exactly one issue for that list" does not hold at the top-level components list (required)
-
-`discordMessageShape` is `discordMessageBaseShape.superRefine(refineDisplayableText)`. zod 3.22.4 runs a refinement when the inner
-result is dirty (`ZodEffects`, refinement branch: only `aborted` returns early), and a pipe whose first stage fails `.max()` returns
-`DIRTY` with the raw list. So an over-limit `components` list whose text displays sum past 4000 characters gets two issues, both at
-path `components`: the length `too_big` (maximum 40) and `refineDisplayableText`'s `too_big` (maximum 4000).
-Run (`refine-output.txt`): 41 valid text displays of 100 characters give 2 issues under both forms; 41 text displays of 5000
-characters give 43 at base and 2 under the M1 form.
-
-The same mechanism has a second consequence the plan does not state. At `7923a1d`, an over-limit list with an element that fails its
-union aborts the object, and the refinement does not run. Under M1 the list is dirty, not aborted, so `sumDisplayableText` walks the
-raw, unvalidated elements. It is typed structurally (`website.md` A-4) and takes no harm. Run (`output.txt`): container nesting at
-depth 1050, the deepest `superjson.deserialize` admits in the probe, parses without a throw under both forms. Depth 1100 and above
-throws in `superjson` before the schema, under either form. That throw is pre-existing and outside M1.
-
-**Required change.** M1-a admits, at `components` (S10, and so through S4 into the top-level total), at most one further issue: the
-displayable-text `too_big` at path `components` (maximum `MAX_COMPONENTS_DISPLAYABLE_TEXT`). M1-c's "only the issue count of an
-over-limit list moves" is restated as "the refusal set does not move". The issue list may gain the displayable-text issue where an
-aborted element suppressed it at base. QA's cases then hold literals for both shapes.
-
-### AF-3 LOW — S11's bound, the server's slice and the client's cut are one quantity in three places (recommended)
-
-`updatePreferences` cuts with a literal (`slice(0, 10)`). M1 adds 11 as the schema bound, and M1-e adds a cut in
-`usePreferences.ts`. Recommended: one constant, say `MAX_RECENT_MESSAGE_IDS` (10), in the `~/constants` barrel beside
-`MAX_MESSAGES` (a per-user count, not a message bound, so A-4's two homes do not govern it). It is read by the slice, by the bound
-as `+ 1`, and by the composer. The `+ 1` is stated in a comment with its reason: the open message's slot. That slot is also what
-keeps an already-loaded bundle's list (the open message plus 10 stored) accepted after the release. That reason makes 11 better than
-10, and the plan does not state it.
-
-### AF-4 LOW — Bound homes for the new mention-list and `parse` bounds (recommended)
-
-M1-d puts a new bound no validator reads in the barrel's "limits block". The block A-4 names is commented "Components V2 limits".
-The mention-id bound (100, S7/S8) is a message-level cap, not a V2 one. It belongs in the barrel beside `MAX_EMBEDS` and
-`MAX_EMBED_FIELDS`, not under the V2 comment. S6's bound (3) is "the values its element admits", so derive it from the domain's one
-definition: a const tuple read by both the element schema and the bound (its `length`). A later fix of X-13's domain then moves both.
-The `MessageData` type carries the same domain a second time (`src/@types/global.d.ts`, `allowed_mentions.parse`). That is recorded
-under AF-6's row, not asked of this chain.
+### AF-4 LOW RESOLVED — Bound homes. Plan rev 2 M1 table S6–S8: the mention-id constant goes beside `MAX_EMBEDS`, and S6's bound is the length of the one tuple the element union is built from.
 
 ### AF-5 INFO — Problem Area registered: the lint stack M3 lands on
 
@@ -110,8 +60,26 @@ restated at the closing pass, once M3 has landed (open item 1).
   (`MessageProvider/index.tsx`), so a non-empty value comes only from pasted JSON. A Discord-valid `["users"]` is refused by the
   JSON view's import shape and by Save. This is not a W-2 tension: the front end refuses it as the back end does.
 
+### AF-7 INFO — Problem Area registered: the editor's Save shows no reason where its siblings show the server's issues (X-18)
+
+- The editor's Save (`MessageProvider/index.tsx`, the save mutation's error path) renders a fixed toast: "Error. Failed to save
+  message. Please try again."
+- Save As (`SaveAsMenu.tsx`) and the new-message modal (`NewMessageModal.tsx`) render `formatMutationError(messageError)`, one line
+  per issue (A-1).
+- So three writers to the same procedure tell the user different amounts, and the editor's Save, the most used, tells the least.
+- Plan 018 makes this reachable on a new path: a stored message over a new bound. The plan keeps it as stated limit X-18 (AD-4),
+  and that is sound for the chain's scope.
+- Could be better: one error presentation for every persisting writer, which is the front-end cohesion the "Persisting writers
+  share a criterion" row already describes.
+- Registered in the master document's Problem Areas; no plan change.
+
 ## Conforming forms
 
+- **The abort-form helper** (rev 2 M1-d; the planner's `abort-form-probe/export.diff`) lives in `shapes.ts` beside `discordIdShape`,
+  is exported for `routers/user.ts`, and carries one cast. Its issue has the same `code`, `type`, `maximum` and default message text
+  as zod's own `.max()`, so A-1's per-issue formatting renders it as today's first issue. That is the form AF-1 asked for, and it
+  conforms. Aborting the enclosing object leaves sibling fields' issues recorded: zod parses every key before it merges the object.
+  So M1-c's "may shrink, never grow" is the right statement.
 - **S4's bound** reads `MAX_TOTAL_COMPONENTS`, as `discordMessageBaseShape.components` does (`shapes.ts`). It conforms.
 - **The import shape's top-level list** (M1-d) keeps `z.preprocess(filterSupportedComponents, …)` around the shared form. It
   conforms, and the JSON view then refuses what Save refuses, which is W-2's direction.
@@ -121,20 +89,25 @@ restated at the closing pass, once M3 has landed (open item 1).
 - **M2** writes no new form. `next.config.js`, `middleware.ts` and the Pages/App split are unchanged.
 - **M3's flat config** at the repository root sits beside `next.config.js`, `postcss.config.js`, `tailwind.config.js` and
   `vitest.config.ts`. Replacing `.eslintrc.json` and `.eslintignore` is the deviation ESLint 9 makes necessary.
-- **M4 and M5** add no code.
+- **M4** adds no code. R6 and R7 are source reads of Next.js internals that the 015 premises rest on, recorded by the implementer
+  (open item 3).
+- **M5 under OQ-5's recommended option** puts a build override (`SKIP_ENV_VALIDATION=1`) on a release-check branch only, never
+  on the chain tip or `master`. So production's build keeps its environment validation, and the preview differs from production
+  by that one build-time check (`git diff --name-only` shows `vercel.json` alone). It conforms. Which option holds is his.
 - **Cost that grows with history:** S11's stored list is the one form whose size grows with use. M1-e bounds what the client sends,
   for any stored length. The live population is unreadable (RK-3), so the plan's extreme of 50 is a test value, not a measurement.
 
 ## Records touched in this pass
 
 - `system-architecture.md`: Dependencies (the direct `sharp` dropped; Next's own copy named), Problem Areas (three rows: AF-5, AF-6
-  twice), and a changelog row.
+  twice), and a changelog row. At revision 2: one further Problem Areas row (AF-7) and a changelog row.
 - `website.md` A-4: a "List bounds" paragraph stating today's form and its zod 3.22.4 consequence (agent-designed). The M1 form is
   restated at the closing pass, once it exists (open item 2).
 
 ## Open items (this document's, discharged no later than devops Stage 1)
 
 1. Restate the ESLint Problem Areas row from the M3 tip (its `.eslintrc.json` sentence and the counts).
-2. Restate `website.md` A-4's "List bounds" paragraph from the M1 tip: the helper, its home and the bound homes.
-3. Carry M4-c's R3 result (X-14's premise, "Next 16.1.6") into the record, and restate Components' "Next.js 16 hybrid" version
-   facts from the release tree.
+2. Restate `website.md` A-4's "List bounds" paragraph from the M1 tip: the fatal-issue helper, its home and the bound homes
+   (`MAX_RECENT_MESSAGE_IDS`, the mention-id constant, the `parse` tuple).
+3. Carry M4-c's R3, R6 and R7 results (X-14's premise, and 015's two Next.js premises) into the record, and restate Components'
+   "Next.js 16 hybrid" version facts from the release tree.
