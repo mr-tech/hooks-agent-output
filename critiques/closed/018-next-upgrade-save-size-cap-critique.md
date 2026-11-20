@@ -2,9 +2,9 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Status: Open
-Status-Detail: "Cycle 2 pass 2 on plan revision 7 (M2 only): APPROVED. F-21 CRITICAL and F-22 RESOLVED: the paths entry is gone and M2-c reads the built output. New: F-23 MEDIUM (M2-e's after-deploy look names no runner; stated limit SL-2 until folded) and F-24 LOW, both for the plan's Planner batch. Status stays Open until the plan carries those two rows. No open question."
-Artifact-Revision: 7 — the delta 8277b08..af8a9d6 read whole; last whole read is revision 1 at c2a6b85
+Status: Resolved
+Status-Detail: "Cycle 2 pass 2 on plan revision 7 (M2 only): APPROVED. F-1 to F-22 RESOLVED. F-23 MEDIUM and F-24 LOW are DEFERRED to the plan's fold seam, each carried by a Planner batch row in the plan (R-6, R-7); they close as landed-by-author at the fold revision. SL-2's substance is carried by QA's register row B-10. No open question."
+Artifact-Revision: 7 — the delta 8277b08..af8a9d6 read whole; af8a9d6..b36997e is registrations only (R-5 to R-7); last whole read is revision 1 at c2a6b85
 Reviewed-At: "af8a9d6 — repos=agent-output; website code read at 7923a1d (origin/master)"
 Verdict: APPROVED
 ---
@@ -38,6 +38,8 @@ against the rulings and the architecture record. **Date**: 2026-11-20.
 | 2026-11-20T04:32 | critic-hooks-018 | Document closed | Status: Resolved. Every finding, F-1 to F-20, is verified landed in the plan at revision 5. |
 | 2026-11-20T05:15 | planner-hooks-018 (message naming revision 6 at `8277b08`) | cycle 2 pass 1: plan revision 6, delta-bounded | Reopened from `critiques/closed/`: revision 6 changes M2's steps and criteria after the critique closed, which opens cycle 2. Depth: delta-bounded, since the delta `e45e8cf..8277b08` (42 added, 18 removed, `git diff --numstat`, three commits: R-4, two of revision 6) is fully readable and touches M2 alone. Artifact changes: three `tsconfig.json` keys in M2's steps; M2-b, M2-c and M2-d extended; X-21 added. New: F-21 CRITICAL (found by a build run in this pass; duplicates AF-10), F-22 LOW. Verdict REQUEST REVISION. |
 | 2026-11-20T05:21 | planner-hooks-018 (message naming revision 7 at `af8a9d6`) | cycle 2 pass 2: plan revision 7, delta-bounded | Depth: delta-bounded. The delta `8277b08..af8a9d6` (38 added, 22 removed, `git diff --numstat`, one commit) touches M2 alone and was read whole. Artifact changes: the `paths` entry removed; `highlight.js` 11.7.0 → 11.12.0 under D-6, with a comparison run; M2-b restated; M2-c reads the built output; M2-e added (a walked code block); X-21 removed; RK-6's record. Findings addressed: F-21 and F-22 RESOLVED; my pass 1 question answered. New: F-23 MEDIUM, F-24 LOW. The stop authority fired on F-23 (stated limit SL-2). Verdict APPROVED. |
+| 2026-11-20T05:26 | steering-roadmap-hooks (message naming rulings block 05:26Z, `44efb1f`) | boundary line and the M2 cap | Boundary: the plan's delta `af8a9d6..b36997e` (10 added, 3 removed, three commits R-5 to R-7) is registrations and Status-Detail only, outside criterion text, milestone scope, instrument form and register effect; no findings pass is owed. It carries F-23 and F-24 as Planner batch rows parked for the fold seam. Noted from block 05:26Z: M2 is capped, so a further M2 gap below HIGH is a stated limit in the Planner batch with no revision round. F-24 marked as a duplicate of AF-11. |
+| 2026-11-20T05:26 | critic-hooks-018 | Document closed | Status: Resolved. F-23 and F-24 carry a landing trigger and stage in the plan (Planner batch rows, the fold seam); every other finding is verified landed. |
 
 ## Verdict
 
@@ -67,7 +69,8 @@ public read (devops), M2-e's after-deploy look (none). One member fails.
   from those rows, it adds the look beside M1-h's and tells the planner. M2-e's pre-release walk and M2-c's read of the
   built output are unaffected.
 
-F-23 and F-24 go to the plan's Planner batch. This critique stays `Open` until the plan carries the two rows.
+F-23 and F-24 are in the plan's Planner batch (R-6, R-7 at `b36997e`), parked for the fold seam, so this critique is
+`Resolved`. The fold itself is gated by the critic when it comes; it is read as the `git diff` from `af8a9d6`.
 
 No milestone is marked `PREMISE-STALE`. `Target-Release` is untouched by the delta. Routed to the owner: nothing by
 this critique; steering tells him of the highlight.js move at its next prompt, as block 03:25Z provides.
@@ -108,9 +111,13 @@ None in the plan. The delta opens no `OPEN QUESTION`; OQ-1 and OQ-5 are `[RESOLV
 
 ## Findings
 
-Open, both for the plan's Planner batch:
+Deferred, both carried by rows of the plan's Planner batch (`planning/018-next-upgrade-save-size-cap.md` § Planner batch,
+at `b36997e`). Decided by the planner under the post-approval rule: neither changes code, a test or a pre-release
+check, so both wait for the fold seam (QA Phase 2 of the last milestone). They close as landed-by-author at the fold
+revision. If the chain closes with no fold, F-23 moves to devops's Stage 1 handoff row (QA's B-10) and F-24 lapses as
+wording.
 
-F-23 MEDIUM cycle 2 pass 2 — OPEN — M2-e's after-deploy look names no runner and no carrier
+F-23 MEDIUM cycle 2 pass 2 — DEFERRED — M2-e's after-deploy look names no runner and no carrier
 - **Location**: plan M2-e, last clause ("after deploy, the same look on hooks.gg with the test account"); compare M1-h,
   which names UAT and devops's post-deploy handoff, and § M5's "Post-deploy rows" line.
 - **Description**: the pre-release walk names UAT and its session. The after-deploy look names nobody, and M2-e is not
@@ -121,7 +128,7 @@ F-23 MEDIUM cycle 2 pass 2 — OPEN — M2-e's after-deploy look names no runner
 - **Recommendation**: name the runner and put the look among the post-deploy rows, as M1-h is. Landing: a Planner batch
   row, folded at the plan's next revision. Stated limit SL-2 carries it until then.
 
-F-24 LOW cycle 2 pass 2 — OPEN — the plan gives the preview's difference count and not the editor's
+F-24 LOW cycle 2 pass 2 — DEFERRED — the plan gives the preview's difference count and not the editor's. Duplicates: AF-11 in architecture/018-next-upgrade-save-size-cap-architecture-findings.md
 - **Location**: plan § M2, "Why `highlight.js` moves" ("the editor's `_emitter.rootNode` tree keeps its shape in 18 of
   18 samples, and 4 of 18 samples gain finer token classes in the preview's HTML").
 - **Description**: `hl-compare/output.txt` ends "html differ 4 | tree differ 5". The tree is what the editor's decorator
@@ -244,19 +251,7 @@ decide) is answered by revision 7 and block 03:25Z; see the Verdict.
 
 ## Resumption State
 
-Written 2026-11-20 after cycle 2 pass 2. Session `critic-hooks-018`, launched `--agent critic`, cwd
-`/usr/local/bin/hooks/website`.
-
-- **Done.** Cycle 1 (passes 1 to 5, resolved at `b61164b`). Cycle 2 pass 1: REQUEST REVISION on revision 6 (`9ab8420`).
-  Cycle 2 pass 2: APPROVED on plan revision 7 (`af8a9d6`), stated limit SL-2.
-- **Open.** F-23 MEDIUM and F-24 LOW, routed to the plan's Planner batch. This critique stays `Open` until the plan
-  carries those rows; then it is set `Resolved` and moved to `critiques/closed/`.
-- **Next.** On the planner's next message, read the plan as the `git diff` from `af8a9d6`. A registration that only adds
-  the two batch rows closes this critique. A revision that changes criterion text is cycle 2 pass 3.
-- **Tree.** website `chain/018-next-upgrade-save-size-cap` at `be35da8`; this session wrote nothing there.
-- **Uncommitted, evidence unrecorded, processes, scratch:** none. The test export is deleted and the scratchpad is empty.
-- **Sessions messaged:** `planner-hooks-018`.
-- **Cache-warm wake:** a one-shot, re-armed at each wake.
+Closed at cycle 2 pass 2 with nothing in flight; the planner's fold of the parked batch rows reopens this critique as cycle 3, read as the `git diff` from `af8a9d6`, with M2 gaps below HIGH taken as stated limits under rulings block 05:26Z.
 
 ## Process record
 
