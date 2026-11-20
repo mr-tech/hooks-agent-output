@@ -2,10 +2,10 @@
 ID: n/a
 Origin: fix-personal-message-access
 UUID: 1b613853
-Reviewed-At: 75f1543ce352ae9ae08bb2a34d8bafa1d653e6dd — repos=website; Round 1 raised at d597734, 1a at 12bcd75, 1b at ed88e7c, 1c at 75f1543 (test-only; production identical to ed88e7c)
+Reviewed-At: 983681ca6cd7cbacd0796ed093e094057ad7f9be — repos=website; Round 2 (delta 75f1543..983681c, security M-001); Round 1 closed at 75f1543 (sub-entries 1a–1c)
 Status: In Review
-Round: 1
-Verdict: APPROVED_WITH_COMMENTS
+Round: 2
+Verdict: APPROVED
 ---
 
 # Code Review: fix-personal-message-access
@@ -27,6 +27,7 @@ record `2af7391`).
 | 2026-11-19T23:16 | fixer (`ca0e7de`, website `12bcd75`) | Round 1 sub-entry 1a: fix confirmation | CR-1, CR-2 and CR-5 are fixed; their fixes are this round's findings, so this is a sub-entry and not a new round. Attack 187/187 at `12bcd75`. The id-bound probe found CR-6 LOW: `messageIdShape.safeParse` throws on non-digits, while the router refuses `BAD_REQUEST` before the resolver either way. APPROVED_WITH_COMMENTS; handed to QA Phase 2 (116 production lines). |
 | 2026-11-19T23:23 | fixer (`100c406`, website `ed88e7c`) | Round 1 sub-entry 1b: CR-6 confirmation | CR-6 is fixed; its class is gone. Probe 24/24, attack 187/187 and the convention check report 0 FAIL at `ed88e7c`. APPROVED_WITH_COMMENTS stands at `ed88e7c`; delivered to steering for QA Phase 2. |
 | 2026-11-19T23:50 | steering (QA `0ed724b`, website `75f1543`) | Round 1 sub-entry 1c: test-only delta | QA's QAF-1 cases: production is byte-identical to `ed88e7c`, and the tests conform. APPROVED_WITH_COMMENTS stands at `75f1543`. Capture paths are written in full (check-repo LINKS). |
+| 2026-11-20T00:12 | fixer (`6bd294c`, website `983681c`; steering block 2026-11-20T00:04Z, `fce289f`) | Round 2: delta review of the M-001 fix | It opens a new round because the fix is outside Round 1's findings. The class has 7 members, and the only one returning a pre-check read is now fixed. My instrument, extended with a load-then-delete mode, is red at `75f1543` (1, the M-001 leak) and passes 192/192 at `983681c`. APPROVED. Reconcile note on Round 1's "getOne owner compare found sound". |
 
 ## Scope of this round
 
@@ -389,9 +390,73 @@ lines to `message.personal-ownership.test.ts` and nothing else (`git diff --nums
 
 **Verdict (sub-entry 1c): APPROVED_WITH_COMMENTS at `75f1543`.**
 
+## Round 2 — delta review at `983681c` (security M-001)
+
+**Why a new round:** the fix closes the security stage's M-001 (`security/fix-personal-message-access-security-audit.md`, record
+`99f7a3d`), not a finding of mine. It is outside Round 1's findings' scope, so the delta `75f1543..983681c` is reviewed as a first review.
+The tree was read at `983681c` and re-verified at the end.
+
+**Criteria, recorded before the diff:** the property (block 20:30Z), at S2: no non-owner receives a personal message, including when the
+owner deletes it between `getOne`'s load and its ownership check.
+
+**Change** (`routers/message.ts`, +7/−1): `getOne`'s personal branch reads `oldMessageCount` from `authorizeUser`. When it is 0, it throws
+`NOT_FOUND` ("This message does not exist.", the same text as `delete`'s). `authorizeUser` is unchanged.
+
+**Class and sweep.**
+- **Class:** a procedure that returns a value read before an ownership check which passes on an empty row set.
+- **Enumeration:** `git grep -n -E "authorizeUser\(|authorizeGuildUser\(|authorizeAction\(" 983681c -- src ':!**/__tests__/**'` gives 7
+  call sites (the definition and the `authorizeAction` body excluded).
+- **Disposition of each:**
+  - `getOne` personal: fixed by this delta.
+  - `getOne` server (no ids): membership only. Server messages are outside the personal property (S1b, a handoff).
+  - `upsert` server and personal: an empty set means a create of the caller's own row, and the write is owner-scoped. Returns the
+    read-back of that write.
+  - `updateRecentMessageData` server and personal: returns nothing, and the write carries the owner.
+  - `delete` via `authorizeAction`: the write carries the owner, and previews are cleared only for a removed row.
+  - `user.ts` `get` and `updatePreferences`: no ids.
+- Blind spot: an ownership check written inline, without these helpers. It is not swept by this predicate. QA and security read the
+  procedures whole.
+- **Why not change `authorizeUser` itself:** making it refuse an empty set would make `upsert`'s unknown-number create fail. That
+  changes the round-1 design (hazard 2). Fixing the one caller that returns a pre-check read is the narrower remedy, and it is sound.
+
+**Execution (my instrument, not the fixer's or security's).** `attack.pg.test.ts` gains a race stand-in mode: the `authorizeUser` hook
+deletes A's row after the procedure's load and before the real check. It covers `getOne`, `upsert`, `updateRecentMessageData` and
+`delete`, plus an owner control.
+- `75f1543`: **192 cases, 1 failed**. "getOne: user B receives none of A's message" fails: M-001 is reproduced on real postgres.
+- `983681c`: **192 of 192, exit 0** (`verification/fix-personal-message-access/code-review/run-983681c/attack-983681c.json`; the red
+  capture is `verification/fix-personal-message-access/code-review/run-75f1543/attack-75f1543.json`).
+- No `fpma-cr` container was left.
+
+**Tests:**
+- The suite case "refuses another signed-in user when the message is deleted between its load and the ownership check" uses
+  `world.goneAtCheck`, which empties the check's row set: the race's effect at the check.
+- It asserts `NOT_FOUND` and no secret in the outcome. The expected values are literals.
+- The fixer's red at `75f1543` (1 failed) and its 2 controls are KILLED (record `6bd294c`).
+- Name and titles carry no ID token.
+- Convention check `--since=787bec5`: 0 FAIL, 0 CANDIDATE
+  (`verification/fix-personal-message-access/code-review/run-983681c/convention-check.txt`).
+
+**Findings:** none.
+
+**Reconcile note** (2026-11-20T00:12, on Round 1's "Checked and found sound" list, item "`getOne` owner compare").
+- **What it said:** the compare was sound.
+- **Why that was defensible when written:** with the router check in force, my attack held for every id form. The race-bypass mode
+  deliberately excluded `getOne`, because I treated a read with no write as having no check-then-act gap. That matched the fixer's
+  hazard-6 framing, which I accepted unexecuted.
+- **What was wrong:** a read that returns its pre-check value is check-then-act. Security executed the leak (300 of 300), and my
+  instrument reproduces it at `75f1543`.
+- **Class swept** over that list (every "found sound" item):
+  - the owned update's owner term, the cap, the broadcast guard and `deleteOwnedMessage`'s preview guard: each executed in the
+    check-bypassed mode at `d597734` or later;
+  - `getUserRecentMessages`'s `user.id`: read, then executed on the real session path by security;
+  - `getOne`: the only wrong item, now executed (above).
+- **The missed instrument shape:** a race stand-in on reads. My attack instrument now carries it for all four procedures.
+
+**Verdict (Round 2): APPROVED at `983681c`.**
+
 ## Verdict
 
-**Status**: APPROVED_WITH_COMMENTS at `75f1543` (sub-entry 1c; production identical to `ed88e7c`, sub-entry 1b). It was APPROVED_WITH_COMMENTS at `12bcd75` (1a) and REJECTED at `d597734`.
+**Status**: APPROVED at `983681c` (Round 2). Before that: APPROVED_WITH_COMMENTS at `75f1543` (sub-entry 1c; production identical to `ed88e7c`, sub-entry 1b). It was APPROVED_WITH_COMMENTS at `12bcd75` (1a) and REJECTED at `d597734`.
 **Rationale**:
 - The ownership property holds at `d597734` under adversarial execution: 187/187, every in-scope defect red at base, and the
   check-bypassed mode green.
@@ -415,6 +480,8 @@ session through `createCaller`.
 - That check exercises the path only once the website `master` release is serving: the owner's Vercel production deploy.
 
 ## Next Steps
+
+- **At Round 2:** delivered to steering at `983681c`. Next, QA re-verification, then the security re-review (RC-1).
 
 - **At sub-entry 1c:** delivered to steering at `75f1543`.
 
