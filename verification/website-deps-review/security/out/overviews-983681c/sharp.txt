@@ -1,0 +1,96 @@
+===== GHSA-f88m-g3jw-g9cj | high | cvss 0  | 
+TITLE: sharp inherited vulnerabilities in libvips: CVE-2026-33327, CVE-2026-33328, CVE-2026-35590, CVE-2026-35591
+RANGES: <0.35.0 (installed 0.34.5,0.32.6)
+PATCHED: >=0.35.0
+
+### Impact
+
+A number of vulnerabilities, two rated as "High" severity using CVSSv4, have been discovered and fixed in the upstream libvips dependency.
+
+Those processing untrusted input with versions of sharp prior to 0.35.0 are affected.
+
+### Patches
+
+#### Using prebuilt binaries provided by sharp?
+
+Most people rely on the prebuilt binaries provided by sharp.
+
+Please upgrade sharp to the latest version, currently 0.35.3, which provides libvips 8.18.3.
+
+#### Using a globally-installed libvips?
+
+Please ensure you are using the latest libvips 8.18.3.
+
+### Workarounds
+Add the following to your code to prevent sharp from decoding GIF, TIFF and VIPS images.
+```js
+sharp.block({ operation: ["VipsForeignLoadNsgif", "VipsForeignLoadTiff", "VipsForeignLoadVips"] });
+```
+
+===== GHSA-rgj7-g3m4-5g8c | high | cvss 0  | 
+TITLE: sharp: Vulnerabilities in libheif: GHSA-g89c-p67h-r497 and GHSA-2jg2-4ch7-h545
+RANGES: <0.35.4 (installed 0.34.5,0.32.6)
+PATCHED: >=0.35.4
+
+### Impact
+A number of vulnerabilities, two rated as "Critical" severity using CVSSv3, have been discovered and fixed in the upstream libheif dependency. These can lead to possible remote code execution (RCE) on glibc-based Linux when run under certain conditions.
+
+The attack vector for these claims to be "network" however sharp does not provide any networking features so this vulnerability is down-rated to a "High" severity using CVSSv4 but please note its Subsequent System Impact.
+
+Those processing untrusted input with versions of sharp prior to 0.35.4 are affected.
+
+### Patches
+
+#### Using prebuilt binaries provided by sharp?
+
+Most people rely on the prebuilt binaries provided by sharp.
+
+Please upgrade sharp to the latest version, currently 0.35.4, which provides libheif 1.23.2.
+
+#### Using a globally-installed libheif?
+
+Please ensure you are using the latest libheif 1.23.2.
+
+### Workarounds
+Add the following to your code to prevent sharp from decoding AVIF images.
+```js
+sharp.block({ operation: ["VipsForeignLoadHeif"] });
+```
+
+Ensure you are using a `node` executable binary compiled as a Position Independent Executable (PIE). Most Linux package managers already do this for protection against RCE however be warned that the "official" Node.js binaries do not.
+
+### References
+- [CVE-2026-84383](https://github.com/strukturag/libheif/security/advisories/GHSA-g89c-p67h-r497)
+- https://github.com/strukturag/libheif/security/advisories/GHSA-2jg2-4ch7-h545
+
+===== GHSA-wq5f-xc86-pv6w | high | cvss 0  | 
+TITLE: sharp : Vulnerability in librsvg dependency CVE-2026-96889
+RANGES: <0.35.5 (installed 0.34.5,0.32.6)
+PATCHED: >=0.35.5
+
+### Impact
+
+A memory-related vulnerability has been discovered and fixed in the upstream librsvg dependency. When certain runtime-specific conditions apply, this vulnerability can lead to possible remote code execution (RCE) on glibc-based Linux.
+
+### Patches
+
+#### Using prebuilt binaries provided by sharp?
+
+Most people rely on the prebuilt binaries provided by sharp.
+
+Please upgrade sharp to the latest version, currently 0.35.5, which provides librsvg 2.63.2.
+
+#### Using a globally-installed librsvg?
+
+Please ensure you are using the latest librsvg 2.63.2.
+
+### Workarounds
+
+Add the following to your code to prevent sharp from decoding SVG images.
+```js
+sharp.block({ operation: ["VipsForeignLoadSvg"] });
+```
+
+To avoid RCE, ensure you are using a `node` executable binary compiled as a Position Independent Executable (PIE). Most Linux package managers already use this security-hardening feature however be warned that the "official" Node.js binaries do not.
+1
+

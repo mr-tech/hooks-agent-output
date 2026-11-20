@@ -1,0 +1,44 @@
+===== GHSA-r5fr-rjxr-66jc | high | cvss 8.1 CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H | CVE-2026-4800
+TITLE: lodash vulnerable to Code Injection via `_.template` imports key names
+RANGES: >=4.0.0 <=4.17.23 (installed 4.17.21)
+PATCHED: >=4.18.0
+
+### Impact
+
+The fix for [CVE-2021-23337](https://github.com/advisories/GHSA-35jh-r3h4-6jhm) added validation for the `variable` option in `_.template` but did not apply the same validation to `options.imports` key names. Both paths flow into the same `Function()` constructor sink.
+
+When an application passes untrusted input as `options.imports` key names, an attacker can inject default-parameter expressions that execute arbitrary code at template compilation time.
+
+Additionally, `_.template` uses `assignInWith` to merge imports, which enumerates inherited properties via `for..in`. If `Object.prototype` has been polluted by any other vector, the polluted keys are copied into the imports object and passed to `Function()`.
+
+### Patches
+
+Users should upgrade to version 4.18.0.
+
+The fix applies two changes:
+1. Validate `importsKeys` against the existing `reForbiddenIdentifierChars` regex (same check already used for the `variable` option)
+2. Replace `assignInWith` with `assignWith` when merging imports, so only own properties are enumerated
+
+### Workarounds
+
+Do not pass untrusted input as key names in `options.imports`. Only use developer-controlled, static key names.
+
+===== GHSA-xxjr-mmjv-4gpg | moderate | cvss 6.5 CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L | CVE-2025-13465
+TITLE: Lodash has Prototype Pollution Vulnerability in `_.unset`, `_.omit`, and `_.pullAt` functions
+RANGES: >=4.0.0 <=4.17.22 (installed 4.17.21)
+PATCHED: >=4.17.23
+
+### Impact
+
+The `_.unset`, `_.omit`, and `_.pullAt` functions are vulnerable to prototype pollution. An attacker can pass crafted paths which cause Lodash to delete methods from global prototypes.
+
+The issue permits deletion of properties but does not allow overwriting their original behavior.
+
+### Patches
+
+The issue is patched from 4.17.23 to 4.18.0 depending on the package: `lodash`, `lodash-es`, and `lodash-amd` in 4.17.23, and the standalone `lodash.unset` and `lodash.omit` packages in 4.18.0.
+
+### Workarounds
+
+None. Upgrade to the patched version.
+

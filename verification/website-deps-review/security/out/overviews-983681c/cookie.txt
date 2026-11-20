@@ -1,0 +1,23 @@
+===== GHSA-pxg6-pf52-xh8x | low | cvss 0  | CVE-2024-47764
+TITLE: cookie accepts cookie name, path, and domain with out of bounds characters
+RANGES: <0.7.0 (installed 0.5.0)
+PATCHED: >=0.7.0
+
+### Impact
+
+The cookie name could be used to set other fields of the cookie, resulting in an unexpected cookie value. For example, `serialize("userName=<script>alert('XSS3')</script>; Max-Age=2592000; a", value)` would result in `"userName=<script>alert('XSS3')</script>; Max-Age=2592000; a=test"`, setting `userName` cookie to `<script>` and ignoring `value`.
+
+A similar escape can be used for `path` and `domain`, which could be abused to alter other fields of the cookie.
+
+### Patches
+
+Upgrade to 0.7.0, which updates the validation for `name`, `path`, and `domain`.
+
+### Workarounds
+
+Avoid passing untrusted or arbitrary values for these fields, ensure they are set by the application instead of user input.
+
+### References
+
+* https://github.com/jshttp/cookie/pull/167
+

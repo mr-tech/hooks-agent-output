@@ -1,0 +1,7 @@
+warm-up, no header	status=200	time_total=4.817213s
+tokens=0, no header	status=200	time_total=0.168324s
+tokens=200, header 1004 bytes, no query string	status=200	time_total=3.130287s
+tokens=400, header 2004 bytes, no query string	status=200	time_total=12.195683s
+tokens=800, header 4004 bytes, no query string	status=200	time_total=51.415566s
+tokens=0, no header	status=200	time_total=0.145833s
+control: tokens=400 header AND a query string (?a=1)	status=200	time_total=0.083874s

@@ -1,0 +1,35 @@
+advisory entries in the audit: 141
+distinct GHSA ids: 119
+audit metadata.vulnerabilities: {"info":0,"low":12,"moderate":50,"high":76,"critical":8}
+rows in the dispositions table: 141
+
+By advisory entry (an entry split across dispositions counts once per disposition it takes):
+disposition	critical	high	moderate	low	total
+REACHED	0	4	1	0	5
+CONDITIONAL	0	3	1	1	5
+HOST	2	5	6	0	13
+ABSENT	5	23	23	5	56
+DEV	0	0	0	2	2
+BUILD	0	19	8	1	28
+UNLOADED	1	18	10	3	32
+all	8	72	49	12	141
+
+By the audit's own unit (advisory entry x installed version), which is what metadata.vulnerabilities counts:
+disposition	critical	high	moderate	low	total
+REACHED	0	4	1	0	5
+CONDITIONAL	0	3	1	1	5
+HOST	2	8	6	0	16
+ABSENT	5	24	24	5	58
+DEV	0	0	0	2	2
+BUILD	0	19	8	1	28
+UNLOADED	1	18	10	3	32
+all	8	76	50	12	146
+
+Distinct GHSA ids per disposition:
+REACHED	5
+CONDITIONAL	5
+HOST	13
+ABSENT	56
+DEV	2
+BUILD	25
+UNLOADED	21

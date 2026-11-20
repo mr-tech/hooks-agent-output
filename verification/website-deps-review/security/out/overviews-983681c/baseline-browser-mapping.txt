@@ -1,0 +1,7 @@
+===== GHSA-w5vr-8v7q-w6rv | moderate | cvss 0  | CVE-2026-45819
+TITLE: baseline-browser-mapping process termination on invalid input causes denial of service
+RANGES: >=2.0.0 <2.11.0 (installed 2.10.0)
+PATCHED: >=2.11.0
+
+baseline-browser-mapping 2.x before 2.11.0 calls process.exit() instead of throwing on invalid or conflicting input parameters, and can trigger immediate process termination, causing denial of service.
+

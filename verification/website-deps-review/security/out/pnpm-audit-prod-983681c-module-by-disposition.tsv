@@ -1,0 +1,41 @@
+@babel/runtime	ABSENT	1	 m
+baseline-browser-mapping	BUILD	1	 m
+brace-expansion	UNLOADED	16	 h h h h h h h h h h m m m m l l
+braces	BUILD	1	 h
+cookie	ABSENT	1	 l
+cross-spawn	ABSENT	1	 h
+decode-uri-component	REACHED	2	 h m
+diff	BUILD	1	 l
+fast-loops	ABSENT	1	 h
+fast-xml-parser	ABSENT	7	 c h h m m l l
+form-data	ABSENT	2	 c h
+form-data	UNLOADED	2	 c h
+immutable	BUILD	3	 h h h
+jose	ABSENT	1	 m
+js-cookie	ABSENT	1	 h
+kysely	ABSENT	3	 h h h
+lodash	ABSENT	2	 h m
+micromatch	BUILD	1	 m
+minimatch	UNLOADED	6	 h h h h h h
+nanoid	ABSENT	4	 h h h m
+nanoid	BUILD	4	 h h h m
+next	ABSENT	23	 c c h h h h h h h m m m m m m m m m m m m m l
+next-auth	ABSENT	4	 c h m m
+next	CONDITIONAL	5	 h h h m l
+next	DEV	2	 l l
+next	HOST	10	 c c h h m m m m m m
+next	REACHED	2	 h h
+picomatch	BUILD	2	 h m
+postcss	BUILD	4	 h h m m
+postcss-selector-parser	BUILD	1	 m
+sanitize-html	UNLOADED	6	 m m m m m m
+sharp	HOST	3	 h h h
+@smithy/config-resolver	ABSENT	1	 l
+source-map-js	BUILD	1	 h
+tar-fs	BUILD	6	 h h h h h h
+tmp	UNLOADED	2	 h l
+uuid	ABSENT	1	 m
+ws	ABSENT	3	 h h m
+ws	BUILD	2	 h h
+yaml	BUILD	1	 m
+zod	REACHED	1	 h

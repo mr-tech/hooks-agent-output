@@ -1,0 +1,271 @@
+---
+ID: n/a
+Origin: website-deps-review
+UUID: f14f4445
+Status: Active
+Status-Detail: "BLOCKED_PENDING_REMEDIATION at website 983681c, a tree already released, so the verdict holds no release: it says the dependency posture is not approvable until H-001 is fixed. H-001 (HIGH), H-002 (HIGH) and M-001 (MEDIUM) are OPEN and wait on the owner's scope decision, put through steering. None of the audit's 8 critical advisories is reached on hooks.gg as hosted."
+Reviewed-At: "983681ca6cd7cbacd0796ed093e094057ad7f9be — repos=website; lockfile unchanged from 787bec5 (git diff --quiet 787bec5 983681c -- pnpm-lock.yaml package.json, exit 0)"
+Kind: dependency-audit
+---
+
+# Security Assessment: website — production dependency review (reachability of the audit's findings on hooks.gg)
+
+## Changelog
+
+| Date | Agent Handoff | Request | Summary |
+|------|---------------|---------|---------|
+| 2026-11-20T01:57 | steering-roadmap-hooks → security-hooks-website-deps (brief `steering/website-deps-review-brief-security.md`; owner selection recorded in `steering/fix-personal-message-access-rulings.md`, block 2026-11-20T01:34Z, question "Deps review") | Dependency-only review of website at `983681c`: for each audit finding, whether hooks.gg reaches the vulnerable code, where it ships and how it is reached. No remediation. | Initial assessment. 141 advisory entries dispositioned: 5 reached, 5 conditional, 13 self-hosting only, 56 precondition absent, 2 dev server only, 28 build time only, 32 never loaded. H-001, H-002, M-001 OPEN. Verdict BLOCKED_PENDING_REMEDIATION. |
+
+## Metadata
+
+| Field | Value |
+|-------|-------|
+| Assessment Type | Dependency (Phase 3), with reachability read from the product source |
+| Mode Determination | User-specified: the brief names a dependency-only review |
+| Scope | `website` at `983681c`: `package.json`, `pnpm-lock.yaml`, and the source read only to decide reachability. Production dependencies (`pnpm audit --prod`). Dev dependencies, the other three repositories and remediation are out of scope. |
+| Not covered | Supply-chain review of maintainers and typosquatting; dev dependencies; the live Vercel project's settings; any request to production. A follow-up is recommended for the first two only if the owner wants them. |
+
+## Executive Summary
+
+`pnpm audit --prod` over the lockfile at `983681c` lists 141 advisory entries in 34 packages. Five of them are reached on hooks.gg. Two of those five share one path that I exercised on a locally served build: any visitor, signed in or not, can send one request header that keeps a server process busy for many seconds (H-001). None of the 8 critical advisories is reached on hooks.gg as it is hosted today.
+
+The other 136 entries are not reached. Their vulnerable code is either never loaded, runs only while building, runs only on a self-hosted server, or needs a feature the site does not use. Each entry has its own row and reason in `verification/website-deps-review/security/out/pnpm-audit-prod-983681c-dispositions.tsv`.
+
+**Overall Risk Rating**: HIGH
+**Verdict**: BLOCKED_PENDING_REMEDIATION
+
+The verdict binds to website `983681c`. That tree is already released, so the verdict stops nothing in flight. It states that H-001 must be fixed and re-reviewed before this dependency set can be approved.
+
+## How hooks.gg is served (the facts the dispositions rest on)
+
+Each line names the read that established it. All reads are of website `983681c` unless said otherwise.
+
+- **Vercel hosts it.** `dig +short hooks.gg A` answered `76.76.21.21`, and `www.hooks.gg` answered `cname.vercel-dns.com.` (this session, 2026-11-20T01:4xZ). The tree carries `vercel.json` (one cron) and no workflow file. `ecosystem.config.json` describes a PM2 `next start` deployment; nothing I read shows it in use.
+- **App Router pages, Pages Router API.** `src/app/` holds every page. `src/pages/` holds `api/` only. There is no `src/app/api`.
+- **One middleware, and it authorises nothing.** `src/middleware.ts` matches `/message/(.*)`, `/api/guilds/(.*)` and `/preview`. It copies the path into `x-pathname` and, only when the URL has a query string, the query into `x-query-params`. It never redirects, rewrites or refuses.
+- **Features the Next.js advisories depend on, counted in the source** (`usage-evidence.sh`, output `out/usage-evidence-983681c.txt`, 338 files scanned, `grep -c` sums): `use server` 0, `use cache` 0, `cacheComponents` or `experimental.ppr` 0, `rewrites(` 0, `i18n:` 0, `next/script` 0, Content-Security-Policy or script nonce 0, metadata image routes 0, `new Request(` 0, ISR and cache APIs 0, `NextResponse.redirect(` 0. Edge runtime declarations: 1 (`src/pages/api/interactions-edge.ts`, which sets no cookie).
+- **Images.** `next.config.js` allows `cdn.discordapp.com` and `cdn.jsdelivr.net` as remote image hosts. Most `next/image` uses pass `unoptimized`; some do not (for example the three in `src/utils/markdown/rules.tsx`), so `/_next/image` is in use.
+- **Sign-in.** `src/server/auth.ts` configures one provider, Discord, with a database adapter and no JWT strategy. The source never calls `getToken` (count 0).
+- **Database.** Postgres through Kysely (`project-utils` `dist/postgres.js`, `PostgresDialect`). The website's raw SQL is three `sql` template literals; the one interpolated value is a bound parameter. `sql.lit`, `sql.raw` and the JSON-path builder: count 0.
+
+## Threat Model Summary
+
+Dependency code matters where it meets input an attacker chooses. On this site that happens at four places: request headers and URLs on page renders (unauthenticated), tRPC inputs (signed-in; signing in needs only a Discord account), Discord interaction bodies (signature-checked), and Next.js's own request handling (unauthenticated). STRIDE over those: the reached findings are all denial of service. I found no reached advisory that discloses data, forges identity or runs code.
+
+## Findings
+
+Finding IDs are this document's own. Severity is the finding's severity on hooks.gg, which can differ from the advisory's rating.
+
+### High Findings
+
+| ID | Severity | Title | Category | Location | CVSS |
+|----|----------|-------|----------|----------|------|
+| H-001 | HIGH | An unauthenticated request header makes a page render burn CPU for seconds to minutes | Denial of service through `decode-uri-component` 0.4.1 (GHSA-vcc3-ghjq-m6fr, GHSA-qr28-fpjm-wq7f; CWE-400, CWE-407) | `src/app/_components/Providers.tsx` `getMessage`; `src/middleware.ts` `middleware` | 7.5 (AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H) |
+| H-002 | HIGH | Next.js 16.1.6 carries two App Router denial-of-service advisories with no precondition the site lacks | Denial of service in React Server Components handling (GHSA-q4gf-8mx6-v5v3, GHSA-8h8q-6873-q5fj; CWE-770) | `package.json` `next` (lockfile 16.1.6) | 7.5 (the advisories' own) |
+
+**H-001 — status OPEN.**
+
+- **How it is reached.** `Providers` is mounted by `src/app/message/layout.tsx`, so it renders on every `/message` page. It reads the request header `x-query-params` and calls `queryString.parse(decodeURIComponent(header))`. `query-string` 8.1.0 decodes each key and value with `decode-uri-component` 0.4.1. The middleware sets that header only when the URL has a query string, and it starts from a copy of the client's headers. So on a `/message` page requested without a query string, a header the client sent arrives untouched. No sign-in is needed: `/message/m/0/edit` renders without a session.
+- **What it costs.** A run of percent tokens that is well-formed syntax but not valid UTF-8 sends the decoder down its fallback path, which is far worse than linear. Measured on the library with the page's own call expression (`probe-query-string-decode.mjs`, output `out/probe-query-string-decode-983681c.txt`, Node 24.14.0, this box):
+
+  | Header size | Time in `queryString.parse` |
+  |---|---|
+  | 0.5 KB | 0.2 s |
+  | 1 KB | 0.7 s |
+  | 2 KB | 3.3 s |
+  | 4 KB | 14.2 s |
+  | 6 KB | 35.3 s |
+  | 8 KB | 74.1 s |
+
+- **Exercised end to end, locally.** I served an isolated export of `983681c` with `next dev` on `127.0.0.1:39417` and sent the header to `/message/m/0/edit` (`request-x-query-params.sh`, output `out/request-x-query-params-983681c.txt`; the server's own log is `out/next-dev-983681c.log`). Without the header the page answered in 0.15 s. With a 1 KB header it took 3.1 s, with 2 KB 12.2 s, with 4 KB 51.4 s, each answering 200. The server log attributes the time to render. The control, the same 2 KB header plus `?a=1`, answered in 0.08 s, because the middleware then overwrites the header with its own well-formed value.
+- **Not exercised.** Production. I sent nothing to hooks.gg, and a denial-of-service request should not be sent there without the owner's word. Two things are therefore read, not observed: that Vercel passes a client's `x-query-params` header through to the function (A-4), and what limit Vercel puts on header size and on a function's run time. The local run was a dev server; a production build renders the same component with the same library.
+- **Risk.** One small request occupies a server process for up to the platform's time limit. A slow trickle of such requests can hold the site's function capacity and run up compute cost. Nothing is disclosed or changed.
+- **Remediation paths** (not done; remediation is out of this review's scope):
+  1. Stop decoding the header with `query-string`: read the query from the page's own `searchParams`, or parse with the platform's `URLSearchParams`. This removes the path whatever the library version.
+  2. Raise `decode-uri-component` to 0.5.1 or later, the first version both advisories call patched. `query-string` 8.1.0 pulls it in, so this is a lockfile override or a `query-string` upgrade.
+  3. Either way, treat `x-pathname` and `x-query-params` as client-controlled unless the middleware always sets them.
+- **Why this is one finding and not a code finding elsewhere.** The header trust is product code; the cost is the dependency's. Either fix closes it. It was found by tracing the advisory to its call site, so it is recorded here.
+
+**H-002 — status OPEN.**
+
+- **How it is reached.** Both advisories say a crafted request to "any App Router Server Function endpoint" costs excessive CPU while it is deserialised, and name one precondition: the App Router. The site's pages are App Router pages. Unlike the Server Action advisories beside them (GHSA-m99w-x7hq-7vfj, GHSA-p3m5-59mp-jv5r), these two do not say that an application without Server Actions is safe, so I do not assume it, although the source has no `use server` directive.
+- **Not exercised.** The advisories publish no request, so reachability rests on their text.
+- **Platform mitigation, partial.** Vercel's own page on the first of the two (CVE-2026-23869, `https://vercel.com/changelog/summary-of-cve-2026-23869`, fetched this session by a helper, sentences quoted as it returned them) says rules were "deployed … to the Vercel WAF to automatically protect all projects hosted on Vercel at no cost" and also "do not rely on the WAF for full protection". The page does not mention the second (CVE-2026-23870, GHSA-8h8q-6873-q5fj).
+- **Remediation path** (not done): `next` 16.2.5 or later is the first version both advisories call patched (GHSA-q4gf-8mx6-v5v3 from 16.2.3, GHSA-8h8q-6873-q5fj from 16.2.5). `next` 16.4.5 or later clears all 42 Next.js entries in this audit.
+
+### Medium Findings
+
+| ID | Severity | Title | Category | Location | CVSS |
+|----|----------|-------|----------|----------|------|
+| M-001 | MEDIUM | A signed-in user's 1 MB save request makes the server build a validation error of more than 100 MB | Resource exhaustion in `zod` 3.22.4 (GHSA-mrhx-c7xc-m3w5; CWE-770) | `src/server/api/routers/message.ts` `upsert`; `src/server/api/utils/shapes.ts` `optionalIdMessageShape` | 6.5 (AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H) |
+
+**M-001 — status OPEN.**
+
+- **How it is reached.** `message.upsert` is a `protectedProcedure`, so the caller must be signed in; any Discord account can sign in. Its input is parsed by `optionalIdMessageShape`. zod 3.22.4 records one issue for every failing array element and does not stop early, with or without a `.max()` on the array. The Pages Router's body parser accepts up to 1 MB by default (`next/dist/server/api-utils/node/api-resolver.js`: `'1mb'`), and no route in the source sets `sizeLimit`.
+- **What it costs.** Measured against the site's own schema in the isolated export (`zodSaveSchema.cost-probe.test.ts`, output `out/probe-zod-save-schema-983681c.txt`). A 1 MB body whose array holds about 524,000 failing elements:
+
+  | Array filled | Issues | Parse | `ZodError.message` | Heap growth |
+  |---|---|---|---|---|
+  | `allowed_mentions.users` | 524,255 | 0.6 s | 119 MB, 1.0 s to build | 336 MB |
+  | `embeds` | 524,266 | 0.5 s | 106 MB, 1.1 s | 187 MB |
+  | `components` | 524,264 | 0.6 s | 108 MB, 0.9 s | 164 MB |
+  | a container's `components` | 524,250 | 0.7 s | 124 MB, 1.1 s | not read (a collection ran mid-measure) |
+
+- **Why the message size matters.** tRPC 11.10.0's `TRPCError` takes its message from its cause when none is given, and its error shape returns `message: error.message`; the site's `errorFormatter` returns the shape unchanged (`src/server/api/trpc.ts`). `ZodError.message` is the JSON of every issue. So the server builds that string to answer. This step is read from code, not run: I did not send the request over HTTP, which needs a session and a database.
+- **Risk.** Each such request costs about 1.5 s of CPU and several hundred megabytes in one function instance. It needs an account, and it affects one instance at a time.
+- **Remediation paths** (not done): the advisory's patched version is zod 4.6.6, a major version above 3.22.4. The lighter route is in the product: refuse an oversized array before the element schemas run, or lower the body limit on the tRPC route. Either is a code change with its own tests.
+
+### Critical and Low Findings
+
+None. The 8 critical advisories are dispositioned below; none is reached.
+
+## Disposition of every advisory
+
+**What was counted.** `pnpm audit --prod --json`, run in `website` at `983681c` on 2026-11-20T01:37:31Z, exit 1, raw output `out/pnpm-audit-prod-983681c.json`. It holds 141 advisory entries with 119 distinct GHSA ids, in 34 packages. Its own summary says 8 critical, 76 high, 50 moderate, 12 low, which sums to 146: that summary counts an entry once per installed version it matches. By entry the figures are 8, 72, 49 and 12. The brief's counts are the summary's and match. Both countings are in `out/pnpm-audit-prod-983681c-disposition-summary.txt`, produced by `apply-dispositions.js` from `dispositions.json`, which fails if any entry lacks a disposition.
+
+**The seven dispositions.**
+
+| Disposition | Meaning | Critical | High | Moderate | Low | Entries |
+|---|---|---|---|---|---|---|
+| REACHED | Vulnerable code runs on hooks.gg on input an attacker chooses | 0 | 4 | 1 | 0 | 5 |
+| CONDITIONAL | The code runs, but harm needs a condition that is absent or that I could not establish | 0 | 3 | 1 | 1 | 5 |
+| HOST | Reached only where Next.js serves itself (`next start`); hooks.gg is on Vercel | 2 | 5 | 6 | 0 | 13 |
+| ABSENT | Shipped, but the feature, function or input the advisory needs is not there | 5 | 23 | 23 | 5 | 56 |
+| DEV | The `next dev` server only | 0 | 0 | 0 | 2 | 2 |
+| BUILD | Runs only during install or build, over the repository's own files | 0 | 19 | 8 | 1 | 28 |
+| UNLOADED | Installed, never loaded by the website | 1 | 18 | 10 | 3 | 32 |
+| All | | 8 | 72 | 49 | 12 | 141 |
+
+**The 8 critical advisories.**
+
+| Package | Advisory | Disposition | Why |
+|---|---|---|---|
+| `next` 16.1.6 | GHSA-2464-fhr4-w9xw, remote code execution in image optimisation of SVG | HOST | Next's own optimiser runs only where Next serves `/_next/image`. On Vercel the platform's image service answers that path. The advisory is silent on managed hosting (A-1). |
+| `next` 16.1.6 | GHSA-2xp9-vwfh-vxw4, remote code execution in image optimisation of AVIF | HOST | Same as above (A-1). |
+| `next` 16.1.6 | GHSA-673q-mjm6-r5xr, remote code execution in `use cache` functions | ABSENT | Needs Cache Components and a `use cache` function; the source has neither. The advisory adds "upgrade immediately even if your application does not have similar functions". |
+| `next` 16.1.6 | GHSA-p293-qw3h-jr36, remote code execution on Windows-hosted servers | ABSENT | Needs a Windows filesystem. |
+| `next-auth` 4.24.5 | GHSA-7rqj-j65f-68wh, email sign-in homoglyph bypass | ABSENT | Needs the email provider; only Discord is configured. |
+| `fast-xml-parser` 4.2.5 | GHSA-m7jm-9gc2-mpf2, entity encoding bypass | ABSENT | The parser reads only the object store's answers; an attacker would have to control the storage provider. |
+| `form-data` 4.0.0 | GHSA-fjxv-7rqg-78g4, predictable multipart boundary | ABSENT | A form is built only after `addFile`, which has no caller. |
+| `form-data` 3.0.1 | GHSA-fjxv-7rqg-78g4, same | UNLOADED | Installed under `pusher > @types/node-fetch`, which is type declarations only. |
+
+**By package.** "Ships to" says where the package's code runs for hooks.gg. Counts are entries, from `out/pnpm-audit-prod-983681c-module-by-disposition.tsv`.
+
+| Package (installed) | Entries | Ships to | Disposition | How it is reached, or why not |
+|---|---|---|---|---|
+| `decode-uri-component` 0.4.1, via `query-string` | 2 | Server | REACHED | H-001. |
+| `zod` 3.22.4, direct | 1 | Server and browser | REACHED | M-001. In the browser a user can only slow their own tab. |
+| `next` 16.1.6, direct | 42 | Server | 2 REACHED, 5 CONDITIONAL, 10 HOST, 23 ABSENT, 2 DEV | See the Next.js table below. |
+| `next-auth` 4.24.5, direct | 4 | Server | ABSENT | Two need the email provider, one needs the app to call `getToken()`, one needs several OAuth providers with account linking. One provider, Discord; `getToken` count 0. |
+| `jose` 4.12.2, via `next-auth` | 1 | Server | ABSENT | Needs a JWE that decrypts. Sessions are database sessions; the only encrypted tokens are next-auth's own sign-in check cookies, unforgeable without the server secret. |
+| `cookie` 0.5.0, via `next-auth` | 1 | Server | ABSENT | Cookie names, paths and domains are fixed by configuration. |
+| `kysely` 0.26.1, direct | 3 | Server | ABSENT | One advisory is MySQL-only; two need the JSON-path builder or `sql.lit`. The dialect is Postgres and neither API is used. |
+| `fast-xml-parser` 4.2.5, via `@aws-sdk/client-s3` | 7 | Server | ABSENT | The SDK uses `XMLParser` only, over the storage provider's answers. Two of the seven concern `XMLBuilder`, which nothing calls. |
+| `@smithy/config-resolver` 2.0.1, via `@aws-sdk/client-s3` | 1 | Server | ABSENT | The region is the literal `'us-east-1'`. |
+| `uuid` 8.3.2 and 9.0.0 | 1 | Server | ABSENT | The AWS retry middleware calls `v4()` with no buffer; the advisory needs v3, v5 or v6 with one. The 9.0.0 copy is in the unloaded Prisma generator chain. |
+| `form-data` 4.0.0, direct | 2 | Server | ABSENT | Never constructed: `addFile` has no caller. |
+| `form-data` 3.0.1, via `pusher > @types/node-fetch` | 2 | Nowhere | UNLOADED | Type declarations only. |
+| `nanoid` 4.0.2, direct | 4 | Server | ABSENT | `customAlphabet(alphabet, 7)`: the size is a literal. |
+| `nanoid` 3.3.6, via Tailwind's PostCSS | 4 | Build | BUILD | Build tooling. |
+| `ws` 8.13.0, via `@vercel/functions` | 3 | Server | ABSENT | Loaded by a dynamic import inside the package's websocket helper; the site calls only `waitUntil`. |
+| `ws` 7.5.9, via `@next/bundle-analyzer` | 2 | Build | BUILD | Required only when `ANALYZE=true` on a webpack build. |
+| `cross-spawn` 7.0.3, via `@vercel/functions > @vercel/oidc` | 1 | Server | ABSENT | The package's main entry does not load its `oidc` entry. |
+| `sharp` 0.32.6 (direct) and 0.34.5 (via `next`) | 3 | Server | HOST | The site imports `sharp` nowhere. Next's optimiser uses 0.34.5, on a self-hosted server only. The direct 0.32.6 is used by nothing. |
+| `tar-fs` 2.1.1 and 3.0.4, via `sharp` 0.32.6 | 6 | Build | BUILD | Unpacks sharp's prebuilt binary during install. |
+| `js-cookie` 3.0.5 (direct) and 2.2.1 (via `react-use`) | 1 | Browser | ABSENT | Only `Cookies.get` is called; the advisory needs an attributes object passed to `set` or `remove`. |
+| `lodash` 4.17.21, via `@hello-pangea/color-picker` | 2 | Browser and server render | ABSENT | The picker imports `debounce`, `each`, `isEqual`, `merge`; the advisories concern `template`, `unset`, `omit`, `pullAt`. |
+| `@babel/runtime` 7.23.4, via `@hello-pangea/color-picker` | 1 | Browser and server render | ABSENT | Only the `defineProperty` and `extends` helpers are imported. |
+| `fast-loops` 1.1.3, via `react-use > nano-css` | 1 | Browser | ABSENT | None of the twelve `react-use` hooks the site imports uses `nano-css`. |
+| `sanitize-html` 2.10.0, direct | 6 | Nowhere | UNLOADED | Imported nowhere; its one mention is in a commented-out block of `JsonModalBody.tsx`. |
+| `brace-expansion` 1.1.11 and 2.0.1; `minimatch` 3.1.2 and 5.1.6; `tmp` 0.2.1 — via `project-utils > prisma-kysely` | 16, 6, 2 | Nowhere | UNLOADED | `prisma-kysely` is a code generator. `project-utils`' committed `dist` requires only `pg`, `kysely`, `zod` and its own files. |
+| `braces`, `micromatch`, `picomatch`, `postcss`, `postcss-selector-parser`, `source-map-js`, `yaml`, `diff` — via `@headlessui/tailwindcss > tailwindcss` | 1, 1, 2, 4, 1, 1, 1, 1 | Build | BUILD | Tailwind runs while building, over the repository's own files. |
+| `immutable` 4.1.0, via `sass` | 3 | Build | BUILD | Sass compiles the repository's own stylesheets. |
+| `baseline-browser-mapping` 2.10.0, via `next` | 1 | Build | BUILD | Browser-support data read while building. |
+
+**Next.js 16.1.6, its 42 entries.**
+
+| Disposition | Advisories | Reason |
+|---|---|---|
+| REACHED (2) | GHSA-q4gf-8mx6-v5v3, GHSA-8h8q-6873-q5fj | H-002. |
+| CONDITIONAL (5) | GHSA-267c-6grr-h53f, GHSA-26hh-7cqf-hhc6, GHSA-492v-c6pp-mqqv (middleware bypasses) | The middleware can be skipped, and it authorises nothing. Access to a message is decided in the tRPC procedures. Skipping it has one effect worth knowing: it is another way for `x-query-params` to arrive unset by the server, which H-001 already covers. |
+| | GHSA-wfc6-r584-vfw7, GHSA-vfv6-92ff-j949 (Server Component cache poisoning) | Needs a shared cache in front that does not separate Server Component responses from HTML. The only cache in front is Vercel's own (A-2). |
+| HOST (10) | GHSA-2464-fhr4-w9xw, GHSA-2xp9-vwfh-vxw4, GHSA-cjq9-62q9-8jv4, GHSA-3x4c-7xq6-9pq8, GHSA-7qx7-33qx-rqx2, GHSA-h64f-5h5j-jqjh, GHSA-q8wf-6r8g-63ch (image optimiser) | Next's optimiser runs only on a self-hosted server. Four of the seven say so in their own text; the two critical ones and the request-forgery one are silent (A-1). |
+| | GHSA-c4j6-fc7j-m34r, GHSA-4jqv-mc3x-m676, GHSA-pc58-hwjq-p385 | Each is scoped by its own text to self-hosted servers. |
+| DEV (2) | GHSA-39w2-rjm5-chcv, GHSA-jcc7-9wpm-mj36 | `next dev` only. The first applies to this box while a local dev server runs (I-3). The second also needs `allowedDevOrigins`, which is not set. |
+| ABSENT (23) | Server Actions: GHSA-m99w-x7hq-7vfj, GHSA-p3m5-59mp-jv5r, GHSA-89xv-2m56-2m9x, GHSA-4c39-4ccg-62r3, GHSA-mq59-m269-xvcx, GHSA-955p-x3mx-jcvp | No `use server` directive. |
+| | Cache Components and `use cache`: GHSA-673q-mjm6-r5xr, GHSA-mg66-mrh9-m8jx, GHSA-h27x-g6w4-24gq, GHSA-rhh4-g77r-r9qj | Not enabled; no `use cache`. |
+| | Internationalisation: GHSA-36qx-fr4f-26g5, GHSA-6gpp-xcg3-4w24 | No `i18n` key. |
+| | Rewrites and redirects: GHSA-p9j2-gv94-2wf4, GHSA-ggv3-7p47-pfv8, GHSA-3g8h-86w9-wvmq | No rewrites; both config redirects have fixed hosts; the middleware never redirects. |
+| | Cached server fetch: GHSA-4633-3j49-mh5q, GHSA-68g3-v927-f742 | No fetch opts into caching; no `new Request(`. |
+| | Other features: GHSA-f3mh-rxg3-f5g2 (cookie on an Edge route), GHSA-f87g-xv8r-7p7x (metadata image routes), GHSA-ffhc-5mcf-pf4q (CSP nonces), GHSA-gx5p-jg67-6x7h (`next/script`), GHSA-mcj8-r9mp-w47p (root catch-all page), GHSA-p293-qw3h-jr36 (Windows host) | Each feature is absent. |
+
+## Assumptions Not Checked
+
+Each names the check that would settle it and who can make it.
+
+- **A-1. Vercel's image service, not the site's Next.js, answers `/_next/image` on hooks.gg.** It rests on DNS pointing at Vercel and on three sibling advisories that say Vercel is not impacted for the same endpoint. Thirteen HOST dispositions, two of them critical, depend on it. Settled by one image response's headers from hooks.gg, or by the project's settings in the Vercel dashboard. The first is a request to production; the second is the owner's.
+- **A-2. Vercel's cache keeps Server Component responses apart from HTML.** Two CONDITIONAL dispositions depend on it. No check is available from this box.
+- **A-3. Production is the Vercel project and not the PM2 path.** Established by DNS only.
+- **A-4. Vercel passes a client's `x-query-params` header through to the function.** H-001's production reach depends on it. I know of no rule that would strip it. Settled by one harmless request with a short, well-formed header value and a look at what the page receives; that is a request to production and was not made.
+
+## Informational
+
+- **I-1. The PM2 path would change the picture.** If the site were ever served by `next start` as `ecosystem.config.json` describes, the 13 HOST entries become live, including both critical image-optimiser advisories. The allowed image hosts make that worse: `cdn.discordapp.com` serves files any Discord user uploads, and `cdn.jsdelivr.net` serves any published package file.
+- **I-2. Three declared dependencies are not used.** `sanitize-html` (6 entries) is imported nowhere. The direct `sharp` 0.32.6 is imported nowhere and brings `tar-fs` (6 entries; sharp's own 3 entries stay, because Next.js brings its own copy). The direct `form-data` backs a file-attachment path with no caller (2 entries). `project-utils` declares the generator `prisma-kysely` as a runtime dependency, which brings 24 entries into the website's production graph.
+- **I-3. A dev-server advisory applies to this box.** GHSA-39w2-rjm5-chcv lets a hostile page, opened in a browser on a machine running `next dev`, read the project path, source snippets and logs. Agents here run `next dev` and drive browsers.
+- **I-4. The audit's counts will move.** They are the registry's answer at 2026-11-20T01:37:31Z. The same lockfile will list more entries later with no change on our side.
+- **I-5. The same header is trusted for routing.** `src/app/_navigation/Redirects/Server.tsx` reads `x-pathname` to decide a redirect for visitors with no session. A client can set it on paths the middleware does not match. It decides only a redirect, not access.
+
+## Required Controls
+
+This review imposes none on a release: `983681c` is already out. For the dependency set to be approved, H-001 must be fixed and re-reviewed. H-002 and M-001 should be fixed in the same or a following change. Which of these becomes work, and how, is the owner's scope decision; this review edits nothing.
+
+## Owner-needing items
+
+Put to the owner through steering; this document authorises nothing.
+
+1. **Whether to open a fix for H-001 now.** It is the one finding exercised end to end: an unauthenticated header makes a `/message` page render take 51 s for a 4 KB header on a local build. The smallest fix is a change to one function in `Providers.tsx`; a lockfile override of `decode-uri-component` to 0.5.1 or later is the dependency route.
+2. **Whether the same change, or a second one, takes H-002 and M-001.** H-002 is a `next` upgrade from 16.1.6 to at least 16.2.5 (16.4.5 clears all 42 Next.js entries). M-001 is either a product-side cap or a zod major upgrade.
+3. **Whether to confirm A-1 and A-4 on production.** A-1 can be read from the Vercel dashboard, which only the owner can open. A-4 needs one harmless request to hooks.gg.
+4. **Whether the unused dependencies in I-2 are removed.** It is tidying, not a vulnerability fix: 14 entries would leave the audit (`sanitize-html` 6, `tar-fs` 6, the direct `form-data` 2), none of them reached. The 24 under `prisma-kysely` need a change in `project-utils`.
+
+## Testing Recommendations
+
+- H-001: a test on `getMessage` (or its replacement) that a malformed `x-query-params` value of several kilobytes returns within a small bound, seen to fail at `983681c`.
+- M-001: a test that `message.upsert`'s input refuses an array of hundreds of thousands of elements without recording an issue per element.
+- A scheduled `pnpm audit --prod` whose new entries are read against this document's dispositions, so a new entry in a REACHED or CONDITIONAL package is noticed.
+
+## Compliance Mapping
+
+| Requirement | Standard | Status | Notes |
+|-------------|----------|--------|-------|
+| Vulnerable and outdated components | OWASP Top 10 2021, A06 | ❌ | 141 advisory entries in production dependencies; 5 reached. |
+| Components are up to date | OWASP ASVS 4.0.3, V14.2.1 | ❌ | `next`, `next-auth`, `kysely`, `zod`, `decode-uri-component` and others are behind their patched versions. |
+| Unneeded components are removed | OWASP ASVS 4.0.3, V14.2.2 | ❌ | I-2. |
+| Flaw remediation; vulnerability scanning | NIST SP 800-53, SI-2 and RA-5 | Partial | This is the first recorded audit of the website's dependencies; nothing runs one on a schedule. |
+| Continuous vulnerability management | CIS Controls v8, Control 7 | Partial | As above. |
+
+## Process record
+
+- **Set up and removed on this box.** An isolated export of `983681c` (`git archive`) under this session's scratchpad, installed with `pnpm install --frozen-lockfile --offline --ignore-scripts` (exit 0, log `out/isolated-install-983681c.log`). A `next dev` server on `127.0.0.1:39417` inside the systemd scope `deps-review-next-dev-983681c`, with `SKIP_ENV_VALIDATION=1` and no `.env` file present (count 0). The scope was stopped; afterwards `ps -eo pid,ppid,lstart,args` matched no `next dev` or `next-server` process, `ss -ltn` showed no listener on 39417, and the scope read `inactive`. The export and its logs were then deleted. The probes ran in capped scopes (`systemd-run --user --scope` with `RuntimeMaxSec`, `MemoryMax`, `TasksMax`).
+- **Nothing written to the website tree.** `git -C website status --short` read `?? .playwright-mcp/` before and after, and `HEAD` stayed `983681c`. `package.json` and the lockfile were not edited. No `.env.local` value was read.
+- **No request reached production.** The only network reads were the audit's registry query, two DNS lookups, and one fetch of a public Vercel changelog page by a helper.
+- **Errors of mine, fixed in the round.** The first query-string probe had a syntax error and produced no figures; it was corrected and re-run. A first form of the zod probe used ts-node, which cannot load the schema because the schema's constants import an ES module; it produced no figures, was deleted, and was rewritten as a vitest file run inside the export only. `usage-evidence.sh` first carried a mis-quoted pattern for the Kysely JSON-path count; it was corrected and the whole script re-run, and the output file is the re-run's.
+- **Instrument notes.** Every count in this document comes from a script that writes to a file under `verification/website-deps-review/security/`, read there; none is taken from filtered terminal output. Heap figures in M-001 are differences of `process.memoryUsage().heapUsed` without a forced collection, so they are rough; the issue counts and message sizes are exact.
+- **Seen at session start, not acted on.** `security/` held one other open document, `fix-personal-message-access-security-audit.md`, at Status `Active`; it was not terminal, so the orphan check moved nothing. It had left that path by the time this document was written.
+
+## Appendix: evidence
+
+All under `verification/website-deps-review/security/`.
+
+| File | What it is |
+|---|---|
+| `out/pnpm-audit-prod-983681c.json`, `.exit`, `.stamp`, `.stderr` | The audit's raw output, exit status and time. |
+| `tabulate-audit.js` → `out/…-advisories.tsv`, `…-packages.tsv`, `…-paths.tsv` | One row per entry, per package, per dependency path. |
+| `dump-overviews.js` → `out/overviews-983681c/` | Each advisory's own text, one file per package. |
+| `dispositions.json`, `apply-dispositions.js` → `out/…-dispositions.tsv`, `…-disposition-summary.txt`, `…-module-by-disposition.tsv` | The disposition of every entry, with its reason, and the counts. |
+| `usage-evidence.sh` → `out/usage-evidence-983681c.txt` | Counts of each advisory precondition in the source, and the dependency-internal reads. |
+| `out/import-sites-983681c.txt` | Which source files import each vulnerable package. |
+| `probe-query-string-decode.mjs` → `out/probe-query-string-decode-983681c.txt` | H-001, library timing. |
+| `request-x-query-params.sh` → `out/request-x-query-params-983681c.txt`, `out/next-dev-983681c.log` | H-001, end to end on a local dev server. |
+| `zodSaveSchema.cost-probe.test.ts` → `out/probe-zod-save-schema-983681c.txt` | M-001, cost against the site's schema. |

@@ -1,0 +1,66 @@
+files scanned	338
+0	use server directive	^[[:space:]]*['"]use server['"]
+0	use cache directive	['"]use cache['"]
+0	cacheComponents / experimental.ppr	cacheComponents|experimental[[:space:]]*:|ppr[[:space:]]*:
+1	edge runtime declarations	runtime[[:space:]]*[:=][[:space:]]*['"](edge|experimental-edge)['"]
+0	next/script import	from ['"]next/script['"]
+0	beforeInteractive	beforeInteractive
+0	CSP header or script nonce	Content-Security-Policy|nonce=|x-nonce
+0	rewrites() config	rewrites[[:space:]]*\(
+0	NextResponse.rewrite( call	^[^/]*NextResponse\.rewrite\(
+0	NextResponse.redirect( call	NextResponse\.redirect\(
+0	i18n config key	i18n[[:space:]]*:
+0	generateStaticParams	generateStaticParams
+0	ISR / cache APIs	export const revalidate|revalidatePath|revalidateTag|unstable_cache|getStaticProps|force-cache
+0	new Request( construction	new Request\(
+0	metadata image routes	opengraph-image|twitter-image|ImageResponse
+0	dangerouslyAllowSVG	dangerouslyAllowSVG
+0	custom server (http.createServer)	createServer\(
+0	next-auth getToken	getToken
+0	next-auth email/credentials provider	next-auth/providers/(email|credentials|nodemailer)|EmailProvider|CredentialsProvider
+2	next-auth provider imports	from ['"]next-auth/providers/
+0	kysely sql.lit / sql.raw	sql\.(lit|raw)
+0	kysely JSON-path builder	JSONPathBuilder|["']->>?[$]?["']
+0	Kysely<any> outside comments	^[^*]*Kysely<any>
+0	MysqlDialect	MysqlDialect
+1	nanoid import	from ['"]nanoid(/[a-z-]+)?['"]
+0	nanoid non-secure import	nanoid/non-secure
+0	addFile( call (form-data path)	\.addFile\(
+2	new FormData( from form-data	new FormData\(
+0	sanitize-html import	from ['"]sanitize-html['"]|require\(['"]sanitize-html['"]\)
+1	sanitizeHtml( mention	sanitizeHtml\(
+0	sharp import	from ['"]sharp['"]|require\(['"]sharp['"]\)
+0	Cookies.set/remove/withAttributes	Cookies\.(set|remove|withAttributes|withConverter)
+2	Cookies.get	Cookies\.get\(
+0	react-use useCookie / useCss	useCookie|useCss
+1	queryString.parse	queryString\.parse\(
+1	x-query-params header read	get\(['"]x-query-params['"]\)
+0	lodash import	from ['"]lodash
+0	fast-xml-parser import	fast-xml-parser
+1	@vercel/functions import	from ['"]@vercel/functions
+1	waitUntil( call	waitUntil\(
+--- dependency internals (export node_modules)
+uuid import and call sites in @smithy/middleware-retry dist-cjs:
+7:const uuid_1 = require("uuid");
+20:            request.headers[util_retry_1.INVOCATION_ID_HEADER] = (0, uuid_1.v4)();
+7:const uuid_1 = require("uuid");
+41:            request.headers[util_retry_1.INVOCATION_ID_HEADER] = (0, uuid_1.v4)();
+fast-xml-parser symbols used by AWS SDK / smithy packages (dist-cjs):
+      3 XMLParser
+withCode callers:
+src/utils/redis/messageStore.ts:4:import withCode from '../withCode';
+src/utils/redis/messageStore.ts:33:  const code = await withCode(async (generatedCode: string) => client.setnx(
+@vercel/functions websocket entry loads:
+      1 import("ws")
+      1 require("../get-context")
+new FormData( sites:
+src/utils/sendWebhook.ts:41:  const data = new FormData();
+bot/utils/DiscordMessage.ts:144:        const form = new FormData();
+project-utils dist requires:
+      2 require("./env")
+      2 require("kysely")
+      2 require("pg")
+      1 require("./postgres")
+      1 require("zod")
+@types/node-fetch files (types only?):
+externals.d.ts index.d.ts LICENSE package.json README.md 

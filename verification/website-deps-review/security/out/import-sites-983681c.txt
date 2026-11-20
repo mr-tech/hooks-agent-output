@@ -1,0 +1,149 @@
+## @aws-sdk/client-s3
+src/server/api/utils/deleteMessagePreviewImages.ts
+src/server/api/utils/previewBucket.ts
+src/server/api/utils/previewImage.ts
+## form-data
+bot/utils/DiscordMessage.ts
+## pusher
+src/server/api/utils/shared.ts
+## pusher-js
+src/providers/MessageProvider/usePusher.ts
+## kysely
+src/kysely-adapter/database.ts
+src/kysely-adapter/index.ts
+src/pages/api/cron.ts
+src/server/api/utils/previewImage.ts
+src/server/api/utils/shared.ts
+## nanoid
+src/utils/getUrlCode.ts
+## next-auth
+src/app/_components/NavMenu.tsx
+src/app/_components/Providers.tsx
+src/app/message/_components/NewMessageModal.tsx
+src/app/message/f/[id]/page.tsx
+src/app/message/_layout/Header.tsx
+src/app/message/_layout/Sidebar.tsx
+src/app/message/m/[id]/edit/page.tsx
+src/app/message/m/[id]/_layout/Navigation.tsx
+src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx
+src/app/message/m/[id]/send/page.tsx
+src/app/message/m/new/page.tsx
+src/app/message/page.tsx
+src/app/_navigation/Redirects/Client.tsx
+src/kysely-adapter/index.ts
+src/pages/api/auth/[...nextauth].ts
+src/providers/GuildProvider.tsx
+src/providers/MessageProvider/usePreferences.ts
+src/providers/MessagesProvider.tsx
+src/providers/SessionProvider.tsx
+src/server/api/trpc.ts
+src/server/auth.ts
+src/utils/hooks/useGuildDropdownItems.tsx
+src/utils/hooks/useUpdatePreferences.ts
+## sanitize-html
+## sharp
+## zod
+src/app/message/_components/NewMessageJsonInput.tsx
+src/app/message/m/[id]/_components/JsonModalBody.tsx
+src/env.mjs
+src/pages/api/messages/codes/[code].ts
+src/pages/api/v1/guilds/[guildId]/messages/[id].ts
+src/pages/api/v1/guilds/[guildId]/messages.ts
+src/server/api/routers/message.ts
+src/server/api/routers/user.ts
+src/server/api/utils/shapes.ts
+src/utils/formatMutationError.ts
+src/utils/limits.tsx
+## js-cookie
+src/app/_components/CookieConsent.tsx
+src/utils/getClientSessionCookie.ts
+## react-use
+src/app/message/_components/NewMessageJsonInput.tsx
+src/app/message/_layout/Sidebar.tsx
+src/app/message/m/[id]/_layout/Navigation.tsx
+src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx
+src/app/message/page.tsx
+src/components/AnimationWrapper.tsx
+src/components/ConfirmationDialog.tsx
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx
+src/components/DiscordMessageEditor/components/ComponentEditors/FileEditor.tsx
+src/components/DiscordMessageEditor/components/ComponentEditors/LinkButtonEditor.tsx
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx
+src/components/DiscordMessageEditor/components/ComponentEditors/SeparatorEditor.tsx
+src/components/DiscordMessageEditor/components/ComponentEditors/TextDisplayEditor.tsx
+src/components/DiscordMessageEditor/components/ComponentEditors/ThumbnailEditor.tsx
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx
+src/components/Drawer/index.tsx
+src/components/EmojiPicker/Picker/components/EmojiList/Section.tsx
+src/providers/GuildProvider.tsx
+src/providers/IsMobileProvider.tsx
+src/providers/MessageProvider/index.tsx
+src/providers/MessageProvider/usePusher.ts
+src/providers/NavigationGuardProvider.tsx
+src/providers/PartialMessagesProvider.tsx
+src/providers/WebhookProvider.tsx
+src/utils/hooks/useCopyToClipboard.ts
+src/utils/hooks/usePageHover.ts
+src/utils/hooks/useUnloadAlert.ts
+src/utils/hooks/useUpdatePreferences.ts
+## query-string
+src/app/_components/Providers.tsx
+## @hello-pangea/color-picker
+src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx
+## @vercel/functions
+src/server/api/utils/shared.ts
+## project-utils
+src/pages/api/cron.ts
+src/pages/api/v1/guilds/[guildId]/messages/[id].ts
+src/pages/api/v1/guilds/[guildId]/messages.ts
+src/scripts/backfillValid.ts
+src/server/api/trpc.ts
+src/server/api/utils/authorizeGuildUser.ts
+src/server/api/utils/getAccount.ts
+src/server/api/utils/guild.ts
+src/server/api/utils/previewImage.ts
+src/server/api/utils/shared.ts
+src/server/api/utils/user.ts
+src/server/auth.ts
+src/utils/redis/index.ts
+## @headlessui/tailwindcss
+tailwind.config.js
+## @next/bundle-analyzer
+next.config.js
+## sass
+## cookies-next
+src/utils/getServerSideSessionCookie.ts
+## next/image
+src/app/_components/NavMenu.tsx
+src/app/message/f/[id]/page.tsx
+src/app/message/_layout/Header.tsx
+src/app/message/_layout/Sidebar.tsx
+src/app/message/m/[id]/_layout/Navigation.tsx
+src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx
+src/app/message/m/[id]/send/_components/WebhookMenu/useReduceCategories.tsx
+src/app/message/m/[id]/send/page.tsx
+src/app/message/m/new/page.tsx
+src/app/message/page.tsx
+src/app/page.tsx
+src/components/DiscordMessageEditor/components/Author.tsx
+src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedImage.tsx
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedThumbnail.tsx
+src/components/EmojiPicker/Picker/components/CategoryList/CustomCategoryItem.tsx
+src/components/EmojiPicker/Picker/components/EmojiList/Row.tsx
+src/components/EmojiPicker/Picker/components/EmojiList/SectionHeader.tsx
+src/components/EmojiPicker/Picker/components/Footer.tsx
+src/components/SlateEditor/utils/renderElementFactory.tsx
+src/utils/hooks/useGuildDropdownItems.tsx
+src/utils/markdown/rules.tsx
+## next/script
+## next/og
+## superjson
+src/providers/TrpcProvider.tsx
+src/server/api/trpc.ts
+src/utils/api.ts

@@ -1,0 +1,501 @@
+===== GHSA-3jxr-9vmj-r5cp | high | cvss 5.3 CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L | CVE-2026-13149
+TITLE: brace-expansion: DoS via exponential-time expansion of consecutive non-expanding {} groups
+RANGES: >=2.0.0 <2.1.2 (installed 2.0.1) ; <1.1.16 (installed 1.1.11)
+PATCHED: >=2.1.2
+
+### Summary
+brace-expansion's expand() exhibits exponential-time - O(2ⁿ) - behavior in the number of consecutive non-expanding {} groups. A short, all-ASCII input (~90 bytes/30 groups) blocks the calling thread for minutes; a slightly longer input hangs it effectively indefinitely. Because the dominant consumers run on Node's single-threaded event loop, one small input can fully stall a worker/process.
+
+In `expand_`, `post` is computed unconditionally at the top of the function, before the early-return branches that don't use it:
+```js
+const post = m.post.length ? expand_(m.post, max, false) : [''];   // always recurses
+  ...
+if (!isSequence && !isOptions) {
+  if (m.post.match(/,(?!,).*\}/)) {
+    str = m.pre + '{' + m.body + escClose + m.post;
+    return expand_(str, max, true); // restart — `post` discarded
+  }
+  return [str];
+}
+```
+
+For input like a{},{},…, the first {} is non-expanding, so control reaches the {a},b} rewrite branch - but `expand_` has already recursed into post over the entire remaining tail, only to throw the result away.
+Each level therefore spawns two recursive expansions over essentially the same remaining work: `T(n) = 2·T(n−1) ⇒ O(2ⁿ)`.
+
+The max option does not mitigate this: max only bounds the output-building loops; neither the post recursion nor the rewrite recursion consults it.
+  
+Measured on 5.0.6:
+
+| groups (n) | input bytes | time |
+|---|---|---|
+| 20 | 60 | 130 ms |
+| 24 | 72 | 1.9 s |
+| 26 | 78 | 7.8 s |
+| 30 (PoC) | 90 | ~2 min |
+
+### Proof of concept
+```js
+const { expand } = require('brace-expansion');
+// 30 non-expanding groups, ~90 bytes — blocks for minutes:
+expand('a{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}');
+```
+
+### Impact
+
+Any application that passes attacker-influenced strings to brace-expansion.expand() - directly or transitively via minimatch/glob brace patterns - can be driven into a multi-minute-to-indefinite CPU hang by a tiny request, denying service on that thread/process.
+
+### Remediation
+
+Upgrade to a patched release. The fix:
+1. Defers computing post until after the early-return branches (and computes it locally in the $-suffix branch), so post is only expanded when a brace set actually expands and the value is used. This alone removes the exponential.
+1. Converts the {a},b} rewrite from recursion to an in-function loop, so a long run of rewrites cannot grow the call stack.
+
+Verified: the PoC drops from ~2 min to 0.55 ms, 5,000 groups complete in ~344 ms, and output is identical to 5.0.6 across a behavioral-equivalence suite (sequences, padding, $-prefix, a{},b}c, {},a}b, x{{a,b}}y, etc.). Post-fix complexity is ~O(n²) on this input class - acceptable for the security fix; a linear rewrite can be a non-urgent follow-up.
+
+If immediate upgrade isn't possible, avoid passing untrusted input to expand() / glob brace patterns, or run such expansion under a timeout/worker.
+
+===== GHSA-6j4f-fj2g-mc7p | high | cvss 7.5 CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H | CVE-2026-102276
+TITLE: brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion
+RANGES: <1.1.19 (installed 1.1.11) ; >=2.0.0 <2.1.5 (installed 2.0.1)
+PATCHED: >=1.1.19
+
+### Summary
+
+`parseCommaParts()` can exhaust the native stack and crash the process. There are two distinct ways to trigger it, both reachable from a single untrusted pattern string.
+
+This is the parsing-side counterpart to CVE-2026-14257 / GHSA-mh99-v99m-4gvg. That fix made `expand_()` iterative and documented a constant-stack-depth guarantee, but `parseCommaParts()` was left recursive, so the guarantee only held for one of the two parsing paths.
+
+### Vector 1 - unbounded recursion on `post`
+
+`parseCommaParts()` recursed on the remainder of the string once per brace group:
+
+```js
+const postParts = parseCommaParts(post)   // unbounded
+```
+
+A brace group containing many comma-separated groups drives one recursion level per group:
+
+```js
+expand('{' + '{a},'.repeat(7000) + 'b}')
+// RangeError: Maximum call stack size exceeded
+```
+
+About 7,300 repetitions - roughly 29 KB of input - is enough on Node 24; roughly 6,300 (25 KB) on Node 18. The threshold is identical on every affected release line.
+
+### Vector 2 - `push.apply` with an unbounded array
+
+Even with the recursion removed, `parseCommaParts()` spread whole arrays into an argument list:
+
+```js
+p.push.apply(p, postParts)
+parts.push.apply(parts, p)
+```
+
+`Function.prototype.apply` places one argument per element on the stack, so a single large array overflows it. This needs **no recursion depth at all** - the following reaches a recursion depth of exactly 1:
+
+```js
+expand('{{x},' + 'a,'.repeat(125000) + 'b}')
+// RangeError: Maximum call stack size exceeded
+```
+
+Threshold is about 124,300 repetitions (~249 KB). This vector was not part of the original report; it was found while verifying the fix. A patch that only de-recurses but keeps `push.apply` leaves a working denial of service behind.
+
+### Why `max` and `maxLength` do not help
+
+Both crashes happen during **parsing**, before any expansion. The payloads produce one result per group, so output size grows linearly with input and is never the limiter. `expand(payload, { max: 1, maxLength: 1 })` still overflows.
+
+### Impact
+
+Any application that passes an untrusted string to `expand()` - directly, or through `minimatch` / `glob` where it is a user-supplied glob pattern - can be crashed. In Node, a `RangeError` that the application does not catch terminates the process, so a server that globs user input is exposed to remote unauthenticated denial of service.
+
+`minimatch`'s own `MAX_PATTERN_LENGTH` cap (65,536) does not help against vector 1: the overflow threshold sits well below it. Confirmed on minimatch 10.2.6 - a 64,003-byte pattern passes the length check and overflows both `minimatch.braceExpand()` and `new minimatch.Minimatch()`.
+
+This is an availability-only issue. No code execution and no data exposure.
+
+### Not a regression
+
+5.0.8 and 5.0.9 overflow at the same repetition count, so the gap predates the recent advisories; those fixes simply did not reach it. Verified affected on 1.1.18, 2.1.4, 3.0.6, 5.0.8 and 5.0.9, all at an identical threshold.
+
+### Patch
+
+`parseCommaParts()` is rewritten as a loop that carries the partial part across chunks, and every array append uses an element-by-element loop rather than `push.apply`. The redundant `if (!str) return ['']` guard is dropped - the loop returns `['']` for the empty string on its own.
+
+Equivalence of the old and new implementations was checked by differential testing: exhaustive over every string of `{`, `}`, `,`, `a` up to length 7 plus 300,000 random inputs - 322,000 cases, zero mismatches.
+
+### Severity note
+
+Scored 7.5 High under CVSS 3.1 for consistency with the other availability advisories on this package (GHSA-mh99-v99m-4gvg, GHSA-rgw5-rvv9-x895), which use the same vector. The reporter self-assessed 6.9 Medium under CVSS 4.0 (`CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N`).
+
+### Credit
+
+Reported by baeseungwon1010, with a working proof of concept and a proposed patch. Vector 2 was identified during maintainer verification.
+
+===== GHSA-f886-m6hf-6m8v | moderate | cvss 6.5 CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H | CVE-2026-33750
+TITLE: brace-expansion: Zero-step sequence causes process hang and memory exhaustion
+RANGES: <1.1.13 (installed 1.1.11) ; >=2.0.0 <2.0.3 (installed 2.0.1)
+PATCHED: >=1.1.13
+
+### Impact
+
+A brace pattern with a zero step value (e.g., `{1..2..0}`) causes the sequence generation loop to run indefinitely, making the process hang for seconds and allocate heaps of memory.
+
+The loop in question:
+
+https://github.com/juliangruber/brace-expansion/blob/daa71bcb4a30a2df9bcb7f7b8daaf2ab30e5794a/src/index.ts#L184
+
+`test()` is one of
+
+https://github.com/juliangruber/brace-expansion/blob/daa71bcb4a30a2df9bcb7f7b8daaf2ab30e5794a/src/index.ts#L107-L113
+
+The increment is computed as `Math.abs(0) = 0`, so the loop variable never advances. On a test machine, the process hangs for about 3.5 seconds and allocates roughly 1.9 GB of memory before throwing a `RangeError`. Setting max to any value has no effect because the limit is only checked at the output combination step, not during sequence generation.
+
+This affects any application that passes untrusted strings to expand(), or by error sets a step value of `0`. That includes tools built on minimatch/glob that resolve patterns from CLI arguments or config files. The input needed is just 10 bytes.
+
+### Patches
+
+
+Upgrade to versions
+- 5.0.5+
+
+A step increment of 0 is now sanitized to 1, which matches bash behavior.
+
+### Workarounds
+
+Sanitize strings passed to `expand()` to ensure a step value of `0` is not used.
+
+===== GHSA-mh99-v99m-4gvg | high | cvss 7.5 CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H | CVE-2026-14257
+TITLE: brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash
+RANGES: <1.1.17 (installed 1.1.11) ; >=2.0.0 <2.1.3 (installed 2.0.1)
+PATCHED: >=1.1.17
+
+### Summary
+
+`expand()` bounds the *number* of results it produces (the `max` option,
+`100_000` by default) but not their *length*. By chaining many brace groups,
+an attacker keeps the result count under `max` while making every result grow
+with the number of groups. Building `max` long results — plus the intermediate
+arrays combined at each brace group — exhausts memory and crashes the Node
+process with an **uncatchable** out-of-memory error. `try/catch` around
+`expand()` does not help: the fatal error terminates the process.
+
+A ~7.5 KB input (`'{a,b}'.repeat(1500)`) is enough to crash a default Node
+process.
+
+### Details
+
+For `N` chained brace groups such as `'{a,b}'.repeat(N)`:
+
+- the result count is `2^N`, immediately capped at `max` (`100_000`), so the
+  `max` protection appears to hold, but
+- each result is `N` characters long, so the total output size is
+  `max × N` characters, which grows without bound in `N`.
+
+`expand_` combines each brace set with the fully-expanded tail:
+
+```js
+const post = m.post.length ? expand_(m.post, max, false) : ['']
+...
+for (let j = 0; j < N.length; j++) {
+  for (let k = 0; k < post.length && expansions.length < max; k++) {
+    const expansion = pre + N[j] + post[k]   // grows one group longer per level
+    ...
+    expansions.push(expansion)
+  }
+}
+```
+
+The loop guard `expansions.length < max` limits how many strings are built, but
+nothing limits how long they get. Each recursion level materializes another
+array of up to `max` strings, one character longer than the level below, and —
+because V8 represents `pre + N[j] + post[k]` as a cons-string (rope) that
+references `post[k]` — those intermediate strings stay reachable through the
+whole chain. Memory therefore scales with `max × N`.
+
+Measured on `5.0.7` (`'{a,b}'.repeat(N)`, default `max`):
+
+| groups (N) | input bytes | result count | peak RSS |
+|---|---|---|---|
+| 20 | 100 | 100,000 | ~80 MB |
+| 50 | 250 | 100,000 | ~214 MB |
+| 100 | 500 | 100,000 | ~409 MB |
+| 300 | 1,500 | 100,000 | ~1,148 MB |
+| 1500 | 7,500 | — | **OOM crash** |
+
+### Proof of concept
+
+```js
+const { expand } = require('brace-expansion')
+
+// ~7.5 KB input — crashes the process with a fatal, uncatchable OOM:
+//   FATAL ERROR: ... JavaScript heap out of memory
+try {
+  expand('{a,b}'.repeat(1500))
+} catch (e) {
+  // never reached — the process is already dead
+}
+```
+
+### Impact
+
+Any application that passes attacker-influenced strings to
+`brace-expansion.expand()` — directly, or transitively via `minimatch` / `glob`
+brace patterns — can be crashed by a small request. Because the failure is a
+fatal V8 out-of-memory error rather than a thrown exception, it cannot be caught
+and it takes down the whole worker/process, denying service.
+
+### Remediation
+
+Upgrade to a patched release. The fix bounds the total number of characters a
+single `expand()` call may accumulate (`EXPANSION_MAX_LENGTH`, default
+`4_000_000`, configurable via a new `maxLength` option), applied inside the
+output-building loops so intermediate arrays are bounded too. Once the limit is
+reached, output is truncated — consistent with how `max` already truncates —
+instead of growing without bound. The limit sits well above any realistic
+expansion (100,000 results hitting `max` measure ~1M characters), so legitimate
+input is unaffected.
+
+After the fix, `'{a,b}'.repeat(1500)` returns a bounded, truncated result in
+~0.7 s using ~340 MB and never crashes, including under a constrained 512 MB
+heap.
+
+The fix bounds memory but the algorithm still rebuilds intermediate arrays at
+each level (roughly `O(N × maxLength)` work on this input class). A streaming
+rewrite that produces output in `O(total output size)` can be a non-urgent
+follow-up.
+
+If immediate upgrade isn't possible, avoid passing untrusted input to
+`expand()` / glob brace patterns, or pass a small explicit `max` **and**
+`maxLength`.
+
+===== GHSA-q2hr-2g5m-vwhr | moderate | cvss 5.3 CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L | CVE-2026-102277
+TITLE: brace-expansion: Quadratic-time expansion of the `{a},b}` rewrite causes CPU denial of service
+RANGES: <1.1.21 (installed 1.1.11) ; >=2.0.0 <2.1.7 (installed 2.0.1)
+PATCHED: >=1.1.21
+
+### Summary
+
+Expanding `{a},b}`-shaped input takes time quadratic in the number of literal `}` characters, blocking the event loop.
+
+Bash preserves a quirk where a brace group followed by a comma set still expands (`{a},b}`). The parser implements this by rewriting the string and restarting the scan. Each pass absorbs exactly one `}` and re-scans from the beginning, so `n` trailing braces cost `n` full passes.
+
+### Reproduction
+
+```js
+const build = n => '{a}' + '}'.repeat(n) + ',z}'
+
+for (const n of [8000, 16000, 32000, 64000, 128000]) {
+  const t = Date.now()
+  expand(build(n))
+  console.log(n, Date.now() - t + 'ms')
+}
+```
+
+| n | input | time | results |
+|---|---|---|---|
+| 8,000 | 8 KB | 110 ms | 2 |
+| 16,000 | 16 KB | 446 ms | 2 |
+| 32,000 | 32 KB | 1.7 s | 2 |
+| 64,000 | 64 KB | 6.9 s | 2 |
+| 128,000 | 128 KB | **27.7 s** | 2 |
+
+`ms/n^2` is flat at ~1.7 and each doubling of `n` costs exactly 4.0x - quadratic. 128 KB of input blocks the event loop for nearly half a minute to produce two results.
+
+### Mechanism
+
+Instrumenting the rewrite branch confirms it runs exactly `n + 1` times, once per literal `}`, each re-scanning the whole string.
+
+There is a second multiplier. The rewrite replaces the group's closing `}` with the internal `escClose` sentinel, which is `'\0CLOSE' + Math.random() + '\0'` - about 25 characters. The working string therefore *grows* by ~25 characters on every pass:
+
+| n | input length | final string length |
+|---|---|---|
+| 1,000 | 1,006 | 26,006 |
+| 8,000 | 8,006 | 208,006 |
+
+So the input is inflated roughly 26x, and that factor multiplies both the quadratic constant and peak memory. This makes it partly a memory-pressure issue as well as a CPU one.
+
+### Why `max` and `maxLength` do not help
+
+The cost is in parsing, before the result set exists. The payload yields 2 results regardless of size, so neither bound is ever reached.
+
+### Impact
+
+An application passing an untrusted pattern to `expand()`, directly or through `minimatch` / `glob`, can have its event loop blocked for tens of seconds by a payload well under minimatch's 65,536-character cap. For a single-threaded Node server that is a full stall, not just a slow request.
+
+Degraded availability rather than a crash - the process recovers once the expansion completes.
+
+### Affected versions
+
+Verified affected on 1.1.18, 2.1.4, 3.0.6 and 5.0.9, all within a few percent of each other (~460-490 ms at n=16,000).
+
+### Patch
+
+The rewrite loop gets an iteration bound. Past the cap the remaining string is treated as non-expanding and returned literally, consistent with the existing `max` / `maxLength` caps, which truncate rather than throw.
+
+Note this bounds the number of passes, not the cost of each: worst-case work remains proportional to `cap x input length`. The cap is set low enough that the residual is bounded in practice, and far above what any realistic `{a},b}` input needs.
+
+### Severity note
+
+Scored 5.3 Medium (`A:L`) for consistency with GHSA-3jxr-9vmj-r5cp, the other algorithmic-complexity advisory on this package (CWE-407), which uses the same vector. The stack-exhaustion advisories on this package score `A:H` because they crash the process outright; this one stalls it.
+
+===== GHSA-qhr7-859c-m2p7 | high | cvss 7.5 CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H | CVE-2026-102278
+TITLE: brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion
+RANGES: <1.1.20 (installed 1.1.11) ; >=2.0.0 <2.1.6 (installed 2.0.1)
+PATCHED: >=1.1.20
+
+### Summary
+
+`expand_()` recurses once per level of brace *nesting*. Deeply nested input exhausts the native stack and crashes the process.
+
+This is distinct from CVE-2026-14257 / GHSA-mh99-v99m-4gvg, which made the *tail* iterative (recursion on `m.post`, driven by how many groups are chained). Nesting depth drives a different recursion that the tail fix never touched, so the documented constant-stack-depth guarantee only ever covered chained input, not nested input.
+
+It is also distinct from GHSA-6j4f-fj2g-mc7p, which fixed recursion in `parseCommaParts()`. Both payloads below still crash with that fix applied.
+
+### Two recursion sites
+
+**Comma members.** Each alternative of a brace set is expanded by a recursive call, so nesting a set inside every alternative recurses once per level:
+
+```js
+expand('{a,'.repeat(4000) + 'z' + '}'.repeat(4000))
+// RangeError: Maximum call stack size exceeded
+```
+
+Crashes at depth 3,907 - about **15.6 KB** of input.
+
+**Single set.** A brace set whose body parses to a single part is expanded by a recursive call before being re-wrapped (`x{{a,b}}y` -> `x{a}y x{b}y`), which recurses once per nesting level:
+
+```js
+expand('{'.repeat(3200) + 'a,b' + '}'.repeat(3200))
+// RangeError: Maximum call stack size exceeded
+```
+
+Crashes at depth 3,125 - about **6.25 KB** of input. This is the cheapest stack-exhaustion payload known against this package: roughly a quarter the input of GHSA-6j4f-fj2g-mc7p (29 KB), and about a tenth of minimatch's `MAX_PATTERN_LENGTH` (65,536).
+
+### Why `max` and `maxLength` do not help
+
+Both crashes happen while recursing into sub-expansions, before the result set grows. The payloads produce almost no output - the single-set case yields 2 results - so neither bound is ever the limiter. `expand(payload, { max: 1, maxLength: 1 })` still overflows.
+
+### Impact
+
+Any application passing an untrusted string to `expand()`, directly or through `minimatch` / `glob` as a user-supplied glob pattern, can be crashed. In Node a `RangeError` the application does not catch terminates the process, so a server globbing user input is exposed to remote unauthenticated denial of service.
+
+Availability only. No code execution, no data exposure.
+
+### Affected versions
+
+Verified affected on 1.1.18, 2.1.4, 3.0.6 and 5.0.9, at near-identical depths on every line (single set: 3,125 on all four; comma members: 3,907-4,102). Not a regression from any recent fix - the gap predates them.
+
+### Patch
+
+A `maxDepth` bound (default `EXPANSION_MAX_DEPTH`) is threaded through `expand_()`. Past the cap a group is treated as non-expanding and returned literally, which is how the parser already handles a group that cannot expand. This matches the existing `max` / `maxLength` caps, which truncate rather than throw, so `expand()` continues never to throw on any input.
+
+The default sits far above any realistic nesting depth and well below the crash threshold.
+
+===== GHSA-rgw5-rvv9-x895 | high | cvss 7.5 CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H | CVE-2026-69152
+TITLE: brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation
+RANGES: >=2.0.0 <2.1.4 (installed 2.0.1) ; <1.1.18 (installed 1.1.11)
+PATCHED: >=2.1.4
+
+### Summary
+
+The `maxLength` mitigation added in `5.0.8` for GHSA-mh99-v99m-4gvg / CVE-2026-14257 is incomplete. It bounds the accumulator where results are *combined*, but not the intermediate arrays that feed it. A ~25 KB input still crashes the Node process with an **uncatchable** out-of-memory error, so `try/catch` around `expand()` does not help.
+
+A second, related path in the same function lets a ~400 KB input block the event loop for over two minutes without ever exceeding the memory bound.
+
+### Details
+
+`maxLength` was enforced in `combine()`, the single place output grows. Two arrays are built *before* `combine()` runs, and neither was bounded.
+
+**1. Comma alternatives accumulate without a running total (memory exhaustion)**
+
+Each alternative in `{a,b,c,...}` is expanded by its own recursive `expand_()` call, so each receives a full, independent `maxLength` allowance. The results were then concatenated into a single `values` array with no cumulative limit:
+
+```js
+values = []
+for (let j = 0; j < n.length; j++) {
+  values.push.apply(values, expand_(n[j], max, maxLength, false))
+}
+
+acc = combine(acc, pre, values, max, maxLength, ...)
+```
+
+With `A` alternatives, `values` can reach `A * maxLength` characters before `combine()` gets a chance to truncate it. At the default `maxLength` of 4,000,000 and 400 alternatives, that is well past any default heap.
+
+**2. Padded sequences ignore `maxLength` while generating (CPU exhaustion)**
+
+`expandSequence()` was bounded by `max` (the result *count*) but never consulted `maxLength`. A padded sequence's element width follows the input, so `{0...01..100000}` with a wide pad generates `max` elements, each as wide as the input, only for `combine()` to discard all but a handful.
+
+Memory stays flat here, because V8 represents the padded strings as cons-strings, which is likely why this path was not caught alongside the original issue. The cost is time: work proportional to `max * width`.
+
+| pad width | input bytes | results kept | time (5.0.8) | time (patched) |
+|---|---|---|---|---|
+| 20,000 | 20 KB | 199 | ~7.3 s | ~20 ms |
+| 100,000 | 100 KB | 39 | ~32 s | ~20 ms |
+| 400,000 | 400 KB | 9 | ~124 s | ~18 ms |
+
+Output is byte-identical before and after the fix; only the wasted work is removed.
+
+### Proof of concept
+
+Memory exhaustion, against `5.0.8`:
+
+```js
+import { expand } from 'brace-expansion'
+
+const part = '{' + '0'.repeat(50) + '1..100000}'
+const input = '{' + Array(400).fill(part).join(',') + '}'  // ~25 KB
+
+try {
+  expand(input)
+} catch (e) {
+  // never reached - the process is already dead
+}
+```
+
+```
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+Aborted
+```
+
+Event-loop stall, against `5.0.8`:
+
+```js
+import { expand } from 'brace-expansion'
+
+// ~400 KB input, returns 9 results after roughly two minutes of blocking CPU
+expand('{' + '0'.repeat(400_000) + '1..100000}')
+```
+
+### Impact
+
+Denial of service. Any application that passes attacker-controlled input to `expand()`, directly or transitively through a glob or pattern-matching library, can be remotely crashed or stalled. The out-of-memory variant terminates the process and cannot be handled with `try/catch`.
+
+Applications already on `5.0.8` are affected: the `5.0.8` mitigation does not cover these paths.
+
+### Patches
+
+Both intermediate arrays are now bounded as they are built, using the same `max` and `maxLength` limits already applied in `combine()`:
+
+- `values` tracks a running result count and character length while alternatives are appended, and stops once either bound is reached.
+- `expandSequence()` accepts `maxLength` and stops generating once the sequence's own characters reach it.
+
+As with the existing limits, output is truncated rather than allowed to grow without bound, which matches how `max` already behaves. The defaults sit well above any realistic expansion, so legitimate input is unaffected.
+
+### Workarounds
+
+If upgrading is not immediately possible, avoid passing untrusted input to `expand()` or to glob brace patterns, or pass an explicitly small `max` **and** `maxLength`.
+
+Note that a small `maxLength` alone was not sufficient on affected versions: it was applied per alternative rather than cumulatively, which is the root of the first issue above.
+
+### Credits
+
+The memory-exhaustion bypass was reported by Alessio Della Libera, CEO & Co-founder at [Numyra](https://numyra.ai/).
+
+The sequence-generation issue was found while verifying that report.
+
+===== GHSA-v6h2-p8h4-qcjw | low | cvss 3.1 CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L | CVE-2025-5889
+TITLE: brace-expansion Regular Expression Denial of Service vulnerability
+RANGES: >=1.0.0 <=1.1.11 (installed 1.1.11) ; >=2.0.0 <=2.0.1 (installed 2.0.1)
+PATCHED: >=1.1.12
+
+A vulnerability was found in juliangruber brace-expansion up to 1.1.11/2.0.1/3.0.0/4.0.0. It has been rated as problematic. Affected by this issue is the function expand of the file index.js. The manipulation leads to inefficient regular expression complexity. The attack may be launched remotely. The complexity of an attack is rather high. The exploitation is known to be difficult. The exploit has been disclosed to the public and may be used. Upgrading to version 1.1.12, 2.0.2, 3.0.1 and 4.0.1 is able to address this issue. The name of the patch is `a5b98a4f30d7813266b221435e1eaaf25a1b0ac5`. It is recommended to upgrade the affected component.
+

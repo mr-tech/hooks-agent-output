@@ -1,0 +1,5 @@
+{"zod":"3.22.4","node":"v24.14.0","limitBytes":1048576}
+{"field":"users","bodyBytes":1048574,"success":false,"issues":524255,"parseMs":569,"errorMessageBytes":119419032,"errorMessageMs":955,"heapGrowthMB":336,"rssMB":520}
+{"field":"embeds","bodyBytes":1048574,"success":false,"issues":524266,"parseMs":498,"errorMessageBytes":106314910,"errorMessageMs":1137,"heapGrowthMB":187,"rssMB":724}
+{"field":"components","bodyBytes":1048574,"success":false,"issues":524264,"parseMs":616,"errorMessageBytes":108411560,"errorMessageMs":854,"heapGrowthMB":164,"rssMB":918}
+{"field":"container","bodyBytes":1048575,"success":false,"issues":524250,"parseMs":728,"errorMessageBytes":123611892,"errorMessageMs":1129,"heapGrowthMB":-197,"rssMB":1040}
