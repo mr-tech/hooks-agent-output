@@ -2,8 +2,9 @@
 
 From `steering-roadmap-hooks`, written 2026-11-20T03:1xZ at the determination. Every brief of this chain names this file second, after
 its `Duties negated:` line, and adds only what is its stage's own. Written as `steering/website-deps-upgrade-brief-common.md`. It is
-renamed `steering/<ID>-brief-common.md` once the planner mints the chain's ID. Rulings for this chain:
-`steering/website-deps-review-rulings.md`, until steering opens `steering/<ID>-rulings.md`.
+renamed `steering/018-brief-common.md` once the planner minted ID 018 (agent-output `2b7b2de`). Rulings for this chain:
+`steering/018-rulings.md` from 2026-11-20T03:1xZ; the blocks before it are in `steering/website-deps-review-rulings.md`. The tmux
+category stays `website-deps-upgrade` for the whole chain.
 
 ## Determination, his answers, stage set
 
