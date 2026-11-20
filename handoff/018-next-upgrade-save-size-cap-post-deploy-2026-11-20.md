@@ -1,7 +1,7 @@
 ---
 UUID: d1349a21
 Status: Open
-Status-Detail: "Carrier of plan 018's post-deploy rows B-6, B-7, B-8 and B-10 (QA register, UAT-1's B-7 instrument) after website master moves from 7923a1d to d1bb9b0. The push has not happened: the event ledger is blank. Each row names its reader stage; none is a timed read, so no crontab line exists. Sequenced after P-1's decisive read (X-12)."
+Status-Detail: "Carrier of plan 018's post-deploy rows B-6, B-8 and B-10 (QA register) after website master moved from 7923a1d to d1bb9b0 (E-WEBSITE-PUSH 2026-11-20T08:07:52Z; production deployment READY). B-7 is PASS (devops). B-6 and B-10 are uat's and B-8 is qa's, each decidable now; none is a timed read, so no crontab line exists."
 Owning-Stage: devops
 Review-Trigger: "the READY production deployment of website master whose commit contains d1bb9b0 (verification/018/devops/read-serving-deployment.sh exits 0), which is the event that fills the E-WEBSITE-PUSH ledger row's serving limb; each reader acts on it"
 ---
@@ -28,8 +28,8 @@ exit 0 (tip `7923a1d`) and exit 3 (bogus ref; no `.vercel`): `verification/018/d
 | Event | What it is | When (UTC) | Ref and SHA | Source |
 |---|---|---|---|---|
 | E-RELEASE-CHECK | the release-check preview READY at the chain tip's child (M5-a, B-5) | 2026-11-20T06:21:54Z push; READY by 06:22:36Z | branch `release-check/018-next-upgrade-save-size-cap` `5677889cca3d6259de7ed7c60cfe00874ca7e14c` (parent `d1bb9b0`); `dpl_oVqvgvn5zFPquLnNehXZMWBHnq1E` | `verification/018/devops/m5-a-release-check.txt` |
-| E-WEBSITE-PUSH | website `master` moved to the release | _blank_ | website `master` `d1bb9b0724cded3c3c303203c2cbafe5df7bbf96` (was `7923a1d`) | devops, Stage 2 |
-| E-SERVING | `read-serving-deployment.sh` first exits 0 | _blank_ | production deployment id and commit | devops, Stage 2 |
+| E-WEBSITE-PUSH | website `master` moved to the release | 2026-11-20T08:07:52Z (release-move.js exit 0; origin master read back `d1bb9b0724cded3c3c303203c2cbafe5df7bbf96`) | website `master` `d1bb9b0724cded3c3c303203c2cbafe5df7bbf96` (was `7923a1d`) | devops, Stage 2; `verification/018/devops/runbook-steps-3-4.txt` |
+| E-SERVING | `read-serving-deployment.sh` first exits 0 | 2026-11-20T13:37:14Z read (the deployment was created 08:07:54Z) | production deployment `dpl_7RXkzDG2LDypubtd5xjum1EDseMo` READY, commit `d1bb9b0724cded3c3c303203c2cbafe5df7bbf96` | devops, Stage 2; `verification/018/devops/serving-read-1.txt` |
 
 ## Rows (carried in full from QA's register; the register's cell text is the authority for the instrument)
 
@@ -49,7 +49,7 @@ exit 0 (tip `7923a1d`) and exit 3 (bogus ref; no `.vercel`): `verification/018/d
 - **Instrument (UAT-1 changes it):** `bash verification/018/uat/preview/m5e-version-read.sh https://hooks.gg <workdir>`, which fetches every `/_next/static/` script the page names. The planner's original capture (`verification/018/planning/prod-next-version-pre.txt`) lists only `/_next/static/chunks/*.js`; at 16.4.6 every script is under `/_next/static/immutable/chunks/`, so that form fetches nothing, fails "16.4.6 ≥ 1" falsely and passes "16.1.6 = 0" vacuously. The widened script read 16.1.6 on production and 16.4.6 on the preview (`verification/018/uat/preview/m5e-version-read.txt`).
 - **Predicted:** `files-with-16.4.6` ≥ 1 and `files-with-16.1.6` = 0, with `scripts` > 0.
 - **Failure mode:** 16.1.6 still served (or scripts = 0) means H-002 is not closed in production.
-- **Result:** _blank_
+- **Result:** **PASS** (2026-11-20T13:37:23Z, devops): `m5e-version-read.sh https://hooks.gg` printed `16.4.6 in /_next/static/immutable/chunks/0xln_kpj6rjf7.js: window.next={version:"16.4.6"` and `scripts=13 files-with-16.4.6=1 files-with-16.1.6=0`, exit 0; capture `verification/018/devops/b7-production-version-read.txt`. H-002's human-observable form holds in production.
 
 ### B-8 (M1-e liveness, S11) — the recent-messages list keeps updating
 
@@ -95,3 +95,4 @@ devops Stage 1 for plan 018, from `steering/018-brief-devops.md`; rows from `qa/
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-20T07:09 | devops-hooks-018 | Opened at Stage 1 with rows B-6, B-7, B-8, B-10, the event ledger (E-RELEASE-CHECK filled; E-WEBSITE-PUSH and E-SERVING blank), the serving gate and its baseline, and the X-12 sequencing. No timed read, so no crontab line. |
+| 2026-11-20T13:37 | devops-hooks-018 | Release executed (Stage 2, Phase 2C): E-WEBSITE-PUSH and E-SERVING filled (push 08:07:52Z after P-1's PASS at 08:07:06Z; production deployment READY at the tip; the serving gate exits 0). B-7 PASS. B-6 and B-10 (uat) and B-8 (qa) are open for their readers; steering is told to cue them.

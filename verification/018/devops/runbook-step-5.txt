@@ -1,0 +1,24 @@
+# runbook step 5, 2026-11-20T13:36:48Z
+Deleted branch chain/018-next-upgrade-save-size-cap (was d1bb9b0).
+chain branch -d exit=0
+error: the branch 'release-check/018-next-upgrade-save-size-cap' is not fully merged
+hint: If you are sure you want to delete it, run 'git branch -D release-check/018-next-upgrade-save-size-cap'
+hint: Disable this message with "git config set advice.forceDeleteBranch false"
+local release-check -d exit=1
+To github.com:hooks-gg/website.git
+ - [deleted]         release-check/018-next-upgrade-save-size-cap
+remote delete exit=0
+0
+1
+master
+?? .playwright-mcp/
+# step 5b, local release-check branch: -d refused above (its one commit is the preview-only vercel.json line, never in master by design)
+is-ancestor d1bb9b0 master exit=0
+5677889 build(website): release-check build skips env validation, a preview-only commit that never joins the chain tip
+vercel.json
+
+Changes:
+
+ok
+-D exit=0
+1

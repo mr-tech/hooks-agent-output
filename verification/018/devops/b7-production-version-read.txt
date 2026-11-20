@@ -1,0 +1,4 @@
+# B-7 read, 2026-11-20T13:37:23Z: bash verification/018/uat/preview/m5e-version-read.sh https://hooks.gg <scratch workdir>
+16.4.6 in /_next/static/immutable/chunks/0xln_kpj6rjf7.js: window.next={version:"16.4.6"
+scripts=13 files-with-16.4.6=1 files-with-16.1.6=0
+script exit=0
