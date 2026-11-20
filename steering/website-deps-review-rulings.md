@@ -125,3 +125,12 @@ URL, typed hidden.
   post-deploy row.
 - **CR-1 (INFO):** the commented-out `sanitizeHtml(hljs…)` in `JsonModalBody.tsx` names the removed package. Left. It is a comment, so
   dropping it would move the reviewed tree for no behaviour. Recorded here as its carrier, for the next chain touching that file.
+
+## 2026-11-20T02:24Z — security APPROVED at 7923a1d; devops spawned
+
+Read this turn: `security/fix-message-page-header-decode-security-audit.md` (record `5640deb`): `Reviewed-At: 7923a1d9…`, Verdict
+APPROVED, Overall Risk LOW. H-001 is closed, exercised by security on production builds of the base and the fix on this box. The
+anchors match at `7923a1d`: fixer `Handoff-At` and code-review `Reviewed-At`. Live master is `983681c` (`ls-remote`).
+`release-move.js website master 7923a1d… --dry-run`: "every check passed". Spawn cue acted on:
+`devops-hooks-fix-message-page-header-decode`, on `steering/fix-message-page-header-decode-brief-devops.md` (`f2c995b`). The release ask
+is its own (Phase 2B); P-1, the post-push `/_next/image` read, is carried in its Stage 1 handoff.
