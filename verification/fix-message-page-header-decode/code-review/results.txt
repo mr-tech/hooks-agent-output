@@ -1,0 +1,11 @@
+Code review runs, 2026-11-20, recorded at 2026-11-20T02:17 UTC; commands in run.sh.
+base-install=0 fix-install=0 (pnpm 10.28.2, --frozen-lockfile --offline)
+red=1   Providers.request-headers.test.ts at 983681c + test: 4 failed (2 URIError: URI malformed, 2 expected [ Array(1) ] to deeply equal [])
+green=0 same file at 7923a1d: 4 passed
+suite=0 at 7923a1d: testResults 149 files, numTotalTests 1913, passed 1913, failed 0, success true (suite-fix.json)
+typecheck: base=0 fix=0 with next-env.d.ts copied in; without it the fix export exits 2 on '~/assets/img/product_image.png' (typecheck-fix-without-next-env.txt) - an export artefact, not the change
+eslint --max-warnings=0 over the two changed source files, shared tree at 7923a1d: exit 0 (eslint-changed.txt)
+convention-check.js --since=983681c: exit 0, 0 FAIL, 0 CANDIDATE; SKIP id-token/basename (checked by hand: basename positive form 1 match, ID-token class 0 in basename, 0 in file)
+next 16.1.6 optionalDependencies.sharp ^0.34.4 -> resolves .pnpm/sharp@0.34.5; sharp not resolvable from the app root
+lockfile grep -c (base -> fix): decode-uri-component 3->0, query-string 3->0, sanitize-html 6->0, sharp@0.32 2->0, sharp@0.34.5 2->2; numstat 0 added
+removed-package-sweep.txt: git grep over 7923a1d (excluding lockfile) for the removed packages' identifiers: 9 lines; dispositions in the review

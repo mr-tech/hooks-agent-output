@@ -1,0 +1,9 @@
+7923a1d:src/app/_components/__tests__/Providers.request-headers.test.ts:31:describe('the message-page providers given a client-sent x-query-params header', () => {
+7923a1d:src/app/_components/__tests__/Providers.request-headers.test.ts:36:    request.headers = { 'x-query-params': value };
+7923a1d:src/app/_components/__tests__/Providers.request-headers.test.ts:45:    request.headers = { 'x-query-params': value };
+7923a1d:src/app/message/m/[id]/_components/JsonModalBody.tsx:216:              __html: sanitizeHtml(
+7923a1d:src/middleware.ts:16:  const queryString = request.url.split('?')[1];
+7923a1d:src/middleware.ts:17:  if (queryString) {
+7923a1d:src/middleware.ts:18:    const queryParams = new URLSearchParams(queryString);
+7923a1d:src/middleware.ts:20:    requestHeaders.set('x-query-params', encodeURIComponent(queryParams.toString()));
+7923a1d:src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts:179:describe('hasConnectionOverrideParams — the guard\'s parser and pg\'s parser can disagree on a query-string override', () => {

@@ -1,0 +1,2 @@
+next 16.1.6 optionalDeps.sharp= ^0.34.4 deps.sharp= undefined
+/tmp/claude-1000/-usr-local-bin-hooks-website/b4d38133-b249-4c39-9abd-6b57b2bc143e/scratchpad/fix/node_modules/.pnpm/sharp@0.34.5/node_modules/sharp/lib/index.js
