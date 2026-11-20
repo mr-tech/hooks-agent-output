@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-personal-message-access
 UUID: 1b613853
-Status: Active
-Status-Detail: "Round 5 (security M-001, rulings block 2026-11-20T00:04Z) committed on website chain/fix-personal-message-access at 983681c: getOne refuses when the ownership check finds no row. Owed: a code review delta, then QA re-verification (124 production lines added), then a security re-review (RC-1), then devops for website master on the owner's word."
+Status: Committed
+Status-Detail: "Committed at website chain/fix-personal-message-access 983681c (devops Stage 1); not pushed. Code review Round 2 APPROVED, QA Phase 2 refresh PASS and security APPROVED, all at 983681c. Release to website master awaits the owner's word (devops Stage 2). The residue read and post-deploy rows B-2, B-1 ride handoff/fix-personal-message-access-post-deploy-2026-11-20.md."
 Handoff-At: 983681ca6cd7cbacd0796ed093e094057ad7f9be — repos=website; earlier ed88e7c, 12bcd75, d597734, 2e50cd9
 Origin-Chain: none
 ---
@@ -534,22 +534,11 @@ For the owner's own check on production after release; no UAT stage runs:
 - **Merges:** devops, for website `master`, under the owner's release approval. The push deploys to production through Vercel (no beta),
   so it needs his word.
 - **Owner step at release:** the residue check on production data (Diagnosis, "Residue already in production"). Steering holds it to
-  the release seam (block 22:59Z).
+  the release seam (block 22:59Z). Carried, with the corrected queries, by `handoff/fix-personal-message-access-post-deploy-2026-11-20.md` (row R-1).
 
 ## Resumption State
 
-Updated 2026-11-20 at the round 5 handoff.
-- **Done:** rounds 1–5 committed. Website `chain/fix-personal-message-access` HEAD is `983681c` (= `Handoff-At`), and the tree is clean
-  apart from the untracked `.playwright-mcp/`, which is not this chain's. Round 5 closes security M-001. The residue query in § Diagnosis
-  is corrected by a reconcile note. The round 5 handoff was sent to `code-reviewer-hooks-fix-personal-message-access` for a delta review.
-- **Next:** nothing of mine is owed. I resume only if code review, QA or security sends work back: read their document, write a red test
-  first, add a round entry here, and hand the new SHA to the code reviewer for a delta review.
-- **Uncommitted or mutated:** none of mine. Other sessions' untracked files in the record were left alone.
-- **Evidence not yet recorded:** none. The `.log` captures are ignored by the record (Verification, Correction).
-- **Questions open:** none. Steering holds the production residue read to the release seam, with the corrected query (blocks 22:59Z
-  and 23:53Z).
-- **Processes and infrastructure:** no container or background run of mine is live (`docker ps -a --filter name=fpma-sec` printed none).
-  The scratch exports are under this session's scratchpad.
+Closed at `Committed` by devops Stage 1: nothing of the fixer's is owed, and the residue read rides `handoff/fix-personal-message-access-post-deploy-2026-11-20.md`.
 
 ## Changelog
 
@@ -569,3 +558,4 @@ Updated 2026-11-20 at the round 5 handoff.
 | 2026-11-20T00:07 | fixer | Round 5 committed at `983681c` (commit time), per rulings block 2026-11-20T00:04Z (record `fce289f`): security M-001 closed in `getOne`. Red at `75f1543`, 2 controls killed, suite 1909 with exit 0, and security's read-race instrument at `983681c` (8 of 8, 0 of 300 leaked) recorded |
 | 2026-11-20T00:09 | fixer | Scope, Diagnosis (round 5 entry; reconcile notes on hazard 6 and on the residue query, per block 23:53Z), Change, Test, Verification, flows, Handoff and Resumption State updated; `Handoff-At` moved to `983681c`; handed to code review for a delta review |
 | 2026-11-20T00:13 | fixer | Two record paths in round 5 were written relative to the verification folder: the Diagnosis cite of security's 75f1543 timing capture, and the Test cite of security's read-race test file. Both are now written from the record root. The first was a check-repo LINKS failure the code reviewer found, relayed by steering. The second was the same defect, found on re-reading. `check-repo.js`: PASS, no new failures. Disclosure: I first typed this row's time as a placeholder (`00:2x`). The stamp-gate hook flagged it, and the time was substituted from `date -u` before the commit. That was a gate satisfied, not a control. A second disclosure: the time was substituted with `sed -i`, and this row's first disclosure was added with an inline Python script. The record's rule does not permit either (record documents are written with the file-editing tools or `record-edit.js`), and this is the second time in this document. Nothing blocked either edit. The content is as intended, and this note was added with the Edit tool |
+| 2026-11-20T00:22 | devops-hooks-fix-personal-message-access | Document closed | Status: Committed. Stage 1 commit record: website `chain/fix-personal-message-access` tip `983681c` (no push, no merge to master). Gates at that SHA: code review Round 2 APPROVED, QA `Verified-At` `983681c`, security APPROVED. Resumption State replaced by its closing line; the residue read is carried by `handoff/fix-personal-message-access-post-deploy-2026-11-20.md` (R-1) |
