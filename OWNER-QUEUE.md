@@ -41,3 +41,17 @@ Do these on hooks.gg whenever suits you, then tell `steering-roadmap-hooks` what
    and does confirming leave the page? *Pass:* yes to every one of those questions.
 
 ---
+
+## Personal-message access fix: one database check (live since 01:34 UTC, 20 November)
+
+The fix is live on hooks.gg. Two read-only queries look for rows the old hole may have left in production; only you can reach that
+database.
+
+1. Run, on this box: `bash /usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/owner/residue-read.sh`.
+   It takes the connection string from the active `DATABASE_URL` in `website/.env.local` and never prints it. If that isn't
+   production's database, put production's URL on the script's `DB=` line first. The session is forced read-only.
+2. *Pass:* "query 1" lists no rows, and "query 2" prints `0`. Any row in query 1 is a planted message number the site hasn't reached
+   yet. A count above 0 in query 2 means messages owned by both a user and a server.
+3. Paste the whole output to `steering-roadmap-hooks`, with the time you ran it and whether it was production's database.
+
+---
