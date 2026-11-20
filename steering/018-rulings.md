@@ -45,7 +45,7 @@ wording this thread's):
 **Next:** the planner registers both answers in revision 1, with the ESLint 9 milestone. The critic (first pass at xhigh), the architect
 (conformance) and QA Phase 1 then start on revision 1. X-10's handoff stays open; its fired trigger is dispositioned in it when M1 lands.
 
-## 2026-11-20T03:3xZ — revision 1 received; critic, architect and QA Phase 1 started
+## 2026-11-20T03:34Z — revision 1 received; critic, architect and QA Phase 1 started
 
 `planning/018-next-upgrade-save-size-cap.md` revision 1 (`c2a6b85`), changelog row 2026-11-20T03:31, read this turn.
 - **Scope delta:** M3 was added (ESLint 9, a flat config, typescript-eslint 8, `eslint-config-next` 16.4.6). It is the "ESLint 9
