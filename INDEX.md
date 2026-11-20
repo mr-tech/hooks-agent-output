@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-396 documents · 17 numbered chains · 215 unnumbered.
+399 documents · 17 numbered chains · 218 unnumbered.
 
 ---
 
@@ -332,7 +332,8 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/closed/v1-guild-messages-endpoints-unauthenticated-2026-08-24.md` | Addressed · priority normal — Addressed: both v1 guild-messages handlers require the Statbot key since website 1acffee, live since 2026-10-10 (unauthenticated request: 401, 0 bytes). The open questions are answered in steering/v1-guild-messages-auth-rulings.md, block 2026-11-10: the owner rules the key is not treated as compromised; of the other matchers, /message and /preview are live and /api/guilds is a dead pattern that guards nothing. The remaining post-deploy check (Statbot's own calls) rides handoff/fix-v1-guild-messages-auth-post-deploy-2026-10-10.md. |
 | handoff | `handoff/closed/website-tests-not-beside-their-module-2026-11-08.md` | Addressed · priority normal — Discharged by plan 017 M1-a and X-13 (plan disposition table, planning/closed/017-existing-items-backlog.md line 1347): M1-a moved the files beside their modules; X-13, accepted by the owner, keeps cron.scheduled-selection and interactions-edge.signature-before-parse in src/server/api/__tests__/ because a test file under src/pages/api/ would be built as an API route. M1 QA Complete at website 8147661; released at website master 787bec5 (2026-11-19T20:11Z). |
 | handoff | `handoff/cron-endpoint-key-is-a-fixed-value-2026-11-19.md` | Open · priority normal — The cron endpoint's key is the fixed string 'vercel' in source. Left out of the access-defects fixer chain; no stage owns it yet. |
-| handoff | `handoff/fix-personal-message-access-post-deploy-2026-11-20.md` | Open · priority normal — Carrier of fix-personal-message-access's post-deploy rows B-2 and B-1 (QA's register) and of the owner's residue read of the production Messages table, opened at devops Stage 1. Website master was pushed to 983681c at 2026-11-20T01:33:58Z (E-WEBSITE-PUSH), so B-2 then B-1 are now decidable once the Vercel deployment is serving. B-2 then B-1 are walked by a uat-role session on the test accounts on live hooks.gg; the residue read is his, put by steering. No row gates the release act or the commit. |
+| handoff | `handoff/editor-shows-blank-shell-when-personal-message-load-is-refused-2026-11-20.md` | Open · priority normal — On production, an account refused another user's personal message at /message/m/<id>/edit saw a blank editor shell while the page kept retrying getOne on 404, and no load-error text had appeared by the 8 s read. Whether the text appears once the retries end is unchecked. No stage owns it yet. |
+| handoff | `handoff/fix-personal-message-access-post-deploy-2026-11-20.md` | Open · priority normal — Carrier of fix-personal-message-access's post-deploy rows. B-2 and B-1 are EXECUTED on the fixed limb (2026-11-20, uat-hooks-fix-personal-message-access); R-1, the owner's residue read of the production Messages table, is outstanding and his, put by steering. No row gates the release act or the commit. |
 | handoff | `handoff/get-one-absent-number-fails-without-not-found-2026-11-19.md` | Open · priority normal — message.getOne on a message number no row holds fails with executeTakeFirstOrThrow's error, not NOT_FOUND, so an absent number and a number held by another user can be told apart. Left out of the fixer chain; no stage owns it yet. |
 | handoff | `handoff/hydrated-recent-list-returns-guild-message-rows-2026-11-19.md` | Open · priority normal — After the personal-message access fix, the hydrated recent-messages list still returns server (guild) message rows for any server whose message number a user has stored in recentMessageIds. Left out of the fixer chain; no stage owns it yet. |
 | handoff | `handoff/message-init-cached-edits-lost-2026-08-27.md` | Open · priority normal — A test file (`website/src/utils/__tests__/message-init-route0.test.ts`) pinned a bug in its own transcription of MessageProvider's route-0 mount-effect logic, not in the production module itself — the file imported nothing from `~/` or `bot/`. The pin is deleted by plan 014 (D2: delete the pin, log the bug, no bug fixes in a test-cleanup chain). Whether the defect is live in production was NOT verified by chain 014 (out of scope by ruling); an informal, non-authoritative observation is recorded below and should not be read as a verification. |
@@ -384,7 +385,9 @@ they are the ID-less artifacts that root new efforts.
 | retrospective | `retrospectives/closed/fix-hooks-record-shared-engine-retrospective.md` | Processed |
 | retrospective | `retrospectives/closed/fix-uat-local-stack-id-sequence-retrospective.md` | Processed |
 | retrospective | `retrospectives/closed/fix-website-save-gate-embeds-retrospective.md` | Processed |
+| retrospective | `retrospectives/fixer-batch-2026-11-20-retrospective.md` | Active — Fixer-batch retrospective over fix-dialog-closes-on-first-portal-load (website 1ad625e) and fix-personal-message-access (website 983681c), written after both chains closed out. Rests until pi runs on the owner's command. |
 | security | `security/closed/fix-personal-message-access-security-audit.md` | Review Complete — Review Complete 2026-11-20: security review of the personal-message access fix, APPROVED at website 983681c, which is the SHA released (website master, ls-remote read at closure). M-001 (MEDIUM, the getOne delete race) was fixed and verified at 983681c and is closed. RC-2, the post-deploy read of the session path on production, is carried by handoff/fix-personal-message-access-post-deploy-2026-11-20.md. I-2 (website dependency advisories) is carried by the INBOX.md entry and opened as its own review on the owner's selection. |
+| security | `security/website-deps-review-security-audit.md` | Active — BLOCKED_PENDING_REMEDIATION at website 983681c, a tree already released, so the verdict holds no release: it says the dependency posture is not approvable until H-001 is fixed. H-001 (HIGH), H-002 (HIGH) and M-001 (MEDIUM) are OPEN and wait on the owner's scope decision, put through steering. None of the audit's 8 critical advisories is reached on hooks.gg as hosted. |
 | steering | `steering/014-rulings.md` | — |
 | steering | `steering/015-rulings.md` | — |
 | steering | `steering/015-security-brief.md` | — |
@@ -761,6 +764,7 @@ they are the ID-less artifacts that root new efforts.
 | `deweeder-016-brief.md` | `steering/queue-hooks-briefs/deweeder-016-brief.md` |
 | `disposition-table.md` | `verification/014/disposition-table.md` |
 | `editor-error-lines-render-text-unasserted-2026-11-11.md` | `handoff/closed/editor-error-lines-render-text-unasserted-2026-11-11.md` |
+| `editor-shows-blank-shell-when-personal-message-load-is-refused-2026-11-20.md` | `handoff/editor-shows-blank-shell-when-personal-message-load-is-refused-2026-11-20.md` |
 | `fix-agent-comment-sweep-merge-code-review.md` | `code-review/closed/fix-agent-comment-sweep-merge-code-review.md` |
 | `fix-agent-comment-sweep-merge-deployment.md` | `deployment/closed/fix-agent-comment-sweep-merge-deployment.md` |
 | `fix-agent-comment-sweep-merge-implementation.md` | `implementation/closed/fix-agent-comment-sweep-merge-implementation.md` |
@@ -801,6 +805,7 @@ they are the ID-less artifacts that root new efforts.
 | `fix-website-save-gate-embeds-implementation.md` | `implementation/closed/fix-website-save-gate-embeds-implementation.md` |
 | `fix-website-save-gate-embeds-qa.md` | `qa/closed/fix-website-save-gate-embeds-qa.md` |
 | `fix-website-save-gate-embeds-retrospective.md` | `retrospectives/closed/fix-website-save-gate-embeds-retrospective.md` |
+| `fixer-batch-2026-11-20-retrospective.md` | `retrospectives/fixer-batch-2026-11-20-retrospective.md` |
 | `fixer-fix-dialog-closes-on-first-portal-load.md` | `steering/backlog-2026-11-18-briefs/fixer-fix-dialog-closes-on-first-portal-load.md` |
 | `fixer-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/fixer-save-gate-embeds-brief.md` |
 | `fixer-uat-local-stack-brief.md` | `steering/queue-hooks-briefs/fixer-uat-local-stack-brief.md` |
@@ -900,5 +905,6 @@ they are the ID-less artifacts that root new efforts.
 | `website-787bec5-generator-8512a1d-release-tip-qa.md` | `qa/closed/website-787bec5-generator-8512a1d-release-tip-qa.md` |
 | `website-api-handler-hardening-2026-10-10.md` | `handoff/website-api-handler-hardening-2026-10-10.md` |
 | `website-deps-review-brief-security.md` | `steering/website-deps-review-brief-security.md` |
+| `website-deps-review-security-audit.md` | `security/website-deps-review-security-audit.md` |
 | `website-tests-not-beside-their-module-2026-11-08.md` | `handoff/closed/website-tests-not-beside-their-module-2026-11-08.md` |
 | `website.md` | `architecture/website.md` |

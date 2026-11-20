@@ -338,3 +338,17 @@ active `DATABASE_URL` in `website/.env.local`, read inside the command and never
   - **Cases scored: 108. Below 7: 30, which is 27.8% (30/108).** Of the 30, 29 name a covering case scored 7 or more; 0 name one below 7;
     1 (id 1091 → 1164) names a covering id outside this pass, marked unchecked.
   - Nothing is deleted on this. The export is removed (`ls -d` fails).
+
+## 2026-11-20T01:58Z — retrospective written; close-out complete (R-1 open with him)
+
+`retrospectives/fixer-batch-2026-11-20-retrospective.md` (`2069d19`; link fix `f46a04c`), Status Active, covers chain A and this chain.
+Its carriers, lodged by this thread at its request (inboxes are their owners' to commit):
+- Recommendations 6, 7 and 8 → three entries appended to `agent-output/INBOX.md`.
+- Recommendation 9 → `~/.claude/agents/INBOX.md`, as sightings for the pending record-write-gate decision.
+- Recommendations 1 to 5 and 10 → pi, on his word only (never offered).
+Scratch: the exited chain sessions' directories under `/tmp/claude-1000/-usr-local-bin-hooks-website/` (7) and `…/-usr-local-bin-hooks/`
+(1, the architect), plus this thread's `residue-refute/` and `deweed/`, were deleted. Before deletion, a search of the open handoffs and
+every docket found no `/tmp/claude-` path cited. `du -sc` before was 22592 KB; `ls -d` fails for each afterwards. INDEX was rebuilt.
+**Still open:** the post-deploy carrier's R-1, his residue read, which is on OWNER-QUEUE (`fc8bb6c`). On his output, record it in the
+carrier's R-1 row and here, then close the carrier. The chain's standing check is deleted. `security-hooks-website-deps`, the separate
+review he chose, is still running.
