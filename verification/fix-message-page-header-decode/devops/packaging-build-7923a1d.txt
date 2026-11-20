@@ -1,0 +1,50 @@
+2026-11-20T02:27:53Z
+
+> website@ build /tmp/claude-1000/-usr-local-bin-hooks-website/a6bc52f6-a59f-4d4e-a7c9-44540037fafd/scratchpad/exp7923
+> next build
+
+▲ Next.js 16.1.6 (Turbopack)
+
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ Compiled successfully in 7.5s
+  Running TypeScript ...
+  Collecting page data using 17 workers ...
+  Generating static pages using 17 workers (0/9) ...
+  Generating static pages using 17 workers (2/9) 
+  Generating static pages using 17 workers (4/9) 
+  Generating static pages using 17 workers (6/9) 
+✓ Generating static pages using 17 workers (9/9) in 590.1ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /legal/privacy
+├ ○ /legal/terms
+├ ƒ /message
+├ ƒ /message/f/[id]
+├ ƒ /message/m/[id]/edit
+├ ƒ /message/m/[id]/send
+├ ƒ /message/m/new
+└ ○ /preview
+
+Route (pages)
+┌ ƒ /api/auth/[...nextauth]
+├ ƒ /api/cron
+├ ƒ /api/interactions-edge
+├ ƒ /api/interactions-server
+├ ƒ /api/messages/codes/[code]
+├ ƒ /api/trpc/[trpc]
+├ ƒ /api/v1/guilds/[guildId]/messages
+└ ƒ /api/v1/guilds/[guildId]/messages/[id]
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+build_rc=0
