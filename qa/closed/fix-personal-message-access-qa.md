@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-personal-message-access
 UUID: 1b613853
 Verified-At: "983681ca6cd7cbacd0796ed093e094057ad7f9be — repos=website; refresh pass over round 5 (75f1543..983681c, security M-001); earlier verdict at 75f1543 expired by that production change"
-Status: QA Complete
-Status-Detail: "Phase 2 PASS at website 983681c (refresh after round 5, M-001). Register rows B-1, B-2 unchanged, post-deploy, gate nothing. Next: security re-review (RC-1)."
+Status: Committed
+Status-Detail: "Committed with the chain at website chain/fix-personal-message-access 983681c (devops Stage 1); Phase 2 verdict PASS at that SHA stands. Register rows B-1, B-2 are post-deploy, gate nothing, and ride handoff/fix-personal-message-access-post-deploy-2026-11-20.md."
 Phase: 2
 ---
 
@@ -22,6 +22,7 @@ Brief: `steering/fix-personal-message-access-brief-qa.md` and its common part.
 |------|---------------|---------|---------|
 | 2026-11-19T23:48 | steering-roadmap-hooks (brief); code review verdict at `ed88e7c` (record `5fcb74e`) | Phase 2 on a fixer chain | Phase 2 — stage start on the committed review verdict at `ed88e7c`. Suite and typecheck re-run in exports; real-database second-user matrix over every in-scope surface (21 cases, base red on S2/S6b/S9/S11); mutation sweep of 40 over `787bec5..ed88e7c` production paths, 35 killed, 4 pre-check survivors (QAF-1) closed by QA's four cases at `75f1543` (4/4 killed), 1 equivalent. PASS at `75f1543`. Register B-1, B-2 minted |
 | 2026-11-20T00:16 | code-reviewer-hooks-fix-personal-message-access (Round 2 APPROVED at `983681c`, record `9bd32a4`) | Re-verify after round 5 | Phase 2 — refresh pass at `983681c` (section "Refresh at `983681c`"): suite 1909/1909 exit 0, typecheck 0, second-user matrix 21/21, round sweep 3/3 killed. PASS at `983681c`; the `75f1543` verdict is expired |
+| 2026-11-20T00:22 | devops-hooks-fix-personal-message-access | Document closed | Status: Committed. Closed at devops Stage 1 with the chain at website `chain/fix-personal-message-access` tip `983681c` (`Verified-At` `983681c` carried into the commit record). Post-deploy rows B-1 and B-2 are carried by `handoff/fix-personal-message-access-post-deploy-2026-11-20.md` |
 
 ## Phase 2 scope
 
@@ -270,6 +271,9 @@ post-deploy-observable rows under the stage set's "Post-deploy: the browser chec
 | B-2 | post-deploy-observable (running-code precondition) | Production serves the fixed `messageIdShape` (settles: the fix is the running code before B-1 is read) | Signed in to hooks.gg as a test account: `GET /api/trpc/message.getOne?input={"json":"99999999999999999999"}`, then read the HTTP status and the error code | uat-role session on the test accounts / owner | A Vercel production deploy of website `master` whose tree contains `75f1543`'s production files | Fixed: 400, `BAD_REQUEST` (the shape refuses before any query; suite case "getOne refuses a number past the largest…"). Unfixed: 500 (`787bec5`'s `/^[0-9]+$/` admits it and postgres raises out of range; fixer Diagnosis, CR-2). One observation decides. | If it still answers 500, the deploy is not serving the fix and B-1 says nothing | uat-role session (stage set) | `handoff/<name>.md` (devops, Stage 1) | Open. Minting read 2026-11-19T23:45:54Z, signed out: 401 `UNAUTHORIZED`, because the auth middleware answers before the input (`verification/fix-personal-message-access/qa/prod-look-getone-past-int8.json`). The signed-in unfixed value was **not read**: sign-in crosses a Discord OAuth redirect, which is not a single look. The unfixed prediction rests on code |
 | B-1 | post-deploy-observable (distinguishes fixed from unfixed; S2 escaped) | Criterion 1, read limb: test account 1 cannot open test account 2's personal message on production | The walk in `verification/access-defects/browser-check/README.md`: account 2 creates and saves a personal message; account 1 opens `/message/m/<n>/edit`; account 2 deletes it | uat-role session on the two test accounts / owner | B-2 passed | Fixed: the editor's load error, with none of account 2's content on the page. Unfixed: shown on production 2026-11-19T08:58Z (message 6020 opened in full by account 1). One observation decides. | If account 1 still sees account 2's content, any signed-in user can still read any personal message by its number | uat-role session (stage set) | `handoff/<name>.md` (devops, Stage 1) | Open |
 
+**Carrier (devops Stage 1, 2026-11-20):** rows B-2 and B-1 are carried in full by `handoff/fix-personal-message-access-post-deploy-2026-11-20.md`
+(Owning-Stage `uat`, a uat-role session on the test accounts); that record's `Result` lines are authoritative on execution state.
+
 **Related, not rows:** the owner's residue check on production data (implementation Diagnosis, "Residue already in production") is held
 by steering to the release seam (block 22:59Z). This pass asks steering to add one count to it; see Assumption Not Checked.
 
@@ -284,6 +288,7 @@ This pass assumes that no production `Messages` row carries both `fk_users_id` a
   owner term matches. So a creator who is no longer the server's admin can overwrite that server message. This was equally true at base,
   so it is not introduced here.
 - Owner: steering's held residue check (the owner's production read at the release seam). Routed by message in this pass.
+- Carrier: `handoff/fix-personal-message-access-post-deploy-2026-11-20.md`, row R-1 (carries this count in full with the corrected residue query).
 
 ## Refresh at `983681c` (round 5, security M-001)
 
