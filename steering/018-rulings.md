@@ -248,3 +248,12 @@ RELEASE, `Verified-At` `d1bb9b0`); its Findings (UAT-1 MEDIUM to devops's Stage-
   refusal text, verbatim: "rtk: rtk find does not support compound predicates or actions (e.g. -not, -exec). Use `find` directly." This
   thread's reading: the message comes from rtk's filter, not from a permission control, classifier or hook, and it names its own remedy.
   The re-run did what the message says. Put to him, since CLAUDE.md makes the call his.
+
+## 2026-11-20T06:50Z — UAT's `/usr/bin/find` re-run: not a workaround (his selection)
+
+Selection put 06:5xZ, answered 2026-11-20T06:50Z (ledger `steering/selection-ledger/2026-11-20.md`, the "find re-run" block of steering-roadmap-hooks;
+wording this thread's). Premise read this turn: the helper's transcript (block 06:50Z), with rtk's refusal text quoted there.
+- Q "find re-run": **Not a workaround (Recommended)**, CHOSEN by selection. Its description: "Agent records your answer in the 018
+  rulings file. UAT's disclosure in its document stands as written. The release path is unchanged." Not chosen: "It was a workaround"
+  ("Agent records your answer and lodges it in ~/.claude/agents/INBOX.md, so the helper rules get tightened for rtk refusals. UAT's
+  verdict is unaffected: the cache cleanup was housekeeping, not part of any walk's evidence.").
