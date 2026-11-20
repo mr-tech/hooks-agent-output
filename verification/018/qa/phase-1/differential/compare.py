@@ -5,7 +5,9 @@ Usage: python3 -I compare.py <base.json> <tip.json>
 
 Bounds are the plan's M1 table, written here as literals; labels carry `<proc> <site> n=<len> <kind>`.
 For each label:
-  len <= bound: tip issues must equal base issues exactly (M1-b).
+  len <= bound: (plan rev 3 M1-b, M1-i) for the two procedures, where base records k issues the tip carries base's
+                first min(k, CAP) issues in order, followed by exactly one summary issue at path [] when k > CAP;
+                for the client `import` schema (not capped) the tip equals the base exactly.
   len >  bound: tip must hold exactly one issue, code too_big, maximum == bound, path == the list's path,
                 no issue inside the list, and no throw (M1-a); base refused iff tip refused at the six
                 sites bounded today (M1-c); at the five new bounds tip refuses (M1-c).
@@ -18,6 +20,17 @@ import sys
 
 BOUNDS = {'S1': 5, 'S2': 3, 'S3': 10, 'S4': 40, 'S5': 25, 'S6': 3, 'S7': 100, 'S8': 100, 'S9': 10, 'S10': 40, 'S11': 11}
 BOUNDED_TODAY = {'S1', 'S2', 'S3', 'S5', 'S9', 'S10'}
+CAP = 20  # plan rev 3 M1-i (AD-5), a literal
+
+
+def within_bound_ok(proc, b, t):
+    """M1-b over M1-i's cap; the import schema is not capped (M1-i)."""
+    if proc == 'import' or len(b['issues']) <= CAP:
+        return b == t
+    if 'threw' in t or t['success']:
+        return False
+    ti = t['issues']
+    return ti[:CAP] == b['issues'][:CAP] and len(ti) == CAP + 1 and ti[CAP]['path'] == []
 LIST_PATH = {
     'S1': ['components', 0, 'components'], 'S2': ['components', 0, 'components'], 'S3': ['components', 0, 'items'],
     'S4': ['components', 0, 'components'], 'S5': ['embeds', 0, 'fields'], 'S6': ['allowed_mentions', 'parse'],
@@ -67,7 +80,7 @@ def main():
         n = int(n[2:])
         b, t = base[label], tip[label]
         if n <= BOUNDS[site]:
-            if b != t:
+            if not within_bound_ok(proc, b, t):
                 bad.append(f'{label}: within bound, base {b} != tip {t}')
         elif proc == 'import' and ('threw' in b or (kind in ('null', 'number') and site in ('S1', 'S4', 'S10'))):
             # The import schema's preprocess (filterSupportedComponents) runs before any list check: it throws on a

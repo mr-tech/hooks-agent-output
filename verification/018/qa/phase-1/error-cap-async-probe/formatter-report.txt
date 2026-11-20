@@ -1,0 +1,4 @@
+rendered lines 21 | fell back to raw message: false
+line 1: Code: invalid_string ~ Path: message.data.allowed_mentions.users[0] ~ Message: Invalid
+last line: Code: custom ~ Path:  ~ Message: Validation stopped after 20 errors
+message bytes 3951

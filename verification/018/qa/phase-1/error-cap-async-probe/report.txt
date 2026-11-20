@@ -1,0 +1,4 @@
+sync issues 1950 | async issues 1950 | same order: true | first differing index -1
+sync first 3: invalid_string@data.allowed_mentions.users.0 invalid_string@data.allowed_mentions.users.1 invalid_string@data.allowed_mentions.users.2 | async first 3: invalid_string@data.allowed_mentions.users.0 invalid_string@data.allowed_mentions.users.1 invalid_string@data.allowed_mentions.users.2
+sync with stopping errorMap: threw the sentinel | issues mapped before stop 21 | error-map calls after the stop 0 | 51 ms
+async with stopping errorMap: threw the sentinel | issues mapped before stop 21 | error-map calls after the stop 0 | 51 ms

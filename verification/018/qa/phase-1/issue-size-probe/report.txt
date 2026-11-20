@@ -1,0 +1,8 @@
+S6 parse: one 100,000-char element (union of literals) | BAD_REQUEST | top-level issues 1 | message chars 301470 | input string chars 100000 | carries the input: true
+S6 parse: three 100,000-char elements (at the bound) | BAD_REQUEST | top-level issues 3 | message chars 904406 | input string chars 100000 | carries the input: true
+S10: one component with a 100,000-char type string (discriminated union) | BAD_REQUEST | top-level issues 1 | message chars 325 | input string chars 100000 | carries the input: false
+control, S7 users: one 100,000-char id (regex) | BAD_REQUEST | top-level issues 1 | message chars 194 | input string chars 100000 | carries the input: false
+S1 element: link button style = long string (literal) | BAD_REQUEST | top-level issues 1 | message chars 100256 | input string chars 100000 | carries the input: true
+S1 element: link button type = long string (literal, not a discriminator) | BAD_REQUEST | top-level issues 1 | message chars 100255 | input string chars 100000 | carries the input: true
+section accessory: type = long string (union of two shapes) | BAD_REQUEST | top-level issues 1 | message chars 202071 | input string chars 100000 | carries the input: true
+separator spacing = long string (union of two literals) | BAD_REQUEST | top-level issues 1 | message chars 201005 | input string chars 100000 | carries the input: true

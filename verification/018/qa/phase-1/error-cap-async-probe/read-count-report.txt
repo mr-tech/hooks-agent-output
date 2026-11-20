@@ -1,0 +1,3 @@
+full parse (no stop): 1600 issues | element property reads 4800
+full parse then trimmed to 20 (the mutant): 20 issues kept | element property reads 4800
+stopped at the 21st issue: element property reads 63

@@ -4,14 +4,15 @@ Origin: 018
 UUID: 6273a762
 Verified-At: "7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe — repos=website; Phase 1 reads and probes only, no verdict; probes ran in an isolated export of this commit (shapes.ts blob 1c13ca2 verified equal)"
 Status: Awaiting Implementation
-Status-Detail: "Phase 1 re-keyed to plan revision 2 (agent-output 7a1bd46). QAF-1 to QAF-5 resolved; QAF-6 MEDIUM and QAF-7 LOW to planner-hooks-018. Register B-1 to B-8 re-specified; M5 rows held on OQ-5."
+Status-Detail: "Phase 1 re-keyed to plan revision 3 (agent-output 428090e). QAF-1 to QAF-7 resolved; QAF-8 HIGH (M1-i: one issue echoes the input, so a count cap does not bound the error) to planner-hooks-018. M1-i strategy and named mutants added; register B-1 to B-8 re-specified."
 Phase: 1
 ---
 
 # QA Report: Plan 018 — Next.js 16.4.6 and the save-list cap (H-002, M-001)
 
-**Plan Reference**: `agent-output/planning/018-next-upgrade-save-size-cap.md`, revision 2 (`7a1bd46`). Re-keyed from revision 1
-(`c2a6b85`) by reading the `git diff c2a6b85 7a1bd46` of the plan whole. The plan says no Reading Order is owed.
+**Plan Reference**: `agent-output/planning/018-next-upgrade-save-size-cap.md`, revision 3 (`428090e`). Re-keyed from revision 2
+(`7a1bd46`) by reading the `git diff 7a1bd46 428090e` of the plan whole, as revision 2 was re-keyed from revision 1 (`c2a6b85`). The
+plan's owed re-verdicts name QA's re-key for M1-b, M1-g, M1-h and M1-i, and for M4 and M5.
 **Brief**: `steering/018-brief-qa.md` (`96612e1`); common part `steering/018-brief-common.md`; rulings `steering/018-rulings.md` block
 2026-11-20T03:25Z (X-1 to X-15 accepted).
 **Architecture read**: `architecture/website.md` W-2, A-1, A-4; `architecture/system-architecture.md` not re-read beyond the plan's
@@ -24,6 +25,7 @@ citation of line 110 (nothing in this pass rests on it).
 |------|---------------|---------|---------|
 | 2026-11-20T03:43 | steering-roadmap-hooks (brief `96612e1`) | QA Phase 1 on revision 1 | Phase 1: strategy per milestone, populations measured, three probes run in an isolated export of `7923a1d` and captured under `verification/018/qa/phase-1/`; differential instrument for M1-b/M1-c built with its controls; findings QAF-1 to QAF-5 (1 HIGH, 3 MEDIUM, 1 LOW) to the planner; Irreversible Side-Effect Register; blocking-condition register B-1 to B-8; three QA-owned handoffs dispositioned. |
 | 2026-11-20T04:12 | planner-hooks-018 (revision 2, `7a1bd46`) | Phase 1 re-key on revision 2 | Phase 1 re-key. The plan's diff was read whole. QAF-1..5 RESOLVED (disposition lines). The planner's abort-form probe was re-tallied (182/182). QAF-6 MEDIUM (R7 cites a superseded 015 row and a fix 015 dropped) and QAF-7 LOW (M1-h's carrier) go to the planner. The differential was extended (1134 labels: b+50, nested kind, the import schema), with the base re-captured and its controls re-run. Production base reads were made over HTTP on hooks.gg (M1-h 51 issues; B-8 minting; Next 16.1.6), which closes the earlier Assumption Not Checked. Zod was shown not to move under the M2 package step. Register rows B-1..B-8 were re-specified with dated reconcile lines; B-4/B-5 are held on OQ-5. |
+| 2026-11-20T04:21 | planner-hooks-018 (revision 3, `428090e`) | Phase 1 re-key on revision 3 | Phase 1 re-key. The plan's diff was read whole. QAF-6 and QAF-7 RESOLVED; QAF-8 HIGH to the planner (one issue echoes its input: a 100,000-char `parse` element gives a 301,470-char refusal, so a count cap does not bound the error). M1-i premises run on the async path tRPC uses: same issue order; the stop holds; 21 lines via `formatMutationError`. A read-count instrument separates a real stop (63 reads) from full-then-trim (4800). `compare.py` was moved to M1-b over the cap, with a positive control (68) and a negative control (0). NM-9..NM-13 added. Register: B-2 set-up; B-4/B-5 hold lifted (D-8); B-6 carrier adopted. |
 
 ## Findings (Phase 1)
 
@@ -43,26 +45,53 @@ instrument. `.render.preload` is dispositioned as having no consumer.
 
 QAF-5 LOW Phase 1 RESOLVED — plan rev 2 M1 class: 21 site-and-procedure pairs; S11 through the router's real input.
 
-QAF-6 MEDIUM Phase 1
-- **Property:** M4 R7, "The App Router's React root is `document` … on which 015's F-15 fix rests", instrument "the F-15 tests pass".
-- **Defect:** QA can name no F-15 test, and the record holds no F-15 fix.
-  - The 015 row R7 cites ("M3 premise question", plan row 1214 of `planning/closed/015-*.md`) is marked **"Superseded at rev 15"**:
-    its conclusion ("F-15 reproduces in the app") was withdrawn on the implementer's document-root probe.
-  - 015 then removed M3 (D30, rulings "M3: drop M3, not a defect"; plan rows 48 and 100).
-  - `git grep -l -i 'hotkey\|useHotkeys'` over `src/**/__tests__/*` at `7923a1d` finds two files
-    (`layout.navigation-guard.test.tsx`, `page.sign-in-exit.test.tsx`), and neither is an F-15 test by the record.
-  - R7 therefore names a consumer and a test the record does not hold. Under the severity floor (a behaviour relied on with no
-    assertion), this is MEDIUM.
-- **Ask:** name the code at `7923a1d` whose behaviour rests on the root being `document`, with a test or walk that fails if the root
-  moves. Or disposition R7 as `.render.preload` was: no consumer, 015 D30.
+QAF-6 MEDIUM Phase 1 RESOLVED — plan rev 3 M4: R7 has left the class, dispositioned as no consumer (015 row superseded at rev 15;
+015 D30). Argument at commit `e8f18ef`.
 
-QAF-7 LOW Phase 1
-- **Property:** M1-h's carrier, "the after read is UAT's, after the push, carried by a handoff UAT writes with `Owning-Stage: uat`".
-- **Defect:** under QA's register rule, a post-deploy row still open at the deploy names as its carrier `handoff/<name>.md`, created
-  by **devops at Stage 1**, which then holds every open post-deploy row. A second carrier written by UAT splits the chain's
-  post-deploy rows across two handoffs, and nothing names who reconciles them. UAT as the executor (`Owning-Stage`) is not in dispute.
-- **Ask:** M1-h's after read rides devops's Stage-1 carrier, with `Owning-Stage: uat` for that row. Also, M1-h's base read ("QA's,
-  before the release push") is **done**: 51 over HTTP (B-6 below), so the plan can cite it.
+QAF-7 LOW Phase 1 RESOLVED — plan rev 3 M1-h: the after read is a row of devops's Stage-1 post-deploy handoff, with
+`Owning-Stage: uat`, and it cites QA's base read. Argument at commit `e8f18ef`.
+
+QAF-8 HIGH Phase 1
+- **Property:** M1-i *no huge error*, his D-9 phrase "so no save can build a huge error", and its limb "the refusal's `message` is at
+  most 16 KB".
+- **Defect:** a single issue can carry the input it refused, so capping the issue **count** at 20 does not bound the message.
+  - zod 3.22.4 records `received: <the input value>` on `invalid_literal`.
+  - An `invalid_union` issue nests each branch's errors under `unionErrors`, and tRPC's message is the JSON of the issue list, so
+    the received value is repeated once per branch.
+- **Run** through the real `message.upsert` caller at `7923a1d` (`verification/018/qa/phase-1/issue-size-probe/report.txt`):
+
+  | Input | Issues | Message chars | Carries the input |
+  |---|---|---|---|
+  | `allowed_mentions.parse: [100,000-char string]` | 1 | **301,470** | yes |
+  | `parse` at its bound of 3, each 100,000 chars | 3 | **904,406** | yes |
+  | control: a discriminated union's `type`, 100,000 chars | 1 | 325 | no |
+  | control: `users` with a 100,000-char id | 1 | 194 | no |
+
+  Within the 1 MB body limit, about three times the body comes back from one save, at an issue count M1-i leaves untouched (1 ≤ 20).
+- **Why the plan's instrument misses it:** the limb is checked on steering's within-bound worst case and on M1-a's over-limit bodies.
+  Neither carries a long value at a literal position, so a count-only cap passes every case the plan names.
+- **The class, by its definition, not by instance:** every position whose failure records `received` — a `z.literal`, or a `z.union`
+  of literals — that is not the discriminator of a `z.discriminatedUnion` (checked first; the control above). At `7923a1d` in
+  `shapes.ts` that is:
+  - S6's element (`parse`, a union of three literals);
+  - `linkButtonShape.type` and `style` (literals, reached as S1's elements and as a section accessory);
+  - `sectionShape.accessory` (`z.union([thumbnailShape, linkButtonShape])`);
+  - `separatorShape.spacing` (a union of two literals);
+  - each shape's own `type` literal where it is not a discriminator: the accessory's branches.
+  Each named position was run with one 100,000-char value (same `report.txt`), and each carries the input:
+  - a link button's `style`: 100,256 chars;
+  - a link button's `type`: 100,255;
+  - the section accessory's `type`: 202,071;
+  - a separator's `spacing`: 201,005.
+  QA re-derives the full membership at Phase 2 by grep over `z.literal(` and `z.union(` in `shapes.ts` and `user.ts`, with the
+  discriminator positions excluded by name.
+- **Ask:**
+  - M1-i's *no huge error* limb names this input class in its population (one long value at each member position, and at the bound
+    of S6).
+  - The mechanism bounds the size of each issue as well as the count. For example, the refusal carries `code`, `path` and `message`
+    only (the three fields `looksLikeZodIssues` needs), with no `received` and no nested `unionErrors`. Whether that keeps the
+    client's lines (A-1) as they are is the architect's to read.
+  - Named mutant NM-13 below.
 
 ## Test Strategy (Pre-Implementation)
 
@@ -83,7 +112,7 @@ From the user's side, what can break:
 | M1-e | production users with a stored recent list over 10 | **Not measurable by agents**: the production database URL is the owner's (plan RK-3). The falsifier is a liveness row (B-8). |
 | M1-f | stored messages over S4/S6/S7/S8's new bounds | **Not measurable by agents** (RK-3). Stated residue; falsifier is a user report. |
 | M2-a | lockfile keys at `7923a1d` (`grep -c` over `git show 7923a1d:pnpm-lock.yaml`) | `next@16.1.6` 16, `@next/env@16.1.6` 2, `@next/swc-[a-z0-9-]*@16.1.6` 16, `next@16.4.6` 0. The instrument reads non-zero at base, which is its positive control. |
-| M4 | tests per behaviour (`git grep -l` over `src/**/__tests__/*` at `7923a1d`) | R1/R2: `src/app/message/__tests__/layout.navigation-guard.test.tsx`, `src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx` (StyledLink). R4: `src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx`, `src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx`. R3: none (a stated limit; walk only). R5: **none** (QAF-4). **Reconcile 2026-11-20 (plan rev 2):** R4 has left the class (`beforeunload` ties to no Next version), and its two tests stay in the M2-c suite run. R5 is a UAT walk. R6 is the implementer's read of `layout-router.js`, plus a walk if the read differs; no test covers it. R7 has no test, and its cited fix is not in the record (QAF-6). |
+| M4 | tests per behaviour (`git grep -l` over `src/**/__tests__/*` at `7923a1d`) | R1/R2: `src/app/message/__tests__/layout.navigation-guard.test.tsx`, `src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx` (StyledLink). R4: `src/utils/hooks/__tests__/useUnloadAlert.act-suppression.test.tsx`, `src/app/message/m/[id]/edit/__tests__/page.sign-in-exit.test.tsx`. R3: none (a stated limit; walk only). R5: **none** (QAF-4). **Reconcile 2026-11-20 (plan rev 2):** R4 has left the class (`beforeunload` ties to no Next version), and its two tests stay in the M2-c suite run. R5 is a UAT walk. R6 is the implementer's read of `layout-router.js`, plus a walk if the read differs; no test covers it. R7 has no test, and its cited fix is not in the record (QAF-6). **Reconcile 2026-11-20 (plan rev 3):** R7 has left the class. M4 is R1, R2, R3, R5 and R6. |
 | M5-b | public routes | The plan's set (sweep §4 inventory, plus the two redirects); not re-derived here. |
 
 ### Required Unit Tests (M1, Node environment)
@@ -110,6 +139,35 @@ From the user's side, what can break:
   message parses to an issue list of length 1, and the database records **zero** queries. The base figure through the caller is
   `caller-probe/report.txt`: 51 issues, 0 database touches.
 - Control case: an accepted input passes the input stage (base: reaches `authorizeUser`).
+
+### M1-i, the error cap (plan rev 3, D-9) — instruments
+
+His binding phrases: "stops checking after a small number of errors", "returns a short reason", "no save can build a huge error".
+Each phrase has its own instrument, all through the procedures' real path. tRPC 11 calls zod 3.22.4's `parseAsync`: `getParseFn` in
+`@trpc/server` `dist/initTRPC-*.mjs` finds no `~standard` key, so it takes `parser.parseAsync`.
+- **Premise on the async path, run in this pass** (`verification/018/qa/phase-1/error-cap-async-probe/report.txt`; real
+  `optionalIdMessageShape`, every list within its bound, 1950 issues):
+  - The sync and async parses record the same 1950 issues in the same order. M1-b's "first min(k, 20) in the same order" is therefore
+    well defined on the route's path.
+  - A contextual error map that throws on the 21st issue stops the async parse there: 21 error-map calls, and 0 calls after the
+    throw during a 50 ms wait. The planner's sync premise holds on the async path too.
+- ***Stop checking* is observed from outside the parse by counting reads.** A test calling the procedure cannot inject its own error
+  map, because the implementation owns the parse. The instrument is an input whose elements count reads of their properties through
+  getters. Run in this pass (`error-cap-async-probe/read-count-report.txt`; 40 containers × 40 invalid text displays):
+  - full parse: 4800 reads;
+  - full parse then trimmed to 20 (the mutant): **4800** reads;
+  - parse stopped at the 21st issue: **63** reads.
+  The case asserts the read count stays below a literal far under the full count (for example 200), with its control: the same input
+  inside a refused parse that is not capped would read 4800, and the run that installs the case shows that red.
+- ***A short reason.*** The procedure answers `BAD_REQUEST`. Its message parses to 21 issues: 20 in base order, then one summary at
+  `path: []`. `formatMutationError` renders them as 21 lines, which was run in this pass on the real formatter
+  (`error-cap-async-probe/formatter-report.txt`: 21 lines, no fallback to the raw message, 3951 bytes). The summary line renders as
+  `Code: custom ~ Path:  ~ Message: …`, with an empty path. That is what UAT will see; it is a wording matter, not a failure.
+- ***No huge error.*** The message is at most 16 KB (a literal) on steering's within-bound worst case
+  (`verification/018/steering/refute-within-bound/`) and on M1-a's over-limit bodies. Issues created, message length and time are
+  recorded beside the base's figures (48,500 issues; 13,324,552 characters), as a measurement outside the suite's pass/fail.
+- **Edges:** exactly 20 issues → no summary; 21 → 20 + summary; an over-limit list with other issues elsewhere → the list's one issue
+  counts toward the 20. The client JSON view stays uncapped: the differential's `import` rows hold the tip equal to the base.
 
 ### Acceptance Criteria — the instrument per milestone
 
@@ -142,6 +200,16 @@ From the user's side, what can break:
 - **NM-7** (M1-a, updatePreferences pairs): the cap reaches `optionalIdMessageShape` and not `partialMessageShape`. Wrong change: the cap
   is applied in a schema only `message.upsert` reads.
 - **NM-8** (M1-a): wrong issue path. Wrong change: the cap's issue carries `path: []` relative to the procedure, or the element path.
+- **NM-9** (M1-i *stop checking*): the parse completes and the issue list is trimmed afterwards. Wrong change: `issues.slice(0, 20)`
+  after a full `safeParseAsync`. Caught only by the read count (4800 against 63), never by the response shape.
+- **NM-10** (M1-i, M1-b): off by one at the cap. Wrong change: the stop at the 20th issue, or the summary added at k = 20; caught at
+  exactly 20 and at 21 issues.
+- **NM-11** (M1-i *short reason*): the summary is added whenever the parse fails. Wrong change: a 3-issue refusal carries a 4th,
+  summary issue; caught by M1-b's k ≤ 20 equality.
+- **NM-12** (M1-i, reach): the cap is wired into one procedure only. Wrong change: `user.updatePreferences` parses uncapped; caught
+  by the differential's `updatePreferences` labels with k > 20 (68 such labels at base, counted over both procedures).
+- **NM-13** (M1-i *no huge error*, QAF-8): the cap bounds the count only. Wrong change: the 20 issues are sent as zod built them,
+  `received` and `unionErrors` included; one 100,000-char `parse` element returns about 300,000 chars.
 
 ### Testing Infrastructure
 
@@ -159,6 +227,13 @@ From the user's side, what can break:
     - Base re-captured in a fresh export of `7923a1d` (`shapes.ts` blob `1c13ca2` verified): 1134 labels, exit 0.
     - Controls: `--self-check` 15872 (non-zero); base-vs-base 0 within-bound and 0 import-preprocess violations
       (`grep -c 'within bound\|import preprocess'` = 0).
+  - **Reconcile 2026-11-20 (plan rev 3 M1-b over M1-i):** `compare.py` sha256 `a837e1e8…`. Within the bound, for the two
+    procedures, the tip carries the base's first min(k, 20) issues plus one summary at `[]` when k > 20. The `import` schema keeps
+    exact equality.
+    - Positive control: base-vs-base now flags exactly the 68 within-bound labels whose base k > 20 (the count derived independently
+      from the capture). An uncapped tip fails the rule.
+    - Negative control: a planted tip, capped correctly, gives 0 within-bound violations
+      (`differential/planted-capped-tip.txt`).
   - **Residue, outside the class:** the base capture shows `discordMessageImportShape` throws `TypeError` on a `null` button inside an
     action row (6 labels, `import S1 n≥1 null`): `filterActionRowButtons` reads `button.type`. This happens only on the client. The
     JSON view's `useEffect` catches it and shows the raw message as its error. Not a finding: it is pre-existing, client-only on the
@@ -203,11 +278,14 @@ execution state.
 | ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable condition | Predicted value | Failure mode | Owner | Discharging document | State |
 |---|---|---|---|---|---|---|---|---|---|---|
 | B-1 | observable pre-release | M1-g as restated by QAF-2: the JSON view shows the paste's issues | Browser walk on the local build: paste `allowed_mentions.users` with 150 invalid ids into the JSON view; count the error lines | UAT through the stage browser, test account / owner | Local build at the M1 tip; stack per Infrastructure | Tip: 1 line naming 100. Base: 150 lines (measured through the client schema). One observation decides it. | If 150 lines still show, the cap never reached the client schema the editor uses. | uat | The UAT pass to be briefed (`uat/018-…-uat.md`) | Open; depends on QAF-2's restatement. **Reconcile 2026-11-20:** the restatement landed (plan rev 2 M1-g, *Browser* limb; "150 malformed ids … one error line … where `7923a1d` shows 150; no request is sent"). The row settles M1-g's browser limb. |
-| B-2 | observable pre-release | Server refusal of a message already in the editor (QAF-2 limb) | Walk: a message with 150 well-formed user ids, seeded in the local database (id ≥ 900000000000001) or as a draft from a base-build session on the same origin; press Save. **Reconcile 2026-11-20 (plan rev 2 M1-g *Server* limb, M1-f, X-18):** the action is **Save As**, not Save. Save shows only the reason-less toast "Error. Failed to save message. Please try again." Load the message before opening the JSON view. | UAT / owner | Local build at the tip; seeded row | Tip: one line from Save naming the 100 bound; nothing written. Base: saves. **Reconcile 2026-11-20:** "Save" reads "Save As". A second observation under the same seed: Save shows the fixed toast, which is X-18's stated limit and not a failure. | If Save succeeds, the server cap is absent on the save path the editor uses. If several lines show, the cap is not length-first. | uat | The UAT pass to be briefed | Open. **Reconcile 2026-11-20:** QAF-2 landed (rev 2). The row settles M1-g's server limb. |
+| B-2 | observable pre-release | Server refusal of a message already in the editor (QAF-2 limb) | Walk: a message with 150 well-formed user ids, seeded in the local database (id ≥ 900000000000001) or as a draft from a base-build session on the same origin; press Save. **Reconcile 2026-11-20 (plan rev 2 M1-g *Server* limb, M1-f, X-18):** the action is **Save As**, not Save. Save shows only the reason-less toast "Error. Failed to save message. Please try again." Load the message before opening the JSON view. | UAT / owner | Local build at the tip; seeded row | Tip: one line from Save naming the 100 bound; nothing written. Base: saves. **Reconcile 2026-11-20:** "Save" reads "Save As". A second observation under the same seed: Save shows the fixed toast, which is X-18's stated limit and not a failure. | If Save succeeds, the server cap is absent on the save path the editor uses. If several lines show, the cap is not length-first. | uat | The UAT pass to be briefed | Open. **Reconcile 2026-11-20:** QAF-2 landed (rev 2). The row settles M1-g's server limb. **Reconcile 2026-11-20 (plan rev 3 M1-g set-up):** seeding as the plan states it.
+On a local build of `7923a1d`, paste the 150-id message into the JSON view and save it there, which succeeds. Then serve the M1 tip
+over the same local database (ids ≥ 900000000000001), open that message without opening the JSON view, and use Save As. Predicted
+at the tip: one line naming 100, inside M1-i's cap. |
 | B-3 | observable pre-release | M4-a walks: R1 (leave-page guard, both Cancel and confirm), R2 (external link interception), R4 (`beforeunload` with unsaved edits), R3 recorded either way | `browser-walker`, signed in, local build at the M3 tip | UAT / owner | Local build at the M3 tip | R1, R2 and R4 behave as at 16.1.6. R3: recorded, no prediction. | A link click with unsaved edits navigates without asking, so the user loses edits. | uat | The UAT pass to be briefed | Open. **Reconcile 2026-11-20 (plan rev 2 M4):** R4 has left the class, so the walk is R1 (Cancel and confirm), R2, R3 (the browser's back with unsaved edits; record whether a confirmation appears) and R5 (network throttled; the editor shell stays rendered while a lazy child is pending). M5-d's sign-in redirect joins under OQ-5's recommended option (reaches Discord's authorise page; stop there). Captures go to `verification/018/uat/local/`. The row settles M4-a and M5-d. |
-| B-4 | observable pre-release | M5-b/c/d on the preview: public pages 200, two redirects, images 200 with an image type, sign-in reaches Discord's authorise page and stops | Anonymous browser walk of the preview URL | UAT / owner | Preview `READY` at the tip (B-5) | All 200 / redirect / authorise as the plan states | A page that 500s on Vercel at 16.4.6 and not locally ships to every visitor. | uat | The UAT pass to be briefed | Open; depends on B-5. **Reconcile 2026-11-20 (plan rev 2 M5, OQ-5):** held on OQ-5. Under the recommended option, the walk covers the release-check branch's preview: `/`, `/legal/privacy`, `/legal/terms`, `/preview`, `/message`, `/message/m/0/edit`, `/message/m/0/send` 200; `/support` 308; `/message/m/<n>` 307; images 200. `/api/auth/*` 500 is recorded and is not a failure. M5-d moves to B-3. Re-specified at OQ-5's answer. The row settles M5-b and M5-c. |
-| B-5 | observable pre-release | M5-a: the preview deployment is `READY` and its `githubCommitSha` is the tip | `vercel api` read (read-only) | devops / none | After the chain branch push | `READY`, SHA equal | A build that fails only on Vercel. | devops | The deployment record | Open. **Reconcile 2026-11-20 (plan rev 2 M5-a, OQ-5):** held on OQ-5. Under the recommended option it is `READY` at the release-check head, the tip's child, and `git diff --name-only <tip> <head>` prints `vercel.json` alone. A plain push of the tip is predicted not to reach READY (RK-7). The row settles M5-a. |
-| B-6 | post-deploy-observable | M1-h: one test-account `message.upsert` with 50 invalid embeds on hooks.gg | The HTTP response's tRPC error message, parsed as the issue list; count | QA or UAT through the stage browser signed in to hooks.gg as the test account / owner | The serving production deployment's commit contains the release tip (containment, via `vercel api`) | Tip: 1. Base: 51 (through the caller, `caller-probe/report.txt`; over HTTP not yet run). One observation decides it. | If 51, production is not serving M1. | qa | `handoff/<name>.md`, created by devops at Stage 1 | Open; HTTP minting read owed at the first executor run (browser held at Phase 1, below). **Reconcile 2026-11-20 (plan rev 2 M1-h):** the base read is **done** over HTTP on hooks.gg, 2026-11-20T04:09Z, while production served Next 16.1.6: `POST /api/trpc/message.upsert` → 400 `BAD_REQUEST`, 51 issues (`prod-base-reads/README.md`). The instrument works at minting, so the predicted base value of 51 is confirmed. The executor after release is UAT, so the Owner cell reads **uat**. The carrier stays devops's Stage-1 handoff (QAF-7). The row settles M1-h. |
+| B-4 | observable pre-release | M5-b/c/d on the preview: public pages 200, two redirects, images 200 with an image type, sign-in reaches Discord's authorise page and stops | Anonymous browser walk of the preview URL | UAT / owner | Preview `READY` at the tip (B-5) | All 200 / redirect / authorise as the plan states | A page that 500s on Vercel at 16.4.6 and not locally ships to every visitor. | uat | The UAT pass to be briefed | Open; depends on B-5. **Reconcile 2026-11-20 (plan rev 2 M5, OQ-5):** held on OQ-5. Under the recommended option, the walk covers the release-check branch's preview: `/`, `/legal/privacy`, `/legal/terms`, `/preview`, `/message`, `/message/m/0/edit`, `/message/m/0/send` 200; `/support` 308; `/message/m/<n>` 307; images 200. `/api/auth/*` 500 is recorded and is not a failure. M5-d moves to B-3. Re-specified at OQ-5's answer. The row settles M5-b and M5-c. **Reconcile 2026-11-20 (plan rev 3, D-8):** OQ-5 is answered as the release-check branch, so the hold is lifted and the row stands as written above. |
+| B-5 | observable pre-release | M5-a: the preview deployment is `READY` and its `githubCommitSha` is the tip | `vercel api` read (read-only) | devops / none | After the chain branch push | `READY`, SHA equal | A build that fails only on Vercel. | devops | The deployment record | Open. **Reconcile 2026-11-20 (plan rev 2 M5-a, OQ-5):** held on OQ-5. Under the recommended option it is `READY` at the release-check head, the tip's child, and `git diff --name-only <tip> <head>` prints `vercel.json` alone. A plain push of the tip is predicted not to reach READY (RK-7). The row settles M5-a. **Reconcile 2026-11-20 (plan rev 3, D-8):** the hold is lifted and the row stands as written. |
+| B-6 | post-deploy-observable | M1-h: one test-account `message.upsert` with 50 invalid embeds on hooks.gg | The HTTP response's tRPC error message, parsed as the issue list; count | QA or UAT through the stage browser signed in to hooks.gg as the test account / owner | The serving production deployment's commit contains the release tip (containment, via `vercel api`) | Tip: 1. Base: 51 (through the caller, `caller-probe/report.txt`; over HTTP not yet run). One observation decides it. | If 51, production is not serving M1. | qa | `handoff/<name>.md`, created by devops at Stage 1 | Open; HTTP minting read owed at the first executor run (browser held at Phase 1, below). **Reconcile 2026-11-20 (plan rev 2 M1-h):** the base read is **done** over HTTP on hooks.gg, 2026-11-20T04:09Z, while production served Next 16.1.6: `POST /api/trpc/message.upsert` → 400 `BAD_REQUEST`, 51 issues (`prod-base-reads/README.md`). The instrument works at minting, so the predicted base value of 51 is confirmed. The executor after release is UAT, so the Owner cell reads **uat**. The carrier stays devops's Stage-1 handoff (QAF-7). The row settles M1-h. **Reconcile 2026-11-20 (plan rev 3 M1-h):** the plan now names this carrier, with `Owning-Stage: uat`, and cites the base read. QAF-7 is resolved. |
 | B-7 | post-deploy-observable | M5-e: hooks.gg's page script carries `window.next={version:"16.4.6"` | `curl` of hooks.gg plus `grep -c` (the planner's instrument, non-zero today for 16.1.6: `verification/018/planning/prod-next-version-pre.txt`) | devops or QA / none | The release deployment serving | 16.4.6 count ≥ 1, and 16.1.6 count 0 | 16.1.6 still served means H-002 is not closed in production. | qa | `handoff/<name>.md` by devops at Stage 1 | Open. **Reconcile 2026-11-20 (plan rev 2 M5-e):** the plan runs the after read by devops after the push (a public GET), so the Owner cell reads **devops**. At 04:09Z, `window.next.version` on hooks.gg read `"16.1.6"` (`prod-base-reads/README.md`, item 2), a second instrument beside the planner's capture. The row settles M5-e. |
 | B-8 | post-deploy-observable (liveness beside S11's limit) | The recent list keeps updating after release, for the test account | Session read on hooks.gg (`/api/auth/session`, `user.preferences.recentMessageIds`, length and first id only). Open message A, then message B. Control: B's id moves to first place. | QA through the stage browser / owner | After release, same condition as B-6 | First id = the message last opened; length ≤ 11 | If the first id does not move, updates are refused silently (no `onError`): the recent list freezes for users. | qa | `handoff/<name>.md` by devops at Stage 1 | Open; minting read not done at Phase 1 (cause: browser held by another session, lock read 2026-11-20 before 03:43Z, `holder`). **Reconcile 2026-11-20:** minting read done at 04:09Z: `/api/auth/session` → 200, signed in, `recentMessageIds` an array of length 10 (`prod-base-reads/README.md`, item 1). The row settles M1-e's liveness (declined work, S11). |
 
@@ -246,6 +324,11 @@ caller probe's 51 if it were false. B-6's first executor run closes it (owner: q
   and `env.mjs` also reads `VERCEL`/`VERCEL_URL`/`VERCEL_ENV`, which the planner's imitation did not set. The signature of its falsity
   is a page or redirect answering differently on the preview than on the local build at the tip. Owner: UAT, at B-4 against B-3's
   local-build captures, once OQ-5 is answered.
+
+**Re-key on plan revision 3.** This pass assumes, and does not test, that the tRPC HTTP handler sends a **capped** refusal's
+message over the wire exactly as the caller returns it. That was seen for the uncapped 51-issue refusal at 04:09Z, but not for a
+message built by M1-i's wrapper, which does not exist yet. The signature of its falsity is an issue count or message size over HTTP
+that differs from the caller's at the tip. Owner: QA at Phase 2 (one HTTP read against the local build at the tip), then UAT at B-6.
 
 ## Implementation Review (Post-Implementation)
 
