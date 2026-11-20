@@ -1,0 +1,130 @@
+{
+ "sha": "983681ca6cd7cbacd0796ed093e094057ad7f9be",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/qa/mutants-983681c.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/qa/mutants-983681c.json",
+   "blob": "1bfee7330b1b829bbbf12dff718b3693b04a521d"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/qa/sweep-983681c/983681ca6cd7cbacd0796ed093e094057ad7f9be-20261120T001441Z-p1455313-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/qa/sweep-983681c/983681ca6cd7cbacd0796ed093e094057ad7f9be-20261120T001441Z-p1455313-control-1.stderr",
+   "seconds": 18.55,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 1909,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "message.ts:62:if-false",
+   "run": "mutant-1",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 62,
+    "text": "if (!oldMessageCount) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1909,
+   "control_tests_run": 1909,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.getOne on a personal message > refuses another signed-in user when the message is deleted between its load and the ownership check"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 17.75,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/qa/sweep-983681c/983681ca6cd7cbacd0796ed093e094057ad7f9be-20261120T001441Z-p1455313-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/qa/sweep-983681c/983681ca6cd7cbacd0796ed093e094057ad7f9be-20261120T001441Z-p1455313-mutant-1.stderr"
+  },
+  {
+   "id": "message.ts:62:not",
+   "run": "mutant-2",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 62,
+    "text": "if (!oldMessageCount) {"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1909,
+   "control_tests_run": 1909,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.getOne on a personal message > returns the message to the user who owns it",
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.getOne on a personal message > refuses another signed-in user when the message is deleted between its load and the ownership check",
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > the message number each procedure takes > getOne reads the canonical number when the browser sends leading zeros"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 17.93,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/qa/sweep-983681c/983681ca6cd7cbacd0796ed093e094057ad7f9be-20261120T001441Z-p1455313-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/qa/sweep-983681c/983681ca6cd7cbacd0796ed093e094057ad7f9be-20261120T001441Z-p1455313-mutant-2.stderr"
+  },
+  {
+   "id": "getone-check-without-id",
+   "run": "mutant-3",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [],
+   "carried": {
+    "surface": "S2 M-001"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 1909,
+   "control_tests_run": 1909,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.getOne on a personal message > returns the message to the user who owns it",
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > the message number each procedure takes > getOne reads the canonical number when the browser sends leading zeros"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 17.95,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/qa/sweep-983681c/983681ca6cd7cbacd0796ed093e094057ad7f9be-20261120T001441Z-p1455313-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/qa/sweep-983681c/983681ca6cd7cbacd0796ed093e094057ad7f9be-20261120T001441Z-p1455313-mutant-3.stderr"
+  }
+ ],
+ "score": "3 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-983681c.json (blob 1bfee7330b1b829bbbf12dff718b3693b04a521d))"
+}

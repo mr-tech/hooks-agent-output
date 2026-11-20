@@ -2,9 +2,9 @@
 ID: n/a
 Origin: fix-personal-message-access
 UUID: 1b613853
-Verified-At: "75f1543ce352ae9ae08bb2a34d8bafa1d653e6dd — repos=website; production tree identical to ed88e7c (git diff --quiet ed88e7c 75f1543 -- src ':!**/__tests__/**' exit 0); 75f1543 adds QA's four test cases only"
+Verified-At: "983681ca6cd7cbacd0796ed093e094057ad7f9be — repos=website; refresh pass over round 5 (75f1543..983681c, security M-001); earlier verdict at 75f1543 expired by that production change"
 Status: QA Complete
-Status-Detail: "Phase 2 PASS at website 75f1543 (fixer chain, no Phase 1). QAF-1 resolved in-pass by QA test cases. Register rows B-1, B-2 are post-deploy and gate nothing; routed to steering. Next: security on the change."
+Status-Detail: "Phase 2 PASS at website 983681c (refresh after round 5, M-001). Register rows B-1, B-2 unchanged, post-deploy, gate nothing. Next: security re-review (RC-1)."
 Phase: 2
 ---
 
@@ -21,6 +21,7 @@ Brief: `steering/fix-personal-message-access-brief-qa.md` and its common part.
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-19T23:48 | steering-roadmap-hooks (brief); code review verdict at `ed88e7c` (record `5fcb74e`) | Phase 2 on a fixer chain | Phase 2 — stage start on the committed review verdict at `ed88e7c`. Suite and typecheck re-run in exports; real-database second-user matrix over every in-scope surface (21 cases, base red on S2/S6b/S9/S11); mutation sweep of 40 over `787bec5..ed88e7c` production paths, 35 killed, 4 pre-check survivors (QAF-1) closed by QA's four cases at `75f1543` (4/4 killed), 1 equivalent. PASS at `75f1543`. Register B-1, B-2 minted |
+| 2026-11-20T00:16 | code-reviewer-hooks-fix-personal-message-access (Round 2 APPROVED at `983681c`, record `9bd32a4`) | Re-verify after round 5 | Phase 2 — refresh pass at `983681c` (section "Refresh at `983681c`"): suite 1909/1909 exit 0, typecheck 0, second-user matrix 21/21, round sweep 3/3 killed. PASS at `983681c`; the `75f1543` verdict is expired |
 
 ## Phase 2 scope
 
@@ -284,9 +285,47 @@ This pass assumes that no production `Messages` row carries both `fk_users_id` a
   so it is not introduced here.
 - Owner: steering's held residue check (the owner's production read at the release seam). Routed by message in this pass.
 
+## Refresh at `983681c` (round 5, security M-001)
+
+**What expired the earlier verdict:**
+- Stage start: code review Round 2 `APPROVED` at `983681c` (`Reviewed-At`, record `9bd32a4`), re-read at the record.
+- Delta `75f1543..983681c` (`git diff --numstat`): `routers/message.ts` +7/−1 and `message.personal-ownership.test.ts` +15/−1.
+- The production change: `getOne`'s personal branch now throws `NOT_FOUND` when `authorizeUser`'s `oldMessageCount` is 0. That
+  closes the window where the owner's delete lands between the load and the ownership check.
+- 124 production lines added over `787bec5..983681c` (the fixer's figure; this delta adds 7).
+
+**TDD evidence (fixer, round 5):**
+- red at `75f1543`: 32 cases, 1 failed, with M-001's signature (the row returned);
+- green at `983681c`;
+- 2 of 2 negative controls KILLED;
+- security's read-race instrument at `983681c`: 300 trials, 0 leaks (implementation, Test "Round 5").
+
+Present. The new case's invented fixture (`world.goneAtCheck`) is named in that section, with its falsity signature. The title carries no
+ID token.
+
+| Run (this pass) | Result | Capture |
+|---|---|---|
+| Suite, export of `983681c` | 1909 passed / 1909, 148 files, exit 0; file membership equal to `75f1543`'s | `verification/fix-personal-message-access/qa/suite-983681c.{json,exit}` |
+| `pnpm run typecheck` (export, `next-env.d.ts` copied as before) | exit 0 | `verification/fix-personal-message-access/qa/typecheck-983681c.txt` |
+| Second-user real-database matrix | 21 of 21, exit 0; no container left | `verification/fix-personal-message-access/qa/pg-out/pg-983681c.*` |
+| Round sweep: `mutant-gen --range 75f1543..983681c` (2 mutants on `getOne`'s new guard) plus 1 QA mutant (`getone-check-without-id`: the check without the id) | control passed (1909); **3 of 3 KILLED**, count `checked` | `verification/fix-personal-message-access/qa/sweep-983681c/mutation-table-983681c…-20261120T001441Z-p1455313.json`; set `verification/fix-personal-message-access/qa/mutants-983681c.json` |
+
+**Seen-red record:**
+- `if-false` was killed by the new race case.
+- `not` was killed by the owner case, the race case and the canonical read.
+- `getone-check-without-id` was killed by the owner case and the canonical read. It fails closed: the owner is refused.
+
+The sweep covers this round's diff only. The `ed88e7c` sweep stands for the earlier rounds.
+
+**Scope limits:**
+- Real concurrency timing is security's read-race evidence. It is not re-run here.
+- The guild branch of `getOne` returns its pre-check read unchanged. That is out of scope (S1b family), and the reviewer's class sweep
+  over the seven check call sites found no other site.
+- Register rows B-1 and B-2 are unchanged: the past-int8 refusal and the second-user refusal sit on the same paths at `983681c`.
+
 ## Handoff
 
-- Verdict **PASS** at website `75f1543`. Next: `security` on the change (brief `steering/fix-personal-message-access-brief-security.md`),
+- Verdict **PASS** at website `983681c` (refresh). The earlier verdict at `75f1543` is expired by round 5. Next: `security` on the change (brief `steering/fix-personal-message-access-brief-security.md`),
   started by steering on this verdict.
 - Register rows B-1 and B-2 and the Assumption Not Checked go to `steering-roadmap-hooks` by SendMessage.
 - Infrastructure this pass set up and removed:

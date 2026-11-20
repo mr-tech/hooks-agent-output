@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d9767e6b-664c-4e0e-93db-48384803c0e8/scratchpad/r5-work/20261120T001441Z-p1455313/mutant-1
+
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (32 tests | 1 failed) 76ms
+     × refuses another signed-in user when the message is deleted between its load and the ownership check 25ms
+
+ Test Files  1 failed | 147 passed (148)
+      Tests  1 failed | 1908 passed (1909)
+   Start at  00:15:00
+   Duration  16.64s (transform 19.95s, setup 1.60s, import 124.61s, tests 36.49s, environment 75.36s)
+
