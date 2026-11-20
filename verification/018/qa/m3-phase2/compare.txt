@@ -1,0 +1,29 @@
+lint files 497 -> 497 only base [] only tip []
+findings 665 -> 774
+rule ids differing 19
+  @typescript-eslint/member-delimiter-style: 11 -> 0
+  @typescript-eslint/no-base-to-string: 1 -> 2
+  @typescript-eslint/no-floating-promises: 0 -> 1
+  @typescript-eslint/no-non-null-assertion: 51 -> 0
+  @typescript-eslint/no-require-imports: 0 -> 1
+  @typescript-eslint/no-unnecessary-type-arguments: 0 -> 17
+  @typescript-eslint/no-var-requires: 1 -> 0
+  @typescript-eslint/prefer-nullish-coalescing: 4 -> 19
+  @typescript-eslint/switch-exhaustiveness-check: 0 -> 6
+  @typescript-eslint/unbound-method: 1 -> 14
+  react-hooks/globals: 0 -> 14
+  react-hooks/immutability: 0 -> 12
+  react-hooks/preserve-manual-memoization: 0 -> 2
+  react-hooks/purity: 0 -> 1
+  react-hooks/refs: 0 -> 56
+  react-hooks/set-state-in-effect: 0 -> 15
+  react-hooks/use-memo: 0 -> 16
+  react/function-component-definition: 6 -> 7
+  react/jsx-no-constructed-context-values: 0 -> 1
+base build1 vs build2 (noise floor): files 717 717 differing or missing 6
+base build1 vs M3 build: files 717 717 differing or missing 11
+  noise sample ['server/middleware-manifest.json', 'server/middleware/middleware-manifest.json', 'server/pages/api/interactions-edge/middleware-manifest.json', 'server/preview-props.json', 'server/server-reference-manifest.js']
+  M3 diff sample ['server/middleware-manifest.json', 'server/middleware/middleware-manifest.json', 'server/pages/api/auth/[...nextauth].js.nft.json', 'server/pages/api/cron.js.nft.json', 'server/pages/api/interactions-edge/middleware-manifest.json', 'server/pages/api/interactions-server.js.nft.json', 'server/pages/api/messages/codes/[code].js.nft.json', 'server/pages/api/trpc/[trpc].js.nft.json']
+  M3 diffs not in noise set 5
+a558f2d-build1.manifest.nft-paths paths 6448 cr5 pkgs 96
+969d92a-build1.manifest.nft-paths paths 6452 cr5 pkgs 98

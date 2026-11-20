@@ -1,0 +1,13 @@
+a558f2d-install exit 0
+a558f2d-lint exit 1
+a558f2d-build exit 0
+a558f2d cr5-string files 0
+a558f2d-typecheck exit 0
+969d92a-install exit 0
+969d92a-lint exit 1
+969d92a-build exit 0
+969d92a cr5-string files 0
+969d92a-typecheck exit 0
+969d92a-suite exit 0
+a558f2d-build2 exit 0
+done
