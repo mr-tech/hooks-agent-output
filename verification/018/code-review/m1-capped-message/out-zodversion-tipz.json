@@ -1,0 +1,21 @@
+{
+ "zod": "3.25.76",
+ "refine20th_id21st": {
+  "issues": 21,
+  "messageChars": 3538,
+  "hasSummary": false,
+  "issue19": "Components displayable text size exceeds maximum size of 4000"
+ },
+ "refine20th_noId": {
+  "issues": 20,
+  "messageChars": 3425,
+  "hasSummary": false,
+  "issue19": "Components displayable text size exceeds maximum size of 4000"
+ },
+ "failingAccessories_40x40": {
+  "issues": 1600,
+  "messageChars": 317602,
+  "hasSummary": false,
+  "issue19": "Invalid input"
+ }
+}

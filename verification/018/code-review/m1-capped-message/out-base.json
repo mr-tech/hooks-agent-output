@@ -1,0 +1,216 @@
+{
+ "refine20th_id21st": [
+  {
+   "code": "invalid_string",
+   "path": "message.data.avatar_url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.0.author.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.0.author.icon_url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.0.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.0.footer.icon_url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.0.image.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.0.thumbnail.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.1.author.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.1.author.icon_url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.1.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.1.footer.icon_url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.1.image.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.1.thumbnail.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.2.author.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.2.author.icon_url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.2.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.2.footer.icon_url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.2.image.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.2.thumbnail.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "too_big",
+   "path": "message.data.components",
+   "message": "Components displayable text size exceeds maximum size of 4000"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.id",
+   "message": "Invalid"
+  },
+  {
+   "code": "custom",
+   "path": "message.id",
+   "message": "Invalid input"
+  }
+ ],
+ "refine20th_noId": [
+  {
+   "code": "invalid_string",
+   "path": "message.data.avatar_url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.0.author.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.0.author.icon_url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.0.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.0.footer.icon_url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.0.image.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.0.thumbnail.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.1.author.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.1.author.icon_url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.1.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.1.footer.icon_url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.1.image.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.1.thumbnail.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.2.author.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.2.author.icon_url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.2.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.2.footer.icon_url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.2.image.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "invalid_string",
+   "path": "message.data.embeds.2.thumbnail.url",
+   "message": "Invalid url"
+  },
+  {
+   "code": "too_big",
+   "path": "message.data.components",
+   "message": "Components displayable text size exceeds maximum size of 4000"
+  }
+ ]
+}
