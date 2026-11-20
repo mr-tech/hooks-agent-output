@@ -2,8 +2,8 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Status: Active
-Status-Detail: "APPROVED at website d1bb9b0. The change meets both bars of the dependency review: next resolves 16.4.6 alone and the audit holds no Next.js entry (H-002), and every list in a save is refused before its elements are checked, with no refusal over 21 issues (M-001). One LOW finding, not blocking: a tRPC batch lets one request carry about 1,050 capped saves; carried by handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md. No control is owed before the website master push. The document closes when the chain closes."
+Status: Review Complete
+Status-Detail: "APPROVED at website d1bb9b0, which is the released commit: website master moved to d1bb9b0 at 2026-11-20T08:07:52Z (deployment/closed/018-next-upgrade-save-size-cap-deployment.md). H-002 and M-001 are CLOSED in security/closed/website-deps-review-security-audit.md. On production, devops read Next.js 16.4.6 (B-7 PASS) and UAT read an over-limit save refused with 1 issue (B-6 PASS); security made no request to production. L-001 LOW stays OPEN, not blocking: a tRPC batch lets one request carry about 1,050 capped saves; carried by item 1 of handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md, with I-2 (item 5) and I-3 (its closing paragraph). I-1 and I-4 are stated limits."
 Reviewed-At: "d1bb9b0724cded3c3c303203c2cbafe5df7bbf96 — repos=website; base 7923a1d (origin/master)"
 Kind: code-audit
 ---
@@ -16,6 +16,8 @@ Kind: code-audit
 |------|---------------|---------|---------|
 | 2026-11-20T07:00 | steering-roadmap-hooks → security-hooks-website-deps (brief `steering/018-brief-security.md`, record `d9df9a9`; stage set in `steering/website-deps-review-rulings.md`, block 2026-11-20T02:53Z) | Security on the change website `7923a1d..d1bb9b0`, and the close of H-002 and M-001 | Initial assessment. Verdict APPROVED. Audit at the chain lockfile: 81 entries, 46 fewer, none new, no Next.js entry. The save cap measured through both procedures: the review's 1 MB bodies now give 1 issue each. L-001 LOW raised (tRPC batches), with its carrier. Four informational items. |
 | 2026-11-20T07:18 | steering-roadmap-hooks → security-hooks-website-deps (message, "run /checkpoint") | Wrap up for a clear | Checkpoint: Resumption State written at the end of this document. The verdict and its tree are unchanged. |
+| 2026-11-20T13:48 | steering-roadmap-hooks → security-hooks-website-deps (message 13:4xZ; `steering/018-rulings.md`, block 2026-11-20T13:41Z); devops-hooks-018 (`INBOX.md` entry, 2026-11-20) | Close this audit: chain 018 is released | The session resumed after a `/clear` from the Resumption State at record `2ca9e96`. The verdict is unchanged and no new review was made: the released commit is the reviewed one. "Relied on, not checked here" is reconciled against the release record. Read after the resume, not carried across: origin `master` (`git ls-remote`, `d1bb9b0…`), the deployment record, the release-tip QA record's header, the post-deploy handoff's four Result lines, and the leftovers handoff. Everything else is carried across unchanged. |
+| 2026-11-20T13:48 | security (security-hooks-website-deps) | Document closed | Status: Review Complete. The chain is released at the reviewed commit; L-001, I-2 and I-3 name their carrier. |
 
 ## Metadata
 
@@ -36,6 +38,8 @@ I found one weakness the change does not introduce and does not remove. One HTTP
 **Verdict**: APPROVED
 
 The verdict binds to website `d1bb9b0`. A change to any file under review expires it.
+
+**State at 2026-11-20T13:48.** Website `master` moved from `7923a1d` to `d1bb9b0` at 08:07:52Z (`deployment/closed/018-next-upgrade-save-size-cap-deployment.md`; origin `master` read `d1bb9b0…` by `git ls-remote` in this session). The released commit is the reviewed one, so the verdict covers what production runs and no delta is owed a review.
 
 ## What the change is
 
@@ -140,11 +144,21 @@ Their home is `security/website-deps-review-security-audit.md`; this section is 
 
 Both move to VERIFIED at `d1bb9b0` in that document, and to CLOSED when the release is made, as H-001 did.
 
+2026-11-20T13:48: the release is made, and both are CLOSED in `security/closed/website-deps-review-security-audit.md` (record `c424340`, corrected at `c598dbe`).
+
 ## Relied on, not checked here
 
 - **The suite, the typecheck and the walks.** Code review, QA and UAT ran them at `d1bb9b0` (anchors re-read in this session: code review `Reviewed-At` `d1bb9b0`, QA `Verified-At` `d1bb9b0` in `qa/018-next-upgrade-save-size-cap-m4-qa.md`, UAT `Verified-At` `d1bb9b0`, APPROVED FOR RELEASE). I re-ran none of them.
 - **A signed-in save over HTTP.** My figures come from each procedure's own caller. UAT walked the signed-in save on a local build (plan M1-g), and the plan's post-deploy row M1-h reads it on production after the push.
 - **Vercel.** Its URL and header limits, and its build of this tree. The release-check preview is devops's and UAT's (plan M5).
+
+**Reconciled against the release record, 2026-11-20T13:48.** Each line names the document that holds the read; none of these reads is mine.
+
+- **The suite, the typecheck and the walks.** QA's release-tip record reads `Verified-At` `d1bb9b0` (`qa/closed/website-7923a1d-d1bb9b0-release-tip-qa.md`). Devops built the tip in an isolated export, with the install, the build and both typechecks at exit 0 (the deployment record, Packaging integrity). I still re-ran none of them.
+- **A signed-in save over HTTP.** Read on production by UAT at 13:45Z: a save carrying 50 invalid embeds, sent as the signed-in test account, was refused with HTTP 400 and 1 issue, where the same payload gave 51 before the release (`handoff/018-next-upgrade-save-size-cap-post-deploy-2026-11-20.md`, row B-6 PASS, record `6ce5f7f`). That is one list site through one procedure. The other ten sites and the 21-issue ceiling rest on my run 3, which did not go over HTTP.
+- **Vercel's build of this tree.** The production deployment is READY at `d1bb9b0`, and hooks.gg serves a script carrying Next.js 16.4.6 and none carrying 16.1.6 (the same handoff, E-SERVING and row B-7 PASS). The build log does not show the install, so whether Vercel installed from the frozen lockfile is not verified (the deployment record, runbook step 7b). Two things I rely on do not depend on it: the served Next.js version is read from production, and `zod` is an exact `3.22.4` in `package.json`, which no install can resolve otherwise. Every other package's version on production rests on the lockfile being honoured.
+- **Vercel's URL and header limits.** Still not read. It is L-001's "Not established" line, and the handoff's item 1 carries it.
+- **The other two post-deploy rows.** B-8, the recent-messages list, and B-10, highlighted code blocks, both read PASS on production (the same handoff; QA's record `6571247` and UAT's `6ce5f7f`). All four rows of that handoff carry a PASS at this write. B-8 and B-10 are reads of features and decide nothing in this audit.
 
 ## Testing Recommendations
 
@@ -166,11 +180,9 @@ None owed before the release. For later, with the handoff: a test that a batch o
 - **A rule of the record I broke, disclosed.** I appended my `INBOX.md` entry for the architect (hosting assumed by the dependency dispositions) with a shell heredoc. The record's rule is that its documents are written with the file-editing tools. The entry's text is as intended (read back from the file's tail); I left it in place and uncommitted, as the inbox rule has it.
 - **Instruments added** under `verification/018/security/`: `isolated-export.sh`, `run-audit.sh`, `audit-entry-delta.js`, `saveCap.cost-probe.test.ts`, `requests-tip.sh`. Reused from the review and the fix chain: `tabulate-audit.js`, `apply-dispositions.js --allow-unused`, `dispositions.json`, `lockfile-key-sets.js`, `request-x-query-params.sh`.
 - **Network.** The audit's registry query was the only request that left this box.
+- **The closing pass, 2026-11-20T13:41 to 13:48.** It ran nothing against the website: no install, build, server or request, and one `git ls-remote`. It set up nothing on this box. Its session-start checks, and an error of mine in the dependency review's closing commit (a stale sentence about row B-6, corrected at record `c598dbe`), are in `security/closed/website-deps-review-security-audit.md`, Process record. This document was written after the row was re-read and never carried that sentence. A near-miss of the same kind here, caught before the commit: my draft said row B-8 was still open, and the re-read made immediately before the move showed QA's PASS of 13:47Z. The line was rewritten before anything was committed.
+- **The Resumption State was replaced by its closing line at this close.** It carried the commits of the first pass (`fa2ce9f`, plan row R-23 at `97fa48b`), the report's message id, and three instructions: re-review if the tip moved, close when the chain closed, and keep the handoff as carrier. The tip did not move, the second is this pass, and the third is in the `Status-Detail`. The text is in this document at record `2ca9e96` (`grep -c -F "Written 2026-11-20T07:18 at a checkpoint"` over that revision: 1).
 
 ## Resumption State
 
-Written 2026-11-20T07:18 at a checkpoint steering asked for. The full state of this session is in `security/website-deps-review-security-audit.md`, Resumption State.
-
-- **Done:** the verdict above, APPROVED at website `d1bb9b0`, committed at agent-output `fa2ce9f`; plan row R-23 at `97fa48b`; the report sent to `devops-hooks-018` (message `9992393c`).
-- **Next:** nothing is owed before the push. If the tip moves past `d1bb9b0` before the release, the verdict has expired and the delta is re-reviewed. When the chain closes, set `Status: Review Complete`, reconcile "Relied on, not checked here" against the release record, and move this file to `security/closed/` (the record-closure skill). L-001 and I-2 keep the handoff as carrier.
-- **Nothing uncommitted but the `INBOX.md` entry named in the process record, nothing running, no question open.**
+Closed 2026-11-20T13:48 at `Review Complete`. Nothing is in flight and no question is open. L-001, I-2 and I-3 are carried by `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md`.
