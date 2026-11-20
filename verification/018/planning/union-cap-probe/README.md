@@ -48,7 +48,7 @@ issue, stop on the 21st, return the first 20 kept plus a summary), compared with
    The 288-row abort-form probe (`../abort-form-probe/message.abort-form-probe.test.ts`) gives identical rows at base and candidate
    (`cmp abort-rows-base.txt abort-rows-iso.txt`: 0), and the base rows equal the committed `../abort-form-probe/rows-base.txt`. Full
    suite: 1913 of 1913 passed, 149 files, exit 0, at base and candidate, same case set, no status difference (`suite-summary.txt`,
-   `suite-*.log`). `pnpm exec next typegen` exit 0, then `pnpm run typecheck` exit 0 with the candidate (`typecheck-iso.log`).
+   `suite-base.txt`, `suite-iso.txt`). `pnpm exec next typegen` exit 0, then `pnpm run typecheck` exit 0 with the candidate (`typecheck-iso.txt`).
 
 ## Limits
 

@@ -1,0 +1,13 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+JSON report written to /tmp/claude-1000/-usr-local-bin-hooks-website/279b9c46-7b6e-4f81-9968-a5a81fb29bab/scratchpad/union-export/suite-iso.json
+exit 0
