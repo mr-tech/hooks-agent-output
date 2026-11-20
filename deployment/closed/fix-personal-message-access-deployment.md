@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-personal-message-access
 UUID: 1b613853
-Status: Active
-Status-Detail: "Stage 1 done and Phase 2A readiness written for website master 787bec5 -> 983681c (a fast-forward). QA Phase 3 `Release Verified` at 983681c (record fd38b6f). Waiting on the owner's release approval (Phase 2B). Nothing is pushed."
+Status: Released
+Status-Detail: "Released 2026-11-20T01:33:58Z: website master 787bec5 -> 983681c on origin (release-move.js exit 0; ls-remote read back), on the owner's release approval. Chain branch merged and deleted. B-2, B-1 and the owner's residue read ride handoff/fix-personal-message-access-post-deploy-2026-11-20.md; they do not hold this record open."
 ---
 
 # Deployment Record: fix-personal-message-access
@@ -18,6 +18,7 @@ Status-Detail: "Stage 1 done and Phase 2A readiness written for website master 7
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-20T00:24 | steering-roadmap-hooks (brief `steering/fix-personal-message-access-brief-devops.md`, spawn cue from security's re-review at `983681c`) | Stage 1 and Phase 2A for `chain/fix-personal-message-access` at `983681c` | Brief and its common part read whole. Stage 1 done: carrier handoff `handoff/fix-personal-message-access-post-deploy-2026-11-20.md` (record `c0ca805`); implementation, code-review and QA documents closed `Committed` (records `4e00eec`, `87352f7`, `1062ae1`). Tip build `next build` exit 0 in an isolated export. Dry run passed; reversing patch applies. QA Phase 3 requested (message `f4dfad51`). Nothing pushed. Disclosures: the stamp-gate hook refused the carrier handoff's first row time, typed ahead of the clock, and it was re-stamped from `date -u` (a gate satisfied). One path in this document's packaging row was corrected with `sed -i`, which the record's rule does not permit (record documents are written with the file-editing tools or `record-edit.js`); nothing blocked it, the text is as intended, and this note was added with the Edit tool |
+| 2026-11-20T01:35 | devops-hooks-fix-personal-message-access | Release approved, executed and closed | The owner answered the selection prompt with "Push master to 983681c (Recommended)". Move run in this session: `release-move.js` exit 0 at 01:33:53Z to 01:33:58Z; origin `master` read back as `983681c`. Chain branch deleted. E-WEBSITE-PUSH written to the carrier handoff (`fd03fc2`); QA Phase 3 record, implementation document closed `Released`; architect and security routed by `INBOX.md`. Phase 2D worked in order (section above). Record closed `Released`
 
 ## Stage 1 verification (website, at 983681c)
 
@@ -68,25 +69,72 @@ Included: chain `fix-personal-message-access` only. Execution mode: **Mode A, ag
 
 | # | Step | Abort criterion | Result |
 |---|---|---|---|
-| 1 | `git -C /usr/local/bin/hooks/website ls-remote origin master` | not `787bec5627702d2881b826e596ec2b8f8853c4fa` → stop; the tip is no longer a fast-forward and the verdict must be re-taken | _blank_ |
-| 2 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 983681ca6cd7cbacd0796ed093e094057ad7f9be --dry-run --qa-record /usr/local/bin/hooks/agent-output/qa/website-787bec5-983681c-release-tip-qa.md` | exit ≠ 0 → stop | exit 0 at 2026-11-20T00:26Z, with `--qa-record`: "ff-from-remote ok; sibling serving refs (none) on one line ok … DRY RUN: every check passed; nothing moved". An earlier dry run with the `--reason` form also exited 0. Re-run immediately before step 4 |
-| 3 | the owner's yes to the release, in this session | no yes → Aborted; nothing moved | _blank_ |
-| 4 | the step 2 command without `--dry-run` (moves local `master`, pushes, switches the tree back to `master`) | exit 2 → nothing moved, stop; exit 1 → read the report for ref state, route to the owner | _blank_ |
-| 5 | `git ls-remote origin refs/heads/master` equals `983681ca…`; tree on `master`, `git status --porcelain` shows only `?? .playwright-mcp/` | any difference → route to the owner | _blank_ |
-| 6 | `git branch -d chain/fix-personal-message-access` (merged); `ls-remote --heads origin 'chain/*'` shows none | `-d` refuses → name it to the owner; do not force | _blank_ |
-| 7 | write E-WEBSITE-PUSH into the carrier handoff's ledger; the walk B-2 then B-1 is the uat-role session's | a falsifier seen (B-2 answers 500, or B-1 shows account 2's content) → Vercel promote of the previous deployment, his call | _blank_ |
+| 1 | `git -C /usr/local/bin/hooks/website ls-remote origin master` | not `787bec5627702d2881b826e596ec2b8f8853c4fa` → stop; the tip is no longer a fast-forward and the verdict must be re-taken | `787bec5627702d2881b826e596ec2b8f8853c4fa` at 2026-11-20T01:33:48Z, just before the move. Abort criterion not met |
+| 2 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 983681ca6cd7cbacd0796ed093e094057ad7f9be --dry-run --qa-record /usr/local/bin/hooks/agent-output/qa/website-787bec5-983681c-release-tip-qa.md` | exit ≠ 0 → stop | exit 0 at 2026-11-20T00:26Z, with `--qa-record`: "ff-from-remote ok; sibling serving refs (none) on one line ok … DRY RUN: every check passed; nothing moved". An earlier dry run with the `--reason` form also exited 0. Re-run at 2026-11-20T01:33:53Z, immediately before step 4: exit 0, "DRY RUN: every check passed; nothing moved" |
+| 3 | the owner's yes to the release, in this session | no yes → Aborted; nothing moved | Yes, by selection, before 01:33:48Z: "Push master to 983681c (Recommended)" (see User Confirmation) |
+| 4 | the step 2 command without `--dry-run` (moves local `master`, pushes, switches the tree back to `master`) | exit 2 → nothing moved, stop; exit 1 → read the report for ref state, route to the owner | exit 0, 01:33:53Z to 01:33:58Z: "OK moved master: 787bec5627702d2881b826e596ec2b8f8853c4fa -> 983681ca6cd7cbacd0796ed093e094057ad7f9be on origin; tree on master" |
+| 5 | `git ls-remote origin refs/heads/master` equals `983681ca…`; tree on `master`, `git status --porcelain` shows only `?? .playwright-mcp/` | any difference → route to the owner | `ls-remote` = `983681ca6cd7cbacd0796ed093e094057ad7f9be` at 01:33:58Z; `branch --show-current` = `master`; `rev-parse HEAD master` both `983681ca…`; porcelain `?? .playwright-mcp/` only. Pass |
+| 6 | `git branch -d chain/fix-personal-message-access` (merged); `ls-remote --heads origin 'chain/*'` shows none | `-d` refuses → name it to the owner; do not force | `git branch -d` exit 0; `git branch --list 'chain/*'` 0 lines; `ls-remote --heads origin 'chain/*'` 0 lines; `git merge-base --is-ancestor 983681c origin/master` exit 0. Pass |
+| 7 | write E-WEBSITE-PUSH into the carrier handoff's ledger; the walk B-2 then B-1 is the uat-role session's | a falsifier seen (B-2 answers 500, or B-1 shows account 2's content) → Vercel promote of the previous deployment, his call | E-WEBSITE-PUSH written (record `fd03fc2`). The walk is not run by any stage here; it is the uat-role session's, carried by the handoff. The abort criterion has not been met or tested |
 
 ## User Confirmation
 
-_Not answered yet. The ask is put in this session as a blocking selection prompt (`~/.claude/state/prompt-gate-off` absent at 2026-11-20T00:26Z), after QA's Phase 3 record and the dry run. The response, its form and its time are recorded here when it arrives._
+Put to the owner directly by this session as a blocking selection prompt (`~/.claude/state/prompt-gate-off` absent at 2026-11-20T00:26Z), after QA's Phase 3 record, the tip build and the dry run. The prompt stated: the identifier (`master` 787bec5 → 983681c, a fast-forward of 8 commits, 123 production lines added, 15 files), the environment (hooks.gg through Vercel, no beta, no GitHub workflow), what changes for users, what was checked and what was not (production itself; his residue read), and the rollback. Options: push, hold, abort. **Response: "Push master to 983681c (Recommended)"**, by selection, answered before 2026-11-20T01:33:48Z. Declined: no.
 
 ## Release Execution
 
-_Not executed._
+Mode A. Commands and results are in the runbook. `release-move.js` exit 0 with `--qa-record qa/closed/website-787bec5-983681c-release-tip-qa.md`; origin `master` = `983681ca6cd7cbacd0796ed093e094057ad7f9be`, read by `git ls-remote origin refs/heads/master` at 01:33:58Z. Push ref `master`, SHA `983681ca…`, timestamp 2026-11-20T01:33:53Z to 01:33:58Z.
+
+**Serving state**: the push is the deploy evidence, complete as it stands, and it is recorded VERIFIED on the push. What Vercel built is not read from the host and is not marked NOT VERIFIED. Named risk, accepted as written: which commit the git integration checks out is its default-ref behaviour (see "Deploy mechanism").
+
+## Phase 2D: release metadata and reconciliation
+
+Standing note: point-in-time as of 2026-11-20T01:35Z; the serving line may have moved since, and later records are authoritative on their own refs.
+
+| Field | Value |
+|---|---|
+| Release identifier | website `master` → `983681ca6cd7cbacd0796ed093e094057ad7f9be` (was `787bec5627702d2881b826e596ec2b8f8853c4fa`; no version field, no tags; none created) |
+| Environment / serving ref | production (Vercel git integration, no beta); `master`, the sole serving ref (`release-move --report`: no pair) |
+| Release date | 2026-11-20, 01:33:58Z |
+| Execution mode | Mode A, agent-executed, in this session |
+| Authorizer | the owner, by selection at the Phase 2B prompt |
+| Included plans | none; chain `fix-personal-message-access` only (fixer route, `ID: n/a`) |
+| Repositories and SHAs shipped | `website` only: `787bec5` → `983681c` (2e50cd9, d597734, 5d9678d, 12bcd75, 16bf24d, ed88e7c, 75f1543, 983681c). `project-utils` is read only and unchanged; `agent-output` is the record, not a shipped repository |
+
+**Deployed against verified, per repository (website).** Deployed ref `master`; the pushed commit is `983681c`, read from `ls-remote` after the move. Phase 2's `Verified-At`, the release-tip record's `Verified-At`, code review Round 2's `Reviewed-At` and security's `Reviewed-At` are all `983681c`. **The same commit**, so no diff of the surface is owed.
+
+**Fix branch.** `chain/fix-personal-message-access` is merged (`git merge-base --is-ancestor 983681c origin/master` exit 0) and deleted by `git branch -d` (exit 0; `git branch --list 'chain/*'` 0 lines; no such head on origin). It never had an upstream.
+
+**Architecture lines.** `system-architecture.md` line 198, Problem Area "`upsertMessage` counts the owner's messages on every save", is false from this release: the count now runs only on the insert path. Routed to the architect as one `INBOX.md` entry (2026-11-20, `devops-hooks-fix-personal-message-access`), with the full reconcile in `handoff/upsert-message-count-problem-area-false-after-access-fix-2026-11-19.md` (Owning-Stage `architect`; its trigger fired at this push). Line 195 (front-end cohesion) and the session-to-account cache row are unchanged by the diff. The roadmap: the determination names no epic or criterion, so a `fix-` chain owes none.
+
+**The chain's documents and terminal tokens** (enumerated by `grep -rl "Origin: fix-personal-message-access"` over the record, and the phase 3 record by its own Origin):
+
+| Document | Terminal token | Where |
+|---|---|---|
+| `implementation/…-implementation.md` | Released | `implementation/closed/` |
+| `code-review/…-code-review.md` | Committed | `code-review/closed/` |
+| `qa/…-qa.md` (Phase 2) | Committed | `qa/closed/` |
+| `qa/website-787bec5-983681c-release-tip-qa.md` (Phase 3) | Released | `qa/closed/` |
+| this deployment record | Released | `deployment/closed/` |
+| `security/fix-personal-message-access-security-audit.md` | Active (open): its `Status-Detail` names the chain's closure as its closing condition, which this release meets. Routed to security for `Review Complete` by one `INBOX.md` entry; never closed by this stage | `security/` |
+| `handoff/fix-personal-message-access-post-deploy-2026-11-20.md` | Open (B-2, B-1, R-1) | `handoff/` |
+
+`fix-` chains whose `Handoff-At` is an ancestor of `983681c` (`git merge-base --is-ancestor`, loop over every `implementation/**` document carrying one): this chain and four earlier ones, whose implementation documents read `Released` (`fix-website-save-gate-embeds`, `fix-agent-comment-sweep-merge`, `fix-dialog-closes-on-first-portal-load`) or `Committed` (`fix-v1-guild-messages-auth`, closed, with its own `Released` deployment record `deployment/closed/fix-v1-guild-messages-auth-deployment.md`; an earlier release's document, not this one's to rewrite). The `015-bug-evaluation-fixes-*` documents that the loop also lists are plan 015's closed `Committed` documents, not a `fix-` chain and not this release's. **The handoffs the chain answered:** the scoping block (rulings 2026-11-19T20:30Z) cites a browser check and a sweep, not a handoff, so no source handoff exists to list.
+
+**Forward items beyond the register**, found by `grep -l 'Assumption Not Checked'` over the chain's documents (code review, QA, QA Phase 3; security's equivalent is its "What this does not establish") and the routing phrases:
+- Code review's and security's session-identity assumption: B-2 then B-1, `handoff/fix-personal-message-access-post-deploy-2026-11-20.md`.
+- QA's both-owners count and the planted-rows read: the same handoff, row R-1.
+- QA Phase 3's assumption (the push is exactly `983681c`): closed at runbook step 5.
+- Security's INBOX item (`pnpm audit --prod` unassessed, open advisories, a Dependency-Only review of the website): already in `INBOX.md` (2026-11-20, `security-hooks-fix-personal-message-access`); the decision is the owner's or the roadmap's, and it is not this chain's.
+- The chain's other handoffs, all `Open` with their own event triggers, none fired by this push but the architect's: `hydrated-recent-list-returns-guild-message-rows-2026-11-19`, `get-one-absent-number-fails-without-not-found-2026-11-19`, `update-preferences-recent-message-ids-accepts-non-int8-2026-11-19` (its trigger names the release and a later chain opening; the release half has occurred), `cron-endpoint-key-is-a-fixed-value-2026-11-19`, `pusher-message-update-channels-are-public-2026-11-19` and `authorize-guild-admin-tests-membership-not-admin-bits-2026-11-19`; and the architect's `upsert-message-count-problem-area-false-after-access-fix-2026-11-19`, routed above.
+- Chain 017's open carrier `handoff/017-existing-items-backlog-post-deploy-2026-11-19.md` (his looks B-6, B-8, B-9): this release landed under them, touched `upsertMessage` again and changed none of their rows; no claim of that record is falsified here.
+- Retrospective: not mine to invoke. The spawn cue goes to steering in this turn's message.
 
 ## Post-Release Status
 
-_Open._
+- **Status**: Released, 2026-11-20T01:33:58Z. Every register row is classed post-deploy and none gates the release act; they are carried by the handoff below (Owning-Stage `uat`; E-WEBSITE-PUSH is written in its ledger). Deploy evidenced by the push.
+- **Known issues**: none open in this chain's code. Not yet done by any stage: B-2 then B-1 on production (security's RC-2, the only read of the session path on production), and his residue read (R-1), which steering puts to him. Stated limits carried from the records: rows planted at browser-sent numbers that the sequence has already passed cannot be found by any query, and data already read through the old route cannot be recalled. Chain 017's post-deploy looks by him (B-6, B-8, B-9, `handoff/017-existing-items-backlog-post-deploy-2026-11-19.md`) were live on production when this release landed and are untouched by it.
+- **Rollback plan**: Vercel promote of the previous deployment (`dpl_37f5wm52P7tqpRaMyPGFtk5cU6h8`, serving `787bec5`; accepted as written, not exercised). A git revert of `787bec5..983681c` applies cleanly (`git apply --check -R`, exit 0) and ships as a new fast-forward push, which needs a new ask. Communicating a rollback to anyone is the owner's.
 
 ## Next Actions
 
