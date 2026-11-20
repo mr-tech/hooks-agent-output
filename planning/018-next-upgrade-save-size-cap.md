@@ -32,6 +32,7 @@ Lane: "planned (not proposed small): the framework moves under every page"
 | 2026-11-20T05:22 | R-5 | planner-hooks-018 | Registers the architect's APPROVED on revision 7 and AF-11 LOW (`60d0a11`) as a Planner batch row. |
 | 2026-11-20T05:23 | R-6 | planner-hooks-018 | Registers critique cycle 2 pass 2 on revision 7 (`15988b6`, APPROVED with SL-2) and its F-23 MEDIUM, F-24 LOW as Planner batch rows. |
 | 2026-11-20T05:24 | R-7 | planner-hooks-018 | Records QA's re-key of revision 7 (`a7394c6`, no findings); parks AF-11, F-23 and F-24 for the fold seam. |
+| 2026-11-20T05:32 | R-8 | planner-hooks-018 | Registers three below-HIGH M2 items from the implementer's M2 document (`b4b34b6`) under steering's cap (block 05:26Z) as Planner batch rows M2-I1 to M2-I3. |
 
 ## Header
 
@@ -586,6 +587,9 @@ Precedent read on the surfaces this plan changes: 012 (embed caps), 013 D32/D47 
 | AF-11 LOW: M2's "Why highlight.js moves" names the 4 preview-HTML differences but not the 5 editor-tree ones (typescript, css, html, java, diff; `hl-compare/output.txt` "tree differ 5"); "keeps its shape" checks only that `rootNode.children` is an array | `architecture/018-next-upgrade-save-size-cap-architecture-findings.md` (`60d0a11`) | Parked for the fold seam (QA Phase 2 of the last milestone): wording only |
 | F-23 MEDIUM: M2-e's after-deploy look on hooks.gg names no runner and is not among § M5's post-deploy rows; stated limit SL-2 until folded | `critiques/018-next-upgrade-save-size-cap-critique.md` cycle 2 pass 2 (`15988b6`) | Parked for the fold seam: a post-deploy instrument. Meanwhile QA's register row B-10 (`a7394c6`) puts the look in devops's Stage-1 handoff with UAT as runner, discharging SL-2's substance |
 | F-24 LOW: duplicates AF-11 (the editor-tree count beside the HTML count) | same (`15988b6`) | Parked with AF-11 |
+| M2-I1 LOW (planner's severity; the source says only "below HIGH"): M2-b's parenthetical list of `next`'s declared dependencies omits `sharp` 0.34.5 → 0.35.5 and what it declares (`@img/*`, `@img/colour`, `@emnapi/runtime`, `semver` 7.8.6). `next@16.4.6`'s `optionalDependencies` names `sharp` `^0.35.5` and 16.1.6's `^0.34.4` (`npm view`), so these fall within M2-b's class; the implementer dispositioned each pin | `implementation/018-next-upgrade-save-size-cap-m2-implementation.md` (`b4b34b6`, Outstanding Items), relayed by steering under `steering/018-rulings.md` block 2026-11-20T05:26Z (M2 capped) | Stated limit (cap); parked for the fold seam, wording only |
+| M2-I2 LOW: M2-b omits the snapshot-key movers `vitest`, `vite`, `rolldown`, `@vitest/mocker`, `@napi-rs/wasm-runtime`, `@rolldown/binding-wasm32-wasi`, whose peer suffix follows `@emnapi/runtime`; no version of theirs moves | same | Stated limit (cap); parked for the fold seam, wording only |
+| M2-I3 LOW: a new build warning at 16.4.6, "The Edge Runtime is deprecated", for `/api/interactions-edge` (M2-d); no edit, X-9 | same | Stated limit (cap); for the architect's Problem Areas beside X-8; parked for the fold seam |
 
 QA Phase 1 before implementation: yes (stage set, block 02:53Z); its re-key on revision 5 is owed (§ Reading Order, Owed
 re-verdicts).
