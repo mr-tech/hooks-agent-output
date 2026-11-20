@@ -44,3 +44,17 @@ wording this thread's):
   fix recent-ids"; "Agent: discuss first".
 **Next:** the planner registers both answers in revision 1, with the ESLint 9 milestone. The critic (first pass at xhigh), the architect
 (conformance) and QA Phase 1 then start on revision 1. X-10's handoff stays open; its fired trigger is dispositioned in it when M1 lands.
+
+## 2026-11-20T03:3xZ — revision 1 received; critic, architect and QA Phase 1 started
+
+`planning/018-next-upgrade-save-size-cap.md` revision 1 (`c2a6b85`), changelog row 2026-11-20T03:31, read this turn.
+- **Scope delta:** M3 was added (ESLint 9, a flat config, typescript-eslint 8, `eslint-config-next` 16.4.6). It is the "ESLint 9
+  milestone" limb, which this thread's recorded reading of his 03:25Z words admits (block 03:25Z). It is not put again.
+- **Further upgrades under D-6:** `eslint-plugin-react` 7.37.5, `eslint-plugin-import` 2.32.0, `@eslint/js` 10 → 9, and removal of the
+  unreferenced `eslint-plugin-n` and `eslint-plugin-promise`. New exclusion X-16, ESLint 10: `eslint-plugin-react` peers ESLint 9 at
+  most. These go to him at his next prompt (block 03:25Z).
+- **Spawned**, category `website-deps-upgrade`, all launched in `/usr/local/bin/hooks/website`:
+  - `critic-hooks-018` at xhigh, brief `steering/018-brief-critic.md`;
+  - `architect-hooks-018`, brief `steering/018-brief-architect.md`;
+  - `qa-hooks-018`, brief `steering/018-brief-qa.md` (`96612e1`).
+- The critic is set to medium once its first pass is committed.
