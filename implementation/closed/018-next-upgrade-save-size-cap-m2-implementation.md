@@ -2,8 +2,8 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Status: Committed
-Status-Detail: "M2 (Next.js 16.4.6, highlight.js 11.12.0, the bundler module resolution) and the zod pin delivered at d1bb9b0 on chain/018-next-upgrade-save-size-cap; code review, QA and UAT passed at d1bb9b0. Committed for release website master d1bb9b0."
+Status: Released
+Status-Detail: "Released: website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z on the owner's release approval (deployment/closed/018-next-upgrade-save-size-cap-deployment.md). M2 (Next.js 16.4.6, highlight.js 11.12.0, the bundler module resolution) and the zod pin delivered at d1bb9b0 on chain/018-next-upgrade-save-size-cap; code review, QA and UAT passed at d1bb9b0."
 Handoff-At: d1bb9b0 — repos=website; M2 plus the zod pin (CR-2); the M2 delivery commit is b0b0158
 ---
 
@@ -26,6 +26,7 @@ M2 is capped (`steering/018-rulings.md` block "2026-11-20T05:26Z"): each gap bel
 | 2026-11-20T05:31 | steering-roadmap-hooks (resume message; brief `steering/018-brief-implementer.md`) | M2 on revision 7 | M2 committed at `b0b0158` (three files); acceptance run over an isolated export of that commit, with its own install; lockfile movers dispositioned; the shared tree's `node_modules` moved to the lockfile (ruling B, block 04:51Z). |
 | 2026-11-20T06:14 | steering-roadmap-hooks (resume message, rulings blocks 05:42Z and 06:06Z) | zod pin named in M2's steps by plan revision 8 (`2dc79a3`, critic APPROVED `5b145f0`) | `zod` pinned exactly at 3.22.4 in `package.json` and the one matching `pnpm-lock.yaml` specifier line; frozen install exit 0; committed at `d1bb9b0`. Section "Zod pin (CR-2)" below. |
 | 2026-11-20T07:12 | devops-hooks-018 (Stage 1, brief steering/018-brief-devops.md) | Close at Committed | Status: Committed. Closed to closed/ at Stage 1 of release website master d1bb9b0 (deployment/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
+| 2026-11-20T13:40 | devops-hooks-018 (Phase 2D, brief steering/018-brief-devops.md) | Release | Status: Released. Website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z (deployment/closed/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
 
 ## Implementation Summary
 

@@ -3,8 +3,8 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Reviewed-At: "d1bb9b0 — repos=website; CR-2 pin, Round 1 sub-entry 2 at d1bb9b0 (APPROVED); M3 Round 3 at 969d92a (APPROVED_WITH_COMMENTS); M1 sub-entry 1 at a558f2d (APPROVED_WITH_COMMENTS); M2 Round 2 at b0b0158 (APPROVED_WITH_COMMENTS)"
-Status: Committed
-Status-Detail: "M1 (a558f2d), M2 (b0b0158), M3 (969d92a) each APPROVED_WITH_COMMENTS and the zod pin APPROVED at d1bb9b0 (Round 1 sub-entry 2). CR-2 folded and pinned; CR-5 reconciled; CR-7 and M2-I4 carried by handoff/website-git-dependencies-resolve-unpinned-2026-11-20.md. Committed for release website master d1bb9b0."
+Status: Released
+Status-Detail: "Released: website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z on the owner's release approval (deployment/closed/018-next-upgrade-save-size-cap-deployment.md). M1 (a558f2d), M2 (b0b0158), M3 (969d92a) each APPROVED_WITH_COMMENTS and the zod pin APPROVED at d1bb9b0 (Round 1 sub-entry 2). CR-2 folded and pinned; CR-5 reconciled; CR-7 and M2-I4 carried by handoff/website-git-dependencies-resolve-unpinned-2026-11-20.md."
 Round: 3
 Verdict: APPROVED_WITH_COMMENTS
 ---
@@ -27,6 +27,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-20T05:57 | implementer-hooks-018 (reconcile `1010ca9`) | Round 3 sub-entry: CR-5's record correction | The instance is corrected, and the implementer's independent edge run equals mine. The class is carried by the Planner batch candidate. M3's verdict is unchanged. |
 | 2026-11-20T06:13 | implementer-hooks-018 (pin at website `d1bb9b0`, document `7c76319`) | Round 1 sub-entry 2: CR-2's zod pin | APPROVED. The exact specifier sits under `dependencies`, a frozen offline install exits 0 and resolves zod 3.22.4, and the diff is 1/1 per file. CR-2 is closed. CR-7 INFO: `paracord` and `project-utils` are git dependencies without a commit, pre-existing and a Planner batch candidate. |
 | 2026-11-20T07:12 | devops-hooks-018 (Stage 1, brief steering/018-brief-devops.md) | Close at Committed | Status: Committed. Closed to closed/ at Stage 1 of release website master d1bb9b0 (deployment/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
+| 2026-11-20T13:40 | devops-hooks-018 (Phase 2D, brief steering/018-brief-devops.md) | Release | Status: Released. Website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z (deployment/closed/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
 
 ## Scope and stage start
 

@@ -3,8 +3,8 @@ ID: n/a
 Origin: "release chain/018-next-upgrade-save-size-cap -> website master 7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe -> d1bb9b0724cded3c3c303203c2cbafe5df7bbf96 (fast-forward)"
 UUID: 6273a762
 Verified-At: "d1bb9b0724cded3c3c303203c2cbafe5df7bbf96 — repos=website; tree 36f83a68fc6bb28cb33433d89677034b3ccb8595, the tree of the effort-final Phase 2 Verified-At (qa/closed/018-next-upgrade-save-size-cap-m4-qa.md); step 1b and the gated-set check only"
-Status: Release Verified
-Status-Detail: "Release Verified at website d1bb9b0, the Phase 2 tree. Step 1b: 30 open handoffs, 9 pattern matches, 1 member fires on this release's push (the 018 post-deploy carrier; it reads after the push, no pre-release act owed); the mutant-equivalence handoff's trigger did not fire. No gated time-based set exists in website."
+Status: Released
+Status-Detail: "Released: website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z on the owner's release approval (deployment/closed/018-next-upgrade-save-size-cap-deployment.md). Release Verified at website d1bb9b0, the Phase 2 tree. Step 1b: 30 open handoffs, 9 pattern matches, 1 member fires on this release's push (the 018 post-deploy carrier; it reads after the push, no pre-release act owed); the mutant-equivalence handoff's trigger did not fire. No gated time-based set exists in website."
 Phase: 3
 ---
 
@@ -26,6 +26,7 @@ documents `qa/closed/018-next-upgrade-save-size-cap-m1-qa.md` to `-m4-qa.md`; th
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-20T07:15 | qa-hooks-018 (devops's request, website d1bb9b0) | Phase 3. The tip is the effort-final Phase 2 `Verified-At` commit itself (tree `36f83a6`), so steps 3 and 5 have nothing to compare. Step 1b: 30 open handoffs, 9 pattern matches, 1 member fires on this release (the 018 post-deploy carrier, read after the push); the mutant-equivalence handoff's trigger did not fire. There is no gated set. **Release Verified.** |
+| 2026-11-20T13:40 | devops-hooks-018 | Document closed | Status: Released. Website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z (deployment/closed/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
 
 ## The tip, re-derived
 

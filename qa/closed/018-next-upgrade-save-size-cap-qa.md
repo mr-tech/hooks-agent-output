@@ -3,8 +3,8 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Verified-At: "7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe — repos=website; Phase 1 reads and probes only, no verdict; probes ran in an isolated export of this commit (shapes.ts blob 1c13ca2 verified equal)"
-Status: Committed
-Status-Detail: "Phase 1 through revision 8 and the register B-1 to B-10. Pre-release rows B-1 to B-5 and B-9 EXECUTED; B-6, B-7, B-8, B-10 carried by handoff/018-next-upgrade-save-size-cap-post-deploy-2026-11-20.md. Committed for release website master d1bb9b0."
+Status: Released
+Status-Detail: "Released: website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z on the owner's release approval (deployment/closed/018-next-upgrade-save-size-cap-deployment.md). Phase 1 through revision 8 and the register B-1 to B-10. Pre-release rows B-1 to B-5 and B-9 EXECUTED; B-6, B-7, B-8, B-10 carried by handoff/018-next-upgrade-save-size-cap-post-deploy-2026-11-20.md."
 Phase: 1
 ---
 
@@ -36,6 +36,7 @@ citation of line 110 (nothing in this pass rests on it).
 | 2026-11-20T05:16 | planner-hooks-018 (revision 6, `8277b08`) | Phase 1 re-key on revision 6 (M2) | Phase 1 re-key, M2 only (stamp corrected at the revision 7 re-key: first written ahead as `05:5x`; the commit is 05:16Z). The plan's diff was read whole. **QAF-10 HIGH** goes to the planner: under form B, Turbopack follows the `paths` entry, so `import hljs from 'highlight.js'` binds to `undefined` in the production bundle. The base build has 0 `(void 0).getLanguage`/`.highlight` call sites and form B has 10; the runtime markers are in 2 files at base and 0 under B. Build, typecheck and suite all stay green (`verification/018/qa/m2-hljs-resolution/`). M2-b and M2-c instruments were re-specified. Assumption Not Checked: form A's bundle binding. Register unchanged. |
 | 2026-11-20T04:33 | planner-hooks-018 (revision 5, `e45e8cf`) | Phase 1 re-key on revision 5 | Phase 1 re-key. The plan's diff was read whole (M1-i wording only: F-19, F-20, AF-9, QAF-9). QAF-9 RESOLVED; no open QA finding. QA's long-value enumeration and F-19's unit are recorded under the M1-i instruments. Assumption Not Checked: AF-9's helper keeps the union's issue. Register unchanged. The document body was committed at `cdb71e2` before this row: an anchor miss, so this row is committed on its own. |
 | 2026-11-20T07:12 | devops-hooks-018 (Stage 1, brief steering/018-brief-devops.md) | Close at Committed | Status: Committed. Closed to closed/ at Stage 1 of release website master d1bb9b0 (deployment/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
+| 2026-11-20T13:40 | devops-hooks-018 (Phase 2D, brief steering/018-brief-devops.md) | Release | Status: Released. Website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z (deployment/closed/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
 
 ## Findings (Phase 1)
 

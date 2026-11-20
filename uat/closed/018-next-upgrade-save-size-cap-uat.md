@@ -2,8 +2,8 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Status: Committed
-Status-Detail: "APPROVED FOR RELEASE at website d1bb9b0 (plan revision 8). Pre-release rows B-1 to B-4, B-9 and M5-d EXECUTED; B-5 discharged by devops (READY, deployment record). Post-deploy rows ride the devops handoff with UAT-1's B-7 instrument. Committed for release website master d1bb9b0."
+Status: Released
+Status-Detail: "Released: website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z on the owner's release approval (deployment/closed/018-next-upgrade-save-size-cap-deployment.md). APPROVED FOR RELEASE at website d1bb9b0 (plan revision 8). Pre-release rows B-1 to B-4, B-9 and M5-d EXECUTED; B-5 discharged by devops (READY, deployment record). Post-deploy rows ride the devops handoff with UAT-1's B-7 instrument."
 Verified-At: "d1bb9b0 — repos=website; plan revision 8; production builds (next build, next start) of git archive exports of d1bb9b0 and of the base 7923a1d, each with its own frozen install; release-check preview 5677889 (d1bb9b0 plus vercel.json alone) for B-4"
 Release-Decision: APPROVED FOR RELEASE
 ---
@@ -22,6 +22,7 @@ State. No criterion, milestone or release condition this pass verifies moved.
 |------|---------------|---------|---------|
 | 2026-11-20T06:47 | steering-roadmap-hooks → uat-hooks-018 (brief `steering/018-brief-uat.md`, record `f50c713`); devops-hooks-018 (M5-a READY, message 06:2xZ, capture `daf117a`) | UAT on QA's effort-final Phase 2 PASS at website `d1bb9b0` (`qa/018-next-upgrade-save-size-cap-m4-qa.md`, `QA Complete`, `62703f1`) | Stage start re-derived at the record. B-1, B-2 (both limbs), B-3, B-9 and M5-d executed on local production builds of the tip with base `7923a1d` as control; B-4 on the release-check preview. All PASS; R3 recorded (the limit holds); R5 shows no change from 16.1.6 but its instrument does not discriminate (UAT-2). UAT-1 MEDIUM: B-7's version instrument reads no scripts at 16.4.6. **APPROVED FOR RELEASE**; post-deploy rows ride devops's Stage-1 handoff. |
 | 2026-11-20T07:12 | devops-hooks-018 (Stage 1, brief steering/018-brief-devops.md) | Close at Committed | Status: Committed. Closed to closed/ at Stage 1 of release website master d1bb9b0 (deployment/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
+| 2026-11-20T13:40 | devops-hooks-018 (Phase 2D, brief steering/018-brief-devops.md) | Release | Status: Released. Website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z (deployment/closed/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
 
 ## Reading
 

@@ -2,8 +2,8 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Status: Committed
-Status-Detail: "M1 (save-list cap and error cap) delivered at a558f2d on chain/018-next-upgrade-save-size-cap; code review APPROVED_WITH_COMMENTS after fix round 1, QA PASS, UAT APPROVED at d1bb9b0. Committed for release website master d1bb9b0."
+Status: Released
+Status-Detail: "Released: website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z on the owner's release approval (deployment/closed/018-next-upgrade-save-size-cap-deployment.md). M1 (save-list cap and error cap) delivered at a558f2d on chain/018-next-upgrade-save-size-cap; code review APPROVED_WITH_COMMENTS after fix round 1, QA PASS, UAT APPROVED at d1bb9b0."
 Handoff-At: a558f2d — repos=website; M1 fix round 1 (fix diff b0b0158..a558f2d, three files). Production logic of M1 last changed at b639dbe (one line group in `cappedInput`); the commit after it only wraps a spec line and satisfies one lint rule
 ---
 
@@ -25,6 +25,7 @@ Handoff-At: a558f2d — repos=website; M1 fix round 1 (fix diff b0b0158..a558f2d
 |------|---------|---------|---------|
 | 2026-11-20T05:09 | steering-roadmap-hooks (brief `steering/018-brief-implementer.md`) | Implement M1 to M4 of revision 5 | M1 implemented test-first on the chain branch: red spec `e5732b0` (and `441cc71`), production `532c0ee`, `a0239fd`, refinements `32047a2`, `bfc790d`, spec additions `e21794c`, `be35da8`. Self-check sweep and QA's named mutants run in isolated exports; survivors dispositioned below. |
 | 2026-11-20T07:12 | devops-hooks-018 (Stage 1, brief steering/018-brief-devops.md) | Close at Committed | Status: Committed. Closed to closed/ at Stage 1 of release website master d1bb9b0 (deployment/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
+| 2026-11-20T13:40 | devops-hooks-018 (Phase 2D, brief steering/018-brief-devops.md) | Release | Status: Released. Website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z (deployment/closed/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
 
 ## Fix Round 1
 

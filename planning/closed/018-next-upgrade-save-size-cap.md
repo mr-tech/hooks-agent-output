@@ -2,8 +2,8 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Status: Committed
-Status-Detail: "Committed for release website master d1bb9b0 (a fast-forward of master from 7923a1d). UAT APPROVED FOR RELEASE (fabdbe7) and security APPROVED (fa2ce9f) at d1bb9b0; devops Stage 1 done (deployment/018-next-upgrade-save-size-cap-deployment.md). Post-deploy rows B-6, B-7, B-8 and B-10 ride handoff/018-next-upgrade-save-size-cap-post-deploy-2026-11-20.md. The push awaits the owner's release approval."
+Status: Released
+Status-Detail: "Released: website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z on the owner's release approval (deployment/closed/018-next-upgrade-save-size-cap-deployment.md). Post-deploy rows B-6, B-8 and B-10 are carried by handoff/018-next-upgrade-save-size-cap-post-deploy-2026-11-20.md (B-7 PASS); security audit APPROVED at d1bb9b0 (fa2ce9f); post-release risks RK-3 and RK-5 by handoff/website-018-standing-risks-save-toast-and-lint-stack-2026-11-20.md."
 Revision: 8
 Plan-ID: 018
 Target-Release: "website master (Vercel production), moved from 7923a1d to the chain's verified tip by devops on the owner's word"
@@ -50,6 +50,7 @@ Lane: "planned (not proposed small): the framework moves under every page"
 | 2026-11-20T06:48 | R-22 | uat-hooks-018 | UAT on revision 8: **APPROVED FOR RELEASE** at website `d1bb9b0` (`uat/018-next-upgrade-save-size-cap-uat.md`, `fabdbe7`). B-1, B-2 (both limbs), B-3 (R1, R2; R3 recorded: X-14 holds; R5 as 16.1.6, instrument not discriminating, UAT-2 LOW), B-9 and M5-d on local production builds of the tip with base `7923a1d` as control; B-4 on the release-check preview `5677889`. UAT-1 MEDIUM: B-7's version instrument must read `/_next/static/immutable/` (devops's handoff). Status set to UAT Approved. |
 | 2026-11-20T07:04 | R-23 | security-hooks-website-deps | Security on the change `7923a1d..d1bb9b0`: **APPROVED** at website `d1bb9b0` (`security/018-next-upgrade-save-size-cap-security-audit.md`, `fa2ce9f`; evidence `verification/018/security/`). H-002 and M-001 of the dependency review are VERIFIED at that tree and close at the release. The audit at the chain lockfile holds 81 entries, none new and no Next.js entry. No control is owed before the push. L-001 LOW, not blocking: tRPC batching lets one request carry about 1,050 capped saves; carried, with the review's leftovers (X-4's and X-5's items among them), by `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md`. Status unchanged. |
 | 2026-11-20T07:12 | R-24 | devops-hooks-018 | Stage 1: Status Committed with the release identifier (website master d1bb9b0); B-5 EXECUTED; the chain's documents closed Committed; post-deploy carrier and the unpinned-git-dependency handoff created; the Reading-Order cell for revision 8's fold set discharged (critic 4c8d4b8, architect a4d94ce). Nothing pushed. |
+| 2026-11-20T13:40 | R-25 | devops-hooks-018 | Phase 2D: Status Released. Website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z; production deployment READY at the tip; B-7 PASS; deployment record closed Released. |
 
 ## Header
 

@@ -2,8 +2,8 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Status: Committed
-Status-Detail: "M3 (ESLint 9, a flat config, eslint-config-next 16.4.6) delivered at 969d92a; code review APPROVED_WITH_COMMENTS, QA PASS, carried to d1bb9b0 by the effort-final verdict. Committed for release website master d1bb9b0."
+Status: Released
+Status-Detail: "Released: website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z on the owner's release approval (deployment/closed/018-next-upgrade-save-size-cap-deployment.md). M3 (ESLint 9, a flat config, eslint-config-next 16.4.6) delivered at 969d92a; code review APPROVED_WITH_COMMENTS, QA PASS, carried to d1bb9b0 by the effort-final verdict."
 Handoff-At: 969d92a — repos=website; M3 only
 ---
 
@@ -25,6 +25,7 @@ Handoff-At: 969d92a — repos=website; M3 only
 | 2026-11-20T05:47 | steering-roadmap-hooks (resume message; brief `steering/018-brief-implementer.md`) | M3 on revision 7 | M3 rebuilt on the committed M2 in an isolated export, both configs run over the same sources, differential and ledger regenerated, committed at `969d92a`; the shared tree's `node_modules` moved to the lockfile again (ruling B, block 04:51Z). |
 | 2026-11-20T05:57 | `code-reviewer-hooks-018` Round 3 (CR-5 LOW) | reconcile the "No runtime dependency moves" sentence | Sentence corrected in Lockfile disposition: three production-closure edges moved, all generator-only under `prisma-kysely`; edge-level comparison re-run independently and agrees with the reviewer's. Document-only; `Handoff-At` unchanged. |
 | 2026-11-20T07:12 | devops-hooks-018 (Stage 1, brief steering/018-brief-devops.md) | Close at Committed | Status: Committed. Closed to closed/ at Stage 1 of release website master d1bb9b0 (deployment/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
+| 2026-11-20T13:40 | devops-hooks-018 (Phase 2D, brief steering/018-brief-devops.md) | Release | Status: Released. Website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z (deployment/closed/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
 
 ## Implementation Summary
 

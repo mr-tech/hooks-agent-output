@@ -3,8 +3,8 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Verified-At: "d1bb9b0 — repos=website; the chain tip carrying the zod pin; M4, the M1 to M3 refresh and the effort-final sweep; isolated exports with their own install"
-Status: Committed
-Status-Detail: "Effort-final Phase 2 PASS at website d1bb9b0 (62703f1); the release tip is d1bb9b0's tree. Register rows executed by UAT and devops (B-1 to B-5, B-9); B-6, B-7, B-8, B-10 ride the post-deploy handoff. Committed for release website master d1bb9b0."
+Status: Released
+Status-Detail: "Released: website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z on the owner's release approval (deployment/closed/018-next-upgrade-save-size-cap-deployment.md). Effort-final Phase 2 PASS at website d1bb9b0 (62703f1); the release tip is d1bb9b0's tree. Register rows executed by UAT and devops (B-1 to B-5, B-9); B-6, B-7, B-8, B-10 ride the post-deploy handoff."
 Phase: 2
 ---
 
@@ -32,6 +32,7 @@ the lockfile's specifier line.
 |------|---------------|---------|---------|
 | 2026-11-20T06:18 | code-reviewer-hooks-018 (CR-2 pin, `7804862`) | QA's last Phase 2 at `d1bb9b0` (M4, effort-final sweep) | Re-keyed to revision 8. **M4:** R1/R2 tests pass at the tip; R5's six wrappers are in place; QA re-read R6 in the installed `next` 16.4.6 and agrees with the implementer. **Refresh of M1 to M3 at `d1bb9b0`:** suite 2261/2261, exit 0; differential 0 violations; lint, build, traces, bundle, `tsconfig.json`, typecheck and `ts-node` identical to `969d92a` or passing. **M2-b (rev 8) edge limb:** 158 changed production edges against `7923a1d`, all in class. **Effort-final sweep:** M1's sweep stands, with the production and test JS byte-identical. `zod` resolves 3.22.4. No new finding. **PASS; plan Status QA Complete.** |
 | 2026-11-20T07:12 | devops-hooks-018 (Stage 1, brief steering/018-brief-devops.md) | Close at Committed | Status: Committed. Closed to closed/ at Stage 1 of release website master d1bb9b0 (deployment/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
+| 2026-11-20T13:40 | devops-hooks-018 (Phase 2D, brief steering/018-brief-devops.md) | Release | Status: Released. Website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z (deployment/closed/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
 
 ## Criteria this pass assesses (listed before execution)
 

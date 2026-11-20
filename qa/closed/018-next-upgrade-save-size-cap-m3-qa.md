@@ -3,8 +3,8 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Verified-At: "969d92a — repos=website; M3 only, beside its parent a558f2d; isolated exports with their own install"
-Status: Committed
-Status-Detail: "M3 PASS at website 969d92a (suite 2261/2261 exit 0), carried to d1bb9b0 by the effort-final verdict. Its function-trace assumption is NOT VERIFIED and carried as a stated limit by the post-deploy handoff. Committed for release website master d1bb9b0."
+Status: Released
+Status-Detail: "Released: website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z on the owner's release approval (deployment/closed/018-next-upgrade-save-size-cap-deployment.md). M3 PASS at website 969d92a (suite 2261/2261 exit 0), carried to d1bb9b0 by the effort-final verdict. Its function-trace assumption is NOT VERIFIED and carried as a stated limit by the post-deploy handoff."
 Phase: 2
 ---
 
@@ -23,6 +23,7 @@ R-14 `56d5f83`), re-read at the record. `969d92a`'s parent is `a558f2d`. Its dif
 |------|---------------|---------|---------|
 | 2026-11-20T06:05 | code-reviewer-hooks-018 (Round 3, `a05fb21`) | QA Phase 2 on M3 at `969d92a` | Phase 2 on M3. M3-a to M3-e were checked. Suite 2261/2261, exit 0, identical per file to `a558f2d`. Built output against a second build of the parent: no JS or manifest difference beyond the noise floor. Five function traces gain the `package.json` and directory of `cross-spawn@7.0.6` and `semver@6.3.1`. This closes code review Round 3's Assumption Not Checked as falsified in its letter, with no code member. **QAF-11 LOW** goes to the Planner batch. **PASS (M3).** |
 | 2026-11-20T07:12 | devops-hooks-018 (Stage 1, brief steering/018-brief-devops.md) | Close at Committed | Status: Committed. Closed to closed/ at Stage 1 of release website master d1bb9b0 (deployment/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
+| 2026-11-20T13:40 | devops-hooks-018 (Phase 2D, brief steering/018-brief-devops.md) | Release | Status: Released. Website master moved 7923a1d to d1bb9b0 at 2026-11-20T08:07:52Z (deployment/closed/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
 
 ## Criteria this pass assesses (listed before execution)
 
