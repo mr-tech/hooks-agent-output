@@ -3,8 +3,8 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Verified-At: "7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe — repos=website; Phase 1 reads and probes only, no verdict; probes ran in an isolated export of this commit (shapes.ts blob 1c13ca2 verified equal)"
-Status: QA Complete
-Status-Detail: "Phase 1 (re-keyed through revision 7; revision 8 read at the effort-final pass). Phase 2 per milestone in the -m1, -m2, -m3 and -m4 documents; effort-final PASS at website d1bb9b0 (62703f1). The register B-1 to B-10 is open for UAT and devops."
+Status: Committed
+Status-Detail: "Phase 1 through revision 8 and the register B-1 to B-10. Pre-release rows B-1 to B-5 and B-9 EXECUTED; B-6, B-7, B-8, B-10 carried by handoff/018-next-upgrade-save-size-cap-post-deploy-2026-11-20.md. Committed for release website master d1bb9b0."
 Phase: 1
 ---
 
@@ -35,6 +35,7 @@ citation of line 110 (nothing in this pass rests on it).
 | 2026-11-20T05:23 | planner-hooks-018 (revision 7, `af8a9d6`) | Phase 1 re-key on revision 7 (M2) | Phase 1 re-key, M2 only. The plan's diff was read whole. QAF-10 RESOLVED. The planner's form-A run (`m2-tsconfig/A-final/`) was read: exit codes are now recorded, the tsconfig diff is the two keys with the end-of-file newline kept, and the runtime markers are present (static 1, server 4). The `(void 0)` receiver count was not taken there, so it moves to Phase 2 under M2-c. M2-e mints B-9 (UAT, local build) and B-10 (post-deploy, hooks.gg). B-10's instrument was shown working at minting by one production read of `/preview`, with 11 `hljs` elements and no error (`m2-hljs-resolution/prod-preview-read.md`). Correction: the revision-6 row's stamp and the probe README's run times were typed ahead of the clock and are corrected. |
 | 2026-11-20T05:16 | planner-hooks-018 (revision 6, `8277b08`) | Phase 1 re-key on revision 6 (M2) | Phase 1 re-key, M2 only (stamp corrected at the revision 7 re-key: first written ahead as `05:5x`; the commit is 05:16Z). The plan's diff was read whole. **QAF-10 HIGH** goes to the planner: under form B, Turbopack follows the `paths` entry, so `import hljs from 'highlight.js'` binds to `undefined` in the production bundle. The base build has 0 `(void 0).getLanguage`/`.highlight` call sites and form B has 10; the runtime markers are in 2 files at base and 0 under B. Build, typecheck and suite all stay green (`verification/018/qa/m2-hljs-resolution/`). M2-b and M2-c instruments were re-specified. Assumption Not Checked: form A's bundle binding. Register unchanged. |
 | 2026-11-20T04:33 | planner-hooks-018 (revision 5, `e45e8cf`) | Phase 1 re-key on revision 5 | Phase 1 re-key. The plan's diff was read whole (M1-i wording only: F-19, F-20, AF-9, QAF-9). QAF-9 RESOLVED; no open QA finding. QA's long-value enumeration and F-19's unit are recorded under the M1-i instruments. Assumption Not Checked: AF-9's helper keeps the union's issue. Register unchanged. The document body was committed at `cdb71e2` before this row: an anchor miss, so this row is committed on its own. |
+| 2026-11-20T07:12 | devops-hooks-018 (Stage 1, brief steering/018-brief-devops.md) | Close at Committed | Status: Committed. Closed to closed/ at Stage 1 of release website master d1bb9b0 (deployment/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
 
 ## Findings (Phase 1)
 
@@ -436,49 +437,4 @@ Not started (Phase 2).
 
 ## Resumption State
 
-Written 2026-11-20T04:34Z at steering's checkpoint request, by session `qa-hooks-018`, cwd `/usr/local/bin/hooks/website`.
-**Checkpoint 2026-11-20T06:47Z** (steering's request at about 351K tokens; this block supersedes the items below it, which are kept as history):
-- **Done:** every QA pass of chain 018 up to UAT. Phase 1 through revision 7, with revision 8 read at the effort-final pass. Phase 2 per milestone: `qa/018-…-m2-qa.md` (`b247da8`), `-m1-qa.md` (`eb0c713`), `-m3-qa.md` (`e0d8b95`). Effort-final PASS at website `d1bb9b0` in `-m4-qa.md` (`62703f1`). Plan Status QA Complete (R-21, `c417e5f`). QAF-1 to QAF-11 are resolved or folded; no QA finding is open.
-- **Next:** QA Phase 3 at the release tip, only on devops's request. Read `~/.claude/agent-skills/stage-procedures/qa-phase-3.md` first. If the release tip's tree equals `d1bb9b0` (`git diff d1bb9b0 <tip>` empty over production paths), the effort-final verdict applies. Otherwise run a differential-scoped pass with the drivers under `verification/018/qa/final-phase2/` and `m3-phase2/` (manifests and noise floor) as templates. Register rows B-1 to B-10 are UAT's and devops's; later stage documents are authoritative on their state.
-- **Approach in flight:** none. **Trees:** website shared tree on `chain/018-next-upgrade-save-size-cap` at `d1bb9b0` (read at this write), never moved by this session. agent-output: nothing of this session's uncommitted.
-- **Locally mutated, not restored:** nothing. Every export, clone and helper work folder is deleted (`ls -d` confirmed at each). The browser was closed and its caches emptied after the 05:22Z `/preview` read.
-- **Evidence run, not recorded:** none. Every run is under `verification/018/qa/` (`m2-hljs-resolution`, `m2-phase2`, `m1-phase2` with `sweep/`, `m3-phase2`, `final-phase2`).
-- **Questions out:** none. **Sessions messaged:** `planner-hooks-018`, `steering-roadmap-hooks`, `code-reviewer-hooks-018`. Each verdict was sent.
-
-- **Effort-final (2026-11-20T06:19Z):** PASS at `d1bb9b0` (`qa/…-m4-qa.md`, `62703f1`; plan R-21 and Status QA Complete, `c417e5f`). Nothing of QA's remains before UAT. Next for QA: Phase 3 at the release tip, on devops's request only. No export, helper or browser is left open.
-- **Phase 2 state (2026-11-20T06:06Z):** M2 PASS at `b0b0158` (`qa/…-m2-qa.md`, `b247da8`), re-anchored at `a558f2d`; M1 PASS at `a558f2d` (`qa/…-m1-qa.md`, `eb0c713`); M3 PASS at `969d92a` (`qa/…-m3-qa.md`, `e0d8b95`, QAF-11 LOW to the Planner batch). Plan rows R-13, R-16, R-17. **Next (steering block 2026-11-20T06:06Z, `409f120`):** the last Phase 2 (M4 and the effort-final sweep over `7923a1d..<tip>`) runs at the tip that carries the `zod` pin (CR-2), after that commit's code review. It does not run at `969d92a`, and no sweep was started there. The effort-final mutation sweep covers the chain's whole production diff at the last Phase 2 and stays owed. The B-2 HTTP limb carries the revision-3 and revision-4 assumptions (UAT). No export, helper or browser is left open.
-- **Standing for M2 (steering ruling `steering/018-rulings.md` block 2026-11-20T05:26Z, `44efb1f`):** M2 is capped. Each further M2 gap below HIGH goes to the plan's Planner batch as a stated limit, with no revision round; a severity-floor finding (an unasserted preserved behaviour, MEDIUM floor) is excepted. Code review of M1 is running at `Handoff-At` `f9e66c2` (code-reviewer-hooks-018). Its committed verdict starts Phase 2 on M1, run in an export of the reviewed SHA because the shared tree moves under M2.
-- **Re-key on revision 7 (2026-11-20T05:23Z):** QAF-10 RESOLVED; B-9 and B-10 appended; the browser is closed and its caches emptied after the 05:22Z `/preview` read. No QA finding is open.
-- **Re-key on revision 6 (2026-11-20T05:16Z, after a `/clear`; stamp corrected, first written ahead):** QAF-10 HIGH went to the planner; evidence is in
-  `verification/018/qa/m2-hljs-resolution/`, and its exports are deleted. Phase 2 adds the M2 instruments (§ Acceptance Criteria,
-  M2 reconcile).
-- **Done:** Phase 1 on plan revisions 1 to 5. The last re-key is on revision 5 (`e45e8cf`), committed at agent-output `cdb71e2` and
-  `0160d45` (changelog row). QAF-1 to QAF-9 are RESOLVED; no QA finding is open. Status: `Awaiting Implementation`. Steering was
-  told there are no findings (message to `steering-roadmap-hooks`, after `0160d45`).
-- **Next (Phase 2, after code review's committed verdict):**
-  1. Read the plan as the `git diff e45e8cf..<revision then current>`.
-  2. TDD Compliance table first.
-  3. List the criteria the pass will assess before running anything.
-  4. Run the suites, with exit codes, in an isolated export of the tip with its own install, compared with the base's 1913 cases in
-     149 files by path membership.
-  5. Run differential v3 (`verification/018/qa/phase-1/differential/`, test file sha256 `d597c91a…`, `compare.py` `6dd66ac7…`) in
-     a tip export against `base-7923a1d.json`. Mutate the instrument first, with a planted tip.
-  6. M1-i: the read-count case (63 against 4800), the long-value enumeration (§ M1-i instruments), the concurrency and
-     exit-code checks (NM-15, NM-16), and the 16 KB measurement against steering's bodies.
-  7. One HTTP read on a local build of the tip. This closes the revision-3 and revision-4 Assumption Not Checked lines, and the
-     local build follows the workspace's local-build rule.
-  8. Mutation sweep over the effort's production diff (`node ~/.claude/tools/mutant-gen.js`, plus NM-1 to NM-17), in an export,
-     with runs delegated to a helper.
-  9. Handoff entry check: `git diff --name-only 7923a1d..<tip>` against the five paths of
-     `handoff/mutant-equivalence-by-argument-unverified-2026-11-19.md`.
-- **Approach in flight:** none.
-- **Trees:** website's shared tree is now on `chain/018-next-upgrade-save-size-cap` at `7923a1d` (steering cut it; read at this
-  write). Nothing of this session is uncommitted in agent-output. No website file was edited by this session.
-- **Scratch:** no export is left (each one was deleted after its run). Scratchpad holds only plan diffs, record-edit JSON and install
-  logs, none of them cited as evidence.
-- **Evidence:** every run this document cites is committed under `verification/018/qa/phase-1/`. These are `list-bound-probe`,
-  `caller-probe`, `differential`, `prod-base-reads`, `zod-under-m2`, `error-cap-async-probe` and `issue-size-probe`. One file is
-  not committed: `zod-under-m2/add.log`, which `.gitignore` excludes (`*.log`); its result is in `before.txt` and `after.txt`.
-- **Browser:** closed, with its caches emptied, after the 04:09Z production reads.
-- **Questions out:** none. **Sessions messaged:** `planner-hooks-018` (findings on revisions 1 to 4), `steering-roadmap-hooks`
-  (no findings on revision 5).
+Closed at devops Stage 1 (2026-11-20T07:12Z); nothing resumes from this document.

@@ -2,8 +2,8 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Status: Active
-Status-Detail: "M1 (save-list cap and error cap) delivered on chain/018-next-upgrade-save-size-cap; code review Round 1 REJECTED at f9e66c2 (CR-1 HIGH); fix round 1 delivered at a558f2d, awaiting the re-review. M2 is in its own document; M3 and M4 follow."
+Status: Committed
+Status-Detail: "M1 (save-list cap and error cap) delivered at a558f2d on chain/018-next-upgrade-save-size-cap; code review APPROVED_WITH_COMMENTS after fix round 1, QA PASS, UAT APPROVED at d1bb9b0. Committed for release website master d1bb9b0."
 Handoff-At: a558f2d — repos=website; M1 fix round 1 (fix diff b0b0158..a558f2d, three files). Production logic of M1 last changed at b639dbe (one line group in `cappedInput`); the commit after it only wraps a spec line and satisfies one lint rule
 ---
 
@@ -24,6 +24,7 @@ Handoff-At: a558f2d — repos=website; M1 fix round 1 (fix diff b0b0158..a558f2d
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
 | 2026-11-20T05:09 | steering-roadmap-hooks (brief `steering/018-brief-implementer.md`) | Implement M1 to M4 of revision 5 | M1 implemented test-first on the chain branch: red spec `e5732b0` (and `441cc71`), production `532c0ee`, `a0239fd`, refinements `32047a2`, `bfc790d`, spec additions `e21794c`, `be35da8`. Self-check sweep and QA's named mutants run in isolated exports; survivors dispositioned below. |
+| 2026-11-20T07:12 | devops-hooks-018 (Stage 1, brief steering/018-brief-devops.md) | Close at Committed | Status: Committed. Closed to closed/ at Stage 1 of release website master d1bb9b0 (deployment/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
 
 ## Fix Round 1
 
@@ -290,12 +291,4 @@ Code review of M1 at the handoff SHA, then QA Phase 2 for M1 with its differenti
 
 ## Resumption State
 
-Rewritten 2026-11-20T05:49 by `implementer-hooks-018` (the earlier text, written before M2, is superseded; its R6 note is withdrawn in the M4 document).
-Website tree `/usr/local/bin/hooks/website` on `chain/018-next-upgrade-save-size-cap` at `d1bb9b0` (was `969d92a` when this state was written), tracked tree clean (only `.playwright-mcp/` untracked, not mine); its `node_modules` follows the chain lockfile (Next 16.4.6, ESLint 9.39.5; ruling B, block 04:51Z).
-- **Delivered:** M1 fix round 1 at `a558f2d` (re-review approved, sub-entry 1, `57ff6f8`; now with QA); M2 at `b0b0158` (code review APPROVED_WITH_COMMENTS, CR-4 reconciled; with QA); M3 at `969d92a` (handed to `code-reviewer-hooks-018`); M4's implementer limbs recorded (`implementation/018-next-upgrade-save-size-cap-m4-implementation.md`, no code).
-  Documents: `…-m1-…` (Handoff-At `a558f2d`), `…-m2-…` (`b0b0158`), `…-m3-…` (`969d92a`), `…-m4-…`.
-- **Delivered since:** CR-2's zod pin at website `d1bb9b0` (plan revision 8; section "Zod pin (CR-2)" of the M2 document, whose `Handoff-At` now carries it), handed to `code-reviewer-hooks-018`. Held: nothing.
-- **Planner batch carried by steering:** M2's lockfile-mover gaps and the "Edge Runtime is deprecated" warning (M2 document, Outstanding Items).
-- **Owed by others:** code review of M3; QA Phase 2 for M1 and M2; UAT's walks (B-3, M2-e, M1-g/h); the architect's A-4 text and the R3/R6 carry; Security's `pnpm audit`.
-- **Processes:** none of mine run. Scratch exports in the session scratchpads (`m2tip`, `m3n`, older `m2b`, `m2c`, `m3`): deletable.
-- **Convention checks:** `node ~/.claude/tools/convention-check.js <repo> --since=<base>` before every handoff (the id-token check is not implemented by the tool: read basenames and titles by hand).
+Closed at devops Stage 1 (2026-11-20T07:12Z); nothing resumes from this document.

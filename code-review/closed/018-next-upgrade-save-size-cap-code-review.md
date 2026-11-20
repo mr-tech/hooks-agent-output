@@ -3,8 +3,8 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Reviewed-At: "d1bb9b0 — repos=website; CR-2 pin, Round 1 sub-entry 2 at d1bb9b0 (APPROVED); M3 Round 3 at 969d92a (APPROVED_WITH_COMMENTS); M1 sub-entry 1 at a558f2d (APPROVED_WITH_COMMENTS); M2 Round 2 at b0b0158 (APPROVED_WITH_COMMENTS)"
-Status: In Review
-Status-Detail: "M1 (a558f2d), M2 (b0b0158) and M3 (969d92a) each APPROVED_WITH_COMMENTS and handed to QA Phase 2. CR-2 is carried by the Planner batch; CR-5 goes to the implementer, with a Planner batch row for M2-b's wording."
+Status: Committed
+Status-Detail: "M1 (a558f2d), M2 (b0b0158), M3 (969d92a) each APPROVED_WITH_COMMENTS and the zod pin APPROVED at d1bb9b0 (Round 1 sub-entry 2). CR-2 folded and pinned; CR-5 reconciled; CR-7 and M2-I4 carried by handoff/website-git-dependencies-resolve-unpinned-2026-11-20.md. Committed for release website master d1bb9b0."
 Round: 3
 Verdict: APPROVED_WITH_COMMENTS
 ---
@@ -26,6 +26,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-20T05:56 | implementer-hooks-018 (M3 document `8d72013`) | Round 3: review M3 at `969d92a` | APPROVED_WITH_COMMENTS. The lint differential reproduces on my own exports, and a location-level comparison finds no difference hidden behind an equal count. CR-5 LOW: the lockfile disposition cannot see 3 re-pointed production edges (generator-only path). CR-6 LOW: pre-existing convention FAILs in `global.d.ts`. |
 | 2026-11-20T05:57 | implementer-hooks-018 (reconcile `1010ca9`) | Round 3 sub-entry: CR-5's record correction | The instance is corrected, and the implementer's independent edge run equals mine. The class is carried by the Planner batch candidate. M3's verdict is unchanged. |
 | 2026-11-20T06:13 | implementer-hooks-018 (pin at website `d1bb9b0`, document `7c76319`) | Round 1 sub-entry 2: CR-2's zod pin | APPROVED. The exact specifier sits under `dependencies`, a frozen offline install exits 0 and resolves zod 3.22.4, and the diff is 1/1 per file. CR-2 is closed. CR-7 INFO: `paracord` and `project-utils` are git dependencies without a commit, pre-existing and a Planner batch candidate. |
+| 2026-11-20T07:12 | devops-hooks-018 (Stage 1, brief steering/018-brief-devops.md) | Close at Committed | Status: Committed. Closed to closed/ at Stage 1 of release website master d1bb9b0 (deployment/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
 
 ## Scope and stage start
 
@@ -567,33 +568,4 @@ unchanged. CR-5 is a record and instrument gap with no runtime member found. CR-
 
 ## Resumption State
 
-Written at the checkpoint steering asked for (context seam), 2026-11-20T06:17Z. Session `code-reviewer-hooks-018`. The brief is
-`steering/018-brief-code-reviewer.md`, amended at `1db98a7` to cover every milestone the implementer hands off.
-
-**Done.** Every verdict and capture is committed (latest review commit `7804862`, plan row `563c309`), and every consumer has
-been messaged.
-- **M1:** REJECTED at `f9e66c2` (CR-1 HIGH), then APPROVED_WITH_COMMENTS at `a558f2d` (Round 1, sub-entry 1). QA Phase 2 PASS
-  (`eb0c713`).
-- **M2:** APPROVED_WITH_COMMENTS at `b0b0158` (Round 2, CR-4 reconciled). QA PASS (`b247da8`), re-anchored at `a558f2d`.
-- **M3:** APPROVED_WITH_COMMENTS at `969d92a` (Round 3).
-  - CR-5 LOW: the instance is reconciled at `1010ca9`, and its class is a Planner batch candidate sent to the planner.
-  - CR-6 LOW: pre-existing.
-  - QA PASS (`e0d8b95`).
-  - Its build-output assumption is reconciled against QAF-11 (dated note in Round 3).
-- **CR-2 zod pin:** APPROVED at `d1bb9b0` (Round 1, sub-entry 2). CR-3 is reconciled.
-- **CR-7 INFO** (unpinned git dependencies `paracord` and `project-utils#master`): sent to the planner as a Planner batch candidate.
-
-**Open and owed by others (no action of mine):**
-- The implementer: restamp the future-dated changelog row at `implementation/018-next-upgrade-save-size-cap-m2-implementation.md:27`
-  (06:25). I told it in the CR-2 verdict message.
-- The record check's other four failures belong to other files' writers and are already in `INBOX.md`.
-
-**Next for me:** M4 when the implementer hands it off. That is a new round (Round 4), starting at its document's `Handoff-At`. Read
-plan § M4 and its document, review in isolated exports only (the shared tree moves), and re-arm the cache-warm wake on resume.
-
-**Branch and HEAD:** website `chain/018-next-upgrade-save-size-cap` at `d1bb9b0` (read at the checkpoint).
-
-**Nothing uncommitted or locally mutated:**
-- No export or clone of mine remains in the scratchpad: removed after each round.
-- Raw ESLint and pnpm listing JSONs were deliberately not committed (sizes are in `verification/018/code-review/m3/README.md`).
-- No questions are outstanding.
+Closed at devops Stage 1 (2026-11-20T07:12Z); nothing resumes from this document.

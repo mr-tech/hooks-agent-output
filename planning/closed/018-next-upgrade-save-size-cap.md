@@ -2,8 +2,8 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Status: UAT Approved
-Status-Detail: "UAT APPROVED FOR RELEASE at website d1bb9b0 (uat/018-next-upgrade-save-size-cap-uat.md, fabdbe7): pre-release rows B-1, B-2, B-3, B-4, B-9 and M5-d executed; B-5 devops's. Devops Stage 1 next; post-deploy rows (B-6, B-7 with UAT-1's instrument, B-8, B-10) ride its handoff."
+Status: Committed
+Status-Detail: "Committed for release website master d1bb9b0 (a fast-forward of master from 7923a1d). UAT APPROVED FOR RELEASE (fabdbe7) and security APPROVED (fa2ce9f) at d1bb9b0; devops Stage 1 done (deployment/018-next-upgrade-save-size-cap-deployment.md). Post-deploy rows B-6, B-7, B-8 and B-10 ride handoff/018-next-upgrade-save-size-cap-post-deploy-2026-11-20.md. The push awaits the owner's release approval."
 Revision: 8
 Plan-ID: 018
 Target-Release: "website master (Vercel production), moved from 7923a1d to the chain's verified tip by devops on the owner's word"
@@ -49,6 +49,7 @@ Lane: "planned (not proposed small): the framework moves under every page"
 | 2026-11-20T06:19 | R-21 | qa-hooks-018 | Effort-final QA Phase 2: **PASS** at website `d1bb9b0` (`qa/018-next-upgrade-save-size-cap-m4-qa.md`, `62703f1`; evidence `verification/018/qa/final-phase2/`). Re-keyed to revision 8. M4's QA limbs hold, with R6 re-read by QA. M1 to M3 re-verified at the tip: suite 2261/2261, exit 0; differential 0 violations; build, traces and lint identical to `969d92a`. M2-b's edge limb: 158 changed production edges, all in class. The sweep stands on blob identity with `a558f2d`. Status set to QA Complete. |
 | 2026-11-20T06:48 | R-22 | uat-hooks-018 | UAT on revision 8: **APPROVED FOR RELEASE** at website `d1bb9b0` (`uat/018-next-upgrade-save-size-cap-uat.md`, `fabdbe7`). B-1, B-2 (both limbs), B-3 (R1, R2; R3 recorded: X-14 holds; R5 as 16.1.6, instrument not discriminating, UAT-2 LOW), B-9 and M5-d on local production builds of the tip with base `7923a1d` as control; B-4 on the release-check preview `5677889`. UAT-1 MEDIUM: B-7's version instrument must read `/_next/static/immutable/` (devops's handoff). Status set to UAT Approved. |
 | 2026-11-20T07:04 | R-23 | security-hooks-website-deps | Security on the change `7923a1d..d1bb9b0`: **APPROVED** at website `d1bb9b0` (`security/018-next-upgrade-save-size-cap-security-audit.md`, `fa2ce9f`; evidence `verification/018/security/`). H-002 and M-001 of the dependency review are VERIFIED at that tree and close at the release. The audit at the chain lockfile holds 81 entries, none new and no Next.js entry. No control is owed before the push. L-001 LOW, not blocking: tRPC batching lets one request carry about 1,050 capped saves; carried, with the review's leftovers (X-4's and X-5's items among them), by `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md`. Status unchanged. |
+| 2026-11-20T07:12 | R-24 | devops-hooks-018 | Stage 1: Status Committed with the release identifier (website master d1bb9b0); B-5 EXECUTED; the chain's documents closed Committed; post-deploy carrier and the unpinned-git-dependency handoff created; the Reading-Order cell for revision 8's fold set discharged (critic 4c8d4b8, architect a4d94ce). Nothing pushed. |
 
 ## Header
 
@@ -86,7 +87,7 @@ Owed re-verdicts:
 | M1-i's wording (§ M1) | revision 5 | critic (pass 5, `b61164b`), QA (`cdb71e2`), architect (`1f78e40`) | discharged |
 | M2's steps, M2-b, M2-c, X-21 (§ M2, § Exclusions) | revision 6 | critic (cycle 2 pass 1, `9ab8420`), QA (`1c2f073`), architect (`2ec5f52`) | discharged: REQUEST REVISION, folded at revision 7 |
 | M2's steps, M2-b, M2-c, M2-e (§ M2) | revision 7 | critic (`15988b6`), QA (`a7394c6`), architect (`60d0a11`) | discharged |
-| Revision 8's fold (§ M2, § M3, § Release) | revision 8 | critic (the fold's gate); the architect reads it in its closing pass | open |
+| Revision 8's fold (§ M2, § M3, § Release) | revision 8 | critic (the fold's gate); the architect reads it in its closing pass | discharged: critic cycle 3 pass 1 (4c8d4b8, APPROVED), architect closing pass (a4d94ce, APPROVED) |
 
 ## Value Statement and Business Objective
 
@@ -637,26 +638,4 @@ re-verdicts.
 
 ## Resumption State
 
-Written 2026-11-20T06:17Z at steering's request (`/checkpoint`, context seam), session `planner-hooks-018`, cwd
-`/usr/local/bin/hooks/website`.
-
-- **Done:** revisions 0 to 8 committed; revision 8 (agent-output `2dc79a3`) folded every Planner batch row then open, at steering's
-  brief (block 06:06Z). Critic cycle 3 pass 1 on revision 8: APPROVED, no new finding (`5b145f0`). Architect closing pass: APPROVED
-  (`a4d94ce`). Website chain branch at `d1bb9b0` (CR-2's `zod` pin, after `969d92a`). M1 to M3 verified by QA Phase 2.
-  Registered after revision 8, unfolded: M2-I4 (`paracord` unpinned) and CR-7 (`project-utils` unpinned), both stated limits with a
-  devops Stage 1 note; no revision owed for them unless a gate asks.
-- **Next:** nothing of mine is in flight. Steering's order (block 06:06Z): code review of the pin, QA's last Phase 2 (M4 and the
-  effort-final sweep), UAT, devops. New findings arrive as Planner batch registrations: append the changelog row at the table's end
-  with the next free `R-<n>` (highest in the table + 1; other stages write rows too). A milestone-level change goes back through
-  the critic, QA and the architect. M2 is capped (block 05:26Z): findings below HIGH there are stated limits, no revision round.
-- **Approach in flight:** none. Lesson kept for this plan: a run's exit codes are not evidence about built output — M2's checks
-  read the bundle (revision 7); and an exclusion is reconciled against the Decisions Register before it is written (X-21 vs D-6).
-- **Trees:** website on `chain/018-next-upgrade-save-size-cap` at `d1bb9b0`, untouched by this session. agent-output: nothing of
-  this session's uncommitted.
-- **Evidence:** every run is committed under `verification/018/planning/` (base-validation, eslint probes, eslint9-flat-probe,
-  abort-form-probe, preview-imitation, error-cap-probe, zod-length-first, union-cap-probe, strip-cap-probe, m2-tsconfig with
-  `A-final/` and `hl-compare/`, version and Vercel reads). No run is unrecorded.
-- **Questions out:** none. **Sessions messaged:** steering-roadmap-hooks, critic-hooks-018, qa-hooks-018, architect-hooks-018,
-  implementer-hooks-018, code-reviewer-hooks-018.
-- **Processes:** none of this session's left; every scratch export deleted (`ls -d` confirmed). Cache-warm wake deleted at this
-  checkpoint.
+Closed at devops Stage 1 (2026-11-20T07:12Z); nothing resumes from this document.

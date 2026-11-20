@@ -3,8 +3,8 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Verified-At: "a558f2d — repos=website; M1 at its fix tip, plus the M2 refresh at the same tree; isolated exports with their own install, shapes.ts blob 94d2bf4 verified equal"
-Status: QA Complete
-Status-Detail: "M1 PASS at website a558f2d (code review Round 1 sub-entry 1, 57ff6f8). Suite 2261/2261 exit 0; differential 0 violations over 1224 labels; sweep 66 of 69 killed plus NM-4 re-targeted, 3 equivalent. M2's verdict refreshed at a558f2d. No finding."
+Status: Committed
+Status-Detail: "M1 PASS at website a558f2d (suite 2261/2261 exit 0; differential 0 violations over 1224 labels), carried to d1bb9b0 by the effort-final verdict. Committed for release website master d1bb9b0."
 Phase: 2
 ---
 
@@ -24,6 +24,7 @@ APPROVED_WITH_COMMENTS, `Reviewed-At` `a558f2d` (agent-output `57ff6f8`), re-rea
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-20T05:57 | code-reviewer-hooks-018 (Round 1 sub-entry 1, `57ff6f8`) | QA Phase 2 on M1 at `a558f2d` | Phase 2 on M1, with the M2 refresh at the same tree. The TDD gate passes. Suite 2261/2261, exit 0. The two fix specs are red at `c357095`. Differential v3: 0 violations over 1224 labels, and the instrument was mutated first (a planted tip gives 1). Sweep of M1's guards: 66 of 69 killed, 1 not applied and re-targeted (killed), 3 survivors shown equivalent. The handoff's trigger has not fired. 0 ID tokens in the test files. Code review's Assumption Not Checked is closed. Revision-3 and revision-4 Assumptions are routed to a B-2 limb (UAT). **PASS (M1).** |
+| 2026-11-20T07:12 | devops-hooks-018 (Stage 1, brief steering/018-brief-devops.md) | Close at Committed | Status: Committed. Closed to closed/ at Stage 1 of release website master d1bb9b0 (deployment/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
 
 ## Criteria this pass assesses (listed before execution)
 

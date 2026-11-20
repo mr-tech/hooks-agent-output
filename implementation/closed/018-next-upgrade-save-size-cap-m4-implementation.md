@@ -2,8 +2,8 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Status: Active
-Status-Detail: "M4 (the record's Next 16.1.6 ties re-verified at 16.4.6): the implementer's instruments run at the M3 tip (969d92a); UAT's walks (R1, R2, R3, R5) are not run. No code."
+Status: Committed
+Status-Detail: "M4 (the record's Next 16.1.6 ties re-verified at 16.4.6): instruments run at 969d92a, no code; UAT's walks B-3 executed, R3 and R6 carried to the architect. Committed for release website master d1bb9b0."
 Handoff-At: 969d92a — repos=website; M4 reads and tests only, no commit in website
 ---
 
@@ -23,6 +23,7 @@ Chain branch `chain/018-next-upgrade-save-size-cap` in website at `969d92a` (M3 
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
 | 2026-11-20T05:49 | steering-roadmap-hooks (brief `steering/018-brief-implementer.md`) | M4 on revision 7 | The tests that cover R1 and R2 run at the M3 tip; R6 read in the installed 16.4.6 and 16.1.6 sources and in the built output; R5's wrappers counted; R3 and the walks are UAT's. |
+| 2026-11-20T07:12 | devops-hooks-018 (Stage 1, brief steering/018-brief-devops.md) | Close at Committed | Status: Committed. Closed to closed/ at Stage 1 of release website master d1bb9b0 (deployment/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
 
 ## Implementation Summary
 

@@ -3,8 +3,8 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Verified-At: "b0b01587b9ee6afca8147d974f8ea2e336572720 — repos=website; M2 only; isolated export with its own install, tsconfig.json blob c21db55 verified equal"
-Status: QA Complete
-Status-Detail: "M2 PASS at website b0b0158: M2-a to M2-d reproduced, suite 2259/2259 exit 0 at both b0b0158 and f9e66c2 with identical per-file counts. M2-e is B-9/B-10 (UAT). No finding."
+Status: Committed
+Status-Detail: "M2 PASS at website b0b0158 (suite 2259/2259 exit 0), re-anchored at a558f2d and carried to d1bb9b0 by the effort-final verdict. M2-e is B-9 (executed) and B-10 (post-deploy handoff). Committed for release website master d1bb9b0."
 Phase: 2
 ---
 
@@ -26,6 +26,7 @@ batch as a stated limit, except a severity-floor finding.
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-20T05:44 | code-reviewer-hooks-018 (Round 2, `34ed471`) | QA Phase 2 on M2 at `b0b0158` | Phase 2 on M2. The criteria were committed before execution (`5fcdf7d`). M2-a to M2-d were re-derived on QA's own exports. Lockfile movers by a third instrument: 46 package names, 12 snapshot-key texts, the same membership as code review's, every one dispositioned. Suite 2259/2259, exit 0, at `b0b0158` and `f9e66c2`, with identical per-file counts. Build exit 0, `tsconfig.json` unchanged, typecheck 0, `ts-node` 0/0. Bundle markers present, 0 `(void 0)` receivers. A `ts-node` key mutant goes red (TS5095). This closes code review Round 2's Assumption Not Checked. **PASS (M2 only).** No finding. |
+| 2026-11-20T07:12 | devops-hooks-018 (Stage 1, brief steering/018-brief-devops.md) | Close at Committed | Status: Committed. Closed to closed/ at Stage 1 of release website master d1bb9b0 (deployment/018-next-upgrade-save-size-cap-deployment.md); the document's anchor is unchanged. |
 
 ## Criteria this pass assesses (recorded before execution)
 
