@@ -63,12 +63,18 @@ def main():
     if set(base) != set(tip):
         bad.append(f'label sets differ: {len(set(base) ^ set(tip))} labels')
     for label in sorted(set(base) & set(tip)):
-        proc, site, n, _ = label.split(' ')
+        proc, site, n, kind = label.split(' ')
         n = int(n[2:])
         b, t = base[label], tip[label]
         if n <= BOUNDS[site]:
             if b != t:
                 bad.append(f'{label}: within bound, base {b} != tip {t}')
+        elif proc == 'import' and ('threw' in b or (kind in ('null', 'number') and site in ('S1', 'S4', 'S10'))):
+            # The import schema's preprocess (filterSupportedComponents) runs before any list check: it throws on a
+            # null button at S1 and drops non-object elements at S1/S4/S10, so there the tip must equal the base
+            # (the bound applies to what the preprocess keeps).
+            if b != t:
+                bad.append(f'{label}: import preprocess path, base {b} != tip {t}')
         else:
             bad += check_over(label, proc, site, t)
             if site in BOUNDED_TODAY and b['success'] != t['success']:

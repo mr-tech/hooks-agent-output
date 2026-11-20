@@ -6,6 +6,8 @@ import { writeFileSync } from 'node:fs';
 
 import { describe, it, vi } from 'vitest';
 
+import { discordMessageImportShape } from '~/server/api/utils/shapes';
+
 import messageRouter from '../message';
 import userRouter from '../user';
 
@@ -26,27 +28,31 @@ const prefsInput = (userRouter._def.procedures as unknown as Procs).updatePrefer
 const ID = '123456789012345678';
 const text = { type: 10, content: 'x' };
 const accessory = { type: 11, media: { url: 'https://a.b' } };
+const button = { type: 2, style: 5, url: 'https://a.b' };
+// An element whose own list is over its bound (M1-a's nested kind): an action row of 6 buttons, an embed of 26 fields.
+const overRow = { type: 1, components: Array.from({ length: 6 }, () => button) };
+const overEmbed = { fields: Array.from({ length: 26 }, () => ({ name: 'a', value: 'b' })) };
 // [site, bound at the plan (literal, from the plan's M1 table), wrap(list) -> message data, {kind: element}]
 const SITES: [string, number, (l: unknown[]) => unknown, Record<string, unknown>][] = [
   ['S1', 5, (l) => ({ components: [{ type: 1, components: l }] }), { valid: { type: 2, style: 5, url: 'https://a.b' }, invalid: { type: 2, style: 5, url: 'bad' } }],
   ['S2', 3, (l) => ({ components: [{ type: 9, components: l, accessory }] }), { valid: text, invalid: { type: 10, content: 1 } }],
   ['S3', 10, (l) => ({ components: [{ type: 12, items: l }] }), { valid: { media: { url: 'https://a.b' } }, invalid: { media: { url: 'bad' } } }],
-  ['S4', 40, (l) => ({ components: [{ type: 17, components: l }] }), { valid: text, invalid: { type: 10, content: 1 } }],
+  ['S4', 40, (l) => ({ components: [{ type: 17, components: l }] }), { valid: text, invalid: { type: 10, content: 1 }, nested: overRow }],
   ['S5', 25, (l) => ({ embeds: [{ fields: l }] }), { valid: { name: 'a', value: 'b' }, invalid: { name: 1, value: 'b' } }],
   ['S6', 3, (l) => ({ allowed_mentions: { parse: l } }), { valid: 'user', invalid: 'bogus' }],
   ['S7', 100, (l) => ({ allowed_mentions: { users: l } }), { valid: ID, invalid: 'x' }],
   ['S8', 100, (l) => ({ allowed_mentions: { roles: l } }), { valid: ID, invalid: 'x' }],
-  ['S9', 10, (l) => ({ embeds: l }), { valid: { title: 't' }, invalid: { title: 1 } }],
-  ['S10', 40, (l) => ({ components: l }), { valid: text, invalid: { type: 10, content: 1 } }],
+  ['S9', 10, (l) => ({ embeds: l }), { valid: { title: 't' }, invalid: { title: 1 }, nested: overEmbed }],
+  ['S10', 40, (l) => ({ components: l }), { valid: text, invalid: { type: 10, content: 1 }, nested: overRow }],
 ];
-const KINDS = ['valid', 'invalid', 'null', 'number', 'mixed'] as const;
+const KINDS = ['valid', 'invalid', 'null', 'number', 'mixed', 'nested'] as const;
 const elementsFor = (n: number, kind: typeof KINDS[number], els: Record<string, unknown>) => Array.from({ length: n }, (_, i) => {
   if (kind === 'null') return null;
   if (kind === 'number') return 7;
   if (kind === 'mixed') return i === n - 1 ? els.invalid : els.valid;
   return els[kind];
 });
-const lengths = (bound: number) => [0, 1, bound - 1, bound, bound + 1, bound + 10];
+const lengths = (bound: number) => [0, 1, bound - 1, bound, bound + 1, bound + 10, bound + 50];
 
 function record(schema: z.ZodTypeAny, input: unknown) {
   try {
@@ -67,9 +73,11 @@ describe('save-list differential input set', () => {
     for (const [site, bound, wrap, els] of SITES) {
       for (const n of lengths(bound)) {
         for (const kind of KINDS) {
+          if (!(kind in els) && !['null', 'number', 'mixed'].includes(kind)) continue;
           const data = wrap(elementsFor(n, kind, els));
           result[`upsert ${site} n=${n} ${kind}`] = record(upsertInput, { message: { name: 'n', data } });
           result[`updatePreferences ${site} n=${n} ${kind}`] = record(prefsInput, { message: { data } });
+          result[`import ${site} n=${n} ${kind}`] = record(discordMessageImportShape, data);
         }
       }
     }

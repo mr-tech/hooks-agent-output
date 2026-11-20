@@ -1,2 +1,2 @@
-self-check: 5032 over-bound violations in this capture (base must be non-zero)
+self-check: 15872 over-bound violations in this capture (base must be non-zero)
 exit 0
