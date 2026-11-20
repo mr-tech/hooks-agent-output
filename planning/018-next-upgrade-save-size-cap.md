@@ -23,6 +23,7 @@ Lane: "planned (not proposed small): the framework moves under every page"
 | 2026-11-20T04:12 | 3 | planner-hooks-018 | Folds his three answers of `steering/018-rulings.md` block 2026-11-20T04:11Z (`df692af`) as D-8 to D-10, critique pass 2's F-16 (`409b52c`) and QA Phase 1's re-key QAF-6, QAF-7 (`qa/018-next-upgrade-save-size-cap-qa.md`); new run: stopping a parse after N issues (`verification/018/planning/error-cap-probe/`). Scope delta: M1 gains M1-i, the error cap (D-9), and M1-b is restated over it; X-19 leaves the Exclusions; M5 is written for the chosen release-check branch (D-8) and OQ-5 closes; M4's R7 leaves the class (no consumer, 015 D30); M1-g names its set-up step; M1-h cites QA's base read and rides devops's post-deploy carrier. Size: five milestones; M1 one criterion larger. |
 | 2026-11-20T04:16 | R-1 | planner-hooks-018 | Registers critique pass 3's F-17, F-18 (`f209354`, APPROVED with SL-1) and the architect's AF-8 (`9a58650`, APPROVED_WITH_CHANGES) as Planner batch rows; the fold waits on QA's re-key of revision 3. |
 | 2026-11-20T04:25 | 4 | planner-hooks-018 | Folds critique pass 3's F-17, F-18 (`f209354`), the architect's AF-8 (`9a58650`) and QA's re-key QAF-8 (`9218925`); new runs over the site's own schema: `verification/018/planning/union-cap-probe/` (a third plain union, `spacing`; created and returned counts made equal) and `strip-cap-probe/` (code-path-message refusals; an async stop leaves unhandled rejections). Scope delta: M1-i restated — it counts issues in the result, bounds each issue's size, and states its wiring (per-parse, shared, `ZodError`, synchronous); M1-a scoped over the cap and its issue named by `message`; M1-b compares code, path and message over the union sites. Size: five milestones; M1 unchanged in criteria count, M1-i larger in text. |
+| 2026-11-20T04:27 | R-2 | planner-hooks-018 | Registers the architect's APPROVED on revision 4 and AF-9 LOW (`29b6ff8`) as a Planner batch row. |
 
 ## Header
 
@@ -524,6 +525,7 @@ Precedent read on the surfaces this plan changes: 012 (embed caps), 013 D32/D47 
 | F-17 MEDIUM: M1-i's count (issues created) and M1-b's (issues returned) differ where a plain `z.union` fails; stated limit SL-1 until folded | `critiques/018-next-upgrade-save-size-cap-critique.md` pass 3 (`f209354`) | Folded at revision 4: M1-i *the unit*, M1-b |
 | F-18 LOW: M1-a not stated over the cap | same, pass 3 (`f209354`) | Folded at revision 4: M1-a |
 | AF-8 MEDIUM (required before implementation approval): M1-i states its wiring's four constraints | `architecture/018-next-upgrade-save-size-cap-architecture-findings.md` (`9a58650`) | Folded at revision 4: M1-i *wiring* |
+| AF-9 LOW: the union isolation is one shared helper in `shapes.ts` beside the other two, used at all three sites, declared as `z.ZodType<…>` of the union's input and output (not `z.ZodUnion<T>`) | same, revision 4 read (`29b6ff8`) | Open: next revision, after the critic's and QA's reads of revision 4 |
 
 QA Phase 1 before implementation: yes (stage set, block 02:53Z); its re-key on revision 3 is owed.
 
