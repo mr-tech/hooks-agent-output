@@ -113,6 +113,8 @@ install, or resolves a zod other than `3.22.4` for website's own `zod` entry. De
 
 **Reconcile 2026-11-20T13:39Z** (devops's post-push message): the production build log (`verification/018/devops/production-build-log-d1bb9b0.txt`) shows Next 16.4.6, pnpm 10.28.2 via corepack and `pnpm run build`, with no 'mandatory' line. The install output is suppressed, so the build log does **NOT VERIFY** the frozen install or the resolved zod. The behavioural limb that remains is B-6 (uat). It reads the over-limit embed refusal on production, and its one-issue count rests on zod 3.22.4. A B-6 PASS shows the serving code behaves as the lockfile's zod does. A B-6 reading other than one issue is the falsifier. The verdict does not move.
 
+**Reconcile 2026-11-20T13:48Z**: B-6 PASSED on production (uat-hooks-018, 13:45Z, `handoff/018-next-upgrade-save-size-cap-post-deploy-2026-11-20.md` § B-6): 50 embeds were refused with **1** issue, `too_big` at `message.data.embeds`. The serving code therefore behaves as the lockfile's zod 3.22.4 does on the surface M1-i rests on. The installed version itself is still not read, but the assumption's behavioural limb is closed. The verdict does not move.
+
 ## Process note
 
 The first write of this record carried a typed changelog stamp a minute ahead of the clock; the stamp gate hook refused it, and the row was re-stamped with the `date -u` minute through `record-edit.js` (gate satisfied, not worked around).
