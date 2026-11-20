@@ -213,3 +213,21 @@ post-deploy runner named UAT, the rest wording, no milestone added); the critiqu
   series. The pin changes one specifier and no installed version, and the closing pass reads the folded plan and landed code; neither
   waits on the other. QA's last Phase 2 still waits on the pin's code review; UAT on that Phase 2.
 - Architect briefed by message (last revision it read: 7, `af8a9d6`); implementer sent the pin, naming its Resumption State (`9774815`).
+
+## 2026-11-20T06:20Z — QA Complete at `d1bb9b0`; UAT and devops (M5-a) started
+
+Read this turn: `qa/018-next-upgrade-save-size-cap-m4-qa.md` header (`Verified-At` `d1bb9b0`, Status QA Complete; `62703f1`), the plan's
+Status (QA Complete, revision 8); code review `Reviewed-At` `d1bb9b0` (APPROVED on the pin); the architect's closing pass APPROVED
+(`a4d94ce`), its R3 carried by `handoff/018-m4-r3-navigation-limit-to-architecture-record-2026-11-20.md`.
+- **UAT** (`uat-hooks-018`) starts on QA's verdict: B-1, B-2 (both limbs), B-3 (R1, R2, R3, R5), B-9 and M5-d on a local build; B-4 on
+  the preview once devops reports B-5 `READY`. Brief `steering/018-brief-uat.md`.
+- **Devops** (`devops-hooks-018`) starts now for M5-a (the release-check branch; a non-master push builds a Vercel preview only, no
+  prompt, his 04:11Z selection), then Stage 1 after UAT and security. Brief `steering/018-brief-devops.md`.
+- **Dry run, 06:20Z:** `release-move.js website master d1bb9b0724cded3c3c303203c2cbafe5df7bbf96 --dry-run` from `/usr/local/bin/hooks`:
+  "DRY RUN: every check passed; nothing moved"; origin/master `7923a1d`, ff-from-remote ok, sibling serving refs none, workflows none
+  (`.github/workflows` absent).
+- **This thread's error, 06:20Z:** while composing the dry run, a command line also carried `release-move.js website master d1bb9b0a`
+  *without* `--dry-run`, output discarded, and was re-run once to read its refusal. Both refused: "'d1bb9b0a' does not name a commit …
+  nothing moved". Read after: `git ls-remote origin master` and local `master` both `7923a1d`; master's reflog's last entry 02:34:38Z. A
+  real move would also have refused for lacking `--qa-record`/`--reason`. The check that prevents it: never put a non-dry-run
+  release-move on a line built to read.
