@@ -24,6 +24,7 @@ Lane: "planned (not proposed small): the framework moves under every page"
 | 2026-11-20T04:16 | R-1 | planner-hooks-018 | Registers critique pass 3's F-17, F-18 (`f209354`, APPROVED with SL-1) and the architect's AF-8 (`9a58650`, APPROVED_WITH_CHANGES) as Planner batch rows; the fold waits on QA's re-key of revision 3. |
 | 2026-11-20T04:25 | 4 | planner-hooks-018 | Folds critique pass 3's F-17, F-18 (`f209354`), the architect's AF-8 (`9a58650`) and QA's re-key QAF-8 (`9218925`); new runs over the site's own schema: `verification/018/planning/union-cap-probe/` (a third plain union, `spacing`; created and returned counts made equal) and `strip-cap-probe/` (code-path-message refusals; an async stop leaves unhandled rejections). Scope delta: M1-i restated — it counts issues in the result, bounds each issue's size, and states its wiring (per-parse, shared, `ZodError`, synchronous); M1-a scoped over the cap and its issue named by `message`; M1-b compares code, path and message over the union sites. Size: five milestones; M1 unchanged in criteria count, M1-i larger in text. |
 | 2026-11-20T04:27 | R-2 | planner-hooks-018 | Registers the architect's APPROVED on revision 4 and AF-9 LOW (`29b6ff8`) as a Planner batch row. |
+| 2026-11-20T04:30 | R-3 | planner-hooks-018 | Registers critique pass 4 on revision 4 (`f13a0f3`, APPROVED) and its F-19, F-20 LOW as Planner batch rows. |
 
 ## Header
 
@@ -526,6 +527,8 @@ Precedent read on the surfaces this plan changes: 012 (embed caps), 013 D32/D47 
 | F-18 LOW: M1-a not stated over the cap | same, pass 3 (`f209354`) | Folded at revision 4: M1-a |
 | AF-8 MEDIUM (required before implementation approval): M1-i states its wiring's four constraints | `architecture/018-next-upgrade-save-size-cap-architecture-findings.md` (`9a58650`) | Folded at revision 4: M1-i *wiring* |
 | AF-9 LOW: the union isolation is one shared helper in `shapes.ts` beside the other two, used at all three sites, declared as `z.ZodType<…>` of the union's input and output (not `z.ZodUnion<T>`) | same, revision 4 read (`29b6ff8`) | Open: next revision, after the critic's and QA's reads of revision 4 |
+| F-19 LOW: M1-i's unit is an issue the parse's own uncapped result would carry; `7923a1d` stays M1-b's comparison only | `critiques/018-next-upgrade-save-size-cap-critique.md` pass 4 (`f13a0f3`) | Open: next revision, after QA's re-key of revision 4 |
+| F-20 LOW: the Planner batch's closing line names the revision-3 re-key, now committed; M1-i's "unchanged" wording trips the record check's OUT-OF-SCOPE warning | same, pass 4 (`f13a0f3`) | Open: next revision |
 
 QA Phase 1 before implementation: yes (stage set, block 02:53Z); its re-key on revision 3 is owed.
 
