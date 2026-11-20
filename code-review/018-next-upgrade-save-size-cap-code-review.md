@@ -2,7 +2,7 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Reviewed-At: "969d92a — repos=website; M3 Round 3 at 969d92a (APPROVED_WITH_COMMENTS); M1 Round 1 sub-entry 1 at a558f2d (APPROVED_WITH_COMMENTS); M2 Round 2 at b0b0158 (APPROVED_WITH_COMMENTS)"
+Reviewed-At: "d1bb9b0 — repos=website; CR-2 pin, Round 1 sub-entry 2 at d1bb9b0 (APPROVED); M3 Round 3 at 969d92a (APPROVED_WITH_COMMENTS); M1 sub-entry 1 at a558f2d (APPROVED_WITH_COMMENTS); M2 Round 2 at b0b0158 (APPROVED_WITH_COMMENTS)"
 Status: In Review
 Status-Detail: "M1 (a558f2d), M2 (b0b0158) and M3 (969d92a) each APPROVED_WITH_COMMENTS and handed to QA Phase 2. CR-2 is carried by the Planner batch; CR-5 goes to the implementer, with a Planner batch row for M2-b's wording."
 Round: 3
@@ -25,6 +25,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-20T05:43 | implementer-hooks-018 (fix at website `a558f2d`, documents `802917e`) | Round 1 sub-entry 1: re-review the M1 fix diff `b0b0158..a558f2d` | M1 **APPROVED_WITH_COMMENTS**. CR-1 closed: re-attacked through both procedures' input shapes before and after the fix, and the sweep and caller list re-run. CR-2 is carried by the Planner batch (ruling 05:42Z). CR-3 and CR-4 are reconciled. |
 | 2026-11-20T05:56 | implementer-hooks-018 (M3 document `8d72013`) | Round 3: review M3 at `969d92a` | APPROVED_WITH_COMMENTS. The lint differential reproduces on my own exports, and a location-level comparison finds no difference hidden behind an equal count. CR-5 LOW: the lockfile disposition cannot see 3 re-pointed production edges (generator-only path). CR-6 LOW: pre-existing convention FAILs in `global.d.ts`. |
 | 2026-11-20T05:57 | implementer-hooks-018 (reconcile `1010ca9`) | Round 3 sub-entry: CR-5's record correction | The instance is corrected, and the implementer's independent edge run equals mine. The class is carried by the Planner batch candidate. M3's verdict is unchanged. |
+| 2026-11-20T06:13 | implementer-hooks-018 (pin at website `d1bb9b0`, document `7c76319`) | Round 1 sub-entry 2: CR-2's zod pin | APPROVED. The exact specifier sits under `dependencies`, a frozen offline install exits 0 and resolves zod 3.22.4, and the diff is 1/1 per file. CR-2 is closed. CR-7 INFO: `paracord` and `project-utils` are git dependencies without a commit, pre-existing and a Planner batch candidate. |
 
 ## Scope and stage start
 
@@ -290,6 +291,44 @@ runs at `b639dbe^`, and does not run them.
 - **Falsity signature:** a vitest JSON at `a558f2d` with `numFailedTests > 0` or a non-zero exit, or either new spec passing at
   `c357095`.
 - **Owner:** QA Phase 2 on M1.
+
+## Round 1, sub-entry 2 — CR-2's zod pin at `d1bb9b0`
+
+**Scope:** the fix diff `969d92a..d1bb9b0`, recorded in the M2 implementation document's section "Zod pin (CR-2)" at agent-output
+`7c76319`. It changes two lines:
+- `package.json` `dependencies.zod`: `^3.20.6` → `3.22.4`;
+- the website importer's `zod` `specifier` in `pnpm-lock.yaml`.
+
+`git diff --numstat` gives 1/1 on each file, and no other line in either file changes. The fix lands after the Planner batch fold,
+as steering's ruling at 05:42Z set out. Nothing outside CR-2's scope changed, so this is a sub-entry of Round 1, not a new round.
+
+**CR-2: the class is gone, re-checked from first principles** (`verification/018/code-review/cr2-pin/`):
+- **Where pnpm reads the pin:** `zod` is under `dependencies`, with no `devDependencies` entry and no `pnpm.overrides`. pnpm does
+  read the importer's own `dependencies`, which is the gap audit I-6 named for `overrides`.
+- **Install and resolution:** in an isolated export of `d1bb9b0`, `pnpm install --frozen-lockfile --offline` exits 0. `zod`
+  resolved from `src/server/api/utils` (where `cappedInput` imports it) is 3.22.4.
+- **Can the manifest still admit 3.23 or later?** No. The specifier is exact, so no install can resolve a version where `makeIssue`
+  skips the error map. The implementer's control shows that a lockfile disagreeing with the manifest is refused under
+  `--frozen-lockfile`: `package.json` edited alone exits 1.
+- **Two-part disposition:**
+  - The class is gone: the specifier admits 3.22.4 only.
+  - Checks that fail if it returns: `shapes.error-cap.test.ts` "the plain unions of the message shape" (the map-call count, which by
+    reading goes to `created: 0` under 3.23+) and `--frozen-lockfile` refusing a specifier and lockfile that disagree.
+- **Unchanged:** the resolved version stays 3.22.4, so no edge moves. The suite, typecheck and build results at `d1bb9b0` are the
+  implementer's runs, which I did not re-run.
+
+**CR-7 INFO Round 1 Dependency (pre-existing; the implementer's report)**: `paracord` is an unpinned git dependency
+- **Location**: website `package.json` `paracord` (`github:mr-tech/paracord`, no commit). The lockfile records `3f20308` (0.0.5).
+- **Class**: A git dependency without a commit lets any lockfile regeneration move it.
+  - The implementer saw `pnpm install --lockfile-only` re-resolve it to `1b7cadb` (0.0.9), carrying a second `zod` tree. I did not
+    re-run that.
+  - Frozen installs are not affected.
+- **Enumeration**: `git show d1bb9b0:package.json` lists `github:` dependencies without a `#<sha>` (`paracord`) and with a branch
+  (`project-utils#master`). Both re-resolve on regeneration. What the predicate cannot see: tarball or URL dependencies.
+- **Required Action**: none in this chain. It predates it. Pinning both by commit is a Planner batch candidate (`pinned-dep-shipping`
+  covers the method). The implementer was right to discard the regenerated lockfile and edit the one specifier line by hand.
+
+**Verdict (Round 1, sub-entry 2):** **APPROVED** at `d1bb9b0` for CR-2. The M1 and M2 verdicts are unchanged.
 
 ## Round 2 — M2 at `b0b0158`
 
