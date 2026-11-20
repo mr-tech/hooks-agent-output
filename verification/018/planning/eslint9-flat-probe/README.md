@@ -10,7 +10,7 @@ Export of website at 7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe (git archive) into
 
 Verdict: it loads (3 iterations of 8).
 
-## Peer-dependency warnings (verbatim from add.log)
+## Peer-dependency warnings (verbatim from add-log.txt)
 ```
  WARN  Issues with peer dependencies found
 .

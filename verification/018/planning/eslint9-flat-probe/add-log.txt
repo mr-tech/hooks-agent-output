@@ -1,0 +1,68 @@
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated @vercel/edge-config@0.2.0: This version is no longer supported. Please upgrade to the latest version.
+ WARN  deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 590, reused 555, downloaded 2, added 0
+Progress: resolved 1404, reused 1344, downloaded 8, added 0
+ WARN  10 deprecated subdependencies found: are-we-there-yet@2.0.0, basic-ftp@5.0.3, gauge@3.0.2, glob@7.2.3, glob@8.1.0, inflight@1.0.6, npmlog@5.0.1, sourcemap-codec@1.4.8, tar@6.2.0, uuid@3.4.0
+Progress: resolved 1508, reused 1423, downloaded 11, added 0
+Packages: +54 -70
+++++++++++++++++++++++++++++++++++----------------------------------------------
+Progress: resolved 1508, reused 1423, downloaded 11, added 54, done
+ WARN  Issues with peer dependencies found
+.
+├─┬ @typescript-eslint/parser 5.62.0
+│ └── ✕ unmet peer eslint@"^6.0.0 || ^7.0.0 || ^8.0.0": found 9.39.5
+├─┬ @typescript-eslint/eslint-plugin 5.62.0
+│ ├── ✕ unmet peer eslint@"^6.0.0 || ^7.0.0 || ^8.0.0": found 9.39.5
+│ └─┬ @typescript-eslint/type-utils 5.62.0
+│   └─┬ @typescript-eslint/utils 5.62.0
+│     └── ✕ unmet peer eslint@"^6.0.0 || ^7.0.0 || ^8.0.0": found 9.39.5
+├─┬ eslint-config-airbnb 19.0.4
+│ ├── ✕ unmet peer eslint@"^7.32.0 || ^8.2.0": found 9.39.5
+│ ├── ✕ unmet peer eslint-plugin-react-hooks@^4.3.0: found 7.1.1
+│ └─┬ eslint-config-airbnb-base 15.0.0
+│   └── ✕ unmet peer eslint@"^7.32.0 || ^8.2.0": found 9.39.5
+├─┬ eslint-plugin-promise 6.1.1
+│ └── ✕ unmet peer eslint@"^7.0.0 || ^8.0.0": found 9.39.5
+├─┬ vite 8.0.3
+│ └── ✕ unmet peer sass@^1.70.0: found 1.56.2
+├─┬ next-auth 4.24.5
+│ ├── ✕ unmet peer next@"^12.2.5 || ^13 || ^14": found 16.1.6
+│ ├── ✕ unmet peer react@"^17.0.2 || ^18": found 19.2.4
+│ └── ✕ unmet peer react-dom@"^17.0.2 || ^18": found 19.2.4
+├─┬ react-accessible-accordion 5.0.1
+│ ├── ✕ unmet peer react@"^16.3.2 || ^17.0.0 || ^18.0.0": found 19.2.4
+│ └── ✕ unmet peer react-dom@"^16.3.3 || ^17.0.0 || ^18.0.0": found 19.2.4
+├─┬ react-slider 2.0.4
+│ └── ✕ unmet peer react@"^16 || ^17 || ^18": found 19.2.4
+└─┬ react-use 17.4.0
+  ├── ✕ unmet peer react@"^16.8.0  || ^17.0.0 || ^18.0.0": found 19.2.4
+  └── ✕ unmet peer react-dom@"^16.8.0  || ^17.0.0 || ^18.0.0": found 19.2.4
+
+devDependencies:
++ @eslint/eslintrc 3.3.7
+- @eslint/js 10.0.1
++ @eslint/js 9.39.5 (10.0.1 is available)
+- @next/eslint-plugin-next 16.1.6
++ @next/eslint-plugin-next 16.4.6
+- eslint 8.57.1
++ eslint 9.39.5 (10.15.0 is available) deprecated
+- eslint-config-next 15.5.14
++ eslint-config-next 16.4.6
+- eslint-plugin-import 2.29.0
++ eslint-plugin-import 2.32.0
+- eslint-plugin-react 7.33.2
++ eslint-plugin-react 7.37.5
+
+╭ Warning ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│   Ignored build scripts: @prisma/client@4.14.1, @prisma/engines@4.11.0,      │
+│   @prisma/engines@5.3.1, @vercel/speed-insights@1.0.10, bufferutil@4.0.7,    │
+│   esbuild@0.14.47, prisma@4.11.0, protobufjs@7.2.4, protobufjs@7.5.4,        │
+│   sharp@0.34.5, utf-8-validate@5.0.10.                                       │
+│   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+│   to run scripts.                                                            │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Done in 4.2s using pnpm v10.28.2
