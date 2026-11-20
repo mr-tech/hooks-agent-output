@@ -6,3 +6,6 @@ S1 element: link button style = long string (literal) | BAD_REQUEST | top-level 
 S1 element: link button type = long string (literal, not a discriminator) | BAD_REQUEST | top-level issues 1 | message chars 100255 | input string chars 100000 | carries the input: true
 section accessory: type = long string (union of two shapes) | BAD_REQUEST | top-level issues 1 | message chars 202071 | input string chars 100000 | carries the input: true
 separator spacing = long string (union of two literals) | BAD_REQUEST | top-level issues 1 | message chars 201005 | input string chars 100000 | carries the input: true
+section child: text display type = long string (literal outside a discriminated union) | BAD_REQUEST | top-level issues 1 | message chars 100257 | input string chars 100000 | carries the input: true
+control, container child: text display type = long string (discriminator) | BAD_REQUEST | top-level issues 1 | message chars 339 | input string chars 100000 | carries the input: false
+thumbnail accessory: type = long string inside the union | BAD_REQUEST | top-level issues 1 | message chars 201727 | input string chars 100000 | carries the input: true

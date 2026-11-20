@@ -8,9 +8,12 @@ For each label:
   len <= bound: (plan rev 3 M1-b, M1-i) for the two procedures, where base records k issues the tip carries base's
                 first min(k, CAP) issues in order, followed by exactly one summary issue at path [] when k > CAP;
                 for the client `import` schema (not capped) the tip equals the base exactly.
-  len >  bound: tip must hold exactly one issue, code too_big, maximum == bound, path == the list's path,
-                no issue inside the list, and no throw (M1-a); base refused iff tip refused at the six
-                sites bounded today (M1-c); at the five new bounds tip refuses (M1-c).
+  len >  bound: tip must hold exactly one issue, code too_big, message zod's "Array must contain at most <bound>
+                element(s)", path == the list's path, no issue inside the list, and no throw (plan rev 4 M1-a; the
+                inputs here have no other issue, so the list's issue is never behind the cap); base refused iff tip
+                refused at the six sites bounded today (M1-c); at the five new bounds tip refuses (M1-c).
+Issues are compared on code, path and message (plan rev 4 M1-b); the capture carries only those three fields.
+Sites UA and US are the plain-union sites (accessory, spacing) as n top-level components, always within S10's bound.
 Prints one line per violation and a summary; exits 1 on any violation.
 Positive control: run it with base.json as both arguments and a hand-edited tip, or against the base
 capture alone with `--self-check`, which must report the over-bound violations base carries today.
@@ -18,7 +21,8 @@ capture alone with `--self-check`, which must report the over-bound violations b
 import json
 import sys
 
-BOUNDS = {'S1': 5, 'S2': 3, 'S3': 10, 'S4': 40, 'S5': 25, 'S6': 3, 'S7': 100, 'S8': 100, 'S9': 10, 'S10': 40, 'S11': 11}
+BOUNDS = {'S1': 5, 'S2': 3, 'S3': 10, 'S4': 40, 'S5': 25, 'S6': 3, 'S7': 100, 'S8': 100, 'S9': 10, 'S10': 40, 'S11': 11,
+          'UA': 40, 'US': 40}
 BOUNDED_TODAY = {'S1', 'S2', 'S3', 'S5', 'S9', 'S10'}
 CAP = 20  # plan rev 3 M1-i (AD-5), a literal
 
@@ -31,6 +35,8 @@ def within_bound_ok(proc, b, t):
         return False
     ti = t['issues']
     return ti[:CAP] == b['issues'][:CAP] and len(ti) == CAP + 1 and ti[CAP]['path'] == []
+
+
 LIST_PATH = {
     'S1': ['components', 0, 'components'], 'S2': ['components', 0, 'components'], 'S3': ['components', 0, 'items'],
     'S4': ['components', 0, 'components'], 'S5': ['embeds', 0, 'fields'], 'S6': ['allowed_mentions', 'parse'],
@@ -56,8 +62,9 @@ def check_over(label, proc, site, rec):
     for i in issues:
         if i['path'][:len(path)] == path and len(i['path']) > len(path):
             out.append(f'{label}: issue inside the list at {i["path"]}')
-    if issues and not (issues[0]['code'] == 'too_big' and issues[0].get('maximum') == bound and issues[0]['path'] == path):
-        out.append(f'{label}: first issue {issues[0]}, want too_big max {bound} at {path}')
+    want = f'Array must contain at most {bound} element(s)'
+    if issues and not (issues[0]['code'] == 'too_big' and issues[0].get('message') == want and issues[0]['path'] == path):
+        out.append(f'{label}: first issue {issues[0]}, want too_big "{want}" at {path}')
     return out
 
 

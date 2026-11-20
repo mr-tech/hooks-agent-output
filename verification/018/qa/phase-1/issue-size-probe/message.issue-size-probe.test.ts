@@ -41,6 +41,12 @@ describe('one issue, size of the refusal message', () => {
     await measure('S1 element: link button type = long string (literal, not a discriminator)', { components: [{ type: 1, components: [{ ...btn, type: BIG }] }] }, out);
     await measure('section accessory: type = long string (union of two shapes)', { components: [{ type: 9, components: [{ type: 10, content: 'x' }], accessory: { type: BIG } }] }, out);
     await measure('separator spacing = long string (union of two literals)', { components: [{ type: 14, divider: true, spacing: BIG }] }, out);
+    // Plan rev 4 enumeration: textDisplayShape.type is a discriminator inside the two discriminated unions, but sectionShape.components
+    // is a plain z.array(textDisplayShape), so there it is an ordinary literal.
+    const acc = { type: 11, media: { url: 'https://a.b' } };
+    await measure('section child: text display type = long string (literal outside a discriminated union)', { components: [{ type: 9, components: [{ type: BIG, content: 'x' }], accessory: acc }] }, out);
+    await measure('control, container child: text display type = long string (discriminator)', { components: [{ type: 17, components: [{ type: BIG, content: 'x' }] }] }, out);
+    await measure('thumbnail accessory: type = long string inside the union', { components: [{ type: 9, components: [{ type: 10, content: 'x' }], accessory: { ...acc, type: BIG } }] }, out);
     writeFileSync(process.env.PROBE_OUT as string, `${out.join('\n')}\n`);
   });
 });

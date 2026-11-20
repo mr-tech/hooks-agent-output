@@ -4,15 +4,16 @@ Origin: 018
 UUID: 6273a762
 Verified-At: "7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe — repos=website; Phase 1 reads and probes only, no verdict; probes ran in an isolated export of this commit (shapes.ts blob 1c13ca2 verified equal)"
 Status: Awaiting Implementation
-Status-Detail: "Phase 1 re-keyed to plan revision 3 (agent-output 428090e). QAF-1 to QAF-7 resolved; QAF-8 HIGH (M1-i: one issue echoes the input, so a count cap does not bound the error) to planner-hooks-018. M1-i strategy and named mutants added; register B-1 to B-8 re-specified."
+Status-Detail: "Phase 1 re-keyed to plan revision 4 (agent-output 29277d3). QAF-1 to QAF-8 resolved; QAF-9 LOW (M1-i's literal-position list misses a section child's text-display type) to planner-hooks-018. Differential moved to the callers (code, path, message); register B-1 to B-8 unchanged this pass."
 Phase: 1
 ---
 
 # QA Report: Plan 018 — Next.js 16.4.6 and the save-list cap (H-002, M-001)
 
-**Plan Reference**: `agent-output/planning/018-next-upgrade-save-size-cap.md`, revision 3 (`428090e`). Re-keyed from revision 2
-(`7a1bd46`) by reading the `git diff 7a1bd46 428090e` of the plan whole, as revision 2 was re-keyed from revision 1 (`c2a6b85`). The
-plan's owed re-verdicts name QA's re-key for M1-b, M1-g, M1-h and M1-i, and for M4 and M5.
+**Plan Reference**: `agent-output/planning/018-next-upgrade-save-size-cap.md`, revision 4 (`29277d3`). Re-keyed from revision 3
+(`428090e`) by reading the `git diff 428090e 29277d3` of the plan whole. Each earlier revision was re-keyed the same way: revision 3 from
+2 (`7a1bd46`), and revision 2 from 1 (`c2a6b85`). The plan's owed re-verdicts name QA's re-key for M1-a's instrument and M1-b's
+comparison. Revision 4 moves no register row: M1-g, M1-h, M4 and M5 are unchanged in it.
 **Brief**: `steering/018-brief-qa.md` (`96612e1`); common part `steering/018-brief-common.md`; rulings `steering/018-rulings.md` block
 2026-11-20T03:25Z (X-1 to X-15 accepted).
 **Architecture read**: `architecture/website.md` W-2, A-1, A-4; `architecture/system-architecture.md` not re-read beyond the plan's
@@ -26,6 +27,7 @@ citation of line 110 (nothing in this pass rests on it).
 | 2026-11-20T03:43 | steering-roadmap-hooks (brief `96612e1`) | QA Phase 1 on revision 1 | Phase 1: strategy per milestone, populations measured, three probes run in an isolated export of `7923a1d` and captured under `verification/018/qa/phase-1/`; differential instrument for M1-b/M1-c built with its controls; findings QAF-1 to QAF-5 (1 HIGH, 3 MEDIUM, 1 LOW) to the planner; Irreversible Side-Effect Register; blocking-condition register B-1 to B-8; three QA-owned handoffs dispositioned. |
 | 2026-11-20T04:12 | planner-hooks-018 (revision 2, `7a1bd46`) | Phase 1 re-key on revision 2 | Phase 1 re-key. The plan's diff was read whole. QAF-1..5 RESOLVED (disposition lines). The planner's abort-form probe was re-tallied (182/182). QAF-6 MEDIUM (R7 cites a superseded 015 row and a fix 015 dropped) and QAF-7 LOW (M1-h's carrier) go to the planner. The differential was extended (1134 labels: b+50, nested kind, the import schema), with the base re-captured and its controls re-run. Production base reads were made over HTTP on hooks.gg (M1-h 51 issues; B-8 minting; Next 16.1.6), which closes the earlier Assumption Not Checked. Zod was shown not to move under the M2 package step. Register rows B-1..B-8 were re-specified with dated reconcile lines; B-4/B-5 are held on OQ-5. |
 | 2026-11-20T04:21 | planner-hooks-018 (revision 3, `428090e`) | Phase 1 re-key on revision 3 | Phase 1 re-key. The plan's diff was read whole. QAF-6 and QAF-7 RESOLVED; QAF-8 HIGH to the planner (one issue echoes its input: a 100,000-char `parse` element gives a 301,470-char refusal, so a count cap does not bound the error). M1-i premises run on the async path tRPC uses: same issue order; the stop holds; 21 lines via `formatMutationError`. A read-count instrument separates a real stop (63 reads) from full-then-trim (4800). `compare.py` was moved to M1-b over the cap, with a positive control (68) and a negative control (0). NM-9..NM-13 added. Register: B-2 set-up; B-4/B-5 hold lifted (D-8); B-6 carrier adopted. |
+| 2026-11-20T04:30 | planner-hooks-018 (revision 4, `29277d3`) | Phase 1 re-key on revision 4 | Phase 1 re-key. The plan's diff was read whole. QAF-8 RESOLVED. QAF-9 LOW goes to the planner: M1-i's literal-position list misses a section child's text-display `type`, which echoes 100,257 chars from one issue; QA's full enumeration is recorded. Differential v3 now runs through the callers on `code`/`path`/`message`, with plain-union pseudo-sites. Base re-captured (1224 labels); controls 18224 / 84 = 84 / 0. NM-14..NM-17 added. My revision-3 claim that the async stop holds is corrected: one body read as a class, with no rejection watch; plan rev 4 requires a synchronous stop. Register unchanged. |
 
 ## Findings (Phase 1)
 
@@ -51,47 +53,34 @@ QAF-6 MEDIUM Phase 1 RESOLVED — plan rev 3 M4: R7 has left the class, disposit
 QAF-7 LOW Phase 1 RESOLVED — plan rev 3 M1-h: the after read is a row of devops's Stage-1 post-deploy handoff, with
 `Owning-Stage: uat`, and it cites QA's base read. Argument at commit `e8f18ef`.
 
-QAF-8 HIGH Phase 1
-- **Property:** M1-i *no huge error*, his D-9 phrase "so no save can build a huge error", and its limb "the refusal's `message` is at
-  most 16 KB".
-- **Defect:** a single issue can carry the input it refused, so capping the issue **count** at 20 does not bound the message.
-  - zod 3.22.4 records `received: <the input value>` on `invalid_literal`.
-  - An `invalid_union` issue nests each branch's errors under `unionErrors`, and tRPC's message is the JSON of the issue list, so
-    the received value is repeated once per branch.
-- **Run** through the real `message.upsert` caller at `7923a1d` (`verification/018/qa/phase-1/issue-size-probe/report.txt`):
+QAF-8 HIGH Phase 1 RESOLVED — plan rev 4 M1-i *no huge error*: every issue of every refusal (k of 1 included) carries exactly
+`code`, `path` and `message`. The 16 KB population includes one long value at each literal position, and S6 at its bound. The
+planner's `strip-cap-probe/` shows 168 to 512 characters on QAF-8's inputs, with client lines equal to the base. Argument at commit
+`9218925`.
 
-  | Input | Issues | Message chars | Carries the input |
-  |---|---|---|---|
-  | `allowed_mentions.parse: [100,000-char string]` | 1 | **301,470** | yes |
-  | `parse` at its bound of 3, each 100,000 chars | 3 | **904,406** | yes |
-  | control: a discriminated union's `type`, 100,000 chars | 1 | 325 | no |
-  | control: `users` with a 100,000-char id | 1 | 194 | no |
-
-  Within the 1 MB body limit, about three times the body comes back from one save, at an issue count M1-i leaves untouched (1 ≤ 20).
-- **Why the plan's instrument misses it:** the limb is checked on steering's within-bound worst case and on M1-a's over-limit bodies.
-  Neither carries a long value at a literal position, so a count-only cap passes every case the plan names.
-- **The class, by its definition, not by instance:** every position whose failure records `received` — a `z.literal`, or a `z.union`
-  of literals — that is not the discriminator of a `z.discriminatedUnion` (checked first; the control above). At `7923a1d` in
-  `shapes.ts` that is:
-  - S6's element (`parse`, a union of three literals);
-  - `linkButtonShape.type` and `style` (literals, reached as S1's elements and as a section accessory);
-  - `sectionShape.accessory` (`z.union([thumbnailShape, linkButtonShape])`);
-  - `separatorShape.spacing` (a union of two literals);
-  - each shape's own `type` literal where it is not a discriminator: the accessory's branches.
-  Each named position was run with one 100,000-char value (same `report.txt`), and each carries the input:
-  - a link button's `style`: 100,256 chars;
-  - a link button's `type`: 100,255;
-  - the section accessory's `type`: 202,071;
-  - a separator's `spacing`: 201,005.
-  QA re-derives the full membership at Phase 2 by grep over `z.literal(` and `z.union(` in `shapes.ts` and `user.ts`, with the
-  discriminator positions excluded by name.
-- **Ask:**
-  - M1-i's *no huge error* limb names this input class in its population (one long value at each member position, and at the bound
-    of S6).
-  - The mechanism bounds the size of each issue as well as the count. For example, the refusal carries `code`, `path` and `message`
-    only (the three fields `looksLikeZodIssues` needs), with no `received` and no nested `unionErrors`. Whether that keeps the
-    client's lines (A-1) as they are is the architect's to read.
-  - Named mutant NM-13 below.
+QAF-9 LOW Phase 1
+- **Property:** M1-i *no huge error*, its population list "at `7923a1d`: `parse`'s element, also three at its bound;
+  `linkButtonShape.type` and `.style`; the accessory and its branches' `type`; `spacing`".
+- **Defect:** the list misses one member that the class's own predicate admits: `textDisplayShape.type`. It is a discriminator inside
+  the two `z.discriminatedUnion`s, but `sectionShape.components` is a plain `z.array(textDisplayShape)`, so there it is an ordinary
+  `z.literal(10)`.
+- **Enumeration** (QA's, as M1-i assigns it): the predicate is a `z.literal(` or `z.union(` position in `shapes.ts` or `routers/user.ts`
+  at `7923a1d`, excluding any position reached only as a discriminator. That covers 12 `z.literal(` lines and 3 `z.union(` lines in
+  `shapes.ts`, and none in `user.ts` (`grep -c`). Members:
+  - `linkButtonShape.type` and `.style`;
+  - `textDisplayShape.type` inside a section;
+  - `thumbnailShape.type` (an accessory branch);
+  - `sectionShape.accessory`;
+  - `separatorShape.spacing`;
+  - the element of `parse`.
+  Excluded as discriminator-only: the `type` of action row, section, media gallery, file, separator and container.
+- **Run** (`verification/018/qa/phase-1/issue-size-probe/report.txt`, one 100,000-char value, real `message.upsert` caller):
+  - a section child's text-display `type`: one issue, **100,257** chars, carries the input;
+  - the same position in a container child (a discriminator): 339 chars, no echo;
+  - the thumbnail accessory's `type`: 201,727 chars.
+- **Why LOW:** the plan's mechanism (strip to three fields) covers every member, so only the stated population is short. QA's cases
+  use the full enumeration above whatever the plan says.
+- **Ask:** correct the list in M1-i, or cite this enumeration in its place.
 
 ## Test Strategy (Pre-Implementation)
 
@@ -151,6 +140,14 @@ Each phrase has its own instrument, all through the procedures' real path. tRPC 
     well defined on the route's path.
   - A contextual error map that throws on the 21st issue stops the async parse there: 21 error-map calls, and 0 calls after the
     throw during a 50 ms wait. The planner's sync premise holds on the async path too.
+  - **Correction 2026-11-20 (plan rev 4 re-key):** "holds on the async path too" overstated one body as the class. This run used one
+    input and did not watch for unhandled rejections. The planner's async variant (`verification/018/planning/strip-cap-probe/`,
+    `strip-report-async.txt`) stopped inside `safeParseAsync` on other bodies. It left three unhandled rejections (vitest exit 1),
+    and kept a different first 20 for one body (`steering B_sections_only`).
+    - What stands from this run: on a **complete** parse, the sync and async orders are equal, which is all M1-b needs.
+    - What does not stand: a stop inside the async parse being safe. Plan rev 4 M1-i *wiring* requires a synchronous stopping parse,
+      so this run's conclusion is not relied on anywhere.
+    - The method failure: one input, read as a class, with no rejection watch.
 - ***Stop checking* is observed from outside the parse by counting reads.** A test calling the procedure cannot inject its own error
   map, because the implementation owns the parse. The instrument is an input whose elements count reads of their properties through
   getters. Run in this pass (`error-cap-async-probe/read-count-report.txt`; 40 containers × 40 invalid text displays):
@@ -210,6 +207,17 @@ Each phrase has its own instrument, all through the procedures' real path. tRPC 
   by the differential's `updatePreferences` labels with k > 20 (68 such labels at base, counted over both procedures).
 - **NM-13** (M1-i *no huge error*, QAF-8): the cap bounds the count only. Wrong change: the 20 issues are sent as zod built them,
   `received` and `unionErrors` included; one 100,000-char `parse` element returns about 300,000 chars.
+- **NM-14** (M1-i *no huge error*, plan rev 4 "k of 1 included"): the strip runs only on the capped path. Wrong change: a refusal of
+  20 or fewer issues is passed through unreduced, so one long `parse` element still returns about 300,000 chars. Caught by the
+  per-member long-value cases (QAF-9's enumeration), each a refusal of one issue.
+- **NM-15** (M1-i *wiring*, per parse): the count lives at module scope. Wrong change: a module-level counter, or `z.setErrorMap`, is
+  not reset per parse. Caught by two concurrent refusals (`Promise.all` over two callers, each with 15 issues), which must each keep
+  their own 15, and by the second of two sequential refusals.
+- **NM-16** (M1-i *wiring*, synchronous stop): the stop is placed inside `safeParseAsync`. Wrong change: the async form of the
+  planner's `strip-cap-probe` async variant. Caught by the suite's process exit code (an unhandled rejection exits 1 with every case
+  passing; workspace `CLAUDE.md`), and by the differential's first-20 order on steering's sections-only body.
+- **NM-17** (M1-a, plan rev 4): the list's issue loses zod's wording. Wrong change: the M1-d helper records its own `message`; caught by
+  `compare.py`'s message match, "Array must contain at most <bound> element(s)".
 
 ### Testing Infrastructure
 
@@ -234,6 +242,21 @@ Each phrase has its own instrument, all through the procedures' real path. tRPC 
       from the capture). An uncapped tip fails the rule.
     - Negative control: a planted tip, capped correctly, gives 0 within-bound violations
       (`differential/planted-capped-tip.txt`).
+  - **Reconcile 2026-11-20 (plan rev 4 M1-a, M1-b, M1-i wiring): version 3, driven through the callers.** Test file sha256
+    `d597c91a…`; `compare.py` sha256 `6dd66ac7…`.
+    - Each input goes through `messageRouter`/`userRouter` `.createCaller`, not `_def.inputs[0]`, so whatever wraps the procedures'
+      input at the tip is exercised.
+    - Each refusal is read as tRPC's message JSON and reduced to `code`, `path` and `message`. "Accepted" means the call reached the
+      database proxy's sentinel ("past the input stage").
+    - M1-a's list issue is matched on `message`, zod's "Array must contain at most <bound> element(s)".
+    - Two pseudo-sites carry the plain unions, failing alone and mixed: UA (section accessory) and US (separator spacing), with
+      n ∈ {1, 6, 20, 21, 40} top-level components, always within S10's bound.
+    - Base re-captured in a fresh export of `7923a1d` (`shapes.ts` blob `1c13ca2` verified), exit 0: 1224 labels (401 `upsert`, 422
+      `updatePreferences`, 401 `import`). 390 inputs were accepted; the only throws are the six known `import S1 … null`.
+    - Spot reads: `S11 n=61 string` accepted at base; `UA n=21 invalid` refused with 21 `invalid_union` issues.
+    - Controls: `--self-check` 18224 (non-zero). Base-vs-base flags 84 within-bound labels, equal to the independently counted
+      within-bound procedure labels with k > 20, and 0 import-preprocess labels. A planted, correctly capped tip gives 0
+      (`planted-capped-tip.txt`).
   - **Residue, outside the class:** the base capture shows `discordMessageImportShape` throws `TypeError` on a `null` button inside an
     action row (6 labels, `import S1 n≥1 null`): `filterActionRowButtons` reads `button.type`. This happens only on the client. The
     JSON view's `useEffect` catches it and shows the raw message as its error. Not a finding: it is pre-existing, client-only on the
@@ -329,6 +352,13 @@ caller probe's 51 if it were false. B-6's first executor run closes it (owner: q
 message over the wire exactly as the caller returns it. That was seen for the uncapped 51-issue refusal at 04:09Z, but not for a
 message built by M1-i's wrapper, which does not exist yet. The signature of its falsity is an issue count or message size over HTTP
 that differs from the caller's at the tip. Owner: QA at Phase 2 (one HTTP read against the local build at the tip), then UAT at B-6.
+
+**Re-key on plan revision 4.** This pass assumes, and does not test, that the differential's caller context reaches the input stage
+through the same middleware as the HTTP route. That context is a session object with `guilds: []`, a database proxy and an empty
+`req`. If the tip adds a middleware ahead of input validation that reads a context field the probe fakes, the differential would read
+that middleware's outcome as a refusal or an acceptance. The signature of its falsity: at the tip, a label whose caller result
+disagrees with one HTTP read of the same input on the local build. Owner: QA at Phase 2, on the same local-build HTTP read owed
+above.
 
 ## Implementation Review (Post-Implementation)
 
