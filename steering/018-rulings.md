@@ -18,3 +18,29 @@ By the planner's message: ID 018 minted at agent-output `2b7b2de` (`.next-id` no
 - The tmux category stays `website-deps-upgrade`. `tmux-agent` has no command that moves a live session to another category, and one
   category per chain still holds.
 - The planner's session is renamed `planner-hooks-018` at its first idle (`tmux-agent rename` refuses a busy session).
+
+## 2026-11-20T03:25Z — plan 018 revision 0 received; OQ-1 and the Exclusions register put to him; his answers
+
+**Received:** `planning/018-next-upgrade-save-size-cap.md` revision 0 (`4a166fd`), read this turn. Its changelog row reads "Scope delta: none
+against block 02:53Z". The planner's message carried OPEN QUESTION OQ-1 (the lint package) and the cue for the critic, architect and QA
+Phase 1. The planner session was renamed `planner-hooks-018` at 03:2xZ.
+**Refutation (a `general-purpose-sonnet` helper, briefed with the conclusions alone; evidence `verification/018/steering/refute-lint/`):**
+both confirmed.
+- ESLint 8.57.1 loads `eslint-config-next` 15.5.14 (exit 0) and fails to load 16.4.6 (exit 2, "Converting circular structure to JSON",
+  in config validation).
+- Nothing runs lint automatically: no `.github` at `origin/master`, `core.hooksPath` unset, `.git/hooks` samples only. Next 16.1.6's
+  build has no lint step (`verifyAndLint`/`runLintCheck` 0 in `dist/build/index.js`).
+**Selection prompt, answered 03:25Z** (ledger `steering/selection-ledger/2026-11-20.md`, block "2026-11-20T03:25Z — steering-roadmap-hooks";
+wording this thread's):
+- Q "Lint pkg": options "Agent: hold it at 15.5.14 (Recommended)" / "Agent: add an ESLint 9 milestone" / "Agent: hold it, no record".
+  **His answer, typed: "you can upgrade any packages to anything deemed useful"**. His words, not a listed option.
+  - This thread's reading: they lift the narrowing the recommended option carried, so `eslint-config-next` moves to 16.4.6 with what it
+    needs: ESLint 9, a flat config, and `@typescript-eslint` 5 → 8. That is the "ESLint 9 milestone" limb.
+  - His words admit further package upgrades the chain judges useful. Each is recorded in the plan as a scope delta with its reason,
+    and steering tells him of each at the next prompt; none needs a separate ask.
+  - Not read as reopening X-1 (zod 4): his second answer accepted the Exclusions as written.
+- Q "Exclusions": **Agent: accept as written (Recommended)** — CHOSEN, by selection. "Agent leaves all of them out; each keeps its
+  stated limit or handoff record, and the plan proceeds to critique." X-1 to X-15 of revision 0 are accepted. Not chosen: "Agent: also
+  fix recent-ids"; "Agent: discuss first".
+**Next:** the planner registers both answers in revision 1, with the ESLint 9 milestone. The critic (first pass at xhigh), the architect
+(conformance) and QA Phase 1 then start on revision 1. X-10's handoff stays open; its fired trigger is dispositioned in it when M1 lands.

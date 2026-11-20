@@ -1,0 +1,42 @@
+== scripts
+{
+ "lint": "eslint --fix . --max-warnings=0",
+ "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.test.json",
+ "test": "vitest run",
+ "test:watch": "vitest",
+ "build": "next build",
+ "lang": "ts-node -r tsconfig-paths/register ./lang/build",
+ "push-commands": "ts-node -r tsconfig-paths/register -r dotenv/config bot/scripts/publishAppCommands.ts dotenv_config_path=.env.local",
+ "backfill-valid": "ts-node -r tsconfig-paths/register -r dotenv/config src/scripts/backfillValid.ts dotenv_config_path=.env.local",
+ "start": "next dev",
+ "analyze": "ANALYZE=true next build",
+ "update-next": "npm i next@latest @next/bundle-analyzer@latest @next/eslint-plugin-next@latest eslint-config-next@latest @next-auth/prisma-adapter@latest @next/bundle-analyzer@latest @trpc/next@latest cookies-next next-auth@latest @vercel/node@latest",
+ "update-headlessui": "npm i @headlessui/react@latest @headlessui/tailwindcss@latest"
+}
+husky/lint-staged/simple-git-hooks keys: husky:false lint-staged:false simple-git-hooks:false
+== next.config
+next.config.js
+0
+== .github at origin/master
+rc 0
+0
+== hooksPath
+rc 1
+== hooks dir
+applypatch-msg.sample
+commit-msg.sample
+fsmonitor-watchman.sample
+post-update.sample
+pre-applypatch.sample
+pre-commit.sample
+prepare-commit-msg.sample
+pre-push.sample
+pre-rebase.sample
+pre-receive.sample
+update.sample
+== next version
+  "version": "16.1.6",
+== build lint step
+0
+ugrep: warning: node_modules/next/dist/lib/verifyAndLint.js: No such file or directory
+1

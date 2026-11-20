@@ -1,0 +1,9 @@
+== locked versions
+v8.57.1
+  "version": "15.5.14",
+== print-config
+exit 0
+Running scope as unit: run-r37a58021454e44eda2a38072104ba1b8.scope
+== lint
+Running scope as unit: run-r3e1718534cee4693a1ce3a4a817f4de2.scope
+exit 0

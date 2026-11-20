@@ -1,0 +1,61 @@
+│ └── ✕ unmet peer react-dom@"^17.0.2 || ^18": found 19.2.4
+├─┬ react-accessible-accordion 5.0.1
+│ ├── ✕ unmet peer react@"^16.3.2 || ^17.0.0 || ^18.0.0": found 19.2.4
+│ └── ✕ unmet peer react-dom@"^16.3.3 || ^17.0.0 || ^18.0.0": found 19.2.4
+├─┬ react-slider 2.0.4
+│ └── ✕ unmet peer react@"^16 || ^17 || ^18": found 19.2.4
+└─┬ react-use 17.4.0
+  ├── ✕ unmet peer react@"^16.8.0  || ^17.0.0 || ^18.0.0": found 19.2.4
+  └── ✕ unmet peer react-dom@"^16.8.0  || ^17.0.0 || ^18.0.0": found 19.2.4
+
+devDependencies:
+- eslint-config-next 15.5.14
++ eslint-config-next 16.4.6
+
+Done in 3.9s using pnpm v10.28.2
+addexit 0
+  "version": "16.4.6",
+v8.57.1
+== print-config
+exit 2
+Running scope as unit: run-ra43122c5b766464880e6fa2d345244c6.scope
+
+Oops! Something went wrong! :(
+
+ESLint: 8.57.1
+
+TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Object'
+    |     property 'configs' -> object with constructor 'Object'
+    |     property 'flat' -> object with constructor 'Object'
+    |     ...
+    |     property 'plugins' -> object with constructor 'Object'
+    --- property 'react' closes the circle
+Referenced from: /tmp/claude-1000/-usr-local-bin-hooks/cc97952f-db3a-4985-8eb7-5761df3eecca/scratchpad/export2/.eslintrc.json
+    at JSON.stringify (<anonymous>)
+    at /tmp/claude-1000/-usr-local-bin-hooks/cc97952f-db3a-4985-8eb7-5761df3eecca/scratchpad/export2/node_modules/.pnpm/@eslint+eslintrc@2.1.4/node_modules/@eslint/eslintrc/dist/eslintrc.cjs:2156:45
+    at Array.map (<anonymous>)
+    at ConfigValidator.formatErrors (/tmp/claude-1000/-usr-local-bin-hooks/cc97952f-db3a-4985-8eb7-5761df3eecca/scratchpad/export2/node_modules/.pnpm/@eslint+eslintrc@2.1.4/node_modules/@eslint/eslintrc/dist/eslintrc.cjs:2147:23)
+    at ConfigValidator.validateConfigSchema (/tmp/claude-1000/-usr-local-bin-hooks/cc97952f-db3a-4985-8eb7-5761df3eecca/scratchpad/export2/node_modules/.pnpm/@eslint+eslintrc@2.1.4/node_modules/@eslint/eslintrc/dist/eslintrc.cjs:2177:84)
+    at ConfigArrayFactory._normalizeConfigData (/tmp/claude-1000/-usr-local-bin-hooks/cc97952f-db3a-4985-8eb7-5761df3eecca/scratchpad/export2/node_modules/.pnpm/@eslint+esli== lint
+exit 2
+Running scope as unit: run-rc6ea376c16ac41029a9ad04c12962050.scope
+
+Oops! Something went wrong! :(
+
+ESLint: 8.57.1
+
+TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Object'
+    |     property 'configs' -> object with constructor 'Object'
+    |     property 'flat' -> object with constructor 'Object'
+    |     ...
+    |     property 'plugins' -> object with constructor 'Object'
+    --- property 'react' closes the circle
+Referenced from: /tmp/claude-1000/-usr-local-bin-hooks/cc97952f-db3a-4985-8eb7-5761df3eecca/scratchpad/export2/.eslintrc.json
+    at JSON.stringify (<anonymous>)
+    at /tmp/claude-1000/-usr-local-bin-hooks/cc97952f-db3a-4985-8eb7-5761df3eecca/scratchpad/export2/node_modules/.pnpm/@eslint+eslintrc@2.1.4/node_modules/@eslint/eslintrc/dist/eslintrc.cjs:2156:45
+    at Array.map (<anonymous>)
+    at ConfigValidator.formatErrors (/tmp/claude-1000/-usr-local-bin-hooks/cc97952f-db3a-4985-8eb7-5761df3eecca/scratchpad/export2/node_modules/.pnpm/@eslint+eslintrc@2.1.4/node_modules/@eslint/eslintrc/dist/eslintrc.cjs:2147:23)
+    at ConfigValidator.validateConfigSchema (/tmp/claude-1000/-usr-local-bin-hooks/cc97952f-db3a-4985-8eb7-5761df3eecca/scratchpad/export2/node_modules/.pnpm/@eslint+eslintrc@2.1.4/node_modules/@eslint/eslintrc/dist/eslintrc.cjs:2177:84)
+    at ConfigArrayFactory._normalizeConfigData (/tmp/claude-1000/-usr-local-bin-hooks/cc97952f-db3a-4985-8eb7-5761df3eecca/scratchpad/export2/node_modules/.pnpm/@eslint+esli
