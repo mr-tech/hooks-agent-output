@@ -1,7 +1,7 @@
 ---
 UUID: d1349a21
-Status: Open
-Status-Detail: "Carrier of plan 018's post-deploy rows B-6, B-8 and B-10 (QA register) after website master moved from 7923a1d to d1bb9b0 (E-WEBSITE-PUSH 2026-11-20T08:07:52Z; production deployment READY). B-7 is PASS (devops). B-6 and B-10 are uat's and B-8 is qa's, each decidable now; none is a timed read, so no crontab line exists."
+Status: Addressed
+Status-Detail: "Every post-deploy row of plan 018 is PASS on hooks.gg after website master moved 7923a1d to d1bb9b0 (2026-11-20T08:07:52Z): B-7 (devops, 13:37Z), B-6 and B-10 (uat, 13:45Z), B-8 (qa, 13:47Z). X-12 was met (the push followed P-1's PASS). QA M3's function-trace assumption stays NOT VERIFIED, a stated limit with no behaviour resting on it; QA M2's is answered by the build log and B-10. Nothing is owed by this document."
 Owning-Stage: devops
 Review-Trigger: "the READY production deployment of website master whose commit contains d1bb9b0 (verification/018/devops/read-serving-deployment.sh exits 0), which is the event that fills the E-WEBSITE-PUSH ledger row's serving limb; each reader acts on it"
 ---
@@ -98,13 +98,8 @@ devops Stage 1 for plan 018, from `steering/018-brief-devops.md`; rows from `qa/
 | 2026-11-20T13:37 | devops-hooks-018 | Release executed (Stage 2, Phase 2C): E-WEBSITE-PUSH and E-SERVING filled (push 08:07:52Z after P-1's PASS at 08:07:06Z; production deployment READY at the tip; the serving gate exits 0). B-7 PASS. B-6 and B-10 (uat) and B-8 (qa) are open for their readers; steering is told to cue them.
 | 2026-11-20T13:45 | uat-hooks-018 | B-6 and B-10 Result lines written: both PASS (evidence `verification/018/uat/post-deploy/`). B-6's first read was signed out (the test account's hooks.gg session lost, probable cause UAT's local-build Log out; hazard in `INBOX.md`). |
 | 2026-11-20T13:48 | qa-hooks-018 | B-8 Result written: PASS (`verification/018/qa/post-deploy-b8/walk-3.md`). Two earlier walks are recorded as deciding nothing: one signed out, one on absent message numbers whose getOne returned 500 (existing handoffs). |
+| 2026-11-20T13:49 | steering-roadmap-hooks | Document closed | Status: Addressed. All four Results PASS (B-6, B-7, B-8, B-10); closed by steering, since devops was cleared at its checkpoint and the criteria are recorded here. |
 
 ## Resumption State
 
-Written at steering's /checkpoint request by session `devops-hooks-018`, cwd `/usr/local/bin/hooks/website`.
-- **Done:** plan 018 Stage 1 and Stage 2 complete. Website `master` moved `7923a1d` to `d1bb9b0` at 2026-11-20T08:07:52Z on the owner's selection (07:17Z) after P-1's PASS; production deployment `dpl_7RXkzDG2LDypubtd5xjum1EDseMo` READY at the tip; B-7 PASS. Deployment record `deployment/closed/018-next-upgrade-save-size-cap-deployment.md` is `Released`; the plan, implementation, code-review, QA, UAT and QA Phase 3 documents are closed `Released` (agent-output `3761c1d`). Branches deleted. Ledger E-WEBSITE-PUSH and E-SERVING filled here.
-- **Next:** nothing of mine is scheduled. B-6 and B-10 (uat) and B-8 (qa) Results are written into this record by their readers; a FAIL reaches me by message naming this section, and is a rollback question for the owner: the plan's `git revert --no-edit 7923a1d..d1bb9b0` on a branch off `master` moved by `release-move.js` on his word (`verification/018/devops/rollback-d1bb9b0-to-7923a1d.patch`, `git apply --check -R` exit 0), or Vercel's promote-previous from his dashboard; the sanction is put to him in my session, not relayed. When all four Results are in, close this handoff `Addressed` (record-closure sequence, INDEX step excluded) and tell steering. The retrospective cue is held by steering until the rows and the security audit close.
-- **Approach in flight:** none. No process of mine runs (monitors and packaging runs ended; the tip export is deleted).
-- **Trees:** website on `master` at `d1bb9b0`, tracked-clean (`.playwright-mcp/` untracked, another session's). agent-output: my paths committed; `INBOX.md` holds my three appended entries (architect reconciliation, roadmap, security closing) uncommitted among other sessions' entries, which the inbox's owner commits; `verification/018/uat/post-deploy/` is UAT's untracked work.
-- **Evidence not yet recorded:** none; every run is under `verification/018/devops/`.
-- **Questions out:** none. **Sessions messaged:** `steering-roadmap-hooks`, `uat-hooks-018` (B-6, B-10), `qa-hooks-018` (B-8). Cache-warm wake deleted at this checkpoint.
+Closed `Addressed`; nothing resumes here.
