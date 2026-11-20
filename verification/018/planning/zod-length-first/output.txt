@@ -1,0 +1,8 @@
+zod 3.22.4
+max-only (current) | over 60 invalid | success false | issues 61 | codes too_big,invalid_string | first {"code":"too_big","maximum":10,"path":[]}
+max-only (current) | within 10 invalid | success false | issues 10 | codes invalid_string | first {"code":"invalid_string","path":[0]}
+max-only (current) | within 10 valid | success true | issues 0 | codes  | first undefined
+unknown-max-pipe | over 60 invalid | success false | issues 1 | codes too_big | first {"code":"too_big","maximum":10,"path":[]}
+unknown-max-pipe | within 10 invalid | success false | issues 10 | codes invalid_string | first {"code":"invalid_string","path":[0]}
+unknown-max-pipe | within 10 valid | success true | issues 0 | codes  | first undefined
+exit 0

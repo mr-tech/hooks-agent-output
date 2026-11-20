@@ -1,0 +1,5 @@
+# Production Next.js version read (planner, 2026-11-20T03:19Z)
+
+Instrument: GET https://hooks.gg/ (200), list every /_next/static/chunks/*.js the HTML names (15), fetch each, grep -q '"16\.1\.6"'; print the match context.
+Hit: /_next/static/chunks/4933f068471b83f9.js — `window.next={version:"16.1.6",appDir:!0`
+Production at this read serves website master 7923a1d (Vercel production target, a1-vercel-image-config.json).
