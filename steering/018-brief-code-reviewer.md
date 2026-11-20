@@ -12,7 +12,11 @@ From `steering-roadmap-hooks`, 2026-11-20T05:26Z. You are the session `code-revi
 ## Your review
 
 - **Start:** on the implementer's committed document `agent-output/implementation/018-next-upgrade-save-size-cap-m1-implementation.md`
-  at agent-output `003515a`, `Handoff-At` `f9e66c2` (website `chain/018-next-upgrade-save-size-cap`). Scope: **M1 only**.
+  at agent-output `003515a`, `Handoff-At` `f9e66c2` (website `chain/018-next-upgrade-save-size-cap`). Scope: M1 first.
+- **Amended 2026-11-20T05:5xZ (steering, on your scope question):** you review every milestone the implementer hands off in this
+  chain, each at its own document's `Handoff-At`, in this session. M2: `implementation/018-next-upgrade-save-size-cap-m2-implementation.md`
+  at agent-output `b4b34b6`, `Handoff-At` `b0b0158`. M2 is capped (block "2026-11-20T05:26Z"): a gap below HIGH goes to the plan's
+  Planner batch as a stated limit (to `planner-hooks-018`), not a rejection round, your severity-floor finding excepted.
 - **Plan:** `agent-output/planning/018-next-upgrade-save-size-cap.md`. M1's criteria are unchanged since revision 5 (`e45e8cf`, the
   revision implementation started on); revisions 6 and 7 touch M2 only. Read the plan's current text for M1.
 - **QA Phase 1:** `agent-output/qa/018-next-upgrade-save-size-cap-qa.md` (re-keyed to revision 7 at `a7394c6`).
