@@ -1,7 +1,7 @@
 ---
 UUID: 9c923fab
 Status: Open
-Status-Detail: "Carrier of fix-personal-message-access's post-deploy rows B-2 and B-1 (QA's register) and of the owner's residue read of the production Messages table, opened at devops Stage 1. Website master is not pushed yet, so no row is decidable. B-2 then B-1 are walked by a uat-role session on the test accounts on live hooks.gg; the residue read is his, put by steering. No row gates the release act or the commit."
+Status-Detail: "Carrier of fix-personal-message-access's post-deploy rows B-2 and B-1 (QA's register) and of the owner's residue read of the production Messages table, opened at devops Stage 1. Website master was pushed to 983681c at 2026-11-20T01:33:58Z (E-WEBSITE-PUSH), so B-2 then B-1 are now decidable once the Vercel deployment is serving. B-2 then B-1 are walked by a uat-role session on the test accounts on live hooks.gg; the residue read is his, put by steering. No row gates the release act or the commit."
 Owning-Stage: uat
 Review-Trigger: "the production deploy of website master carrying the fix (the E-WEBSITE-PUSH row of this record's event ledger filled, and the deployment Ready) — then B-2 first and B-1 after it; for the residue read, the owner's answer to steering's release question"
 ---
@@ -11,8 +11,8 @@ Review-Trigger: "the production deploy of website master carrying the fix (the E
 ## What is seeded
 
 The fixer chain `fix-personal-message-access` ships website `master` (Vercel production, by git integration; there is no beta and
-`website/.github/workflows` is absent). Its fix is committed on `chain/fix-personal-message-access` at `983681c` and is not pushed when
-this record is written. Three items can only be decided against production once the push has deployed. None gates the release act.
+`website/.github/workflows` is absent). Its fix is committed on `chain/fix-personal-message-access` at `983681c` and was not pushed when
+this record was written (it was pushed at Stage 2: see the ledger). Three items can only be decided against production once the push has deployed. None gates the release act.
 The rows are QA's register's (`qa/closed/fix-personal-message-access-qa.md`, "Blocking-condition register", rows B-2 and B-1,
 class post-deploy-observable), carried in full. The register is point-in-time; this record's `Result` lines are authoritative on
 execution state.
@@ -30,7 +30,7 @@ the code review and security's identity instrument, run locally only.
 
 | Event | What it is | When (UTC) | Ref and SHA | Source |
 |---|---|---|---|---|
-| E-WEBSITE-PUSH | website `master` moved to the release | _blank until Stage 2_ | _blank_ | devops, Stage 2 |
+| E-WEBSITE-PUSH | website `master` moved to the release | 2026-11-20T01:33:53Z to 01:33:58Z (`release-move.js` exit 0; `ls-remote` read back at 01:33:58Z) | website `master` `983681ca6cd7cbacd0796ed093e094057ad7f9be` (was `787bec5627702d2881b826e596ec2b8f8853c4fa`) | devops, Stage 2, on his release approval at the Phase 2B prompt (`deployment/fix-personal-message-access-deployment.md`) |
 
 ## Rows, carried in full from the register
 
@@ -108,3 +108,4 @@ chain `fix-personal-message-access`; created by devops at Stage 1 (steering brie
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-20T00:21 | devops-hooks-fix-personal-message-access | Created at Stage 1. Rows B-2, B-1 and R-1 carried in full; the event ledger is blank until Stage 2. No crontab line: the reader is a uat-role session spawned by steering after the push. Disclosure: the stamp-gate hook refused this row's first time, which I had typed ahead of the clock (00:25 against 00:21); it now carries the `date -u` minute. A gate satisfied, not a control worked around |
+| 2026-11-20T01:34 | devops-hooks-fix-personal-message-access | E-WEBSITE-PUSH written at Stage 2: website master 787bec5 -> 983681c pushed 2026-11-20T01:33:58Z. B-2, B-1 and R-1 stay blank; the reader is the uat-role session steering spawns |
