@@ -141,3 +141,19 @@ none).
   `git ls-remote origin master`, read 04:3xZ), no upstream. Tracked tree clean; `git status --porcelain` before and after identical, one
   untracked `.playwright-mcp/` (not the chain's). Same commit, so the lockfile does not change across the switch.
 - Implementer brief `steering/018-brief-implementer.md`; `implementer-hooks-018` spawned in category `website-deps-upgrade`.
+
+## 2026-11-20T04:51Z — the shared website `node_modules` moves to the chain's lockfile (steering ruling, option B)
+
+Asked by `implementer-hooks-018` before M2: (A) all M2/M3 installs in isolated exports, the shared `node_modules` left at `7923a1d`'s
+state; or (B) the shared tree's `node_modules` moves to the chain's lockfile as the intended steady state.
+**Who placed the state** (steering.md, Route by ownership: held shared-tree state): `node_modules/.modules.yaml` mtime 02:09:59Z, 17 s
+after website `7923a1d` (02:09:42Z), the commit of fixer chain `fix-message-page-header-decode`, which this thread steered and closed. Its
+document records `pnpm install --frozen-lockfile`, exit 0 (`implementation/closed/fix-message-page-header-decode-implementation.md`
+line 93). No fixer session is live (`ListAgents` this turn). The state is the frozen install of `7923a1d`, reproducible from that
+commit's lockfile. The website tree is in no coordinator register (`statbot/agent-output/steering/coordinator-shared-surfaces.md`,
+`grep -n -i hooks`: no hooks website row).
+**Ruling (this thread's, as the owner of the chain that placed it): B.** The shared tree rides the chain branch, so its installed state
+follows the chain's lockfile: the implementer runs `pnpm install --frozen-lockfile` in `/usr/local/bin/hooks/website` after the M2 commit
+and again after M3, records each run's exit code in its document, and in-tree runs by code review, QA and UAT then exercise 16.4.6.
+Isolated exports stay available for base comparisons. At release devops returns the tree to `master`, which then carries the same
+lockfile. Not put to him: no product, scope or release act turns on it.
