@@ -634,18 +634,26 @@ re-verdicts.
 
 ## Resumption State
 
-Written 2026-11-20T04:2xZ at revision 4, session `planner-hooks-018`, cwd `/usr/local/bin/hooks/website`.
+Written 2026-11-20T06:17Z at steering's request (`/checkpoint`, context seam), session `planner-hooks-018`, cwd
+`/usr/local/bin/hooks/website`.
 
-- **Done:** revisions 0 to 8 committed; revision 7 approved by every gate; M1 to M3 verified by QA Phase 2; revision 8 folds the Planner batch (every row now folded).
-  `steering/website-deps-review-rulings.md` and `steering/018-rulings.md`). Gate verdicts on revision 3: critic pass 3 APPROVED with
-  stated limit SL-1 (`f209354`); architect APPROVED_WITH_CHANGES, AF-8 (`9a58650`); QA re-key, QAF-8 HIGH (`9218925`). All four
-  findings folded at revision 4.
-- **Next:** the critic reads revision 8 (the fold); then steering runs the architect's closing pass, the implementer's `zod` pin,
-  code review and QA's last Phase 2 (block 06:06Z). New findings go to the Planner batch.
-- **Approach in flight:** none. AD-5's number (20) is open to a gate's reasoned change.
-- **Trees:** website on `chain/018-next-upgrade-save-size-cap` (steering's cut at `7923a1d`), untouched by this session. agent-output: nothing of this session's uncommitted.
+- **Done:** revisions 0 to 8 committed; revision 8 (agent-output `2dc79a3`) folded every Planner batch row then open, at steering's
+  brief (block 06:06Z). Critic cycle 3 pass 1 on revision 8: APPROVED, no new finding (`5b145f0`). Architect closing pass: APPROVED
+  (`a4d94ce`). Website chain branch at `d1bb9b0` (CR-2's `zod` pin, after `969d92a`). M1 to M3 verified by QA Phase 2.
+  Registered after revision 8, unfolded: M2-I4 (`paracord` unpinned) and CR-7 (`project-utils` unpinned), both stated limits with a
+  devops Stage 1 note; no revision owed for them unless a gate asks.
+- **Next:** nothing of mine is in flight. Steering's order (block 06:06Z): code review of the pin, QA's last Phase 2 (M4 and the
+  effort-final sweep), UAT, devops. New findings arrive as Planner batch registrations: append the changelog row at the table's end
+  with the next free `R-<n>` (highest in the table + 1; other stages write rows too). A milestone-level change goes back through
+  the critic, QA and the architect. M2 is capped (block 05:26Z): findings below HIGH there are stated limits, no revision round.
+- **Approach in flight:** none. Lesson kept for this plan: a run's exit codes are not evidence about built output — M2's checks
+  read the bundle (revision 7); and an exclusion is reconciled against the Decisions Register before it is written (X-21 vs D-6).
+- **Trees:** website on `chain/018-next-upgrade-save-size-cap` at `d1bb9b0`, untouched by this session. agent-output: nothing of
+  this session's uncommitted.
 - **Evidence:** every run is committed under `verification/018/planning/` (base-validation, eslint probes, eslint9-flat-probe,
-  abort-form-probe, preview-imitation, error-cap-probe, zod-length-first, union-cap-probe, strip-cap-probe, m2-tsconfig, version and Vercel
-  reads). No run is unrecorded.
-- **Questions out:** none. **Sessions messaged:** steering-roadmap-hooks, critic-hooks-018, qa-hooks-018, architect-hooks-018.
-- **Processes:** no helper, server or export of this session is left (both scratch exports deleted, confirmed `ls -d`).
+  abort-form-probe, preview-imitation, error-cap-probe, zod-length-first, union-cap-probe, strip-cap-probe, m2-tsconfig with
+  `A-final/` and `hl-compare/`, version and Vercel reads). No run is unrecorded.
+- **Questions out:** none. **Sessions messaged:** steering-roadmap-hooks, critic-hooks-018, qa-hooks-018, architect-hooks-018,
+  implementer-hooks-018, code-reviewer-hooks-018.
+- **Processes:** none of this session's left; every scratch export deleted (`ls -d` confirmed). Cache-warm wake deleted at this
+  checkpoint.
