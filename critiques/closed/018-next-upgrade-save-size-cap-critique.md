@@ -3,16 +3,18 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Status: Resolved
-Status-Detail: "Cycle 2 pass 2 on plan revision 7 (M2 only): APPROVED. F-1 to F-22 RESOLVED. F-23 MEDIUM and F-24 LOW are DEFERRED to the plan's fold seam, each carried by a Planner batch row in the plan (R-6, R-7); they close as landed-by-author at the fold revision. SL-2's substance is carried by QA's register row B-10. No open question."
-Artifact-Revision: 7 — the delta 8277b08..af8a9d6 read whole; af8a9d6..b36997e is registrations only (R-5 to R-7); last whole read is revision 1 at c2a6b85
-Reviewed-At: "af8a9d6 — repos=agent-output; website code read at 7923a1d (origin/master)"
+Status-Detail: "Cycle 3 pass 1 on plan revision 8 (the Planner batch fold): APPROVED with no new finding. F-1 to F-24 RESOLVED, each verified in the plan's text; SL-2 retired. No stated limit, no open question, nothing owed."
+Artifact-Revision: 8 — the delta af8a9d6..2dc79a3 read whole; last whole read is revision 1 at c2a6b85
+Reviewed-At: "2dc79a3 — repos=agent-output; website read at 7923a1d and, for the zod pin, at 969d92a (chain/018-next-upgrade-save-size-cap)"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 018, Next.js 16.4.6 and the save-list cap
 
-**Artifact**: `planning/018-next-upgrade-save-size-cap.md`, revision 7 (`af8a9d6`), read as the delta from revision 6
-(`8277b08`); revisions 2 to 6 were read the same way, and revision 1 (`c2a6b85`) whole. **Read at cycle 2 pass 2**:
+**Artifact**: `planning/018-next-upgrade-save-size-cap.md`, revision 8 (`2dc79a3`), read as the delta from revision 7
+(`af8a9d6`); revisions 2 to 7 were read the same way, and revision 1 (`c2a6b85`) whole. **Read at cycle 3 pass 1**:
+`steering/018-rulings.md` blocks 05:42Z and 06:06Z; website `package.json` and `pnpm-lock.yaml` at `969d92a`; a listing
+of `verification/018/code-review/m3/prod-edges.py`. **Read at cycle 2 pass 2**:
 `steering/018-rulings.md` block 03:25Z; the plan's D-6 row; `verification/018/planning/m2-tsconfig/` (README's final-form
 and comparison sections, `A-final/counts.txt`, `hl-compare/output.txt`). **Read at cycle 2 pass 1**:
 `verification/018/planning/m2-tsconfig/` (README, `B/build.txt`, `B/tsconfig.diff`); website `tsconfig.json`,
@@ -40,46 +42,43 @@ against the rulings and the architecture record. **Date**: 2026-11-20.
 | 2026-11-20T05:21 | planner-hooks-018 (message naming revision 7 at `af8a9d6`) | cycle 2 pass 2: plan revision 7, delta-bounded | Depth: delta-bounded. The delta `8277b08..af8a9d6` (38 added, 22 removed, `git diff --numstat`, one commit) touches M2 alone and was read whole. Artifact changes: the `paths` entry removed; `highlight.js` 11.7.0 → 11.12.0 under D-6, with a comparison run; M2-b restated; M2-c reads the built output; M2-e added (a walked code block); X-21 removed; RK-6's record. Findings addressed: F-21 and F-22 RESOLVED; my pass 1 question answered. New: F-23 MEDIUM, F-24 LOW. The stop authority fired on F-23 (stated limit SL-2). Verdict APPROVED. |
 | 2026-11-20T05:26 | steering-roadmap-hooks (message naming rulings block 05:26Z, `44efb1f`) | boundary line and the M2 cap | Boundary: the plan's delta `af8a9d6..b36997e` (10 added, 3 removed, three commits R-5 to R-7) is registrations and Status-Detail only, outside criterion text, milestone scope, instrument form and register effect; no findings pass is owed. It carries F-23 and F-24 as Planner batch rows parked for the fold seam. Noted from block 05:26Z: M2 is capped, so a further M2 gap below HIGH is a stated limit in the Planner batch with no revision round. F-24 marked as a duplicate of AF-11. |
 | 2026-11-20T05:26 | critic-hooks-018 | Document closed | Status: Resolved. F-23 and F-24 carry a landing trigger and stage in the plan (Planner batch rows, the fold seam); every other finding is verified landed. |
+| 2026-11-20T06:09 | planner-hooks-018 (message naming revision 8 at `2dc79a3`) | cycle 3 pass 1: plan revision 8, the Planner batch fold, delta-bounded | Depth: delta-bounded. The delta `af8a9d6..2dc79a3` (70 added, 27 removed, `git diff --numstat`, 15 commits, of which one is revision 8 and the rest registrations R-5 to R-17) reshapes no milestone and was read whole. Artifact changes: `zod` pinned exactly at 3.22.4 in M2's steps (CR-2); M2-b names the `sharp` and peer-suffix movers and adds an edge-level comparison (CR-5); M2-d records the Edge Runtime warning; M2-e names UAT as its post-deploy runner; the highlight.js paragraph gives both counts; M3's rollback line corrected (QAF-11). Findings addressed: F-23 and F-24 RESOLVED, SL-2 retired. New: none. Verdict APPROVED. The pass opened and resolved in one write, so the document stays in `closed/` and `Resolved`. |
 
 ## Verdict
 
-**APPROVED — cycle 2, pass 2.** No revision is requested. The hard stop did not fire (pass 2 of 15). The stop authority
-fired on F-23 and is recorded below.
+**APPROVED — cycle 3, pass 1.** No finding is open and this critique stays `Resolved`. The hard stop did not fire (pass
+1 of 15), and the stop authority did not fire.
 
-Revision 7 removes the `paths` entry that took highlight.js out of the build (F-21) and moves highlight.js to 11.12.0,
-the plan's run-verified alternative. M2-c now requires the built output to hold highlight.js's runtime, with a real
-passing and a real failing build named for the instrument, and M2-e has UAT walk a highlighted code block before
-release. F-22 is corrected.
+Revision 8 is the Planner batch fold steering briefed at block 06:06Z. It lands both of my parked findings: M2-e now
+names UAT as the runner of the after-deploy look, as a row of devops's Stage 1 handoff, and § Release lists it among
+the post-deploy rows (F-23; SL-2 is retired). The highlight.js paragraph gives the editor's count (5 of 18) beside the
+preview's (4 of 18) (F-24).
 
-**My pass 1 question is answered, and not by a new ask to him.** I read the 03:25Z rulings block: his typed words are
-"you can upgrade any packages to anything deemed useful", and steering's recorded reading is that each further upgrade
-is a scope delta with its reason, told to him at the next prompt, none needing a separate ask. The plan's D-6 row
-carries that clause, and revision 7's changelog row names D-6 and the telling. X-21 was the planner's own exclusion from
-revision 6, not one of the fifteen he accepted. So the move rides D-6.
+The one change that moves code is the `zod` pin. Pricing: sized to the ask; M2 is one specifier wider and no version
+moves. It guards a premise M1-i already rests on, so it repairs what exists and adds nothing. It came from code review
+(CR-2) through steering's ruling at block 05:42Z, which records that it was not put to him because no product behaviour
+turns on it. I checked its premises on the chain branch at `969d92a`: `package.json` has `"zod": "^3.20.6"`, the
+lockfile's importer resolves `3.22.4`, and `3.25.76` is the newest zod 3 (`npm view zod@3 version`) and is already in
+the lockfile for other packages. So the range can drift to the version code review showed the cap misses on, and the
+pin changes the specifier only.
 
-Pricing: M2 is one package and one criterion wider than at revision 5, inside D-6 as he worded it. What the package
-move changes for users was run: 4 of 18 samples render with finer token classes, no language or alias is lost.
+The rest is wording and enumeration under the M2 cap (block 05:26Z): the `sharp` mover is in class (`npm view
+next@16.4.6 optionalDependencies` names `sharp` `^0.35.5`, run in this pass), and the edge comparison's script exists
+at the path M2-b names.
 
-**Why the stop authority fired.** F-23 is the second instance of F-9's shape: a post-deploy step with no runner named.
-F-9 was folded at revision 2. The class: a post-deploy observation the plan requires names its runner and its carrier.
-The domain, from the plan's post-deploy lines at revision 7: M1-h (UAT, through devops's post-deploy handoff), M5-e's
-public read (devops), M2-e's after-deploy look (none). One member fails.
-- **SL-2, the stated limit**: until the plan names it, M2-e's after-deploy look on hooks.gg has no runner. Who bears
-  it: devops at Stage 1, which writes the post-deploy handoff from the plan's post-deploy rows. On finding M2-e absent
-  from those rows, it adds the look beside M1-h's and tells the planner. M2-e's pre-release walk and M2-c's read of the
-  built output are unaffected.
-
-F-23 and F-24 are in the plan's Planner batch (R-6, R-7 at `b36997e`), parked for the fold seam, so this critique is
-`Resolved`. The fold itself is gated by the critic when it comes; it is read as the `git diff` from `af8a9d6`.
-
-No milestone is marked `PREMISE-STALE`. `Target-Release` is untouched by the delta. Routed to the owner: nothing by
-this critique; steering tells him of the highlight.js move at its next prompt, as block 03:25Z provides.
+No milestone is marked `PREMISE-STALE`. `Target-Release` is untouched by the delta. Routed to the owner: nothing.
 
 ## Value Statement Assessment
 
-Untouched by the revision 4 to 7 deltas. Pass 2's assessment stands: a user story, checkable, delivered directly by M1 and M2.
+Untouched by the revision 4 to 8 deltas. Pass 2's assessment stands: a user story, checkable, delivered directly by M1 and M2.
 
 ## Assumption Not Checked
+
+Cycle 3 pass 1: this pass assumes the code reviewer's run is right that under zod 3.25.76 the cap misses issues (1,600
+for a 40×40 invalid-accessory save), and does not test it; I checked only that the range admits that version. If it is
+false, the pin is unnecessary and harmless, and M1-i's cases pass under either version. Its carrier is the plan's own
+step: the pin commit is reviewed and verified (`planning/018-next-upgrade-save-size-cap.md` § M2 steps; code review and
+QA's last Phase 2, block 06:06Z).
 
 Cycle 2 pass 2: this pass assumes the final form's build holds highlight.js's runtime as `A-final/counts.txt` records
 (1 static file and 4 server files), and does not test it; my pass 1 build was of revision 6's form, not this one. If it
@@ -111,30 +110,12 @@ None in the plan. The delta opens no `OPEN QUESTION`; OQ-1 and OQ-5 are `[RESOLV
 
 ## Findings
 
-Deferred, both carried by rows of the plan's Planner batch (`planning/018-next-upgrade-save-size-cap.md` § Planner batch,
-at `b36997e`). Decided by the planner under the post-approval rule: neither changes code, a test or a pre-release
-check, so both wait for the fold seam (QA Phase 2 of the last milestone). They close as landed-by-author at the fold
-revision. If the chain closes with no fold, F-23 moves to devops's Stage 1 handoff row (QA's B-10) and F-24 lapses as
-wording.
+None open.
 
-F-23 MEDIUM cycle 2 pass 2 — DEFERRED — M2-e's after-deploy look names no runner and no carrier
-- **Location**: plan M2-e, last clause ("after deploy, the same look on hooks.gg with the test account"); compare M1-h,
-  which names UAT and devops's post-deploy handoff, and § M5's "Post-deploy rows" line.
-- **Description**: the pre-release walk names UAT and its session. The after-deploy look names nobody, and M2-e is not
-  among the post-deploy rows § M5 lists. Vercel builds the release itself, so this look is the only read of the bundle
-  users get; M2-c reads a local build.
-- **Impact**: a step nobody is bound to run is skipped, and a production-only loss of highlighting would go to the
-  first user report.
-- **Recommendation**: name the runner and put the look among the post-deploy rows, as M1-h is. Landing: a Planner batch
-  row, folded at the plan's next revision. Stated limit SL-2 carries it until then.
+Resolved at cycle 3 pass 1, by plan revision 8 (`2dc79a3`); the arguments are in this critique at `4c8d4b8`:
 
-F-24 LOW cycle 2 pass 2 — DEFERRED — the plan gives the preview's difference count and not the editor's. Duplicates: AF-11 in architecture/018-next-upgrade-save-size-cap-architecture-findings.md
-- **Location**: plan § M2, "Why `highlight.js` moves" ("the editor's `_emitter.rootNode` tree keeps its shape in 18 of
-  18 samples, and 4 of 18 samples gain finer token classes in the preview's HTML").
-- **Description**: `hl-compare/output.txt` ends "html differ 4 | tree differ 5". The tree is what the editor's decorator
-  walks, and it differs in 5 samples (the four plus html). "Keeps its shape" is true of `rootNode.children` being
-  present, but a reader takes it as no change in the editor.
-- **Recommendation**: state the tree figure beside the HTML one. Landing: the same Planner batch row.
+- F-23 MEDIUM cycle 2 pass 2 RESOLVED — M2-e names UAT as the runner of the after-deploy look, a row of devops's Stage 1 handoff, and § Release lists it. SL-2 retired. Plan M2-e, § Release.
+- F-24 LOW cycle 2 pass 2 RESOLVED — the paragraph gives the tree's 5 of 18 beside the HTML's 4 of 18. Plan § M2, "Why `highlight.js` moves". Duplicates: AF-11 in architecture/018-next-upgrade-save-size-cap-architecture-findings.md
 
 Resolved at cycle 2 pass 2, by plan revision 7 (`af8a9d6`); the arguments are in this critique at `9ab8420`:
 
@@ -251,7 +232,7 @@ decide) is answered by revision 7 and block 03:25Z; see the Verdict.
 
 ## Resumption State
 
-Closed at cycle 2 pass 2 with nothing in flight; the planner's fold of the parked batch rows reopens this critique as cycle 3, read as the `git diff` from `af8a9d6`, with M2 gaps below HIGH taken as stated limits under rulings block 05:26Z.
+Closed at cycle 3 pass 1 with nothing in flight; a later revision that changes a criterion's text, a milestone's scope or an instrument's form opens cycle 4, read as the `git diff` from `2dc79a3`, with M2 gaps below HIGH taken as stated limits under rulings block 05:26Z.
 
 ## Process record
 
