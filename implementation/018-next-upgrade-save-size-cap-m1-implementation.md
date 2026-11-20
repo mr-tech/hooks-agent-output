@@ -291,10 +291,10 @@ Code review of M1 at the handoff SHA, then QA Phase 2 for M1 with its differenti
 ## Resumption State
 
 Rewritten 2026-11-20T05:49 by `implementer-hooks-018` (the earlier text, written before M2, is superseded; its R6 note is withdrawn in the M4 document).
-Website tree `/usr/local/bin/hooks/website` on `chain/018-next-upgrade-save-size-cap` at `969d92a`, tracked tree clean (only `.playwright-mcp/` untracked, not mine); its `node_modules` follows the chain lockfile (Next 16.4.6, ESLint 9.39.5; ruling B, block 04:51Z).
+Website tree `/usr/local/bin/hooks/website` on `chain/018-next-upgrade-save-size-cap` at `d1bb9b0` (was `969d92a` when this state was written), tracked tree clean (only `.playwright-mcp/` untracked, not mine); its `node_modules` follows the chain lockfile (Next 16.4.6, ESLint 9.39.5; ruling B, block 04:51Z).
 - **Delivered:** M1 fix round 1 at `a558f2d` (re-review approved, sub-entry 1, `57ff6f8`; now with QA); M2 at `b0b0158` (code review APPROVED_WITH_COMMENTS, CR-4 reconciled; with QA); M3 at `969d92a` (handed to `code-reviewer-hooks-018`); M4's implementer limbs recorded (`implementation/018-next-upgrade-save-size-cap-m4-implementation.md`, no code).
   Documents: `…-m1-…` (Handoff-At `a558f2d`), `…-m2-…` (`b0b0158`), `…-m3-…` (`969d92a`), `…-m4-…`.
-- **Held:** CR-2 (zod pin): steering ruled option A (block "2026-11-20T05:42Z"): pin `zod` exactly to 3.22.4 in a follow-up commit with a frozen install only after the planner's batch fold names it in M2's steps; do not pin before that fold.
+- **Delivered since:** CR-2's zod pin at website `d1bb9b0` (plan revision 8; section "Zod pin (CR-2)" of the M2 document, whose `Handoff-At` now carries it), handed to `code-reviewer-hooks-018`. Held: nothing.
 - **Planner batch carried by steering:** M2's lockfile-mover gaps and the "Edge Runtime is deprecated" warning (M2 document, Outstanding Items).
 - **Owed by others:** code review of M3; QA Phase 2 for M1 and M2; UAT's walks (B-3, M2-e, M1-g/h); the architect's A-4 text and the R3/R6 carry; Security's `pnpm audit`.
 - **Processes:** none of mine run. Scratch exports in the session scratchpads (`m2tip`, `m3n`, older `m2b`, `m2c`, `m3`): deletable.

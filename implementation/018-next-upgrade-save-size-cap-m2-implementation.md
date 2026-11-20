@@ -3,8 +3,8 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Status: Active
-Status-Detail: "M2 (Next.js 16.4.6, highlight.js 11.12.0, the bundler module resolution) delivered on chain/018-next-upgrade-save-size-cap, acceptance run at the commit, awaiting code review. M3 and M4 follow in their own documents."
-Handoff-At: b0b0158 — repos=website; M2 only
+Status-Detail: "M2 (Next.js 16.4.6, highlight.js 11.12.0, the bundler module resolution) delivered on chain/018-next-upgrade-save-size-cap, acceptance run at the commit, awaiting code review; the zod pin (CR-2, plan revision 8) follows at d1bb9b0, handed to code review. M3 and M4 are in their own documents."
+Handoff-At: d1bb9b0 — repos=website; M2 plus the zod pin (CR-2); the M2 delivery commit is b0b0158
 ---
 
 # Implementation 018 — M2: Next.js 16.4.6 (H-002)
@@ -24,6 +24,7 @@ M2 is capped (`steering/018-rulings.md` block "2026-11-20T05:26Z"): each gap bel
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
 | 2026-11-20T05:31 | steering-roadmap-hooks (resume message; brief `steering/018-brief-implementer.md`) | M2 on revision 7 | M2 committed at `b0b0158` (three files); acceptance run over an isolated export of that commit, with its own install; lockfile movers dispositioned; the shared tree's `node_modules` moved to the lockfile (ruling B, block 04:51Z). |
+| 2026-11-20T06:25 | steering-roadmap-hooks (resume message, rulings blocks 05:42Z and 06:06Z) | zod pin named in M2's steps by plan revision 8 (`2dc79a3`, critic APPROVED `5b145f0`) | `zod` pinned exactly at 3.22.4 in `package.json` and the one matching `pnpm-lock.yaml` specifier line; frozen install exit 0; committed at `d1bb9b0`. Section "Zod pin (CR-2)" below. |
 
 ## Implementation Summary
 
@@ -140,6 +141,24 @@ Captured in `b0b0158/build.out.txt`; against the base build (`verification/018/q
 - **New at the tip, not in the release-notes reading:** `The Edge Runtime is deprecated. You can use the "nodejs" runtime instead` (printed in "Collecting page data", i.e. for `/api/interactions-edge`, the one route on the edge runtime). Build exits 0; recorded as an M2-d finding for the architect. No edit made (X-9: no file under `src/pages/api/`).
 - The mandatory `moduleResolution` rewrite surfaced at implementation is folded at revisions 6 and 7: the build leaves `tsconfig.json` as committed (above).
 
+## Zod pin (CR-2)
+
+Plan revision 8, M2 steps: pin `zod` exactly at `3.22.4`; M1-i's issue count rests on that version's error map, and `^3.20.6` admits 3.25.76, under which the cap misses issues (code review CR-2). Stage start: steering's message of this turn, rulings blocks "2026-11-20T05:42Z" (option A) and "2026-11-20T06:06Z"; revision 8 critic-approved at `5b145f0`. No open question.
+
+| Item | Result |
+|---|---|
+| Diff (`git diff --numstat d1bb9b0^ d1bb9b0`) | `package.json` 1/1: `"zod": "^3.20.6"` → `"zod": "3.22.4"`; `pnpm-lock.yaml` 1/1: `importers` `.` `zod` `specifier: ^3.20.6` → `specifier: 3.22.4`. The resolved `version: 3.22.4` is unchanged, so no package, edge or integrity line moves. |
+| The pin's control fires (observed) | With only `package.json` edited, `pnpm install --frozen-lockfile --offline` exits 1: "zod (lockfile: ^3.20.6, manifest: 3.22.4)". With the lockfile specifier matching, the same command exits 0. A later specifier drift fails a frozen install. |
+| Frozen install at the tip | `pnpm install --frozen-lockfile --offline` exit 0; `node -p "require('zod/package.json').version"` → 3.22.4. |
+| `npx vitest run` network-isolated (`unshare -rn`) | exit 0; 2261 of 2261 passed, 154 files (`testResults` entries) — the M1 fix round's count, unchanged. |
+| `pnpm run typecheck` (both programs) | exit 0. |
+| `SKIP_ENV_VALIDATION=1 npx next build` | exit 0; `git status` clean of build output. |
+| `convention-check.js website --since=969d92a` | 0 files examined (`package.json` and the lockfile are outside its examined set), 0 FAIL, 0 CANDIDATE; the 20 SKIPs are `.playwright-mcp/*.png` (another session's captures, not mine) and the unimplemented id-token check. Unchecked, not passed; no source or test file is added. |
+| TDD | Not owed: a dependency specifier, no new function, class or behaviour. The red is the frozen-install refusal above, run against the pre-change lockfile; no test is added or touched. |
+| Class sweep | Not owed: no finding of a fix round. CR-2's class is the other runtime specifiers admitting a version the code's premise excludes; not enumerated here (the plan fixes this one pin). |
+
+**Finding (not fixed, outside the plan):** `pnpm install --lockfile-only --offline` on this lockfile does not change only the zod specifier. It re-resolved the `paracord` git dependency (`"paracord": "github:mr-tech/paracord"`, no commit named) from `3f20308` (0.0.5) to `1b7cadb` (0.0.9) and moved a second zod tree (3.25.76 → 4.6.7 under `zod-validation-error`), 11 added and 15 removed lines. I discarded that regenerated lockfile (restored from `HEAD`) and edited the one specifier line by hand; the frozen install above is the check that the result is consistent. Anyone regenerating the lockfile at this tip moves `paracord`. Severity: LOW for this chain; follow-up for the planner/devops (pin `paracord` by commit or leave regeneration to a dedicated change).
+
 ## Outstanding Items
 
 - M2-e (B-9, B-10) is UAT's and devops's walk; the suite cannot see it (vitest resolves through its own `alias`). Its instrument at this tip: the bundle holds highlight.js's runtime and no `(void 0)` receiver (above).
@@ -151,4 +170,4 @@ Captured in `b0b0158/build.out.txt`; against the base build (`verification/018/q
 
 ## Next Steps
 
-Code review of M2 at `b0b0158` (the shared tree now has Next 16.4.6 installed, so in-tree runs exercise it). Then M3 (ESLint 9 and the flat config), rebuilt on revision 7's M2 as the Resumption State of the M1 document directs, with its own `pnpm install --frozen-lockfile` in the shared tree after its commit (ruling B).
+Code review of the zod pin at `d1bb9b0` (`code-reviewer-hooks-018`), then QA's last Phase 2 (M4 and the effort-final sweep) at the tip that carries it, then UAT. M2's own delivery (`b0b0158`) was reviewed and verified earlier.
