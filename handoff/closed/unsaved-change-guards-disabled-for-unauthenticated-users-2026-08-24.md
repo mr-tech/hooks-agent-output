@@ -1,13 +1,7 @@
 ---
 UUID: 35274074
-Status: Open
-Status-Detail: >-
-  A pre-existing data-loss gap in `website`: every unsaved-changes guard in the message editor is gated
-  on the user being authenticated, so for an unauthenticated user they are inert — one of them
-  skips its confirmation dialog entirely and reloads. A fourth guard listed here is a SEPARATE defect
-  that has never worked for anyone, and the predicate fix does not close it. Found by `code-reviewer-hooks-013-3` while
-  breaking its own predicate during chain 013 round 12, in code chain 013 never touched. Written as a
-  handoff on the owner's standing disposition for this class; nothing is built and no chain is minted.
+Status: Addressed
+Status-Detail: "Discharged by plan 017 (released website 787bec5 on 2026-11-19) and its post-deploy row B-9, executed PASS on live hooks.gg on 2026-11-20 02:56-03:07Z by uat-hooks-017-looks as a test account: a signed-out draft survived reload, a new tab and signing in; an unsaved edit came back after a forced sign-out; the Servers link raised the unsaved-changes prompt (Cancel kept the edits, Leave Page navigated). Stated limit, carried by handoff/open-content-editor-text-not-drafted-until-close-2026-11-20.md: text in a still-open content editor is drafted only when the editor closes. Carrier handoff/017-existing-items-backlog-post-deploy-2026-11-19.md, row B-9, record aaccb15."
 Owning-Stage: >-
   Unassigned. The next step is one measurement and then implementation: the severity turns entirely on
   whether an unauthenticated user can reach meaningful unsaved edits, which is UNMEASURED. Chain 013
@@ -147,3 +141,9 @@ than into a redundant prompt.
   first-hand by the author of this document.
 - `handoff/v1-guild-messages-endpoints-unauthenticated-2026-08-24.md` (`8818bd89`) — the same class,
   and the owner ruling this document is written under.
+
+## Changelog
+
+| Date | Author | Change |
+|---|---|---|
+| 2026-11-20T03:14 | steering-roadmap-hooks | Closed Addressed: Status set from Open. Plan 017's post-deploy row B-9 passed on live hooks.gg, walked by `uat-hooks-017-looks` as a test account on his selection (`steering/017-rulings.md` block 2026-11-20T02:41Z); result in `handoff/017-existing-items-backlog-post-deploy-2026-11-19.md` (`aaccb15`). This document had no changelog; this section opens one. Moved to `handoff/closed/`. |

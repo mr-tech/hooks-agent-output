@@ -1,13 +1,7 @@
 ---
 UUID: e6ac06b5
-Status: Open
-Status-Detail: >-
-  A live defect in `preview-image-generator`'s integration, found by writing the owner's intent down
-  rather than by anything failing. He stated what should happen when preview generation fails; the
-  tree does something else. Nothing is built, nothing is committed to, and no chain is minted — the
-  owner ruled this a handoff rather than a chain because it belongs to a different service from the
-  effort in flight. The mechanism below was established by `architect-hooks-013` and has NOT been
-  re-derived by the thread that wrote this document.
+Status: Addressed
+Status-Detail: "Discharged by plan 017 (released website 787bec5 and generator 8512a1d on 2026-11-19) and its post-deploy row B-6, executed PASS on live hooks.gg on 2026-11-20 02:47-02:50Z by uat-hooks-017-looks as a test account: two saves on one message each updated the list card preview about 6 s later and kept it; no Invalid message data image and no frozen preview. F-4 (the bucket listing) stays unverified: no access. Carrier handoff/017-existing-items-backlog-post-deploy-2026-11-19.md, row B-6, record aaccb15."
 Owning-Stage: >-
   Unassigned. The next step is implementation, not research: the owner has already stated the
   intended behaviour, so what is missing is a fix and a decision about failure visibility, not an
@@ -103,3 +97,9 @@ findings.**
   verbatim with provenance grades, the Problem Area and Recommendation 4. **The authority for
   everything in this document.**
 - `architecture/system-architecture.md` — the preview pipeline end-to-end, and Recommendation 5.
+
+## Changelog
+
+| Date | Author | Change |
+|---|---|---|
+| 2026-11-20T03:14 | steering-roadmap-hooks | Closed Addressed: Status set from Open. Plan 017's post-deploy row B-6 passed on live hooks.gg, walked by `uat-hooks-017-looks` as a test account on his selection (`steering/017-rulings.md` block 2026-11-20T02:41Z); result in `handoff/017-existing-items-backlog-post-deploy-2026-11-19.md` (`aaccb15`). This document had no changelog; this section opens one. Moved to `handoff/closed/`. |

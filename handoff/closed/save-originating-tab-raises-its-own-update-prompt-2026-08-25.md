@@ -1,14 +1,7 @@
 ---
 UUID: 4b1e9d07
-Status: Open
-Status-Detail: >-
-  Issued 2026-08-25 by steering-hooks-013-3 at the owner's explicit direction ("Route 10 to a
-  handoff"), during chain 013's closeout. Found in PRODUCTION by the owner while executing release
-  condition BC-14, which is the only instrument in chain 013 that reaches this surface - no
-  automated test in that chain covers it. The defect is NOT chain 013's to fix: the owner ruled
-  013 complete in the same message, and this handoff is the route he chose for the finding rather
-  than a reopening. Nothing here is derived: the symptom is his sentence verbatim, and the two
-  limbs it does not cover are stated as uncovered rather than inferred.
+Status: Addressed
+Status-Detail: "Discharged by plan 017 (released website 787bec5 on 2026-11-19) and its post-deploy row B-8, executed PASS 5 of 5 on live hooks.gg on 2026-11-20 02:55-02:56Z by uat-hooks-017-looks as a test account: with two tabs on one message, the saving tab never showed Message Update Detected while typing 38-263 ms after the save, and the other tab showed it 0.64-0.71 s after each save. Carrier handoff/017-existing-items-backlog-post-deploy-2026-11-19.md, row B-8, record aaccb15."
 Owning-Stage: >-
   Planner, to decide whether this warrants a chain and at what size. Deliberately NOT scoped,
   diagnosed or routed to an implementer here - steering performed no investigation, and a handoff
@@ -111,3 +104,9 @@ from the saving tab's (`code-review/fix-website-save-gate-embeds-code-review.md`
 chose to fix that path in that chain (`steering/queue-hooks-rulings.md`, selection 15). **It is not
 shown to explain limb (d)** above, which was a save with nothing changed; this handoff stays Open
 and nothing else in it is answered by this note.
+
+## Changelog
+
+| Date | Author | Change |
+|---|---|---|
+| 2026-11-20T03:14 | steering-roadmap-hooks | Closed Addressed: Status set from Open. Plan 017's post-deploy row B-8 passed on live hooks.gg, walked by `uat-hooks-017-looks` as a test account on his selection (`steering/017-rulings.md` block 2026-11-20T02:41Z); result in `handoff/017-existing-items-backlog-post-deploy-2026-11-19.md` (`aaccb15`). This document had no changelog; this section opens one. Moved to `handoff/closed/`. |
