@@ -1,0 +1,5 @@
+== after stopping the scope sec018-next-start-d1bb9b0, 2026-11-20T06:57:52Z
+-- ps -eo pid,ppid,lstart,args matching 'next start' or next-server:
+(end of matches)
+-- listeners on 39419: 0
+-- scope state: inactive

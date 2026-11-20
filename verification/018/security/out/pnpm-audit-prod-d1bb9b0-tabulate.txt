@@ -1,0 +1,1 @@
+{"advisories":81,"modules":28,"bySeverity":{"critical":4,"high":48,"moderate":21,"low":8},"metadata":{"info":0,"low":8,"moderate":22,"high":50,"critical":4},"distinctGhsa":62}

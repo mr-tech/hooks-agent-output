@@ -1,0 +1,13 @@
+== package names in the tip lockfile's packages: section that the base lockfile holds at no version
+base names 1280 tip names 1276
+new names (13): @eslint/config-array, @eslint/config-helpers, @eslint/core, @eslint/object-schema, @eslint/plugin-kit, @humanfs/core, @humanfs/node, @humanfs/types, @humanwhocodes/retry, @img/sharp-freebsd-wasm32, @img/sharp-webcontainers-wasm32, json-buffer, keyv
+names gone (17): @humanwhocodes/config-array, @humanwhocodes/object-schema, @rushstack/eslint-patch, @types/semver, @ungap/structured-clone, asynciterator.prototype, builtins, eslint-plugin-es, eslint-plugin-n, eslint-plugin-promise, eslint-utils, graphemer, natural-compare-lite, object.hasown, regexpp, text-table, tsutils
+== zod importer entry in the tip lockfile
+241:      zod:
+242-        specifier: 3.22.4
+243-        version: 3.22.4
+--
+== highlight.js: hostile input through the installed 11.12.0
+version 11.12.0
+json: raw <img false raw <script false
+auto: raw <img false raw <script false

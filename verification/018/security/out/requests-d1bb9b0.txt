@@ -1,0 +1,60 @@
+== 1 header requests
+warm-up, no header	status=200	time_total=0.255771s
+tokens=0, no header	status=200	time_total=0.020375s
+tokens=200, header 1004 bytes, no query string	status=200	time_total=0.018254s
+tokens=400, header 2004 bytes, no query string	status=200	time_total=0.017354s
+tokens=800, header 4004 bytes, no query string	status=200	time_total=0.016106s
+tokens=1600, header 8004 bytes, no query string	status=200	time_total=0.015382s
+tokens=0, no header	status=200	time_total=0.012558s
+control: tokens=400 header AND a query string (?a=1)	status=200	time_total=0.013348s
+== 2 image
+image	status=200	type=image/png	bytes=2948
+== 3 a save with no session
+save, no session, body 1047999 bytes	status=401	time_total=0.044310s	response_bytes=145
+  response starts: {"error":{"json":{"message":"User is not authenticated.","code":-32001,"data":{"code":"UNAUTHORIZED","httpStatus":401,"path":"message.upsert"}}}}
+save, no session, body 1199999 bytes	status=413	time_total=0.004347s	response_bytes=23
+  response starts: Body exceeded 1mb limit
+== 4 batches with no session
+batch of 100 saves, URL 1539 bytes, body 10491 bytes	status=401	time_total=0.012323s	response_bytes=14601
+  response starts: [{"error":{"json":{"message":"User is not authenticated.","code":-32001,"data":{"code":"UNAUTHORIZED","httpStatus":401,"path":"message.upsert"}}}},{"error":{"js
+batch of 1000 saves, URL 15039 bytes, body 105891 bytes	status=401	time_total=0.059822s	response_bytes=146001
+  response starts: [{"error":{"json":{"message":"User is not authenticated.","code":-32001,"data":{"code":"UNAUTHORIZED","httpStatus":401,"path":"message.upsert"}}}},{"error":{"js
+batch of 1050 saves, URL 15789 bytes, body 111241 bytes	status=401	time_total=0.075859s	response_bytes=153301
+  response starts: [{"error":{"json":{"message":"User is not authenticated.","code":-32001,"data":{"code":"UNAUTHORIZED","httpStatus":401,"path":"message.upsert"}}}},{"error":{"js
+batch of 1100 saves, URL 16539 bytes, body 116591 bytes	status=431	time_total=0.001094s	response_bytes=0
+head: cannot open '/tmp/claude-1000/-usr-local-bin-hooks-website/37e84afc-1339-4f9a-b5ee-3a7d38a054c5/scratchpad/req-work/batch-1100.response' for reading: No such file or directory
+  response starts: 
+batch of 2000 saves, URL 30039 bytes, body 212891 bytes	status=431	time_total=0.000936s	response_bytes=0
+head: cannot open '/tmp/claude-1000/-usr-local-bin-hooks-website/37e84afc-1339-4f9a-b5ee-3a7d38a054c5/scratchpad/req-work/batch-2000.response' for reading: No such file or directory
+  response starts: 
+batch of 10000 saves, URL 150039 bytes, body 1068891 bytes	curl: no URL specified!
+curl: try 'curl --help' or 'curl --manual' for more information
+head: cannot open '/tmp/claude-1000/-usr-local-bin-hooks-website/37e84afc-1339-4f9a-b5ee-3a7d38a054c5/scratchpad/req-work/batch-10000.response' for reading: No such file or directory
+  response starts: 
+== 5 response headers
+-- GET /
+HTTP/1.1 200 OK
+Vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding
+x-nextjs-cache: HIT
+x-nextjs-prerender: 1
+x-nextjs-prerender: 1
+x-nextjs-stale-time: 300
+X-Powered-By: Next.js
+Cache-Control: s-maxage=31536000
+ETag: "io5luo5pqlwxy"
+Content-Type: text/html; charset=utf-8
+Content-Length: 42699
+Date: Fri, 20 Nov 2026 06:57:37 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+-- GET /message/m/0/edit
+HTTP/1.1 200 OK
+Vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding
+Link: </_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2>; rel=preload; as="font"; crossorigin=""; type="font/woff2", </assets/twemoji-mozilla.ttf>; rel=preload; as="font"; crossorigin=""
+X-Powered-By: Next.js
+Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate
+Content-Type: text/html; charset=utf-8
+Date: Fri, 20 Nov 2026 06:57:37 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked

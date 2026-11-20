@@ -1,0 +1,9 @@
+base entries: 127
+tip entries: 81
+only in tip (new): 0
+only in base (gone): 46
+  - baseline-browser-mapping	1
+  - next	42
+  - sharp	3
+in both, installed versions differ: 1
+  ~ source-map-js|GHSA-68fv-2mgg-jv7q|1241209	1.0.2 -> 1.0.2,1.2.1

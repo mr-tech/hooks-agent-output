@@ -1,0 +1,28 @@
+advisory entries in the audit: 81
+distinct GHSA ids: 62
+audit metadata.vulnerabilities: {"info":0,"low":8,"moderate":22,"high":50,"critical":4}
+rows in the dispositions table: 81
+
+By advisory entry (an entry split across dispositions counts once per disposition it takes):
+disposition	critical	high	moderate	low	total
+REACHED	0	1	0	0	1
+ABSENT	3	16	10	4	33
+BUILD	0	13	7	1	21
+UNLOADED	1	18	4	3	26
+all	4	48	21	8	81
+
+By the audit's own unit (advisory entry x installed version), which is what metadata.vulnerabilities counts:
+disposition	critical	high	moderate	low	total
+REACHED	0	1	0	0	1
+ABSENT	3	17	11	4	35
+BUILD	0	14	7	1	22
+UNLOADED	1	18	4	3	26
+all	4	50	22	8	84
+
+Distinct GHSA ids per disposition:
+REACHED	1
+ABSENT	33
+BUILD	21
+UNLOADED	15
+
+Disposition keys matching no advisory in this audit: baseline-browser-mapping, decode-uri-component, sanitize-html, sharp, tar-fs, next|GHSA-2464-fhr4-w9xw, next|GHSA-2xp9-vwfh-vxw4, next|GHSA-673q-mjm6-r5xr, next|GHSA-p293-qw3h-jr36, next|GHSA-267c-6grr-h53f, next|GHSA-26hh-7cqf-hhc6, next|GHSA-492v-c6pp-mqqv, next|GHSA-36qx-fr4f-26g5, next|GHSA-6gpp-xcg3-4w24, next|GHSA-89xv-2m56-2m9x, next|GHSA-8h8q-6873-q5fj, next|GHSA-q4gf-8mx6-v5v3, next|GHSA-c4j6-fc7j-m34r, next|GHSA-cjq9-62q9-8jv4, next|GHSA-m99w-x7hq-7vfj, next|GHSA-p3m5-59mp-jv5r, next|GHSA-mg66-mrh9-m8jx, next|GHSA-p9j2-gv94-2wf4, next|GHSA-3x4c-7xq6-9pq8, next|GHSA-4633-3j49-mh5q, next|GHSA-68g3-v927-f742, next|GHSA-4c39-4ccg-62r3, next|GHSA-4jqv-mc3x-m676, next|GHSA-7qx7-33qx-rqx2, next|GHSA-955p-x3mx-jcvp, next|GHSA-f3mh-rxg3-f5g2, next|GHSA-f87g-xv8r-7p7x, next|GHSA-ffhc-5mcf-pf4q, next|GHSA-ggv3-7p47-pfv8, next|GHSA-gx5p-jg67-6x7h, next|GHSA-h27x-g6w4-24gq, next|GHSA-h64f-5h5j-jqjh, next|GHSA-mcj8-r9mp-w47p, next|GHSA-mq59-m269-xvcx, next|GHSA-pc58-hwjq-p385, next|GHSA-q8wf-6r8g-63ch, next|GHSA-rhh4-g77r-r9qj, next|GHSA-wfc6-r584-vfw7, next|GHSA-vfv6-92ff-j949, next|GHSA-3g8h-86w9-wvmq, next|GHSA-39w2-rjm5-chcv, next|GHSA-jcc7-9wpm-mj36

@@ -1,0 +1,82 @@
+module	severity	ghsa	cves	cvss	cwe	vulnerable_versions	patched_versions	installed_versions	n_paths	roots	title
+@babel/runtime	moderate	GHSA-968p-4wvh-cqc8	CVE-2025-27789	6.2	CWE-1333	<7.26.10	>=7.26.10	7.23.4	1	@hello-pangea/color-picker	Babel has inefficient RegExp complexity in generated code with .replace when transpiling named capturing groups
+@smithy/config-resolver	low	GHSA-6475-r3vj-m8vf		3.7	CWE-20	<4.4.0	>=4.4.0	2.0.1	1	@aws-sdk/client-s3	AWS SDK for JavaScript v3 adopted defense in depth enhancement for region parameter value
+brace-expansion	high	GHSA-3jxr-9vmj-r5cp	CVE-2026-13149	5.3	CWE-400,CWE-407	>=2.0.0 <2.1.2	>=2.1.2	2.0.1	1	project-utils	brace-expansion: DoS via exponential-time expansion of consecutive non-expanding {} groups
+brace-expansion	high	GHSA-3jxr-9vmj-r5cp	CVE-2026-13149	5.3	CWE-400,CWE-407	<1.1.16	>=1.1.16	1.1.11	1	project-utils	brace-expansion: DoS via exponential-time expansion of consecutive non-expanding {} groups
+brace-expansion	high	GHSA-6j4f-fj2g-mc7p	CVE-2026-102276	7.5	CWE-400,CWE-674	<1.1.19	>=1.1.19	1.1.11	1	project-utils	brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion
+brace-expansion	high	GHSA-6j4f-fj2g-mc7p	CVE-2026-102276	7.5	CWE-400,CWE-674	>=2.0.0 <2.1.5	>=2.1.5	2.0.1	1	project-utils	brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion
+brace-expansion	high	GHSA-mh99-v99m-4gvg	CVE-2026-14257	7.5	CWE-400,CWE-770	<1.1.17	>=1.1.17	1.1.11	1	project-utils	brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash
+brace-expansion	high	GHSA-mh99-v99m-4gvg	CVE-2026-14257	7.5	CWE-400,CWE-770	>=2.0.0 <2.1.3	>=2.1.3	2.0.1	1	project-utils	brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash
+brace-expansion	high	GHSA-qhr7-859c-m2p7	CVE-2026-102278	7.5	CWE-400,CWE-674	<1.1.20	>=1.1.20	1.1.11	1	project-utils	brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion
+brace-expansion	high	GHSA-qhr7-859c-m2p7	CVE-2026-102278	7.5	CWE-400,CWE-674	>=2.0.0 <2.1.6	>=2.1.6	2.0.1	1	project-utils	brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion
+brace-expansion	high	GHSA-rgw5-rvv9-x895	CVE-2026-69152	7.5	CWE-400,CWE-770	>=2.0.0 <2.1.4	>=2.1.4	2.0.1	1	project-utils	brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation
+brace-expansion	high	GHSA-rgw5-rvv9-x895	CVE-2026-69152	7.5	CWE-400,CWE-770	<1.1.18	>=1.1.18	1.1.11	1	project-utils	brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation
+brace-expansion	moderate	GHSA-f886-m6hf-6m8v	CVE-2026-33750	6.5	CWE-400	<1.1.13	>=1.1.13	1.1.11	1	project-utils	brace-expansion: Zero-step sequence causes process hang and memory exhaustion
+brace-expansion	moderate	GHSA-f886-m6hf-6m8v	CVE-2026-33750	6.5	CWE-400	>=2.0.0 <2.0.3	>=2.0.3	2.0.1	1	project-utils	brace-expansion: Zero-step sequence causes process hang and memory exhaustion
+brace-expansion	moderate	GHSA-q2hr-2g5m-vwhr	CVE-2026-102277	5.3	CWE-400,CWE-407	<1.1.21	>=1.1.21	1.1.11	1	project-utils	brace-expansion: Quadratic-time expansion of the `{a},b}` rewrite causes CPU denial of service
+brace-expansion	moderate	GHSA-q2hr-2g5m-vwhr	CVE-2026-102277	5.3	CWE-400,CWE-407	>=2.0.0 <2.1.7	>=2.1.7	2.0.1	1	project-utils	brace-expansion: Quadratic-time expansion of the `{a},b}` rewrite causes CPU denial of service
+brace-expansion	low	GHSA-v6h2-p8h4-qcjw	CVE-2025-5889	3.1	CWE-400	>=1.0.0 <=1.1.11	>=1.1.12	1.1.11	1	project-utils	brace-expansion Regular Expression Denial of Service vulnerability
+brace-expansion	low	GHSA-v6h2-p8h4-qcjw	CVE-2025-5889	3.1	CWE-400	>=2.0.0 <=2.0.1	>=2.0.2	2.0.1	1	project-utils	brace-expansion Regular Expression Denial of Service vulnerability
+braces	high	GHSA-grv7-fg5c-xmjg	CVE-2024-4068	7.5	CWE-400,CWE-1050	<3.0.3	>=3.0.3	3.0.2	1	@headlessui/tailwindcss	Uncontrolled resource consumption in braces
+cookie	low	GHSA-pxg6-pf52-xh8x	CVE-2024-47764	0	CWE-74	<0.7.0	>=0.7.0	0.5.0	1	next-auth	cookie accepts cookie name, path, and domain with out of bounds characters
+cross-spawn	high	GHSA-3xgq-45jj-v275	CVE-2024-21538	7.5	CWE-1333	>=7.0.0 <7.0.5	>=7.0.5	7.0.3	1	@vercel/functions	Regular Expression Denial of Service (ReDoS) in cross-spawn
+diff	low	GHSA-73rr-hh4g-fpgx	CVE-2026-24001	0	CWE-400,CWE-1333	>=4.0.0 <4.0.4	>=4.0.4	4.0.2	1	@headlessui/tailwindcss	jsdiff has a Denial of Service vulnerability in parsePatch and applyPatch
+fast-loops	high	GHSA-3q56-9cc2-46j4	CVE-2024-39008	7.5	CWE-1321	<1.1.4	>=1.1.4	1.1.3	1	react-use	robinweser fast-loops vulnerable to prototype pollution
+fast-xml-parser	critical	GHSA-m7jm-9gc2-mpf2	CVE-2026-25896	9.3	CWE-185	>=4.1.3 <4.5.4	>=4.5.4	4.2.5	1	@aws-sdk/client-s3	fast-xml-parser has an entity encoding bypass via regex injection in DOCTYPE entity names
+fast-xml-parser	high	GHSA-8gc5-j5rx-235r	CVE-2026-33036	7.5	CWE-776	>=4.0.0-beta.3 <4.5.5	>=4.5.5	4.2.5	1	@aws-sdk/client-s3	fast-xml-parser affected by numeric entity expansion bypassing all entity expansion limits (incomplete fix for CVE-2026-26278)
+fast-xml-parser	high	GHSA-jmr7-xgp7-cmfj	CVE-2026-26278	7.5	CWE-776	>=4.1.3 <4.5.4	>=4.5.4	4.2.5	1	@aws-sdk/client-s3	fast-xml-parser affected by DoS through entity expansion in DOCTYPE (no expansion limit)
+fast-xml-parser	moderate	GHSA-gh4j-gqv2-49f6	CVE-2026-41650	6.1	CWE-91	<4.5.7	>=4.5.7	4.2.5	1	@aws-sdk/client-s3	fast-xml-parser XMLBuilder: XML Comment and CDATA Injection via Unescaped Delimiters
+fast-xml-parser	moderate	GHSA-jp2q-39xq-3w4g	CVE-2026-33349	5.9	CWE-1284	>=4.0.0-beta.3 <4.5.5	>=4.5.5	4.2.5	1	@aws-sdk/client-s3	Entity Expansion Limits Bypassed When Set to Zero Due to JavaScript Falsy Evaluation in fast-xml-parser
+fast-xml-parser	low	GHSA-474x-hrwr-fgx4	CVE-2026-126066	3.7	CWE-407	<=5.11.2	>=5.12.0	4.2.5	1	@aws-sdk/client-s3	fast-xml-parser: Quadratic CPU consumption scanning unterminated stop-node tags
+fast-xml-parser	low	GHSA-fj3w-jwp8-x2g3	CVE-2026-27942	0	CWE-120	>=4.0.0-beta.0 <4.5.4	>=4.5.4	4.2.5	1	@aws-sdk/client-s3	fast-xml-parser has stack overflow in XMLBuilder with preserveOrder
+form-data	critical	GHSA-fjxv-7rqg-78g4	CVE-2025-7783	0	CWE-330	>=4.0.0 <4.0.4	>=4.0.4	4.0.0	1	form-data	form-data uses unsafe random function in form-data for choosing boundary
+form-data	critical	GHSA-fjxv-7rqg-78g4	CVE-2025-7783	0	CWE-330	>=3.0.0 <3.0.4	>=3.0.4	3.0.1	1	pusher	form-data uses unsafe random function in form-data for choosing boundary
+form-data	high	GHSA-hmw2-7cc7-3qxx	CVE-2026-12143	7.5	CWE-93	>=4.0.0 <4.0.6	>=4.0.6	4.0.0	1	form-data	form-data: CRLF injection in form-data via unescaped multipart field names and filenames
+form-data	high	GHSA-hmw2-7cc7-3qxx	CVE-2026-12143	7.5	CWE-93	>=3.0.0 <3.0.5	>=3.0.5	3.0.1	1	pusher	form-data: CRLF injection in form-data via unescaped multipart field names and filenames
+immutable	high	GHSA-v56q-mh7h-f735	CVE-2026-59879	7.5	CWE-190,CWE-400,CWE-835,CWE-1284	>=4.0.0-rc.1 <4.3.9	>=4.3.9	4.1.0	1	sass	Immutable.js `List` 32-bit trie overflow → unrecoverable DoS
+immutable	high	GHSA-wf6x-7x77-mvgw	CVE-2026-29063	9.8	CWE-1321	>=4.0.0-rc.1 <4.3.8	>=4.3.8	4.1.0	1	sass	Immutable is vulnerable to Prototype Pollution
+immutable	high	GHSA-xvcm-6775-5m9r	CVE-2026-59880	0	CWE-400,CWE-407	>=4.0.0-beta.1 <4.3.9	>=4.3.9	4.1.0	1	sass	Immutable: Hash-collision algorithmic complexity denial of service in Immutable.Map/Set
+jose	moderate	GHSA-hhhv-q57g-882q	CVE-2024-28176	5.3	CWE-400	>=3.0.0 <=4.15.4	>=4.15.5	4.12.2	1	next-auth	jose vulnerable to resource exhaustion via specifically crafted JWE with compressed plaintext
+js-cookie	high	GHSA-qjx8-664m-686j	CVE-2026-46625	7.5	CWE-1321	<=3.0.5	>=3.0.7	2.2.1,3.0.5	2	js-cookie,react-use	JavaScript Cookie: Per-instance prototype hijack in assign() enables cookie-attribute injection
+kysely	high	GHSA-8cpq-38p9-67gx	CVE-2026-33468	8.1	CWE-89	<=0.28.13	>=0.28.14	0.26.1	1	kysely	Kysely has a MySQL SQL Injection via Insufficient Backslash Escaping in `sql.lit(string)` usage or similar methods that append string literal values into the compiled SQL strings
+kysely	high	GHSA-pv5w-4p9q-p3v2	CVE-2026-44635	7.5	CWE-22,CWE-89,CWE-915,CWE-1284	>=0.26.0 <0.28.17	>=0.28.17	0.26.1	1	kysely	Kysely: JSON-path traversal injection via unsanitized path-leg metacharacters in `JSONPathBuilder.key()` / `.at()`
+kysely	high	GHSA-wmrf-hv6w-mr66	CVE-2026-32763	8.2	CWE-89	>=0.26.0 <=0.28.11	>=0.28.12	0.26.1	1	kysely	SQL Injection via unsanitized JSON path keys when ignoring/silencing compilation errors or using `Kysely<any>`.
+lodash	high	GHSA-r5fr-rjxr-66jc	CVE-2026-4800	8.1	CWE-94	>=4.0.0 <=4.17.23	>=4.18.0	4.17.21	1	@hello-pangea/color-picker	lodash vulnerable to Code Injection via `_.template` imports key names
+lodash	moderate	GHSA-xxjr-mmjv-4gpg	CVE-2025-13465	6.5	CWE-1321	>=4.0.0 <=4.17.22	>=4.17.23	4.17.21	1	@hello-pangea/color-picker	Lodash has Prototype Pollution Vulnerability in `_.unset`, `_.omit`, and `_.pullAt` functions
+micromatch	moderate	GHSA-952p-6rrq-rcjv	CVE-2024-4067	5.3	CWE-1333	<4.0.8	>=4.0.8	4.0.5	1	@headlessui/tailwindcss	Regular Expression Denial of Service (ReDoS) in micromatch
+minimatch	high	GHSA-23c5-xmqv-rm74	CVE-2026-27904	7.5	CWE-1333	<3.1.4	>=3.1.4	3.1.2	1	project-utils	minimatch ReDoS: nested *() extglobs generate catastrophically backtracking regular expressions
+minimatch	high	GHSA-23c5-xmqv-rm74	CVE-2026-27904	7.5	CWE-1333	>=5.0.0 <5.1.8	>=5.1.8	5.1.6	1	project-utils	minimatch ReDoS: nested *() extglobs generate catastrophically backtracking regular expressions
+minimatch	high	GHSA-3ppc-4f35-3m26	CVE-2026-26996	0	CWE-1333	<3.1.3	>=3.1.3	3.1.2	1	project-utils	minimatch has a ReDoS via repeated wildcards with non-matching literal in pattern
+minimatch	high	GHSA-3ppc-4f35-3m26	CVE-2026-26996	0	CWE-1333	>=5.0.0 <5.1.7	>=5.1.7	5.1.6	1	project-utils	minimatch has a ReDoS via repeated wildcards with non-matching literal in pattern
+minimatch	high	GHSA-7r86-cg39-jmmj	CVE-2026-27903	7.5	CWE-407	<3.1.3	>=3.1.3	3.1.2	1	project-utils	minimatch has ReDoS: matchOne() combinatorial backtracking via multiple non-adjacent GLOBSTAR segments
+minimatch	high	GHSA-7r86-cg39-jmmj	CVE-2026-27903	7.5	CWE-407	>=5.0.0 <5.1.8	>=5.1.8	5.1.6	1	project-utils	minimatch has ReDoS: matchOne() combinatorial backtracking via multiple non-adjacent GLOBSTAR segments
+nanoid	high	GHSA-28wg-ghj8-5hjv	CVE-2026-67214	5.9	CWE-835	>=4.0.0 <5.1.16	>=5.1.16	4.0.2	1	nanoid	nanoid: non-secure generators can loop indefinitely with negative size
+nanoid	high	GHSA-28wg-ghj8-5hjv	CVE-2026-67214	5.9	CWE-835	<3.3.16	>=3.3.16	3.3.6	1	@headlessui/tailwindcss	nanoid: non-secure generators can loop indefinitely with negative size
+nanoid	high	GHSA-2v37-7h3g-55p8	CVE-2026-67213	5.9	CWE-835	<3.3.18	>=3.3.18	3.3.6	1	@headlessui/tailwindcss	nanoid: custom generators can loop indefinitely when size is zero
+nanoid	high	GHSA-2v37-7h3g-55p8	CVE-2026-67213	5.9	CWE-835	>=4.0.0 <5.1.6	>=5.1.6	4.0.2	1	nanoid	nanoid: custom generators can loop indefinitely when size is zero
+nanoid	high	GHSA-xwg4-73v4-xw9w	CVE-2026-73086	7.4	CWE-190	>=4.0.0 <5.1.11	>=5.1.11	4.0.2	1	nanoid	nanoid: Integer Overflow or Wraparound
+nanoid	high	GHSA-xwg4-73v4-xw9w	CVE-2026-73086	7.4	CWE-190	<3.3.12	>=3.3.12	3.3.6	1	@headlessui/tailwindcss	nanoid: Integer Overflow or Wraparound
+nanoid	moderate	GHSA-mwcw-c2x4-8c55	CVE-2024-55565	4.3	CWE-835	<3.3.8	>=3.3.8	3.3.6	1	@headlessui/tailwindcss	Predictable results in nanoid generation when given non-integer values
+nanoid	moderate	GHSA-mwcw-c2x4-8c55	CVE-2024-55565	4.3	CWE-835	>=4.0.0 <5.0.9	>=5.0.9	4.0.2	1	nanoid	Predictable results in nanoid generation when given non-integer values
+next-auth	critical	GHSA-7rqj-j65f-68wh	CVE-2026-73420	0	CWE-180	>=4.10.3 <4.24.15	>=4.24.15	4.24.5	1	next-auth	Auth.js: Email normalizer validates the address before Unicode normalization, allowing a homoglyph @ bypass
+next-auth	high	GHSA-xmf8-cvqr-rfgj	CVE-2026-73418	7.5	CWE-20	>=4.0.6 <=4.24.14	>=4.24.15	4.24.5	1	next-auth	Auth.js: getToken() throws an uncaught exception on malformed Bearer authorization headers
+next-auth	moderate	GHSA-5jpx-9hw9-2fx4		0	CWE-200	<4.24.12	>=4.24.12	4.24.5	1	next-auth	NextAuthjs Email misdelivery Vulnerability
+next-auth	moderate	GHSA-x445-f3h2-j279	CVE-2026-73419	6.8	CWE-345,CWE-346,CWE-940	<=4.24.14	>=4.24.15	4.24.5	1	next-auth	Auth.js: OAuth state, nonce, and PKCE check cookies are not bound to the provider that created them
+picomatch	high	GHSA-c2c7-rcm5-vvqj	CVE-2026-33671	7.5	CWE-1333	<2.3.2	>=2.3.2	2.3.1	1	@headlessui/tailwindcss	Picomatch has a ReDoS vulnerability via extglob quantifiers
+picomatch	moderate	GHSA-3v7f-55p6-f55p	CVE-2026-33672	5.3	CWE-1321	<2.3.2	>=2.3.2	2.3.1	1	@headlessui/tailwindcss	Picomatch: Method Injection in POSIX Character Classes causes incorrect Glob Matching
+postcss	high	GHSA-6g55-p6wh-862q	CVE-2026-45623	7.5	CWE-22,CWE-200	<=8.5.11	>=8.5.12	8.4.31	1	@headlessui/tailwindcss	PostCSS: Arbitrary file read and information disclosure via attacker-controlled sourceMappingURL in CSS comments
+postcss	high	GHSA-r28c-9q8g-f849	CVE-2026-73646	7.5	CWE-22	<=8.5.17	>=8.5.18	8.4.31	1	@headlessui/tailwindcss	PostCSS: Path Traversal in Previous Source Map Auto-Loading (sourceMappingURL) leads to Arbitrary .map File Disclosure
+postcss	moderate	GHSA-fxqj-rqcc-2cmp	CVE-2026-69153	0	CWE-22,CWE-200	<=8.5.22	>=8.5.23	8.4.31	1	@headlessui/tailwindcss	PostCSS: incomplete fix of GHSA-6g55-p6wh-862q — attacker-controlled sourceMappingURL reads arbitrary .map files when `from` is unset
+postcss	moderate	GHSA-qx2v-qp2m-jg93	CVE-2026-41305	6.1	CWE-79	<8.5.10	>=8.5.10	8.4.31	1	@headlessui/tailwindcss	PostCSS has XSS via Unescaped </style> in its CSS Stringify Output
+postcss-selector-parser	moderate	GHSA-rj75-hqrm-r3gf	CVE-2026-104844	5.9	CWE-400,CWE-407	<6.1.5	>=6.1.5	6.0.11	1	@headlessui/tailwindcss	PostCSS: Quadratic complexity in flat selector parsing allows CPU exhaustion
+source-map-js	high	GHSA-68fv-2mgg-jv7q	CVE-2026-93749	7.5	CWE-1284	>=1.0.0 <1.2.2	>=1.2.2	1.0.2,1.2.1	2	@headlessui/tailwindcss,next	source-map-js allows event-loop denial of service through indexed source-map section offsets
+tmp	high	GHSA-ph9p-34f9-6g65	CVE-2026-44705	0	CWE-22	<0.2.6	>=0.2.6	0.2.1	1	project-utils	tmp has Path Traversal via unsanitized prefix/postfix that enables directory escape
+tmp	low	GHSA-52f5-9888-hmc6	CVE-2025-54798	2.5	CWE-59	<=0.2.3	>=0.2.4	0.2.1	1	project-utils	tmp allows arbitrary temporary file / directory write via symbolic link `dir` parameter
+uuid	moderate	GHSA-w5hq-g745-h8pq	CVE-2026-41907	7.5	CWE-787,CWE-1285	<11.1.1	>=11.1.1	8.3.2,9.0.0	2	@aws-sdk/client-s3,project-utils	uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided
+ws	high	GHSA-3h5v-q93c-6h6q	CVE-2024-37890	7.5	CWE-476	>=8.0.0 <8.17.1	>=8.17.1	8.13.0	1	@vercel/functions	ws affected by a DoS when handling a request with many HTTP headers
+ws	high	GHSA-3h5v-q93c-6h6q	CVE-2024-37890	7.5	CWE-476	>=7.0.0 <7.5.10	>=7.5.10	7.5.9	1	@next/bundle-analyzer	ws affected by a DoS when handling a request with many HTTP headers
+ws	high	GHSA-96hv-2xvq-fx4p	CVE-2026-48779	7.5	CWE-400,CWE-770,CWE-1050	>=8.0.0 <8.21.0	>=8.21.0	8.13.0	1	@vercel/functions	ws: Memory exhaustion DoS from tiny fragments and data chunks
+ws	high	GHSA-96hv-2xvq-fx4p	CVE-2026-48779	7.5	CWE-400,CWE-770,CWE-1050	>=7.0.0 <7.5.11	>=7.5.11	7.5.9	1	@next/bundle-analyzer	ws: Memory exhaustion DoS from tiny fragments and data chunks
+ws	moderate	GHSA-58qx-3vcg-4xpx	CVE-2026-45736	4.4	CWE-908	>=8.0.0 <8.20.1	>=8.20.1	8.13.0	1	@vercel/functions	ws: Uninitialized memory disclosure
+yaml	moderate	GHSA-48c2-rrv3-qjmp	CVE-2026-33532	4.3	CWE-674	>=1.0.0 <1.10.3	>=1.10.3	1.10.2	1	@headlessui/tailwindcss	yaml is vulnerable to Stack Overflow via deeply nested YAML collections
+zod	high	GHSA-mrhx-c7xc-m3w5	CVE-2023-54404	7.5	CWE-770	<4.6.6	>=4.6.6	3.22.4	1	zod	Zod can exhaust memory while validating oversized constrained collections
