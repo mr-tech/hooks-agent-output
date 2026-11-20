@@ -1,0 +1,12 @@
+{
+  "row": "B-2",
+  "at": "2026-11-20T01:37:58.586Z",
+  "request": "GET https://hooks.gg/api/trpc/message.getOne?input=%7B%22json%22%3A%2299999999999999999999%22%7D",
+  "sessionUserId": "1219217003659788418",
+  "status": 400,
+  "code": "BAD_REQUEST",
+  "httpStatus": 400,
+  "message": "[\n  {\n    \"validation\": \"regex\",\n    \"code\": \"invalid_string\",\n    \"message\": \"Invalid\",\n    \"path\": []\n  },\n  {\n    \"code\": \"custom\",\n    \"message\": \"Invalid input\",\n    \"path\": []\n  }\n]",
+  "vercelId": "pdx1::cle1::8fq46-1795138679076-766b2436fa81",
+  "date": "Fri, 20 Nov 2026 01:37:59 GMT"
+}

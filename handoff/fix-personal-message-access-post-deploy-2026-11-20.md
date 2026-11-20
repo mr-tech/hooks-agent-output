@@ -1,7 +1,7 @@
 ---
 UUID: 9c923fab
 Status: Open
-Status-Detail: "Carrier of fix-personal-message-access's post-deploy rows B-2 and B-1 (QA's register) and of the owner's residue read of the production Messages table, opened at devops Stage 1. Website master was pushed to 983681c at 2026-11-20T01:33:58Z (E-WEBSITE-PUSH), so B-2 then B-1 are now decidable once the Vercel deployment is serving. B-2 then B-1 are walked by a uat-role session on the test accounts on live hooks.gg; the residue read is his, put by steering. No row gates the release act or the commit."
+Status-Detail: "Carrier of fix-personal-message-access's post-deploy rows. B-2 and B-1 are EXECUTED on the fixed limb (2026-11-20, uat-hooks-fix-personal-message-access); R-1, the owner's residue read of the production Messages table, is outstanding and his, put by steering. No row gates the release act or the commit."
 Owning-Stage: uat
 Review-Trigger: "the production deploy of website master carrying the fix (the E-WEBSITE-PUSH row of this record's event ledger filled, and the deployment Ready) — then B-2 first and B-1 after it; for the residue read, the owner's answer to steering's release question"
 ---
@@ -48,7 +48,7 @@ the code review and security's identity instrument, run locally only.
 - **Failure mode**: if it still answers 500, the deploy is not serving the fix and B-1 says nothing.
 - **Known read**: signed out, at the minting read 2026-11-19T23:45:54Z, the answer is 401 `UNAUTHORIZED`, because the auth middleware answers
   before the input (`verification/fix-personal-message-access/qa/prod-look-getone-past-int8.json`). The signed-in unfixed value was never read.
-- **Owner**: uat-role session. **Result**: _blank_
+- **Owner**: uat-role session. **Result**: `EXECUTED` 2026-11-20T01:37:58Z, uat-hooks-fix-personal-message-access. Signed in as test account 1 (session id `1219217003659788418`, matched to its credential): HTTP **400 `BAD_REQUEST`** (zod regex refusal). This is the fixed limb, so production serves the fixed `messageIdShape` and B-1 is readable. Evidence: `verification/fix-personal-message-access/post-deploy/b2-getone-past-int8-signed-in.json`; walk record `…/post-deploy/README.md`.
 
 ### B-1  (uat-role session; after B-2 passed)
 
@@ -62,7 +62,7 @@ the code review and security's identity instrument, run locally only.
 - **Predicted**: fixed, the editor's load error, with none of account 2's content on the page. Unfixed, shown on production
   2026-11-19T08:58Z: message 6020 opened in full by account 1. One observation decides.
 - **Failure mode**: if account 1 still sees account 2's content, any signed-in user can still read any personal message by its number.
-- **Owner**: uat-role session. **Result**: _blank_
+- **Owner**: uat-role session. **Result**: `EXECUTED` 2026-11-20T01:41Z, uat-hooks-fix-personal-message-access (walk driven by its `browser-walker` helper). Account 2 (`1219222937962283038`) created and saved personal message **6021** with the marker `access-check-post-deploy 2026-11-20T01:40:17Z`, and its own `getOne` returned 200 with the marker. Account 1 (`1219217003659788418`) opened `/message/m/6021/edit` at 01:41:13Z: **none of account 2's content was on the page**. The page's own `getOne` 6021 answered 404 on each of its four requests, and account 1's direct `getOne` answered **404 `NOT_FOUND`**. This is the fixed limb. Account 2's own editor still loaded the message, and account 2 then deleted 6021 at 01:41:50Z ("Message deleted.", folder "No Messages"). Observed beside the prediction: no load-error wording had rendered at the 8 s read. The editor was a blank shell while its query was still retrying (F-1 LOW in the walk record; it does not move the row). `getOne` on the deleted number answered 500 "no result": that is the absent-number error the chain sent to a handoff (F-2). Evidence: `verification/fix-personal-message-access/post-deploy/b1-*`, `README.md`. Screenshots are untracked at `/home/dev/.cache/ms-playwright-mcp/output/b1-pd-*.png`.
 
 ### R-1  (his production database read; put by steering at the release question)
 
@@ -109,3 +109,4 @@ chain `fix-personal-message-access`; created by devops at Stage 1 (steering brie
 |---|---|---|
 | 2026-11-20T00:21 | devops-hooks-fix-personal-message-access | Created at Stage 1. Rows B-2, B-1 and R-1 carried in full; the event ledger is blank until Stage 2. No crontab line: the reader is a uat-role session spawned by steering after the push. Disclosure: the stamp-gate hook refused this row's first time, which I had typed ahead of the clock (00:25 against 00:21); it now carries the `date -u` minute. A gate satisfied, not a control worked around |
 | 2026-11-20T01:34 | devops-hooks-fix-personal-message-access | E-WEBSITE-PUSH written at Stage 2: website master 787bec5 -> 983681c pushed 2026-11-20T01:33:58Z. B-2, B-1 and R-1 stay blank; the reader is the uat-role session steering spawns |
+| 2026-11-20T01:43 | uat-hooks-fix-personal-message-access | B-2 and B-1 Result lines written, both `EXECUTED` and both on the fixed limb. B-2: 400 `BAD_REQUEST` at 01:37:58Z. B-1: account 1 was refused account 2's message 6021 (404 `NOT_FOUND`, no content), and 6021 was deleted by account 2. RC-2 (the session path on production) is read. R-1 stays blank and is his. The Status stays Open for R-1 |
