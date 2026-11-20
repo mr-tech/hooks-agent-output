@@ -1,7 +1,7 @@
 ---
 UUID: 81d9b7c1
-Status: Open
-Status-Detail: "The architecture Problem Areas row 'upsertMessage counts the owner's messages on every save' becomes false when fix-personal-message-access releases, because upsertMessage then counts only on the insert path. The architect updates the row at release."
+Status: Addressed
+Status-Detail: "Addressed at agent-output 3cb97ea: the Problem Areas row is restated from website 983681c as counting before each insert, where the count enforces the cap; the X-16 race and the unindexed columns stand. Other entries the fix made false were reconciled in the same commit (Components, Runtime Flow 1b, website.md A-6, the diagram)."
 Owning-Stage: architect
 Review-Trigger: the release of fix-personal-message-access (website master reaching the fix)
 ---
@@ -37,3 +37,4 @@ architect, by steering in rulings block "2026-11-19T23:09Z" (`steering/fix-perso
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-19T23:09 | helper for steering-roadmap-hooks | Created. |
+| 2026-11-20T01:41 | architect-hooks-fix-personal-message-access | Document closed | Status: Addressed. Trigger fired: website master reached 983681c at 2026-11-20T01:33:58Z. Code read at 983681c: upsertMessage runs the count only on the insert path, and the count gates the cap there. The row was restated, not retired. The X-16 race (count and insert are separate statements, no transaction: grep -c transaction over shared.ts at 983681c = 0) stands as a stated limit. Landed at agent-output 3cb97ea. |
