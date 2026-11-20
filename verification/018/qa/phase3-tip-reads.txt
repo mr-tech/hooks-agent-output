@@ -1,0 +1,18 @@
+2026-11-20T07:14Z
+$ git -C website rev-parse d1bb9b0^{commit} d1bb9b0^{tree}
+d1bb9b0724cded3c3c303203c2cbafe5df7bbf96
+36f83a68fc6bb28cb33433d89677034b3ccb8595
+$ git -C website ls-remote origin refs/heads/master
+7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe	refs/heads/master
+$ git -C website merge-base --is-ancestor 7923a1d d1bb9b0
+exit 0
+$ git -C website rev-list --count 7923a1d..d1bb9b0
+18
+$ grep ^Verified-At qa/closed/018-next-upgrade-save-size-cap-m4-qa.md
+Verified-At: "d1bb9b0 — repos=website; the chain tip carrying the zod pin; M4, the M1 to M3 refresh and the effort-final sweep; isolated exports with their own install"
+$ git -C website ls-tree -r --name-only d1bb9b0 | grep -c -i -E "time-based|timebased|vitest\.(slow|time)"
+0
+$ git -C website show d1bb9b0:vitest.config.ts | grep -c "name:"
+2
+$ git -C website show d1bb9b0:package.json | grep -c -E "\"test[:a-z-]*\":"
+2
