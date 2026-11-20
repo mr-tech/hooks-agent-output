@@ -3,7 +3,7 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Status: Active
-Status-Detail: "Plan revision 3 (record 428090e): APPROVED_WITH_CHANGES. AF-8 (M1-i's wiring constraints) is required before implementation approval. AF-1 to AF-4 are resolved; AF-5 to AF-7 are Problem Areas. Open items 1-3 below are discharged at the closing pass."
+Status-Detail: "Plan revision 4 (record 29277d3): APPROVED. AF-1 to AF-4 and AF-8 are resolved; AF-9 LOW is recommended to the planner; AF-5 to AF-7 are Problem Areas. Open items 1-3 below are discharged at the closing pass."
 ---
 
 # Architecture Findings — Plan 018: Next.js 16.4.6 and the save-list cap (conformance pass)
@@ -15,6 +15,7 @@ Status-Detail: "Plan revision 3 (record 428090e): APPROVED_WITH_CHANGES. AF-8 (M
 | 2026-11-20T03:39 | Conformance pass, plan rev 1 (record `c2a6b85`), briefed by steering-roadmap-hooks (`steering/018-brief-architect.md`). Rulings read: `steering/018-rulings.md` block 2026-11-20T03:25Z. | Every concrete form the plan writes was read against website `origin/master` `7923a1d` (`git show`; nothing run in the shared tree). The length-first cap was run against the real save schema in a scratch copy (`verification/018/architect-conformance/`). Two changes are required (AF-1, AF-2), two are recommended (AF-3, AF-4), two Problem Areas are registered (AF-5, AF-6), and the forms in "Conforming forms" conform. The master document's direct-`sharp` line is reconciled (the `INBOX.md` entry of `devops-hooks-fix-message-page-header-decode`). **APPROVED_WITH_CHANGES.** |
 | 2026-11-20T04:08 | Delta read, plan rev 2 (record `7a1bd46`; diff `c2a6b85..7a1bd46`), on the planner's word (`planner-hooks-018`, by message). | AF-1 to AF-4 are folded and retired to disposition lines. The cap moved from a dirty pipe to a fatal length issue that aborts the parse. Its mechanism was re-read in zod 3.22.4 source, and the planner's run was read (`abort-form-probe/`: `export.diff`, `README.md`, `table.md`, `typecheck.log`). AF-2's claim that `sumDisplayableText` "takes no harm" over raw elements was wrong, and this architect corrects it in place (QAF-1 found the `null` throw). The other forms of the delta conform: the M1-a to M1-h restatements, M4's enumerated class, and M5 under OQ-5's recommended option. AF-7 INFO registers the editor's reason-less Save toast (X-18) as a Problem Area. **APPROVED.** |
 | 2026-11-20T04:16 | Delta read, plan rev 3 (record `428090e`; diff `7a1bd46..428090e`), on the planner's word. His D-8 to D-10 read in the plan's register. | M5 under D-8 conforms; it is the form this pass read at revision 2. R7 leaving M4's class is accepted (no consumer, 015 D30). M1-i (D-9) leaves its wiring to the implementer. tRPC 11.10 calls the schema's `parseAsync(value)` with no parse options (`getParseFn`), so a contextual error map cannot be passed to the procedures' parse as they are built today. The route that needs no new form, zod's global `setErrorMap`, puts one counter under every parse in the process. AF-8 MEDIUM asks M1-i to state the wiring's constraints. A per-call wrapper meeting them was run through a real tRPC caller (`verification/018/architect-conformance/error-cap-wiring/`). The premise that the error map sees every issue holds: zod 3.22.4's `makeIssue` runs each map for every issue, explicit messages included. **APPROVED_WITH_CHANGES.** Process fact: the stamp gate refused this row's first write, which carried a typed, future-dated minute; it was rewritten with the `date -u` minute. |
+| 2026-11-20T04:27 | Delta read, plan rev 4 (record `29277d3`; diff `428090e..29277d3`), on the planner's word. Runs read: `verification/018/planning/union-cap-probe/` (`README.md`, `isolated-union.diff`) and `strip-cap-probe/` (by the plan's account). | AF-8 is folded as asked, and adds two constraints that are stricter than AF-8: the stopping parse is synchronous, and a stopped parse leaves no unhandled rejection. M1-i now counts issues as they appear in the result. The plan's illustrative way of reaching that is to parse the three plain-union sites outside the caller's error map, which works: created issues equal returned issues on all 50 rows, and nothing else moves. Keeping each issue to `code`, `path` and `message` matches the only reader, `formatMutationError` with zod-error. Choosing z.enum or `z.discriminatedUnion` at those sites was considered and not preferred. Both change a refused line that M1-b holds fixed, and z.enum's message carries the received value, which reopens QAF-8. AF-9 LOW recommends one shared, honestly typed union helper, and the record will carry its rule for future unions. **APPROVED.** |
 
 ## Scope and instrument
 
@@ -74,7 +75,24 @@ restated at the closing pass, once M3 has landed (open item 1).
   share a criterion" row already describes.
 - Registered in the master document's Problem Areas; no plan change.
 
-### AF-8 MEDIUM — M1-i's stop is a new server form, and its wiring needs stated constraints (required)
+### AF-8 MEDIUM RESOLVED — M1-i's wiring constraints. Plan rev 4 M1-i *wiring*: per-parse count, never `z.setErrorMap`; one shared definition in `shapes.ts`; refusal thrown as a `ZodError`; plus a synchronous stop and no unhandled rejection (`strip-cap-probe/strip-report-async.txt`). The argument below is kept until the closing pass retires it, because the delta read cites it.
+
+### AF-9 LOW — The plain-union isolation is a third shared schema form; name its home and its type (recommended)
+
+- **The form.** Plan rev 4 M1-i *the unit* needs the three plain-union sites (`sectionShape.accessory`, `separatorShape.spacing`,
+  the `allowed_mentions.parse` element) to create no discarded issues under the caller's error map. The plan's illustrative helper
+  (`union-cap-probe/isolated-union.diff`) is a `z.any().transform` declared `as unknown as z.ZodUnion<T>`.
+- **What to state.** The form is the implementer's, but it is the save schema's third shared form, beside `boundedArray` and the
+  cap wrapper. M1-i should state two things:
+  1. It is one helper in `shapes.ts` beside the other two, used at all three sites.
+  2. Its declared type is the union's input and output (`z.ZodType<…>`), as M1-d's helper is declared. It is not the `ZodUnion`
+     class, which the runtime object is not. No reader of `ZodUnion` members exists at `7923a1d` (`git grep` over `src`, non-test).
+- **Not preferred.** z.enum or `z.discriminatedUnion` at those sites would create no discarded issues either. Both change the line
+  a refused input shows, which M1-b holds fixed. z.enum's message also carries the received value, which reopens QAF-8's size limb.
+- **A consequence the record will carry (open item 2).** A plain `z.union` added to either procedure's input later, outside the
+  helper, makes the cap count issues the result never shows. The suite catches it only if a case fails that union.
+
+### AF-8 argument (retained) — M1-i's stop is a new server form, and its wiring needs stated constraints
 
 **Form.** M1-i (his D-9): the two procedures' input checks stop after 20 issues and refuse with those issues plus one summary issue.
 The premise run passes a contextual error map to `safeParse`. The plan leaves the wiring to the implementer.
@@ -143,7 +161,9 @@ single-request tests).
 ## Open items (this document's, discharged no later than devops Stage 1)
 
 1. Restate the ESLint Problem Areas row from the M3 tip (its `.eslintrc.json` sentence and the counts).
-2. Restate `website.md` A-4's "List bounds" paragraph from the M1 tip: the fatal-issue helper, the issue-cap wrapper, their home
-   and the bound homes (`MAX_RECENT_MESSAGE_IDS`, the mention-id constant, the `parse` tuple).
+2. Restate `website.md` A-4's "List bounds" paragraph from the M1 tip: the fatal-issue helper, the issue-cap wrapper, the union
+   isolation, their home and the bound homes (`MAX_RECENT_MESSAGE_IDS`, the mention-id constant, the `parse` tuple). Add the
+   consequences a later change must carry: a plain union goes through the isolation helper (AF-9), and the procedures' input
+   schemas stay synchronous, because the stopping parse is `safeParse`.
 3. Carry M4-c's R3 and R6 results (X-14's premise, and 015's Next.js premise) into the record, and restate Components'
    "Next.js 16 hybrid" version facts from the release tree.
