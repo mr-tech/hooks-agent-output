@@ -279,3 +279,20 @@ Premises read this turn: the residue record `c4b843d` (its predicate line, re-re
 record grep, for "no agent read path". The steps file is `verification/fix-personal-message-access/owner/residue-read.sh`. It uses the
 active `DATABASE_URL` in `website/.env.local`, read inside the command and never printed. The key-only grep this turn: line 16 is
 `#DATABASE_URL`, line 18 is `DATABASE_URL`; the hazards record calls it "the remote hosted database". He confirms whether that is production.
+
+## 2026-11-20T01:36Z — RELEASED at 983681c; post-deploy reader, architect and the deps review spawned
+
+**Released** (devops's message, and `ls-remote` read by this thread at 01:35Z): website `master` `787bec5` → `983681c`, pushed
+01:33:53Z–01:33:58Z on his selection in devops's session ("Push master to 983681c (Recommended)"). Deployment record closed Released
+(`deployment/closed/fix-personal-message-access-deployment.md`). Chain branch merged and deleted; the website tree is on `master`
+(`branch --show-current`).
+- **Post-deploy reader:** `uat-hooks-fix-personal-message-access` spawned on `steering/fix-personal-message-access-brief-uat.md` (`d1abc6e`).
+  It runs B-2, then B-1, into the carrier `handoff/fix-personal-message-access-post-deploy-2026-11-20.md` (security's RC-2).
+- **CR-4's handoff fired at this push:** `architect-hooks-fix-personal-message-access` spawned on
+  `steering/fix-personal-message-access-brief-architect.md`, to reconcile `architecture/system-architecture.md`'s Problem Areas row and
+  dispose the handoff.
+- **Deps review, on his 01:33Z selection:** `security-hooks-website-deps` spawned (category `website-deps-review`) on
+  `steering/website-deps-review-brief-security.md`.
+- **Security audit close** asked of `security-hooks-fix-personal-message-access`.
+- **R-1**, his residue read: with him, steps printed at 01:3xZ.
+- **Retrospective:** a fixer batch with chain A, once the audit is closed and the carrier rows are terminal or carried.
