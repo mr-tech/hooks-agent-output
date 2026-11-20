@@ -3,8 +3,8 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Status: In Progress
-Status-Detail: "Implementation of revision 5 started 2026-11-20T04:3xZ by implementer-hooks-018 on website chain/018-next-upgrade-save-size-cap (M1 to M4; M5 is devops's and UAT's); M2 runs on revision 7. Every gate approved revision 7 (critic 15988b6, architect 60d0a11, QA a7394c6). Planner batch: AF-11, F-23, F-24 parked for the fold seam. No open question."
-Revision: 7
+Status-Detail: "M1 to M3 verified (QA Phase 2: M1, M2 at website a558f2d, eb0c713; M3 at 969d92a, e0d8b95); M4's implementer limbs recorded; M5 is devops's and UAT's. Revision 8 folds the Planner batch (steering block 06:06Z): wording, the post-deploy runner for M2-e, M2-b's movers and edge comparison, and CR-2's zod pin, which the implementer makes next. Ready for the critic's read of the fold."
+Revision: 8
 Plan-ID: 018
 Target-Release: "website master (Vercel production), moved from 7923a1d to the chain's verified tip by devops on the owner's word"
 Epic-Alignment: "None recorded: agent-output/roadmap/ holds no roadmap (ls, 2026-11-20T03:1xZ). The chain serves the owner's routing of security findings H-002 and M-001 (steering/website-deps-review-rulings.md, block 2026-11-20T01:59Z)."
@@ -42,10 +42,11 @@ Lane: "planned (not proposed small): the framework moves under every page"
 | 2026-11-20T05:56 | R-15 | planner-hooks-018 | Registers code review Round 3's CR-5 LOW (`a05fb21`) as a Planner batch row. |
 | 2026-11-20T05:58 | R-16 | qa-hooks-018 | M1 QA Phase 2, scoped to the milestone (plan Status unmoved): **PASS** at website `a558f2d` (`qa/018-next-upgrade-save-size-cap-m1-qa.md`, `eb0c713`; evidence `verification/018/qa/m1-phase2/`). Suite 2261/2261, exit 0. Differential 0 violations over 1224 labels. Sweep of M1 guards: 66 of 69 killed plus NM-4 re-targeted, 3 survivors equivalent. M2 re-anchored at `a558f2d` (PASS). B-2 gains the capped-refusal HTTP limb (UAT). The effort-final sweep is owed. |
 | 2026-11-20T06:06 | R-17 | qa-hooks-018 | M3 QA Phase 2, scoped to the milestone (plan Status unmoved): **PASS** at website `969d92a` (`qa/018-next-upgrade-save-size-cap-m3-qa.md`, `e0d8b95`; evidence `verification/018/qa/m3-phase2/`). M3-a to M3-e hold. Suite 2261/2261, exit 0, identical to `a558f2d`. No built JS differs. **QAF-11 LOW** for the Planner batch beside CR-5: five function traces gain 4 package-metadata paths (`cross-spawn@7.0.6`, `semver@6.3.1`), so the M3 sentence "affects no build or runtime output" needs correcting. |
+| 2026-11-20T06:08 | 8 | planner-hooks-018 | Folds the Planner batch at steering's brief (`steering/018-rulings.md` block 2026-11-20T06:06Z): AF-11, F-24 (`60d0a11`, `15988b6`), F-23 (SL-2), M2-I1 to M2-I3 (`b4b34b6`), CR-2 (`55fe778`, block 05:42Z), CR-5 (`a05fb21`) and QAF-11 (`e0d8b95`). Scope delta: M2's steps add `zod` pinned exactly at 3.22.4 (one specifier, no version moves; one implementer commit follows); M2-b names the `sharp` and peer-suffix movers and adds an edge-level production-closure comparison; M2-d records the Edge Runtime warning; M2-e names UAT as its post-deploy runner; M3's rollback line corrected; the rest wording. Size: five milestones; M2 one specifier wider. |
 
 ## Header
 
-- **Plan ID** 018. **Revision** 7. **Status** In Progress.
+- **Plan ID** 018. **Revision** 8. **Status** In Progress.
 - **Target Release:** website `master`, which Vercel deploys to production (`link.productionBranch: master`,
   `verification/018/planning/vercel-project-preview-fields.md`). The package has no `version` field (`package.json` at
   `7923a1d`), so the release is the serving ref moving, named by its SHA. No version or CHANGELOG milestone.
@@ -79,6 +80,7 @@ Owed re-verdicts:
 | M1-i's wording (§ M1) | revision 5 | critic (pass 5, `b61164b`), QA (`cdb71e2`), architect (`1f78e40`) | discharged |
 | M2's steps, M2-b, M2-c, X-21 (§ M2, § Exclusions) | revision 6 | critic (cycle 2 pass 1, `9ab8420`), QA (`1c2f073`), architect (`2ec5f52`) | discharged: REQUEST REVISION, folded at revision 7 |
 | M2's steps, M2-b, M2-c, M2-e (§ M2) | revision 7 | critic (`15988b6`), QA (`a7394c6`), architect (`60d0a11`) | discharged |
+| Revision 8's fold (§ M2, § M3, § Release) | revision 8 | critic (the fold's gate); the architect reads it in its closing pass | open |
 
 ## Value Statement and Business Objective
 
@@ -318,7 +320,11 @@ when M1 ships is marked `PREMISE-STALE`; implementation approval covers M1–M5 
 
 **Steps (what, not how):** raise `next` and `@next/bundle-analyzer` to `16.4.6` (the lint packages move in M3); regenerate
 `pnpm-lock.yaml` with pnpm 10.28.2 (`packageManager`). React, React DOM, their types and Node stay. Raise `highlight.js` to
-11.12.0, specifier `^11.12.0` (D-6; reason below). In `tsconfig.json`, two keys and nothing else, the end-of-file newline kept
+11.12.0, specifier `^11.12.0` (D-6; reason below). Pin `zod` exactly at `3.22.4` in `package.json` (CR-2, steering's ruling at
+block 05:42Z): M1-i's count rests on zod 3.22.4's error map, and `^3.20.6` admits 3.25.76, under which the cap misses issues (the
+code reviewer's run, `code-review/018-next-upgrade-save-size-cap-code-review.md`). The importer already resolves 3.22.4 (`pnpm-lock.yaml`
+at website `969d92a`, `importers` `zod` `version: 3.22.4`), so only the specifier changes. It lands in its own commit after the
+revision-8 fold, with a frozen install, reviewed and verified as usual. In `tsconfig.json`, two keys and nothing else, the end-of-file newline kept
 (`verification/018/planning/m2-tsconfig/`, `A-final/tsconfig.diff`):
 - `compilerOptions.moduleResolution` `node` → `bundler`. Next 16.4.6 writes it on every build as a "mandatory change" where
   TypeScript is 5 or later and `module` is not CommonJS or AMD (`dist/lib/typescript/writeConfigurationDefaults.js`
@@ -335,9 +341,10 @@ revision 7): under `bundler`, TypeScript resolves through `exports`, and highlig
 (`npm view highlight.js@<v> exports`); 11.12.0 is the current one (2026-08-12). A `paths` entry for the package's types is not a
 substitute: Turbopack reads `paths` for runtime imports too, and the build then holds no highlight.js (AF-10, F-21, QAF-10). What the
 move changes, run (`m2-tsconfig/hl-compare/`): no language removed (192 → 193), every name or alias 11.7.0 resolved still resolves,
-the editor's `_emitter.rootNode` tree keeps its shape in 18 of 18 samples, and 4 of 18 samples gain finer token classes in the
-preview's HTML (TypeScript object keys, Java `void` as a type, a diff hunk header; the CSS sample's difference lies past the 300
-characters the comparison printed). No sibling precedent:
+the editor's `_emitter.rootNode` tree still has `children` in 18 of 18 samples and its content differs in 5 (typescript, css,
+html, java, diff), and the preview's HTML differs in 4 (the same, less html) — finer or extra token classes (TypeScript object keys,
+Java `void` as a type, a diff hunk header; the CSS sample's difference lies past the 300 characters the comparison printed). The
+comparison ran in Node; how the differences look is M2-e's walk (AF-11, F-24). No sibling precedent:
 preview-image-generator has no Next, no `moduleResolution` and no highlight.js (`tsconfig.json`, `package.json` read).
 
 The two test helpers on Next.js internals (`src/components/__tests__/helpers/linkNavigation.tsx`,
@@ -351,13 +358,20 @@ shows otherwise (OQ-2); an edit to the second fires `handoff/anchored-popover-fi
   tip every such line names 16.4.6, and the importer's `next:` entry resolves 16.4.6. Security re-runs `pnpm audit --prod --json`
   and joins it with its dispositions: neither GHSA-q4gf-8mx6-v5v3 nor GHSA-8h8q-6873-q5fj is listed for `next`.
 - **M2-b (nothing else moved).** Every pin the lockfile moves is listed in the implementation document with a disposition, from
-  `git diff 7923a1d -- pnpm-lock.yaml`: expected movers are `next` and its declared dependencies (`@next/env`, `@next/swc-*`,
-  `postcss`, `styled-jsx`, `@swc/helpers`, `caniuse-lite`, `baseline-browser-mapping`), `@next/bundle-analyzer` and its own
-  dependencies, and the snapshot keys of the six packages that peer on `next` (`next-auth`, `@vercel/analytics`,
-  `@vercel/speed-insights`, `cookies-next`, `@trpc/next`, `next-remote-watch`; `awk` over the base lockfile's `snapshots:`), whose
-  own versions do not move; `highlight.js` 11.7.0 → 11.12.0, which has no dependencies. Any other moved version is a finding
-  before code review. `package.json`'s diff touches only the specifiers named in the steps; `tsconfig.json`'s diff is exactly the two
-  keys the steps name.
+  `git diff 7923a1d -- pnpm-lock.yaml`: expected movers are `next` and its declared dependencies, `optionalDependencies` included
+  (`@next/env`, `@next/swc-*`, `postcss`, `styled-jsx`, `@swc/helpers`, `caniuse-lite`, `baseline-browser-mapping`, and `sharp`
+  0.34.5 → 0.35.5 with what it declares: `@img/*`, `@img/colour`, `@emnapi/runtime`, `semver` 7.8.6; `npm view next@16.4.6
+  optionalDependencies` names `sharp` `^0.35.5`, 16.1.6's `^0.34.4`); `@next/bundle-analyzer` and its own dependencies; the snapshot
+  keys of the six packages that peer on `next` (`next-auth`, `@vercel/analytics`, `@vercel/speed-insights`, `cookies-next`,
+  `@trpc/next`, `next-remote-watch`; `awk` over the base lockfile's `snapshots:`), whose own versions do not move; snapshot keys whose
+  peer suffix follows `@emnapi/runtime` (`vitest`, `vite`, `rolldown`, `@vitest/mocker`, `@napi-rs/wasm-runtime`,
+  `@rolldown/binding-wasm32-wasi`), whose versions do not move (M2-I1, M2-I2); and `highlight.js` 11.7.0 → 11.12.0, which has no
+  dependencies. Any other moved version is a finding before code review. A per-name version comparison cannot see a dependency edge
+  re-pointed between two versions that both stay in the lockfile (CR-5), so the disposition also compares the production closure
+  edge by edge (`verification/018/code-review/m3/prod-edges.py` over `pnpm list --prod --depth Infinity --json`, tip against base),
+  and a "no runtime move" claim is stated only from that comparison. `package.json`'s diff touches only the specifiers named in the
+  steps (`next`, `@next/bundle-analyzer`, `highlight.js`, and `zod`'s pin); `tsconfig.json`'s diff is exactly the two keys the steps
+  name.
 - **M2-c (F-7).** In an isolated export with `pnpm install --frozen-lockfile`, no `.env` file and `SKIP_ENV_VALIDATION=1`:
   `next build` exits 0 and leaves `tsconfig.json` as committed (no "mandatory changes" line in the build output); then
   `pnpm run typecheck` (both programs) exits 0; the architecture record's `ts-node` check of `limits.tsx`, transpile-only and typed,
@@ -372,11 +386,15 @@ shows otherwise (OQ-2); an edit to the second fires `handoff/anchored-popover-fi
   (`base-validation/summary.md`).
 - **M2-d.** The build's warnings are captured; a deprecation warning for `middleware.ts` is recorded for the architect (X-8). A
   change the release-notes reading did not name, surfacing here, is a finding. One surfaced at implementation and is folded at
-  revisions 6 and 7: the mandatory `moduleResolution` rewrite and its consequences (the steps above).
+  revisions 6 and 7: the mandatory `moduleResolution` rewrite and its consequences (the steps above). A second is recorded for the
+  architect beside X-8 (M2-I3): "The Edge Runtime is deprecated. You can use the \"nodejs\" runtime instead", printed for
+  `/api/interactions-edge`, the one edge-runtime route; nothing is edited (X-9).
 - **M2-e (human-observable; the suite cannot see this: vitest resolves through its own `alias`).** On a local build of the M2 tip,
   a message holding a fenced code block with a language (` ```js `, ` ```ts `, ` ```diff `) renders highlighted, with no error,
   in the editor's text (the decorator) and in the message preview (the `codeBlock` rule). Walked by UAT before release, in the same
-  local-build session as M1-g, under the local-build rule; after deploy, the same look on hooks.gg with the test account.
+  local-build session as M1-g, under the local-build rule (QA's register row B-9). After deploy, UAT takes the same look on hooks.gg
+  with the test account, editor and preview: a row of devops's Stage-1 post-deploy handoff, `Owning-Stage: uat`, as M1-h's (QA's
+  B-10; F-23). Vercel builds the release itself, so this is the only read of the bundle users get.
 
 **Rollback:** the package step reverts by reverting its commit (`git revert`), lockfile and `tsconfig.json` with it; implementer before release, devops
 after. **Re-derivation gate:** M2 changes product behaviour (the framework under every page); same population statement as M1.
@@ -432,8 +450,11 @@ form; its figures orient only.
   to the rule that replaced it or removed.
 - **M3-e.** Lint stays red and unenforced (X-6, X-17); the `lint` script's command line keeps its form.
 
-**Lockfile disposition:** in the M2-b form. **Rollback:** revert M3's commit; implementer before release, devops after. Lint affects
-no build or runtime output (`next build` does not lint; refutation, 03:25Z), so M3 triggers no re-derivation gate.
+**Lockfile disposition:** in the M2-b form. **Rollback:** revert M3's commit; implementer before release, devops after. M3 changes
+no built JS (`next build` does not lint; refutation, 03:25Z): its lockfile re-pointing adds 4 package-metadata paths (the directory
+and `package.json` of `cross-spawn@7.0.6` and `semver@6.3.1`) to five API functions' file traces, and no JS of either package is
+traced or bundled (QA's comparison of `.nft.json` traces against two builds of the parent, `qa/018-next-upgrade-save-size-cap-m3-qa.md`
+QAF-11 at `e0d8b95`). M3 triggers no re-derivation gate.
 
 ### M4 — Behaviour the record ties to Next 16.1.6, re-verified at 16.4.6
 
@@ -489,8 +510,8 @@ Captures go to `verification/018/uat/preview/` (screenshots untracked, his rulin
 
 Devops Stage 1, then the release ask (D-5), then `release-move.js website master <tip> --qa-record <QA Phase 3 record>`. **Rollback
 of the release:** devops runs `git -C /usr/local/bin/hooks/website revert --no-edit <base>..<tip>` and moves `master` to the revert
-by `release-move.js` on his word; Vercel's "promote previous deployment" is his, from the dashboard. Post-deploy rows: M1-h (UAT's
-handoff) and M5-e (devops). Release order against open carriers: P-1 and 017's B7R/B10R read production; devops sequences (X-12).
+by `release-move.js` on his word; Vercel's "promote previous deployment" is his, from the dashboard. Post-deploy rows: M1-h and M2-e
+(UAT's, in devops's Stage-1 handoff) and M5-e (devops). Release order against open carriers: P-1 and 017's B7R/B10R read production; devops sequences (X-12).
 
 ## Testing Strategy
 
@@ -593,29 +614,29 @@ Precedent read on the surfaces this plan changes: 012 (embed caps), 013 D32/D47 
 | F-19 LOW: M1-i's unit is an issue the parse's own uncapped result would carry; `7923a1d` stays M1-b's comparison only | `critiques/018-next-upgrade-save-size-cap-critique.md` pass 4 (`f13a0f3`) | Folded at revision 5: M1-i *the unit* |
 | F-20 LOW: the Planner batch's closing line names the revision-3 re-key, now committed; M1-i's "unchanged" wording trips the record check's OUT-OF-SCOPE warning | same, pass 4 (`f13a0f3`) | Folded at revision 5: M1-i *no huge error*; the closing line below |
 | QAF-9 LOW: M1-i's long-value population omits `textDisplayShape.type` inside `sectionShape.components` | `qa/018-next-upgrade-save-size-cap-qa.md` (`413798f`) | Folded at revision 5: M1-i *no huge error* |
-| AF-11 LOW: M2's "Why highlight.js moves" names the 4 preview-HTML differences but not the 5 editor-tree ones (typescript, css, html, java, diff; `hl-compare/output.txt` "tree differ 5"); "keeps its shape" checks only that `rootNode.children` is an array | `architecture/018-next-upgrade-save-size-cap-architecture-findings.md` (`60d0a11`) | Parked for the fold seam (QA Phase 2 of the last milestone): wording only |
-| F-23 MEDIUM: M2-e's after-deploy look on hooks.gg names no runner and is not among § M5's post-deploy rows; stated limit SL-2 until folded | `critiques/018-next-upgrade-save-size-cap-critique.md` cycle 2 pass 2 (`15988b6`) | Parked for the fold seam: a post-deploy instrument. Meanwhile QA's register row B-10 (`a7394c6`) puts the look in devops's Stage-1 handoff with UAT as runner, discharging SL-2's substance |
-| F-24 LOW: duplicates AF-11 (the editor-tree count beside the HTML count) | same (`15988b6`) | Parked with AF-11 |
-| M2-I1 LOW (planner's severity; the source says only "below HIGH"): M2-b's parenthetical list of `next`'s declared dependencies omits `sharp` 0.34.5 → 0.35.5 and what it declares (`@img/*`, `@img/colour`, `@emnapi/runtime`, `semver` 7.8.6). `next@16.4.6`'s `optionalDependencies` names `sharp` `^0.35.5` and 16.1.6's `^0.34.4` (`npm view`), so these fall within M2-b's class; the implementer dispositioned each pin | `implementation/018-next-upgrade-save-size-cap-m2-implementation.md` (`b4b34b6`, Outstanding Items), relayed by steering under `steering/018-rulings.md` block 2026-11-20T05:26Z (M2 capped) | Stated limit (cap); parked for the fold seam, wording only |
-| M2-I2 LOW: M2-b omits the snapshot-key movers `vitest`, `vite`, `rolldown`, `@vitest/mocker`, `@napi-rs/wasm-runtime`, `@rolldown/binding-wasm32-wasi`, whose peer suffix follows `@emnapi/runtime`; no version of theirs moves | same | Stated limit (cap); parked for the fold seam, wording only |
-| M2-I3 LOW: a new build warning at 16.4.6, "The Edge Runtime is deprecated", for `/api/interactions-edge` (M2-d); no edit, X-9 | same | Stated limit (cap); for the architect's Problem Areas beside X-8; parked for the fold seam |
-| CR-2 LOW: `zod` is specified `^3.20.6`, which admits 3.25.76, under which M1-i's count misses issues (the reviewer's run: 1,600 for a 40×40 invalid-accessory save); M1-i rests on 3.22.4's error-map behaviour. M2's steps are to name `zod` pinned exactly at 3.22.4 | `code-review/018-next-upgrade-save-size-cap-code-review.md` (`55fe778`); ruling `steering/018-rulings.md` block 2026-11-20T05:42Z (`f391462`, option A) | Parked for the batch fold before devops Stage 1, which names the pin in M2's steps (and M2-b's `package.json` limb); the implementer then pins and runs a frozen install, reviewed and verified as usual. Unlike the other rows, this fold gives the implementer work |
-| CR-5 LOW: M2-b's disposition, run as per-name version sets, cannot see a dependency edge re-pointed between two versions that both stay in the lockfile. The reviewer found M2's 144 changed edges all within M2-b's classes; at M3, three production-closure edges under `project-utils` > `prisma-kysely`, generator-only by its read. Proposed: the disposition adds an edge-level comparison of the production closure (`verification/018/code-review/m3/prod-edges.py` over `pnpm list --prod --depth Infinity --json`), and a "no runtime move" claim rests on it | `code-review/018-next-upgrade-save-size-cap-code-review.md` Round 3 (`a05fb21`) | Parked for the batch fold before devops Stage 1; changes no code (M2's member set is empty by the reviewer's check) |
+| AF-11 LOW: M2's "Why highlight.js moves" names the 4 preview-HTML differences but not the 5 editor-tree ones (typescript, css, html, java, diff; `hl-compare/output.txt` "tree differ 5"); "keeps its shape" checks only that `rootNode.children` is an array | `architecture/018-next-upgrade-save-size-cap-architecture-findings.md` (`60d0a11`) | Folded at revision 8: M2, "Why `highlight.js` moves" |
+| F-23 MEDIUM: M2-e's after-deploy look on hooks.gg names no runner and is not among § M5's post-deploy rows; stated limit SL-2 until folded | `critiques/018-next-upgrade-save-size-cap-critique.md` cycle 2 pass 2 (`15988b6`) | Folded at revision 8: M2-e, § Release's post-deploy rows; SL-2 retired |
+| F-24 LOW: duplicates AF-11 (the editor-tree count beside the HTML count) | same (`15988b6`) | Folded at revision 8, with AF-11 |
+| M2-I1 LOW (planner's severity; the source says only "below HIGH"): M2-b's parenthetical list of `next`'s declared dependencies omits `sharp` 0.34.5 → 0.35.5 and what it declares (`@img/*`, `@img/colour`, `@emnapi/runtime`, `semver` 7.8.6). `next@16.4.6`'s `optionalDependencies` names `sharp` `^0.35.5` and 16.1.6's `^0.34.4` (`npm view`), so these fall within M2-b's class; the implementer dispositioned each pin | `implementation/018-next-upgrade-save-size-cap-m2-implementation.md` (`b4b34b6`, Outstanding Items), relayed by steering under `steering/018-rulings.md` block 2026-11-20T05:26Z (M2 capped) | Folded at revision 8: M2-b |
+| M2-I2 LOW: M2-b omits the snapshot-key movers `vitest`, `vite`, `rolldown`, `@vitest/mocker`, `@napi-rs/wasm-runtime`, `@rolldown/binding-wasm32-wasi`, whose peer suffix follows `@emnapi/runtime`; no version of theirs moves | same | Folded at revision 8: M2-b |
+| M2-I3 LOW: a new build warning at 16.4.6, "The Edge Runtime is deprecated", for `/api/interactions-edge` (M2-d); no edit, X-9 | same | Folded at revision 8: M2-d |
+| CR-2 LOW: `zod` is specified `^3.20.6`, which admits 3.25.76, under which M1-i's count misses issues (the reviewer's run: 1,600 for a 40×40 invalid-accessory save); M1-i rests on 3.22.4's error-map behaviour. M2's steps are to name `zod` pinned exactly at 3.22.4 | `code-review/018-next-upgrade-save-size-cap-code-review.md` (`55fe778`); ruling `steering/018-rulings.md` block 2026-11-20T05:42Z (`f391462`, option A) | Folded at revision 8: M2's steps and M2-b; the implementer pins next |
+| CR-5 LOW: M2-b's disposition, run as per-name version sets, cannot see a dependency edge re-pointed between two versions that both stay in the lockfile. The reviewer found M2's 144 changed edges all within M2-b's classes; at M3, three production-closure edges under `project-utils` > `prisma-kysely`, generator-only by its read. Proposed: the disposition adds an edge-level comparison of the production closure (`verification/018/code-review/m3/prod-edges.py` over `pnpm list --prod --depth Infinity --json`), and a "no runtime move" claim rests on it | `code-review/018-next-upgrade-save-size-cap-code-review.md` Round 3 (`a05fb21`) | Folded at revision 8: M2-b (the form M3 also uses) |
+| QAF-11 LOW: M3's rollback line says lint "affects no build or runtime output"; its lockfile re-pointing adds 4 package-metadata paths to five API functions' traces, no JS | `qa/018-next-upgrade-save-size-cap-m3-qa.md` (`e0d8b95`), relayed by steering block 2026-11-20T06:06Z | Folded at revision 8: M3's rollback line |
 
-QA Phase 1 before implementation: yes (stage set, block 02:53Z); its re-key on revision 5 is owed (§ Reading Order, Owed
-re-verdicts).
+QA Phase 1 before implementation: yes (stage set, block 02:53Z); its re-key of each revision is recorded in § Reading Order, Owed
+re-verdicts.
 
 ## Resumption State
 
 Written 2026-11-20T04:2xZ at revision 4, session `planner-hooks-018`, cwd `/usr/local/bin/hooks/website`.
 
-- **Done:** revisions 0 to 7 committed; every gate approved revision 5; implementation of revision 5 started (R-4). Revision 6 (M2 tsconfig) drew REQUEST REVISION from all three gates (AF-10, F-21, QAF-10), folded at revision 7. The implementer was told to hold the `paths` entry at 05:1xZ.
+- **Done:** revisions 0 to 8 committed; revision 7 approved by every gate; M1 to M3 verified by QA Phase 2; revision 8 folds the Planner batch (every row now folded).
   `steering/website-deps-review-rulings.md` and `steering/018-rulings.md`). Gate verdicts on revision 3: critic pass 3 APPROVED with
   stated limit SL-1 (`f209354`); architect APPROVED_WITH_CHANGES, AF-8 (`9a58650`); QA re-key, QAF-8 HIGH (`9218925`). All four
   findings folded at revision 4.
-- **Next:** M2 runs on revision 7. At the fold seam (QA Phase 2 of the last milestone, on QA's message) fold the parked batch rows
-  in one revision, gated by the critic.
-  implementer was told the decision and the revision at the same time as the gates.
+- **Next:** the critic reads revision 8 (the fold); then steering runs the architect's closing pass, the implementer's `zod` pin,
+  code review and QA's last Phase 2 (block 06:06Z). New findings go to the Planner batch.
 - **Approach in flight:** none. AD-5's number (20) is open to a gate's reasoned change.
 - **Trees:** website on `chain/018-next-upgrade-save-size-cap` (steering's cut at `7923a1d`), untouched by this session. agent-output: nothing of this session's uncommitted.
 - **Evidence:** every run is committed under `verification/018/planning/` (base-validation, eslint probes, eslint9-flat-probe,
