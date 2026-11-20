@@ -230,3 +230,17 @@ verdict APPROVED_WITH_CONTROLS, Overall Risk MEDIUM, LOW once M-001 is closed.
   release, not before.
 - RC-2 (production values, real redis, a real Discord sign-in) rides the post-deploy B-1 and B-2 (block 23:49Z).
 Relays: the fixer (with the corrected residue read for its § Diagnosis, block 23:53Z), security, the code reviewer and QA.
+Correction at 00:13Z: the relays went to the fixer and security only. The code reviewer received the new SHA from the fixer, and QA
+receives the reviewer's verdict (block 00:13Z).
+
+## 2026-11-20T00:13Z — M-001 closed at 983681c; code review Round 2 APPROVED; QA cue routed through the reviewer
+
+By the fixer's message, and its document at record `6bd294c`: `getOne` refuses with NOT_FOUND when the ownership check finds no row. That
+is the audit's shape (b). It was red at `75f1543`; the suite passes 1909/1909 with exit 0 at `983681c`; security's read-race instrument
+passes 8/8 with 0 of 300 leaked. 124 production lines over `787bec5..983681c`. The fixer also added reconcile notes: the residue query is
+corrected, and its hazard-6 claim is retracted.
+Code review Round 2 is APPROVED at `983681c` (record `9bd32a4`, by the reviewer's message). It swept the class over all 7 authorize call
+sites. It also recorded its own Round 1 error: it had listed "getOne owner compare" as sound without running it under the race.
+**Routing slip observed:** the reviewer delivered its Round 2 verdict to this thread only, with QA live and idle. Its brief routes approval
+to QA whenever a QA session is live. Asked at 00:13Z to deliver to QA; this thread forwards no SHA itself.
+check-repo LINKS failure at the fixer's document line 181: routed to the fixer, 00:1xZ.
