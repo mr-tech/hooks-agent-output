@@ -1,0 +1,51 @@
+zod 3.22.4
+(a) 6 failing accessories: success=false topIssues=6 flattenedIssues=36 errorMapCalls=36
+  result issue codes: invalid_union@components.0.accessory | invalid_union@components.1.accessory | invalid_union@components.2.accessory | invalid_union@components.3.accessory | invalid_union@components.4.accessory | invalid_union@components.5.accessory
+  call #21: ["components",3,"accessory","type"] invalid_literal
+(a-ctl) 1 failing accessory: success=false topIssues=1 flattenedIssues=6 errorMapCalls=6
+  result issue codes: invalid_union@components.0.accessory
+(b) 6 failing allowed_mentions.parse elems: success=false topIssues=6 flattenedIssues=24 errorMapCalls=24
+  result issue codes: invalid_union@allowed_mentions.parse.0 | invalid_union@allowed_mentions.parse.1 | invalid_union@allowed_mentions.parse.2 | invalid_union@allowed_mentions.parse.3 | invalid_union@allowed_mentions.parse.4 | invalid_union@allowed_mentions.parse.5
+  call #21: ["allowed_mentions","parse",5] invalid_literal
+(b-ctl) 1 failing parse elem: success=false topIssues=1 flattenedIssues=4 errorMapCalls=4
+  result issue codes: invalid_union@allowed_mentions.parse.0
+(a) again for all paths: success=false topIssues=6 flattenedIssues=36 errorMapCalls=36
+  result issue codes: invalid_union@components.0.accessory | invalid_union@components.1.accessory | invalid_union@components.2.accessory | invalid_union@components.3.accessory | invalid_union@components.4.accessory | invalid_union@components.5.accessory
+  call #21: ["components",3,"accessory","type"] invalid_literal
+  all (a) calls:
+    1 ["components",0,"accessory","type"] invalid_literal
+    2 ["components",0,"accessory","media"] invalid_type
+    3 ["components",0,"accessory","type"] invalid_literal
+    4 ["components",0,"accessory","style"] invalid_literal
+    5 ["components",0,"accessory","url"] invalid_type
+    6 ["components",0,"accessory"] invalid_union
+    7 ["components",1,"accessory","type"] invalid_literal
+    8 ["components",1,"accessory","media"] invalid_type
+    9 ["components",1,"accessory","type"] invalid_literal
+    10 ["components",1,"accessory","style"] invalid_literal
+    11 ["components",1,"accessory","url"] invalid_type
+    12 ["components",1,"accessory"] invalid_union
+    13 ["components",2,"accessory","type"] invalid_literal
+    14 ["components",2,"accessory","media"] invalid_type
+    15 ["components",2,"accessory","type"] invalid_literal
+    16 ["components",2,"accessory","style"] invalid_literal
+    17 ["components",2,"accessory","url"] invalid_type
+    18 ["components",2,"accessory"] invalid_union
+    19 ["components",3,"accessory","type"] invalid_literal
+    20 ["components",3,"accessory","media"] invalid_type
+    21 ["components",3,"accessory","type"] invalid_literal
+    22 ["components",3,"accessory","style"] invalid_literal
+    23 ["components",3,"accessory","url"] invalid_type
+    24 ["components",3,"accessory"] invalid_union
+    25 ["components",4,"accessory","type"] invalid_literal
+    26 ["components",4,"accessory","media"] invalid_type
+    27 ["components",4,"accessory","type"] invalid_literal
+    28 ["components",4,"accessory","style"] invalid_literal
+    29 ["components",4,"accessory","url"] invalid_type
+    30 ["components",4,"accessory"] invalid_union
+    31 ["components",5,"accessory","type"] invalid_literal
+    32 ["components",5,"accessory","media"] invalid_type
+    33 ["components",5,"accessory","type"] invalid_literal
+    34 ["components",5,"accessory","style"] invalid_literal
+    35 ["components",5,"accessory","url"] invalid_type
+    36 ["components",5,"accessory"] invalid_union
