@@ -1,0 +1,109 @@
+id	score	disposition	class	generated	covering	reason
+328	8	kept	-	no	-	only case showing the dialog stays visible while the portaled popover first renders; fails if the portal suspends the boundary
+329	7	kept	-	no	-	pins the portal mounting under body and outside the dialog panel; overlaps 328 only on the portal appearing
+488	8	kept	-	no	-	only assertion that a save answered with another number replaces the route with the new number
+489	7	kept	-	no	-	draft removal keyed on the held number when the save lands elsewhere; the same-number draft cases do not separate held from returned id
+490	8	kept	-	no	-	control for 488: fails if the editor is redirected on every successful save
+657	8	kept	-	no	-	event name and channel through the real pusher post and subscriber decode; event name asserted nowhere else
+658	7	kept	-	yes	-	pins the hash literal for the string-shaped case; fails on a hash change, not on dropping the JSON encoding
+659	8	kept	-	yes	-	first numeric-looking hash: fails when the payload is no longer JSON-encoded and the subscriber decodes a number
+660	6	remove	-	yes	659	same encoding behaviour as the digits-only row with a signed example
+661	7	kept	-	yes	-	exponent-form hash, a numeric grammar a digits-only guard would miss
+662	6	remove	-	yes	661	signed variant of the exponent row; same behaviour, other data
+663	7	kept	-	yes	-	hash that decodes to Infinity, missed by a finite-number guard
+664	6	remove	-	yes	663	signed variant of the overflow row; same behaviour, other data
+665	5	remove	-	yes	661	re-asserts the 661 hash on the same content plus a second literal; fails only when 661 fails
+666	5	remove	-	yes	663	re-asserts the 663 hash on the same content plus a second literal; fails only when 663 fails
+667	5	remove	-	yes	663	re-asserts the overflow hashes with signed data; fails only when the exact-string rows fail
+668	7	kept	-	no	-	no broadcast on a save without an id; overlaps 1021 only where the guard is removed entirely
+1017	8	kept	-	no	-	positive control of the getOne ownership check; fails if the check refuses the owner
+1018	10	kept	-	no	-	only assertion that getOne refuses another signed-in user and leaks none of the content
+1019	9	kept	-	no	-	the one fixture where the zero-count conjunct alone decides the refusal
+1020	10	kept	-	no	-	only assertion that a browser-sent number holding no row is never stored as the new row id
+1021	8	kept	-	no	-	only case that fails when the broadcast is keyed on the sent id instead of on a row having been updated
+1022	9	kept	-	no	-	only fixture where the cap is reached through a sent id with no row; a cap skipped for id-bearing saves fails here alone
+1023	7	kept	-	no	-	canonical number reaches the update predicate and the broadcast channel on the upsert route
+1024	6	remove	-	no	1041	route-level refusal before any query repeats the past-range row with a leading-space example; the space class is pinned at the shape
+1025	10	kept	-	no	-	only assertion that the personal upsert write carries the owner predicate
+1026	10	kept	-	no	-	only assertion that the server upsert write carries the server-row predicate and no user predicate
+1027	10	kept	-	no	-	only assertion that the personal recent-data write carries the owner predicate
+1028	10	kept	-	no	-	only assertion that the server recent-data write is scoped to that server
+1029	6	remove	-	no	1480	canonicalisation lives in the shared shape; route wiring is caught by 1042
+1030	6	remove	-	no	1480	canonicalisation lives in the shared shape; the preview prefix is asserted by 1035 and route wiring by 1043
+1031	6	remove	-	no	1043	route-level refusal before any query repeats the past-range row with a leading-space example
+1032	10	kept	-	no	-	only assertion that the personal delete carries the owner predicate
+1033	10	kept	-	no	-	only assertion that the server delete is scoped to that server
+1034	9	kept	-	no	-	the one fixture where the deleted-a-row conjunct alone decides whether previews are cleared
+1035	10	kept	-	no	-	plain assertion of the irreversible preview clearing, with its prefix, on the delete route
+1036	10	kept	-	no	-	permission boundary: another user is refused a personal save, nothing written or announced
+1037	10	kept	-	no	-	permission boundary on the server-save branch against a personal row
+1038	10	kept	-	no	-	permission boundary on the recent-data route
+1039	10	kept	-	no	-	permission boundary on delete: neither the row nor its previews removed
+1040	8	kept	-	yes	-	range boundary refused before any query on getOne; fails if this route loses the shape
+1041	8	kept	-	yes	-	range boundary refused before any query on upsert; fails if this route loses the shape
+1042	8	kept	-	yes	-	range boundary refused before any query on updateRecentMessageData; fails if this route loses the shape
+1043	8	kept	-	yes	-	range boundary refused before any query on delete; fails if this route loses the shape
+1044	7	kept	-	yes	-	earliest case to fail on an off-by-one at the largest number; weak assertion (some query issued)
+1045	5	remove	-	yes	1044	same shared-shape boundary with the same input through another route; errors swallowed, only a query count asserted
+1046	5	remove	-	yes	1044	same shared-shape boundary with the same input through another route; errors swallowed, only a query count asserted
+1047	5	remove	-	yes	1044	same shared-shape boundary with the same input through another route; errors swallowed, only a query count asserted
+1048	5	remove	-	no	1480	only a negative over parameters, with no positive assertion; canonicalisation is the shared shape
+1087	8	kept	-	no	-	the reply resolves while the generator is still pending; awaiting the continuation hangs it. The nonce assertion echoes the fake row
+1088	4	remove	-	no	1090	call order the data dependency already forces: the nonce needs the clock the write returns
+1089	8	kept	-	no	-	only assertion that the continuation is handed to waitUntil and commits the clock-minted nonce
+1090	8	kept	-	no	-	wiring of saved id, statement clock and message into the generator request on the update path
+1091	6	remove	-	no	1164	nonce left alone on a 500 is the continuation case; the save cannot fail on it without 1087 hanging first
+1092	8	kept	-	no	-	failure path: a storage error after a 204 must not reject the platform promise; asserted nowhere else
+1093	5	remove	-	no	1025	the sent id reaching the write is asserted, with its column, by the router case
+1094	2	remove	-	no	1020	a message with no id cannot put 42 among the write parameters; cannot fail
+1095	7	kept	-	no	-	insert branch: generator asked once with the id the insert returned
+1175	5	remove	-	yes	1176	below-cap save repeated with a count far from the boundary
+1176	8	kept	-	yes	-	boundary row: 999 still saves, and the count is read for the user
+1177	8	kept	-	yes	-	boundary row: 1000 refuses with the user wording and inserts nothing
+1178	6	remove	-	yes	1177	above-boundary repeat; separates only an equality comparison
+1179	5	remove	-	no	1176	the fake already answers the count only for the user predicate, so 1176 fails first on a wrong column
+1180	8	kept	-	no	-	guild branch boundary: 999 still saves, counted on the server row
+1181	8	kept	-	no	-	guild branch boundary: 1000 refuses with the guild wording
+1182	5	remove	-	no	1180	the fake already answers the count only for the guild predicate, so 1180 fails first
+1183	8	kept	-	yes	-	decision row: an existing message at the cap is updated, never refused or inserted
+1184	6	remove	-	yes	1183	same cap-skip on the update path with the guild predicate
+1469	8	kept	-	yes	-	first of the inputs BigInt throws on: fails by throwing if the digit pattern is dropped
+1470	5	remove	-	yes	1469	same class as the exponent row: BigInt throws once the pattern is gone
+1471	8	kept	-	yes	-	hex is BigInt-parseable, so only the pattern refuses it
+1472	5	remove	-	yes	1469	same class as the exponent row: BigInt throws once the pattern is gone
+1473	8	kept	-	yes	-	a negative number passes BigInt and the range check; only the pattern refuses it
+1474	7	kept	-	yes	-	plus sign passes BigInt; distinct from the minus row for a pattern that admits a sign
+1475	7	kept	-	yes	-	BigInt trims whitespace; only an anchored pattern refuses it
+1476	8	kept	-	yes	-	lower length bound: BigInt reads the empty string as 0
+1477	8	kept	-	yes	-	upper length bound of 19 digits, asserted nowhere else
+1478	6	remove	-	yes	1040	same input and boundary as the router past-range rows, which fail on every change this fails on
+1479	8	kept	-	yes	-	exact digits at the largest value; a transform through a double fails here alone
+1480	7	kept	-	yes	-	canonical digits at the shape; the cover for the per-route leading-zero cases
+1481	8	kept	-	yes	-	zero boundary: a strip-leading-zeros rewrite or a positive-only check fails here alone
+1488	8	kept	-	no	-	empty list issues no query; an empty in-list is an operator-visible SQL error
+1489	8	kept	-	no	-	owner-or-server predicate and bound parameters of the recent-messages query; the server leg is asserted nowhere else
+1490	8	kept	-	no	-	no-server branch: own messages only, no empty in-list
+1491	7	kept	-	no	-	server branch: exists subquery over the bound guild ids
+1776	3	remove	-	no	1779	the builder passes the test own values through; fails only if the insert stripped a column
+1777	6	remove	-	no	1778	subsumed: every change that drops valid from the set list also fails 1778 on the same true input
+1778	8	kept	-	no	-	valid written in both directions; a hard-coded verdict in the update fails here alone
+1779	7	kept	-	no	-	wiring of the predicate into the stored values
+1780	8	kept	-	no	-	control: a hard-coded true verdict fails here alone
+1781	8	kept	-	no	-	caller-supplied data.valid must not override the computed verdict; asserted nowhere else
+1824	5	remove	-	no	1825	the own-message listing is asserted again, with the foreign id beside it, by 1825
+1825	10	kept	-	no	-	only assertion that the hydrated session leaves out another user personal message
+1854	7	kept	-	yes	-	fails if the save values regain the nonce column on insert
+1855	7	kept	-	yes	-	statement text of the insert returning clause; fails on a change of clock source as well as on a rewrite
+1856	7	kept	-	yes	-	explicit update set list: fails if the nonce is written at save
+1857	7	kept	-	yes	-	statement text of the update returning clause, built separately from the insert
+1858	8	kept	-	no	-	row lock on the read of the replaced nonce; the interleaving fake cannot see its loss
+1859	8	kept	-	no	-	ordering predicate with collation C; asserted nowhere else
+1860	7	kept	-	no	-	only assertion of the id predicate on the update itself; brittle on parameter numbering
+1861	7	kept	-	no	-	set clause is the nonce alone
+1862	7	kept	-	no	-	returning the replaced nonce, which drives deletion of the old object
+1863	7	kept	-	no	-	bound values and their order
+1864	8	kept	-	no	-	stored nonce format: prefix, clock digits, 16 hex
+1865	8	kept	-	no	-	padding boundary on which string ordering depends
+1866	7	kept	-	no	-	random part differs per call
+1867	6	remove	-	no	1865	ordering follows from the fixed-width format 1864 and 1865 pin
+1868	7	kept	-	no	-	independent oracle for ordering above legacy hex nonces; survives a format change that rewrites 1864

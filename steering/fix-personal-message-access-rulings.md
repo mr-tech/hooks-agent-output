@@ -309,3 +309,32 @@ active `DATABASE_URL` in `website/.env.local`, read inside the command and never
 - **The architect's observation** (`updatePreferences` takes `recentMessageIds` as `z.array(z.string())`) is already carried by
   `handoff/update-preferences-recent-message-ids-accepts-non-int8-2026-11-19.md` (CR-3, block 23:09Z). No new record.
 - INDEX rebuilt after the moves.
+
+## 2026-11-20T01:50Z — post-deploy B-2 and B-1 passed; sessions stopped; fixer-batch retrospective and scoring
+
+- **Post-deploy** (the uat reader's message; carrier `handoff/fix-personal-message-access-post-deploy-2026-11-20.md`, `60c04cd`):
+  - B-2, 01:37:58Z: a signed-in `getOne` on `99999999999999999999` returns 400 BAD_REQUEST, so production serves the fix.
+  - B-1, 01:41Z: test account 1 got 404 on account 2's message 6021, and none of its content appeared; the owner's editor still loads it.
+  - Together these read RC-2. Message 6021 was deleted at 01:41:50Z. Screenshots are untracked.
+  - Findings: F-1 (a blank editor shell while the page retries on the 404) → `handoff/editor-shows-blank-shell-when-personal-message-load-is-refused-2026-11-20.md`
+    (helper, `43118ea`). F-2 (500 on a deleted number) → already `handoff/get-one-absent-number-fails-without-not-found-2026-11-19.md`.
+  - The browser profile was released to chain 081 at 01:45Z, on steering-roadmap-statbot's ask.
+- **Stopped** (`tmux-agent stop`, all idle): devops, fixer, code-reviewer, qa and uat `-hooks-fix-personal-message-access`; architect and
+  security earlier (block 01:41Z).
+- **Open carriers at close:**
+  - the post-deploy carrier: R-1, his read, is on OWNER-QUEUE (`fc8bb6c`);
+  - handoffs S14, S15, S1b, the recent-list guild rows, `getOne`'s absent number, CR-3 and F-1;
+  - chain A's `anchored-popover-first-load-test-is-order-dependent-2026-11-18`.
+  CR-4 closed Addressed (`f9a4380`). No other handoff was answered by this chain.
+- **Box:** `docker ps -a` lists no container. The one image, `postgres:16` (28 hours old), predates this chain, and the refutations ran
+  it only as throwaway containers, now removed. `/var/tmp` holds no hooks capture.
+- **Retrospective:** subagent `retrospective-hooks-fixer-batch-2026-11-20` was started over chain A and this chain, Origin
+  `fixer-batch-2026-11-20`.
+- **Test-case scoring** (`verification/fixer-batch-2026-11-20/deweed/`):
+  - The case list `cases-website.tsv` comes from `vitest list --json` in a clean export of `983681c`, exit 0. It has 1909 cases; 108 are
+    marked, in the 11 test files changed `395510e..1ad625e` ∪ `787bec5..983681c` (`git diff --name-only`).
+  - One `deweeder` scored the 108 ids (`website-1.tsv`). No id was missing.
+  - Merged into `website-merged.tsv` with a `covering_check` column (this thread's python, read this turn).
+  - **Cases scored: 108. Below 7: 30, which is 27.8% (30/108).** Of the 30, 29 name a covering case scored 7 or more; 0 name one below 7;
+    1 (id 1091 → 1164) names a covering id outside this pass, marked unchecked.
+  - Nothing is deleted on this. The export is removed (`ls -d` fails).
