@@ -257,3 +257,18 @@ wording this thread's). Premise read this turn: the helper's transcript (block 0
   rulings file. UAT's disclosure in its document stands as written. The release path is unchanged." Not chosen: "It was a workaround"
   ("Agent records your answer and lodges it in ~/.claude/agents/INBOX.md, so the helper rules get tightened for rtk refusals. UAT's
   verdict is unaffected: the cache cleanup was housekeeping, not part of any walk's evidence.").
+
+## 2026-11-20T07:13Z — devops Stage 1 committed; the push holds for P-1's 08:07Z read (devops's sequencing, X-12)
+
+By devops's message, read at the record this turn: the plan is at `planning/closed/018-next-upgrade-save-size-cap.md` (Stage 1, `65f0308`);
+security APPROVED at `d1bb9b0` (`security/018-next-upgrade-save-size-cap-security-audit.md`, `Reviewed-At` `d1bb9b0`, Status Active).
+- **Sequencing.** Plan line 521 says "Release order against open carriers: P-1 and 017's B7R/B10R read production; devops sequences
+  (X-12)". The P-1 carrier (`handoff/message-page-header-decode-post-deploy-2026-11-20.md`) shows its Result blank. Its 04:07Z and 06:07Z
+  rows read "undecided" (the pre-push cache entry), and the 06:07Z row says the entry expires about 06:18Z, "so the next fire reads past
+  it". P1R's crontab line is `7 */2 20-22 11 *`, so the next fire is 08:07Z. A push of 16.4.6 before that would make P-1 read the new
+  image optimiser rather than `7923a1d`'s.
+- **This thread's word:** devops's recommendation (runbook step 0 holds the push until P-1's Result is PASS or FAIL, FAIL going to him)
+  stands. X-12 makes the order devops's, so no steering ruling is needed. Its Phase 2B ask states the hold, so he can choose otherwise.
+- **Owed on devops's push report:** cue UAT (B-6, B-10) and QA (B-8) as the post-deploy carrier names them; brief the architect for
+  the release reconciliation of system-architecture.md.
+- The record-write gate refused this block's first write (a shell append); re-issued with the Edit tool.
