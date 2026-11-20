@@ -1,0 +1,16 @@
+{
+  "slateEditors": 0,
+  "editorHljs": 0,
+  "editorClasses": [],
+  "previewHljs": 11,
+  "previewClasses": [
+    "hljs",
+    "hljs-addition",
+    "hljs-attr",
+    "hljs-built_in",
+    "hljs-deletion",
+    "hljs-keyword",
+    "hljs-number"
+  ],
+  "invalidMessageData": false
+}

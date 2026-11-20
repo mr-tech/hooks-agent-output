@@ -1,0 +1,1 @@
+{"status":400,"code":"BAD_REQUEST","http":400,"issues":1,"list":[{"code":"too_big","path":["message","data","embeds"],"message":"Array must contain at most 10 element(s)"}],"nextVersion":"16.4.6","note":"transcription of returned value"}

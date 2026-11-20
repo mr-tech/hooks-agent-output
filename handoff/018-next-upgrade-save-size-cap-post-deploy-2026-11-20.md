@@ -40,7 +40,7 @@ exit 0 (tip `7923a1d`) and exit 3 (bogus ref; no `.vercel`): `verification/018/d
 - **Instrument:** through the stage browser, `POST /api/trpc/message.upsert` with the superjson body `{json: {message: {name: 'n', data: {embeds: 50 x {title: 1}}}}}`; parse the tRPC error message as the issue list and count it. Base read, same payload, 2026-11-20T04:09Z while production served 16.1.6: HTTP 400 `BAD_REQUEST`, **51** issues (`verification/018/qa/phase-1/prod-base-reads/README.md`, item 2).
 - **Predicted:** 1 issue (the embed list over its bound of 10). One observation decides it. Nothing is written either way (the payload is refused at the input stage).
 - **Failure mode:** 51 means production is not serving M1: a rollback question for the owner, never the reader's act.
-- **Result:** _blank_
+- **Result:** **PASS** (2026-11-20T13:45Z, uat-hooks-018, stage browser signed in as the test account; read at 13:4xZ): HTTP 400 `BAD_REQUEST`, **1** issue, `too_big` at `message.data.embeds`, "Array must contain at most 10 element(s)"; `window.next.version` "16.4.6" (`verification/018/uat/post-deploy/b6-result-signed-in.json`, a transcription, re-parsed here). Refused at input, nothing written. A first read at 13:38Z was signed out (401 `UNAUTHORIZED`, `b6-result.json`) and decides nothing: the test account had lost its hooks.gg session, probably by UAT's own local-build "Log out" at about 06:28Z revoking the token of production's Discord app (inferred; `INBOX.md`, uat-hooks-018 hazard entry). It was signed in again through Discord's authorise page before this read.
 
 ### B-7 (M5-e) — production serves Next 16.4.6
 
@@ -67,7 +67,7 @@ exit 0 (tip `7923a1d`) and exit 3 (bogus ref; no `.vercel`): `verification/018/d
 - **Instrument:** `browser_evaluate` on `https://hooks.gg/preview?data=…` (the URL committed in `verification/018/qa/m2-hljs-resolution/prod-preview-read.md`), counting elements whose class contains `hljs` and reading for "Invalid message data."; the editor limb on a signed-in editor page, without saving.
 - **Predicted:** `/preview`: 11 `hljs` elements and the same 7 classes as at minting (2026-11-20T05:22Z, Next 16.1.6: 11 elements, 0 errors), give or take the finer 11.12.0 classes `hl-compare` names; no error boundary. One observation decides it.
 - **Failure mode:** production renders users' code blocks unhighlighted, or breaks the preview page.
-- **Result:** _blank_
+- **Result:** **PASS** (2026-11-20T13:45Z, uat-hooks-018). `/preview` (QA's URL): **11** `hljs` elements, the same 7 classes as at minting (`hljs`, `-addition`, `-attr`, `-built_in`, `-deletion`, `-keyword`, `-number`), no "Invalid message data.", 0 console errors (`b10-preview.json`, `b10-console.txt`, machine copies); control `/preview` with plain text: 0 (`b10-control.json`). Editor limb, signed in, `/message/m/0/edit` with UAT's three fenced blocks, not saved: preview state 19 elements, editor mounted 6 (`hljs-keyword`, `-addition`, `-deletion`), the same as the local tip and base builds (`b10-editor-preview-state.json`, `b10-editor.json`, transcriptions). The draft of that unsaved message stays in the kept profile's browser storage (the restore's Load stayed disabled); nothing reached the server.
 
 ## Sequencing against the open production carriers (X-12)
 
@@ -96,6 +96,7 @@ devops Stage 1 for plan 018, from `steering/018-brief-devops.md`; rows from `qa/
 |---|---|---|
 | 2026-11-20T07:09 | devops-hooks-018 | Opened at Stage 1 with rows B-6, B-7, B-8, B-10, the event ledger (E-RELEASE-CHECK filled; E-WEBSITE-PUSH and E-SERVING blank), the serving gate and its baseline, and the X-12 sequencing. No timed read, so no crontab line. |
 | 2026-11-20T13:37 | devops-hooks-018 | Release executed (Stage 2, Phase 2C): E-WEBSITE-PUSH and E-SERVING filled (push 08:07:52Z after P-1's PASS at 08:07:06Z; production deployment READY at the tip; the serving gate exits 0). B-7 PASS. B-6 and B-10 (uat) and B-8 (qa) are open for their readers; steering is told to cue them.
+| 2026-11-20T13:45 | uat-hooks-018 | B-6 and B-10 Result lines written: both PASS (evidence `verification/018/uat/post-deploy/`). B-6's first read was signed out (the test account's hooks.gg session lost, probable cause UAT's local-build Log out; hazard in `INBOX.md`). |
 
 ## Resumption State
 

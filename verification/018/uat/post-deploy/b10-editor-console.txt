@@ -1,0 +1,3 @@
+Console errors since session start (all=true): 1
+[ERROR] Failed to load resource: 400 @ /api/trpc/message.upsert (the B-6 probe, before the editor page was opened)
+Errors on editor page after navigation: none other. transcription
