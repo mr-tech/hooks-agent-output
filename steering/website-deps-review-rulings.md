@@ -134,3 +134,19 @@ anchors match at `7923a1d`: fixer `Handoff-At` and code-review `Reviewed-At`. Li
 `release-move.js website master 7923a1d… --dry-run`: "every check passed". Spawn cue acted on:
 `devops-hooks-fix-message-page-header-decode`, on `steering/fix-message-page-header-decode-brief-devops.md` (`f2c995b`). The release ask
 is its own (Phase 2B); P-1, the post-push `/_next/image` read, is carried in its Stage 1 handoff.
+
+## 2026-11-20T02:30Z — devops needs a release-tip QA verdict; QA Phase 3 spawned; confirmation (b) dropped
+
+By devops's message (records `2596a57`, `294c911`; nothing pushed), its Phase 2A step 3 requires a QA record against the tip, and
+`release-move.js` refuses a real move without `--qa-record` or `--reason`. Stage 1 is done: the implementation and code-review documents
+are closed Committed; P-1's carrier is `handoff/message-page-header-decode-post-deploy-2026-11-20.md`, read by P1R from crontab every
+2 hours from 04:07Z on 20 to 22 Nov, gated on the push plus 15 minutes; the readiness record is
+`deployment/fix-message-page-header-decode-deployment.md`.
+- **Route taken: QA Phase 3** (devops's option 1). It is a spawn cue, so no owner word is needed. The alternative, his waiver, was not
+  put. `qa-hooks-fix-message-page-header-decode` was spawned on `steering/fix-message-page-header-decode-brief-qa.md` (`46a0211`); its
+  verdict goes to devops. This thread's error: the stage set (block 02:03Z) left out the release-tip verdict that devops's definition
+  requires of every release. The check that would have caught it: reading devops.md Phase 2A against the stage set at the determination.
+- **Confirmation (b) dropped** (this thread's ruling): after the fix nothing reads `x-query-params`, so a post-deploy read of its
+  passthrough decides nothing. Security's audit called it "for the record's sake". P-1 is the only post-deploy row.
+- **Pre-push preview push:** not taken. P-1 after the push and devops's checked reversing patch cover the `/_next/image` assumption.
+- **Disclosure:** the relay to devops at 02:30Z cited this block before it was committed. The block was committed right after.
