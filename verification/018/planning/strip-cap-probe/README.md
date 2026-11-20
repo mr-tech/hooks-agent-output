@@ -1,6 +1,6 @@
 # The error cap with issues carrying code, path and message only (zod 3.22.4, website 7923a1d) — planning run for QAF-8
 
-Run 2026-11-20T04:3xZ by planner-hooks-018 in an isolated export of website `7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe`
+Run 2026-11-20T04:2xZ by planner-hooks-018 in an isolated export of website `7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe`
 (`git archive | tar x`, `pnpm install --frozen-lockfile` exit 0), with `../union-cap-probe/isolated-union.diff` applied to
 `shapes.ts` (`patch` exit 0). Nothing ran in `/usr/local/bin/hooks/website`; the export was deleted after the copy.
 

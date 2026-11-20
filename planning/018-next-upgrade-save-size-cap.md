@@ -3,8 +3,8 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Status: Active
-Status-Detail: "Revision 3: folds his three 04:11Z answers (D-8 to D-10: the release-check preview, the error cap as M1-i, X-18 kept), critique pass 2's F-16 and QA's QAF-6, QAF-7. No open question. Critic APPROVED (F-17, F-18 batched); architect APPROVED_WITH_CHANGES (AF-8 batched). Awaiting QA's re-key of revision 3; revision 4 folds all three gates' findings."
-Revision: 3
+Status-Detail: "Revision 4: folds critique pass 3's F-17, F-18, the architect's AF-8 and QA's QAF-8 into M1-a, M1-b and M1-i (the unit counted, issue size, wiring). No open question. Ready for the critic's delta read and QA's and the architect's re-reads of M1."
+Revision: 4
 Plan-ID: 018
 Target-Release: "website master (Vercel production), moved from 7923a1d to the chain's verified tip by devops on the owner's word"
 Epic-Alignment: "None recorded: agent-output/roadmap/ holds no roadmap (ls, 2026-11-20T03:1xZ). The chain serves the owner's routing of security findings H-002 and M-001 (steering/website-deps-review-rulings.md, block 2026-11-20T01:59Z)."
@@ -22,10 +22,11 @@ Lane: "planned (not proposed small): the framework moves under every page"
 | 2026-11-20T04:05 | 2 | planner-hooks-018 | Folds `critiques/018-next-upgrade-save-size-cap-critique.md` pass 1 (`ac93b5a`, REQUEST REVISION), `qa/018-next-upgrade-save-size-cap-qa.md` Phase 1 (`e1b25c7`) and `architecture/018-next-upgrade-save-size-cap-architecture-findings.md` (`81b0d58`); new runs: the abort form over the real schema (`verification/018/planning/abort-form-probe/`) and a preview-imitating build (`verification/018/planning/preview-imitation/`). Scope delta: M1's mechanism changes (the length check aborts the parse; typed shared helper; one recent-ids constant), its population becomes 21 site-and-procedure pairs and it names its three browser consumers; M4's class is enumerated by a record search (R4 dropped, R6 and R7 added, R5 narrowed to its consumed limb); M5 waits on OQ-5 (a plain push cannot build a preview, and a preview cannot serve sign-in); three stated limits added (X-18 to X-20). Size: five milestones, as at revision 1. |
 | 2026-11-20T04:12 | 3 | planner-hooks-018 | Folds his three answers of `steering/018-rulings.md` block 2026-11-20T04:11Z (`df692af`) as D-8 to D-10, critique pass 2's F-16 (`409b52c`) and QA Phase 1's re-key QAF-6, QAF-7 (`qa/018-next-upgrade-save-size-cap-qa.md`); new run: stopping a parse after N issues (`verification/018/planning/error-cap-probe/`). Scope delta: M1 gains M1-i, the error cap (D-9), and M1-b is restated over it; X-19 leaves the Exclusions; M5 is written for the chosen release-check branch (D-8) and OQ-5 closes; M4's R7 leaves the class (no consumer, 015 D30); M1-g names its set-up step; M1-h cites QA's base read and rides devops's post-deploy carrier. Size: five milestones; M1 one criterion larger. |
 | 2026-11-20T04:16 | R-1 | planner-hooks-018 | Registers critique pass 3's F-17, F-18 (`f209354`, APPROVED with SL-1) and the architect's AF-8 (`9a58650`, APPROVED_WITH_CHANGES) as Planner batch rows; the fold waits on QA's re-key of revision 3. |
+| 2026-11-20T04:25 | 4 | planner-hooks-018 | Folds critique pass 3's F-17, F-18 (`f209354`), the architect's AF-8 (`9a58650`) and QA's re-key QAF-8 (`9218925`); new runs over the site's own schema: `verification/018/planning/union-cap-probe/` (a third plain union, `spacing`; created and returned counts made equal) and `strip-cap-probe/` (code-path-message refusals; an async stop leaves unhandled rejections). Scope delta: M1-i restated — it counts issues in the result, bounds each issue's size, and states its wiring (per-parse, shared, `ZodError`, synchronous); M1-a scoped over the cap and its issue named by `message`; M1-b compares code, path and message over the union sites. Size: five milestones; M1 unchanged in criteria count, M1-i larger in text. |
 
 ## Header
 
-- **Plan ID** 018. **Revision** 3. **Status** Active.
+- **Plan ID** 018. **Revision** 4. **Status** Active.
 - **Target Release:** website `master`, which Vercel deploys to production (`link.productionBranch: master`,
   `verification/018/planning/vercel-project-preview-fields.md`). The package has no `version` field (`package.json` at
   `7923a1d`), so the release is the serving ref moving, named by its SHA. No version or CHANGELOG milestone.
@@ -53,8 +54,9 @@ Owed re-verdicts:
 
 | Limb | Decidable since | Owning gate | State |
 |---|---|---|---|
-| M1-b, M1-g, M1-h, M1-i (§ M1) | revision 3 | critic (delta), QA (re-key), architect (M1-i's mechanism) | open |
-| M4's class (R7 removed) and M5 (§ M4, § M5) | revision 3 | critic (delta), QA (re-key) | open |
+| M1-g, M1-h (§ M1) | revision 3 | critic (pass 3, `f209354`), QA (re-key, `9218925`) | discharged |
+| M4's class (R7 removed) and M5 (§ M4, § M5) | revision 3 | critic (pass 3), QA (re-key), architect (`9a58650`) | discharged |
+| M1-a, M1-b, M1-i (§ M1) | revision 4 | critic (delta), QA (re-key: M1-a's instrument and M1-b's comparison change form), architect (M1-i's wiring and the union sites) | open |
 
 ## Value Statement and Business Objective
 
@@ -179,13 +181,17 @@ to the unparsed message on failure.
 **Acceptance criteria (properties):**
 - **M1-a.** For each of the 21 pairs, each list length above its bound (at least bound+1 and bound+50), and each element kind in the
   finite class {valid; invalid of the right type; a wrong primitive type; `null`; an element whose own list is over its bound, where
-  the element has one}, parsing the procedure's input **returns** a refusal — never a throw — whose issues include exactly one for
-  that list (`code` `too_big`, `maximum` the bound, `path` the list's path), none whose path lies inside that list, and no
-  displayable-text issue. Instrument: the procedure's real input (the tRPC caller, or the router's
-  `_def.procedures.<name>._def.inputs[0]` for S11, which no export names). QA owns the cases.
-- **M1-b.** For each pair and each length at or below its bound, where the `7923a1d` schema records k issues for an input, the M1
-  refusal carries the same first min(k, 20) issues in the same order, followed by M1-i's one summary issue when k > 20. Instrument: both schemas over the same inputs, compared issue for issue. No expected issue list may be computed from,
-  or supplied as, the M1 schema's own output.
+  the element has one}, the procedure refuses the input with `BAD_REQUEST` — never another code, never a throw past tRPC — and,
+  where fewer than 20 issues precede the list in parse order, its issues include exactly one for that list (`code` `too_big`,
+  `path` the list's path, `message` zod's "Array must contain at most <bound> element(s)"), none whose path lies inside that list,
+  and no displayable-text issue; where 20 or more precede it, the refusal is M1-i's capped form and the list's issue is absent
+  (F-18). Instrument: the tRPC caller of each procedure (S11 through `user.updatePreferences`). QA owns the cases.
+- **M1-b.** For each pair and each length at or below its bound, where the `7923a1d` schema's result holds k issues for an input
+  (issues *in the result*: the unit M1-i counts), the M1 refusal carries the `code`, `path` and `message` of the same first
+  min(k, 20) issues in the same order, followed by M1-i's one summary issue when k > 20. The population includes each of the three
+  plain-union sites failing (M1-i), alone and mixed. Instrument: the `7923a1d` schema over the same inputs, each issue reduced to
+  those three fields, compared issue for issue with the refusal. No expected issue list may be computed from, or supplied as, the M1
+  schema's own output.
 - **M1-c.** At the six sites bounded today (S1, S2, S3, S5, S9, S10) the set of inputs refused equals the set refused at `7923a1d`
   (AF-2): the issue list of a refused input may shrink (to the one length issue, the displayable-text issue no longer added after a
   refused list), never grow. At the five new bounds (S4, S6, S7, S8, S11) the inputs newly refused are exactly those with a list
@@ -231,21 +237,46 @@ to the unparsed message on failure.
 - **M1-i (the error cap; D-9).** His option's binding phrases, verbatim: "the server stops checking after a small number of errors
   and returns a short reason, so no save can build a huge error". Over every input to the 21 pairs (any body the route accepts),
   the two procedures' input checks:
+  - *the unit (F-17):* an issue is one that the `7923a1d` schema's result would carry (M1-b's k). An issue zod creates and discards
+    — a plain `z.union`'s losing branches — is not one. At `7923a1d` the save schema has three plain unions:
+    `sectionShape.accessory`, `separatorShape.spacing` and the element of `allowed_mentions.parse` (`git grep -n -E 'union|\.or\('`
+    over `shapes.ts`, `routers/user.ts`, `routers/message.ts`); the other unions are `z.discriminatedUnion`, which parses only the
+    chosen option. Counted on created issues, six failing accessories are refused with 21 issues, 17 of them branch lines the base
+    never shows (`verification/018/planning/union-cap-probe/`, `rows-base.txt`);
   - *stop checking:* record at most 20 issues (AD-5) and then stop validating — the parse is ended, not completed and trimmed.
-    Instrument: a count of issues created during the parse (for example a counting error map in the test), never more than 21;
+    Instrument: QA's element-read count (a real stop reads 63 elements where full-then-trim reads 4,800,
+    `verification/018/qa/phase-1/error-cap-async-probe/`);
   - *a short reason:* refuse with the first 20 issues in parse order plus one summary issue (`path` `[]`, a message saying the check
-    stopped after 20 errors), in the issue shape the client already formats (`formatMutationError` `looksLikeZodIssues` needs `code`,
-    `path`, `message`; read from code, not run), so Save As and the new-message modal render 21 lines;
-  - *no huge error:* the refusal's `message` is at most 16 KB, on the worst within-bound body steering's helper built (707,607
-    bytes, 48,500 issues and 13,324,552 characters at `7923a1d`, `verification/018/steering/refute-within-bound/`) and on M1-a's
-    over-limit bodies; the M1 tip's figures (issues created, message length, parse-and-respond time) are recorded beside the base's.
-  An input with 20 or fewer issues is refused exactly as M1-a and M1-b state, with no summary issue. The callers' input types
-  (`RouterInputs` for both procedures) are those at `7923a1d` (typecheck exit 0; M1-d's `satisfies` clauses kept). Premise run: a
-  zod 3.22.4 parse given a contextual error map that throws a sentinel on the 21st issue stops there — 20 issues in 4 ms, where the
-  full parse records 10,000 issues and a 1,872,782-character message in 27 ms (`verification/018/planning/error-cap-probe/`); how the
-  stop is wired into the procedures is the implementer's. The JSON view's own browser-side parse is not capped (it builds no
-  server response; its lines are A-1's). Number 20: the editor shows one line per issue, and 20 lines fit the error areas of Save As
-  and the new-message modal; the critic and QA may move it with a reason.
+    stopped after 20 errors), so Save As and the new-message modal render 21 lines;
+  - *no huge error (QAF-8):* every issue of every refusal — capped or not, k of 1 included — carries exactly `code`, `path` and
+    `message`, the three fields `formatMutationError` `looksLikeZodIssues` checks and the only ones zod-error 1.5.0 reads outside its
+    tests, so the lines shown are unchanged (`strip-cap-probe/`: eight inputs, equal lines). `received` and `unionErrors` carry the
+    refused input (one 100,000-character `parse` element: 301,470 characters at `7923a1d`, QA's
+    `verification/018/qa/phase-1/issue-size-probe/report.txt`). The refusal's `message` is at most 16 KB over this population:
+    steering's within-bound worst bodies (707,607 bytes and 48,500 issues at most, 13,324,552 characters at `7923a1d`,
+    `verification/018/steering/refute-within-bound/`); M1-a's over-limit bodies; and one long value (100,000 characters) at each
+    position whose failure records the input — a `z.literal` or a union of literals that is not a `z.discriminatedUnion`
+    discriminator, enumerated by QA from `z.literal(` and `z.union(` in `shapes.ts` and `routers/user.ts` with the discriminators
+    excluded by name (at `7923a1d`: `parse`'s element, also three at its bound; `linkButtonShape.type` and `.style`; the accessory and
+    its branches' `type`; `spacing`). The M1 tip's figures (issues, message length, parse-and-respond time) are recorded beside the
+    base's;
+  - *wiring (AF-8):* the count is per parse — no module or global counter, never `z.setErrorMap`; one shared definition in
+    `shapes.ts` beside the M1-d helper wraps both procedures' inputs; the refusal is thrown as a `ZodError` of the kept issues plus
+    the summary, so tRPC's message is the JSON `formatMutationError` parses; the stopping parse is synchronous, and a stopped parse
+    leaves no unhandled rejection (a stop inside zod's async parse left three in one run and kept a different first 20 for one body,
+    `strip-cap-probe/strip-report-async.txt`; the save schema has no async step at `7923a1d`); two concurrent refusals keep their
+    issues apart.
+  An input with 20 or fewer issues is refused as M1-a and M1-b state, with no summary issue. The callers' input types (`RouterInputs`
+  for both procedures) are those at `7923a1d` (typecheck exit 0; M1-d's `satisfies` clauses kept). Premise runs, all over the
+  site's own schema at `7923a1d`: one form meeting every limb — the three union sites parsed outside the caller's error map, then a
+  per-call wrapper keeping `code`, `path`, `message`, mounted with the site's own `createTRPCRouter` — counts created = returned on
+  all 50 union rows, leaves every issue list, the 288-row abort-form probe and the suite (1913 of 1913, exit 0) as at base, passes
+  `pnpm run typecheck`, and refuses steering's bodies with 21 issues in 3,669 to 5,011 characters and QAF-8's in 168 to 512
+  (`union-cap-probe/`, `strip-cap-probe/`; ILLUSTRATIVE ONLY, `isolated-union.diff`); the architect's tRPC 11.10 caller run
+  (`verification/018/architect-conformance/error-cap-wiring/`); QA's async-path run (same issue order on a complete parse; 21 lines
+  rendered). Not run: the wrapper's own TypeScript typing (the typecheck line covers it). The form is the implementer's. The JSON
+  view's own browser-side parse is not capped (it builds no server response; its lines are A-1's). Number 20: the editor shows one
+  line per issue, and 20 lines fit the error areas of Save As and the new-message modal; the critic and QA may move it with a reason.
 
 **Rollback (code):** `git -C /usr/local/bin/hooks/website revert --no-edit <M1 commits>` on the chain branch, by the implementer
 before release; after release, the release rollback below. **Verification:** suite and typecheck exit codes; M1-a–M1-e and M1-i
@@ -438,7 +469,10 @@ handoff) and M5-e (devops). Release order against open carriers: P-1 and 017's B
   run"; M4 R1–R6; M5-a to M5-e; the release rollback. Falsifier: a later pass or gate finding a sentence there that a read
   contradicts. Record per review pass: pass 1 — members found (F-1, F-2, F-3, F-4, F-8), folded at revision 2 by runs or reads cited
   at each; pass 2 — none (critique `409b52c`); QA's re-key of revision 2 — one (QAF-6, R7 resting on a superseded 015 row), folded
-  at revision 3. The domain now also holds M1-i.
+  at revision 3. The domain now also holds M1-i. Critique pass 3 — one (F-17, M1-i's premise run over a bare array), and the
+  architect's read of revision 3 — none (AF-8 asks for an unstated constraint, not a contradicted one); QA's re-key of revision 3 —
+  one (QAF-8, the 16 KB limb resting on a count cap). Both folded at revision 4 by runs over the site's own schema
+  (`union-cap-probe/`, `strip-cap-probe/`), which the critic's property for F-17's class asks of every cited premise run.
 - **RK-7 (prediction, F-1).** "A push whose tree has no build-command override does not reach READY in the Preview environment."
   Falsifier: such a push reaching READY.
 
@@ -487,26 +521,27 @@ Precedent read on the surfaces this plan changes: 012 (embed caps), 013 D32/D47 
 
 | Item | Source row | Disposition |
 |---|---|---|
-| F-17 MEDIUM: M1-i's count (issues created) and M1-b's (issues returned) differ where a plain `z.union` fails; stated limit SL-1 until folded | `critiques/018-next-upgrade-save-size-cap-critique.md` pass 3 (`f209354`) | Open: folded at revision 4, with QA's re-key of revision 3 |
-| F-18 LOW: M1-a not stated over the cap | same, pass 3 (`f209354`) | Open: revision 4 |
-| AF-8 MEDIUM (required before implementation approval): M1-i states its wiring's four constraints | `architecture/018-next-upgrade-save-size-cap-architecture-findings.md` (`9a58650`) | Open: revision 4 |
+| F-17 MEDIUM: M1-i's count (issues created) and M1-b's (issues returned) differ where a plain `z.union` fails; stated limit SL-1 until folded | `critiques/018-next-upgrade-save-size-cap-critique.md` pass 3 (`f209354`) | Folded at revision 4: M1-i *the unit*, M1-b |
+| F-18 LOW: M1-a not stated over the cap | same, pass 3 (`f209354`) | Folded at revision 4: M1-a |
+| AF-8 MEDIUM (required before implementation approval): M1-i states its wiring's four constraints | `architecture/018-next-upgrade-save-size-cap-architecture-findings.md` (`9a58650`) | Folded at revision 4: M1-i *wiring* |
 
 QA Phase 1 before implementation: yes (stage set, block 02:53Z); its re-key on revision 3 is owed.
 
 ## Resumption State
 
-Written 2026-11-20T04:2xZ at steering's request (`/checkpoint`), session `planner-hooks-018`, cwd `/usr/local/bin/hooks/website`.
+Written 2026-11-20T04:2xZ at revision 4, session `planner-hooks-018`, cwd `/usr/local/bin/hooks/website`.
 
-- **Done:** revisions 0 to 3 committed; revision 3 at agent-output `428090e`. Registered rulings: D-1 to D-10 (blocks 01:59Z,
-  03:08Z, 03:25Z, 04:11Z of `steering/website-deps-review-rulings.md` and `steering/018-rulings.md`). Gate state at revision 2:
-  critic pass 2 REQUEST REVISION on OQ-5 only (`409b52c`, F-16 LOW now folded); architect APPROVED (`dbddefb`); QA re-keyed with
-  QAF-6, QAF-7 (`e8f18ef`), both folded at revision 3.
-- **Next:** wait for the three gates' verdicts on revision 3 (SHA sent to `critic-hooks-018`, `qa-hooks-018`, `architect-hooks-018`
-  at 04:1xZ). Fold every finding in one revision, after all three have reported. Read the plan as `git diff 428090e` from here on.
-  On the critic's APPROVED with QA and the architect passing and no findings, the next act is steering (implementation start).
+- **Done:** revisions 0 to 4 committed. Registered rulings: D-1 to D-10 (blocks 01:59Z, 03:08Z, 03:25Z, 04:11Z of
+  `steering/website-deps-review-rulings.md` and `steering/018-rulings.md`). Gate verdicts on revision 3: critic pass 3 APPROVED with
+  stated limit SL-1 (`f209354`); architect APPROVED_WITH_CHANGES, AF-8 (`9a58650`); QA re-key, QAF-8 HIGH (`9218925`). All four
+  findings folded at revision 4.
+- **Next:** the three gates read revision 4 (critic delta, QA re-key of M1, architect on M1-i). Fold every finding in one revision,
+  after all three have reported. On the critic's APPROVED with QA and the architect passing and no findings, the next act is
+  steering (implementation start).
 - **Approach in flight:** none. AD-5's number (20) is open to a gate's reasoned change.
 - **Trees:** website on `master` at `7923a1d`, untouched by this session. agent-output: nothing of this session's uncommitted.
 - **Evidence:** every run is committed under `verification/018/planning/` (base-validation, eslint probes, eslint9-flat-probe,
-  abort-form-probe, preview-imitation, error-cap-probe, zod-length-first, version and Vercel reads). No run is unrecorded.
+  abort-form-probe, preview-imitation, error-cap-probe, zod-length-first, union-cap-probe, strip-cap-probe, version and Vercel
+  reads). No run is unrecorded.
 - **Questions out:** none. **Sessions messaged:** steering-roadmap-hooks, critic-hooks-018, qa-hooks-018, architect-hooks-018.
-- **Processes:** no helper, server or export of this session is left (scratch exports deleted by each helper, confirmed `ls -d`).
+- **Processes:** no helper, server or export of this session is left (both scratch exports deleted, confirmed `ls -d`).
