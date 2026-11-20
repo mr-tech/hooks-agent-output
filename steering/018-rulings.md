@@ -129,3 +129,15 @@ to revision 4, `413798f`).
 - Revision 4's and 5's scope deltas restate M1-i, M1-a and M1-b within D-9; no criterion or milestone added. No delta prompt.
 - **Waiting on:** QA's re-key of revision 5. Then the implementation start (steering.md, Implementer), with no `OPEN QUESTION` open
   (five, each RESOLVED or CLOSED, `grep -n` this turn).
+
+## 2026-11-20T04:33Z — implementation start on revision 5; chain branch cut
+
+Every pre-code gate approved revision 5 (`e45e8cf`), each read at its header this turn: critique APPROVED, Resolved and closed
+(`b61164b`); architecture APPROVED, no open finding (`1f78e40`); QA Phase 1 re-keyed to revision 5 with no open finding (`0160d45`).
+No `OPEN QUESTION` open. No handoff added under `handoff/` since 04:31Z (`git log --since=2026-11-20T04:31:00Z --diff-filter=A -- handoff/`:
+none).
+- **Implementation starts** on revision 5, QA Phase 1 at `0160d45` (steering.md, Implementer; planner.md, Process step 6).
+- **Chain branch:** website `chain/018-next-upgrade-save-size-cap`, `git switch --no-track -c … origin/master` at `7923a1d` (equal to
+  `git ls-remote origin master`, read 04:3xZ), no upstream. Tracked tree clean; `git status --porcelain` before and after identical, one
+  untracked `.playwright-mcp/` (not the chain's). Same commit, so the lockfile does not change across the switch.
+- Implementer brief `steering/018-brief-implementer.md`; `implementer-hooks-018` spawned in category `website-deps-upgrade`.
