@@ -3,7 +3,7 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Status: Active
-Status-Detail: "Plan revision 6 (record 8277b08): REQUEST REVISION on M2. AF-10 HIGH: the tsconfig paths entry for highlight.js makes the bundle import undefined for hljs. The other two tsconfig keys conform. AF-1 to AF-4, AF-8 and AF-9 are resolved; AF-5 to AF-7 are Problem Areas. Open items 1-4 below are discharged at the closing pass."
+Status-Detail: "Plan revision 7 (record af8a9d6): APPROVED. AF-10 is resolved (highlight.js 11.12.0, no paths entry). AF-11 LOW is recommended (the bump's stated consequence omits the editor tree's differences); AF-12 registers a Problem Area. AF-1 to AF-4, AF-8 and AF-9 are resolved; AF-5 to AF-7 are Problem Areas. Open items 1-4 below are discharged at the closing pass."
 ---
 
 # Architecture Findings — Plan 018: Next.js 16.4.6 and the save-list cap (conformance pass)
@@ -18,6 +18,7 @@ Status-Detail: "Plan revision 6 (record 8277b08): REQUEST REVISION on M2. AF-10 
 | 2026-11-20T04:27 | Delta read, plan rev 4 (record `29277d3`; diff `428090e..29277d3`), on the planner's word. Runs read: `verification/018/planning/union-cap-probe/` (`README.md`, `isolated-union.diff`) and `strip-cap-probe/` (by the plan's account). | AF-8 is folded as asked, and adds two constraints that are stricter than AF-8: the stopping parse is synchronous, and a stopped parse leaves no unhandled rejection. M1-i now counts issues as they appear in the result. The plan's illustrative way of reaching that is to parse the three plain-union sites outside the caller's error map, which works: created issues equal returned issues on all 50 rows, and nothing else moves. Keeping each issue to `code`, `path` and `message` matches the only reader, `formatMutationError` with zod-error. Choosing z.enum or `z.discriminatedUnion` at those sites was considered and not preferred. Both change a refused line that M1-b holds fixed, and z.enum's message carries the received value, which reopens QAF-8. AF-9 LOW recommends one shared, honestly typed union helper, and the record will carry its rule for future unions. **APPROVED.** |
 | 2026-11-20T04:31 | Delta read, plan rev 5 (record `e45e8cf`; diff `29277d3..e45e8cf`), on the planner's word. | AF-9 is folded as asked: in M1-i *wiring*, one union-isolation helper in `shapes.ts`, used at all three sites, declared as `z.ZodType<…>` of the union's output and input. The rest of the delta is wording, and none of it changes a form: F-19's unit (the M1 parse's own uncapped result), F-20, and QAF-9's added long-value position (`textDisplayShape.type` inside a section). No finding. **APPROVED.** |
 | 2026-11-20T05:13 | Delta read, plan rev 6 (record `8277b08`; diff `e45e8cf..8277b08`, M2's `tsconfig.json` keys), on the planner's word. Run read: `verification/018/planning/m2-tsconfig/`. | Two of the three keys conform. `moduleResolution` `bundler` is Next 16.4.6's mandatory rewrite. `ts-node` `moduleResolution` `node` keeps `website.md` A-4's import check runnable. The third key, a `paths` entry mapping the package name `highlight.js` to its `.d.ts`, was built in an isolated export (`verification/018/architect-conformance/hljs-paths/`). Turbopack applies tsconfig `paths` to runtime imports, so `hljs` compiles to `(void 0)`, and the bundle carries no highlight.js code where the base build carries it. AF-10 HIGH. **REQUEST REVISION** on M2. |
+| 2026-11-20T05:21 | Delta read, plan rev 7 (record `af8a9d6`; diff `8277b08..af8a9d6`), on the planner's word. Runs read: `m2-tsconfig/A-final/counts.txt` and `hl-compare/` (`compare.cjs`, `output.txt`). | AF-10 is folded as recommended: no `paths` entry, highlight.js 11.12.0 under D-6, the M2-c bundle limb (form A counts 1 static and 4 server files with highlight.js runtime) and the M2-e walk. The two `tsconfig.json` keys conform. AF-11 LOW: the plan's account of what the bump changes cites the tree's structure (18 of 18) and the preview's HTML (4 of 18). It omits the comparison's own count that the editor's token tree differs in 5 of 18, one of them (`html`) in the editor only. AF-12 INFO registers the editor's reliance on highlight.js's private `_emitter`. **APPROVED.** |
 
 ## Scope and instrument
 
@@ -81,7 +82,29 @@ restated at the closing pass, once M3 has landed (open item 1).
 
 ### AF-9 LOW RESOLVED — The union isolation is one shared helper in `shapes.ts`, used at all three plain-union sites and declared as `z.ZodType<…>` of the union's output and input, not `z.ZodUnion`. Plan rev 5 M1-i *wiring*. z.enum and `z.discriminatedUnion` were not preferred: both change a refused line M1-b holds fixed, and z.enum's message carries the received value (QAF-8). The rule for future unions is carried by open item 2. Argument at `29b6ff8`.
 
-### AF-10 HIGH — M2's `paths` entry for highlight.js removes highlight.js from the bundle (required)
+### AF-11 LOW — The bump's stated consequence omits the editor's token-tree differences (recommended)
+
+- **The plan's account.** Plan rev 7 M2, "Why `highlight.js` moves", says the editor's `_emitter.rootNode` tree "keeps its shape in
+  18 of 18 samples" and that 4 of 18 gain finer token classes in the preview's HTML.
+- **What the comparison counts.** `hl-compare/compare.cjs` has two counts. "Shape" is only whether `rootNode.children` is an array.
+  The tree's content is a separate comparison, and `output.txt` ends `tree differ 5`: typescript, css, html, java and diff.
+- **What the plan omits.** For `html`, the preview's HTML is the same but the editor's tree differs. So the editor's highlighting
+  changes in 5 samples, one of which the preview does not show.
+- **Ask.** The sentence names the 5 tree differences beside the 4 HTML ones. The owner hears of this scope delta through steering
+  (block 03:25Z), so the delta should state what the run counted. No criterion changes; M2-e's walk already looks at the editor.
+
+### AF-12 INFO — Problem Area registered: the editor reads highlight.js's private emitter tree
+
+`src/components/SlateEditor/utils/decorator.tsx` reads `highlightedBlock._emitter` cast to the `Emitter` type that
+`src/@types/highlight.js.d.ts` declares, then walks `rootNode.children`. `_emitter` is not part of highlight.js's public API. A
+bump can change its shape or content with no type error, because of the cast, and no test fails, because vitest runs the same
+library. Revision 7 measured it once, by hand (`hl-compare/`). Could be better: a decorator built on the public HTML output, or the
+comparison kept as a check that runs on every highlight.js bump. This is registered in the master document's Problem Areas and
+asks no plan change.
+
+### AF-10 HIGH RESOLVED — The `paths` entry for highlight.js removed highlight.js from the bundle. Plan rev 7 M2 drops it, moves highlight.js to 11.12.0 under D-6, and adds the M2-c bundle limb (runtime-string counts, no `(void 0)` call) and the M2-e walk. Argument retained below until the closing pass.
+
+### AF-10 argument (retained) — M2's `paths` entry for highlight.js removes highlight.js from the bundle
 
 **Form.** Plan rev 6 M2 steps: `compilerOptions.paths` `"highlight.js": ["./node_modules/highlight.js/types/index.d.ts"]`. It is there
 to give TypeScript highlight.js 11.7.0's types under `bundler` resolution.
