@@ -1,0 +1,15 @@
+# read-serving-deployment.sh baseline and controls, 2026-11-20T07:08:34Z, before the release (production serves 7923a1d)
+## live, tip d1bb9b0 (expected exit 1: not yet containing)
+contains-tip: NO (newest READY production deployment commit 7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe)
+exit=1
+## control, tip 7923a1d (expected exit 0: the serving commit contains itself)
+contains-tip: yes (newest READY production deployment commit 7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe)
+exit=0
+## stub, tip a bogus ref (expected exit 3: unreadable git)
+unreadable: git rc=128 (is 7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe present locally?)
+exit=3
+## stub, unreadable API (WEB points at a dir with no .vercel; expected exit 3)
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: '/nonexistent/.vercel/project.json'
+exit=3
