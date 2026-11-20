@@ -1,0 +1,119 @@
+id	score	disposition	class	generated	covering	reason
+406	7	kept	-	yes	-	empty stored list with a message open: the open id alone is sent; edge of the build loop no bounded row reaches
+407	8	kept	-	yes	-	at-bound row: ten stored ids all survive behind the open one; fails if the loop comparison tightens to nine
+408	8	kept	-	yes	-	one-over row: the eleventh stored id is dropped with a message open; fails if the client bound loosens past what the server admits
+409	5	remove	-	yes	408	same truncation as the eleven-id row with a longer list
+410	6	remove	-	yes	411	empty stored list with no message open sends an empty list; the slice branch is pinned by the ten-id row
+411	8	kept	-	yes	-	at-bound row of the no-message branch: ten stored ids pass in order; fails if the slice bound drops
+412	8	kept	-	yes	-	one-over row of the no-message branch: eleventh stored id dropped; only assertion of the slice bound
+413	5	remove	-	yes	412	same slice truncation as the eleven-id row with a longer list
+414	5	remove	-	no	408	stored copy sits past the cut, so the dedupe conjunct never runs; fails only on the bound, which the eleven-id row already pins
+415	9	kept	-	no	-	the one fixture where the stored copy of the open id is inside the bound, so the dedupe conjunct alone decides
+416	7	kept	-	no	-	no stored list and no message sends undefined rather than an empty list; the nullish fall-through is asserted nowhere else
+1594	8	kept	-	yes	-	S1 action row buttons: one over the bound of 5 refused as BAD_REQUEST with no query; pins this list's own bound on the save route
+1595	5	remove	-	yes	1594	S1: same over-limit refusal as length 6 with a longer list
+1596	8	kept	-	yes	-	S1 action row buttons: over-limit list of invalid elements yields the single list issue; fails if the bound becomes a plain array maximum that also validates elements
+1597	5	remove	-	yes	1596	S1: same no-element-validation refusal as length 6 with a longer list
+1598	5	remove	-	yes	1596	S1: number elements repeat the invalid-element refusal with another wrong type
+1599	5	remove	-	yes	1596	S1: number elements at +50 repeat the invalid-element refusal
+1600	5	remove	-	yes	1596	S1: null elements repeat the invalid-element refusal; no enclosing refinement walks this list
+1601	5	remove	-	yes	1596	S1: null elements at +50 repeat the invalid-element refusal
+1602	8	kept	-	yes	-	S1 action row buttons: exactly 5 valid elements pass input and reach the database; pins the bound as inclusive
+1603	5	remove	-	yes	1602	S1: 4 elements pass wherever 5 do; no change fails this and not the at-bound row
+1604	7	kept	-	yes	-	S1 action row buttons: a full list with one invalid element keeps the element issue at its own path; fails if the bounded list stops validating elements
+1605	5	remove	-	yes	1604	S1: same element issue as the at-bound row one element shorter
+1606	8	kept	-	yes	-	S2 section text displays: one over the bound of 3 refused as BAD_REQUEST with no query; pins this list's own bound on the save route
+1607	5	remove	-	yes	1606	S2: same over-limit refusal as length 4 with a longer list
+1608	8	kept	-	yes	-	S2 section text displays: over-limit list of invalid elements yields the single list issue; fails if the bound becomes a plain array maximum that also validates elements
+1609	5	remove	-	yes	1608	S2: same no-element-validation refusal as length 4 with a longer list
+1610	5	remove	-	yes	1608	S2: number elements repeat the invalid-element refusal with another wrong type
+1611	5	remove	-	yes	1608	S2: number elements at +50 repeat the invalid-element refusal
+1612	8	kept	-	yes	-	S2: null text displays inside a section are what the displayable-text walk would dereference; the fixture that fails with a server error if the list issue stops being fatal
+1613	5	remove	-	yes	1612	S2: same null-element refusal as length 4 with a longer list
+1614	8	kept	-	yes	-	S2 section text displays: exactly 3 valid elements pass input and reach the database; pins the bound as inclusive
+1615	5	remove	-	yes	1614	S2: 2 elements pass wherever 3 do; no change fails this and not the at-bound row
+1616	7	kept	-	yes	-	S2 section text displays: a full list with one invalid element keeps the element issue at its own path; fails if the bounded list stops validating elements
+1617	5	remove	-	yes	1616	S2: same element issue as the at-bound row one element shorter
+1618	8	kept	-	yes	-	S3 media gallery items: one over the bound of 10 refused as BAD_REQUEST with no query; pins this list's own bound on the save route
+1619	5	remove	-	yes	1618	S3: same over-limit refusal as length 11 with a longer list
+1620	8	kept	-	yes	-	S3 media gallery items: over-limit list of invalid elements yields the single list issue; fails if the bound becomes a plain array maximum that also validates elements
+1621	5	remove	-	yes	1620	S3: same no-element-validation refusal as length 11 with a longer list
+1622	5	remove	-	yes	1620	S3: number elements repeat the invalid-element refusal with another wrong type
+1623	5	remove	-	yes	1620	S3: number elements at +50 repeat the invalid-element refusal
+1624	5	remove	-	yes	1620	S3: null elements repeat the invalid-element refusal; no enclosing refinement walks this list
+1625	5	remove	-	yes	1620	S3: null elements at +50 repeat the invalid-element refusal
+1626	8	kept	-	yes	-	S3 media gallery items: exactly 10 valid elements pass input and reach the database; pins the bound as inclusive
+1627	5	remove	-	yes	1626	S3: 9 elements pass wherever 10 do; no change fails this and not the at-bound row
+1628	7	kept	-	yes	-	S3 media gallery items: a full list with one invalid element keeps the element issue at its own path; fails if the bounded list stops validating elements
+1629	5	remove	-	yes	1628	S3: same element issue as the at-bound row one element shorter
+1630	8	kept	-	yes	-	S4 container children: one over the bound of 40 refused as BAD_REQUEST with no query; pins this list's own bound on the save route
+1631	5	remove	-	yes	1630	S4: same over-limit refusal as length 41 with a longer list
+1632	8	kept	-	yes	-	S4 container children: over-limit list of invalid elements yields the single list issue; fails if the bound becomes a plain array maximum that also validates elements
+1633	5	remove	-	yes	1632	S4: same no-element-validation refusal as length 41 with a longer list
+1634	5	remove	-	yes	1632	S4: number elements repeat the invalid-element refusal with another wrong type
+1635	5	remove	-	yes	1632	S4: number elements at +50 repeat the invalid-element refusal
+1636	7	kept	-	yes	-	S4: null container children reach the displayable-text walk through the container branch if the list issue stops being fatal; overlaps the section null row only in part
+1637	5	remove	-	yes	1636	S4: same null-element refusal as length 41 with a longer list
+1638	6	remove	-	yes	1632	S4: elements that are themselves over-limit lists repeat the no-element-validation refusal with other data
+1639	5	remove	-	yes	1632	S4: nested over-limit elements at +50 repeat the invalid-element refusal
+1640	8	kept	-	yes	-	S4 container children: exactly 40 valid elements pass input and reach the database; pins the bound as inclusive
+1641	5	remove	-	yes	1640	S4: 39 elements pass wherever 40 do; no change fails this and not the at-bound row
+1642	7	kept	-	yes	-	S4 container children: a full list with one invalid element keeps the element issue at its own path; fails if the bounded list stops validating elements
+1643	5	remove	-	yes	1642	S4: same element issue as the at-bound row one element shorter
+1644	8	kept	-	yes	-	S5 embed fields: one over the bound of 25 refused as BAD_REQUEST with no query; pins this list's own bound on the save route
+1645	5	remove	-	yes	1644	S5: same over-limit refusal as length 26 with a longer list
+1646	8	kept	-	yes	-	S5 embed fields: over-limit list of invalid elements yields the single list issue; fails if the bound becomes a plain array maximum that also validates elements
+1647	5	remove	-	yes	1646	S5: same no-element-validation refusal as length 26 with a longer list
+1648	5	remove	-	yes	1646	S5: number elements repeat the invalid-element refusal with another wrong type
+1649	5	remove	-	yes	1646	S5: number elements at +50 repeat the invalid-element refusal
+1650	5	remove	-	yes	1646	S5: null elements repeat the invalid-element refusal; no enclosing refinement walks this list
+1651	5	remove	-	yes	1646	S5: null elements at +50 repeat the invalid-element refusal
+1652	8	kept	-	yes	-	S5 embed fields: exactly 25 valid elements pass input and reach the database; pins the bound as inclusive
+1653	5	remove	-	yes	1652	S5: 24 elements pass wherever 25 do; no change fails this and not the at-bound row
+1654	7	kept	-	yes	-	S5 embed fields: a full list with one invalid element keeps the element issue at its own path; fails if the bounded list stops validating elements
+1655	5	remove	-	yes	1654	S5: same element issue as the at-bound row one element shorter
+1656	8	kept	-	yes	-	S6 allowed-mentions parse: one over the bound of 3 refused as BAD_REQUEST with no query; pins this list's own bound on the save route
+1657	5	remove	-	yes	1656	S6: same over-limit refusal as length 4 with a longer list
+1658	8	kept	-	yes	-	S6 allowed-mentions parse: over-limit list of invalid elements yields the single list issue; fails if the bound becomes a plain array maximum that also validates elements
+1659	5	remove	-	yes	1658	S6: same no-element-validation refusal as length 4 with a longer list
+1660	5	remove	-	yes	1658	S6: number elements repeat the invalid-element refusal with another wrong type
+1661	5	remove	-	yes	1658	S6: number elements at +50 repeat the invalid-element refusal
+1662	5	remove	-	yes	1658	S6: null elements repeat the invalid-element refusal; no enclosing refinement walks this list
+1663	5	remove	-	yes	1658	S6: null elements at +50 repeat the invalid-element refusal
+1664	8	kept	-	yes	-	S6 allowed-mentions parse: exactly 3 valid elements pass input and reach the database; pins the bound as inclusive
+1665	5	remove	-	yes	1664	S6: 2 elements pass wherever 3 do; no change fails this and not the at-bound row
+1666	7	kept	-	yes	-	S6 allowed-mentions parse: a full list with one invalid element keeps the element issue at its own path; fails if the bounded list stops validating elements
+1667	5	remove	-	yes	1666	S6: same element issue as the at-bound row one element shorter
+1668	8	kept	-	yes	-	S7 allowed-mentions users: one over the bound of 100 refused as BAD_REQUEST with no query; pins this list's own bound on the save route
+1669	5	remove	-	yes	1668	S7: same over-limit refusal as length 101 with a longer list
+1670	8	kept	-	yes	-	S7 allowed-mentions users: over-limit list of invalid elements yields the single list issue; fails if the bound becomes a plain array maximum that also validates elements
+1671	5	remove	-	yes	1670	S7: same no-element-validation refusal as length 101 with a longer list
+1672	5	remove	-	yes	1670	S7: number elements repeat the invalid-element refusal with another wrong type
+1673	5	remove	-	yes	1670	S7: number elements at +50 repeat the invalid-element refusal
+1674	5	remove	-	yes	1670	S7: null elements repeat the invalid-element refusal; no enclosing refinement walks this list
+1675	5	remove	-	yes	1670	S7: null elements at +50 repeat the invalid-element refusal
+1676	8	kept	-	yes	-	S7 allowed-mentions users: exactly 100 valid elements pass input and reach the database; pins the bound as inclusive
+1677	5	remove	-	yes	1676	S7: 99 elements pass wherever 100 do; no change fails this and not the at-bound row
+1678	7	kept	-	yes	-	S7 allowed-mentions users: a full list with one invalid element keeps the element issue at its own path; fails if the bounded list stops validating elements
+1679	5	remove	-	yes	1678	S7: same element issue as the at-bound row one element shorter
+1680	8	kept	-	yes	-	S8 allowed-mentions roles: one over the bound of 100 refused as BAD_REQUEST with no query; pins this list's own bound on the save route
+1681	5	remove	-	yes	1680	S8: same over-limit refusal as length 101 with a longer list
+1682	8	kept	-	yes	-	S8 allowed-mentions roles: over-limit list of invalid elements yields the single list issue; fails if the bound becomes a plain array maximum that also validates elements
+1683	5	remove	-	yes	1682	S8: same no-element-validation refusal as length 101 with a longer list
+1684	5	remove	-	yes	1682	S8: number elements repeat the invalid-element refusal with another wrong type
+1685	5	remove	-	yes	1682	S8: number elements at +50 repeat the invalid-element refusal
+1686	5	remove	-	yes	1682	S8: null elements repeat the invalid-element refusal; no enclosing refinement walks this list
+1687	5	remove	-	yes	1682	S8: null elements at +50 repeat the invalid-element refusal
+1688	8	kept	-	yes	-	S8 allowed-mentions roles: exactly 100 valid elements pass input and reach the database; pins the bound as inclusive
+1689	5	remove	-	yes	1688	S8: 99 elements pass wherever 100 do; no change fails this and not the at-bound row
+1690	7	kept	-	yes	-	S8 allowed-mentions roles: a full list with one invalid element keeps the element issue at its own path; fails if the bounded list stops validating elements
+1691	5	remove	-	yes	1690	S8: same element issue as the at-bound row one element shorter
+1692	8	kept	-	yes	-	S9 embeds: one over the bound of 10 refused as BAD_REQUEST with no query; pins this list's own bound on the save route
+1693	5	remove	-	yes	1692	S9: same over-limit refusal as length 11 with a longer list
+1694	8	kept	-	yes	-	S9 embeds: over-limit list of invalid elements yields the single list issue; fails if the bound becomes a plain array maximum that also validates elements
+1695	5	remove	-	yes	1694	S9: same no-element-validation refusal as length 11 with a longer list
+1696	5	remove	-	yes	1694	S9: number elements repeat the invalid-element refusal with another wrong type
+1697	5	remove	-	yes	1694	S9: number elements at +50 repeat the invalid-element refusal
+1698	5	remove	-	yes	1694	S9: null elements repeat the invalid-element refusal; no enclosing refinement walks this list
+1699	5	remove	-	yes	1694	S9: null elements at +50 repeat the invalid-element refusal
+1700	6	remove	-	yes	1694	S9: elements that are themselves over-limit lists repeat the no-element-validation refusal with other data

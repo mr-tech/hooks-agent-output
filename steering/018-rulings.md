@@ -331,3 +331,14 @@ reconciliation (`eb76250`).
   Tables go to `verification/018/deweed/website-{1,2,3}.tsv`.
 - `fix-message-page-header-decode` took no rejected round, QA failure, re-scope or owner block (`website-deps-review-rulings.md:168`), so
   it joins the next fixer batch.
+
+## 2026-11-20T13:57Z — test-case scoring of chain 018: 348 cases scored, 60.1% below 7
+
+Scope: the 348 cases in the 5 test files `7923a1d..d1bb9b0` changed, collected by `vitest list` (2,261 cases in all) from an export of
+website `d1bb9b0`. Three `deweeder` units (118, 115, 115).
+- **Merged:** `verification/018/deweed/website.tsv` (348 rows, 348 unique ids); unit tables `website-{1,2,3}.tsv`.
+- **Scores** (a Python count over the merged table): 5 → 174, 6 → 35, 7 → 82, 8 → 55, 9 → 1, 10 → 1. **Below 7: 209 of 348 (60.1%)**, each
+  disposition `remove` with a covering id. Kept: 139.
+- **Covering check:** 209 covering cells. Each names an id the pass scored (0 unchecked), and every covering target scores 7 or more.
+- Nothing is deleted on this table. A deletion is a later chain's, behind a mutation re-run (deweeder.md).
+- Unit 1 notes two kept scores (ids 1612 and 1636) resting on reasoning about zod's abort semantics, not on a run.

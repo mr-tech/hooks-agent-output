@@ -1,0 +1,116 @@
+id	score	disposition	class	generated	covering	reason
+1701	5	remove	-	yes	1694	S9 embeds: embeds holding 26 fields, length 60, repeat "no element of an over-limit list is validated" with other element data and length
+1702	8	kept	-	yes	-	S9 embeds: a valid list exactly at the bound (10) passes input and reaches the database; fails on an off-by-one bound
+1703	5	remove	-	yes	1702	S9 embeds: bound-1 repeats the at-bound acceptance; no change refuses 9 and admits 10
+1704	8	kept	-	yes	-	S9 embeds: within the bound the embed schema still runs and reports at the element path; fails if the pipe to the element schema is lost
+1705	5	remove	-	yes	1704	S9 embeds: bound-1 repeats the at-bound element-issue case with a shorter list
+1706	8	kept	-	yes	-	S10 top-level components: first length over the bound (41) refused with the one list issue before any query
+1707	5	remove	-	yes	1706	S10 top-level components: bound+50 repeats the bound+1 refusal with a longer list; no change refuses 41 and admits 90
+1708	6	remove	-	yes	1712	S10 top-level components: invalid elements repeat "no element of an over-limit list is validated" with other element data; every change failing it fails the covering case
+1709	5	remove	-	yes	1712	S10 top-level components: invalid elements at bound+50 repeat the covering case with other element data and length
+1710	5	remove	-	yes	1712	S10 top-level components: wrong-primitive elements repeat "no element of an over-limit list is validated" with other element data; every change failing it fails the covering case
+1711	5	remove	-	yes	1712	S10 top-level components: wrong-primitive elements at bound+50 repeat the covering case with other element data and length
+1712	8	kept	-	yes	-	S10 top-level components: null elements over the bound; the one fixture that turns a non-fatal list issue into a thrown TypeError in the displayable-text refinement, and also fails if elements are validated
+1713	5	remove	-	yes	1712	S10 top-level components: bound+50 repeats the null-element refusal at bound+1
+1714	6	remove	-	yes	1712	S10 top-level components: elements holding their own over-limit list repeat "no element of an over-limit list is validated" with other element data; every change failing it fails the covering case
+1715	5	remove	-	yes	1712	S10 top-level components: elements holding their own over-limit list at bound+50 repeat the covering case with other element data and length
+1716	8	kept	-	yes	-	S10 top-level components: a valid list exactly at the bound (40) passes input and reaches the database; fails on an off-by-one bound
+1717	5	remove	-	yes	1716	S10 top-level components: bound-1 repeats the at-bound acceptance; no change refuses 39 and admits 40
+1718	8	kept	-	yes	-	S10 top-level components: within the bound the element schema still runs and reports at the element path; fails if the pipe to the element schema is lost
+1719	5	remove	-	yes	1718	S10 top-level components: bound-1 repeats the at-bound element-issue case with a shorter list
+1720	8	kept	-	no	-	cap boundary, lower side: exactly 20 issues come back whole with no summary; fails on > becoming >=
+1721	8	kept	-	no	-	cap boundary, upper side: 21 issues give the first 20 in order plus the summary issue, asserted by full equality
+1722	6	remove	-	no	1721	repeats the 21-issue cap on mention ids by length only; the 21 rendered lines add nothing the formatter's own N-lines case does not hold
+1723	8	kept	-	no	-	an issue added by the list-bound refinement counts toward the 20: 19+1 has no summary, 20+1 drops it for the summary
+1724	7	kept	-	no	-	the enclosing-object displayable-text issue counts toward the 20 and keeps its wording uncapped; overlaps 1723 in the counting only
+1725	8	kept	-	no	-	the only case that tells stopping the parse from truncating afterwards: property reads of a 1600-element input stay under 200
+1726	8	kept	-	no	-	issue count is per call: fails if the collected-issue list is hoisted out of parseAsync, where the second refusal would be capped
+1727	8	kept	-	yes	-	refusal size: a 100k-character allowed-mention kind is not echoed in the issues; fails if the literals become an enum whose message quotes the value
+1728	5	remove	-	yes	1727	three big allowed-mention kinds repeat the one-kind case with a count of 3
+1729	7	kept	-	yes	-	refusal size at the link-button literal site (invalid_literal carries received); other site than 1727, overlapping it in the size bound only
+1730	6	remove	-	yes	1729	button type instead of button style: same shape, same literal issue code, other field
+1731	7	kept	-	yes	-	refusal size at the section accessory union: both branches fail on a big type; other site than 1727
+1732	7	kept	-	yes	-	refusal size at the separator spacing union of number literals; other site than 1727
+1733	7	kept	-	yes	-	refusal size at the text-display literal inside a section; other site than 1729
+1734	5	remove	-	yes	1731	accessory with a big type plus media fails both union branches exactly as 1731 does
+1735	6	remove	-	yes	1721	a large many-issue body repeats the 21-issue cap; the 16 KB bound follows from the cap and the reduced issue keys already held
+1736	5	remove	-	yes	1721	a large body of failing accessories repeats the 21-issue cap with other data
+1737	6	remove	-	no	1738	exact reduced invalid_union issue at a union site; the reduced-key form and the union issue path are held by 1738, the spacing site by 1732
+1738	8	kept	-	no	-	six failing accessories give six issues: fails if union branch issues reach the counting error map and consume the cap
+1739	6	remove	-	no	1721	21 failing accessories repeat the cap with union-sourced issues; a change that miscounts union issues fails 1738 first
+1740	8	kept	-	no	-	a failed accessory union aborts the save shape so no displayable-text issue is added; the fixture where the fatal flag alone decides
+1741	8	kept	-	no	-	the other side of the fatal flag: a matched branch keeps its own issues in order and the displayable-text check still runs
+1742	6	remove	-	no	1741	the thumbnail branch repeats the matched-branch behaviour of 1741 with the other accessory type
+1743	8	kept	-	no	-	a capped refusal keeps the message an issue was created with at a kept position; fails if the collected issues take the default message
+1776	7	kept	-	yes	-	S1 action row buttons: first length over the bound (6) refused with the one list issue before any query; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1777	5	remove	-	yes	1776	S1 action row buttons: bound+50 repeats the bound+1 refusal with a longer list; no change refuses 6 and admits 55
+1778	7	kept	-	yes	-	S1 action row buttons: invalid elements over the bound yield only the list issue; fails if the bound becomes a plain array max that also validates elements; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1779	5	remove	-	yes	1778	S1 action row buttons: bound+50 repeats the invalid-element refusal at bound+1
+1780	5	remove	-	yes	1778	S1 action row buttons: wrong-primitive elements repeat "no element of an over-limit list is validated" with other element data; every change failing it fails the covering case
+1781	5	remove	-	yes	1778	S1 action row buttons: wrong-primitive elements at bound+50 repeat the covering case with other element data and length
+1782	5	remove	-	yes	1778	S1 action row buttons: null elements repeat "no element of an over-limit list is validated" with other element data; every change failing it fails the covering case
+1783	5	remove	-	yes	1778	S1 action row buttons: null elements at bound+50 repeat the covering case with other element data and length
+1784	7	kept	-	yes	-	S1 action row buttons: a valid list exactly at the bound (5) passes input and reaches the database; fails on an off-by-one bound; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1785	5	remove	-	yes	1784	S1 action row buttons: bound-1 repeats the at-bound acceptance; no change refuses 4 and admits 5
+1786	7	kept	-	yes	-	S1 action row buttons: within the bound the element schema still runs and reports at the element path; fails if the pipe to the element schema is lost; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1787	5	remove	-	yes	1786	S1 action row buttons: bound-1 repeats the at-bound element-issue case with a shorter list
+1788	7	kept	-	yes	-	S2 section text displays: first length over the bound (4) refused with the one list issue before any query; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1789	5	remove	-	yes	1788	S2 section text displays: bound+50 repeats the bound+1 refusal with a longer list; no change refuses 4 and admits 53
+1790	6	remove	-	yes	1794	S2 section text displays: invalid elements repeat "no element of an over-limit list is validated" with other element data; every change failing it fails the covering case
+1791	5	remove	-	yes	1794	S2 section text displays: invalid elements at bound+50 repeat the covering case with other element data and length
+1792	5	remove	-	yes	1794	S2 section text displays: wrong-primitive elements repeat "no element of an over-limit list is validated" with other element data; every change failing it fails the covering case
+1793	5	remove	-	yes	1794	S2 section text displays: wrong-primitive elements at bound+50 repeat the covering case with other element data and length
+1794	7	kept	-	yes	-	S2 section text displays: null elements over the bound; the one fixture that turns a non-fatal list issue into a thrown TypeError in the displayable-text refinement, and also fails if elements are validated; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1795	5	remove	-	yes	1794	S2 section text displays: bound+50 repeats the null-element refusal at bound+1
+1796	7	kept	-	yes	-	S2 section text displays: a valid list exactly at the bound (3) passes input and reaches the database; fails on an off-by-one bound; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1797	5	remove	-	yes	1796	S2 section text displays: bound-1 repeats the at-bound acceptance; no change refuses 2 and admits 3
+1798	7	kept	-	yes	-	S2 section text displays: within the bound the element schema still runs and reports at the element path; fails if the pipe to the element schema is lost; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1799	5	remove	-	yes	1798	S2 section text displays: bound-1 repeats the at-bound element-issue case with a shorter list
+1800	7	kept	-	yes	-	S3 media gallery items: first length over the bound (11) refused with the one list issue before any query; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1801	5	remove	-	yes	1800	S3 media gallery items: bound+50 repeats the bound+1 refusal with a longer list; no change refuses 11 and admits 60
+1802	7	kept	-	yes	-	S3 media gallery items: invalid elements over the bound yield only the list issue; fails if the bound becomes a plain array max that also validates elements; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1803	5	remove	-	yes	1802	S3 media gallery items: bound+50 repeats the invalid-element refusal at bound+1
+1804	5	remove	-	yes	1802	S3 media gallery items: wrong-primitive elements repeat "no element of an over-limit list is validated" with other element data; every change failing it fails the covering case
+1805	5	remove	-	yes	1802	S3 media gallery items: wrong-primitive elements at bound+50 repeat the covering case with other element data and length
+1806	5	remove	-	yes	1802	S3 media gallery items: null elements repeat "no element of an over-limit list is validated" with other element data; every change failing it fails the covering case
+1807	5	remove	-	yes	1802	S3 media gallery items: null elements at bound+50 repeat the covering case with other element data and length
+1808	7	kept	-	yes	-	S3 media gallery items: a valid list exactly at the bound (10) passes input and reaches the database; fails on an off-by-one bound; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1809	5	remove	-	yes	1808	S3 media gallery items: bound-1 repeats the at-bound acceptance; no change refuses 9 and admits 10
+1810	7	kept	-	yes	-	S3 media gallery items: within the bound the element schema still runs and reports at the element path; fails if the pipe to the element schema is lost; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1811	5	remove	-	yes	1810	S3 media gallery items: bound-1 repeats the at-bound element-issue case with a shorter list
+1812	7	kept	-	yes	-	S4 container children: first length over the bound (41) refused with the one list issue before any query; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1813	5	remove	-	yes	1812	S4 container children: bound+50 repeats the bound+1 refusal with a longer list; no change refuses 41 and admits 90
+1814	6	remove	-	yes	1818	S4 container children: invalid elements repeat "no element of an over-limit list is validated" with other element data; every change failing it fails the covering case
+1815	5	remove	-	yes	1818	S4 container children: invalid elements at bound+50 repeat the covering case with other element data and length
+1816	5	remove	-	yes	1818	S4 container children: wrong-primitive elements repeat "no element of an over-limit list is validated" with other element data; every change failing it fails the covering case
+1817	5	remove	-	yes	1818	S4 container children: wrong-primitive elements at bound+50 repeat the covering case with other element data and length
+1818	7	kept	-	yes	-	S4 container children: null elements over the bound; the one fixture that turns a non-fatal list issue into a thrown TypeError in the displayable-text refinement, and also fails if elements are validated; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1819	5	remove	-	yes	1818	S4 container children: bound+50 repeats the null-element refusal at bound+1
+1820	6	remove	-	yes	1818	S4 container children: elements holding their own over-limit list repeat "no element of an over-limit list is validated" with other element data; every change failing it fails the covering case
+1821	5	remove	-	yes	1818	S4 container children: elements holding their own over-limit list at bound+50 repeat the covering case with other element data and length
+1822	7	kept	-	yes	-	S4 container children: a valid list exactly at the bound (40) passes input and reaches the database; fails on an off-by-one bound; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1823	5	remove	-	yes	1822	S4 container children: bound-1 repeats the at-bound acceptance; no change refuses 39 and admits 40
+1824	7	kept	-	yes	-	S4 container children: within the bound the element schema still runs and reports at the element path; fails if the pipe to the element schema is lost; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1825	5	remove	-	yes	1824	S4 container children: bound-1 repeats the at-bound element-issue case with a shorter list
+1826	7	kept	-	yes	-	S5 embed fields: first length over the bound (26) refused with the one list issue before any query; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1827	5	remove	-	yes	1826	S5 embed fields: bound+50 repeats the bound+1 refusal with a longer list; no change refuses 26 and admits 75
+1828	7	kept	-	yes	-	S5 embed fields: invalid elements over the bound yield only the list issue; fails if the bound becomes a plain array max that also validates elements; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1829	5	remove	-	yes	1828	S5 embed fields: bound+50 repeats the invalid-element refusal at bound+1
+1830	5	remove	-	yes	1828	S5 embed fields: wrong-primitive elements repeat "no element of an over-limit list is validated" with other element data; every change failing it fails the covering case
+1831	5	remove	-	yes	1828	S5 embed fields: wrong-primitive elements at bound+50 repeat the covering case with other element data and length
+1832	5	remove	-	yes	1828	S5 embed fields: null elements repeat "no element of an over-limit list is validated" with other element data; every change failing it fails the covering case
+1833	5	remove	-	yes	1828	S5 embed fields: null elements at bound+50 repeat the covering case with other element data and length
+1834	7	kept	-	yes	-	S5 embed fields: a valid list exactly at the bound (25) passes input and reaches the database; fails on an off-by-one bound; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1835	5	remove	-	yes	1834	S5 embed fields: bound-1 repeats the at-bound acceptance; no change refuses 24 and admits 25
+1836	7	kept	-	yes	-	S5 embed fields: within the bound the element schema still runs and reports at the element path; fails if the pipe to the element schema is lost; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1837	5	remove	-	yes	1836	S5 embed fields: bound-1 repeats the at-bound element-issue case with a shorter list
+1838	7	kept	-	yes	-	S6 allowed mentions parse: first length over the bound (4) refused with the one list issue before any query; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1839	5	remove	-	yes	1838	S6 allowed mentions parse: bound+50 repeats the bound+1 refusal with a longer list; no change refuses 4 and admits 53
+1840	7	kept	-	yes	-	S6 allowed mentions parse: invalid elements over the bound yield only the list issue; fails if the bound becomes a plain array max that also validates elements; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1841	5	remove	-	yes	1840	S6 allowed mentions parse: bound+50 repeats the invalid-element refusal at bound+1
+1842	5	remove	-	yes	1840	S6 allowed mentions parse: wrong-primitive elements repeat "no element of an over-limit list is validated" with other element data; every change failing it fails the covering case
+1843	5	remove	-	yes	1840	S6 allowed mentions parse: wrong-primitive elements at bound+50 repeat the covering case with other element data and length
+1844	5	remove	-	yes	1840	S6 allowed mentions parse: null elements repeat "no element of an over-limit list is validated" with other element data; every change failing it fails the covering case
+1845	5	remove	-	yes	1840	S6 allowed mentions parse: null elements at bound+50 repeat the covering case with other element data and length
+1846	7	kept	-	yes	-	S6 allowed mentions parse: a valid list exactly at the bound (3) passes input and reaches the database; fails on an off-by-one bound; same shared schema is asserted on message.upsert, kept in part for this route's own input wiring
+1847	5	remove	-	yes	1846	S6 allowed mentions parse: bound-1 repeats the at-bound acceptance; no change refuses 2 and admits 3

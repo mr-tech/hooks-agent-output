@@ -1,0 +1,116 @@
+id	score	disposition	class	generated	covering	reason
+1848	7	kept	-	yes	-	S6 parse: within the bound an inadmissible kind yields one invalid_union issue at its index on this route
+1849	5	remove	-	yes	1848	S6 parse: same per-element issue one length shorter
+1850	7	kept	-	yes	-	S7 mention users: boundary refusal at bound+1 on the updatePreferences route with no query; shares the shape with the message.upsert twin, not the route wiring
+1851	5	remove	-	yes	1850	S7 mention users: same refusal as the bound+1 case at a longer length
+1852	7	kept	-	yes	-	S7 mention users: only kind on this route that fails if the list reverts to a plain max (elements validated, extra issues)
+1853	5	remove	-	yes	1852	S7 mention users: same no-element-validation refusal at a longer length
+1854	5	remove	-	yes	1852	S7 mention users: number elements repeat the invalid-kind refusal with other element data
+1855	5	remove	-	yes	1852	S7 mention users: number elements repeat the invalid-kind refusal with other data and length
+1856	5	remove	-	yes	1852	S7 mention users: null elements repeat the invalid-kind refusal with other element data
+1857	5	remove	-	yes	1852	S7 mention users: null elements repeat the invalid-kind refusal with other data and length
+1858	7	kept	-	yes	-	S7 mention users: accepts exactly the bound on this route and reaches the database; fails if the bound is lowered or made exclusive
+1859	5	remove	-	yes	1858	S7 mention users: bound-1 acceptance repeats the at-bound acceptance
+1860	7	kept	-	yes	-	S7 mention users: within the bound elements are still validated, one issue at the element path; fails if the bounded list stops validating elements
+1861	5	remove	-	yes	1860	S7 mention users: same per-element issue one length shorter
+1862	7	kept	-	yes	-	S8 mention roles: boundary refusal at bound+1 on the updatePreferences route with no query; shares the shape with the message.upsert twin, not the route wiring
+1863	5	remove	-	yes	1862	S8 mention roles: same refusal as the bound+1 case at a longer length
+1864	7	kept	-	yes	-	S8 mention roles: only kind on this route that fails if the list reverts to a plain max (elements validated, extra issues)
+1865	5	remove	-	yes	1864	S8 mention roles: same no-element-validation refusal at a longer length
+1866	5	remove	-	yes	1864	S8 mention roles: number elements repeat the invalid-kind refusal with other element data
+1867	5	remove	-	yes	1864	S8 mention roles: number elements repeat the invalid-kind refusal with other data and length
+1868	5	remove	-	yes	1864	S8 mention roles: null elements repeat the invalid-kind refusal with other element data
+1869	5	remove	-	yes	1864	S8 mention roles: null elements repeat the invalid-kind refusal with other data and length
+1870	7	kept	-	yes	-	S8 mention roles: accepts exactly the bound on this route and reaches the database; fails if the bound is lowered or made exclusive
+1871	5	remove	-	yes	1870	S8 mention roles: bound-1 acceptance repeats the at-bound acceptance
+1872	7	kept	-	yes	-	S8 mention roles: within the bound elements are still validated, one issue at the element path; fails if the bounded list stops validating elements
+1873	5	remove	-	yes	1872	S8 mention roles: same per-element issue one length shorter
+1874	7	kept	-	yes	-	S9 embeds: boundary refusal at bound+1 on the updatePreferences route with no query; shares the shape with the message.upsert twin, not the route wiring
+1875	5	remove	-	yes	1874	S9 embeds: same refusal as the bound+1 case at a longer length
+1876	7	kept	-	yes	-	S9 embeds: only kind on this route that fails if the list reverts to a plain max (elements validated, extra issues)
+1877	5	remove	-	yes	1876	S9 embeds: same no-element-validation refusal at a longer length
+1878	5	remove	-	yes	1876	S9 embeds: number elements repeat the invalid-kind refusal with other element data
+1879	5	remove	-	yes	1876	S9 embeds: number elements repeat the invalid-kind refusal with other data and length
+1880	5	remove	-	yes	1876	S9 embeds: null elements repeat the invalid-kind refusal with other element data
+1881	5	remove	-	yes	1876	S9 embeds: null elements repeat the invalid-kind refusal with other data and length
+1882	6	remove	-	yes	1876	S9 embeds: elements holding their own over-limit list; fails on the same plain-max change as the invalid kind
+1883	5	remove	-	yes	1876	S9 embeds: nested kind again at a longer length
+1884	7	kept	-	yes	-	S9 embeds: accepts exactly the bound on this route and reaches the database; fails if the bound is lowered or made exclusive
+1885	5	remove	-	yes	1884	S9 embeds: bound-1 acceptance repeats the at-bound acceptance
+1886	7	kept	-	yes	-	S9 embeds: within the bound elements are still validated, one issue at the element path; fails if the bounded list stops validating elements
+1887	5	remove	-	yes	1886	S9 embeds: same per-element issue one length shorter
+1888	7	kept	-	yes	-	S10 top-level components: boundary refusal at bound+1 on the updatePreferences route with no query; shares the shape with the message.upsert twin, not the route wiring
+1889	5	remove	-	yes	1888	S10 top-level components: same refusal as the bound+1 case at a longer length
+1890	7	kept	-	yes	-	S10 top-level components: only kind on this route that fails if the list reverts to a plain max (elements validated, extra issues)
+1891	5	remove	-	yes	1890	S10 top-level components: same no-element-validation refusal at a longer length
+1892	5	remove	-	yes	1890	S10 top-level components: number elements repeat the invalid-kind refusal with other element data
+1893	5	remove	-	yes	1890	S10 top-level components: number elements repeat the invalid-kind refusal with other data and length
+1894	7	kept	-	yes	-	S10 top-level components: null elements make the displayable-text refinement throw if the over-limit issue stops being fatal; the one kind on this route that decides that
+1895	5	remove	-	yes	1894	S10 top-level components: same null-element refusal at a longer length
+1896	6	remove	-	yes	1890	S10 top-level components: elements holding their own over-limit list; fails on the same plain-max change as the invalid kind
+1897	5	remove	-	yes	1890	S10 top-level components: nested kind again at a longer length
+1898	7	kept	-	yes	-	S10 top-level components: accepts exactly the bound on this route and reaches the database; fails if the bound is lowered or made exclusive
+1899	5	remove	-	yes	1898	S10 top-level components: bound-1 acceptance repeats the at-bound acceptance
+1900	7	kept	-	yes	-	S10 top-level components: within the bound elements are still validated, one issue at the element path; fails if the bounded list stops validating elements
+1901	5	remove	-	yes	1900	S10 top-level components: same per-element issue one length shorter
+1902	8	kept	-	yes	-	recentMessageIds: refusal at 12, the bound of a list only this route takes; asserted nowhere else
+1903	7	kept	-	yes	-	recentMessageIds: wrong-typed elements of an over-limit list yield the one list issue; fails on a plain max
+1904	5	remove	-	yes	1903	recentMessageIds: null elements repeat the wrong-primitive refusal
+1905	5	remove	-	no	1902	recentMessageIds: 61 elements repeat the 12-element refusal
+1906	8	kept	-	yes	-	recentMessageIds: accepts 11, the admitted side of the boundary (stored cap plus one); asserted nowhere else
+1907	5	remove	-	yes	1906	recentMessageIds: 10 elements repeat the at-bound acceptance
+1908	7	kept	-	yes	-	recentMessageIds: empty list is accepted and reaches the database; lower edge, fails on a non-empty requirement
+1909	7	kept	-	no	-	cap wired on this route: exactly 20 reduced issues and no summary; fails if cappedInput is dropped from updatePreferences or the cap is off by one
+1910	7	kept	-	no	-	cap wired on this route: first 20 in order plus the summary at 21 issues
+1911	6	remove	-	no	1910	same 20-plus-summary outcome with mention ids; line rendering belongs to formatMutationError and its own specs
+1912	7	kept	-	no	-	an over-limit list issue counts as one toward the cap, both sides of the edge
+1913	7	kept	-	no	-	a custom-message issue counts toward the cap and keeps its wording on this route
+1914	7	kept	-	no	-	parsing stops at the 21st issue (bounded property reads); fails if the cap truncates after a full parse
+1915	7	kept	-	no	-	issue count is per call; fails if the seen list is hoisted out of parseAsync
+1916	7	kept	-	yes	-	mention kind of 100k characters is not echoed and the issue is reduced; fails if the kinds become an enum or unionErrors survive
+1917	5	remove	-	yes	1916	three oversized mention kinds repeat the one-kind case
+1918	7	kept	-	yes	-	literal mismatch does not carry the 100k received value; representative of invalid_literal reduction on this route
+1919	6	remove	-	yes	1918	another literal field of the same link button object, same reduction
+1920	7	kept	-	yes	-	accessory union failure of a 100k value stays small; nested union errors stripped
+1921	6	remove	-	yes	1920	separator spacing union repeats the accessory union reduction
+1922	6	remove	-	yes	1918	text display type literal repeats the literal reduction at another site
+1923	5	remove	-	yes	1920	same accessory union as the section accessory case with a media field added
+1924	6	remove	-	yes	1910	20-plus-summary again on a large body; the size bound follows from the cap and the reduction already kept
+1925	5	remove	-	yes	1910	20-plus-summary again with failing unions; the per-union issue count is pinned by the six-accessory case
+1926	7	kept	-	no	-	separator spacing refusal is exactly one invalid_union issue at the spacing path with three keys
+1927	7	kept	-	no	-	six failing accessories return six issues; a plain union creates 36 and trips the cap, so this decides union isolation on this route
+1928	5	remove	-	no	1910	21 failing accessories give 20 plus summary with either union form; repeats the cap edge
+1929	7	kept	-	no	-	a failed accessory union is fatal: no displayable-text issue added behind it
+1930	7	kept	-	no	-	control for the fatal rule: a matched branch keeps all its issues in order and the displayable-text check still runs
+1931	6	remove	-	no	1930	matched-branch issues again for the thumbnail branch
+1932	10	kept	-	no	-	only assertion of what updatePreferences stores: eleven admitted ids are written as the first ten
+2099	7	kept	-	no	-	cappedInput success path returns the transformed output; the route cases assert only that the database is reached
+2100	6	remove	-	no	1720	reduced issues on the uncapped path, as the route case asserts through the same function
+2101	6	remove	-	no	1721	20 plus summary at the 21st, as the route case asserts through the same function
+2102	7	kept	-	no	-	a custom message survives the stopped path at a middle position; the route case covers only the last kept position
+2103	8	kept	-	no	-	a non-cap error thrown inside the schema is rethrown, not swallowed as a refusal; asserted nowhere else
+2104	6	remove	-	no	1726	per-call count, as the route concurrency case asserts
+2105	7	kept	-	no	-	counts issues created against issues returned for failing accessories; direct measure of union isolation
+2106	7	kept	-	no	-	spacing union creates one issue; the route case passes with a plain union, this one does not
+2107	7	kept	-	no	-	mention-kind union creates one issue; only case that fails if that site reverts to a plain union
+2108	7	kept	-	no	-	matched branch creates only its own issue; fails if the other branch reports through the outer error map
+2109	6	remove	-	no	1676	at-bound acceptance of the helper, as the route cases assert per site
+2110	6	remove	-	no	1668	one-over refusal with one issue, as the route cases assert per site
+2111	6	remove	-	no	1670	no element validation over the limit, as the route invalid-kind cases assert
+2112	8	kept	-	no	-	a non-list value reports Expected array at the list path; failure wording asserted nowhere else
+2113	6	remove	-	no	1678	per-element issue within the bound, as the route cases assert at index 0
+2114	6	remove	-	no	2117	fatal over-limit issue observed through a spy refinement; the shape-level case shows the same through the real refinement
+2115	6	remove	-	no	1712	null in an over-limit top-level list without a throw, as the route null case asserts
+2116	6	remove	-	no	1636	null in an over-limit container list without a throw, as the route null case asserts
+2117	7	kept	-	no	-	refused list of long text displays gets no displayable-text issue; fails if the over-limit issue is not fatal, without relying on a throw
+2118	5	remove	-	no	1724	displayable-text issue within the bound, asserted by the route case and the aggregate-limit specs
+2119	7	kept	-	yes	-	admits user and refuses users; the refusal of the near-miss spelling is asserted nowhere else
+2120	8	kept	-	yes	-	admits here: decision-table row for a kind no other case sends
+2121	8	kept	-	yes	-	admits everyone: decision-table row for a kind no other case sends
+2122	6	remove	-	no	1670	over-limit invalid mention ids on the import shape; the mention lists are the base shape the route case exercises
+2123	7	kept	-	no	-	import shape boundary 101 refused and 100 accepted for mention users; the browser-paste surface, overlapping the route cases in the shared base only
+2124	8	kept	-	no	-	the import shape declares its own top-level components bound; its refusal at 41 is asserted nowhere else
+2125	6	remove	-	no	1630	container children and mention kinds over the limit come from shapes shared with the save route
+2126	7	kept	-	no	-	import shape: over-limit components behind the preprocess stay one issue with no displayable-text issue
+2127	8	kept	-	no	-	unsupported components are dropped before the list is counted: 42 pasted, 40 kept, accepted; asserted nowhere else
+2128	6	remove	-	no	1594	six link buttons on the import shape hit the action row bound shared with the save route
