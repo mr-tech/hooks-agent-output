@@ -296,3 +296,16 @@ active `DATABASE_URL` in `website/.env.local`, read inside the command and never
 - **Security audit close** asked of `security-hooks-fix-personal-message-access`.
 - **R-1**, his residue read: with him, steps printed at 01:3xZ.
 - **Retrospective:** a fixer batch with chain A, once the audit is closed and the carrier rows are terminal or carried.
+
+## 2026-11-20T01:41Z — security audit closed; architect reconciled; one observation routed to an existing handoff
+
+- **Security:** `security/closed/fix-personal-message-access-security-audit.md`, Review Complete (`68d1f2c`). RC-2 is carried by the
+  post-deploy handoff. Its session was stopped (`tmux-agent stop`) once the audit closed. That was ahead of the effort's close: its
+  document was terminal and its prefix was 329K, past its threshold. This thread's choice; respawn it if a defect returns.
+- **Architect:** `3cb97ea` reconciles the architecture record to website `983681c`. Commit `f9a4380` closes
+  `handoff/upsert-message-count-problem-area-false-after-access-fix-2026-11-19.md` as Addressed. By its message, the record also:
+  - registers a new Low Problem Area: access refusals leave no always-on signal in production;
+  - fixes production SHAs and the project-utils pin, which were stale before this chain.
+- **The architect's observation** (`updatePreferences` takes `recentMessageIds` as `z.array(z.string())`) is already carried by
+  `handoff/update-preferences-recent-message-ids-accepts-non-int8-2026-11-19.md` (CR-3, block 23:09Z). No new record.
+- INDEX rebuilt after the moves.
