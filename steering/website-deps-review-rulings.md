@@ -296,3 +296,19 @@ the three questions of block 02:54Z re-put as a selection prompt; wording this t
 - Q "Scope": **Agent: as determined (Recommended)** — CHOSEN, by selection. "Agent opens a planned chain on exactly that scope. Release
   is a website master push, which needs your word." Not chosen: Agent: plus H-001 leftovers; Agent: don't open it.
 Owner-wait `h002-m001-scope` resolved. **Next:** the planner, on the determination of block 02:53Z with these three answers.
+
+## 2026-11-20T23:44Z — his answers on the dependency-review leftovers: fix the batch limit now; build a scheduled audit
+
+**Put:** plain message by this thread after his `/owner-actions` (23:4xZ), wording this thread's. Premises read that turn:
+`handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md` read whole (Status Open, Owning-Stage Unassigned; items 1–7);
+`steering/018-rulings.md` lines 319–320 ("its routing to a stage is new work, his to open").
+- Q1 "fix the request-size limit now?" — **yes, as one small fix now (Recommended)**: cap the calls one tRPC request may carry (or
+  turn batching off) with a test that an over-limit batch is refused before any call runs; with it, the handoff's items 2 (the
+  `x-pathname` redirect read, and the dead `x-query-params` write) and 3 (the `package.json` `overrides` key pnpm ignores) / leave it
+  until those files are next edited.
+- Q2 "run a dependency audit on a schedule?" — **yes (Recommended)**: audit the released lockfile and join it with the dispositions
+  already made, so a new advisory is read by someone (the handoff's item 6).
+**His words, typed 23:4xZ:** "yes to 1 and 2; […]". Answered by typed text, not by selection.
+**Applied:** two pieces of work. (a) A fix on website for items 1–3; its scoping determination follows in its own block after the
+scope sweep. (b) The scheduled audit; where it is built, and by which stage, follows in its own block after a search of the estate
+for an existing one. Items 4, 5 and 7 stay on the handoff on their own triggers.
