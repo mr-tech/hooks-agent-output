@@ -252,3 +252,28 @@ assumption; the file goes to security in this chain's brief.
 - **Released chains touching these routes:** 017 (navigation guards, the draft store) and `fix-message-page-header-decode`
   (`Providers.tsx`). Their open post-deploy carriers: `handoff/017-existing-items-backlog-post-deploy-2026-11-19.md` (B-6, B-8, B-9 being
   walked by `uat-hooks-017-looks`) and `handoff/message-page-header-decode-post-deploy-2026-11-20.md` (P-1, from 04:07Z).
+
+## 2026-11-20T02:54Z — three scope questions on the H-002/M-001 chain, put in plain text (017's looks can still move)
+
+Put in plain-message form (steering.md, Prompting the owner): `uat-hooks-017-looks` is walking, and its report leads to closures that
+need no word of his. One `owner-wait` notice sent (`--chain website-deps-review --wait-key h002-m001-scope`). Wording this thread's.
+**Premises, each with its read this turn:**
+- The save schema's limits do not stop the per-element checks: a `general-purpose-sonnet` helper, briefed with the conclusion alone,
+  ran the real `shapes.ts` (zod 3.22.4) in an isolated export under a cap. 50 invalid embeds over the limit of 10 gave 51 issues; 100
+  invalid components over the limit of 40 gave 101; 11 valid embeds gave 1 (`verification/website-deps-review/scoping/refute-zod-max/output.txt`).
+  Confirmed.
+- "16.2.5 is the first release fixing both advisories; 16.4.5 or later clears all 42 Next.js entries and makes A-1 moot for its ten
+  Next.js entries": security's reading (audit H-002 and A-1); unread by this thread.
+- Same React and Node needs at 16.2.5 and 16.4.6: `npm view` (sweep §5). 69 website files import Next.js (`git grep -c`, sweep addendum).
+- Preview deployments: a branch push made two READY previews on 2026-11-19 (`vercel api`); preview carries no Postgres or Redis keys,
+  and shares Discord and Pusher keys with production (env key names and targets, values unread).
+- 11 array sites across the two save procedures (`sweep-unbounded-input.md` §2).
+**Options:**
+- Q "Next.js version": **Agent: latest 16.4 (16.4.6) (Recommended)** / Agent: minimum fix (16.2.5) / Agent: no upgrade, save cap only.
+- Q "Preview check": **Agent: preview deploy before release (Recommended)** — a chain-branch push makes a Vercel preview; UAT loads the
+  public pages, images and the sign-in redirect there; signed-in pages cannot run (no database); production is untouched / Agent: local
+  build only.
+- Q "Scope": **Agent: as determined (Recommended)** — the version bump with its lint and analyzer packages, the two test helpers, a
+  re-check of 017's leave-page warnings and link handling, and a cap on all 11 save-list sites; the exclusions in block 02:53Z stay out /
+  Agent: as determined plus the two H-001 leftovers (the unused header write in `middleware.ts`, the commented line in
+  `JsonModalBody.tsx`) / Agent: don't open the chain.
