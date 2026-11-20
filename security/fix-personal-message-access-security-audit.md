@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-personal-message-access
 UUID: 1b613853
 Status: Active
-Status-Detail: "APPROVED_WITH_CONTROLS at website 75f1543. One finding open: M-001 MEDIUM, getOne hands a personal message to a non-owner when the owner's delete lands between the load and the ownership check. Control RC-1 is owed before the website master push. The session-identity assumption handed over from code review was executed on the real session path and holds locally. Waiting on steering's routing of M-001."
+Status-Detail: "APPROVED_WITH_CONTROLS at website 75f1543. One finding open: M-001 MEDIUM, getOne hands a personal message to a non-owner when the owner's delete lands between the load and the ownership check. Control RC-1 is owed before the website master push. The session-identity assumption handed over from code review was executed on the real session path and holds locally. M-001 is IN_PROGRESS: steering routed it to remediation on the chain branch (rulings block 2026-11-20T00:04Z, RC-1 option 1). Waiting on the delta at the new SHA, after code review and QA."
 Reviewed-At: "75f1543ce352ae9ae08bb2a34d8bafa1d653e6dd — repos=website; base 787bec5 (origin/master). Production tree identical to ed88e7c."
 Kind: code-audit
 ---
@@ -15,6 +15,7 @@ Kind: code-audit
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-20T00:03 | steering-roadmap-hooks → security-hooks-fix-personal-message-access (brief `steering/fix-personal-message-access-brief-security.md`; common part `steering/fix-personal-message-access-brief-common.md`; rulings block 2026-11-19T23:49Z) | Security on the change `787bec5..75f1543`, over S2/S18, S6a, S6b, S7, S8, S9 and S11, and the session-identity assumption from code review | Initial assessment. Verdict APPROVED_WITH_CONTROLS. M-001 MEDIUM open. Identity assumption executed, holds locally. |
+| 2026-11-20T00:05 | steering-roadmap-hooks → security-hooks-fix-personal-message-access (message 00:0xZ; `steering/fix-personal-message-access-rulings.md` block 2026-11-20T00:04Z, record `fce289f`) | Routing of M-001 | M-001 moves OPEN → IN_PROGRESS: remediation on the chain branch (RC-1 option 1), then code review delta, QA re-verification, and the delta back to this stage. The verdict at `75f1543` stands until the tree moves; no re-review yet. |
 
 ## Metadata
 
@@ -198,5 +199,5 @@ A targeted review. Not covered, and worth a follow-up where named:
 
 ## Next
 
-- Steering routes M-001 (RC-1). If it is remediated, the fixer hands the new SHA to code review, and the delta returns here: I re-run `read-race`, `identity` and the attack instrument at that SHA.
+- M-001 is IN_PROGRESS (routed 2026-11-20T00:04Z to RC-1 option 1; option 2 was not put to the owner). The fixer hands the new SHA to code review, QA re-verifies, and the delta returns here: I re-run `read-race`, `identity` and the attack instrument at that SHA.
 - Devops follows for the website `master` push, on the owner's word, once RC-1 is satisfied.
