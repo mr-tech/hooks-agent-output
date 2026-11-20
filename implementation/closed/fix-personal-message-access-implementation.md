@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-personal-message-access
 UUID: 1b613853
-Status: Committed
-Status-Detail: "Committed at website chain/fix-personal-message-access 983681c (devops Stage 1); not pushed. Code review Round 2 APPROVED, QA Phase 2 refresh PASS and security APPROVED, all at 983681c. Release to website master awaits the owner's word (devops Stage 2). The residue read and post-deploy rows B-2, B-1 ride handoff/fix-personal-message-access-post-deploy-2026-11-20.md."
+Status: Released
+Status-Detail: "Released 2026-11-20T01:33:58Z: website master 787bec5 -> 983681c on origin (release-move.js exit 0; ls-remote read back), on the owner's release approval. Code review Round 2 APPROVED, QA Phase 2 refresh PASS and security APPROVED, all at 983681c. The residue read and post-deploy rows B-2, B-1 ride handoff/fix-personal-message-access-post-deploy-2026-11-20.md."
 Handoff-At: 983681ca6cd7cbacd0796ed093e094057ad7f9be — repos=website; earlier ed88e7c, 12bcd75, d597734, 2e50cd9
 Origin-Chain: none
 ---
@@ -559,3 +559,4 @@ Closed at `Committed` by devops Stage 1: nothing of the fixer's is owed, and the
 | 2026-11-20T00:09 | fixer | Scope, Diagnosis (round 5 entry; reconcile notes on hazard 6 and on the residue query, per block 23:53Z), Change, Test, Verification, flows, Handoff and Resumption State updated; `Handoff-At` moved to `983681c`; handed to code review for a delta review |
 | 2026-11-20T00:13 | fixer | Two record paths in round 5 were written relative to the verification folder: the Diagnosis cite of security's 75f1543 timing capture, and the Test cite of security's read-race test file. Both are now written from the record root. The first was a check-repo LINKS failure the code reviewer found, relayed by steering. The second was the same defect, found on re-reading. `check-repo.js`: PASS, no new failures. Disclosure: I first typed this row's time as a placeholder (`00:2x`). The stamp-gate hook flagged it, and the time was substituted from `date -u` before the commit. That was a gate satisfied, not a control. A second disclosure: the time was substituted with `sed -i`, and this row's first disclosure was added with an inline Python script. The record's rule does not permit either (record documents are written with the file-editing tools or `record-edit.js`), and this is the second time in this document. Nothing blocked either edit. The content is as intended, and this note was added with the Edit tool |
 | 2026-11-20T00:22 | devops-hooks-fix-personal-message-access | Document closed | Status: Committed. Stage 1 commit record: website `chain/fix-personal-message-access` tip `983681c` (no push, no merge to master). Gates at that SHA: code review Round 2 APPROVED, QA `Verified-At` `983681c`, security APPROVED. Resumption State replaced by its closing line; the residue read is carried by `handoff/fix-personal-message-access-post-deploy-2026-11-20.md` (R-1) |
+| 2026-11-20T01:34 | devops-hooks-fix-personal-message-access | Document closed | Status: Released. Website master moved 787bec5 -> 983681c at 2026-11-20T01:33:58Z; deployment record `deployment/fix-personal-message-access-deployment.md` |
