@@ -342,3 +342,15 @@ website `d1bb9b0`. Three `deweeder` units (118, 115, 115).
 - **Covering check:** 209 covering cells. Each names an id the pass scored (0 unchecked), and every covering target scores 7 or more.
 - Nothing is deleted on this table. A deletion is a later chain's, behind a mutation re-run (deweeder.md).
 - Unit 1 notes two kept scores (ids 1612 and 1636) resting on reasoning about zod's abort semantics, not on a run.
+
+## 2026-11-20T13:59Z — retrospective written; chain 018's close-out complete; standing check deleted
+
+`retrospectives/018-next-upgrade-save-size-cap-retrospective.md` (`c7c52dc`, Status Active; read at its header this turn), written by
+`retrospective-018`. It rests until pi runs on his word. It finds the value delivered. Its first finding falls on this thread's
+steering and devops's runbook: branch deletion came before the production read, so the release evidence waited on a pane permission
+prompt from 08:07:56Z to about 13:37Z. Its second finding is this thread's error of block 03:59Z (the preview premise).
+- The chain's close-out is complete: stage documents closed, post-deploy carrier `Addressed`, retrospective written, scoring recorded
+  (block 13:57Z). No timed read is left on a reader for 018.
+- This thread's standing check (`428239ee`) is deleted; the plain cache-warm wake replaces it while the thread stays up.
+- Carried, not acted on: `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md` is `Owning-Stage: Unassigned`. Its
+  routing to a stage opens new work, which is his to commission.
