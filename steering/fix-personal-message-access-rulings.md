@@ -352,3 +352,15 @@ every docket found no `/tmp/claude-` path cited. `du -sc` before was 22592 KB; `
 **Still open:** the post-deploy carrier's R-1, his residue read, which is on OWNER-QUEUE (`fc8bb6c`). On his output, record it in the
 carrier's R-1 row and here, then close the carrier. The chain's standing check is deleted. `security-hooks-website-deps`, the separate
 review he chose, is still running.
+
+## 2026-11-20T02:14Z — R-1 executed by him: 0 planted rows, 0 both-owner rows; carrier closed; chain fully closed
+
+- **First run, 02:1xZ:** it reached a local database (`127.0.0.1:5432` refused). The script read `website/.env.local`, whose active
+  `DATABASE_URL` is local. The stale hazards note behind that premise is corrected in memory; this thread's error is recorded in
+  `steering/website-deps-review-rulings.md` block 02:11Z. The script now prompts for production's URL, typed hidden (`e358b37`).
+- **Second run, pasted by him at 02:14Z.** Sequence 6021/t; query 1: 0 rows; query 2: 0. Recorded verbatim as operator evidence in
+  the carrier's R-1 row.
+- **Carrier closed `Addressed`** and moved to `handoff/closed/fix-personal-message-access-post-deploy-2026-11-20.md`. check-repo PASS.
+  The OWNER-QUEUE section is deleted: it carried the R-1 steps, now executed, as recorded in the carrier.
+- Nothing of this chain awaits him. Its open handoffs are carriers for later work: S14, S15, S1b, the recent-list guild rows,
+  `getOne`'s absent number, CR-3 and F-1.

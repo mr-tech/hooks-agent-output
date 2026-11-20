@@ -1,7 +1,7 @@
 ---
 UUID: 9c923fab
-Status: Open
-Status-Detail: "Carrier of fix-personal-message-access's post-deploy rows. B-2 and B-1 are EXECUTED on the fixed limb (2026-11-20, uat-hooks-fix-personal-message-access); R-1, the owner's residue read of the production Messages table, is outstanding and his, put by steering. No row gates the release act or the commit."
+Status: Addressed
+Status-Detail: "All three post-deploy rows are EXECUTED as predicted (2026-11-20). B-2: 400 on production. B-1: account 1 was refused account 2's message. R-1, his production read: 0 planted rows ahead of the sequence and 0 rows with both owners. Stated limits: planted rows already passed by the sequence are unfindable, and a sequence cache above 1 was not tested."
 Owning-Stage: uat
 Review-Trigger: "the production deploy of website master carrying the fix (the E-WEBSITE-PUSH row of this record's event ledger filled, and the deployment Ready) — then B-2 first and B-1 after it; for the residue read, the owner's answer to steering's release question"
 ---
@@ -83,7 +83,31 @@ the code review and security's identity instrument, run locally only.
   stay readable by their planter.
 - **Failure mode, second query**: a count above 0 means a row's creator can overwrite a server message as a personal one if they are
   no longer the server's admin. This is the same at `787bec5`; the chain does not introduce it.
-- **Owner**: him, through `steering-roadmap-hooks`. **Result**: _blank_
+- **Owner**: him, through `steering-roadmap-hooks`. **Result**: `EXECUTED`, received 2026-11-20T02:14Z. He ran
+  `verification/fix-personal-message-access/owner/residue-read.sh` (`e358b37`, a forced read-only session, with production's URL typed
+  hidden) and pasted the output; his operator evidence follows, verbatim:
+  ```
+  --- sequence state
+   last_value | is_called
+  ------------+-----------
+         6021 | t
+  (1 row)
+
+  --- query 1: planted rows still ahead of the sequence
+   id | fk_users_id | createdAt
+  ----+-------------+-----------
+  (0 rows)
+
+  --- query 2: rows owned by both a user and a server
+   count
+  -------
+       0
+  (1 row)
+  ```
+  Steering's reading: both queries came out as predicted. No planted row is ahead of the sequence, and no row has both owners.
+  `last_value` 6021 matches the B-1 walk's last message (6021, created and deleted 01:41Z). The stated limits stand: planted rows the
+  sequence has already passed cannot be found, and a cache above 1 was not tested. His first run (02:1xZ) reached a local database
+  (`127.0.0.1:5432` refused), because the script then read `website/.env.local`; the script was corrected to ask for production's URL.
 
 ## Forward items this record does not hold
 
@@ -110,3 +134,4 @@ chain `fix-personal-message-access`; created by devops at Stage 1 (steering brie
 | 2026-11-20T00:21 | devops-hooks-fix-personal-message-access | Created at Stage 1. Rows B-2, B-1 and R-1 carried in full; the event ledger is blank until Stage 2. No crontab line: the reader is a uat-role session spawned by steering after the push. Disclosure: the stamp-gate hook refused this row's first time, which I had typed ahead of the clock (00:25 against 00:21); it now carries the `date -u` minute. A gate satisfied, not a control worked around |
 | 2026-11-20T01:34 | devops-hooks-fix-personal-message-access | E-WEBSITE-PUSH written at Stage 2: website master 787bec5 -> 983681c pushed 2026-11-20T01:33:58Z. B-2, B-1 and R-1 stay blank; the reader is the uat-role session steering spawns |
 | 2026-11-20T01:43 | uat-hooks-fix-personal-message-access | B-2 and B-1 Result lines written, both `EXECUTED` and both on the fixed limb. B-2: 400 `BAD_REQUEST` at 01:37:58Z. B-1: account 1 was refused account 2's message 6021 (404 `NOT_FOUND`, no content), and 6021 was deleted by account 2. RC-2 (the session path on production) is read. R-1 stays blank and is his. The Status stays Open for R-1 |
+| 2026-11-20T02:14 | steering-roadmap-hooks | R-1 Result written from his pasted output (verbatim): query 1 returned 0 rows, query 2 returned 0, sequence 6021/t. Every row is now terminal, so the record closes `Addressed`, per the record-closure skill, and moves to `handoff/closed/` |
