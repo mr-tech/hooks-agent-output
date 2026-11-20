@@ -1,0 +1,25 @@
+73a74,85
+> // PROBE: a plain union whose losing branches create no issue under the caller's error map.
+> function isolatedUnion<T extends [z.ZodTypeAny, z.ZodTypeAny, ...z.ZodTypeAny[]]>(options: T): z.ZodUnion<T> {
+>   const inner = z.union(options);
+>   return z.any().transform((value, ctx) => {
+>     const r = inner.safeParse(value);
+>     if (r.success) return r.data as unknown;
+>     const fatal = r.error.issues.some((i) => i.code === 'invalid_union' && i.path.length === 0);
+>     for (const issue of r.error.issues) ctx.addIssue({ ...issue, fatal } as z.IssueData);
+>     return z.NEVER;
+>   }) as unknown as z.ZodUnion<T>;
+> }
+> 
+84c96
+<   accessory: z.union([thumbnailShape, linkButtonShape]),
+---
+>   accessory: isolatedUnion([thumbnailShape, linkButtonShape]),
+107c119
+<   spacing: z.union([z.literal(1), z.literal(2)]),
+---
+>   spacing: isolatedUnion([z.literal(1), z.literal(2)]),
+202c214
+<     parse: z.array(z.union([z.literal('user'), z.literal('here'), z.literal('everyone')])).optional(),
+---
+>     parse: z.array(isolatedUnion([z.literal('user'), z.literal('here'), z.literal('everyone')])).optional(),
