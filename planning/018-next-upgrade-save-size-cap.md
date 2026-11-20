@@ -3,8 +3,8 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Status: In Progress
-Status-Detail: "Implementation of revision 5 started 2026-11-20T04:3xZ by implementer-hooks-018 on website chain/018-next-upgrade-save-size-cap (M1 to M4; M5 is devops's and UAT's). Revision 6 (M2 only): three `tsconfig.json` keys Next 16.4.6 makes necessary. Every gate approved revision 5. No open question. Ready for the critic's, QA's and the architect's reads of M2."
-Revision: 6
+Status-Detail: "Implementation of revision 5 started 2026-11-20T04:3xZ by implementer-hooks-018 on website chain/018-next-upgrade-save-size-cap (M1 to M4; M5 is devops's and UAT's). Revision 7 (M2 only) replaces revision 6's highlight.js `paths` entry, which removed highlight.js from the build, with highlight.js 11.12.0 under D-6. Every gate read revision 6. No open question. Ready for the critic's, QA's and the architect's reads of M2."
+Revision: 7
 Plan-ID: 018
 Target-Release: "website master (Vercel production), moved from 7923a1d to the chain's verified tip by devops on the owner's word"
 Epic-Alignment: "None recorded: agent-output/roadmap/ holds no roadmap (ls, 2026-11-20T03:1xZ). The chain serves the owner's routing of security findings H-002 and M-001 (steering/website-deps-review-rulings.md, block 2026-11-20T01:59Z)."
@@ -28,10 +28,11 @@ Lane: "planned (not proposed small): the framework moves under every page"
 | 2026-11-20T04:31 | 5 | planner-hooks-018 | Folds critique pass 4's F-19, F-20 (`f13a0f3`), the architect's AF-9 (`29b6ff8`) and QA's re-key QAF-9 (`413798f`); every gate approved revision 4. Scope delta: M1-i's wording only — its unit is the M1 parse's own uncapped result, the union isolation is one typed helper, the long-value population adds `textDisplayShape.type` inside a section and cites QA's enumeration; no criterion added or removed. Size: five milestones, as at revision 4. |
 | 2026-11-20T04:36 | R-4 | implementer-hooks-018 | Status set to In Progress: implementation of revision 5 started at steering's recorded start (`steering/018-rulings.md` block 2026-11-20T04:33Z) on website `chain/018-next-upgrade-save-size-cap` from `7923a1d`. |
 | 2026-11-20T05:09 | 6 | planner-hooks-018 | Folds the implementer's M2 report relayed by steering (04:5xZ; `verification/018/implementation/m2/`) after a planning run, `verification/018/planning/m2-tsconfig/`, which also found the `ts-node` scripts failing under the change. Scope delta: M2's steps add three `tsconfig.json` keys (`moduleResolution` `bundler`, a `paths` entry for highlight.js's types, `moduleResolution` `node` in the `ts-node` block); M2-b bounds the tsconfig diff to them and holds highlight.js at 11.7.0; M2-c adds the build leaving tsconfig as committed and the `ts-node` check; X-21 added. Size: five milestones; M2 one file wider. |
+| 2026-11-20T05:20 | 7 | planner-hooks-018 | Folds the architect's AF-10 (`2ec5f52`), critique cycle 2 pass 1's F-21 and F-22 (`9ab8420`) and QA's QAF-10 (`1c2f073`): revision 6's `paths` entry removed highlight.js from the build. New run `verification/018/planning/m2-tsconfig/` (`A-final/`, `hl-compare/`). Scope delta: M2 drops the `paths` entry and moves `highlight.js` 11.7.0 → 11.12.0 under D-6 (X-21 removed; steering tells him at the next prompt, per block 03:25Z); M2-b, M2-c (the built output must hold highlight.js; exit codes recorded) and a new M2-e (a walked highlighted code block) follow. Size: five milestones; M2 one package and one criterion wider than at revision 5. |
 
 ## Header
 
-- **Plan ID** 018. **Revision** 6. **Status** Active.
+- **Plan ID** 018. **Revision** 7. **Status** In Progress.
 - **Target Release:** website `master`, which Vercel deploys to production (`link.productionBranch: master`,
   `verification/018/planning/vercel-project-preview-fields.md`). The package has no `version` field (`package.json` at
   `7923a1d`), so the release is the serving ref moving, named by its SHA. No version or CHANGELOG milestone.
@@ -63,7 +64,8 @@ Owed re-verdicts:
 | M4's class (R7 removed) and M5 (§ M4, § M5) | revision 3 | critic (pass 3), QA (re-key), architect (`9a58650`) | discharged |
 | M1-a, M1-b, M1-i (§ M1) | revision 4 | critic (pass 4, `f13a0f3`), QA (re-key, `413798f`), architect (`29b6ff8`) | discharged |
 | M1-i's wording (§ M1) | revision 5 | critic (pass 5, `b61164b`), QA (`cdb71e2`), architect (`1f78e40`) | discharged |
-| M2's steps, M2-b, M2-c, X-21 (§ M2, § Exclusions) | revision 6 | critic (delta), QA (re-key of M2-b, M2-c), architect (`tsconfig.json`; the `ts-node` check is its record's) | open |
+| M2's steps, M2-b, M2-c, X-21 (§ M2, § Exclusions) | revision 6 | critic (cycle 2 pass 1, `9ab8420`), QA (`1c2f073`), architect (`2ec5f52`) | discharged: REQUEST REVISION, folded at revision 7 |
+| M2's steps, M2-b, M2-c, M2-e (§ M2) | revision 7 | critic (delta), QA (re-key of M2-b, M2-c, M2-e), architect (the highlight.js move; AF-10) | open |
 
 ## Value Statement and Business Objective
 
@@ -302,23 +304,28 @@ when M1 ships is marked `PREMISE-STALE`; implementation approval covers M1–M5 
 ### M2 — Next.js 16.4.6 (H-002)
 
 **Steps (what, not how):** raise `next` and `@next/bundle-analyzer` to `16.4.6` (the lint packages move in M3); regenerate
-`pnpm-lock.yaml` with pnpm 10.28.2 (`packageManager`). React, React DOM, their types and Node stay. In `tsconfig.json`, three keys
-and nothing else (`verification/018/planning/m2-tsconfig/`, `B/tsconfig.diff`):
+`pnpm-lock.yaml` with pnpm 10.28.2 (`packageManager`). React, React DOM, their types and Node stay. Raise `highlight.js` to
+11.12.0, specifier `^11.12.0` (D-6; reason below). In `tsconfig.json`, two keys and nothing else, the end-of-file newline kept
+(`verification/018/planning/m2-tsconfig/`, `A-final/tsconfig.diff`):
 - `compilerOptions.moduleResolution` `node` → `bundler`. Next 16.4.6 writes it on every build as a "mandatory change" where
   TypeScript is 5 or later and `module` is not CommonJS or AMD (`dist/lib/typescript/writeConfigurationDefaults.js`
   `preferBundlerResolution`, read at 16.4.6 and 16.1.6; the implementer's build log). Committing it keeps the build from rewriting
   the file, locally and on Vercel.
-- `compilerOptions.paths` `"highlight.js": ["./node_modules/highlight.js/types/index.d.ts"]`. Under `bundler`, TypeScript resolves
-  through `exports`, and highlight.js 11.7.0's has no `types` condition, so `decorator.tsx` and `markdown/rules.tsx` fail with
-  TS7016 and the build exits 1. The entry points at the types file highlight.js ships; the runtime package is unchanged.
-  Agent-authored (planner, revision 6), under the standing default for a mechanism choice inside agreed scope. The alternative,
-  moving highlight.js to 11.8.0 or later (the first with a `types` condition), also passes build, typecheck and suite, but ships
-  changed highlighting code to users outside H-002 (X-21). No sibling precedent: preview-image-generator has no Next and no
-  `moduleResolution` (`tsconfig.json`, `package.json` read).
 - `ts-node.compilerOptions.moduleResolution` `node`. The `ts-node` block sets `module` `commonjs`, and TypeScript refuses `bundler`
   with it (TS5095), so the architecture record's check for `limits.tsx`
   (`npx ts-node -r tsconfig-paths/register -T -e "require('~/utils/limits')"`) and the `lang`, `push-commands` and `backfill-valid`
   scripts would fail to start. Next does not manage this block.
+
+Why `highlight.js` moves (a scope delta under D-6, "you can upgrade any packages to anything deemed useful"; agent-authored, planner,
+revision 7): under `bundler`, TypeScript resolves through `exports`, and highlight.js 11.7.0's has no `types` condition, so
+`decorator.tsx` and `markdown/rules.tsx` fail with TS7016 and the build exits 1. 11.8.0 is the first release with the condition
+(`npm view highlight.js@<v> exports`); 11.12.0 is the current one (2026-08-12). A `paths` entry for the package's types is not a
+substitute: Turbopack reads `paths` for runtime imports too, and the build then holds no highlight.js (AF-10, F-21, QAF-10). What the
+move changes, run (`m2-tsconfig/hl-compare/`): no language removed (192 → 193), every name or alias 11.7.0 resolved still resolves,
+the editor's `_emitter.rootNode` tree keeps its shape in 18 of 18 samples, and 4 of 18 samples gain finer token classes in the
+preview's HTML (TypeScript object keys, Java `void` as a type, a diff hunk header; the CSS sample's difference lies past the 300
+characters the comparison printed). No sibling precedent:
+preview-image-generator has no Next, no `moduleResolution` and no highlight.js (`tsconfig.json`, `package.json` read).
 
 The two test helpers on Next.js internals (`src/components/__tests__/helpers/linkNavigation.tsx`,
 `src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx`) stay as they are unless the suite at 16.4.6
@@ -335,19 +342,28 @@ shows otherwise (OQ-2); an edit to the second fires `handoff/anchored-popover-fi
   `postcss`, `styled-jsx`, `@swc/helpers`, `caniuse-lite`, `baseline-browser-mapping`), `@next/bundle-analyzer` and its own
   dependencies, and the snapshot keys of the six packages that peer on `next` (`next-auth`, `@vercel/analytics`,
   `@vercel/speed-insights`, `cookies-next`, `@trpc/next`, `next-remote-watch`; `awk` over the base lockfile's `snapshots:`), whose
-  own versions do not move; `highlight.js` stays at 11.7.0. Any other moved version is a finding before code review.
-  `package.json`'s diff touches only the specifiers named in the steps; `tsconfig.json`'s diff is exactly the three keys the steps
-  name.
+  own versions do not move; `highlight.js` 11.7.0 → 11.12.0, which has no dependencies. Any other moved version is a finding
+  before code review. `package.json`'s diff touches only the specifiers named in the steps; `tsconfig.json`'s diff is exactly the two
+  keys the steps name.
 - **M2-c (F-7).** In an isolated export with `pnpm install --frozen-lockfile`, no `.env` file and `SKIP_ENV_VALIDATION=1`:
   `next build` exits 0 and leaves `tsconfig.json` as committed (no "mandatory changes" line in the build output); then
   `pnpm run typecheck` (both programs) exits 0; the architecture record's `ts-node` check of `limits.tsx`, transpile-only and typed,
-  exits 0; the suite exits 0 with every case passing, compared with
+  exits 0, each exit code recorded beside its output; the build output holds highlight.js's runtime — files under `.next/static`
+  and under `.next/server` containing `highlightAuto`, and likewise `registerLanguage`, each at least 1 (`grep -rl` into a file,
+  then `wc -l`; real member: the base 16.1.6 build, 1 static and 2 server; real non-member: revision 6's `paths` form, 0 and 0,
+  `verification/018/architect-conformance/hljs-paths/counts.txt`; form A at 1 and 4, `m2-tsconfig/A-final/counts.txt`); and no
+  built chunk calls `getLanguage(` or `highlight(` on `(void 0)` (QA's probe, `verification/018/qa/m2-hljs-resolution/`, 0 at base,
+  10 under the `paths` form); the suite exits 0 with every case passing, compared with
   the base by path membership of `testResults` files and per-file case counts. Base readings in the same form: build exit 0,
   typecheck after the build exit 0 (`verification/018/planning/preview-imitation/`), suite 1913 cases in 149 files, exit 0
   (`base-validation/summary.md`).
 - **M2-d.** The build's warnings are captured; a deprecation warning for `middleware.ts` is recorded for the architect (X-8). A
   change the release-notes reading did not name, surfacing here, is a finding. One surfaced at implementation and is folded at
-  revision 6: the mandatory `moduleResolution` rewrite and its two consequences (the steps above).
+  revisions 6 and 7: the mandatory `moduleResolution` rewrite and its consequences (the steps above).
+- **M2-e (human-observable; the suite cannot see this: vitest resolves through its own `alias`).** On a local build of the M2 tip,
+  a message holding a fenced code block with a language (` ```js `, ` ```ts `, ` ```diff `) renders highlighted, with no error,
+  in the editor's text (the decorator) and in the message preview (the `codeBlock` rule). Walked by UAT before release, in the same
+  local-build session as M1-g, under the local-build rule; after deploy, the same look on hooks.gg with the test account.
 
 **Rollback:** the package step reverts by reverting its commit (`git revert`), lockfile and `tsconfig.json` with it; implementer before release, devops
 after. **Re-derivation gate:** M2 changes product behaviour (the framework under every page); same population statement as M1.
@@ -507,7 +523,8 @@ handoff) and M5-e (devops). Release order against open carriers: P-1 and 017's B
   at revision 3. The domain now also holds M1-i. Critique pass 3 — one (F-17, M1-i's premise run over a bare array), and the
   architect's read of revision 3 — none (AF-8 asks for an unstated constraint, not a contradicted one); QA's re-key of revision 3 —
   one (QAF-8, the 16 KB limb resting on a count cap). Both folded at revision 4 by runs over the site's own schema
-  (`union-cap-probe/`, `strip-cap-probe/`), which the critic's property for F-17's class asks of every cited premise run.
+  (`union-cap-probe/`, `strip-cap-probe/`), which the critic's property for F-17's class asks of every cited premise run. Critique cycle 2 pass 1 — one (F-21: revision 6 said the `paths` entry left the runtime package unchanged; a build
+  showed highlight.js absent; also AF-10, QAF-10); folded at revision 7, whose M2-c reads the built output.
 - **RK-7 (prediction, F-1).** "A push whose tree has no build-command override does not reach READY in the Preview environment."
   Falsifier: such a push reaching READY.
 
@@ -534,7 +551,6 @@ handoff) and M5-e (devops). Release order against open carriers: P-1 and 017's B
 | X-17 | Enforcing lint (a hook, a workflow or a build step) | Not in his selection; lint is red (X-6) | 017 X-12's carrier (Architecture Problem Areas) |
 | X-18 | The editor's Save keeps its fixed toast, with no reason, for a stored message over a new bound | His D-10; the reason shows in the JSON view and on Save As (M1-f); the population is pasted-JSON messages over Discord's own limits (RK-3) | Stated limit (D-10) |
 | X-20 | A guard for navigations made by code, `redirect()` or back/forward | 017 X-14's stated limit; M4 R3 only records whether 16.4.6 changes it | Stated limit; the architect's record (M4-c) |
-| X-21 | Moving `highlight.js` past 11.7.0 (11.8.0 adds the `types` condition M2's `paths` entry stands in for) | Ships changed highlighting code to users, outside H-002; M2's `paths` entry needs no runtime change | Stated limit: a later `highlight.js` bump drops the `paths` entry in the same change |
 
 ## Open handoffs whose trigger names this chain's surfaces
 
@@ -572,11 +588,11 @@ re-verdicts).
 
 Written 2026-11-20T04:2xZ at revision 4, session `planner-hooks-018`, cwd `/usr/local/bin/hooks/website`.
 
-- **Done:** revisions 0 to 6 committed; every gate approved revision 5 (critic `b61164b`, QA `cdb71e2`, architect `1f78e40`); implementation of revision 5 started (R-4). Revision 6 folds the implementer's M2 report.
+- **Done:** revisions 0 to 7 committed; every gate approved revision 5; implementation of revision 5 started (R-4). Revision 6 (M2 tsconfig) drew REQUEST REVISION from all three gates (AF-10, F-21, QAF-10), folded at revision 7. The implementer was told to hold the `paths` entry at 05:1xZ.
   `steering/website-deps-review-rulings.md` and `steering/018-rulings.md`). Gate verdicts on revision 3: critic pass 3 APPROVED with
   stated limit SL-1 (`f209354`); architect APPROVED_WITH_CHANGES, AF-8 (`9a58650`); QA re-key, QAF-8 HIGH (`9218925`). All four
   findings folded at revision 4.
-- **Next:** the three gates read revision 6 (M2). Fold every finding in one revision, after all three have reported. The
+- **Next:** the three gates read revision 7 (M2). Fold every finding in one revision, after all three have reported.
   implementer was told the decision and the revision at the same time as the gates.
 - **Approach in flight:** none. AD-5's number (20) is open to a gate's reasoned change.
 - **Trees:** website on `chain/018-next-upgrade-save-size-cap` (steering's cut at `7923a1d`), untouched by this session. agent-output: nothing of this session's uncommitted.
