@@ -42,9 +42,9 @@ Disclosure: zod's own expression is `||`; `prefer-nullish-coalescing` (a lint ga
 explicit empty-string message; `git grep -n -E "message: ''|message: \"\"" -- src` gives 0 hits, so no site passes one (to the gate's owner: zod's expression is `||`, which is the form a
 spec of "as zod does" would name).
 
-**A reviewer premise I did not reproduce.** CR-1 says both procedures reach the case with a trailing bad `id`. `message.upsert` does (`optionalIdMessageShape.id` is `messageIdShape.optional()`); `user.updatePreferences`'
-`message` is `partialMessageShape`, whose `id` is `z.string().optional()`, so `'abc'` is valid there and nothing follows `message.data` in that input. I saw this when the first form of my spec, shared by both
-procedures, gave 20 issues and no summary for `updatePreferences`. The procedure-level spec is therefore `message.upsert`'s alone; the shared-schema spec covers `cappedInput` for any caller.
+**A premise I questioned and the reviewer corrected (2026-11-20T05:47).** CR-1 says both procedures reach the case with a trailing bad `id`. I wrote that `user.updatePreferences` does not, because its `message` is `partialMessageShape`, whose `id` is `z.string().optional()` and so accepts `'abc'`,
+and that nothing follows `message.data` there. That second half was wrong, and I withdraw it: the reviewer's Round 1 sub-entry 1 shows `updatePreferences` reaches the class with a non-string `id` (`id: 5`) after `data`; before the fix his probe gives the wrong wording there, after it the right one (`verification/018/code-review/m1-fix1/`).
+What I observed was true only of the input I used: my first shared spec sent `id: 'abc'`, which `updatePreferences` accepts, so it gave 20 issues and no summary. The procedure-level spec stays `message.upsert`'s (its `id` is `messageIdShape.optional()`, so `'abc'` is refused); the shared-schema spec covers `cappedInput` for both callers, and the reviewer states no further spec is owed.
 
 | Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? | Red run |
 |---|---|---|---|---|---|---|
