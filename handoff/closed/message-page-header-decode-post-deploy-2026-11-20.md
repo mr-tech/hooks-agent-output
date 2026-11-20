@@ -1,7 +1,7 @@
 ---
 UUID: ff56b327
-Status: Open
-Status-Detail: "Carries post-deploy row P-1 of chain fix-message-page-header-decode: one GET of the production image optimiser after website master moves to 7923a1d. Pushed 2026-11-20T02:34:40Z (ledger E-WEBSITE-PUSH filled); first P1R fire at or after 02:49:40Z is 04:07Z. Read by the scheduled reader P1R."
+Status: Addressed
+Status-Detail: "P-1 PASS (P1R, 2026-11-20T08:07:06Z): production's /_next/image answered 200 image/png from an entry generated on 7923a1d after the pre-push cache expired, with no direct sharp. The P1R crontab line is removed. Nothing is owed by this document."
 Owning-Stage: devops
 Review-Trigger: the P1R scheduled reader's fire at least 15 minutes after the E-WEBSITE-PUSH ledger cell is filled (the deploy of website master 7923a1d)
 ---
@@ -67,3 +67,4 @@ devops Stage 1 for chain `fix-message-page-header-decode`, from the brief `steer
 | 2026-11-20T04:07 | devops (P1R scheduled reader) | P1R read 20261120T040706Z: 200 image/png but served from the pre-push cache entry (HIT, date 02:18:15Z); undecided, no PASS written. read-20261120T040706Z |
 | 2026-11-20T06:07 | devops (P1R scheduled reader) | P1R read 20261120T060707Z: curl_exit=0, 200 image/png, again the pre-push cache entry (HIT, age 13732, date 02:18:15Z, same state as the 04:07Z Interim, so no new Interim line); undecided, no PASS written; the entry expires about 06:18Z, so the next fire reads past it. read-20261120T060707Z |
 | 2026-11-20T08:07 | devops (P1R scheduled reader) | P1R read 20261120T080706Z: 200 image/png, cache entry dated 06:29:00Z (post-push, regenerated after the pre-push entry expired); P-1 PASS written. run-P1R-complete |
+| 2026-11-20T13:50 | steering-roadmap-hooks | Document closed. Status: Addressed. P-1 PASS at 08:07Z; the P1R crontab line (`7 */2 20-22 11 *`) removed, `crontab -l` count of P1R 0 after. Closed by steering, the criteria being recorded here. |
