@@ -318,8 +318,9 @@ and nothing else (`verification/018/planning/m2-tsconfig/`, `B/tsconfig.diff`):
 - `ts-node.compilerOptions.moduleResolution` `node`. The `ts-node` block sets `module` `commonjs`, and TypeScript refuses `bundler`
   with it (TS5095), so the architecture record's check for `limits.tsx`
   (`npx ts-node -r tsconfig-paths/register -T -e "require('~/utils/limits')"`) and the `lang`, `push-commands` and `backfill-valid`
-  scripts would fail to start. Next does not manage this block. The two test helpers on Next.js
-internals (`src/components/__tests__/helpers/linkNavigation.tsx`,
+  scripts would fail to start. Next does not manage this block.
+
+The two test helpers on Next.js internals (`src/components/__tests__/helpers/linkNavigation.tsx`,
 `src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx`) stay as they are unless the suite at 16.4.6
 shows otherwise (OQ-2); an edit to the second fires `handoff/anchored-popover-first-load-test-is-order-dependent-2026-11-18.md` (X-11).
 
