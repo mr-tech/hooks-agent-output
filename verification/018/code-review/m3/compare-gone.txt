@@ -1,0 +1,2 @@
+base findings absent from the new run, by rule: {'@typescript-eslint/no-non-null-assertion': 51, '@typescript-eslint/member-delimiter-style': 11, '@typescript-eslint/no-var-requires': 1}
+ - src/utils/__tests__/loadDiff.independent-oracle.test.ts 150 17 @typescript-eslint/no-var-requires

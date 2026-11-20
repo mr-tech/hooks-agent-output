@@ -1,0 +1,62 @@
+== a558f2d fast-glob
+Legend: production dependency, optional only, dev only
+website /tmp/claude-1000/-usr-local-bin-hooks-website/3db11c43-788c-4cc8-8513-ca51a9f3c628/scratchpad/l-a558f2d
+dependencies:
+@headlessui/tailwindcss 0.2.2
+└─┬ tailwindcss 3.2.4 peer
+  └── fast-glob 3.2.12
+== a558f2d hasown
+== a558f2d is-core-module
+Legend: production dependency, optional only, dev only
+website /tmp/claude-1000/-usr-local-bin-hooks-website/3db11c43-788c-4cc8-8513-ca51a9f3c628/scratchpad/l-a558f2d
+dependencies:
+@headlessui/tailwindcss 0.2.2
+└─┬ tailwindcss 3.2.4 peer
+  └─┬ resolve 1.22.8
+    └── is-core-module 2.13.1
+== a558f2d semver
+Legend: production dependency, optional only, dev only
+website /tmp/claude-1000/-usr-local-bin-hooks-website/3db11c43-788c-4cc8-8513-ca51a9f3c628/scratchpad/l-a558f2d
+dependencies:
+@trpc/next 11.10.0
+└─┬ next 16.4.6 peer
+  └─┬ sharp 0.35.5
+    └── semver 7.8.6
+@vercel/analytics 1.6.1
+└─┬ next 16.4.6 peer
+  └─┬ sharp 0.35.5
+    └── semver 7.8.6
+@vercel/speed-insights 1.0.10
+└─┬ next 16.4.6 peer
+  └─┬ sharp 0.35.5
+== 969d92a fast-glob
+Legend: production dependency, optional only, dev only
+website /tmp/claude-1000/-usr-local-bin-hooks-website/3db11c43-788c-4cc8-8513-ca51a9f3c628/scratchpad/l-969d92a
+dependencies:
+@headlessui/tailwindcss 0.2.2
+└─┬ tailwindcss 3.2.4 peer
+  └── fast-glob 3.2.12
+== 969d92a hasown
+== 969d92a is-core-module
+Legend: production dependency, optional only, dev only
+website /tmp/claude-1000/-usr-local-bin-hooks-website/3db11c43-788c-4cc8-8513-ca51a9f3c628/scratchpad/l-969d92a
+dependencies:
+@headlessui/tailwindcss 0.2.2
+└─┬ tailwindcss 3.2.4 peer
+  └─┬ resolve 1.22.8
+    └── is-core-module 2.13.1
+== 969d92a semver
+Legend: production dependency, optional only, dev only
+website /tmp/claude-1000/-usr-local-bin-hooks-website/3db11c43-788c-4cc8-8513-ca51a9f3c628/scratchpad/l-969d92a
+dependencies:
+@trpc/next 11.10.0
+└─┬ next 16.4.6 peer
+  └─┬ sharp 0.35.5
+    └── semver 7.8.6
+@vercel/analytics 1.6.1
+└─┬ next 16.4.6 peer
+  └─┬ sharp 0.35.5
+    └── semver 7.8.6
+@vercel/speed-insights 1.0.10
+└─┬ next 16.4.6 peer
+  └─┬ sharp 0.35.5

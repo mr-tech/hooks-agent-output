@@ -2,14 +2,14 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Reviewed-At: "a558f2d — repos=website; M1 Round 1 sub-entry 1 at a558f2d (APPROVED_WITH_COMMENTS, CR-1 closed); M2 Round 2 at b0b0158 (APPROVED_WITH_COMMENTS)"
+Reviewed-At: "969d92a — repos=website; M3 Round 3 at 969d92a (APPROVED_WITH_COMMENTS); M1 Round 1 sub-entry 1 at a558f2d (APPROVED_WITH_COMMENTS); M2 Round 2 at b0b0158 (APPROVED_WITH_COMMENTS)"
 Status: In Review
-Status-Detail: "M1 APPROVED_WITH_COMMENTS at a558f2d (Round 1 sub-entry 1) and M2 APPROVED_WITH_COMMENTS at b0b0158 (Round 2), both with QA Phase 2. CR-2 is carried by the plan's Planner batch."
-Round: 2
+Status-Detail: "M1 (a558f2d), M2 (b0b0158) and M3 (969d92a) each APPROVED_WITH_COMMENTS and handed to QA Phase 2. CR-2 is carried by the Planner batch; CR-5 goes to the implementer, with a Planner batch row for M2-b's wording."
+Round: 3
 Verdict: APPROVED_WITH_COMMENTS
 ---
 
-# Code Review: 018 — Next.js 16.4.6 and the save-list cap (M1, M2)
+# Code Review: 018 — Next.js 16.4.6 and the save-list cap (M1, M2, M3)
 
 **Plan Reference**: `agent-output/planning/018-next-upgrade-save-size-cap.md`, revision 7 as read at agent-output `44efb1f` (M1's criteria unchanged since revision 5, `e45e8cf`)
 **Implementation Reference**: `agent-output/implementation/018-next-upgrade-save-size-cap-m1-implementation.md` at agent-output `003515a`, `Handoff-At` `f9e66c2`
@@ -23,6 +23,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-20T05:35 | steering-roadmap-hooks (brief `steering/018-brief-code-reviewer.md`) | Round 1: review M1 at `f9e66c2` | REJECTED. CR-1 HIGH: on the capped path, an issue with an explicit message comes back with zod's default wording. Run in an isolated export. CR-2 LOW: the cap's counting relies on zod 3.22.4 internals that `^3.20.6` does not pin. Under 3.25.76 the cap misses 1,600 issues. CR-3 INFO: a count reconciled. Captures are under `verification/018/code-review/`. |
 | 2026-11-20T05:40 | steering-roadmap-hooks (brief amended `1db98a7`); implementer-hooks-018 (M2 document `b4b34b6`) | Round 2: review M2 at `b0b0158` | APPROVED_WITH_COMMENTS. Reproduced in my own export: M2-a; M2-b's 46 package movers and 12 snapshot-key movers, counted by a second instrument; M2-c's build, typecheck, ts-node and highlight.js bundle checks; M2-d's warnings. The three ts-node scripts typecheck under their options at both trees. CR-4 INFO: an `@img` count does not reproduce. M1 stays REJECTED. |
 | 2026-11-20T05:43 | implementer-hooks-018 (fix at website `a558f2d`, documents `802917e`) | Round 1 sub-entry 1: re-review the M1 fix diff `b0b0158..a558f2d` | M1 **APPROVED_WITH_COMMENTS**. CR-1 closed: re-attacked through both procedures' input shapes before and after the fix, and the sweep and caller list re-run. CR-2 is carried by the Planner batch (ruling 05:42Z). CR-3 and CR-4 are reconciled. |
+| 2026-11-20T05:56 | implementer-hooks-018 (M3 document `8d72013`) | Round 3: review M3 at `969d92a` | APPROVED_WITH_COMMENTS. The lint differential reproduces on my own exports, and a location-level comparison finds no difference hidden behind an equal count. CR-5 LOW: the lockfile disposition cannot see 3 re-pointed production edges (generator-only path). CR-6 LOW: pre-existing convention FAILs in `global.d.ts`. |
 
 ## Scope and stage start
 
@@ -376,6 +377,127 @@ typecheck, ts-node and bundle limbs, and M2-d's warnings. The only finding is a 
   - **Falsity signature:** a vitest JSON from an export of `b0b0158` with `numFailedTests > 0`, a process exit other than 0, or a
     file whose (cases, passed) differs from the M1 tip's.
   - **Owner:** QA Phase 2 on M2.
+
+## Round 3 — M3 at `969d92a`
+
+**Stage start:** this round starts at the M3 implementation document, committed at agent-output `8d72013` with `Handoff-At`
+`969d92a`. The implementer handed it over, and steering's amended brief (`1db98a7`) covers every milestone the implementer hands
+off.
+- `969d92a`'s only parent is `a558f2d`.
+- The diff touches six paths: `eslint.config.mjs` (new), `.eslintrc.json` and `.eslintignore` (deleted), `package.json`,
+  `pnpm-lock.yaml` and `src/@types/global.d.ts` (one directive).
+- The `lint` script's line is unchanged.
+- M3 is not under M2's cap.
+
+**Criteria assessed** (plan § M3, unchanged since revision 7): M3-a, M3-b, M3-c, M3-d, M3-e, plus the lockfile disposition "in the
+M2-b form".
+
+**Instruments.** I used isolated exports of `a558f2d` (the base config) and `969d92a`, each installed with
+`pnpm install --frozen-lockfile`. For one of the production-edge comparisons I also used an export of `f9e66c2`. Captures are under
+`verification/018/code-review/m3/` (see the README there).
+
+**What I ran:**
+- **M3-a.** `eslint .` in the `969d92a` export exits **1** (not 2). `git cat-file -e` finds no `.eslintrc.json` and no
+  `.eslintignore` at `969d92a`; both are present at `a558f2d`.
+- **M3-c, re-derived and widened.** The plan's differential compares per-rule counts. I also compared findings location by location
+  (path, line, column, rule) to break that predicate: a rule whose count stays equal while its findings move would be invisible to a
+  count comparison.
+  - **Files:** 498 → 497. The only one dropped is `next-env.d.ts`.
+  - **Findings:** 665 → 774.
+  - **Counts:** 19 rule ids differ, the implementer's 21 less two. The two are `import/extensions` and `quotes`, which fire on the
+    `routes.d.ts` import line of a full `next-env.d.ts`. My copy carries only the reference lines, which also accounts for the 665
+    against the implementer's 669.
+  - **Location level:** **0** rule ids keep an equal count while their findings move.
+  - **Base findings absent from the new run:** exactly the 51 `no-non-null-assertion` (cause 1), the 11 `member-delimiter-style`
+    (cause 3) and the 1 `no-var-requires` (cause 1, now `no-require-imports`).
+  - Every remaining difference is an addition under a rule id the implementer's table names with a cause.
+  - **File kinds:** 0 `.mjs`/`.cjs`, 4 `.js`/`.jsx` and 494 → 493 `.ts`/`.tsx` (grep counts over each file list). ESLint 8 did not
+    lint `.mjs` either, so the new `**/*.mjs` and `**/*.cjs` ignores keep the base set. The two tracked `.mjs` files
+    (`eslint.config.mjs`, `src/env.mjs`) are linted by neither config.
+- **M3-b.** I read the ledger's 109 rows against `git show a558f2d:.eslintrc.json` and the new `eslint.config.mjs`. Every top-level
+  and override rule is present in the new config with the same options, with three exceptions, each with a stated disposition:
+  - the five rules typescript-eslint 8 removed;
+  - `caughtErrors: 'none'` added (M3-d item 19);
+  - the `no-restricted-syntax` `next/dynamic` selector, carried verbatim.
+- **M3-d.** I checked the rows against the config: `reportUnusedDisableDirectives: 'off'`, `caughtErrors: 'none'`, the `files`
+  globs, and the directive edited to `no-empty-object-type`.
+- **M3-e.** The `lint` script line is unchanged at both SHAs, and lint stays red (exit 1).
+- **Convention check** at `969d92a` (`--since=a558f2d`, scratch clone): 2 files examined, **14 FAIL**, 0 CANDIDATE, 6 SKIP. All 14
+  are in `src/@types/global.d.ts` (13 `@typescript-eslint/no-unused-vars`, 1 `max-len`), and they are identical, line by line, to
+  the base config's findings in that file (CR-6). The SKIPs:
+  - the deleted config files;
+  - `package.json`, `pnpm-lock.yaml` and `node_modules` (outside the examined set);
+  - the id-token basename check (no test file in M3).
+- **Lockfile, by a third instrument.** The production dependency closure (`pnpm list --prod --depth Infinity --json`), compared edge
+  by edge (`prod-edges.py`). This produced CR-5.
+
+**Architecture Alignment:** ALIGNED. M3 is tooling configuration, and no architecture record entry describes the lint setup beyond
+X-6 and X-17, which stay as they are.
+
+**TDD Compliance:** the exemption "not feature code" holds. I checked it by executing both configs over the same sources, as above.
+
+### Findings (Round 3)
+
+**CR-5 LOW Round 3 Dependency record**: The M2-b-form lockfile disposition cannot see a dependency edge re-pointed between
+versions that both stay in the lockfile, and M3's record states that no runtime dependency moves
+- **Location**: `implementation/018-next-upgrade-save-size-cap-m3-implementation.md` § "Lockfile disposition (M2-b form)" (the
+  sentence "No runtime dependency moves (the closure check: `next`, `highlight.js`, `react` are outside it)") and its instrument
+  `verification/018/implementation/m2/lockfile-movers.py` (a name moves only when its *set of versions* changes).
+- **Class**: A lockfile disposition that compares per-name version sets cannot see a consumer whose dependency is re-pointed from
+  one version to another when both versions stay in the lockfile for other consumers. A "no runtime move" claim built on a
+  "mover lies inside the lint closure" check cannot see a mover that also lies inside the production closure.
+- **Enumeration**: `prod-edges.py` over `pnpm list --prod --depth Infinity --json` of exports at `a558f2d` and `969d92a` gives
+  2186 → 2192 edges, 4 removed and 10 added (`prod-edges-compare.txt`). These are 3 re-pointed edges and their children, all under
+  `website > project-utils > prisma-kysely > @prisma/internals`:
+  - `globby@11.1.0 > fast-glob` 3.2.12 → 3.3.1;
+  - `resolve@1.22.4 > is-core-module` 2.13.1 → 2.16.1 (and its `hasown` 2.0.0 → 2.0.2);
+  - `make-dir@4.0.0 > semver` 7.5.4 → 7.8.6.
+
+  None of `fast-glob`, `hasown`, `is-core-module` or `semver` appears in the implementer's `lockfile-movers-m2-to-m3.txt` or
+  `lockfile-closure.txt`. The same instrument over M2 (`f9e66c2` → `a558f2d`) gives 68 removed and 76 added edges. Every one belongs
+  to a class M2-b names (`next` and its declared dependencies, `sharp`, `@next/bundle-analyzer` and its own dependencies, the
+  version-text peers), so M2 has no member.
+
+  What the predicate cannot see: optional platform packages not installed on this host, and dev-only edges. A dev-only re-pointing
+  inside the lint tree is M3's expected class anyway.
+- **Issue (magnitude, read, not run)**: `prisma-kysely` is a Prisma generator. In project-utils `749606d` it is named only in
+  `package.json` and `prisma/schema.prisma` (`git grep -c` outside `package.json` and lockfiles: 1, the schema). So by reading, the
+  re-pointed packages are not loaded by the site at runtime or by `next build`. All four new versions are inside their consumers'
+  ranges. The effect is a false sentence in a release record plus an instrument blind spot. No runtime defect was found.
+- **Required Action**: eliminate the blind spot from the disposition, not only this instance.
+  - **Preferred (structural)**: the M2-b-form disposition gains an edge-level comparison of the production closure (`prod-edges.py`
+    or the lockfile's `snapshots:` dependency maps). Every changed edge is itemised with a disposition. The "no runtime dependency
+    moves" sentence is stated only from that comparison.
+  - **Minimum**: correct the M3 document's sentence with a dated reconcile note. List the 3 re-pointed edges and their children,
+    with the disposition "generator-only path, not loaded at runtime (project-utils read)".
+  - Either way, a Planner batch row for M2-b's wording. This does not block QA.
+
+**CR-6 LOW Round 3 Conventions (pre-existing)**: The convention check reports 14 FAIL in `src/@types/global.d.ts`, the one source
+file M3 touches
+- **Location**: `src/@types/global.d.ts` at `969d92a`: unused type imports on lines 4 and 15–28, and `max-len` on line 12.
+- **Class**: Lint findings in a file the change touches, outside the line it changes.
+- **Enumeration**: `convention-check.js <clone at 969d92a> --since=a558f2d` gives 14 FAIL, all in this file. The same 14
+  (path, line, column, rule) occur in the base config's run (`findings-a558f2d.tsv` and `findings-969d92a.tsv`, the file's lines
+  identical). The check examines changed files whole, so it cannot tell a pre-existing finding from a new one; the base run is what
+  separates them.
+- **Issue**: they are pre-existing and unchanged by M3. Lint is red repository-wide and out of scope (X-6).
+- **Required Action**: none in this chain (X-6). The convention check's FAILs are dispositioned here as pre-existing, and the
+  implementer's identical disposition stands.
+
+### Verdict (Round 3)
+
+**Status**: APPROVED_WITH_COMMENTS (M3 only, at `969d92a`).
+**Rationale**: the differential reproduces on my own exports, and a location-level comparison finds no difference hidden behind an
+equal count. The ledger and the ESLint 9 defaults table match the config. The old configs are gone, lint exits 1, and the script is
+unchanged. CR-5 is a record and instrument gap with no runtime member found. CR-6 is pre-existing.
+
+### Assumption Not Checked (Round 3)
+
+- This review assumes `next build`'s output at `969d92a` is the same as at `a558f2d`: M3 changes only lint tooling and three edges
+  on a generator-only path, so the built `.next` should not change. I did not build either tree.
+  - **Falsity signature:** a file under `.next/server` or `.next/static` whose content differs between builds of the two SHAs
+    (beyond build ids and timestamps), or any built file containing `fast-glob`, `is-core-module` or `@prisma/internals` code.
+  - **Owner:** QA Phase 2 on M3.
 
 ## Next Steps
 

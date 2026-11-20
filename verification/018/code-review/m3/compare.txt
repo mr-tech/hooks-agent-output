@@ -1,0 +1,25 @@
+files: base 498 new 497
+only in base: ['next-env.d.ts']
+only in new: []
+findings: base 665 new 774
+rule ids whose count differs: 19 of 42
+  @typescript-eslint/member-delimiter-style	11	0	-11
+  @typescript-eslint/no-base-to-string	1	2	+1
+  @typescript-eslint/no-floating-promises	0	1	+1
+  @typescript-eslint/no-non-null-assertion	51	0	-51
+  @typescript-eslint/no-require-imports	0	1	+1
+  @typescript-eslint/no-unnecessary-type-arguments	0	17	+17
+  @typescript-eslint/no-var-requires	1	0	-1
+  @typescript-eslint/prefer-nullish-coalescing	4	19	+15
+  @typescript-eslint/switch-exhaustiveness-check	0	6	+6
+  @typescript-eslint/unbound-method	1	14	+13
+  react-hooks/globals	0	14	+14
+  react-hooks/immutability	0	12	+12
+  react-hooks/preserve-manual-memoization	0	2	+2
+  react-hooks/purity	0	1	+1
+  react-hooks/refs	0	56	+56
+  react-hooks/set-state-in-effect	0	15	+15
+  react-hooks/use-memo	0	16	+16
+  react/function-component-definition	6	7	+1
+  react/jsx-no-constructed-context-values	0	1	+1
+rule ids with EQUAL counts but different findings (location-level): 0

@@ -1,0 +1,21 @@
+FAIL eslint src/@types/global.d.ts:4 — @typescript-eslint/no-unused-vars: 'APIActionRowComponent' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:12 — max-len: This line has a length of 119. Maximum allowed is 100.
+FAIL eslint src/@types/global.d.ts:15 — @typescript-eslint/no-unused-vars: 'APIComponentInMessageActionRow' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:17 — @typescript-eslint/no-unused-vars: 'APIButtonComponentWithURL' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:19 — @typescript-eslint/no-unused-vars: 'APIContainerComponent' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:20 — @typescript-eslint/no-unused-vars: 'APISectionComponent' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:21 — @typescript-eslint/no-unused-vars: 'APITextDisplayComponent' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:22 — @typescript-eslint/no-unused-vars: 'APIThumbnailComponent' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:23 — @typescript-eslint/no-unused-vars: 'APIMediaGalleryComponent' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:24 — @typescript-eslint/no-unused-vars: 'APIMediaGalleryItem' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:25 — @typescript-eslint/no-unused-vars: 'APIFileComponent' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:26 — @typescript-eslint/no-unused-vars: 'APISeparatorComponent' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:27 — @typescript-eslint/no-unused-vars: 'APIComponentInContainer' is defined but never used. Allowed unused vars must match /^_/u.
+FAIL eslint src/@types/global.d.ts:28 — @typescript-eslint/no-unused-vars: 'APIUnfurledMediaItem' is defined but never used. Allowed unused vars must match /^_/u.
+SKIP .eslintignore: not examined — missing file
+SKIP .eslintrc.json: not examined — missing file
+SKIP package.json: not examined — extension .json is outside the examined set
+SKIP pnpm-lock.yaml: not examined — extension .yaml is outside the examined set
+SKIP node_modules: not examined — extension (none) is outside the examined set
+SKIP id-token, basename: no agent-output/TEST-CONVENTIONS.md above this repository — conventions not in force here
+convention-check: 2 file(s) examined, 5 not examined, 0 test file(s); 14 FAIL, 0 CANDIDATE, 6 SKIP
