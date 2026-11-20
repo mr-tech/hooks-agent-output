@@ -149,6 +149,29 @@ None.
 - **R7.** Dropped on QA's QAF-6, with the 015 rows that retire it named. Not re-read by this pass.
 - **RK-6.** Record for pass 3: one member, F-17, in M1-i, which the plan had added to the domain.
 
+## Resumption State
+
+Written 2026-11-20 at steering's request for a Checkpoint, after pass 3. Session `critic-hooks-018`, launched
+`--agent critic`, cwd `/usr/local/bin/hooks/website`.
+
+- **Done.** Cycle 1 passes 1 to 3. Pass 3 is committed at agent-output `f209354`: APPROVED on plan revision 3 (`428090e`),
+  stop authority fired, stated limit SL-1.
+- **Open.** F-17 MEDIUM and F-18 LOW, routed to the plan's Planner batch. This critique stays `Open` until the plan carries
+  those rows; then it is set `Resolved` and moved to `critiques/closed/`.
+- **Next.** On the planner's next message, read the plan as the `git diff` from `428090e`. Check first that the delta
+  carries F-17 and F-18 (batch rows, or folded text fixing which quantity "20 issues" counts in M1-i against M1-b). A
+  revision that changes criterion text after this approval is read as cycle 1 pass 4 while this critique is open.
+  RK-6's record is owed a line for that pass.
+- **Standing in this cycle.** The class named at pass 1 (a statement about what code, a build or a host does, with no read
+  at the receiving end) and its narrower form at pass 3 (a premise run over a bare shape). A further member of either is
+  a stated limit under the stop authority, not a REQUEST REVISION.
+- **Tree.** website `master` at `7923a1d`, equal to `origin/master`; this session wrote nothing there. agent-output
+  `master`.
+- **Uncommitted or locally mutated:** nothing. **Evidence run but not recorded:** none. **Processes and scratch:** none
+  left; the scratchpad is empty.
+- **Questions awaiting an answer:** none. The pass 2 question to steering was answered as moot (rulings block 04:11Z).
+- **Sessions messaged:** `planner-hooks-018`, `steering-roadmap-hooks`.
+
 ## Process record
 
 - **Pass 3 was written the wrong way.** I applied this pass's changes to this document with an in-place python script,
