@@ -2,17 +2,18 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Status: Open
-Status-Detail: "Cycle 1 pass 4 on plan revision 4: APPROVED. F-1 to F-18 RESOLVED; stated limit SL-1 is retired by the fold. New: F-19 and F-20, both LOW, for the plan's Planner batch. Status stays Open until the plan carries those two rows. No open question."
-Artifact-Revision: 4 — the delta 428090e..29277d3 read whole; last whole read is revision 1 at c2a6b85
-Reviewed-At: "29277d3 — repos=agent-output; website code read at 7923a1d (origin/master)"
+Status: Resolved
+Status-Detail: "Cycle 1 pass 5 on plan revision 5: APPROVED. F-1 to F-20 RESOLVED, each verified in the plan's text. No stated limit, no open question, nothing owed. Closed at the approving pass."
+Artifact-Revision: 5 — the delta 29277d3..e45e8cf read whole; last whole read is revision 1 at c2a6b85
+Reviewed-At: "e45e8cf — repos=agent-output; website code read at 7923a1d (origin/master)"
 Verdict: APPROVED
 ---
 
 # Critique — Plan 018, Next.js 16.4.6 and the save-list cap
 
-**Artifact**: `planning/018-next-upgrade-save-size-cap.md`, revision 4 (`29277d3`), read as the delta from revision 3
-(`428090e`); revisions 2 and 3 were read the same way, and revision 1 (`c2a6b85`) whole. **Read at pass 4**: the READMEs,
+**Artifact**: `planning/018-next-upgrade-save-size-cap.md`, revision 5 (`e45e8cf`), read as the delta from revision 4
+(`29277d3`); revisions 2 to 4 were read the same way, and revision 1 (`c2a6b85`) whole. **Read at pass 5**: website
+`shapes.ts` at `7923a1d` and a search of `src`. **Read at pass 4**: the READMEs,
 row files and import lines of `verification/018/planning/union-cap-probe/` and `strip-cap-probe/`; the architect's
 `verification/018/architect-conformance/error-cap-wiring/output.txt`; QA's
 `verification/018/qa/phase-1/error-cap-async-probe/formatter-report.txt`; rulings block 04:16Z; website `shapes.ts`,
@@ -28,37 +29,38 @@ against the rulings and the architecture record. **Date**: 2026-11-20.
 | 2026-11-20T04:08 | planner-hooks-018 (message naming revision 2 at `7a1bd46`) | cycle 1 pass 2: plan revision 2, delta-bounded | Depth: delta-bounded. The delta `c2a6b85..7a1bd46` (301 added, 227 removed, `git diff --numstat`, one commit) adds and removes no milestone and was read whole. Artifact changes: OQ-5 opened with two runs; OQ-3 re-closed on the abort form; M1's class is 21 pairs with its consumers named; M1-f, M1-g and M1-h restated; M2-a and M2-c given base readings; M3's value, ledger and cause class; M4's class from a search (R4 dropped, R6 and R7 added); M5 conditional on OQ-5; X-18 to X-20; RK-6 and RK-7. Findings addressed: F-1 to F-15, all RESOLVED. New: F-16 LOW. Verdict REQUEST REVISION, on OQ-5 alone. A code read of mine in F-1 was wrong and is recorded under Process record. |
 | 2026-11-20T04:14 | planner-hooks-018 (message naming revision 3 at `428090e`) | cycle 1 pass 3: plan revision 3, delta-bounded | Depth: delta-bounded. The delta `7a1bd46..428090e` (78 added, 52 removed, `git diff --numstat`, one commit) adds and removes no milestone and was read whole. Artifact changes: D-8 to D-10 registered from block 04:11Z; OQ-5 resolved; M1-i (the error cap) added and M1-b restated over it; X-19 removed; M5 written for the release-check branch; R7 dropped; M1-g's set-up step; M1-h's base read and carrier. Findings addressed: F-16 RESOLVED. New: F-17 MEDIUM, F-18 LOW. The stop authority fired on F-17. Verdict APPROVED with stated limit SL-1. |
 | 2026-11-20T04:28 | planner-hooks-018 (message naming revision 4 at `29277d3`) | cycle 1 pass 4: plan revision 4, delta-bounded | Resumed after a `/clear` from this document's Resumption State at `f209354`; nothing was carried across unread, and every figure below was taken in this pass. Depth: delta-bounded. The delta `428090e..29277d3` (85 added, 28 removed, `git diff --numstat`, three commits: a Resumption State, R-1, revision 4) adds and removes no milestone and was read whole. Artifact changes: M1-i names its unit and the three plain-union sites, bounds each issue to `code`, `path`, `message`, and states its wiring; M1-a is stated over the cap and through the tRPC caller; M1-b compares three fields over the union sites; RK-6's record; the Planner batch rows for F-17, F-18 and AF-8. Findings addressed: F-17 and F-18 RESOLVED; SL-1 retired. New: F-19 LOW, F-20 LOW. Verdict APPROVED. |
+| 2026-11-20T04:32 | planner-hooks-018 (message naming revision 5 at `e45e8cf`) | cycle 1 pass 5: plan revision 5, delta-bounded | Depth: delta-bounded. The delta `29277d3..e45e8cf` (29 added, 13 removed, `git diff --numstat`, three commits: R-2, R-3, revision 5) adds and removes no milestone or criterion and was read whole. Artifact changes: M1-i's unit is the M1 parse's own uncapped result; its long-value population adds `textDisplayShape.type` inside a section (QAF-9); the union isolation is one typed helper (AF-9); two wording corrections. Findings addressed: F-19 and F-20 RESOLVED. New: none. Verdict APPROVED. |
+| 2026-11-20T04:32 | critic-hooks-018 | Document closed | Status: Resolved. Every finding, F-1 to F-20, is verified landed in the plan at revision 5. |
 
 ## Verdict
 
-**APPROVED — cycle 1, pass 4.** No revision is requested. The hard stop did not fire (pass 4 of 15), and the stop
-authority did not fire: neither new finding repeats a shape an earlier pass closed.
+**APPROVED — cycle 1, pass 5.** No finding is open and this critique is `Resolved`. The hard stop did not fire (pass 5
+of 15), and the stop authority did not fire.
 
-Pricing: sized to the ask. M1-i is larger in text and unchanged in count. Its new limb, every refused issue reduced to
-three fields, repairs a defect in what he chose at D-9 ("so no save can build a huge error"): QA showed one issue could
-carry 301,470 characters of the refused input (QAF-8). It is not a wish for more. M3 remains one milestone more than the
-original ask, admitted by D-6. No rider.
+Pricing: sized to the ask. Revision 5 changes M1-i's wording only; no criterion or milestone is added or removed. M3
+remains one milestone more than the original ask, admitted by D-6. No rider.
 
-Revision 4 folds F-17 and F-18 as asked. The unit that "20 issues" counts is now issues in the result, the premise runs
-are over the site's own schema, and M1-a says what happens when the cap is reached before the list. Stated limit SL-1 is
-retired: M1-b and M1-i now count the same quantity at all three plain-union sites.
+Revision 5 folds F-19 and F-20 as asked. M1-i's unit is now an issue the M1 parse's own result would carry with no cap,
+with `7923a1d` kept as M1-b's comparison only, so M1-i and M1-a agree on an over-limit list. The stale sentence is
+corrected and the record check no longer warns on the plan.
 
-F-19 and F-20 are LOW and go to the plan's Planner batch for its next revision. This critique stays `Open` until the plan
-carries the two rows.
-
-No milestone is marked `PREMISE-STALE`. `Target-Release` is untouched by the delta. Routed to the owner: nothing.
+No milestone is marked `PREMISE-STALE`. `Target-Release` is untouched by the delta. No stated limit remains (SL-1 was
+retired at pass 4). Routed to the owner: nothing.
 
 ## Value Statement Assessment
 
-Untouched by the revision 4 delta. Pass 2's assessment stands: a user story, checkable, delivered directly by M1 and M2.
+Untouched by the revision 4 and 5 deltas. Pass 2's assessment stands: a user story, checkable, delivered directly by M1 and M2.
 
 ## Assumption Not Checked
 
-Cycle 1 pass 4: this pass assumes the committed row files (`union-cap-probe/rows-iso.txt`, `strip-cap-probe/strip-rows.txt`)
-are the output of the committed test files, and does not test it. I read each test file's imports (both take the site's
-`../message` router; the strip probe also takes `../../trpc` and `~/utils/formatMutationError`), counted the rows and
-compared blobs; I did not re-run either probe. If it is false, M1-b's comparison fails on a union row at implementation.
-Closing it is QA's, at its re-key of revision 4.
+Cycle 1 pass 5: this pass assumes that a union-isolation helper declared as `z.ZodType<…>` type-checks at the three union
+sites and for both procedures' callers, as M1-i's wiring limb now requires, and does not test it; the planner's and the
+architect's runs both say the typing was not checked. If it is false, `pnpm run typecheck` exits non-zero at M1. Closing
+it is the implementer's at M1, and its carrier is the plan's own text: M1-i's typecheck clause
+(`planning/018-next-upgrade-save-size-cap.md` M1-i, "typecheck exit 0").
+
+Cycle 1 pass 4 assumed the planner's committed row files are the output of its committed test files. Its owner was QA at
+the re-key of revision 4, which is committed (`413798f`, a differential through the callers); I did not read that run.
 
 Pass 3's assumption (a summary issue with an empty path renders as one line) is closed by QA's run:
 `error-cap-async-probe/formatter-report.txt` shows 21 rendered lines and no fall-back to the raw message.
@@ -71,28 +73,12 @@ None. The delta opens no question; OQ-1 and OQ-5 are `[RESOLVED]`, OQ-2 to OQ-4 
 
 ## Findings
 
-Open, both for the plan's Planner batch:
+None open.
 
-F-19 LOW cycle 1 pass 4 — OPEN — M1-i's unit is defined on the `7923a1d` schema's result, which is not the result the cap counts on an over-limit list
-- **Location**: plan M1-i, *the unit* ("an issue is one that the `7923a1d` schema's result would carry (M1-b's k)") and
-  its closing sentence ("An input with 20 or fewer issues …"); M1-a; M1-c.
-- **Description**: the sentence is right for M1-b's inputs, where every list is within its bound. On an over-limit list
-  the two schemas' results differ by design: the base records one issue per bad element inside the list (thousands), and
-  the M1 schema records one issue for the list and none inside it (M1-a, M1-c "may shrink"). Read literally, such an
-  input has more than 20 issues in M1-i's unit and would be capped, while M1-a requires the single list issue and no
-  summary. Only one reading can be built (the cap counts the issues the M1 parse's own result would carry), so the risk
-  is a misread criterion, not a wrong build.
-- **Impact**: QA or a code reviewer holding M1-i's unit against an M1-a case finds the two criteria in conflict.
-- **Recommendation**: define the unit as an issue the parse's own result would carry with no cap, and keep the
-  `7923a1d` reference as M1-b's comparison only. Landing: a Planner batch row, folded at the plan's next revision.
+Resolved at cycle 1 pass 5, by plan revision 5 (`e45e8cf`); the arguments are in this critique at `f13a0f3`:
 
-F-20 LOW cycle 1 pass 4 — OPEN — one stale sentence and one record-check warning in the revision's own text
-- **Location**: plan § Planner batch, last line ("its re-key on revision 3 is owed"); plan M1-i *no huge error* ("so the
-  lines shown are unchanged").
-- **Description**: QA's re-key of revision 3 is committed (`9218925`); the re-key owed is revision 4's, as the plan's own
-  Owed re-verdicts table says. `node tools/check-repo.js` warns on the M1-i line (OUT-OF-SCOPE: "unchanged" with no
-  Exclusions row); the sentence states an equality with the base, not an exclusion, so a rewording clears it.
-- **Recommendation**: correct the sentence and reword the line. Landing: the same Planner batch row.
+- F-19 LOW cycle 1 pass 4 RESOLVED — M1-i's unit is an issue the M1 parse's own uncapped result would carry; `7923a1d` is M1-b's comparison only. Plan M1-i *the unit*.
+- F-20 LOW cycle 1 pass 4 RESOLVED — the closing line names the revision 5 re-key; M1-i's line is reworded and `node tools/check-repo.js` no longer warns on the plan. Plan § Planner batch, M1-i *no huge error*.
 
 Resolved at cycle 1 pass 4, by plan revision 4 (`29277d3`); the arguments are in this critique at `f209354`:
 
@@ -125,6 +111,21 @@ Resolved at cycle 1 pass 2, each by plan revision 2 (`7a1bd46`); the arguments a
 
 None.
 
+## Review-method lines with no finding (pass 5)
+
+- **Boundary.** Three commits touch the plan between revisions 4 and 5 (`git log 29277d3..e45e8cf`: R-2, R-3, revision
+  5); their combined diff was read whole. It touches the header, the changelog, the Owed re-verdicts table, M1-i's unit,
+  population and wiring limbs, the Planner batch and the Resumption State.
+- **QAF-9's member.** `sectionShape.components` is `z.array(textDisplayShape)` in `shapes.ts` at `7923a1d`, a plain
+  array, so `textDisplayShape.type` is reached there outside a discriminated union, as the plan now says. The plan's
+  line counts (12 `z.literal(`, 3 `z.union(`) match the counts I took at pass 4.
+- **AF-9's absence claim.** `grep -rc ZodUnion src` finds no file with a match, and the `.options` readers in `src` are
+  UI option lists (save-choice prompts, the webhook menu, the confirmation provider). The typing constraint mirrors the
+  M1-d helper, which the plan names; whether it is the right constraint is the architect's.
+- **Record check.** `node tools/check-repo.js` no longer reports the OUT-OF-SCOPE warning on the plan.
+- **Registration.** R-2 and R-3 are one-line registrations. The delta changes no Decisions Register row.
+- **RK-6.** Record for pass 5: no new member.
+
 ## Review-method lines with no finding (pass 4)
 
 - **Boundary.** Three commits touch the plan between revisions 3 and 4 (`git log 428090e..29277d3`); their combined diff
@@ -156,24 +157,7 @@ None.
 
 ## Resumption State
 
-Written 2026-11-20 after pass 4. Session `critic-hooks-018`, launched `--agent critic`, cwd `/usr/local/bin/hooks/website`.
-
-- **Done.** Cycle 1 passes 1 to 4. Pass 4: APPROVED on plan revision 4 (`29277d3`).
-- **Open.** F-19 and F-20, both LOW, routed to the plan's Planner batch. This critique stays `Open` until the plan carries
-  those rows; then it is set `Resolved` and moved to `critiques/closed/`.
-- **Next.** On the planner's next message, read the plan as the `git diff` from `29277d3`. Check first that the delta
-  carries F-19 and F-20, as batch rows or as folded text. A revision that changes criterion text while this critique is
-  open is read as cycle 1 pass 5. RK-6's record is owed a line for that pass.
-- **Standing in this cycle.** The class named at pass 1 (a statement about what code, a build or a host does, with no read
-  at the receiving end) and its narrower form at pass 3 (a premise run over a bare shape). A further member of either is
-  a stated limit under the stop authority, not a REQUEST REVISION.
-- **Tree.** website `master` at `7923a1d`; this session wrote nothing there. agent-output `master`.
-- **Uncommitted or locally mutated:** nothing. **Evidence run but not recorded:** none. **Processes:** none. The
-  scratchpad holds two read-only captures (a plan diff and a search listing), deleted at run end.
-- **Questions awaiting an answer:** none.
-- **Sessions messaged:** `planner-hooks-018` alone. At the seam the architect's document already read revision 4
-  (APPROVED) and QA's working copy was re-keyed to it, so no pre-code gate was left to send to.
-- **Cache-warm wake:** armed as one-shot `c5cdeb70`.
+Closed at cycle 1 pass 5 with nothing in flight; a later revision that changes a criterion's text, a milestone's scope or an instrument's form opens cycle 2, read as the `git diff` from `e45e8cf`.
 
 ## Process record
 
