@@ -33,6 +33,7 @@ Lane: "planned (not proposed small): the framework moves under every page"
 | 2026-11-20T05:23 | R-6 | planner-hooks-018 | Registers critique cycle 2 pass 2 on revision 7 (`15988b6`, APPROVED with SL-2) and its F-23 MEDIUM, F-24 LOW as Planner batch rows. |
 | 2026-11-20T05:24 | R-7 | planner-hooks-018 | Records QA's re-key of revision 7 (`a7394c6`, no findings); parks AF-11, F-23 and F-24 for the fold seam. |
 | 2026-11-20T05:32 | R-8 | planner-hooks-018 | Registers three below-HIGH M2 items from the implementer's M2 document (`b4b34b6`) under steering's cap (block 05:26Z) as Planner batch rows M2-I1 to M2-I3. |
+| 2026-11-20T05:35 | R-9 | code-reviewer-hooks-018 | M1 code review Round 1, scoped to the milestone (plan Status unmoved): **REJECTED** at website `f9e66c2` (`code-review/018-next-upgrade-save-size-cap-code-review.md`, `55fe778`). CR-1 HIGH: M1-b fails because the capped refusal gives an explicit-message issue zod's default wording (shown by a run). CR-2 LOW: the cap relies on zod 3.22.4's `makeIssue` calling the error map, and `^3.20.6` admits 3.25.76, where the cap misses (a Planner batch candidate). CR-3 INFO. |
 
 ## Header
 
