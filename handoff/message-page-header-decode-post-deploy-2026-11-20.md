@@ -26,7 +26,9 @@ fault, not an exposure.
 | Fail | a 5xx, or any other status or type. A 5xx means images broke with the `sharp` removal. That is a rollback question for the owner, never the reader's act |
 | When decidable | at least 15 minutes after the push (the Vercel build must be live; an earlier read answers from the old build) |
 | Deadline | the P1R fire on 2026-11-22. With E-WEBSITE-PUSH still blank, the result is `NOT REACHED` |
-| Result | _(blank until read)_ |
+| Result | _(blank until a read that reaches the new build)_ |
+
+- **Interim** (2026-11-20T04:07:06Z): NOT DECIDING, curl_exit=0, `HTTP/2 200`, `image/png`, 495 bytes, but `x-vercel-cache: HIT`, `age: 6531`, `date: 02:18:15 GMT` = steering's pre-push read, so the answer is the cached pre-push entry (max-age 14400, expires about 06:18Z) and does not exercise the optimiser on `7923a1d`. Not recorded as PASS; next fires read again (a MISS or a `date` after 02:34:40Z decides). Output `verification/fix-message-page-header-decode/post-deploy/kit/out/P1R.20261120T040706Z.txt`.
 
 **Event ledger** (filled by devops at Phase 2C, from `git ls-remote origin master` after the push):
 
@@ -62,3 +64,4 @@ devops Stage 1 for chain `fix-message-page-header-decode`, from the brief `steer
 |---|---|---|
 | 2026-11-20T02:25 | devops (devops-hooks-fix-message-page-header-decode) | Opened at Stage 1 with row P-1, the event ledger, the P1R kit and its crontab line. |
 | 2026-11-20T02:34 | devops (devops-hooks-fix-message-page-header-decode) | Website `master` moved to `7923a1d` (`release-move.js` exit 0 at 02:34:36Z to 02:34:40Z; `git ls-remote origin refs/heads/master` read back `7923a1d9…`). E-WEBSITE-PUSH filled; the P1R gate (push plus 15 minutes) opens at 02:49:40Z. |
+| 2026-11-20T04:07 | devops (P1R scheduled reader) | P1R read 20261120T040706Z: 200 image/png but served from the pre-push cache entry (HIT, date 02:18:15Z); undecided, no PASS written. read-20261120T040706Z |
