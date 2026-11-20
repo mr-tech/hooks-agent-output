@@ -507,6 +507,14 @@ unchanged. CR-5 is a record and instrument gap with no runtime member found. CR-
   - **Falsity signature:** a file under `.next/server` or `.next/static` whose content differs between builds of the two SHAs
     (beyond build ids and timestamps), or any built file containing `fast-glob`, `is-core-module` or `@prisma/internals` code.
   - **Owner:** QA Phase 2 on M3.
+- **Reconcile note, 2026-11-20T06:06Z** (QA `e0d8b95`, QAF-11): the premise is false as written, and no code is affected.
+  - **What QA found:** five function traces (`.nft.json`: trpc, nextauth, cron, interactions-server, codes/[code]) gain the
+    directory and `package.json` of `cross-spawn@7.0.6` and `semver@6.3.1`. No built JS file differs beyond QA's noise floor,
+    and 0 built JS files contain `fast-glob`, `is-core-module` or `@prisma/internals` at either tree.
+  - **What this corrects:** CR-5's sentence "no runtime member found" was scoped to `pnpm list --prod` edges. That instrument
+    names dev-only edges as its blind spot, and the trace change reached the function file set by a path it does not walk.
+  - **Verdict:** M3 stays APPROVED_WITH_COMMENTS, because what changed is package metadata in traces, not code.
+  - **Carrier:** QA's QAF-11 LOW, with the Planner batch beside CR-5.
 
 ## Next Steps
 
