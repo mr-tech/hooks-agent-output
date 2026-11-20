@@ -3,8 +3,8 @@ ID: n/a
 Origin: "release chain/fix-personal-message-access -> website master 787bec5627702d2881b826e596ec2b8f8853c4fa -> 983681ca6cd7cbacd0796ed093e094057ad7f9be (fast-forward)"
 UUID: cf8e55d6
 Verified-At: "983681ca6cd7cbacd0796ed093e094057ad7f9be — repos=website; the tip is a fast-forward, so its tree 68ad814a151b583e8a1e4c0cf76b9937dea60218 is the Phase 2 Verified-At tree (qa/closed/fix-personal-message-access-qa.md, record 1c88873)"
-Status: Release Verified
-Status-Detail: "Release-tip verdict for website master 787bec5 -> 983681c. Tree identical to the Phase 2 tree, so only step 1b (3 member handoffs, none decidable or owed before the push) and step 2's gated set (none exists) ran. Closed by devops at release."
+Status: Released
+Status-Detail: "Released 2026-11-20T01:33:58Z: website master 787bec5 -> 983681c on origin (release-move.js exit 0 with this record as --qa-record; ls-remote read back 983681c). Closed by devops at release."
 Phase: 3
 ---
 
@@ -24,6 +24,7 @@ is not reopened (qa-phase-3.md step 1).
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-20T00:25 | qa-hooks-fix-personal-message-access (devops's request at website 983681c) | Phase 3. The tip tree equals the Phase 2 tree, so step 1b and step 2's gated set ran; steps 3 and 5 have nothing to compare. 29 open handoffs, 3 members, each dispositioned. No gated set exists. **Release Verified.** |
+| 2026-11-20T01:34 | devops-hooks-fix-personal-message-access | Document closed | Status: Released. Website master moved 787bec5 -> 983681c at 2026-11-20T01:33:58Z; the Assumption Not Checked is closed by the `ls-remote` read-back |
 
 ## The tip, re-derived
 
@@ -89,3 +90,4 @@ This pass assumes that devops pushes exactly `983681c` as `master`, by fast-forw
 commit names, not the push.
 - Falsity signature: `git ls-remote origin master` after the push reads anything other than `983681c…`.
 - Owner: devops, by `release-move.js` with this record as `--qa-record`.
+- Closed at the push: `git ls-remote origin refs/heads/master` read `983681ca6cd7cbacd0796ed093e094057ad7f9be` at 2026-11-20T01:33:58Z (`deployment/fix-personal-message-access-deployment.md`, runbook step 5).
