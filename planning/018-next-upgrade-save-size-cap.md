@@ -3,7 +3,7 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Status: In Progress
-Status-Detail: "Implementation of revision 5 started 2026-11-20T04:3xZ by implementer-hooks-018 on website chain/018-next-upgrade-save-size-cap (M1 to M4; M5 is devops's and UAT's). Revision 7 (M2 only) replaces revision 6's highlight.js `paths` entry, which removed highlight.js from the build, with highlight.js 11.12.0 under D-6. Every gate read revision 6. No open question. Ready for the critic's, QA's and the architect's reads of M2."
+Status-Detail: "Implementation of revision 5 started 2026-11-20T04:3xZ by implementer-hooks-018 on website chain/018-next-upgrade-save-size-cap (M1 to M4; M5 is devops's and UAT's); M2 runs on revision 7. Every gate approved revision 7 (critic 15988b6, architect 60d0a11, QA a7394c6). Planner batch: AF-11, F-23, F-24 parked for the fold seam. No open question."
 Revision: 7
 Plan-ID: 018
 Target-Release: "website master (Vercel production), moved from 7923a1d to the chain's verified tip by devops on the owner's word"
@@ -31,6 +31,7 @@ Lane: "planned (not proposed small): the framework moves under every page"
 | 2026-11-20T05:20 | 7 | planner-hooks-018 | Folds the architect's AF-10 (`2ec5f52`), critique cycle 2 pass 1's F-21 and F-22 (`9ab8420`) and QA's QAF-10 (`1c2f073`): revision 6's `paths` entry removed highlight.js from the build. New run `verification/018/planning/m2-tsconfig/` (`A-final/`, `hl-compare/`). Scope delta: M2 drops the `paths` entry and moves `highlight.js` 11.7.0 → 11.12.0 under D-6 (X-21 removed; steering tells him at the next prompt, per block 03:25Z); M2-b, M2-c (the built output must hold highlight.js; exit codes recorded) and a new M2-e (a walked highlighted code block) follow. Size: five milestones; M2 one package and one criterion wider than at revision 5. |
 | 2026-11-20T05:22 | R-5 | planner-hooks-018 | Registers the architect's APPROVED on revision 7 and AF-11 LOW (`60d0a11`) as a Planner batch row. |
 | 2026-11-20T05:23 | R-6 | planner-hooks-018 | Registers critique cycle 2 pass 2 on revision 7 (`15988b6`, APPROVED with SL-2) and its F-23 MEDIUM, F-24 LOW as Planner batch rows. |
+| 2026-11-20T05:24 | R-7 | planner-hooks-018 | Records QA's re-key of revision 7 (`a7394c6`, no findings); parks AF-11, F-23 and F-24 for the fold seam. |
 
 ## Header
 
@@ -67,7 +68,7 @@ Owed re-verdicts:
 | M1-a, M1-b, M1-i (§ M1) | revision 4 | critic (pass 4, `f13a0f3`), QA (re-key, `413798f`), architect (`29b6ff8`) | discharged |
 | M1-i's wording (§ M1) | revision 5 | critic (pass 5, `b61164b`), QA (`cdb71e2`), architect (`1f78e40`) | discharged |
 | M2's steps, M2-b, M2-c, X-21 (§ M2, § Exclusions) | revision 6 | critic (cycle 2 pass 1, `9ab8420`), QA (`1c2f073`), architect (`2ec5f52`) | discharged: REQUEST REVISION, folded at revision 7 |
-| M2's steps, M2-b, M2-c, M2-e (§ M2) | revision 7 | critic (delta), QA (re-key of M2-b, M2-c, M2-e), architect (the highlight.js move; AF-10) | open |
+| M2's steps, M2-b, M2-c, M2-e (§ M2) | revision 7 | critic (`15988b6`), QA (`a7394c6`), architect (`60d0a11`) | discharged |
 
 ## Value Statement and Business Objective
 
@@ -582,9 +583,9 @@ Precedent read on the surfaces this plan changes: 012 (embed caps), 013 D32/D47 
 | F-19 LOW: M1-i's unit is an issue the parse's own uncapped result would carry; `7923a1d` stays M1-b's comparison only | `critiques/018-next-upgrade-save-size-cap-critique.md` pass 4 (`f13a0f3`) | Folded at revision 5: M1-i *the unit* |
 | F-20 LOW: the Planner batch's closing line names the revision-3 re-key, now committed; M1-i's "unchanged" wording trips the record check's OUT-OF-SCOPE warning | same, pass 4 (`f13a0f3`) | Folded at revision 5: M1-i *no huge error*; the closing line below |
 | QAF-9 LOW: M1-i's long-value population omits `textDisplayShape.type` inside `sectionShape.components` | `qa/018-next-upgrade-save-size-cap-qa.md` (`413798f`) | Folded at revision 5: M1-i *no huge error* |
-| AF-11 LOW: M2's "Why highlight.js moves" names the 4 preview-HTML differences but not the 5 editor-tree ones (typescript, css, html, java, diff; `hl-compare/output.txt` "tree differ 5"); "keeps its shape" checks only that `rootNode.children` is an array | `architecture/018-next-upgrade-save-size-cap-architecture-findings.md` (`60d0a11`) | Open: next revision, after the critic's and QA's reads of revision 7 |
-| F-23 MEDIUM: M2-e's after-deploy look on hooks.gg names no runner and is not among § M5's post-deploy rows; stated limit SL-2 until folded | `critiques/018-next-upgrade-save-size-cap-critique.md` cycle 2 pass 2 (`15988b6`) | Open: next revision, after QA's re-key of revision 7 |
-| F-24 LOW: duplicates AF-11 (the editor-tree count beside the HTML count) | same (`15988b6`) | Open: folded with AF-11 |
+| AF-11 LOW: M2's "Why highlight.js moves" names the 4 preview-HTML differences but not the 5 editor-tree ones (typescript, css, html, java, diff; `hl-compare/output.txt` "tree differ 5"); "keeps its shape" checks only that `rootNode.children` is an array | `architecture/018-next-upgrade-save-size-cap-architecture-findings.md` (`60d0a11`) | Parked for the fold seam (QA Phase 2 of the last milestone): wording only |
+| F-23 MEDIUM: M2-e's after-deploy look on hooks.gg names no runner and is not among § M5's post-deploy rows; stated limit SL-2 until folded | `critiques/018-next-upgrade-save-size-cap-critique.md` cycle 2 pass 2 (`15988b6`) | Parked for the fold seam: a post-deploy instrument. Meanwhile QA's register row B-10 (`a7394c6`) puts the look in devops's Stage-1 handoff with UAT as runner, discharging SL-2's substance |
+| F-24 LOW: duplicates AF-11 (the editor-tree count beside the HTML count) | same (`15988b6`) | Parked with AF-11 |
 
 QA Phase 1 before implementation: yes (stage set, block 02:53Z); its re-key on revision 5 is owed (§ Reading Order, Owed
 re-verdicts).
@@ -597,7 +598,8 @@ Written 2026-11-20T04:2xZ at revision 4, session `planner-hooks-018`, cwd `/usr/
   `steering/website-deps-review-rulings.md` and `steering/018-rulings.md`). Gate verdicts on revision 3: critic pass 3 APPROVED with
   stated limit SL-1 (`f209354`); architect APPROVED_WITH_CHANGES, AF-8 (`9a58650`); QA re-key, QAF-8 HIGH (`9218925`). All four
   findings folded at revision 4.
-- **Next:** the three gates read revision 7 (M2). Fold every finding in one revision, after all three have reported.
+- **Next:** M2 runs on revision 7. At the fold seam (QA Phase 2 of the last milestone, on QA's message) fold the parked batch rows
+  in one revision, gated by the critic.
   implementer was told the decision and the revision at the same time as the gates.
 - **Approach in flight:** none. AD-5's number (20) is open to a gate's reasoned change.
 - **Trees:** website on `chain/018-next-upgrade-save-size-cap` (steering's cut at `7923a1d`), untouched by this session. agent-output: nothing of this session's uncommitted.
