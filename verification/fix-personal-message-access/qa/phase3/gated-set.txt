@@ -1,0 +1,2 @@
+vitest.config diff exit 0
+git grep exit 1
