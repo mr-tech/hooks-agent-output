@@ -303,3 +303,31 @@ Read this turn: `git ls-remote origin` shows `master` `d1bb9b0` and no `release-
   event-form triggers). It stays open on its triggers.
 - Devops (301K, past 275K) asked to `/checkpoint`; it is cleared on the notice.
 - The stamp gate refused this block's first heading (a placeholder minute); the heading now carries `date -u`'s minute.
+
+## 2026-11-20T13:53Z — chain 018 closed out; sessions stopped; retrospective and test-case scoring started
+
+Read this turn: `handoff/018-…-post-deploy-2026-11-20.md` Results B-6, B-10 PASS (uat, `6ce5f7f`), B-8 PASS (qa, `6571247`), B-7 PASS
+(devops); both security audits `Review Complete` in `security/closed/` (`c424340`, `c598dbe`, `708bf97`); the architect's release
+reconciliation (`eb76250`).
+- **Closed by this thread** (record-closure; criteria recorded in each): the 018 post-deploy carrier, `Addressed` (`39395bc`); fixer
+  chain `fix-message-page-header-decode`'s P-1 carrier, `Addressed` (`4f14ad0`), with its P1R crontab line removed (`crontab -l` P1R
+  count 0 after). `INDEX.md` rebuilt, diff read, committed (`e82ad74`). `check-repo.js` exit 1 on one failure: HEADING-STAMP in
+  `verification/018/planning/m2-tsconfig/README.md`, foreign and already in `INBOX.md`.
+- **Open carriers the chain leaves, by design:**
+  - `handoff/website-018-standing-risks-save-toast-and-lint-stack-2026-11-20.md` (steering);
+  - `handoff/website-git-dependencies-resolve-unpinned-2026-11-20.md` (devops);
+  - `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md` (Owning-Stage Unassigned: its routing to a stage is new work,
+    his to open);
+  - `handoff/update-preferences-recent-message-ids-accepts-non-int8-2026-11-19.md` (X-10).
+  Each stays on its event trigger.
+- **Sessions stopped** (`tmux-agent stop`, each exit reported): planner, critic, architect, implementer, code-reviewer, qa, uat,
+  devops `-hooks-018`, and `security-hooks-website-deps`.
+- **Box:** no Docker image or `/var/tmp` capture is 018's (`docker image ls`: `postgres:16` only, not this chain's). The exited sessions'
+  scratch under `/tmp/claude-1000/-usr-local-bin-hooks-website/` was removed: 25 directories, 018's plus its pre-ID planner,
+  `security-hooks-website-deps` and `fix-message-page-header-decode`'s. `du -sc` 2,521,520 KB before; `ls -d` of each failed after. Left:
+  `uat-hooks-017-looks`'s directory (chain 017's).
+- **Retrospective** spawned (`retrospective-018`, a subagent). Beside it, the test-case scoring: export of website `d1bb9b0`; 2,261 cases
+  collected (`vitest list`); 348 marked, in the 5 test files `7923a1d..d1bb9b0` changed; three `deweeder` units of 118, 115 and 115.
+  Tables go to `verification/018/deweed/website-{1,2,3}.tsv`.
+- `fix-message-page-header-decode` took no rejected round, QA failure, re-scope or owner block (`website-deps-review-rulings.md:168`), so
+  it joins the next fixer batch.
