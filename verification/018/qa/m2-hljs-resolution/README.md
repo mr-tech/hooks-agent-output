@@ -1,6 +1,6 @@
 # Does the production bundle bind `highlight.js` under plan rev 6 M2 form B? (QA Phase 1 re-key, QAF-10)
 
-Run 2026-11-20T05:2xZ–05:4xZ by qa-hooks-018. `probe.sh` (this folder) ran under `systemd-run --user --scope`, in two isolated
+Run 2026-11-20T05:10Z–05:15Z by qa-hooks-018 (times corrected at the revision 7 re-key; first written ahead of the clock). `probe.sh` (this folder) ran under `systemd-run --user --scope`, in two isolated
 exports of website `7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe` (`git archive | tar -x`, each with its own
 `pnpm install --frozen-lockfile`, exit 0) in the session scratchpad. Nothing ran in `/usr/local/bin/hooks/website`. No `.env`;
 `SKIP_ENV_VALIDATION=1`. The builds had network, because `src/app/layout.tsx` uses `next/font`, which fetches at build time.
