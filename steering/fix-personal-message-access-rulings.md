@@ -252,3 +252,30 @@ Read this turn: `qa/fix-personal-message-access-qa.md` (record `1c88873`): `Stat
 after round 5. The `75f1543` verdict has expired. By QA's message: the suite passes 1909/1909 with exit 0; the second-user matrix passes
 21/21; the round sweep killed 3/3. B-1 and B-2 are unchanged. The both-owners count stands for his residue read. Spawn cue acted on:
 security, live, was sent its RC-1 delta re-review start, pointing at the QA, code-review and fixer documents.
+
+## 2026-11-20T01:34Z — security APPROVED at 983681c; devops spawned; his two answers (selection)
+
+Read at 00:2xZ: `security/fix-personal-message-access-security-audit.md` (record `dfea2f9`): `Reviewed-At: 983681c…`, APPROVED, M-001
+RESOLVED, no control owed before the push; RC-2 rides B-2 then B-1. `release-move.js website master 983681c… --dry-run` (this thread,
+00:2xZ): "every check passed; nothing moved"; workflows none. Live `master` `787bec5`. Spawn cue acted on: devops brief
+`steering/fix-personal-message-access-brief-devops.md` (`8bb04ac`), `devops-hooks-fix-personal-message-access` spawned (effort high as
+printed). By its message: Stage 1 and Phase 2A are committed (readiness `deployment/fix-personal-message-access-deployment.md`, `583b047`);
+the post-deploy carrier is `handoff/fix-personal-message-access-post-deploy-2026-11-20.md` (`c0ca805`: B-2, B-1, R-1); the stage documents
+are closed (`4e00eec`, `87352f7`, `1062ae1`); it waits on QA Phase 3; the release ask is its own.
+**Selection prompt, put 00:2xZ, answered 01:33Z** (selection-ledger `steering/selection-ledger/2026-11-20.md`, block "2026-11-20T01:33Z —
+steering-roadmap-hooks"). Wording is this thread's.
+- Q "Residue read":
+  - **You: run both queries (Recommended)** — CHOSEN, by selection. "You run two read-only SELECTs against production. I print the exact
+    SQL next, and you type back the rows and the count. Steering then records them and routes anything found."
+  - Agent: skip them. Nothing is read, and the residue is recorded as an unmeasured stated limit.
+- Q "Deps review": `pnpm audit --prod` gives 8 critical, 76 high, 50 moderate and 12 low (this thread's run, 00:2xZ, website tree at
+  `983681c`, exit 1).
+  - **Agent: open it after release (Recommended)** — CHOSEN, by selection. "After this fix ships, steering starts a security
+    dependency-only review of website. It assesses which findings hooks.gg actually reaches and records them, then brings any fix back
+    to you as its own scope question."
+  - Agent: handoff record only.
+  - Agent: do nothing.
+Premises read this turn: the residue record `c4b843d` (its predicate line, re-read); the hazards memory, the architecture record and a
+record grep, for "no agent read path". The steps file is `verification/fix-personal-message-access/owner/residue-read.sh`. It uses the
+active `DATABASE_URL` in `website/.env.local`, read inside the command and never printed. The key-only grep this turn: line 16 is
+`#DATABASE_URL`, line 18 is `DATABASE_URL`; the hazards record calls it "the remote hosted database". He confirms whether that is production.
