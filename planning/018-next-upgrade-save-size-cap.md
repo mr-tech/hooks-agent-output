@@ -30,6 +30,7 @@ Lane: "planned (not proposed small): the framework moves under every page"
 | 2026-11-20T05:09 | 6 | planner-hooks-018 | Folds the implementer's M2 report relayed by steering (04:5xZ; `verification/018/implementation/m2/`) after a planning run, `verification/018/planning/m2-tsconfig/`, which also found the `ts-node` scripts failing under the change. Scope delta: M2's steps add three `tsconfig.json` keys (`moduleResolution` `bundler`, a `paths` entry for highlight.js's types, `moduleResolution` `node` in the `ts-node` block); M2-b bounds the tsconfig diff to them and holds highlight.js at 11.7.0; M2-c adds the build leaving tsconfig as committed and the `ts-node` check; X-21 added. Size: five milestones; M2 one file wider. |
 | 2026-11-20T05:20 | 7 | planner-hooks-018 | Folds the architect's AF-10 (`2ec5f52`), critique cycle 2 pass 1's F-21 and F-22 (`9ab8420`) and QA's QAF-10 (`1c2f073`): revision 6's `paths` entry removed highlight.js from the build. New run `verification/018/planning/m2-tsconfig/` (`A-final/`, `hl-compare/`). Scope delta: M2 drops the `paths` entry and moves `highlight.js` 11.7.0 → 11.12.0 under D-6 (X-21 removed; steering tells him at the next prompt, per block 03:25Z); M2-b, M2-c (the built output must hold highlight.js; exit codes recorded) and a new M2-e (a walked highlighted code block) follow. Size: five milestones; M2 one package and one criterion wider than at revision 5. |
 | 2026-11-20T05:22 | R-5 | planner-hooks-018 | Registers the architect's APPROVED on revision 7 and AF-11 LOW (`60d0a11`) as a Planner batch row. |
+| 2026-11-20T05:23 | R-6 | planner-hooks-018 | Registers critique cycle 2 pass 2 on revision 7 (`15988b6`, APPROVED with SL-2) and its F-23 MEDIUM, F-24 LOW as Planner batch rows. |
 
 ## Header
 
@@ -582,6 +583,8 @@ Precedent read on the surfaces this plan changes: 012 (embed caps), 013 D32/D47 
 | F-20 LOW: the Planner batch's closing line names the revision-3 re-key, now committed; M1-i's "unchanged" wording trips the record check's OUT-OF-SCOPE warning | same, pass 4 (`f13a0f3`) | Folded at revision 5: M1-i *no huge error*; the closing line below |
 | QAF-9 LOW: M1-i's long-value population omits `textDisplayShape.type` inside `sectionShape.components` | `qa/018-next-upgrade-save-size-cap-qa.md` (`413798f`) | Folded at revision 5: M1-i *no huge error* |
 | AF-11 LOW: M2's "Why highlight.js moves" names the 4 preview-HTML differences but not the 5 editor-tree ones (typescript, css, html, java, diff; `hl-compare/output.txt` "tree differ 5"); "keeps its shape" checks only that `rootNode.children` is an array | `architecture/018-next-upgrade-save-size-cap-architecture-findings.md` (`60d0a11`) | Open: next revision, after the critic's and QA's reads of revision 7 |
+| F-23 MEDIUM: M2-e's after-deploy look on hooks.gg names no runner and is not among § M5's post-deploy rows; stated limit SL-2 until folded | `critiques/018-next-upgrade-save-size-cap-critique.md` cycle 2 pass 2 (`15988b6`) | Open: next revision, after QA's re-key of revision 7 |
+| F-24 LOW: duplicates AF-11 (the editor-tree count beside the HTML count) | same (`15988b6`) | Open: folded with AF-11 |
 
 QA Phase 1 before implementation: yes (stage set, block 02:53Z); its re-key on revision 5 is owed (§ Reading Order, Owed
 re-verdicts).
