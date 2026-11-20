@@ -272,3 +272,18 @@ security APPROVED at `d1bb9b0` (`security/018-next-upgrade-save-size-cap-securit
 - **Owed on devops's push report:** cue UAT (B-6, B-10) and QA (B-8) as the post-deploy carrier names them; brief the architect for
   the release reconciliation of system-architecture.md.
 - The record-write gate refused this block's first write (a shell append); re-issued with the Edit tool.
+
+## 2026-11-20T10:05Z — release pushed; devops held on a permission prompt; his selection: he answers Yes in the pane
+
+Read this turn: `git ls-remote origin master` = `d1bb9b0` (pushed between 08:07Z and 08:19Z by devops, after P-1 PASS `d15fa1f`). The
+`devops-hooks-018` pane has held a Claude Code permission prompt since 08:07:56Z for its runbook step 5: local `git branch -d` of the
+chain and release-check branches, and `git push origin --delete release-check/018-next-upgrade-save-size-cap`. The prompt cites rule
+`Bash(git push:*)` from user settings. `ls-tree origin/master .github` and `ls-tree 5677889 .github` print nothing. An `owner-wait`
+alert was sent at 08:19Z (chain 018, key `devops-step5-permission`).
+**Selection, put at 09:2xZ and answered by 10:05Z** (ledger `steering/selection-ledger/2026-11-20.md`, the "devops prompt" block of
+steering-roadmap-hooks; wording this thread's):
+- Q "devops prompt": **You: Yes in the pane (Recommended)**, CHOSEN by selection. Its description: "You attach to devops-hooks-018 and
+  choose 1 (Yes). Devops deletes the three branches, records the deploy and reports. Then I start the post-deploy checks, the
+  architecture update and security's close." Not chosen: "You: No in the pane" ("Nothing is deleted. The release-check branch stays on
+  origin, carrying only its preview build. Devops records that the step was not completed and goes on to record the deploy.").
+- At 10:05Z the prompt was still open in the pane (capture read this turn).
