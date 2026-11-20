@@ -1,0 +1,15 @@
+chain: sessions matching '*website-deps' or '*website-deps-<n>' from 2026-11-20T02:53 to 2026-11-20T08:08
+3 of 3 resolved from the registry cache (live entry gone): security-hooks-website-deps, security-hooks-website-deps, security-hooks-website-deps
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+security-hooks-web [9b1a5ec4] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-20T01:36:42Z
+security-hooks-web [37e84afc] claude-fabl                 70       158  19,185,001    201,870   100,557    28.25
+                                main 70 req $28.25 · cached seen 2026-11-20T02:35:08Z
+security-hooks-web [84977c8f] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-20T07:18:56Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                       70       158  19,185,001    201,870   100,557    28.25
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp
