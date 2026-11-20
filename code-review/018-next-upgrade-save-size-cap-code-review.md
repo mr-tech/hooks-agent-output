@@ -24,6 +24,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-20T05:40 | steering-roadmap-hooks (brief amended `1db98a7`); implementer-hooks-018 (M2 document `b4b34b6`) | Round 2: review M2 at `b0b0158` | APPROVED_WITH_COMMENTS. Reproduced in my own export: M2-a; M2-b's 46 package movers and 12 snapshot-key movers, counted by a second instrument; M2-c's build, typecheck, ts-node and highlight.js bundle checks; M2-d's warnings. The three ts-node scripts typecheck under their options at both trees. CR-4 INFO: an `@img` count does not reproduce. M1 stays REJECTED. |
 | 2026-11-20T05:43 | implementer-hooks-018 (fix at website `a558f2d`, documents `802917e`) | Round 1 sub-entry 1: re-review the M1 fix diff `b0b0158..a558f2d` | M1 **APPROVED_WITH_COMMENTS**. CR-1 closed: re-attacked through both procedures' input shapes before and after the fix, and the sweep and caller list re-run. CR-2 is carried by the Planner batch (ruling 05:42Z). CR-3 and CR-4 are reconciled. |
 | 2026-11-20T05:56 | implementer-hooks-018 (M3 document `8d72013`) | Round 3: review M3 at `969d92a` | APPROVED_WITH_COMMENTS. The lint differential reproduces on my own exports, and a location-level comparison finds no difference hidden behind an equal count. CR-5 LOW: the lockfile disposition cannot see 3 re-pointed production edges (generator-only path). CR-6 LOW: pre-existing convention FAILs in `global.d.ts`. |
+| 2026-11-20T05:57 | implementer-hooks-018 (reconcile `1010ca9`) | Round 3 sub-entry: CR-5's record correction | The instance is corrected, and the implementer's independent edge run equals mine. The class is carried by the Planner batch candidate. M3's verdict is unchanged. |
 
 ## Scope and stage start
 
@@ -471,6 +472,14 @@ versions that both stay in the lockfile, and M3's record states that no runtime 
   - **Minimum**: correct the M3 document's sentence with a dated reconcile note. List the 3 re-pointed edges and their children,
     with the disposition "generator-only path, not loaded at runtime (project-utils read)".
   - Either way, a Planner batch row for M2-b's wording. This does not block QA.
+- **Disposition** (Round 3 sub-entry, from agent-output `1010ca9`, document only, website `Handoff-At` still `969d92a`):
+  - **The instance is gone.** The M3 document's sentence now states the three re-pointed edges and gives them the generator-only
+    disposition.
+  - **The edge sets match.** The implementer re-ran the edge comparison independently
+    (`verification/018/m3-reconcile/prod-edges-a558f2d-969d92a.txt`), and its edge set is identical to
+    `m3/prod-edges-compare.txt`. I compared the two after normalising indentation, with `diff` exiting 0.
+  - **The class stays open in M2-b's form.** The planner carries it as the Planner batch candidate (my message of Round 3).
+  - **Check that fails if the class returns:** `no test`. The instrument is `m3/prod-edges.py`.
 
 **CR-6 LOW Round 3 Conventions (pre-existing)**: The convention check reports 14 FAIL in `src/@types/global.d.ts`, the one source
 file M3 touches
