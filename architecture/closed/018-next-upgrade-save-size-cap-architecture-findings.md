@@ -2,8 +2,8 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Status: Active
-Status-Detail: "Plan revision 7 (record af8a9d6): APPROVED. AF-10 is resolved (highlight.js 11.12.0, no paths entry). AF-11 LOW is recommended (the bump's stated consequence omits the editor tree's differences); AF-12 registers a Problem Area. AF-1 to AF-4, AF-8 and AF-9 are resolved; AF-5 to AF-7 are Problem Areas. Open items 1-4 below are discharged at the closing pass."
+Status: Resolved
+Status-Detail: "Closing pass on plan revision 8 (record 2dc79a3) and website 969d92a: APPROVED, no finding. AF-1 to AF-4 and AF-8 to AF-11 are resolved; AF-5 to AF-7 and AF-12 are Problem Areas in system-architecture.md. Open items 1, 2 and 4 are discharged. Item 3's R3 is carried by handoff/018-m4-r3-navigation-limit-to-architecture-record-2026-11-20.md. The zod pin commit after 969d92a was not read by this pass."
 ---
 
 # Architecture Findings — Plan 018: Next.js 16.4.6 and the save-list cap (conformance pass)
@@ -20,6 +20,8 @@ Status-Detail: "Plan revision 7 (record af8a9d6): APPROVED. AF-10 is resolved (h
 | 2026-11-20T05:13 | Delta read, plan rev 6 (record `8277b08`; diff `e45e8cf..8277b08`, M2's `tsconfig.json` keys), on the planner's word. Run read: `verification/018/planning/m2-tsconfig/`. | Two of the three keys conform. `moduleResolution` `bundler` is Next 16.4.6's mandatory rewrite. `ts-node` `moduleResolution` `node` keeps `website.md` A-4's import check runnable. The third key, a `paths` entry mapping the package name `highlight.js` to its `.d.ts`, was built in an isolated export (`verification/018/architect-conformance/hljs-paths/`). Turbopack applies tsconfig `paths` to runtime imports, so `hljs` compiles to `(void 0)`, and the bundle carries no highlight.js code where the base build carries it. AF-10 HIGH. **REQUEST REVISION** on M2. |
 | 2026-11-20T05:21 | Delta read, plan rev 7 (record `af8a9d6`; diff `8277b08..af8a9d6`), on the planner's word. Runs read: `m2-tsconfig/A-final/counts.txt` and `hl-compare/` (`compare.cjs`, `output.txt`). | AF-10 is folded as recommended: no `paths` entry, highlight.js 11.12.0 under D-6, the M2-c bundle limb (form A counts 1 static and 4 server files with highlight.js runtime) and the M2-e walk. The two `tsconfig.json` keys conform. AF-11 LOW: the plan's account of what the bump changes cites the tree's structure (18 of 18) and the preview's HTML (4 of 18). It omits the comparison's own count that the editor's token tree differs in 5 of 18, one of them (`html`) in the editor only. AF-12 INFO registers the editor's reliance on highlight.js's private `_emitter`. **APPROVED.** |
 | 2026-11-20T05:50 | Carried results, by steering's message: M4 R6 (`implementation/018-next-upgrade-save-size-cap-m4-implementation.md`, `9774815`) and the M2 build's Edge Runtime warning (the M2 implementation document). Steering's M2 cap (`steering/018-rulings.md` block 05:26Z) was read: a further M2 gap below HIGH goes to the Planner batch as a stated limit. | R6 was re-derived from the installed sources. At both 16.1.6 and 16.4.6 the previous page is kept hidden in one `<Activity>` entry (`MAX_BF_CACHE_ENTRIES` 1 without `cacheComponents`). The browser key for a dynamic segment is `name\|value\|type` at both: at 16.4.6 `create-segment-key.browser.js` returns `createRouterCacheKey`, and only the server variant drops the value. The implementer's withdrawal of its earlier "new at 16.4.6" note is correct. Landed in the master document's Components. The Edge Runtime warning is new at 16.4.6 (`grep -rl` over `dist/build`: 0 files at 16.1.6, 2 at 16.4.6). It is registered as a Problem Area with its version scope; it is not a plan finding. R3 waits for UAT's walk (open item 3). |
+| 2026-11-20T06:12 | Closing pass, plan rev 8 (record `2dc79a3`; diff `af8a9d6..2dc79a3`, the Planner batch fold; critique `5b145f0` APPROVED), briefed by steering-roadmap-hooks by message (`steering/018-rulings.md` blocks 06:06Z and 06:10Z). Landed code read at website `969d92a`: the production diff from `7923a1d` covers `shapes.ts`, `routers/message.ts`, `routers/user.ts`, `usePreferences.ts`, `constants/index.ts`, `global.d.ts`, `tsconfig.json`, `package.json` and `eslint.config.mjs`. | The delta conforms. `zod` pinned exactly follows the existing exact pin of `@vercel/functions` (Dependencies). AF-11 is folded. M2-b's movers and edge comparison, M2-d's Edge Runtime line, M2-e's runner and M3's corrected rollback line are wording and instruments, not forms. The landed forms match the plan: `boundedArray` (its issue carries no explicit message, so zod's default wording reaches the error map, per CR-1), `isolatedUnion` (private, typed as `z.ZodType`), `cappedInput` (synchronous `safeParse`, fresh map per call, a `ZodError` of reduced issues), `MAX_ALLOWED_MENTION_IDS` beside `MAX_EMBEDS`, `MAX_RECENT_MESSAGE_IDS` beside `MAX_MESSAGES`, read by the bound, the slice and the client cut, and the two `tsconfig.json` keys. The `ts-node` check's result is QA's (exit 0 for `-T` and typed; a mutant deleting the key goes red with TS5095), not re-run in the shared tree. AF-8 and AF-10's arguments are retired to disposition lines. Open items dispositioned below. **APPROVED.** Process fact: the stamp gate refused a typed, future-dated minute in `website.md`'s changelog row; it was rewritten with the `date -u` minute, and the row was moved to the end of that oldest-first table. |
+| 2026-11-20T06:12 | architect-hooks-018 | Document closed | Status: Resolved |
 
 ## Scope and instrument
 
@@ -79,20 +81,11 @@ restated at the closing pass, once M3 has landed (open item 1).
   share a criterion" row already describes.
 - Registered in the master document's Problem Areas; no plan change.
 
-### AF-8 MEDIUM RESOLVED — M1-i's wiring constraints. Plan rev 4 M1-i *wiring*: per-parse count, never `z.setErrorMap`; one shared definition in `shapes.ts`; refusal thrown as a `ZodError`; plus a synchronous stop and no unhandled rejection (`strip-cap-probe/strip-report-async.txt`). The argument below is kept until the closing pass retires it, because the delta read cites it.
+### AF-8 MEDIUM RESOLVED — M1-i's wiring constraints. Plan rev 4 M1-i *wiring*: per-parse count, never `z.setErrorMap`; one shared definition in `shapes.ts`; refusal thrown as a `ZodError`; plus a synchronous stop and no unhandled rejection (`strip-cap-probe/strip-report-async.txt`). Landed at website `969d92a` as `cappedInput` (`shapes.ts`), wrapping both procedures' inputs. Argument at `9a58650`; run `verification/018/architect-conformance/error-cap-wiring/`.
 
 ### AF-9 LOW RESOLVED — The union isolation is one shared helper in `shapes.ts`, used at all three plain-union sites and declared as `z.ZodType<…>` of the union's output and input, not `z.ZodUnion`. Plan rev 5 M1-i *wiring*. z.enum and `z.discriminatedUnion` were not preferred: both change a refused line M1-b holds fixed, and z.enum's message carries the received value (QAF-8). The rule for future unions is carried by open item 2. Argument at `29b6ff8`.
 
-### AF-11 LOW — The bump's stated consequence omits the editor's token-tree differences (recommended)
-
-- **The plan's account.** Plan rev 7 M2, "Why `highlight.js` moves", says the editor's `_emitter.rootNode` tree "keeps its shape in
-  18 of 18 samples" and that 4 of 18 gain finer token classes in the preview's HTML.
-- **What the comparison counts.** `hl-compare/compare.cjs` has two counts. "Shape" is only whether `rootNode.children` is an array.
-  The tree's content is a separate comparison, and `output.txt` ends `tree differ 5`: typescript, css, html, java and diff.
-- **What the plan omits.** For `html`, the preview's HTML is the same but the editor's tree differs. So the editor's highlighting
-  changes in 5 samples, one of which the preview does not show.
-- **Ask.** The sentence names the 5 tree differences beside the 4 HTML ones. The owner hears of this scope delta through steering
-  (block 03:25Z), so the delta should state what the run counted. No criterion changes; M2-e's walk already looks at the editor.
+### AF-11 LOW RESOLVED — The highlight.js bump's stated consequence omitted the editor's token-tree differences. Plan rev 8 M2, "Why `highlight.js` moves", names the 5 tree differences (typescript, css, html, java, diff) beside the 4 HTML ones. Argument at `60d0a11`.
 
 ### AF-12 INFO — Problem Area registered: the editor reads highlight.js's private emitter tree
 
@@ -103,79 +96,7 @@ library. Revision 7 measured it once, by hand (`hl-compare/`). Could be better: 
 comparison kept as a check that runs on every highlight.js bump. This is registered in the master document's Problem Areas and
 asks no plan change.
 
-### AF-10 HIGH RESOLVED — The `paths` entry for highlight.js removed highlight.js from the bundle. Plan rev 7 M2 drops it, moves highlight.js to 11.12.0 under D-6, and adds the M2-c bundle limb (runtime-string counts, no `(void 0)` call) and the M2-e walk. Argument retained below until the closing pass.
-
-### AF-10 argument (retained) — M2's `paths` entry for highlight.js removes highlight.js from the bundle
-
-**Form.** Plan rev 6 M2 steps: `compilerOptions.paths` `"highlight.js": ["./node_modules/highlight.js/types/index.d.ts"]`. It is there
-to give TypeScript highlight.js 11.7.0's types under `bundler` resolution.
-
-**Pattern today.** `paths` holds only the project's own aliases, `~/*` and `bot/*` (`tsconfig.json` at `7923a1d`). The bundler
-honours those aliases at runtime, and that is what they are for. An entry keyed on a package name is a deviation. Its readers are
-`tsc`, Next's bundler (Turbopack at 16.4.6) and `tsconfig-paths` under `ts-node`. The plan's run checked only the first one and
-the build's exit code.
-
-**Run** (`verification/018/architect-conformance/hljs-paths/`):
-- The plan's exact `tsconfig.json`, at Next 16.4.6 with highlight.js 11.7.0, builds with exit 0 and leaves `tsconfig.json`
-  unchanged.
-- The bundle carries no highlight.js runtime code: 0 files with `highlightAuto` or `registerLanguage`. The base build carries it in
-  1 static and 2 server files.
-- The SSR chunk for `src/utils/markdown/rules.tsx` reads `void 0!==(void 0).getLanguage(a.lang)`.
-
-So every code block with a language tag throws a `TypeError` at render. That covers the message preview, the `/preview` route and so
-preview images, and the editor's decorator (`SlateEditor/utils/decorator.tsx`). The rendered page was not loaded; the throw is read
-from the compiled call. `tsc`, the build and the suite all pass with it, so no M2 criterion as written catches it.
-
-**Required change.**
-1. M2 gives TypeScript highlight.js's types without a `paths` entry keyed on a package name. Candidates:
-   - Move `highlight.js` to 11.8.0 or later, which carries its own `types` condition. The plan's form A ran this, with build,
-     typecheck and suite all exit 0. His D-6 admits the upgrade, so X-21 is lifted rather than kept, with the highlighting change
-     stated as its reason.
-   - A types-only route, for example a declaration in `src/@types/highlight.js.d.ts` that does not alter runtime resolution. This
-     is unrun, and the planner would need to run it.
-
-   I recommend the first. It removes a deviation instead of adding one, and it uses the package as its authors ship it.
-2. M2-c gains a runtime check that would have failed here, at the build level: the build output carries highlight.js (a count of
-   files with a highlight.js runtime string, base figure 1 static and 2 server). It also gains a walked one: a fenced code block
-   with a language renders highlighted, on the local build and on the release-check preview's `/preview`-reaching page where M5
-   reaches one.
-3. The record gains a sentence for later changes: tsconfig `paths` is runtime resolution in this repository, so a type-only fix
-   never goes there (open item 4).
-
-### AF-8 argument (retained) — M1-i's stop is a new server form, and its wiring needs stated constraints
-
-**Form.** M1-i (his D-9): the two procedures' input checks stop after 20 issues and refuse with those issues plus one summary issue.
-The premise run passes a contextual error map to `safeParse`. The plan leaves the wiring to the implementer.
-
-**Why the wiring is not an implementation detail.**
-- tRPC 11.10's `getParseFn` (`@trpc/server` `dist/initTRPC-*.cjs`) calls `parser.parseAsync(value)` on the schema handed to
-  `.input()`. It passes no parse options, and zod 3.22.4 carries no `~standard` member. So the error map cannot reach the parse
-  through the procedures' inputs as written today.
-- The route that needs no new form, `z.setErrorMap`, is process-global. One counter would then sit under every zod parse in the
-  server, and under concurrent requests whose async parses interleave. That interleaving is read from zod's source, not run.
-- The refusal reaches the client only as the TRPCError's `message` (`trpc.ts` `errorFormatter` returns the shape unchanged).
-  `formatMutationError` renders it as lines only when that message is JSON of an issue array. A thrown sentinel or a plain `Error`
-  would show users raw text.
-
-**Required change.** M1-i states the wiring's constraints:
-1. The issue count is per parse, never in a module-level or global counter, and never through `z.setErrorMap`.
-2. One shared definition wraps both procedures' inputs. It lives in `shapes.ts` beside `boundedArray` (mirror: M1-d's one helper).
-3. The refusal is thrown as a `ZodError` of the kept issues plus the summary issue, so tRPC's message is the JSON that
-   `formatMutationError` parses.
-4. `RouterInputs` stays as at `7923a1d`; M1-i already states this.
-
-**Run.** A wrapper in that shape works through a real tRPC 11.10 caller with zod 3.22.4 (`error-cap-wiring/probe.mjs`,
-`output.txt`, exit 0). The wrapper is an object whose `parseAsync` calls `schema.safeParse(value, { errorMap })` with a fresh array
-on each call, and turns the sentinel into a `ZodError`.
-- 5000 bad elements are refused `BAD_REQUEST` with 21 issues, the last being the summary, in a message of 3,689 bytes.
-- 3 bad elements are refused with 3 issues and no summary.
-- Two concurrent refusals give 21 issues each, kept apart.
-- A valid input passes.
-
-That run's TypeScript typing of the wrapper (its `_input` and `_output`) was not checked. M1-i's typecheck line covers it.
-
-Option pair: "state the constraints" (recommended) / "leave the wiring open" (not recommended: the global route compiles and passes
-single-request tests).
+### AF-10 HIGH RESOLVED — The `paths` entry for highlight.js removed highlight.js from the bundle. Plan rev 7 M2 drops it, moves highlight.js to 11.12.0 under D-6, and adds the M2-c bundle limb (runtime-string counts, no `(void 0)` call) and the M2-e walk. Landed at website `969d92a`: `tsconfig.json` carries no `paths` entry beyond `~/*` and `bot/*`, and QA Phase 2 found the bundle markers present with 0 `(void 0)` receivers (`qa/018-next-upgrade-save-size-cap-m2-qa.md`). Argument at `2ec5f52`; run `verification/018/architect-conformance/hljs-paths/`.
 
 ## Conforming forms
 
@@ -193,8 +114,8 @@ single-request tests).
 - **M2** writes no new form. `next.config.js`, `middleware.ts` and the Pages/App split are unchanged.
 - **M3's flat config** at the repository root sits beside `next.config.js`, `postcss.config.js`, `tailwind.config.js` and
   `vitest.config.ts`. Replacing `.eslintrc.json` and `.eslintignore` is the deviation ESLint 9 makes necessary.
-- **M4** adds no code. R6 and R7 are source reads of Next.js internals that the 015 premises rest on, recorded by the implementer
-  (open item 3).
+- **M4** adds no code. R6 is a source read of Next.js internals that a 015 premise rests on, recorded by the implementer and
+  re-derived here. R7 left M4's class at revision 3.
 - **M5 under OQ-5's recommended option** puts a build override (`SKIP_ENV_VALIDATION=1`) on a release-check branch only, never
   on the chain tip or `master`. So production's build keeps its environment validation, and the preview differs from production
   by that one build-time check (`git diff --name-only` shows `vercel.json` alone). It conforms. Which option holds is his.
@@ -208,16 +129,17 @@ single-request tests).
 - `website.md` A-4: a "List bounds" paragraph stating today's form and its zod 3.22.4 consequence (agent-designed). The M1 form is
   restated at the closing pass, once it exists (open item 2).
 
-## Open items (this document's, discharged no later than devops Stage 1)
+- At the closing pass (`system-architecture.md`): the ESLint and lint-stack rows restated from the release tree `969d92a`;
+  Components gains the `tsconfig.json` sentence; Dependencies gains the release tree's versions and the exact `zod` pin; a
+  changelog row. `website.md` A-4 "List bounds" is restated, with changelog row 15.
 
-1. Restate the ESLint Problem Areas row from the M3 tip (its `.eslintrc.json` sentence and the counts).
-2. Restate `website.md` A-4's "List bounds" paragraph from the M1 tip: the fatal-issue helper, the issue-cap wrapper, the union
-   isolation, their home and the bound homes (`MAX_RECENT_MESSAGE_IDS`, the mention-id constant, the `parse` tuple). Add the
-   consequences a later change must carry: a plain union goes through the isolation helper (AF-9), and the procedures' input
-   schemas stay synchronous, because the stopping parse is `safeParse`.
-3. Carry M4-c's R3 result (X-14's premise, X-20; after UAT's walk) into the record. R6 is discharged at 05:50 (Components,
-   client navigation). Restate Components'
-   "Next.js 16 hybrid" version facts from the release tree.
-4. Record in the master document's website Components, from the M2 tip: `tsconfig.json` `paths` is read by the bundler as runtime
-   resolution, so a types-only fix never goes there (AF-10). Also record that the `ts-node` block carries its own
-   `moduleResolution`, `node`, because the root block is `bundler`, which Next rewrites on every build.
+## Open items, dispositioned at the closing pass (2026-11-20T06:12)
+
+1. ESLint row: DISCHARGED. Restated from the M3 commit (`969d92a`) with the differential counts and the in-tree run, and the
+   `next/dynamic` rule named in both config files.
+2. A-4 "List bounds": DISCHARGED. Restated from `969d92a`: the three shared forms, the bound homes, and four consequences (lists
+   through `boundedArray`, plain unions through `isolatedUnion`, synchronous input schemas, `zod` pinned at 3.22.4 per CR-2).
+3. M4-c: R6 DISCHARGED at 05:50 (Components, client navigation). Version facts DISCHARGED (Dependencies, as the unreleased release
+   tree beside `master`). R3 CARRIED by `handoff/018-m4-r3-navigation-limit-to-architecture-record-2026-11-20.md` (Owning-Stage
+   architect; Review-Trigger: UAT's R3 walk committed, and before the release reconciliation), because UAT's walk has not run.
+4. `tsconfig.json` `paths` and the `ts-node` block: DISCHARGED (Components, website, the hybrid bullet).
