@@ -1,0 +1,85 @@
+// Planning probe (chain 018, QAF-8 + F-17): the real upsert input behind a per-call capped wrapper that stops on the 21st
+// created issue and refuses with issues carrying code, path and message only; through the site's own tRPC procedure
+// builder (trpc.ts errorFormatter). Union sites isolated per ../isolated-union.diff (ILLUSTRATIVE ONLY).
+import { writeFileSync } from 'node:fs';
+import { describe, expect, it, vi } from 'vitest';
+import { z, ZodError } from 'zod';
+import formatMutationError from '~/utils/formatMutationError';
+import { createTRPCRouter, publicProcedure } from '../../trpc';
+import messageRouter from '../message';
+vi.mock('~/env.mjs', () => ({ env: new Proxy({}, { get: (_, key) => `test-${String(key)}` }) }));
+vi.mock('~/server/auth', () => ({ getServerAuthSession: vi.fn(), getHydratedServerAuthSession: vi.fn() }));
+vi.mock('project-utils', () => ({ getPostgres: () => ({}) }));
+vi.mock('pusher', () => ({ default: class { trigger = vi.fn(); } }));
+vi.mock('@vercel/functions', () => ({ waitUntil: () => undefined }));
+vi.mock('~/utils/redis', () => ({ default: {} }));
+vi.mock('~/utils/redis/messageStore', () => ({ default: {} }));
+type Procs = { _def: { procedures: Record<string, { _def: { inputs: z.ZodTypeAny[] } }> } };
+const upsertInput = (messageRouter as unknown as Procs)._def.procedures.upsert._def.inputs[0];
+const MAX = 20; const STOP = Symbol('stop');
+const strip = (i: z.ZodIssue) => ({ code: i.code, path: i.path, message: i.message }) as z.ZodIssue;
+function capped(schema: z.ZodTypeAny) {
+  return { _input: undefined, _output: undefined, async parseAsync(value: unknown) {
+    const seen: z.ZodIssue[] = [];
+    const errorMap: z.ZodErrorMap = (i, c) => { seen.push({ ...i, message: i.message ?? c.defaultError } as z.ZodIssue); if (seen.length > MAX) throw STOP; return { message: c.defaultError }; };
+    let r;
+    try { r = await schema.safeParseAsync(value, { errorMap }); } catch (e) {
+      if (e !== STOP) throw e;
+      throw new ZodError([...seen.slice(0, MAX).map(strip), { code: 'custom', path: [], message: `Stopped checking after ${MAX} errors` } as z.ZodIssue]);
+    }
+    if (!r.success) throw new ZodError(r.error.issues.map(strip));
+    return r.data;
+  } };
+}
+const router = createTRPCRouter({ save: publicProcedure.input(capped(upsertInput) as never).mutation(() => 'saved') });
+const caller = router.createCaller({} as never);
+const BIG = 'x'.repeat(100_000);
+const rep = (n: number, f: () => unknown) => Array.from({ length: n }, f);
+const btn = { type: 2, style: 5, url: 'https://a.b' };
+const row = () => ({ type: 1, components: rep(5, () => ({})) });
+const sec = () => ({ type: 9, components: rep(3, () => ({})), accessory: {} });
+const gal = () => ({ type: 12, items: rep(10, () => ({})) });
+const cont = (kids: () => unknown) => ({ type: 17, components: rep(40, kids) });
+let mix = 0; const mixed = () => [row, sec, gal][mix++ % 3]!();
+const embeds = rep(10, () => ({ fields: rep(25, () => ({})) }));
+const fat = () => ({ type: 2, style: 1, emoji: { id: 1, name: 1, animated: 1 }, url: 'x', disabled: 1 });
+const fatRow = () => ({ type: 1, components: rep(5, fat) });
+const text = { type: 10, content: 'x' };
+const inputs: [string, unknown][] = [
+  ['QAF-8 S6 parse one 100k element', { allowed_mentions: { parse: [BIG] } }],
+  ['QAF-8 S6 parse three 100k at bound', { allowed_mentions: { parse: [BIG, BIG, BIG] } }],
+  ['QAF-8 link button style 100k', { components: [{ type: 1, components: [{ ...btn, style: BIG }] }] }],
+  ['QAF-8 link button type 100k', { components: [{ type: 1, components: [{ ...btn, type: BIG }] }] }],
+  ['QAF-8 accessory type 100k', { components: [{ type: 9, components: [text], accessory: { type: BIG } }] }],
+  ['QAF-8 separator spacing 100k', { components: [{ type: 14, divider: true, spacing: BIG }] }],
+  ['QAF-8 accessory type 100k x 20 sections', { components: rep(20, () => ({ type: 9, components: [text], accessory: { type: BIG } })) }],
+  ['steering F_fat_buttons', { components: rep(40, () => cont(fatRow)) }],
+  ['steering G_fat_buttons_plus_embeds', { components: rep(40, () => cont(fatRow)), embeds }],
+  ['steering B_sections_only', { components: rep(40, () => cont(sec)) }],
+  ['steering D_mixed_plus_embeds', { components: rep(40, () => cont(mixed)), embeds }],
+  ['six bad accessories (F-17)', { components: rep(6, () => ({ type: 9, components: [text], accessory: { type: 99 } })) }],
+  ['valid', { components: [text] }],
+];
+describe('strip-cap probe', () => {
+  it('reports', async () => {
+    const out: string[] = [];
+    for (const [label, data] of inputs) {
+      const input = { message: { name: 'n', data } };
+      const body = JSON.stringify(input).length;
+      const base = upsertInput.safeParse(input);
+      const t0 = performance.now();
+      try { await caller.save(input as never); out.push(`${label} | body ${body} | saved`); continue; } catch (e) {
+        const ms = (performance.now() - t0).toFixed(1);
+        const err = e as { code?: string, message: string };
+        const issues = JSON.parse(err.message) as z.ZodIssue[];
+        const keys = [...new Set(issues.flatMap((i) => Object.keys(i)))].sort().join(',');
+        const k = base.success ? 0 : base.error.issues.length;
+        let linesEqual = 'n/a (k>20)';
+        if (!base.success && k <= MAX) linesEqual = String(formatMutationError({ message: JSON.stringify(base.error.issues) }) === formatMutationError({ message: err.message }));
+        out.push(`${label} | body ${body} | ${err.code} | base issues ${k} | returned ${issues.length} | message chars ${err.message.length} | carries 100k input ${err.message.includes(BIG)} | keys ${keys} | client lines equal to base ${linesEqual} | ${ms} ms`);
+      }
+    }
+    writeFileSync(process.env.PROBE_OUT as string, `${out.join('\n')}\n`);
+    expect(out.length).toBe(inputs.length);
+  });
+});

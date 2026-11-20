@@ -1,0 +1,10 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/279b9c46-7b6e-4f81-9968-a5a81fb29bab/scratchpad/strip-export
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  04:24:10
+   Duration  2.22s (transform 266ms, setup 0ms, import 1.44s, tests 644ms, environment 0ms)
+
+exit 0
