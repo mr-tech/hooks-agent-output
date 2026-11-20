@@ -1,0 +1,6 @@
+static | highlightAuto | 1
+static | registerLanguage | 1
+static | node_modules/highlight.js | 0
+server | highlightAuto | 4
+server | registerLanguage | 4
+server | node_modules/highlight.js | 2

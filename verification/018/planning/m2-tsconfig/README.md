@@ -28,6 +28,37 @@ TS5095: "Option 'bundler' can only be used when 'module' is set to 'preserve' or
 `module` `commonjs`. The scripts it governs: `lang`, `push-commands`, `backfill-valid` (`package.json`). Only the check above was run;
 `push-commands` publishes to Discord and `backfill-valid` writes a database, so neither was executed.
 
+## Form B is withdrawn (plan revision 7)
+
+Form B's `paths` entry is read by Turbopack as well as by TypeScript: the build binds `import hljs from 'highlight.js'` to the
+declaration file, so highlight.js's runtime is absent from `.next` and both call sites compile to calls on `undefined`
+(architect AF-10, `../../architect-conformance/hljs-paths/`; critic F-21; QA QAF-10, `../../qa/m2-hljs-resolution/`). This run's
+form-B rows above show build, typecheck and suite passing, and none of them can see it.
+
+## Form A, final (`A-final/`, run 2026-11-20T05:1xZ–05:2xZ)
+
+Export of `7923a1d`; `tsconfig.json` with two keys (`moduleResolution` `bundler`; `ts-node` `moduleResolution` `node`), no `paths`
+entry, end-of-file newline kept (`A-final/tsconfig.diff`); `pnpm add next@16.4.6 @next/bundle-analyzer@16.4.6`; `pnpm update
+highlight.js` → 11.12.0, specifier `^11.12.0` (`lock-pins.txt`, `package-specifiers.txt`). Every step under `systemd-run --user
+--scope`; each file ends with its exit code.
+
+- `next build` exit 0, no "mandatory changes" line, `tsconfig.json` byte-identical before and after (`diff -q`).
+- `pnpm run typecheck` exit 0; suite 1913 of 1913, 149 files, exit 0.
+- `ts-node` check of `limits.tsx`: `-T` exit 0, typed exit 0 (`tsnode-T.txt`, `tsnode-typed.txt`).
+- highlight.js runtime in the build (`counts.txt`, `grep -rl` into a file, then `wc -l`): `highlightAuto` 1 static, 4 server;
+  `registerLanguage` 1 static, 4 server; `node_modules/highlight.js` 0 static, 2 server. Architect's readings for comparison: base
+  16.1.6 build 1 static, 2 server; form B 0, 0.
+
+## highlight.js 11.7.0 → 11.12.0 (`hl-compare/`, `node compare.cjs <11.7.0> <11.12.0>`, exit 0)
+
+The surfaces website uses: `getLanguage`, `highlight().value` (the preview's `rules.tsx`), `_emitter.rootNode` with `scope` and
+`children` (the editor's `decorator.tsx`, through an `unknown` cast that typecheck cannot see past).
+- Languages 192 → 193 (added `freedesktop`, none removed); 364 → 378 names and aliases, none that 11.7.0 resolved fails in 11.12.0.
+- 18 samples in 18 languages: `rootNode.children` present in all; HTML differs in 4 (typescript, css, java, diff) and the tree in 5
+  (those plus html), each a finer or extra token class (e.g. TypeScript object keys as `hljs-attr`, Java `void` as `hljs-type`, a
+  diff hunk header as `hljs-meta`). No sample lost a class.
+
 ## Not established
 
-Under form A, what highlight.js 11.7.0 → 11.12.0 changes in the editor's and the preview's highlighting (not compared).
+How the finer classes look in the site's highlighting theme, and the rendered page itself: no server was started. Plan M2-c's walked
+check covers it.

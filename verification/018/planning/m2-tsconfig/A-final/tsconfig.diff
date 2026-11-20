@@ -1,0 +1,21 @@
+--- tsconfig.base.json	2026-11-20 05:15:29.135826010 +0000
++++ tsconfig.json	2026-11-20 05:15:29.167819885 +0000
+@@ -15,7 +15,7 @@
+     "noEmit": true,
+     "esModuleInterop": true,
+     "module": "esnext",
+-    "moduleResolution": "node",
++    "moduleResolution": "bundler",
+     "resolveJsonModule": true,
+     "isolatedModules": true,
+     "jsx": "react-jsx",
+@@ -38,7 +38,8 @@
+   "ts-node": {
+     "files": true,
+     "compilerOptions": {
+-      "module": "commonjs"
++      "module": "commonjs",
++      "moduleResolution": "node"
+     }
+   },
+   "include": [

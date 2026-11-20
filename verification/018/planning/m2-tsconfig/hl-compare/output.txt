@@ -1,0 +1,41 @@
+versions 11.7.0 11.12.0
+languages 192 193 | removed none | added freedesktop
+names+aliases 364 378 | no longer resolved by getLanguage none
+javascript | html same | tree same | rootNode.children ok
+typescript | html DIFF | tree DIFF | rootNode.children ok
+   A: <span class="hljs-keyword">interface</span> P&lt;T&gt; { a?: T }
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">type</span> U = keyof P&lt;<span class="hljs-built_in">string</span>&gt;; <span class="hljs-keyword">enum</span> E { A = <span class="hljs-number">1</span> }
+   B: <span class="hljs-keyword">interface</span> P&lt;T&gt; { <span class="hljs-attr">a</span>?: T }
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">type</span> U = keyof P&lt;<span class="hljs-built_in">string</span>&gt;; <span class="hljs-keyword">enum</span> E { A = <span class="hl
+python | html same | tree same | rootNode.children ok
+json | html same | tree same | rootNode.children ok
+css | html DIFF | tree DIFF | rootNode.children ok
+   A: <span class="hljs-selector-class">.a</span> &gt; <span class="hljs-selector-tag">b</span><span class="hljs-selector-pseudo">:hover</span> { <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>; <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>
+   B: <span class="hljs-selector-class">.a</span> &gt; <span class="hljs-selector-tag">b</span><span class="hljs-selector-pseudo">:hover</span> { <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>; <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>
+xml | html same | tree same | rootNode.children ok
+html | html same | tree DIFF | rootNode.children ok
+bash | html same | tree same | rootNode.children ok
+sql | html same | tree same | rootNode.children ok
+cpp | html same | tree same | rootNode.children ok
+java | html DIFF | tree DIFF | rootNode.children ok
+   A: <span class="hljs-meta">@Override</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] a)</span> { System.out.println(<span class="hljs-string"
+   B: <span class="hljs-meta">@Override</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] a)</span> { System.out.println(<span class="hljs-string">&q
+rust | html same | tree same | rootNode.children ok
+go | html same | tree same | rootNode.children ok
+diff | html DIFF | tree DIFF | rootNode.children ok
+   A: <span class="hljs-comment">--- a</span>
+<span class="hljs-comment">+++ b</span>
+@@ -1 +1 @@
+<span class="hljs-deletion">-x</span>
+<span class="hljs-addition">+y</span>
+   B: <span class="hljs-comment">--- a</span>
+<span class="hljs-comment">+++ b</span>
+<span class="hljs-meta">@@ -1 +1 @@</span>
+<span class="hljs-deletion">-x</span>
+<span class="hljs-addition">+y</span>
+yaml | html same | tree same | rootNode.children ok
+markdown | html same | tree same | rootNode.children ok
+lua | html same | tree same | rootNode.children ok
+csharp | html same | tree same | rootNode.children ok
+samples 18 | html differ 4 | tree differ 5
+exit 0
