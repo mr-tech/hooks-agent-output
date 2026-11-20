@@ -15,6 +15,7 @@ Kind: code-audit
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-20T07:00 | steering-roadmap-hooks → security-hooks-website-deps (brief `steering/018-brief-security.md`, record `d9df9a9`; stage set in `steering/website-deps-review-rulings.md`, block 2026-11-20T02:53Z) | Security on the change website `7923a1d..d1bb9b0`, and the close of H-002 and M-001 | Initial assessment. Verdict APPROVED. Audit at the chain lockfile: 81 entries, 46 fewer, none new, no Next.js entry. The save cap measured through both procedures: the review's 1 MB bodies now give 1 issue each. L-001 LOW raised (tRPC batches), with its carrier. Four informational items. |
+| 2026-11-20T07:18 | steering-roadmap-hooks → security-hooks-website-deps (message, "run /checkpoint") | Wrap up for a clear | Checkpoint: Resumption State written at the end of this document. The verdict and its tree are unchanged. |
 
 ## Metadata
 
@@ -165,3 +166,11 @@ None owed before the release. For later, with the handoff: a test that a batch o
 - **A rule of the record I broke, disclosed.** I appended my `INBOX.md` entry for the architect (hosting assumed by the dependency dispositions) with a shell heredoc. The record's rule is that its documents are written with the file-editing tools. The entry's text is as intended (read back from the file's tail); I left it in place and uncommitted, as the inbox rule has it.
 - **Instruments added** under `verification/018/security/`: `isolated-export.sh`, `run-audit.sh`, `audit-entry-delta.js`, `saveCap.cost-probe.test.ts`, `requests-tip.sh`. Reused from the review and the fix chain: `tabulate-audit.js`, `apply-dispositions.js --allow-unused`, `dispositions.json`, `lockfile-key-sets.js`, `request-x-query-params.sh`.
 - **Network.** The audit's registry query was the only request that left this box.
+
+## Resumption State
+
+Written 2026-11-20T07:18 at a checkpoint steering asked for. The full state of this session is in `security/website-deps-review-security-audit.md`, Resumption State.
+
+- **Done:** the verdict above, APPROVED at website `d1bb9b0`, committed at agent-output `fa2ce9f`; plan row R-23 at `97fa48b`; the report sent to `devops-hooks-018` (message `9992393c`).
+- **Next:** nothing is owed before the push. If the tip moves past `d1bb9b0` before the release, the verdict has expired and the delta is re-reviewed. When the chain closes, set `Status: Review Complete`, reconcile "Relied on, not checked here" against the release record, and move this file to `security/closed/` (the record-closure skill). L-001 and I-2 keep the handoff as carrier.
+- **Nothing uncommitted but the `INBOX.md` entry named in the process record, nothing running, no question open.**

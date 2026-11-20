@@ -20,6 +20,7 @@ Kind: dependency-audit
 | 2026-11-20T02:34 | steering-roadmap-hooks → security-hooks-website-deps (message, "run /checkpoint") | Wrap up for a clear | Checkpoint: Resumption State written at the end of this document. Nothing else changed. |
 | 2026-11-20T02:39 | steering-roadmap-hooks → security-hooks-website-deps (message 02:3xZ) | Record that H-001 is closed by the release; close the fix's security audit | The session resumed after a `/clear` from the Resumption State at record `4e876a7`. H-001 moves VERIFIED → CLOSED and its block is collapsed to one disposition line. H-002 and M-001 stay OPEN. A-4 retired. A-1 corrected: the post-push image read does not settle it (an error of mine, process record). The fix's audit is closed `Review Complete` (record `cd2e816`). Read after the resume, not carried across: origin `master` (`git ls-remote`), the deployment record, the P-1 carrier handoff, the rulings blocks 01:59Z and 02:18Z to 02:36Z, and the count of `x-query-params` in the tree at `7923a1d`. Everything else in this document is carried across unchanged. The verdict and its tree are unchanged. |
 | 2026-11-20T07:02 | steering-roadmap-hooks → security-hooks-website-deps (brief `steering/018-brief-security.md`, record `d9df9a9`) | Security on chain 018's change, and the close of H-002 and M-001 | H-002 and M-001 move OPEN → VERIFIED at website `d1bb9b0`; the verdict on the change is in `security/018-next-upgrade-save-size-cap-security-audit.md`. They move to CLOSED at the release, as H-001 did. A-3 settled by steering's Vercel read; A-1 and A-2 end with the release; I-1, I-2's project-utils part, I-4, I-5 and I-6 each name a carrier; I-3 ended. New carrier: `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md`. This document's own verdict is unchanged: it binds to `983681c`. |
+| 2026-11-20T07:18 | steering-roadmap-hooks → security-hooks-website-deps (message, "run /checkpoint") | Wrap up for a clear | Checkpoint: the Resumption State at the end of this document confirmed current, with the commits and the message of the 018 pass added. Nothing else changed. |
 
 ## Metadata
 
@@ -273,14 +274,14 @@ All under `verification/website-deps-review/security/`.
 
 ## Resumption State
 
-Rewritten 2026-11-20T07:02, after the pass on chain 018; the earlier texts are in this document at records `4e876a7` and `4bccf05`. Session `security-hooks-website-deps`, launched `--agent security`, cwd `/usr/local/bin/hooks/website`.
+Rewritten 2026-11-20T07:02, after the pass on chain 018, and confirmed current at the checkpoint of 07:18 that steering asked for; the earlier texts are in this document at records `4e876a7` and `4bccf05`. Session `security-hooks-website-deps`, launched `--agent security`, cwd `/usr/local/bin/hooks/website`.
 
 **Done.**
 - The dependency review at website `983681c`: this document, first committed at agent-output `1248690`. All 141 advisory entries are dispositioned.
 - The owner's routing recorded (`8fd74ff`): rulings in `steering/website-deps-review-rulings.md`, blocks 2026-11-20T01:59Z and 02:03Z.
 - Security on the H-001 fix: `security/closed/fix-message-page-header-decode-security-audit.md`, APPROVED at website `7923a1d`, closed `Review Complete` at agent-output `cd2e816`.
 - H-001 CLOSED here by the release of website `7923a1d` (2026-11-20T02:34:40Z).
-- Security on chain 018's change: `security/018-next-upgrade-save-size-cap-security-audit.md`, APPROVED at website `d1bb9b0`. H-002 and M-001 VERIFIED here. Leftovers carried by `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md`.
+- Security on chain 018's change: `security/018-next-upgrade-save-size-cap-security-audit.md`, APPROVED at website `d1bb9b0`. H-002 and M-001 VERIFIED here. Leftovers carried by `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md`. All committed at agent-output `fa2ce9f`; plan row R-23 at `97fa48b`. The report went to `devops-hooks-018` (message `9992393c`); its receipt is devops's document naming `fa2ce9f`, which I had not seen at this checkpoint.
 
 **Open in this document.**
 - H-002 HIGH and M-001 MEDIUM: VERIFIED at `d1bb9b0`, not yet released.
