@@ -1,9 +1,9 @@
 ---
 UUID: ea29cade
 Status: Open
-Status-Detail: "Six LOW or informational items in website's request handling and dependency upkeep, left by the dependency review and by security's pass on chain 018. None blocks 018's release. Item 1 (a limit on how many calls one tRPC request may carry) is the only one with a measured cost."
+Status-Detail: "Seven LOW or informational items in website's request handling, dependency upkeep and hosting, left by the dependency review and by security's pass on chain 018, both now closed. Chain 018 is released (website master d1bb9b0, 2026-11-20T08:07:52Z), so the trigger's first condition is met and each item waits on its own event. Item 1 (a limit on how many calls one tRPC request may carry) is the only one with a measured cost."
 Owning-Stage: Unassigned. Implementation (fixer or implementer) once the owner routes it; steering carries the routing. Item 4 is in project-utils.
-Review-Trigger: After chain 018's release, when website's src/pages/api/trpc/[trpc].ts, src/middleware.ts, src/app/_navigation/Redirects/Server.tsx or a dependency entry of package.json is next edited, when a tRPC procedure with a list in its input is added, or when @trpc/server or zod next changes version, whichever comes first.
+Review-Trigger: After chain 018's release, when website's src/pages/api/trpc/[trpc].ts, src/middleware.ts, src/app/_navigation/Redirects/Server.tsx or a dependency entry of package.json is next edited, when a tRPC procedure with a list in its input is added, when @trpc/server or zod next changes version, or when website's hosting changes (ecosystem.config.json or vercel.json is next edited, or a deployment that runs next start is proposed), whichever comes first.
 ---
 
 # Handoff — website: tRPC batch size, and what the dependency review leaves behind
@@ -47,6 +47,18 @@ Review-Trigger: After chain 018's release, when website's src/pages/api/trpc/[tr
    `verification/website-deps-review/security/dispositions.json`, and `apply-dispositions.js` beside it fails when an audit entry
    has none. Owed: a scheduled `pnpm audit --prod --json` over the released lockfile, joined with that file, so that a new entry
    is read by someone. Whether to build it is the owner's call; it is listed here so the recommendation outlives the review.
+7. **Every security disposition assumes Vercel hosts the site (dependency review I-1).** The review decided, entry by entry,
+   whether hooks.gg reaches each advisory's vulnerable code, and it decided that for a site served by the Vercel project
+   `hooks-gg-website`. `ecosystem.config.json`, still in the tree at website `d1bb9b0` (`git cat-file -e`, exit 0), describes
+   another way to serve it: PM2 running `next start`. Nothing read shows that path in use. Served that way, Next.js's own image
+   optimiser would answer `/_next/image` for the two remote hosts `next.config.js` allows, `cdn.discordapp.com` and
+   `cdn.jsdelivr.net`, and both serve files anyone can upload. Any advisory scoped to self-hosted servers would then apply. At
+   website `983681c` that was 13 audit entries, two of them critical. At `d1bb9b0` the audit holds none
+   (`verification/018/security/out/pnpm-audit-prod-d1bb9b0-disposition-summary.txt`), so nothing listed today would become
+   live; a later audit may list new ones. Owed, if the hosting ever changes: before the change ships, security re-reads the
+   audit's dispositions for a self-hosted server, with `verification/website-deps-review/security/dispositions.json` and the
+   advisories' own texts. The record line that names Vercel as the assumed hosting is asked of the architect separately
+   (`INBOX.md`, entry 2026-11-20, security-hooks-website-deps).
 
 zod stays at 3.22.4, pinned exactly, and its advisory (GHSA-mrhx-c7xc-m3w5) stays in the audit. The cap's count rests on that
 version's behaviour: under 3.25.76 the code reviewer measured 1,600 issues where 3.22.4 gives 21 (018 code review, CR-2). So a
@@ -61,6 +73,8 @@ zod version change fires this handoff's trigger, and the change re-runs
 - Items 2 to 4 and 6: `security/website-deps-review-security-audit.md` (I-5, I-6, I-2, Testing Recommendations), read at website
   `983681c`; item 3 re-read at `d1bb9b0` (`package.json` `overrides`).
 - Item 5: `security/018-next-upgrade-save-size-cap-security-audit.md`, the enumeration of server input schemas at `d1bb9b0`.
+- Item 7: `security/closed/website-deps-review-security-audit.md`, I-1 and "How hooks.gg is served"; the 13 entries are that
+  document's HOST rows at `983681c`.
 
 ## Origin
 
@@ -73,3 +87,4 @@ I-2 and I-5 (its Exclusions X-4 and X-5); this handoff takes them over so the re
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-20T06:59 | security (security-hooks-website-deps) | Created with items 1 to 6. |
+| 2026-11-20T13:44 | security (security-hooks-website-deps) | Item 7 added (the hosting assumption, dependency review I-1) and the trigger extended with a hosting change, at the close of both security audits after chain 018's release. Items 1 to 6 are unchanged. Re-read at website `d1bb9b0` for this row: `package.json` still holds the `overrides` key (`grep -c`, 1) and `pnpm-lock.yaml` no `overrides:` section (0), so item 3 stands; `x-pathname` is still read in `src/app/_navigation/Redirects/Server.tsx` (`git grep -c`, 1), so item 2 stands. |
