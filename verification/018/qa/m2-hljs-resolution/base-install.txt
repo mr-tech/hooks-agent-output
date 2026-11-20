@@ -1,0 +1,146 @@
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +1447
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1447, reused 0, downloaded 0, added 0
+Progress: resolved 1447, reused 431, downloaded 0, added 0
+Progress: resolved 1447, reused 1357, downloaded 0, added 0
+Progress: resolved 1447, reused 1445, downloaded 0, added 394
+Progress: resolved 1447, reused 1445, downloaded 0, added 1107
+Progress: resolved 1447, reused 1445, downloaded 0, added 1447, done
+
+dependencies:
++ @aws-sdk/client-s3 3.383.0
++ @codemirror/commands 6.2.2
++ @codemirror/lang-json 6.0.1
++ @codemirror/state 6.2.0
++ @codemirror/view 6.9.3
++ @floating-ui/dom 1.1.0
++ @floating-ui/react 0.27.18
++ @headlessui/react 2.2.9
++ @headlessui/tailwindcss 0.2.2
++ @hello-pangea/color-picker 3.2.2
++ @heroicons/react 2.0.13
++ @internationalized/date 3.11.0
++ @next/bundle-analyzer 16.1.6
++ @prisma/client 4.14.1
++ @react-aria/utils 3.33.0
++ @react-spring/shared 10.0.3
++ @react-spring/web 10.0.3
++ @tanstack/react-query 5.90.21
++ @trpc/client 11.10.0
++ @trpc/next 11.10.0
++ @trpc/react-query 11.10.0
++ @trpc/server 11.10.0
++ @use-gesture/react 10.3.1
++ @vercel/analytics 1.6.1
++ @vercel/edge-config 0.2.0
++ @vercel/functions 3.11.3
++ @vercel/speed-insights 1.0.10
++ animejs 3.2.1
++ classnames 2.3.2
++ codemirror 6.0.1
++ compress-json 2.1.2
++ cookies-next 6.1.1
++ copy-to-clipboard 3.3.3
++ cron-parser 4.8.1
++ cropperjs 1.5.13
++ dayjs 1.11.7
++ discord-api-types 0.38.40
++ discord-verify 1.0.3
++ dotenv 16.0.3
++ emoji-regex 10.2.1
++ fast-deep-equal 3.1.3
++ form-data 4.0.0
++ highlight.js 11.7.0
++ ioredis 5.3.1
++ js-cookie 3.0.5
++ kysely 0.26.1
++ nanoid 4.0.2
++ next 16.1.6
++ next-auth 4.24.5
++ object-hash 3.0.0
++ project-utils 0.0.0
++ pusher 5.1.3
++ pusher-js 8.3.0
++ react 19.2.4
++ react-accessible-accordion 5.0.1
++ react-aria 3.46.0
++ react-device-detect 2.2.3
++ react-dom 19.2.4
++ react-error-boundary 6.1.1
++ react-hotkeys-hook 5.2.4
++ react-images-uploading 3.1.7
++ react-merge-refs 3.0.2
++ react-slider 2.0.4
++ react-stately 3.44.0
++ react-toastify 11.0.5
++ react-use 17.4.0
++ sass 1.56.2
++ simple-markdown 0.7.3
++ slate 0.123.0
++ slate-dom 0.123.0
++ slate-history 0.113.1
++ slate-react 0.123.0
++ superjson 2.2.6
++ tweetnacl 1.0.3
++ twemoji 14.0.2
++ zod 3.22.4
++ zod-error 1.5.0
+
+devDependencies:
++ @eslint/js 10.0.1
++ @floating-ui/core 1.7.4
++ @next/eslint-plugin-next 16.1.6
++ @react-types/datepicker 3.13.4
++ @react-types/shared 3.33.0
++ @types/animejs 3.1.6
++ @types/body-scroll-lock 3.1.0
++ @types/js-cookie 3.0.6
++ @types/node 22.15.29
++ @types/object-hash 3.0.2
++ @types/react 19.2.14
++ @types/react-dom 19.2.3
++ @types/react-slider 1.3.1
++ @types/slate 0.47.11
++ @typescript-eslint/eslint-plugin 5.62.0
++ @typescript-eslint/parser 5.62.0
++ @vercel/node 3.0.11
++ autoprefixer 10.4.13
++ eslint 8.57.1
++ eslint-config-airbnb 19.0.4
++ eslint-config-airbnb-base 15.0.0
++ eslint-config-next 15.5.14
++ eslint-plugin-import 2.29.0
++ eslint-plugin-jsx-a11y 6.10.2
++ eslint-plugin-n 15.6.0
++ eslint-plugin-promise 6.1.1
++ eslint-plugin-react 7.33.2
++ eslint-plugin-tailwindcss 3.11.0
++ globals 17.4.0
++ jsdom 30.0.1
++ next-remote-watch 2.0.0
++ paracord 0.0.5
++ postcss 8.4.31
++ prisma 4.11.0
++ rimraf 3.0.2
++ tailwind-scrollbar 2.0.1
++ tailwindcss 3.2.4
++ ts-node 10.9.1
++ tsconfig-paths 4.2.0
++ typescript 5.9.3
++ typescript-eslint 8.58.0
++ vitest 4.1.2
+
+╭ Warning ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│   Ignored build scripts: @prisma/client@4.14.1, @prisma/engines@4.11.0,      │
+│   @prisma/engines@5.3.1, @vercel/speed-insights@1.0.10, bufferutil@4.0.7,    │
+│   esbuild@0.14.47, prisma@4.11.0, protobufjs@7.2.4, protobufjs@7.5.4,        │
+│   sharp@0.34.5, utf-8-validate@5.0.10.                                       │
+│   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+│   to run scripts.                                                            │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Done in 10.3s using pnpm v10.28.2
+install exit 0

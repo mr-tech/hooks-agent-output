@@ -1,0 +1,2 @@
+/tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/hljs/base/.next/server/chunks/ssr/8c671_highlight_b1736837.js
+/tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/hljs/base/.next/server/chunks/ssr/8c671_highlight_b1736837.js.map

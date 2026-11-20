@@ -1,0 +1,10 @@
+(void 0).getLanguage(u.lang
+(void 0).highlight(u.content,{language:u.lang,ignoreIllegal
+(void 0).getLanguage(a.lang
+(void 0).highlight(a.content,{language:a.lang,ignoreIllegal
+(void 0).getLanguage(t
+(void 0).highlight(r,{language:t,ignoreIllegals:!0}
+(void 0).getLanguage(r.lang
+(void 0).getLanguage(b
+(void 0).highlight(c,{language:b,ignoreIllegals:!0}
+(void 0).getLanguage(c.lang

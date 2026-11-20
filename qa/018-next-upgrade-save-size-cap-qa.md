@@ -4,16 +4,17 @@ Origin: 018
 UUID: 6273a762
 Verified-At: "7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe — repos=website; Phase 1 reads and probes only, no verdict; probes ran in an isolated export of this commit (shapes.ts blob 1c13ca2 verified equal)"
 Status: Awaiting Implementation
-Status-Detail: "Phase 1 re-keyed to plan revision 5 (agent-output e45e8cf). QAF-1 to QAF-9 resolved; no open QA finding. Register B-1 to B-8 unchanged since revision 3."
+Status-Detail: "Phase 1 re-keyed to plan revision 6 (agent-output 8277b08), M2 only. QAF-10 HIGH open to the planner: the rev 6 paths entry makes the production bundle bind highlight.js to undefined. Register B-1 to B-8 unchanged."
 Phase: 1
 ---
 
 # QA Report: Plan 018 — Next.js 16.4.6 and the save-list cap (H-002, M-001)
 
-**Plan Reference**: `agent-output/planning/018-next-upgrade-save-size-cap.md`, revision 5 (`e45e8cf`). Re-keyed from revision 4
-(`29277d3`) by reading the `git diff 29277d3 e45e8cf` of the plan whole (29 lines added, 13 removed, `--numstat`). Each earlier
-revision was re-keyed the same way: 4 from 3 (`428090e`), 3 from 2 (`7a1bd46`), and 2 from 1 (`c2a6b85`). Revision 5 changes M1-i's
-wording only (F-19, F-20, AF-9, QAF-9), so it moves no register row.
+**Plan Reference**: `agent-output/planning/018-next-upgrade-save-size-cap.md`, revision 6 (`8277b08`). Re-keyed from revision 5
+(`e45e8cf`) by reading the `git diff e45e8cf 8277b08` of the plan whole (42 lines added, 18 removed). The re-key is owed because M2
+has started: the implementer holds it on the `tsconfig.json` finding, and the plan's Owed re-verdicts row names QA on M2-b and M2-c.
+Revision 6 changes M2's steps, M2-b, M2-c and M2-d, and adds X-21. It moves no register row. Each earlier revision was re-keyed the
+same way: 5 from 4 (`29277d3`), 4 from 3 (`428090e`), 3 from 2 (`7a1bd46`), and 2 from 1 (`c2a6b85`).
 **Brief**: `steering/018-brief-qa.md` (`96612e1`); common part `steering/018-brief-common.md`; rulings `steering/018-rulings.md` block
 2026-11-20T03:25Z (X-1 to X-15 accepted).
 **Architecture read**: `architecture/website.md` W-2, A-1, A-4; `architecture/system-architecture.md` not re-read beyond the plan's
@@ -28,6 +29,7 @@ citation of line 110 (nothing in this pass rests on it).
 | 2026-11-20T04:12 | planner-hooks-018 (revision 2, `7a1bd46`) | Phase 1 re-key on revision 2 | Phase 1 re-key. The plan's diff was read whole. QAF-1..5 RESOLVED (disposition lines). The planner's abort-form probe was re-tallied (182/182). QAF-6 MEDIUM (R7 cites a superseded 015 row and a fix 015 dropped) and QAF-7 LOW (M1-h's carrier) go to the planner. The differential was extended (1134 labels: b+50, nested kind, the import schema), with the base re-captured and its controls re-run. Production base reads were made over HTTP on hooks.gg (M1-h 51 issues; B-8 minting; Next 16.1.6), which closes the earlier Assumption Not Checked. Zod was shown not to move under the M2 package step. Register rows B-1..B-8 were re-specified with dated reconcile lines; B-4/B-5 are held on OQ-5. |
 | 2026-11-20T04:21 | planner-hooks-018 (revision 3, `428090e`) | Phase 1 re-key on revision 3 | Phase 1 re-key. The plan's diff was read whole. QAF-6 and QAF-7 RESOLVED; QAF-8 HIGH to the planner (one issue echoes its input: a 100,000-char `parse` element gives a 301,470-char refusal, so a count cap does not bound the error). M1-i premises run on the async path tRPC uses: same issue order; the stop holds; 21 lines via `formatMutationError`. A read-count instrument separates a real stop (63 reads) from full-then-trim (4800). `compare.py` was moved to M1-b over the cap, with a positive control (68) and a negative control (0). NM-9..NM-13 added. Register: B-2 set-up; B-4/B-5 hold lifted (D-8); B-6 carrier adopted. |
 | 2026-11-20T04:30 | planner-hooks-018 (revision 4, `29277d3`) | Phase 1 re-key on revision 4 | Phase 1 re-key. The plan's diff was read whole. QAF-8 RESOLVED. QAF-9 LOW goes to the planner: M1-i's literal-position list misses a section child's text-display `type`, which echoes 100,257 chars from one issue; QA's full enumeration is recorded. Differential v3 now runs through the callers on `code`/`path`/`message`, with plain-union pseudo-sites. Base re-captured (1224 labels); controls 18224 / 84 = 84 / 0. NM-14..NM-17 added. My revision-3 claim that the async stop holds is corrected: one body read as a class, with no rejection watch; plan rev 4 requires a synchronous stop. Register unchanged. |
+| 2026-11-20T05:5x | planner-hooks-018 (revision 6, `8277b08`) | Phase 1 re-key on revision 6 (M2) | Phase 1 re-key, M2 only. The plan's diff was read whole. **QAF-10 HIGH** goes to the planner: under form B, Turbopack follows the `paths` entry, so `import hljs from 'highlight.js'` binds to `undefined` in the production bundle. The base build has 0 `(void 0).getLanguage`/`.highlight` call sites and form B has 10; the runtime markers are in 2 files at base and 0 under B. Build, typecheck and suite all stay green (`verification/018/qa/m2-hljs-resolution/`). M2-b and M2-c instruments were re-specified. Assumption Not Checked: form A's bundle binding. Register unchanged. |
 | 2026-11-20T04:33 | planner-hooks-018 (revision 5, `e45e8cf`) | Phase 1 re-key on revision 5 | Phase 1 re-key. The plan's diff was read whole (M1-i wording only: F-19, F-20, AF-9, QAF-9). QAF-9 RESOLVED; no open QA finding. QA's long-value enumeration and F-19's unit are recorded under the M1-i instruments. Assumption Not Checked: AF-9's helper keeps the union's issue. Register unchanged. The document body was committed at `cdb71e2` before this row: an anchor miss, so this row is committed on its own. |
 
 ## Findings (Phase 1)
@@ -62,6 +64,29 @@ planner's `strip-cap-probe/` shows 168 to 512 characters on QAF-8's inputs, with
 QAF-9 LOW Phase 1 RESOLVED — plan rev 5 M1-i *no huge error*: the population adds `textDisplayShape.type` inside
 `sectionShape.components`, cites QA's enumeration, and states the exclusion rule (excluded only where reached as a discriminator).
 Argument at commit `413798f`; the enumeration itself now stands under § M1-i instruments, *No huge error*.
+
+QAF-10 HIGH Phase 1 — plan rev 6 M2 step 2 (`compilerOptions.paths` `"highlight.js": ["./node_modules/highlight.js/types/index.d.ts"]`)
+breaks syntax highlighting in the production bundle, and no M2-c instrument can see it. Turbopack honours tsconfig `paths` for the
+modules it bundles. So the bare `import hljs from 'highlight.js'` in `src/utils/markdown/rules.tsx` and
+`src/components/SlateEditor/utils/decorator.tsx` resolves to the declaration file, and the default import is `undefined`.
+Measured in an isolated export of `7923a1d` with the plan's three keys, Next 16.4.6 and highlight.js 11.7.0
+(`verification/018/qa/m2-hljs-resolution/`, `probe.sh`, `summary.txt`):
+- `next build` exits 0, with no "mandatory" line.
+- The two highlight.js runtime markers are in 2 files at base and 0 under B.
+- `(void 0).getLanguage(`/`(void 0).highlight(` call sites: 0 at base, 10 under B. The markdown `codeBlock` rule bundles as
+  `if(a.lang&&void 0!==(void 0).getLanguage(a.lang))`.
+- The negative control is 0 in both builds.
+On that reading, rendering or editing any code block with a language tag throws a TypeError, in the message preview and in the
+editor. The page itself was not rendered.
+The suite stays green because vitest resolves through its own `alias` and never through tsconfig `paths`
+(`rules.multi-line-code-block.test.ts` gets the real library). The `ts-node` scripts load `tsconfig-paths/register`, which maps
+the same specifier to the `.d.ts`; any script whose import closure reaches highlight.js is exposed the same way (not run).
+**Property to check:** in the production build, the module that `highlight.js`'s importers bind to is the library's runtime. The
+instrument is this probe, read as markers present and zero `(void 0)` receivers, with the base as the positive control. It has been
+seen red (B) and green (base).
+**To the planner:** M2 needs a type fix that the bundler does not follow. One option is form A (highlight.js ≥ 11.8.0, X-21's
+trade-off), which this pass has not probed at the bundle (Assumption Not Checked, rev 6). Another is a declaration-only route,
+such as an ambient module in `src/@types/`. Whichever form is chosen, M2-c gains this bundle limb.
 
 ## Test Strategy (Pre-Implementation)
 
@@ -173,6 +198,17 @@ Each phrase has its own instrument, all through the procedures' real path. tRPC 
   build`, suite and typecheck in an export with its **own** install (never a symlinked `node_modules`: Turbopack refused one at chain
   015, `bug-evaluation-fixes` handoff item 1). The suite is compared by `testResults` path membership and per-file counts against the
   base (1913 cases / 149 files, exit 0), exit code beside the counters.
+  **Reconcile 2026-11-20 (plan rev 6):** four instruments are added.
+  (1) M2-b `tsconfig.json`: `git diff 7923a1d -- tsconfig.json` at the tip, with every hunk dispositioned against the plan's
+  named keys. That includes the end-of-file newline: the planner's `B/tsconfig.diff` drops it, which is a change outside the
+  named keys if the committed file carries it.
+  (2) M2-c *leaves `tsconfig.json` as committed*: `cmp` of the export's file after `next build` against
+  `git show <tip>:tsconfig.json`, beside `grep -c mandatory` on the build log. The positive control is the planner's
+  `A/build.txt` (1).
+  (3) M2-c `ts-node` check: transpile-only (`-T`) and typed, each with its exit code written beside its output. The planner's
+  `tsnode-fixed*.txt` are empty files that carry no exit code. The red control is `B/tsnode.txt` (TS5095, exit 1).
+  (4) M2-c bundle limb (QAF-10): `verification/018/qa/m2-hljs-resolution/probe.sh` over the tip's build: the runtime markers
+  present and zero `(void 0)` highlight.js receivers, with the base build as the control.
 - **M3:** both configs over the same tree with `--format json`, tallied per rule id by a script (never by a filtered count), never
   `--fix`; exit code 0/1 and never 2.
 - **M4:** the M4 tests named above, at 16.4.6; walks B-3 (R1, R2, R3, R5); R6 and R7 by the implementer's source reads, which QA
@@ -364,6 +400,12 @@ plain-union sites, declared as `z.ZodType<…>`) records, within the bound, the 
 the differential's UA, US or S6 within-bound labels differ from the base on `code`, `path` or `message`. Owner: QA at Phase 2, by the
 differential (v3), which carries those labels.
 
+**Re-key on plan revision 6.** This pass assumes, and does not test, that form A (highlight.js 11.12.0, no `paths` entry,
+`moduleResolution` `bundler`) binds highlight.js's runtime in the production bundle. The planner's run shows its build, typecheck
+and suite pass, which cannot see the binding (QAF-10). The signature of its falsity: the m2-hljs-resolution probe over a form-A
+build finds zero marker files or a non-zero count of `(void 0)` highlight.js receivers. Owner: the planner, if revision 7 adopts form A
+(the probe is runnable as committed); otherwise QA at Phase 2, by the same probe over the tip.
+
 ## Implementation Review (Post-Implementation)
 
 Not started (Phase 2).
@@ -372,6 +414,9 @@ Not started (Phase 2).
 
 Written 2026-11-20T04:34Z at steering's checkpoint request, by session `qa-hooks-018`, cwd `/usr/local/bin/hooks/website`.
 
+- **Re-key on revision 6 (2026-11-20T05:5xZ, after a `/clear`):** QAF-10 HIGH is open to the planner; evidence is in
+  `verification/018/qa/m2-hljs-resolution/`, and its exports are deleted. Phase 2 adds the M2 instruments (§ Acceptance Criteria,
+  M2 reconcile).
 - **Done:** Phase 1 on plan revisions 1 to 5. The last re-key is on revision 5 (`e45e8cf`), committed at agent-output `cdb71e2` and
   `0160d45` (changelog row). QAF-1 to QAF-9 are RESOLVED; no QA finding is open. Status: `Awaiting Implementation`. Steering was
   told there are no findings (message to `steering-roadmap-hooks`, after `0160d45`).
