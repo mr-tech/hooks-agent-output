@@ -277,3 +277,22 @@ need no word of his. One `owner-wait` notice sent (`--chain website-deps-review 
   re-check of 017's leave-page warnings and link handling, and a cap on all 11 save-list sites; the exclusions in block 02:53Z stay out /
   Agent: as determined plus the two H-001 leftovers (the unused header write in `middleware.ts`, the commented line in
   `JsonModalBody.tsx`) / Agent: don't open the chain.
+
+## 2026-11-20T03:08Z — his three answers on the H-002/M-001 chain, by selection; his standing word on prompts
+
+**His words, typed 03:0xZ:** "also, if you have prompts for me, just send them". This thread's reading: owner questions go to him as
+selection prompts when they arise, not held in plain text while another chain can move.
+**His question, typed 03:0xZ:** "Question, why did the browser tests get sent to me instead of automatically going to the agents?"
+Answered from block 2026-11-20T02:41Z of `steering/017-rulings.md` (the planner's wording, carried onto OWNER-QUEUE by this thread
+without the Standing Default test). An FYI entry for the definitions is appended to `~/.claude/agents/INBOX.md`.
+**Selection, answered 03:08Z** (ledger `steering/selection-ledger/2026-11-20.md`, block "2026-11-20T03:08Z — steering-roadmap-hooks";
+the three questions of block 02:54Z re-put as a selection prompt; wording this thread's):
+- Q "Next version": **Agent: 16.4.6 (Recommended)** — CHOSEN, by selection. "Agent moves Next.js and its lint/analyzer packages to the
+  latest 16.4 release. Biggest framework step; leaves no Next.js advisory from the review behind, and makes the image-service question
+  moot for its Next.js entries." Not chosen: Agent: 16.2.5 minimum; Agent: no upgrade.
+- Q "Preview": **Agent: preview first (Recommended)** — CHOSEN, by selection. "Agent pushes the chain branch (preview only, production
+  untouched). UAT loads the public pages, images and the sign-in redirect on the preview. Signed-in pages can't run there." Not chosen:
+  Agent: local build only.
+- Q "Scope": **Agent: as determined (Recommended)** — CHOSEN, by selection. "Agent opens a planned chain on exactly that scope. Release
+  is a website master push, which needs your word." Not chosen: Agent: plus H-001 leftovers; Agent: don't open it.
+Owner-wait `h002-m001-scope` resolved. **Next:** the planner, on the determination of block 02:53Z with these three answers.
