@@ -85,3 +85,28 @@ that would have caught it: marking the premise "unread: security's claim", or sw
 - **Post-deploy:** confirmation (b), whether a client header reaches the function, read with a harmless request after the fix, by an
   agent.
 - **Released chain touching this route:** none known. `Providers.tsx` was last shaped by 017 (`architecture/closed/017-…findings.md:34`).
+
+## 2026-11-20T02:11Z — fixer handoff at 7923a1d; two rulings; code reviewer spawned
+
+The fixer's document, read this turn: `implementation/fix-message-page-header-decode-implementation.md` (record `0c17d20`), `Status:
+Active`, `Handoff-At: 7923a1d`. Website log: `7923a1d` over `983681c`. By the fixer's message:
+- `getMessage` is removed from `Providers.tsx`. Its fetch result was discarded; share-code loads run client-side.
+- The red test was 4/4 red at the base and is green at the fix.
+- `query-string` is removed, so `decode-uri-component` is absent from the lockfile.
+- `sanitize-html`, `@types/sanitize-html` and the direct `sharp` are removed. `next build` exits 0, and Next.js resolves its own
+  `sharp` 0.34.5. `form-data` is kept.
+- The lockfile only loses entries (43 packages). The suite passes 1913 cases with exit 0. 1 production line added, so there is no QA
+  Phase 2 and the reviewer runs the suite and the red test.
+**Rulings (this thread's):**
+- **No override:** his option named "a lockfile override of decode-uri-component to 0.5.1 or later". Once `query-string` went unused,
+  the fixer removed it, and the vulnerable package left the tree entirely. That is a mechanism choice inside agreed scope (Standing
+  Default): recorded, and reported to him as moot rather than done.
+- **The `middleware.ts:17-21` write of `x-query-params`**, now unread: out of scope (it is the sweep's S9 to S11 region, middleware),
+  harmless, and left as is. Recorded here as its carrier; no handoff.
+Spawned `code-reviewer-hooks-fix-message-page-header-decode` on `steering/fix-message-page-header-decode-brief-code-reviewer.md`. On
+approval it delivers to `security-hooks-website-deps`.
+**R-1 (access fix), his first run, 02:1xZ, his words:** `psql: error: connection to server at "127.0.0.1", port 5432 failed: Connection
+refused`. The script's premise was wrong: the active `DATABASE_URL` in `website/.env.local` is a local database, not production. The
+hazards record's "the remote hosted database" (2026-08-24) is stale. This thread's error: I took the premise from that record without a
+read. The check that would have caught it: a key-and-host-only read of that line (never its value). The script now asks for production's
+URL, typed hidden.
