@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-message-page-header-decode
 UUID: c8a9f0ca
-Status: Active
-Status-Detail: "APPROVED at website 7923a1d. The change closes H-001 of security/website-deps-review-security-audit.md: exercised on production builds of base and fix on this box. No finding against the change and no control owed before the website master push. Two post-deploy reads already carried by steering are relied on: one /_next/image request, and the harmless header request. The document closes when the chain closes."
+Status: Review Complete
+Status-Detail: "APPROVED at website 7923a1d, which is website master at origin since 2026-11-20T02:34:40Z (deployment/closed/fix-message-page-header-decode-deployment.md). The change closes H-001 of security/website-deps-review-security-audit.md. No finding against the change. One read is still owed after the release, the production /_next/image request without the direct sharp: row P-1 of handoff/message-page-header-decode-post-deploy-2026-11-20.md, Owning-Stage devops."
 Reviewed-At: "7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe — repos=website; base 983681c (origin/master)"
 Kind: code-audit
 ---
@@ -16,6 +16,7 @@ Kind: code-audit
 |------|---------------|---------|---------|
 | 2026-11-20T02:22 | code-reviewer-hooks-fix-message-page-header-decode → security-hooks-website-deps (message 02:1xZ; code review record `d67e7d5`, APPROVED at `7923a1d`; stage set in `steering/website-deps-review-rulings.md`, block 2026-11-20T02:03Z) | Security on the change `983681c..7923a1d` | Initial assessment. Verdict APPROVED. H-001 exercised on production builds: base slow, fix flat. Audit at the fix lockfile: 127 entries, 14 fewer, none new. No finding against the change. |
 | 2026-11-20T02:34 | steering-roadmap-hooks → security-hooks-website-deps (message, "run /checkpoint") | Wrap up for a clear | Checkpoint: Resumption State written at the end of this document. The verdict and its tree are unchanged. |
+| 2026-11-20T02:38 | steering-roadmap-hooks → security-hooks-website-deps (message 02:3xZ; devops's `INBOX.md` entry of 2026-11-20, "For the security stage") | Document closed | Status: Review Complete. The session resumed after a `/clear` from the Resumption State at record `4e876a7`. The chain is released, so the document closes. Read after the resume, not carried across: origin `master` is `7923a1d9…` (`git ls-remote origin refs/heads/master` in `website`, this session); the deployment record and the P-1 carrier handoff, each read whole. Carried across unchanged: the verdict and its evidence. The three relied-on items are reconciled in their section, each with its carrier or its end. |
 
 ## Metadata
 
@@ -107,6 +108,14 @@ None before the push.
 - **The fix reaches production only by the push.** Until then hooks.gg runs `983681c`, and H-001 is live there.
 - **Whether a visitor's header reaches the function on Vercel.** It no longer matters to the fix, which reads no such header. Steering's harmless post-deploy request records it for the record's sake.
 
+**At closure, 2026-11-20T02:38.** The three items above are the state at the verdict. Later documents are authoritative on each.
+
+- **`/_next/image` on Vercel without the direct `sharp`: still owed, carried.** Carrier: `handoff/message-page-header-decode-post-deploy-2026-11-20.md`, row P-1, `Owning-Stage: devops`, read by the scheduled reader P1R. Its result cell was blank when I read it at this closure. A 5xx there is a rollback question for the owner, as the handoff says.
+- **The push: made.** Website `master` moved from `983681c` to `7923a1d` at 2026-11-20T02:34:40Z (`deployment/closed/fix-message-page-header-decode-deployment.md`); origin read `7923a1d9…` in this session. That hooks.gg now serves this commit rests on the push deploying through Vercel, which the deployment record accepts as written. No host was read, by devops or by me.
+- **The header's passthrough on Vercel: lapsed, no carrier owed.** Steering dropped the read (`steering/website-deps-review-rulings.md`, block 2026-11-20T02:30Z): at `7923a1d` nothing reads `x-query-params`, so the read would decide nothing.
+
+I-2 and I-3 keep the carriers their rows name. I-1 is closed by the deletion itself.
+
 ## Testing Recommendations
 
 None owed. The change's test drives the composed component with the header and holds both acts closed. A request through the real middleware is covered by run 1 above, which is a one-time check and not a suite test.
@@ -125,12 +134,9 @@ None owed. The change's test drives the composed component with the header and h
 - **The shared tree was not moved or written.** `git rev-parse HEAD` and `git status --short` were captured before and after and compare equal (`tree-identity-start.txt`, `tree-identity-end.txt`): `7923a1d`, with `?? .playwright-mcp/`, which is another session's.
 - **An instrument error of mine, fixed in the round.** My first lockfile comparison missed `snapshots` keys written `key: {}` and reported 22 removed. The corrected instrument reports 43, and the output file is the corrected run's.
 - **An instrument extended.** `verification/website-deps-review/security/apply-dispositions.js` gained an `--allow-unused` argument, for a tree where a fix removed packages. Without the argument it reproduces the base table byte for byte (`cmp` exit 0).
+- **The Resumption State was replaced by its closing line at closure.** What the removed text carried: the commit of the verdict (`5640deb`); the rule that a tree moving past `7923a1d` before release expires the verdict, which did not fire because the release shipped `7923a1d` itself; and the closing steps, now done. The text is in this document at record `4e876a7`.
 - **Builds and the production rule.** The code reviewer did not build, because a build in the shared tree runs beside `.env.local`. My exports hold no `.env` file, so the builds had no configured host to reach. I did not check what a build fetches on its own, such as the web font the layout declares.
 
 ## Resumption State
 
-Written 2026-11-20T02:34 at a checkpoint steering asked for. The full state of this session is in `security/website-deps-review-security-audit.md`, Resumption State.
-
-- **Done:** the verdict above, APPROVED at website `7923a1d`, committed at agent-output `5640deb`; the devops spawn cue sent to steering.
-- **Next:** nothing is owed before the push. If the tree under review moves past `7923a1d` before release, the verdict has expired and the delta is re-reviewed. When the chain closes, set `Status: Review Complete`, name the carrier of each relied-on post-deploy read, and move this file to `security/closed/`.
-- **Nothing uncommitted, nothing running, no question open.**
+Closed 2026-11-20T02:38: nothing to resume. The session's state is in `security/website-deps-review-security-audit.md`, Resumption State.
