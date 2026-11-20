@@ -1,0 +1,30 @@
+== MAX_BF_CACHE_ENTRIES
+dist/client/components/bfcache-state-manager.js:13:const MAX_BF_CACHE_ENTRIES = process.env.__NEXT_CACHE_COMPONENTS ? 3 : 1;
+== create-segment-key files
+dist/client/components/router-reducer/create-segment-key.d.ts
+dist/client/components/router-reducer/create-segment-key.browser.js
+dist/client/components/router-reducer/create-segment-key.js.map
+dist/client/components/router-reducer/create-segment-key.js
+dist/client/components/router-reducer/create-segment-key.browser.d.ts
+dist/client/components/router-reducer/create-segment-key.browser.js.map
+== browser variant body
+2:Object.defineProperty(exports, "__esModule", {
+5:0 && (module.exports = {
+9:function _export(target, all) {
+15:_export(exports, {
+16:    createHeadKey: function() {
+17:        return createHeadKey;
+19:    createSegmentKey: function() {
+20:        return _createroutercachekey.createRouterCacheKey;
+24:function createHeadKey(varyPath) {
+39:    return JSON.stringify(parts);
+== browser-variant-modules
+dist/build/browser-variant-modules.js:23:    'client/components/router-reducer/create-segment-key',
+== layout-router use
+385:    const activeStateKey = (0, _createsegmentkey.createSegmentKey)(activeSegment);
+521:                mode: stateKey === activeStateKey ? 'visible' : 'hidden',
+== site cacheComponents
+0
+== built client key forms
+/tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/fp2/d1bb9b0/.next/static/chunks/3s-e0_9y4n98e.js
+/tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/fp2/d1bb9b0/.next/static/chunks/18_s7q4ioy1v7.js

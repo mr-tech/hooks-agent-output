@@ -1,0 +1,1 @@
+cmp-vs-commit exit 0

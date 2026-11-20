@@ -1,0 +1,12 @@
+7923a1d-install exit 0
+7923a1d prod-list exit 0
+d1bb9b0-install exit 0
+d1bb9b0 prod-list exit 0
+d1bb9b0-suite exit 0
+d1bb9b0-lint exit 1
+d1bb9b0-differential exit 0
+d1bb9b0-build exit 0
+d1bb9b0-typecheck exit 0
+d1bb9b0-tsnode-T exit 0
+d1bb9b0-tsnode-typed exit 0
+done

@@ -1,0 +1,5 @@
+UNCLASSIFIED - webpack-bundle-analyzer@4.10.1 -> acorn@8.8.1
+UNCLASSIFIED - webpack-bundle-analyzer@4.10.1 -> picocolors@1.0.0
+UNCLASSIFIED + webpack-bundle-analyzer@4.10.1 -> acorn@8.16.0
+UNCLASSIFIED + webpack-bundle-analyzer@4.10.1 -> picocolors@1.1.1
+{'M2': 143, 'M3': 11, 'UNCLASSIFIED': 4} of 158
