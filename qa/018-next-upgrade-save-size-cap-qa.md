@@ -3,8 +3,8 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Verified-At: "7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe — repos=website; Phase 1 reads and probes only, no verdict; probes ran in an isolated export of this commit (shapes.ts blob 1c13ca2 verified equal)"
-Status: Awaiting Implementation
-Status-Detail: "Phase 1 re-keyed to plan revision 7 (agent-output af8a9d6), M2 only. QAF-1 to QAF-10 resolved; no open QA finding. Register B-9, B-10 appended (M2-e)."
+Status: QA Complete
+Status-Detail: "Phase 1 (re-keyed through revision 7; revision 8 read at the effort-final pass). Phase 2 per milestone in the -m1, -m2, -m3 and -m4 documents; effort-final PASS at website d1bb9b0 (62703f1). The register B-1 to B-10 is open for UAT and devops."
 Phase: 1
 ---
 
@@ -438,6 +438,7 @@ Not started (Phase 2).
 
 Written 2026-11-20T04:34Z at steering's checkpoint request, by session `qa-hooks-018`, cwd `/usr/local/bin/hooks/website`.
 
+- **Effort-final (2026-11-20T06:19Z):** PASS at `d1bb9b0` (`qa/…-m4-qa.md`, `62703f1`; plan R-21 and Status QA Complete, `c417e5f`). Nothing of QA's remains before UAT. Next for QA: Phase 3 at the release tip, on devops's request only. No export, helper or browser is left open.
 - **Phase 2 state (2026-11-20T06:06Z):** M2 PASS at `b0b0158` (`qa/…-m2-qa.md`, `b247da8`), re-anchored at `a558f2d`; M1 PASS at `a558f2d` (`qa/…-m1-qa.md`, `eb0c713`); M3 PASS at `969d92a` (`qa/…-m3-qa.md`, `e0d8b95`, QAF-11 LOW to the Planner batch). Plan rows R-13, R-16, R-17. **Next (steering block 2026-11-20T06:06Z, `409f120`):** the last Phase 2 (M4 and the effort-final sweep over `7923a1d..<tip>`) runs at the tip that carries the `zod` pin (CR-2), after that commit's code review. It does not run at `969d92a`, and no sweep was started there. The effort-final mutation sweep covers the chain's whole production diff at the last Phase 2 and stays owed. The B-2 HTTP limb carries the revision-3 and revision-4 assumptions (UAT). No export, helper or browser is left open.
 - **Standing for M2 (steering ruling `steering/018-rulings.md` block 2026-11-20T05:26Z, `44efb1f`):** M2 is capped. Each further M2 gap below HIGH goes to the plan's Planner batch as a stated limit, with no revision round; a severity-floor finding (an unasserted preserved behaviour, MEDIUM floor) is excepted. Code review of M1 is running at `Handoff-At` `f9e66c2` (code-reviewer-hooks-018). Its committed verdict starts Phase 2 on M1, run in an export of the reviewed SHA because the shared tree moves under M2.
 - **Re-key on revision 7 (2026-11-20T05:23Z):** QAF-10 RESOLVED; B-9 and B-10 appended; the browser is closed and its caches emptied after the 05:22Z `/preview` read. No QA finding is open.
