@@ -2,8 +2,8 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Status: Active
-Status-Detail: "Revision 5: folds the LOW findings on revision 4 (critic F-19, F-20; architect AF-9; QA QAF-9) into M1-i's wording. Every gate approved revision 4. No open question. Ready for the critic's delta read and QA's and the architect's reads of M1-i."
+Status: In Progress
+Status-Detail: "Implementation of revision 5 started 2026-11-20T04:3xZ by implementer-hooks-018 on website chain/018-next-upgrade-save-size-cap (M1 to M4; M5 is devops's and UAT's). Revision 5: folds the LOW findings on revision 4 (critic F-19, F-20; architect AF-9; QA QAF-9) into M1-i's wording. Every gate approved revision 4. No open question. Ready for the critic's delta read and QA's and the architect's reads of M1-i."
 Revision: 5
 Plan-ID: 018
 Target-Release: "website master (Vercel production), moved from 7923a1d to the chain's verified tip by devops on the owner's word"
@@ -26,6 +26,7 @@ Lane: "planned (not proposed small): the framework moves under every page"
 | 2026-11-20T04:27 | R-2 | planner-hooks-018 | Registers the architect's APPROVED on revision 4 and AF-9 LOW (`29b6ff8`) as a Planner batch row. |
 | 2026-11-20T04:30 | R-3 | planner-hooks-018 | Registers critique pass 4 on revision 4 (`f13a0f3`, APPROVED) and its F-19, F-20 LOW as Planner batch rows. |
 | 2026-11-20T04:31 | 5 | planner-hooks-018 | Folds critique pass 4's F-19, F-20 (`f13a0f3`), the architect's AF-9 (`29b6ff8`) and QA's re-key QAF-9 (`413798f`); every gate approved revision 4. Scope delta: M1-i's wording only — its unit is the M1 parse's own uncapped result, the union isolation is one typed helper, the long-value population adds `textDisplayShape.type` inside a section and cites QA's enumeration; no criterion added or removed. Size: five milestones, as at revision 4. |
+| 2026-11-20T04:36 | R-4 | implementer-hooks-018 | Status set to In Progress: implementation of revision 5 started at steering's recorded start (`steering/018-rulings.md` block 2026-11-20T04:33Z) on website `chain/018-next-upgrade-save-size-cap` from `7923a1d`. |
 
 ## Header
 
