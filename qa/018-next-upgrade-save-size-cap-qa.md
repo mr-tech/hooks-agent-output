@@ -438,6 +438,7 @@ Not started (Phase 2).
 
 Written 2026-11-20T04:34Z at steering's checkpoint request, by session `qa-hooks-018`, cwd `/usr/local/bin/hooks/website`.
 
+- **Standing for M2 (steering ruling `steering/018-rulings.md` block 2026-11-20T05:26Z, `44efb1f`):** M2 is capped. Each further M2 gap below HIGH goes to the plan's Planner batch as a stated limit, with no revision round; a severity-floor finding (an unasserted preserved behaviour, MEDIUM floor) is excepted. Code review of M1 is running at `Handoff-At` `f9e66c2` (code-reviewer-hooks-018). Its committed verdict starts Phase 2 on M1, run in an export of the reviewed SHA because the shared tree moves under M2.
 - **Re-key on revision 7 (2026-11-20T05:23Z):** QAF-10 RESOLVED; B-9 and B-10 appended; the browser is closed and its caches emptied after the 05:22Z `/preview` read. No QA finding is open.
 - **Re-key on revision 6 (2026-11-20T05:16Z, after a `/clear`; stamp corrected, first written ahead):** QAF-10 HIGH went to the planner; evidence is in
   `verification/018/qa/m2-hljs-resolution/`, and its exports are deleted. Phase 2 adds the M2 instruments (§ Acceptance Criteria,
