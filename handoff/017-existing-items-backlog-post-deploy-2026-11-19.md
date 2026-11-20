@@ -55,7 +55,7 @@ Smoke (the launcher's `--smoke`, the last act after this record's last write): r
 - **Predicted**: the preview shows the new edit within a minute.
 - **Failure mode**: if it still shows the old one, post-response work is not running in production (RK-1).
 - **Add-ons carried to this look** (each from a stage's Assumption Not Checked, below): open the preview images of the messages saved in the look and check none shows the line "Invalid message data." (F-5); a frozen preview on this look names RK-1, or F-3's column type, or F-2's function limit; a read-only listing of the saved message's `previews/<id>/` prefix, where he has the read access, shows one object after two saves more than 120 s apart (F-4).
-- **Owner**: owner. **Result**: _blank_
+- **Owner**: owner. **Result**: **EXECUTED 2026-11-20 (02:47–02:50Z), PASS**, by a test-account session on his ruling (`steering/017-rulings.md` block 2026-11-20T02:41Z; uat-hooks-017-looks). Production was website `7923a1d` (contains `787bec5`, `merge-base --is-ancestor` exit 0) and generator `8512a1d`, read by `git ls-remote`. Message 6024 was edited and saved twice, at 02:47:03.793Z and 02:49:23.831Z (140 s apart). Each time the list card's preview src moved to a new nonce (`previews/6024/v1795142824794…`, then `v179514296486…`) by the first poll, about 6 s after the save, and it then held. The image after save 2 reads the edited line ending in the marker; after save 1 the line is visibly longer, but the 192 px image is too small to read the marker. Neither image shows "Invalid message data." (F-5 not seen), and no preview froze (RK-1, F-3 and F-2 not seen). **F-4 unverified**: no read access to the bucket listing exists here, and none was attempted. Evidence: `verification/017/post-deploy/looks/b6-1.jsonl`, `b6-2.jsonl`, `README.md`.
 
 ### B-7  (reader B7R)
 
@@ -75,7 +75,7 @@ Smoke (the launcher's `--smoke`, the last act after this record's last write): r
 - **Earliest decidable**: website deploy live; B-11.
 - **Predicted**: tab 1 shows no "Message Update Detected"; tab 2 shows it. Unfixed production shows it in tab 1 (AN-1 outside-class member, verified at hook level), so this row distinguishes fixed from unfixed.
 - **Failure mode**: if tab 1 shows it, his report stands.
-- **Owner**: owner. **Result**: _blank_
+- **Owner**: owner. **Result**: **EXECUTED 2026-11-20 (02:55–02:56Z), PASS 5 of 5**, by a test-account session on his ruling (block 2026-11-20T02:41Z). Two tabs were open on message 6024. In tab 1 the walk saved, then typed into the message-username field 38, 69, 106, 158 and 263 ms after the `message.upsert` POST, so the typing landed in every run. Tab 1 showed no "Message Update Detected" in any run (50 ms poller, 10 s watch). Tab 2 showed it 0.64–0.71 s after each save. No Pusher or console errors; one `ws-us2.pusher.com` socket per tab. An earlier set of 5 runs is void: the name input does not take typed text, so the post-save typing never landed (`b8-attempt1-void.jsonl`). Evidence: `verification/017/post-deploy/looks/b8.jsonl`.
 
 ### B-9  (his look)
 
@@ -84,7 +84,13 @@ Smoke (the launcher's `--smoke`, the last act after this record's last write): r
 - **Instrument**: his look. **Subject / fallback**: owner.
 - **Earliest decidable**: website deploy live; B-11.
 - **Predicted / failure mode**: as B-2 and B-3 in the register: the signed-out draft is there after sign-in, open a message, back; message n's unsaved edits are back after a forced sign-out; with unsaved edits, a link away from the editor asks first, Cancel keeps the edits, confirm navigates. If the draft is gone, item 4's main loss is not fixed; if the click navigates without asking, M4 is unfixed.
-- **Owner**: owner. **Result**: _blank_
+- **Owner**: owner. **Result**: **EXECUTED 2026-11-20 (02:56–03:07Z), PASS**, by a test-account session on his ruling (block 2026-11-20T02:41Z). The walk used B-2's committed-edit form: each edit was committed by closing the content editor before the act.
+  - **M3-a**: the walk signed out of hooks.gg by clearing its `__Secure-next-auth.session-token` cookie (Discord untouched), then put `m3adraft` in route 0's draft. The draft was kept after a reload and in a new tab. Log in raised no unsaved prompt. After OAuth, opening a message and returning, route 0 still showed `m3adraft`.
+  - **M3-b**: `m3bmark` was an unsaved edit on 6024. The cookie was cleared (in production this stands in for the deleted session row of the local walk) and the page reloaded. It landed on route 0 signed out, showing `m3adraft` and not the marker. After signing in again, 6024 opened from the list showed `m3bmark`.
+  - **M4**: clicking the "Servers" link (a link away from the editor; the user icon now opens a menu and is not a link) raised "You have unsaved changes!". Cancel kept the edit on `/message/m/6024/edit`. Leave Page went to `/message`. A lone prompt answered by Enter also navigated.
+  - **Stated limit**: text typed into the still-open content editor is stored only when the editor closes. The literal runs lost it on reload and on forced sign-out. Pass 1 recorded the same on the local build (UAT document, "Instrument notes"). No criterion here requires it, and it was not compared with `1ad625e`.
+  - Evidence: `verification/017/post-deploy/looks/b9.jsonl` (`variant:true` committed, `variant:false` literal), `README.md`.
+  - Messages created for these looks (6022, 6023, 6024) were deleted by 03:10:16Z (`cleanup.jsonl`).
 
 ### B-10  (reader B10R)
 
@@ -137,3 +143,4 @@ Created at devops Stage 1 for plan 017 (`deployment/017-existing-items-backlog-d
 | 2026-11-19T19:54 | devops-hooks-017 | QAF-28 (qa-hooks-017, release-tip record, LOW, routed to devops): B-11's generator limb amended with a containment read. A read-only path exists: the deployed checkout's `.git/refs/heads/prod` over `claude-ro`. Instrument `verification/017/devops/read-generator-deployed-ref.sh`; live baseline and stub dry run in `read-generator-deployed-ref-live-baseline.txt` (current prod `8de2b53` exit 0, `8512a1d` exit 1, unreadable stub exit 3, match stub exit 0, all as predicted). Residue named in B-11. |
 | 2026-11-19T20:16 | devops-hooks-017 | Release executed (Stage 2, Phase 2C): ledger rows E-WEBSITE-PUSH, E-GENERATOR-PUSH and E-GENERATOR-START filled; B-11 executed on both repositories (both generator limbs exit 0). B-7's first post-website read: failure-prefix lines 0, control 240 records. Readers B7R and B10R run from their scheduled lines; E-GENERATOR-START starts B10R's 30-day window. His looks on B-6, B-8, B-9 are live from now. |
 | 2026-11-19T20:20 | devops-hooks-017 | Smoke after this record's last write (Phase 2D): `post-deploy-launcher.js` `--smoke` on B7R and B10R both `SMOKE OK`, the kit armed, nothing started. The ledger is filled, so B7R's gate (E-WEBSITE-PUSH) is open and its first scheduled fire is 2026-11-20T07:17Z. |
+| 2026-11-20T03:14 | uat-hooks-017-looks | Results for B-6, B-8 and B-9 (brief `steering/017-brief-uat-looks.md`; his ruling, 017 rulings block 2026-11-20T02:41Z): all three EXECUTED, PASS, by a test account on live hooks.gg at website `7923a1d` and generator `8512a1d`. F-4 is unverified because no bucket listing access exists. B-9 records a stated limit: text in the still-open editor is not drafted. Evidence is in `verification/017/post-deploy/looks/`. No other row was touched. |

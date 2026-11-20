@@ -1,0 +1,54 @@
+{"t":"2026-11-20T02:56:28.161Z","k":"hooks-cookies-before","cs":[{"name":"__Secure-next-auth.session-token","domain":"hooks.gg"},{"name":"__cf_bm","domain":".cdn.hooks.gg"},{"name":"cookie-consent","domain":"hooks.gg"},{"name":"__Host-next-auth.csrf-token","domain":"hooks.gg"},{"name":"__Secure-next-auth.callback-url","domain":"hooks.gg"}]}
+{"t":"2026-11-20T02:56:28.163Z","k":"cleared","name":"__Secure-next-auth.session-token","domain":"hooks.gg"}
+{"t":"2026-11-20T02:56:31.831Z","k":"after-signout","url":"https://hooks.gg/message/m/0/edit","ui":{"avatar":false,"buttons":["File","Edit","View","Help","Send","You're not logged in\n\nLog in to access more features","I'll do it later","Log in","Classic\nComponents V2","Welcome to Hooks.gg, the ultimate free message building tool for community builders!\n\n\nHere you can easily create beautiful custom messages for your server to engage and communicate with your members.\n\n\nTo get started, click or tap on anything you want to edit! Use the menu in the top right to log in and access advanced features like cloud saves and shared messages.\n\n\nIf you ever need any assistance, reach out to us in our support server and we'll be happy to help you!","support server","About Hooks.gg","We're excited to have you here!\n\n\nThis user-friendly interface makes it easy to create custom messages that fit your server's theme and tone. (Hint: Use the Actions menu to toggle between Edit Mode and View Mode.)\n\n\nHere are just some of the exciting features you'll find in Hooks.gg.","Fully-Interactive Message Editor","Our message editor is easy to use and understand. No more needing to remember what's what, if you want to change something, just click or tap it!"]}}
+{"t":"2026-11-20T03:00:55.719Z","k":"m3a-before","url":"https://hooks.gg/message/m/0/edit","r":{"tb":null,"vis":false,"ls":["nextauth.message","message","messageDrafts","theme","pusherTransportTLS"]}}
+{"t":"2026-11-20T03:00:58.942Z","k":"m3a-typed","r":{"tb":" we'll be happy to help you!\n_ _m3adraft","vis":true,"ls":["nextauth.message","message","messageDrafts","theme","pusherTransportTLS"]},"ls":{"len":6291,"hasMarker":false,"keys":["6020","6024"]}}
+{"t":"2026-11-20T03:01:03.241Z","k":"m3a-after-reload","url":"https://hooks.gg/message/m/0/edit","r":{"tb":null,"vis":false,"ls":["nextauth.message","message","messageDrafts","theme","pusherTransportTLS"]}}
+{"t":"2026-11-20T03:01:07.571Z","k":"m3a-newtab","url":"https://hooks.gg/message/m/0/edit","vis":false,"ls":{"len":6291,"hasMarker":false}}
+{"t":"2026-11-20T03:01:49.689Z","k":"m3a-variant-before","url":"https://hooks.gg/message/m/0/edit","r":{"tb":null,"vis":false,"ls":["nextauth.message","message","messageDrafts","theme","pusherTransportTLS"]}}
+{"t":"2026-11-20T03:01:51.939Z","k":"m3a-variant-note","note":"variant run: blurring the editor (click on blank area) before reload"}
+{"t":"2026-11-20T03:01:54.475Z","k":"m3a-typed","r":{"tb":null,"vis":true,"ls":["nextauth.message","message","messageDrafts","theme","pusherTransportTLS"]},"ls":{"len":9548,"hasMarker":true,"keys":["6020","6024","0:zb3rhdxh6t"]}}
+{"t":"2026-11-20T03:01:54.483Z","k":"native-dialog","type":"beforeunload","msg":""}
+{"t":"2026-11-20T03:01:58.789Z","k":"m3a-after-reload","url":"https://hooks.gg/message/m/0/edit","r":{"tb":null,"vis":true,"ls":["nextauth.message","message","messageDrafts","theme","pusherTransportTLS"]}}
+{"t":"2026-11-20T03:02:03.185Z","k":"m3a-newtab","url":"https://hooks.gg/message/m/0/edit","vis":true,"ls":{"len":12805,"hasMarker":true}}
+{"t":"2026-11-20T03:02:08.252Z","k":"login-click-fail","e":"TimeoutError: locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('butto"}
+{"t":"2026-11-20T03:02:08.556Z","k":"unsaved-prompt-after-login-click","prompt":false,"url":"https://hooks.gg/message/m/0/edit"}
+{"t":"2026-11-20T03:02:12.060Z","k":"after-login-click","url":"https://hooks.gg/message/m/0/edit","prompt":false}
+{"t":"2026-11-20T03:02:12.064Z","k":"guard","g":null}
+{"t":"2026-11-20T03:03:11.056Z","k":"login-clicked","t0":"2026-11-20T03:03:10.501Z","unsavedPrompt":"navigated","url":"https://hooks.gg/message/m/0/edit"}
+{"t":"2026-11-20T03:03:15.428Z","k":"clicking-authorize"}
+{"t":"2026-11-20T03:03:16.484Z","k":"clicking-authorize"}
+{"t":"2026-11-20T03:03:23.165Z","k":"oauth-result","r":"back","url":"https://hooks.gg/message"}
+{"t":"2026-11-20T03:03:34.497Z","k":"m3a-signedin-again","avatar":true}
+{"t":"2026-11-20T03:03:38.994Z","k":"m3a-open-N","url":"https://hooks.gg/message/m/6024/edit","name":"uat-017-looks","hasM3a":false}
+{"t":"2026-11-20T03:03:43.469Z","k":"m3a-route0-after-login","url":"https://hooks.gg/message/m/0/edit","hasM3a":true}
+{"t":"2026-11-20T03:04:06.865Z","variant":false,"k":"m3b-typed","drafts":["6020:false/false","0:zb3rhdxh6t:false/true","0:xnyeyx8g7m:false/true","0:qwwcibov3v:false/true","0:2f32ps1osg:false/true","0:b3fz4yrgqg:false/true","0:ctizfnryyr:false/true","0:y6og7ap335:false/true"]}
+{"t":"2026-11-20T03:04:06.936Z","variant":false,"k":"cleared","name":"__Secure-next-auth.session-token","domain":"hooks.gg"}
+{"t":"2026-11-20T03:04:11.629Z","variant":false,"k":"m3b-after-forced-signout","url":"https://hooks.gg/message/m/0/edit","avatar":false,"hasMarker":false,"drafts":["6020:false/false","0:zb3rhdxh6t:false/true","0:xnyeyx8g7m:false/true","0:qwwcibov3v:false/true","0:2f32ps1osg:false/true","0:b3fz4yrgqg:false/true","0:ctizfnryyr:false/true","0:y6og7ap335:false/true","0:fx0teztklm:false/true"]}
+{"t":"2026-11-20T03:04:15.882Z","variant":false,"k":"m3b-route0-signedout","url":"https://hooks.gg/message/m/0/edit","hasM3a":true,"hasMarker":false}
+{"t":"2026-11-20T03:04:19.608Z","variant":false,"k":"clicking-authorize"}
+{"t":"2026-11-20T03:04:25.609Z","variant":false,"k":"oauth-result","r":"back"}
+{"t":"2026-11-20T03:04:31.062Z","variant":false,"k":"m3b-relogin","avatar":true}
+{"t":"2026-11-20T03:04:35.599Z","variant":false,"k":"m3b-open-N-from-list","url":"https://hooks.gg/message/m/6024/edit","hasMarker":false,"drafts":["6020:false/false","0:zb3rhdxh6t:false/true","0:xnyeyx8g7m:false/true","0:qwwcibov3v:false/true","0:2f32ps1osg:false/true","0:b3fz4yrgqg:false/true","0:ctizfnryyr:false/true","0:y6og7ap335:false/true","0:fx0teztklm:false/true"]}
+{"t":"2026-11-20T03:04:40.139Z","variant":false,"k":"m3b-route0-final","hasM3a":true,"hasMarker":false}
+{"t":"2026-11-20T03:04:56.226Z","variant":true,"k":"m3b-typed","drafts":["6020:false/false","6024:true/false","0:zb3rhdxh6t:false/true","0:xnyeyx8g7m:false/true","0:qwwcibov3v:false/true","0:2f32ps1osg:false/true","0:b3fz4yrgqg:false/true","0:ctizfnryyr:false/true","0:y6og7ap335:false/true","0:fx0teztklm:false/true"]}
+{"t":"2026-11-20T03:04:56.284Z","variant":true,"k":"cleared","name":"__Secure-next-auth.session-token","domain":"hooks.gg"}
+{"t":"2026-11-20T03:04:56.291Z","variant":true,"k":"native-dialog","type":"beforeunload"}
+{"t":"2026-11-20T03:05:01.007Z","variant":true,"k":"m3b-after-forced-signout","url":"https://hooks.gg/message/m/0/edit","avatar":false,"hasMarker":false,"drafts":["6020:false/false","6024:true/false","0:zb3rhdxh6t:false/true","0:xnyeyx8g7m:false/true","0:qwwcibov3v:false/true","0:2f32ps1osg:false/true","0:b3fz4yrgqg:false/true","0:ctizfnryyr:false/true","0:y6og7ap335:false/true","0:fx0teztklm:false/true","0:ttnonm8l36:false/true"]}
+{"t":"2026-11-20T03:05:05.273Z","variant":true,"k":"m3b-route0-signedout","url":"https://hooks.gg/message/m/0/edit","hasM3a":true,"hasMarker":false}
+{"t":"2026-11-20T03:05:08.428Z","variant":true,"k":"clicking-authorize"}
+{"t":"2026-11-20T03:05:13.971Z","variant":true,"k":"oauth-result","r":"back"}
+{"t":"2026-11-20T03:05:19.426Z","variant":true,"k":"m3b-relogin","avatar":true}
+{"t":"2026-11-20T03:05:23.967Z","variant":true,"k":"m3b-open-N-from-list","url":"https://hooks.gg/message/m/6024/edit","hasMarker":true,"drafts":["6020:false/false","6024:true/false","0:zb3rhdxh6t:false/true","0:xnyeyx8g7m:false/true","0:qwwcibov3v:false/true","0:2f32ps1osg:false/true","0:b3fz4yrgqg:false/true","0:ctizfnryyr:false/true","0:y6og7ap335:false/true","0:fx0teztklm:false/true","0:ttnonm8l36:false/true"]}
+{"t":"2026-11-20T03:05:24.033Z","variant":true,"k":"native-dialog","type":"beforeunload"}
+{"t":"2026-11-20T03:05:28.530Z","variant":true,"k":"m3b-route0-final","hasM3a":true,"hasMarker":false}
+{"t":"2026-11-20T03:05:40.445Z","m4":1,"k":"open","hasMarker":true}
+{"t":"2026-11-20T03:05:41.701Z","m4":1,"k":"click-user-icon","url":"https://hooks.gg/message/m/6024/edit","prompts":0,"menu":[]}
+{"t":"2026-11-20T03:07:31.285Z","m4":1,"k":"open","hasMarker":true}
+{"t":"2026-11-20T03:07:33.092Z","m4":1,"k":"step6-away-1","url":"https://hooks.gg/message/m/6024/edit","prompts":["You have unsaved changes! | Are you sure you want to leave this page? Changes you made may not be saved. | Cancel | Leave Page"]}
+{"t":"2026-11-20T03:07:34.203Z","m4":1,"k":"step6-after-cancel","url":"https://hooks.gg/message/m/6024/edit","prompts":[],"hasMarker":true}
+{"t":"2026-11-20T03:07:35.981Z","m4":1,"k":"step6-away-2","url":"https://hooks.gg/message/m/6024/edit","prompts":["You have unsaved changes! | Are you sure you want to leave this page? Changes you made may not be saved. | Cancel | Leave Page"]}
+{"t":"2026-11-20T03:07:39.023Z","m4":1,"k":"step6-after-leave","url":"https://hooks.gg/message","prompts":[]}
+{"t":"2026-11-20T03:07:43.982Z","m4":1,"k":"step7-open","hasMarker":true}
+{"t":"2026-11-20T03:07:45.780Z","m4":1,"k":"step7-prompt","url":"https://hooks.gg/message/m/6024/edit","prompts":["You have unsaved changes! | Are you sure you want to leave this page? Changes you made may not be saved. | Cancel | Leave Page"],"focus":"Leave Page"}
+{"t":"2026-11-20T03:07:48.298Z","m4":1,"k":"step7-after-enter","url":"https://hooks.gg/message","prompts":[]}

@@ -1,0 +1,32 @@
+{"t":"2026-11-20T02:53:11.772Z","k":"ws","tab":1,"u":"wss://ws-us2.pusher.com/app/4821480ae69616d5d06f"}
+{"t":"2026-11-20T02:53:16.782Z","k":"ws","tab":2,"u":"wss://ws-us2.pusher.com/app/4821480ae69616d5d06f"}
+{"t":"2026-11-20T02:53:22.113Z","k":"req","tab":1,"run":1,"m":"POST","u":"https://hooks.gg/api/trpc/message.upsert"}
+{"t":"2026-11-20T02:53:22.063Z","k":"saveclick","run":1,"delay":30}
+{"t":"2026-11-20T02:53:22.154Z","k":"edit","run":1,"delay":30,"landed":false,"nameBefore":"uat-017-looks","nameAfter":"uat-017-looks"}
+{"t":"2026-11-20T02:53:32.175Z","k":"result","run":1,"delay":30,"tab1":[],"tab2":[{"k":"dialog","t":"2026-11-20T02:53:22.833Z"}]}
+{"t":"2026-11-20T02:53:33.468Z","k":"tab2dialogs-after-esc","run":1,"dd":["","","","","","","","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","","",""]}
+{"t":"2026-11-20T02:53:33.488Z","k":"btns","b":["","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save"]}
+{"t":"2026-11-20T02:53:34.990Z","k":"req","tab":1,"run":2,"m":"POST","u":"https://hooks.gg/api/trpc/message.upsert"}
+{"t":"2026-11-20T02:53:34.952Z","k":"saveclick","run":2,"delay":60}
+{"t":"2026-11-20T02:53:35.057Z","k":"edit","run":2,"delay":60,"landed":false,"nameBefore":"uat-017-looks","nameAfter":"uat-017-looks"}
+{"t":"2026-11-20T02:53:45.077Z","k":"result","run":2,"delay":60,"tab1":[],"tab2":[{"k":"dialog","t":"2026-11-20T02:53:35.670Z"}]}
+{"t":"2026-11-20T02:53:46.305Z","k":"tab2dialogs-after-esc","run":2,"dd":["","","","","","","","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","","",""]}
+{"t":"2026-11-20T02:53:46.309Z","k":"btns","b":["","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save"]}
+{"t":"2026-11-20T02:53:47.814Z","k":"req","tab":1,"run":3,"m":"POST","u":"https://hooks.gg/api/trpc/message.upsert"}
+{"t":"2026-11-20T02:53:47.768Z","k":"saveclick","run":3,"delay":100}
+{"t":"2026-11-20T02:53:47.929Z","k":"edit","run":3,"delay":100,"landed":false,"nameBefore":"uat-017-looks","nameAfter":"uat-017-looks"}
+{"t":"2026-11-20T02:53:57.942Z","k":"result","run":3,"delay":100,"tab1":[],"tab2":[{"k":"dialog","t":"2026-11-20T02:53:48.492Z"}]}
+{"t":"2026-11-20T02:53:59.178Z","k":"tab2dialogs-after-esc","run":3,"dd":["","","","","","","","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","","",""]}
+{"t":"2026-11-20T02:53:59.183Z","k":"btns","b":["","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save"]}
+{"t":"2026-11-20T02:54:00.703Z","k":"req","tab":1,"run":4,"m":"POST","u":"https://hooks.gg/api/trpc/message.upsert"}
+{"t":"2026-11-20T02:54:00.652Z","k":"saveclick","run":4,"delay":150}
+{"t":"2026-11-20T02:54:00.863Z","k":"edit","run":4,"delay":150,"landed":false,"nameBefore":"uat-017-looks","nameAfter":"uat-017-looks"}
+{"t":"2026-11-20T02:54:10.883Z","k":"result","run":4,"delay":150,"tab1":[],"tab2":[{"k":"dialog","t":"2026-11-20T02:54:01.688Z"}]}
+{"t":"2026-11-20T02:54:12.332Z","k":"tab2dialogs-after-esc","run":4,"dd":["","","","","","","","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","","",""]}
+{"t":"2026-11-20T02:54:12.336Z","k":"btns","b":["","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save"]}
+{"t":"2026-11-20T02:54:13.834Z","k":"req","tab":1,"run":5,"m":"POST","u":"https://hooks.gg/api/trpc/message.upsert"}
+{"t":"2026-11-20T02:54:13.813Z","k":"saveclick","run":5,"delay":250}
+{"t":"2026-11-20T02:54:14.086Z","k":"edit","run":5,"delay":250,"landed":false,"nameBefore":"uat-017-looks","nameAfter":"uat-017-looks"}
+{"t":"2026-11-20T02:54:24.100Z","k":"result","run":5,"delay":250,"tab1":[],"tab2":[{"k":"dialog","t":"2026-11-20T02:54:14.521Z"}]}
+{"t":"2026-11-20T02:54:25.154Z","k":"tab2dialogs-after-esc","run":5,"dd":["","","","","","","","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","Enter Image URLImage URLCancelClearSave","","",""]}
+{"t":"2026-11-20T02:54:25.159Z","k":"btns","b":["","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save","","Cancel","Clear","Save"]}

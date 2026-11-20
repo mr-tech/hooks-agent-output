@@ -1,0 +1,13 @@
+import {launch,now,sleep,D,SH,save as sv,cookies,log} from './lib.mjs';
+import {save,content,openContent} from './lib2.mjs';
+const ctx=await launch(); const page=ctx.pages()[0]||await ctx.newPage();
+page.on('request',r=>{if(r.method()!=='GET')log('setup-net.jsonl',{m:r.method(),u:r.url().split('?')[0]})});
+await page.goto('https://hooks.gg/message/m/6024/edit'); await sleep(4000); await cookies(page);
+await page.fill('input[aria-label="Message Name"]','uat-017-looks');
+const tb=await openContent(page); await tb.click(); await page.keyboard.press('Control+A'); await page.keyboard.type('uat looks base text');
+await sleep(500);
+const t=await save(page); await sleep(3000);
+console.log(t, await page.evaluate(()=>[...document.querySelectorAll('[data-sonner-toast]')].map(e=>e.innerText)), await page.evaluate(()=>[...document.querySelectorAll('[role=dialog]')].map(e=>e.innerText.slice(0,100))));
+await page.screenshot({path:SH+'/setup3.png'});
+sv({N:6024,created:[6022,6023,6024]});
+await ctx.close();

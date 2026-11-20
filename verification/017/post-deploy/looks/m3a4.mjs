@@ -1,0 +1,13 @@
+import fs from 'fs';
+import {launch,sleep,SH,cookies,now,D} from './lib.mjs';
+const L=o=>fs.appendFileSync(D+'/b9.jsonl',JSON.stringify({t:now(),...o})+'\n');
+const ctx=await launch(); const page=ctx.pages()[0]||await ctx.newPage();
+page.on('dialog',async d=>{L({k:'native-dialog',type:d.type()});await d.accept();});
+await page.goto('https://hooks.gg/message'); await sleep(3000); await cookies(page);
+L({k:'m3a-signedin-again',avatar:await page.evaluate(()=>!!document.querySelector('button[aria-label="user menu"]'))});
+await page.goto('https://hooks.gg/message/m/6024/edit'); await sleep(4000);
+L({k:'m3a-open-N',url:page.url(),name:await page.inputValue('input[aria-label="Message Name"]').catch(()=>null),hasM3a:await page.evaluate(()=>document.body.innerText.includes('m3adraft'))});
+await page.goto('https://hooks.gg/message/m/0/edit'); await sleep(4000);
+L({k:'m3a-route0-after-login',url:page.url(),hasM3a:await page.evaluate(()=>document.body.innerText.includes('m3adraft'))});
+await page.screenshot({path:SH+'/m3a-route0-after-login.png'});
+await ctx.close();

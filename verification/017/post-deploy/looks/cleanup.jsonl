@@ -1,0 +1,17 @@
+{"t":"2026-11-20T03:08:51.259Z","k":"drafts-cleared","removed":{"rm":["6024","0:zb3rhdxh6t","0:xnyeyx8g7m","0:qwwcibov3v","0:2f32ps1osg","0:b3fz4yrgqg","0:ctizfnryyr","0:y6og7ap335","0:fx0teztklm","0:ttnonm8l36","0:1pyt24r3a5"],"left":["6020"]}}
+{"t":"2026-11-20T03:08:57.389Z","k":"req","u":"https://hooks.gg/api/trpc/message.delete"}
+{"t":"2026-11-20T03:08:58.207Z","k":"confirm-dialog","id":6024,"text":[]}
+{"t":"2026-11-20T03:09:28.279Z","k":"confirm-click-fail","e":"TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[role=dialog],[role=alertdialog]').filter({ hasText: /de"}
+{"t":"2026-11-20T03:09:28.279Z","k":"deleted","id":6024}
+{"t":"2026-11-20T03:09:37.388Z","k":"req","u":"https://hooks.gg/api/trpc/message.delete"}
+{"t":"2026-11-20T03:09:38.196Z","k":"confirm-dialog","id":6023,"text":[]}
+{"t":"2026-11-20T03:10:08.258Z","k":"confirm-click-fail","e":"TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[role=dialog],[role=alertdialog]').filter({ hasText: /de"}
+{"t":"2026-11-20T03:10:08.258Z","k":"deleted","id":6023}
+{"t":"2026-11-20T03:10:16.841Z","k":"req","u":"https://hooks.gg/api/trpc/message.delete"}
+{"t":"2026-11-20T03:10:17.669Z","k":"confirm-dialog","id":6022,"text":[]}
+{"t":"2026-11-20T03:10:47.723Z","k":"confirm-click-fail","e":"TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[role=dialog],[role=alertdialog]').filter({ hasText: /de"}
+{"t":"2026-11-20T03:10:47.723Z","k":"deleted","id":6022}
+{"t":"2026-11-20T03:10:56.603Z","k":"list-after","hrefs":["/message/m/6012/edit","/message/m/6010/edit","/message/m/6011/edit","/message/m/6009/edit","/message/m/5996/edit","/message/m/6008/edit"]}
+{"t":"2026-11-20T03:11:00.585Z","k":"verify","id":6022,"status":200,"url":"https://hooks.gg/message/m/6022/edit","name":" ","body":"File Edit View Help Send"}
+{"t":"2026-11-20T03:11:04.533Z","k":"verify","id":6023,"status":200,"url":"https://hooks.gg/message/m/6023/edit","name":" ","body":"File Edit View Help Send"}
+{"t":"2026-11-20T03:11:08.499Z","k":"verify","id":6024,"status":200,"url":"https://hooks.gg/message/m/6024/edit","name":" ","body":"File Edit View Help Send"}

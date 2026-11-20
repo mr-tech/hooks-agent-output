@@ -1,0 +1,26 @@
+import fs from 'fs';
+import {launch,sleep,SH,cookies,now,D} from './lib.mjs';
+const L=o=>fs.appendFileSync(D+'/b9.jsonl',JSON.stringify({t:now(),m4:1,...o})+'\n');
+const ctx=await launch(); const page=ctx.pages()[0]||await ctx.newPage();
+page.on('dialog',async d=>{L({k:'native-dialog',type:d.type()});await d.accept();});
+const mk=()=>page.evaluate(()=>document.body.innerText.includes('m3bmark')).catch(()=>null);
+const pr=()=>page.evaluate(()=>[...document.querySelectorAll('[role=dialog],[role=alertdialog]')].map(d=>d.innerText).filter(t=>/unsaved changes/i.test(t)).map(t=>t.replace(/\n+/g,' | ').slice(0,200))).catch(()=>null);
+const open=async()=>{await page.goto('https://hooks.gg/message/m/6024/edit'); await sleep(4000); await cookies(page);};
+const away=async()=>{await page.locator('button[aria-label="user menu"]').first().click(); await sleep(500); await page.getByText('Servers',{exact:true}).first().click(); await sleep(1200);};
+await open(); L({k:'open',hasMarker:await mk()});
+await away(); L({k:'step6-away-1',url:page.url(),prompts:await pr()});
+await page.screenshot({path:SH+'/m4-prompt1.png'});
+const cancel=page.locator('[role=dialog],[role=alertdialog]').filter({hasText:'unsaved changes'}).getByRole('button',{name:'Cancel'});
+await cancel.first().click(); await sleep(1000);
+L({k:'step6-after-cancel',url:page.url(),prompts:await pr(),hasMarker:await mk()});
+await away(); L({k:'step6-away-2',url:page.url(),prompts:await pr()});
+await page.locator('[role=dialog],[role=alertdialog]').filter({hasText:'unsaved changes'}).getByRole('button',{name:'Leave Page'}).first().click(); await sleep(3000);
+L({k:'step6-after-leave',url:page.url(),prompts:await pr()});
+await page.screenshot({path:SH+'/m4-after-leave.png'});
+// step 7: Enter on lone prompt
+await open(); L({k:'step7-open',hasMarker:await mk()});
+await away(); L({k:'step7-prompt',url:page.url(),prompts:await pr(),focus:await page.evaluate(()=>document.activeElement?.innerText?.slice(0,30)||document.activeElement?.tagName)});
+await page.keyboard.press('Enter'); await sleep(2500);
+L({k:'step7-after-enter',url:page.url(),prompts:await pr()});
+await page.screenshot({path:SH+'/m4-enter.png'});
+await ctx.close();

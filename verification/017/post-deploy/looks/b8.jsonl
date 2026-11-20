@@ -1,0 +1,27 @@
+{"t":"2026-11-20T02:55:02.827Z","k":"ws","tab":1,"u":"wss://ws-us2.pusher.com/app/4821480ae69616d5d06f"}
+{"t":"2026-11-20T02:55:07.906Z","k":"ws","tab":2,"u":"wss://ws-us2.pusher.com/app/4821480ae69616d5d06f"}
+{"t":"2026-11-20T02:55:13.060Z","k":"req","tab":1,"run":1,"m":"POST","u":"https://hooks.gg/api/trpc/message.upsert"}
+{"t":"2026-11-20T02:55:13.018Z","k":"saveclick","run":1,"delay":30}
+{"t":"2026-11-20T02:55:13.098Z","k":"edit","run":1,"delay":30,"landed":true,"tail":"Hooks.gg Botx"}
+{"t":"2026-11-20T02:55:23.138Z","k":"result","run":1,"delay":30,"tab1":[],"tab2":[{"k":"dialog","t":"2026-11-20T02:55:13.747Z"}]}
+{"t":"2026-11-20T02:55:24.386Z","k":"tab2dialogs-after-esc","run":1,"dd":[]}
+{"t":"2026-11-20T02:55:25.889Z","k":"req","tab":1,"run":2,"m":"POST","u":"https://hooks.gg/api/trpc/message.upsert"}
+{"t":"2026-11-20T02:55:25.860Z","k":"saveclick","run":2,"delay":60}
+{"t":"2026-11-20T02:55:25.958Z","k":"edit","run":2,"delay":60,"landed":true,"tail":"Hooks.gg Botxx"}
+{"t":"2026-11-20T02:55:35.991Z","k":"result","run":2,"delay":60,"tab1":[],"tab2":[{"k":"dialog","t":"2026-11-20T02:55:26.522Z"}]}
+{"t":"2026-11-20T02:55:37.163Z","k":"tab2dialogs-after-esc","run":2,"dd":[]}
+{"t":"2026-11-20T02:55:38.675Z","k":"req","tab":1,"run":3,"m":"POST","u":"https://hooks.gg/api/trpc/message.upsert"}
+{"t":"2026-11-20T02:55:38.634Z","k":"saveclick","run":3,"delay":100}
+{"t":"2026-11-20T02:55:38.781Z","k":"edit","run":3,"delay":100,"landed":true,"tail":"Hooks.gg Botxxx"}
+{"t":"2026-11-20T02:55:48.823Z","k":"result","run":3,"delay":100,"tab1":[],"tab2":[{"k":"dialog","t":"2026-11-20T02:55:39.311Z"}]}
+{"t":"2026-11-20T02:55:49.938Z","k":"tab2dialogs-after-esc","run":3,"dd":[]}
+{"t":"2026-11-20T02:55:51.405Z","k":"req","tab":1,"run":4,"m":"POST","u":"https://hooks.gg/api/trpc/message.upsert"}
+{"t":"2026-11-20T02:55:51.378Z","k":"saveclick","run":4,"delay":150}
+{"t":"2026-11-20T02:55:51.563Z","k":"edit","run":4,"delay":150,"landed":true,"tail":"Hooks.gg Botxxxx"}
+{"t":"2026-11-20T02:56:01.597Z","k":"result","run":4,"delay":150,"tab1":[],"tab2":[{"k":"dialog","t":"2026-11-20T02:55:52.109Z"}]}
+{"t":"2026-11-20T02:56:02.730Z","k":"tab2dialogs-after-esc","run":4,"dd":[]}
+{"t":"2026-11-20T02:56:04.227Z","k":"req","tab":1,"run":5,"m":"POST","u":"https://hooks.gg/api/trpc/message.upsert"}
+{"t":"2026-11-20T02:56:04.186Z","k":"saveclick","run":5,"delay":250}
+{"t":"2026-11-20T02:56:04.490Z","k":"edit","run":5,"delay":250,"landed":true,"tail":"Hooks.gg Botxxxxx"}
+{"t":"2026-11-20T02:56:14.522Z","k":"result","run":5,"delay":250,"tab1":[],"tab2":[{"k":"dialog","t":"2026-11-20T02:56:04.859Z"}]}
+{"t":"2026-11-20T02:56:15.509Z","k":"tab2dialogs-after-esc","run":5,"dd":[]}
