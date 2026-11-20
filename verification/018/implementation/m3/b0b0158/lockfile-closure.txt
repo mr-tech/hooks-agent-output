@@ -1,0 +1,4 @@
+roots base: 15 new: 12 | closure names base: 380 new: 362
+movers inside the lint closure: 79
+movers outside it: 0 []
+control: eslint-scope in new closure: True | next in new closure: False | highlight.js: False

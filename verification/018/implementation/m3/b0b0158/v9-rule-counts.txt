@@ -1,0 +1,22 @@
+rule id	base	new
+require-jsdoc	0	0
+valid-jsdoc	0	0
+no-constant-binary-expression	0	0
+no-empty-static-block	0	0
+no-new-native-nonconstructor	0	0
+no-unused-private-class-members	0	0
+no-extra-semi	0	0
+no-inner-declarations	0	0
+no-mixed-spaces-and-tabs	0	0
+no-new-symbol	0	0
+curly	0	0
+semi	0	0
+no-constructor-return	0	0
+no-sequences	0	0
+no-implicit-coercion	0	0
+no-invalid-regexp	0	0
+no-unused-vars	0	0
+@typescript-eslint/no-unused-vars	18	18
+no-restricted-imports	0	0
+no-useless-computed-key	0	0
+camelcase	0	0

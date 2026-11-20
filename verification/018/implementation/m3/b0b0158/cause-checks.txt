@@ -1,0 +1,19 @@
+{"v5":"5.62.0","v8":"8.58.0"}
+no-non-null-assertion      v5 plugin rule: true | v5 recommended: true | v8 plugin rule: true | v8 recommended: false
+no-var-requires            v5 plugin rule: true | v5 recommended: true | v8 plugin rule: true | v8 recommended: false
+no-require-imports         v5 plugin rule: true | v5 recommended: false | v8 plugin rule: true | v8 recommended: true
+member-delimiter-style     v5 plugin rule: true | v5 recommended: false | v8 plugin rule: false | v8 recommended: false
+ban-types                  v5 plugin rule: true | v5 recommended: true | v8 plugin rule: false | v8 recommended: false
+no-empty-object-type       v5 plugin rule: false | v5 recommended: false | v8 plugin rule: true | v8 recommended: true
+type-annotation-spacing    v5 plugin rule: true | v5 recommended: false | v8 plugin rule: false | v8 recommended: false
+space-before-blocks        v5 plugin rule: true | v5 recommended: false | v8 plugin rule: false | v8 recommended: false
+semi                       v5 plugin rule: true | v5 recommended: false | v8 plugin rule: false | v8 recommended: false
+no-throw-literal           v5 plugin rule: true | v5 recommended: false | v8 plugin rule: false | v8 recommended: false
+react-hooks/globals                        in eslint-config-next 16.4.6 rules: true
+react-hooks/immutability                   in eslint-config-next 16.4.6 rules: true
+react-hooks/preserve-manual-memoization    in eslint-config-next 16.4.6 rules: true
+react-hooks/purity                         in eslint-config-next 16.4.6 rules: true
+react-hooks/refs                           in eslint-config-next 16.4.6 rules: true
+react-hooks/set-state-in-effect            in eslint-config-next 16.4.6 rules: true
+react-hooks/use-memo                       in eslint-config-next 16.4.6 rules: true
+react/jsx-no-constructed-context-values    in eslint-config-next 16.4.6 rules: false
