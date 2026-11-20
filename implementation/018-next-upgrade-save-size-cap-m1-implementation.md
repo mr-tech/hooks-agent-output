@@ -235,3 +235,47 @@ One command of mine, `eslint --fix` over three directories, also rewrote three t
 ## Next Steps
 
 Code review of M1 at the handoff SHA, then QA Phase 2 for M1 with its differential (`verification/018/qa/phase-1/differential/`).
+
+## Resumption State
+
+Written 2026-11-20T05:28Z by `implementer-hooks-018` at steering's checkpoint request (steering-roadmap-hooks, before M2). Website tree
+`/usr/local/bin/hooks/website` on `chain/018-next-upgrade-save-size-cap` at `f9e66c2`, tracked tree clean (only `.playwright-mcp/` untracked, not mine).
+
+- **Done:** M1 delivered and handed to steering at `f9e66c2` (this document, agent-output `003515a`); `code-reviewer-hooks-018` is spawned on it.
+  Plan Status In Progress (`ecffc1e`). Plan revision 7 is what M2 builds on (critic APPROVED `15988b6`; QA re-key and architect read recorded; AF-11,
+  F-23, F-24 parked in the Planner batch for a later fold). M2 is capped: `steering/018-rulings.md` block "2026-11-20T05:26Z" (`44efb1f`) — read it first.
+  Ruling B (`steering/018-rulings.md` block "2026-11-20T04:51Z", `a654422`): run `pnpm install --frozen-lockfile` in the shared tree after the M2 commit
+  and again after M3, record each exit code, cite the block. The shared tree's `node_modules` is still the `7923a1d`-era install (Next 16.1.6); not touched yet.
+- **M2 (not committed):** built and checked in isolated exports under `/tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/`:
+  `m2b` (the edited `package.json`, `pnpm-lock.yaml`, `tsconfig.json`; `pnpm install` exit 0) and `m2c` (a fresh export of `f9e66c2` plus those three files,
+  `pnpm install --frozen-lockfile` exit 0). The M2 change set, exactly: `package.json` specifiers `next` and `@next/bundle-analyzer` `^16.4.6`, `highlight.js`
+  `^11.12.0`; `pnpm-lock.yaml` regenerated; `tsconfig.json` two keys only (`compilerOptions.moduleResolution` "bundler", `ts-node.compilerOptions.moduleResolution` "node"; no `paths`
+  entry — revision 7). Copy those three files from `m2b` (or re-derive: `git diff` shows the two tsconfig hunks and three specifiers) into the tree and commit as M2.
+  Results already captured under `verification/018/implementation/m2/` (UNCOMMITTED in agent-output, with `lockfile-movers.py`, `lint-differential.py`): frozen install exit 0;
+  `next build` (SKIP_ENV_VALIDATION=1) exit 0, no "mandatory changes" line, `tsconfig.json` unchanged by the build; `pnpm run typecheck` exit 0; `ts-node` check of
+  `~/utils/limits` exit 0 with `-T` and typed; `highlightAuto` 1 static / 4 server files, `registerLanguage` 1 / 4; 0 files calling `getLanguage(` or `highlight(` on `(void 0)`
+  (my regex: `hl-void0.txt`; QA's probe `verification/018/qa/m2-hljs-resolution/` is the named instrument — run it too); lockfile movers `m2/lockfile-movers.txt`
+  (41 removed / 44 added package keys against `f9e66c2`, to be dispositioned row by row per M2-b: sharp 0.34.5→0.35.5 with its `@img/*` optional packages, `@emnapi/runtime`,
+  `postcss` 8.5.23, `semver`, `@swc/helpers`, `caniuse-lite`/`baseline-browser-mapping` out, `highlight.js` 11.7.0→11.12.0, `next` and its `@next/*`); M2-a `grep -c -E "^  next@"` base 2,
+  m2 2 of 2 naming 16.4.6. Build warnings: `middleware` deprecated (X-8, for the architect) and a new "Edge Runtime is deprecated" (`/api/interactions-edge`), not in the release-notes
+  reading: record as an M2-d finding for the architect.
+  **Still to run for M2-c:** the suite at 16.4.6 in `m2c` (path membership against `base/suite.json`, 154 files / 2259 at the M1 tip), the `hljs` comparison against the base build
+  (1 static, 2 server), and the `git diff` of `package.json`. Then write M2's own document (`implementation/018-next-upgrade-save-size-cap-m2-implementation.md`) with the lockfile table.
+- **M4 reads to record (carry to the architect and UAT, M4-c):** R6 — Next 16.4.6's `layout-router.js` no longer uses `createRouterCacheKey` for the state key (it uses
+  `createSegmentKey` and `useRouterBFCache`, which keeps the last N active segments in hidden `<Activity>` boundaries); a dynamic-param change still gives the new page a fresh
+  state key, so B mounts fresh, but A's tree now lingers hidden: the plan's "UAT walk if the read differs" applies. R1/R2 existing tests (`layout.navigation-guard.test.tsx`,
+  `NavigationGuardProvider.link-confirmation.test.tsx`) are to be run at the M3 tip.
+- **M3 (built in isolation, not committed):** export `.../scratchpad/m3` (M2 state of `m2`, since removed, plus M3): `eslint.config.mjs` (flat config, based on the planner's probe; `caughtErrors: 'none'`
+  kept for the TS `no-unused-vars`), `.eslintrc.json` and `.eslintignore` deleted, `src/@types/global.d.ts` directive `@typescript-eslint/ban-types` → `no-empty-object-type`, `package.json`
+  (`eslint ~9.39.5`, `@eslint/js ^9.39.5`, `@eslint/eslintrc ^3.3.7`, `eslint-config-next` and `@next/eslint-plugin-next` `^16.4.6`, `eslint-plugin-import ^2.32.0`, `eslint-plugin-react ^7.37.5`,
+  removed `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser`, `eslint-plugin-n`, `eslint-plugin-promise`) and its lockfile. It was built on the earlier M2 form (with the withdrawn `paths` entry):
+  REBUILD it on revision 7's M2 (`pnpm remove …; pnpm add -D …` as in `m3/pnpm-add.out.txt`) and re-run both configs over the same sources. Captures (uncommitted) in
+  `verification/018/implementation/m3/`: `base-eslint.json` (old config, 498 files, 315 errors, 383 warnings), `new-eslint.json`, `differential.txt` (22 rule ids differ; every difference
+  has a cause in the plan's class — read `cause-checks.txt` and the notes in this list: react-hooks/* from `eslint-config-next` 16.4.6 (cause 1); `no-non-null-assertion`, `no-var-requires`→`no-require-imports`
+  (cause 1); `member-delimiter-style` removed (cause 3); `next-env.d.ts` not linted by the new preset (cause 4); the kept TS rules `unbound-method`, `no-unnecessary-type-arguments`,
+  `prefer-nullish-coalescing`, `switch-exhaustiveness-check`, `no-floating-promises`, `no-base-to-string`, `no-unsafe-return` and react's `function-component-definition`,
+  `jsx-no-constructed-context-values` (cause 2, plugin version behaviour)), `ledger.md` (109 rows from `make-ledger.py`, to paste into M3's document), `lockfile-movers-m2-to-m3.txt`.
+  Lint exits 1 (not 2) with the new config; the lint script's command line is unchanged (M3-e).
+- **Questions sent:** none open to me. Sent earlier: steering (X-10 trigger; the shared `node_modules` ask, answered B; the M2 tsconfig finding, answered by revisions 6 and 7; the M1 hand-off).
+- **Processes:** the mutation sweeps are finished; no background process of mine runs (`pstree` checked at the checkpoint). Scratch exports remain under the scratchpad (`m2b`, `m2c`, `m3`, `red-e5732b0`, work dirs): delete once M2/M3 are committed.
+- **Convention checks:** `node ~/.claude/tools/convention-check.js <repo> --since=7923a1d` before every handoff (id-token check is not implemented by the tool: read basenames and titles by hand).

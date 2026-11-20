@@ -1,0 +1,56 @@
+Progress: resolved 0, reused 1, downloaded 0, added 0
+ WARN  deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+ WARN  deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+ WARN  deprecated @vercel/edge-config@0.2.0: This version is no longer supported. Please upgrade to the latest version.
+Progress: resolved 57, reused 57, downloaded 0, added 0
+Progress: resolved 180, reused 180, downloaded 0, added 0
+Progress: resolved 486, reused 463, downloaded 0, added 0
+Progress: resolved 778, reused 754, downloaded 0, added 0
+Progress: resolved 898, reused 873, downloaded 0, added 0
+Progress: resolved 1025, reused 996, downloaded 0, added 0
+Progress: resolved 1442, reused 1392, downloaded 0, added 0
+Progress: resolved 1487, reused 1412, downloaded 0, added 0
+Progress: resolved 1514, reused 1439, downloaded 0, added 0
+ WARN  12 deprecated subdependencies found: @humanwhocodes/config-array@0.13.0, @humanwhocodes/object-schema@2.0.3, are-we-there-yet@2.0.0, basic-ftp@5.0.3, gauge@3.0.2, glob@7.2.3, glob@8.1.0, inflight@1.0.6, npmlog@5.0.1, sourcemap-codec@1.4.8, tar@6.2.0, uuid@3.4.0
+Packages: -15
+---------------
+Progress: resolved 1518, reused 1443, downloaded 0, added 0
+Progress: resolved 1518, reused 1443, downloaded 0, added 6, done
+ WARN  Issues with peer dependencies found
+.
+├─┬ vite 8.0.3
+│ └── ✕ unmet peer sass@^1.70.0: found 1.56.2
+├─┬ @eslint/js 10.0.1
+│ └── ✕ unmet peer eslint@^10.0.0: found 8.57.1
+├─┬ eslint-config-airbnb 19.0.4
+│ └── ✕ unmet peer eslint-plugin-react-hooks@^4.3.0: found 7.0.1
+├─┬ next-auth 4.24.5
+│ ├── ✕ unmet peer next@"^12.2.5 || ^13 || ^14": found 16.4.6
+│ ├── ✕ unmet peer react@"^17.0.2 || ^18": found 19.2.4
+│ └── ✕ unmet peer react-dom@"^17.0.2 || ^18": found 19.2.4
+├─┬ react-accessible-accordion 5.0.1
+│ ├── ✕ unmet peer react@"^16.3.2 || ^17.0.0 || ^18.0.0": found 19.2.4
+│ └── ✕ unmet peer react-dom@"^16.3.3 || ^17.0.0 || ^18.0.0": found 19.2.4
+├─┬ react-slider 2.0.4
+│ └── ✕ unmet peer react@"^16 || ^17 || ^18": found 19.2.4
+└─┬ react-use 17.4.0
+  ├── ✕ unmet peer react@"^16.8.0  || ^17.0.0 || ^18.0.0": found 19.2.4
+  └── ✕ unmet peer react-dom@"^16.8.0  || ^17.0.0 || ^18.0.0": found 19.2.4
+
+devDependencies:
+- @typescript-eslint/eslint-plugin 5.62.0
+- @typescript-eslint/parser 5.62.0
+- eslint-plugin-n 15.6.0
+- eslint-plugin-promise 6.1.1
+
+╭ Warning ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│   Ignored build scripts: @prisma/client@4.14.1, @prisma/engines@4.11.0,      │
+│   @prisma/engines@5.3.1, @vercel/speed-insights@1.0.10, bufferutil@4.0.7,    │
+│   esbuild@0.14.47, prisma@4.11.0, protobufjs@7.2.4, protobufjs@7.5.4,        │
+│   utf-8-validate@5.0.10.                                                     │
+│   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+│   to run scripts.                                                            │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Done in 14.1s using pnpm v10.28.2
