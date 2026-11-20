@@ -481,7 +481,7 @@ session through `createCaller`.
 
 ## Next Steps
 
-- **At Round 2:** delivered to steering at `983681c`. Next, QA re-verification, then the security re-review (RC-1).
+- **At Round 2:** delivered to steering at `983681c`, then to `qa-hooks-fix-personal-message-access` at 2026-11-20T00:13. My brief routes an approval to a live QA session; I did not check that QA was live before the first send. Next, QA re-verification, then the security re-review (RC-1).
 
 - **At sub-entry 1c:** delivered to steering at `75f1543`.
 
