@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-421 documents · 17 numbered chains · 240 unnumbered.
+454 documents · 18 numbered chains · 258 unnumbered.
 
 ---
 
@@ -155,6 +155,26 @@ closed. A document's path changes when it closes; its name does not.
 | retrospective | `retrospectives/017-existing-items-backlog-retrospective.md` | Active — Written after chain 017's close-out (every stage document terminal and in closed/; released website master 787bec5, generator prod 8512a1d). Rests until pi runs on the owner's command. |
 | security | `security/closed/017-preview-image-generator-security-audit.md` | Review Complete — Review Complete 2026-11-19: pre-release security gate on the preview-image-generator delta 8de2b53..8512a1d (M6) APPROVED, no required control. The reviewed tip is the SHA released: generator prod and master at 8512a1d (ls-remote 20:21Z). L-001 LOW is the plan's exclusion X-21, accepted by the owner (D-32). The observations outside the reviewed delta are carried by steering/017-rulings.md (blocks 08:12Z, 09:01Z, 20:21Z) for the access-defects fixer chain. Nothing is owed by this document. |
 | UAT | `uat/closed/017-existing-items-backlog-uat.md` | Released — Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md. |
+
+### 018 — 12 open, 3 closed
+
+| Stage | Location | Status |
+|---|---|---|
+| architecture | `architecture/closed/018-next-upgrade-save-size-cap-architecture-findings.md` | Resolved — Closing pass on plan revision 8 (record 2dc79a3) and website 969d92a: APPROVED, no finding. AF-1 to AF-4 and AF-8 to AF-11 are resolved; AF-5 to AF-7 and AF-12 are Problem Areas in system-architecture.md. Open items 1, 2 and 4 are discharged. Item 3's R3 is carried by handoff/018-m4-r3-navigation-limit-to-architecture-record-2026-11-20.md. The zod pin commit after 969d92a was not read by this pass. |
+| code review | `code-review/018-next-upgrade-save-size-cap-code-review.md` | In Review — M1 (a558f2d), M2 (b0b0158) and M3 (969d92a) each APPROVED_WITH_COMMENTS and handed to QA Phase 2. CR-2 is carried by the Planner batch; CR-5 goes to the implementer, with a Planner batch row for M2-b's wording. |
+| critique | `critiques/closed/018-next-upgrade-save-size-cap-critique.md` | Resolved — Cycle 3 pass 1 on plan revision 8 (the Planner batch fold): APPROVED with no new finding. F-1 to F-24 RESOLVED, each verified in the plan's text; SL-2 retired. No stated limit, no open question, nothing owed. |
+| handoff | `handoff/closed/018-m4-r3-navigation-limit-to-architecture-record-2026-11-20.md` | Addressed · priority normal — R3 recorded at 2026-11-20T06:50Z in architecture/system-architecture.md, Components (website), the navigation-guard bullet. X-14 holds at Next 16.4.6 (UAT row B-3 R3, a local production build of website d1bb9b0: browser back from an editor with an unsaved edit raised no prompt, and the edit was lost). Plan 018 X-20 carries the limit. UAT-2 (R5, unverified at 16.4.6) was recorded in the same row, on the lazy-loaded-components bullet. |
+| implementation | `implementation/018-next-upgrade-save-size-cap-m1-implementation.md` | Active — M1 (save-list cap and error cap) delivered on chain/018-next-upgrade-save-size-cap; code review Round 1 REJECTED at f9e66c2 (CR-1 HIGH); fix round 1 delivered at a558f2d, awaiting the re-review. M2 is in its own document; M3 and M4 follow. |
+| implementation | `implementation/018-next-upgrade-save-size-cap-m2-implementation.md` | Active — M2 (Next.js 16.4.6, highlight.js 11.12.0, the bundler module resolution) delivered on chain/018-next-upgrade-save-size-cap, acceptance run at the commit, awaiting code review; the zod pin (CR-2, plan revision 8) follows at d1bb9b0, handed to code review. M3 and M4 are in their own documents. |
+| implementation | `implementation/018-next-upgrade-save-size-cap-m3-implementation.md` | Active — M3 (ESLint 9, a flat config, eslint-config-next 16.4.6) delivered on chain/018-next-upgrade-save-size-cap, acceptance run at the commit, awaiting code review. M4 follows. |
+| implementation | `implementation/018-next-upgrade-save-size-cap-m4-implementation.md` | Active — M4 (the record's Next 16.1.6 ties re-verified at 16.4.6): the implementer's instruments run at the M3 tip (969d92a); UAT's walks (R1, R2, R3, R5) are not run. No code. |
+| plan | `planning/018-next-upgrade-save-size-cap.md` | UAT Approved — UAT APPROVED FOR RELEASE at website d1bb9b0 (uat/018-next-upgrade-save-size-cap-uat.md, fabdbe7): pre-release rows B-1, B-2, B-3, B-4, B-9 and M5-d executed; B-5 devops's. Devops Stage 1 next; post-deploy rows (B-6, B-7 with UAT-1's instrument, B-8, B-10) ride its handoff. |
+| QA | `qa/018-next-upgrade-save-size-cap-m1-qa.md` | QA Complete — M1 PASS at website a558f2d (code review Round 1 sub-entry 1, 57ff6f8). Suite 2261/2261 exit 0; differential 0 violations over 1224 labels; sweep 66 of 69 killed plus NM-4 re-targeted, 3 equivalent. M2's verdict refreshed at a558f2d. No finding. |
+| QA | `qa/018-next-upgrade-save-size-cap-m2-qa.md` | QA Complete — M2 PASS at website b0b0158: M2-a to M2-d reproduced, suite 2259/2259 exit 0 at both b0b0158 and f9e66c2 with identical per-file counts. M2-e is B-9/B-10 (UAT). No finding. |
+| QA | `qa/018-next-upgrade-save-size-cap-m3-qa.md` | QA Complete — M3 PASS at website 969d92a: M3-a to M3-e hold; suite 2261/2261 exit 0, identical to a558f2d; built JS identical beyond a measured noise floor. QAF-11 LOW (the build's function traces gain 4 package-metadata entries) to the Planner batch beside CR-5. |
+| QA | `qa/018-next-upgrade-save-size-cap-m4-qa.md` | QA Complete — Effort-final Phase 2 PASS at website d1bb9b0: M4's QA limbs hold; M1 to M3 re-verified at the tip (suite 2261/2261 exit 0, differential 0 violations, build and lint identical to 969d92a); revision 8's M2-b edge limb holds (158 changed edges, all in class); effort-final sweep stands on blob identity. No new finding. UAT next: B-1, B-2 (two limbs), B-3, B-9; then B-4, B-5, B-6, B-7, B-8, B-10. |
+| QA | `qa/018-next-upgrade-save-size-cap-qa.md` | QA Complete — Phase 1 (re-keyed through revision 7; revision 8 read at the effort-final pass). Phase 2 per milestone in the -m1, -m2, -m3 and -m4 documents; effort-final PASS at website d1bb9b0 (62703f1). The register B-1 to B-10 is open for UAT and devops. |
+| UAT | `uat/018-next-upgrade-save-size-cap-uat.md` | UAT Complete — APPROVED FOR RELEASE at website d1bb9b0 (plan revision 8). Pre-release rows B-1, B-2 (both limbs), B-3 (R1, R2, R3 recorded, R5), B-4, B-9 and M5-d EXECUTED; B-5 is devops's (READY, tree identity re-derived here). Post-deploy rows B-6, B-7, B-8, B-10 (and M1-h, M2-e's deploy limb) gate nothing here and ride devops's Stage-1 handoff; UAT-1 MEDIUM changes B-7's instrument (the script path moved at 16.4.6). |
 
 ### 1 — 0 open, 8 closed
 
@@ -357,7 +377,7 @@ they are the ID-less artifacts that root new efforts.
 | handoff | `handoff/qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md` | Open · priority normal — Item 1 (BC-7/AC8's terminal write) discharged by QA 2026-11-11. Left: the ID-less test inventory that chain 014 consumed is still Active (the analyst's), and item 3's vocabulary note. Nothing blocks on either. |
 | handoff | `handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md` | Open · priority normal — Two items plan 016 excludes and does not discharge: the generic failure toast on a refused send (research F-14), and a File component's upload path (with removing File from the add menu). Neither blocks plan 016. The owner is shown both with plan 016 revision 1's Exclusions register. |
 | handoff | `handoff/uat-local-stack-test-free-port-race-2026-11-11.md` | Open · priority normal — The free-port helper in tools/uatLocalStack.test.js picks a port, releases it, and listens on it again later with no 'error' handler. If another process takes the port in between, the file hangs on EADDRINUSE until the runner's cap. This was seen once, at code review of fix-uat-local-stack-id-sequence. Nothing blocks on it; a run that hangs is repeated. |
-| handoff | `handoff/update-preferences-recent-message-ids-accepts-non-int8-2026-11-19.md` | Open · priority normal — user.updatePreferences accepts any string in recentMessageIds, so a non-int8 entry fails that user's own hydrated session. Pre-existing at 787bec5, self-only; same class as CR-2, which the fixer chain fixes at its own inputs. No stage owns this input yet. |
+| handoff | `handoff/update-preferences-recent-message-ids-accepts-non-int8-2026-11-19.md` | Open · priority normal — user.updatePreferences accepts any string in recentMessageIds, so a non-int8 entry fails that user's own hydrated session. Pre-existing at 787bec5, self-only; same class as CR-2. The edit trigger fired at chain 018's M1 (website 532c0ee, which bounds the list's length, not its elements); 018 excludes it as X-10, accepted by the owner, so it stays open. No stage owns this input yet. |
 | handoff | `handoff/website-api-handler-hardening-2026-10-10.md` | Open · priority normal — Four open LOW items (2 to 5) in website's API handlers and tests, raised by the fix-v1-guild-messages-auth code review and kept out of that fix's owner-bound scope. Item 1 was discharged by owner rider 2 at website 7606149. Nothing blocks the v1 auth fix's release. |
 | implementation | `implementation/closed/fix-agent-comment-sweep-merge-implementation.md` | Released — Released 2026-11-10T10:13Z: website master = 6d78b19 on origin. Record: deployment/fix-agent-comment-sweep-merge-deployment.md. |
 | implementation | `implementation/closed/fix-dialog-closes-on-first-portal-load-implementation.md` | Released — Released 2026-11-18T22:41Z: website master 395510e -> 1ad625e on origin (deployment/closed/fix-dialog-closes-on-first-portal-load-deployment.md). Production look owed, carried by handoff/upload-message-dialog-closes-on-first-portal-load-2026-11-08.md. |
@@ -403,8 +423,16 @@ they are the ID-less artifacts that root new efforts.
 | steering | `steering/017-brief-uat-looks.md` | — |
 | steering | `steering/017-rulings.md` | — |
 | steering | `steering/017-standing.md` | — |
+| steering | `steering/018-brief-architect.md` | — |
+| steering | `steering/018-brief-code-reviewer.md` | — |
 | steering | `steering/018-brief-common.md` | — |
+| steering | `steering/018-brief-critic.md` | — |
+| steering | `steering/018-brief-devops.md` | — |
+| steering | `steering/018-brief-implementer.md` | — |
 | steering | `steering/018-brief-planner.md` | — |
+| steering | `steering/018-brief-qa.md` | — |
+| steering | `steering/018-brief-security.md` | — |
+| steering | `steering/018-brief-uat.md` | — |
 | steering | `steering/018-rulings.md` | — |
 | steering | `steering/backlog-2026-11-18-briefs/analyst-hooks-017.md` | — |
 | steering | `steering/backlog-2026-11-18-briefs/architect-hooks-017-closing.md` | — |
@@ -512,6 +540,16 @@ they are the ID-less artifacts that root new efforts.
 | verification | `verification/017/uat/walk-2/setup-snapshot.md` | — |
 | verification | `verification/017/uat/walk-4/part1-results.md` | — |
 | verification | `verification/017/uat/walk-8/results.md` | — |
+| verification | `verification/018/implementation/m3/b0b0158/ledger.md` | — |
+| verification | `verification/018/implementation/m3/ledger.md` | — |
+| verification | `verification/018/planning/abort-form-probe/table.md` | — |
+| verification | `verification/018/planning/base-validation/summary.md` | — |
+| verification | `verification/018/planning/eslint8-config-next16-probe-rerun.md` | — |
+| verification | `verification/018/planning/eslint8-config-next16-probe.md` | — |
+| verification | `verification/018/planning/next-16.4.6-release-notes.md` | — |
+| verification | `verification/018/planning/next-internals-16.1.6-vs-16.4.6.md` | — |
+| verification | `verification/018/planning/vercel-project-preview-fields.md` | — |
+| verification | `verification/018/qa/m2-hljs-resolution/prod-preview-read.md` | — |
 | verification | `verification/access-defects/scoping/refutation.md` | — |
 | verification | `verification/access-defects/scoping/residue-refutation.md` | — |
 | verification | `verification/access-defects/scoping/sweep.md` | — |
@@ -720,8 +758,31 @@ they are the ID-less artifacts that root new efforts.
 | `017-preview-image-generator-security-audit.md` | `security/closed/017-preview-image-generator-security-audit.md` |
 | `017-rulings.md` | `steering/017-rulings.md` |
 | `017-standing.md` | `steering/017-standing.md` |
+| `018-brief-architect.md` | `steering/018-brief-architect.md` |
+| `018-brief-code-reviewer.md` | `steering/018-brief-code-reviewer.md` |
 | `018-brief-common.md` | `steering/018-brief-common.md` |
+| `018-brief-critic.md` | `steering/018-brief-critic.md` |
+| `018-brief-devops.md` | `steering/018-brief-devops.md` |
+| `018-brief-implementer.md` | `steering/018-brief-implementer.md` |
 | `018-brief-planner.md` | `steering/018-brief-planner.md` |
+| `018-brief-qa.md` | `steering/018-brief-qa.md` |
+| `018-brief-security.md` | `steering/018-brief-security.md` |
+| `018-brief-uat.md` | `steering/018-brief-uat.md` |
+| `018-m4-r3-navigation-limit-to-architecture-record-2026-11-20.md` | `handoff/closed/018-m4-r3-navigation-limit-to-architecture-record-2026-11-20.md` |
+| `018-next-upgrade-save-size-cap-architecture-findings.md` | `architecture/closed/018-next-upgrade-save-size-cap-architecture-findings.md` |
+| `018-next-upgrade-save-size-cap-code-review.md` | `code-review/018-next-upgrade-save-size-cap-code-review.md` |
+| `018-next-upgrade-save-size-cap-critique.md` | `critiques/closed/018-next-upgrade-save-size-cap-critique.md` |
+| `018-next-upgrade-save-size-cap-m1-implementation.md` | `implementation/018-next-upgrade-save-size-cap-m1-implementation.md` |
+| `018-next-upgrade-save-size-cap-m1-qa.md` | `qa/018-next-upgrade-save-size-cap-m1-qa.md` |
+| `018-next-upgrade-save-size-cap-m2-implementation.md` | `implementation/018-next-upgrade-save-size-cap-m2-implementation.md` |
+| `018-next-upgrade-save-size-cap-m2-qa.md` | `qa/018-next-upgrade-save-size-cap-m2-qa.md` |
+| `018-next-upgrade-save-size-cap-m3-implementation.md` | `implementation/018-next-upgrade-save-size-cap-m3-implementation.md` |
+| `018-next-upgrade-save-size-cap-m3-qa.md` | `qa/018-next-upgrade-save-size-cap-m3-qa.md` |
+| `018-next-upgrade-save-size-cap-m4-implementation.md` | `implementation/018-next-upgrade-save-size-cap-m4-implementation.md` |
+| `018-next-upgrade-save-size-cap-m4-qa.md` | `qa/018-next-upgrade-save-size-cap-m4-qa.md` |
+| `018-next-upgrade-save-size-cap-qa.md` | `qa/018-next-upgrade-save-size-cap-qa.md` |
+| `018-next-upgrade-save-size-cap-uat.md` | `uat/018-next-upgrade-save-size-cap-uat.md` |
+| `018-next-upgrade-save-size-cap.md` | `planning/018-next-upgrade-save-size-cap.md` |
 | `018-rulings.md` | `steering/018-rulings.md` |
 | `2026-04-07-plan-005.md` | `deployment/closed/2026-04-07-plan-005.md` |
 | `2026-04-07-plan-006.md` | `deployment/closed/2026-04-07-plan-006.md` |
@@ -792,6 +853,8 @@ they are the ID-less artifacts that root new efforts.
 | `disposition-table.md` | `verification/014/disposition-table.md` |
 | `editor-error-lines-render-text-unasserted-2026-11-11.md` | `handoff/closed/editor-error-lines-render-text-unasserted-2026-11-11.md` |
 | `editor-shows-blank-shell-when-personal-message-load-is-refused-2026-11-20.md` | `handoff/editor-shows-blank-shell-when-personal-message-load-is-refused-2026-11-20.md` |
+| `eslint8-config-next16-probe-rerun.md` | `verification/018/planning/eslint8-config-next16-probe-rerun.md` |
+| `eslint8-config-next16-probe.md` | `verification/018/planning/eslint8-config-next16-probe.md` |
 | `fix-agent-comment-sweep-merge-code-review.md` | `code-review/closed/fix-agent-comment-sweep-merge-code-review.md` |
 | `fix-agent-comment-sweep-merge-deployment.md` | `deployment/closed/fix-agent-comment-sweep-merge-deployment.md` |
 | `fix-agent-comment-sweep-merge-implementation.md` | `implementation/closed/fix-agent-comment-sweep-merge-implementation.md` |
@@ -854,6 +917,8 @@ they are the ID-less artifacts that root new efforts.
 | `implementer-hooks-017.md` | `steering/backlog-2026-11-18-briefs/implementer-hooks-017.md` |
 | `json-editor-bad-configurations-2026-08-23.md` | `handoff/closed/json-editor-bad-configurations-2026-08-23.md` |
 | `json-editor-flag-mint-2026-08-23.md` | `research/closed/json-editor-flag-mint-2026-08-23.md` |
+| `ledger.md` | `verification/018/implementation/m3/b0b0158/ledger.md` |
+| `ledger.md` | `verification/018/implementation/m3/ledger.md` |
 | `local-walk-save-can-write-a-client-sent-low-message-id-2026-11-11.md` | `handoff/closed/local-walk-save-can-write-a-client-sent-low-message-id-2026-11-11.md` |
 | `m0-baseline.md` | `verification/014/m0-baseline.md` |
 | `message-init-cached-edits-lost-2026-08-27.md` | `handoff/message-init-cached-edits-lost-2026-08-27.md` |
@@ -861,6 +926,8 @@ they are the ID-less artifacts that root new efforts.
 | `message-valid-field-for-statbot-2026-08-23.md` | `handoff/closed/message-valid-field-for-statbot-2026-08-23.md` |
 | `mutant-equivalence-by-argument-unverified-2026-11-19.md` | `handoff/mutant-equivalence-by-argument-unverified-2026-11-19.md` |
 | `newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` | `handoff/newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md` |
+| `next-16.4.6-release-notes.md` | `verification/018/planning/next-16.4.6-release-notes.md` |
+| `next-internals-16.1.6-vs-16.4.6.md` | `verification/018/planning/next-internals-16.1.6-vs-16.4.6.md` |
 | `one-hooks-user-several-discord-accounts-2026-11-08.md` | `handoff/one-hooks-user-several-discord-accounts-2026-11-08.md` |
 | `open-content-editor-text-not-drafted-until-close-2026-11-20.md` | `handoff/open-content-editor-text-not-drafted-until-close-2026-11-20.md` |
 | `open-documents-survey.md` | `verification/cleanup-2026-11-10/open-documents-survey.md` |
@@ -878,6 +945,7 @@ they are the ID-less artifacts that root new efforts.
 | `preview-image-generator-generic-pool-private-field-2026-11-08.md` | `handoff/preview-image-generator-generic-pool-private-field-2026-11-08.md` |
 | `preview-image-generator-host-security-posture-2026-11-08.md` | `handoff/preview-image-generator-host-security-posture-2026-11-08.md` |
 | `preview-image-generator.md` | `architecture/preview-image-generator.md` |
+| `prod-preview-read.md` | `verification/018/qa/m2-hljs-resolution/prod-preview-read.md` |
 | `PROTOCOL.md` | `verification/017/post-deploy/kit/PROTOCOL.md` |
 | `providers-query-params-header-decode-throws-2026-11-08.md` | `handoff/closed/providers-query-params-header-decode-throws-2026-11-08.md` |
 | `pusher-message-update-channels-are-public-2026-11-19.md` | `handoff/pusher-message-update-channels-are-public-2026-11-19.md` |
@@ -914,12 +982,14 @@ they are the ID-less artifacts that root new efforts.
 | `setup-snapshot.md` | `verification/017/uat/walk-2/setup-snapshot.md` |
 | `signed-out-guards-sweep.md` | `verification/backlog-2026-11-18/scoping/signed-out-guards-sweep.md` |
 | `step1-edit-snapshot.md` | `verification/017/qa-phase1/g6-walk/step1-edit-snapshot.md` |
+| `summary.md` | `verification/018/planning/base-validation/summary.md` |
 | `sweep-next-upgrade.md` | `verification/website-deps-review/scoping/sweep-next-upgrade.md` |
 | `sweep-unbounded-input.md` | `verification/website-deps-review/scoping/sweep-unbounded-input.md` |
 | `sweep.md` | `verification/access-defects/scoping/sweep.md` |
 | `sweep.md` | `verification/fix-dialog-closes-on-first-portal-load/scoping/sweep.md` |
 | `sweep.md` | `verification/fix-message-page-header-decode/scoping/sweep.md` |
 | `system-architecture.md` | `architecture/system-architecture.md` |
+| `table.md` | `verification/018/planning/abort-form-probe/table.md` |
 | `test-inventory-2026-08-26.md` | `analysis/test-inventory-2026-08-26.md` |
 | `uat-016-brief.md` | `steering/queue-hooks-briefs/uat-016-brief.md` |
 | `uat-016-post-deploy-brief.md` | `steering/queue-hooks-briefs/uat-016-post-deploy-brief.md` |
@@ -937,6 +1007,7 @@ they are the ID-less artifacts that root new efforts.
 | `v1-guild-messages-auth-exposure-2026-10-10.md` | `research/closed/v1-guild-messages-auth-exposure-2026-10-10.md` |
 | `v1-guild-messages-auth-rulings.md` | `steering/v1-guild-messages-auth-rulings.md` |
 | `v1-guild-messages-endpoints-unauthenticated-2026-08-24.md` | `handoff/closed/v1-guild-messages-endpoints-unauthenticated-2026-08-24.md` |
+| `vercel-project-preview-fields.md` | `verification/018/planning/vercel-project-preview-fields.md` |
 | `walk-brief-production.md` | `verification/016/uat/walk-brief-production.md` |
 | `walk-brief.md` | `verification/016/uat/walk-brief.md` |
 | `website-2026-10-10-release-tip-qa.md` | `qa/closed/website-2026-10-10-release-tip-qa.md` |
