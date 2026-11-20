@@ -24,7 +24,7 @@ M2 is capped (`steering/018-rulings.md` block "2026-11-20T05:26Z"): each gap bel
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
 | 2026-11-20T05:31 | steering-roadmap-hooks (resume message; brief `steering/018-brief-implementer.md`) | M2 on revision 7 | M2 committed at `b0b0158` (three files); acceptance run over an isolated export of that commit, with its own install; lockfile movers dispositioned; the shared tree's `node_modules` moved to the lockfile (ruling B, block 04:51Z). |
-| 2026-11-20T06:25 | steering-roadmap-hooks (resume message, rulings blocks 05:42Z and 06:06Z) | zod pin named in M2's steps by plan revision 8 (`2dc79a3`, critic APPROVED `5b145f0`) | `zod` pinned exactly at 3.22.4 in `package.json` and the one matching `pnpm-lock.yaml` specifier line; frozen install exit 0; committed at `d1bb9b0`. Section "Zod pin (CR-2)" below. |
+| 2026-11-20T06:14 | steering-roadmap-hooks (resume message, rulings blocks 05:42Z and 06:06Z) | zod pin named in M2's steps by plan revision 8 (`2dc79a3`, critic APPROVED `5b145f0`) | `zod` pinned exactly at 3.22.4 in `package.json` and the one matching `pnpm-lock.yaml` specifier line; frozen install exit 0; committed at `d1bb9b0`. Section "Zod pin (CR-2)" below. |
 
 ## Implementation Summary
 
