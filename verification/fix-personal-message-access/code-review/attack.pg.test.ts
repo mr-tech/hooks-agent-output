@@ -15,6 +15,7 @@ const mocks = vi.hoisted(() => ({
   s3Inputs: [] as unknown[],
   channels: [] as string[],
   bypass: { user: false, guild: false },
+  deleteBeforeCheck: null as null | string,
   fetchUserAccount: vi.fn(),
   fetchUserGuilds: vi.fn(async () => []),
   fetchGuild: vi.fn(async () => {}),
@@ -47,9 +48,15 @@ vi.mock('~/server/api/utils/authorizeGuildAdmin', () => ({ default: mocks.author
 vi.mock('~/server/api/utils/user', async (importOriginal) => {
   const real = await importOriginal<typeof import('~/server/api/utils/user')>();
   return {
-    authorizeUser: async (userId: string, ids?: null | string | string[]) => (mocks.bypass.user
-      ? real.authorizeUser(userId, null)
-      : real.authorizeUser(userId, ids)),
+    authorizeUser: async (userId: string, ids?: null | string | string[]) => {
+      if (mocks.deleteBeforeCheck) {
+        const { sql: rawSql } = await import('kysely');
+        const { getPostgres: pg } = await import('project-utils');
+        await rawSql`delete from "Messages" where id = ${mocks.deleteBeforeCheck}`.execute(pg());
+        mocks.deleteBeforeCheck = null;
+      }
+      return mocks.bypass.user ? real.authorizeUser(userId, null) : real.authorizeUser(userId, ids);
+    },
   };
 });
 vi.mock('~/server/api/utils/authorizeGuildUser', async (importOriginal) => {
@@ -100,6 +107,7 @@ beforeEach(async () => {
   mocks.channels.length = 0;
   mocks.bypass.user = false;
   mocks.bypass.guild = false;
+  mocks.deleteBeforeCheck = null;
   mocks.authorizeGuildAdmin.mockReset().mockImplementation(async (guildId: string) => ({
     account: { providerAccountId: C.discordId, userId: C.dbUserId },
     guild: { id: guildId },
@@ -216,6 +224,45 @@ describe.each(BYPASSES)('%s', (_label, bypass) => {
     // C names A's personal row; the router derives the guild from the row, so this probes the personal branch as C.
     await attempt(() => callerAs(C).delete({ id }));
     victimUntouched(before, await snapshot());
+  });
+});
+
+// Race stand-in: the owner's delete lands after the procedure's load and before its ownership check
+// (the hook deletes A's row inside the authorizeUser call, ahead of the real check).
+describe('the owner deletes between load and ownership check', () => {
+  it('getOne: user B receives none of A\'s message', async () => {
+    mocks.deleteBeforeCheck = A_ROW;
+    const out = await attempt(() => callerAs(B).getOne(A_ROW));
+    expect(JSON.stringify(out)).not.toContain(SECRET);
+    expect(out).toMatchObject({ ok: false });
+  });
+
+  it('getOne: the owner still reads their own message when nothing is deleted (control)', async () => {
+    const out = await attempt(() => callerAs(A).getOne(A_ROW));
+    expect(JSON.stringify(out)).toContain(SECRET);
+  });
+
+  it('upsert: user B naming A\'s deleted number creates only B\'s own row, never A\'s text', async () => {
+    mocks.deleteBeforeCheck = A_ROW;
+    const out = await attempt(() => callerAs(B).upsert({ message: draft('B-race', A_ROW) }));
+    expect(JSON.stringify(out)).not.toContain(SECRET);
+    const rows = await snapshot();
+    expect(rows.filter((r) => r.id === A_ROW)).toEqual([]);
+    expect(rows.filter((r) => JSON.stringify(r).includes(SECRET))).toEqual([]);
+  });
+
+  it('updateRecentMessageData: user B returns and writes nothing of A\'s', async () => {
+    mocks.deleteBeforeCheck = A_ROW;
+    const out = await attempt(() => callerAs(B).updateRecentMessageData({
+      id: A_ROW, recentWebhookId: '400000000000000001', recentThreadId: null, recentMessageId: '400000000000000002',
+    }));
+    expect(JSON.stringify(out)).not.toContain(SECRET);
+  });
+
+  it('delete: user B clears no preview of A\'s number', async () => {
+    mocks.deleteBeforeCheck = A_ROW;
+    await attempt(() => callerAs(B).delete({ id: A_ROW }));
+    expect(JSON.stringify(mocks.s3Inputs)).not.toContain(A_ROW);
   });
 });
 
