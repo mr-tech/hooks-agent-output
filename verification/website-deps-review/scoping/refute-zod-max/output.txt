@@ -1,0 +1,5 @@
+Running scope as unit: run-r42349c1360624c5b9d330b1b1f72039c.scope
+a embeds max10, 50 invalid | issues 51 | codes too_big,invalid_string | first path ["data","embeds"]
+b components max40, 100 invalid | issues 101 | codes too_big,invalid_union_discriminator | first path ["data","components"]
+c allowed_mentions.users no max, 100 invalid | issues 100 | codes invalid_string | first path ["data","allowed_mentions","users",0]
+d control embeds 11 valid | issues 1 | codes too_big | first path ["data","embeds"]

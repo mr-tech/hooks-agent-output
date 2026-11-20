@@ -182,3 +182,73 @@ in devops's session ("Agent: push master to 7923a1d (Recommended)"). The chain b
   answer without the direct `sharp`. Security's A-1 (13 host-only dispositions, two critical) stays unsettled until a `vercel api`
   project read, which no block has recorded. It goes moot for the ten Next.js entries if the H-002 chain raises `next` to 16.4.5 or
   later. Carried into that chain's scoping.
+
+## 2026-11-20T02:53Z — scoping determination: the H-002/M-001 chain (planned); A-1 read made
+
+**Origin:** his selection at block 01:59Z, question "H-002/M-001", option "Agent: separate chain after H-001 (Recommended)": "Once H-001
+ships, steering opens its own chain for the Next.js upgrade and the save-size cap … its own scope, QA and release". H-001 shipped at
+02:34:40Z (block 02:36Z). The chain id is the planner's to mint; until then this chain is "the H-002/M-001 chain".
+
+**A-1 read (Standing Default, made, not asked).** `npx -y vercel@latest api /v9/projects/hooks-gg-website --scope hooks-gg` and
+`… /v13/deployments/dpl_CRSCY7cwracCXWNKE8uGnGrnuQ8r …`, 02:4xZ. Non-secret fields saved at
+`verification/website-deps-review/scoping/a1-vercel-image-config.json`. Read: framework `nextjs`; the production target is the deployment
+of website `7923a1d9…`; that deployment carries a platform `images` block (sizes, qualities, the two remote patterns of
+`next.config.js`) and one function, with no `_next/image` string anywhere in the record (`grep -o`, 0). This thread's reading: Vercel's
+image service answers `/_next/image`. That is an inference from the deployment record, not a request trace. A-1 is security's
+assumption; the file goes to security in this chain's brief.
+
+**Scoping determination.**
+- **Shape:** two items, one chain. H-002 is a dependency defect (Next.js 16.1.6 carries two App Router denial-of-service advisories; reach
+  rests on the advisories' text, not exercised). M-001 is a defect measured by security in an isolated export (a 1 MB signed-in save
+  builds a validation error of over 100 MB; the HTTP step is read from code). No dated outside event.
+- **Properties:**
+  - H-002: the website runs a Next.js release below the advisories' patched version.
+  - M-001 (the class): a signed-in request can make the server validate an unbounded number of client-sent array elements and record
+    one issue for each.
+- **Regions swept** (helpers, at website `origin/master` 7923a1d and project-utils `origin/master` 749606d):
+  - `verification/website-deps-review/scoping/sweep-next-upgrade.md` (package entries, lockfile, imports, config, runtime conventions,
+    peer dependencies, record). Its Sections 2, 4 and 6 were completed by this thread (addendum in the file).
+  - `verification/website-deps-review/scoping/sweep-unbounded-input.md` (server entry points, arrays and bounds, body limits, zod,
+    error-to-response, record).
+- **In scope:**
+  - `next`, `@next/bundle-analyzer`, `@next/eslint-plugin-next` and `eslint-config-next` (today `^15.0.0`, resolved 15.5.14) raised to
+    one matching 16.x release at or above 16.2.5. The target is his question (below). React stays at 19.2.4: next 16.2.5 and 16.4.6 both
+    take react `^18.2.0 || ^19.0.0` and node `>=20.9.0` (`npm view`, sweep §5).
+  - The two test helpers that import Next.js internals (`src/components/__tests__/helpers/linkNavigation.tsx:1`,
+    `src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx:12`), wherever the upgrade moves them.
+  - Re-verification of behaviour the record ties to Next 16.1.6: 017's navigation guards and link interception (AN-2, X-14, D-12;
+    `planning/closed/017-existing-items-backlog.md:232, 290, 749, 1375, 1396`) and 004's `next/dynamic` preload
+    (`planning/closed/004-lazy-loading-preload-overhaul.md:39, 64`).
+  - M-001: every array site reachable from `message.upsert` and `user.updatePreferences` (11 sites, `sweep-unbounded-input.md` §2),
+    bounded at the site or not, is refused when over its limit before its elements are validated. Bounded sites are in because
+    security's measurement filled `embeds` (`.max(10)` at the site) and recorded 524,266 issues (audit, M-001 table). The fix
+    mechanism (a pre-parse length check, a lower tRPC body limit, or both) is the planner's.
+- **Breach catch:** for H-002, the lockfile resolves `next` at or above the target, and security's re-run of `pnpm audit --prod`. For
+  M-001, a test that sends each of the two procedures an over-limit array of invalid elements, at every array site, and gets a refusal
+  that records no per-element issues.
+- **Out, each shown to him in the scope question:**
+  - zod 4 (the advisory's patched major): his option chose the save-size cap.
+  - The other 39 `z.string()` server lines: a string yields one issue, not one per element; the body limit bounds them.
+  - `interactions-server.ts`, which reads a body with no schema: token-gated (`x-hooks-api-token`), not client input.
+  - `project-utils` declaring `prisma-kysely` at runtime (audit I-2): another repository, not in his selection.
+  - `x-pathname` trusted for a redirect (audit I-5); Vercel's cache keeping RSC apart from HTML (A-2).
+  - preview-image-generator's `@next/eslint-plugin-next ^13.4.12`: another repository, a lint dependency.
+  - The leftovers carried from H-001: `middleware.ts:17-21`'s now-unread `x-query-params` write (block 02:11Z) and CR-1's commented
+    `sanitizeHtml` in `JsonModalBody.tsx` (block 02:18Z). `system-architecture.md:179`'s removed `sharp` goes to this chain's
+    architect.
+- **Not covered by the sweep:** Next.js's own internals between versions (the release notes, read by the planner and analyst); the
+  framework default body limit's value; platform request limits on Vercel; dynamic imports with computed specifiers; project-utils
+  `dist/`.
+- **A way to run the real service first (step 6):** a push of a non-master branch makes a Vercel preview deployment (`vercel api
+  /v6/deployments?…&target=preview`: two READY previews, `probe/017-waituntil*`, 2026-11-19). Preview has no database or Redis: the
+  Postgres and Redis keys are production-only (key names and targets of the project's env list, values not read). Put to him as its
+  own option.
+- **Stage set:** planner → critic (first pass at xhigh) → architect conformance → QA Phase 1 → implementer → code-reviewer → QA Phase 2 →
+  UAT (the framework moves under every page) → security (`security-hooks-website-deps`, on the change and to close H-002 and M-001) →
+  devops for website `master`. Retrospective at close-out. A planned chain, not a fixer: the upgrade's blast radius is the whole site.
+- **End step:** website `master`, which Vercel deploys to production; his word is needed. `release-move.js website master 7923a1d…
+  --dry-run` at 02:5xZ: "DRY RUN: every check passed"; workflows none (directory absent); sibling serving refs none. Live master
+  `7923a1d` (`ls-remote`).
+- **Released chains touching these routes:** 017 (navigation guards, the draft store) and `fix-message-page-header-decode`
+  (`Providers.tsx`). Their open post-deploy carriers: `handoff/017-existing-items-backlog-post-deploy-2026-11-19.md` (B-6, B-8, B-9 being
+  walked by `uat-hooks-017-looks`) and `handoff/message-page-header-decode-post-deploy-2026-11-20.md` (P-1, from 04:07Z).
