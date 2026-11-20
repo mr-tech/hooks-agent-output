@@ -487,4 +487,22 @@ Precedent read on the surfaces this plan changes: 012 (embed caps), 013 D32/D47 
 | Item | Source row | Disposition |
 |---|---|---|
 
-QA Phase 1 before implementation: yes (stage set, block 02:53Z); its re-key on revision 2 is owed.
+QA Phase 1 before implementation: yes (stage set, block 02:53Z); its re-key on revision 3 is owed.
+
+## Resumption State
+
+Written 2026-11-20T04:2xZ at steering's request (`/checkpoint`), session `planner-hooks-018`, cwd `/usr/local/bin/hooks/website`.
+
+- **Done:** revisions 0 to 3 committed; revision 3 at agent-output `428090e`. Registered rulings: D-1 to D-10 (blocks 01:59Z,
+  03:08Z, 03:25Z, 04:11Z of `steering/website-deps-review-rulings.md` and `steering/018-rulings.md`). Gate state at revision 2:
+  critic pass 2 REQUEST REVISION on OQ-5 only (`409b52c`, F-16 LOW now folded); architect APPROVED (`dbddefb`); QA re-keyed with
+  QAF-6, QAF-7 (`e8f18ef`), both folded at revision 3.
+- **Next:** wait for the three gates' verdicts on revision 3 (SHA sent to `critic-hooks-018`, `qa-hooks-018`, `architect-hooks-018`
+  at 04:1xZ). Fold every finding in one revision, after all three have reported. Read the plan as `git diff 428090e` from here on.
+  On the critic's APPROVED with QA and the architect passing and no findings, the next act is steering (implementation start).
+- **Approach in flight:** none. AD-5's number (20) is open to a gate's reasoned change.
+- **Trees:** website on `master` at `7923a1d`, untouched by this session. agent-output: nothing of this session's uncommitted.
+- **Evidence:** every run is committed under `verification/018/planning/` (base-validation, eslint probes, eslint9-flat-probe,
+  abort-form-probe, preview-imitation, error-cap-probe, zod-length-first, version and Vercel reads). No run is unrecorded.
+- **Questions out:** none. **Sessions messaged:** steering-roadmap-hooks, critic-hooks-018, qa-hooks-018, architect-hooks-018.
+- **Processes:** no helper, server or export of this session is left (scratch exports deleted by each helper, confirmed `ls -d`).
