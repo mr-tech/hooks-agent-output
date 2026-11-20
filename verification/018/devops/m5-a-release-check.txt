@@ -1,0 +1,17 @@
+# M5-a release-check branch — devops-hooks-018, read 2026-11-20T06:2xZ
+branch (pushed, non-master, no .github/workflows at the head: git ls-tree count 0): release-check/018-next-upgrade-save-size-cap
+head: 5677889cca3d6259de7ed7c60cfe00874ca7e14c   parent: d1bb9b0724cded3c3c303203c2cbafe5df7bbf96 (chain tip)
+push: 2026-11-20T06:21:54Z; git ls-remote origin refs/heads/release-check/018-next-upgrade-save-size-cap -> 5677889cca3d6259de7ed7c60cfe00874ca7e14c
+$ git diff --name-only d1bb9b0 5677889
+vercel.json
+$ git diff --numstat d1bb9b0 5677889
+1	0	vercel.json
+(the one added line: "buildCommand": "SKIP_ENV_VALIDATION=1 next build"; commit built by plumbing, shared tree not moved)
+# Vercel read: npx vercel@66.2.0 api /v6/deployments (project list) and /v13/deployments/<id>, --scope hooks-gg, GET
+deployment: dpl_oVqvgvn5zFPquLnNehXZMWBHnq1E  readyState READY (substate STAGED)  target null (preview)  errorCode null
+githubCommitRef release-check/018-next-upgrade-save-size-cap  githubCommitSha 5677889cca3d6259de7ed7c60cfe00874ca7e14c
+buildCommand (deployment) SKIP_ENV_VALIDATION=1 next build   framework nextjs   node 24.x   ssoProtection null
+building 1795155720555 -> ready 1795155756204 (ms epoch; 35.6 s)
+preview URL (branch alias): https://hooks-gg-website-git-release-check-018-next-upg-c39d5c-hooks-gg.vercel.app
+preview URL (deployment):   https://hooks-gg-website-1r843p8i7-hooks-gg.vercel.app
+GET / on both: HTTP 200 (status only; the page checks are UAT's, M5-b to M5-e)
