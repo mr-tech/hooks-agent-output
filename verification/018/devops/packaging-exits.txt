@@ -1,0 +1,4 @@
+install exit=0
+build exit=0
+typecheck exit=0
+tsconfig.json unchanged by the build (cmp 0)
