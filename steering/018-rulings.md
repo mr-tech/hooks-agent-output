@@ -287,3 +287,18 @@ steering-roadmap-hooks; wording this thread's):
   architecture update and security's close." Not chosen: "You: No in the pane" ("Nothing is deleted. The release-check branch stays on
   origin, carrying only its preview build. Devops records that the step was not completed and goes on to record the deploy.").
 - At 10:05Z the prompt was still open in the pane (capture read this turn).
+
+## 2026-11-20T13:4xZ — plan 018 Released; reconciliation, security close and post-deploy reads started; retrospective held
+
+Read this turn: `git ls-remote origin` shows `master` `d1bb9b0` and no `release-check/*` or `chain/*` ref; the website tree is on `master`
+(`git branch --show-current`). Devops's commits `d4c45a8` (release executed, master moved 08:07:52Z, production deployment READY) and
+`3761c1d` (Phase 2D: plan, implementation M1-M4, code review, QA, UAT and deployment record closed Released). The pane prompt
+(runbook step 5) was answered and the branches deleted. The `owner-wait` alert was resolved (`challenge-alert.js resolved`, exit 0).
+- **Started:** the architect's release reconciliation (`steering/018-brief-architect-reconciliation.md`, `946241d`); security's close
+  of its 018 audit and of H-002/M-001 in the dependency review (by message naming its Resumption State `2ca9e96`). Devops cued UAT
+  (B-6, B-10) and QA (B-8) itself, per the carrier `handoff/018-next-upgrade-save-size-cap-post-deploy-2026-11-20.md`.
+- **Retrospective held.** Devops sent the spawn cue. Close-out is not met: the post-deploy rows B-6, B-8 and B-10 are unread, the
+  security audit is Active, and the reconciliation is open. The retrospective fires once those are terminal or carried.
+- **New carrier owned by steering:** `handoff/website-018-standing-risks-save-toast-and-lint-stack-2026-11-20.md` (RK-3, RK-5;
+  event-form triggers). It stays open on its triggers.
+- Devops (301K, past 275K) asked to `/checkpoint`; it is cleared on the notice.
