@@ -27,7 +27,7 @@ points at the unpacked `zod@3.25.76` tarball (`npm pack zod@3.25.76`).
 | `probe-tip.capmsg.test.ts`, `out-tip.json` | Runs `cappedInput(z.object({ message: optionalIdMessageShape }))` at `f9e66c2` and records each issue's code, path and message. |
 | `probe-base.capmsg.test.ts`, `out-base.json` | Runs `z.object({ message: optionalIdMessageShape }).safeParse` at `7923a1d`. |
 | `probe-zodversion.capmsg.test.ts`, `out-zodversion-tip.json` (zod 3.22.4), `out-zodversion-tipz.json` (zod 3.25.76) | Issue count, message length, whether the summary is present, and index 19's message. It adds an input of 40 containers × 40 sections, each with an invalid accessory. |
-| `run-*.log` | vitest output for each run. Every run exits 0. |
+| `run-*.log` | vitest output for each run. Every run exits 0. These files are local only and not committed: the record ignores `*.log`. The `out-*.json` files are the committed result. |
 
 ## Result
 
