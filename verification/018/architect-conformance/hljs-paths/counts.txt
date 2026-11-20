@@ -1,0 +1,12 @@
+/tmp/claude-1000/-usr-local-bin-hooks-website/76c68088-995e-4fb7-8f2b-17b805d34a57/scratchpad/hl/.next | static | highlightAuto | 0
+/tmp/claude-1000/-usr-local-bin-hooks-website/76c68088-995e-4fb7-8f2b-17b805d34a57/scratchpad/hl/.next | server | highlightAuto | 0
+/tmp/claude-1000/-usr-local-bin-hooks-website/76c68088-995e-4fb7-8f2b-17b805d34a57/scratchpad/hl/.next | static | registerLanguage | 0
+/tmp/claude-1000/-usr-local-bin-hooks-website/76c68088-995e-4fb7-8f2b-17b805d34a57/scratchpad/hl/.next | server | registerLanguage | 0
+/tmp/claude-1000/-usr-local-bin-hooks-website/76c68088-995e-4fb7-8f2b-17b805d34a57/scratchpad/hl/.next | static | node_modules/highlight.js | 0
+/tmp/claude-1000/-usr-local-bin-hooks-website/76c68088-995e-4fb7-8f2b-17b805d34a57/scratchpad/hl/.next | server | node_modules/highlight.js | 0
+/usr/local/bin/hooks/website/.next | static | highlightAuto | 1
+/usr/local/bin/hooks/website/.next | server | highlightAuto | 2
+/usr/local/bin/hooks/website/.next | static | registerLanguage | 1
+/usr/local/bin/hooks/website/.next | server | registerLanguage | 2
+/usr/local/bin/hooks/website/.next | static | node_modules/highlight.js | 0
+/usr/local/bin/hooks/website/.next | server | node_modules/highlight.js | 1
