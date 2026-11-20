@@ -191,3 +191,15 @@ with no round of its own; the planner folds it in the batch fold before devops S
 implementer then pins `zod` exactly and runs a frozen install, and that commit is reviewed and verified as usual. (B) would be a revision
 round the cap removes; (C) leaves the premise unguarded. Not put to him: no product behaviour turns on it.
 Told to the implementer, the planner and the code reviewer.
+
+## 2026-11-20T06:06Z — M1 to M3 verified; the Planner batch fold is briefed now, ahead of the final Phase 2 and UAT
+
+Read this turn: QA Phase 2 PASS on M1 and M2 at website `a558f2d` (`eb0c713`) and on M3 at `969d92a` (`e0d8b95`, QAF-11 LOW); code
+review APPROVED_WITH_COMMENTS on M1, M2, M3 (`Reviewed-At` `969d92a`, CR-5 reconciled `167357b`); M4's document (`Handoff-At` `969d92a`,
+no website commit; UAT's walks open); the plan's Planner batch (15 item rows, CR-2's zod pin among them, QAF-11 not yet registered).
+- **Sequence (this thread's):** the batch fold is owed before devops Stage 1 anyway (devops.md step 2c), and CR-2's ruling (block
+  05:42Z) puts the zod pin after it. Folding now puts the pin on the branch before QA's effort-final sweep and before UAT, so the
+  verdict UAT starts on covers the release tip's code. Order: planner folds the batch (QAF-11 included) → the critic's read of the fold
+  → the architect's closing pass (from the last revision it read, 7) → implementer pins `zod` → code review → QA's last Phase 2 (M4
+  and the effort-final sweep) at that tip → UAT.
+- Briefed to the planner now; the rest are briefed as each predecessor lands.
