@@ -117,3 +117,15 @@ traces to his 04:11Z answers, so no delta prompt).
   (evidence `verification/018/steering/refute-union-count/`).
 - Planner cleared 04:16Z after its Checkpoint (`263241f`). Standing check re-armed as `d086bd5a` (04:47Z).
 - The record-write gate refused this block's first write (a shell append); re-issued with the Edit tool.
+
+## 2026-11-20T04:32Z — SL-1 retired before it reached him; revisions 4 and 5; critic and architect approve revision 5
+
+Read this turn: the plan's changelog rows 4, R-2, R-3, 5 (`29277d3`, `e45e8cf`); the critique header at its pass 5 (Status Resolved,
+APPROVED, `Reviewed-At` `e45e8cf`); the architecture findings header (`1f78e40`, APPROVED revision 5, no open finding); QA's header (re-keyed
+to revision 4, `413798f`).
+- **The 04:16Z residual is moot.** The planner folded F-17 and F-18 into revision 4 (M1-i counts issues in the result; the three
+  `z.union` sites, `spacing` included, from its own run `verification/018/planning/union-cap-probe/`). Critique pass 4 retired SL-1. Nothing
+  goes to him on it; this thread's 04:16Z plan to put it is withdrawn.
+- Revision 4's and 5's scope deltas restate M1-i, M1-a and M1-b within D-9; no criterion or milestone added. No delta prompt.
+- **Waiting on:** QA's re-key of revision 5. Then the implementation start (steering.md, Implementer), with no `OPEN QUESTION` open
+  (five, each RESOLVED or CLOSED, `grep -n` this turn).
