@@ -207,3 +207,26 @@ Record: `verification/access-defects/scoping/residue-refutation.md` (`c4b843d`),
 - The query in the fixer's document (§ Diagnosis) is the uncorrected one. The correction goes to its owner, the fixer (cleared), by
   pointer in the next necessary send. The release question uses the corrected read.
 - What no query reaches: (b)'s rows the sequence has already passed. That stays a stated limit.
+
+## 2026-11-20T00:04Z — security APPROVED_WITH_CONTROLS at 75f1543; M-001 routed to remediation (RC-1 option 1)
+
+Read this turn: `security/fix-personal-message-access-security-audit.md` (record `99f7a3d`): `Status: Active`, `Reviewed-At: 75f1543…`,
+verdict APPROVED_WITH_CONTROLS, Overall Risk MEDIUM, LOW once M-001 is closed.
+- **M-001 (MEDIUM, S2):** `message.getOne` reads the row, then checks ownership in a later query. `authorizeUser` passes when it finds no
+  row. So an owner's delete between the two hands the row to another user. The security stage executed it through the real routers: 300
+  of 300 leaks with 6 pollers.
+- **This thread's ruling: remediate on the chain branch (RC-1 option 1).** It needs no owner word. S2 is in scope (block 22:35Z), and his
+  property says a browser-sent number "never lets a user read … a row that is not theirs" (block 20:30Z). A defect at an in-scope surface,
+  inside the swept region, is in scope on this thread's recorded ruling. Option 2, releasing with M-001 open, would be an exception to his
+  own property, and only he can grant that. It is not offered, because option 1 is in scope and the remedy was shown in an export (8 of 8,
+  0 of 300).
+- **Path:** the fixer (cleared, resumed by message naming its Resumption State, `implementation/…-implementation.md` § Resumption
+  State) closes M-001 with a suite case, per the audit's Testing Recommendations. The production code moves, so:
+  - code review gets a delta review;
+  - QA's verdict at `75f1543` expires, so QA re-verifies at the new SHA;
+  - security re-reviews the delta (RC-1).
+- **Held to his release question:** security's INBOX item (`pnpm audit --prod`: 8 critical, 76 high on the unchanged lockfile,
+  unassessed), asking whether to open a dependency-only review of the website. It opens new work, so it is his. It is put with the
+  release, not before.
+- RC-2 (production values, real redis, a real Discord sign-in) rides the post-deploy B-1 and B-2 (block 23:49Z).
+Relays: the fixer (with the corrected residue read for its § Diagnosis, block 23:53Z), security, the code reviewer and QA.
