@@ -1,0 +1,12 @@
+/	200 
+/legal/privacy	200 
+/legal/terms	200 
+/preview	200 
+/support	308 https://discord.gg/Yf7We6k2Nb
+/message	200 
+/message/m/0/edit	200 
+/message/m/0/send	200 
+/message/m/5	307 http://127.0.0.1:3999/message/m/5/edit
+/api/auth/providers	200 
+/api/auth/signin/discord	302 http://127.0.0.1:3999/?callbackUrl=http%3A%2F%2F127.0.0.1%3A3999&error=discord
+/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Fembed%2Favatars%2F0.png&w=64&q=75	200 

@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/033d965f-863f-45aa-a9ac-5f08cc899176/scratchpad/abort-probe
+
+ ✓ |node| src/server/api/routers/__tests__/message.abort-form-probe.test.ts > list bound probe > records every site, procedure, kind and length 41ms
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  04:01:59
+   Duration  1.65s (transform 231ms, setup 0ms, import 1.22s, tests 42ms, environment 0ms)
+
+exit 0

@@ -1,0 +1,131 @@
+diff --git a/src/server/api/routers/user.ts b/src/server/api/routers/user.ts
+index 62d6976..95a4906 100644
+--- a/src/server/api/routers/user.ts
++++ b/src/server/api/routers/user.ts
+@@ -1,6 +1,6 @@
+ import { z } from 'zod';
+ 
+-import { partialMessageShape } from '../utils/shapes';
++import { boundedArray, partialMessageShape } from '../utils/shapes';
+ import { authorizeUser } from '../utils/user';
+ 
+ import { createTRPCRouter, protectedProcedure } from '~/server/api/trpc';
+@@ -28,7 +28,7 @@ export default createTRPCRouter({
+     .input(z.object({
+       recentGuild: z.string().optional(),
+       recentWebhook: z.string().optional(),
+-      recentMessageIds: z.array(z.string()).optional(),
++      recentMessageIds: boundedArray(z.string(), 11).optional(),
+       message: partialMessageShape.nullable().optional(),
+     }))
+     .mutation(async ({ ctx: { session, database }, input: preferences }) => {
+diff --git a/src/server/api/utils/shapes.ts b/src/server/api/utils/shapes.ts
+index 1c13ca2..7e3ed54 100644
+--- a/src/server/api/utils/shapes.ts
++++ b/src/server/api/utils/shapes.ts
+@@ -35,6 +35,24 @@ export interface UpdateMessage {
+ 
+ export const discordIdShape = z.string().regex(/^[0-9]{17,23}$/);
+ 
++/** A list refused on its length with one fatal issue, before any element is validated. */
++export function boundedArray<T extends z.ZodTypeAny>(element: T, max: number) {
++  return z.array(z.unknown()).superRefine((list, ctx) => {
++    if (list.length > max) {
++      ctx.addIssue({
++        code: z.ZodIssueCode.too_big,
++        maximum: max,
++        type: 'array',
++        inclusive: true,
++        exact: false,
++        message: `Array must contain at most ${max} element(s)`,
++        fatal: true,
++      });
++    }
++  }).pipe(z.array(element)) as unknown as
++    z.ZodType<z.output<z.ZodArray<T>>, z.ZodTypeDef, z.input<z.ZodArray<T>>>;
++}
++
+ const MAX_MESSAGE_ID = 9223372036854775807n;
+ 
+ export const messageIdShape = z.string()
+@@ -63,7 +81,7 @@ const linkButtonShape = z.object({
+ 
+ const actionRowShape = z.object({
+   type: z.literal(1),
+-  components: z.array(linkButtonShape).max(MAX_ACTION_ROW_BUTTONS),
++  components: boundedArray(linkButtonShape, MAX_ACTION_ROW_BUTTONS),
+ });
+ 
+ const textDisplayShape = z.object({
+@@ -80,7 +98,7 @@ const thumbnailShape = z.object({
+ 
+ const sectionShape = z.object({
+   type: z.literal(9),
+-  components: z.array(textDisplayShape).max(MAX_SECTION_TEXT_COMPONENTS),
++  components: boundedArray(textDisplayShape, MAX_SECTION_TEXT_COMPONENTS),
+   accessory: z.union([thumbnailShape, linkButtonShape]),
+ });
+ 
+@@ -92,7 +110,7 @@ const mediaGalleryItemShape = z.object({
+ 
+ const mediaGalleryShape = z.object({
+   type: z.literal(12),
+-  items: z.array(mediaGalleryItemShape).max(MAX_MEDIA_GALLERY_ITEMS),
++  items: boundedArray(mediaGalleryItemShape, MAX_MEDIA_GALLERY_ITEMS),
+ });
+ 
+ const fileShape = z.object({
+@@ -118,7 +136,7 @@ export const containerChildShape = z.discriminatedUnion('type', [
+ 
+ const containerShape = z.object({
+   type: z.literal(17),
+-  components: z.array(containerChildShape),
++  components: boundedArray(containerChildShape, MAX_TOTAL_COMPONENTS),
+   accent_color: z.number().int().min(0).max(0xffffff)
+     .optional(),
+   spoiler: z.boolean().optional(),
+@@ -145,13 +163,14 @@ export const embedShape = z.object({
+   color: z.number().int().min(0).max(0xffffff)
+     .optional(),
+   title: z.string().trim().max(MAX_EMBED_TITLE_LENGTH).optional(),
+-  fields: z.array(
++  fields: boundedArray(
+     z.object({
+       name: z.string().trim().max(MAX_EMBED_FIELD_NAME_LENGTH),
+       value: z.string().trim().max(MAX_EMBED_FIELD_VALUE_LENGTH),
+       inline: z.boolean().optional(),
+     }),
+-  ).max(MAX_EMBED_FIELDS).optional(),
++    MAX_EMBED_FIELDS,
++  ).optional(),
+   timestamp: z.string().trim().datetime().optional(),
+   footer: z.object({
+     text: z.string().trim().max(MAX_EMBED_FOOTER_TEXT_LENGTH),
+@@ -199,13 +218,13 @@ const discordMessageBaseShape = z.object({
+   username: z.string().trim().max(MAX_NAME_LENGTH).optional(),
+   avatar_url: z.string().trim().url().optional(),
+   allowed_mentions: z.object({
+-    parse: z.array(z.union([z.literal('user'), z.literal('here'), z.literal('everyone')])).optional(),
+-    users: z.array(discordIdShape).optional(),
+-    roles: z.array(discordIdShape).optional(),
++    parse: boundedArray(z.union([z.literal('user'), z.literal('here'), z.literal('everyone')]), 3).optional(),
++    users: boundedArray(discordIdShape, 100).optional(),
++    roles: boundedArray(discordIdShape, 100).optional(),
+     replied_user: z.boolean().optional(),
+   }).optional(),
+-  embeds: z.array(embedShape).max(MAX_EMBEDS).optional(),
+-  components: z.array(topLevelComponentShape).max(MAX_TOTAL_COMPONENTS).optional(),
++  embeds: boundedArray(embedShape, MAX_EMBEDS).optional(),
++  components: boundedArray(topLevelComponentShape, MAX_TOTAL_COMPONENTS).optional(),
+   flags: z.number().int().nonnegative().optional(),
+ });
+ 
+@@ -333,7 +352,7 @@ export function describeDroppedComponentTypesNotice(
+ export const discordMessageImportShape = discordMessageBaseShape.extend({
+   components: z.preprocess(
+     filterSupportedComponents,
+-    z.array(topLevelComponentShape).max(MAX_TOTAL_COMPONENTS).optional(),
++    boundedArray(topLevelComponentShape, MAX_TOTAL_COMPONENTS).optional(),
+   ),
+ }).superRefine(refineDisplayableText);
+ 

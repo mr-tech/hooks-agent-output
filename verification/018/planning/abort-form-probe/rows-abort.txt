@@ -1,0 +1,288 @@
+message.upsert|S1 actionRow.components|valid|5|ok, 0 issues
+user.updatePreferences|S1 actionRow.components|valid|5|ok, 0 issues
+message.upsert|S1 actionRow.components|valid|6|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S1 actionRow.components|valid|6|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S1 actionRow.components|valid|55|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S1 actionRow.components|valid|55|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S1 actionRow.components|invalid|5|refused, issues=5 atList=0 codes={"invalid_string":5} innerPath=true textIssue=false
+user.updatePreferences|S1 actionRow.components|invalid|5|refused, issues=5 atList=0 codes={"invalid_string":5} innerPath=true textIssue=false
+message.upsert|S1 actionRow.components|invalid|6|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S1 actionRow.components|invalid|6|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S1 actionRow.components|invalid|55|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S1 actionRow.components|invalid|55|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S1 actionRow.components|number|5|refused, issues=5 atList=0 codes={"invalid_type":5} innerPath=true textIssue=false
+user.updatePreferences|S1 actionRow.components|number|5|refused, issues=5 atList=0 codes={"invalid_type":5} innerPath=true textIssue=false
+message.upsert|S1 actionRow.components|number|6|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S1 actionRow.components|number|6|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S1 actionRow.components|number|55|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S1 actionRow.components|number|55|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S1 actionRow.components|null|5|refused, issues=5 atList=0 codes={"invalid_type":5} innerPath=true textIssue=false
+user.updatePreferences|S1 actionRow.components|null|5|refused, issues=5 atList=0 codes={"invalid_type":5} innerPath=true textIssue=false
+message.upsert|S1 actionRow.components|null|6|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S1 actionRow.components|null|6|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S1 actionRow.components|null|55|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S1 actionRow.components|null|55|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S2 section.components|valid|3|ok, 0 issues
+user.updatePreferences|S2 section.components|valid|3|ok, 0 issues
+message.upsert|S2 section.components|valid|4|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S2 section.components|valid|4|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S2 section.components|valid|53|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S2 section.components|valid|53|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S2 section.components|invalid|3|refused, issues=3 atList=0 codes={"invalid_type":3} innerPath=true textIssue=false
+user.updatePreferences|S2 section.components|invalid|3|refused, issues=3 atList=0 codes={"invalid_type":3} innerPath=true textIssue=false
+message.upsert|S2 section.components|invalid|4|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S2 section.components|invalid|4|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S2 section.components|invalid|53|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S2 section.components|invalid|53|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S2 section.components|number|3|refused, issues=3 atList=0 codes={"invalid_type":3} innerPath=true textIssue=false
+user.updatePreferences|S2 section.components|number|3|refused, issues=3 atList=0 codes={"invalid_type":3} innerPath=true textIssue=false
+message.upsert|S2 section.components|number|4|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S2 section.components|number|4|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S2 section.components|number|53|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S2 section.components|number|53|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S2 section.components|null|3|refused, issues=3 atList=0 codes={"invalid_type":3} innerPath=true textIssue=false
+user.updatePreferences|S2 section.components|null|3|refused, issues=3 atList=0 codes={"invalid_type":3} innerPath=true textIssue=false
+message.upsert|S2 section.components|null|4|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S2 section.components|null|4|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S2 section.components|null|53|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S2 section.components|null|53|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S3 mediaGallery.items|valid|10|ok, 0 issues
+user.updatePreferences|S3 mediaGallery.items|valid|10|ok, 0 issues
+message.upsert|S3 mediaGallery.items|valid|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S3 mediaGallery.items|valid|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S3 mediaGallery.items|valid|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S3 mediaGallery.items|valid|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S3 mediaGallery.items|invalid|10|refused, issues=10 atList=0 codes={"invalid_string":10} innerPath=true textIssue=false
+user.updatePreferences|S3 mediaGallery.items|invalid|10|refused, issues=10 atList=0 codes={"invalid_string":10} innerPath=true textIssue=false
+message.upsert|S3 mediaGallery.items|invalid|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S3 mediaGallery.items|invalid|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S3 mediaGallery.items|invalid|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S3 mediaGallery.items|invalid|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S3 mediaGallery.items|number|10|refused, issues=10 atList=0 codes={"invalid_type":10} innerPath=true textIssue=false
+user.updatePreferences|S3 mediaGallery.items|number|10|refused, issues=10 atList=0 codes={"invalid_type":10} innerPath=true textIssue=false
+message.upsert|S3 mediaGallery.items|number|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S3 mediaGallery.items|number|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S3 mediaGallery.items|number|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S3 mediaGallery.items|number|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S3 mediaGallery.items|null|10|refused, issues=10 atList=0 codes={"invalid_type":10} innerPath=true textIssue=false
+user.updatePreferences|S3 mediaGallery.items|null|10|refused, issues=10 atList=0 codes={"invalid_type":10} innerPath=true textIssue=false
+message.upsert|S3 mediaGallery.items|null|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S3 mediaGallery.items|null|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S3 mediaGallery.items|null|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S3 mediaGallery.items|null|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S4 container.components|valid|40|ok, 0 issues
+user.updatePreferences|S4 container.components|valid|40|ok, 0 issues
+message.upsert|S4 container.components|valid|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S4 container.components|valid|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S4 container.components|valid|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S4 container.components|valid|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S4 container.components|invalid|40|refused, issues=40 atList=0 codes={"invalid_type":40} innerPath=true textIssue=false
+user.updatePreferences|S4 container.components|invalid|40|refused, issues=40 atList=0 codes={"invalid_type":40} innerPath=true textIssue=false
+message.upsert|S4 container.components|invalid|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S4 container.components|invalid|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S4 container.components|invalid|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S4 container.components|invalid|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S4 container.components|number|40|refused, issues=40 atList=0 codes={"invalid_type":40} innerPath=true textIssue=false
+user.updatePreferences|S4 container.components|number|40|refused, issues=40 atList=0 codes={"invalid_type":40} innerPath=true textIssue=false
+message.upsert|S4 container.components|number|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S4 container.components|number|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S4 container.components|number|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S4 container.components|number|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S4 container.components|null|40|refused, issues=40 atList=0 codes={"invalid_type":40} innerPath=true textIssue=false
+user.updatePreferences|S4 container.components|null|40|refused, issues=40 atList=0 codes={"invalid_type":40} innerPath=true textIssue=false
+message.upsert|S4 container.components|null|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S4 container.components|null|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S4 container.components|null|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S4 container.components|null|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S4 container.components|nested-over-bound|40|refused, issues=40 atList=0 codes={"too_big":40} innerPath=true textIssue=false
+user.updatePreferences|S4 container.components|nested-over-bound|40|refused, issues=40 atList=0 codes={"too_big":40} innerPath=true textIssue=false
+message.upsert|S4 container.components|nested-over-bound|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S4 container.components|nested-over-bound|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S4 container.components|nested-over-bound|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S4 container.components|nested-over-bound|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S5 embed.fields|valid|25|ok, 0 issues
+user.updatePreferences|S5 embed.fields|valid|25|ok, 0 issues
+message.upsert|S5 embed.fields|valid|26|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S5 embed.fields|valid|26|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S5 embed.fields|valid|75|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S5 embed.fields|valid|75|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S5 embed.fields|invalid|25|refused, issues=25 atList=0 codes={"invalid_type":25} innerPath=true textIssue=false
+user.updatePreferences|S5 embed.fields|invalid|25|refused, issues=25 atList=0 codes={"invalid_type":25} innerPath=true textIssue=false
+message.upsert|S5 embed.fields|invalid|26|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S5 embed.fields|invalid|26|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S5 embed.fields|invalid|75|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S5 embed.fields|invalid|75|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S5 embed.fields|number|25|refused, issues=25 atList=0 codes={"invalid_type":25} innerPath=true textIssue=false
+user.updatePreferences|S5 embed.fields|number|25|refused, issues=25 atList=0 codes={"invalid_type":25} innerPath=true textIssue=false
+message.upsert|S5 embed.fields|number|26|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S5 embed.fields|number|26|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S5 embed.fields|number|75|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S5 embed.fields|number|75|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S5 embed.fields|null|25|refused, issues=25 atList=0 codes={"invalid_type":25} innerPath=true textIssue=false
+user.updatePreferences|S5 embed.fields|null|25|refused, issues=25 atList=0 codes={"invalid_type":25} innerPath=true textIssue=false
+message.upsert|S5 embed.fields|null|26|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S5 embed.fields|null|26|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S5 embed.fields|null|75|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S5 embed.fields|null|75|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S6 allowed_mentions.parse|valid|3|ok, 0 issues
+user.updatePreferences|S6 allowed_mentions.parse|valid|3|ok, 0 issues
+message.upsert|S6 allowed_mentions.parse|valid|4|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S6 allowed_mentions.parse|valid|4|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S6 allowed_mentions.parse|valid|53|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S6 allowed_mentions.parse|valid|53|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S6 allowed_mentions.parse|invalid|3|refused, issues=3 atList=0 codes={"invalid_union":3} innerPath=true textIssue=false
+user.updatePreferences|S6 allowed_mentions.parse|invalid|3|refused, issues=3 atList=0 codes={"invalid_union":3} innerPath=true textIssue=false
+message.upsert|S6 allowed_mentions.parse|invalid|4|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S6 allowed_mentions.parse|invalid|4|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S6 allowed_mentions.parse|invalid|53|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S6 allowed_mentions.parse|invalid|53|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S6 allowed_mentions.parse|number|3|refused, issues=3 atList=0 codes={"invalid_union":3} innerPath=true textIssue=false
+user.updatePreferences|S6 allowed_mentions.parse|number|3|refused, issues=3 atList=0 codes={"invalid_union":3} innerPath=true textIssue=false
+message.upsert|S6 allowed_mentions.parse|number|4|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S6 allowed_mentions.parse|number|4|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S6 allowed_mentions.parse|number|53|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S6 allowed_mentions.parse|number|53|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S6 allowed_mentions.parse|null|3|refused, issues=3 atList=0 codes={"invalid_union":3} innerPath=true textIssue=false
+user.updatePreferences|S6 allowed_mentions.parse|null|3|refused, issues=3 atList=0 codes={"invalid_union":3} innerPath=true textIssue=false
+message.upsert|S6 allowed_mentions.parse|null|4|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S6 allowed_mentions.parse|null|4|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S6 allowed_mentions.parse|null|53|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S6 allowed_mentions.parse|null|53|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S7 allowed_mentions.users|valid|100|ok, 0 issues
+user.updatePreferences|S7 allowed_mentions.users|valid|100|ok, 0 issues
+message.upsert|S7 allowed_mentions.users|valid|101|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S7 allowed_mentions.users|valid|101|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S7 allowed_mentions.users|valid|150|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S7 allowed_mentions.users|valid|150|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S7 allowed_mentions.users|invalid|100|refused, issues=100 atList=0 codes={"invalid_string":100} innerPath=true textIssue=false
+user.updatePreferences|S7 allowed_mentions.users|invalid|100|refused, issues=100 atList=0 codes={"invalid_string":100} innerPath=true textIssue=false
+message.upsert|S7 allowed_mentions.users|invalid|101|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S7 allowed_mentions.users|invalid|101|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S7 allowed_mentions.users|invalid|150|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S7 allowed_mentions.users|invalid|150|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S7 allowed_mentions.users|number|100|refused, issues=100 atList=0 codes={"invalid_type":100} innerPath=true textIssue=false
+user.updatePreferences|S7 allowed_mentions.users|number|100|refused, issues=100 atList=0 codes={"invalid_type":100} innerPath=true textIssue=false
+message.upsert|S7 allowed_mentions.users|number|101|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S7 allowed_mentions.users|number|101|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S7 allowed_mentions.users|number|150|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S7 allowed_mentions.users|number|150|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S7 allowed_mentions.users|null|100|refused, issues=100 atList=0 codes={"invalid_type":100} innerPath=true textIssue=false
+user.updatePreferences|S7 allowed_mentions.users|null|100|refused, issues=100 atList=0 codes={"invalid_type":100} innerPath=true textIssue=false
+message.upsert|S7 allowed_mentions.users|null|101|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S7 allowed_mentions.users|null|101|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S7 allowed_mentions.users|null|150|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S7 allowed_mentions.users|null|150|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S8 allowed_mentions.roles|valid|100|ok, 0 issues
+user.updatePreferences|S8 allowed_mentions.roles|valid|100|ok, 0 issues
+message.upsert|S8 allowed_mentions.roles|valid|101|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S8 allowed_mentions.roles|valid|101|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S8 allowed_mentions.roles|valid|150|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S8 allowed_mentions.roles|valid|150|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S8 allowed_mentions.roles|invalid|100|refused, issues=100 atList=0 codes={"invalid_string":100} innerPath=true textIssue=false
+user.updatePreferences|S8 allowed_mentions.roles|invalid|100|refused, issues=100 atList=0 codes={"invalid_string":100} innerPath=true textIssue=false
+message.upsert|S8 allowed_mentions.roles|invalid|101|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S8 allowed_mentions.roles|invalid|101|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S8 allowed_mentions.roles|invalid|150|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S8 allowed_mentions.roles|invalid|150|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S8 allowed_mentions.roles|number|100|refused, issues=100 atList=0 codes={"invalid_type":100} innerPath=true textIssue=false
+user.updatePreferences|S8 allowed_mentions.roles|number|100|refused, issues=100 atList=0 codes={"invalid_type":100} innerPath=true textIssue=false
+message.upsert|S8 allowed_mentions.roles|number|101|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S8 allowed_mentions.roles|number|101|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S8 allowed_mentions.roles|number|150|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S8 allowed_mentions.roles|number|150|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S8 allowed_mentions.roles|null|100|refused, issues=100 atList=0 codes={"invalid_type":100} innerPath=true textIssue=false
+user.updatePreferences|S8 allowed_mentions.roles|null|100|refused, issues=100 atList=0 codes={"invalid_type":100} innerPath=true textIssue=false
+message.upsert|S8 allowed_mentions.roles|null|101|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S8 allowed_mentions.roles|null|101|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S8 allowed_mentions.roles|null|150|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S8 allowed_mentions.roles|null|150|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S9 embeds|valid|10|ok, 0 issues
+user.updatePreferences|S9 embeds|valid|10|ok, 0 issues
+message.upsert|S9 embeds|valid|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S9 embeds|valid|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S9 embeds|valid|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S9 embeds|valid|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S9 embeds|invalid|10|refused, issues=10 atList=0 codes={"invalid_type":10} innerPath=true textIssue=false
+user.updatePreferences|S9 embeds|invalid|10|refused, issues=10 atList=0 codes={"invalid_type":10} innerPath=true textIssue=false
+message.upsert|S9 embeds|invalid|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S9 embeds|invalid|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S9 embeds|invalid|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S9 embeds|invalid|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S9 embeds|number|10|refused, issues=10 atList=0 codes={"invalid_type":10} innerPath=true textIssue=false
+user.updatePreferences|S9 embeds|number|10|refused, issues=10 atList=0 codes={"invalid_type":10} innerPath=true textIssue=false
+message.upsert|S9 embeds|number|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S9 embeds|number|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S9 embeds|number|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S9 embeds|number|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S9 embeds|null|10|refused, issues=10 atList=0 codes={"invalid_type":10} innerPath=true textIssue=false
+user.updatePreferences|S9 embeds|null|10|refused, issues=10 atList=0 codes={"invalid_type":10} innerPath=true textIssue=false
+message.upsert|S9 embeds|null|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S9 embeds|null|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S9 embeds|null|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S9 embeds|null|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S9 embeds|nested-over-bound|10|refused, issues=10 atList=0 codes={"too_big":10} innerPath=true textIssue=false
+user.updatePreferences|S9 embeds|nested-over-bound|10|refused, issues=10 atList=0 codes={"too_big":10} innerPath=true textIssue=false
+message.upsert|S9 embeds|nested-over-bound|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S9 embeds|nested-over-bound|11|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S9 embeds|nested-over-bound|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S9 embeds|nested-over-bound|60|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S10 components|valid|40|ok, 0 issues
+user.updatePreferences|S10 components|valid|40|ok, 0 issues
+message.upsert|S10 components|valid|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S10 components|valid|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S10 components|valid|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S10 components|valid|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S10 components|invalid|40|refused, issues=40 atList=0 codes={"invalid_type":40} innerPath=true textIssue=false
+user.updatePreferences|S10 components|invalid|40|refused, issues=40 atList=0 codes={"invalid_type":40} innerPath=true textIssue=false
+message.upsert|S10 components|invalid|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S10 components|invalid|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S10 components|invalid|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S10 components|invalid|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S10 components|number|40|refused, issues=40 atList=0 codes={"invalid_type":40} innerPath=true textIssue=false
+user.updatePreferences|S10 components|number|40|refused, issues=40 atList=0 codes={"invalid_type":40} innerPath=true textIssue=false
+message.upsert|S10 components|number|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S10 components|number|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S10 components|number|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S10 components|number|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S10 components|null|40|refused, issues=40 atList=0 codes={"invalid_type":40} innerPath=true textIssue=false
+user.updatePreferences|S10 components|null|40|refused, issues=40 atList=0 codes={"invalid_type":40} innerPath=true textIssue=false
+message.upsert|S10 components|null|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S10 components|null|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S10 components|null|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S10 components|null|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S10 components|nested-over-bound|40|refused, issues=40 atList=0 codes={"too_big":40} innerPath=true textIssue=false
+user.updatePreferences|S10 components|nested-over-bound|40|refused, issues=40 atList=0 codes={"too_big":40} innerPath=true textIssue=false
+message.upsert|S10 components|nested-over-bound|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S10 components|nested-over-bound|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S10 components|nested-over-bound|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S10 components|nested-over-bound|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S11 recentMessageIds|valid|11|ok, 0 issues
+user.updatePreferences|S11 recentMessageIds|valid|12|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S11 recentMessageIds|valid|61|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S11 recentMessageIds|invalid|11|refused, issues=11 atList=0 codes={"invalid_type":11} innerPath=true textIssue=false
+user.updatePreferences|S11 recentMessageIds|invalid|12|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S11 recentMessageIds|invalid|61|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S11 recentMessageIds|number|11|refused, issues=11 atList=0 codes={"invalid_type":11} innerPath=true textIssue=false
+user.updatePreferences|S11 recentMessageIds|number|12|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S11 recentMessageIds|number|61|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S11 recentMessageIds|null|11|refused, issues=11 atList=0 codes={"invalid_type":11} innerPath=true textIssue=false
+user.updatePreferences|S11 recentMessageIds|null|12|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S11 recentMessageIds|null|61|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+import|S10i components|valid|40|ok, 0 issues
+import|S10i components|valid|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+import|S10i components|valid|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+import|S10i components|invalid|40|refused, issues=40 atList=0 codes={"invalid_type":40} innerPath=true textIssue=false
+import|S10i components|invalid|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+import|S10i components|invalid|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+import|S10i components|number|40|ok, 0 issues
+import|S10i components|number|41|ok, 0 issues
+import|S10i components|number|90|ok, 0 issues
+import|S10i components|null|40|ok, 0 issues
+import|S10i components|null|41|ok, 0 issues
+import|S10i components|null|90|ok, 0 issues
+import|S10i components|nested-over-bound|40|refused, issues=40 atList=0 codes={"too_big":40} innerPath=true textIssue=false
+import|S10i components|nested-over-bound|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+import|S10i components|nested-over-bound|90|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+message.upsert|S10 41x5000|text-5000|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+user.updatePreferences|S10 41x5000|text-5000|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false
+import|S10i 41x5000|text-5000|41|refused, issues=1 atList=1 codes={"too_big":1} innerPath=false textIssue=false

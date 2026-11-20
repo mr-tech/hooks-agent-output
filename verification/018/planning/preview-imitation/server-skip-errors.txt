@@ -1,0 +1,3 @@
+7:[ioredis] Unhandled error event: RangeError: Port should be >= 0 and < 65536. Received type number (NaN).
+13:RangeError: Port should be >= 0 and < 65536. Received type number (NaN).
+17:⨯ unhandledRejection:  RangeError: Port should be >= 0 and < 65536. Received type number (NaN).
