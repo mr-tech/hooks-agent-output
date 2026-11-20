@@ -1,0 +1,929 @@
+bot/constants.ts(5,44): error TS2304: Cannot find name 'InteractionCallbackName'.
+bot/constants.ts(21,40): error TS2304: Cannot find name 'InteractionTypeName'.
+bot/constants.ts(40,44): error TS2304: Cannot find name 'ButtonStyleName'.
+bot/scripts/app_commands/common.ts(12,12): error TS2304: Cannot find name 'SlashCommand'.
+bot/scripts/app_commands/common.ts(12,27): error TS2304: Cannot find name 'UserCommand'.
+bot/scripts/app_commands/common.ts(12,41): error TS2304: Cannot find name 'MessageCommand'.
+bot/scripts/app_commands/common.ts(13,15): error TS2304: Cannot find name 'SlashCommand'.
+bot/scripts/app_commands/common.ts(18,12): error TS2304: Cannot find name 'SlashCommand'.
+bot/scripts/app_commands/common.ts(18,27): error TS2304: Cannot find name 'UserCommand'.
+bot/scripts/app_commands/common.ts(18,41): error TS2304: Cannot find name 'MessageCommand'.
+bot/scripts/app_commands/common.ts(19,15): error TS2304: Cannot find name 'UserCommand'.
+bot/scripts/app_commands/common.ts(23,68): error TS2304: Cannot find name 'SlashCommand'.
+bot/scripts/app_commands/common.ts(24,67): error TS2304: Cannot find name 'UserCommand'.
+bot/scripts/app_commands/common.ts(25,70): error TS2304: Cannot find name 'MessageCommand'.
+bot/scripts/app_commands/common.ts(26,72): error TS2304: Cannot find name 'SlashCommand'.
+bot/scripts/app_commands/common.ts(26,87): error TS2304: Cannot find name 'UserCommand'.
+bot/scripts/app_commands/common.ts(26,101): error TS2304: Cannot find name 'MessageCommand'.
+bot/scripts/app_commands/common.ts(28,46): error TS2304: Cannot find name 'Entries'.
+bot/scripts/app_commands/common.ts(28,102): error TS7006: Parameter 'acc' implicitly has an 'any' type.
+bot/scripts/app_commands/common.ts(28,108): error TS7031: Binding element 'locale' implicitly has an 'any' type.
+bot/scripts/app_commands/common.ts(28,136): error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type 'Partial<Record<Locale, GeneratedLocalizedStrings>>'.
+bot/scripts/app_commands/common.ts(32,46): error TS2304: Cannot find name 'Entries'.
+bot/scripts/app_commands/common.ts(32,102): error TS7006: Parameter 'acc' implicitly has an 'any' type.
+bot/scripts/app_commands/common.ts(32,108): error TS7031: Binding element 'locale' implicitly has an 'any' type.
+bot/scripts/app_commands/common.ts(32,136): error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type 'Partial<Record<Locale, GeneratedLocalizedStrings>>'.
+bot/scripts/app_commands/common.ts(35,44): error TS2304: Cannot find name 'Entries'.
+bot/scripts/app_commands/common.ts(35,100): error TS7006: Parameter 'acc' implicitly has an 'any' type.
+bot/scripts/app_commands/common.ts(35,106): error TS7031: Binding element 'locale' implicitly has an 'any' type.
+bot/scripts/app_commands/common.ts(35,134): error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type 'Partial<Record<Locale, GeneratedLocalizedStrings>>'.
+bot/scripts/app_commands/index.ts(6,82): error TS2304: Cannot find name 'SlashCommand'.
+bot/scripts/app_commands/messageCommands.ts(8,17): error TS2304: Cannot find name 'MessageCommand'.
+bot/scripts/app_commands/messageCommands.ts(12,9): error TS7053: Element implicitly has an 'any' type because expression of type 'MessageCommand' can't be used to index type '{ get_message: string; }'.
+bot/scripts/app_commands/slash/index.ts(8,31): error TS2304: Cannot find name 'SlashCommand'.
+bot/scripts/app_commands/slash/index.ts(13,64): error TS2304: Cannot find name 'Entries'.
+bot/scripts/app_commands/slash/index.ts(13,96): error TS7031: Binding element 'command' implicitly has an 'any' type.
+bot/scripts/app_commands/slash/index.ts(13,105): error TS7031: Binding element 'meta' implicitly has an 'any' type.
+bot/scripts/app_commands/slash/index.ts(15,36): error TS2304: Cannot find name 'SlashCommand'.
+bot/scripts/app_commands/slash/index.ts(15,99): error TS2304: Cannot find name 'SlashCommand'.
+bot/scripts/app_commands/slash/index.ts(18,11): error TS7053: Element implicitly has an 'any' type because expression of type 'SlashCommand' can't be used to index type '{ help: { name: string; description: string; }; }'.
+bot/scripts/app_commands/slash/index.ts(18,60): error TS2304: Cannot find name 'SlashCommand'.
+bot/scripts/app_commands/slash/index.ts(19,18): error TS7053: Element implicitly has an 'any' type because expression of type 'SlashCommand' can't be used to index type '{ help: { name: string; description: string; }; }'.
+bot/scripts/app_commands/types.ts(8,45): error TS2304: Cannot find name 'SlashCommand'.
+src/components/AnchoredPopover/Child.tsx(53,29): error TS2304: Cannot find name 'FC'.
+src/components/AnchoredPopover/Child.tsx(53,42): error TS7006: Parameter 'props' implicitly has an 'any' type.
+src/components/AnchoredPopover/Child.tsx(115,9): error TS2783: 'beforeEnter' is specified more than once, so this usage will be overwritten.
+src/components/AnchoredPopover/Child.tsx(116,9): error TS2783: 'beforeLeave' is specified more than once, so this usage will be overwritten.
+src/components/AnchoredPopover/Child.tsx(149,11): error TS2783: 'beforeEnter' is specified more than once, so this usage will be overwritten.
+src/components/AnchoredPopover/Child.tsx(150,11): error TS2783: 'beforeLeave' is specified more than once, so this usage will be overwritten.
+src/components/AnchoredPopover/renderTrap.tsx(6,27): error TS2304: Cannot find name 'ReactNode'.
+src/components/Calendar/CalendarCell.tsx(17,21): error TS2304: Cannot find name 'FC'.
+src/components/Calendar/CalendarCell.tsx(17,36): error TS7031: Binding element 'state' implicitly has an 'any' type.
+src/components/Calendar/CalendarCell.tsx(17,43): error TS7031: Binding element 'date' implicitly has an 'any' type.
+src/components/Calendar/CalendarCell.tsx(17,49): error TS7031: Binding element 'currentMonth' implicitly has an 'any' type.
+src/components/Calendar/CalendarGrid.tsx(13,21): error TS2304: Cannot find name 'FC'.
+src/components/Calendar/CalendarGrid.tsx(13,36): error TS7031: Binding element 'state' implicitly has an 'any' type.
+src/components/Calendar/CalendarGrid.tsx(17,77): error TS2322: Type 'ZonedDateTime' is not assignable to type 'CalendarDate'.
+  Property '#private' in type 'ZonedDateTime' refers to a different member that cannot be accessed from within type 'CalendarDate'.
+src/components/Calendar/CalendarGrid.tsx(36,21): error TS7006: Parameter 'date' implicitly has an 'any' type.
+src/components/Calendar/CalendarGrid.tsx(36,27): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/components/Calendar/index.tsx(29,17): error TS2304: Cannot find name 'FC'.
+src/components/Calendar/index.tsx(30,3): error TS7031: Binding element 'withOffset' implicitly has an 'any' type.
+src/components/Calendar/index.tsx(30,15): error TS7031: Binding element 'value' implicitly has an 'any' type.
+src/components/Calendar/index.tsx(30,22): error TS7031: Binding element 'onChange' implicitly has an 'any' type.
+src/components/Calendar/index.tsx(61,9): error TS2322: Type '{ placeholderValue: ZonedDateTime; value: ZonedDateTime; onChange: (date: DateValue | null) => void; "aria-label": string; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'placeholderValue' does not exist on type 'IntrinsicAttributes'.
+src/components/DateTimeField/DateSegment.tsx(11,20): error TS2304: Cannot find name 'FC'.
+src/components/DateTimeField/DateSegment.tsx(11,35): error TS7031: Binding element 'segment' implicitly has an 'any' type.
+src/components/DateTimeField/DateSegment.tsx(11,44): error TS7031: Binding element 'state' implicitly has an 'any' type.
+src/components/DateTimeField/index.tsx(16,18): error TS2304: Cannot find name 'FC'.
+src/components/DateTimeField/index.tsx(16,139): error TS7006: Parameter 'props' implicitly has an 'any' type.
+src/components/DiscordContentEditor/Desktop.tsx(23,29): error TS2304: Cannot find name 'FC'.
+src/components/DiscordContentEditor/Desktop.tsx(23,42): error TS7006: Parameter 'props' implicitly has an 'any' type.
+src/components/DiscordContentEditor/Desktop.tsx(81,15): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: unknown, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ value: any; mounted: boolean; isEmbed: any; parser: any; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'value' does not exist on type 'IntrinsicAttributes'.
+  Overload 2 of 2, '(props: unknown): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ value: any; mounted: boolean; isEmbed: any; parser: any; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'value' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordContentEditor/Mobile.tsx(26,28): error TS2304: Cannot find name 'FC'.
+src/components/DiscordContentEditor/Mobile.tsx(26,41): error TS7006: Parameter 'props' implicitly has an 'any' type.
+src/components/DiscordContentEditor/Mobile.tsx(83,13): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: unknown, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ value: any; mounted: boolean; isEmbed: any; parser: any; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'value' does not exist on type 'IntrinsicAttributes'.
+  Overload 2 of 2, '(props: unknown): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ value: any; mounted: boolean; isEmbed: any; parser: any; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'value' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordContentEditor/index.tsx(10,15): error TS2305: Module '"simple-markdown"' has no exported member 'InteractiveParser'.
+src/components/DiscordContentEditor/index.tsx(10,34): error TS2305: Module '"simple-markdown"' has no exported member 'StaticParser'.
+src/components/DiscordContentEditor/index.tsx(24,17): error TS2304: Cannot find name 'DiscordMessageStyle'.
+src/components/DiscordContentEditor/index.tsx(56,15): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: unknown, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ value: string; mounted: boolean; isEmbed: boolean; parser: any; onChange: (str: string) => void; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'value' does not exist on type 'IntrinsicAttributes'.
+  Overload 2 of 2, '(props: unknown): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ value: string; mounted: boolean; isEmbed: boolean; parser: any; onChange: (str: string) => void; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'value' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordContentEditor/useCustomEmojis.ts(11,86): error TS7006: Parameter 'emoji' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ActionsMenu.tsx(35,24): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ActionsMenu.tsx(36,3): error TS7031: Binding element 'label' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ActionsMenu.tsx(36,10): error TS7031: Binding element 'Icon' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ActionsMenu.tsx(36,16): error TS7031: Binding element 'onPress' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ActionsMenu.tsx(36,25): error TS7031: Binding element 'disabled' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ActionsMenu.tsx(36,35): error TS7031: Binding element 'danger' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ActionsMenu.tsx(36,43): error TS7031: Binding element 'active' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ActionsMenu.tsx(76,20): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ActionsMenu.tsx(76,54): error TS7031: Binding element 'children' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ActionsMenu.tsx(76,64): error TS7031: Binding element 'label' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/Author.tsx(22,16): error TS2304: Cannot find name 'DiscordMessageStyle'.
+src/components/DiscordMessageEditor/components/Author.tsx(31,15): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/Author.tsx(32,3): error TS7031: Binding element 'visualStyle' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/Author.tsx(32,16): error TS7031: Binding element 'username' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/Author.tsx(32,26): error TS7031: Binding element 'avatarUrl' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/Author.tsx(32,37): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/Author.tsx(32,71): error TS7031: Binding element 'setUsername' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/Author.tsx(32,84): error TS7031: Binding element 'setAvatarUrl' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/Author.tsx(159,9): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: unknown, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ isOpen: boolean; onClose: () => void; image: any; ringMask: true; setImage: (url: string) => void; aspectRatio: number; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'isOpen' does not exist on type 'IntrinsicAttributes'.
+  Overload 2 of 2, '(props: unknown): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ isOpen: boolean; onClose: () => void; image: any; ringMask: true; setImage: (url: string) => void; aspectRatio: number; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'isOpen' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(19,11): error TS2304: Cannot find name 'EditableLinkButton'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(21,20): error TS2304: Cannot find name 'EditableLinkButton'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(26,21): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(27,3): error TS7031: Binding element 'button' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(27,11): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(27,21): error TS7031: Binding element 'setButton' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(27,32): error TS7031: Binding element 'onDelete' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(27,42): error TS7031: Binding element 'onDuplicate' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(48,27): error TS2322: Type '{ className: string; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'className' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(53,29): error TS2322: Type '{ button: any; setButton: any; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'button' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(81,8): error TS2304: Cannot find name 'EditableActionRow'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(83,17): error TS2304: Cannot find name 'EditableActionRow'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(86,24): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(86,39): error TS7031: Binding element 'row' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(86,44): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(86,54): error TS7031: Binding element 'setRow' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(97,56): error TS2304: Cannot find name 'EditableLinkButton'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(99,51): error TS7006: Parameter 'b' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(99,54): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(104,54): error TS7006: Parameter '_' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(104,57): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(110,18): error TS2304: Cannot find name 'EditableLinkButton'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(118,28): error TS7006: Parameter 'btn' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx(118,33): error TS7006: Parameter 'idx' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(28,14): error TS2304: Cannot find name 'EditableTopLevelComponent'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(30,20): error TS2304: Cannot find name 'EditableTopLevelComponent'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(35,22): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(36,3): error TS7031: Binding element 'component' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(36,14): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(36,24): error TS7031: Binding element 'set' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(36,29): error TS7031: Binding element 'canAddChild' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(36,42): error TS7031: Binding element 'onDelete' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(42,11): error TS2322: Type '{ row: any; showEdit: any; setRow: (row: EditableActionRow) => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'row' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(44,32): error TS2304: Cannot find name 'EditableActionRow'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(50,11): error TS2322: Type '{ component: any; showEdit: any; set: (c: EditableTextDisplay) => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'component' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(52,27): error TS2304: Cannot find name 'EditableTextDisplay'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(58,11): error TS2322: Type '{ section: any; showEdit: any; setSection: (c: EditableSection) => void; onAutoRemove: any; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'section' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(60,34): error TS2304: Cannot find name 'EditableSection'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(67,11): error TS2322: Type '{ gallery: any; showEdit: any; setGallery: (c: EditableMediaGallery) => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'gallery' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(69,34): error TS2304: Cannot find name 'EditableMediaGallery'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(75,11): error TS2322: Type '{ file: any; showEdit: any; setFile: (c: EditableFile) => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'file' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(77,31): error TS2304: Cannot find name 'EditableFile'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(83,11): error TS2322: Type '{ separator: any; showEdit: any; setSeparator: (c: EditableSeparator) => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'separator' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(85,36): error TS2304: Cannot find name 'EditableSeparator'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(91,11): error TS2322: Type '{ container: any; showEdit: any; setContainer: (c: EditableContainer) => void; canAddChild: any; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'container' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(93,36): error TS2304: Cannot find name 'EditableContainer'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(113,14): error TS2304: Cannot find name 'EditableTopLevelComponent'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(122,24): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(123,3): error TS7031: Binding element 'component' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(123,14): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(123,24): error TS7031: Binding element 'actions' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(123,33): error TS7031: Binding element 'isFirst' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(123,42): error TS7031: Binding element 'isLast' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(123,50): error TS7031: Binding element 'canDuplicate' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(123,64): error TS7031: Binding element 'canAddChild' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(137,10): error TS2304: Cannot find name 'EditableContainer'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(141,42): error TS2304: Cannot find name 'EditableContainer'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(153,12): error TS2322: Type '{ children: (false | Element)[]; label: string; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'children' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(158,35): error TS2304: Cannot find name 'EditableContainer'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(163,43): error TS2304: Cannot find name 'EditableContainer'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(199,40): error TS2304: Cannot find name 'EditableContainer'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ComponentEditor.tsx(215,9): error TS2322: Type '{ title: string; message: string; confirmText: string; open: boolean; onConfirm: any; onClose: () => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'title' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(38,10): error TS2304: Cannot find name 'EditableContainerChild'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(40,12): error TS2304: Cannot find name 'EditableContainerChild'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(44,27): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(44,51): error TS7031: Binding element 'child' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(44,58): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(44,68): error TS7031: Binding element 'set' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(44,73): error TS7031: Binding element 'onAutoRemove' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(49,11): error TS2322: Type '{ row: any; showEdit: any; setRow: (row: EditableActionRow) => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'row' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(51,32): error TS2304: Cannot find name 'EditableActionRow'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(57,11): error TS2322: Type '{ component: any; showEdit: any; set: (c: EditableTextDisplay) => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'component' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(59,27): error TS2304: Cannot find name 'EditableTextDisplay'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(65,11): error TS2322: Type '{ section: any; showEdit: any; setSection: (c: EditableSection) => void; onAutoRemove: any; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'section' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(67,34): error TS2304: Cannot find name 'EditableSection'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(74,11): error TS2322: Type '{ gallery: any; showEdit: any; setGallery: (c: EditableMediaGallery) => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'gallery' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(76,34): error TS2304: Cannot find name 'EditableMediaGallery'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(82,11): error TS2322: Type '{ file: any; showEdit: any; setFile: (c: EditableFile) => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'file' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(84,31): error TS2304: Cannot find name 'EditableFile'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(90,11): error TS2322: Type '{ separator: any; showEdit: any; setSeparator: (c: EditableSeparator) => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'separator' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(92,36): error TS2304: Cannot find name 'EditableSeparator'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(110,10): error TS2304: Cannot find name 'EditableContainerChild'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(112,12): error TS2304: Cannot find name 'EditableContainerChild'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(119,30): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(120,3): error TS7031: Binding element 'child' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(120,10): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(120,20): error TS7031: Binding element 'set' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(120,25): error TS7031: Binding element 'onDelete' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(120,35): error TS7031: Binding element 'onMoveUp' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(120,45): error TS7031: Binding element 'onMoveDown' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(120,57): error TS7031: Binding element 'onDuplicate' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(209,14): error TS2304: Cannot find name 'EditableContainer'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(211,21): error TS2304: Cannot find name 'EditableContainer'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(215,24): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(216,3): error TS7031: Binding element 'container' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(216,14): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(216,24): error TS7031: Binding element 'setContainer' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(216,38): error TS7031: Binding element 'canAddChild' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(221,30): error TS2304: Cannot find name 'EditableContainerChild'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(223,50): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(223,53): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(231,53): error TS7006: Parameter '_' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(231,56): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(260,18): error TS2304: Cannot find name 'EditableTopLevelComponent'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(261,12): error TS2304: Cannot find name 'EditableContainerChild'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(288,36): error TS7006: Parameter 'child' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(288,43): error TS7006: Parameter 'idx' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx(321,38): error TS2304: Cannot find name 'EditableContainerChild'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ExternalLinkIcon.tsx(3,25): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ExternalLinkIcon.tsx(3,57): error TS7031: Binding element 'className' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/FileEditor.tsx(14,9): error TS2304: Cannot find name 'EditableFile'.
+src/components/DiscordMessageEditor/components/ComponentEditors/FileEditor.tsx(16,16): error TS2304: Cannot find name 'EditableFile'.
+src/components/DiscordMessageEditor/components/ComponentEditors/FileEditor.tsx(19,19): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/FileEditor.tsx(19,34): error TS7031: Binding element 'file' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/FileEditor.tsx(19,40): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/FileEditor.tsx(19,50): error TS7031: Binding element 'setFile' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/LinkButtonEditor.tsx(11,42): error TS2304: Cannot find name 'EditableLinkButton'.
+src/components/DiscordMessageEditor/components/ComponentEditors/LinkButtonEditor.tsx(12,11): error TS2304: Cannot find name 'EditableLinkButton'.
+src/components/DiscordMessageEditor/components/ComponentEditors/LinkButtonEditor.tsx(13,28): error TS2304: Cannot find name 'EditableLinkButton'.
+src/components/DiscordMessageEditor/components/ComponentEditors/LinkButtonEditor.tsx(15,14): error TS2304: Cannot find name 'EditableLinkButton'.
+src/components/DiscordMessageEditor/components/ComponentEditors/LinkButtonEditor.tsx(18,11): error TS2304: Cannot find name 'EditableLinkButton'.
+src/components/DiscordMessageEditor/components/ComponentEditors/LinkButtonEditor.tsx(20,14): error TS2304: Cannot find name 'EditableLinkButton'.
+src/components/DiscordMessageEditor/components/ComponentEditors/LinkButtonEditor.tsx(24,11): error TS2304: Cannot find name 'EditableLinkButton'.
+src/components/DiscordMessageEditor/components/ComponentEditors/LinkButtonEditor.tsx(25,20): error TS2304: Cannot find name 'EditableLinkButton'.
+src/components/DiscordMessageEditor/components/ComponentEditors/LinkButtonEditor.tsx(29,25): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/LinkButtonEditor.tsx(29,40): error TS7031: Binding element 'button' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/LinkButtonEditor.tsx(29,48): error TS7031: Binding element 'setButton' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(17,9): error TS2304: Cannot find name 'EditableMediaGalleryItem'.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(20,19): error TS2304: Cannot find name 'EditableMediaGalleryItem'.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(25,26): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(26,3): error TS7031: Binding element 'item' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(26,9): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(26,19): error TS7031: Binding element 'canDelete' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(26,30): error TS7031: Binding element 'setItem' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(26,39): error TS7031: Binding element 'onDelete' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(26,49): error TS7031: Binding element 'onDuplicate' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(127,12): error TS2304: Cannot find name 'EditableMediaGallery'.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(129,19): error TS2304: Cannot find name 'EditableMediaGallery'.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(132,27): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(132,42): error TS7031: Binding element 'gallery' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(132,51): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(132,61): error TS7031: Binding element 'setGallery' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(136,29): error TS2304: Cannot find name 'EditableMediaGalleryItem'.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(138,40): error TS7006: Parameter 'it' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(138,44): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(146,43): error TS7006: Parameter '_' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(146,46): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(163,20): error TS2304: Cannot find name 'EditableMediaGalleryItem'.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(189,29): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx(189,35): error TS7006: Parameter 'idx' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(30,11): error TS2304: Cannot find name 'EditableLinkButton'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(32,20): error TS2304: Cannot find name 'EditableLinkButton'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(35,24): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(35,54): error TS7031: Binding element 'button' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(35,62): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(35,72): error TS7031: Binding element 'setButton' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(55,27): error TS2322: Type '{ className: string; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'className' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(60,29): error TS2322: Type '{ button: any; setButton: any; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'button' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(68,12): error TS2304: Cannot find name 'EditableSection'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(70,19): error TS2304: Cannot find name 'EditableSection'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(75,7): error TS2304: Cannot find name 'EditableTextDisplay'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(77,12): error TS2304: Cannot find name 'EditableTextDisplay'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(84,27): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(85,3): error TS7031: Binding element 'td' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(85,7): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(85,17): error TS7031: Binding element 'set' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(85,22): error TS7031: Binding element 'onDelete' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(85,32): error TS7031: Binding element 'onDuplicate' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(85,45): error TS7031: Binding element 'onMoveUp' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(85,55): error TS7031: Binding element 'onMoveDown' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(101,28): error TS2322: Type '{ component: any; showEdit: any; set: any; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'component' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(163,22): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(163,37): error TS7031: Binding element 'section' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(163,46): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(163,56): error TS7031: Binding element 'setSection' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(163,68): error TS7031: Binding element 'onAutoRemove' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(167,27): error TS2304: Cannot find name 'EditableTextDisplay'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(169,50): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(169,53): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(184,54): error TS7006: Parameter '_' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(184,57): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(198,20): error TS2304: Cannot find name 'EditableTextDisplay'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(227,11): error TS2304: Cannot find name 'EditableThumbnail'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(227,31): error TS2304: Cannot find name 'EditableLinkButton'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(236,34): error TS7006: Parameter 'td' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(236,38): error TS7006: Parameter 'idx' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(274,13): error TS2322: Type '{ thumbnail: any; showEdit: any; setThumbnail: (t: EditableThumbnail) => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'thumbnail' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(276,47): error TS2304: Cannot find name 'EditableThumbnail'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx(282,44): error TS2304: Cannot find name 'EditableLinkButton'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SeparatorEditor.tsx(13,14): error TS2304: Cannot find name 'EditableSeparator'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SeparatorEditor.tsx(15,21): error TS2304: Cannot find name 'EditableSeparator'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SeparatorEditor.tsx(18,24): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/SeparatorEditor.tsx(18,39): error TS7031: Binding element 'separator' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SeparatorEditor.tsx(18,50): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/SeparatorEditor.tsx(18,60): error TS7031: Binding element 'setSeparator' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/TextDisplayEditor.tsx(11,14): error TS2304: Cannot find name 'EditableTextDisplay'.
+src/components/DiscordMessageEditor/components/ComponentEditors/TextDisplayEditor.tsx(13,12): error TS2304: Cannot find name 'EditableTextDisplay'.
+src/components/DiscordMessageEditor/components/ComponentEditors/TextDisplayEditor.tsx(16,26): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/TextDisplayEditor.tsx(16,41): error TS7031: Binding element 'component' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/TextDisplayEditor.tsx(16,52): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/TextDisplayEditor.tsx(16,62): error TS7031: Binding element 'set' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ThumbnailEditor.tsx(13,14): error TS2304: Cannot find name 'EditableThumbnail'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ThumbnailEditor.tsx(15,21): error TS2304: Cannot find name 'EditableThumbnail'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ThumbnailEditor.tsx(18,24): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ComponentEditors/ThumbnailEditor.tsx(18,39): error TS7031: Binding element 'thumbnail' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ThumbnailEditor.tsx(18,50): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ComponentEditors/ThumbnailEditor.tsx(18,60): error TS7031: Binding element 'setThumbnail' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/ContentBody.tsx(15,20): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/ContentBody.tsx(15,33): error TS7006: Parameter 'props' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx(16,15): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx(16,30): error TS7031: Binding element 'initColor' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker.tsx(16,41): error TS7031: Binding element 'setColor' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx(25,27): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx(25,42): error TS7031: Binding element 'initColor' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx(25,53): error TS7031: Binding element 'setColor' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/index.tsx(40,8): error TS2322: Type '{ children: Element; enter?: string | undefined; enterFrom?: string | undefined; enterTo?: string | undefined; entered?: string | undefined; leave?: string | undefined; leaveFrom?: string | undefined; leaveTo?: string | undefined; portal: true; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'children' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(24,10): error TS2304: Cannot find name 'EditableEmbed'.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(25,19): error TS2304: Cannot find name 'EditableState'.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(31,23): error TS2304: Cannot find name 'EditableField'.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(37,44): error TS2304: Cannot find name 'EditableField'.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(41,14): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(42,3): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(42,13): error TS7031: Binding element 'embed' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(42,20): error TS7031: Binding element 'editableState' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(43,3): error TS7031: Binding element 'setAuthor' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(43,14): error TS7031: Binding element 'setTitle' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(43,24): error TS7031: Binding element 'setUrl' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(43,32): error TS7031: Binding element 'setDescription' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(44,3): error TS7031: Binding element 'setThumbnail' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(44,17): error TS7031: Binding element 'setImage' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(44,27): error TS7031: Binding element 'setFields' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(44,38): error TS7031: Binding element 'setFooter' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(44,49): error TS7031: Binding element 'setTimestamp' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/Embed.tsx(97,13): error TS2322: Type '{ fields: any; showEdit: any; setFields: any; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'fields' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx(30,20): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx(30,35): error TS7031: Binding element 'author' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx(30,43): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx(30,53): error TS7031: Binding element 'setAuthor' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx(42,49): error TS7006: Parameter 'prevAuthor' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx(151,10): error TS2559: Type '{ children: Element; enter?: string | undefined; enterFrom?: string | undefined; enterTo?: string | undefined; entered?: string | undefined; leave?: string | undefined; leaveFrom?: string | undefined; leaveTo?: string | undefined; }' has no properties in common with type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx(182,9): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: unknown, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ isOpen: boolean; image: string | undefined; ringMask: true; onClose: () => void; setImage: (url: string) => void; aspectRatio: number; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'isOpen' does not exist on type 'IntrinsicAttributes'.
+  Overload 2 of 2, '(props: unknown): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ isOpen: boolean; image: string | undefined; ringMask: true; onClose: () => void; setImage: (url: string) => void; aspectRatio: number; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'isOpen' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx(20,10): error TS2304: Cannot find name 'EditableField'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx(23,21): error TS2304: Cannot find name 'EditableField'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx(29,19): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx(29,32): error TS7006: Parameter 'props' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx(58,73): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: unknown, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ parser: any; value: any; mounted: boolean; onChange: (newName: string) => void; isEmbed: true; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'parser' does not exist on type 'IntrinsicAttributes'.
+  Overload 2 of 2, '(props: unknown): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ parser: any; value: any; mounted: boolean; onChange: (newName: string) => void; isEmbed: true; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'parser' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx(59,74): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: unknown, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ parser: any; value: any; mounted: boolean; onChange: (newValue: string) => void; isEmbed: true; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'parser' does not exist on type 'IntrinsicAttributes'.
+  Overload 2 of 2, '(props: unknown): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ parser: any; value: any; mounted: boolean; onChange: (newValue: string) => void; isEmbed: true; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'parser' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx(110,12): error TS2322: Type '{ children: Element; enter?: string | undefined; enterFrom?: string | undefined; enterTo?: string | undefined; entered?: string | undefined; leave?: string | undefined; leaveFrom?: string | undefined; leaveTo?: string | undefined; as: ExoticComponent<...>; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'children' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedField.tsx(151,11): error TS2322: Type '{ title: string; message: string; confirmText: string; open: boolean; onConfirm: any; onClose: () => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'title' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx(12,36): error TS2304: Cannot find name 'EditableField'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx(31,30): error TS2304: Cannot find name 'EditableField'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx(46,21): error TS2304: Cannot find name 'EditableField'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx(51,12): error TS2304: Cannot find name 'EditableField'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx(52,23): error TS2304: Cannot find name 'EditableField'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx(55,20): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx(55,35): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx(55,58): error TS7031: Binding element 'setFields' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx(60,30): error TS2339: Property 'inline' does not exist on type 'never'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx(68,23): error TS2345: Argument of type '{ name: string; value: string; inline: any; _key: string; }' is not assignable to parameter of type 'never'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx(71,36): error TS2339: Property 'inline' does not exist on type 'never'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx(79,12): error TS2304: Cannot find name 'EditableField'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx(111,50): error TS2304: Cannot find name 'EditableField'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFields.tsx(113,7): error TS2322: Type 'EditableField' is not assignable to type 'never'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx(132,14): error TS2559: Type '{ children: Element; enter?: string | undefined; enterFrom?: string | undefined; enterTo?: string | undefined; entered?: string | undefined; leave?: string | undefined; leaveFrom?: string | undefined; leaveTo?: string | undefined; }' has no properties in common with type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx(142,17): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: unknown, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ value: Date; onChange: (date: any) => void; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'value' does not exist on type 'IntrinsicAttributes'.
+  Overload 2 of 2, '(props: unknown): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ value: Date; onChange: (date: any) => void; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'value' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx(143,28): error TS7006: Parameter 'date' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx(149,11): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: unknown, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ isOpen: boolean; image: string | undefined; ringMask: true; onClose: () => void; setImage: (url: string) => void; aspectRatio: number; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'isOpen' does not exist on type 'IntrinsicAttributes'.
+  Overload 2 of 2, '(props: unknown): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ isOpen: boolean; image: string | undefined; ringMask: true; onClose: () => void; setImage: (url: string) => void; aspectRatio: number; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'isOpen' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedImage.tsx(14,68): error TS2304: Cannot find name 'Dimensions'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedImage.tsx(55,19): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedImage.tsx(56,3): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedImage.tsx(56,13): error TS7031: Binding element 'hasThumbnail' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedImage.tsx(56,27): error TS7031: Binding element 'url' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedImage.tsx(56,32): error TS7031: Binding element 'set' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedImage.tsx(62,53): error TS2304: Cannot find name 'Dimensions'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedImage.tsx(127,9): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: unknown, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ isOpen: boolean; image: any; onClose: () => void; setImage: (image: string) => void; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'isOpen' does not exist on type 'IntrinsicAttributes'.
+  Overload 2 of 2, '(props: unknown): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ isOpen: boolean; image: any; onClose: () => void; setImage: (image: string) => void; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'isOpen' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedThumbnail.tsx(17,23): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedThumbnail.tsx(17,38): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedThumbnail.tsx(17,48): error TS7031: Binding element 'url' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedThumbnail.tsx(17,53): error TS7031: Binding element 'set' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedThumbnail.tsx(59,9): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: unknown, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ isOpen: boolean; image: any; onClose: () => void; setImage: (img: any) => void; aspectRatio: number; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'isOpen' does not exist on type 'IntrinsicAttributes'.
+  Overload 2 of 2, '(props: unknown): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ isOpen: boolean; image: any; onClose: () => void; setImage: (img: any) => void; aspectRatio: number; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'isOpen' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedThumbnail.tsx(62,32): error TS7006: Parameter 'img' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx(29,19): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx(30,3): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx(30,13): error TS7031: Binding element 'title' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx(30,20): error TS7031: Binding element 'url' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx(30,25): error TS7031: Binding element 'forceOpen' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx(30,36): error TS7031: Binding element 'setTitle' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx(30,46): error TS7031: Binding element 'setUrl' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx(59,13): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: unknown, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ parser: any; value: any; mounted: boolean; onChange: any; isEmbed: true; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'parser' does not exist on type 'IntrinsicAttributes'.
+  Overload 2 of 2, '(props: unknown): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ parser: any; value: any; mounted: boolean; onChange: any; isEmbed: true; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'parser' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx(71,11): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: unknown, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ parser: any; value: any; mounted: boolean; onChange: any; isEmbed: true; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'parser' does not exist on type 'IntrinsicAttributes'.
+  Overload 2 of 2, '(props: unknown): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ parser: any; value: any; mounted: boolean; onChange: any; isEmbed: true; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'parser' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/EmbedTitle.tsx(123,10): error TS2559: Type '{ children: Element; enter?: string | undefined; enterFrom?: string | undefined; enterTo?: string | undefined; entered?: string | undefined; leave?: string | undefined; leaveFrom?: string | undefined; leaveTo?: string | undefined; }' has no properties in common with type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(27,41): error TS2304: Cannot find name 'EditableEmbed'.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(28,10): error TS2304: Cannot find name 'EditableEmbed'.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(29,33): error TS2304: Cannot find name 'EditableEmbed'.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(31,16): error TS2304: Cannot find name 'EditableEmbed'.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(33,29): error TS2304: Cannot find name 'EditableEmbed'.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(33,124): error TS2304: Cannot find name 'EditableEmbed'.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(38,10): error TS2304: Cannot find name 'EditableEmbed'.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(39,19): error TS2304: Cannot find name 'EditableState'.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(40,21): error TS2304: Cannot find name 'EditableEmbed'.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(47,20): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(48,3): error TS7031: Binding element 'showEdit' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(48,13): error TS7031: Binding element 'embed' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(48,20): error TS7031: Binding element 'editableState' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(49,3): error TS7031: Binding element 'setEmbed' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(49,13): error TS7031: Binding element 'onDelete' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(49,23): error TS7031: Binding element 'onDuplicate' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(49,36): error TS7031: Binding element 'onMoveUp' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(49,46): error TS7031: Binding element 'onMoveDown' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(99,12): error TS2322: Type '{ children: any[]; label: string; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'children' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(133,9): error TS2322: Type '{ embed: any; showEdit: any; editableState: any; setAuthor: (cb: (a: EmbedAuthor) => EmbedAuthor) => any; setDescription: (val: EditableEmbed) => void; setThumbnail: (val: string) => any; ... 5 more ...; setTimestamp: (val: string) => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'embed' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx(147,9): error TS2322: Type '{ title: string; message: string; confirmText: string; open: boolean; onConfirm: any; onClose: () => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'title' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/index.tsx(62,16): error TS2304: Cannot find name 'EditableEmbed'.
+src/components/DiscordMessageEditor/index.tsx(70,12): error TS2304: Cannot find name 'EditableMessageData'.
+src/components/DiscordMessageEditor/index.tsx(71,17): error TS2304: Cannot find name 'DiscordMessageStyle'.
+src/components/DiscordMessageEditor/index.tsx(73,19): error TS2304: Cannot find name 'EditableState'.
+src/components/DiscordMessageEditor/index.tsx(75,25): error TS2304: Cannot find name 'EditableMessageData'.
+src/components/DiscordMessageEditor/index.tsx(79,29): error TS2304: Cannot find name 'FC'.
+src/components/DiscordMessageEditor/index.tsx(80,3): error TS7031: Binding element 'message' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(80,34): error TS7031: Binding element 'locale' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(80,42): error TS7031: Binding element 'editableState' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(80,81): error TS7031: Binding element 'onMount' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(80,90): error TS7031: Binding element 'setMessage' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(90,49): error TS2304: Cannot find name 'EditableMessageData'.
+src/components/DiscordMessageEditor/index.tsx(91,57): error TS2304: Cannot find name 'EditableMessageData'.
+src/components/DiscordMessageEditor/index.tsx(100,70): error TS2304: Cannot find name 'EditableEmbed'.
+src/components/DiscordMessageEditor/index.tsx(110,73): error TS7006: Parameter '_' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(110,76): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(111,47): error TS2304: Cannot find name 'EditableEmbed'.
+src/components/DiscordMessageEditor/index.tsx(111,87): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(111,90): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(139,50): error TS2304: Cannot find name 'EditableTopLevelComponent'.
+src/components/DiscordMessageEditor/index.tsx(139,110): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(139,113): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(141,85): error TS7006: Parameter '_' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(141,88): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(164,46): error TS7006: Parameter '_' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(164,49): error TS7006: Parameter 'idx' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(182,88): error TS2304: Cannot find name 'SupportedTopLevelComponent'.
+src/components/DiscordMessageEditor/index.tsx(194,26): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(199,23): error TS2304: Cannot find name 'MessageMode'.
+src/components/DiscordMessageEditor/index.tsx(269,15): error TS2322: Type '{ visualStyle: string; value: any; username: any; avatarUrl: any; showEdit: boolean; hideValidation: boolean; onChange: Callback<EditableMessageData, "content">; setUsername: Callback<EditableMessageData, "username">; setAvatarUrl: Callback<...>; limit: 2000; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'visualStyle' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/index.tsx(285,17): error TS2322: Type '{ visualStyle: string; username: any; avatarUrl: any; showEdit: boolean; hideValidation: boolean; setUsername: Callback<EditableMessageData, "username">; setAvatarUrl: Callback<EditableMessageData, "avatar_url">; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'visualStyle' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/index.tsx(300,28): error TS7006: Parameter 'embed' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(300,35): error TS7006: Parameter 'idx' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(320,41): error TS7006: Parameter 'comp' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(320,47): error TS7006: Parameter 'idx' implicitly has an 'any' type.
+src/components/DiscordMessageEditor/index.tsx(325,23): error TS2322: Type '{ key: any; component: any; showEdit: boolean; actions: ComponentActions; isFirst: boolean; isLast: boolean; canDuplicate: boolean; canAddChild: boolean; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'component' does not exist on type 'IntrinsicAttributes'.
+src/components/DiscordMessageEditor/index.tsx(353,58): error TS2304: Cannot find name 'EditableEmbed'.
+src/components/DiscordMessageEditor/index.tsx(375,54): error TS2304: Cannot find name 'EditableTopLevelComponent'.
+src/components/DiscordMessageEditor/types/components.ts(7,20): error TS2304: Cannot find name 'EditableTopLevelComponent'.
+src/components/DiscordMessageEditor/types/components.ts(16,37): error TS2304: Cannot find name 'EditableLinkButton'.
+src/components/DiscordMessageEditor/types/components.ts(24,36): error TS2304: Cannot find name 'EditableActionRow'.
+src/components/DiscordMessageEditor/types/components.ts(30,50): error TS2304: Cannot find name 'EditableTextDisplay'.
+src/components/DiscordMessageEditor/types/components.ts(36,36): error TS2304: Cannot find name 'EditableThumbnail'.
+src/components/DiscordMessageEditor/types/components.ts(42,34): error TS2304: Cannot find name 'EditableSection'.
+src/components/DiscordMessageEditor/types/components.ts(49,43): error TS2304: Cannot find name 'EditableMediaGalleryItem'.
+src/components/DiscordMessageEditor/types/components.ts(54,39): error TS2304: Cannot find name 'EditableMediaGallery'.
+src/components/DiscordMessageEditor/types/components.ts(60,31): error TS2304: Cannot find name 'EditableFile'.
+src/components/DiscordMessageEditor/types/components.ts(66,36): error TS2304: Cannot find name 'EditableSeparator'.
+src/components/DiscordMessageEditor/types/components.ts(73,36): error TS2304: Cannot find name 'EditableContainer'.
+src/components/EmojiPicker/Picker/components/EmojiList/Row.tsx(27,12): error TS2304: Cannot find name 'FC'.
+src/components/EmojiPicker/Picker/components/EmojiList/Row.tsx(28,3): error TS7031: Binding element 'row' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/EmojiList/Row.tsx(28,8): error TS7031: Binding element 'selectedSkinTone' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/EmojiList/Row.tsx(28,26): error TS7031: Binding element 'category' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/EmojiList/Row.tsx(28,36): error TS7031: Binding element 'onEmojiHover' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/EmojiList/Row.tsx(28,50): error TS7031: Binding element 'onEmojiClick' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/EmojiList/Row.tsx(28,64): error TS7031: Binding element 'scale' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/EmojiList/Row.tsx(41,24): error TS7006: Parameter 'emoji' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/EmojiList/Row.tsx(41,31): error TS7006: Parameter 'colIndex' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/EmojiList/Section.tsx(41,75): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/EmojiList/SectionHeader.tsx(19,22): error TS2304: Cannot find name 'FC'.
+src/components/EmojiPicker/Picker/components/EmojiList/SectionHeader.tsx(20,3): error TS7031: Binding element 'category' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/EmojiList/SectionHeader.tsx(21,3): error TS7031: Binding element 'collapsed' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/EmojiList/SectionHeader.tsx(22,3): error TS7031: Binding element 'toggleCollapsed' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/EmojiList/SectionHeader.tsx(46,24): error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type 'Record<"flags" | "frequentlyUsed" | "people" | "nature" | "food" | "activities" | "travel" | "objects" | "symbols", SvgComponent>'.
+src/components/EmojiPicker/Picker/components/EmojiList/SectionHeader.tsx(52,47): error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type 'Record<"flags" | "frequentlyUsed" | "people" | "nature" | "food" | "activities" | "travel" | "objects" | "symbols", string>'.
+src/components/EmojiPicker/Picker/components/Footer.tsx(20,15): error TS2304: Cannot find name 'FC'.
+src/components/EmojiPicker/Picker/components/Footer.tsx(20,36): error TS7031: Binding element 'activeEmoji' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/Footer.tsx(20,49): error TS7031: Binding element 'selectedSkinTone' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/Footer.tsx(20,67): error TS7031: Binding element 'customCategories' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/Footer.tsx(23,31): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/Footer.tsx(23,52): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/Header/SearchInput.tsx(24,20): error TS2304: Cannot find name 'FC'.
+src/components/EmojiPicker/Picker/components/Header/SearchInput.tsx(25,3): error TS7031: Binding element 'activeEmoji' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/Header/SearchInput.tsx(25,16): error TS7031: Binding element 'search' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/Header/SearchInput.tsx(25,24): error TS7031: Binding element 'setSearch' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/Header/SearchInput.tsx(25,35): error TS7031: Binding element 'setShowMobileSearch' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/Header/SearchInput.tsx(25,56): error TS7031: Binding element 'showMobileSearch' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/Header/ToneSelector.tsx(44,6): error TS2322: Type '{ children: ({ close }: { close: any; }) => Element; enter?: string | undefined; enterFrom?: string | undefined; enterTo?: string | undefined; entered?: string | undefined; leave?: string | undefined; leaveFrom?: string | undefined; leaveTo?: string | undefined; as: string; "aria-label": string; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'children' does not exist on type 'IntrinsicAttributes'.
+src/components/EmojiPicker/Picker/components/Header/ToneSelector.tsx(55,11): error TS7031: Binding element 'close' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/Header/index.tsx(15,15): error TS2304: Cannot find name 'FC'.
+src/components/EmojiPicker/Picker/components/Header/index.tsx(15,28): error TS7006: Parameter 'props' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/components/Icons/ActivitiesEmojiIcon.tsx(8,4): error TS2304: Cannot find name 'SvgComponentProps'.
+src/components/EmojiPicker/Picker/components/Icons/ActivitiesEmojiIcon.tsx(24,31): error TS2304: Cannot find name 'SvgComponent'.
+src/components/EmojiPicker/Picker/components/Icons/FlagsEmojiIcon.tsx(8,4): error TS2304: Cannot find name 'SvgComponentProps'.
+src/components/EmojiPicker/Picker/components/Icons/FlagsEmojiIcon.tsx(24,31): error TS2304: Cannot find name 'SvgComponent'.
+src/components/EmojiPicker/Picker/components/Icons/FoodEmojiIcon.tsx(8,4): error TS2304: Cannot find name 'SvgComponentProps'.
+src/components/EmojiPicker/Picker/components/Icons/FoodEmojiIcon.tsx(33,31): error TS2304: Cannot find name 'SvgComponent'.
+src/components/EmojiPicker/Picker/components/Icons/FrequentlyUsedEmojiIcon.tsx(8,4): error TS2304: Cannot find name 'SvgComponentProps'.
+src/components/EmojiPicker/Picker/components/Icons/FrequentlyUsedEmojiIcon.tsx(24,31): error TS2304: Cannot find name 'SvgComponent'.
+src/components/EmojiPicker/Picker/components/Icons/NatureEmojiIcon.tsx(8,4): error TS2304: Cannot find name 'SvgComponentProps'.
+src/components/EmojiPicker/Picker/components/Icons/NatureEmojiIcon.tsx(24,31): error TS2304: Cannot find name 'SvgComponent'.
+src/components/EmojiPicker/Picker/components/Icons/ObjectsEmojiIcon.tsx(8,4): error TS2304: Cannot find name 'SvgComponentProps'.
+src/components/EmojiPicker/Picker/components/Icons/ObjectsEmojiIcon.tsx(32,31): error TS2304: Cannot find name 'SvgComponent'.
+src/components/EmojiPicker/Picker/components/Icons/PeopleEmojiIcon.tsx(8,4): error TS2304: Cannot find name 'SvgComponentProps'.
+src/components/EmojiPicker/Picker/components/Icons/PeopleEmojiIcon.tsx(24,31): error TS2304: Cannot find name 'SvgComponent'.
+src/components/EmojiPicker/Picker/components/Icons/SymbolsEmojiIcon.tsx(8,4): error TS2304: Cannot find name 'SvgComponentProps'.
+src/components/EmojiPicker/Picker/components/Icons/SymbolsEmojiIcon.tsx(24,31): error TS2304: Cannot find name 'SvgComponent'.
+src/components/EmojiPicker/Picker/components/Icons/TravelEmojiIcon.tsx(8,4): error TS2304: Cannot find name 'SvgComponentProps'.
+src/components/EmojiPicker/Picker/components/Icons/TravelEmojiIcon.tsx(32,31): error TS2304: Cannot find name 'SvgComponent'.
+src/components/EmojiPicker/Picker/index.tsx(33,15): error TS2304: Cannot find name 'FC'.
+src/components/EmojiPicker/Picker/index.tsx(33,30): error TS7031: Binding element 'customEmojis' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/index.tsx(33,44): error TS7031: Binding element 'onEmojiClick' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/utils/index.ts(40,69): error TS2304: Cannot find name 'SvgComponent'.
+src/components/EmojiPicker/Picker/utils/index.ts(64,90): error TS2304: Cannot find name 'Entries'.
+src/components/EmojiPicker/Picker/utils/index.ts(64,120): error TS7031: Binding element 'name' implicitly has an 'any' type.
+src/components/EmojiPicker/Picker/utils/index.ts(64,126): error TS7031: Binding element 'emojis' implicitly has an 'any' type.
+src/components/EmojiPicker/PickerSkeleton.tsx(6,23): error TS2304: Cannot find name 'FC'.
+src/components/EmojiPicker/Root.tsx(69,7): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: unknown, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ customEmojis: CustomCategory[]; onEmojiClick: (emoji: any) => void; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'customEmojis' does not exist on type 'IntrinsicAttributes'.
+  Overload 2 of 2, '(props: unknown): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ customEmojis: CustomCategory[]; onEmojiClick: (emoji: any) => void; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'customEmojis' does not exist on type 'IntrinsicAttributes'.
+src/components/EmojiPicker/Root.tsx(70,22): error TS7006: Parameter 'emoji' implicitly has an 'any' type.
+src/components/EmojiPicker/Root.tsx(121,10): error TS2322: Type '{ children: Element; zIndex: number; trapFocus: true; autoFocus: boolean; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'children' does not exist on type 'IntrinsicAttributes'.
+src/components/ImageUploader.tsx(46,22): error TS2304: Cannot find name 'FC'.
+src/components/ImageUploader.tsx(47,3): error TS7031: Binding element 'isOpen' implicitly has an 'any' type.
+src/components/ImageUploader.tsx(47,11): error TS7031: Binding element 'ringMask' implicitly has an 'any' type.
+src/components/ImageUploader.tsx(47,33): error TS7031: Binding element 'aspectRatio' implicitly has an 'any' type.
+src/components/ImageUploader.tsx(48,3): error TS7031: Binding element 'onClose' implicitly has an 'any' type.
+src/components/ImageUploader.tsx(48,12): error TS7031: Binding element 'setImage' implicitly has an 'any' type.
+src/components/Markdown.tsx(4,15): error TS2305: Module '"simple-markdown"' has no exported member 'StaticParser'.
+src/components/Markdown.tsx(6,17): error TS2304: Cannot find name 'FC'.
+src/components/Markdown.tsx(13,3): error TS7031: Binding element 'value' implicitly has an 'any' type.
+src/components/Markdown.tsx(13,10): error TS7031: Binding element 'mounted' implicitly has an 'any' type.
+src/components/Markdown.tsx(13,19): error TS7031: Binding element 'isEmbed' implicitly has an 'any' type.
+src/components/Markdown.tsx(13,28): error TS7031: Binding element 'parser' implicitly has an 'any' type.
+src/components/Markdown.tsx(13,36): error TS7031: Binding element 'onChange' implicitly has an 'any' type.
+src/components/Markdown.tsx(18,29): error TS7006: Parameter 'regex' implicitly has an 'any' type.
+src/components/Markdown.tsx(18,36): error TS7006: Parameter 'newText' implicitly has an 'any' type.
+src/components/Markdown.tsx(18,45): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/components/Markdown.tsx(20,41): error TS7006: Parameter 'searchValue' implicitly has an 'any' type.
+src/components/SlateEditor/index.tsx(24,15): error TS2305: Module '"simple-markdown"' has no exported member 'InteractiveParser'.
+src/components/SlateEditor/index.tsx(70,48): error TS2345: Argument of type 'BaseEditor' is not assignable to parameter of type 'DOMEditor'.
+  Type 'BaseEditor' is missing the following properties from type 'DOMEditor': hasEditableTarget, hasRange, hasSelectableTarget, hasTarget, and 5 more.
+src/components/SlateEditor/index.tsx(73,29): error TS2345: Argument of type 'BaseEditor' is not assignable to parameter of type 'DOMEditor'.
+  Type 'BaseEditor' is missing the following properties from type 'DOMEditor': hasEditableTarget, hasRange, hasSelectableTarget, hasTarget, and 5 more.
+src/components/SlateEditor/index.tsx(75,51): error TS2345: Argument of type 'BaseEditor' is not assignable to parameter of type 'DOMEditor'.
+  Type 'BaseEditor' is missing the following properties from type 'DOMEditor': hasEditableTarget, hasRange, hasSelectableTarget, hasTarget, and 5 more.
+src/components/SlateEditor/index.tsx(111,9): error TS2740: Type 'BaseEditor' is missing the following properties from type 'ReactEditor': getChunkSize, hasEditableTarget, hasRange, hasSelectableTarget, and 6 more.
+src/components/SlateEditor/utils/RenderLeaf.tsx(7,59): error TS2339: Property 'syntax' does not exist on type 'BaseText'.
+src/components/SlateEditor/utils/RenderLeaf.tsx(7,84): error TS2339: Property 'classNames' does not exist on type 'BaseText'.
+src/components/SlateEditor/utils/common.ts(1,15): error TS2305: Module '"simple-markdown"' has no exported member 'EmojiNode'.
+src/components/SlateEditor/utils/common.ts(1,26): error TS2305: Module '"simple-markdown"' has no exported member 'MarkdownTypes'.
+src/components/SlateEditor/utils/common.ts(1,41): error TS2724: '"simple-markdown"' has no exported member named 'StrictSingleASTNode'. Did you mean 'SingleASTNode'?
+src/components/SlateEditor/utils/common.ts(2,24): error TS2305: Module '"slate"' has no exported member 'EmojiElement'.
+src/components/SlateEditor/utils/common.ts(9,28): error TS2339: Property 'ast' does not exist on type 'BaseText'.
+src/components/SlateEditor/utils/common.ts(12,28): error TS2339: Property 'ast' does not exist on type 'BaseText | BaseElement'.
+  Property 'ast' does not exist on type 'BaseText'.
+src/components/SlateEditor/utils/createLeaf.ts(1,15): error TS2724: '"simple-markdown"' has no exported member named 'StrictSingleASTNode'. Did you mean 'SingleASTNode'?
+src/components/SlateEditor/utils/createLeaf.ts(38,62): error TS2339: Property 'lang' does not exist on type 'BaseElement'.
+src/components/SlateEditor/utils/createLeaf.ts(74,9): error TS2353: Object literal may only specify known properties, and 'classNames' does not exist in type 'BaseRange'.
+src/components/SlateEditor/utils/decorator.tsx(7,15): error TS2305: Module '"simple-markdown"' has no exported member 'InteractiveParser'.
+src/components/SlateEditor/utils/decorator.tsx(7,34): error TS2305: Module '"simple-markdown"' has no exported member 'MarkdownTypes'.
+src/components/SlateEditor/utils/decorator.tsx(7,49): error TS2724: '"simple-markdown"' has no exported member named 'StrictSingleASTNode'. Did you mean 'SingleASTNode'?
+src/components/SlateEditor/utils/decorator.tsx(114,12): error TS2339: Property 'syntax' does not exist on type 'BaseRange'.
+src/components/SlateEditor/utils/decorator.tsx(114,24): error TS2339: Property 'syntax' does not exist on type 'BaseRange'.
+src/components/SlateEditor/utils/decorator.tsx(129,48): error TS2339: Property 'syntax' does not exist on type 'BaseRange'.
+src/components/SlateEditor/utils/decorator.tsx(135,12): error TS2339: Property 'classNames' does not exist on type 'BaseRange'.
+src/components/SlateEditor/utils/decorator.tsx(135,37): error TS2339: Property 'classNames' does not exist on type 'BaseRange'.
+src/components/SlateEditor/utils/decorator.tsx(137,13): error TS2339: Property 'classNames' does not exist on type 'BaseRange'.
+src/components/SlateEditor/utils/decorator.tsx(137,37): error TS2339: Property 'classNames' does not exist on type 'BaseRange'.
+src/components/SlateEditor/utils/decorator.tsx(142,16): error TS2339: Property 'syntax' does not exist on type 'BaseRange'.
+src/components/SlateEditor/utils/decorator.tsx(152,64): error TS2339: Property 'startCodeBlock' does not exist on type 'BaseElement'.
+src/components/SlateEditor/utils/decorator.tsx(155,42): error TS2339: Property 'lang' does not exist on type 'BaseElement'.
+src/components/SlateEditor/utils/flattenNodeText.ts(11,25): error TS2339: Property 'ast' does not exist on type 'BaseElement'.
+src/components/SlateEditor/utils/flattenNodeText.ts(11,56): error TS2339: Property 'ast' does not exist on type 'BaseElement'.
+src/components/SlateEditor/utils/flattenNodeText.ts(13,12): error TS2339: Property 'type' does not exist on type 'BaseElement'.
+src/components/SlateEditor/utils/getInitialValue.ts(3,15): error TS2305: Module '"simple-markdown"' has no exported member 'InteractiveParser'.
+src/components/SlateEditor/utils/getInitialValue.ts(13,20): error TS2353: Object literal may only specify known properties, and 'type' does not exist in type 'Descendant'.
+src/components/SlateEditor/utils/getInitialValue.ts(32,23): error TS2339: Property 'type' does not exist on type 'BaseElement'.
+src/components/SlateEditor/utils/getInitialValue.ts(34,21): error TS2353: Object literal may only specify known properties, and 'type' does not exist in type 'BaseText | BaseElement'.
+src/components/SlateEditor/utils/getInitialValue.ts(53,29): error TS2353: Object literal may only specify known properties, and 'type' does not exist in type 'BaseText | BaseElement'.
+src/components/SlateEditor/utils/getInitialValue.ts(60,28): error TS2353: Object literal may only specify known properties, and 'type' does not exist in type 'Descendant'.
+src/components/SlateEditor/utils/getInitialValue.ts(69,45): error TS2353: Object literal may only specify known properties, and 'type' does not exist in type 'BaseText | BaseElement'.
+src/components/SlateEditor/utils/getInitialValue.ts(71,27): error TS2353: Object literal may only specify known properties, and 'type' does not exist in type 'BaseText | BaseElement'.
+src/components/SlateEditor/utils/getInitialValue.ts(74,23): error TS2353: Object literal may only specify known properties, and 'type' does not exist in type 'BaseText | BaseElement'.
+src/components/SlateEditor/utils/getInitialValue.ts(79,7): error TS2353: Object literal may only specify known properties, and 'type' does not exist in type 'BaseElement'.
+src/components/SlateEditor/utils/onChange.ts(29,11): error TS2353: Object literal may only specify known properties, and 'classNames' does not exist in type 'Location'.
+src/components/SlateEditor/utils/onCopy.ts(21,33): error TS2345: Argument of type 'BaseEditor' is not assignable to parameter of type 'DOMEditor'.
+  Type 'BaseEditor' is missing the following properties from type 'DOMEditor': hasEditableTarget, hasRange, hasSelectableTarget, hasTarget, and 5 more.
+src/components/SlateEditor/utils/onKeyDown.ts(4,15): error TS2305: Module '"slate"' has no exported member 'CustomRange'.
+src/components/SlateEditor/utils/onKeyDown.ts(20,40): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/components/SlateEditor/utils/onKeyDown.ts(20,43): error TS7006: Parameter 'idx' implicitly has an 'any' type.
+src/components/SlateEditor/utils/onKeyDown.ts(25,31): error TS2339: Property 'empty' does not exist on type 'BaseElement'.
+src/components/SlateEditor/utils/onKeyDown.ts(25,49): error TS2339: Property 'type' does not exist on type 'BaseElement'.
+src/components/SlateEditor/utils/onKeyDown.ts(27,19): error TS2339: Property 'type' does not exist on type 'BaseElement'.
+src/components/SlateEditor/utils/renderElementFactory.tsx(4,15): error TS2305: Module '"slate"' has no exported member 'EmojiElement'.
+src/components/SlateEditor/utils/renderElementFactory.tsx(13,21): error TS2339: Property 'type' does not exist on type 'BaseElement'.
+src/components/SlateEditor/utils/withNormalizeNode.ts(6,15): error TS2305: Module '"simple-markdown"' has no exported member 'InteractiveParser'.
+src/components/SlateEditor/utils/withNormalizeNode.ts(7,26): error TS2305: Module '"slate"' has no exported member 'CustomElement'.
+src/components/SlateEditor/utils/withNormalizeNode.ts(32,37): error TS2339: Property 'type' does not exist on type 'BaseElement'.
+src/components/SlateEditor/utils/withNormalizeNode.ts(33,40): error TS2339: Property 'lang' does not exist on type 'BaseElement'.
+src/components/SlateEditor/utils/withNormalizeNode.ts(34,41): error TS2339: Property 'type' does not exist on type 'BaseElement'.
+src/components/SlateEditor/utils/withNormalizeNode.ts(35,21): error TS2339: Property 'startCodeBlock' does not exist on type 'BaseElement'.
+src/components/SlateEditor/utils/withNormalizeNode.ts(36,37): error TS2339: Property 'type' does not exist on type 'BaseElement'.
+src/components/SlateEditor/utils/withNormalizeNode.ts(42,27): error TS2339: Property 'type' does not exist on type 'BaseElement'.
+src/components/SlateEditor/utils/withNormalizeNode.ts(100,7): error TS2353: Object literal may only specify known properties, and 'type' does not exist in type 'Node'.
+src/components/SlateEditor/utils/withNormalizeNode.ts(111,7): error TS2353: Object literal may only specify known properties, and 'type' does not exist in type 'Node'.
+src/components/SlateEditor/utils/withNormalizeNode.ts(133,11): error TS2353: Object literal may only specify known properties, and 'type' does not exist in type 'Node'.
+src/components/SlateEditor/utils/withNormalizeNode.ts(164,15): error TS2353: Object literal may only specify known properties, and 'classNames' does not exist in type 'Location'.
+src/components/SlateEditor/utils/withNormalizeNode.ts(184,30): error TS2353: Object literal may only specify known properties, and 'type' does not exist in type 'Descendant'.
+src/components/StyledButtonGroup.tsx(12,24): error TS2304: Cannot find name 'FC'.
+src/components/StyledButtonGroup.tsx(13,3): error TS7031: Binding element 'children' implicitly has an 'any' type.
+src/components/StyledButtonGroup.tsx(13,13): error TS7031: Binding element 'className' implicitly has an 'any' type.
+src/components/StyledButtonGroup.tsx(13,24): error TS7031: Binding element 'style' implicitly has an 'any' type.
+src/components/TextField.tsx(31,17): error TS2304: Cannot find name 'SvgComponent'.
+src/components/ToggleMenuIcons.tsx(6,24): error TS2304: Cannot find name 'FC'.
+src/components/ToggleMenuIcons.tsx(7,9): error TS2304: Cannot find name 'SvgComponent'.
+src/components/ToggleMenuIcons.tsx(7,33): error TS2304: Cannot find name 'SvgComponent'.
+src/components/ToggleMenuIcons.tsx(9,3): error TS7031: Binding element 'Icon' implicitly has an 'any' type.
+src/components/ToggleMenuIcons.tsx(9,30): error TS7031: Binding element 'className' implicitly has an 'any' type.
+src/components/ToggleMenuIcons.tsx(9,41): error TS7031: Binding element 'isOpen' implicitly has an 'any' type.
+src/components/WarningDialog.tsx(16,22): error TS2304: Cannot find name 'FC'.
+src/components/WarningDialog.tsx(17,3): error TS7031: Binding element 'title' implicitly has an 'any' type.
+src/components/WarningDialog.tsx(17,10): error TS7031: Binding element 'message' implicitly has an 'any' type.
+src/components/WarningDialog.tsx(17,19): error TS7031: Binding element 'open' implicitly has an 'any' type.
+src/components/WarningDialog.tsx(17,25): error TS7031: Binding element 'confirmText' implicitly has an 'any' type.
+src/components/WarningDialog.tsx(17,38): error TS7031: Binding element 'onClose' implicitly has an 'any' type.
+src/components/WarningDialog.tsx(17,47): error TS7031: Binding element 'onConfirm' implicitly has an 'any' type.
+src/components/dynamics/Tooltip.tsx(10,23): error TS2304: Cannot find name 'FC'.
+src/components/dynamics/Tooltip.tsx(10,36): error TS7006: Parameter 'props' implicitly has an 'any' type.
+src/providers/GuildProvider.tsx(19,29): error TS2304: Cannot find name 'Guild'.
+src/providers/GuildProvider.tsx(20,13): error TS2304: Cannot find name 'DiscordChannel'.
+src/providers/GuildProvider.tsx(21,13): error TS2304: Cannot find name 'Webhook'.
+src/providers/GuildProvider.tsx(22,15): error TS2304: Cannot find name 'StateSetter'.
+src/providers/GuildProvider.tsx(46,15): error TS2304: Cannot find name 'DiscordChannel'.
+src/providers/GuildProvider.tsx(46,43): error TS2304: Cannot find name 'Webhook'.
+src/providers/MarkdownProvider.tsx(6,15): error TS2305: Module '"simple-markdown"' has no exported member 'MarkdownParsers'.
+src/scripts/backfillValid.ts(82,35): error TS2304: Cannot find name 'MessageData'.
+src/scripts/backfillValid.ts(205,54): error TS2304: Cannot find name 'MessageData'.
+src/server/api/routers/message.ts(29,19): error TS2304: Cannot find name 'DiscordId'.
+src/server/api/routers/message.ts(56,73): error TS2304: Cannot find name 'ApiMessage'.
+src/server/api/routers/message.ts(200,30): error TS2345: Argument of type '{ name: string; data?: any; guildId?: string | null | undefined; id?: string | undefined; }' is not assignable to parameter of type 'IncomingMessage'.
+  Property 'data' is optional in type '{ name: string; data?: any; guildId?: string | null | undefined; id?: string | undefined; }' but required in type 'IncomingMessage'.
+src/server/api/routers/message.ts(205,28): error TS2345: Argument of type '{ name: string; data?: any; guildId?: string | null | undefined; id?: string | undefined; }' is not assignable to parameter of type 'IncomingMessage'.
+  Property 'data' is optional in type '{ name: string; data?: any; guildId?: string | null | undefined; id?: string | undefined; }' but required in type 'IncomingMessage'.
+src/server/api/routers/user.ts(23,32): error TS2304: Cannot find name 'UserPreference'.
+src/server/api/routers/user.ts(52,32): error TS2304: Cannot find name 'UserPreference'.
+src/server/api/utils/authorizeGuildAdmin.ts(8,32): error TS2304: Cannot find name 'DiscordId'.
+src/server/api/utils/authorizeGuildUser.ts(9,12): error TS2304: Cannot find name 'DiscordId'.
+src/server/api/utils/authorizeGuildUser.ts(38,12): error TS2304: Cannot find name 'DiscordId'.
+src/server/api/utils/getAccount.ts(4,31): error TS2304: Cannot find name 'DiscordId'.
+src/server/api/utils/guild.ts(12,41): error TS2304: Cannot find name 'DiscordId'.
+src/server/api/utils/guild.ts(75,55): error TS2304: Cannot find name 'DiscordId'.
+src/server/api/utils/messageValidity.ts(4,38): error TS2304: Cannot find name 'MessageData'.
+src/server/api/utils/previewImage.ts(54,12): error TS2304: Cannot find name 'MessageData'.
+src/server/api/utils/previewImage.ts(104,12): error TS2304: Cannot find name 'MessageData'.
+src/server/api/utils/shapes.ts(27,9): error TS2304: Cannot find name 'MessageData'.
+src/server/api/utils/shapes.ts(33,9): error TS2304: Cannot find name 'MessageData'.
+src/server/api/utils/shapes.ts(290,87): error TS2304: Cannot find name 'MessageData'.
+src/server/api/utils/shapes.ts(428,4): error TS1360: Type 'ZodObject<{ name: ZodString; guildId: ZodOptional<ZodNullable<ZodString>>; data: ZodEffects<ZodObject<{ content: ZodOptional<ZodString>; ... 5 more ...; flags: ZodOptional<...>; }, "strip", ZodTypeAny, { ...; }, { ...; }>, MessageData, { ...; }>; }, "strip", ZodTypeAny, { ...; }, { ...; }>' does not satisfy the expected type 'ZodType<IncomingMessage, ZodTypeDef, IncomingMessage>'.
+  Types of property '_type' are incompatible.
+    Type '{ name: string; guildId?: string | null | undefined; data?: any; }' is not assignable to type 'IncomingMessage'.
+      Property 'data' is optional in type '{ name: string; guildId?: string | null | undefined; data?: any; }' but required in type 'IncomingMessage'.
+src/server/api/utils/shapes.ts(433,4): error TS1360: Type 'ZodObject<{ data: ZodEffects<ZodObject<{ content: ZodOptional<ZodString>; username: ZodOptional<ZodString>; avatar_url: ZodOptional<ZodString>; allowed_mentions: ZodOptional<...>; embeds: ZodOptional<...>; components: ZodOptional<...>; flags: ZodOptional<...>; }, "strip", ZodTypeAny, { ...; }, { ...; }>, MessageData...' does not satisfy the expected type 'ZodType<Omit<IncomingMessage, "name" | "guildId"> & Partial<Pick<IncomingMessage, "name" | "guildId">>, ZodTypeDef, Omit<...> & Partial<...>>'.
+  Types of property '_type' are incompatible.
+    Type '{ data?: any; guildId?: string | null | undefined; id?: string | undefined; name?: string | undefined; }' is not assignable to type 'Omit<IncomingMessage, "name" | "guildId"> & Partial<Pick<IncomingMessage, "name" | "guildId">>'.
+      Type '{ data?: any; guildId?: string | null | undefined; id?: string | undefined; name?: string | undefined; }' is not assignable to type 'Omit<IncomingMessage, "name" | "guildId">'.
+        Property 'data' is optional in type '{ data?: any; guildId?: string | null | undefined; id?: string | undefined; name?: string | undefined; }' but required in type 'Omit<IncomingMessage, "name" | "guildId">'.
+src/server/api/utils/shapes.ts(437,4): error TS1360: Type 'ZodObject<{ name: ZodString; data: ZodEffects<ZodObject<{ content: ZodOptional<ZodString>; username: ZodOptional<ZodString>; avatar_url: ZodOptional<ZodString>; allowed_mentions: ZodOptional<...>; embeds: ZodOptional<...>; components: ZodOptional<...>; flags: ZodOptional<...>; }, "strip", ZodTypeAny, { ...; }, { ......' does not satisfy the expected type 'ZodType<IncomingMessage, ZodTypeDef, IncomingMessage>'.
+  Types of property '_type' are incompatible.
+    Type '{ name: string; data?: any; guildId?: string | null | undefined; id?: string | undefined; }' is not assignable to type 'IncomingMessage'.
+      Property 'data' is optional in type '{ name: string; data?: any; guildId?: string | null | undefined; id?: string | undefined; }' but required in type 'IncomingMessage'.
+src/server/api/utils/shapes.ts(441,4): error TS1360: Type 'ZodObject<{ name: ZodString; data: ZodEffects<ZodObject<{ content: ZodOptional<ZodString>; username: ZodOptional<ZodString>; avatar_url: ZodOptional<ZodString>; allowed_mentions: ZodOptional<...>; embeds: ZodOptional<...>; components: ZodOptional<...>; flags: ZodOptional<...>; }, "strip", ZodTypeAny, { ...; }, { ......' does not satisfy the expected type 'ZodType<UpdateMessage, ZodTypeDef, UpdateMessage>'.
+  Types of property '_type' are incompatible.
+    Type '{ name: string; id: string; data?: any; guildId?: string | null | undefined; }' is not assignable to type 'UpdateMessage'.
+      Property 'data' is optional in type '{ name: string; id: string; data?: any; guildId?: string | null | undefined; }' but required in type 'UpdateMessage'.
+src/server/api/utils/shared.ts(58,14): error TS2304: Cannot find name 'ApiMessage'.
+src/server/api/utils/shared.ts(64,19): error TS2304: Cannot find name 'MessageData'.
+src/server/api/utils/shared.ts(97,14): error TS2304: Cannot find name 'PartialApiMessage'.
+src/server/api/utils/shared.ts(112,12): error TS2304: Cannot find name 'PartialApiMessage'.
+src/server/api/utils/shared.ts(166,11): error TS2304: Cannot find name 'UserGuild'.
+src/server/auth.ts(40,15): error TS2304: Cannot find name 'UserGuild'.
+src/server/auth.ts(41,27): error TS2304: Cannot find name 'UserPreference'.
+src/server/auth.ts(45,18): error TS2304: Cannot find name 'PartialApiMessage'.
+src/server/auth.ts(46,15): error TS2304: Cannot find name 'Guild'.
+src/server/auth.ts(51,25): error TS2304: Cannot find name 'UserPreference'.
+src/server/auth.ts(154,86): error TS2304: Cannot find name 'UserGuild'.
+src/utils/discordResponseToMessage.ts(114,9): error TS2304: Cannot find name 'MessageData'.
+src/utils/discordResponseToMessage.ts(124,18): error TS2304: Cannot find name 'MessageData'.
+src/utils/discordResponseToMessage.ts(155,76): error TS2304: Cannot find name 'MessageData'.
+src/utils/hooks/index.ts(143,11): error TS2304: Cannot find name 'AsyncEffectCallback'.
+src/utils/hooks/useLocalStorage.ts(9,39): error TS2304: Cannot find name 'LocalStorage'.
+src/utils/hooks/useLocalStorage.ts(10,12): error TS2304: Cannot find name 'LocalStorage'.
+src/utils/hooks/useLocalStorage.ts(11,14): error TS2304: Cannot find name 'LocalStorage'.
+src/utils/hooks/useLocalStorage.ts(12,25): error TS2304: Cannot find name 'LocalStorage'.
+src/utils/hooks/useLocalStorage.ts(16,42): error TS2304: Cannot find name 'LocalStorage'.
+src/utils/hooks/useLocalStorage.ts(25,21): error TS2304: Cannot find name 'LocalStorage'.
+src/utils/hooks/useLocalStorage.ts(26,32): error TS2304: Cannot find name 'LocalStorage'.
+src/utils/hooks/useUpdatePreferences.ts(9,30): error TS2304: Cannot find name 'UserPreference'.
+src/utils/index.ts(58,9): error TS2304: Cannot find name 'MessageMode'.
+src/utils/index.ts(72,9): error TS2304: Cannot find name 'MessageMode'.
+src/utils/index.ts(105,18): error TS2304: Cannot find name 'MessageData'.
+src/utils/index.ts(163,64): error TS2304: Cannot find name 'MessageData'.
+src/utils/index.ts(168,26): error TS7006: Parameter 'embed' implicitly has an 'any' type.
+src/utils/index.ts(173,26): error TS2304: Cannot find name 'MessageData'.
+src/utils/index.ts(191,26): error TS2304: Cannot find name 'MessageData'.
+src/utils/index.ts(194,16): error TS2304: Cannot find name 'MessageMode'.
+src/utils/index.ts(241,13): error TS2304: Cannot find name 'MessageMode'.
+src/utils/index.ts(242,11): error TS2304: Cannot find name 'MessageMode'.
+src/utils/index.ts(245,42): error TS2304: Cannot find name 'MessageData'.
+src/utils/index.ts(245,105): error TS2304: Cannot find name 'MessageMode'.
+src/utils/index.ts(256,25): error TS2304: Cannot find name 'MessageData'.
+src/utils/index.ts(257,26): error TS2304: Cannot find name 'MessageData'.
+src/utils/index.ts(259,19): error TS2304: Cannot find name 'MessageMode'.
+src/utils/index.ts(260,17): error TS2304: Cannot find name 'MessageMode'.
+src/utils/index.ts(266,27): error TS2304: Cannot find name 'MessageMode'.
+src/utils/index.ts(491,43): error TS2304: Cannot find name 'ApiMessage'.
+src/utils/index.ts(520,51): error TS2304: Cannot find name 'ApiMessage'.
+src/utils/index.ts(524,48): error TS2304: Cannot find name 'ActiveMessage'.
+src/utils/index.ts(524,73): error TS2304: Cannot find name 'ApiMessage'.
+src/utils/index.ts(526,4): error TS2304: Cannot find name 'ActiveMessage'.
+src/utils/index.ts(527,57): error TS2304: Cannot find name 'ActiveMessage'.
+src/utils/index.ts(541,74): error TS2304: Cannot find name 'EditableTopLevelComponent'.
+src/utils/index.ts(581,26): error TS2304: Cannot find name 'EditableTopLevelComponent'.
+src/utils/index.ts(585,35): error TS2304: Cannot find name 'EditableTopLevelComponent'.
+src/utils/index.ts(585,63): error TS2304: Cannot find name 'EditableTopLevelComponent'.
+src/utils/index.ts(626,46): error TS2304: Cannot find name 'EditableMessageData'.
+src/utils/index.ts(646,20): error TS2304: Cannot find name 'ApiMessage'.
+src/utils/index.ts(649,45): error TS2304: Cannot find name 'ActiveMessage'.
+src/utils/index.ts(649,70): error TS2304: Cannot find name 'MessageData'.
+src/utils/index.ts(653,59): error TS2304: Cannot find name 'ActiveMessage'.
+src/utils/limits.tsx(63,58): error TS2304: Cannot find name 'SupportedTopLevelComponent'.
+src/utils/limits.tsx(235,9): error TS2304: Cannot find name 'MessageData'.
+src/utils/limits.tsx(251,4): error TS2304: Cannot find name 'MessageData'.
+src/utils/limits.tsx(264,19): error TS2304: Cannot find name 'SupportedTopLevelComponent'.
+src/utils/maps/index.ts(17,41): error TS2304: Cannot find name 'KeysMatching'.
+src/utils/markdown/components/MarkdownTimestamp.tsx(29,26): error TS2304: Cannot find name 'FC'.
+src/utils/markdown/components/MarkdownTimestamp.tsx(29,41): error TS7031: Binding element 'timestamp' implicitly has an 'any' type.
+src/utils/markdown/components/MarkdownTimestamp.tsx(29,66): error TS7031: Binding element 'state' implicitly has an 'any' type.
+src/utils/markdown/components/MarkdownTimestamp.tsx(87,8): error TS2322: Type '{ children: Element[]; enter?: string | undefined; enterFrom?: string | undefined; enterTo?: string | undefined; entered?: string | undefined; leave?: string | undefined; leaveFrom?: string | undefined; leaveTo?: string | undefined; className: string; afterLeave: () => void; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'children' does not exist on type 'IntrinsicAttributes'.
+src/utils/markdown/components/MarkdownTimestamp.tsx(99,11): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: unknown, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ value: Date; onChange: Dispatch<SetStateAction<Date | null>>; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'value' does not exist on type 'IntrinsicAttributes'.
+  Overload 2 of 2, '(props: unknown): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ value: Date; onChange: Dispatch<SetStateAction<Date | null>>; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'value' does not exist on type 'IntrinsicAttributes'.
+src/utils/markdown/emoji.tsx(4,15): error TS2305: Module '"simple-markdown"' has no exported member 'EmojiNode'.
+src/utils/markdown/emoji.tsx(4,26): error TS2724: '"simple-markdown"' has no exported member named 'StrictSingleASTNode'. Did you mean 'SingleASTNode'?
+src/utils/markdown/index.tsx(6,15): error TS2305: Module '"simple-markdown"' has no exported member 'InteractiveParserMap'.
+src/utils/markdown/index.tsx(6,37): error TS2305: Module '"simple-markdown"' has no exported member 'StaticParserMap'.
+src/utils/markdown/rules.tsx(14,12): error TS2305: Module '"simple-markdown"' has no exported member 'ContentRefNode'.
+src/utils/markdown/rules.tsx(14,28): error TS2305: Module '"simple-markdown"' has no exported member 'MarkdownTypes'.
+src/utils/markdown/rules.tsx(14,72): error TS2724: '"simple-markdown"' has no exported member named 'ReactParserRule'. Did you mean 'ParserRule'?
+src/utils/markdown/rules.tsx(123,52): error TS2304: Cannot find name 'ReactNode'.
+src/utils/markdown/rules.tsx(300,29): error TS2304: Cannot find name 'ReactNode'.
+src/utils/markdown/rules.tsx(481,27): error TS7006: Parameter 'state' implicitly has an 'any' type.
+src/utils/markdown/rules.tsx(492,13): error TS7006: Parameter 'source' implicitly has an 'any' type.
+src/utils/markdown/rules.tsx(492,21): error TS7006: Parameter 'state' implicitly has an 'any' type.
+src/utils/markdown/rules.tsx(492,28): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+src/utils/markdown/rules.tsx(505,11): error TS7006: Parameter 'capture' implicitly has an 'any' type.
+src/utils/markdown/rules.tsx(505,20): error TS7006: Parameter 'parse' implicitly has an 'any' type.
+src/utils/markdown/rules.tsx(505,27): error TS7006: Parameter 'state' implicitly has an 'any' type.
+src/utils/markdown/rules.tsx(516,11): error TS7006: Parameter 'capture' implicitly has an 'any' type.
+src/utils/markdown/rules.tsx(532,12): error TS7006: Parameter 'source' implicitly has an 'any' type.
+src/utils/markdown/rules.tsx(532,20): error TS7006: Parameter 'state' implicitly has an 'any' type.
+src/utils/markdown/rules.tsx(532,27): error TS7006: Parameter 'prevCapture' implicitly has an 'any' type.
+src/utils/markdown/utils.ts(6,3): error TS2305: Module '"simple-markdown"' has no exported member 'InteractiveParser'.
+src/utils/markdown/utils.ts(6,35): error TS2305: Module '"simple-markdown"' has no exported member 'StaticParser'.
+src/utils/markdown/utils.ts(7,3): error TS2305: Module '"simple-markdown"' has no exported member 'StrictASTNode'.
+src/utils/markdown/utils.ts(7,18): error TS2724: '"simple-markdown"' has no exported member named 'StrictSingleASTNode'. Did you mean 'SingleASTNode'?
+src/utils/markdown/utils.ts(38,35): error TS2339: Property 'reactFor' does not exist on type 'typeof import("/tmp/claude-1000/-usr-local-bin-hooks-website/3db11c43-788c-4cc8-8513-ca51a9f3c628/scratchpad/m2/node_modules/.pnpm/simple-markdown@0.7.3_patch_hash=4c6026726b07869d9d4c62fdda11bac46cb13f3d20ceb56ecbdbfa5fffcac59b/node_modules/simple-markdown/simple-markdown")'.
+src/utils/markdown/utils.ts(38,59): error TS2339: Property 'ruleOutput' does not exist on type 'typeof import("/tmp/claude-1000/-usr-local-bin-hooks-website/3db11c43-788c-4cc8-8513-ca51a9f3c628/scratchpad/m2/node_modules/.pnpm/simple-markdown@0.7.3_patch_hash=4c6026726b07869d9d4c62fdda11bac46cb13f3d20ceb56ecbdbfa5fffcac59b/node_modules/simple-markdown/simple-markdown")'.
+src/utils/messageMode.ts(4,37): error TS2304: Cannot find name 'MessageData'.
+src/utils/messageMode.ts(6,48): error TS2304: Cannot find name 'MessageData'.
+src/utils/messageMode.ts(12,32): error TS2304: Cannot find name 'ActiveMessage'.
+src/utils/messageMode.ts(13,4): error TS2304: Cannot find name 'MessageMode'.
+src/utils/messageMode.ts(19,36): error TS2304: Cannot find name 'ActiveMessage'.
+src/utils/messageMode.ts(39,8): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/utils/messageMode.ts(46,72): error TS2304: Cannot find name 'MessageMode'.
+src/utils/redis/index.ts(144,50): error TS2304: Cannot find name 'DatabaseId'.
+src/utils/redis/index.ts(188,35): error TS2304: Cannot find name 'DatabaseId'.
+src/utils/redis/index.ts(214,24): error TS2304: Cannot find name 'UserGuild'.
+src/utils/redis/index.ts(214,38): error TS2304: Cannot find name 'UserGuild'.
+src/utils/redis/index.ts(220,34): error TS2304: Cannot find name 'DiscordId'.
+src/utils/redis/index.ts(227,39): error TS2304: Cannot find name 'UserGuild'.
+src/utils/redis/index.ts(233,28): error TS2304: Cannot find name 'UserGuild'.
+src/utils/redis/index.ts(251,28): error TS2304: Cannot find name 'DatabaseId'.
+src/utils/redis/index.ts(301,52): error TS2304: Cannot find name 'DiscordThread'.
+src/utils/redis/index.ts(308,30): error TS2304: Cannot find name 'DiscordChannel'.
+src/utils/redis/index.ts(373,30): error TS2304: Cannot find name 'Webhook'.
+src/utils/redis/index.ts(397,13): error TS2304: Cannot find name 'Webhook'.
+src/utils/redis/index.ts(398,13): error TS2304: Cannot find name 'DiscordChannel'.
+src/utils/redis/messageStore.ts(26,24): error TS2304: Cannot find name 'StoredMessage'.
+src/utils/redis/messageStore.ts(49,58): error TS2304: Cannot find name 'StoredMessage'.
+src/utils/typeguards.ts(9,40): error TS2304: Cannot find name 'ActiveMessage'.
+src/utils/typeguards.ts(9,56): error TS2304: Cannot find name 'ApiMessage'.
+src/utils/typeguards.ts(15,60): error TS2304: Cannot find name 'DiscordChannel'.
+src/utils/typeguards.ts(21,59): error TS2304: Cannot find name 'DiscordChannel'.
+src/utils/withLocalStorage.ts(1,58): error TS2304: Cannot find name 'LocalStorage'.
+src/utils/withLocalStorage.ts(1,94): error TS2304: Cannot find name 'LocalStorage'.
+src/utils/withLocalStorage.ts(2,19): error TS2304: Cannot find name 'LocalStorage'.
+src/utils/withLocalStorage.ts(4,41): error TS2345: Argument of type 'string | number | symbol' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/utils/withLocalStorage.ts(6,86): error TS2304: Cannot find name 'LocalStorage'.
+src/utils/withLocalStorage.ts(7,22): error TS2304: Cannot find name 'LocalStorage'.
+src/utils/withLocalStorage.ts(12,23): error TS2304: Cannot find name 'LocalStorage'.
+src/utils/withLocalStorage.ts(15,28): error TS2345: Argument of type 'string | number | symbol' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/utils/withLocalStorage.ts(25,31): error TS2345: Argument of type 'string | number | symbol' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+exit=2

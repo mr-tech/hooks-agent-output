@@ -1,0 +1,13 @@
+# snapshot keys whose base package@version exists at both but whose full key text changed
+cookies-next@6.1.1
+@napi-rs/wasm-runtime@1.2.3
+next-auth@4.24.5
+next-remote-watch@2.0.0
+rolldown@1.0.0-rc.12
+@rolldown/binding-wasm32-wasi@1.0.0-rc.12
+@trpc/next@11.10.0
+@vercel/analytics@1.6.1
+@vercel/speed-insights@1.0.10
+vite@8.0.3
+vitest@4.1.2
+@vitest/mocker@4.1.2

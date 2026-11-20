@@ -2,13 +2,14 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Reviewed-At: "f9e66c2 — repos=website; M1 only (chain/018-next-upgrade-save-size-cap), read by git show and run in isolated exports"
+Reviewed-At: "b0b0158 — repos=website; Round 2 is M2 at b0b0158 (APPROVED_WITH_COMMENTS); Round 1 is M1 at f9e66c2 (REJECTED, CR-1 open)"
 Status: In Review
-Round: 1
-Verdict: REJECTED
+Status-Detail: "M1 REJECTED at f9e66c2 and awaiting the implementer's CR-1 fix, re-reviewed as a sub-entry of Round 1. M2 APPROVED_WITH_COMMENTS at b0b0158, handed to QA Phase 2 on M2."
+Round: 2
+Verdict: APPROVED_WITH_COMMENTS
 ---
 
-# Code Review: 018 — Next.js 16.4.6 and the save-list cap (M1)
+# Code Review: 018 — Next.js 16.4.6 and the save-list cap (M1, M2)
 
 **Plan Reference**: `agent-output/planning/018-next-upgrade-save-size-cap.md`, revision 7 as read at agent-output `44efb1f` (M1's criteria unchanged since revision 5, `e45e8cf`)
 **Implementation Reference**: `agent-output/implementation/018-next-upgrade-save-size-cap-m1-implementation.md` at agent-output `003515a`, `Handoff-At` `f9e66c2`
@@ -20,6 +21,7 @@ Verdict: REJECTED
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-20T05:35 | steering-roadmap-hooks (brief `steering/018-brief-code-reviewer.md`) | Round 1: review M1 at `f9e66c2` | REJECTED. CR-1 HIGH: on the capped path, an issue with an explicit message comes back with zod's default wording. Run in an isolated export. CR-2 LOW: the cap's counting relies on zod 3.22.4 internals that `^3.20.6` does not pin. Under 3.25.76 the cap misses 1,600 issues. CR-3 INFO: a count reconciled. Captures are under `verification/018/code-review/`. |
+| 2026-11-20T05:40 | steering-roadmap-hooks (brief amended `1db98a7`); implementer-hooks-018 (M2 document `b4b34b6`) | Round 2: review M2 at `b0b0158` | APPROVED_WITH_COMMENTS. Reproduced in my own export: M2-a; M2-b's 46 package movers and 12 snapshot-key movers, counted by a second instrument; M2-c's build, typecheck, ts-node and highlight.js bundle checks; M2-d's warnings. The three ts-node scripts typecheck under their options at both trees. CR-4 INFO: an `@img` count does not reproduce. M1 stays REJECTED. |
 
 ## Scope and stage start
 
@@ -224,10 +226,100 @@ rest of M1 conforms:
     from `named-mutants-bfc790d.json` surviving when re-run.
   - **Owner:** QA Phase 2 on M1.
 
+## Round 2 — M2 at `b0b0158`
+
+**Stage start:** steering widened my brief to cover every milestone the implementer hands off (`steering/018-brief-code-reviewer.md`,
+`1db98a7`). This round starts at the M2 implementation document, committed at agent-output `b4b34b6` with `Handoff-At` `b0b0158`.
+`b0b0158`'s only parent is `f9e66c2`, and its diff touches `package.json`, `pnpm-lock.yaml` and `tsconfig.json` and nothing else.
+M2 is capped (`steering/018-rulings.md` block "2026-11-20T05:26Z"). A gap below HIGH therefore goes to the Planner batch as a stated
+limit and does not open another round.
+
+**Criteria assessed** (plan revision 7, § M2, unchanged since this round opened): M2-a, M2-b, M2-c and M2-d. M2-e is UAT's walk.
+Security runs M2-a's `pnpm audit`.
+
+**Instruments:**
+- An isolated `git archive` export of `b0b0158`, installed with `pnpm install --frozen-lockfile` (exit 0), with no `.env` and
+  `SKIP_ENV_VALIDATION=1`. Each run was under a `systemd-run` cap.
+- A second export of `f9e66c2`, used as the control for the scripts check.
+- Every capture is under `verification/018/code-review/m2/`.
+
+**What I ran:**
+- **M2-a.** `grep -c -E "^  next@"` gives 2 at `f9e66c2` and 2 at `b0b0158`: `  next@16.4.6:` and
+  `  next@16.4.6(@babel/core@7.29.7)(…)`. Both name 16.4.6.
+- **M2-b, `package.json` and `tsconfig.json`.** The `package.json` diff is exactly the three specifiers (`next`,
+  `@next/bundle-analyzer`, `highlight.js`). The `tsconfig.json` diff is exactly the two keys
+  (`compilerOptions.moduleResolution` `bundler`, and `ts-node.compilerOptions.moduleResolution` `node`).
+- **M2-b, lockfile movers.** I used a different instrument from the implementer's Python script: `awk` over each section's
+  two-space keys, then `sort` and `comm`.
+  - `packages:` keys go from 1524 to 1527, the same figures the implementer gives. The key diff has 85 lines
+    (`packages-key-diff.txt`), which reduce to 46 mover names (`mover-names.txt`): `next`, `@next/env`, 8 `@next/swc-*`,
+    `@next/bundle-analyzer`, `@swc/helpers`, `postcss`, `baseline-browser-mapping`, `caniuse-lite`, `highlight.js`, `sharp`,
+    `semver`, `@emnapi/runtime`, and 27 `@img/*`.
+  - Every one of the 46 is in the implementer's disposition table. Nothing moved that the table leaves out.
+  - Snapshot keys whose package version is the same in both trees but whose key text changed: 12 (`snapshot-key-text-movers.txt`).
+    These are the 6 `next` peers the plan names and the 6 vitest-toolchain keys the implementer reports. That matches its list.
+  - zod still resolves 3.22.4 in the importer (CR-2).
+- **M2-c.**
+  - `next build` exits 0 (`build.out.txt`). `tsconfig.json` is byte-identical before and after the build (`cmp`). The output has 0
+    lines matching "mandatory".
+  - `pnpm run typecheck` exits 0 (`typecheck.out.txt`).
+  - `ts-node -r tsconfig-paths/register -T -e "require('~/utils/limits')"` exits 0, and the same command without `-T` (type-checked)
+    also exits 0.
+  - Files containing `highlightAuto`: 1 under `.next/static`, 2 under `.next/server`. The same counts hold for `registerLanguage`
+    (1 and 2).
+  - `(void 0).getLanguage(` or `.highlight(` receivers: 0 files. The predicate matches the real form in QA's
+    `B-getLanguage-context.txt` and a planted file under `.next` (1 file).
+- **Beyond the plan's check, the three ts-node scripts** (`lang`, `push-commands`, `backfill-valid`). The plan names them as at risk
+  but checks only `limits.tsx`. Running them would publish Discord commands or write to a database, so I did not run them. Instead,
+  `tsc -p tsconfig.scripts-probe.json` checks their three entry files under the `ts-node` block's options (`module` `commonjs`,
+  `moduleResolution` `node`, the tsconfig's `include`). It gives exit 0 and 0 errors at both `b0b0158` and `f9e66c2`, with identical
+  output (`scripts-probe-*.out.txt`, `scripts-probe-diff.txt` empty).
+- **M2-d.** The build prints the `middleware` deprecation and the new "Edge Runtime is deprecated" warning, both reproduced. The
+  implementer already routed the second to the architect, and it is plan R-8's M2-I3. No new finding.
+
+**Architecture Alignment:** ALIGNED.
+- `bundler` is the value Next 16.4.6 writes as a mandatory change, and the build leaves the file unchanged.
+- The `ts-node` key keeps A-4's import check runnable, re-run above.
+- `src/@types/highlight.js.d.ts` (an augmentation of `Emitter`/`Node`) is untouched and typechecks against 11.12.0's own types.
+
+**TDD Compliance:** the table states the exemption "not feature code", a dependency and configuration move. Per workflow step 5, the
+exemption is checked by execution. The build, typecheck, ts-node and bundle checks above were run on this tree. Suite parity
+(2259 of 2259, same per-file counts as the M1 tip) is the implementer's run and is QA's to re-run (Assumption Not Checked). No test
+file changed, so the convention check has nothing to examine.
+
+### Findings (Round 2)
+
+**CR-4 INFO Round 2 Record**: The `@img/*` count in the M2 movers table does not reproduce
+- **Location**: `implementation/018-next-upgrade-save-size-cap-m2-implementation.md`, M2-b movers table, row "`@img/sharp-*` (22 packages), `@img/sharp-libvips-*` (11), `@img/colour`".
+- **Class**: A published count that does not reproduce.
+- **Enumeration**: `grep -c -E '^@img/sharp-libvips' mover-names.txt` gives 10. `grep -c -E '^@img/sharp-[^l]|^@img/sharp-linux' mover-names.txt`
+  gives 16. Adding `@img/colour` gives 27 `@img/*` names in total, against the table's 22 + 11 + 1 = 34. What the predicate cannot
+  see: the 85-line key diff is reduced to names, so a name the table counts once per version would count differently. All 27 names
+  are dispositioned under the same `sharp` row either way.
+- **Required Action**: a dated reconcile note in the implementation document. This changes nothing a decision reads. Under M2's cap,
+  no round is owed.
+
+### Verdict (Round 2)
+
+**Status**: APPROVED_WITH_COMMENTS (M2 only, at `b0b0158`).
+**Rationale**: every criterion I could run reproduced on my own export: M2-a, M2-b's movers by a second instrument, M2-c's build,
+typecheck, ts-node and bundle limbs, and M2-d's warnings. The only finding is a record count (CR-4 INFO). M1 stays REJECTED at
+`f9e66c2` (Round 1, CR-1). This verdict does not cover M1 and does not cover the M1 fix that will land under M2.
+
+### Assumption Not Checked (Round 2)
+
+- This review assumes the suite passes at `b0b0158` on Next 16.4.6 (2259 of 2259, exit 0, the same 154 files and per-file counts as
+  the M1 tip) and does not run it.
+  - **Falsity signature:** a vitest JSON from an export of `b0b0158` with `numFailedTests > 0`, a process exit other than 0, or a
+    file whose (cases, passed) differs from the M1 tip's.
+  - **Owner:** QA Phase 2 on M2.
+
 ## Next Steps
 
 - Implementer (`implementer-hooks-018`): fix CR-1 (and CR-2 if taken) on the chain branch. Re-review is a sub-entry of Round 1,
   scoped to the fix diff.
 - QA Phase 2 (after approval): close the Assumption Not Checked. Run the suite and the named mutants at the fix SHA.
 - Architect: CR-2's premise line in A-4, if the Preferred form is taken.
-- Captures: `verification/018/code-review/` (`m1-capped-message/`, `typecheck-f9e66c2.txt`, `convention-check-f9e66c2.txt`).
+- Captures: `verification/018/code-review/` (`m1-capped-message/`, `typecheck-f9e66c2.txt`, `convention-check-f9e66c2.txt`, `m2/`).
+- M2 (Round 2): handed to QA Phase 2 on M2 at `b0b0158`, which closes Round 2's Assumption Not Checked. CR-4 is a reconcile note
+  for the implementer. UAT owns M2-e.
