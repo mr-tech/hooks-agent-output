@@ -231,3 +231,20 @@ Status (QA Complete, revision 8); code review `Reviewed-At` `d1bb9b0` (APPROVED 
   nothing moved". Read after: `git ls-remote origin master` and local `master` both `7923a1d`; master's reflog's last entry 02:34:38Z. A
   real move would also have refused for lacking `--qa-record`/`--reason`. The check that prevents it: never put a non-dry-run
   release-move on a line built to read.
+
+## 2026-11-20T06:50Z — UAT APPROVED FOR RELEASE; security briefed; R3 cued to the architect; QA cleared
+
+Read this turn: `uat/018-next-upgrade-save-size-cap-uat.md` header at `fabdbe7` (Status UAT Complete, Release-Decision APPROVED FOR
+RELEASE, `Verified-At` `d1bb9b0`); its Findings (UAT-1 MEDIUM to devops's Stage-1 B-7 row; UAT-2 LOW to the architect by an uncommitted
+`INBOX.md` entry of `uat-hooks-018`; UAT-3 INFO) and its "Process facts of this run".
+- **Security** (`security-hooks-website-deps`, live) briefed on UAT's commit and devops's spawn cue: `steering/018-brief-security.md`
+  (`d9df9a9`); delivery → `devops-hooks-018`, whose Stage 1 waits on it.
+- **Architect** (`architect-hooks-018`) cued on UAT's R3 walk (row "B-3 R3", X-14 holds) to land R3 per its handoff's Resumption State,
+  and told of UAT-2's inbox entry.
+- **QA** cleared 06:4xZ after its Checkpoint (`d0ca212`, wake deleted), at 351K past its 325K threshold.
+- **UAT's process fact, read at the mechanism.** UAT reports that a browser-walker helper's cache cleanup `find … -delete` was refused
+  under the rtk rewrite and was re-run as `/usr/bin/find`, and leaves "whether it was a workaround" to him. This thread read the helper's
+  transcript (`~/.claude/projects/-usr-local-bin-hooks-website/79721f41-…/subagents/agent-ad2653466cd37cba2.jsonl`, rows 174-183). The
+  refusal text, verbatim: "rtk: rtk find does not support compound predicates or actions (e.g. -not, -exec). Use `find` directly." This
+  thread's reading: the message comes from rtk's filter, not from a permission control, classifier or hook, and it names its own remedy.
+  The re-run did what the message says. Put to him, since CLAUDE.md makes the call his.
