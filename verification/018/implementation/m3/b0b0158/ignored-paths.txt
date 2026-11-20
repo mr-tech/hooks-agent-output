@@ -1,0 +1,3 @@
+next-env.d.ts ignored: true
+eslint.config.mjs ignored: true
+src/app/head.tsx ignored: false

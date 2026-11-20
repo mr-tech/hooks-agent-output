@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/849c906f-0947-4b1a-b1f5-e0fe0f0dcdc9/scratchpad/mut-work/20261120T054043Z-p946830/mutant-1
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts (10 tests | 1 failed) 35ms
+     × keeps the message an issue was created with, at a kept position that is neither first nor last 15ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (150 tests | 1 failed) 99ms
+     × words the displayable-text issue as it does uncapped when an issue follows it 7ms
+
+ Test Files  2 failed | 28 passed (30)
+      Tests  2 failed | 695 passed (697)
+   Start at  05:40:48
+   Duration  2.27s (transform 4.86s, setup 0ms, import 16.76s, tests 3.75s, environment 4ms)
+

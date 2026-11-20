@@ -1,0 +1,22 @@
+== src/components/Toggle.tsx reportUnusedDisableDirectives: 0
+require-jsdoc                            [0]
+valid-jsdoc                              [0]
+no-constant-binary-expression            null
+no-empty-static-block                    null
+no-new-native-nonconstructor             [0]
+no-unused-private-class-members          [0]
+no-extra-semi                            [2]
+no-inner-declarations                    [2,"functions",{"blockScopedFunctions":"allow"}]
+no-mixed-spaces-and-tabs                 [2]
+no-new-symbol                            [0]
+curly                                    [2,"multi-line"]
+semi                                     [0,"always"]
+no-constructor-return                    [2]
+no-sequences                             [2,{"allowInParentheses":true}]
+no-implicit-coercion                     [0,{"allow":[],"boolean":false,"disallowTemplateShorthand":false,"number":true,"string":true}]
+no-invalid-regexp                        [2,{}]
+no-unused-vars                           [0,{"vars":"all","args":"after-used","ignoreRestSiblings":true}]
+@typescript-eslint/no-unused-vars        [2,{"varsIgnorePattern":"^_","argsIgnorePattern":"^_","caughtErrors":"none"}]
+no-restricted-imports                    [2,{"paths":[{"name":"react-use","importNames":["useMount"],"message":"react-use useMount discards the function its callback returns, so the cleanup never runs.
+no-useless-computed-key                  [2,{"enforceForClassMembers":true}]
+camelcase                                [0,{"allow":[],"ignoreDestructuring":false,"ignoreGlobals":false,"ignoreImports":false,"properties":"never"}]

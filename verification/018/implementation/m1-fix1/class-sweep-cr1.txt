@@ -1,0 +1,26 @@
+== f9e66c2 reviewer predicate
+f9e66c2:src/server/api/routers/message.ts:11
+f9e66c2:src/server/api/routers/user.ts:1
+f9e66c2:src/server/api/utils/shapes.ts:6
+f9e66c2:src/server/api/utils/user.ts:1
+total 19
+== f9e66c2 defaultError / .message sources in non-test src
+src/server/api/utils/shapes.ts:41:      ctx.addIssue({
+src/server/api/utils/shapes.ts:62:    result.error.issues.forEach((issue) => ctx.addIssue({ ...issue, fatal }));
+src/server/api/utils/shapes.ts:82:        seen.push({ ...issue, message: ctx.defaultError } as z.ZodIssue);
+src/server/api/utils/shapes.ts:84:        return { message: ctx.defaultError };
+src/server/api/utils/shapes.ts:260:    ctx.addIssue({
+== a558f2d reviewer predicate
+a558f2d:src/server/api/routers/message.ts:11
+a558f2d:src/server/api/routers/user.ts:1
+a558f2d:src/server/api/utils/shapes.ts:4
+a558f2d:src/server/api/utils/user.ts:1
+total 17
+== a558f2d defaultError / .message sources in non-test src
+src/server/api/utils/shapes.ts:41:      ctx.addIssue({
+src/server/api/utils/shapes.ts:62:    result.error.issues.forEach((issue) => ctx.addIssue({ ...issue, fatal }));
+src/server/api/utils/shapes.ts:82:        const message = issue.message ?? ctx.defaultError;
+src/server/api/utils/shapes.ts:261:    ctx.addIssue({
+a558f2d:src/server/api/routers/guild.ts:4
+a558f2d:src/server/api/routers/message.ts:7
+a558f2d:src/server/api/routers/user.ts:2

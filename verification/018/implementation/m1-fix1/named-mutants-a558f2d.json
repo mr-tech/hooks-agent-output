@@ -1,0 +1,30 @@
+[
+ {
+  "id": "F-1",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "        const message = issue.message ?? ctx.defaultError;\n",
+  "new": "        const message = ctx.defaultError;\n",
+  "note": "the capped refusal's wording from the default only (the reviewed defect)"
+ },
+ {
+  "id": "F-2",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "seen.push({ ...issue, message } as z.ZodIssue);",
+  "new": "seen.push({ ...issue, message: ctx.defaultError } as z.ZodIssue);",
+  "note": "the recorded issue carries the default wording; the returned one the issue's own"
+ },
+ {
+  "id": "F-3",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "        return { message };\n",
+  "new": "        return { message: ctx.defaultError };\n",
+  "note": "the map's return value is the default (expected equivalent: zod keeps issueData.message over the map result)"
+ },
+ {
+  "id": "F-4",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "        const message = issue.message ?? ctx.defaultError;\n",
+  "new": "        const message = ctx.defaultError ?? issue.message;\n",
+  "note": "operands swapped"
+ }
+]

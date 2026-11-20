@@ -3,8 +3,8 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Status: Active
-Status-Detail: "M1 (save-list cap and error cap) delivered on chain/018-next-upgrade-save-size-cap, self-check sweep run, awaiting code review. M2 to M4 follow in their own documents."
-Handoff-At: f9e66c2 — repos=website; M1 only. Production logic last changed at bfc790d; after it only specs, line wraps and one lint directive (e21794c, be35da8, f80b151, e2b00b8, cfaa11e, f9e66c2)
+Status-Detail: "M1 (save-list cap and error cap) delivered on chain/018-next-upgrade-save-size-cap; code review Round 1 REJECTED at f9e66c2 (CR-1 HIGH); fix round 1 delivered at a558f2d, awaiting the re-review. M2 is in its own document; M3 and M4 follow."
+Handoff-At: a558f2d — repos=website; M1 fix round 1 (fix diff b0b0158..a558f2d, three files). Production logic of M1 last changed at b639dbe (one line group in `cappedInput`); the commit after it only wraps a spec line and satisfies one lint rule
 ---
 
 # Implementation 018 — M1: every server-reachable save list refuses an over-limit length with one issue (M-001)
@@ -24,6 +24,58 @@ Handoff-At: f9e66c2 — repos=website; M1 only. Production logic last changed at
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
 | 2026-11-20T05:09 | steering-roadmap-hooks (brief `steering/018-brief-implementer.md`) | Implement M1 to M4 of revision 5 | M1 implemented test-first on the chain branch: red spec `e5732b0` (and `441cc71`), production `532c0ee`, `a0239fd`, refinements `32047a2`, `bfc790d`, spec additions `e21794c`, `be35da8`. Self-check sweep and QA's named mutants run in isolated exports; survivors dispositioned below. |
+
+## Fix Round 1
+
+Code review Round 1 (`code-review/018-next-upgrade-save-size-cap-code-review.md`, `55fe778`; plan row R-9 `d88f07a`) REJECTED M1 at `f9e66c2`: CR-1 HIGH, CR-2 LOW, CR-3 INFO.
+Fix diff `b0b0158..a558f2d` (the base of this round is the M2 commit, which is on the same branch; M1's own production logic is otherwise as at `f9e66c2`).
+
+| Date | Handoff | Request | Summary |
+|------|---------|---------|---------|
+| 2026-11-20T05:41 | code-reviewer-hooks-018 (Round 1) | CR-1, CR-2, CR-3 | CR-1: red specs `c357095`, fix `b639dbe`, lint satisfaction `a558f2d`. CR-2 and CR-3 below. |
+
+**CR-1 (the capped refusal worded an explicit-message issue with zod's default).** Reproduced before editing: a direct `cappedInput(z.object({ message: optionalIdMessageShape }))` call over the
+reviewer's input (19 field issues, the displayable-text issue as the 20th, then `id: 'abc'`) gave index 19 `"String must contain at most 4000 character(s)"`. The cause is mine: I took zod 3.22.4's
+`makeIssue` to run every error map (it does) and so recorded `ctx.defaultError`, but `makeIssue` keeps `issueData.message` over the maps' result, and `issue.message` (the map's first argument) carries it.
+The fix is the one expression the reviewer names, in the map, used for both what `seen` records and what the map returns: `issue.message ?? ctx.defaultError` (`shapes.ts` `cappedInput`).
+Disclosure: zod's own expression is `||`; `prefer-nullish-coalescing` (a lint gate the repository runs) flagged my first form with `||`, and I satisfied it with `??`. The two differ only for an
+explicit empty-string message; `git grep -n -E "message: ''|message: \"\"" -- src` gives 0 hits, so no site passes one (to the gate's owner: zod's expression is `||`, which is the form a
+spec of "as zod does" would name).
+
+**A reviewer premise I did not reproduce.** CR-1 says both procedures reach the case with a trailing bad `id`. `message.upsert` does (`optionalIdMessageShape.id` is `messageIdShape.optional()`); `user.updatePreferences`'
+`message` is `partialMessageShape`, whose `id` is `z.string().optional()`, so `'abc'` is valid there and nothing follows `message.data` in that input. I saw this when the first form of my spec, shared by both
+procedures, gave 20 issues and no summary for `updatePreferences`. The procedure-level spec is therefore `message.upsert`'s alone; the shared-schema spec covers `cappedInput` for any caller.
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? | Red run |
+|---|---|---|---|---|---|---|
+| `cappedInput()` message of an explicit-message issue at a kept position neither first nor last | `shapes.error-cap.test.ts` "keeps the message an issue was created with, at a kept position that is neither first nor last" | Yes (`c357095`) | Yes | `AssertionError: expected { code: 'custom', …(2) } to deeply equal { code: 'custom', …(2) }` (the actual message is `Invalid input`, the literal expected `The flag is not allowed`) | Yes | `m1-fix1/red-b0b0158.json`, `.out.txt` (run at `b0b0158`, whose `cappedInput` is that of `f9e66c2`); mutants F-1, F-2, F-4 |
+| the same through `message.upsert` (M1-b over the procedure) | `message.save-limits.test.ts` "words the displayable-text issue as it does uncapped when an issue follows it" | Yes (`c357095`) | Yes | `AssertionError: expected { code: 'too_big', …(2) } to deeply equal { code: 'too_big', …(2) }` (actual message `String must contain at most 4000 character(s)`) | Yes | same capture |
+
+`tdd-check.py` refuses TypeScript; the rows are read. The new case is added to the two files that already cover the surface (`shapes.error-cap.test.ts`, and `message.save-limits.test.ts`, the file of the `upsert` specs): no new test file.
+Mutants of the fix, in an isolated export of `a558f2d` (`m1-fix1/named-mutants-a558f2d.json`, run `m1-fix1/sweep-a558f2d/`, `src/server/api` as the selector, control passed): F-1 (the default only), F-2
+(recorded default, returned own), F-4 (operands swapped) KILLED; F-3 (the map returns `ctx.defaultError`) SURVIVED: equivalent, shown by zod's own source (`m1-fix1/zod-makeissue.txt`: `message: issueData.message || errorMessage`, so a message the map
+returns is used only when the issue has none, and then `issue.message ?? ctx.defaultError` is `ctx.defaultError`) and by the whole `src/server/api` suite (697 cases) passing under it. `mutant-gen.js` over the fix diff produced 0 mutants (its operators do not cover `??`), so the four are mine.
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---------|---------------------|----------------------------------|--------------------------|
+| CR-1 (the reviewer's) | `git grep -c -E "message:\|\.(max\|min\|length\|regex\|url\|refine\|datetime\|int\|nonnegative)\([^)]*,\s*['\`{]\|errorMap\|required_error\|invalid_type_error" <sha> -- src/server/api/utils/shapes.ts src/server/api/routers/user.ts src/server/api/routers/message.ts src/server/api/utils/user.ts src/constants` | `f9e66c2`: 19 (`message.ts` 11, `user.ts` 1, `shapes.ts` 6, `utils/user.ts` 1); `a558f2d`: 17 (`shapes.ts` 4); `m1-fix1/class-sweep-cr1.txt` | the reviewer's 15 non-schema hits stand as he dispositioned them; of the schema-issue sources, `refineDisplayableText`'s and `isolatedUnion`'s replay now pass through the one expression; the two hits that left are `cappedInput`'s own lines |
+| CR-1 (mine: every place an issue's message is made or recorded) | `git grep -n -E "defaultError\|addIssue\(" <sha> -- src ':!*__tests__*'` | `f9e66c2`: 5 lines (`shapes.ts` 41 `boundedArray` too_big, 62 `isolatedUnion` replay, 82 and 84 the map, 260 `refineDisplayableText`); `a558f2d`: 4 lines (41, 62, 82 the one expression, 261) | 41: no explicit message, the default through the expression; 62: explicit message equal to the default (the inner parse ran default maps only), through the expression; 82: the one place the capped path forms a message; 261: explicit, now kept. The residual is 0 places that read `ctx.defaultError` other than as the fallback |
+
+**CR-2 (zod `^3.20.6` admits a version that skips the map for an explicit-message issue).** Not applied in this round, with the reason: the preferred fix is a `zod` pin in `package.json` and the lockfile
+importer's specifier. M2-b's text says `package.json`'s diff touches only the specifiers its steps name, so the pin changes a plan criterion; it is a plan matter (D-6 allows the move). It is viable and small; steering
+puts it to the Planner batch (the reviewer allows it: "This can go to the Planner batch. It does not block alone."). The guard that would catch a version move is the "plain unions" spec's `created` count;
+the reviewer inferred, not measured, its failure under 3.25.76.
+
+**CR-3 (the `.input(` count).** Reconcile note, 2026-11-20T05:41: the figure in "Patterns Extended, Sibling sweep" (14 hits) was one too many. `git grep -c -E "\.input\(" a558f2d -- src/server` gives `guild.ts` 4, `message.ts` 7, `user.ts` 2 = 13 lines;
+2 commented out (the `messages` arrays in `guild.ts` and `user.ts`), 11 live, 2 wrapped (`upsert`, `updatePreferences`). The conclusion stands.
+
+**Self-diagnosis (method).** I derived the capped path's wording from the first argument's absence of `message` ("the map is called for every issue, so default is what zod would say") and tested the one sample the plan names, instead of reading
+`makeIssue`'s last line, which states that an issue's own message wins. Reading the function's return expression, not its loop, would have shown two sources for `message`.
+
+**Test results of the round** (files under `verification/018/implementation/m1-fix1/`): red at `b0b0158` for the two new cases (the rest of the three files pass: 317 cases, 2 failed); `src/server/api` at the fix 697 of 697, exit 0;
+the whole suite at `b639dbe` 2261 of 2261 in 154 files, exit 0 (`suite.json`; 2259 + the two cases); `pnpm run typecheck` exit 0 at `a558f2d`; `convention-check.js website --since=b0b0158`: 3 files examined, 0 FAIL,
+0 CANDIDATE (two FAILs fired on `b639dbe`: `max-len` in the new spec and `prefer-nullish-coalescing` in `shapes.ts`; both satisfied at `a558f2d`, the second as disclosed above); the id-token basename check is unchecked by the tool, I read my new titles (none carries a milestone, round or ticket token).
+A `vitest` run of the first form of the procedure spec reported 167 cases with one failure while the file itself failed to load (`it`/`expect` not imported); I misread the count at first and corrected the import: the counters above are from the corrected run.
 
 ## Implementation Summary
 

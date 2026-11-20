@@ -1,0 +1,2 @@
+JSON report written to /usr/local/bin/hooks/agent-output/verification/018/implementation/m1-fix1/red-b0b0158.json
+exit 1

@@ -1,0 +1,24 @@
+  "version": "3.22.4",
+15-    };
+16-    let errorMessage = "";
+17-    const maps = errorMaps
+18-        .filter((m) => !!m)
+19-        .slice()
+20-        .reverse();
+21-    for (const map of maps) {
+22-        errorMessage = map(fullIssue, { data, defaultError: errorMessage }).message;
+23-    }
+24-    return {
+25-        ...issueData,
+26-        path: fullPath,
+27:        message: issueData.message || errorMessage,
+28-    };
+29-};
+30-exports.makeIssue = makeIssue;
+31-exports.EMPTY_PATH = [];
+32-function addIssueToContext(ctx, issueData) {
+33-    const issue = (0, exports.makeIssue)({
+34-        issueData: issueData,
+35-        data: ctx.data,
+36-        path: ctx.path,
+37-        errorMaps: [
