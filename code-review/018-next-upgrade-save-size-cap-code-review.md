@@ -564,3 +564,36 @@ unchanged. CR-5 is a record and instrument gap with no runtime member found. CR-
 - Captures: `verification/018/code-review/` (`m1-capped-message/`, `typecheck-f9e66c2.txt`, `convention-check-f9e66c2.txt`, `m2/`).
 - M2 (Round 2): handed to QA Phase 2 on M2 at `b0b0158`, which closes Round 2's Assumption Not Checked. CR-4 is a reconcile note
   for the implementer. UAT owns M2-e.
+
+## Resumption State
+
+Written at the checkpoint steering asked for (context seam), 2026-11-20T06:17Z. Session `code-reviewer-hooks-018`. The brief is
+`steering/018-brief-code-reviewer.md`, amended at `1db98a7` to cover every milestone the implementer hands off.
+
+**Done.** Every verdict and capture is committed (latest review commit `7804862`, plan row `563c309`), and every consumer has
+been messaged.
+- **M1:** REJECTED at `f9e66c2` (CR-1 HIGH), then APPROVED_WITH_COMMENTS at `a558f2d` (Round 1, sub-entry 1). QA Phase 2 PASS
+  (`eb0c713`).
+- **M2:** APPROVED_WITH_COMMENTS at `b0b0158` (Round 2, CR-4 reconciled). QA PASS (`b247da8`), re-anchored at `a558f2d`.
+- **M3:** APPROVED_WITH_COMMENTS at `969d92a` (Round 3).
+  - CR-5 LOW: the instance is reconciled at `1010ca9`, and its class is a Planner batch candidate sent to the planner.
+  - CR-6 LOW: pre-existing.
+  - QA PASS (`e0d8b95`).
+  - Its build-output assumption is reconciled against QAF-11 (dated note in Round 3).
+- **CR-2 zod pin:** APPROVED at `d1bb9b0` (Round 1, sub-entry 2). CR-3 is reconciled.
+- **CR-7 INFO** (unpinned git dependencies `paracord` and `project-utils#master`): sent to the planner as a Planner batch candidate.
+
+**Open and owed by others (no action of mine):**
+- The implementer: restamp the future-dated changelog row at `implementation/018-next-upgrade-save-size-cap-m2-implementation.md:27`
+  (06:25). I told it in the CR-2 verdict message.
+- The record check's other four failures belong to other files' writers and are already in `INBOX.md`.
+
+**Next for me:** M4 when the implementer hands it off. That is a new round (Round 4), starting at its document's `Handoff-At`. Read
+plan § M4 and its document, review in isolated exports only (the shared tree moves), and re-arm the cache-warm wake on resume.
+
+**Branch and HEAD:** website `chain/018-next-upgrade-save-size-cap` at `d1bb9b0` (read at the checkpoint).
+
+**Nothing uncommitted or locally mutated:**
+- No export or clone of mine remains in the scratchpad: removed after each round.
+- Raw ESLint and pnpm listing JSONs were deliberately not committed (sizes are in `verification/018/code-review/m3/README.md`).
+- No questions are outstanding.
