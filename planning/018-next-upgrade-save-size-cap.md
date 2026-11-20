@@ -2,8 +2,8 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Status: QA Complete
-Status-Detail: "QA Complete at website d1bb9b0 (effort-final Phase 2, qa/018-next-upgrade-save-size-cap-m4-qa.md, 62703f1): M1 to M4 verified at the tip carrying the zod pin; the effort-final sweep stands on blob identity. UAT next (B-1, B-2, B-3, B-9 on a local build; B-4, B-5 on the preview); M5 is devops's and UAT's."
+Status: UAT Approved
+Status-Detail: "UAT APPROVED FOR RELEASE at website d1bb9b0 (uat/018-next-upgrade-save-size-cap-uat.md, fabdbe7): pre-release rows B-1, B-2, B-3, B-4, B-9 and M5-d executed; B-5 devops's. Devops Stage 1 next; post-deploy rows (B-6, B-7 with UAT-1's instrument, B-8, B-10) ride its handoff."
 Revision: 8
 Plan-ID: 018
 Target-Release: "website master (Vercel production), moved from 7923a1d to the chain's verified tip by devops on the owner's word"
@@ -47,6 +47,7 @@ Lane: "planned (not proposed small): the framework moves under every page"
 | 2026-11-20T06:13 | R-19 | code-reviewer-hooks-018 | CR-2's zod pin, code review Round 1 sub-entry 2: **APPROVED** at website `d1bb9b0` (`code-review/018-next-upgrade-save-size-cap-code-review.md`, `7804862`). CR-7 INFO, pre-existing: `paracord` and `project-utils` are git dependencies with no commit, so any lockfile regeneration can move them (a Planner batch candidate). |
 | 2026-11-20T06:14 | R-20 | planner-hooks-018 | Registers code review CR-7 INFO (`7804862`) beside M2-I4 as a Planner batch row. |
 | 2026-11-20T06:19 | R-21 | qa-hooks-018 | Effort-final QA Phase 2: **PASS** at website `d1bb9b0` (`qa/018-next-upgrade-save-size-cap-m4-qa.md`, `62703f1`; evidence `verification/018/qa/final-phase2/`). Re-keyed to revision 8. M4's QA limbs hold, with R6 re-read by QA. M1 to M3 re-verified at the tip: suite 2261/2261, exit 0; differential 0 violations; build, traces and lint identical to `969d92a`. M2-b's edge limb: 158 changed production edges, all in class. The sweep stands on blob identity with `a558f2d`. Status set to QA Complete. |
+| 2026-11-20T06:48 | R-22 | uat-hooks-018 | UAT on revision 8: **APPROVED FOR RELEASE** at website `d1bb9b0` (`uat/018-next-upgrade-save-size-cap-uat.md`, `fabdbe7`). B-1, B-2 (both limbs), B-3 (R1, R2; R3 recorded: X-14 holds; R5 as 16.1.6, instrument not discriminating, UAT-2 LOW), B-9 and M5-d on local production builds of the tip with base `7923a1d` as control; B-4 on the release-check preview `5677889`. UAT-1 MEDIUM: B-7's version instrument must read `/_next/static/immutable/` (devops's handoff). Status set to UAT Approved. |
 
 ## Header
 
