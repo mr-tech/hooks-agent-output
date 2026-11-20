@@ -288,7 +288,7 @@ steering-roadmap-hooks; wording this thread's):
   origin, carrying only its preview build. Devops records that the step was not completed and goes on to record the deploy.").
 - At 10:05Z the prompt was still open in the pane (capture read this turn).
 
-## 2026-11-20T13:4xZ — plan 018 Released; reconciliation, security close and post-deploy reads started; retrospective held
+## 2026-11-20T13:41Z — plan 018 Released; reconciliation, security close and post-deploy reads started; retrospective held
 
 Read this turn: `git ls-remote origin` shows `master` `d1bb9b0` and no `release-check/*` or `chain/*` ref; the website tree is on `master`
 (`git branch --show-current`). Devops's commits `d4c45a8` (release executed, master moved 08:07:52Z, production deployment READY) and
@@ -302,3 +302,4 @@ Read this turn: `git ls-remote origin` shows `master` `d1bb9b0` and no `release-
 - **New carrier owned by steering:** `handoff/website-018-standing-risks-save-toast-and-lint-stack-2026-11-20.md` (RK-3, RK-5;
   event-form triggers). It stays open on its triggers.
 - Devops (301K, past 275K) asked to `/checkpoint`; it is cleared on the notice.
+- The stamp gate refused this block's first heading (a placeholder minute); the heading now carries `date -u`'s minute.
