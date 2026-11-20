@@ -3,8 +3,8 @@ ID: n/a
 Origin: "release chain/fix-message-page-header-decode -> website master 983681ca6cd7cbacd0796ed093e094057ad7f9be -> 7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe (fast-forward)"
 UUID: c8a9f0ca
 Verified-At: "7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe — repos=website; tree 7ff130dfadb7515514d445717c79af0e3cccc768; suite, typecheck and the red/green pair run here in git-archive exports"
-Status: Release Verified
-Status-Detail: "Release Verified at website 7923a1d for devops's move of master 983681c -> 7923a1d. A change to any blob of that tree expires it."
+Status: Released
+Status-Detail: "Released: devops moved website master 983681c -> 7923a1d at 2026-11-20T02:34:40Z on this record (release-move.js --qa-record). The verdict was Release Verified at 7923a1d."
 Phase: 3
 ---
 
@@ -27,6 +27,7 @@ has **no QA Phase 2**: 1 production line was added, which is under the 20-line t
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-20T02:32 | qa-hooks-fix-message-page-header-decode (devops's request through steering, website 7923a1d) | Phase 3. The tip is a one-commit fast-forward over origin `master`, so nothing was assembled. The suite, typecheck and the fix's red/green pair were re-run on the tip in network-isolated exports: 1913/1913 with exit 0, typecheck 0 on both trees, red 4/4 at base, green 4/4 at the tip. Step 1b: 29 open handoffs, 13 pattern matches, 2 members, each dispositioned. There is no gated set. **Release Verified.** |
+| 2026-11-20T02:35 | devops-hooks-fix-message-page-header-decode | Phase 2D close | Website `master` moved `983681c` to `7923a1d` at 02:34:40Z with `release-move.js --qa-record` on this record (exit 0; `git ls-remote origin refs/heads/master` read back `7923a1d9…`). Status `Released`; record closed to `qa/closed/`. The Assumption Not Checked (Vercel's `/_next/image`) is carried by `handoff/message-page-header-decode-post-deploy-2026-11-20.md`, row P-1. |
 
 ## The tip, re-derived
 

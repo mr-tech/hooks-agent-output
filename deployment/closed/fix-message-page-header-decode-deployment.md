@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-message-page-header-decode
 UUID: c8a9f0ca
-Status: Active
-Status-Detail: "Phase 2A complete at website 7923a1d: release-tip verdict recorded (QA Phase 3 Release Verified, record 8599120), dry run with --qa-record passed. Awaiting the owner's release approval (Phase 2B). Nothing pushed."
+Status: Released
+Status-Detail: "Released: website master moved 983681c to 7923a1d at 2026-11-20T02:34:40Z on the owner's release approval, read back at origin. Post-deploy row P-1 is carried by handoff/message-page-header-decode-post-deploy-2026-11-20.md (reader P1R); this record does not wait on it."
 ---
 
 # Deployment — fix-message-page-header-decode (website `master`)
@@ -15,6 +15,7 @@ Status-Detail: "Phase 2A complete at website 7923a1d: release-tip verdict record
 | 2026-11-20T02:29 | steering-roadmap-hooks (brief `steering/fix-message-page-header-decode-brief-devops.md`, spawn cue from security's APPROVED at `7923a1d`) | Stage 1 and Phase 2A for `chain/fix-message-page-header-decode` at `7923a1d` | Brief, its common part and every chain document read whole. Stage 1 done: implementation and code-review documents closed `Committed` (record `2596a57`), carrier handoff `handoff/message-page-header-decode-post-deploy-2026-11-20.md` with its P1R kit and crontab line (same record). Tip build `next build` exit 0 in an isolated export. Dry run passed; reversing patch applies. Phase 2A held at step 3 (release-tip verdict). Nothing pushed. Disclosures: the first isolated build failed on the environment validator (no `.env` in an export) and was re-run with `SKIP_ENV_VALIDATION=1`, both captures kept; `crontab <file>` failed on this box's long scratchpad path and the same file was installed with `crontab - < file` (a tool path limit, not a control); the stamp-gate hook refused this row's first time, typed ahead of the clock, and it was re-stamped from `date -u` (a gate satisfied). |
 | 2026-11-20T02:30 | steering-roadmap-hooks (message) | Route for the release-tip verdict; confirmation (b) | Route 1 taken: `qa-hooks-fix-message-page-header-decode` spawned for QA Phase 3 at `7923a1d`, including step 1b; verdict to this session. Confirmation (b) dropped as a row by steering's ruling; the pre-push preview push is not taken. Held until the QA record arrives. |
 | 2026-11-20T02:33 | qa-hooks-fix-message-page-header-decode (message; record `8599120`) | Release-tip verdict | `Release Verified` at `7923a1d`, tree identity re-derived equal. Dry run with `--qa-record` exit 0, "DRY RUN: every check passed; nothing moved" (`devops/release-move-dry-run-qa-record.txt`). Phase 2A complete; Phase 2B ask follows. |
+| 2026-11-20T02:36 | owner (selection prompt), devops | Release approved, executed and closed | The owner answered the selection prompt with "Agent: push master to 7923a1d (Recommended)". Move run in this session: `release-move.js` exit 0 at 02:34:36Z to 02:34:40Z; origin `master` read back as `7923a1d9…`. Chain branch deleted. E-WEBSITE-PUSH written to the carrier handoff (`c4e45de`); implementation, code-review and QA Phase 3 documents closed `Released`; architect and security routed by `INBOX.md`. Phase 2D worked in order (section above). Record closed `Released`. |
 
 ## Plan Reference
 
@@ -26,7 +27,7 @@ Website `master` at `7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe` (no tag; the SHA 
 
 ## Release Date
 
-_Pending the owner's approval._
+2026-11-20T02:34:40Z (website `master` moved; read back at origin).
 
 ## Execution Mode
 
@@ -101,17 +102,62 @@ None open. A qualifier declined, a count disputed or a field flagged stale: none
 
 ## User Confirmation
 
-_Not asked. The ask follows the release-tip verdict._
+Put to the owner directly by this session as a blocking selection prompt (`~/.claude/state/prompt-gate-off` absent at 2026-11-20T02:33:54Z), after the QA Phase 3 record, the tip build and the dry run with `--qa-record`. The prompt stated: the identifier (`master` `983681c` to `7923a1d`, a fast-forward of one commit, 4 files, +52/−357), the environment (hooks.gg through Vercel; no beta; no GitHub workflow; the Vercel project itself unread, accepted as written from steering's brief), what changes for users, what was checked and what was not (hooks.gg itself; whether Vercel's `/_next/image` works without the direct `sharp`), the rollback, and the fixer's User-visible flows list (three flows, none a gate). Options: push, hold, abort. **Response: "Agent: push master to 7923a1d (Recommended)"**, by selection, answered before 2026-11-20T02:34:30Z (the runbook's first step). Declined: no.
 
 ## Release Execution
 
-_Not run._
+Mode A. Captures: `verification/fix-message-page-header-decode/devops/runbook-steps-1-2.txt`, `runbook-steps-3-4.txt`, `runbook-step-5.txt`.
+
+| # | Step | Result |
+|---|---|---|
+| 1 | `git ls-remote origin refs/heads/master` at 02:34:30Z | `983681ca6cd7cbacd0796ed093e094057ad7f9be`, as expected |
+| 2 | `release-move.js … --dry-run --qa-record qa/website-983681c-7923a1d-release-tip-qa.md` | exit 0, "DRY RUN: every check passed; nothing moved" |
+| 3 | The same without `--dry-run` | exit 0 from 02:34:36Z to 02:34:40Z: "OK moved master: 983681ca… -> 7923a1d9… on origin; tree on master" |
+| 4 | `git ls-remote origin refs/heads/master` | `7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe` (local `master` the same) |
+| 5 | Tree on `master` (tracked-clean; `release-move.js` switched it); `git branch -d chain/fix-message-page-header-decode` | exit 0; no `chain/*` branch remains |
+| 6 | Ledger E-WEBSITE-PUSH filled in `handoff/message-page-header-decode-post-deploy-2026-11-20.md` | `2026-11-20T02:34:40Z`, `7923a1d9…` (record `c4e45de`) |
+
+**Push evidence (the deployment, per "Deploy evidence"):** ref `master`, SHA `7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe`, 2026-11-20T02:34:40Z. Serving state is evidenced by the push. Nothing was read from a host.
+
+**Deployed against verified, per repository (website).** Deployed ref `master`; the pushed commit is `7923a1d`, read from `ls-remote` after the move. The code review's and security's `Reviewed-At`, the fixer's `Handoff-At` and the release-tip record's `Verified-At` are all `7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe`: **the same commit**, so no diff of the surface is owed.
+
+**Deploy mechanism, as accepted:** a push to `master` deploys through Vercel (no workflow). Named risk, not a verification: that Vercel builds the pushed commit by its default-ref behaviour.
 
 ## Post-Release Status
 
-_Not reached._ Rollback Plan: above. Post-release observation: carrier `handoff/message-page-header-decode-post-deploy-2026-11-20.md`, row P-1, reader P1R.
+Status `Released` at 2026-11-20T02:34:40Z. Authorizer: the owner (selection above). Included plans: none (a `fix-` chain); the one chain `fix-message-page-header-decode`. Known issues: none known. Rollback Plan: above (a reversing `master` commit; the patch applies cleanly; the push takes his word).
+
+Post-release observation, carried and not held open by this record: row P-1 (`/_next/image` after the direct `sharp` was removed) in `handoff/message-page-header-decode-post-deploy-2026-11-20.md`, reader P1R, first fire at or after 02:49:40Z is 04:07Z. A 5xx there is a rollback question for the owner.
+
+## Phase 2D reconciliation
+
+**The chain's documents** (enumerated by `grep -rl "UUID: c8a9f0ca"` and `Origin: fix-message-page-header-decode` over the record), with terminal tokens:
+
+| Document | Status | Location |
+|---|---|---|
+| `implementation/closed/fix-message-page-header-decode-implementation.md` | Released | `implementation/closed/` |
+| `code-review/closed/fix-message-page-header-decode-code-review.md` | Released | `code-review/closed/` |
+| `qa/website-983681c-7923a1d-release-tip-qa.md` (Phase 3) | Released | `qa/closed/` |
+| `deployment/fix-message-page-header-decode-deployment.md` (this record) | Released | `deployment/closed/` |
+| `security/fix-message-page-header-decode-security-audit.md` | `Active`, stays open: it closes (`Review Complete`) when the chain closes, and that is security's. Routed by one `INBOX.md` entry (2026-11-20, devops-hooks-fix-message-page-header-decode), citing the P-1 carrier | `security/` |
+| `handoff/message-page-header-decode-post-deploy-2026-11-20.md` | `Open`: carries P-1, closes when P1R's completion row lands | `handoff/` |
+
+No other open `fix-` chain document exists (`grep -rl '^Origin: "\?fix-'` outside `closed/`: this chain's two only), so no other fix chain's `Handoff-At` needs the ancestor check. The fix branch is merged (`git branch -d` exit 0) and deleted.
+
+**Handoffs the chain answered:** `handoff/providers-query-params-header-decode-throws-2026-11-08.md`, `Status: Open`. The release makes its work (`getMessage` removed, so the header is no longer decoded); closing it `Addressed` is steering's at the chain's closure.
+
+**Architecture:** `architecture/system-architecture.md:179` lists `sharp` among website's dependencies, which the release removed as a direct dependency. Routed to the architect by one `INBOX.md` entry. Nothing in `architecture/` was edited.
+
+**Roadmap:** a `fix-` chain owes none (the scoping determination names no epic or criterion).
+
+**Forward items beyond the register** (`grep -l 'Assumption Not Checked'` over the chain's documents: the code review, the QA Phase 3 record, and this record; security's equivalent is its "Relied on, not checked here"):
+- Vercel's `/_next/image` without the direct `sharp` (code review, security, QA Phase 3): carried by row P-1 of the post-deploy handoff.
+- The unread `x-query-params` write in `middleware.ts:17-21` (fixer observation; security I-2; QA step 3): carried at `steering/website-deps-review-rulings.md`, block "2026-11-20T02:11Z" (leaves it; no handoff). QA notes it for the separate H-002/M-001 chain.
+- CR-1, the commented-out `sanitizeHtml(` call in `JsonModalBody.tsx`: carried at the same file, block "2026-11-20T02:18Z".
+- `package.json`'s `overrides` key does nothing under pnpm (security I-3): carrier `security/website-deps-review-security-audit.md` I-6.
+- Confirmation (b), the client-header read: dropped as a row by steering's ruling (message 2026-11-20T02:30Z).
+- Whether pnpm major on Vercel matches 10.28.2: accepted as written (named risk above); no carrier is owed.
 
 ## Next Actions
 
-- QA Phase 3 on website `7923a1d` (release-tip verdict), through steering.
-- Phase 2B ask, then Phase 2C, then Phase 2D.
+None owed by this record. Rows whose trigger is at or after its closure have carriers: P-1 (the post-deploy handoff, reader P1R), security's closure (INBOX entry), the architecture line (INBOX entry), the source handoff's closure (steering).

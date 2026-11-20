@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-message-page-header-decode
 UUID: c8a9f0ca
-Status: Committed
-Status-Detail: "Committed on website chain/fix-message-page-header-decode at 7923a1d (not pushed; release to website master awaits the owner's release approval). Code review APPROVED and security APPROVED at 7923a1d. Post-deploy row P-1 and the observation on middleware.ts:17-21: carriers named in the Stage 1 row below."
+Status: Released
+Status-Detail: "Released: website master moved 983681c to 7923a1d at 2026-11-20T02:34:40Z on the owner's release approval (deployment/closed/fix-message-page-header-decode-deployment.md). Post-deploy row P-1 and the observation on middleware.ts:17-21: carriers named in the Stage 1 row below."
 Handoff-At: 7923a1d — repos=website
 Origin-Chain: none
 ---
@@ -169,3 +169,4 @@ For the owner's own check (no UAT stage runs):
 |---|---|
 | 2026-11-20T02:09 | Created. Red run (4/4 failed), change, green run, dependency removal, build, suite, typecheck, lint, convention check. Fix committed at website `7923a1d`; handed off to code review. |
 | 2026-11-20T02:26 | devops Stage 1: recorded committed state, website `chain/fix-message-page-header-decode` tip `7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe` (no push, no merge to `master`). Gates read: code review APPROVED `Reviewed-At: 7923a1d9…`, security APPROVED `Reviewed-At: 7923a1d9…`; no QA or UAT in the stage set. Closed `Committed`. Carriers for what this document leaves owed: the unread `x-query-params` write in `middleware.ts:17-21` is carried at `steering/website-deps-review-rulings.md` block "2026-11-20T02:11Z"; the Assumption Not Checked on Vercel's `/_next/image` is carried by row P-1 of `handoff/message-page-header-decode-post-deploy-2026-11-20.md`. |
+| 2026-11-20T02:35 | devops Phase 2D: website `master` moved `983681c` to `7923a1d` at 02:34:40Z (`git ls-remote origin refs/heads/master` read back `7923a1d9…`); the chain branch was merged and deleted (`git branch -d`). Closed `Released`. |
