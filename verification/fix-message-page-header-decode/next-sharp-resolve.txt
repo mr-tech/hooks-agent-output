@@ -1,0 +1,1 @@
+/usr/local/bin/hooks/website/node_modules/.pnpm/sharp@0.34.5/node_modules/sharp/lib/index.js 0.34.5

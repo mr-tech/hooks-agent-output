@@ -1,0 +1,14 @@
+Lockfile is up to date, resolution step is skipped
+Already up to date
+
+   ╭──────────────────────────────────────────╮
+   │                                          │
+   │   Update available! 10.28.2 → 12.21.0.   │
+   │   Changelog: https://pnpm.io/v/12.21.0   │
+   │     To update, run: pnpm self-update     │
+   │                                          │
+   ╰──────────────────────────────────────────╯
+
+
+Done in 1.1s using pnpm v10.28.2
+rc=0

@@ -1,0 +1,14 @@
+
+Oops! Something went wrong! :(
+
+ESLint: 8.57.1
+
+ESLint couldn't determine the plugin "react" uniquely.
+
+- /usr/local/bin/hooks/website/node_modules/.pnpm/eslint-plugin-react@7.37.5_eslint@8.57.1/node_modules/eslint-plugin-react/index.js (loaded in ".eslintrc.json")
+- /usr/local/bin/hooks/website/node_modules/.pnpm/eslint-plugin-react@7.33.2_eslint@8.57.1/node_modules/eslint-plugin-react/index.js (loaded in ".eslintrc.json » plugin:react/recommended")
+
+Please remove the "plugins" setting from either config or remove either plugin installation.
+
+If you still can't figure out the problem, please stop by https://eslint.org/chat/help to chat with the team.
+
