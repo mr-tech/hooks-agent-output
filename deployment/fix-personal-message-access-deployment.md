@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-personal-message-access
 UUID: 1b613853
 Status: Active
-Status-Detail: "Stage 1 done and Phase 2A readiness written for website master 787bec5 -> 983681c (a fast-forward). Waiting on QA's Phase 3 release-tip record, then the owner's release approval (Phase 2B). Nothing is pushed."
+Status-Detail: "Stage 1 done and Phase 2A readiness written for website master 787bec5 -> 983681c (a fast-forward). QA Phase 3 `Release Verified` at 983681c (record fd38b6f). Waiting on the owner's release approval (Phase 2B). Nothing is pushed."
 ---
 
 # Deployment Record: fix-personal-message-access
@@ -43,7 +43,7 @@ Included: chain `fix-personal-message-access` only. Execution mode: **Mode A, ag
 |---|---|---|
 | All chains committed | 1 of 1 (Stage 1 closes the chain's committed documents). The security document stays open under its own closing party, below | — |
 | Tip assembled | the chain branch itself, a fast-forward of remote `master`; no merge commit and nothing assembled on a scratch branch | `release-move.js … --dry-run`: "ff-from-remote ok" |
-| Release-tip verdict | QA Phase 2 `Verified-At` `983681c` covers the tip (tree `68ad814a…` on both sides). Owed: QA's Phase 3 record (qa-phase-3.md step 1b, the open-handoff sweep, and the gated time-based set), requested 2026-11-20T00:2xZ. _Record path and SHA: blank until it arrives_ | message `f4dfad51` |
+| Release-tip verdict | QA Phase 2 `Verified-At` `983681c` covers the tip (tree `68ad814a…` on both sides). Phase 3 record `qa/website-787bec5-983681c-release-tip-qa.md`, `Status` `Release Verified`, `Verified-At` `983681c`, record commit `fd38b6f` (read at the record: commit exists, tree identity re-derived by QA and by me above). Step 1b: 29 open handoffs enumerated (`open-handoff-triggers.py`), 3 members, none owed before the push: this chain's carrier (decidable only after the deploy), the architect's Problem Area handoff (fires on this push; routed in Phase 2D) and an already-discharged QA item. Step 2: no gated time-based set exists. Its Assumption Not Checked (that `ls-remote` reads `983681c…` after the push) is closed at runbook step 5 | QA's record; message `f4dfad51` |
 | Consistency | see the Stage 1 table | |
 | Populations (4b) | website is a leaf deployment. The one pin, project-utils, is unchanged and current (above). No package, subscriber or consumer is changed (`git diff` over the manifests, exit 0). Re-derived at the mechanism: `git diff --name-only origin/master 983681c` | exit status |
 | Packaging (build at the tip) | `pnpm exec next build` (Next.js 16.1.6 Turbopack, node v24.14.0, pnpm 10.28.2) in an isolated `git archive` export of `983681c` (tree `68ad814a…`), `node_modules` copied, the Production variable names set to dummy values (no `.env.local` copied, nothing remote written), under `systemd-run --user --scope` caps (900 s, 6 G, 2000 tasks): **exit 0**, "Compiled successfully", 9 static pages generated, 10 app routes and 8 page-router routes plus the proxy listed; 2026-11-20T00:23:39Z to 00:24:00Z. Export deleted (`ls -d` exit 2). The diff carries no lockfile or package-manager change, so the host-major install check does not apply | `verification/fix-personal-message-access/devops/next-build-983681c/{build-output.txt,meta.txt,exit}`, `build-tip.sh` |
@@ -69,16 +69,16 @@ Included: chain `fix-personal-message-access` only. Execution mode: **Mode A, ag
 | # | Step | Abort criterion | Result |
 |---|---|---|---|
 | 1 | `git -C /usr/local/bin/hooks/website ls-remote origin master` | not `787bec5627702d2881b826e596ec2b8f8853c4fa` → stop; the tip is no longer a fast-forward and the verdict must be re-taken | _blank_ |
-| 2 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 983681ca6cd7cbacd0796ed093e094057ad7f9be --dry-run` with the evidence flag of step 4 | exit ≠ 0 → stop | exit 0 (reason form) at 2026-11-20T00:2xZ: "every check passed; nothing moved". _Re-run with the final flag before step 4_ |
+| 2 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 983681ca6cd7cbacd0796ed093e094057ad7f9be --dry-run --qa-record /usr/local/bin/hooks/agent-output/qa/website-787bec5-983681c-release-tip-qa.md` | exit ≠ 0 → stop | exit 0 at 2026-11-20T00:26Z, with `--qa-record`: "ff-from-remote ok; sibling serving refs (none) on one line ok … DRY RUN: every check passed; nothing moved". An earlier dry run with the `--reason` form also exited 0. Re-run immediately before step 4 |
 | 3 | the owner's yes to the release, in this session | no yes → Aborted; nothing moved | _blank_ |
-| 4 | the same command without `--dry-run`, with `--qa-record <QA Phase 3 record>` once it is committed (moves local `master`, pushes, switches the tree back to `master`) | exit 2 → nothing moved, stop; exit 1 → read the report for ref state, route to the owner | _blank_ |
+| 4 | the step 2 command without `--dry-run` (moves local `master`, pushes, switches the tree back to `master`) | exit 2 → nothing moved, stop; exit 1 → read the report for ref state, route to the owner | _blank_ |
 | 5 | `git ls-remote origin refs/heads/master` equals `983681ca…`; tree on `master`, `git status --porcelain` shows only `?? .playwright-mcp/` | any difference → route to the owner | _blank_ |
 | 6 | `git branch -d chain/fix-personal-message-access` (merged); `ls-remote --heads origin 'chain/*'` shows none | `-d` refuses → name it to the owner; do not force | _blank_ |
 | 7 | write E-WEBSITE-PUSH into the carrier handoff's ledger; the walk B-2 then B-1 is the uat-role session's | a falsifier seen (B-2 answers 500, or B-1 shows account 2's content) → Vercel promote of the previous deployment, his call | _blank_ |
 
 ## User Confirmation
 
-_Not asked yet. The ask is put in this session after QA's Phase 3 record is committed and the dry run is re-run (Phase 2B)._
+_Not answered yet. The ask is put in this session as a blocking selection prompt (`~/.claude/state/prompt-gate-off` absent at 2026-11-20T00:26Z), after QA's Phase 3 record and the dry run. The response, its form and its time are recorded here when it arrives._
 
 ## Release Execution
 
