@@ -1,0 +1,5 @@
+packages: keys 1524 -> 1527; removed 41; added 44
+packages: mover names 46
+snapshots: keys 1526 -> 1529; removed 53; added 56
+snapshots: same name@version, key text changed 12
+next@ keys at new: next@16.4.6 | next@16.4.6(@babel/core@7.29.7)(@types/n

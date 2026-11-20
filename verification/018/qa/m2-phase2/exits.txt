@@ -1,0 +1,10 @@
+f9e66c2-install exit 0
+f9e66c2-suite exit 0
+b0b0158-install exit 0
+b0b0158-suite exit 0
+b0b0158-build exit 0
+b0b0158-typecheck exit 0
+b0b0158-tsnode-T exit 0
+b0b0158-tsnode-typed exit 0
+mutant-no-tsnode-key-tsnode-T exit 1
+done

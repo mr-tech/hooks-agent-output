@@ -2,9 +2,9 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Verified-At: "b0b01587b9ee6afca8147d974f8ea2e336572720 — repos=website; M2 only; pending — no verdict yet"
-Status: Testing In Progress
-Status-Detail: "Phase 2 on M2 at website b0b0158 (code review Round 2 APPROVED_WITH_COMMENTS, agent-output 34ed471). Criteria recorded before execution."
+Verified-At: "b0b01587b9ee6afca8147d974f8ea2e336572720 — repos=website; M2 only; isolated export with its own install, tsconfig.json blob c21db55 verified equal"
+Status: QA Complete
+Status-Detail: "M2 PASS at website b0b0158: M2-a to M2-d reproduced, suite 2259/2259 exit 0 at both b0b0158 and f9e66c2 with identical per-file counts. M2-e is B-9/B-10 (UAT). No finding."
 Phase: 2
 ---
 
@@ -24,6 +24,7 @@ batch as a stated limit, except a severity-floor finding.
 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
+| 2026-11-20T05:44 | code-reviewer-hooks-018 (Round 2, `34ed471`) | QA Phase 2 on M2 at `b0b0158` | Phase 2 on M2. The criteria were committed before execution (`5fcdf7d`). M2-a to M2-d were re-derived on QA's own exports. Lockfile movers by a third instrument: 46 package names, 12 snapshot-key texts, the same membership as code review's, every one dispositioned. Suite 2259/2259, exit 0, at `b0b0158` and `f9e66c2`, with identical per-file counts. Build exit 0, `tsconfig.json` unchanged, typecheck 0, `ts-node` 0/0. Bundle markers present, 0 `(void 0)` receivers. A `ts-node` key mutant goes red (TS5095). This closes code review Round 2's Assumption Not Checked. **PASS (M2 only).** No finding. |
 
 ## Criteria this pass assesses (recorded before execution)
 
@@ -47,3 +48,48 @@ batch as a stated limit, except a severity-floor finding.
 - **Mutation sweep:** none owed at this milestone. The M2 diff holds no JS/TS production source and changes no Irreversible
   Side-Effect Register guard. The effort-final sweep stays owed.
 - **Time-based tests:** M2 deems no gated time-based cell relevant, so none runs.
+
+## Test Execution Results
+
+Driver: `verification/018/qa/m2-phase2/run.sh`. It ran under `systemd-run --user --scope` over two `git archive` exports in the
+session scratchpad: `f9e66c2` (the parent) and `b0b0158`. Each export had its own `pnpm install --frozen-lockfile` (exit 0), no
+`.env` and `SKIP_ENV_VALIDATION=1`. The suites ran under `unshare -rn`. The build had network, because `next/font` fetches at build
+time. Every step had a `timeout -k`. Nothing ran in the shared tree. The exports were deleted after the copy. The exit codes are in
+`exits.txt`, and every output is beside it.
+
+| Criterion | Instrument | Result | Red side (seen) |
+|---|---|---|---|
+| M2-a | `grep -c -E "^  next@"` over `git show <sha>:pnpm-lock.yaml`; importer read | 2 → 2. At `b0b0158`: `next@16.4.6` and `next@16.4.6(@babel/core@7.29.7)(…)`. Importer `next:` `^16.4.6` → `16.4.6(…)` | The predicate reads 16.1.6 at `f9e66c2` (2 lines, Phase 1 control) |
+| M2-b lockfile | `lock-movers.py`, a third shape: Python over the `packages:`/`snapshots:` two-space keys, a version-set difference per name. Code review used `awk`/`comm` | `packages:` 1524 → 1527 keys, **46 mover names**, identical membership to code review's `mover-names.txt` (`diff` empty). `snapshots:` **12** keys changed text with the same name@version: the 6 `next` peers the plan names, plus `vitest`, `vite`, `rolldown`, `@rolldown/binding-wasm32-wasi`, `@napi-rs/wasm-runtime` and `@vitest/mocker`. Same membership as code review's. No version moves among them. | — |
+| M2-b dispositions | every name in `packages-mover-names.txt` searched in the implementation document (`disposition-check.txt`) | 15 named; 31 under the `@next/swc-*` row (each suffix named) and the `@img/*` row (27, as reconciled for CR-4); **0 missing** | — |
+| M2-b `package.json` / `tsconfig.json` | read at the commit (code review's diff) | three specifiers; two keys, end-of-file newline kept. The blob `c21db55` is identical in the export (`blob-identity.txt`) | — |
+| M2-c build | `next build` | exit 0. `grep -ci mandatory` = 0. `cmp` with the pre-build file and with `git show b0b0158:tsconfig.json`: both identical | The `mandatory` line is present (1) in the planner's `m2-tsconfig/A/build.txt`, where `moduleResolution` was `node` |
+| M2-c typecheck | `pnpm run typecheck` (both programs, after the build) | exit 0 | — |
+| M2-c `ts-node` | `npx ts-node -r tsconfig-paths/register [-T] -e "require('~/utils/limits')"` | `-T` exit 0, typed exit 0 | **Mutant at the tip** (`ts-node.compilerOptions.moduleResolution` deleted): `-T` exit 1, TS5095 (`mutant-no-tsnode-key-tsnode-T.txt`). The file was restored after |
+| M2-c bundle | `grep -rlF` into files over `.next/static` and `.next/server`; `(void 0)` receiver regex over `.next` | `Falling back…`, `highlightAuto` and `registerLanguage`: each in **1** static and **2** server files. `(void 0)` receivers: **0** | Planted `.next/qa-plant/p.js` on the same run: 1. The `paths` form gave 10 (`m2-hljs-resolution/`) |
+| M2-c suite | `npx vitest run --reporter=json`, both trees; `suite-compare.txt` | both trees: 2259 cases, 2259 passed, 0 failed, 154 `testResults` files, `success` true, **process exit 0**. Path membership is identical; per-file (cases, passed) differences: none | — (parity check; the parent is the comparand) |
+| M2-d | build output | `middleware` deprecation; "The Edge Runtime is deprecated". Both were already routed (X-8; plan R-8 M2-I3) | — |
+
+**Against the plan's base form:** M2-c also names the base `7923a1d` (1913 cases in 149 files). The tip's 154 files are the base's
+149 plus M1's test files, and M1's verdict is its own. The parent comparison holds every M1 change fixed and isolates M2's move.
+
+**TDD gate:** the implementation document states the exemption "not feature code": no new function or class, and the diff touches
+`package.json`, `pnpm-lock.yaml` and `tsconfig.json` only. The exemption is established by execution over the affected surface,
+the whole suite on both trees, which is identical. Accepted.
+
+**Mutation sweep:** none owed at M2. The diff holds no JS/TS production source, and no Irreversible Side-Effect Register guard
+(E-1 to E-7) is changed by it. The effort-final sweep stays owed, over the chain's production diff.
+
+**Verdict: PASS (M2 only, at `b0b0158`).** No QAF finding. Code review Round 2's Assumption Not Checked (suite parity) is closed
+above. This verdict does not cover M1 (code review approved its fix at `a558f2d`; QA Phase 2 on M1 follows), and it expires
+when production code changes after `b0b0158`, per Verdict Freshness.
+
+**Rows inherited and not discharged:** B-1 to B-10, all. M2-e's B-9 and B-10 are UAT's.
+
+## Assumption Not Checked
+
+This pass assumes, and does not test, that Vercel's build of the release tip produces the same bundle as this local export. Vercel
+builds with its own Node, its own pnpm resolution of `packageManager`, and its own environment, so the `highlight.js` binding and
+the `tsconfig.json` no-rewrite were seen only locally. The signature of its falsity: the preview deployment's build log shows a
+"mandatory changes" line, or B-4's or B-10's `/preview` look shows no `hljs` classes or the "Invalid message data." boundary. Owner:
+UAT at B-4 (the preview) and B-10, with devops reading the preview build log at B-5.

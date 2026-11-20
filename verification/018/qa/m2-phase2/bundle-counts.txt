@@ -1,0 +1,8 @@
+static | Falling back to no-highlight mode | 1
+server | Falling back to no-highlight mode | 2
+static | highlightAuto | 1
+server | highlightAuto | 2
+static | registerLanguage | 1
+server | registerLanguage | 2
+void-receiver files | 0
+void-receiver files with plant | 1
