@@ -1,0 +1,64 @@
+pnpm audit --prod --json, website lockfile at 75f1543 (unchanged from 787bec5: git diff --quiet 787bec5 75f1543 -- package.json pnpm-lock.yaml, exit 0)
+metadata.vulnerabilities: {"info": 0, "low": 12, "moderate": 50, "high": 76, "critical": 8}
+advisories: 141
+@babel/runtime	moderate	1
+@smithy/config-resolver	low	1
+baseline-browser-mapping	moderate	1
+brace-expansion	high	10
+brace-expansion	low	2
+brace-expansion	moderate	4
+braces	high	1
+cookie	low	1
+cross-spawn	high	1
+decode-uri-component	high	1
+decode-uri-component	moderate	1
+diff	low	1
+fast-loops	high	1
+fast-xml-parser	critical	1
+fast-xml-parser	high	2
+fast-xml-parser	low	2
+fast-xml-parser	moderate	2
+form-data	critical	2
+form-data	high	2
+immutable	high	3
+jose	moderate	1
+js-cookie	high	1
+kysely	high	3
+lodash	high	1
+lodash	moderate	1
+micromatch	moderate	1
+minimatch	high	6
+nanoid	high	6
+nanoid	moderate	2
+next	critical	4
+next	high	14
+next	low	4
+next	moderate	20
+next-auth	critical	1
+next-auth	high	1
+next-auth	moderate	2
+picomatch	high	1
+picomatch	moderate	1
+postcss	high	2
+postcss	moderate	2
+postcss-selector-parser	moderate	1
+sanitize-html	moderate	6
+sharp	high	3
+source-map-js	high	1
+tar-fs	high	6
+tmp	high	1
+tmp	low	1
+uuid	moderate	1
+ws	high	4
+ws	moderate	1
+yaml	moderate	1
+zod	high	1
+
+kysely | high | >=0.26.0 <=0.28.11 | GHSA-wmrf-hv6w-mr66 | SQL Injection via unsanitized JSON path keys when ignoring/silencing compilation errors or using `Kysely<any>`.
+kysely | high | <=0.28.13 | GHSA-8cpq-38p9-67gx | Kysely has a MySQL SQL Injection via Insufficient Backslash Escaping in `sql.lit(string)` usage or similar methods that append string literal values into the compiled SQL strings
+kysely | high | >=0.26.0 <0.28.17 | GHSA-pv5w-4p9q-p3v2 | Kysely: JSON-path traversal injection via unsanitized path-leg metacharacters in `JSONPathBuilder.key()` / `.at()`
+next-auth | critical | >=4.10.3 <4.24.15 | GHSA-7rqj-j65f-68wh | Auth.js: Email normalizer validates the address before Unicode normalization, allowing a homoglyph @ bypass
+next-auth | high | >=4.0.6 <=4.24.14 | GHSA-xmf8-cvqr-rfgj | Auth.js: getToken() throws an uncaught exception on malformed Bearer authorization headers
+next-auth | moderate | <4.24.12 | GHSA-5jpx-9hw9-2fx4 | NextAuthjs Email misdelivery Vulnerability
+next-auth | moderate | <=4.24.14 | GHSA-x445-f3h2-j279 | Auth.js: OAuth state, nonce, and PKCE check cookies are not bound to the provider that created them
+zod | high | <4.6.6 | GHSA-mrhx-c7xc-m3w5 | Zod can exhaust memory while validating oversized constrained collections

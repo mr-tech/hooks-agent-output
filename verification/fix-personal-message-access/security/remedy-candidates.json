@@ -1,0 +1,9 @@
+[
+  {
+    "id": "getone-requires-the-checked-row",
+    "file": "src/server/api/routers/message.ts",
+    "note": "Candidate remedy for M-001, applied only in a throwaway export to show the red case turns green. Not a source change: the fixer chooses the shape.",
+    "old": "      } else {\n        await authorizeUser(session.user.id, message.id);\n      }\n      return message;",
+    "new": "      } else {\n        const { oldMessageCount } = await authorizeUser(session.user.id, message.id);\n        if (!oldMessageCount) {\n          throw new TRPCError({ code: 'NOT_FOUND', message: 'One of the provided messages does not exist.' });\n        }\n      }\n      return message;"
+  }
+]
