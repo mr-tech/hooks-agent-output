@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-384 documents · 17 numbered chains · 203 unnumbered.
+388 documents · 17 numbered chains · 207 unnumbered.
 
 ---
 
@@ -357,7 +357,7 @@ they are the ID-less artifacts that root new efforts.
 | implementation | `implementation/closed/fix-uat-local-stack-id-sequence-implementation.md` | Committed — Committed on the record repository's master at 7d59233; code review APPROVED at that tree (record 1f5b0c3). No QA Phase 2 (the tool is +15/-5 by git diff --numstat 68d737f). No deploy: the tool is a record tool. Closed by steering-queue-hooks. |
 | implementation | `implementation/closed/fix-v1-guild-messages-auth-implementation.md` | Committed — Committed for release on website fix/v1-guild-messages-auth at ddbd750 (devops Stage 1, 2026-10-10). The owner's key check returned 'match'. Release (merge to master, push) awaits the owner's approval. |
 | implementation | `implementation/closed/fix-website-save-gate-embeds-implementation.md` | Released — Released 2026-11-11T10:13Z: website master 6d78b19 -> 0e3d903ce98e108c7ca848b992ad89ac538f4b44 on origin; fix branch merged and deleted. Deployment record deployment/fix-website-save-gate-embeds-deployment.md. |
-| implementation | `implementation/fix-personal-message-access-implementation.md` | Active — Fix committed on website chain/fix-personal-message-access at d597734 (round 2, amended scope of rulings block 22:59Z); code review owed, then QA Phase 2 (107 production lines added), then security, then devops for website master on the owner's word. |
+| implementation | `implementation/fix-personal-message-access-implementation.md` | Active — Round 5 (security M-001, rulings block 2026-11-20T00:04Z) committed on website chain/fix-personal-message-access at 983681c: getOne refuses when the ownership check finds no row. Owed: a code review delta, then QA re-verification (124 production lines added), then a security re-review (RC-1), then devops for website master on the owner's word. |
 | process improvement | `process-improvement/closed/012-013-batch7-agent-instruction-updates.md` | Applied — Mirror ledger. The analysis and the full ledger live in the statbot record: /usr/local/bin/statbot/agent-output/process-improvement/closed/023-012-013-batch7-*.md. First pi run over this repository; 012 and 013 retrospectives Processed and moved to closed/. |
 | process improvement | `process-improvement/closed/014-batch10-agent-instruction-updates.md` | Applied — Mirror ledger. The analysis and the full ledger live in the statbot record: /usr/local/bin/statbot/agent-output/process-improvement/closed/014-batch10-*.md. Retrospective 014 Processed and moved to closed/. Definitions ~/.claude/agents 96a3980; skill ~/.claude/agent-skills c6dd817. |
 | QA | `qa/closed/fix-hooks-record-shared-engine-qa.md` | Released — Released with the chain: Phase 2 PASS at c444457, refreshed at 0f09e6c over the REVIEW flip; on origin master at 1611473. |
@@ -370,6 +370,7 @@ they are the ID-less artifacts that root new efforts.
 | QA | `qa/closed/website-395510e-release-tip-qa.md` | Released — Release Verified at website 395510e (tree 28b8af26), a fast-forward of origin/master 0e3d903. Step 1b: 0 of 22 open handoffs are triggered by this verdict or a website production push. Step 2: this workspace has no gated time-based set. Pushed 2026-11-11T18:29:46Z on the owner's release answer; origin/master read back 395510e. |
 | QA | `qa/closed/website-7293a35-generator-8512a1d-release-tip-qa.md` | Superseded — Superseded by qa/closed/website-787bec5-generator-8512a1d-release-tip-qa.md (Release Verified, agent-output c09fd41) after the test-only fix for QAF-29 and QAF-30; closed by devops Phase 2D. Anchor fields above keep the values the document was written at. |
 | QA | `qa/closed/website-787bec5-generator-8512a1d-release-tip-qa.md` | Released — Released at release identifier website master 787bec5 and generator prod 8512a1d (pushed 2026-11-19T20:11Z and 20:14Z by devops Stage 2); closed. Anchor fields above keep the values the document was written at. Post-deploy rows B-6 to B-11 ride handoff/017-existing-items-backlog-post-deploy-2026-11-19.md. |
+| QA | `qa/fix-personal-message-access-qa.md` | QA Complete — Phase 2 PASS at website 75f1543 (fixer chain, no Phase 1). QAF-1 resolved in-pass by QA test cases. Register rows B-1, B-2 are post-deploy and gate nothing; routed to steering. Next: security on the change. |
 | research | `research/closed/components-v2-description-text-limit-2026-11-11.md` | Answered — Answered by measurement: Thumbnail and MediaGallery item descriptions do not count toward Discord's 4000-character Components V2 displayable-text total (F-1 to F-4). The adjacent finding F-6 (Discord bounds each description at 1024 characters and the website bounds neither) is carried by steering/queue-hooks-rulings.md, block "2026-11-11T08:48Z — selection 11", and TODO.md, section "Website fix: bound V2 description fields at 1024 characters". |
 | research | `research/closed/components-v2-editing-flows-2026-08-23.md` | Answered — Determination reached and executable: the load-edit-save-send-preview loop is Components V2 capable; every secondary surface that re-serialises message data (Save As, JSON view/copy/Load, import from Discord URL / webhook URL / bot code, cross-tab change hash) is V2-blind through two 2023 helpers the V2 chain never touched. One seam, five sites, three of them silent. Ready for a planner to cite; incidence in production and one UI-level confirmation remain open (Gaps table). |
 | research | `research/closed/components-v2-send-validity-2026-11-11.md` | Answered — Measured on the agents' test server: 76 Components V2 shapes, 52 refused by Discord. The website's send check blocks 6 of the 52 and lets 46 through; it has no test for emptiness inside a component. Whether and how the send check should change is the owner's question (OQ-1), carried by handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md. |
@@ -380,6 +381,7 @@ they are the ID-less artifacts that root new efforts.
 | retrospective | `retrospectives/closed/fix-hooks-record-shared-engine-retrospective.md` | Processed |
 | retrospective | `retrospectives/closed/fix-uat-local-stack-id-sequence-retrospective.md` | Processed |
 | retrospective | `retrospectives/closed/fix-website-save-gate-embeds-retrospective.md` | Processed |
+| security | `security/fix-personal-message-access-security-audit.md` | Active — APPROVED_WITH_CONTROLS at website 75f1543. One finding open: M-001 MEDIUM, getOne hands a personal message to a non-owner when the owner's delete lands between the load and the ownership check. Control RC-1 is owed before the website master push. The session-identity assumption handed over from code review was executed on the real session path and holds locally. M-001 is IN_PROGRESS: steering routed it to remediation on the chain branch (rulings block 2026-11-20T00:04Z, RC-1 option 1). Waiting on the delta at the new SHA, after code review and QA. |
 | steering | `steering/014-rulings.md` | — |
 | steering | `steering/015-rulings.md` | — |
 | steering | `steering/015-security-brief.md` | — |
@@ -421,6 +423,7 @@ they are the ID-less artifacts that root new efforts.
 | steering | `steering/fix-personal-message-access-brief-common.md` | — |
 | steering | `steering/fix-personal-message-access-brief-fixer.md` | — |
 | steering | `steering/fix-personal-message-access-brief-qa.md` | — |
+| steering | `steering/fix-personal-message-access-brief-security.md` | — |
 | steering | `steering/fix-personal-message-access-rulings.md` | — |
 | steering | `steering/queue-hooks-briefs/architect-016-brief.md` | — |
 | steering | `steering/queue-hooks-briefs/architect-016-respawn-brief.md` | — |
@@ -481,6 +484,7 @@ they are the ID-less artifacts that root new efforts.
 | verification | `verification/017/uat/walk-4/part1-results.md` | — |
 | verification | `verification/017/uat/walk-8/results.md` | — |
 | verification | `verification/access-defects/scoping/refutation.md` | — |
+| verification | `verification/access-defects/scoping/residue-refutation.md` | — |
 | verification | `verification/access-defects/scoping/sweep.md` | — |
 | verification | `verification/backlog-2026-11-18/scoping/preview-failure-sweep.md` | — |
 | verification | `verification/backlog-2026-11-18/scoping/save-tab-notice-sweep.md` | — |
@@ -764,9 +768,12 @@ they are the ID-less artifacts that root new efforts.
 | `fix-personal-message-access-brief-common.md` | `steering/fix-personal-message-access-brief-common.md` |
 | `fix-personal-message-access-brief-fixer.md` | `steering/fix-personal-message-access-brief-fixer.md` |
 | `fix-personal-message-access-brief-qa.md` | `steering/fix-personal-message-access-brief-qa.md` |
+| `fix-personal-message-access-brief-security.md` | `steering/fix-personal-message-access-brief-security.md` |
 | `fix-personal-message-access-code-review.md` | `code-review/fix-personal-message-access-code-review.md` |
 | `fix-personal-message-access-implementation.md` | `implementation/fix-personal-message-access-implementation.md` |
+| `fix-personal-message-access-qa.md` | `qa/fix-personal-message-access-qa.md` |
 | `fix-personal-message-access-rulings.md` | `steering/fix-personal-message-access-rulings.md` |
+| `fix-personal-message-access-security-audit.md` | `security/fix-personal-message-access-security-audit.md` |
 | `fix-uat-local-stack-id-sequence-code-review.md` | `code-review/closed/fix-uat-local-stack-id-sequence-code-review.md` |
 | `fix-uat-local-stack-id-sequence-implementation.md` | `implementation/closed/fix-uat-local-stack-id-sequence-implementation.md` |
 | `fix-uat-local-stack-id-sequence-retrospective.md` | `retrospectives/closed/fix-uat-local-stack-id-sequence-retrospective.md` |
@@ -833,6 +840,7 @@ they are the ID-less artifacts that root new efforts.
 | `report.md` | `verification/015/d28-seed-probes/report.md` |
 | `researcher-text-limit-brief.md` | `steering/queue-hooks-briefs/researcher-text-limit-brief.md` |
 | `researcher-v2-validity-brief.md` | `steering/queue-hooks-briefs/researcher-v2-validity-brief.md` |
+| `residue-refutation.md` | `verification/access-defects/scoping/residue-refutation.md` |
 | `results.md` | `verification/017/uat/walk-8/results.md` |
 | `RUN.md` | `verification/013/probe-cr25-mutation-error-readability/RUN.md` |
 | `RUN.md` | `verification/013/probe-cr26-delimiter-class-eliminated/RUN.md` |
