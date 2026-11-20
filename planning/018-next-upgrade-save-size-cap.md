@@ -2,8 +2,8 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Status: In Progress
-Status-Detail: "M1 to M3 verified (QA Phase 2: M1, M2 at website a558f2d, eb0c713; M3 at 969d92a, e0d8b95); M4's implementer limbs recorded; M5 is devops's and UAT's. Revision 8 folds the Planner batch (steering block 06:06Z): wording, the post-deploy runner for M2-e, M2-b's movers and edge comparison, and CR-2's zod pin, which the implementer makes next. Ready for the critic's read of the fold."
+Status: QA Complete
+Status-Detail: "QA Complete at website d1bb9b0 (effort-final Phase 2, qa/018-next-upgrade-save-size-cap-m4-qa.md, 62703f1): M1 to M4 verified at the tip carrying the zod pin; the effort-final sweep stands on blob identity. UAT next (B-1, B-2, B-3, B-9 on a local build; B-4, B-5 on the preview); M5 is devops's and UAT's."
 Revision: 8
 Plan-ID: 018
 Target-Release: "website master (Vercel production), moved from 7923a1d to the chain's verified tip by devops on the owner's word"
@@ -46,6 +46,7 @@ Lane: "planned (not proposed small): the framework moves under every page"
 | 2026-11-20T06:13 | R-18 | planner-hooks-018 | Registers M2-I4 LOW (`paracord` unpinned in `package.json`; `7c76319`) as a Planner batch row with its disposition, at steering's relay. |
 | 2026-11-20T06:13 | R-19 | code-reviewer-hooks-018 | CR-2's zod pin, code review Round 1 sub-entry 2: **APPROVED** at website `d1bb9b0` (`code-review/018-next-upgrade-save-size-cap-code-review.md`, `7804862`). CR-7 INFO, pre-existing: `paracord` and `project-utils` are git dependencies with no commit, so any lockfile regeneration can move them (a Planner batch candidate). |
 | 2026-11-20T06:14 | R-20 | planner-hooks-018 | Registers code review CR-7 INFO (`7804862`) beside M2-I4 as a Planner batch row. |
+| 2026-11-20T06:19 | R-21 | qa-hooks-018 | Effort-final QA Phase 2: **PASS** at website `d1bb9b0` (`qa/018-next-upgrade-save-size-cap-m4-qa.md`, `62703f1`; evidence `verification/018/qa/final-phase2/`). Re-keyed to revision 8. M4's QA limbs hold, with R6 re-read by QA. M1 to M3 re-verified at the tip: suite 2261/2261, exit 0; differential 0 violations; build, traces and lint identical to `969d92a`. M2-b's edge limb: 158 changed production edges, all in class. The sweep stands on blob identity with `a558f2d`. Status set to QA Complete. |
 
 ## Header
 
