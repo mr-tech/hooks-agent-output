@@ -171,7 +171,8 @@ Written 2026-11-20 after pass 4. Session `critic-hooks-018`, launched `--agent c
 - **Uncommitted or locally mutated:** nothing. **Evidence run but not recorded:** none. **Processes:** none. The
   scratchpad holds two read-only captures (a plan diff and a search listing), deleted at run end.
 - **Questions awaiting an answer:** none.
-- **Sessions messaged:** `planner-hooks-018`, `qa-hooks-018`.
+- **Sessions messaged:** `planner-hooks-018` alone. At the seam the architect's document already read revision 4
+  (APPROVED) and QA's working copy was re-keyed to it, so no pre-code gate was left to send to.
 - **Cache-warm wake:** armed as one-shot `c5cdeb70`.
 
 ## Process record
