@@ -111,7 +111,11 @@ No other repository ships. `project-utils` and `agent-output` are not releases. 
 
 ## User Confirmation
 
-_Not yet asked._
+Put to the owner directly by this session as a blocking selection prompt (`~/.claude/state/prompt-gate-off` absent at 07:17Z), asked after the QA Phase 3 record, the tip packaging capture and the dry run with `--qa-record`, and before any ref moved. The prompt stated: the identifier (`master` `7923a1d` to `d1bb9b0`, a fast-forward of 18 commits); the environment (hooks.gg production through Vercel; no GitHub workflow, read from the repository); the gates (UAT, security, QA Release Verified at `d1bb9b0`, the tip's build and typecheck, the dry run, the preview served as the local build does); the rollback (a revert of the 18 commits, `git apply --check -R` exit 0, on his word, or Vercel's promote-previous from his dashboard); the post-deploy reads (mine for the version; UAT and QA for B-6, B-8, B-10); and the P-1 hold with its cost. Options: (1) push after P-1's 08:07Z read (Recommended), (2) push now, (3) do not release yet.
+
+**Answer (07:17Z, by selection): "Agent: push master to d1bb9b0 after P-1's 08:07Z read (Recommended)."** The runbook's step 0 therefore stands; a FAIL on P-1 is not covered by this answer and goes to him.
+
+The refutation helper the Escalation Form asks for (briefed with the conclusion alone) found: the schedule and the two undecided reads hold; a header read at 07:16Z shows an image answer generated at 06:29:00Z (`x-vercel-cache: HIT`, `age` 2859, 200 `image/png`), after the earlier deploy and before this release, so P1R's 08:07Z read can decide from it if it is still live (valid to about 10:29Z). That is a header read by a helper, not P-1's Result. The "date after the push decides" rule lives in the carrier's Interim line, not in the reader's brief; noted to steering.
 
 ## Release Execution
 
