@@ -1,0 +1,17 @@
+16.1.6 bfcache.js:
+13:const MAX_BF_CACHE_ENTRIES = process.env.__NEXT_CACHE_COMPONENTS ? 3 : 1;
+14:function useRouterBFCache(activeTree, activeStateKey) {
+56:    while(oldEntry !== null && n < MAX_BF_CACHE_ENTRIES){
+16.4.6 bfcache-state-manager.js:
+13:const MAX_BF_CACHE_ENTRIES = process.env.__NEXT_CACHE_COMPONENTS ? 3 : 1;
+14:function useRouterBFCache(activeTree, activeRenderTree, activeStateKey) {
+58:    while(oldEntry !== null && n < MAX_BF_CACHE_ENTRIES){
+browser variant list:
+21-    'client/components/instant-validation/impl',
+22-    'client/components/navigation-dynamic-rendering',
+23:    'client/components/router-reducer/create-segment-key',
+24-    'client/components/server-async-storage',
+25-    'client/components/unstable-rethrow'
+next.config.js:
+(none above = absent)
+browser client chunk holding the key function (built tip):

@@ -1,0 +1,109 @@
+== 16.4.6 create-segment-key.js
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    createHeadKey: null,
+    createSegmentKey: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    createHeadKey: function() {
+        return createHeadKey;
+    },
+    createSegmentKey: function() {
+        return createSegmentKey;
+    }
+});
+const _createroutercachekey = require("./create-router-cache-key");
+function createSegmentKey(segment) {
+    if (Array.isArray(segment)) {
+        return `${segment[0]}|${segment[2]}`;
+    }
+    return (0, _createroutercachekey.createRouterCacheKey)(segment);
+}
+function createHeadKey(varyPath) {
+    // The head's vary path starts with its request key: the route structure,
+    // with param names but no values.
+    return varyPath.value;
+}
+
+if ((typeof exports.default === 'function' || (typeof exports.default === 'object' && exports.default !== null)) && typeof exports.default.__esModule === 'undefined') {
+  Object.defineProperty(exports.default, '__esModule', { value: true });
+  Object.assign(exports.default, exports);
+  module.exports = exports.default;
+}
+== 16.4.6 create-segment-key.browser.js
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    createHeadKey: null,
+    createSegmentKey: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    createHeadKey: function() {
+        return createHeadKey;
+    },
+    createSegmentKey: function() {
+        return _createroutercachekey.createRouterCacheKey;
+    }
+});
+const _createroutercachekey = require("./create-router-cache-key");
+function createHeadKey(varyPath) {
+    // Encode the parts as a JSON array rather than joining them. A catch-all
+    // value and a search string can both contain `/`, so joined strings from
+    // different params could be the same.
+    const parts = [
+        varyPath.value
+    ];
+    let params = varyPath.parent;
+    while(params !== null){
+        const value = params.value;
+        if (typeof value === 'string') {
+            parts.push(value);
+        }
+        params = params.parent;
+    }
+    return JSON.stringify(parts);
+}
+== 16.4.6 create-router-cache-key.js
+        return createRouterCacheKey;
+    }
+});
+function createRouterCacheKey(segment) {
+    // if the segment is an array, it means it's a dynamic segment
+    // for example, ['lang', 'en', 'd']. We need to convert it to a string to store it as a cache node key.
+    if (Array.isArray(segment)) {
+        return `${segment[0]}|${segment[1]}|${segment[2]}`;
+    }
+    return segment;
+}
+
+if ((typeof exports.default === 'function' || (typeof exports.default === 'object' && exports.default !== null)) && typeof exports.default.__esModule === 'undefined') {
+  Object.defineProperty(exports.default, '__esModule', { value: true });
+  Object.assign(exports.default, exports);
+  module.exports = exports.default;
+}
+
+//# sourceMappingURL=create-router-cache-key.js.map== layout-router 16.4.6 imports
+37:const _createsegmentkey = require("./router-reducer/create-segment-key");
+38:const _bfcachestatemanager = require("./bfcache-state-manager");
+385:    const activeStateKey = (0, _createsegmentkey.createSegmentKey)(activeSegment);
+392:    let bfcacheEntry = (0, _bfcachestatemanager.useRouterBFCache)(activeTree, activeRenderTree, activeStateKey);
+== bfcache 16.1.6 vs 16.4.6 (file list)
+next@16.1.6_@babel+core@7.29.7_react-dom@19.2.4_react@19.2.4__react@19.2.4_sass@1.56.2/node_modules/next/dist/client/components/bfcache.js
+next@16.4.6_@babel+core@7.29.7_@types+node@22.15.29_react-dom@19.2.4_react@19.2.4__react@19.2.4_sass@1.56.2/node_modules/next/dist/client/components/bfcache-state-manager.js

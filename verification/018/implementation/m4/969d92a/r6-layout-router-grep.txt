@@ -1,0 +1,28 @@
+== next@16.1.6_@babel+core@7.29.7_react-dom@19.2.4_react@19.2.4__react@19.2.4_sass@1.56.2/node_modules/next
+  "version": "16.1.6",
+374:    const activeStateKey = (0, _createroutercachekey.createRouterCacheKey)(activeSegment, true) // no search params
+378:    // this level inside a hidden <Activity> boundary, to preserve their state
+382:    let bfcacheEntry = (0, _bfcache.useRouterBFCache)(activeTree, activeStateKey);
+386:        const stateKey = bfcacheEntry.stateKey;
+388:        const cacheKey = (0, _createroutercachekey.createRouterCacheKey)(segment);
+390:        const cacheNode = segmentMap.get(cacheKey) ?? null;
+436:        // So the name we apply to the Activity boundary is actually based on
+476:                                            isActive: isActive && stateKey === activeStateKey
+492:        }, stateKey);
+500:            }, stateKey);
+503:            child = /*#__PURE__*/ (0, _jsxruntime.jsx)(_react.Activity, {
+505:                mode: stateKey === activeStateKey ? 'visible' : 'hidden',
+507:            }, stateKey);
+== next@16.4.6_@babel+core@7.29.7_@types+node@22.15.29_react-dom@19.2.4_react@19.2.4__react@19.2.4_sass@1.56.2/node_modules/next
+  "version": "16.4.6",
+385:    const activeStateKey = (0, _createsegmentkey.createSegmentKey)(activeSegment);
+388:    // this level inside a hidden <Activity> boundary, to preserve their state
+392:    let bfcacheEntry = (0, _bfcachestatemanager.useRouterBFCache)(activeTree, activeRenderTree, activeStateKey);
+397:        const stateKey = bfcacheEntry.stateKey;
+444:        // So the name we apply to the Activity boundary is actually based on
+484:                                        isActive: isActive && stateKey === activeStateKey
+508:        }, stateKey);
+516:            }, stateKey);
+519:            child = /*#__PURE__*/ (0, _jsxruntime.jsx)(_react.Activity, {
+521:                mode: stateKey === activeStateKey ? 'visible' : 'hidden',
+523:            }, stateKey);
