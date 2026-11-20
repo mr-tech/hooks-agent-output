@@ -178,3 +178,16 @@ APPROVED, `Reviewed-At` `af8a9d6`, stated limit SL-2); architecture header (APPR
 - **M1 to code review:** `implementation/018-next-upgrade-save-size-cap-m1-implementation.md` at `003515a`, `Handoff-At` `f9e66c2`.
   `code-reviewer-hooks-018` spawned with `steering/018-brief-code-reviewer.md`. The shared tree moves under M2 meanwhile, so the review
   runs in an isolated export of `f9e66c2`.
+
+## 2026-11-20T05:42Z — CR-2 (zod unpinned under the cap's counting): Planner batch, pinned after the fold (option A)
+
+Asked by `implementer-hooks-018` by message: CR-2 LOW (`code-review/018-next-upgrade-save-size-cap-code-review.md`, `55fe778`) prefers
+pinning `zod` to exactly 3.22.4 in `package.json`, since M1-i's count relies on the error map seeing every issue and `^3.20.6` admits
+3.25.76 (its report: 1,600 issues for a 40×40 invalid-accessory save there). The pin widens M2's `package.json` diff past M2-b's
+"specifiers named in the steps". Options it put: (A) Planner batch, folded at the next revision, then the pin in a follow-up commit;
+(B) pin now under D-6 with M2-b amended; (C) record the premise only.
+**Ruling (this thread's, under the M2 cap of block 05:26Z): A.** CR-2 is below HIGH, so it goes to the Planner batch as a stated limit
+with no round of its own; the planner folds it in the batch fold before devops Stage 1, which names the pin in M2's steps; the
+implementer then pins `zod` exactly and runs a frozen install, and that commit is reviewed and verified as usual. (B) would be a revision
+round the cap removes; (C) leaves the premise unguarded. Not put to him: no product behaviour turns on it.
+Told to the implementer, the planner and the code reviewer.
