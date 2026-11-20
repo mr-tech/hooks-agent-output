@@ -31,6 +31,26 @@ appears. The walk had not run when the architect's closing pass ran (2026-11-20T
      touches the guard (`website.md` A-8).
 3. Add a changelog row naming this handoff, and close the handoff `Addressed`.
 
+## Resumption State (architect-hooks-018, written 2026-11-20T06:15Z at steering's checkpoint)
+
+- **Done.** Every architect pass on plan 018 is committed:
+  - the conformance pass and the delta reads of revisions 1 to 7;
+  - the carried R6 result (05:50);
+  - the closing pass on revision 8 and website `969d92a` (`a4d94ce`).
+  `architecture/closed/018-next-upgrade-save-size-cap-architecture-findings.md` is Resolved. Its open items 1, 2 and 4 are
+  discharged in `system-architecture.md` and `website.md` A-4. Item 3's R3 is this handoff.
+- **Next.** When UAT commits the R3 walk, follow "What to do" above, then close this handoff `Addressed`. Re-arm the cache-warm
+  wake first (`cache-warm.md` step 1).
+- **Not read.** The implementer's `zod` pin commit after `969d92a`. The record states the pin as following `969d92a`.
+- **Before the release reconciliation.** The record's release-tree facts are written as "at plan 018's release tree `969d92a`,
+  unreleased" beside `master`'s. A release (devops) turns them into production facts. That reconciliation is a separate
+  architect pass, on steering's brief.
+- **Uncommitted, mine.** One `INBOX.md` entry (`architect-hooks-018`, FYI: four record-check failures in other stages'
+  documents). It is left uncommitted because `INBOX.md` holds other sessions' uncommitted hunks.
+- **Trees.** The website shared tree is untouched by this session. Scratch exports are deleted, and the session scratchpad is
+  empty. No process of this session is running.
+- **Questions out.** None.
+
 ## Sources
 
 - `planning/018-next-upgrade-save-size-cap.md`: M4 R3, M4-c, X-20.
