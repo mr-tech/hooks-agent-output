@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-personal-message-access
 UUID: 1b613853
-Status: Active
-Status-Detail: "APPROVED at website 983681c. M-001 (MEDIUM, the getOne delete race) is RESOLVED: fixed at 983681c and verified there by this stage. No control is owed before the website master push. The post-deploy walk B-2 then B-1 is still relied on for the session path on production. The document closes when the chain closes."
+Status: Review Complete
+Status-Detail: "Review Complete 2026-11-20: security review of the personal-message access fix, APPROVED at website 983681c, which is the SHA released (website master, ls-remote read at closure). M-001 (MEDIUM, the getOne delete race) was fixed and verified at 983681c and is closed. RC-2, the post-deploy read of the session path on production, is carried by handoff/fix-personal-message-access-post-deploy-2026-11-20.md. I-2 (website dependency advisories) is carried by the INBOX.md entry and opened as its own review on the owner's selection."
 Reviewed-At: "983681ca6cd7cbacd0796ed093e094057ad7f9be — repos=website; base 787bec5 (origin/master). First reviewed at 75f1543; the delta 75f1543..983681c is the M-001 fix."
 Kind: code-audit
 ---
@@ -17,6 +17,7 @@ Kind: code-audit
 | 2026-11-20T00:03 | steering-roadmap-hooks → security-hooks-fix-personal-message-access (brief `steering/fix-personal-message-access-brief-security.md`; common part `steering/fix-personal-message-access-brief-common.md`; rulings block 2026-11-19T23:49Z) | Security on the change `787bec5..75f1543`, over S2/S18, S6a, S6b, S7, S8, S9 and S11, and the session-identity assumption from code review | Initial assessment. Verdict APPROVED_WITH_CONTROLS. M-001 MEDIUM open. Identity assumption executed, holds locally. |
 | 2026-11-20T00:05 | steering-roadmap-hooks → security-hooks-fix-personal-message-access (message 00:0xZ; `steering/fix-personal-message-access-rulings.md` block 2026-11-20T00:04Z, record `fce289f`) | Routing of M-001 | M-001 moves OPEN → IN_PROGRESS: remediation on the chain branch (RC-1 option 1), then code review delta, QA re-verification, and the delta back to this stage. The verdict at `75f1543` stands until the tree moves; no re-review yet. |
 | 2026-11-20T00:19 | steering-roadmap-hooks → security-hooks-fix-personal-message-access (message 00:2xZ; QA refresh record `1c88873`, code review Round 2 record `9bd32a4`, implementation record `6bd294c`) | RC-1 delta re-review at website `983681c`, and M-001's closure | Delta `75f1543..983681c` read: one production change, in `getOne`. Read-race, identity and attack instruments re-run at `983681c`, all green. M-001 RESOLVED and verified. Verdict APPROVED. |
+| 2026-11-20T01:37 | steering-roadmap-hooks → security-hooks-fix-personal-message-access (message 01:3xZ; `steering/fix-personal-message-access-rulings.md` block 2026-11-20T01:36Z; `INBOX.md`, devops's entry routing the close) | Close the audit: the chain is released | Document closed. Status: Review Complete. Re-derived at closure: `git -C website ls-remote origin master` reads `983681c`, the reviewed SHA. Carriers named for RC-2, I-2 and the two production-read items. M-001 CLOSED. |
 
 ## Metadata
 
@@ -80,7 +81,7 @@ None.
 | ID | Severity | Title | Location | Note |
 |----|----------|-------|----------|------|
 | I-1 | INFO | `getOne`'s answers tell three kinds of number apart | website `75f1543` `message.ts` `getOne` | An absent number fails in `getMessage` (`executeTakeFirstOrThrow`), another user's personal message answers `NOT_FOUND`, and a server message the caller does not manage answers from `authorizeGuildAdmin` (`FORBIDDEN`). So a signed-in user can classify any number. Numbers are sequential, so this tells little. It is narrower than base, where the row itself came back. The absent-number half is carried by `handoff/get-one-absent-number-fails-without-not-found-2026-11-19.md`. A uniform `NOT_FOUND` there would close the personal half as well. No action is asked by this document. |
-| I-2 | INFO | The website's production dependencies carry open advisories, unassessed | website `pnpm-lock.yaml` at `75f1543` | Not part of this change: `git diff --quiet 787bec5 75f1543 -- package.json pnpm-lock.yaml` exits 0. `pnpm audit --prod --json` reports, in its own metadata, 8 critical, 76 high, 50 moderate and 12 low (141 advisory entries; summary at `verification/fix-personal-message-access/security/out/pnpm-audit-prod-summary-75f1543.txt`). Reachability was not assessed. For the path this review rests on: the four next-auth 4.24.5 entries concern the email provider (two), `getToken()` (not called in `src`: `grep -rn 'getToken('` printed no line) and check cookies shared between providers (one provider is configured). I did not assess them further. Carried by one entry in the record's `INBOX.md` asking for a Dependency-Only review. |
+| I-2 | INFO | The website's production dependencies carry open advisories, unassessed | website `pnpm-lock.yaml` at `75f1543` | Not part of this change: `git diff --quiet 787bec5 75f1543 -- package.json pnpm-lock.yaml` exits 0. `pnpm audit --prod --json` reports, in its own metadata, 8 critical, 76 high, 50 moderate and 12 low (141 advisory entries; summary at `verification/fix-personal-message-access/security/out/pnpm-audit-prod-summary-75f1543.txt`). Reachability was not assessed. For the path this review rests on: the four next-auth 4.24.5 entries concern the email provider (two), `getToken()` (not called in `src`: `grep -rn 'getToken('` printed no line) and check cookies shared between providers (one provider is configured). I did not assess them further. Carried by one entry in the record's `INBOX.md` asking for a Dependency-Only review. The owner chose to open that review after the release (`steering/fix-personal-message-access-rulings.md`, block 2026-11-20T01:34Z, by selection); it runs as its own review, outside this document. |
 
 ## Surfaces, against the property
 
@@ -153,15 +154,15 @@ The common brief lists seven hazards as candidates. Each was re-read at `75f1543
 None of these is made worse by the change. Each has a carrier, named by path.
 
 - **Server-message rows in the hydrated recent list.** `getUserRecentMessages` keeps the arm `fk_guilds_id is not null`, so a user who stores any server message's number gets its name, timestamps, guild id and preview nonce. Base returned every row, so the arm is not a regression. From a security view it is the widest exposure left on this surface: the nonce completes a public preview URL. Carrier: `handoff/hydrated-recent-list-returns-guild-message-rows-2026-11-19.md`.
-- **Rows carrying both an owner and a guild.** QA's Assumption Not Checked. Such a row is a server message that its creator can still overwrite on the personal path. Same at base. Carrier: steering's held production read at the release seam (rulings block 2026-11-19T23:49Z).
-- **Rows already planted at browser-sent numbers on production.** After the release, an id-less save that reaches a planted number fails once on the primary key, where at base it wrote onto the planter's row. Rows already written that way stay readable by the planter. Carrier: the same held read (rulings block 22:59Z).
+- **Rows carrying both an owner and a guild.** QA's Assumption Not Checked. Such a row is a server message that its creator can still overwrite on the personal path. Same at base. Carrier: `handoff/fix-personal-message-access-post-deploy-2026-11-20.md`, the residue read's both-owners query.
+- **Rows already planted at browser-sent numbers on production.** After the release, an id-less save that reaches a planted number fails once on the primary key, where at base it wrote onto the planter's row. Rows already written that way stay readable by the planter. Carrier: `handoff/fix-personal-message-access-post-deploy-2026-11-20.md`, the residue read's planted-rows query.
 - **`user.updatePreferences` accepts any string as a recent number** (CR-3). Self-only. Carrier: `handoff/update-preferences-recent-message-ids-accepts-non-int8-2026-11-19.md`.
 - **S14, S15, S1b.** Untouched by the diff. Carriers: the three handoffs of rulings block 22:37Z.
 
 ## Required Controls
 
 - **RC-1 (M-001): satisfied at `983681c`.** Steering routed M-001 to remediation on the chain branch (rulings block 2026-11-20T00:04Z). The delta came back to this stage and was verified (§ Findings). The alternative, the owner accepting a release with M-001 open, was not put to him and is no longer needed.
-- **RC-2: relied on after the push.** The post-deploy walk B-2, then B-1 (QA's blocking-condition register), stays owed. It is the only read of the session path on production. It gates no release act, and this verdict does not replace it.
+- **RC-2: relied on after the push.** The post-deploy walk B-2, then B-1 (QA's blocking-condition register), stays owed. It is the only read of the session path on production. It gates no release act, and this verdict does not replace it. Carrier: `handoff/fix-personal-message-access-post-deploy-2026-11-20.md` (Owning-Stage uat), which names B-2 and B-1 as this control.
 
 ## Testing Recommendations
 
@@ -199,6 +200,4 @@ A targeted review. Not covered, and worth a follow-up where named:
 
 ## Next
 
-- Nothing is owed by this stage before the push. Devops follows for the website `master` push, on the owner's word.
-- After the push: B-2, then B-1, by a uat-role session on the test accounts (RC-2).
-- This document reaches `Review Complete` and moves to `security/closed/` when the chain closes. A tip move before then brings the delta back here.
+Closed at the chain's release (website `master` at `983681c`, 2026-11-20T01:33:58Z, `deployment/closed/fix-personal-message-access-deployment.md`). Nothing is owed by this stage. The post-deploy rows are read under `handoff/fix-personal-message-access-post-deploy-2026-11-20.md`.
