@@ -1,0 +1,1483 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 16 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of invalid elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of invalid elements, length 11, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(2) }, …(11) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -6,6 +6,127 @@
+        "message",
+        "data",
+        "embeds",
+      ],
+    },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       0,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       1,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       2,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       3,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       4,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       5,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       6,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       7,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       8,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       9,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       10,
++       "title",
++     ],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/16]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of invalid elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of invalid elements, length 60, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(2) }, …(20) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -6,6 +6,220 @@
+        "message",
+        "data",
+        "embeds",
+      ],
+    },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       0,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       1,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       2,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       3,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       4,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       5,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       6,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       7,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       8,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       9,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       10,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       11,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       12,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       13,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       14,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       15,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       16,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       17,
++       "title",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       18,
++       "title",
++     ],
++   },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/16]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of number elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of number elements, length 11, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(2) }, …(11) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -6,6 +6,116 @@
+        "message",
+        "data",
+        "embeds",
+      ],
+    },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       0,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       1,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       2,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       3,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       4,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       5,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       6,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       7,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       8,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       9,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       10,
++     ],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/16]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of number elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of number elements, length 60, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(2) }, …(20) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -6,6 +6,201 @@
+        "message",
+        "data",
+        "embeds",
+      ],
+    },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       0,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       1,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       2,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       3,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       4,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       5,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       6,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       7,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       8,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       9,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       10,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       11,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       12,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       13,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       14,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       15,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       16,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       17,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       18,
++     ],
++   },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/16]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of null elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of null elements, length 11, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(2) }, …(11) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -6,6 +6,116 @@
+        "message",
+        "data",
+        "embeds",
+      ],
+    },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       0,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       1,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       2,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       3,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       4,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       5,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       6,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       7,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       8,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       9,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       10,
++     ],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/16]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of null elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of null elements, length 60, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(2) }, …(20) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -6,6 +6,201 @@
+        "message",
+        "data",
+        "embeds",
+      ],
+    },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       0,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       1,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       2,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       3,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       4,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       5,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       6,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       7,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       8,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       9,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       10,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       11,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       12,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       13,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       14,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       15,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       16,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       17,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       18,
++     ],
++   },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/16]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of nested elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of nested elements, length 11, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(2) }, …(11) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -6,6 +6,127 @@
+        "message",
+        "data",
+        "embeds",
+      ],
+    },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       0,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       1,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       2,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       3,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       4,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       5,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       6,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       7,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       8,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       9,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       10,
++       "fields",
++     ],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/16]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of nested elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of nested elements, length 60, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(2) }, …(20) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -6,6 +6,220 @@
+        "message",
+        "data",
+        "embeds",
+      ],
+    },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       0,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       1,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       2,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       3,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       4,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       5,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       6,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       7,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       8,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       9,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       10,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       11,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       12,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       13,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       14,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       15,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       16,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       17,
++       "fields",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       18,
++       "fields",
++     ],
++   },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/16]⎯
+

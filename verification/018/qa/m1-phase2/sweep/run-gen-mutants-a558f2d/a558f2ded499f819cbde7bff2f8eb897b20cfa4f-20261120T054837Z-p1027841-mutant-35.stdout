@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-gen-mutants-a558f2d/20261120T054837Z-p1027841/mutant-35
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts (20 tests | 2 failed) 54ms
+     × accepts user as a parse kind and refuses one that is not admitted 29ms
+     × accepts here as a parse kind and refuses one that is not admitted 2ms
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (157 tests | 4 failed) 185ms
+       × accepts a list of 3 valid elements 7ms
+       × accepts a list of 2 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 3 with the first element invalid 4ms
+       × keeps the one issue per invalid element for a list of 2 with the first element invalid 2ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (150 tests | 4 failed) 104ms
+       × accepts a list of 3 valid elements 5ms
+       × accepts a list of 2 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 3 with the first element invalid 3ms
+       × keeps the one issue per invalid element for a list of 2 with the first element invalid 2ms
+
+ Test Files  3 failed | 37 passed (40)
+      Tests  10 failed | 819 passed (829)
+   Start at  05:52:07
+   Duration  4.56s (transform 9.00s, setup 491ms, import 34.51s, tests 5.23s, environment 8.76s)
+

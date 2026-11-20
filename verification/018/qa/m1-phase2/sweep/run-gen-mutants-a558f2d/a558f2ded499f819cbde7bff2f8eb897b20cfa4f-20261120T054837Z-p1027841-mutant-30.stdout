@@ -1,0 +1,28 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-gen-mutants-a558f2d/20261120T054837Z-p1027841/mutant-30
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts (10 tests | 2 failed) 49ms
+     × refuses with a ZodError of the issues, each reduced to code, path and message 17ms
+     × carries no count from one refusal to the next 7ms
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (157 tests | 7 failed) 278ms
+       × lists exactly 20 issues with no summary 35ms
+       × counts the one issue of an over-limit list toward the 20 8ms
+       × counts the displayable-text issue, with its own message, toward the 20 6ms
+       × keeps two concurrent refusals apart 6ms
+       × stay small for three allowed-mention kinds of a hundred thousand characters 12ms
+       × return one issue for each of six failing accessories 6ms
+       × keep every issue of the branch that matched, in order, and still run the displayable-text check 2ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (150 tests | 7 failed) 111ms
+       × lists exactly 20 issues with no summary 10ms
+       × counts the one issue of an over-limit list toward the 20 3ms
+       × counts the displayable-text issue, with its own message, toward the 20 3ms
+       × keeps two concurrent refusals apart 2ms
+       × stay small for three allowed-mention kinds of a hundred thousand characters 2ms
+       × return one issue for each of six failing accessories 2ms
+       × keep every issue of the branch that matched, in order, and still run the displayable-text check 1ms
+
+ Test Files  3 failed | 37 passed (40)
+      Tests  16 failed | 813 passed (829)
+   Start at  05:51:39
+   Duration  4.47s (transform 9.41s, setup 361ms, import 35.28s, tests 5.23s, environment 8.60s)
+

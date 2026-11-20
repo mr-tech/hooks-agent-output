@@ -1,0 +1,2 @@
+1224 base labels, 1224 tip labels, 0 violations
+compare exit 0

@@ -1,0 +1,96 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > carry only code, path and message for a refusal of one issue
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > carry only code, path and message for a refusal of one issue
+AssertionError: expected [] to deeply equal [ { code: 'invalid_union', …(2) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       0,
+-       "spacing",
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:171:22
+    169|       const { issues } = await refusal({ components: [{ type: 14, divi…
+    170|
+    171|       expect(issues).toEqual([{ code: 'invalid_union', path: [...DATA,…
+       |                      ^
+    172|     });
+    173|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > the plain unions of the message shape > create one issue for a failing separator spacing
+AssertionError: expected { created: +0, returned: +0 } to deeply equal { created: 1, returned: 1 }
+
+- Expected
++ Received
+
+  {
+-   "created": 1,
+-   "returned": 1,
++   "created": 0,
++   "returned": 0,
+  }
+
+ ❯ src/server/api/utils/__tests__/shapes.error-cap.test.ts:107:48
+    105|     const separator = { type: 14, divider: true, spacing: 3 };
+    106|
+    107|     expect(calls({ components: [separator] })).toEqual({ created: 1, r…
+       |                                                ^
+    108|   });
+    109|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageShape (strict) > rejects separator with invalid spacing value
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/server/api/utils/__tests__/shapes.message-validation.test.ts:174:28
+    172|       components: [{ type: 14, divider: true, spacing: 3 }],
+    173|     });
+    174|     expect(result.success).toBe(false);
+       |                            ^
+    175|   });
+    176|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageShape (strict) > accepts separator with spacing=1 (small) and spacing=2 (large)
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.message-validation.test.ts:183:17
+    181|     expect(discordMessageShape.safeParse({
+    182|       components: [{ type: 14, divider: false, spacing: 2 }],
+    183|     }).success).toBe(true);
+       |                 ^
+    184|   });
+    185|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+

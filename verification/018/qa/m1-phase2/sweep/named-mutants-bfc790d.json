@@ -1,0 +1,212 @@
+[
+ {
+  "id": "NM-1",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "        exact: false,\n        fatal: true,\n",
+  "new": "        exact: false,\n",
+  "note": "the cap lets a parent refinement run over unvalidated elements (fatal removed)"
+ },
+ {
+  "id": "NM-2",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "  fields: boundedArray(\n    z.object({\n      name: z.string().trim().max(MAX_EMBED_FIELD_NAME_LENGTH),\n      value: z.string().trim().max(MAX_EMBED_FIELD_VALUE_LENGTH),\n      inline: z.boolean().optional(),\n    }),\n    MAX_EMBED_FIELDS,\n  ).optional(),",
+  "new": "  fields: z.array(\n    z.object({\n      name: z.string().trim().max(MAX_EMBED_FIELD_NAME_LENGTH),\n      value: z.string().trim().max(MAX_EMBED_FIELD_VALUE_LENGTH),\n      inline: z.boolean().optional(),\n    }),\n  ).max(MAX_EMBED_FIELDS).optional(),",
+  "note": "S5 keeps .max() after element validation"
+ },
+ {
+  "id": "NM-3",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "boundedArray(linkButtonShape, MAX_ACTION_ROW_BUTTONS)",
+  "new": "boundedArray(linkButtonShape, MAX_ACTION_ROW_BUTTONS - 1)",
+  "note": "S1 bound off by one"
+ },
+ {
+  "id": "NM-4",
+  "file": "src/providers/MessageProvider/usePreferences.ts",
+  "old": "recentMessageIds ?? session?.user?.preferences?.recentMessageIds?.slice(0, MAX_RECENT_MESSAGE_IDS),",
+  "new": "recentMessageIds ?? session?.user?.preferences?.recentMessageIds,",
+  "note": "composer bounded only with an open id"
+ },
+ {
+  "id": "NM-5",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "    boundedArray(topLevelComponentShape, MAX_TOTAL_COMPONENTS).optional(),\n  ),\n}).superRefine",
+  "new": "    z.array(topLevelComponentShape).max(MAX_TOTAL_COMPONENTS).optional(),\n  ),\n}).superRefine",
+  "note": "import schema top-level list keeps the .max form"
+ },
+ {
+  "id": "NM-6",
+  "file": "src/server/api/routers/user.ts",
+  "old": "boundedArray(z.string(), MAX_RECENT_MESSAGE_IDS + 1)",
+  "new": "boundedArray(z.string(), MAX_RECENT_MESSAGE_IDS)",
+  "note": "S11 bound 10 instead of 11"
+ },
+ {
+  "id": "NM-7",
+  "file": "src/server/api/routers/user.ts",
+  "old": "message: partialMessageShape.nullable().optional(),",
+  "new": "message: z.any().nullable().optional(),",
+  "note": "cap reaches upsert only: updatePreferences message uncapped"
+ },
+ {
+  "id": "NM-8",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "        maximum: max,\n",
+  "new": "        maximum: max,\n        path: [0],\n",
+  "note": "list issue carries an element path"
+ },
+ {
+  "id": "NM-9",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "        if (seen.length > MAX_REFUSAL_ISSUES) throw new StopChecking();\n",
+  "new": "",
+  "note": "parse completes, list trimmed afterwards"
+ },
+ {
+  "id": "NM-10a",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "if (seen.length > MAX_REFUSAL_ISSUES) throw",
+  "new": "if (seen.length >= MAX_REFUSAL_ISSUES) throw",
+  "note": "stop at the 20th issue"
+ },
+ {
+  "id": "NM-10b",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "...seen.slice(0, MAX_REFUSAL_ISSUES).map(reduceIssue)",
+  "new": "...seen.slice(0, MAX_REFUSAL_ISSUES + 1).map(reduceIssue)",
+  "note": "21 issues kept before the summary"
+ },
+ {
+  "id": "NM-11",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "      throw new z.ZodError(result.error.issues.map(reduceIssue));",
+  "new": "      throw new z.ZodError([...result.error.issues.map(reduceIssue), { code: z.ZodIssueCode.custom, path: [], message: 'summary' }]);",
+  "note": "summary added whenever the parse fails"
+ },
+ {
+  "id": "NM-12",
+  "file": "src/server/api/routers/user.ts",
+  "old": "    .input(cappedInput(z.object({\n      recentGuild",
+  "new": "    .input((z.object({\n      recentGuild",
+  "note": "updatePreferences parses uncapped"
+ },
+ {
+  "id": "NM-12b",
+  "file": "src/server/api/routers/message.ts",
+  "old": "    .input(cappedInput(z.object({ message: optionalIdMessageShape })))",
+  "new": "    .input((z.object({ message: optionalIdMessageShape })))",
+  "note": "upsert parses uncapped"
+ },
+ {
+  "id": "NM-13",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "...seen.slice(0, MAX_REFUSAL_ISSUES).map(reduceIssue)",
+  "new": "...seen.slice(0, MAX_REFUSAL_ISSUES)",
+  "note": "capped issues sent as zod built them"
+ },
+ {
+  "id": "NM-14",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "      throw new z.ZodError(result.error.issues.map(reduceIssue));",
+  "new": "      throw new z.ZodError(result.error.issues);",
+  "note": "strip only on the capped path"
+ },
+ {
+  "id": "NM-15",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "      const seen: z.ZodIssue[] = [];\n",
+  "new": "      const seen: z.ZodIssue[] = ((cappedInput as unknown as { shared?: z.ZodIssue[] }).shared ??= []);\n",
+  "note": "issue count lives outside the parse"
+ },
+ {
+  "id": "NM-16",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "result = schema.safeParse(value, { errorMap });",
+  "new": "result = await schema.safeParseAsync(value, { errorMap });",
+  "note": "stop placed inside the async parse"
+ },
+ {
+  "id": "NM-17",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "        maximum: max,\n",
+  "new": "        maximum: max,\n        message: `Too many (max ${max})`,\n",
+  "note": "list issue loses zod's wording"
+ },
+ {
+  "id": "NM-18",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "accessory: isolatedUnion([thumbnailShape, linkButtonShape]),",
+  "new": "accessory: z.union([thumbnailShape, linkButtonShape]),",
+  "note": "accessory union not isolated"
+ },
+ {
+  "id": "NM-19",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "  divider: z.boolean(),\n  spacing: isolatedUnion([z.literal(1), z.literal(2)]),",
+  "new": "  divider: z.boolean(),\n  spacing: z.union([z.literal(1), z.literal(2)]),",
+  "note": "spacing union not isolated"
+ },
+ {
+  "id": "NM-20",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "      isolatedUnion(ALLOWED_MENTION_PARSE_TYPES.map(",
+  "new": "      z.union(ALLOWED_MENTION_PARSE_TYPES.map(",
+  "note": "parse element union not isolated"
+ },
+ {
+  "id": "NM-21",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "const fatal = result.error.issues.some(({ code }) => code === z.ZodIssueCode.invalid_union);",
+  "new": "const fatal = false;",
+  "note": "isolated union failure not fatal"
+ },
+ {
+  "id": "NM-23",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "    users: boundedArray(discordIdShape, MAX_ALLOWED_MENTION_IDS).optional(),",
+  "new": "    users: z.array(discordIdShape).optional(),",
+  "note": "S7 unbounded"
+ },
+ {
+  "id": "NM-24",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "    roles: boundedArray(discordIdShape, MAX_ALLOWED_MENTION_IDS).optional(),",
+  "new": "    roles: z.array(discordIdShape).optional(),",
+  "note": "S8 unbounded"
+ },
+ {
+  "id": "NM-25",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "  components: boundedArray(containerChildShape, MAX_TOTAL_COMPONENTS),",
+  "new": "  components: z.array(containerChildShape),",
+  "note": "S4 unbounded"
+ },
+ {
+  "id": "NM-26",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "      ALLOWED_MENTION_PARSE_TYPES.length,\n",
+  "new": "      ALLOWED_MENTION_PARSE_TYPES.length + 1,\n",
+  "note": "S6 bound 4"
+ },
+ {
+  "id": "NM-27",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "  embeds: boundedArray(embedShape, MAX_EMBEDS).optional(),",
+  "new": "  embeds: z.array(embedShape).max(MAX_EMBEDS).optional(),",
+  "note": "S9 keeps .max after elements"
+ },
+ {
+  "id": "NM-28",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "  components: boundedArray(topLevelComponentShape, MAX_TOTAL_COMPONENTS).optional(),\n  flags",
+  "new": "  components: z.array(topLevelComponentShape).max(MAX_TOTAL_COMPONENTS).optional(),\n  flags",
+  "note": "S10 keeps .max after elements"
+ },
+ {
+  "id": "NM-29",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "    if (list.length > max) {",
+  "new": "    if (list.length >= max) {",
+  "note": "S1-S11 refuse a list of exactly the bound"
+ }
+]

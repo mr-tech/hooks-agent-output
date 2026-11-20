@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-3
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts (20 tests | 1 failed) 58ms
+     × refuses an action row of six buttons with one issue 27ms
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (157 tests | 10 failed) 235ms
+       × refuses a list of valid elements, length 6, with one issue for the list and no database access 18ms
+       × refuses a list of valid elements, length 55, with one issue for the list and no database access 5ms
+       × refuses a list of invalid elements, length 6, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 55, with one issue for the list and no database access 2ms
+       × refuses a list of number elements, length 6, with one issue for the list and no database access 4ms
+       × refuses a list of number elements, length 55, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 6, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 55, with one issue for the list and no database access 3ms
+       × accepts a list of 5 valid elements 4ms
+       × keeps the one issue per invalid element for a list of 5 with the first element invalid 3ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (150 tests | 10 failed) 100ms
+       × refuses a list of valid elements, length 6, with one issue for the list and no database access 11ms
+       × refuses a list of valid elements, length 55, with one issue for the list and no database access 2ms
+       × refuses a list of invalid elements, length 6, with one issue for the list and no database access 1ms
+       × refuses a list of invalid elements, length 55, with one issue for the list and no database access 1ms
+       × refuses a list of number elements, length 6, with one issue for the list and no database access 1ms
+       × refuses a list of number elements, length 55, with one issue for the list and no database access 1ms
+       × refuses a list of null elements, length 6, with one issue for the list and no database access 1ms
+       × refuses a list of null elements, length 55, with one issue for the list and no database access 1ms
+       × accepts a list of 5 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 5 with the first element invalid 1ms
+
+ Test Files  3 failed | 37 passed (40)
+      Tests  21 failed | 808 passed (829)
+   Start at  05:52:29
+   Duration  4.19s (transform 7.74s, setup 335ms, import 31.60s, tests 4.61s, environment 8.20s)
+

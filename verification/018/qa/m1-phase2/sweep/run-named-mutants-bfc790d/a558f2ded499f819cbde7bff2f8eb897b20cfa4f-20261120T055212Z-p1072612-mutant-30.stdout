@@ -1,0 +1,70 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-30
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts (20 tests | 4 failed) 81ms
+     × returns a list at the bound unchanged 45ms
+     × reports each invalid element of a list within the bound at its own path 5ms
+     × refuses 101 well-formed user ids and accepts 100 3ms
+     × keeps dropping unsupported components before it counts the list 2ms
+ ❯ |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts (53 tests | 1 failed) 61ms
+     × accepts exactly 40 top-level components 26ms
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (157 tests | 27 failed) 220ms
+       × accepts a list of 5 valid elements 9ms
+       × keeps the one issue per invalid element for a list of 5 with the first element invalid 6ms
+       × accepts a list of 3 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 3 with the first element invalid 2ms
+       × accepts a list of 10 valid elements 2ms
+       × keeps the one issue per invalid element for a list of 10 with the first element invalid 3ms
+       × accepts a list of 40 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 40 with the first element invalid 2ms
+       × accepts a list of 25 valid elements 2ms
+       × keeps the one issue per invalid element for a list of 25 with the first element invalid 2ms
+       × accepts a list of 3 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 3 with the first element invalid 2ms
+       × accepts a list of 100 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 100 with the first element invalid 4ms
+       × accepts a list of 100 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 100 with the first element invalid 1ms
+       × accepts a list of 10 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 10 with the first element invalid 1ms
+       × accepts a list of 40 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 40 with the first element invalid 2ms
+     × accepts 11 elements 1ms
+       × stops at 20 issues of 100 malformed mention ids and renders 21 lines 4ms
+       × stops reading the input after the 21st issue 4ms
+       × stay small for three allowed-mention kinds of a hundred thousand characters 1ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 fat action rows 1ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 invalid sections 1ms
+     × keeps the first ten of the eleven ids the input admits 7ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (150 tests | 25 failed) 106ms
+       × accepts a list of 5 valid elements 5ms
+       × keeps the one issue per invalid element for a list of 5 with the first element invalid 3ms
+       × accepts a list of 3 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 3 with the first element invalid 1ms
+       × accepts a list of 10 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 10 with the first element invalid 1ms
+       × accepts a list of 40 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 40 with the first element invalid 1ms
+       × accepts a list of 25 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 25 with the first element invalid 1ms
+       × accepts a list of 3 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 3 with the first element invalid 1ms
+       × accepts a list of 100 valid elements 0ms
+       × keeps the one issue per invalid element for a list of 100 with the first element invalid 2ms
+       × accepts a list of 100 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 100 with the first element invalid 1ms
+       × accepts a list of 10 valid elements 0ms
+       × keeps the one issue per invalid element for a list of 10 with the first element invalid 1ms
+       × accepts a list of 40 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 40 with the first element invalid 6ms
+       × stops at 20 issues of 100 malformed mention ids and renders 21 lines 2ms
+       × stops reading the input after the 21st issue 2ms
+       × stay small for three allowed-mention kinds of a hundred thousand characters 1ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 fat action rows 1ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 invalid sections 0ms
+
+ Test Files  4 failed | 36 passed (40)
+      Tests  57 failed | 772 passed (829)
+   Start at  05:54:48
+   Duration  4.22s (transform 7.79s, setup 378ms, import 32.53s, tests 4.94s, environment 8.12s)
+

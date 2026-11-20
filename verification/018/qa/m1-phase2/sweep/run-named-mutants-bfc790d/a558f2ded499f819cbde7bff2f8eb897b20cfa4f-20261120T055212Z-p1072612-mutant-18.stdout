@@ -1,0 +1,17 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-18
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts (10 tests | 1 failed) 35ms
+     × keeps the message an issue was created with, at a kept position that is neither first nor last 16ms
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (157 tests | 1 failed) 593ms
+       × counts the one issue of an over-limit list toward the 20 28ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (150 tests | 2 failed) 251ms
+       × counts the one issue of an over-limit list toward the 20 11ms
+     × words the displayable-text issue as it does uncapped when an issue follows it 2ms
+
+ Test Files  3 failed | 37 passed (40)
+      Tests  4 failed | 825 passed (829)
+     Errors  1 error
+   Start at  05:53:44
+   Duration  4.50s (transform 7.91s, setup 446ms, import 33.14s, tests 5.33s, environment 8.09s)
+

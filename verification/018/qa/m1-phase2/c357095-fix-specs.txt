@@ -1,0 +1,2 @@
+JSON report written to /usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/c357095-fix-specs.json
+c357095-fix-specs exit 1

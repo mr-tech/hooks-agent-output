@@ -1,0 +1,46 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-gen-mutants-a558f2d/20261120T054837Z-p1027841/mutant-1
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts (20 tests | 2 failed) 63ms
+     × refuses 150 malformed mention ids with one issue for the list 27ms
+     × refuses 101 well-formed user ids and accepts 100 5ms
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (157 tests | 16 failed) 316ms
+       × refuses a list of valid elements, length 101, with one issue for the list and no database access 9ms
+       × refuses a list of valid elements, length 150, with one issue for the list and no database access 6ms
+       × refuses a list of invalid elements, length 101, with one issue for the list and no database access 10ms
+       × refuses a list of invalid elements, length 150, with one issue for the list and no database access 4ms
+       × refuses a list of number elements, length 101, with one issue for the list and no database access 21ms
+       × refuses a list of number elements, length 150, with one issue for the list and no database access 4ms
+       × refuses a list of null elements, length 101, with one issue for the list and no database access 10ms
+       × refuses a list of null elements, length 150, with one issue for the list and no database access 2ms
+       × refuses a list of valid elements, length 101, with one issue for the list and no database access 3ms
+       × refuses a list of valid elements, length 150, with one issue for the list and no database access 2ms
+       × refuses a list of invalid elements, length 101, with one issue for the list and no database access 5ms
+       × refuses a list of invalid elements, length 150, with one issue for the list and no database access 3ms
+       × refuses a list of number elements, length 101, with one issue for the list and no database access 4ms
+       × refuses a list of number elements, length 150, with one issue for the list and no database access 1ms
+       × refuses a list of null elements, length 101, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 150, with one issue for the list and no database access 1ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (150 tests | 16 failed) 125ms
+       × refuses a list of valid elements, length 101, with one issue for the list and no database access 5ms
+       × refuses a list of valid elements, length 150, with one issue for the list and no database access 4ms
+       × refuses a list of invalid elements, length 101, with one issue for the list and no database access 4ms
+       × refuses a list of invalid elements, length 150, with one issue for the list and no database access 1ms
+       × refuses a list of number elements, length 101, with one issue for the list and no database access 2ms
+       × refuses a list of number elements, length 150, with one issue for the list and no database access 1ms
+       × refuses a list of null elements, length 101, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 150, with one issue for the list and no database access 1ms
+       × refuses a list of valid elements, length 101, with one issue for the list and no database access 1ms
+       × refuses a list of valid elements, length 150, with one issue for the list and no database access 1ms
+       × refuses a list of invalid elements, length 101, with one issue for the list and no database access 2ms
+       × refuses a list of invalid elements, length 150, with one issue for the list and no database access 1ms
+       × refuses a list of number elements, length 101, with one issue for the list and no database access 2ms
+       × refuses a list of number elements, length 150, with one issue for the list and no database access 1ms
+       × refuses a list of null elements, length 101, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 150, with one issue for the list and no database access 1ms
+
+ Test Files  3 failed | 37 passed (40)
+      Tests  34 failed | 795 passed (829)
+   Start at  05:48:44
+   Duration  4.99s (transform 12.49s, setup 441ms, import 40.12s, tests 5.98s, environment 9.05s)
+

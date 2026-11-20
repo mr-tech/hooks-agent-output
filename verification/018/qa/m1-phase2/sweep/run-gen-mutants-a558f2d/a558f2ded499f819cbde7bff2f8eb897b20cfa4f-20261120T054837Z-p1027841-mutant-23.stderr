@@ -1,0 +1,93 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > lists exactly 20 issues with no summary
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > lists exactly 20 issues with no summary
+AssertionError: expected [ …(21) ] to deeply equal [ …(20) ]
+
+- Expected
++ Received
+
+@@ -257,6 +257,11 @@
+        "fields",
+        19,
+        "name",
+      ],
+    },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:60:22
+     58|
+     59|       expect(code).toBe('BAD_REQUEST');
+     60|       expect(issues).toEqual(Array.from({ length: 20 }, (_, i) => fiel…
+       |                      ^
+     61|     });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the one issue of an over-limit list toward the 20
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the one issue of an over-limit list toward the 20
+AssertionError: expected [ …(21) ] to deeply equal [ …(20) ]
+
+- Expected
++ Received
+
+@@ -255,6 +255,11 @@
+        "embeds",
+        1,
+        "fields",
+      ],
+    },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:85:28
+     83|       const over = await refusal({ embeds: [{ fields: repeat(20, badNa…
+     84|
+     85|       expect(exact.issues).toEqual([
+       |                            ^
+     86|         ...Array.from({ length: 19 }, (_, i) => fieldIssue(0, i, 'name…
+     87|         { code: 'too_big', path: [...DATA, 'embeds', 1, 'fields'], mes…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the displayable-text issue, with its own message, toward the 20
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the displayable-text issue, with its own message, toward the 20
+AssertionError: expected [ { code: 'too_big', …(2) }, …(20) ] to deeply equal [ { code: 'too_big', …(2) }, …(19) ]
+
+- Expected
++ Received
+
+@@ -253,6 +253,11 @@
+        "message",
+        "data",
+        "components",
+      ],
+    },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:114:28
+    112|       const over = await refusal(withTwenty);
+    113|
+    114|       expect(exact.issues).toEqual([...Array.from({ length: 19 }, (_, …
+       |                            ^
+    115|       expect(over.issues).toEqual([
+    116|         ...Array.from({ length: 20 }, (_, i) => nameIssue(i)),
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+

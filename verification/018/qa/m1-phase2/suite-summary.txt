@@ -1,0 +1,6 @@
+a558f2d-suite.json total 2261 passed 2261 failed 0 files 154 success True
+c357095-fix-specs.json total 160 passed 158 failed 2 files 2 success False
+  FAILED: message.upsert input: a capped refusal keeps the message each issue was created with words the displayable-text issue as it does uncapped when an issu | AssertionError: expected { code: 'too_big', …(2) } to deeply equal { code: 'too_big', …(2) }
+  FAILED: cappedInput keeps the message an issue was created with, at a kept position that is neither first nor last | AssertionError: expected { code: 'custom', …(2) } to deeply equal { code: 'custom', …(2) }
+files only at a558f2d [] only at b0b0158 []
+per-file differences vs b0b0158 [('src/server/api/routers/__tests__/message.save-limits.test.ts', (149, 149), (150, 150)), ('src/server/api/utils/__tests__/shapes.error-cap.test.ts', (9, 9), (10, 10))]

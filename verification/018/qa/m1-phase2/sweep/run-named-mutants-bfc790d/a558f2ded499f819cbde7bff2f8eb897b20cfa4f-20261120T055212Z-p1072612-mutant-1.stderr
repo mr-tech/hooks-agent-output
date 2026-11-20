@@ -1,0 +1,235 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 17 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of null elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of null elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of null elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of null elements, length 53, with one issue for the list and no database access
+AssertionError: expected [] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "too_big",
+-     "message": "Array must contain at most 3 element(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       0,
+-       "components",
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/17]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of null elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of null elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of null elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of null elements, length 90, with one issue for the list and no database access
+AssertionError: expected [] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "too_big",
+-     "message": "Array must contain at most 40 element(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       0,
+-       "components",
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/17]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of null elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of null elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of null elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of null elements, length 90, with one issue for the list and no database access
+AssertionError: expected [] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "too_big",
+-     "message": "Array must contain at most 40 element(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/17]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > boundedArray > runs no refinement of the enclosing object over an over-limit list
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      Object {
+        "list": Array [
+          "a",
+          "b",
+        ],
+      },
+      Object {
+        "addIssue": [Function bound addIssue],
+        "path": Array [],
+      },
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:58:28
+     56|     enclosing.safeParse({ list: ['a', 'b'] });
+     57|
+     58|     expect(refinement).not.toHaveBeenCalled();
+       |                            ^
+     59|   });
+     60| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/17]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageShape over-limit lists > refuses 41 top-level components holding a null with one issue and no throw
+TypeError: Cannot read properties of null (reading 'type')
+ ❯ sumDisplayableText src/server/api/utils/shapes.ts:247:11
+    245|   let total = 0;
+    246|   for (const c of components) {
+    247|     if (c.type === 10 && typeof c.content === 'string') {
+       |           ^
+    248|       total += c.content.length;
+    249|     } else if ((c.type === 9 || c.type === 17) && Array.isArray(c.comp…
+ ❯ Object.refineDisplayableText [as refinement] src/server/api/utils/shapes.ts:258:17
+ ❯ executeRefinement node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3468:39
+ ❯ ZodEffects._parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3488:17
+ ❯ ZodEffects._parseSync node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:624:29
+ ❯ ZodEffects.safeParse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:654:29
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:66:40
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/17]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageShape over-limit lists > refuses 41 container children holding a null with one issue and no throw
+TypeError: Cannot read properties of null (reading 'type')
+ ❯ sumDisplayableText src/server/api/utils/shapes.ts:247:11
+    245|   let total = 0;
+    246|   for (const c of components) {
+    247|     if (c.type === 10 && typeof c.content === 'string') {
+       |           ^
+    248|       total += c.content.length;
+    249|     } else if ((c.type === 9 || c.type === 17) && Array.isArray(c.comp…
+ ❯ sumDisplayableText src/server/api/utils/shapes.ts:250:16
+ ❯ Object.refineDisplayableText [as refinement] src/server/api/utils/shapes.ts:258:17
+ ❯ executeRefinement node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3468:39
+ ❯ ZodEffects._parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3488:17
+ ❯ ZodEffects._parseSync node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:624:29
+ ❯ ZodEffects.safeParse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:654:29
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:73:40
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/17]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageShape over-limit lists > adds no displayable-text issue to a refused list of over-long text displays
+AssertionError: expected [ { code: 'too_big', …(2) }, …(1) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -4,6 +4,13 @@
+      "message": "Array must contain at most 40 element(s)",
+      "path": [
+        "components",
+      ],
+    },
++   {
++     "code": "too_big",
++     "message": "Components displayable text size exceeds maximum size of 4000",
++     "path": [
++       "components",
++     ],
++   },
+  ]
+
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:83:29
+     81|     const result = discordMessageShape.safeParse({ components: repeat(…
+     82|
+     83|     expect(reduced(result)).toEqual([{ code: 'too_big', path: ['compon…
+       |                             ^
+     84|   });
+     85|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/17]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageImportShape (the browser paste) > refuses 41 invalid top-level components with one issue and no displayable-text issue
+AssertionError: expected [ { code: 'too_big', …(2) }, …(1) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -4,6 +4,13 @@
+      "message": "Array must contain at most 40 element(s)",
+      "path": [
+        "components",
+      ],
+    },
++   {
++     "code": "too_big",
++     "message": "Components displayable text size exceeds maximum size of 4000",
++     "path": [
++       "components",
++     ],
++   },
+  ]
+
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:151:92
+    149|       { code: 'too_big', path: ['components'], message: 'Array must co…
+    150|     ]);
+    151|     expect(reduced(discordMessageImportShape.safeParse({ components: r…
+       |                                                                                            ^
+    152|       { code: 'too_big', path: ['components'], message: 'Array must co…
+    153|     ]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/17]⎯
+

@@ -1,0 +1,1289 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 129 ⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of valid elements, length 6, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of valid elements, length 55, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of invalid elements, length 6, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of invalid elements, length 55, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of number elements, length 6, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of number elements, length 55, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of null elements, length 6, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of null elements, length 55, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of valid elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of valid elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of invalid elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of invalid elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of number elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of number elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of null elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of null elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S3 media gallery items' > refuses a list of valid elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S3 media gallery items' > refuses a list of valid elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S3 media gallery items' > refuses a list of invalid elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S3 media gallery items' > refuses a list of invalid elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S3 media gallery items' > refuses a list of number elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S3 media gallery items' > refuses a list of number elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S3 media gallery items' > refuses a list of null elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S3 media gallery items' > refuses a list of null elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of valid elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of valid elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of invalid elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of invalid elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of number elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of number elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of null elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of null elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of nested elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of nested elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S5 embed fields' > refuses a list of valid elements, length 26, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S5 embed fields' > refuses a list of valid elements, length 75, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S5 embed fields' > refuses a list of invalid elements, length 26, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S5 embed fields' > refuses a list of invalid elements, length 75, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S5 embed fields' > refuses a list of number elements, length 26, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S5 embed fields' > refuses a list of number elements, length 75, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S5 embed fields' > refuses a list of null elements, length 26, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S5 embed fields' > refuses a list of null elements, length 75, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of valid elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of valid elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of invalid elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of invalid elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of number elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of number elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of null elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of null elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of valid elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of valid elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of invalid elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of invalid elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of number elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of number elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of null elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of null elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of valid elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of valid elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of invalid elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of invalid elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of number elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of number elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of null elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of null elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of valid elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of valid elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of invalid elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of invalid elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of number elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of number elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of null elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of null elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of nested elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of nested elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of valid elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of valid elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of invalid elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of invalid elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of number elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of number elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of null elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of null elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of nested elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of nested elements, length 90, with one issue for the list and no database access
+AssertionError: expected undefined to be 'BAD_REQUEST' // Object.is equality
+
+- Expected:
+"BAD_REQUEST"
+
++ Received:
+undefined
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:49:20
+     47|       const { code, issues } = await refusalOf(procedure.call, input);
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+       |                    ^
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+     51|       expect(procedure.databaseQueries()).toBe(before);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/129]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > keeps the one issue per invalid element for a list of 5 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > keeps the one issue per invalid element for a list of 4 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > keeps the one issue per invalid element for a list of 3 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > keeps the one issue per invalid element for a list of 2 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S3 media gallery items' > keeps the one issue per invalid element for a list of 10 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S3 media gallery items' > keeps the one issue per invalid element for a list of 9 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > keeps the one issue per invalid element for a list of 40 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > keeps the one issue per invalid element for a list of 39 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S5 embed fields' > keeps the one issue per invalid element for a list of 25 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S5 embed fields' > keeps the one issue per invalid element for a list of 24 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > keeps the one issue per invalid element for a list of 3 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > keeps the one issue per invalid element for a list of 2 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > keeps the one issue per invalid element for a list of 100 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > keeps the one issue per invalid element for a list of 99 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > keeps the one issue per invalid element for a list of 100 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > keeps the one issue per invalid element for a list of 99 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > keeps the one issue per invalid element for a list of 10 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > keeps the one issue per invalid element for a list of 9 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > keeps the one issue per invalid element for a list of 40 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > keeps the one issue per invalid element for a list of 39 with the first element invalid
+AssertionError: expected undefined to be 'BAD_REQUEST' // Object.is equality
+
+- Expected:
+"BAD_REQUEST"
+
++ Received:
+undefined
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:66:20
+     64|       const { code, issues } = await refusalOf(procedure.call, procedu…
+     65|
+     66|       expect(code).toBe('BAD_REQUEST');
+       |                    ^
+     67|       expect(issues).toEqual([{
+     68|         code: site.invalidIssue.code,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/129]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > lists exactly 20 issues with no summary
+AssertionError: expected undefined to be 'BAD_REQUEST' // Object.is equality
+
+- Expected:
+"BAD_REQUEST"
+
++ Received:
+undefined
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:59:20
+     57|       const { code, issues } = await refusal({ embeds: [{ fields: repe…
+     58|
+     59|       expect(code).toBe('BAD_REQUEST');
+       |                    ^
+     60|       expect(issues).toEqual(Array.from({ length: 20 }, (_, i) => fiel…
+     61|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/129]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > lists the first 20 issues in order and one summary at 21 issues
+AssertionError: expected undefined to be 'BAD_REQUEST' // Object.is equality
+
+- Expected:
+"BAD_REQUEST"
+
++ Received:
+undefined
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:66:20
+     64|       const { code, issues } = await refusal({ embeds: [{ fields: repe…
+     65|
+     66|       expect(code).toBe('BAD_REQUEST');
+       |                    ^
+     67|       expect(issues).toEqual([
+     68|         ...Array.from({ length: 20 }, (_, i) => fieldIssue(0, i, 'name…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/129]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > stops at 20 issues of 100 malformed mention ids and renders 21 lines
+AssertionError: expected [] to have a length of 21 but got +0
+
+- Expected
++ Received
+
+- 21
++ 0
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:76:22
+     74|       const { issues } = await refusal({ allowed_mentions: { users: re…
+     75|
+     76|       expect(issues).toHaveLength(21);
+       |                      ^
+     77|       expect(issues[20]).toEqual({ code: 'custom', path: [], message: …
+     78|       expect(formatMutationError({ message: JSON.stringify(issues) })?…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/129]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the one issue of an over-limit list toward the 20
+AssertionError: expected [] to deeply equal [ …(20) ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       0,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       1,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       2,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       3,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       4,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       5,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       6,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       7,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       8,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       9,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       10,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       11,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       12,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       13,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       14,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       15,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       16,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       17,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       18,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "Array must contain at most 25 element(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       1,
+-       "fields",
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:85:28
+     83|       const over = await refusal({ embeds: [{ fields: repeat(20, badNa…
+     84|
+     85|       expect(exact.issues).toEqual([
+       |                            ^
+     86|         ...Array.from({ length: 19 }, (_, i) => fieldIssue(0, i, 'name…
+     87|         { code: 'too_big', path: [...DATA, 'embeds', 1, 'fields'], mes…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/129]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the displayable-text issue, with its own message, toward the 20
+AssertionError: expected [] to deeply equal [ { code: 'too_big', …(2) }, …(19) ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       0,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       1,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       2,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       3,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       4,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       5,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       6,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       7,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       8,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       9,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       10,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       11,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       12,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       13,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       14,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       15,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       16,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       17,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       18,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "Components displayable text size exceeds maximum size of 4000",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:114:28
+    112|       const over = await refusal(withTwenty);
+    113|
+    114|       expect(exact.issues).toEqual([...Array.from({ length: 19 }, (_, …
+       |                            ^
+    115|       expect(over.issues).toEqual([
+    116|         ...Array.from({ length: 20 }, (_, i) => nameIssue(i)),
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/129]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > stops reading the input after the 21st issue
+AssertionError: expected [] to have a length of 21 but got +0
+
+- Expected
++ Received
+
+- 21
++ 0
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:127:22
+    125|       const { issues } = await refusal({ components: repeat(40, contai…
+    126|
+    127|       expect(issues).toHaveLength(21);
+       |                      ^
+    128|       expect(counter.reads).toBeLessThan(200);
+    129|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/129]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > keeps two concurrent refusals apart
+AssertionError: expected [] to deeply equal [ …(15) ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       0,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       1,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       2,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       3,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       4,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       5,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       6,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       7,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       8,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       9,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       10,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       11,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       12,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       13,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       14,
+-       "name",
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:138:28
+    136|       const third = await refusal({ embeds: [{ fields: repeat(15, badN…
+    137|
+    138|       expect(first.issues).toEqual(Array.from({ length: 15 }, (_, i) =…
+       |                            ^
+    139|       expect(second.issues).toEqual(Array.from({ length: 15 }, (_, i) …
+    140|       expect(third.issues).toEqual(first.issues);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/129]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for one allowed-mention kind of a hundred thousand characters
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for three allowed-mention kinds of a hundred thousand characters
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for a link button style of a hundred thousand characters
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for a link button type of a hundred thousand characters
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for a section accessory type of a hundred thousand characters
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for a separator spacing of a hundred thousand characters
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for a text display type inside a section of a hundred thousand characters
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for a thumbnail accessory type of a hundred thousand characters
+AssertionError: expected undefined to be 'BAD_REQUEST' // Object.is equality
+
+- Expected:
+"BAD_REQUEST"
+
++ Received:
+undefined
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:149:20
+    147|       const text = JSON.stringify(issues);
+    148|
+    149|       expect(code).toBe('BAD_REQUEST');
+       |                    ^
+    150|       expect(issues).toHaveLength(count);
+    151|       expect(issues.every((issue) => Object.keys(issue).sort().join() …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/129]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > stay under 16 KB, 21 of them, for 40 containers of 40 fat action rows
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > stay under 16 KB, 21 of them, for 40 containers of 40 invalid sections
+AssertionError: expected undefined to be 'BAD_REQUEST' // Object.is equality
+
+- Expected:
+"BAD_REQUEST"
+
++ Received:
+undefined
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:162:20
+    160|       const { code, issues } = await refusal(data);
+    161|
+    162|       expect(code).toBe('BAD_REQUEST');
+       |                    ^
+    163|       expect(issues).toHaveLength(21);
+    164|       expect(issues.every((issue) => Object.keys(issue).sort().join() …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/129]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > carry only code, path and message for a refusal of one issue
+AssertionError: expected [] to deeply equal [ { code: 'invalid_union', …(2) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       0,
+-       "spacing",
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:171:22
+    169|       const { issues } = await refusal({ components: [{ type: 14, divi…
+    170|
+    171|       expect(issues).toEqual([{ code: 'invalid_union', path: [...DATA,…
+       |                      ^
+    172|     });
+    173|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/129]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the plain unions of the save > return one issue for each of six failing accessories
+AssertionError: expected [] to deeply equal [ …(6) ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       0,
+-       "accessory",
+-     ],
+-   },
+-   {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       1,
+-       "accessory",
+-     ],
+-   },
+-   {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       2,
+-       "accessory",
+-     ],
+-   },
+-   {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       3,
+-       "accessory",
+-     ],
+-   },
+-   {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       4,
+-       "accessory",
+-     ],
+-   },
+-   {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       5,
+-       "accessory",
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:179:22
+    177|       const { issues } = await refusal({ components: repeat(6, invalid…
+    178|
+    179|       expect(issues).toEqual(Array.from({ length: 6 }, (_, i) => ({
+       |                      ^
+    180|         code: 'invalid_union', path: [...DATA, 'components', i, 'acces…
+    181|       })));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/129]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the plain unions of the save > stop at the 20th of 21 failing accessories
+AssertionError: expected [] to have a length of 21 but got +0
+
+- Expected
++ Received
+
+- 21
++ 0
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:187:22
+    185|       const { issues } = await refusal({ components: repeat(21, invali…
+    186|
+    187|       expect(issues).toHaveLength(21);
+       |                      ^
+    188|       expect(issues[20]).toEqual({ code: 'custom', path: [], message: …
+    189|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/129]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the plain unions of the save > add no displayable-text issue to a section whose accessory fails
+AssertionError: expected [] to deeply equal [ { code: 'invalid_union', …(2) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       0,
+-       "accessory",
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:197:22
+    195|       const { issues } = await refusal({ components: [section] });
+    196|
+    197|       expect(issues).toEqual([{ code: 'invalid_union', path: [...DATA,…
+       |                      ^
+    198|     });
+    199|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/129]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the plain unions of the save > keep every issue of the branch that matched, in order, and still run the displayable-text check
+AssertionError: expected [] to deeply equal [ { code: 'too_big', …(2) }, …(2) ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 80 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       0,
+-       "accessory",
+-       "label",
+-     ],
+-   },
+-   {
+-     "code": "invalid_string",
+-     "message": "Invalid url",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       0,
+-       "accessory",
+-       "url",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "Components displayable text size exceeds maximum size of 4000",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:207:22
+    205|       const { issues } = await refusal({ components: [section] });
+    206|
+    207|       expect(issues).toEqual([
+       |                      ^
+    208|         { code: 'too_big', path: [...DATA, 'components', 0, 'accessory…
+    209|         { code: 'invalid_string', path: [...DATA, 'components', 0, 'ac…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/129]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the plain unions of the save > keep the issue of the one branch that matched the accessory type
+AssertionError: expected [] to deeply equal [ { code: 'invalid_string', …(2) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "invalid_string",
+-     "message": "Invalid url",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       0,
+-       "accessory",
+-       "media",
+-       "url",
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:220:22
+    218|       const { issues } = await refusal({ components: [section] });
+    219|
+    220|       expect(issues).toEqual([{
+       |                      ^
+    221|         code: 'invalid_string', path: [...DATA, 'components', 0, 'acce…
+    222|       }]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/129]⎯
+

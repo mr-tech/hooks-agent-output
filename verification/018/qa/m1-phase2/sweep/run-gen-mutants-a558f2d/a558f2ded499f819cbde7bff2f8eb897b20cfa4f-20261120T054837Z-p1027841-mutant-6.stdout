@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-gen-mutants-a558f2d/20261120T054837Z-p1027841/mutant-6
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx (11 tests | 4 failed) 56ms
+     × sends the open message and at most ten stored ids for a stored list of 10 12ms
+     × sends the open message and at most ten stored ids for a stored list of 11 4ms
+     × sends the open message and at most ten stored ids for a stored list of 50 4ms
+     × moves the open message to the front of a stored list that holds it past the eleventh place 5ms
+
+ Test Files  1 failed | 39 passed (40)
+      Tests  4 failed | 825 passed (829)
+   Start at  05:49:15
+   Duration  5.25s (transform 13.12s, setup 768ms, import 42.71s, tests 6.18s, environment 9.46s)
+

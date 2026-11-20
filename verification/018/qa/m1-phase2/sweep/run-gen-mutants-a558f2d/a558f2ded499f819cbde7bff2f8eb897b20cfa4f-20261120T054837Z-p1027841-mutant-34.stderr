@@ -1,0 +1,23 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageShape allowed mentions > accepts here as a parse kind and refuses one that is not admitted
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageShape allowed mentions > accepts everyone as a parse kind and refuses one that is not admitted
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:101:30
+     99|     const admitted = discordMessageShape.safeParse({ allowed_mentions:…
+    100|
+    101|     expect(admitted.success).toBe(true);
+       |                              ^
+    102|     expect(discordMessageShape.safeParse({ allowed_mentions: { parse: …
+    103|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+

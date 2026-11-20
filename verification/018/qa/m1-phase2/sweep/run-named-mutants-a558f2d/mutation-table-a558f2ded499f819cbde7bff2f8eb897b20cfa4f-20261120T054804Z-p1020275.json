@@ -1,0 +1,148 @@
+{
+ "sha": "a558f2ded499f819cbde7bff2f8eb897b20cfa4f",
+ "repo": "/tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/repo",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/named-mutants-a558f2d.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "src/server/api",
+  "src/providers/MessageProvider"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/named-mutants-a558f2d.json",
+   "blob": "73463c984033b17d6d8810efcd6b7590cd3888af"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/run-named-mutants-a558f2d/a558f2ded499f819cbde7bff2f8eb897b20cfa4f-20261120T054804Z-p1020275-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/run-named-mutants-a558f2d/a558f2ded499f819cbde7bff2f8eb897b20cfa4f-20261120T054804Z-p1020275-control-1.stderr",
+   "seconds": 7.88,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 829,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "F-1",
+   "run": "mutant-1",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "note": "the capped refusal's wording from the default only (the reviewed defect)"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 829,
+   "control_tests_run": 829,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: a capped refusal keeps the message each issue was created with > words the displayable-text issue as it does uncapped when an issue follows it",
+    "|node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > cappedInput > keeps the message an issue was created with, at a kept position that is neither first nor last"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 6.8,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/run-named-mutants-a558f2d/a558f2ded499f819cbde7bff2f8eb897b20cfa4f-20261120T054804Z-p1020275-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/run-named-mutants-a558f2d/a558f2ded499f819cbde7bff2f8eb897b20cfa4f-20261120T054804Z-p1020275-mutant-1.stderr"
+  },
+  {
+   "id": "F-2",
+   "run": "mutant-2",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "note": "the recorded issue carries the default wording; the returned one the issue's own"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 829,
+   "control_tests_run": 829,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: a capped refusal keeps the message each issue was created with > words the displayable-text issue as it does uncapped when an issue follows it",
+    "|node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > cappedInput > keeps the message an issue was created with, at a kept position that is neither first nor last"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 6.09,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/run-named-mutants-a558f2d/a558f2ded499f819cbde7bff2f8eb897b20cfa4f-20261120T054804Z-p1020275-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/run-named-mutants-a558f2d/a558f2ded499f819cbde7bff2f8eb897b20cfa4f-20261120T054804Z-p1020275-mutant-2.stderr"
+  },
+  {
+   "id": "F-3",
+   "run": "mutant-3",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "note": "the map's return value is the default (expected equivalent: zod keeps issueData.message over the map result)"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 829,
+   "control_tests_run": 829,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 5.88,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/run-named-mutants-a558f2d/a558f2ded499f819cbde7bff2f8eb897b20cfa4f-20261120T054804Z-p1020275-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/run-named-mutants-a558f2d/a558f2ded499f819cbde7bff2f8eb897b20cfa4f-20261120T054804Z-p1020275-mutant-3.stderr"
+  },
+  {
+   "id": "F-4",
+   "run": "mutant-4",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "note": "operands swapped"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 829,
+   "control_tests_run": 829,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: a capped refusal keeps the message each issue was created with > words the displayable-text issue as it does uncapped when an issue follows it",
+    "|node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > cappedInput > keeps the message an issue was created with, at a kept position that is neither first nor last"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.6,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/run-named-mutants-a558f2d/a558f2ded499f819cbde7bff2f8eb897b20cfa4f-20261120T054804Z-p1020275-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/run-named-mutants-a558f2d/a558f2ded499f819cbde7bff2f8eb897b20cfa4f-20261120T054804Z-p1020275-mutant-4.stderr"
+  }
+ ],
+ "score": "3 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; named-mutants-a558f2d.json (blob 73463c984033b17d6d8810efcd6b7590cd3888af))"
+}

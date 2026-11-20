@@ -1,0 +1,31 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-gen-mutants-a558f2d/20261120T054837Z-p1027841/mutant-28
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts (10 tests | 2 failed) 67ms
+     × keeps 20 issues and adds one summary issue at the 21st 36ms
+     × keeps the message an issue was created with, at a kept position that is neither first nor last 6ms
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (157 tests | 8 failed) 232ms
+       × lists the first 20 issues in order and one summary at 21 issues 20ms
+       × stops at 20 issues of 100 malformed mention ids and renders 21 lines 5ms
+       × counts the one issue of an over-limit list toward the 20 10ms
+       × counts the displayable-text issue, with its own message, toward the 20 7ms
+       × stops reading the input after the 21st issue 14ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 fat action rows 2ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 invalid sections 7ms
+       × stop at the 20th of 21 failing accessories 5ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (150 tests | 9 failed) 113ms
+       × lists the first 20 issues in order and one summary at 21 issues 11ms
+       × stops at 20 issues of 100 malformed mention ids and renders 21 lines 2ms
+       × counts the one issue of an over-limit list toward the 20 6ms
+       × counts the displayable-text issue, with its own message, toward the 20 4ms
+       × stops reading the input after the 21st issue 2ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 fat action rows 1ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 invalid sections 2ms
+       × stop at the 20th of 21 failing accessories 2ms
+     × words the displayable-text issue as it does uncapped when an issue follows it 1ms
+
+ Test Files  3 failed | 37 passed (40)
+      Tests  19 failed | 810 passed (829)
+   Start at  05:51:28
+   Duration  4.49s (transform 9.25s, setup 548ms, import 34.04s, tests 5.12s, environment 8.58s)
+

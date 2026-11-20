@@ -1,0 +1,206 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the one issue of an over-limit list toward the 20
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the one issue of an over-limit list toward the 20
+AssertionError: expected [ { code: 'too_big', …(2) }, …(19) ] to deeply equal [ …(20) ]
+
+- Expected
++ Received
+
+@@ -1,7 +1,18 @@
+  [
+    {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       1,
++       "fields",
++     ],
++   },
++   {
+      "code": "invalid_type",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+@@ -242,19 +253,8 @@
+        "embeds",
+        0,
+        "fields",
+        18,
+        "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "Array must contain at most 25 element(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       1,
+-       "fields",
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:85:28
+     83|       const over = await refusal({ embeds: [{ fields: repeat(20, badNa…
+     84|
+     85|       expect(exact.issues).toEqual([
+       |                            ^
+     86|         ...Array.from({ length: 19 }, (_, i) => fieldIssue(0, i, 'name…
+     87|         { code: 'too_big', path: [...DATA, 'embeds', 1, 'fields'], mes…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: a capped refusal keeps the message each issue was created with > words the displayable-text issue as it does uncapped when an issue follows it
+AssertionError: expected { code: 'too_big', …(2) } to deeply equal { code: 'too_big', …(2) }
+
+- Expected
++ Received
+
+  {
+    "code": "too_big",
+-   "message": "Components displayable text size exceeds maximum size of 4000",
++   "message": "String must contain at most 256 character(s)",
+    "path": [
+      "message",
+      "data",
+-     "components",
++     "embeds",
++     0,
++     "fields",
++     17,
++     "name",
+    ],
+  }
+
+ ❯ src/server/api/routers/__tests__/message.save-limits.test.ts:63:24
+     61|
+     62|     expect(issues).toHaveLength(21);
+     63|     expect(issues[19]).toEqual({
+       |                        ^
+     64|       code: 'too_big',
+     65|       path: ['message', 'data', 'components'],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > cappedInput > keeps the message an issue was created with, at a kept position that is neither first nor last
+AssertionError: expected { code: 'invalid_type', …(2) } to deeply equal { code: 'custom', …(2) }
+
+- Expected
++ Received
+
+  {
+-   "code": "custom",
+-   "message": "The flag is not allowed",
++   "code": "invalid_type",
++   "message": "Expected string, received number",
+    "path": [
+-     "flag",
++     "tail",
++     0,
+    ],
+  }
+
+ ❯ src/server/api/utils/__tests__/shapes.error-cap.test.ts:69:26
+     67|
+     68|     expect(issues).toHaveLength(21);
+     69|     expect(issues?.[10]).toEqual({ code: 'custom', path: ['flag'], mes…
+       |                          ^
+     70|     expect(issues?.[9]).toEqual({ code: 'invalid_type', path: ['head',…
+     71|     expect(issues?.[11]).toEqual({ code: 'invalid_type', path: ['tail'…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+{
+  stack: 'Error: \n' +
+    '    at errorMap (/tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-18/src/server/api/utils/shapes.ts:84:53)\n' +
+    '    at makeIssue (file:///tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-18/node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:413:24)\n' +
+    '    at addIssueToContext (file:///tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-18/node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:423:19)\n' +
+    '    at Object.addIssue (file:///tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-18/node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3426:17)\n' +
+    '    at Object.refinement (/tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-18/src/server/api/utils/__tests__/shapes.error-cap.test.ts:61:13)\n' +
+    '    at executeRefinement (file:///tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-18/node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3468:39)\n' +
+    '    at file:///tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-18/node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3499:28\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:104:5)',
+  constructor: 'Function<StopChecking>',
+  name: 'Error',
+  message: '',
+  toString: 'Function<toString>',
+  VITEST_TEST_NAME: undefined,
+  VITEST_TEST_PATH: '/tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-18/src/server/api/utils/__tests__/shapes.error-cap.test.ts',
+  type: 'Unhandled Rejection',
+  stacks: [
+    {
+      method: 'errorMap',
+      file: '/tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-18/src/server/api/utils/shapes.ts',
+      line: 84,
+      column: 53
+    },
+    {
+      method: 'makeIssue',
+      file: '/tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-18/node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs',
+      line: 413,
+      column: 24
+    },
+    {
+      method: 'addIssueToContext',
+      file: '/tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-18/node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs',
+      line: 423,
+      column: 19
+    },
+    {
+      method: 'Object.addIssue',
+      file: '/tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-18/node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs',
+      line: 3426,
+      column: 17
+    },
+    {
+      method: 'Object.refinement',
+      file: '/tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-18/src/server/api/utils/__tests__/shapes.error-cap.test.ts',
+      line: 61,
+      column: 13
+    },
+    {
+      method: 'executeRefinement',
+      file: '/tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-18/node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs',
+      line: 3468,
+      column: 39
+    },
+    {
+      method: '',
+      file: '/tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-bfc790d/20261120T055212Z-p1072612/mutant-18/node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs',
+      line: 3499,
+      column: 28
+    },
+    {
+      method: 'processTicksAndRejections',
+      file: 'node:internal/process/task_queues',
+      line: 104,
+      column: 5
+    }
+  ]
+}
+ ❯ errorMap src/server/api/utils/shapes.ts:84:53
+ ❯ makeIssue node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:413:24
+ ❯ addIssueToContext node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:423:19
+ ❯ Object.addIssue node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3426:17
+ ❯ Object.refinement src/server/api/utils/__tests__/shapes.error-cap.test.ts:61:13
+ ❯ executeRefinement node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3468:39
+ ❯ node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3499:28
+ ❯ processTicksAndRejections node:internal/process/task_queues:104:5
+
+This error originated in "src/server/api/utils/__tests__/shapes.error-cap.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+

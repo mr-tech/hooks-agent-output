@@ -1,0 +1,92 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx > usePreferences recent message ids > sends at most ten stored ids, in order, with no message open, for a stored list of 11
+AssertionError: expected [ '900000000000001', …(10) ] to deeply equal [ '900000000000001', …(9) ]
+
+- Expected
++ Received
+
+@@ -7,6 +7,7 @@
+    "900000000000006",
+    "900000000000007",
+    "900000000000008",
+    "900000000000009",
+    "900000000000010",
++   "900000000000011",
+  ]
+
+ ❯ src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx:72:18
+     70|     const sent = sentFor(stored, null);
+     71|
+     72|     expect(sent).toEqual(expected);
+       |                  ^
+     73|   });
+     74|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx > usePreferences recent message ids > sends at most ten stored ids, in order, with no message open, for a stored list of 50
+AssertionError: expected [ '900000000000001', …(49) ] to deeply equal [ '900000000000001', …(9) ]
+
+- Expected
++ Received
+
+@@ -7,6 +7,46 @@
+    "900000000000006",
+    "900000000000007",
+    "900000000000008",
+    "900000000000009",
+    "900000000000010",
++   "900000000000011",
++   "900000000000012",
++   "900000000000013",
++   "900000000000014",
++   "900000000000015",
++   "900000000000016",
++   "900000000000017",
++   "900000000000018",
++   "900000000000019",
++   "900000000000020",
++   "900000000000021",
++   "900000000000022",
++   "900000000000023",
++   "900000000000024",
++   "900000000000025",
++   "900000000000026",
++   "900000000000027",
++   "900000000000028",
++   "900000000000029",
++   "900000000000030",
++   "900000000000031",
++   "900000000000032",
++   "900000000000033",
++   "900000000000034",
++   "900000000000035",
++   "900000000000036",
++   "900000000000037",
++   "900000000000038",
++   "900000000000039",
++   "900000000000040",
++   "900000000000041",
++   "900000000000042",
++   "900000000000043",
++   "900000000000044",
++   "900000000000045",
++   "900000000000046",
++   "900000000000047",
++   "900000000000048",
++   "900000000000049",
++   "900000000000050",
+  ]
+
+ ❯ src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx:72:18
+     70|     const sent = sentFor(stored, null);
+     71|
+     72|     expect(sent).toEqual(expected);
+       |                  ^
+     73|   });
+     74|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

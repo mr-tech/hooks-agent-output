@@ -1,0 +1,7 @@
+
+> website@ typecheck /tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1p2/a558f2d
+> tsc --noEmit && tsc --noEmit -p tsconfig.test.json
+
+src/app/page.tsx(10,26): error TS2307: Cannot find module '~/assets/img/product_image.png' or its corresponding type declarations.
+ ELIFECYCLE  Command failed with exit code 2.
+a558f2d-typecheck exit 2

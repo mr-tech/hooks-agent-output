@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-gen-mutants-a558f2d/20261120T054837Z-p1027841/mutant-25
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts (10 tests | 4 failed) 38ms
+     × keeps 20 issues and adds one summary issue at the 21st 11ms
+     × keeps the message an issue was created with, at a kept position that is neither first nor last 3ms
+     × lets an error thrown by the schema itself reach the caller 8ms
+     × carries no count from one refusal to the next 1ms
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (157 tests | 8 failed) 236ms
+       × lists the first 20 issues in order and one summary at 21 issues 36ms
+       × stops at 20 issues of 100 malformed mention ids and renders 21 lines 5ms
+       × counts the one issue of an over-limit list toward the 20 10ms
+       × counts the displayable-text issue, with its own message, toward the 20 7ms
+       × stops reading the input after the 21st issue 4ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 fat action rows 3ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 invalid sections 5ms
+       × stop at the 20th of 21 failing accessories 3ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (150 tests | 9 failed) 119ms
+       × lists the first 20 issues in order and one summary at 21 issues 11ms
+       × stops at 20 issues of 100 malformed mention ids and renders 21 lines 2ms
+       × counts the one issue of an over-limit list toward the 20 4ms
+       × counts the displayable-text issue, with its own message, toward the 20 4ms
+       × stops reading the input after the 21st issue 2ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 fat action rows 1ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 invalid sections 2ms
+       × stop at the 20th of 21 failing accessories 2ms
+     × words the displayable-text issue as it does uncapped when an issue follows it 1ms
+
+ Test Files  3 failed | 37 passed (40)
+      Tests  21 failed | 808 passed (829)
+   Start at  05:51:11
+   Duration  4.55s (transform 9.79s, setup 497ms, import 36.05s, tests 5.06s, environment 8.47s)
+

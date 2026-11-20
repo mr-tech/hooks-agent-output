@@ -1,0 +1,385 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx > usePreferences recent message ids > sends the open message and at most ten stored ids for a stored list of 11
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx > usePreferences recent message ids > sends the open message and at most ten stored ids for a stored list of 50
+AssertionError: expected [ '900000000000999', …(11) ] to deeply equal [ '900000000000999', …(10) ]
+
+- Expected
++ Received
+
+@@ -8,6 +8,7 @@
+    "900000000000006",
+    "900000000000007",
+    "900000000000008",
+    "900000000000009",
+    "900000000000010",
++   "900000000000011",
+  ]
+
+ ❯ src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx:60:18
+     58|     const sent = sentFor(stored, open);
+     59|
+     60|     expect(sent).toEqual(expected);
+       |                  ^
+     61|     expect((sent ?? []).length).toBeLessThanOrEqual(SERVER_BOUND);
+     62|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx > usePreferences recent message ids > sends at most ten stored ids, in order, with no message open, for a stored list of 11
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx > usePreferences recent message ids > sends at most ten stored ids, in order, with no message open, for a stored list of 50
+AssertionError: expected [ '900000000000001', …(10) ] to deeply equal [ '900000000000001', …(9) ]
+
+- Expected
++ Received
+
+@@ -7,6 +7,7 @@
+    "900000000000006",
+    "900000000000007",
+    "900000000000008",
+    "900000000000009",
+    "900000000000010",
++   "900000000000011",
+  ]
+
+ ❯ src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx:72:18
+     70|     const sent = sentFor(stored, null);
+     71|
+     72|     expect(sent).toEqual(expected);
+       |                  ^
+     73|   });
+     74|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx > usePreferences recent message ids > moves the open message to the front of a stored list that holds it past the eleventh place
+AssertionError: expected [ '900000000000999', …(11) ] to deeply equal [ '900000000000999', …(10) ]
+
+- Expected
++ Received
+
+@@ -8,6 +8,7 @@
+    "900000000000006",
+    "900000000000007",
+    "900000000000008",
+    "900000000000009",
+    "900000000000010",
++   "900000000000011",
+  ]
+
+ ❯ src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx:80:18
+     78|     const sent = sentFor(stored, open);
+     79|
+     80|     expect(sent).toEqual([OPEN, ...range(1, 10)]);
+       |                  ^
+     81|   });
+     82|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses 12 valid elements with one issue for the list and no database access
+AssertionError: expected undefined to be 'BAD_REQUEST' // Object.is equality
+
+- Expected:
+"BAD_REQUEST"
+
++ Received:
+undefined
+
+ ❯ src/server/api/routers/__tests__/user.save-limits.test.ts:60:18
+     58|     const { code, issues } = await refusalOf(procedure.call, input);
+     59|
+     60|     expect(code).toBe('BAD_REQUEST');
+       |                  ^
+     61|     expect(issues).toEqual([{ code: 'too_big', path: ['recentMessageId…
+     62|     expect(captured.queries).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses 12 wrong primitive elements with one issue for the list and no database access
+AssertionError: expected [ …(12) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "too_big",
+-     "message": "Array must contain at most 11 element(s)",
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "recentMessageIds",
++       0,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "recentMessageIds",
++       1,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "recentMessageIds",
++       2,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "recentMessageIds",
++       3,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "recentMessageIds",
++       4,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "recentMessageIds",
++       5,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "recentMessageIds",
++       6,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "recentMessageIds",
++       7,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "recentMessageIds",
++       8,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "recentMessageIds",
++       9,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "recentMessageIds",
++       10,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
+      "path": [
+        "recentMessageIds",
++       11,
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/user.save-limits.test.ts:61:20
+     59|
+     60|     expect(code).toBe('BAD_REQUEST');
+     61|     expect(issues).toEqual([{ code: 'too_big', path: ['recentMessageId…
+       |                    ^
+     62|     expect(captured.queries).toHaveLength(0);
+     63|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses 12 null elements with one issue for the list and no database access
+AssertionError: expected [ …(12) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "too_big",
+-     "message": "Array must contain at most 11 element(s)",
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "recentMessageIds",
++       0,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "recentMessageIds",
++       1,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "recentMessageIds",
++       2,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "recentMessageIds",
++       3,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "recentMessageIds",
++       4,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "recentMessageIds",
++       5,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "recentMessageIds",
++       6,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "recentMessageIds",
++       7,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "recentMessageIds",
++       8,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "recentMessageIds",
++       9,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "recentMessageIds",
++       10,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
+      "path": [
+        "recentMessageIds",
++       11,
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/user.save-limits.test.ts:61:20
+     59|
+     60|     expect(code).toBe('BAD_REQUEST');
+     61|     expect(issues).toEqual([{ code: 'too_big', path: ['recentMessageId…
+       |                    ^
+     62|     expect(captured.queries).toHaveLength(0);
+     63|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses 61 elements with one issue for the list
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "too_big",
+-     "message": "Array must contain at most 11 element(s)",
++     "message": "Array must contain at most 12 element(s)",
+      "path": [
+        "recentMessageIds",
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/user.save-limits.test.ts:68:20
+     66|     const { issues } = await refusalOf(procedure.call, { recentMessage…
+     67|
+     68|     expect(issues).toEqual([{ code: 'too_big', path: ['recentMessageId…
+       |                    ^
+     69|   });
+     70|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences stored list > keeps the first ten of the eleven ids the input admits
+AssertionError: expected [ '900000000000100', …(10) ] to deeply equal [ '900000000000100', …(9) ]
+
+- Expected
++ Received
+
+@@ -7,6 +7,7 @@
+    "900000000000105",
+    "900000000000106",
+    "900000000000107",
+    "900000000000108",
+    "900000000000109",
++   "900000000000110",
+  ]
+
+ ❯ src/server/api/routers/__tests__/user.save-limits.test.ts:94:20
+     92|     const update = captured.queries.find(({ sql }) => sql.startsWith('…
+     93|     const stored = (update?.parameters[0] as { recentMessageIds: strin…
+     94|     expect(stored).toEqual(sent.slice(0, 10));
+       |                    ^
+     95|     expect(stored).toHaveLength(10);
+     96|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/10]⎯
+

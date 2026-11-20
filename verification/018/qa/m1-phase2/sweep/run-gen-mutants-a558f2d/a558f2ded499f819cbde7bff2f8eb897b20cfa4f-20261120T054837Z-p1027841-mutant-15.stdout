@@ -1,0 +1,66 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-gen-mutants-a558f2d/20261120T054837Z-p1027841/mutant-15
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts (20 tests | 3 failed) 53ms
+     × accepts user as a parse kind and refuses one that is not admitted 19ms
+     × accepts here as a parse kind and refuses one that is not admitted 1ms
+     × accepts everyone as a parse kind and refuses one that is not admitted 1ms
+ ❯ |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts (53 tests | 12 failed) 47ms
+     × accepts a message with V2 components 10ms
+     × rejects section with more than 3 text components 1ms
+     × accepts separator with spacing=1 (small) and spacing=2 (large) 1ms
+     × accepts section with zero text components 1ms
+     × the max limits on these same five shapes remain enforced — still reject over-max (regression control) 1ms
+     × accepts a valid message identically to strict shape 0ms
+     × filters out unsupported component types (e.g., select menus) silently 1ms
+     × filters unsupported children from containers 1ms
+     × counts text displays nested inside sections 1ms
+     × counts text displays inside sections within containers 1ms
+     × deeply nested: section-in-container correctly sums 1ms
+     × saves a Thumbnail description longer than 1024 characters 1ms
+ ❯ |node| src/server/api/utils/__tests__/shapes.supported-types-parity.test.ts (10 tests | 1 failed) 24ms
+     × keeps a top-level Section whose accessory is a link button 11ms
+ ❯ |node| src/providers/MessageProvider/__tests__/usePusher.hash-parity.test.ts (6 tests | 1 failed) 19ms
+     × a leading space in a V2 accessory (thumbnail) URL does not create a false mismatch 7ms
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (157 tests | 17 failed) 293ms
+       × refuses a list of valid elements, length 4, with one issue for the list and no database access 18ms
+       × refuses a list of valid elements, length 53, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 4, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 53, with one issue for the list and no database access 14ms
+       × refuses a list of number elements, length 4, with one issue for the list and no database access 2ms
+       × refuses a list of number elements, length 53, with one issue for the list and no database access 5ms
+       × refuses a list of null elements, length 4, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 53, with one issue for the list and no database access 2ms
+       × accepts a list of 3 valid elements 2ms
+       × accepts a list of 2 valid elements 2ms
+       × keeps the one issue per invalid element for a list of 3 with the first element invalid 4ms
+       × keeps the one issue per invalid element for a list of 2 with the first element invalid 2ms
+       × accepts a list of 3 valid elements 1ms
+       × accepts a list of 2 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 3 with the first element invalid 1ms
+       × keeps the one issue per invalid element for a list of 2 with the first element invalid 2ms
+       × stay small for a text display type inside a section of a hundred thousand characters 7ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (150 tests | 17 failed) 117ms
+       × refuses a list of valid elements, length 4, with one issue for the list and no database access 7ms
+       × refuses a list of valid elements, length 53, with one issue for the list and no database access 2ms
+       × refuses a list of invalid elements, length 4, with one issue for the list and no database access 1ms
+       × refuses a list of invalid elements, length 53, with one issue for the list and no database access 1ms
+       × refuses a list of number elements, length 4, with one issue for the list and no database access 1ms
+       × refuses a list of number elements, length 53, with one issue for the list and no database access 1ms
+       × refuses a list of null elements, length 4, with one issue for the list and no database access 1ms
+       × refuses a list of null elements, length 53, with one issue for the list and no database access 1ms
+       × accepts a list of 3 valid elements 1ms
+       × accepts a list of 2 valid elements 1ms
+       × keeps the one issue per invalid element for a list of 3 with the first element invalid 1ms
+       × keeps the one issue per invalid element for a list of 2 with the first element invalid 1ms
+       × accepts a list of 3 valid elements 1ms
+       × accepts a list of 2 valid elements 0ms
+       × keeps the one issue per invalid element for a list of 3 with the first element invalid 2ms
+       × keeps the one issue per invalid element for a list of 2 with the first element invalid 1ms
+       × stay small for a text display type inside a section of a hundred thousand characters 2ms
+
+ Test Files  6 failed | 34 passed (40)
+      Tests  51 failed | 778 passed (829)
+   Start at  05:50:11
+   Duration  5.10s (transform 14.60s, setup 199ms, import 43.04s, tests 5.93s, environment 8.50s)
+

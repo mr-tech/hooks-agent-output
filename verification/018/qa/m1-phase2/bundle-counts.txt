@@ -1,0 +1,5 @@
+static | highlightAuto | 1
+server | highlightAuto | 2
+static | registerLanguage | 1
+server | registerLanguage | 2
+void-receiver files | 0

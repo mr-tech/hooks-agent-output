@@ -16,6 +16,7 @@ is B-9 and B-10 there.
 **Stage start:** the code review's committed verdict, `code-review/018-next-upgrade-save-size-cap-code-review.md` Round 2,
 APPROVED_WITH_COMMENTS, `Reviewed-At` `b0b0158` (agent-output `34ed471`), re-read at the record. `b0b0158`'s only parent is
 `f9e66c2` (the M1 tip, which code review REJECTED at Round 1, CR-1). This verdict covers M2's diff at `b0b0158` and nothing of M1.
+**Reconcile 2026-11-20T05:58:** this verdict expired when M1's fix round (`c357095..a558f2d`) changed `shapes.ts` over `b0b0158`. The same surface was re-run at `a558f2d` and re-anchored there as PASS (`qa/018-next-upgrade-save-size-cap-m1-qa.md`, § The M2 refresh).
 **Steering:** M2 is capped (`steering/018-rulings.md` block 2026-11-20T05:26Z, `44efb1f`). A gap below HIGH goes to the Planner
 batch as a stated limit, except a severity-floor finding.
 **Architecture / roadmap:** as in the Phase 1 document (`architecture/website.md` A-4 for the `ts-node` check; no roadmap).

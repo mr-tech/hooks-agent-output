@@ -1,0 +1,37 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the plain unions of the save > add no displayable-text issue to a section whose accessory fails
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the plain unions of the save > add no displayable-text issue to a section whose accessory fails
+AssertionError: expected [ …(2) ] to deeply equal [ { code: 'invalid_union', …(2) } ]
+
+- Expected
++ Received
+
+@@ -8,6 +8,15 @@
+        "components",
+        0,
+        "accessory",
+      ],
+    },
++   {
++     "code": "too_big",
++     "message": "Components displayable text size exceeds maximum size of 4000",
++     "path": [
++       "message",
++       "data",
++       "components",
++     ],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:197:22
+    195|       const { issues } = await refusal({ components: [section] });
+    196|
+    197|       expect(issues).toEqual([{ code: 'invalid_union', path: [...DATA,…
+       |                      ^
+    198|     });
+    199|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+

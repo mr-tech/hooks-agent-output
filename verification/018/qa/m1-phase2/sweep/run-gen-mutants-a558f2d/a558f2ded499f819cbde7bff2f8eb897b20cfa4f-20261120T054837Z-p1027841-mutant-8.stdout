@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-gen-mutants-a558f2d/20261120T054837Z-p1027841/mutant-8
+
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (157 tests | 4 failed) 236ms
+     × refuses 12 valid elements with one issue for the list and no database access 8ms
+     × refuses 12 wrong primitive elements with one issue for the list and no database access 9ms
+     × refuses 12 null elements with one issue for the list and no database access 7ms
+     × refuses 61 elements with one issue for the list 2ms
+
+ Test Files  1 failed | 39 passed (40)
+      Tests  4 failed | 825 passed (829)
+   Start at  05:49:28
+   Duration  5.34s (transform 14.55s, setup 365ms, import 44.00s, tests 6.14s, environment 10.07s)
+

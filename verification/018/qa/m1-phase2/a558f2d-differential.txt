@@ -1,0 +1,10 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1p2/a558f2d
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  05:47:55
+   Duration  1.41s (transform 218ms, setup 0ms, import 1.05s, tests 228ms, environment 0ms)
+
+a558f2d-differential exit 0

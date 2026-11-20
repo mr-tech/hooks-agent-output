@@ -1,0 +1,992 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 18 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of invalid elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of invalid elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of invalid elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of invalid elements, length 90, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(2) }, …(20) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -6,6 +6,220 @@
+        "message",
+        "data",
+        "components",
+      ],
+    },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       0,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       1,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       2,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       3,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       4,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       5,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       6,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       7,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       8,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       9,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       10,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       11,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       12,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       13,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       14,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       15,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       16,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       17,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       18,
++       "content",
++     ],
++   },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/18]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of number elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of number elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of number elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of number elements, length 90, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(2) }, …(20) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -6,6 +6,201 @@
+        "message",
+        "data",
+        "components",
+      ],
+    },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       0,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       1,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       2,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       3,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       4,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       5,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       6,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       7,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       8,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       9,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       10,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       11,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       12,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       13,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       14,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       15,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       16,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       17,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received number",
++     "path": [
++       "message",
++       "data",
++       "components",
++       18,
++     ],
++   },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/18]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of null elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of null elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of null elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of null elements, length 90, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(2) }, …(20) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -6,6 +6,201 @@
+        "message",
+        "data",
+        "components",
+      ],
+    },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       0,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       1,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       2,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       3,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       4,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       5,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       6,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       7,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       8,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       9,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       10,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       11,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       12,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       13,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       14,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       15,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       16,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       17,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "message",
++       "data",
++       "components",
++       18,
++     ],
++   },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/18]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of nested elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of nested elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of nested elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of nested elements, length 90, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(2) }, …(20) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -6,6 +6,220 @@
+        "message",
+        "data",
+        "components",
+      ],
+    },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       0,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       1,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       2,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       3,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       4,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       5,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       6,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       7,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       8,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       9,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       10,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       11,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       12,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       13,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       14,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       15,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       16,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       17,
++       "components",
++     ],
++   },
++   {
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
++     "path": [
++       "message",
++       "data",
++       "components",
++       18,
++       "components",
++     ],
++   },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/18]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageShape over-limit lists > refuses 41 top-level components holding a null with one issue and no throw
+AssertionError: expected [ { code: 'too_big', …(2) }, …(1) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -4,6 +4,14 @@
+      "message": "Array must contain at most 40 element(s)",
+      "path": [
+        "components",
+      ],
+    },
++   {
++     "code": "invalid_type",
++     "message": "Expected object, received null",
++     "path": [
++       "components",
++       40,
++     ],
++   },
+  ]
+
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:68:29
+     66|     const result = discordMessageShape.safeParse({ components });
+     67|
+     68|     expect(reduced(result)).toEqual([{ code: 'too_big', path: ['compon…
+       |                             ^
+     69|   });
+     70|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/18]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageShape over-limit lists > adds no displayable-text issue to a refused list of over-long text displays
+AssertionError: expected [ { code: 'too_big', …(2) }, …(1) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -4,6 +4,13 @@
+      "message": "Array must contain at most 40 element(s)",
+      "path": [
+        "components",
+      ],
+    },
++   {
++     "code": "too_big",
++     "message": "Components displayable text size exceeds maximum size of 4000",
++     "path": [
++       "components",
++     ],
++   },
+  ]
+
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:83:29
+     81|     const result = discordMessageShape.safeParse({ components: repeat(…
+     82|
+     83|     expect(reduced(result)).toEqual([{ code: 'too_big', path: ['compon…
+       |                             ^
+     84|   });
+     85|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/18]⎯
+

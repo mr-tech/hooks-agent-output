@@ -1,0 +1,9 @@
+a558f2d-install exit 0
+a558f2d-suite exit 0
+a558f2d-typecheck exit 2
+a558f2d-differential exit 0
+a558f2d-build exit 0
+a558f2d-tsnode-T exit 0
+c357095-fix-specs exit 1
+done
+a558f2d-typecheck-after-build exit 0

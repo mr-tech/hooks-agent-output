@@ -1,0 +1,55 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: a capped refusal keeps the message each issue was created with > words the displayable-text issue as it does uncapped when an issue follows it
+AssertionError: expected { code: 'too_big', …(2) } to deeply equal { code: 'too_big', …(2) }
+
+- Expected
++ Received
+
+@@ -1,8 +1,8 @@
+  {
+    "code": "too_big",
+-   "message": "Components displayable text size exceeds maximum size of 4000",
++   "message": "String must contain at most 4000 character(s)",
+    "path": [
+      "message",
+      "data",
+      "components",
+    ],
+
+ ❯ src/server/api/routers/__tests__/message.save-limits.test.ts:63:24
+     61|
+     62|     expect(issues).toHaveLength(21);
+     63|     expect(issues[19]).toEqual({
+       |                        ^
+     64|       code: 'too_big',
+     65|       path: ['message', 'data', 'components'],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > cappedInput > keeps the message an issue was created with, at a kept position that is neither first nor last
+AssertionError: expected { code: 'custom', …(2) } to deeply equal { code: 'custom', …(2) }
+
+- Expected
++ Received
+
+  {
+    "code": "custom",
+-   "message": "The flag is not allowed",
++   "message": "Invalid input",
+    "path": [
+      "flag",
+    ],
+  }
+
+ ❯ src/server/api/utils/__tests__/shapes.error-cap.test.ts:69:26
+     67|
+     68|     expect(issues).toHaveLength(21);
+     69|     expect(issues?.[10]).toEqual({ code: 'custom', path: ['flag'], mes…
+       |                          ^
+     70|     expect(issues?.[9]).toEqual({ code: 'invalid_type', path: ['head',…
+     71|     expect(issues?.[11]).toEqual({ code: 'invalid_type', path: ['tail'…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

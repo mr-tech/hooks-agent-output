@@ -1,0 +1,1120 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 13 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > lists the first 20 issues in order and one summary at 21 issues
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > lists the first 20 issues in order and one summary at 21 issues
+AssertionError: expected [ …(21) ] to deeply equal [ …(21) ]
+
+- Expected
++ Received
+
+@@ -1,265 +1,305 @@
+  [
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        0,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        1,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        2,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        3,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        4,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        5,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        6,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        7,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        8,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        9,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        10,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        11,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        12,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        13,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        14,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        15,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        16,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        17,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        18,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        19,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "custom",
+      "message": "Stopped checking after 20 errors",
+      "path": [],
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:67:22
+     65|
+     66|       expect(code).toBe('BAD_REQUEST');
+     67|       expect(issues).toEqual([
+       |                      ^
+     68|         ...Array.from({ length: 20 }, (_, i) => fieldIssue(0, i, 'name…
+     69|         { code: 'custom', path: [], message: SUMMARY },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/13]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the one issue of an over-limit list toward the 20
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the one issue of an over-limit list toward the 20
+AssertionError: expected [ …(21) ] to deeply equal [ …(21) ]
+
+- Expected
++ Received
+
+@@ -1,265 +1,305 @@
+  [
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        0,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        1,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        2,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        3,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        4,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        5,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        6,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        7,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        8,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        9,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        10,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        11,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        12,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        13,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        14,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        15,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        16,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        17,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        18,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        19,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "custom",
+      "message": "Stopped checking after 20 errors",
+      "path": [],
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:89:27
+     87|         { code: 'too_big', path: [...DATA, 'embeds', 1, 'fields'], mes…
+     88|       ]);
+     89|       expect(over.issues).toEqual([
+       |                           ^
+     90|         ...Array.from({ length: 20 }, (_, i) => fieldIssue(0, i, 'name…
+     91|         { code: 'custom', path: [], message: SUMMARY },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/13]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the displayable-text issue, with its own message, toward the 20
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the displayable-text issue, with its own message, toward the 20
+AssertionError: expected [ { code: 'too_big', …(6) }, …(20) ] to deeply equal [ { code: 'too_big', …(2) }, …(20) ]
+
+- Expected
++ Received
+
+@@ -1,265 +1,345 @@
+  [
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        0,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        1,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        2,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        3,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        4,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        5,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        6,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        7,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        8,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        9,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        10,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        11,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        12,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        13,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        14,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        15,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        16,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        17,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        18,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        19,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "custom",
+      "message": "Stopped checking after 20 errors",
+      "path": [],
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:115:27
+    113|
+    114|       expect(exact.issues).toEqual([...Array.from({ length: 19 }, (_, …
+    115|       expect(over.issues).toEqual([
+       |                           ^
+    116|         ...Array.from({ length: 20 }, (_, i) => nameIssue(i)),
+    117|         { code: 'custom', path: [], message: SUMMARY },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/13]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > stay under 16 KB, 21 of them, for 40 containers of 40 fat action rows
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > stay under 16 KB, 21 of them, for 40 containers of 40 invalid sections
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > stay under 16 KB, 21 of them, for 40 containers of 40 fat action rows
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > stay under 16 KB, 21 of them, for 40 containers of 40 invalid sections
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:164:97
+    162|       expect(code).toBe('BAD_REQUEST');
+    163|       expect(issues).toHaveLength(21);
+    164|       expect(issues.every((issue) => Object.keys(issue).sort().join() …
+       |                                                                                                 ^
+    165|       expect(JSON.stringify(issues).length).toBeLessThan(SIXTEEN_KB);
+    166|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/13]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: a capped refusal keeps the message each issue was created with > words the displayable-text issue as it does uncapped when an issue follows it
+AssertionError: expected { Object (code, maximum, ...) } to deeply equal { code: 'too_big', …(2) }
+
+- Expected
++ Received
+
+  {
+    "code": "too_big",
++   "inclusive": true,
++   "maximum": 4000,
+    "message": "Components displayable text size exceeds maximum size of 4000",
+    "path": [
+      "message",
+      "data",
+      "components",
+    ],
++   "type": "string",
+  }
+
+ ❯ src/server/api/routers/__tests__/message.save-limits.test.ts:63:24
+     61|
+     62|     expect(issues).toHaveLength(21);
+     63|     expect(issues[19]).toEqual({
+       |                        ^
+     64|       code: 'too_big',
+     65|       path: ['message', 'data', 'components'],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/13]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > cappedInput > keeps 20 issues and adds one summary issue at the 21st
+AssertionError: expected { code: 'invalid_type', …(4) } to deeply equal { code: 'invalid_type', …(2) }
+
+- Expected
++ Received
+
+  {
+    "code": "invalid_type",
++   "expected": "string",
+    "message": "Expected string, received number",
+    "path": [
+      "names",
+      19,
+    ],
++   "received": "number",
+  }
+
+ ❯ src/server/api/utils/__tests__/shapes.error-cap.test.ts:53:26
+     51|
+     52|     expect(issues).toHaveLength(21);
+     53|     expect(issues?.[19]).toEqual({ code: 'invalid_type', path: ['names…
+       |                          ^
+     54|     expect(issues?.[20]).toEqual({ code: 'custom', path: [], message: …
+     55|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/13]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > cappedInput > keeps the message an issue was created with, at a kept position that is neither first nor last
+AssertionError: expected { code: 'invalid_type', …(4) } to deeply equal { code: 'invalid_type', …(2) }
+
+- Expected
++ Received
+
+  {
+    "code": "invalid_type",
++   "expected": "string",
+    "message": "Expected string, received number",
+    "path": [
+      "head",
+      9,
+    ],
++   "received": "number",
+  }
+
+ ❯ src/server/api/utils/__tests__/shapes.error-cap.test.ts:70:25
+     68|     expect(issues).toHaveLength(21);
+     69|     expect(issues?.[10]).toEqual({ code: 'custom', path: ['flag'], mes…
+     70|     expect(issues?.[9]).toEqual({ code: 'invalid_type', path: ['head',…
+       |                         ^
+     71|     expect(issues?.[11]).toEqual({ code: 'invalid_type', path: ['tail'…
+     72|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/13]⎯
+

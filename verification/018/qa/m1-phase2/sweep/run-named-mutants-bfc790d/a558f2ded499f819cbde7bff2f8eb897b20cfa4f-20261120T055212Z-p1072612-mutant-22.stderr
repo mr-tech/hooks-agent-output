@@ -1,0 +1,25 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > the plain unions of the message shape > create one issue for an allowed-mention kind that is not admitted
+AssertionError: expected { created: 4, returned: 1 } to deeply equal { created: 1, returned: 1 }
+
+- Expected
++ Received
+
+  {
+-   "created": 1,
++   "created": 4,
+    "returned": 1,
+  }
+
+ ❯ src/server/api/utils/__tests__/shapes.error-cap.test.ts:111:62
+    109|
+    110|   it('create one issue for an allowed-mention kind that is not admitte…
+    111|     expect(calls({ allowed_mentions: { parse: ['nope'] } })).toEqual({…
+       |                                                              ^
+    112|   });
+    113|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

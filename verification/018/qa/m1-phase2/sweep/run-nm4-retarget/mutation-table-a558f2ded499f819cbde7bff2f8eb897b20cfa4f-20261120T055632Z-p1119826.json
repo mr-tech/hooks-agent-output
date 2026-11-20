@@ -1,0 +1,78 @@
+{
+ "sha": "a558f2ded499f819cbde7bff2f8eb897b20cfa4f",
+ "repo": "/tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/nm4/repo",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/nm4-retarget.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "src/server/api",
+  "src/providers/MessageProvider"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/nm4-retarget.json",
+   "blob": "bd7bb978b0924820e8365f47f19aebc6ee93e070"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/run-nm4-retarget/a558f2ded499f819cbde7bff2f8eb897b20cfa4f-20261120T055632Z-p1119826-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/run-nm4-retarget/a558f2ded499f819cbde7bff2f8eb897b20cfa4f-20261120T055632Z-p1119826-control-1.stderr",
+   "seconds": 5.08,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 829,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "NM-4r",
+   "run": "mutant-1",
+   "file": "src/providers/MessageProvider/usePreferences.ts",
+   "tests": [],
+   "carried": {
+    "note": "NM-4 re-targeted at a558f2d (the line wraps since bfc790d): the composer is bounded only with an open id"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 829,
+   "control_tests_run": 829,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx > usePreferences recent message ids > sends at most ten stored ids, in order, with no message open, for a stored list of 11",
+    "|dom| src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx > usePreferences recent message ids > sends at most ten stored ids, in order, with no message open, for a stored list of 50"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.18,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/run-nm4-retarget/a558f2ded499f819cbde7bff2f8eb897b20cfa4f-20261120T055632Z-p1119826-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/qa/m1-phase2/sweep/run-nm4-retarget/a558f2ded499f819cbde7bff2f8eb897b20cfa4f-20261120T055632Z-p1119826-mutant-1.stderr"
+  }
+ ],
+ "score": "1 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; nm4-retarget.json (blob bd7bb978b0924820e8365f47f19aebc6ee93e070))"
+}

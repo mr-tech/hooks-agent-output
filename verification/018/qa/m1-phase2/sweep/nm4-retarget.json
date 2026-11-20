@@ -1,0 +1,1 @@
+[{"id": "NM-4r", "file": "src/providers/MessageProvider/usePreferences.ts", "old": "      ?? session?.user?.preferences?.recentMessageIds?.slice(0, MAX_RECENT_MESSAGE_IDS),", "new": "      ?? session?.user?.preferences?.recentMessageIds,", "note": "NM-4 re-targeted at a558f2d (the line wraps since bfc790d): the composer is bounded only with an open id"}]

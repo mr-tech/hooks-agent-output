@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-gen-mutants-a558f2d/20261120T054837Z-p1027841/mutant-18
+
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (157 tests | 2 failed) 220ms
+       × add no displayable-text issue to a section whose accessory fails 13ms
+       × keep every issue of the branch that matched, in order, and still run the displayable-text check 5ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (150 tests | 2 failed) 113ms
+       × add no displayable-text issue to a section whose accessory fails 7ms
+       × keep every issue of the branch that matched, in order, and still run the displayable-text check 2ms
+
+ Test Files  2 failed | 38 passed (40)
+      Tests  4 failed | 825 passed (829)
+   Start at  05:50:29
+   Duration  5.35s (transform 13.34s, setup 390ms, import 42.70s, tests 5.94s, environment 10.38s)
+

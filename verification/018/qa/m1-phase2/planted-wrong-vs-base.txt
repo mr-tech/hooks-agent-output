@@ -1,0 +1,3 @@
+upsert S1 n=1 invalid: within bound, base {'success': False, 'issues': [{'code': 'invalid_string', 'path': ['message', 'data', 'components', 0, 'components', 0, 'url'], 'message': 'Invalid url'}]} != tip {'success': False, 'issues': [{'code': 'invalid_string', 'path': ['message', 'data', 'components', 0, 'components', 0, 'url'], 'message': 'Invalid url PLANTED'}]}
+1224 base labels, 1224 tip labels, 1 violations
+planted exit 1

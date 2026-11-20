@@ -1,0 +1,3199 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 130 ⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of valid elements, length 6, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of valid elements, length 55, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of invalid elements, length 6, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of invalid elements, length 55, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of number elements, length 6, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of number elements, length 55, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of null elements, length 6, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of null elements, length 55, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(7) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "too_big",
++     "exact": false,
++     "fatal": true,
++     "inclusive": true,
++     "maximum": 5,
+      "message": "Array must contain at most 5 element(s)",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "components",
+      ],
++     "type": "array",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > keeps the one issue per invalid element for a list of 5 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > keeps the one issue per invalid element for a list of 4 with the first element invalid
+AssertionError: expected [ { validation: 'url', …(3) } ] to deeply equal [ { code: 'invalid_string', …(2) } ]
+
+- Expected
++ Received
+
+@@ -9,7 +9,8 @@
+        0,
+        "components",
+        0,
+        "url",
+      ],
++     "validation": "url",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:67:22
+     65|
+     66|       expect(code).toBe('BAD_REQUEST');
+     67|       expect(issues).toEqual([{
+       |                      ^
+     68|         code: site.invalidIssue.code,
+     69|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of valid elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of valid elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of invalid elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of invalid elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of number elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of number elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of null elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of null elements, length 53, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(7) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "too_big",
++     "exact": false,
++     "fatal": true,
++     "inclusive": true,
++     "maximum": 3,
+      "message": "Array must contain at most 3 element(s)",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "components",
+      ],
++     "type": "array",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > keeps the one issue per invalid element for a list of 3 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > keeps the one issue per invalid element for a list of 2 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > keeps the one issue per invalid element for a list of 40 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > keeps the one issue per invalid element for a list of 39 with the first element invalid
+AssertionError: expected [ { code: 'invalid_type', …(4) } ] to deeply equal [ { code: 'invalid_type', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "components",
+        0,
+        "content",
+      ],
++     "received": "number",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:67:22
+     65|
+     66|       expect(code).toBe('BAD_REQUEST');
+     67|       expect(issues).toEqual([{
+       |                      ^
+     68|         code: site.invalidIssue.code,
+     69|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S3 media gallery items' > refuses a list of valid elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S3 media gallery items' > refuses a list of valid elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S3 media gallery items' > refuses a list of invalid elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S3 media gallery items' > refuses a list of invalid elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S3 media gallery items' > refuses a list of number elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S3 media gallery items' > refuses a list of number elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S3 media gallery items' > refuses a list of null elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S3 media gallery items' > refuses a list of null elements, length 60, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(7) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "too_big",
++     "exact": false,
++     "fatal": true,
++     "inclusive": true,
++     "maximum": 10,
+      "message": "Array must contain at most 10 element(s)",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "items",
+      ],
++     "type": "array",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S3 media gallery items' > keeps the one issue per invalid element for a list of 10 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S3 media gallery items' > keeps the one issue per invalid element for a list of 9 with the first element invalid
+AssertionError: expected [ { validation: 'url', …(3) } ] to deeply equal [ { code: 'invalid_string', …(2) } ]
+
+- Expected
++ Received
+
+@@ -10,7 +10,8 @@
+        "items",
+        0,
+        "media",
+        "url",
+      ],
++     "validation": "url",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:67:22
+     65|
+     66|       expect(code).toBe('BAD_REQUEST');
+     67|       expect(issues).toEqual([{
+       |                      ^
+     68|         code: site.invalidIssue.code,
+     69|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of valid elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of valid elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of invalid elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of invalid elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of number elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of number elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of null elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of null elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of nested elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of nested elements, length 90, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(7) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "too_big",
++     "exact": false,
++     "fatal": true,
++     "inclusive": true,
++     "maximum": 40,
+      "message": "Array must contain at most 40 element(s)",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "components",
+      ],
++     "type": "array",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S5 embed fields' > refuses a list of valid elements, length 26, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S5 embed fields' > refuses a list of valid elements, length 75, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S5 embed fields' > refuses a list of invalid elements, length 26, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S5 embed fields' > refuses a list of invalid elements, length 75, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S5 embed fields' > refuses a list of number elements, length 26, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S5 embed fields' > refuses a list of number elements, length 75, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S5 embed fields' > refuses a list of null elements, length 26, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S5 embed fields' > refuses a list of null elements, length 75, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(7) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "too_big",
++     "exact": false,
++     "fatal": true,
++     "inclusive": true,
++     "maximum": 25,
+      "message": "Array must contain at most 25 element(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+      ],
++     "type": "array",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S5 embed fields' > keeps the one issue per invalid element for a list of 25 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S5 embed fields' > keeps the one issue per invalid element for a list of 24 with the first element invalid
+AssertionError: expected [ { code: 'invalid_type', …(4) } ] to deeply equal [ { code: 'invalid_type', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        0,
+        "name",
+      ],
++     "received": "number",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:67:22
+     65|
+     66|       expect(code).toBe('BAD_REQUEST');
+     67|       expect(issues).toEqual([{
+       |                      ^
+     68|         code: site.invalidIssue.code,
+     69|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of valid elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of valid elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of invalid elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of invalid elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of number elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of number elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of null elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of null elements, length 53, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(7) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "too_big",
++     "exact": false,
++     "fatal": true,
++     "inclusive": true,
++     "maximum": 3,
+      "message": "Array must contain at most 3 element(s)",
+      "path": [
+        "message",
+        "data",
+        "allowed_mentions",
+        "parse",
+      ],
++     "type": "array",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > keeps the one issue per invalid element for a list of 3 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > keeps the one issue per invalid element for a list of 2 with the first element invalid
+AssertionError: expected [ { code: 'invalid_union', …(4) } ] to deeply equal [ { code: 'invalid_union', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "invalid_union",
++     "fatal": true,
+      "message": "Invalid input",
+      "path": [
+        "message",
+        "data",
+        "allowed_mentions",
+        "parse",
+        0,
++     ],
++     "unionErrors": [
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": "user",
++             "message": "Invalid literal value, expected \"user\"",
++             "path": [],
++             "received": "nope",
++           },
++         ],
++         "name": "ZodError",
++       },
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": "here",
++             "message": "Invalid literal value, expected \"here\"",
++             "path": [],
++             "received": "nope",
++           },
++         ],
++         "name": "ZodError",
++       },
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": "everyone",
++             "message": "Invalid literal value, expected \"everyone\"",
++             "path": [],
++             "received": "nope",
++           },
++         ],
++         "name": "ZodError",
++       },
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:67:22
+     65|
+     66|       expect(code).toBe('BAD_REQUEST');
+     67|       expect(issues).toEqual([{
+       |                      ^
+     68|         code: site.invalidIssue.code,
+     69|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of valid elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of valid elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of invalid elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of invalid elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of number elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of number elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of null elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of null elements, length 150, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(7) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "too_big",
++     "exact": false,
++     "fatal": true,
++     "inclusive": true,
++     "maximum": 100,
+      "message": "Array must contain at most 100 element(s)",
+      "path": [
+        "message",
+        "data",
+        "allowed_mentions",
+        "users",
+      ],
++     "type": "array",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > keeps the one issue per invalid element for a list of 100 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > keeps the one issue per invalid element for a list of 99 with the first element invalid
+AssertionError: expected [ { validation: 'regex', …(3) } ] to deeply equal [ { code: 'invalid_string', …(2) } ]
+
+- Expected
++ Received
+
+@@ -7,7 +7,8 @@
+        "data",
+        "allowed_mentions",
+        "users",
+        0,
+      ],
++     "validation": "regex",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:67:22
+     65|
+     66|       expect(code).toBe('BAD_REQUEST');
+     67|       expect(issues).toEqual([{
+       |                      ^
+     68|         code: site.invalidIssue.code,
+     69|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of valid elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of valid elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of invalid elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of invalid elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of number elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of number elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of null elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of null elements, length 150, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(7) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "too_big",
++     "exact": false,
++     "fatal": true,
++     "inclusive": true,
++     "maximum": 100,
+      "message": "Array must contain at most 100 element(s)",
+      "path": [
+        "message",
+        "data",
+        "allowed_mentions",
+        "roles",
+      ],
++     "type": "array",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > keeps the one issue per invalid element for a list of 100 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > keeps the one issue per invalid element for a list of 99 with the first element invalid
+AssertionError: expected [ { validation: 'regex', …(3) } ] to deeply equal [ { code: 'invalid_string', …(2) } ]
+
+- Expected
++ Received
+
+@@ -7,7 +7,8 @@
+        "data",
+        "allowed_mentions",
+        "roles",
+        0,
+      ],
++     "validation": "regex",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:67:22
+     65|
+     66|       expect(code).toBe('BAD_REQUEST');
+     67|       expect(issues).toEqual([{
+       |                      ^
+     68|         code: site.invalidIssue.code,
+     69|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of valid elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of valid elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of invalid elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of invalid elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of number elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of number elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of null elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of null elements, length 60, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of nested elements, length 11, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > refuses a list of nested elements, length 60, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(7) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "too_big",
++     "exact": false,
++     "fatal": true,
++     "inclusive": true,
++     "maximum": 10,
+      "message": "Array must contain at most 10 element(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+      ],
++     "type": "array",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > keeps the one issue per invalid element for a list of 10 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > keeps the one issue per invalid element for a list of 9 with the first element invalid
+AssertionError: expected [ { code: 'invalid_type', …(4) } ] to deeply equal [ { code: 'invalid_type', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "title",
+      ],
++     "received": "number",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:67:22
+     65|
+     66|       expect(code).toBe('BAD_REQUEST');
+     67|       expect(issues).toEqual([{
+       |                      ^
+     68|         code: site.invalidIssue.code,
+     69|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of valid elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of valid elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of invalid elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of invalid elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of number elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of number elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of null elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of null elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of nested elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of nested elements, length 90, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(7) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "too_big",
++     "exact": false,
++     "fatal": true,
++     "inclusive": true,
++     "maximum": 40,
+      "message": "Array must contain at most 40 element(s)",
+      "path": [
+        "message",
+        "data",
+        "components",
+      ],
++     "type": "array",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > keeps the one issue per invalid element for a list of 40 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > keeps the one issue per invalid element for a list of 39 with the first element invalid
+AssertionError: expected [ { code: 'invalid_type', …(4) } ] to deeply equal [ { code: 'invalid_type', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "content",
+      ],
++     "received": "number",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:67:22
+     65|
+     66|       expect(code).toBe('BAD_REQUEST');
+     67|       expect(issues).toEqual([{
+       |                      ^
+     68|         code: site.invalidIssue.code,
+     69|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > lists exactly 20 issues with no summary
+AssertionError: expected [ …(20) ] to deeply equal [ …(20) ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        0,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        1,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        2,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        3,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        4,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        5,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        6,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        7,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        8,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        9,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        10,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        11,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        12,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        13,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        14,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        15,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        16,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        17,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        18,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        19,
+        "name",
+      ],
++     "received": "number",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:60:22
+     58|
+     59|       expect(code).toBe('BAD_REQUEST');
+     60|       expect(issues).toEqual(Array.from({ length: 20 }, (_, i) => fiel…
+       |                      ^
+     61|     });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > lists the first 20 issues in order and one summary at 21 issues
+AssertionError: expected [ …(21) ] to deeply equal [ …(21) ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        0,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        1,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        2,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        3,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        4,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        5,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        6,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        7,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        8,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        9,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        10,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        11,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        12,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        13,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        14,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        15,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        16,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        17,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        18,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        19,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+-     "code": "custom",
+-     "message": "Stopped checking after 20 errors",
+-     "path": [],
++     "code": "invalid_type",
++     "expected": "string",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       0,
++       "fields",
++       20,
++       "name",
++     ],
++     "received": "number",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:67:22
+     65|
+     66|       expect(code).toBe('BAD_REQUEST');
+     67|       expect(issues).toEqual([
+       |                      ^
+     68|         ...Array.from({ length: 20 }, (_, i) => fieldIssue(0, i, 'name…
+     69|         { code: 'custom', path: [], message: SUMMARY },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > stops at 20 issues of 100 malformed mention ids and renders 21 lines
+AssertionError: expected [ …(100) ] to have a length of 21 but got 100
+
+- Expected
++ Received
+
+- 21
++ 100
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:76:22
+     74|       const { issues } = await refusal({ allowed_mentions: { users: re…
+     75|
+     76|       expect(issues).toHaveLength(21);
+       |                      ^
+     77|       expect(issues[20]).toEqual({ code: 'custom', path: [], message: …
+     78|       expect(formatMutationError({ message: JSON.stringify(issues) })?…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the one issue of an over-limit list toward the 20
+AssertionError: expected [ { code: 'too_big', …(7) }, …(19) ] to deeply equal [ …(20) ]
+
+- Expected
++ Received
+
+  [
+    {
++     "code": "too_big",
++     "exact": false,
++     "fatal": true,
++     "inclusive": true,
++     "maximum": 25,
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       1,
++       "fields",
++     ],
++     "type": "array",
++   },
++   {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        0,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        1,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        2,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        3,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        4,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        5,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        6,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        7,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        8,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        9,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        10,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        11,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        12,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        13,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        14,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        15,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        16,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        17,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        18,
+        "name",
+      ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "Array must contain at most 25 element(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       1,
+-       "fields",
+-     ],
++     "received": "number",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:85:28
+     83|       const over = await refusal({ embeds: [{ fields: repeat(20, badNa…
+     84|
+     85|       expect(exact.issues).toEqual([
+       |                            ^
+     86|         ...Array.from({ length: 19 }, (_, i) => fieldIssue(0, i, 'name…
+     87|         { code: 'too_big', path: [...DATA, 'embeds', 1, 'fields'], mes…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the displayable-text issue, with its own message, toward the 20
+AssertionError: expected [ { code: 'too_big', …(6) }, …(19) ] to deeply equal [ { code: 'too_big', …(2) }, …(19) ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        0,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        1,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        2,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        3,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        4,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        5,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        6,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        7,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        8,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        9,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        10,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        11,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        12,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        13,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        14,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        15,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        16,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        17,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "exact": false,
++     "inclusive": true,
++     "maximum": 256,
+      "message": "String must contain at most 256 character(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        18,
+        "name",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "too_big",
++     "inclusive": true,
++     "maximum": 4000,
+      "message": "Components displayable text size exceeds maximum size of 4000",
+      "path": [
+        "message",
+        "data",
+        "components",
+      ],
++     "type": "string",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:114:28
+    112|       const over = await refusal(withTwenty);
+    113|
+    114|       expect(exact.issues).toEqual([...Array.from({ length: 19 }, (_, …
+       |                            ^
+    115|       expect(over.issues).toEqual([
+    116|         ...Array.from({ length: 20 }, (_, i) => nameIssue(i)),
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > stops reading the input after the 21st issue
+AssertionError: expected [ …(1600) ] to have a length of 21 but got 1600
+
+- Expected
++ Received
+
+- 21
++ 1600
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:127:22
+    125|       const { issues } = await refusal({ components: repeat(40, contai…
+    126|
+    127|       expect(issues).toHaveLength(21);
+       |                      ^
+    128|       expect(counter.reads).toBeLessThan(200);
+    129|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > keeps two concurrent refusals apart
+AssertionError: expected [ …(15) ] to deeply equal [ …(15) ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        0,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        1,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        2,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        3,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        4,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        5,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        6,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        7,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        8,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        9,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        10,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        11,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        12,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        13,
+        "name",
+      ],
++     "received": "number",
+    },
+    {
+      "code": "invalid_type",
++     "expected": "string",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+        14,
+        "name",
+      ],
++     "received": "number",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:138:28
+    136|       const third = await refusal({ embeds: [{ fields: repeat(15, badN…
+    137|
+    138|       expect(first.issues).toEqual(Array.from({ length: 15 }, (_, i) =…
+       |                            ^
+    139|       expect(second.issues).toEqual(Array.from({ length: 15 }, (_, i) …
+    140|       expect(third.issues).toEqual(first.issues);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for one allowed-mention kind of a hundred thousand characters
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for three allowed-mention kinds of a hundred thousand characters
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for a link button style of a hundred thousand characters
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for a link button type of a hundred thousand characters
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for a section accessory type of a hundred thousand characters
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for a separator spacing of a hundred thousand characters
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for a text display type inside a section of a hundred thousand characters
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for a thumbnail accessory type of a hundred thousand characters
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:151:97
+    149|       expect(code).toBe('BAD_REQUEST');
+    150|       expect(issues).toHaveLength(count);
+    151|       expect(issues.every((issue) => Object.keys(issue).sort().join() …
+       |                                                                                                 ^
+    152|       expect(text.length).toBeLessThan(SIXTEEN_KB);
+    153|       expect(text).not.toContain(BIG.slice(0, 1000));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[27/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > stay under 16 KB, 21 of them, for 40 containers of 40 fat action rows
+AssertionError: expected [ { received: 1, …(4) }, …(47999) ] to have a length of 21 but got 48000
+
+- Expected
++ Received
+
+- 21
++ 48000
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:163:22
+    161|
+    162|       expect(code).toBe('BAD_REQUEST');
+    163|       expect(issues).toHaveLength(21);
+       |                      ^
+    164|       expect(issues.every((issue) => Object.keys(issue).sort().join() …
+    165|       expect(JSON.stringify(issues).length).toBeLessThan(SIXTEEN_KB);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[28/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > stay under 16 KB, 21 of them, for 40 containers of 40 invalid sections
+AssertionError: expected [ …(1600) ] to have a length of 21 but got 1600
+
+- Expected
++ Received
+
+- 21
++ 1600
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:163:22
+    161|
+    162|       expect(code).toBe('BAD_REQUEST');
+    163|       expect(issues).toHaveLength(21);
+       |                      ^
+    164|       expect(issues.every((issue) => Object.keys(issue).sort().join() …
+    165|       expect(JSON.stringify(issues).length).toBeLessThan(SIXTEEN_KB);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[29/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > carry only code, path and message for a refusal of one issue
+AssertionError: expected [ { code: 'invalid_union', …(4) } ] to deeply equal [ { code: 'invalid_union', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "invalid_union",
++     "fatal": true,
+      "message": "Invalid input",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "spacing",
++     ],
++     "unionErrors": [
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": 1,
++             "message": "Invalid literal value, expected 1",
++             "path": [],
++             "received": 3,
++           },
++         ],
++         "name": "ZodError",
++       },
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": 2,
++             "message": "Invalid literal value, expected 2",
++             "path": [],
++             "received": 3,
++           },
++         ],
++         "name": "ZodError",
++       },
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:171:22
+    169|       const { issues } = await refusal({ components: [{ type: 14, divi…
+    170|
+    171|       expect(issues).toEqual([{ code: 'invalid_union', path: [...DATA,…
+       |                      ^
+    172|     });
+    173|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[30/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the plain unions of the save > return one issue for each of six failing accessories
+AssertionError: expected [ …(6) ] to deeply equal [ …(6) ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "invalid_union",
++     "fatal": true,
+      "message": "Invalid input",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "accessory",
++     ],
++     "unionErrors": [
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": 11,
++             "message": "Invalid literal value, expected 11",
++             "path": [
++               "type",
++             ],
++             "received": 99,
++           },
++           {
++             "code": "invalid_type",
++             "expected": "object",
++             "message": "Required",
++             "path": [
++               "media",
++             ],
++             "received": "undefined",
++           },
++         ],
++         "name": "ZodError",
++       },
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": 2,
++             "message": "Invalid literal value, expected 2",
++             "path": [
++               "type",
+              ],
++             "received": 99,
+            },
+            {
++             "code": "invalid_literal",
++             "expected": 5,
++             "message": "Invalid literal value, expected 5",
++             "path": [
++               "style",
++             ],
++           },
++           {
++             "code": "invalid_type",
++             "expected": "string",
++             "message": "Required",
++             "path": [
++               "url",
++             ],
++             "received": "undefined",
++           },
++         ],
++         "name": "ZodError",
++       },
++     ],
++   },
++   {
+      "code": "invalid_union",
++     "fatal": true,
+      "message": "Invalid input",
+      "path": [
+        "message",
+        "data",
+        "components",
+        1,
+        "accessory",
++     ],
++     "unionErrors": [
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": 11,
++             "message": "Invalid literal value, expected 11",
++             "path": [
++               "type",
++             ],
++             "received": 99,
++           },
++           {
++             "code": "invalid_type",
++             "expected": "object",
++             "message": "Required",
++             "path": [
++               "media",
+              ],
++             "received": "undefined",
+            },
++         ],
++         "name": "ZodError",
++       },
+        {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": 2,
++             "message": "Invalid literal value, expected 2",
++             "path": [
++               "type",
++             ],
++             "received": 99,
++           },
++           {
++             "code": "invalid_literal",
++             "expected": 5,
++             "message": "Invalid literal value, expected 5",
++             "path": [
++               "style",
++             ],
++           },
++           {
++             "code": "invalid_type",
++             "expected": "string",
++             "message": "Required",
++             "path": [
++               "url",
++             ],
++             "received": "undefined",
++           },
++         ],
++         "name": "ZodError",
++       },
++     ],
++   },
++   {
+      "code": "invalid_union",
++     "fatal": true,
+      "message": "Invalid input",
+      "path": [
+        "message",
+        "data",
+        "components",
+        2,
+        "accessory",
++     ],
++     "unionErrors": [
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": 11,
++             "message": "Invalid literal value, expected 11",
++             "path": [
++               "type",
++             ],
++             "received": 99,
++           },
++           {
++             "code": "invalid_type",
++             "expected": "object",
++             "message": "Required",
++             "path": [
++               "media",
++             ],
++             "received": "undefined",
++           },
++         ],
++         "name": "ZodError",
++       },
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": 2,
++             "message": "Invalid literal value, expected 2",
++             "path": [
++               "type",
++             ],
++             "received": 99,
++           },
++           {
++             "code": "invalid_literal",
++             "expected": 5,
++             "message": "Invalid literal value, expected 5",
++             "path": [
++               "style",
++             ],
++           },
++           {
++             "code": "invalid_type",
++             "expected": "string",
++             "message": "Required",
++             "path": [
++               "url",
++             ],
++             "received": "undefined",
++           },
++         ],
++         "name": "ZodError",
++       },
+      ],
+    },
+    {
+      "code": "invalid_union",
++     "fatal": true,
+      "message": "Invalid input",
+      "path": [
+        "message",
+        "data",
+        "components",
+        3,
+        "accessory",
+      ],
++     "unionErrors": [
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": 11,
++             "message": "Invalid literal value, expected 11",
++             "path": [
++               "type",
++             ],
++             "received": 99,
++           },
++           {
++             "code": "invalid_type",
++             "expected": "object",
++             "message": "Required",
++             "path": [
++               "media",
++             ],
++             "received": "undefined",
++           },
++         ],
++         "name": "ZodError",
++       },
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": 2,
++             "message": "Invalid literal value, expected 2",
++             "path": [
++               "type",
++             ],
++             "received": 99,
++           },
++           {
++             "code": "invalid_literal",
++             "expected": 5,
++             "message": "Invalid literal value, expected 5",
++             "path": [
++               "style",
++             ],
+            },
+            {
++             "code": "invalid_type",
++             "expected": "string",
++             "message": "Required",
++             "path": [
++               "url",
++             ],
++             "received": "undefined",
++           },
++         ],
++         "name": "ZodError",
++       },
++     ],
++   },
++   {
+      "code": "invalid_union",
++     "fatal": true,
+      "message": "Invalid input",
+      "path": [
+        "message",
+        "data",
+        "components",
+        4,
+        "accessory",
++     ],
++     "unionErrors": [
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": 11,
++             "message": "Invalid literal value, expected 11",
++             "path": [
++               "type",
++             ],
++             "received": 99,
++           },
++           {
++             "code": "invalid_type",
++             "expected": "object",
++             "message": "Required",
++             "path": [
++               "media",
++             ],
++             "received": "undefined",
++           },
++         ],
++         "name": "ZodError",
++       },
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": 2,
++             "message": "Invalid literal value, expected 2",
++             "path": [
++               "type",
++             ],
++             "received": 99,
++           },
++           {
++             "code": "invalid_literal",
++             "expected": 5,
++             "message": "Invalid literal value, expected 5",
++             "path": [
++               "style",
++             ],
++           },
++           {
++             "code": "invalid_type",
++             "expected": "string",
++             "message": "Required",
++             "path": [
++               "url",
++             ],
++             "received": "undefined",
++           },
++         ],
++         "name": "ZodError",
++       },
+      ],
+    },
+    {
+      "code": "invalid_union",
++     "fatal": true,
+      "message": "Invalid input",
+      "path": [
+        "message",
+        "data",
+        "components",
+        5,
+        "accessory",
++     ],
++     "unionErrors": [
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": 11,
++             "message": "Invalid literal value, expected 11",
++             "path": [
++               "type",
++             ],
++             "received": 99,
++           },
++           {
++             "code": "invalid_type",
++             "expected": "object",
++             "message": "Required",
++             "path": [
++               "media",
++             ],
++             "received": "undefined",
++           },
++         ],
++         "name": "ZodError",
++       },
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": 2,
++             "message": "Invalid literal value, expected 2",
++             "path": [
++               "type",
++             ],
++             "received": 99,
++           },
++           {
++             "code": "invalid_literal",
++             "expected": 5,
++             "message": "Invalid literal value, expected 5",
++             "path": [
++               "style",
++             ],
++           },
++           {
++             "code": "invalid_type",
++             "expected": "string",
++             "message": "Required",
++             "path": [
++               "url",
++             ],
++             "received": "undefined",
++           },
++         ],
++         "name": "ZodError",
++       },
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:179:22
+    177|       const { issues } = await refusal({ components: repeat(6, invalid…
+    178|
+    179|       expect(issues).toEqual(Array.from({ length: 6 }, (_, i) => ({
+       |                      ^
+    180|         code: 'invalid_union', path: [...DATA, 'components', i, 'acces…
+    181|       })));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[31/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the plain unions of the save > stop at the 20th of 21 failing accessories
+AssertionError: expected { code: 'invalid_union', …(4) } to deeply equal { code: 'custom', path: [], …(1) }
+
+- Expected
++ Received
+
+  {
+-   "code": "custom",
+-   "message": "Stopped checking after 20 errors",
+-   "path": [],
++   "code": "invalid_union",
++   "fatal": true,
++   "message": "Invalid input",
++   "path": [
++     "message",
++     "data",
++     "components",
++     20,
++     "accessory",
++   ],
++   "unionErrors": [
++     {
++       "issues": [
++         {
++           "code": "invalid_literal",
++           "expected": 11,
++           "message": "Invalid literal value, expected 11",
++           "path": [
++             "type",
++           ],
++           "received": 99,
++         },
++         {
++           "code": "invalid_type",
++           "expected": "object",
++           "message": "Required",
++           "path": [
++             "media",
++           ],
++           "received": "undefined",
++         },
++       ],
++       "name": "ZodError",
++     },
++     {
++       "issues": [
++         {
++           "code": "invalid_literal",
++           "expected": 2,
++           "message": "Invalid literal value, expected 2",
++           "path": [
++             "type",
++           ],
++           "received": 99,
++         },
++         {
++           "code": "invalid_literal",
++           "expected": 5,
++           "message": "Invalid literal value, expected 5",
++           "path": [
++             "style",
++           ],
++         },
++         {
++           "code": "invalid_type",
++           "expected": "string",
++           "message": "Required",
++           "path": [
++             "url",
++           ],
++           "received": "undefined",
++         },
++       ],
++       "name": "ZodError",
++     },
++   ],
+  }
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:188:26
+    186|
+    187|       expect(issues).toHaveLength(21);
+    188|       expect(issues[20]).toEqual({ code: 'custom', path: [], message: …
+       |                          ^
+    189|     });
+    190|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[32/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the plain unions of the save > add no displayable-text issue to a section whose accessory fails
+AssertionError: expected [ { code: 'invalid_union', …(4) } ] to deeply equal [ { code: 'invalid_union', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "invalid_union",
++     "fatal": true,
+      "message": "Invalid input",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "accessory",
++     ],
++     "unionErrors": [
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": 11,
++             "message": "Invalid literal value, expected 11",
++             "path": [
++               "type",
++             ],
++             "received": 99,
++           },
++           {
++             "code": "invalid_type",
++             "expected": "object",
++             "message": "Required",
++             "path": [
++               "media",
++             ],
++             "received": "undefined",
++           },
++         ],
++         "name": "ZodError",
++       },
++       {
++         "issues": [
++           {
++             "code": "invalid_literal",
++             "expected": 2,
++             "message": "Invalid literal value, expected 2",
++             "path": [
++               "type",
++             ],
++             "received": 99,
++           },
++           {
++             "code": "invalid_literal",
++             "expected": 5,
++             "message": "Invalid literal value, expected 5",
++             "path": [
++               "style",
++             ],
++           },
++           {
++             "code": "invalid_type",
++             "expected": "string",
++             "message": "Required",
++             "path": [
++               "url",
++             ],
++             "received": "undefined",
++           },
++         ],
++         "name": "ZodError",
++       },
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:197:22
+    195|       const { issues } = await refusal({ components: [section] });
+    196|
+    197|       expect(issues).toEqual([{ code: 'invalid_union', path: [...DATA,…
+       |                      ^
+    198|     });
+    199|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[33/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the plain unions of the save > keep every issue of the branch that matched, in order, and still run the displayable-text check
+AssertionError: expected [ { code: 'too_big', …(7) }, …(2) ] to deeply equal [ { code: 'too_big', …(2) }, …(2) ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "too_big",
++     "exact": false,
++     "fatal": false,
++     "inclusive": true,
++     "maximum": 80,
+      "message": "String must contain at most 80 character(s)",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "accessory",
+        "label",
+      ],
++     "type": "string",
+    },
+    {
+      "code": "invalid_string",
++     "fatal": false,
+      "message": "Invalid url",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "accessory",
+        "url",
+      ],
++     "validation": "url",
+    },
+    {
+      "code": "too_big",
++     "inclusive": true,
++     "maximum": 4000,
+      "message": "Components displayable text size exceeds maximum size of 4000",
+      "path": [
+        "message",
+        "data",
+        "components",
+      ],
++     "type": "string",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:207:22
+    205|       const { issues } = await refusal({ components: [section] });
+    206|
+    207|       expect(issues).toEqual([
+       |                      ^
+    208|         { code: 'too_big', path: [...DATA, 'components', 0, 'accessory…
+    209|         { code: 'invalid_string', path: [...DATA, 'components', 0, 'ac…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[34/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the plain unions of the save > keep the issue of the one branch that matched the accessory type
+AssertionError: expected [ { validation: 'url', …(4) } ] to deeply equal [ { code: 'invalid_string', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "invalid_string",
++     "fatal": false,
+      "message": "Invalid url",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "accessory",
+        "media",
+        "url",
+      ],
++     "validation": "url",
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:220:22
+    218|       const { issues } = await refusal({ components: [section] });
+    219|
+    220|       expect(issues).toEqual([{
+       |                      ^
+    221|         code: 'invalid_string', path: [...DATA, 'components', 0, 'acce…
+    222|       }]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[35/130]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: a capped refusal keeps the message each issue was created with > words the displayable-text issue as it does uncapped when an issue follows it
+AssertionError: expected [ Array(22) ] to have a length of 21 but got 22
+
+- Expected
++ Received
+
+- 21
++ 22
+
+ ❯ src/server/api/routers/__tests__/message.save-limits.test.ts:62:20
+     60|     const { issues } = await refusalOf((input) => caller().upsert(inpu…
+     61|
+     62|     expect(issues).toHaveLength(21);
+       |                    ^
+     63|     expect(issues[19]).toEqual({
+     64|       code: 'too_big',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[36/130]⎯
+

@@ -1,0 +1,5 @@
+F-1 KILLED 6.8
+F-2 KILLED 6.09
+F-3 SURVIVED 5.88
+F-4 KILLED 5.6
+3 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; named-mutants-a558f2d.json (blob 73463c984033b17d6d8810efcd6b7590cd3888af))

@@ -1,0 +1,220 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 51 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/providers/MessageProvider/__tests__/usePusher.hash-parity.test.ts > hashMessage producer/consumer parity after normalizeForHash > a leading space in a V2 accessory (thumbnail) URL does not create a false mismatch
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageShape (strict) > accepts a message with V2 components
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageShape (strict) > rejects section with more than 3 text components
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageShape (strict) > accepts separator with spacing=1 (small) and spacing=2 (large)
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageShape (strict) > accepts section with zero text components
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageShape (strict) > the max limits on these same five shapes remain enforced — still reject over-max (regression control)
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageImportShape (lenient import) > accepts a valid message identically to strict shape
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageImportShape (lenient import) > filters out unsupported component types (e.g., select menus) silently
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageImportShape (lenient import) > filters unsupported children from containers
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > aggregate displayable text limit > counts text displays nested inside sections
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > aggregate displayable text limit > counts text displays inside sections within containers
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > QA: aggregate displayable text — edge cases > deeply nested: section-in-container correctly sums
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageShape description bound > saves a Thumbnail description longer than 1024 characters
+ FAIL  |node| src/server/api/utils/__tests__/shapes.supported-types-parity.test.ts > filterSupportedComponents filters Section accessories the same way ActionRow buttons already are > keeps a top-level Section whose accessory is a link button
+TypeError: Cannot read properties of undefined (reading 'issues')
+ ❯ Object.transform src/server/api/utils/shapes.ts:61:32
+     59|     const result = union.safeParse(value);
+     60|     if (false && result.success) return result.data as unknown;
+     61|     const fatal = result.error.issues.some(({ code }) => code === z.Zo…
+       |                                ^
+     62|     result.error.issues.forEach((issue) => ctx.addIssue({ ...issue, fa…
+     63|     return z.NEVER;
+ ❯ ZodEffects._parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3514:39
+ ❯ ZodObject._parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:2218:37
+ ❯ ZodObject._parseSync node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:624:29
+ ❯ ZodDiscriminatedUnion._parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:2686:27
+ ❯ ZodDiscriminatedUnion._parseSync node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:624:29
+ ❯ node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:2066:29
+ ❯ ZodArray._parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:2065:38
+ ❯ ZodArray._parseSync node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:624:29
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/51]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of valid elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of valid elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of invalid elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of invalid elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of number elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of number elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of null elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of null elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of valid elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of valid elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of invalid elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of invalid elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of number elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of number elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of null elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of null elements, length 53, with one issue for the list and no database access
+AssertionError: expected [] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "too_big",
+-     "message": "Array must contain at most 3 element(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       0,
+-       "components",
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:50:22
+     48|
+     49|       expect(code).toBe('BAD_REQUEST');
+     50|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     51|       expect(procedure.databaseQueries()).toBe(before);
+     52|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/51]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > accepts a list of 3 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > accepts a list of 2 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > accepts a list of 3 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > accepts a list of 2 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > accepts a list of 3 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > accepts a list of 2 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > accepts a list of 3 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > accepts a list of 2 valid elements
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:57:30
+     55|       const outcome = await reachesDatabase(procedure, procedureInput(…
+     56|
+     57|       expect(outcome.passed).toBe(true);
+       |                              ^
+     58|       expect(outcome.code).not.toBe('BAD_REQUEST');
+     59|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/51]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > keeps the one issue per invalid element for a list of 3 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > keeps the one issue per invalid element for a list of 2 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > keeps the one issue per invalid element for a list of 3 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > keeps the one issue per invalid element for a list of 2 with the first element invalid
+AssertionError: expected [] to deeply equal [ { code: 'invalid_type', …(2) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       0,
+-       "components",
+-       0,
+-       "content",
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:67:22
+     65|
+     66|       expect(code).toBe('BAD_REQUEST');
+     67|       expect(issues).toEqual([{
+       |                      ^
+     68|         code: site.invalidIssue.code,
+     69|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/51]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > keeps the one issue per invalid element for a list of 3 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > keeps the one issue per invalid element for a list of 2 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > keeps the one issue per invalid element for a list of 3 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > keeps the one issue per invalid element for a list of 2 with the first element invalid
+AssertionError: expected [] to deeply equal [ { code: 'invalid_union', …(2) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
+-     "path": [
+-       "message",
+-       "data",
+-       "allowed_mentions",
+-       "parse",
+-       0,
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:67:22
+     65|
+     66|       expect(code).toBe('BAD_REQUEST');
+     67|       expect(issues).toEqual([{
+       |                      ^
+     68|         code: site.invalidIssue.code,
+     69|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/51]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for a text display type inside a section of a hundred thousand characters
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for a text display type inside a section of a hundred thousand characters
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:150:22
+    148|
+    149|       expect(code).toBe('BAD_REQUEST');
+    150|       expect(issues).toHaveLength(count);
+       |                      ^
+    151|       expect(issues.every((issue) => Object.keys(issue).sort().join() …
+    152|       expect(text.length).toBeLessThan(SIXTEEN_KB);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/51]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageShape allowed mentions > accepts user as a parse kind and refuses one that is not admitted
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageShape allowed mentions > accepts here as a parse kind and refuses one that is not admitted
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageShape allowed mentions > accepts everyone as a parse kind and refuses one that is not admitted
+TypeError: Cannot read properties of undefined (reading 'issues')
+ ❯ Object.transform src/server/api/utils/shapes.ts:61:32
+     59|     const result = union.safeParse(value);
+     60|     if (false && result.success) return result.data as unknown;
+     61|     const fatal = result.error.issues.some(({ code }) => code === z.Zo…
+       |                                ^
+     62|     result.error.issues.forEach((issue) => ctx.addIssue({ ...issue, fa…
+     63|     return z.NEVER;
+ ❯ ZodEffects._parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3514:39
+ ❯ ZodEffects._parseSync node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:624:29
+ ❯ node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:2066:29
+ ❯ ZodArray._parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:2065:38
+ ❯ ZodArray._parseSync node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:624:29
+ ❯ ZodPipeline._parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3751:38
+ ❯ ZodOptional._parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3555:36
+ ❯ ZodObject._parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:2218:37
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/51]⎯
+

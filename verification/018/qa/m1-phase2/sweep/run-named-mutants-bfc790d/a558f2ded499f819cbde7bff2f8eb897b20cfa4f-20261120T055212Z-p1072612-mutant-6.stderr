@@ -1,0 +1,122 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses 12 valid elements with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses 12 wrong primitive elements with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses 12 null elements with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "too_big",
+-     "message": "Array must contain at most 11 element(s)",
++     "message": "Array must contain at most 10 element(s)",
+      "path": [
+        "recentMessageIds",
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/user.save-limits.test.ts:61:20
+     59|
+     60|     expect(code).toBe('BAD_REQUEST');
+     61|     expect(issues).toEqual([{ code: 'too_big', path: ['recentMessageId…
+       |                    ^
+     62|     expect(captured.queries).toHaveLength(0);
+     63|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses 61 elements with one issue for the list
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "too_big",
+-     "message": "Array must contain at most 11 element(s)",
++     "message": "Array must contain at most 10 element(s)",
+      "path": [
+        "recentMessageIds",
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/user.save-limits.test.ts:68:20
+     66|     const { issues } = await refusalOf(procedure.call, { recentMessage…
+     67|
+     68|     expect(issues).toEqual([{ code: 'too_big', path: ['recentMessageId…
+       |                    ^
+     69|   });
+     70|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > accepts 11 elements
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/routers/__tests__/user.save-limits.test.ts:74:28
+     72|     const outcome = await reachesDatabase(procedure, { recentMessageId…
+     73|
+     74|     expect(outcome.passed).toBe(true);
+       |                            ^
+     75|     expect(outcome.code).not.toBe('BAD_REQUEST');
+     76|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences stored list > keeps the first ten of the eleven ids the input admits
+TRPCError: [
+  {
+    "code": "too_big",
+    "path": [
+      "recentMessageIds"
+    ],
+    "message": "Array must contain at most 10 element(s)"
+  }
+]
+ ❯ inputValidatorMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/middleware.ts:195:14
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:682:19
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/router.ts:474:19
+ ❯ src/server/api/routers/__tests__/user.save-limits.test.ts:90:5
+     88|     const sent = Array.from({ length: 11 }, (_, i) => String(900000000…
+     89|
+     90|     await caller().updatePreferences({ recentMessageIds: sent });
+       |     ^
+     91|
+     92|     const update = captured.queries.find(({ sql }) => sql.startsWith('…
+
+Caused by: ZodError: [
+  {
+    "code": "too_big",
+    "path": [
+      "recentMessageIds"
+    ],
+    "message": "Array must contain at most 10 element(s)"
+  }
+]
+ ❯ Object.parseAsync src/server/api/utils/shapes.ts:100:13
+ ❯ inputValidatorMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:42:24
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:281:18
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/tracked-Bjtgv3wJ.mjs:298:13
+ ❯ src/server/api/routers/__tests__/user.save-limits.test.ts:90:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { issues: [ { code: 'too_big', path: [ 'recentMessageIds' ], message: 'Array must contain at most 10 element(s)' } ], addIssue: 'Function<anonymous>', addIssues: 'Function<anonymous>', errors: [ { code: 'too_big', path: [ 'recentMessageIds' ], message: 'Array must contain at most 10 element(s)' } ], format: 'Function<format>', isEmpty: false, flatten: 'Function<flatten>', formErrors: { formErrors: [], fieldErrors: { recentMessageIds: [ 'Array must contain at most 10 element(s)' ] } } }
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+

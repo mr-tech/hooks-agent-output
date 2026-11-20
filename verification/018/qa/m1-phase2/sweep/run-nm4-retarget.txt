@@ -1,0 +1,3 @@
+NM-4r KILLED 5.18
+1 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; nm4-retarget.json (blob bd7bb978b0924820e8365f47f19aebc6ee93e070))
+runner exit 0

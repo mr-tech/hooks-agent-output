@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ab39d033-ee47-424f-94e3-66d9b7a05613/scratchpad/m1sweep/work-named-mutants-a558f2d/20261120T054804Z-p1020275/control-1
+
+
+ Test Files  40 passed (40)
+      Tests  829 passed (829)
+   Start at  05:48:05
+   Duration  6.82s (transform 19.93s, setup 946ms, import 57.75s, tests 7.99s, environment 9.36s)
+
