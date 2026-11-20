@@ -1,9 +1,9 @@
 ---
 UUID: af63220f
 Status: Open
-Status-Detail: "user.updatePreferences accepts any string in recentMessageIds, so a non-int8 entry fails that user's own hydrated session. Pre-existing at 787bec5, self-only; same class as CR-2, which the fixer chain fixes at its own inputs. No stage owns this input yet."
+Status-Detail: "user.updatePreferences accepts any string in recentMessageIds, so a non-int8 entry fails that user's own hydrated session. Pre-existing at 787bec5, self-only; same class as CR-2. The edit trigger fired at chain 018's M1 (website 532c0ee, which bounds the list's length, not its elements); 018 excludes it as X-10, accepted by the owner, so it stays open. No stage owns this input yet."
 Owning-Stage: steering thread for the website access surfaces (to route it to a stage)
-Review-Trigger: when website src/server/api/routers/user.ts updatePreferences is next edited, or when the release of fix-personal-message-access (website master reaching the fix) has happened and the next chain touching website message-number inputs opens
+Review-Trigger: when website src/server/api/routers/user.ts updatePreferences is next edited by a chain other than 018, or when the next chain touching website message-number inputs opens
 ---
 
 # updatePreferences accepts non-int8 entries in recentMessageIds
@@ -41,3 +41,4 @@ block "2026-11-19T23:09Z" (`steering/fix-personal-message-access-rulings.md`).
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-19T23:09 | helper for steering-roadmap-hooks | Created. |
+| 2026-11-20T04:44 | steering-roadmap-hooks | Trigger fired: chain 018 M1 edits `updatePreferences` (website `532c0ee`, `git show --stat`: `src/server/api/routers/user.ts` 11 lines), reported by `implementer-hooks-018`. Dispositioned: stays open. Plan 018 excludes this input's element bound as X-10, accepted with the Exclusions by his 03:25Z selection (`steering/018-rulings.md`). Review trigger re-set to the next edit outside 018 or the next message-number-input chain; the release-of-fix limb is spent (fix-personal-message-access released). |
