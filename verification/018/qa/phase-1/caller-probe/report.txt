@@ -1,0 +1,5 @@
+message.upsert, 50 invalid embeds | BAD_REQUEST | issues in message: 51 | cause: ZodError | database touched: 0
+message.upsert, 150 invalid users | BAD_REQUEST | issues in message: 150 | cause: ZodError | database touched: 0
+user.updatePreferences, message with 50 invalid embeds | BAD_REQUEST | issues in message: 51 | cause: ZodError | database touched: 0
+user.updatePreferences, 50 non-string recent ids | BAD_REQUEST | issues in message: 50 | cause: ZodError | database touched: 0
+user.updatePreferences, 50 string recent ids (accepted at base: reaches authorizeUser) | INTERNAL_SERVER_ERROR | issues in message: not a JSON issue list | cause: Error | database touched: 0

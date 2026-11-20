@@ -1,0 +1,40 @@
+S1 actionRow.components bound 5, 15 valid | refused, 1 issues {"too_big":1} first={"code":"too_big","maximum":5,"path":["data","components",0,"components"]}
+S1 actionRow.components bound 5, 15 invalid | refused, 16 issues {"too_big":1,"invalid_string":15} first={"code":"too_big","maximum":5,"path":["data","components",0,"components"]}
+S1 actionRow.components bound 5, 15 null | refused, 16 issues {"too_big":1,"invalid_type":15} first={"code":"too_big","maximum":5,"path":["data","components",0,"components"]}
+S2 section.components bound 3, 13 valid | refused, 1 issues {"too_big":1} first={"code":"too_big","maximum":3,"path":["data","components",0,"components"]}
+S2 section.components bound 3, 13 invalid | refused, 14 issues {"too_big":1,"invalid_type":13} first={"code":"too_big","maximum":3,"path":["data","components",0,"components"]}
+S2 section.components bound 3, 13 null | refused, 14 issues {"too_big":1,"invalid_type":13} first={"code":"too_big","maximum":3,"path":["data","components",0,"components"]}
+S3 mediaGallery.items bound 10, 20 valid | refused, 1 issues {"too_big":1} first={"code":"too_big","maximum":10,"path":["data","components",0,"items"]}
+S3 mediaGallery.items bound 10, 20 invalid | refused, 21 issues {"too_big":1,"invalid_string":20} first={"code":"too_big","maximum":10,"path":["data","components",0,"items"]}
+S3 mediaGallery.items bound 10, 20 null | refused, 21 issues {"too_big":1,"invalid_type":20} first={"code":"too_big","maximum":10,"path":["data","components",0,"items"]}
+S4 container.components bound 40, 50 valid | success, 0 issues
+S4 container.components bound 40, 50 invalid | refused, 50 issues {"invalid_type":50} first={"code":"invalid_type","path":["data","components",0,"components",0,"content"]}
+S4 container.components bound 40, 50 null | refused, 50 issues {"invalid_type":50} first={"code":"invalid_type","path":["data","components",0,"components",0]}
+S5 embed.fields bound 25, 35 valid | refused, 1 issues {"too_big":1} first={"code":"too_big","maximum":25,"path":["data","embeds",0,"fields"]}
+S5 embed.fields bound 25, 35 invalid | refused, 36 issues {"too_big":1,"invalid_type":35} first={"code":"too_big","maximum":25,"path":["data","embeds",0,"fields"]}
+S5 embed.fields bound 25, 35 null | refused, 36 issues {"too_big":1,"invalid_type":35} first={"code":"too_big","maximum":25,"path":["data","embeds",0,"fields"]}
+S6 allowed_mentions.parse bound 3, 13 valid | refused, 13 issues {"invalid_union":13} first={"code":"invalid_union","path":["data","allowed_mentions","parse",0]}
+S6 allowed_mentions.parse bound 3, 13 invalid | refused, 13 issues {"invalid_union":13} first={"code":"invalid_union","path":["data","allowed_mentions","parse",0]}
+S6 allowed_mentions.parse bound 3, 13 null | refused, 13 issues {"invalid_union":13} first={"code":"invalid_union","path":["data","allowed_mentions","parse",0]}
+S7 allowed_mentions.users bound 100, 110 valid | success, 0 issues
+S7 allowed_mentions.users bound 100, 110 invalid | refused, 110 issues {"invalid_string":110} first={"code":"invalid_string","path":["data","allowed_mentions","users",0]}
+S7 allowed_mentions.users bound 100, 110 null | refused, 110 issues {"invalid_type":110} first={"code":"invalid_type","path":["data","allowed_mentions","users",0]}
+S8 allowed_mentions.roles bound 100, 110 valid | success, 0 issues
+S8 allowed_mentions.roles bound 100, 110 invalid | refused, 110 issues {"invalid_string":110} first={"code":"invalid_string","path":["data","allowed_mentions","roles",0]}
+S8 allowed_mentions.roles bound 100, 110 null | refused, 110 issues {"invalid_type":110} first={"code":"invalid_type","path":["data","allowed_mentions","roles",0]}
+S9 embeds bound 10, 20 valid | refused, 1 issues {"too_big":1} first={"code":"too_big","maximum":10,"path":["data","embeds"]}
+S9 embeds bound 10, 20 invalid | refused, 21 issues {"too_big":1,"invalid_type":20} first={"code":"too_big","maximum":10,"path":["data","embeds"]}
+S9 embeds bound 10, 20 null | refused, 21 issues {"too_big":1,"invalid_type":20} first={"code":"too_big","maximum":10,"path":["data","embeds"]}
+S10 components bound 40, 50 valid | refused, 1 issues {"too_big":1} first={"code":"too_big","maximum":40,"path":["data","components"]}
+S10 components bound 40, 50 invalid | refused, 51 issues {"too_big":1,"invalid_type":50} first={"code":"too_big","maximum":40,"path":["data","components"]}
+S10 components bound 40, 50 null | refused, 51 issues {"too_big":1,"invalid_type":50} first={"code":"too_big","maximum":40,"path":["data","components"]}
+S7 client import shape, 150 invalid users | refused, 150 issues {"invalid_string":150} first={"code":"invalid_string","path":["allowed_mentions","users",0]}
+S9 client import shape, 50 invalid embeds | refused, 51 issues {"too_big":1,"invalid_type":50} first={"code":"too_big","maximum":10,"path":["embeds"]}
+pipe S10, 50 valid | refused, 1 issues {"too_big":1} first={"code":"too_big","maximum":40,"path":["components"]}
+pipe S10, 50 invalid | refused, 1 issues {"too_big":1} first={"code":"too_big","maximum":40,"path":["components"]}
+pipe S10, 50 null | THREW TypeError: Cannot read properties of null (reading 'type')
+pipe S10, 50 with one null | THREW TypeError: Cannot read properties of null (reading 'type')
+pipe S10, 50 strings | refused, 1 issues {"too_big":1} first={"code":"too_big","maximum":40,"path":["components"]}
+pipe S10, 50 containers each with a null child | THREW TypeError: Cannot read properties of null (reading 'type')
+pipe S10, 41 sections with null children | THREW TypeError: Cannot read properties of null (reading 'type')
+pipe S10, within bound, one null | refused, 1 issues {"invalid_type":1} first={"code":"invalid_type","path":["components",1]}

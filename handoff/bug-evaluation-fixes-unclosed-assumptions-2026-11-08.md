@@ -37,3 +37,4 @@ devops Phase 2D, step 5c, chain 015.
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-08T22:10 | devops-hooks-015 (Stage 2) | Created, carrying the eight items. |
+| 2026-11-20T03:44 | qa-hooks-018 | `Review-Trigger` fired (plan 018 scoped: Next.js 16.4.6 and the save-list cap). Item 1 is touched: every run of chain 018 uses an export with its own install, so the symlink variant does not arise there; the export-equals-shared-tree premise stays assumed and carried. Items 2–8 lie on none of 018's surfaces and stay as carried. Disposition: `qa/018-next-upgrade-save-size-cap-qa.md` § Open handoffs. Stays `Open`. |
