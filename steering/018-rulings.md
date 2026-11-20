@@ -103,3 +103,17 @@ wording this thread's):
   the reason on Save.
 **Told to him, not asked** (block 03:3xZ): the D-6 package changes, in the reply that followed this prompt.
 **Next:** the planner folds these into revision 3. The critic reads it as a delta; QA and the architect re-read the criteria that change.
+
+## 2026-11-20T04:16Z — critic pass 3 on revision 3: APPROVED, stop authority fired (SL-1); refutation started
+
+Read this turn: `critiques/018-next-upgrade-save-size-cap-critique.md` at `f209354` (verdict APPROVED, `Reviewed-At` `428090e`); plan
+revision 3 at `428090e`, changelog row 2026-11-20T04:12 (scope delta: M1-i added per D-9, M5 written per D-8, R7 leaves M4's class; each
+traces to his 04:11Z answers, so no delta prompt).
+- **Residual:** stated limit SL-1 (F-17 MEDIUM: M1-i counts issues *created*, M1-b counts issues *in the result*; they disagree where a
+  plain `z.union` fails). F-17 and F-18 (LOW) go to the Planner batch. The critic routed nothing to him.
+- **This thread's reading:** steering.md (Critic) routes a residual-stated verdict's residual to him. It is put to him once QA's and the
+  architect's re-reads of revision 3 are in, unless their findings bring a revision that folds F-17 first (then it is moot).
+- **Refutation:** a `general-purpose-sonnet` helper, briefed with F-17's conclusion alone, runs it over the real `shapes.ts` at `7923a1d`
+  (evidence `verification/018/steering/refute-union-count/`).
+- Planner cleared 04:16Z after its Checkpoint (`263241f`). Standing check re-armed as `d086bd5a` (04:47Z).
+- The record-write gate refused this block's first write (a shell append); re-issued with the Edit tool.
