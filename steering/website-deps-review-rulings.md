@@ -40,3 +40,48 @@ question said so and carried security's development-build timings as security's.
 - Confirmation (a), whether Vercel serves `/_next/image`, is a read-only Vercel read by `vercel api` (a Standing Default per
   `steering/017-standing.md`). It is made, not asked.
 - Confirmation (b) needs a request to production. It goes into the chain's post-deploy reads, never as a load request.
+
+## 2026-11-20T02:03Z — corrected premise re-put (his selection); scoping determination for fix-message-page-header-decode
+
+**This thread's error:** the 01:59Z "Unused deps" question stated that the three packages were never used, from the review's claim, and
+did not mark it as such. The scope sweep (below) found `form-data` imported by `bot/utils/DiscordMessage.ts:1`, which
+`src/pages/api/interactions-edge.ts` and `interactions-server.ts` load. The correction changes what is built, so it was re-put. The check
+that would have caught it: marking the premise "unread: security's claim", or sweeping before asking.
+**Selection, answered 02:03Z** (ledger day file, block "2026-11-20T02:03Z — steering-roadmap-hooks"; wording this thread's):
+- **Agent: remove sanitize-html and sharp (Recommended)** — CHOSEN, by selection. "The fixer removes sanitize-html with its
+  @types/sanitize-html companion and the direct sharp, keeps form-data, and shows a production build plus the suite passing. If the
+  build shows Next.js needs the direct sharp, the fixer keeps it and says so."
+- Agent: remove sanitize-html only.
+- Agent: remove none.
+
+**Scoping determination — chain `fix-message-page-header-decode` (fixer).**
+- **Shape:** defect. No dated outside event. Cause: the code path is read from code (sweep). The slowdown is security's measurement on
+  a development build, in `security/website-deps-review-security-audit.md` H-001. A production-build check was not completed.
+- **Property:** a value the browser sends is decoded on the server through an outdated parsing dependency (decode-uri-component 0.4.1,
+  via query-string).
+- **Region swept** (`verification/fix-message-page-header-decode/scoping/sweep.md`, helper): website at `983681c` (`src/`, config,
+  lockfile) and project-utils `src/` at `749606d`. Rows S1 to S28; predicates and blind spots are in the file.
+- **Placement:**
+  - In scope: S1/S2, `Providers.tsx` `getMessage`. It is the only site where a browser-sent value (the `x-query-params` header, set by
+    `middleware.ts:17-21` only when the URL has a query string; line 12 copies every incoming header) reaches `query-string` and
+    `decodeURIComponent`. Also in scope:
+    - the decode-uri-component ≥0.5.1 override, per his option. It is a transitive dependency of `query-string` 8.1.0 alone. There is no
+      `pnpm.overrides` today; there is an npm-style `overrides` key whose effect under pnpm 10 is untested.
+    - removal of `sanitize-html`, `@types/sanitize-html` and the direct `sharp`, per the 02:03Z selection.
+  - Out (no ruling needed, since none takes a browser-sent value through an outdated parser):
+    - S3: `middleware.ts`'s `URLSearchParams`, built in;
+    - S4: client clipboard decoding;
+    - S5, S6: outbound builders;
+    - S12 to S17: header string compares and signature checks.
+- **Breach catch:** a test that `getMessage`, or the `/message` layout, given a client-sent `x-query-params` with no URL query, neither
+  passes it to the old decoder nor throws. Also a lockfile check that no `decode-uri-component` < 0.5.1 resolves.
+- **Not covered** (sweep): Next.js internal parsers, dynamic segments, Vercel's header handling, which `sharp` copy Next.js loads,
+  project-utils `dist/`, and the preview-image-generator.
+- **Stage set:** `fixer` (a red test for the property), then `code-reviewer` (and, under 20 production lines, the suite and the red test
+  too), then QA Phase 2 at 20 or more lines, then `security` on the change (`security-hooks-website-deps`, the reviewing stage), then
+  devops for website `master`.
+- **End step:** website `master`, which Vercel deploys to production; his word is needed. `release-move.js website master 983681c…
+  --dry-run` at 02:03Z: "every check passed"; no workflows; one serving ref. Live master `983681c` (`ls-remote`).
+- **Post-deploy:** confirmation (b), whether a client header reaches the function, read with a harmless request after the fix, by an
+  agent.
+- **Released chain touching this route:** none known. `Providers.tsx` was last shaped by 017 (`architecture/closed/017-…findings.md:34`).
