@@ -3,16 +3,18 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Status: Open
-Status-Detail: "Cycle 2 pass 1 on plan revision 6 (M2 only): REQUEST REVISION. F-21 CRITICAL: the highlight.js paths entry makes the production build compile highlight.js to undefined while build, typecheck and suite pass; it duplicates the architect's AF-10. F-22 LOW. One question for the planner on what replaces the entry. Cycle 1 (F-1 to F-20) stays resolved."
-Artifact-Revision: 6 — the delta e45e8cf..8277b08 read whole; last whole read is revision 1 at c2a6b85
-Reviewed-At: "8277b08 — repos=agent-output; website code read at 7923a1d (origin/master)"
-Verdict: REQUEST REVISION
+Status-Detail: "Cycle 2 pass 2 on plan revision 7 (M2 only): APPROVED. F-21 CRITICAL and F-22 RESOLVED: the paths entry is gone and M2-c reads the built output. New: F-23 MEDIUM (M2-e's after-deploy look names no runner; stated limit SL-2 until folded) and F-24 LOW, both for the plan's Planner batch. Status stays Open until the plan carries those two rows. No open question."
+Artifact-Revision: 7 — the delta 8277b08..af8a9d6 read whole; last whole read is revision 1 at c2a6b85
+Reviewed-At: "af8a9d6 — repos=agent-output; website code read at 7923a1d (origin/master)"
+Verdict: APPROVED
 ---
 
 # Critique — Plan 018, Next.js 16.4.6 and the save-list cap
 
-**Artifact**: `planning/018-next-upgrade-save-size-cap.md`, revision 6 (`8277b08`), read as the delta from revision 5
-(`e45e8cf`); revisions 2 to 5 were read the same way, and revision 1 (`c2a6b85`) whole. **Read at cycle 2 pass 1**:
+**Artifact**: `planning/018-next-upgrade-save-size-cap.md`, revision 7 (`af8a9d6`), read as the delta from revision 6
+(`8277b08`); revisions 2 to 6 were read the same way, and revision 1 (`c2a6b85`) whole. **Read at cycle 2 pass 2**:
+`steering/018-rulings.md` block 03:25Z; the plan's D-6 row; `verification/018/planning/m2-tsconfig/` (README's final-form
+and comparison sections, `A-final/counts.txt`, `hl-compare/output.txt`). **Read at cycle 2 pass 1**:
 `verification/018/planning/m2-tsconfig/` (README, `B/build.txt`, `B/tsconfig.diff`); website `tsconfig.json`,
 `package.json`, `vitest.config.ts` and the two highlight.js import sites at `7923a1d`; Next 16.1.6's
 `jsconfig-paths-plugin.js`; at the seam, the architect's AF-10. **Read at cycle 1 pass 5**: website
@@ -35,35 +37,51 @@ against the rulings and the architecture record. **Date**: 2026-11-20.
 | 2026-11-20T04:32 | planner-hooks-018 (message naming revision 5 at `e45e8cf`) | cycle 1 pass 5: plan revision 5, delta-bounded | Depth: delta-bounded. The delta `29277d3..e45e8cf` (29 added, 13 removed, `git diff --numstat`, three commits: R-2, R-3, revision 5) adds and removes no milestone or criterion and was read whole. Artifact changes: M1-i's unit is the M1 parse's own uncapped result; its long-value population adds `textDisplayShape.type` inside a section (QAF-9); the union isolation is one typed helper (AF-9); two wording corrections. Findings addressed: F-19 and F-20 RESOLVED. New: none. Verdict APPROVED. |
 | 2026-11-20T04:32 | critic-hooks-018 | Document closed | Status: Resolved. Every finding, F-1 to F-20, is verified landed in the plan at revision 5. |
 | 2026-11-20T05:15 | planner-hooks-018 (message naming revision 6 at `8277b08`) | cycle 2 pass 1: plan revision 6, delta-bounded | Reopened from `critiques/closed/`: revision 6 changes M2's steps and criteria after the critique closed, which opens cycle 2. Depth: delta-bounded, since the delta `e45e8cf..8277b08` (42 added, 18 removed, `git diff --numstat`, three commits: R-4, two of revision 6) is fully readable and touches M2 alone. Artifact changes: three `tsconfig.json` keys in M2's steps; M2-b, M2-c and M2-d extended; X-21 added. New: F-21 CRITICAL (found by a build run in this pass; duplicates AF-10), F-22 LOW. Verdict REQUEST REVISION. |
+| 2026-11-20T05:21 | planner-hooks-018 (message naming revision 7 at `af8a9d6`) | cycle 2 pass 2: plan revision 7, delta-bounded | Depth: delta-bounded. The delta `8277b08..af8a9d6` (38 added, 22 removed, `git diff --numstat`, one commit) touches M2 alone and was read whole. Artifact changes: the `paths` entry removed; `highlight.js` 11.7.0 → 11.12.0 under D-6, with a comparison run; M2-b restated; M2-c reads the built output; M2-e added (a walked code block); X-21 removed; RK-6's record. Findings addressed: F-21 and F-22 RESOLVED; my pass 1 question answered. New: F-23 MEDIUM, F-24 LOW. The stop authority fired on F-23 (stated limit SL-2). Verdict APPROVED. |
 
 ## Verdict
 
-**REQUEST REVISION — cycle 2, pass 1.** The hard stop did not fire (pass 1 of 15).
+**APPROVED — cycle 2, pass 2.** No revision is requested. The hard stop did not fire (pass 2 of 15). The stop authority
+fired on F-23 and is recorded below.
 
-One of revision 6's three `tsconfig.json` keys breaks the product. With the `paths` entry for highlight.js, the Next
-16.4.6 build compiles both uses of highlight.js to `undefined` and still exits 0; typecheck and the suite also pass
-(F-21). I built it in this pass to check, and the architect's own run found the same (AF-10). The other two keys hold:
-my build left `tsconfig.json` byte-identical (`sha256sum -c`), as M2-c now requires.
+Revision 7 removes the `paths` entry that took highlight.js out of the build (F-21) and moves highlight.js to 11.12.0,
+the plan's run-verified alternative. M2-c now requires the built output to hold highlight.js's runtime, with a real
+passing and a real failing build named for the instrument, and M2-e has UAT walk a highlighted code block before
+release. F-22 is corrected.
 
-The stop authority does not apply to F-21. It is a member of RK-6's class (a statement about what a build does, with no
-read at the receiving end), but the gap is not one of unknown truth that a stated limit could carry: the statement was
-run and is false, and a stated limit cannot carry a known production break.
+**My pass 1 question is answered, and not by a new ask to him.** I read the 03:25Z rulings block: his typed words are
+"you can upgrade any packages to anything deemed useful", and steering's recorded reading is that each further upgrade
+is a scope delta with its reason, told to him at the next prompt, none needing a separate ask. The plan's D-6 row
+carries that clause, and revision 7's changelog row names D-6 and the telling. X-21 was the planner's own exclusion from
+revision 6, not one of the fifteen he accepted. So the move rides D-6.
 
-Pricing: sized to the ask. Next 16.4.6 forces the `moduleResolution` change, so M2 is one file wider for a reason
-inside H-002. What replaces the `paths` entry may not be: the only alternative the plan has run moves highlight.js
-itself, which X-21 excludes as shipping changed code to users. That is the question below.
+Pricing: M2 is one package and one criterion wider than at revision 5, inside D-6 as he worded it. What the package
+move changes for users was run: 4 of 18 samples render with finer token classes, no language or alias is lost.
 
-Nothing of revision 6 is on the chain branch: website `chain/018-next-upgrade-save-size-cap` is at `be35da8` and its
-`tsconfig.json` equals `7923a1d`'s (`git diff --stat`, empty).
+**Why the stop authority fired.** F-23 is the second instance of F-9's shape: a post-deploy step with no runner named.
+F-9 was folded at revision 2. The class: a post-deploy observation the plan requires names its runner and its carrier.
+The domain, from the plan's post-deploy lines at revision 7: M1-h (UAT, through devops's post-deploy handoff), M5-e's
+public read (devops), M2-e's after-deploy look (none). One member fails.
+- **SL-2, the stated limit**: until the plan names it, M2-e's after-deploy look on hooks.gg has no runner. Who bears
+  it: devops at Stage 1, which writes the post-deploy handoff from the plan's post-deploy rows. On finding M2-e absent
+  from those rows, it adds the look beside M1-h's and tells the planner. M2-e's pre-release walk and M2-c's read of the
+  built output are unaffected.
 
-No milestone is marked `PREMISE-STALE`. `Target-Release` is untouched by the delta. Routed to the owner by this
-critique: nothing directly; the question below may become his once the planner has the options.
+F-23 and F-24 go to the plan's Planner batch. This critique stays `Open` until the plan carries the two rows.
+
+No milestone is marked `PREMISE-STALE`. `Target-Release` is untouched by the delta. Routed to the owner: nothing by
+this critique; steering tells him of the highlight.js move at its next prompt, as block 03:25Z provides.
 
 ## Value Statement Assessment
 
-Untouched by the revision 4 to 6 deltas. Pass 2's assessment stands: a user story, checkable, delivered directly by M1 and M2.
+Untouched by the revision 4 to 7 deltas. Pass 2's assessment stands: a user story, checkable, delivered directly by M1 and M2.
 
 ## Assumption Not Checked
+
+Cycle 2 pass 2: this pass assumes the final form's build holds highlight.js's runtime as `A-final/counts.txt` records
+(1 static file and 4 server files), and does not test it; my pass 1 build was of revision 6's form, not this one. If it
+is false, M2-c's new count reads 0 at the M2 tip and the milestone fails before code review. Closing it is the
+architect's and QA's at their reads of revision 7, and then the implementer's at M2 by M2-c itself.
 
 Cycle 2 pass 1: this pass assumes Next 16.4.6 rewrites `moduleResolution` `node` to `bundler` as the plan says from
 its source excerpts, and does not test it; I built only with `bundler` already set. If it is false, the key is
@@ -90,39 +108,31 @@ None in the plan. The delta opens no `OPEN QUESTION`; OQ-1 and OQ-5 are `[RESOLV
 
 ## Findings
 
-Open:
+Open, both for the plan's Planner batch:
 
-F-21 CRITICAL cycle 2 pass 1 — OPEN — M2's `paths` entry for highlight.js removes highlight.js from the production build, and no M2 criterion can see it. Duplicates: AF-10 in architecture/018-next-upgrade-save-size-cap-architecture-findings.md
-- **Location**: plan § M2 steps, second key ("The entry points at the types file highlight.js ships; the runtime
-  package is unchanged"); M2-c; X-21's reason ("M2's `paths` entry needs no runtime change"). Website
-  `src/components/SlateEditor/utils/decorator.tsx` and `src/utils/markdown/rules.tsx`, the two import sites;
-  `vitest.config.ts` `alias`.
-- **Description**: a `tsconfig.json` `paths` entry is read by the bundler as well as by TypeScript. Run in this pass: an
-  isolated export of `7923a1d`, `pnpm install --frozen-lockfile`, `pnpm add next@16.4.6 @next/bundle-analyzer@16.4.6`,
-  the plan's three keys, `SKIP_ENV_VALIDATION=1 next build` (Turbopack), exit 0. In the output, 2 of 2 import sites
-  compile to a call on `undefined`: the editor's reads
-  `void 0!==(void 0).getLanguage(t)&&(void 0).highlight(r,{language:t,ignoreIllegals:!0})`. Files under `.next`
-  holding `registerLanguage`, `highlightAuto`, "Could not find the language" or `11.7.0`: 0 for each, against 2 for
-  each in the existing `7923a1d` build in the website tree (`grep -rl -F … | wc -l`). So a code block with a language
-  throws in the editor and in the rendered preview.
-  0 of M2-c's three instruments can fail on this: the build exits 0, typecheck is what the entry was written to
-  satisfy, and the suite resolves imports through `vitest.config.ts`'s own alias, not `tsconfig.json`'s `paths`.
-  The same entry reaches the `ts-node` scripts: under `tsconfig-paths/register`, `require('highlight.js')` resolves to
-  the declaration file and Node refuses it (`ERR_UNSUPPORTED_NODE_MODULES_TYPE_STRIPPING`, run in the export).
-  `backfill-valid`'s type-level import closure includes both import sites (`tsc --listFilesOnly`); whether it reaches
-  them at run time is not established, and M2-c checks `limits.tsx` only.
-- **Impact**: released as written, every user who opens or previews a message with a fenced code block hits a thrown
-  error, with every pre-release gate of M2 green.
-- **Prediction and falsifier**: a `paths` entry whose target is a declaration file is taken by the Next 16.4.6 build as
-  the module itself. Falsifier: a build of revision 6's exact `tsconfig.json` whose output holds highlight.js's runtime.
-  The planner registers this under RK-6 with this pass's record (one member).
-- **Recommendation**: remove the entry and its two supporting sentences. Whatever gives TypeScript the types must
-  leave the module the bundler and `tsconfig-paths` resolve untouched, and that statement needs a read of the built
-  output behind it, not the build's exit code.
+F-23 MEDIUM cycle 2 pass 2 — OPEN — M2-e's after-deploy look names no runner and no carrier
+- **Location**: plan M2-e, last clause ("after deploy, the same look on hooks.gg with the test account"); compare M1-h,
+  which names UAT and devops's post-deploy handoff, and § M5's "Post-deploy rows" line.
+- **Description**: the pre-release walk names UAT and its session. The after-deploy look names nobody, and M2-e is not
+  among the post-deploy rows § M5 lists. Vercel builds the release itself, so this look is the only read of the bundle
+  users get; M2-c reads a local build.
+- **Impact**: a step nobody is bound to run is skipped, and a production-only loss of highlighting would go to the
+  first user report.
+- **Recommendation**: name the runner and put the look among the post-deploy rows, as M1-h is. Landing: a Planner batch
+  row, folded at the plan's next revision. Stated limit SL-2 carries it until then.
 
-F-22 LOW cycle 2 pass 1 — OPEN — the body's Header line still says Status Active
-- **Location**: plan § Header, first line ("**Status** Active"), against the frontmatter's `In Progress` (R-4).
-- **Recommendation**: bring the line into agreement at the next revision.
+F-24 LOW cycle 2 pass 2 — OPEN — the plan gives the preview's difference count and not the editor's
+- **Location**: plan § M2, "Why `highlight.js` moves" ("the editor's `_emitter.rootNode` tree keeps its shape in 18 of
+  18 samples, and 4 of 18 samples gain finer token classes in the preview's HTML").
+- **Description**: `hl-compare/output.txt` ends "html differ 4 | tree differ 5". The tree is what the editor's decorator
+  walks, and it differs in 5 samples (the four plus html). "Keeps its shape" is true of `rootNode.children` being
+  present, but a reader takes it as no change in the editor.
+- **Recommendation**: state the tree figure beside the HTML one. Landing: the same Planner batch row.
+
+Resolved at cycle 2 pass 2, by plan revision 7 (`af8a9d6`); the arguments are in this critique at `9ab8420`:
+
+- F-21 CRITICAL cycle 2 pass 1 RESOLVED — the `paths` entry is removed; highlight.js moves to 11.12.0 under D-6; M2-c requires highlight.js's runtime in the built output and M2-e walks a code block; RK-6 carries the record. Plan § M2 steps, M2-c, M2-e, RK-6. Duplicates: AF-10 in architecture/018-next-upgrade-save-size-cap-architecture-findings.md
+- F-22 LOW cycle 2 pass 1 RESOLVED — the Header line reads In Progress. Plan § Header.
 
 Resolved at cycle 1 pass 5, by plan revision 5 (`e45e8cf`); the arguments are in this critique at `f13a0f3`:
 
@@ -158,12 +168,22 @@ Resolved at cycle 1 pass 2, each by plan revision 2 (`7a1bd46`); the arguments a
 
 ## Questions
 
-For the planner, cycle 2 pass 1: with the `paths` entry gone, which mechanism gives TypeScript highlight.js's types?
-The one alternative the plan has run (highlight.js 11.8.0 or later) changes code that ships to users, which X-21
-excluded as outside H-002. If the revision chooses it, that reverses an exclusion on an open milestone and is a scope
-question for the owner, with what the version move changes in highlighting stated (the README lists it as not
-compared). A types-only mechanism that the bundler does not read would stay inside the standing default; it needs a
-run showing the built output still holds highlight.js's runtime.
+None open. The cycle 2 pass 1 question (what replaces the `paths` entry, and whether moving highlight.js is his to
+decide) is answered by revision 7 and block 03:25Z; see the Verdict.
+
+## Review-method lines with no finding (cycle 2 pass 2)
+
+- **Boundary.** One commit touches the plan between revisions 6 and 7; its diff was read whole. It touches the header,
+  the changelog, the Owed re-verdicts table, § M2 (steps, M2-b, M2-c, M2-d, M2-e), RK-6, the Exclusions (X-21 removed)
+  and the Resumption State.
+- **M2-c's new instrument.** It names what is counted, the threshold, and a real member and non-member (the base build;
+  revision 6's form at 0 and 0). My pass 1 counts used a different base build and a different file filter, so they are
+  not comparable file for file; both agree on the non-member reading 0.
+- **The comparison run.** `hl-compare/output.txt`: languages 192 to 193, none removed; no name or alias lost; 18 samples
+  with `rootNode.children` present in all. The site imports no stylesheet from the package (the two imports found at
+  pass 1 are the only ones), so the package move changes token classes, not their colours.
+- **The `ts-node` limb of F-21** is moot with the entry gone.
+- **RK-6.** Record for cycle 2 pass 2: no new member. F-21's record is in the plan.
 
 ## Review-method lines with no finding (cycle 2 pass 1)
 
@@ -224,18 +244,19 @@ run showing the built output still holds highlight.js's runtime.
 
 ## Resumption State
 
-Written 2026-11-20 after cycle 2 pass 1. Session `critic-hooks-018`, launched `--agent critic`, cwd
+Written 2026-11-20 after cycle 2 pass 2. Session `critic-hooks-018`, launched `--agent critic`, cwd
 `/usr/local/bin/hooks/website`.
 
-- **Done.** Cycle 1 (passes 1 to 5, resolved at `b61164b`). Cycle 2 pass 1: REQUEST REVISION on plan revision 6 (`8277b08`).
-- **Open.** F-21 CRITICAL and F-22 LOW; one question for the planner.
-- **Next.** On the planner's next message, read the plan as the `git diff` from `8277b08`, as cycle 2 pass 2. Check that
-  the `paths` entry is gone, that its replacement carries a read of the built output, and that RK-6 has this pass's
-  record. If the revision moves highlight.js, check that the owner chose it.
+- **Done.** Cycle 1 (passes 1 to 5, resolved at `b61164b`). Cycle 2 pass 1: REQUEST REVISION on revision 6 (`9ab8420`).
+  Cycle 2 pass 2: APPROVED on plan revision 7 (`af8a9d6`), stated limit SL-2.
+- **Open.** F-23 MEDIUM and F-24 LOW, routed to the plan's Planner batch. This critique stays `Open` until the plan
+  carries those rows; then it is set `Resolved` and moved to `critiques/closed/`.
+- **Next.** On the planner's next message, read the plan as the `git diff` from `af8a9d6`. A registration that only adds
+  the two batch rows closes this critique. A revision that changes criterion text is cycle 2 pass 3.
 - **Tree.** website `chain/018-next-upgrade-save-size-cap` at `be35da8`; this session wrote nothing there.
 - **Uncommitted, evidence unrecorded, processes, scratch:** none. The test export is deleted and the scratchpad is empty.
 - **Sessions messaged:** `planner-hooks-018`.
-- **Cache-warm wake:** armed as one-shot `c5cdeb70` (05:21).
+- **Cache-warm wake:** a one-shot, re-armed at each wake.
 
 ## Process record
 
