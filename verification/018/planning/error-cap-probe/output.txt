@@ -1,0 +1,4 @@
+zod 3.22.4
+with stopping errorMap: stopped by sentinel after 20 issues | 4 ms
+without: refused, 10000 issues | 27 ms | message 1872782 chars
+exit 0

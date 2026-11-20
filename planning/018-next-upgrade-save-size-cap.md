@@ -3,8 +3,8 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Status: Active
-Status-Detail: "Revision 2: folds critique pass 1 (F-1..F-15), QA Phase 1 (QAF-1..5) and architect conformance (AF-1..4). One OPEN QUESTION for the owner (OQ-5, what the preview check can be), sent to steering; M5 waits on it, M1-M4 do not. Ready for the critic's pass 2, the architect's and QA's re-reads."
-Revision: 2
+Status-Detail: "Revision 3: folds his three 04:11Z answers (D-8 to D-10: the release-check preview, the error cap as M1-i, X-18 kept), critique pass 2's F-16 and QA's QAF-6, QAF-7. No open question. Ready for the critic's delta read and QA's and the architect's re-reads of M1, M4 and M5."
+Revision: 3
 Plan-ID: 018
 Target-Release: "website master (Vercel production), moved from 7923a1d to the chain's verified tip by devops on the owner's word"
 Epic-Alignment: "None recorded: agent-output/roadmap/ holds no roadmap (ls, 2026-11-20T03:1xZ). The chain serves the owner's routing of security findings H-002 and M-001 (steering/website-deps-review-rulings.md, block 2026-11-20T01:59Z)."
@@ -20,17 +20,18 @@ Lane: "planned (not proposed small): the framework moves under every page"
 | 2026-11-20T03:20 | 0 | planner-hooks-website-deps-upgrade | Plan written on the owner's word (rulings blocks 01:59Z, 02:53Z, 03:08Z; ID minted at agent-output `2b7b2de`). Hazard 4 settled by a run: ESLint 8.57.1 cannot load `eslint-config-next` 16.4.6, so OQ-1 goes to the owner. Scope delta: none against block 02:53Z; OQ-1 asks whether the lint package is held at 15.5.14 (a narrowing) or an ESLint 9 milestone is added (a widening). |
 | 2026-11-20T03:31 | 1 | planner-hooks-018 | Folds his two answers of `steering/018-rulings.md` block 2026-11-20T03:25Z (`42dc4b2`): OQ-1 resolved as D-6, the Exclusions accepted as D-7; feasibility of the lint move run (`verification/018/planning/eslint9-flat-probe/`). Scope delta: M3 added (ESLint 9, a flat config, `typescript-eslint` 8, `eslint-config-next` 16.4.6; under D-6 also `eslint-plugin-react` 7.37.5, `eslint-plugin-import` 2.32.0, `@eslint/js` 10 → 9 to match ESLint 9, and removal of the unreferenced `eslint-plugin-n` and `eslint-plugin-promise`); old M3 and M4 renumbered M4 and M5; M2 no longer carries the lint packages. The plan is now five milestones against the four the determination implied, the fifth being the lint move his OQ-1 answer admits. |
 | 2026-11-20T04:05 | 2 | planner-hooks-018 | Folds `critiques/018-next-upgrade-save-size-cap-critique.md` pass 1 (`ac93b5a`, REQUEST REVISION), `qa/018-next-upgrade-save-size-cap-qa.md` Phase 1 (`e1b25c7`) and `architecture/018-next-upgrade-save-size-cap-architecture-findings.md` (`81b0d58`); new runs: the abort form over the real schema (`verification/018/planning/abort-form-probe/`) and a preview-imitating build (`verification/018/planning/preview-imitation/`). Scope delta: M1's mechanism changes (the length check aborts the parse; typed shared helper; one recent-ids constant), its population becomes 21 site-and-procedure pairs and it names its three browser consumers; M4's class is enumerated by a record search (R4 dropped, R6 and R7 added, R5 narrowed to its consumed limb); M5 waits on OQ-5 (a plain push cannot build a preview, and a preview cannot serve sign-in); three stated limits added (X-18 to X-20). Size: five milestones, as at revision 1. |
+| 2026-11-20T04:12 | 3 | planner-hooks-018 | Folds his three answers of `steering/018-rulings.md` block 2026-11-20T04:11Z (`df692af`) as D-8 to D-10, critique pass 2's F-16 (`409b52c`) and QA Phase 1's re-key QAF-6, QAF-7 (`qa/018-next-upgrade-save-size-cap-qa.md`); new run: stopping a parse after N issues (`verification/018/planning/error-cap-probe/`). Scope delta: M1 gains M1-i, the error cap (D-9), and M1-b is restated over it; X-19 leaves the Exclusions; M5 is written for the chosen release-check branch (D-8) and OQ-5 closes; M4's R7 leaves the class (no consumer, 015 D30); M1-g names its set-up step; M1-h cites QA's base read and rides devops's post-deploy carrier. Size: five milestones; M1 one criterion larger. |
 
 ## Header
 
-- **Plan ID** 018. **Revision** 2. **Status** Active.
+- **Plan ID** 018. **Revision** 3. **Status** Active.
 - **Target Release:** website `master`, which Vercel deploys to production (`link.productionBranch: master`,
   `verification/018/planning/vercel-project-preview-fields.md`). The package has no `version` field (`package.json` at
   `7923a1d`), so the release is the serving ref moving, named by its SHA. No version or CHANGELOG milestone.
 - **Serving refs read at planning** (website; `git ls-remote origin`, 03:1xZ): `master` `7923a1d9…` serves production. `backup`,
   `external-message-api`, `redesign`, `regex-refactor` exist; a non-`master` branch push starts a Vercel preview deploy, not a
   production one (project record). Whether that preview builds is a separate fact: a tree without a build-command override does
-  not (OQ-5, RK-7). `.github/workflows`: absent (`release-move.js website master 7923a1d… --dry-run`: "workflows none … DRY RUN:
+  not (M5's premise, RK-7). `.github/workflows`: absent (`release-move.js website master 7923a1d… --dry-run`: "workflows none … DRY RUN:
   every check passed"). `--report`: "one serving ref at origin (master); no pair". project-utils is read only and ships nothing in
   this chain. Every remote push — any preview push and the release push — is devops's act.
 - **Repositories:** `website` (the change); `project-utils` (read only, `origin/master` `749606d`); `agent-output` (the record).
@@ -45,7 +46,14 @@ Lane: "planned (not proposed small): the framework moves under every page"
 
 ## Reading Order
 
-The plan is under 500 lines; no Reading Order is owed. Owed re-verdicts: none yet (no gate has approved a revision).
+The plan is under 500 lines; no Reading Order is owed.
+
+Owed re-verdicts:
+
+| Limb | Decidable since | Owning gate | State |
+|---|---|---|---|
+| M1-b, M1-g, M1-h, M1-i (§ M1) | revision 3 | critic (delta), QA (re-key), architect (M1-i's mechanism) | open |
+| M4's class (R7 removed) and M5 (§ M4, § M5) | revision 3 | critic (delta), QA (re-key) | open |
 
 ## Value Statement and Business Objective
 
@@ -56,8 +64,9 @@ error. The lint setup moves with the framework (M3) so that a developer who runs
 React releases the site runs, on the configuration format ESLint 9 and later require, making the next lint upgrade a version change
 rather than a rewrite; it buys nothing at runtime, and its cost is RK-5.
 
-What M1 leaves (F-14): inside every bound, nesting multiplies, and a single within-bound save can still produce tens of thousands of
-issues (X-19).
+Inside every bound, nesting multiplies: a 707,607-byte save of lists all within their bounds gave 48,500 issues and a
+13,324,552-character message (`verification/018/steering/refute-within-bound/output.txt`, steering's helper, the real `shapes.ts`).
+His D-9 adds the error cap (M1-i) so that no save can build an error of that size.
 
 The originating report's statements, verbatim (`security/website-deps-review-security-audit.md`):
 - H-002: "Next.js 16.1.6 carries two App Router denial-of-service advisories with no precondition the site lacks".
@@ -69,27 +78,31 @@ The originating report's statements, verbatim (`security/website-deps-review-sec
 |---|---|---|---|---|
 | D-1 | The Next.js upgrade and the save-size cap are one chain, opened after H-001 ships | 2026-11-20 | "Agent: separate chain after H-001 (Recommended)" — selection-prompt answer, ledger `steering/selection-ledger/2026-11-20.md`, heading "2026-11-20T01:59Z — steering-roadmap-hooks"; option wording steering's | Owner withdrawal only |
 | D-2 | Target Next.js 16.4.6, with its lint and analyzer packages | 2026-11-20 | "Agent: 16.4.6 (Recommended)" — selection-prompt answer, same ledger, heading "2026-11-20T03:08Z — steering-roadmap-hooks". The option text he saw: "Agent moves Next.js and its lint/analyzer packages to the latest 16.4 release." (steering's wording) | Owner withdrawal only; the lint package's route is D-6 |
-| D-3 | The chain branch is pushed for a Vercel preview, and UAT loads the public pages, images and the sign-in redirect there before the release push | 2026-11-20 | "Agent: preview first (Recommended)" — same ledger and heading. Option text: "Agent pushes the chain branch (preview only, production untouched). UAT loads the public pages, images and the sign-in redirect on the preview. Signed-in pages can't run there." (steering's wording) | Evidence that a plain push cannot build a preview, or that a preview cannot serve a limb — both now run (OQ-5); his answer to OQ-5 settles what stands |
+| D-3 | The chain branch is pushed for a Vercel preview, and UAT loads the public pages, images and the sign-in redirect there before the release push | 2026-11-20 | "Agent: preview first (Recommended)" — same ledger and heading. Option text: "Agent pushes the chain branch (preview only, production untouched). UAT loads the public pages, images and the sign-in redirect on the preview. Signed-in pages can't run there." (steering's wording) | Narrowed by D-8: the preview is the release-check branch, and the sign-in redirect moves to the local build. Owner withdrawal only |
 | D-4 | Scope as determined in block 02:53Z, its exclusions out | 2026-11-20 | "Agent: as determined (Recommended)" — same ledger and heading. Option text: "Agent opens a planned chain on exactly that scope. Release is a website master push, which needs your word." The question text named "a cap on all 11 lists in the two save requests". (steering's wording) | Owner withdrawal only |
 | D-5 | The release is a website `master` push, which needs his word; devops asks for it in its own session | 2026-11-20 | Carried in D-4's option text above; steering's common brief, "End step" | Owner withdrawal only |
 | D-6 | `eslint-config-next` goes to 16.4.6 with what it needs (ESLint 9, a flat config, `typescript-eslint` 8), and the chain may upgrade any package it judges useful, each recorded as a scope delta with its reason | 2026-11-20 | "you can upgrade any packages to anything deemed useful" — typed in answer to the selection prompt on OQ-1, ledger `steering/selection-ledger/2026-11-20.md`, heading "2026-11-20T03:25Z — steering-roadmap-hooks"; relayed by steering, `steering/018-rulings.md` block 2026-11-20T03:25Z, which records the reading that this is the "ESLint 9 milestone" limb (steering's reading) | Owner withdrawal only. Does not reopen X-1 (zod 4): D-7 |
 | D-7 | Exclusions X-1 to X-15 of revision 0 stand, each with its carrier | 2026-11-20 | "Agent: accept as written (Recommended)" — selection-prompt answer, same ledger heading; option text "Agent leaves all of them out; each keeps its stated limit or handoff record, and the plan proceeds to critique." (steering's wording) | Owner withdrawal only |
+| D-8 | The preview is a release-check branch: the chain tip plus one commit adding only the build-skip setting, pushed to a non-master branch; UAT checks public pages, redirects and images there; sign-in is checked on a local build; the release pushes the tip without that commit | 2026-11-20 | "Agent: release-check branch (Recommended)" — selection-prompt answer, ledger `steering/selection-ledger/2026-11-20.md`, heading "2026-11-20T04:11Z — steering-roadmap-hooks"; relayed in `steering/018-rulings.md` block 2026-11-20T04:11Z. Option text: "Devops pushes the chain tip plus one extra commit that only adds the build-skip setting, to a non-master branch (preview only). UAT checks public pages, redirects and images on Vercel's own build; sign-in is checked on a local build. The release pushes the tip without that commit." (steering's wording) | Owner withdrawal only; RK-7's falsifier (a push without the override reaching READY) would make the extra commit unnecessary |
+| D-9 | The save cap also caps the error: the server stops checking after a small number of errors and returns a short reason, so no save can build a huge error; one more change in the save-cap milestone, with its own tests | 2026-11-20 | "Agent: also cap the error (Recommended)" — same ledger heading and relay. Option text: "The planner adds to the save-cap milestone: the server stops checking after a small number of errors and returns a short reason, so no save can build a huge error. One more change in the same milestone, with its own tests." (steering's wording). M1-i carries its binding phrases verbatim | Owner withdrawal only |
+| D-10 | The editor's Save keeps its current message for a stored message over a new bound (X-18 stands) | 2026-11-20 | "Agent: leave it (Recommended)" — same ledger heading and relay. Option text: "Agent keeps Save's current message; it affects only pasted messages already over Discord's own limits, and the reason is visible in the JSON view." (steering's wording) | Owner withdrawal only |
 
 Agent-authored decisions (Standing Default "a design or mechanism choice inside the agreed scope is the stage's"; recorded, not
 his words): AD-1 the cap mechanism (M1-d); AD-2 the bound values at the five sites that have none (M1 table); AD-3 no lower body
-limit on the tRPC route (X-9); AD-4 the reason-less Save toast kept for a stored message over a new bound (X-18).
+limit on the tRPC route (X-9); AD-5 the error cap's number, 20 issues (M1-i). AD-4 (the reason-less Save toast) is now his D-10.
 
 ## Objective
 
 1. Website resolves `next` 16.4.6 and serves it in production.
-2. Every server-reachable save list refuses an over-limit length with one returned issue, before validating any element.
+2. Every server-reachable save list refuses an over-limit length with one returned issue, before validating any element, and no
+   save's refusal carries more than a small, fixed number of issues.
 3. The lint setup runs on ESLint 9 with `eslint-config-next` 16.4.6, carrying today's configuration.
-4. Behaviour the record ties to Next 16.1.6 is re-verified at 16.4.6, and the upgraded site is seen before release in the form
-   OQ-5 settles.
+4. Behaviour the record ties to Next 16.1.6 is re-verified at 16.4.6, and the upgraded site is seen on a Vercel preview of a
+   release-check branch before release (D-8).
 
 ## Assumptions and open questions
 
-**OPEN QUESTION OQ-5 — what the preview check can be (critique F-1; D-3).** Runs, not inference:
+OPEN QUESTION [RESOLVED]: OQ-5, what the preview check can be (critique F-1; D-3) — resolved by D-8. Runs, not inference:
 - A tree with no build-command override does not build in Vercel's Preview environment: `src/env.mjs` requires `DATABASE_URL`,
   `REDISHOST`, `REDISPORT`, `REDISUSER` and `REDISPASSWORD`, which the project gives to Production only
   (`verification/017/m5-0/devops/preview-env-names.txt`, names and targets, read 2026-11-19; this pass did not re-read the list).
@@ -105,20 +118,8 @@ limit on the tRPC route (X-9); AD-4 the reason-less Save toast kept for a stored
   `VERCEL`/`VERCEL_URL`/`VERCEL_ENV`, which `env.mjs` reads; a limit of the imitation.
 - Anonymous loads of a preview host answered 200 on 2026-11-19 (`verification/017/m5-0/limb3/probe-requests-log.jsonl`), so
   preview protection is not an obstacle.
-Options (steering puts them; facts above):
-- **Agent: preview from a release-check branch (Recommended).** Devops pushes a branch that is the chain tip plus one commit adding
-  the build override to `vercel.json` (017's form). UAT loads the public pages (signed-out editor included), the redirects and
-  images there, on Vercel's own build and image service. The sign-in redirect is checked on the local build instead. The release
-  pushes the chain tip, which never carries the override. Cost: the preview's SHA is the tip's child, not the tip; M5-a compares
-  their trees.
-- **You: also add `SKIP_ENV_VALIDATION=1` to the project's Preview variables.** As above, and the auth routes then pass the
-  environment check at request time; whether sign-in then reaches Discord on a preview is not established (the local run with the
-  skip at request time redirected to `/?…error=discord`, with no `NEXTAUTH_URL` for its host). A change to project settings that
-  only he makes.
-- **Agent: local build only.** No preview; QA and UAT use a local build, and Vercel's build and image service first run at the
-  release push.
-- **Agent: no pre-release site check beyond M4.** Not recommended.
 Where searched: website `src/env.mjs`, `vercel.json`, `next.config.js` at `7923a1d`; 017's M5-0 record; the two runs above.
+Answered by D-8 (the release-check branch). These facts are M5's premise.
 
 OPEN QUESTION [RESOLVED]: OQ-1, the lint package — resolved by D-6 as milestone M3.
 
@@ -181,8 +182,8 @@ to the unparsed message on failure.
   that list (`code` `too_big`, `maximum` the bound, `path` the list's path), none whose path lies inside that list, and no
   displayable-text issue. Instrument: the procedure's real input (the tRPC caller, or the router's
   `_def.procedures.<name>._def.inputs[0]` for S11, which no export names). QA owns the cases.
-- **M1-b.** For each pair and each length at or below its bound, the issues are exactly those the `7923a1d` schema records for the
-  same input. Instrument: both schemas over the same inputs, compared issue for issue. No expected issue list may be computed from,
+- **M1-b.** For each pair and each length at or below its bound, where the `7923a1d` schema records k issues for an input, the M1
+  refusal carries the same first min(k, 20) issues in the same order, followed by M1-i's one summary issue when k > 20. Instrument: both schemas over the same inputs, compared issue for issue. No expected issue list may be computed from,
   or supplied as, the M1 schema's own output.
 - **M1-c.** At the six sites bounded today (S1, S2, S3, S5, S9, S10) the set of inputs refused equals the set refused at `7923a1d`
   (AF-2): the issue list of a refused input may shrink (to the one length issue, the displayable-text issue no longer added after a
@@ -201,7 +202,7 @@ to the unparsed message on failure.
   what it sends; the 50-with-no-id case is red at the decision-only tree (bound added, composer as at `7923a1d`).
 - **M1-f (fate of a stored message over a new bound; F-3).** What each surface shows, from the code at `7923a1d`:
   - the editor's Save (`MessageProvider` `upsertMessage` `onError`) shows the fixed toast "Error. Failed to save message. Please try
-    again." with no reason, on every attempt (X-18, AD-4);
+    again." with no reason, on every attempt (X-18, D-10);
   - Save As and the new-message modal show the server's issue lines (`formatMutationError`, `SaveAsMenu.tsx`, `NewMessageModal.tsx`),
     so the bound's line appears there;
   - the JSON view parses the message on open and on every edit, and shows the bound's issue at the list's path (A-1 formatting).
@@ -214,19 +215,40 @@ to the unparsed message on failure.
 - **M1-g (human-observable form, two surfaces; QAF-2, F-3).**
   - *Browser:* in the JSON view, pasting a message whose `allowed_mentions.users` holds 150 malformed ids shows one error line (the
     100 bound) where `7923a1d` shows 150. The paste is refused in the browser and no request is sent.
-  - *Server:* a message already in the editor whose `allowed_mentions.users` holds 150 well-formed ids (loaded before the JSON view
-    is next opened), saved with **Save As**, shows one line naming the 100 bound; at `7923a1d` the same message saves.
+  - *Server:* a stored message whose `allowed_mentions.users` holds 150 well-formed ids, saved with **Save As**, shows one line naming
+    the 100 bound; at `7923a1d` the same message saves. Set-up (F-16): after M1 neither the JSON view nor the editor can make that
+    message, so UAT creates it on a local build of `7923a1d` by pasting it into the JSON view and saving (which succeeds there), then
+    serves the M1 tip over the same local database, opens that message in the editor without opening the JSON view, and uses Save As.
   Both walked by UAT on a local build before release, signed in with the test account, under the local-build rule (message ids
   moved to 900000000000001 before the first save; `CLAUDE.md`, "Local builds of `website`").
-- **M1-h (post-deploy observable; F-9).** One signed-in test-account `message.upsert` with 50 invalid embeds, sent over HTTP to
-  hooks.gg: issues 51 at `7923a1d`, 1 after release. The base read is QA's, with its signed-in browser, before the release push
-  while production still serves `7923a1d`; the after read is UAT's, after the push, carried by a handoff UAT writes with
-  `Owning-Stage: uat`. A refused save writes nothing; test accounts may write to production (his ruling, `steering/015-rulings.md`
-  line 429).
+- **M1-h (post-deploy observable; F-9, QAF-7).** One signed-in test-account `message.upsert` with 50 invalid embeds, sent over HTTP
+  to hooks.gg: 400 `BAD_REQUEST` with 51 issues at `7923a1d` (read by QA at 04:09Z while production served Next 16.1.6,
+  `verification/018/qa/phase-1/prod-base-reads/README.md`), 1 issue after release. The after read is a row of devops's Stage-1
+  post-deploy handoff, which carries every open post-deploy row, with `Owning-Stage: uat` for this row; UAT runs it after the push
+  with its signed-in browser. A refused save writes nothing; test accounts may write to production (his ruling,
+  `steering/015-rulings.md` line 429).
+- **M1-i (the error cap; D-9).** His option's binding phrases, verbatim: "the server stops checking after a small number of errors
+  and returns a short reason, so no save can build a huge error". Over every input to the 21 pairs (any body the route accepts),
+  the two procedures' input checks:
+  - *stop checking:* record at most 20 issues (AD-5) and then stop validating — the parse is ended, not completed and trimmed.
+    Instrument: a count of issues created during the parse (for example a counting error map in the test), never more than 21;
+  - *a short reason:* refuse with the first 20 issues in parse order plus one summary issue (`path` `[]`, a message saying the check
+    stopped after 20 errors), in the issue shape the client already formats (`formatMutationError` `looksLikeZodIssues` needs `code`,
+    `path`, `message`; read from code, not run), so Save As and the new-message modal render 21 lines;
+  - *no huge error:* the refusal's `message` is at most 16 KB, on the worst within-bound body steering's helper built (707,607
+    bytes, 48,500 issues and 13,324,552 characters at `7923a1d`, `verification/018/steering/refute-within-bound/`) and on M1-a's
+    over-limit bodies; the M1 tip's figures (issues created, message length, parse-and-respond time) are recorded beside the base's.
+  An input with 20 or fewer issues is refused exactly as M1-a and M1-b state, with no summary issue. The callers' input types
+  (`RouterInputs` for both procedures) are those at `7923a1d` (typecheck exit 0; M1-d's `satisfies` clauses kept). Premise run: a
+  zod 3.22.4 parse given a contextual error map that throws a sentinel on the 21st issue stops there — 20 issues in 4 ms, where the
+  full parse records 10,000 issues and a 1,872,782-character message in 27 ms (`verification/018/planning/error-cap-probe/`); how the
+  stop is wired into the procedures is the implementer's. The JSON view's own browser-side parse is not capped (it builds no
+  server response; its lines are A-1's). Number 20: the editor shows one line per issue, and 20 lines fit the error areas of Save As
+  and the new-message modal; the critic and QA may move it with a reason.
 
 **Rollback (code):** `git -C /usr/local/bin/hooks/website revert --no-edit <M1 commits>` on the chain branch, by the implementer
-before release; after release, the release rollback below. **Verification:** suite and typecheck exit codes; M1-a–M1-e cases;
-security re-runs `zodSaveSchema.cost-probe.test.ts` and measures X-19's within-bound maximum at the tip.
+before release; after release, the release rollback below. **Verification:** suite and typecheck exit codes; M1-a–M1-e and M1-i
+cases; security re-runs `zodSaveSchema.cost-probe.test.ts` and the within-bound worst case at the tip.
 
 **Re-derivation gate:** M1 changes an API response (the issue list of a refused save). Every downstream milestone not authorised
 when M1 ships is marked `PREMISE-STALE`; implementation approval covers M1–M5 together, so at approval the population is empty.
@@ -329,10 +351,11 @@ in agent-output (04:0xZ; 22 lines outside this chain's own documents, plus `004`
 | R3 | Stated limit X-14: `router.push`/`replace`, `redirect()` and back/forward cannot be stopped | 017 X-14, AN-2 | recorded either way; no guard is built here (X-20) | UAT walk: on the editor with unsaved edits, press the browser's back; record whether a confirmation appears |
 | R5 | `loading: () => null` on the six `next/dynamic` wrappers (`src/components/dynamics/*`) stops Suspense propagation: the editor shell stays rendered while a lazily loaded child is pending | 004 Assumptions 1, 5 | as stated | UAT walk on the local build with the network throttled; jsdom is not admitted as the instrument unless its Suspense is shown to match the browser (Test Conventions, environment fidelity) |
 | R6 | A client navigation `/message/f/A` → `/message/f/B` mounts B's page and modal fresh (`layout-router.js`, `createRouterCacheKey`) | 015 X-22 (plan row 1175; architecture findings "X-22 … is not a defect") | as stated | read of `next` 16.4.6's `layout-router.js` and `createRouterCacheKey` by the implementer at M2, recorded in its document; UAT walk if the read differs |
-| R7 | The App Router's React root is `document` (`client/app-index.js`: `const appElement = document`), on which 015's F-15 fix rests | 015 "M3 premise question" row (plan row 1214) | as stated | read of 16.4.6's `client/app-index.js` by the implementer at M2, recorded; the F-15 tests pass |
 
 Dispositions of the other hits: `.render.preload` (004 Assumption 2) — no consumer at `7923a1d` (QAF-4: `git grep -n preload` over
-non-test `src`), so not re-verified; 017 AN-3 and X-13 — X-15; 014 D13 (a DOM harness under Next 16) — the suite at M2-c; the
+non-test `src`), so not re-verified; 015's "M3 premise question" (the App Router's React root is `document`; plan row 1214) — its
+row is marked "Superseded at rev 15" and 015 removed its M3 as not a defect (D30, plan row 100), so no fix or test at `7923a1d`
+rests on it (QAF-6); 017 AN-3 and X-13 — X-15; 014 D13 (a DOM harness under Next 16) — the suite at M2-c; the
 master record's "Next.js 16 hybrid" and the diagram — descriptive; the P-1 handoff's `sharp` note — devops's, X-12; 015's dev-overlay
 "unread" — no behaviour rests on it. 017's X-15 (`beforeunload`) ties to no Next.js version and is not in the class (revision 1's R4).
 
@@ -341,12 +364,13 @@ master record's "Next.js 16 hybrid" and the diagram — descriptive; the P-1 han
   (`browser-walker`), captures under `verification/018/uat/local/`.
 - **M4-b.** Where a behaviour no longer holds, the regression is fixed inside M2 only if the fix is confined to the surface 015, 017 or
   004 built; any other remedy is a milestone-level scope delta to the owner before code continues.
-- **M4-c.** R3's, R6's and R7's results are written into the UAT and implementation documents and carried to the architect.
+- **M4-c.** R3's and R6's results are written into the UAT and implementation documents and carried to the architect.
 **No code is expected.** Rollback: none.
 
-### M5 — The upgraded site seen before release (D-3; form set by OQ-5)
+### M5 — The upgraded site seen on a release-check preview before release (D-3, D-8)
 
-Held on OQ-5. Common to every option: after QA Phase 2 passes M1–M4. Under the recommended option:
+**Premise:** the runs under OQ-5 (a plain push cannot build a preview; with the override, everything but `/api/auth/*` serves).
+After QA Phase 2 passes M1–M4:
 - **M5-a.** Devops pushes a release-check branch whose head is the chain tip plus one commit changing only `vercel.json`
   (`buildCommand` `SKIP_ENV_VALIDATION=1 next build`), and reads the deployment `READY` at that head through `vercel api`. The tree
   identity is shown by `git diff --name-only <tip> <head>` printing `vercel.json` alone. The chain tip never carries that commit;
@@ -359,7 +383,7 @@ Held on OQ-5. Common to every option: after QA Phase 2 passes M1–M4. Under the
 - **M5-c (images).** The landing page's local image and one `/_next/image` request for a `cdn.discordapp.com` avatar answer 200 with
   an image content type.
 - **M5-d (sign-in redirect).** Walked on the local build at M4, not the preview: pressing sign-in reaches Discord's authorise page;
-  UAT stops there. On the preview `/api/auth/*` answers 500 (OQ-5), which UAT records and does not count as a failure.
+  UAT stops there (D-8). On the preview `/api/auth/*` answers 500 (OQ-5's run), which UAT records and does not count as a failure.
 - **M5-e (H-002 human-observable form).** The preview's page script carries `window.next={version:"16.4.6"` (instrument read
   non-zero on production for 16.1.6: `verification/018/planning/prod-next-version-pre.txt`). After release the same read on hooks.gg
   is H-002's post-deploy observable, run by devops after the push (a public GET, no session).
@@ -379,10 +403,11 @@ handoff) and M5-e (devops). Release order against open carriers: P-1 and 017's B
   recorded beside every count.
 - M1: pure-logic tests over the 21 pairs through the procedures' real inputs (Node environment); expected values are literals
   (bounds, issue counts), never the schema's output; `null` and nested over-limit elements are members (QAF-1). The composer (M1-e)
-  as a hook test.
+  as a hook test. M1-i's worst-case body is steering's within-bound input; its time figure is a measurement recorded beside the
+  base's, outside the standing suite's pass/fail.
 - M2: build, typecheck and suite in an isolated export in M2-c's form; lockfile checks by `grep -c` with the anchored predicate.
 - M3: both lint configs over the same source tree with ESLint's JSON formatter, tallied per rule id and per linted file; never `--fix`.
-- M4: existing tests, two source reads (R6, R7) and UAT walks on a local build, signed in.
+- M4: existing tests, one source read (R6) and UAT walks on a local build, signed in.
 - M5: UAT walk of the preview, anonymous; the sign-in redirect on the local build.
 - Hosts: this box for every run; Vercel read through `vercel api` and a browser. The chain changes no tool a gate uses as its
   instrument.
@@ -394,7 +419,8 @@ handoff) and M5-e (devops). Release order against open carriers: P-1 and 017's B
 - **V-2** (`verification/018/planning/preview-imitation/`, a helper, 03:5xZ): the same base with no `.env` and
   `SKIP_ENV_VALIDATION=1` — `next build` exit 0; `pnpm run typecheck` after the build exit 0 (before the build, exit 2 on one TS2307
   for `~/assets/img/product_image.png`, because the gitignored `next-env.d.ts` is generated by the build).
-- **V-3:** the abort form (OQ-3), the internals (OQ-2) and the preview imitation (OQ-5) — runs cited there.
+- **V-3:** the abort form (OQ-3), the internals (OQ-2), the preview imitation (OQ-5) and the stopping parse (M1-i) — runs cited
+  there.
 
 ## Risks
 
@@ -408,9 +434,10 @@ handoff) and M5-e (devops). Release order against open carriers: P-1 and 017's B
   Falsifier: a lint dependency that fails to install or load at a later bump (X-16).
 - **RK-6 (standing prediction, critique pass 1's class).** Class: a criterion, a closed question or a decision row says what code, a
   build or a host does, and no read at the receiving end supports it. Domain: OQ-2 to OQ-5; M1-e to M1-h; M2-c, M2-d; M3's "Premise,
-  run"; M4 R1–R7; M5-a to M5-e; the release rollback. Falsifier: a later pass or gate finding a sentence there that a read
+  run"; M4 R1–R6; M5-a to M5-e; the release rollback. Falsifier: a later pass or gate finding a sentence there that a read
   contradicts. Record per review pass: pass 1 — members found (F-1, F-2, F-3, F-4, F-8), folded at revision 2 by runs or reads cited
-  at each.
+  at each; pass 2 — none (critique `409b52c`); QA's re-key of revision 2 — one (QAF-6, R7 resting on a superseded 015 row), folded
+  at revision 3. The domain now also holds M1-i.
 - **RK-7 (prediction, F-1).** "A push whose tree has no build-command override does not reach READY in the Preview environment."
   Falsifier: such a push reaching READY.
 
@@ -431,12 +458,11 @@ handoff) and M5-e (devops). Release order against open carriers: P-1 and 017's B
 | X-11 | Order-independence of the first-load test | Only owed if M2 edits `Child.portal-inside-open-dialog.test.tsx` (not expected, OQ-2) | `handoff/anchored-popover-first-load-test-is-order-dependent-2026-11-18.md` |
 | X-12 | Sequencing the release against P-1 and 017's post-deploy reads | Devops's act | Devops Stage 1 (RK-4) |
 | X-13 | `allowed_mentions.parse` admitting `'user'` and `'here'`, which Discord's page does not list | Pre-existing element domain; M1 bounds the list's length only, from the same tuple (S6) | Architect's Problem Area (AF-6) |
-| X-14 | No server check of the 40-component total across nesting | W-2 lets invalid drafts save; the within-bound cost is X-19 | Stated limit |
+| X-14 | No server check of the 40-component total across nesting | W-2 lets invalid drafts save; the within-bound cost is capped by M1-i | Stated limit |
 | X-15 | 017's `after()` finding (AN-3) and `pageExtensions` reading (X-13), both "at 16.1.6" | Neither design depends on the 16.1.6 behaviour continuing | Stated limit |
 | X-16 | ESLint 10 | `eslint-plugin-react` 7.37.5, its latest, peers `eslint` no higher than `^9.7` (`npm view`) | RK-5 |
 | X-17 | Enforcing lint (a hook, a workflow or a build step) | Not in his selection; lint is red (X-6) | 017 X-12's carrier (Architecture Problem Areas) |
-| X-18 | The editor's Save keeps its fixed toast, with no reason, for a stored message over a new bound (AD-4) | Showing the server's reason on Save is a change to the editor's error path, beyond the ask; the reason shows in the JSON view and on Save As (M1-f); the population is pasted-JSON messages over Discord's own limits (RK-3) | Stated limit; offered to him as added scope with OQ-5's prompt, not recommended |
-| X-19 | The within-bound maximum of issues one save can produce | Nesting multiplies inside every bound (40 × 40 × 10): the critic's replica gave 48,000 issues and a 12.5 MB message in about 0.2 s from a 676 KB body (critique Appendix; a replica, not re-derived) | Stated limit; security measures it at the tip with its cost probe (M1 Verification) |
+| X-18 | The editor's Save keeps its fixed toast, with no reason, for a stored message over a new bound | His D-10; the reason shows in the JSON view and on Save As (M1-f); the population is pasted-JSON messages over Discord's own limits (RK-3) | Stated limit (D-10) |
 | X-20 | A guard for navigations made by code, `redirect()` or back/forward | 017 X-14's stated limit; M4 R3 only records whether 16.4.6 changes it | Stated limit; the architect's record (M4-c) |
 
 ## Open handoffs whose trigger names this chain's surfaces
