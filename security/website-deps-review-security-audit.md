@@ -3,7 +3,7 @@ ID: n/a
 Origin: website-deps-review
 UUID: f14f4445
 Status: Active
-Status-Detail: "BLOCKED_PENDING_REMEDIATION at website 983681c, a tree already released, so the verdict holds no release: it says the dependency posture is not approvable until H-001 is fixed. H-001 (HIGH), H-002 (HIGH) and M-001 (MEDIUM) are OPEN and wait on the owner's scope decision, put through steering. None of the audit's 8 critical advisories is reached on hooks.gg as hosted."
+Status-Detail: "BLOCKED_PENDING_REMEDIATION at website 983681c, a tree already released, so the verdict holds no release: it says the dependency posture is not approvable until H-001 is fixed. H-001 (HIGH), H-002 (HIGH) and M-001 (MEDIUM) are OPEN. Their fixes are routed by the owner's selection (steering/website-deps-review-rulings.md, block 2026-11-20T01:59Z): H-001 to the fixer chain fix-message-page-header-decode now, H-002 and M-001 to a separate chain after H-001 ships. Each row stays OPEN until this stage verifies its change. None of the audit's 8 critical advisories is reached on hooks.gg as hosted."
 Reviewed-At: "983681ca6cd7cbacd0796ed093e094057ad7f9be — repos=website; lockfile unchanged from 787bec5 (git diff --quiet 787bec5 983681c -- pnpm-lock.yaml package.json, exit 0)"
 Kind: dependency-audit
 ---
@@ -15,6 +15,7 @@ Kind: dependency-audit
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-20T01:57 | steering-roadmap-hooks → security-hooks-website-deps (brief `steering/website-deps-review-brief-security.md`; owner selection recorded in `steering/fix-personal-message-access-rulings.md`, block 2026-11-20T01:34Z, question "Deps review") | Dependency-only review of website at `983681c`: for each audit finding, whether hooks.gg reaches the vulnerable code, where it ships and how it is reached. No remediation. | Initial assessment. 141 advisory entries dispositioned: 5 reached, 5 conditional, 13 self-hosting only, 56 precondition absent, 2 dev server only, 28 build time only, 32 never loaded. H-001, H-002, M-001 OPEN. Verdict BLOCKED_PENDING_REMEDIATION. |
+| 2026-11-20T02:01 | steering-roadmap-hooks → security-hooks-website-deps (message 02:0xZ; `steering/website-deps-review-rulings.md`, block 2026-11-20T01:59Z, record `57c41b8`, read by this stage) | The owner's three scope answers, and where the two confirmations go | Fix routing recorded on H-001, H-002, M-001 and I-2; all three findings stay OPEN. The four owner-needing items collapsed to their dispositions. A-1's and A-4's settling reads named. One premise of mine corrected (process record). No re-review: the tree has not moved. |
 
 ## Metadata
 
@@ -63,7 +64,7 @@ Finding IDs are this document's own. Severity is the finding's severity on hooks
 | H-001 | HIGH | An unauthenticated request header makes a page render burn CPU for seconds to minutes | Denial of service through `decode-uri-component` 0.4.1 (GHSA-vcc3-ghjq-m6fr, GHSA-qr28-fpjm-wq7f; CWE-400, CWE-407) | `src/app/_components/Providers.tsx` `getMessage`; `src/middleware.ts` `middleware` | 7.5 (AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H) |
 | H-002 | HIGH | Next.js 16.1.6 carries two App Router denial-of-service advisories with no precondition the site lacks | Denial of service in React Server Components handling (GHSA-q4gf-8mx6-v5v3, GHSA-8h8q-6873-q5fj; CWE-770) | `package.json` `next` (lockfile 16.1.6) | 7.5 (the advisories' own) |
 
-**H-001 — status OPEN.**
+**H-001 — status OPEN; fix routed.** Owner's selection, `steering/website-deps-review-rulings.md`, block 2026-11-20T01:59Z, question "H-001 fix", option chosen "Agent: fixer chain now (Recommended)": fixer chain `fix-message-page-header-decode` takes remediation paths 1 and 2 below, then code review, then security on the change, then a website `master` push that needs his word.
 
 - **How it is reached.** `Providers` is mounted by `src/app/message/layout.tsx`, so it renders on every `/message` page. It reads the request header `x-query-params` and calls `queryString.parse(decodeURIComponent(header))`. `query-string` 8.1.0 decodes each key and value with `decode-uri-component` 0.4.1. The middleware sets that header only when the URL has a query string, and it starts from a copy of the client's headers. So on a `/message` page requested without a query string, a header the client sent arrives untouched. No sign-in is needed: `/message/m/0/edit` renders without a session.
 - **What it costs.** A run of percent tokens that is well-formed syntax but not valid UTF-8 sends the decoder down its fallback path, which is far worse than linear. Measured on the library with the page's own call expression (`probe-query-string-decode.mjs`, output `out/probe-query-string-decode-983681c.txt`, Node 24.14.0, this box):
@@ -86,7 +87,7 @@ Finding IDs are this document's own. Severity is the finding's severity on hooks
   3. Either way, treat `x-pathname` and `x-query-params` as client-controlled unless the middleware always sets them.
 - **Why this is one finding and not a code finding elsewhere.** The header trust is product code; the cost is the dependency's. Either fix closes it. It was found by tracing the advisory to its call site, so it is recorded here.
 
-**H-002 — status OPEN.**
+**H-002 — status OPEN; fix routed.** Owner's selection, same block, question "H-002/M-001", option chosen "Agent: separate chain after H-001 (Recommended)": the Next.js upgrade gets its own chain, opened by steering once H-001 ships. No chain exists yet; that block is the carrier.
 
 - **How it is reached.** Both advisories say a crafted request to "any App Router Server Function endpoint" costs excessive CPU while it is deserialised, and name one precondition: the App Router. The site's pages are App Router pages. Unlike the Server Action advisories beside them (GHSA-m99w-x7hq-7vfj, GHSA-p3m5-59mp-jv5r), these two do not say that an application without Server Actions is safe, so I do not assume it, although the source has no `use server` directive.
 - **Not exercised.** The advisories publish no request, so reachability rests on their text.
@@ -99,7 +100,7 @@ Finding IDs are this document's own. Severity is the finding's severity on hooks
 |----|----------|-------|----------|----------|------|
 | M-001 | MEDIUM | A signed-in user's 1 MB save request makes the server build a validation error of more than 100 MB | Resource exhaustion in `zod` 3.22.4 (GHSA-mrhx-c7xc-m3w5; CWE-770) | `src/server/api/routers/message.ts` `upsert`; `src/server/api/utils/shapes.ts` `optionalIdMessageShape` | 6.5 (AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H) |
 
-**M-001 — status OPEN.**
+**M-001 — status OPEN; fix routed.** Owner's selection, same block and option as H-002: the save-size cap rides the chain opened after H-001 ships. No chain exists yet; that block is the carrier.
 
 - **How it is reached.** `message.upsert` is a `protectedProcedure`, so the caller must be signed in; any Discord account can sign in. Its input is parsed by `optionalIdMessageShape`. zod 3.22.4 records one issue for every failing array element and does not stop early, with or without a `.max()` on the array. The Pages Router's body parser accepts up to 1 MB by default (`next/dist/server/api-utils/node/api-resolver.js`: `'1mb'`), and no route in the source sets `sizeLimit`.
 - **What it costs.** Measured against the site's own schema in the isolated export (`zodSaveSchema.cost-probe.test.ts`, output `out/probe-zod-save-schema-983681c.txt`). A 1 MB body whose array holds about 524,000 failing elements:
@@ -203,31 +204,31 @@ None. The 8 critical advisories are dispositioned below; none is reached.
 
 Each names the check that would settle it and who can make it.
 
-- **A-1. Vercel's image service, not the site's Next.js, answers `/_next/image` on hooks.gg.** It rests on DNS pointing at Vercel and on three sibling advisories that say Vercel is not impacted for the same endpoint. Thirteen HOST dispositions, two of them critical, depend on it. Settled by one image response's headers from hooks.gg, or by the project's settings in the Vercel dashboard. The first is a request to production; the second is the owner's.
-- **A-2. Vercel's cache keeps Server Component responses apart from HTML.** Two CONDITIONAL dispositions depend on it. No check is available from this box.
+- **A-1. Vercel's image service, not the site's Next.js, answers `/_next/image` on hooks.gg.** It rests on DNS pointing at Vercel and on three sibling advisories that say Vercel is not impacted for the same endpoint. Thirteen HOST dispositions, two of them critical, depend on it. Settled by one image response's headers from hooks.gg, which is a request to production, or by a read-only read of the Vercel project. Steering makes that read with `vercel api` (`steering/website-deps-review-rulings.md`, block 2026-11-20T01:59Z, "Next"); the HOST dispositions are re-read against its result when it is recorded.
+- **A-2. Vercel's cache keeps Server Component responses apart from HTML.** Two CONDITIONAL dispositions depend on it. I attempted no check and know of none.
 - **A-3. Production is the Vercel project and not the PM2 path.** Established by DNS only.
-- **A-4. Vercel passes a client's `x-query-params` header through to the function.** H-001's production reach depends on it. I know of no rule that would strip it. Settled by one harmless request with a short, well-formed header value and a look at what the page receives; that is a request to production and was not made.
+- **A-4. Vercel passes a client's `x-query-params` header through to the function.** H-001's production reach depends on it. I know of no rule that would strip it. Settled by one harmless request with a short, well-formed header value and a look at what the page receives; that is a request to production and was not made. It goes into the H-001 chain's post-deploy reads, never as a load request (same rulings block, "Next").
 
 ## Informational
 
 - **I-1. The PM2 path would change the picture.** If the site were ever served by `next start` as `ecosystem.config.json` describes, the 13 HOST entries become live, including both critical image-optimiser advisories. The allowed image hosts make that worse: `cdn.discordapp.com` serves files any Discord user uploads, and `cdn.jsdelivr.net` serves any published package file.
-- **I-2. Three declared dependencies are not used.** `sanitize-html` (6 entries) is imported nowhere. The direct `sharp` 0.32.6 is imported nowhere and brings `tar-fs` (6 entries; sharp's own 3 entries stay, because Next.js brings its own copy). The direct `form-data` backs a file-attachment path with no caller (2 entries). `project-utils` declares the generator `prisma-kysely` as a runtime dependency, which brings 24 entries into the website's production graph.
+- **I-2. Three declared dependencies are not used.** `sanitize-html` (6 entries) is imported nowhere. The direct `sharp` 0.32.6 is imported nowhere and brings `tar-fs` (6 entries; sharp's own 3 entries stay, because Next.js brings its own copy). The direct `form-data` backs a file-attachment path with no caller (2 entries). `project-utils` declares the generator `prisma-kysely` as a runtime dependency, which brings 24 entries into the website's production graph. Routed: the owner's selection (same rulings block, question "Unused deps", option chosen "Agent: remove in H-001's chain (Recommended)") has the H-001 fixer drop the three from `package.json`. The `prisma-kysely` declaration is in `project-utils` and is not part of that selection.
 - **I-3. A dev-server advisory applies to this box.** GHSA-39w2-rjm5-chcv lets a hostile page, opened in a browser on a machine running `next dev`, read the project path, source snippets and logs. Agents here run `next dev` and drive browsers.
 - **I-4. The audit's counts will move.** They are the registry's answer at 2026-11-20T01:37:31Z. The same lockfile will list more entries later with no change on our side.
 - **I-5. The same header is trusted for routing.** `src/app/_navigation/Redirects/Server.tsx` reads `x-pathname` to decide a redirect for visitors with no session. A client can set it on paths the middleware does not match. It decides only a redirect, not access.
 
 ## Required Controls
 
-This review imposes none on a release: `983681c` is already out. For the dependency set to be approved, H-001 must be fixed and re-reviewed. H-002 and M-001 should be fixed in the same or a following change. Which of these becomes work, and how, is the owner's scope decision; this review edits nothing.
+This review imposes none on a release: `983681c` is already out. For the dependency set to be approved, H-001 must be fixed and re-reviewed. H-002 and M-001 are to be fixed in the chain that follows it. This review edits nothing.
 
 ## Owner-needing items
 
-Put to the owner through steering; this document authorises nothing.
+All four were answered or routed on 2026-11-20T01:59Z; the record is `steering/website-deps-review-rulings.md`, that block. The questions as put are in this document at record `1248690`.
 
-1. **Whether to open a fix for H-001 now.** It is the one finding exercised end to end: an unauthenticated header makes a `/message` page render take 51 s for a 4 KB header on a local build. The smallest fix is a change to one function in `Providers.tsx`; a lockfile override of `decode-uri-component` to 0.5.1 or later is the dependency route.
-2. **Whether the same change, or a second one, takes H-002 and M-001.** H-002 is a `next` upgrade from 16.1.6 to at least 16.2.5 (16.4.5 clears all 42 Next.js entries). M-001 is either a product-side cap or a zod major upgrade.
-3. **Whether to confirm A-1 and A-4 on production.** A-1 can be read from the Vercel dashboard, which only the owner can open. A-4 needs one harmless request to hooks.gg.
-4. **Whether the unused dependencies in I-2 are removed.** It is tidying, not a vulnerability fix: 14 entries would leave the audit (`sanitize-html` 6, `tar-fs` 6, the direct `form-data` 2), none of them reached. The 24 under `prisma-kysely` need a change in `project-utils`.
+1. H-001's fix: ANSWERED — a fixer chain now, `fix-message-page-header-decode`, with the function change and the override.
+2. H-002 and M-001: ANSWERED — a separate chain after H-001 ships.
+3. Confirming A-1 and A-4: ROUTED, not asked of him — A-1 is steering's read-only `vercel api` read; A-4 goes into the H-001 chain's post-deploy reads.
+4. The unused dependencies in I-2: ANSWERED — removed in H-001's chain. 14 entries would leave the audit (`sanitize-html` 6, `tar-fs` 6, the direct `form-data` 2), none of them reached.
 
 ## Testing Recommendations
 
@@ -252,6 +253,8 @@ Put to the owner through steering; this document authorises nothing.
 - **No request reached production.** The only network reads were the audit's registry query, two DNS lookups, and one fetch of a public Vercel changelog page by a helper.
 - **Errors of mine, fixed in the round.** The first query-string probe had a syntax error and produced no figures; it was corrected and re-run. A first form of the zod probe used ts-node, which cannot load the schema because the schema's constants import an ES module; it produced no figures, was deleted, and was rewritten as a vitest file run inside the export only. `usage-evidence.sh` first carried a mis-quoted pattern for the Kysely JSON-path count; it was corrected and the whole script re-run, and the output file is the re-run's.
 - **Instrument notes.** Every count in this document comes from a script that writes to a file under `verification/website-deps-review/security/`, read there; none is taken from filtered terminal output. Heap figures in M-001 are differences of `process.memoryUsage().heapUsed` without a forced collection, so they are rough; the issue counts and message sizes are exact.
+- **A premise of mine was wrong, corrected 2026-11-20 after the owner's selection.** This document and my message to steering said A-1 could be read only from the Vercel dashboard, "which only the owner can open". Steering holds a read-only `vercel api` path (`steering/017-standing.md`, "Vercel reads"), so the read is an agent's and was never his to make. It changed nothing he chose: steering routed the read itself and did not put it to him. The check that would have caught it: a search of the record for a Vercel read path before I wrote who could make the read. Swept as a class with `grep -n "only the owner\|is the owner's\.\|No check is available"` over this document: 3 lines before; 1 after, which is this line quoting the old words. A-1 and owner item 3 are corrected to name steering's read. A-2 said no check was available from this box; no attempt had been made, and it now says so.
+- **The four owner-needing items were collapsed to dispositions in the same write.** What the removed text carried: each question's premises. They live on in the finding blocks (H-001, H-002, M-001), in I-2 and in the rulings block's quoted options.
 - **Seen at session start, not acted on.** `security/` held one other open document, `fix-personal-message-access-security-audit.md`, at Status `Active`; it was not terminal, so the orphan check moved nothing. It had left that path by the time this document was written.
 
 ## Appendix: evidence
