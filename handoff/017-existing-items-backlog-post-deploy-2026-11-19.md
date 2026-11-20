@@ -66,6 +66,7 @@ Smoke (the launcher's `--smoke`, the last act after this record's last write): r
 - **Predicted**: at AN-4's rate (15 non-successes in 16847 requests; 196 generations in 30 days) the expected count of failure lines is about 0.17 per 30 days. **A zero is evidence of nothing.** This row is a health check; the fixed-versus-unfixed distinction for item 2 is B-4, pre-release (EXECUTED, PASS).
 - **Failure mode**: if no failure line can be read even under a planted failure, D-8's countability is not delivered. A member of class "no answer within T" is RK-2's falsifier and F-2's.
 - **Owner**: devops. **Result**: _blank_
+- **Interim** (2026-11-20T07:17:06Z): first live read, control 302 records, failure lines 0
 
 ### B-8  (his look)
 
