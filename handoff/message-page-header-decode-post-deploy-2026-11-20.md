@@ -1,7 +1,7 @@
 ---
 UUID: ff56b327
 Status: Open
-Status-Detail: "Carries post-deploy row P-1 of chain fix-message-page-header-decode: one GET of the production image optimiser after website master moves to 7923a1d. Blocked on the push (ledger E-WEBSITE-PUSH blank). Read by the scheduled reader P1R."
+Status-Detail: "Carries post-deploy row P-1 of chain fix-message-page-header-decode: one GET of the production image optimiser after website master moves to 7923a1d. Pushed 2026-11-20T02:34:40Z (ledger E-WEBSITE-PUSH filled); first P1R fire at or after 02:49:40Z is 04:07Z. Read by the scheduled reader P1R."
 Owning-Stage: devops
 Review-Trigger: the P1R scheduled reader's fire at least 15 minutes after the E-WEBSITE-PUSH ledger cell is filled (the deploy of website master 7923a1d)
 ---
@@ -32,7 +32,7 @@ fault, not an exposure.
 
 | Event | When | SHA |
 |---|---|---|
-| E-WEBSITE-PUSH (website `master` moved to `7923a1d`) | _(blank)_ | _(blank)_ |
+| E-WEBSITE-PUSH (website `master` moved to `7923a1d`) | 2026-11-20T02:34:40Z | `7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe` |
 
 **Schedule.** Crontab line (installed at Stage 1; the gate in the brief makes every fire before the push a stop):
 
@@ -61,3 +61,4 @@ devops Stage 1 for chain `fix-message-page-header-decode`, from the brief `steer
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-20T02:25 | devops (devops-hooks-fix-message-page-header-decode) | Opened at Stage 1 with row P-1, the event ledger, the P1R kit and its crontab line. |
+| 2026-11-20T02:34 | devops (devops-hooks-fix-message-page-header-decode) | Website `master` moved to `7923a1d` (`release-move.js` exit 0 at 02:34:36Z to 02:34:40Z; `git ls-remote origin refs/heads/master` read back `7923a1d9…`). E-WEBSITE-PUSH filled; the P1R gate (push plus 15 minutes) opens at 02:49:40Z. |

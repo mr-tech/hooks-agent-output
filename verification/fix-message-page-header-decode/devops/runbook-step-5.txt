@@ -1,0 +1,6 @@
+master
+--- branch -d
+ok
+bd_rc=0
+
+7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe
