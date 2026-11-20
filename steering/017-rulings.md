@@ -1244,3 +1244,20 @@ Carriers still open at close-out:
 Disclosure: the stamp gate refused this block's first heading (20:42Z, typed a minute ahead of the clock). It now carries the `date -u` minute.
 The 017 standing check is deleted. This thread stays up for the access-defects fixer, whose scope question is with him
 (`steering/fix-personal-message-access-rulings.md`).
+
+## 2026-11-20T02:41Z — his three looks (B-6, B-8, B-9) moved to a test-account session (his question, then his selection)
+
+**His question, typed at 02:4xZ:** "on the list you gave me, why can't the agents do the interaction checks?"
+**This thread's answer:** they can. The plan's wording made them his ("his look", "in production by him":
+`planning/closed/017-existing-items-backlog.md` lines 486, 659, 755 and 1232). That wording is the planner's. A grep of `steering/017-rulings.md`
+and `steering/backlog-2026-11-18-rulings.md` for "in production by him" and "his look" found no ruling of his. This thread's error: it
+carried them onto OWNER-QUEUE without testing them against the Standing Default that a test-account walk is made, never asked
+(escalation.md).
+**Selection, answered 02:41Z** (ledger `steering/selection-ledger/2026-11-20.md`, block "2026-11-20T02:41Z — steering-roadmap-hooks";
+wording this thread's):
+- **Agent: run all three (Recommended)** — CHOSEN, by selection. "Steering starts a test-account session that walks all three on live
+  hooks.gg through the shared test browser, records each result, then closes the three related handoff records and drops them from
+  your owner queue. If Discord shows an hCaptcha at sign-in, it pauses and pings your alerts channel for you to solve it. It waits
+  for the shared test browser if chain 081 is using it."
+- You: keep them yours.
+Applied: `uat-hooks-017-looks` on `steering/017-brief-uat-looks.md`. The OWNER-QUEUE 017 section is deleted; the rows are now an agent's.
