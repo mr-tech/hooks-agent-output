@@ -1,0 +1,39 @@
+{
+ "upsert": {
+  "idAbc": {
+   "issues": 21,
+   "summary": true,
+   "displayable": [
+    "String must contain at most 4000 character(s)"
+   ]
+  },
+  "noId": {
+   "issues": 20,
+   "summary": false,
+   "displayable": [
+    "Components displayable text size exceeds maximum size of 4000"
+   ]
+  }
+ },
+ "updatePreferencesMessage": {
+  "idAbc": {
+   "issues": 20,
+   "summary": false,
+   "displayable": [
+    "Components displayable text size exceeds maximum size of 4000"
+   ]
+  },
+  "idNumber": {
+   "issues": 21,
+   "summary": true,
+   "displayable": [
+    "String must contain at most 4000 character(s)"
+   ]
+  },
+  "nameNumberAfterNothing": {
+   "issues": 21,
+   "summary": true,
+   "displayable": []
+  }
+ }
+}

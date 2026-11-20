@@ -1,0 +1,39 @@
+{
+ "upsert": {
+  "idAbc": {
+   "issues": 21,
+   "summary": true,
+   "displayable": [
+    "Components displayable text size exceeds maximum size of 4000"
+   ]
+  },
+  "noId": {
+   "issues": 20,
+   "summary": false,
+   "displayable": [
+    "Components displayable text size exceeds maximum size of 4000"
+   ]
+  }
+ },
+ "updatePreferencesMessage": {
+  "idAbc": {
+   "issues": 20,
+   "summary": false,
+   "displayable": [
+    "Components displayable text size exceeds maximum size of 4000"
+   ]
+  },
+  "idNumber": {
+   "issues": 21,
+   "summary": true,
+   "displayable": [
+    "Components displayable text size exceeds maximum size of 4000"
+   ]
+  },
+  "nameNumberAfterNothing": {
+   "issues": 21,
+   "summary": true,
+   "displayable": []
+  }
+ }
+}

@@ -2,9 +2,9 @@
 ID: 018
 Origin: 018
 UUID: 6273a762
-Reviewed-At: "b0b0158 — repos=website; Round 2 is M2 at b0b0158 (APPROVED_WITH_COMMENTS); Round 1 is M1 at f9e66c2 (REJECTED, CR-1 open)"
+Reviewed-At: "a558f2d — repos=website; M1 Round 1 sub-entry 1 at a558f2d (APPROVED_WITH_COMMENTS, CR-1 closed); M2 Round 2 at b0b0158 (APPROVED_WITH_COMMENTS)"
 Status: In Review
-Status-Detail: "M1 REJECTED at f9e66c2 and awaiting the implementer's CR-1 fix, re-reviewed as a sub-entry of Round 1. M2 APPROVED_WITH_COMMENTS at b0b0158, handed to QA Phase 2 on M2."
+Status-Detail: "M1 APPROVED_WITH_COMMENTS at a558f2d (Round 1 sub-entry 1) and M2 APPROVED_WITH_COMMENTS at b0b0158 (Round 2), both with QA Phase 2. CR-2 is carried by the plan's Planner batch."
 Round: 2
 Verdict: APPROVED_WITH_COMMENTS
 ---
@@ -22,6 +22,7 @@ Verdict: APPROVED_WITH_COMMENTS
 |------|---------------|---------|---------|
 | 2026-11-20T05:35 | steering-roadmap-hooks (brief `steering/018-brief-code-reviewer.md`) | Round 1: review M1 at `f9e66c2` | REJECTED. CR-1 HIGH: on the capped path, an issue with an explicit message comes back with zod's default wording. Run in an isolated export. CR-2 LOW: the cap's counting relies on zod 3.22.4 internals that `^3.20.6` does not pin. Under 3.25.76 the cap misses 1,600 issues. CR-3 INFO: a count reconciled. Captures are under `verification/018/code-review/`. |
 | 2026-11-20T05:40 | steering-roadmap-hooks (brief amended `1db98a7`); implementer-hooks-018 (M2 document `b4b34b6`) | Round 2: review M2 at `b0b0158` | APPROVED_WITH_COMMENTS. Reproduced in my own export: M2-a; M2-b's 46 package movers and 12 snapshot-key movers, counted by a second instrument; M2-c's build, typecheck, ts-node and highlight.js bundle checks; M2-d's warnings. The three ts-node scripts typecheck under their options at both trees. CR-4 INFO: an `@img` count does not reproduce. M1 stays REJECTED. |
+| 2026-11-20T05:43 | implementer-hooks-018 (fix at website `a558f2d`, documents `802917e`) | Round 1 sub-entry 1: re-review the M1 fix diff `b0b0158..a558f2d` | M1 **APPROVED_WITH_COMMENTS**. CR-1 closed: re-attacked through both procedures' input shapes before and after the fix, and the sweep and caller list re-run. CR-2 is carried by the Planner batch (ruling 05:42Z). CR-3 and CR-4 are reconciled. |
 
 ## Scope and stage start
 
@@ -225,6 +226,68 @@ rest of M1 conforms:
   - **Falsity signature:** a vitest JSON at the fix SHA with `numFailedTests > 0`, a process exit other than 0, or a named mutant
     from `named-mutants-bfc790d.json` surviving when re-run.
   - **Owner:** QA Phase 2 on M1.
+
+## Round 1, sub-entry 1 — M1 fix at `a558f2d`
+
+**Scope:** the fix diff `b0b0158..a558f2d` (website, the implementation documents at agent-output `802917e`).
+- Three commits: red specs `c357095`, fix `b639dbe`, lint `a558f2d`.
+- Three files: `shapes.ts` (+3/-2, `cappedInput`'s error map only), `shapes.error-cap.test.ts` (+17) and
+  `message.save-limits.test.ts` (+21/-2).
+- Nothing outside the findings' scope changed, so this is a sub-entry of Round 1, not a new round.
+- `a558f2d` is on `chain/018-next-upgrade-save-size-cap`, with M2 (`b0b0158`) below it. The lockfile and `package.json` are identical
+  at the two SHAs.
+
+**CR-1: the class is gone.**
+- **Re-attack.** I ran a new probe rather than relying on the specs (`verification/018/code-review/m1-fix1/`). It runs both
+  procedures' input shapes, each wrapped in the real `cappedInput`, in exports of `b0b0158` (before the fix) and `a558f2d` (after),
+  over one install.
+- **`upsert`, with `id: 'abc'` after the data:** before the fix, the displayable-text line reads "String must contain at most 4000
+  character(s)"; after, it reads "Components displayable text size exceeds maximum size of 4000". 21 issues, with the summary.
+- **`updatePreferences`' `message`:**
+  - `id: 'abc'` is accepted by `partialMessageShape.id` (`z.string().optional()`), so that input stays at 20 issues and is not
+    capped. The implementer's point (b) is right for that input.
+  - `id: 5` is **not** accepted, and the issue it adds follows `data`. Before the fix, the displayable-text line reads "String must
+    contain at most 4000 character(s)"; after, it reads correctly. So Round 1's statement that both procedures reach the class
+    stands; only the `'abc'` example was upsert-specific.
+  - The class lives in `cappedInput`, which both callers share. The shared-helper spec covers it for any caller, so no
+    procedure-level spec is owed for `updatePreferences`.
+- **Sweep re-run at `a558f2d`:** the text predicate gives 17 hits (message.ts 11, user.ts 1, shapes.ts 4, utils/user.ts 1). It is 19
+  at `f9e66c2` because the two map lines no longer contain `message:`. The schema-issue sources are unchanged:
+  `refineDisplayableText`, the union replay, and the summary.
+- **Reference check:** `git grep -n "cappedInput("` outside tests gives 2 callers (`message.ts` `upsert`, `user.ts`
+  `updatePreferences`). Neither changes other than through the map. `ctx.defaultError` now appears once, in the one expression
+  `issue.message ?? ctx.defaultError`, used for both what `seen` records and what the map returns. There is one source of `message`.
+- **`??` against zod's `||`** (implementer's point (a)): the two differ only for an explicit empty-string message.
+  `git grep -c -E "message:\s*(''|\"\"|\`\`)" a558f2d -- src` finds no such message. This residue has no member, so it is not a
+  finding.
+- **Specs:** both new specs are spec-form and use literal expectations.
+  - `shapes.error-cap.test.ts` puts the explicit-message issue at kept index 10 of 20 (neither first nor last) and asserts its
+    neighbours.
+  - `message.save-limits.test.ts` asserts index 19 and the summary through `upsert`'s caller.
+  - The implementer reports both as red at the unfixed code at assertion level ("'The flag is not allowed' vs 'Invalid input'"). I
+    did not re-run the suite. The pre-fix probe output above shows the same defect on the same tree.
+- **Mutant F-3** (the map returns the default): the implementer calls it equivalent, citing zod 3.22.4 `makeIssue`'s
+  `issueData.message || errorMessage`, which ignores the map's return value whenever a message is set. I accept this. I read the same
+  line at 3.22.4 in Round 1.
+- **Disposition (two parts):** the class is gone (probe `m1-fix1/out-a558f2d.json`). If it returns, these fail:
+  `shapes.error-cap.test.ts` "keeps the message an issue was created with, at a kept position that is neither first nor last" and
+  `message.save-limits.test.ts` "words the displayable-text issue as it does uncapped when an issue follows it".
+
+**CR-2:** routed by steering's ruling (`steering/018-rulings.md` block "2026-11-20T05:42Z", `f391462`) to the plan's Planner batch.
+The plan's Planner batch row "CR-2 LOW" carries it, and the pin lands after the fold. It is not owed at `a558f2d`. `no test` in this
+sub-entry.
+
+**CR-3:** reconciled in the M1 document (13 lines, 11 live), at agent-output `802917e`. **CR-4:** reconciled in the M2 document
+(27 `@img` names).
+
+**Verdict (Round 1, M1):** **APPROVED_WITH_COMMENTS** at `a558f2d`. CR-1 is closed. CR-2 is carried by the Planner batch. CR-3 is
+closed.
+
+**Assumption Not Checked (sub-entry):** this review assumes the suite at `a558f2d` (2261 of 2261, exit 0) and the two new specs' red
+runs at `b639dbe^`, and does not run them.
+- **Falsity signature:** a vitest JSON at `a558f2d` with `numFailedTests > 0` or a non-zero exit, or either new spec passing at
+  `c357095`.
+- **Owner:** QA Phase 2 on M1.
 
 ## Round 2 — M2 at `b0b0158`
 
