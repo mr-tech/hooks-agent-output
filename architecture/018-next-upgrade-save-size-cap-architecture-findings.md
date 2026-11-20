@@ -3,7 +3,7 @@ ID: 018
 Origin: 018
 UUID: 6273a762
 Status: Active
-Status-Detail: "Plan revision 2 (record 7a1bd46): APPROVED. AF-1 to AF-4 are resolved; AF-2 carries a correction of this architect's own claim. AF-7 registers a Problem Area and asks no plan change. Open items 1-3 below are discharged at the closing pass."
+Status-Detail: "Plan revision 3 (record 428090e): APPROVED_WITH_CHANGES. AF-8 (M1-i's wiring constraints) is required before implementation approval. AF-1 to AF-4 are resolved; AF-5 to AF-7 are Problem Areas. Open items 1-3 below are discharged at the closing pass."
 ---
 
 # Architecture Findings — Plan 018: Next.js 16.4.6 and the save-list cap (conformance pass)
@@ -14,6 +14,7 @@ Status-Detail: "Plan revision 2 (record 7a1bd46): APPROVED. AF-1 to AF-4 are res
 |---|---|---|
 | 2026-11-20T03:39 | Conformance pass, plan rev 1 (record `c2a6b85`), briefed by steering-roadmap-hooks (`steering/018-brief-architect.md`). Rulings read: `steering/018-rulings.md` block 2026-11-20T03:25Z. | Every concrete form the plan writes was read against website `origin/master` `7923a1d` (`git show`; nothing run in the shared tree). The length-first cap was run against the real save schema in a scratch copy (`verification/018/architect-conformance/`). Two changes are required (AF-1, AF-2), two are recommended (AF-3, AF-4), two Problem Areas are registered (AF-5, AF-6), and the forms in "Conforming forms" conform. The master document's direct-`sharp` line is reconciled (the `INBOX.md` entry of `devops-hooks-fix-message-page-header-decode`). **APPROVED_WITH_CHANGES.** |
 | 2026-11-20T04:08 | Delta read, plan rev 2 (record `7a1bd46`; diff `c2a6b85..7a1bd46`), on the planner's word (`planner-hooks-018`, by message). | AF-1 to AF-4 are folded and retired to disposition lines. The cap moved from a dirty pipe to a fatal length issue that aborts the parse. Its mechanism was re-read in zod 3.22.4 source, and the planner's run was read (`abort-form-probe/`: `export.diff`, `README.md`, `table.md`, `typecheck.log`). AF-2's claim that `sumDisplayableText` "takes no harm" over raw elements was wrong, and this architect corrects it in place (QAF-1 found the `null` throw). The other forms of the delta conform: the M1-a to M1-h restatements, M4's enumerated class, and M5 under OQ-5's recommended option. AF-7 INFO registers the editor's reason-less Save toast (X-18) as a Problem Area. **APPROVED.** |
+| 2026-11-20T04:16 | Delta read, plan rev 3 (record `428090e`; diff `7a1bd46..428090e`), on the planner's word. His D-8 to D-10 read in the plan's register. | M5 under D-8 conforms; it is the form this pass read at revision 2. R7 leaving M4's class is accepted (no consumer, 015 D30). M1-i (D-9) leaves its wiring to the implementer. tRPC 11.10 calls the schema's `parseAsync(value)` with no parse options (`getParseFn`), so a contextual error map cannot be passed to the procedures' parse as they are built today. The route that needs no new form, zod's global `setErrorMap`, puts one counter under every parse in the process. AF-8 MEDIUM asks M1-i to state the wiring's constraints. A per-call wrapper meeting them was run through a real tRPC caller (`verification/018/architect-conformance/error-cap-wiring/`). The premise that the error map sees every issue holds: zod 3.22.4's `makeIssue` runs each map for every issue, explicit messages included. **APPROVED_WITH_CHANGES.** Process fact: the stamp gate refused this row's first write, which carried a typed, future-dated minute; it was rewritten with the `date -u` minute. |
 
 ## Scope and instrument
 
@@ -73,6 +74,41 @@ restated at the closing pass, once M3 has landed (open item 1).
   share a criterion" row already describes.
 - Registered in the master document's Problem Areas; no plan change.
 
+### AF-8 MEDIUM — M1-i's stop is a new server form, and its wiring needs stated constraints (required)
+
+**Form.** M1-i (his D-9): the two procedures' input checks stop after 20 issues and refuse with those issues plus one summary issue.
+The premise run passes a contextual error map to `safeParse`. The plan leaves the wiring to the implementer.
+
+**Why the wiring is not an implementation detail.**
+- tRPC 11.10's `getParseFn` (`@trpc/server` `dist/initTRPC-*.cjs`) calls `parser.parseAsync(value)` on the schema handed to
+  `.input()`. It passes no parse options, and zod 3.22.4 carries no `~standard` member. So the error map cannot reach the parse
+  through the procedures' inputs as written today.
+- The route that needs no new form, `z.setErrorMap`, is process-global. One counter would then sit under every zod parse in the
+  server, and under concurrent requests whose async parses interleave. That interleaving is read from zod's source, not run.
+- The refusal reaches the client only as the TRPCError's `message` (`trpc.ts` `errorFormatter` returns the shape unchanged).
+  `formatMutationError` renders it as lines only when that message is JSON of an issue array. A thrown sentinel or a plain `Error`
+  would show users raw text.
+
+**Required change.** M1-i states the wiring's constraints:
+1. The issue count is per parse, never in a module-level or global counter, and never through `z.setErrorMap`.
+2. One shared definition wraps both procedures' inputs. It lives in `shapes.ts` beside `boundedArray` (mirror: M1-d's one helper).
+3. The refusal is thrown as a `ZodError` of the kept issues plus the summary issue, so tRPC's message is the JSON that
+   `formatMutationError` parses.
+4. `RouterInputs` stays as at `7923a1d`; M1-i already states this.
+
+**Run.** A wrapper in that shape works through a real tRPC 11.10 caller with zod 3.22.4 (`error-cap-wiring/probe.mjs`,
+`output.txt`, exit 0). The wrapper is an object whose `parseAsync` calls `schema.safeParse(value, { errorMap })` with a fresh array
+on each call, and turns the sentinel into a `ZodError`.
+- 5000 bad elements are refused `BAD_REQUEST` with 21 issues, the last being the summary, in a message of 3,689 bytes.
+- 3 bad elements are refused with 3 issues and no summary.
+- Two concurrent refusals give 21 issues each, kept apart.
+- A valid input passes.
+
+That run's TypeScript typing of the wrapper (its `_input` and `_output`) was not checked. M1-i's typecheck line covers it.
+
+Option pair: "state the constraints" (recommended) / "leave the wiring open" (not recommended: the global route compiles and passes
+single-request tests).
+
 ## Conforming forms
 
 - **The abort-form helper** (rev 2 M1-d; the planner's `abort-form-probe/export.diff`) lives in `shapes.ts` beside `discordIdShape`,
@@ -107,7 +143,7 @@ restated at the closing pass, once M3 has landed (open item 1).
 ## Open items (this document's, discharged no later than devops Stage 1)
 
 1. Restate the ESLint Problem Areas row from the M3 tip (its `.eslintrc.json` sentence and the counts).
-2. Restate `website.md` A-4's "List bounds" paragraph from the M1 tip: the fatal-issue helper, its home and the bound homes
-   (`MAX_RECENT_MESSAGE_IDS`, the mention-id constant, the `parse` tuple).
-3. Carry M4-c's R3, R6 and R7 results (X-14's premise, and 015's two Next.js premises) into the record, and restate Components'
+2. Restate `website.md` A-4's "List bounds" paragraph from the M1 tip: the fatal-issue helper, the issue-cap wrapper, their home
+   and the bound homes (`MAX_RECENT_MESSAGE_IDS`, the mention-id constant, the `parse` tuple).
+3. Carry M4-c's R3 and R6 results (X-14's premise, and 015's Next.js premise) into the record, and restate Components'
    "Next.js 16 hybrid" version facts from the release tree.

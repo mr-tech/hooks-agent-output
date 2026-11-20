@@ -1,0 +1,5 @@
+3 refused BAD_REQUEST | issues 3 | last {"code":"invalid_type","expected":"string","received":"number","path":["a",2],"message":"Expected string, received number"} | message bytes 539
+5000 refused BAD_REQUEST | issues 21 | last {"code":"custom","path":[],"message":"Stopped checking after 20 errors"} | message bytes 3689
+concurrent 21,21
+ok 1
+exit 0
