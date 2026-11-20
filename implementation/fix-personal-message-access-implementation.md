@@ -178,7 +178,7 @@ It loads the row (`getMessage(messageId)`, `routers/message.ts:57`). It calls `a
 that select, the select returns no row, nothing throws, and the row loaded before the delete goes to the caller.
 - *Instrument:* the red run below drives `getOne` through the real router. The fake's ownership select returns no row while the load
   still returns the row (`world.goneAtCheck`). Result: `{ value: {…} }`, carrying the owner's content. Security's real-postgres run of
-  the same interleave at `75f1543`: 300 of 300 trials leaked (`security/out/read-race-75f1543-timing.json`).
+  the same interleave at `75f1543`: 300 of 300 trials leaked (`verification/fix-personal-message-access/security/out/read-race-75f1543-timing.json`).
 - *Design, my choice:* refuse when the check saw no row. `getOne` reads `oldMessageCount` from `authorizeUser` and throws `NOT_FOUND`
   ("This message does not exist.", the wording `delete` already uses) when it is 0. This is correct in every order. The ownership
   select runs after the load, and a personal row never changes its owner (no statement sets `fk_users_id` on an existing row). So a
@@ -451,7 +451,7 @@ Runs:
   over the file): **2 of 2 KILLED**, 32 cases run against 32 in the control, count `checked` (`negative-controls-983681c/`):
   - `getone-checked-row-guard-removed` (`if (oldMessageCount < 0)`): the new case.
   - `getone-checked-row-guard-inverted` (`if (oldMessageCount)`): the owner-positive case, the new case, and `getOne`'s canonical read.
-- **Real-database run at `983681c`** (security's instrument, `security/read-race.pg.test.ts`, by `security/run-security.sh 983681c…
+- **Real-database run at `983681c`** (security's instrument, `verification/fix-personal-message-access/security/read-race.pg.test.ts`, by its `run-security.sh 983681c…
   55491 <scratch> <out>`; real routers, a throwaway `postgres:16`): **8 of 8 passed, vitest exit 0**. Timing: **300 trials, 6 pollers,
   10256 polls, `leakedTrials` 0, `leakedResponses` 0**. Captures: `pg-read-race-983681c/` (the `.log` is ignored by the record; the
   JSON and `.exit` files are committed). The container was removed on exit (`container-rm-read-race-983681c.txt`). Security's own
@@ -568,3 +568,4 @@ Updated 2026-11-20 at the round 5 handoff.
 | 2026-11-19T23:37 | fixer | Checkpoint: Resumption State written at steering's request. Disclosure: this row was first appended by an inline Python script, which the record's rule does not permit (record documents are written with the file-editing tools or `record-edit.js`). Nothing blocked it. The row's content is unchanged, and this note was added with the Edit tool |
 | 2026-11-20T00:07 | fixer | Round 5 committed at `983681c` (commit time), per rulings block 2026-11-20T00:04Z (record `fce289f`): security M-001 closed in `getOne`. Red at `75f1543`, 2 controls killed, suite 1909 with exit 0, and security's read-race instrument at `983681c` (8 of 8, 0 of 300 leaked) recorded |
 | 2026-11-20T00:09 | fixer | Scope, Diagnosis (round 5 entry; reconcile notes on hazard 6 and on the residue query, per block 23:53Z), Change, Test, Verification, flows, Handoff and Resumption State updated; `Handoff-At` moved to `983681c`; handed to code review for a delta review |
+| 2026-11-20T00:13 | fixer | Two record paths in round 5 were written relative to the verification folder: Diagnosis `security/out/read-race-75f1543-timing.json`, and Test `security/read-race.pg.test.ts`. Both are now written from the record root. The first was a check-repo LINKS failure the code reviewer found, relayed by steering. The second was the same defect, found on re-reading. `check-repo.js`: PASS, no new failures |
