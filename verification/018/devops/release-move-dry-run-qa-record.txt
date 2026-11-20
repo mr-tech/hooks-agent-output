@@ -1,0 +1,12 @@
+# release-move dry run, 2026-11-20T07:15:49Z
+repo     /usr/local/bin/hooks/website
+ref      master
+target   d1bb9b0724cded3c3c303203c2cbafe5df7bbf96
+remote   origin/master 7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe
+local    master 7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe
+untracked 17 path(s) left alone
+evidence qa-record /usr/local/bin/hooks/agent-output/qa/website-7923a1d-d1bb9b0-release-tip-qa.md
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+DRY RUN: every check passed; nothing moved
+exit=0
