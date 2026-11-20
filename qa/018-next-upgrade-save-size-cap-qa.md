@@ -4,16 +4,16 @@ Origin: 018
 UUID: 6273a762
 Verified-At: "7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe — repos=website; Phase 1 reads and probes only, no verdict; probes ran in an isolated export of this commit (shapes.ts blob 1c13ca2 verified equal)"
 Status: Awaiting Implementation
-Status-Detail: "Phase 1 re-keyed to plan revision 4 (agent-output 29277d3). QAF-1 to QAF-8 resolved; QAF-9 LOW (M1-i's literal-position list misses a section child's text-display type) to planner-hooks-018. Differential moved to the callers (code, path, message); register B-1 to B-8 unchanged this pass."
+Status-Detail: "Phase 1 re-keyed to plan revision 5 (agent-output e45e8cf). QAF-1 to QAF-9 resolved; no open QA finding. Register B-1 to B-8 unchanged since revision 3."
 Phase: 1
 ---
 
 # QA Report: Plan 018 — Next.js 16.4.6 and the save-list cap (H-002, M-001)
 
-**Plan Reference**: `agent-output/planning/018-next-upgrade-save-size-cap.md`, revision 4 (`29277d3`). Re-keyed from revision 3
-(`428090e`) by reading the `git diff 428090e 29277d3` of the plan whole. Each earlier revision was re-keyed the same way: revision 3 from
-2 (`7a1bd46`), and revision 2 from 1 (`c2a6b85`). The plan's owed re-verdicts name QA's re-key for M1-a's instrument and M1-b's
-comparison. Revision 4 moves no register row: M1-g, M1-h, M4 and M5 are unchanged in it.
+**Plan Reference**: `agent-output/planning/018-next-upgrade-save-size-cap.md`, revision 5 (`e45e8cf`). Re-keyed from revision 4
+(`29277d3`) by reading the `git diff 29277d3 e45e8cf` of the plan whole (29 lines added, 13 removed, `--numstat`). Each earlier
+revision was re-keyed the same way: 4 from 3 (`428090e`), 3 from 2 (`7a1bd46`), and 2 from 1 (`c2a6b85`). Revision 5 changes M1-i's
+wording only (F-19, F-20, AF-9, QAF-9), so it moves no register row.
 **Brief**: `steering/018-brief-qa.md` (`96612e1`); common part `steering/018-brief-common.md`; rulings `steering/018-rulings.md` block
 2026-11-20T03:25Z (X-1 to X-15 accepted).
 **Architecture read**: `architecture/website.md` W-2, A-1, A-4; `architecture/system-architecture.md` not re-read beyond the plan's
@@ -58,29 +58,9 @@ QAF-8 HIGH Phase 1 RESOLVED — plan rev 4 M1-i *no huge error*: every issue of 
 planner's `strip-cap-probe/` shows 168 to 512 characters on QAF-8's inputs, with client lines equal to the base. Argument at commit
 `9218925`.
 
-QAF-9 LOW Phase 1
-- **Property:** M1-i *no huge error*, its population list "at `7923a1d`: `parse`'s element, also three at its bound;
-  `linkButtonShape.type` and `.style`; the accessory and its branches' `type`; `spacing`".
-- **Defect:** the list misses one member that the class's own predicate admits: `textDisplayShape.type`. It is a discriminator inside
-  the two `z.discriminatedUnion`s, but `sectionShape.components` is a plain `z.array(textDisplayShape)`, so there it is an ordinary
-  `z.literal(10)`.
-- **Enumeration** (QA's, as M1-i assigns it): the predicate is a `z.literal(` or `z.union(` position in `shapes.ts` or `routers/user.ts`
-  at `7923a1d`, excluding any position reached only as a discriminator. That covers 12 `z.literal(` lines and 3 `z.union(` lines in
-  `shapes.ts`, and none in `user.ts` (`grep -c`). Members:
-  - `linkButtonShape.type` and `.style`;
-  - `textDisplayShape.type` inside a section;
-  - `thumbnailShape.type` (an accessory branch);
-  - `sectionShape.accessory`;
-  - `separatorShape.spacing`;
-  - the element of `parse`.
-  Excluded as discriminator-only: the `type` of action row, section, media gallery, file, separator and container.
-- **Run** (`verification/018/qa/phase-1/issue-size-probe/report.txt`, one 100,000-char value, real `message.upsert` caller):
-  - a section child's text-display `type`: one issue, **100,257** chars, carries the input;
-  - the same position in a container child (a discriminator): 339 chars, no echo;
-  - the thumbnail accessory's `type`: 201,727 chars.
-- **Why LOW:** the plan's mechanism (strip to three fields) covers every member, so only the stated population is short. QA's cases
-  use the full enumeration above whatever the plan says.
-- **Ask:** correct the list in M1-i, or cite this enumeration in its place.
+QAF-9 LOW Phase 1 RESOLVED — plan rev 5 M1-i *no huge error*: the population adds `textDisplayShape.type` inside
+`sectionShape.components`, cites QA's enumeration, and states the exclusion rule (excluded only where reached as a discriminator).
+Argument at commit `413798f`; the enumeration itself now stands under § M1-i instruments, *No huge error*.
 
 ## Test Strategy (Pre-Implementation)
 
@@ -163,6 +143,23 @@ Each phrase has its own instrument, all through the procedures' real path. tRPC 
 - ***No huge error.*** The message is at most 16 KB (a literal) on steering's within-bound worst case
   (`verification/018/steering/refute-within-bound/`) and on M1-a's over-limit bodies. Issues created, message length and time are
   recorded beside the base's figures (48,500 issues; 13,324,552 characters), as a measurement outside the suite's pass/fail.
+  - **Reconcile 2026-11-20 (plan rev 4/5, QAF-8, QAF-9):** the population also holds one 100,000-char value at each long-value
+    member (the plan cites this enumeration).
+    - The predicate is a `z.literal(` or `z.union(` position in `shapes.ts` or `routers/user.ts` at `7923a1d`, excluded only where
+      it is reached as a discriminator. That is 12 `z.literal(` and 3 `z.union(` lines in `shapes.ts`, none in `user.ts`.
+    - Members:
+      - `linkButtonShape.type` and `.style`;
+      - `textDisplayShape.type` inside a section;
+      - `thumbnailShape.type`;
+      - `sectionShape.accessory`;
+      - `separatorShape.spacing`;
+      - the element of `parse`, alone and three at its bound.
+    - Excluded as discriminator-only: the `type` of action row, section, media gallery, file, separator and container.
+    - Base sizes per member: `issue-size-probe/report.txt`, 100,255 to 904,406 chars. Controls at a discriminator: 325 and 339.
+    - Each member's case is a refusal of one issue, which also kills NM-14.
+  - **Reconcile 2026-11-20 (plan rev 5, F-19):** k is the M1 parse's own uncapped result. On an over-limit list that is the one list
+    issue, so a body with an over-limit list and 25 other issues has k = 26 and is capped. The differential's inputs carry one list
+    each, so its rules are unchanged.
 - **Edges:** exactly 20 issues → no summary; 21 → 20 + summary; an over-limit list with other issues elsewhere → the list's one issue
   counts toward the 20. The client JSON view stays uncapped: the differential's `import` rows hold the tip equal to the base.
 
@@ -359,6 +356,12 @@ through the same middleware as the HTTP route. That context is a session object 
 that middleware's outcome as a refusal or an acceptance. The signature of its falsity: at the tip, a label whose caller result
 disagrees with one HTTP read of the same input on the local build. Owner: QA at Phase 2, on the same local-build HTTP read owed
 above.
+
+**Re-key on plan revision 5.** This pass assumes, and does not test, that AF-9's union-isolation helper (one helper at the three
+plain-union sites, declared as `z.ZodType<…>`) records, within the bound, the same issue the plain `z.union` records at `7923a1d`:
+`invalid_union`, at the union's path, "Invalid input". No such helper exists to run yet. The signature of its falsity: at the tip,
+the differential's UA, US or S6 within-bound labels differ from the base on `code`, `path` or `message`. Owner: QA at Phase 2, by the
+differential (v3), which carries those labels.
 
 ## Implementation Review (Post-Implementation)
 
