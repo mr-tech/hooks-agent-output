@@ -1,0 +1,3 @@
+{"_note":"RECONSTRUCTION from the returned object; 194 samples compressed to runs of (t range, shell, bodyTextLen, slate). shell false and slate 0 in every sample.",
+"shellBefore":false,"how":"link /message/m/900000000000001/edit","n":194,"firstShell":-1,"firstSlate":-1,"pendingWithShell":0,"shellLostAfterPaint":false,
+"runs":[{"t":"691-1311","bodyTextLen":93},{"t":"1414-3274","bodyTextLen":0},{"t":"3378-18617","bodyTextLen":24},{"t":"18719-19344","bodyTextLen":117},{"t":"19447-20691","bodyTextLen":133}]}

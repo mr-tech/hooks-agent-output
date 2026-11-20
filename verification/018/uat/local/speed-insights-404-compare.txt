@@ -1,0 +1,3 @@
+https://hooks-gg-website-git-release-check-018-next-upg-c39d5c-hooks-gg.vercel.app	200
+https://hooks.gg	200
+http://127.0.0.1:3000	404

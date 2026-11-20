@@ -1,0 +1,7 @@
+# M5-e on the release-check preview, 2026-11-20T06:29Z
+16.4.6 in /_next/static/immutable/chunks/3e99np90vkvye.js: window.next={version:"16.4.6"
+scripts=13 files-with-16.4.6=1 files-with-16.1.6=0
+# control: same instrument on hooks.gg (production, expected 16.1.6)
+16.1.6 in /_next/static/chunks/4933f068471b83f9.js: window.next={version:"16.1.6"
+scripts=15 files-with-16.4.6=0 files-with-16.1.6=1
+# control: the planner's original pattern (/_next/static/chunks/) on the preview names 0 scripts

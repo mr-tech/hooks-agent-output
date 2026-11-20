@@ -1,0 +1,11 @@
+import { appendFileSync, writeFileSync } from 'fs';
+import { createS3Stub } from '/usr/local/bin/hooks/agent-output/verification/017/m6-probe/s3-stub.mjs';
+const logFile = process.argv[2];
+writeFileSync(logFile, '');
+const stub = createS3Stub();
+const orig = stub.log.push.bind(stub.log);
+stub.log.push = (...e) => { e.forEach((x) => appendFileSync(logFile, JSON.stringify({ at: new Date().toISOString(), ...x }) + '\n')); return orig(...e); };
+await stub.listen(39001);
+console.log('stub on 39001 pid', process.pid);
+const stop = async () => { await stub.close(); process.exit(0); };
+process.on('SIGINT', stop); process.on('SIGTERM', stop);

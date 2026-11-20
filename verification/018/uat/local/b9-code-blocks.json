@@ -1,0 +1,1 @@
+{"content": "uat-018 b9\n```js\nconst a = 1;\nfunction f(x) { return x + 2; }\n```\n```ts\nlet n: number = 5;\ninterface A { b: string }\n```\n```diff\n- old line\n+ new line\n```"}

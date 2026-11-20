@@ -1,0 +1,12 @@
+# B-4 HTTP reads, 2026-11-20T06:28Z, host https://hooks-gg-website-git-release-check-018-next-upg-c39d5c-hooks-gg.vercel.app (no cookies)
+/	200	text/html; charset=utf-8	
+/legal/privacy	200	text/html; charset=utf-8	
+/legal/terms	200	text/html; charset=utf-8	
+/preview	200	text/html; charset=utf-8	
+/message	200	text/html; charset=utf-8	
+/message/m/0/edit	200	text/html; charset=utf-8	
+/message/m/0/send	200	text/html; charset=utf-8	
+/support	308	text/plain	https://discord.gg/Yf7We6k2Nb
+/message/m/5	307	text/plain	https://hooks-gg-website-git-release-check-018-next-upg-c39d5c-hooks-gg.vercel.app/message/m/5/edit
+/api/auth/providers	500	text/html; charset=utf-8	
+/api/auth/signin/discord	500	text/html; charset=utf-8	

@@ -1,0 +1,3 @@
+transcription. Console errors (level error, session-wide read after the last path; the first 3 are 127.0.0.1 from walk B):
+- 404 http://127.0.0.1:3000/_vercel/speed-insights/script.js (x3, local, walk B)
+- Minified React error #419 (x2). Per-navigation entries: one console error logged on each of /message/m/0/edit and /message/m/0/send on the preview host; no other path logged one.

@@ -1,0 +1,5 @@
+step3 /message/m/0/edit (fresh) -> click a[href=/message/f/0]: url /message/f/0, no dialog (count not needed; navigated).
+step4 dialog "You have unsaved changes!" buttons: Cancel, Leave Page; Cancel kept url and text (ZZ); second click dialog again; Leave Page -> /message/f/0.
+step5 Invite Bot (user menu): site dialog n=1 (no native modal reported by tool), Cancel kept url+edit(YY); Leave Page -> https://discord.com/oauth2/authorize
+step6 from /message click link /message/m/900000000000001/edit (no link to m/0/edit on /message), typed XX, browser back: no site dialog, no native modal reported, url http://127.0.0.1:3000/message; forward -> edit page, XX absent (edit lost).
+Reconstructions: all of the above (shell-written from tool outputs). Screenshots: refused (path outside allowed roots), none taken.
