@@ -367,3 +367,38 @@ differential (v3), which carries those labels.
 ## Implementation Review (Post-Implementation)
 
 Not started (Phase 2).
+
+## Resumption State
+
+Written 2026-11-20T04:34Z at steering's checkpoint request, by session `qa-hooks-018`, cwd `/usr/local/bin/hooks/website`.
+
+- **Done:** Phase 1 on plan revisions 1 to 5. The last re-key is on revision 5 (`e45e8cf`), committed at agent-output `cdb71e2` and
+  `0160d45` (changelog row). QAF-1 to QAF-9 are RESOLVED; no QA finding is open. Status: `Awaiting Implementation`. Steering was
+  told there are no findings (message to `steering-roadmap-hooks`, after `0160d45`).
+- **Next (Phase 2, after code review's committed verdict):**
+  1. Read the plan as the `git diff e45e8cf..<revision then current>`.
+  2. TDD Compliance table first.
+  3. List the criteria the pass will assess before running anything.
+  4. Run the suites, with exit codes, in an isolated export of the tip with its own install, compared with the base's 1913 cases in
+     149 files by path membership.
+  5. Run differential v3 (`verification/018/qa/phase-1/differential/`, test file sha256 `d597c91a…`, `compare.py` `6dd66ac7…`) in
+     a tip export against `base-7923a1d.json`. Mutate the instrument first, with a planted tip.
+  6. M1-i: the read-count case (63 against 4800), the long-value enumeration (§ M1-i instruments), the concurrency and
+     exit-code checks (NM-15, NM-16), and the 16 KB measurement against steering's bodies.
+  7. One HTTP read on a local build of the tip. This closes the revision-3 and revision-4 Assumption Not Checked lines, and the
+     local build follows the workspace's local-build rule.
+  8. Mutation sweep over the effort's production diff (`node ~/.claude/tools/mutant-gen.js`, plus NM-1 to NM-17), in an export,
+     with runs delegated to a helper.
+  9. Handoff entry check: `git diff --name-only 7923a1d..<tip>` against the five paths of
+     `handoff/mutant-equivalence-by-argument-unverified-2026-11-19.md`.
+- **Approach in flight:** none.
+- **Trees:** website's shared tree is now on `chain/018-next-upgrade-save-size-cap` at `7923a1d` (steering cut it; read at this
+  write). Nothing of this session is uncommitted in agent-output. No website file was edited by this session.
+- **Scratch:** no export is left (each one was deleted after its run). Scratchpad holds only plan diffs, record-edit JSON and install
+  logs, none of them cited as evidence.
+- **Evidence:** every run this document cites is committed under `verification/018/qa/phase-1/`. These are `list-bound-probe`,
+  `caller-probe`, `differential`, `prod-base-reads`, `zod-under-m2`, `error-cap-async-probe` and `issue-size-probe`. One file is
+  not committed: `zod-under-m2/add.log`, which `.gitignore` excludes (`*.log`); its result is in `before.txt` and `after.txt`.
+- **Browser:** closed, with its caches emptied, after the 04:09Z production reads.
+- **Questions out:** none. **Sessions messaged:** `planner-hooks-018` (findings on revisions 1 to 4), `steering-roadmap-hooks`
+  (no findings on revision 5).
