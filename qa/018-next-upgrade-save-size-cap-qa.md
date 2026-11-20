@@ -176,6 +176,7 @@ From the user's side, what can break:
 
 ### Testing Infrastructure
 
+- **Capture label note:** in `list-bound-probe/report.txt` the S6 lines labelled "valid" used `'users'`, which S6's element does not admit (it admits `user`, `here`, `everyone`), so those three lines are all-invalid. No finding rests on them. The differential uses `'user'` (corrected before its committed capture).
 - **Built:** the M1 two-tree differential, under `verification/018/qa/phase-1/differential/`.
   - `user.save-list-differential.test.ts` (sha256 `4562e07b…`) is copied into each export and run with `PROBE_OUT`. It reads each
     procedure's real input via `_def.procedures.<name>._def.inputs[0]`.
