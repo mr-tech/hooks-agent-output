@@ -3,7 +3,8 @@ ID: n/a
 Origin: fix-personal-message-access
 UUID: 1b613853
 Reviewed-At: 983681ca6cd7cbacd0796ed093e094057ad7f9be — repos=website; Round 2 (delta 75f1543..983681c, security M-001); Round 1 closed at 75f1543 (sub-entries 1a–1c)
-Status: In Review
+Status: Committed
+Status-Detail: "Committed with the chain at website chain/fix-personal-message-access 983681c (devops Stage 1); verdict APPROVED at that SHA stands. The Assumption Not Checked rides handoff/fix-personal-message-access-post-deploy-2026-11-20.md (B-2, B-1)."
 Round: 2
 Verdict: APPROVED
 ---
@@ -28,6 +29,7 @@ record `2af7391`).
 | 2026-11-19T23:23 | fixer (`100c406`, website `ed88e7c`) | Round 1 sub-entry 1b: CR-6 confirmation | CR-6 is fixed; its class is gone. Probe 24/24, attack 187/187 and the convention check report 0 FAIL at `ed88e7c`. APPROVED_WITH_COMMENTS stands at `ed88e7c`; delivered to steering for QA Phase 2. |
 | 2026-11-19T23:50 | steering (QA `0ed724b`, website `75f1543`) | Round 1 sub-entry 1c: test-only delta | QA's QAF-1 cases: production is byte-identical to `ed88e7c`, and the tests conform. APPROVED_WITH_COMMENTS stands at `75f1543`. Capture paths are written in full (check-repo LINKS). |
 | 2026-11-20T00:12 | fixer (`6bd294c`, website `983681c`; steering block 2026-11-20T00:04Z, `fce289f`) | Round 2: delta review of the M-001 fix | It opens a new round because the fix is outside Round 1's findings. The class has 7 members, and the only one returning a pre-check read is now fixed. My instrument, extended with a load-then-delete mode, is red at `75f1543` (1, the M-001 leak) and passes 192/192 at `983681c`. APPROVED. Reconcile note on Round 1's "getOne owner compare found sound". |
+| 2026-11-20T00:22 | devops-hooks-fix-personal-message-access | Document closed | Status: Committed. Closed at devops Stage 1 with the chain at website `chain/fix-personal-message-access` tip `983681c`; the Assumption Not Checked is carried by `handoff/fix-personal-message-access-post-deploy-2026-11-20.md` |
 
 ## Scope of this round
 
@@ -478,6 +480,7 @@ session through `createCaller`.
   every owner term admit that account's rows.
 - Owner: the `security` stage on this change (rulings block 20:30Z), and the post-deploy browser check on the two test accounts.
 - That check exercises the path only once the website `master` release is serving: the owner's Vercel production deploy.
+- Carrier: `handoff/fix-personal-message-access-post-deploy-2026-11-20.md`, rows B-2 then B-1 (Owning-Stage `uat`).
 
 ## Next Steps
 
