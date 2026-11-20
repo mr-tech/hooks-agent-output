@@ -1,0 +1,24 @@
+{
+  "carrier": "handoff/message-page-header-decode-post-deploy-2026-11-20.md",
+  "agent": "devops",
+  "allowedTools": [
+    "Bash(bash verification/fix-message-page-header-decode/post-deploy/kit/p1-read.sh:*)",
+    "Bash(git commit --only:*)",
+    "Bash(git add --intent-to-add:*)",
+    "Bash(git diff:*)",
+    "Bash(git status:*)",
+    "Bash(git log:*)",
+    "Bash(date:*)",
+    "Bash(ls:*)",
+    "Bash(grep:*)",
+    "Bash(mkdir:*)",
+    "Bash(node tools/check-repo.js:*)",
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob"
+  ],
+  "timeoutSeconds": 600,
+  "lock": "fix-message-page-header-decode-post-deploy"
+}

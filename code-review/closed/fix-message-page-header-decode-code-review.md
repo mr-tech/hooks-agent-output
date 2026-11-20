@@ -3,7 +3,8 @@ ID: n/a
 Origin: fix-message-page-header-decode
 UUID: c8a9f0ca
 Reviewed-At: 7923a1d9ac0b78df9a88a3fa99a82460e6d1edfe — repos=website
-Status: In Review
+Status: Committed
+Status-Detail: "Round 1 APPROVED at 7923a1d; the chain's committed state is recorded by devops Stage 1 (website chain/fix-message-page-header-decode at 7923a1d, not pushed). CR-1 carrier: steering/website-deps-review-rulings.md block 2026-11-20T02:18Z. Assumption Not Checked carrier: handoff/message-page-header-decode-post-deploy-2026-11-20.md row P-1."
 Round: 1
 Verdict: APPROVED
 ---
@@ -20,6 +21,7 @@ Verdict: APPROVED
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-20T02:17 | steering-roadmap-hooks (brief `steering/fix-message-page-header-decode-brief-code-reviewer.md`) | Round 1: review website `983681c..7923a1d`; under 20 production lines, so also run the suite and the red test | Round 1, APPROVED at `7923a1d`. Red 4/4 at base, green 4/4 at fix, suite 1913/1913 exit 0, typecheck 0 both trees, lockfile loses only removed subtrees. No finding against the change; CR-1 is pre-existing INFO, routed to steering. Gates satisfied this round: the stamp gate refused an estimated changelog time (replaced with `date -u`), and the record-write gate refused a `sed` edit of this file (re-issued with the Edit tool). |
+| 2026-11-20T02:26 | devops-hooks-fix-message-page-header-decode | Stage 1 close | Status `Committed` at `7923a1d`; document closed to `closed/`. Carriers for what the review left owed are in `Status-Detail`. |
 
 ## Scope and criteria assessed (recorded before reading the diff)
 
