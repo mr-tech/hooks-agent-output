@@ -110,3 +110,18 @@ refused`. The script's premise was wrong: the active `DATABASE_URL` in `website/
 hazards record's "the remote hosted database" (2026-08-24) is stale. This thread's error: I took the premise from that record without a
 read. The check that would have caught it: a key-and-host-only read of that line (never its value). The script now asks for production's
 URL, typed hidden.
+
+## 2026-11-20T02:18Z — code review APPROVED at 7923a1d; confirmation (a) read; CR-1 left
+
+`code-review/fix-message-page-header-decode-code-review.md` (record `d67e7d5`). By the reviewer's message: APPROVED at `7923a1d`; red
+4/4 at the base and green at the fix; suite 1913/1913 with exit 0; typecheck 0. Delivered to `security-hooks-website-deps`.
+- **Confirmation (a)** (the reviewer's Assumption Not Checked: does Vercel's `/_next/image` need the removed direct `sharp`?). Read by
+  this thread at 02:18:15Z, one ordinary GET to production at today's `983681c`:
+  `curl … 'https://hooks.gg/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Fembed%2Favatars%2F0.png&w=64&q=75'` → 200, `image/png`,
+  495 bytes; `server: Vercel`, `x-vercel-cache: MISS`, `x-vercel-id: pdx1::…` (one hop), no `x-matched-path`. Headers are kept at
+  `verification/fix-message-page-header-decode/steering/next-image-headers-pre-push.txt`.
+  This thread's reading: a single-hop id with no matched path is consistent with Vercel's image service answering, not a site function.
+  That is an inference from headers, not proof. The deciding read is the same request after the push, carried into the devops brief as a
+  post-deploy row.
+- **CR-1 (INFO):** the commented-out `sanitizeHtml(hljs…)` in `JsonModalBody.tsx` names the removed package. Left. It is a comment, so
+  dropping it would move the reviewed tree for no behaviour. Recorded here as its carrier, for the next chain touching that file.

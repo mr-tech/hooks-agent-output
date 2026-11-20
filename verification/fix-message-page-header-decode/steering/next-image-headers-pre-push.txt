@@ -1,0 +1,15 @@
+HTTP/2 200 
+age: 0
+cache-control: public, max-age=14400, must-revalidate
+content-disposition: attachment; filename="0.png"
+content-security-policy: script-src 'none'; frame-src 'none'; sandbox;
+content-type: image/png
+date: Fri, 20 Nov 2026 02:18:15 GMT
+last-modified: Fri, 14 May 2021 01:14:12 GMT
+server: Vercel
+strict-transport-security: max-age=63072000
+vary: Accept
+x-vercel-cache: MISS
+x-vercel-id: pdx1::9nlb4-1795141095534-31a6a337141e
+content-length: 495
+
