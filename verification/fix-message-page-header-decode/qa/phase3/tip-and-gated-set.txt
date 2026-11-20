@@ -1,0 +1,14 @@
+# read 2026-11-20T02:31:26Z
+$ git diff --quiet 983681c 7923a1d -- vitest.config.ts
+exit=0
+$ git grep -c -E "skipIf|runIf|\.skip\(|process\.env\.[A-Z_]+ *(\?|&&|===)" 7923a1d -- "*__tests__*"
+exit=1
+$ git -C website ls-remote origin refs/heads/master
+983681ca6cd7cbacd0796ed093e094057ad7f9be	refs/heads/master
+$ git rev-parse 7923a1d^ 7923a1d^{tree}
+983681ca6cd7cbacd0796ed093e094057ad7f9be
+7ff130dfadb7515514d445717c79af0e3cccc768
+$ git merge-base --is-ancestor 983681c 7923a1d
+exit=0
+$ git rev-list --count 983681c..7923a1d
+1

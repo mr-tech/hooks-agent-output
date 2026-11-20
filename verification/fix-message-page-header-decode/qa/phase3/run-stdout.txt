@@ -1,0 +1,9 @@
+base-install=0
+fix-install=0
+red=1
+green=0
+suite=0
+base typecheck=0
+fix typecheck=0
+exit=0
+2026-11-20T02:32:13Z

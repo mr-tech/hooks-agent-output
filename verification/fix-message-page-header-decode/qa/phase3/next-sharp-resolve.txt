@@ -1,0 +1,2 @@
+next 16.1.6 optionalDeps.sharp= ^0.34.4
+<export>/fix/node_modules/.pnpm/sharp@0.34.5/node_modules/sharp/lib/index.js

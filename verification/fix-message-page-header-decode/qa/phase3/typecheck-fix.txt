@@ -1,0 +1,4 @@
+
+> website@ typecheck <export>/fix
+> tsc --noEmit && tsc --noEmit -p tsconfig.test.json
+

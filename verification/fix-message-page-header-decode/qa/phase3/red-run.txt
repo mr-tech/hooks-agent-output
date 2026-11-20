@@ -1,0 +1,76 @@
+
+ RUN  v4.1.2 <export>/base
+
+ ❯ |node| src/app/_components/__tests__/Providers.request-headers.test.ts (4 tests | 4 failed) 33ms
+     × render for a truncated percent escape 24ms
+     × render for a bare percent sign 1ms
+     × make no request from a plain code 5ms
+     × make no request from a code holding a path 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/app/_components/__tests__/Providers.request-headers.test.ts > the message-page providers given a client-sent x-query-params header > render for a truncated percent escape
+ FAIL  |node| src/app/_components/__tests__/Providers.request-headers.test.ts > the message-page providers given a client-sent x-query-params header > render for a bare percent sign
+AssertionError: promise rejected "URIError: URI malformed" instead of resolving
+ ❯ src/app/_components/__tests__/Providers.request-headers.test.ts:38:50
+     36|     request.headers = { 'x-query-params': value };
+     37|
+     38|     await expect(Providers({ children: 'page' })).resolves.toBeTruthy(…
+       |                                                  ^
+     39|   });
+     40|
+
+Caused by: URIError: URI malformed
+ ❯ getMessage src/app/_components/Providers.tsx:34:38
+ ❯ Module.Providers src/app/_components/Providers.tsx:46:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |node| src/app/_components/__tests__/Providers.request-headers.test.ts > the message-page providers given a client-sent x-query-params header > make no request from a plain code
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "http://localhost:3001/api/messages/codes/abc",
++ ]
+
+ ❯ src/app/_components/__tests__/Providers.request-headers.test.ts:49:29
+     47|     await Providers({ children: 'page' });
+     48|
+     49|     expect(requestedUrls()).toEqual([]);
+       |                             ^
+     50|   });
+     51| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |node| src/app/_components/__tests__/Providers.request-headers.test.ts > the message-page providers given a client-sent x-query-params header > make no request from a code holding a path
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "http://localhost:3001/api/messages/codes/../auth/session",
++ ]
+
+ ❯ src/app/_components/__tests__/Providers.request-headers.test.ts:49:29
+     47|     await Providers({ children: 'page' });
+     48|
+     49|     expect(requestedUrls()).toEqual([]);
+       |                             ^
+     50|   });
+     51| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed (4)
+   Start at  02:31:08
+   Duration  1.13s (transform 192ms, setup 0ms, import 702ms, tests 33ms, environment 0ms)
+
