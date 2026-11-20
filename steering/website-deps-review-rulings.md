@@ -150,3 +150,20 @@ are closed Committed; P-1's carrier is `handoff/message-page-header-decode-post-
   passthrough decides nothing. Security's audit called it "for the record's sake". P-1 is the only post-deploy row.
 - **Pre-push preview push:** not taken. P-1 after the push and devops's checked reversing patch cover the `/_next/image` assumption.
 - **Disclosure:** the relay to devops at 02:30Z cited this block before it was committed. The block was committed right after.
+
+## 2026-11-20T02:36Z — H-001 fix RELEASED at 7923a1d; older handoff closed; security close asked
+
+**Released**, by devops's message and `ls-remote` read this turn: website `master` `983681c` → `7923a1d` at 02:34:40Z, on his selection
+in devops's session ("Agent: push master to 7923a1d (Recommended)"). The chain branch is merged and deleted, and the tree is on `master`.
+- Deployment record closed Released (`deployment/closed/fix-message-page-header-decode-deployment.md`, `04132a7`). The implementation,
+  code-review and QA Phase 3 documents are closed. The owner-wait `release-ask` is resolved.
+- **Post-deploy:** P-1, `handoff/message-page-header-decode-post-deploy-2026-11-20.md`, read by P1R (crontab), first fire 04:07Z. A 5xx
+  is a rollback question for him.
+- **Closed Addressed by this thread:** `handoff/closed/providers-query-params-header-decode-throws-2026-11-08.md`. Its trigger fired with
+  this release, per QA Phase 3. check-repo PASS.
+- **Open:** `security/fix-message-page-header-decode-security-audit.md`. Asked of `security-hooks-website-deps`, resumed from its
+  Resumption State (`4e876a7`), together with recording H-001 closed in the review document.
+- **Architecture:** `system-architecture.md:179` still lists the removed direct `sharp`. devops's uncommitted `INBOX.md` entry carries it
+  to the architect.
+- **Retrospective:** this fixer chain took no rejected round, no QA failure, no re-scope and no owner-needing block, so it joins the next
+  fixer batch (steering.md, Fixer).

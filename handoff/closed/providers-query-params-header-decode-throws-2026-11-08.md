@@ -1,7 +1,7 @@
 ---
 UUID: 9cefc40f
-Status: Open
-Status-Detail: "Providers.tsx decodes a client-reachable x-query-params header with decodeURIComponent; a malformed value throws during render. Outside plan 015's pool; nothing blocks on it."
+Status: Addressed
+Status-Detail: "Discharged by fixer chain fix-message-page-header-decode, released at website 7923a1d (2026-11-20T02:34:40Z): Providers.tsx no longer reads or decodes x-query-params; getMessage is removed. Red test Providers.request-headers.test.ts was 4/4 red at the base (a URIError on a malformed header) and is green at the fix. middleware.ts still sets the now-unread header; that residue is carried in steering/website-deps-review-rulings.md block 02:11Z."
 Owning-Stage: planner
 Review-Trigger: when src/app/_components/Providers.tsx getMessage or src/middleware.ts is next edited, or when the next website hardening effort is scoped
 Priority: low
@@ -46,3 +46,4 @@ Exclusions X-17 cites this handoff.
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-08T06:47 | planner (planner-hooks-015) | Opened from code review CR-6 (`7976a9a`) as the carrier for plan 015 Exclusions X-17. |
+| 2026-11-20T02:36 | steering-roadmap-hooks | Trigger fired: `Providers.tsx` `getMessage` was edited, by its removal, in fixer chain `fix-message-page-header-decode`. QA Phase 3 (`qa/website-983681c-7923a1d-release-tip-qa.md`, `8599120`) named the firing. The chain was released at website `7923a1d` (`deployment/closed/fix-message-page-header-decode-deployment.md`, `04132a7`). Closed Addressed by steering at chain closure; moved to `handoff/closed/` |
