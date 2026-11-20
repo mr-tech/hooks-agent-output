@@ -1,0 +1,7 @@
+{"shape":"F_fat_buttons","bodyBytes":706716,"under1MB":true,"topIssues":48000,"nestedIssues":48000,"messageLen":13216002,"parseMs":201.3,"msgMs":110.2}
+{"shape":"G_fat_buttons_plus_embeds","bodyBytes":707607,"under1MB":true,"topIssues":48500,"nestedIssues":48500,"messageLen":13324552,"parseMs":216.4,"msgMs":230.9}
+{"shape":"A_rows_only","bodyBytes":66716,"under1MB":true,"topIssues":24000,"nestedIssues":24000,"messageLen":5980002,"parseMs":103.7,"msgMs":68.8}
+{"shape":"B_sections_only","bodyBytes":81116,"under1MB":true,"topIssues":11200,"nestedIssues":19200,"messageLen":5843202,"parseMs":65.2,"msgMs":39}
+{"shape":"C_galleries_only","bodyBytes":84316,"under1MB":true,"topIssues":16000,"nestedIssues":16000,"messageLen":4008002,"parseMs":24.7,"msgMs":27.9}
+{"shape":"D_mixed_plus_embeds","bodyBytes":78267,"under1MB":true,"topIssues":17571,"nestedIssues":20236,"messageLen":5386054,"parseMs":38.5,"msgMs":39.1}
+{"shape":"E_rows_plus_embeds","bodyBytes":67607,"under1MB":true,"topIssues":24500,"nestedIssues":24500,"messageLen":6088552,"parseMs":33.3,"msgMs":44.2}

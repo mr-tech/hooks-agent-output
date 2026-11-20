@@ -1,0 +1,35 @@
+Running scope as unit: run-re962ff6e98df4336be19896cd8cd86c1.scope
+▲ Next.js 16.1.6 (Turbopack)
+
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ Compiled successfully in 7.6s
+  Running TypeScript ...
+  Collecting page data using 17 workers ...
+  Generating static pages using 17 workers (0/9) ...
+❌ Invalid environment variables: {
+  DATABASE_URL: [ 'Required' ],
+  REDISHOST: [ 'Required' ],
+  REDISPORT: [ 'Required' ],
+  REDISUSER: [ 'Required' ],
+  REDISPASSWORD: [ 'Required' ]
+}
+Error occurred prerendering page "/legal/terms". Read more: https://nextjs.org/docs/messages/prerender-error
+Error: Invalid environment variables
+    at module evaluation (.next/server/chunks/ssr/_3a0a9e15._.js:1:60059)
+    at instantiateModule (.next/server/chunks/ssr/[turbopack]_runtime.js:740:9)
+    at getOrInstantiateModuleFromParent (.next/server/chunks/ssr/[turbopack]_runtime.js:763:12)
+    at Context.esmImport [as i] (.next/server/chunks/ssr/[turbopack]_runtime.js:228:20)
+    at module evaluation (.next/server/chunks/ssr/_3a0a9e15._.js:1:139233)
+    at instantiateModule (.next/server/chunks/ssr/[turbopack]_runtime.js:740:9)
+    at getOrInstantiateModuleFromParent (.next/server/chunks/ssr/[turbopack]_runtime.js:763:12)
+    at Context.esmImport [as i] (.next/server/chunks/ssr/[turbopack]_runtime.js:228:20)
+    at module evaluation (.next/server/chunks/ssr/_588c45d1._.js:7:41639)
+    at instantiateModule (.next/server/chunks/ssr/[turbopack]_runtime.js:740:9) {
+  digest: '1475212665'
+}
+Export encountered an error on /legal/terms/page: /legal/terms, exiting the build.
+⨯ Next.js build worker exited with code: 1 and signal: null

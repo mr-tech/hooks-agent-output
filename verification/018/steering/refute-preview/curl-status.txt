@@ -1,0 +1,3 @@
+/ 200
+/legal/privacy 200
+/api/auth/providers 500

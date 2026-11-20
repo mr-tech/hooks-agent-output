@@ -1,0 +1,16 @@
+Running scope as unit: run-r2d298c9fe7de4e2db585b20c937d228c.scope
+▲ Next.js 16.1.6
+- Local:         http://127.0.0.1:40001
+- Network:       http://127.0.0.1:40001
+
+✓ Starting...
+✓ Ready in 264ms
+❌ Invalid environment variables: {
+  DATABASE_URL: [ 'Required' ],
+  REDISHOST: [ 'Required' ],
+  REDISPORT: [ 'Required' ],
+  REDISUSER: [ 'Required' ],
+  REDISPASSWORD: [ 'Required' ]
+}
+⨯ Error: Invalid environment variables
+    at <unknown> (.next/server/chunks/[root-of-the-server]__84b11231._.js:1:57811)

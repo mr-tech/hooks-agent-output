@@ -73,3 +73,33 @@ By the critic's message, `critiques/018-next-upgrade-save-size-cap-critique.md` 
 - **Held:** the critic routed the unrun limb to the planner: a build with the Preview names, served, then two GETs. Whether the preview
   can still deliver what he chose decides whether his selection reopens (escalation.md: a corrected premise reopens it only where it
   changes the scope he chose). On the planner's result, steering puts it to him if it does, with the probe as a premise.
+
+## 2026-11-20T04:11Z — revision 2: OQ-5, the within-bound residue (X-19) and X-18 put to him; his answers
+
+**Received:**
+- `planning/018-next-upgrade-save-size-cap.md` revision 2 (`7a1bd46`), changelog row 2026-11-20T04:05; it carries OQ-5 and offers X-18.
+- The critic's pass 2 (`409b52c`): F-1..F-15 resolved; REQUEST REVISION held on OQ-5 alone. It asked whether M1-M4 may start before
+  OQ-5 is answered. That is moot: OQ-5 was answered in this prompt.
+- The architect approved revision 2 with no findings (`dbddefb`). QA's re-read is pending.
+**Refutations** (`general-purpose-sonnet` helpers, briefed with the conclusions alone):
+- Preview (`verification/018/steering/refute-preview/`): confirmed. With the Preview names only, `next build` exits 1 in `src/env.mjs`
+  ("DATABASE_URL, REDISHOST, REDISPORT, REDISUSER, REDISPASSWORD: Required"). The skip-built app, served without the skip, gives `/` 200,
+  `/legal/privacy` 200 and `/api/auth/providers` 500.
+- X-19 (`verification/018/steering/refute-within-bound/`): confirmed against the real `shapes.ts` (zod 3.22.4), every list within bound
+  (40 containers × 40 children, inner bounds as given).
+  - Worst case: 707,607 bytes gave 48,500 issues and a 13,324,552-character message (parse 216 ms, message 231 ms).
+  - A 66,716-byte body gave 24,000 issues and about 6 MB.
+**Selection, answered 04:11Z** (ledger `steering/selection-ledger/2026-11-20.md`, block "2026-11-20T04:11Z — steering-roadmap-hooks";
+wording this thread's):
+- Q "Preview": **Agent: release-check branch (Recommended)** — CHOSEN, by selection. "Devops pushes the chain tip plus one extra commit
+  that only adds the build-skip setting, to a non-master branch (preview only). UAT checks public pages, redirects and images on
+  Vercel's own build; sign-in is checked on a local build. The release pushes the tip without that commit." Not chosen: You: add skip
+  to Preview vars; Agent: local build only; Agent: no pre-release site check.
+- Q "Error cap": **Agent: also cap the error (Recommended)** — CHOSEN, by selection. "The planner adds to the save-cap milestone: the
+  server stops checking after a small number of errors and returns a short reason, so no save can build a huge error. One more change
+  in the same milestone, with its own tests." Not chosen: Agent: accept the residue; Agent: discuss first. X-19 leaves the Exclusions.
+- Q "Save reason": **Agent: leave it (Recommended)** — CHOSEN, by selection. "Agent keeps Save's current message; it affects only
+  pasted messages already over Discord's own limits, and the reason is visible in the JSON view." X-18 stands. Not chosen: Agent: show
+  the reason on Save.
+**Told to him, not asked** (block 03:3xZ): the D-6 package changes, in the reply that followed this prompt.
+**Next:** the planner folds these into revision 3. The critic reads it as a delta; QA and the architect re-read the criteria that change.
