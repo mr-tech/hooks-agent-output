@@ -1,0 +1,329 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the plain unions of the save > return one issue for each of six failing accessories
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the plain unions of the save > return one issue for each of six failing accessories
+AssertionError: expected [ …(21) ] to deeply equal [ …(6) ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
++     "code": "invalid_literal",
++     "message": "Invalid literal value, expected 11",
++     "path": [
++       "message",
++       "data",
++       "components",
++       0,
++       "accessory",
++       "type",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Required",
++     "path": [
++       "message",
++       "data",
++       "components",
++       0,
++       "accessory",
++       "media",
++     ],
++   },
++   {
++     "code": "invalid_literal",
++     "message": "Invalid literal value, expected 2",
++     "path": [
++       "message",
++       "data",
++       "components",
++       0,
++       "accessory",
++       "type",
++     ],
++   },
++   {
++     "code": "invalid_literal",
++     "message": "Invalid literal value, expected 5",
++     "path": [
++       "message",
++       "data",
++       "components",
++       0,
++       "accessory",
++       "style",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Required",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "accessory",
++       "url",
+      ],
+    },
+    {
+      "code": "invalid_union",
+      "message": "Invalid input",
++     "path": [
++       "message",
++       "data",
++       "components",
++       0,
++       "accessory",
++     ],
++   },
++   {
++     "code": "invalid_literal",
++     "message": "Invalid literal value, expected 11",
++     "path": [
++       "message",
++       "data",
++       "components",
++       1,
++       "accessory",
++       "type",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Required",
++     "path": [
++       "message",
++       "data",
++       "components",
++       1,
++       "accessory",
++       "media",
++     ],
++   },
++   {
++     "code": "invalid_literal",
++     "message": "Invalid literal value, expected 2",
++     "path": [
++       "message",
++       "data",
++       "components",
++       1,
++       "accessory",
++       "type",
++     ],
++   },
++   {
++     "code": "invalid_literal",
++     "message": "Invalid literal value, expected 5",
++     "path": [
++       "message",
++       "data",
++       "components",
++       1,
++       "accessory",
++       "style",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Required",
+      "path": [
+        "message",
+        "data",
+        "components",
+        1,
+        "accessory",
++       "url",
+      ],
+    },
+    {
+      "code": "invalid_union",
+      "message": "Invalid input",
++     "path": [
++       "message",
++       "data",
++       "components",
++       1,
++       "accessory",
++     ],
++   },
++   {
++     "code": "invalid_literal",
++     "message": "Invalid literal value, expected 11",
+      "path": [
+        "message",
+        "data",
+        "components",
+        2,
+        "accessory",
++       "type",
+      ],
+    },
+    {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
++     "code": "invalid_type",
++     "message": "Required",
+      "path": [
+        "message",
+        "data",
+        "components",
+-       3,
++       2,
+        "accessory",
++       "media",
+      ],
+    },
+    {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
++     "code": "invalid_literal",
++     "message": "Invalid literal value, expected 2",
+      "path": [
+        "message",
+        "data",
+        "components",
+-       4,
++       2,
++       "accessory",
++       "type",
++     ],
++   },
++   {
++     "code": "invalid_literal",
++     "message": "Invalid literal value, expected 5",
++     "path": [
++       "message",
++       "data",
++       "components",
++       2,
+        "accessory",
++       "style",
+      ],
+    },
+    {
++     "code": "invalid_type",
++     "message": "Required",
++     "path": [
++       "message",
++       "data",
++       "components",
++       2,
++       "accessory",
++       "url",
++     ],
++   },
++   {
+      "code": "invalid_union",
+      "message": "Invalid input",
+      "path": [
+        "message",
+        "data",
+        "components",
+-       5,
++       2,
++       "accessory",
++     ],
++   },
++   {
++     "code": "invalid_literal",
++     "message": "Invalid literal value, expected 11",
++     "path": [
++       "message",
++       "data",
++       "components",
++       3,
++       "accessory",
++       "type",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Required",
++     "path": [
++       "message",
++       "data",
++       "components",
++       3,
+        "accessory",
++       "media",
+      ],
++   },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:177:22
+    175|       const { issues } = await refusal({ components: repeat(6, invalid…
+    176|
+    177|       expect(issues).toEqual(Array.from({ length: 6 }, (_, i) => ({
+       |                      ^
+    178|         code: 'invalid_union', path: [...DATA, 'components', i, 'acces…
+    179|       })));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > the plain unions of the message shape > create one issue for each failing accessory they return
+AssertionError: expected { created: 36, returned: 6 } to deeply equal { created: 6, returned: 6 }
+
+- Expected
++ Received
+
+  {
+-   "created": 6,
++   "created": 36,
+    "returned": 6,
+  }
+
+ ❯ src/server/api/utils/__tests__/shapes.error-cap.test.ts:72:64
+     70|
+     71|   it('create one issue for each failing accessory they return', () => {
+     72|     expect(calls({ components: repeat(6, invalidAccessory) })).toEqual…
+       |                                                                ^
+     73|   });
+     74|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > the plain unions of the message shape > create the issue of the branch that matched, and no other
+AssertionError: expected { created: 4, returned: 1 } to deeply equal { created: 1, returned: 1 }
+
+- Expected
++ Received
+
+  {
+-   "created": 1,
++   "created": 4,
+    "returned": 1,
+  }
+
+ ❯ src/server/api/utils/__tests__/shapes.error-cap.test.ts:86:81
+     84|     const accessory = { type: 11, media: { url: 'nope' } };
+     85|
+     86|     expect(calls({ components: [{ type: 9, components: [TEXT], accesso…
+       |                                                                                 ^
+     87|   });
+     88| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+

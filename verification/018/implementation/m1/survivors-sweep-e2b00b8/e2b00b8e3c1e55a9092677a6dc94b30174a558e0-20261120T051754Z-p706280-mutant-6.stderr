@@ -1,0 +1,52 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the plain unions of the save > keep every issue of the branch that matched, in order, and still run the displayable-text check
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the plain unions of the save > keep every issue of the branch that matched, in order, and still run the displayable-text check
+AssertionError: expected [ …(2) ] to deeply equal [ { code: 'too_big', …(2) }, …(2) ]
+
+- Expected
++ Received
+
+@@ -1,19 +1,7 @@
+  [
+    {
+-     "code": "too_big",
+-     "message": "String must contain at most 80 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       0,
+-       "accessory",
+-       "label",
+-     ],
+-   },
+-   {
+      "code": "invalid_string",
+      "message": "Invalid url",
+      "path": [
+        "message",
+        "data",
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:204:22
+    202|       const { issues } = await refusal({ components: [{ type: 9, compo…
+    203|
+    204|       expect(issues).toEqual([
+       |                      ^
+    205|         { code: 'too_big', path: [...DATA, 'components', 0, 'accessory…
+    206|         { code: 'invalid_string', path: [...DATA, 'components', 0, 'ac…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+

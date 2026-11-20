@@ -1,0 +1,222 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-named/20261120T045102Z-p411077/mutant-17
+
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (154 tests | 106 failed) 604ms
+       × refuses a list of valid elements, length 11, with one issue for the list and no database access 29ms
+       × refuses a list of valid elements, length 60, with one issue for the list and no database access 23ms
+       × refuses a list of invalid elements, length 11, with one issue for the list and no database access 15ms
+       × refuses a list of invalid elements, length 60, with one issue for the list and no database access 5ms
+       × refuses a list of number elements, length 11, with one issue for the list and no database access 3ms
+       × refuses a list of number elements, length 60, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 11, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 60, with one issue for the list and no database access 4ms
+       × keeps the one issue per invalid element for a list of 10 with the first element invalid 2ms
+       × keeps the one issue per invalid element for a list of 9 with the first element invalid 3ms
+       × refuses a list of valid elements, length 41, with one issue for the list and no database access 3ms
+       × refuses a list of valid elements, length 90, with one issue for the list and no database access 4ms
+       × refuses a list of invalid elements, length 41, with one issue for the list and no database access 2ms
+       × refuses a list of invalid elements, length 90, with one issue for the list and no database access 5ms
+       × refuses a list of number elements, length 41, with one issue for the list and no database access 19ms
+       × refuses a list of number elements, length 90, with one issue for the list and no database access 5ms
+       × refuses a list of null elements, length 41, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 90, with one issue for the list and no database access 4ms
+       × refuses a list of nested elements, length 41, with one issue for the list and no database access 2ms
+       × refuses a list of nested elements, length 90, with one issue for the list and no database access 3ms
+       × keeps the one issue per invalid element for a list of 40 with the first element invalid 9ms
+       × keeps the one issue per invalid element for a list of 39 with the first element invalid 5ms
+       × refuses a list of valid elements, length 26, with one issue for the list and no database access 4ms
+       × refuses a list of valid elements, length 75, with one issue for the list and no database access 10ms
+       × refuses a list of invalid elements, length 26, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 75, with one issue for the list and no database access 5ms
+       × refuses a list of number elements, length 26, with one issue for the list and no database access 3ms
+       × refuses a list of number elements, length 75, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 26, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 75, with one issue for the list and no database access 2ms
+       × keeps the one issue per invalid element for a list of 25 with the first element invalid 2ms
+       × keeps the one issue per invalid element for a list of 24 with the first element invalid 2ms
+       × refuses a list of valid elements, length 4, with one issue for the list and no database access 2ms
+       × refuses a list of valid elements, length 53, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 4, with one issue for the list and no database access 2ms
+       × refuses a list of invalid elements, length 53, with one issue for the list and no database access 2ms
+       × refuses a list of number elements, length 4, with one issue for the list and no database access 5ms
+       × refuses a list of number elements, length 53, with one issue for the list and no database access 5ms
+       × refuses a list of null elements, length 4, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 53, with one issue for the list and no database access 12ms
+       × keeps the one issue per invalid element for a list of 3 with the first element invalid 5ms
+       × keeps the one issue per invalid element for a list of 2 with the first element invalid 3ms
+       × refuses a list of valid elements, length 101, with one issue for the list and no database access 2ms
+       × refuses a list of valid elements, length 150, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 101, with one issue for the list and no database access 4ms
+       × refuses a list of invalid elements, length 150, with one issue for the list and no database access 3ms
+       × refuses a list of number elements, length 101, with one issue for the list and no database access 3ms
+       × refuses a list of number elements, length 150, with one issue for the list and no database access 4ms
+       × refuses a list of null elements, length 101, with one issue for the list and no database access 16ms
+       × refuses a list of null elements, length 150, with one issue for the list and no database access 8ms
+       × keeps the one issue per invalid element for a list of 100 with the first element invalid 3ms
+       × keeps the one issue per invalid element for a list of 99 with the first element invalid 2ms
+       × refuses a list of valid elements, length 101, with one issue for the list and no database access 3ms
+       × refuses a list of valid elements, length 150, with one issue for the list and no database access 2ms
+       × refuses a list of invalid elements, length 101, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 150, with one issue for the list and no database access 3ms
+       × refuses a list of number elements, length 101, with one issue for the list and no database access 4ms
+       × refuses a list of number elements, length 150, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 101, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 150, with one issue for the list and no database access 3ms
+       × keeps the one issue per invalid element for a list of 100 with the first element invalid 3ms
+       × keeps the one issue per invalid element for a list of 99 with the first element invalid 10ms
+       × refuses a list of valid elements, length 11, with one issue for the list and no database access 2ms
+       × refuses a list of valid elements, length 60, with one issue for the list and no database access 2ms
+       × refuses a list of invalid elements, length 11, with one issue for the list and no database access 2ms
+       × refuses a list of invalid elements, length 60, with one issue for the list and no database access 4ms
+       × refuses a list of number elements, length 11, with one issue for the list and no database access 2ms
+       × refuses a list of number elements, length 60, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 11, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 60, with one issue for the list and no database access 2ms
+       × refuses a list of nested elements, length 11, with one issue for the list and no database access 9ms
+       × refuses a list of nested elements, length 60, with one issue for the list and no database access 4ms
+       × keeps the one issue per invalid element for a list of 10 with the first element invalid 2ms
+       × keeps the one issue per invalid element for a list of 9 with the first element invalid 3ms
+       × refuses a list of valid elements, length 41, with one issue for the list and no database access 6ms
+       × refuses a list of valid elements, length 90, with one issue for the list and no database access 4ms
+       × refuses a list of invalid elements, length 41, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 90, with one issue for the list and no database access 3ms
+       × refuses a list of number elements, length 41, with one issue for the list and no database access 2ms
+       × refuses a list of number elements, length 90, with one issue for the list and no database access 5ms
+       × refuses a list of null elements, length 41, with one issue for the list and no database access 4ms
+       × refuses a list of null elements, length 90, with one issue for the list and no database access 4ms
+       × refuses a list of nested elements, length 41, with one issue for the list and no database access 3ms
+       × refuses a list of nested elements, length 90, with one issue for the list and no database access 3ms
+       × keeps the one issue per invalid element for a list of 40 with the first element invalid 3ms
+       × keeps the one issue per invalid element for a list of 39 with the first element invalid 6ms
+     × refuses 12 valid elements with one issue for the list and no database access 3ms
+     × refuses 12 wrong primitive elements with one issue for the list and no database access 2ms
+     × refuses 12 null elements with one issue for the list and no database access 3ms
+     × refuses 61 elements with one issue for the list 4ms
+       × lists exactly 20 issues with no summary 29ms
+       × lists the first 20 issues in order and one summary at 21 issues 20ms
+       × counts the one issue of an over-limit list toward the 20 8ms
+       × counts the displayable-text issue, with its own message, toward the 20 12ms
+       × keeps two concurrent refusals apart 6ms
+       × stay small for one allowed-mention kind of 100,000 characters 2ms
+       × stay small for three allowed-mention kinds of 100,000 characters 1ms
+       × stay small for a link button style of 100,000 characters 1ms
+       × stay small for a link button type of 100,000 characters 1ms
+       × stay small for a section accessory type of 100,000 characters 1ms
+       × stay small for a separator spacing of 100,000 characters 3ms
+       × stay small for a text display type inside a section of 100,000 characters 2ms
+       × stay small for a thumbnail accessory type of 100,000 characters 1ms
+       × carry only code, path and message for a refusal of one issue 4ms
+       × return one issue for each of six failing accessories 12ms
+       × keep the issue of the one branch that matched the accessory type 5ms
+ ❯ |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts (8 tests | 2 failed) 25ms
+     × keeps 20 issues and adds one summary issue at the 21st 10ms
+     × carries no count from one refusal to the next 3ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (147 tests | 102 failed) 507ms
+       × refuses a list of valid elements, length 11, with one issue for the list and no database access 20ms
+       × refuses a list of valid elements, length 60, with one issue for the list and no database access 5ms
+       × refuses a list of invalid elements, length 11, with one issue for the list and no database access 9ms
+       × refuses a list of invalid elements, length 60, with one issue for the list and no database access 5ms
+       × refuses a list of number elements, length 11, with one issue for the list and no database access 3ms
+       × refuses a list of number elements, length 60, with one issue for the list and no database access 5ms
+       × refuses a list of null elements, length 11, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 60, with one issue for the list and no database access 4ms
+       × keeps the one issue per invalid element for a list of 10 with the first element invalid 30ms
+       × keeps the one issue per invalid element for a list of 9 with the first element invalid 2ms
+       × refuses a list of valid elements, length 41, with one issue for the list and no database access 3ms
+       × refuses a list of valid elements, length 90, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 41, with one issue for the list and no database access 2ms
+       × refuses a list of invalid elements, length 90, with one issue for the list and no database access 4ms
+       × refuses a list of number elements, length 41, with one issue for the list and no database access 5ms
+       × refuses a list of number elements, length 90, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 41, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 90, with one issue for the list and no database access 3ms
+       × refuses a list of nested elements, length 41, with one issue for the list and no database access 2ms
+       × refuses a list of nested elements, length 90, with one issue for the list and no database access 2ms
+       × keeps the one issue per invalid element for a list of 40 with the first element invalid 9ms
+       × keeps the one issue per invalid element for a list of 39 with the first element invalid 2ms
+       × refuses a list of valid elements, length 26, with one issue for the list and no database access 2ms
+       × refuses a list of valid elements, length 75, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 26, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 75, with one issue for the list and no database access 10ms
+       × refuses a list of number elements, length 26, with one issue for the list and no database access 3ms
+       × refuses a list of number elements, length 75, with one issue for the list and no database access 4ms
+       × refuses a list of null elements, length 26, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 75, with one issue for the list and no database access 1ms
+       × keeps the one issue per invalid element for a list of 25 with the first element invalid 3ms
+       × keeps the one issue per invalid element for a list of 24 with the first element invalid 4ms
+       × refuses a list of valid elements, length 4, with one issue for the list and no database access 2ms
+       × refuses a list of valid elements, length 53, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 4, with one issue for the list and no database access 2ms
+       × refuses a list of invalid elements, length 53, with one issue for the list and no database access 2ms
+       × refuses a list of number elements, length 4, with one issue for the list and no database access 3ms
+       × refuses a list of number elements, length 53, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 4, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 53, with one issue for the list and no database access 2ms
+       × keeps the one issue per invalid element for a list of 3 with the first element invalid 3ms
+       × keeps the one issue per invalid element for a list of 2 with the first element invalid 2ms
+       × refuses a list of valid elements, length 101, with one issue for the list and no database access 2ms
+       × refuses a list of valid elements, length 150, with one issue for the list and no database access 9ms
+       × refuses a list of invalid elements, length 101, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 150, with one issue for the list and no database access 6ms
+       × refuses a list of number elements, length 101, with one issue for the list and no database access 5ms
+       × refuses a list of number elements, length 150, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 101, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 150, with one issue for the list and no database access 25ms
+       × keeps the one issue per invalid element for a list of 100 with the first element invalid 2ms
+       × keeps the one issue per invalid element for a list of 99 with the first element invalid 2ms
+       × refuses a list of valid elements, length 101, with one issue for the list and no database access 2ms
+       × refuses a list of valid elements, length 150, with one issue for the list and no database access 1ms
+       × refuses a list of invalid elements, length 101, with one issue for the list and no database access 2ms
+       × refuses a list of invalid elements, length 150, with one issue for the list and no database access 2ms
+       × refuses a list of number elements, length 101, with one issue for the list and no database access 3ms
+       × refuses a list of number elements, length 150, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 101, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 150, with one issue for the list and no database access 2ms
+       × keeps the one issue per invalid element for a list of 100 with the first element invalid 3ms
+       × keeps the one issue per invalid element for a list of 99 with the first element invalid 4ms
+       × refuses a list of valid elements, length 11, with one issue for the list and no database access 4ms
+       × refuses a list of valid elements, length 60, with one issue for the list and no database access 2ms
+       × refuses a list of invalid elements, length 11, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 60, with one issue for the list and no database access 3ms
+       × refuses a list of number elements, length 11, with one issue for the list and no database access 2ms
+       × refuses a list of number elements, length 60, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 11, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 60, with one issue for the list and no database access 2ms
+       × refuses a list of nested elements, length 11, with one issue for the list and no database access 2ms
+       × refuses a list of nested elements, length 60, with one issue for the list and no database access 2ms
+       × keeps the one issue per invalid element for a list of 10 with the first element invalid 2ms
+       × keeps the one issue per invalid element for a list of 9 with the first element invalid 4ms
+       × refuses a list of valid elements, length 41, with one issue for the list and no database access 3ms
+       × refuses a list of valid elements, length 90, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 41, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 90, with one issue for the list and no database access 3ms
+       × refuses a list of number elements, length 41, with one issue for the list and no database access 3ms
+       × refuses a list of number elements, length 90, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 41, with one issue for the list and no database access 1ms
+       × refuses a list of null elements, length 90, with one issue for the list and no database access 2ms
+       × refuses a list of nested elements, length 41, with one issue for the list and no database access 3ms
+       × refuses a list of nested elements, length 90, with one issue for the list and no database access 3ms
+       × keeps the one issue per invalid element for a list of 40 with the first element invalid 3ms
+       × keeps the one issue per invalid element for a list of 39 with the first element invalid 16ms
+       × lists exactly 20 issues with no summary 18ms
+       × lists the first 20 issues in order and one summary at 21 issues 9ms
+       × counts the one issue of an over-limit list toward the 20 6ms
+       × counts the displayable-text issue, with its own message, toward the 20 7ms
+       × keeps two concurrent refusals apart 7ms
+       × stay small for one allowed-mention kind of 100,000 characters 3ms
+       × stay small for three allowed-mention kinds of 100,000 characters 2ms
+       × stay small for a link button style of 100,000 characters 1ms
+       × stay small for a link button type of 100,000 characters 1ms
+       × stay small for a section accessory type of 100,000 characters 1ms
+       × stay small for a separator spacing of 100,000 characters 2ms
+       × stay small for a text display type inside a section of 100,000 characters 1ms
+       × stay small for a thumbnail accessory type of 100,000 characters 1ms
+       × carry only code, path and message for a refusal of one issue 3ms
+       × return one issue for each of six failing accessories 9ms
+       × keep the issue of the one branch that matched the accessory type 4ms
+
+ Test Files  3 failed | 151 passed (154)
+      Tests  210 failed | 2039 passed (2249)
+   Start at  04:57:39
+   Duration  21.38s (transform 34.41s, setup 2.42s, import 169.40s, tests 46.20s, environment 89.05s)
+

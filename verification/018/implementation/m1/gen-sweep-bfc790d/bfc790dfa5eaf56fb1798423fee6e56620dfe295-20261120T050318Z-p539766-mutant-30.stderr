@@ -1,0 +1,1181 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 14 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > lists exactly 20 issues with no summary
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > lists exactly 20 issues with no summary
+AssertionError: expected [ { code: 'invalid_type', …(2) } ] to deeply equal [ …(20) ]
+
+- Expected
++ Received
+
+@@ -10,253 +10,6 @@
+        "fields",
+        0,
+        "name",
+      ],
+    },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       1,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       2,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       3,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       4,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       5,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       6,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       7,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       8,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       9,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       10,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       11,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       12,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       13,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       14,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       15,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       16,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       17,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       18,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       19,
+-       "name",
+-     ],
+-   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:60:22
+     58|
+     59|       expect(code).toBe('BAD_REQUEST');
+     60|       expect(issues).toEqual(Array.from({ length: 20 }, (_, i) => fiel…
+       |                      ^
+     61|     });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/14]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the one issue of an over-limit list toward the 20
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the one issue of an over-limit list toward the 20
+AssertionError: expected [ { code: 'invalid_type', …(2) } ] to deeply equal [ …(20) ]
+
+- Expected
++ Received
+
+@@ -10,251 +10,6 @@
+        "fields",
+        0,
+        "name",
+      ],
+    },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       1,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       2,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       3,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       4,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       5,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       6,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       7,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       8,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       9,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       10,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       11,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       12,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       13,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       14,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       15,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       16,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       17,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       18,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "Array must contain at most 25 element(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       1,
+-       "fields",
+-     ],
+-   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:85:28
+     83|       const over = await refusal({ embeds: [{ fields: repeat(20, badNa…
+     84|
+     85|       expect(exact.issues).toEqual([
+       |                            ^
+     86|         ...Array.from({ length: 19 }, (_, i) => fieldIssue(0, i, 'name…
+     87|         { code: 'too_big', path: [...DATA, 'embeds', 1, 'fields'], mes…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/14]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the displayable-text issue, with its own message, toward the 20
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the displayable-text issue, with its own message, toward the 20
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'too_big', …(2) }, …(19) ]
+
+- Expected
++ Received
+
+@@ -10,249 +10,6 @@
+        "fields",
+        0,
+        "name",
+      ],
+    },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       1,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       2,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       3,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       4,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       5,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       6,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       7,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       8,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       9,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       10,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       11,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       12,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       13,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       14,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       15,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       16,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       17,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "String must contain at most 256 character(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       18,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "Components displayable text size exceeds maximum size of 4000",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-     ],
+-   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:112:28
+    110|       const over = await refusal({ embeds: [{ fields: repeat(20, tooLo…
+    111|
+    112|       expect(exact.issues).toEqual([...Array.from({ length: 19 }, (_, …
+       |                            ^
+    113|       expect(over.issues).toEqual([
+    114|         ...Array.from({ length: 20 }, (_, i) => nameIssue(i)),
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/14]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > keeps two concurrent refusals apart
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > keeps two concurrent refusals apart
+AssertionError: expected [ { code: 'invalid_type', …(2) } ] to deeply equal [ …(15) ]
+
+- Expected
++ Received
+
+@@ -10,188 +10,6 @@
+        "fields",
+        0,
+        "name",
+      ],
+    },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       1,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       2,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       3,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       4,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       5,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       6,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       7,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       8,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       9,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       10,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       11,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       12,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       13,
+-       "name",
+-     ],
+-   },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       0,
+-       "fields",
+-       14,
+-       "name",
+-     ],
+-   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:136:28
+    134|       const third = await refusal({ embeds: [{ fields: repeat(15, badN…
+    135|
+    136|       expect(first.issues).toEqual(Array.from({ length: 15 }, (_, i) =…
+       |                            ^
+    137|       expect(second.issues).toEqual(Array.from({ length: 15 }, (_, i) …
+    138|       expect(third.issues).toEqual(first.issues);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/14]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for three allowed-mention kinds of 100,000 characters
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for three allowed-mention kinds of 100,000 characters
+AssertionError: expected [ { code: 'invalid_union', …(2) } ] to have a length of 3 but got 1
+
+- Expected
++ Received
+
+- 3
++ 1
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:148:22
+    146|
+    147|       expect(code).toBe('BAD_REQUEST');
+    148|       expect(issues).toHaveLength(count);
+       |                      ^
+    149|       expect(issues.every((issue) => Object.keys(issue).sort().join() …
+    150|       expect(text.length).toBeLessThan(SIXTEEN_KB);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/14]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the plain unions of the save > return one issue for each of six failing accessories
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the plain unions of the save > return one issue for each of six failing accessories
+AssertionError: expected [ { code: 'invalid_union', …(2) } ] to deeply equal [ …(6) ]
+
+- Expected
++ Received
+
+@@ -8,61 +8,6 @@
+        "components",
+        0,
+        "accessory",
+      ],
+    },
+-   {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       1,
+-       "accessory",
+-     ],
+-   },
+-   {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       2,
+-       "accessory",
+-     ],
+-   },
+-   {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       3,
+-       "accessory",
+-     ],
+-   },
+-   {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       4,
+-       "accessory",
+-     ],
+-   },
+-   {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       5,
+-       "accessory",
+-     ],
+-   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:177:22
+    175|       const { issues } = await refusal({ components: repeat(6, invalid…
+    176|
+    177|       expect(issues).toEqual(Array.from({ length: 6 }, (_, i) => ({
+       |                      ^
+    178|         code: 'invalid_union', path: [...DATA, 'components', i, 'acces…
+    179|       })));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > cappedInput > refuses with a ZodError of the issues, each reduced to code, path and message
+AssertionError: expected [ { code: 'invalid_type', …(2) } ] to deeply equal [ Array(2) ]
+
+- Expected
++ Received
+
+@@ -5,13 +5,6 @@
+      "path": [
+        "names",
+        0,
+      ],
+    },
+-   {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       "name",
+-     ],
+-   },
+  ]
+
+ ❯ src/server/api/utils/__tests__/shapes.error-cap.test.ts:37:20
+     35|     const issues = await issuesOf(capped.parseAsync({ ids: ['7'], name…
+     36|
+     37|     expect(issues).toEqual([
+       |                    ^
+     38|       { code: 'invalid_type', path: ['names', 0], message: 'Expected s…
+     39|       { code: 'invalid_type', path: ['name'], message: 'Expected strin…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > cappedInput > carries no count from one refusal to the next
+AssertionError: expected [ { code: 'invalid_type', …(2) } ] to have a length of 3 but got 1
+
+- Expected
++ Received
+
+- 3
++ 1
+
+ ❯ src/server/api/utils/__tests__/shapes.error-cap.test.ts:56:20
+     54|     const issues = await issuesOf(capped.parseAsync({ ids: [], names: …
+     55|
+     56|     expect(issues).toHaveLength(3);
+       |                    ^
+     57|   });
+     58| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/14]⎯
+

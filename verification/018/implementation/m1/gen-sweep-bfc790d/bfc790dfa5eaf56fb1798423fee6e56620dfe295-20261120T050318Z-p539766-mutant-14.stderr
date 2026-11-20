@@ -1,0 +1,215 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 16 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of null elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of null elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of null elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > refuses a list of null elements, length 53, with one issue for the list and no database access
+AssertionError: expected [] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "too_big",
+-     "message": "Array must contain at most 3 element(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       0,
+-       "components",
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:49:22
+     47|
+     48|       expect(code).toBe('BAD_REQUEST');
+     49|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     50|       expect(procedure.databaseQueries()).toBe(before);
+     51|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/16]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of null elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of null elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of null elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > refuses a list of null elements, length 90, with one issue for the list and no database access
+AssertionError: expected [] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "too_big",
+-     "message": "Array must contain at most 40 element(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-       0,
+-       "components",
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:49:22
+     47|
+     48|       expect(code).toBe('BAD_REQUEST');
+     49|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     50|       expect(procedure.databaseQueries()).toBe(before);
+     51|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/16]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of null elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of null elements, length 90, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of null elements, length 41, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > refuses a list of null elements, length 90, with one issue for the list and no database access
+AssertionError: expected [] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "code": "too_big",
+-     "message": "Array must contain at most 40 element(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "components",
+-     ],
+-   },
+- ]
++ []
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:49:22
+     47|
+     48|       expect(code).toBe('BAD_REQUEST');
+     49|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     50|       expect(procedure.databaseQueries()).toBe(before);
+     51|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/16]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > boundedArray > runs no refinement of the enclosing object over an over-limit list
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      Object {
+        "list": Array [
+          "a",
+          "b",
+        ],
+      },
+      Object {
+        "addIssue": [Function bound addIssue],
+        "path": Array [],
+      },
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:54:28
+     52|     enclosing.safeParse({ list: ['a', 'b'] });
+     53|
+     54|     expect(refinement).not.toHaveBeenCalled();
+       |                            ^
+     55|   });
+     56| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/16]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageShape over-limit lists > refuses 41 top-level components holding a null with one issue and no throw
+TypeError: Cannot read properties of null (reading 'type')
+ ❯ sumDisplayableText src/server/api/utils/shapes.ts:246:11
+    244|   let total = 0;
+    245|   for (const c of components) {
+    246|     if (c.type === 10 && typeof c.content === 'string') {
+       |           ^
+    247|       total += c.content.length;
+    248|     } else if ((c.type === 9 || c.type === 17) && Array.isArray(c.comp…
+ ❯ Object.refineDisplayableText [as refinement] src/server/api/utils/shapes.ts:257:17
+ ❯ executeRefinement node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3468:39
+ ❯ ZodEffects._parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3488:17
+ ❯ ZodEffects._parseSync node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:624:29
+ ❯ ZodEffects.safeParse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:654:29
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:62:40
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/16]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageShape over-limit lists > refuses 41 container children holding a null with one issue and no throw
+TypeError: Cannot read properties of null (reading 'type')
+ ❯ sumDisplayableText src/server/api/utils/shapes.ts:246:11
+    244|   let total = 0;
+    245|   for (const c of components) {
+    246|     if (c.type === 10 && typeof c.content === 'string') {
+       |           ^
+    247|       total += c.content.length;
+    248|     } else if ((c.type === 9 || c.type === 17) && Array.isArray(c.comp…
+ ❯ sumDisplayableText src/server/api/utils/shapes.ts:249:16
+ ❯ Object.refineDisplayableText [as refinement] src/server/api/utils/shapes.ts:257:17
+ ❯ executeRefinement node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3468:39
+ ❯ ZodEffects._parse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:3488:17
+ ❯ ZodEffects._parseSync node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:624:29
+ ❯ ZodEffects.safeParse node_modules/.pnpm/zod@3.22.4/node_modules/zod/lib/index.mjs:654:29
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:68:40
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/16]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageShape over-limit lists > adds no displayable-text issue to a refused list of over-long text displays
+AssertionError: expected [ { code: 'too_big', …(2) }, …(1) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -4,6 +4,13 @@
+      "message": "Array must contain at most 40 element(s)",
+      "path": [
+        "components",
+      ],
+    },
++   {
++     "code": "too_big",
++     "message": "Components displayable text size exceeds maximum size of 4000",
++     "path": [
++       "components",
++     ],
++   },
+  ]
+
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:78:29
+     76|     const result = discordMessageShape.safeParse({ components: repeat(…
+     77|
+     78|     expect(reduced(result)).toEqual([{ code: 'too_big', path: ['compon…
+       |                             ^
+     79|   });
+     80|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/16]⎯
+

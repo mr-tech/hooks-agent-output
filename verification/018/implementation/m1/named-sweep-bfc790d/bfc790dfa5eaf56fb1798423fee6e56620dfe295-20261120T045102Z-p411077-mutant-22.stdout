@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-named/20261120T045102Z-p411077/mutant-22
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts (8 tests | 1 failed) 28ms
+     × create one issue for an allowed-mention kind that is not admitted 13ms
+
+ Test Files  1 failed | 153 passed (154)
+      Tests  1 failed | 2248 passed (2249)
+   Start at  04:59:38
+   Duration  20.89s (transform 28.48s, setup 2.11s, import 163.67s, tests 44.45s, environment 91.56s)
+

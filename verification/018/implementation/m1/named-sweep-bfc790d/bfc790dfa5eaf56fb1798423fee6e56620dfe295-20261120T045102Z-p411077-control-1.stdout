@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-named/20261120T045102Z-p411077/control-1
+
+
+ Test Files  154 passed (154)
+      Tests  2249 passed (2249)
+   Start at  04:51:03
+   Duration  19.44s (transform 28.62s, setup 2.18s, import 147.01s, tests 42.58s, environment 87.41s)
+

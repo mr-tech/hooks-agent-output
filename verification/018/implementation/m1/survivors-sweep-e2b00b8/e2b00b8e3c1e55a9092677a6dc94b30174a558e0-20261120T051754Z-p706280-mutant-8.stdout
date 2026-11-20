@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-surv/20261120T051754Z-p706280/mutant-8
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts (20 tests | 2 failed) 36ms
+     × accepts here as a parse kind and refuses one that is not admitted 11ms
+     × accepts everyone as a parse kind and refuses one that is not admitted 1ms
+
+ Test Files  1 failed | 153 passed (154)
+      Tests  2 failed | 2257 passed (2259)
+   Start at  05:21:08
+   Duration  23.88s (transform 45.54s, setup 2.89s, import 190.94s, tests 50.96s, environment 99.46s)
+

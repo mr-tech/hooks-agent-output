@@ -1,0 +1,36 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > the plain unions of the message shape > create one issue for an allowed-mention kind that is not admitted
+AssertionError: expected { created: 4, returned: 1 } to deeply equal { created: 1, returned: 1 }
+
+- Expected
++ Received
+
+  {
+-   "created": 1,
++   "created": 4,
+    "returned": 1,
+  }
+
+ ❯ src/server/api/utils/__tests__/shapes.error-cap.test.ts:80:62
+     78|
+     79|   it('create one issue for an allowed-mention kind that is not admitte…
+     80|     expect(calls({ allowed_mentions: { parse: ['nope'] } })).toEqual({…
+       |                                                              ^
+     81|   });
+     82|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

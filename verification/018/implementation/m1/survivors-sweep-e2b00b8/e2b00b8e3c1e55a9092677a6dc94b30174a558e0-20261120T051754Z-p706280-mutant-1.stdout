@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-surv/20261120T051754Z-p706280/mutant-1
+
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (157 tests | 1 failed) 255ms
+     × keeps the first ten of the eleven ids the input admits 10ms
+
+ Test Files  1 failed | 153 passed (154)
+      Tests  1 failed | 2258 passed (2259)
+   Start at  05:18:19
+   Duration  21.18s (transform 31.36s, setup 2.74s, import 162.89s, tests 44.74s, environment 92.72s)
+

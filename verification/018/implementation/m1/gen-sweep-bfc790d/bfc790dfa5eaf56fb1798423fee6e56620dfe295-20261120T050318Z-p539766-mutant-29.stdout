@@ -1,0 +1,66 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-gen/20261120T050318Z-p539766/mutant-29
+
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (154 tests | 23 failed) 272ms
+       × accepts a list of 5 valid elements 17ms
+       × accepts a list of 4 valid elements 4ms
+       × accepts a list of 3 valid elements 4ms
+       × accepts a list of 2 valid elements 4ms
+       × accepts a list of 10 valid elements 17ms
+       × accepts a list of 9 valid elements 2ms
+       × accepts a list of 40 valid elements 2ms
+       × accepts a list of 39 valid elements 3ms
+       × accepts a list of 25 valid elements 7ms
+       × accepts a list of 24 valid elements 1ms
+       × accepts a list of 3 valid elements 4ms
+       × accepts a list of 2 valid elements 1ms
+       × accepts a list of 100 valid elements 3ms
+       × accepts a list of 99 valid elements 3ms
+       × accepts a list of 100 valid elements 3ms
+       × accepts a list of 99 valid elements 2ms
+       × accepts a list of 10 valid elements 1ms
+       × accepts a list of 9 valid elements 1ms
+       × accepts a list of 40 valid elements 3ms
+       × accepts a list of 39 valid elements 8ms
+     × accepts 11 elements 2ms
+     × accepts 10 elements 1ms
+     × accepts 0 elements 1ms
+ ❯ |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts (8 tests | 1 failed) 31ms
+     × returns the parsed output of an input with no issue 19ms
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (32 tests | 9 failed) 117ms
+     × never writes a row at the number the browser sent 20ms
+     × announces no update on the number the browser sent 1ms
+     × refuses at the per-user cap, and creates no row 15ms
+     × updates and announces the canonical number when the browser sends leading zeros 4ms
+     × writes a personal message only where the caller still owns the row 6ms
+     × writes a server message only where the row still belongs to that server, for any of its admins 2ms
+     × upsert refuses a personal save, and nothing is written or announced 6ms
+     × upsert refuses a server save, and nothing is written or announced 2ms
+     × upsert takes the largest number a message can hold to the database 1ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (147 tests | 20 failed) 235ms
+       × accepts a list of 5 valid elements 12ms
+       × accepts a list of 4 valid elements 4ms
+       × accepts a list of 3 valid elements 3ms
+       × accepts a list of 2 valid elements 3ms
+       × accepts a list of 10 valid elements 3ms
+       × accepts a list of 9 valid elements 2ms
+       × accepts a list of 40 valid elements 2ms
+       × accepts a list of 39 valid elements 2ms
+       × accepts a list of 25 valid elements 3ms
+       × accepts a list of 24 valid elements 2ms
+       × accepts a list of 3 valid elements 2ms
+       × accepts a list of 2 valid elements 1ms
+       × accepts a list of 100 valid elements 3ms
+       × accepts a list of 99 valid elements 1ms
+       × accepts a list of 100 valid elements 4ms
+       × accepts a list of 99 valid elements 3ms
+       × accepts a list of 10 valid elements 1ms
+       × accepts a list of 9 valid elements 1ms
+       × accepts a list of 40 valid elements 2ms
+       × accepts a list of 39 valid elements 29ms
+
+ Test Files  4 failed | 150 passed (154)
+      Tests  53 failed | 2196 passed (2249)
+   Start at  05:14:49
+   Duration  20.92s (transform 28.51s, setup 2.18s, import 157.71s, tests 44.19s, environment 93.88s)
+

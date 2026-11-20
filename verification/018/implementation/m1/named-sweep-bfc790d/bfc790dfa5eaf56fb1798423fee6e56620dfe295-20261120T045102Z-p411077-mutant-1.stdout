@@ -1,0 +1,28 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-named/20261120T045102Z-p411077/mutant-1
+
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (154 tests | 6 failed) 234ms
+       × refuses a list of null elements, length 4, with one issue for the list and no database access 12ms
+       × refuses a list of null elements, length 53, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 41, with one issue for the list and no database access 4ms
+       × refuses a list of null elements, length 90, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 41, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 90, with one issue for the list and no database access 3ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (147 tests | 6 failed) 235ms
+       × refuses a list of null elements, length 4, with one issue for the list and no database access 15ms
+       × refuses a list of null elements, length 53, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 41, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 90, with one issue for the list and no database access 4ms
+       × refuses a list of null elements, length 41, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 90, with one issue for the list and no database access 2ms
+ ❯ |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts (16 tests | 4 failed) 35ms
+     × runs no refinement of the enclosing object over an over-limit list 9ms
+     × refuses 41 top-level components holding a null with one issue and no throw 3ms
+     × refuses 41 container children holding a null with one issue and no throw 1ms
+     × adds no displayable-text issue to a refused list of over-long text displays 6ms
+
+ Test Files  3 failed | 151 passed (154)
+      Tests  16 failed | 2233 passed (2249)
+   Start at  04:51:23
+   Duration  20.79s (transform 33.96s, setup 2.66s, import 161.87s, tests 43.36s, environment 90.88s)
+

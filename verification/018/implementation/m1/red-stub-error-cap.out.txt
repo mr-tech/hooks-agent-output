@@ -1,0 +1,1 @@
+JSON report written to /usr/local/bin/hooks/agent-output/verification/018/implementation/m1/red-stub-error-cap.json

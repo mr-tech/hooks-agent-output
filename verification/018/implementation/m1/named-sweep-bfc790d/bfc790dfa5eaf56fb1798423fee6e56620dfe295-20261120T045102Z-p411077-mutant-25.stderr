@@ -1,0 +1,780 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 16 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of valid elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of valid elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of valid elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of valid elements, length 150, with one issue for the list and no database access
+AssertionError: expected 'NOT_FOUND' to be 'BAD_REQUEST' // Object.is equality
+
+Expected: "BAD_REQUEST"
+Received: "NOT_FOUND"
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:48:20
+     46|       const { code, issues } = await refusalOf(procedure.call, procedu…
+     47|
+     48|       expect(code).toBe('BAD_REQUEST');
+       |                    ^
+     49|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+     50|       expect(procedure.databaseQueries()).toBe(before);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/16]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of invalid elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of invalid elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of invalid elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of invalid elements, length 150, with one issue for the list and no database access
+AssertionError: expected [ …(21) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "too_big",
+-     "message": "Array must contain at most 100 element(s)",
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       0,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       1,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       2,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       3,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       4,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       5,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       6,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       7,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       8,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       9,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       10,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       11,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       12,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       13,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       14,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       15,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       16,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       17,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       18,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
+      "path": [
+        "message",
+        "data",
+        "allowed_mentions",
+        "roles",
++       19,
+      ],
++   },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:49:22
+     47|
+     48|       expect(code).toBe('BAD_REQUEST');
+     49|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     50|       expect(procedure.databaseQueries()).toBe(before);
+     51|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/16]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of number elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of number elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of number elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of number elements, length 150, with one issue for the list and no database access
+AssertionError: expected [ …(21) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "too_big",
+-     "message": "Array must contain at most 100 element(s)",
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       0,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       1,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       2,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       3,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       4,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       5,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       6,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       7,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       8,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       9,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       10,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       11,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       12,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       13,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       14,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       15,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       16,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       17,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       18,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "allowed_mentions",
+        "roles",
++       19,
+      ],
++   },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:49:22
+     47|
+     48|       expect(code).toBe('BAD_REQUEST');
+     49|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     50|       expect(procedure.databaseQueries()).toBe(before);
+     51|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/16]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of null elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of null elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of null elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > refuses a list of null elements, length 150, with one issue for the list and no database access
+AssertionError: expected [ …(21) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "too_big",
+-     "message": "Array must contain at most 100 element(s)",
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       0,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       1,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       2,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       3,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       4,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       5,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       6,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       7,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       8,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       9,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       10,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       11,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       12,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       13,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       14,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       15,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       16,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       17,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "roles",
++       18,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
+      "path": [
+        "message",
+        "data",
+        "allowed_mentions",
+        "roles",
++       19,
+      ],
++   },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:49:22
+     47|
+     48|       expect(code).toBe('BAD_REQUEST');
+     49|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     50|       expect(procedure.databaseQueries()).toBe(before);
+     51|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/16]⎯
+

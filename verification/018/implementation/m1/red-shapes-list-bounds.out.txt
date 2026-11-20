@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts [ src/server/api/utils/__tests__/shapes.list-bounds.test.ts ]
+TypeError: boundedArray is not a function
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:22:17
+     20|
+     21| describe('boundedArray', () => {
+     22|   const shape = boundedArray(z.string(), 3);
+       |                 ^
+     23|
+     24|   it('returns a list at the bound unchanged', () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  04:39:22
+   Duration  215ms (transform 67ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+

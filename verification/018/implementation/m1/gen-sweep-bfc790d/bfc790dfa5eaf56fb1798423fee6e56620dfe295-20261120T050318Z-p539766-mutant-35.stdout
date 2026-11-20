@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-gen/20261120T050318Z-p539766/mutant-35
+
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (154 tests | 4 failed) 229ms
+       × accepts a list of 3 valid elements 13ms
+       × accepts a list of 2 valid elements 3ms
+       × keeps the one issue per invalid element for a list of 3 with the first element invalid 5ms
+       × keeps the one issue per invalid element for a list of 2 with the first element invalid 2ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (147 tests | 4 failed) 264ms
+       × accepts a list of 3 valid elements 12ms
+       × accepts a list of 2 valid elements 3ms
+       × keeps the one issue per invalid element for a list of 3 with the first element invalid 5ms
+       × keeps the one issue per invalid element for a list of 2 with the first element invalid 3ms
+
+ Test Files  2 failed | 152 passed (154)
+      Tests  8 failed | 2241 passed (2249)
+   Start at  05:17:11
+   Duration  20.08s (transform 28.59s, setup 2.08s, import 151.54s, tests 44.13s, environment 89.28s)
+

@@ -1,0 +1,36 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > the plain unions of the message shape > create one issue for a failing separator spacing
+AssertionError: expected { created: 3, returned: 1 } to deeply equal { created: 1, returned: 1 }
+
+- Expected
++ Received
+
+  {
+-   "created": 1,
++   "created": 3,
+    "returned": 1,
+  }
+
+ ❯ src/server/api/utils/__tests__/shapes.error-cap.test.ts:76:78
+     74|
+     75|   it('create one issue for a failing separator spacing', () => {
+     76|     expect(calls({ components: [{ type: 14, divider: true, spacing: 3 …
+       |                                                                              ^
+     77|   });
+     78|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,105 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx > usePreferences recent message ids > sends the open message and at most ten stored ids for a stored list of 10
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx > usePreferences recent message ids > sends the open message and at most ten stored ids for a stored list of 11
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx > usePreferences recent message ids > sends the open message and at most ten stored ids for a stored list of 50
+AssertionError: expected [ '900000000000999' ] to deeply equal [ '900000000000999', …(10) ]
+
+- Expected
++ Received
+
+  [
+    "900000000000999",
+-   "900000000000001",
+-   "900000000000002",
+-   "900000000000003",
+-   "900000000000004",
+-   "900000000000005",
+-   "900000000000006",
+-   "900000000000007",
+-   "900000000000008",
+-   "900000000000009",
+-   "900000000000010",
+  ]
+
+ ❯ src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx:60:18
+     58|     const sent = sentFor(stored, open);
+     59|
+     60|     expect(sent).toEqual(expected);
+       |                  ^
+     61|     expect(sent!.length).toBeLessThanOrEqual(SERVER_BOUND);
+     62|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx > usePreferences recent message ids > moves the open message to the front of a stored list that holds it past the eleventh place
+AssertionError: expected [ '900000000000999' ] to deeply equal [ '900000000000999', …(10) ]
+
+- Expected
++ Received
+
+  [
+    "900000000000999",
+-   "900000000000001",
+-   "900000000000002",
+-   "900000000000003",
+-   "900000000000004",
+-   "900000000000005",
+-   "900000000000006",
+-   "900000000000007",
+-   "900000000000008",
+-   "900000000000009",
+-   "900000000000010",
+  ]
+
+ ❯ src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx:80:18
+     78|     const sent = sentFor(stored, open);
+     79|
+     80|     expect(sent).toEqual([OPEN, ...range(1, 10)]);
+       |                  ^
+     81|   });
+     82|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |dom| src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx > usePreferences recent message ids > puts the open message first and drops its stored copy
+AssertionError: expected [ '900000000000999' ] to deeply equal [ '900000000000999', …(9) ]
+
+- Expected
++ Received
+
+  [
+    "900000000000999",
+-   "900000000000001",
+-   "900000000000002",
+-   "900000000000003",
+-   "900000000000004",
+-   "900000000000005",
+-   "900000000000006",
+-   "900000000000007",
+-   "900000000000008",
+-   "900000000000009",
+  ]
+
+ ❯ src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx:86:35
+     84|     const stored = [...range(1, 3), OPEN, ...range(4, 9)];
+     85|
+     86|     expect(sentFor(stored, open)).toEqual([OPEN, ...range(1, 3), ...ra…
+       |                                   ^
+     87|   });
+     88|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+

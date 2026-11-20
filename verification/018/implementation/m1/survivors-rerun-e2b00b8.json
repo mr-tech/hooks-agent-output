@@ -1,0 +1,88 @@
+[
+ {
+  "id": "user.ts:39:num",
+  "file": "src/server/api/routers/user.ts",
+  "old": "0",
+  "new": "1",
+  "op": "num",
+  "line": 39,
+  "text": "preferences.recentMessageIds = preferences.recentMessageIds.slice(0, MAX_RECENT_MESSAGE_IDS);"
+ },
+ {
+  "id": "shapes.ts:61:walk-first",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "= result.error.issues.s",
+  "new": "= (Array.isArray(result.error.issues) ? result.error.issues.slice(0, 1) : result.error.issues).s",
+  "op": "walk-first",
+  "line": 61,
+  "text": "const fatal = result.error.issues.some(({ code }) => code === z.ZodIssueCode.invalid_union);"
+ },
+ {
+  "id": "shapes.ts:61:walk-last",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "= result.error.issues.s",
+  "new": "= (Array.isArray(result.error.issues) ? result.error.issues.slice(-1) : result.error.issues).s",
+  "op": "walk-last",
+  "line": 61,
+  "text": "const fatal = result.error.issues.some(({ code }) => code === z.ZodIssueCode.invalid_union);"
+ },
+ {
+  "id": "shapes.ts:61:===",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "e === z",
+  "new": "e !== z",
+  "op": "===",
+  "line": 61,
+  "text": "const fatal = result.error.issues.some(({ code }) => code === z.ZodIssueCode.invalid_union);"
+ },
+ {
+  "id": "shapes.ts:62:walk-first",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "  result.error.issues.f",
+  "new": "  (Array.isArray(result.error.issues) ? result.error.issues.slice(0, 1) : result.error.issues).f",
+  "op": "walk-first",
+  "line": 62,
+  "text": "result.error.issues.forEach((issue) => ctx.addIssue({ ...issue, fatal }));"
+ },
+ {
+  "id": "shapes.ts:62:walk-last",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "  result.error.issues.f",
+  "new": "  (Array.isArray(result.error.issues) ? result.error.issues.slice(-1) : result.error.issues).f",
+  "op": "walk-last",
+  "line": 62,
+  "text": "result.error.issues.forEach((issue) => ctx.addIssue({ ...issue, fatal }));"
+ },
+ {
+  "id": "shapes.ts:90:if-false",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "  if (!(",
+  "new": "  if (false && !(",
+  "op": "if-false",
+  "line": 90,
+  "text": "if (!(error instanceof StopChecking)) throw error;"
+ },
+ {
+  "id": "shapes.ts:276:walk-first",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "(ALLOWED_MENTION_PARSE_TYPES.",
+  "new": "((Array.isArray(ALLOWED_MENTION_PARSE_TYPES) ? ALLOWED_MENTION_PARSE_TYPES.slice(0, 1) : ALLOWED_MENTION_PARSE_TYPES).",
+  "op": "walk-first",
+  "line": 276,
+  "text": "isolatedUnion(ALLOWED_MENTION_PARSE_TYPES.map((type) => z.literal(type)) as unknown as AllowedMentionParseOptions),"
+ },
+ {
+  "id": "NM-5",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "    boundedArray(topLevelComponentShape, MAX_TOTAL_COMPONENTS).optional(),\n  ),\n}).superRefine",
+  "new": "    z.array(topLevelComponentShape).max(MAX_TOTAL_COMPONENTS).optional(),\n  ),\n}).superRefine",
+  "note": "import schema top-level list keeps the .max form"
+ },
+ {
+  "id": "NM-21",
+  "file": "src/server/api/utils/shapes.ts",
+  "old": "const fatal = result.error.issues.some(({ code }) => code === z.ZodIssueCode.invalid_union);",
+  "new": "const fatal = false;",
+  "note": "isolated union failure not fatal"
+ }
+]

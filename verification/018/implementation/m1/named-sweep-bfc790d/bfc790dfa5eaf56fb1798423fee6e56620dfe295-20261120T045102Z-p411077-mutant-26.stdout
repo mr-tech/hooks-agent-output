@@ -1,0 +1,34 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-named/20261120T045102Z-p411077/mutant-26
+
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (154 tests | 10 failed) 269ms
+       × refuses a list of valid elements, length 41, with one issue for the list and no database access 10ms
+       × refuses a list of valid elements, length 90, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 41, with one issue for the list and no database access 15ms
+       × refuses a list of invalid elements, length 90, with one issue for the list and no database access 16ms
+       × refuses a list of number elements, length 41, with one issue for the list and no database access 4ms
+       × refuses a list of number elements, length 90, with one issue for the list and no database access 4ms
+       × refuses a list of null elements, length 41, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 90, with one issue for the list and no database access 3ms
+       × refuses a list of nested elements, length 41, with one issue for the list and no database access 5ms
+       × refuses a list of nested elements, length 90, with one issue for the list and no database access 6ms
+ ❯ |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts (16 tests | 2 failed) 46ms
+     × refuses 41 container children holding a null with one issue and no throw 14ms
+     × refuses 41 container children and four allowed-mention kinds 1ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (147 tests | 10 failed) 275ms
+       × refuses a list of valid elements, length 41, with one issue for the list and no database access 8ms
+       × refuses a list of valid elements, length 90, with one issue for the list and no database access 3ms
+       × refuses a list of invalid elements, length 41, with one issue for the list and no database access 15ms
+       × refuses a list of invalid elements, length 90, with one issue for the list and no database access 15ms
+       × refuses a list of number elements, length 41, with one issue for the list and no database access 6ms
+       × refuses a list of number elements, length 90, with one issue for the list and no database access 4ms
+       × refuses a list of null elements, length 41, with one issue for the list and no database access 5ms
+       × refuses a list of null elements, length 90, with one issue for the list and no database access 5ms
+       × refuses a list of nested elements, length 41, with one issue for the list and no database access 5ms
+       × refuses a list of nested elements, length 90, with one issue for the list and no database access 9ms
+
+ Test Files  3 failed | 151 passed (154)
+      Tests  22 failed | 2227 passed (2249)
+   Start at  05:01:09
+   Duration  20.02s (transform 33.33s, setup 1.74s, import 157.89s, tests 39.82s, environment 84.15s)
+

@@ -1,0 +1,109 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageShape (strict) > accepts a message with V2 components
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.message-validation.test.ts:53:28
+     51|       ],
+     52|     });
+     53|     expect(result.success).toBe(true);
+       |                            ^
+     54|   });
+     55|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageShape (strict) > accepts separator with spacing=1 (small) and spacing=2 (large)
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.message-validation.test.ts:180:17
+    178|     expect(discordMessageShape.safeParse({
+    179|       components: [{ type: 14, divider: true, spacing: 1 }],
+    180|     }).success).toBe(true);
+       |                 ^
+    181|     expect(discordMessageShape.safeParse({
+    182|       components: [{ type: 14, divider: false, spacing: 2 }],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageImportShape (lenient import) > accepts a valid message identically to strict shape
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.message-validation.test.ts:261:62
+    259|       components: [makeTextDisplay(), makeSeparator()],
+    260|     };
+    261|     expect(discordMessageImportShape.safeParse(msg).success).toBe(true…
+       |                                                              ^
+    262|   });
+    263|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageImportShape (lenient import) > filters out unsupported component types (e.g., select menus) silently
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.message-validation.test.ts:275:28
+    273|     };
+    274|     const result = discordMessageImportShape.safeParse(msg);
+    275|     expect(result.success).toBe(true);
+       |                            ^
+    276|     if (result.success) {
+    277|       // Should have filtered out the select menu
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageImportShape (lenient import) > filters unsupported children from containers
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.message-validation.test.ts:296:28
+    294|     };
+    295|     const result = discordMessageImportShape.safeParse(msg);
+    296|     expect(result.success).toBe(true);
+       |                            ^
+    297|     if (result.success) {
+    298|       const container = result.data.components![0] as { components: un…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+

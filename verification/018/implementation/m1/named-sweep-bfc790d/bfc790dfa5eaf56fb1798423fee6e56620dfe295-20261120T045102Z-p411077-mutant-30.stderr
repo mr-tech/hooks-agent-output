@@ -1,0 +1,667 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 56 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > accepts a list of 5 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > accepts a list of 3 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S3 media gallery items' > accepts a list of 10 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > accepts a list of 40 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S5 embed fields' > accepts a list of 25 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > accepts a list of 3 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > accepts a list of 100 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > accepts a list of 100 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > accepts a list of 10 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > accepts a list of 40 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > accepts a list of 5 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > accepts a list of 3 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S3 media gallery items' > accepts a list of 10 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > accepts a list of 40 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S5 embed fields' > accepts a list of 25 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > accepts a list of 3 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > accepts a list of 100 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > accepts a list of 100 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > accepts a list of 10 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > accepts a list of 40 valid elements
+AssertionError: expected { passed: false, code: 'BAD_REQUEST' } to deeply equal { passed: true, …(1) }
+
+- Expected
++ Received
+
+  {
+-   "code": StringNotMatching /^BAD_REQUEST$/,
+-   "passed": true,
++   "code": "BAD_REQUEST",
++   "passed": false,
+  }
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:56:23
+     54|       const outcome = await reachesDatabase(procedure, procedureInput(…
+     55|
+     56|       expect(outcome).toEqual({ passed: true, code: expect.not.stringM…
+       |                       ^
+     57|     });
+     58|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/56]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > keeps the one issue per invalid element for a list of 5 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > keeps the one issue per invalid element for a list of 5 with the first element invalid
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'invalid_string', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "invalid_string",
+-     "message": "Invalid url",
++     "code": "too_big",
++     "message": "Array must contain at most 5 element(s)",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "components",
+-       0,
+-       "url",
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:65:22
+     63|
+     64|       expect(code).toBe('BAD_REQUEST');
+     65|       expect(issues).toEqual([{
+       |                      ^
+     66|         code: site.invalidIssue.code,
+     67|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/56]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > keeps the one issue per invalid element for a list of 3 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > keeps the one issue per invalid element for a list of 3 with the first element invalid
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'invalid_type', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
++     "code": "too_big",
++     "message": "Array must contain at most 3 element(s)",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "components",
+-       0,
+-       "content",
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:65:22
+     63|
+     64|       expect(code).toBe('BAD_REQUEST');
+     65|       expect(issues).toEqual([{
+       |                      ^
+     66|         code: site.invalidIssue.code,
+     67|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/56]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S3 media gallery items' > keeps the one issue per invalid element for a list of 10 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S3 media gallery items' > keeps the one issue per invalid element for a list of 10 with the first element invalid
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'invalid_string', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "invalid_string",
+-     "message": "Invalid url",
++     "code": "too_big",
++     "message": "Array must contain at most 10 element(s)",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "items",
+-       0,
+-       "media",
+-       "url",
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:65:22
+     63|
+     64|       expect(code).toBe('BAD_REQUEST');
+     65|       expect(issues).toEqual([{
+       |                      ^
+     66|         code: site.invalidIssue.code,
+     67|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/56]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > keeps the one issue per invalid element for a list of 40 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > keeps the one issue per invalid element for a list of 40 with the first element invalid
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'invalid_type', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "components",
+-       0,
+-       "content",
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:65:22
+     63|
+     64|       expect(code).toBe('BAD_REQUEST');
+     65|       expect(issues).toEqual([{
+       |                      ^
+     66|         code: site.invalidIssue.code,
+     67|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/56]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S5 embed fields' > keeps the one issue per invalid element for a list of 25 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S5 embed fields' > keeps the one issue per invalid element for a list of 25 with the first element invalid
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'invalid_type', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+        0,
+        "fields",
+-       0,
+-       "name",
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:65:22
+     63|
+     64|       expect(code).toBe('BAD_REQUEST');
+     65|       expect(issues).toEqual([{
+       |                      ^
+     66|         code: site.invalidIssue.code,
+     67|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/56]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > keeps the one issue per invalid element for a list of 3 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > keeps the one issue per invalid element for a list of 3 with the first element invalid
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'invalid_union', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "invalid_union",
+-     "message": "Invalid input",
++     "code": "too_big",
++     "message": "Array must contain at most 3 element(s)",
+      "path": [
+        "message",
+        "data",
+        "allowed_mentions",
+        "parse",
+-       0,
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:65:22
+     63|
+     64|       expect(code).toBe('BAD_REQUEST');
+     65|       expect(issues).toEqual([{
+       |                      ^
+     66|         code: site.invalidIssue.code,
+     67|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/56]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > keeps the one issue per invalid element for a list of 100 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > keeps the one issue per invalid element for a list of 100 with the first element invalid
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'invalid_string', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "invalid_string",
+-     "message": "Invalid",
++     "code": "too_big",
++     "message": "Array must contain at most 100 element(s)",
+      "path": [
+        "message",
+        "data",
+        "allowed_mentions",
+        "users",
+-       0,
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:65:22
+     63|
+     64|       expect(code).toBe('BAD_REQUEST');
+     65|       expect(issues).toEqual([{
+       |                      ^
+     66|         code: site.invalidIssue.code,
+     67|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/56]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > keeps the one issue per invalid element for a list of 100 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > keeps the one issue per invalid element for a list of 100 with the first element invalid
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'invalid_string', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "invalid_string",
+-     "message": "Invalid",
++     "code": "too_big",
++     "message": "Array must contain at most 100 element(s)",
+      "path": [
+        "message",
+        "data",
+        "allowed_mentions",
+        "roles",
+-       0,
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:65:22
+     63|
+     64|       expect(code).toBe('BAD_REQUEST');
+     65|       expect(issues).toEqual([{
+       |                      ^
+     66|         code: site.invalidIssue.code,
+     67|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/56]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > keeps the one issue per invalid element for a list of 10 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > keeps the one issue per invalid element for a list of 10 with the first element invalid
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'invalid_type', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
++     "code": "too_big",
++     "message": "Array must contain at most 10 element(s)",
+      "path": [
+        "message",
+        "data",
+        "embeds",
+-       0,
+-       "title",
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:65:22
+     63|
+     64|       expect(code).toBe('BAD_REQUEST');
+     65|       expect(issues).toEqual([{
+       |                      ^
+     66|         code: site.invalidIssue.code,
+     67|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/56]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > keeps the one issue per invalid element for a list of 40 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > keeps the one issue per invalid element for a list of 40 with the first element invalid
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'invalid_type', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
++     "code": "too_big",
++     "message": "Array must contain at most 40 element(s)",
+      "path": [
+        "message",
+        "data",
+        "components",
+-       0,
+-       "content",
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:65:22
+     63|
+     64|       expect(code).toBe('BAD_REQUEST');
+     65|       expect(issues).toEqual([{
+       |                      ^
+     66|         code: site.invalidIssue.code,
+     67|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/56]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > stops at 20 issues of 100 malformed mention ids and renders 21 lines
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > stops at 20 issues of 100 malformed mention ids and renders 21 lines
+AssertionError: expected [ { code: 'too_big', …(2) } ] to have a length of 21 but got 1
+
+- Expected
++ Received
+
+- 21
++ 1
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:76:22
+     74|       const { issues } = await refusal({ allowed_mentions: { users: re…
+     75|
+     76|       expect(issues).toHaveLength(21);
+       |                      ^
+     77|       expect(issues[20]).toEqual({ code: 'custom', path: [], message: …
+     78|       expect(formatMutationError({ message: JSON.stringify(issues) })?…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/56]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > stops reading the input after the 21st issue
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > stops reading the input after the 21st issue
+AssertionError: expected [ { code: 'too_big', …(2) } ] to have a length of 21 but got 1
+
+- Expected
++ Received
+
+- 21
++ 1
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:125:22
+    123|       const { issues } = await refusal({ components: repeat(40, contai…
+    124|
+    125|       expect(issues).toHaveLength(21);
+       |                      ^
+    126|       expect(counter.reads).toBeLessThan(200);
+    127|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/56]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for three allowed-mention kinds of 100,000 characters
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > stay small for three allowed-mention kinds of 100,000 characters
+AssertionError: expected [ { code: 'too_big', …(2) } ] to have a length of 3 but got 1
+
+- Expected
++ Received
+
+- 3
++ 1
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:148:22
+    146|
+    147|       expect(code).toBe('BAD_REQUEST');
+    148|       expect(issues).toHaveLength(count);
+       |                      ^
+    149|       expect(issues.every((issue) => Object.keys(issue).sort().join() …
+    150|       expect(text.length).toBeLessThan(SIXTEEN_KB);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/56]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > stay under 16 KB, 21 of them, for 40 containers of 40 fat action rows
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the issues of a refusal > stay under 16 KB, 21 of them, for 40 containers of 40 invalid sections
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > stay under 16 KB, 21 of them, for 40 containers of 40 fat action rows
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the issues of a refusal > stay under 16 KB, 21 of them, for 40 containers of 40 invalid sections
+AssertionError: expected [ { code: 'too_big', …(2) } ] to have a length of 21 but got 1
+
+- Expected
++ Received
+
+- 21
++ 1
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:161:22
+    159|
+    160|       expect(code).toBe('BAD_REQUEST');
+    161|       expect(issues).toHaveLength(21);
+       |                      ^
+    162|       expect(issues.every((issue) => Object.keys(issue).sort().join() …
+    163|       expect(JSON.stringify(issues).length).toBeLessThan(SIXTEEN_KB);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/56]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > accepts 11 elements
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/routers/__tests__/user.save-limits.test.ts:73:28
+     71|     const outcome = await reachesDatabase(procedure, { recentMessageId…
+     72|
+     73|     expect(outcome.passed).toBe(true);
+       |                            ^
+     74|     expect(outcome.code).not.toBe('BAD_REQUEST');
+     75|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/56]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > boundedArray > returns a list at the bound unchanged
+AssertionError: expected { success: false, …(2) } to deeply equal { success: true, …(1) }
+
+- Expected
++ Received
+
+  {
+-   "data": [
+-     "a",
+-     "b",
+-     "c",
++   "_error": ZodError {
++     "message": "[
++   {
++     \"code\": \"too_big\",
++     \"maximum\": 3,
++     \"type\": \"array\",
++     \"inclusive\": true,
++     \"exact\": false,
++     \"fatal\": true,
++     \"path\": [],
++     \"message\": \"Array must contain at most 3 element(s)\"
++   }
++ ]",
++     "issues": [
++       {
++         "code": "too_big",
++         "exact": false,
++         "fatal": true,
++         "inclusive": true,
++         "maximum": 3,
++         "message": "Array must contain at most 3 element(s)",
++         "path": [],
++         "type": "array",
++       },
++     ],
++     "addIssue": [Function anonymous],
++     "addIssues": [Function anonymous],
++     "name": "ZodError",
++   },
++   "error": ZodError {
++     "message": "[
++   {
++     \"code\": \"too_big\",
++     \"maximum\": 3,
++     \"type\": \"array\",
++     \"inclusive\": true,
++     \"exact\": false,
++     \"fatal\": true,
++     \"path\": [],
++     \"message\": \"Array must contain at most 3 element(s)\"
++   }
++ ]",
++     "issues": [
++       {
++         "code": "too_big",
++         "exact": false,
++         "fatal": true,
++         "inclusive": true,
++         "maximum": 3,
++         "message": "Array must contain at most 3 element(s)",
++         "path": [],
++         "type": "array",
++       },
+      ],
+-   "success": true,
++     "addIssue": [Function anonymous],
++     "addIssues": [Function anonymous],
++     "name": "ZodError",
++   },
++   "success": false,
+  }
+
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:25:46
+     23|
+     24|   it('returns a list at the bound unchanged', () => {
+     25|     expect(shape.safeParse(['a', 'b', 'c'])).toEqual({ success: true, …
+       |                                              ^
+     26|   });
+     27|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/56]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > boundedArray > reports each invalid element of a list within the bound at its own path
+AssertionError: expected [ { code: 'too_big', path: [], …(1) } ] to deeply equal [ { code: 'invalid_type', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "invalid_type",
+-     "message": "Expected string, received number",
+-     "path": [
+-       1,
+-     ],
++     "code": "too_big",
++     "message": "Array must contain at most 3 element(s)",
++     "path": [],
+    },
+  ]
+
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:45:53
+     43|
+     44|   it('reports each invalid element of a list within the bound at its o…
+     45|     expect(reduced(shape.safeParse(['a', 2, 'c']))).toEqual([{ code: '…
+       |                                                     ^
+     46|   });
+     47|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/56]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageImportShape (the browser paste) > refuses 101 well-formed user ids and accepts 100
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:103:107
+    101|       { code: 'too_big', path: ['allowed_mentions', 'users'], message:…
+    102|     ]);
+    103|     expect(discordMessageImportShape.safeParse({ allowed_mentions: { u…
+       |                                                                                                           ^
+    104|   });
+    105|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/56]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageImportShape (the browser paste) > keeps dropping unsupported components before it counts the list
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:126:28
+    124|     const result = discordMessageImportShape.safeParse({ components: […
+    125|
+    126|     expect(result.success).toBe(true);
+       |                            ^
+    127|   });
+    128|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/56]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts > discordMessageShape (strict) > accepts exactly 40 top-level components
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/shapes.message-validation.test.ts:115:28
+    113|     const components = Array.from({ length: 40 }, () => makeTextDispla…
+    114|     const result = discordMessageShape.safeParse({ components });
+    115|     expect(result.success).toBe(true);
+       |                            ^
+    116|   });
+    117|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/56]⎯
+

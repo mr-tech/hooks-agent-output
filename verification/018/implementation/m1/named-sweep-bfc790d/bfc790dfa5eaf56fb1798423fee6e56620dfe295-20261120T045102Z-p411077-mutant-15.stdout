@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-named/20261120T045102Z-p411077/mutant-15
+
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (154 tests | 5 failed) 208ms
+       × lists the first 20 issues in order and one summary at 21 issues 19ms
+       × counts the one issue of an over-limit list toward the 20 8ms
+       × counts the displayable-text issue, with its own message, toward the 20 6ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 fat action rows 3ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 invalid sections 4ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (147 tests | 5 failed) 272ms
+       × lists the first 20 issues in order and one summary at 21 issues 40ms
+       × counts the one issue of an over-limit list toward the 20 20ms
+       × counts the displayable-text issue, with its own message, toward the 20 8ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 fat action rows 2ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 invalid sections 10ms
+ ❯ |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts (8 tests | 1 failed) 24ms
+     × keeps 20 issues and adds one summary issue at the 21st 11ms
+
+ Test Files  3 failed | 151 passed (154)
+      Tests  11 failed | 2238 passed (2249)
+   Start at  04:56:52
+   Duration  19.71s (transform 31.49s, setup 2.23s, import 152.97s, tests 44.98s, environment 85.41s)
+

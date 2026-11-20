@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-named/20261120T045102Z-p411077/mutant-6
+
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (154 tests | 5 failed) 229ms
+     × refuses 12 valid elements with one issue for the list and no database access 14ms
+     × refuses 12 wrong primitive elements with one issue for the list and no database access 2ms
+     × refuses 12 null elements with one issue for the list and no database access 6ms
+     × refuses 61 elements with one issue for the list 1ms
+     × accepts 11 elements 1ms
+
+ Test Files  1 failed | 153 passed (154)
+      Tests  5 failed | 2244 passed (2249)
+   Start at  04:53:19
+   Duration  20.43s (transform 36.90s, setup 1.46s, import 162.98s, tests 43.08s, environment 86.29s)
+

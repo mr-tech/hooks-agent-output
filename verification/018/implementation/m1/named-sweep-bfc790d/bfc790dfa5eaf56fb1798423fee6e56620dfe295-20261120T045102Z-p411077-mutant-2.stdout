@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-named/20261120T045102Z-p411077/mutant-2
+
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (154 tests | 6 failed) 227ms
+       × refuses a list of invalid elements, length 26, with one issue for the list and no database access 18ms
+       × refuses a list of invalid elements, length 75, with one issue for the list and no database access 13ms
+       × refuses a list of number elements, length 26, with one issue for the list and no database access 8ms
+       × refuses a list of number elements, length 75, with one issue for the list and no database access 7ms
+       × refuses a list of null elements, length 26, with one issue for the list and no database access 6ms
+       × refuses a list of null elements, length 75, with one issue for the list and no database access 5ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (147 tests | 6 failed) 267ms
+       × refuses a list of invalid elements, length 26, with one issue for the list and no database access 22ms
+       × refuses a list of invalid elements, length 75, with one issue for the list and no database access 9ms
+       × refuses a list of number elements, length 26, with one issue for the list and no database access 5ms
+       × refuses a list of number elements, length 75, with one issue for the list and no database access 6ms
+       × refuses a list of null elements, length 26, with one issue for the list and no database access 4ms
+       × refuses a list of null elements, length 75, with one issue for the list and no database access 4ms
+
+ Test Files  2 failed | 152 passed (154)
+      Tests  12 failed | 2237 passed (2249)
+   Start at  04:51:46
+   Duration  19.71s (transform 29.17s, setup 2.10s, import 152.45s, tests 40.76s, environment 88.41s)
+

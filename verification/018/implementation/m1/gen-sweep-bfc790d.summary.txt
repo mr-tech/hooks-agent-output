@@ -1,0 +1,37 @@
+Running scope as unit: run-r350e40f08da8439a882e9c5b95ce121d.scope
+index.ts:21:num KILLED 21.56
+index.ts:45:num KILLED 34.55
+usePreferences.ts:14:if-false KILLED 22.5
+usePreferences.ts:14:!== KILLED 21.23
+usePreferences.ts:14:&& KILLED 21.36
+usePreferences.ts:14:<= KILLED 25.29
+usePreferences.ts:22:num KILLED 23.28
+user.ts:32:num KILLED 22.9
+user.ts:39:num SURVIVED 24.01
+shapes.ts:40:if-false KILLED 25.99
+shapes.ts:40:> KILLED 22.07
+shapes.ts:45:true KILLED 22.3
+shapes.ts:46:false KILLED 20.14
+shapes.ts:47:true KILLED 19.69
+shapes.ts:60:if-false KILLED 20.43
+shapes.ts:61:walk-first SURVIVED 20.59
+shapes.ts:61:walk-last SURVIVED 20.88
+shapes.ts:61:=== SURVIVED 22.03
+shapes.ts:62:walk-first SURVIVED 23.26
+shapes.ts:62:walk-last SURVIVED 23.78
+shapes.ts:67:num KILLED 23.66
+shapes.ts:83:if-false KILLED 24.43
+shapes.ts:83:> KILLED 25.02
+shapes.ts:90:if-false SURVIVED 28.53
+shapes.ts:90:not KILLED 26.71
+shapes.ts:91:walk-first KILLED 25.96
+shapes.ts:91:walk-last KILLED 25.84
+shapes.ts:91:num KILLED 23.67
+shapes.ts:97:if-false KILLED 22.24
+shapes.ts:98:walk-first KILLED 23.83
+shapes.ts:98:walk-last KILLED 24.0
+shapes.ts:179:num KILLED 26.43
+shapes.ts:179:num:2 KILLED 21.93
+shapes.ts:276:walk-first SURVIVED 22.83
+shapes.ts:276:walk-last KILLED 21.27
+27 of 35 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-bfc790d.json (blob d1bd68637663bbae12df2c97261b080f1d22635f))

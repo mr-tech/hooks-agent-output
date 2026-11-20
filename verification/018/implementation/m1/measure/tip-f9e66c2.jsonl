@@ -1,0 +1,7 @@
+{"shape":"F_fat_buttons","bodyBytes":706728,"issues":21,"messageLen":5011,"parseAndRespondMs":3.7,"databaseQueries":0}
+{"shape":"G_fat_buttons_plus_embeds","bodyBytes":707619,"issues":21,"messageLen":3669,"parseAndRespondMs":0.6,"databaseQueries":0}
+{"shape":"A_rows_only","bodyBytes":66728,"issues":21,"messageLen":4792,"parseAndRespondMs":0.8,"databaseQueries":0}
+{"shape":"B_sections_only","bodyBytes":81128,"issues":21,"messageLen":4651,"parseAndRespondMs":1.7,"databaseQueries":0}
+{"shape":"C_galleries_only","bodyBytes":84328,"issues":21,"messageLen":4319,"parseAndRespondMs":0.8,"databaseQueries":0}
+{"shape":"D_mixed_plus_embeds","bodyBytes":78279,"issues":21,"messageLen":3669,"parseAndRespondMs":0.7,"databaseQueries":0}
+{"shape":"E_rows_plus_embeds","bodyBytes":67619,"issues":21,"messageLen":3669,"parseAndRespondMs":0.4,"databaseQueries":0}

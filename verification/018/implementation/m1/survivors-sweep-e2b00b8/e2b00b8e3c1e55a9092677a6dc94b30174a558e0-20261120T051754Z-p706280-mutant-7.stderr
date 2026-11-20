@@ -1,0 +1,52 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > cappedInput > lets an error thrown by the schema itself reach the caller
+AssertionError: expected a thrown error to be TypeError: schema failure
+
+- Expected
++ Received
+
+- TypeError {
+-   "message": "schema failure",
++ ZodError {
++   "message": "[
++   {
++     \"code\": \"custom\",
++     \"path\": [],
++     \"message\": \"Stopped checking after 20 errors\"
++   }
++ ]",
++   "issues": [
++     {
++       "code": "custom",
++       "message": "Stopped checking after 20 errors",
++       "path": [],
++     },
++   ],
++   "addIssue": [Function anonymous],
++   "addIssues": [Function anonymous],
++   "name": "ZodError",
+  }
+
+ ❯ src/server/api/utils/__tests__/shapes.error-cap.test.ts:54:43
+     52|     const throwing = cappedInput(z.string().superRefine(() => { throw …
+     53|
+     54|     await expect(throwing.parseAsync('a')).rejects.toThrow(new TypeErr…
+       |                                           ^
+     55|   });
+     56|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

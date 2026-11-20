@@ -1,0 +1,18 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-gen/20261120T050318Z-p539766/mutant-33
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.message-validation.test.ts (53 tests | 2 failed) 82ms
+     × rejects separator with invalid spacing value 27ms
+     × accepts separator with spacing=1 (small) and spacing=2 (large) 2ms
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (154 tests | 1 failed) 279ms
+       × carry only code, path and message for a refusal of one issue 18ms
+ ❯ |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts (8 tests | 1 failed) 32ms
+     × create one issue for a failing separator spacing 13ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (147 tests | 1 failed) 205ms
+       × carry only code, path and message for a refusal of one issue 20ms
+
+ Test Files  4 failed | 150 passed (154)
+      Tests  5 failed | 2244 passed (2249)
+   Start at  05:16:26
+   Duration  20.65s (transform 31.58s, setup 2.95s, import 157.04s, tests 43.19s, environment 91.34s)
+

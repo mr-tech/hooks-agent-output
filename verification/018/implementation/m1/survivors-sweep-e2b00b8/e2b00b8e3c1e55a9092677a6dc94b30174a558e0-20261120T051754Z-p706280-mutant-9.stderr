@@ -1,0 +1,407 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageImportShape (the browser paste) > refuses 41 invalid top-level components with one issue and no displayable-text issue
+AssertionError: expected [ { code: 'too_big', …(2) }, …(41) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -4,6 +4,375 @@
+      "message": "Array must contain at most 40 element(s)",
+      "path": [
+        "components",
+      ],
+    },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       0,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       1,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       2,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       3,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       4,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       5,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       6,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       7,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       8,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       9,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       10,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       11,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       12,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       13,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       14,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       15,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       16,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       17,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       18,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       19,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       20,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       21,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       22,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       23,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       24,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       25,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       26,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       27,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       28,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       29,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       30,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       31,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       32,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       33,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       34,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       35,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       36,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       37,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       38,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       39,
++       "content",
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "components",
++       40,
++       "content",
++     ],
++   },
+  ]
+
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:132:95
+    130|     const long = { type: 10, content: 'x'.repeat(4000) };
+    131|
+    132|     expect(reduced(discordMessageImportShape.safeParse({ components: r…
+       |                                                                                               ^
+    133|       { code: 'too_big', path: ['components'], message: 'Array must co…
+    134|     ]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

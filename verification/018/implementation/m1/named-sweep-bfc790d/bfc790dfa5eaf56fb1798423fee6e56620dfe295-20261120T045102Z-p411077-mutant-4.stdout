@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-named/20261120T045102Z-p411077/mutant-4
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx (11 tests | 2 failed) 80ms
+     × sends at most ten stored ids, in order, with no message open, for a stored list of 11 14ms
+     × sends at most ten stored ids, in order, with no message open, for a stored list of 50 6ms
+
+ Test Files  1 failed | 153 passed (154)
+      Tests  2 failed | 2247 passed (2249)
+   Start at  04:52:31
+   Duration  23.68s (transform 47.83s, setup 2.49s, import 195.93s, tests 48.86s, environment 96.31s)
+

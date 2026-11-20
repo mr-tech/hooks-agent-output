@@ -1,0 +1,317 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 53 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert with a message number no row holds > never writes a row at the number the browser sent
+TRPCError: Cannot read properties of undefined (reading 'issues')
+ ❯ inputValidatorMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/middleware.ts:195:14
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:682:19
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/router.ts:474:19
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:235:19
+    233| describe('message.upsert with a message number no row holds', () => {
+    234|   it('never writes a row at the number the browser sent', async () => {
+    235|     const saved = await callerAs(OTHER).upsert({ message: draft(UNUSED…
+       |                   ^
+    236|
+    237|     const inserts = writesOf('Messages').filter(({ sql }) => sql.start…
+
+Caused by: TypeError: Cannot read properties of undefined (reading 'issues')
+ ❯ Object.parseAsync src/server/api/utils/shapes.ts:98:41
+ ❯ inputValidatorMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:42:24
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:281:18
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/tracked-Bjtgv3wJ.mjs:298:13
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:235:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/53]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert with a message number no row holds > announces no update on the number the browser sent
+TRPCError: Cannot read properties of undefined (reading 'issues')
+ ❯ inputValidatorMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/middleware.ts:195:14
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:682:19
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/router.ts:474:19
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:244:5
+    242|
+    243|   it('announces no update on the number the browser sent', async () =>…
+    244|     await callerAs(OTHER).upsert({ message: draft(UNUSED_ID) });
+       |     ^
+    245|
+    246|     expect(mocks.channels).toEqual([]);
+
+Caused by: TypeError: Cannot read properties of undefined (reading 'issues')
+ ❯ Object.parseAsync src/server/api/utils/shapes.ts:98:41
+ ❯ inputValidatorMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:42:24
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:281:18
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/tracked-Bjtgv3wJ.mjs:298:13
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:244:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/53]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert with a message number no row holds > refuses at the per-user cap, and creates no row
+AssertionError: expected [Function] to throw error including 'You have reached the limit of 1000 me…' but got 'Cannot read properties of undefined (…'
+
+Expected: "You have reached the limit of 1000 messages per user."
+Received: "Cannot read properties of undefined (reading 'issues')"
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:252:72
+    250|     world.ownerCount = 1000;
+    251|
+    252|     await expect(callerAs(OTHER).upsert({ message: draft(UNUSED_ID) }))
+       |                                                                        ^
+    253|       .rejects.toThrow('You have reached the limit of 1000 messages pe…
+    254|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/53]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert, the number the browser sends > updates and announces the canonical number when the browser sends leading zeros
+TRPCError: Cannot read properties of undefined (reading 'issues')
+ ❯ inputValidatorMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/middleware.ts:195:14
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:682:19
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/router.ts:474:19
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:261:5
+    259| describe('message.upsert, the number the browser sends', () => {
+    260|   it('updates and announces the canonical number when the browser send…
+    261|     await callerAs(OWNER).upsert({ message: draft(`00${OWNED_ID}`) });
+       |     ^
+    262|
+    263|     expect(captured.queries.length).toBeGreaterThan(0);
+
+Caused by: TypeError: Cannot read properties of undefined (reading 'issues')
+ ❯ Object.parseAsync src/server/api/utils/shapes.ts:98:41
+ ❯ inputValidatorMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:42:24
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:281:18
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/tracked-Bjtgv3wJ.mjs:298:13
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:261:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/53]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert of an existing message > writes a personal message only where the caller still owns the row
+TRPCError: Cannot read properties of undefined (reading 'issues')
+ ❯ inputValidatorMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/middleware.ts:195:14
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:682:19
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/router.ts:474:19
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:280:5
+    278| describe('message.upsert of an existing message', () => {
+    279|   it('writes a personal message only where the caller still owns the r…
+    280|     await callerAs(OWNER).upsert({ message: draft(OWNED_ID) });
+       |     ^
+    281|
+    282|     const writes = writesOf('Messages');
+
+Caused by: TypeError: Cannot read properties of undefined (reading 'issues')
+ ❯ Object.parseAsync src/server/api/utils/shapes.ts:98:41
+ ❯ inputValidatorMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:42:24
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:281:18
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/tracked-Bjtgv3wJ.mjs:298:13
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:280:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/53]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.upsert of an existing message > writes a server message only where the row still belongs to that server, for any of its admins
+TRPCError: Cannot read properties of undefined (reading 'issues')
+ ❯ inputValidatorMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/middleware.ts:195:14
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:682:19
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/router.ts:474:19
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:290:5
+    288|
+    289|   it('writes a server message only where the row still belongs to that…
+    290|     await callerAs(OTHER).upsert({ message: draft(GUILD_MESSAGE_ID, GU…
+       |     ^
+    291|
+    292|     const writes = writesOf('Messages');
+
+Caused by: TypeError: Cannot read properties of undefined (reading 'issues')
+ ❯ Object.parseAsync src/server/api/utils/shapes.ts:98:41
+ ❯ inputValidatorMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:42:24
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:256:18
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/initTRPC-RoZMIBeA.mjs:281:18
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/dist/tracked-Bjtgv3wJ.mjs:298:13
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:290:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/53]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > another signed-in user naming the owner's personal message number > upsert refuses a personal save, and nothing is written or announced
+AssertionError: expected TRPCError: Cannot read properties of unde… { code: '…' } to match object { code: 'NOT_FOUND' }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "code": "NOT_FOUND",
++ TRPCError {
++   "code": "BAD_REQUEST",
+  }
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:393:71
+    391|
+    392|   it('upsert refuses a personal save, and nothing is written or announ…
+    393|     await expect(callerAs(OTHER).upsert({ message: draft(OWNED_ID) }))
+       |                                                                       ^
+    394|       .rejects.toMatchObject(refusal);
+    395|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/53]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > another signed-in user naming the owner's personal message number > upsert refuses a server save, and nothing is written or announced
+AssertionError: expected TRPCError: Cannot read properties of unde… { code: '…' } to match object { code: 'NOT_FOUND' }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "code": "NOT_FOUND",
++ TRPCError {
++   "code": "BAD_REQUEST",
+  }
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:401:88
+    399|
+    400|   it('upsert refuses a server save, and nothing is written or announce…
+    401|     await expect(callerAs(OTHER).upsert({ message: draft(OWNED_ID, GUI…
+       |                                                                                        ^
+    402|       .rejects.toMatchObject(refusal);
+    403|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/53]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > the message number each procedure takes > upsert takes the largest number a message can hold to the database
+AssertionError: expected 0 to be greater than 0
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:443:37
+    441|     await call(INT8_MAX).catch(() => undefined);
+    442|
+    443|     expect(captured.queries.length).toBeGreaterThan(0);
+       |                                     ^
+    444|   });
+    445|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/53]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > accepts a list of 5 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > accepts a list of 4 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > accepts a list of 3 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S2 section text displays' > accepts a list of 2 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S3 media gallery items' > accepts a list of 10 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S3 media gallery items' > accepts a list of 9 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > accepts a list of 40 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S4 container children' > accepts a list of 39 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S5 embed fields' > accepts a list of 25 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S5 embed fields' > accepts a list of 24 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > accepts a list of 3 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > accepts a list of 2 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > accepts a list of 100 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > accepts a list of 99 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > accepts a list of 100 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > accepts a list of 99 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > accepts a list of 10 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S9 embeds' > accepts a list of 9 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > accepts a list of 40 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S10 top-level components' > accepts a list of 39 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > accepts a list of 5 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > accepts a list of 4 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > accepts a list of 3 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S2 section text displays' > accepts a list of 2 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S3 media gallery items' > accepts a list of 10 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S3 media gallery items' > accepts a list of 9 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > accepts a list of 40 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S4 container children' > accepts a list of 39 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S5 embed fields' > accepts a list of 25 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S5 embed fields' > accepts a list of 24 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > accepts a list of 3 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > accepts a list of 2 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > accepts a list of 100 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > accepts a list of 99 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > accepts a list of 100 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S8 allowed mentions roles' > accepts a list of 99 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > accepts a list of 10 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S9 embeds' > accepts a list of 9 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > accepts a list of 40 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S10 top-level components' > accepts a list of 39 valid elements
+AssertionError: expected { passed: false, code: 'BAD_REQUEST' } to deeply equal { passed: true, …(1) }
+
+- Expected
++ Received
+
+  {
+-   "code": StringNotMatching /^BAD_REQUEST$/,
+-   "passed": true,
++   "code": "BAD_REQUEST",
++   "passed": false,
+  }
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:56:23
+     54|       const outcome = await reachesDatabase(procedure, procedureInput(…
+     55|
+     56|       expect(outcome).toEqual({ passed: true, code: expect.not.stringM…
+       |                       ^
+     57|     });
+     58|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/53]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > accepts 11 elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > accepts 10 elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > accepts 0 elements
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/routers/__tests__/user.save-limits.test.ts:73:28
+     71|     const outcome = await reachesDatabase(procedure, { recentMessageId…
+     72|
+     73|     expect(outcome.passed).toBe(true);
+       |                            ^
+     74|     expect(outcome.code).not.toBe('BAD_REQUEST');
+     75|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/53]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > cappedInput > returns the parsed output of an input with no issue
+AssertionError: promise rejected "TypeError: Cannot read properties of unde…" instead of resolving
+ ❯ src/server/api/utils/__tests__/shapes.error-cap.test.ts:31:85
+     29|
+     30|   it('returns the parsed output of an input with no issue', async () =…
+     31|     await expect(capped.parseAsync({ ids: ['0012', '7'], names: ['a'],…
+       |                                                                                     ^
+     32|   });
+     33|
+
+Caused by: TypeError: Cannot read properties of undefined (reading 'issues')
+ ❯ Object.parseAsync src/server/api/utils/shapes.ts:98:41
+ ❯ src/server/api/utils/__tests__/shapes.error-cap.test.ts:31:25
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/53]⎯
+

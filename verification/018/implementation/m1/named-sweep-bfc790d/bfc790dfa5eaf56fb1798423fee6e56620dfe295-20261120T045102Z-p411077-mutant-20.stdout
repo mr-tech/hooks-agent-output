@@ -1,0 +1,16 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-named/20261120T045102Z-p411077/mutant-20
+
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (154 tests | 1 failed) 479ms
+       × return one issue for each of six failing accessories 66ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (147 tests | 1 failed) 442ms
+       × return one issue for each of six failing accessories 61ms
+ ❯ |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts (8 tests | 2 failed) 55ms
+     × create one issue for each failing accessory they return 22ms
+     × create the issue of the branch that matched, and no other 3ms
+
+ Test Files  3 failed | 151 passed (154)
+      Tests  4 failed | 2245 passed (2249)
+   Start at  04:58:45
+   Duration  29.27s (transform 76.95s, setup 2.94s, import 267.50s, tests 51.39s, environment 93.86s)
+

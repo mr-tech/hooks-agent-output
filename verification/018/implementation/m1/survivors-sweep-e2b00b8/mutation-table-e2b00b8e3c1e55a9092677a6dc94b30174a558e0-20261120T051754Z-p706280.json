@@ -1,0 +1,306 @@
+{
+ "sha": "e2b00b8e3c1e55a9092677a6dc94b30174a558e0",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-rerun-e2b00b8.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 200.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-rerun-e2b00b8.json",
+   "blob": "beeb048e9e2bb5c77f45ba7119ff90905ac686a4"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-control-1.stderr",
+   "seconds": 22.95,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 2259,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "user.ts:39:num",
+   "run": "mutant-1",
+   "file": "src/server/api/routers/user.ts",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 39,
+    "text": "preferences.recentMessageIds = preferences.recentMessageIds.slice(0, MAX_RECENT_MESSAGE_IDS);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2259,
+   "control_tests_run": 2259,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences stored list > keeps the first ten of the eleven ids the input admits"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 22.36,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-1.stderr"
+  },
+  {
+   "id": "shapes.ts:61:walk-first",
+   "run": "mutant-2",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "op": "walk-first",
+    "line": 61,
+    "text": "const fatal = result.error.issues.some(({ code }) => code === z.ZodIssueCode.invalid_union);"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 2259,
+   "control_tests_run": 2259,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 21.0,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-2.stderr"
+  },
+  {
+   "id": "shapes.ts:61:walk-last",
+   "run": "mutant-3",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 61,
+    "text": "const fatal = result.error.issues.some(({ code }) => code === z.ZodIssueCode.invalid_union);"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 2259,
+   "control_tests_run": 2259,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 23.81,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-3.stderr"
+  },
+  {
+   "id": "shapes.ts:61:===",
+   "run": "mutant-4",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 61,
+    "text": "const fatal = result.error.issues.some(({ code }) => code === z.ZodIssueCode.invalid_union);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2259,
+   "control_tests_run": 2259,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the plain unions of the save > add no displayable-text issue to a section whose accessory fails",
+    "|node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the plain unions of the save > add no displayable-text issue to a section whose accessory fails",
+    "|node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the plain unions of the save > keep every issue of the branch that matched, in order, and still run the displayable-text check",
+    "|node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the plain unions of the save > keep every issue of the branch that matched, in order, and still run the displayable-text check"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 24.01,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-4.stderr"
+  },
+  {
+   "id": "shapes.ts:62:walk-first",
+   "run": "mutant-5",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "op": "walk-first",
+    "line": 62,
+    "text": "result.error.issues.forEach((issue) => ctx.addIssue({ ...issue, fatal }));"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2259,
+   "control_tests_run": 2259,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the plain unions of the save > keep every issue of the branch that matched, in order, and still run the displayable-text check",
+    "|node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the plain unions of the save > keep every issue of the branch that matched, in order, and still run the displayable-text check"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 24.69,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-5.stderr"
+  },
+  {
+   "id": "shapes.ts:62:walk-last",
+   "run": "mutant-6",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 62,
+    "text": "result.error.issues.forEach((issue) => ctx.addIssue({ ...issue, fatal }));"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2259,
+   "control_tests_run": 2259,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the plain unions of the save > keep every issue of the branch that matched, in order, and still run the displayable-text check",
+    "|node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the plain unions of the save > keep every issue of the branch that matched, in order, and still run the displayable-text check"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 25.97,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-6.stderr"
+  },
+  {
+   "id": "shapes.ts:90:if-false",
+   "run": "mutant-7",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 90,
+    "text": "if (!(error instanceof StopChecking)) throw error;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2259,
+   "control_tests_run": 2259,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/utils/__tests__/shapes.error-cap.test.ts > cappedInput > lets an error thrown by the schema itself reach the caller"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 26.52,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-7.stderr"
+  },
+  {
+   "id": "shapes.ts:276:walk-first",
+   "run": "mutant-8",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "op": "walk-first",
+    "line": 276,
+    "text": "isolatedUnion(ALLOWED_MENTION_PARSE_TYPES.map((type) => z.literal(type)) as unknown as AllowedMentionParseOptions),"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2259,
+   "control_tests_run": 2259,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageShape allowed mentions > accepts here as a parse kind and refuses one that is not admitted",
+    "|node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageShape allowed mentions > accepts everyone as a parse kind and refuses one that is not admitted"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 25.09,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-8.stderr"
+  },
+  {
+   "id": "NM-5",
+   "run": "mutant-9",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "note": "import schema top-level list keeps the .max form"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2259,
+   "control_tests_run": 2259,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageImportShape (the browser paste) > refuses 41 invalid top-level components with one issue and no displayable-text issue"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 24.15,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-9.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-9.stderr"
+  },
+  {
+   "id": "NM-21",
+   "run": "mutant-10",
+   "file": "src/server/api/utils/shapes.ts",
+   "tests": [],
+   "carried": {
+    "note": "isolated union failure not fatal"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2259,
+   "control_tests_run": 2259,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the plain unions of the save > add no displayable-text issue to a section whose accessory fails",
+    "|node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the plain unions of the save > add no displayable-text issue to a section whose accessory fails"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 26.05,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-10.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/018/implementation/m1/survivors-sweep-e2b00b8/e2b00b8e3c1e55a9092677a6dc94b30174a558e0-20261120T051754Z-p706280-mutant-10.stderr"
+  }
+ ],
+ "score": "8 of 10 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; survivors-rerun-e2b00b8.json (blob beeb048e9e2bb5c77f45ba7119ff90905ac686a4))"
+}

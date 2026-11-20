@@ -1,0 +1,17 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-named/20261120T045102Z-p411077/mutant-10
+
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (154 tests | 3 failed) 287ms
+       × lists exactly 20 issues with no summary 35ms
+       × counts the one issue of an over-limit list toward the 20 20ms
+       × counts the displayable-text issue, with its own message, toward the 20 5ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (147 tests | 3 failed) 239ms
+       × lists exactly 20 issues with no summary 42ms
+       × counts the one issue of an over-limit list toward the 20 13ms
+       × counts the displayable-text issue, with its own message, toward the 20 5ms
+
+ Test Files  2 failed | 152 passed (154)
+      Tests  6 failed | 2243 passed (2249)
+   Start at  04:54:47
+   Duration  21.23s (transform 35.69s, setup 2.58s, import 168.75s, tests 44.65s, environment 89.84s)
+

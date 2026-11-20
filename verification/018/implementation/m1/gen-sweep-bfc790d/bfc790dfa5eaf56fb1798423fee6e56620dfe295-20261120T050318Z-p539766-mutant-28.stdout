@@ -1,0 +1,29 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-gen/20261120T050318Z-p539766/mutant-28
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts (8 tests | 1 failed) 34ms
+     × keeps 20 issues and adds one summary issue at the 21st 16ms
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (154 tests | 8 failed) 291ms
+       × lists the first 20 issues in order and one summary at 21 issues 26ms
+       × stops at 20 issues of 100 malformed mention ids and renders 21 lines 4ms
+       × counts the one issue of an over-limit list toward the 20 17ms
+       × counts the displayable-text issue, with its own message, toward the 20 7ms
+       × stops reading the input after the 21st issue 4ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 fat action rows 2ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 invalid sections 6ms
+       × stop at the 20th of 21 failing accessories 5ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (147 tests | 8 failed) 263ms
+       × lists the first 20 issues in order and one summary at 21 issues 36ms
+       × stops at 20 issues of 100 malformed mention ids and renders 21 lines 6ms
+       × counts the one issue of an over-limit list toward the 20 11ms
+       × counts the displayable-text issue, with its own message, toward the 20 8ms
+       × stops reading the input after the 21st issue 24ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 fat action rows 1ms
+       × stay under 16 KB, 21 of them, for 40 containers of 40 invalid sections 4ms
+       × stop at the 20th of 21 failing accessories 4ms
+
+ Test Files  3 failed | 151 passed (154)
+      Tests  17 failed | 2232 passed (2249)
+   Start at  05:14:25
+   Duration  22.44s (transform 32.10s, setup 2.64s, import 172.94s, tests 49.87s, environment 99.06s)
+

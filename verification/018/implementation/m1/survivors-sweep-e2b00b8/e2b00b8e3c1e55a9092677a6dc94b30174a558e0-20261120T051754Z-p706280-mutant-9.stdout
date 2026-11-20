@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-surv/20261120T051754Z-p706280/mutant-9
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts (20 tests | 1 failed) 55ms
+     × refuses 41 invalid top-level components with one issue and no displayable-text issue 25ms
+
+ Test Files  1 failed | 153 passed (154)
+      Tests  1 failed | 2258 passed (2259)
+   Start at  05:21:34
+   Duration  22.92s (transform 40.45s, setup 2.42s, import 181.57s, tests 48.78s, environment 95.75s)
+

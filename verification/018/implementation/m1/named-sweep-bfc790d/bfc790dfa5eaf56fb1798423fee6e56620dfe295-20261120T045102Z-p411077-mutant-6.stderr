@@ -1,0 +1,89 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses 12 valid elements with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses 12 wrong primitive elements with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses 12 null elements with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "too_big",
+-     "message": "Array must contain at most 11 element(s)",
++     "message": "Array must contain at most 10 element(s)",
+      "path": [
+        "recentMessageIds",
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/user.save-limits.test.ts:60:20
+     58|
+     59|     expect(code).toBe('BAD_REQUEST');
+     60|     expect(issues).toEqual([{ code: 'too_big', path: ['recentMessageId…
+       |                    ^
+     61|     expect(captured.queries).toHaveLength(0);
+     62|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses 61 elements with one issue for the list
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+      "code": "too_big",
+-     "message": "Array must contain at most 11 element(s)",
++     "message": "Array must contain at most 10 element(s)",
+      "path": [
+        "recentMessageIds",
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/user.save-limits.test.ts:67:20
+     65|     const { issues } = await refusalOf(procedure.call, { recentMessage…
+     66|
+     67|     expect(issues).toEqual([{ code: 'too_big', path: ['recentMessageId…
+       |                    ^
+     68|   });
+     69|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > accepts 11 elements
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/routers/__tests__/user.save-limits.test.ts:73:28
+     71|     const outcome = await reachesDatabase(procedure, { recentMessageId…
+     72|
+     73|     expect(outcome.passed).toBe(true);
+       |                            ^
+     74|     expect(outcome.code).not.toBe('BAD_REQUEST');
+     75|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+

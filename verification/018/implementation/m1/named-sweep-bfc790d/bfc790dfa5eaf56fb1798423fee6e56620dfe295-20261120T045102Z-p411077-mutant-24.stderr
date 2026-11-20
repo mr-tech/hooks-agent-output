@@ -1,0 +1,2179 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 18 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of valid elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of valid elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of valid elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of valid elements, length 150, with one issue for the list and no database access
+AssertionError: expected 'NOT_FOUND' to be 'BAD_REQUEST' // Object.is equality
+
+Expected: "BAD_REQUEST"
+Received: "NOT_FOUND"
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:48:20
+     46|       const { code, issues } = await refusalOf(procedure.call, procedu…
+     47|
+     48|       expect(code).toBe('BAD_REQUEST');
+       |                    ^
+     49|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+     50|       expect(procedure.databaseQueries()).toBe(before);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/18]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of invalid elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of invalid elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of invalid elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of invalid elements, length 150, with one issue for the list and no database access
+AssertionError: expected [ …(21) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "too_big",
+-     "message": "Array must contain at most 100 element(s)",
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       0,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       1,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       2,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       3,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       4,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       5,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       6,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       7,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       8,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       9,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       10,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       11,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       12,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       13,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       14,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       15,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       16,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       17,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       18,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
+      "path": [
+        "message",
+        "data",
+        "allowed_mentions",
+        "users",
++       19,
+      ],
++   },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:49:22
+     47|
+     48|       expect(code).toBe('BAD_REQUEST');
+     49|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     50|       expect(procedure.databaseQueries()).toBe(before);
+     51|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/18]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of number elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of number elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of number elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of number elements, length 150, with one issue for the list and no database access
+AssertionError: expected [ …(21) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "too_big",
+-     "message": "Array must contain at most 100 element(s)",
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       0,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       1,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       2,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       3,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       4,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       5,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       6,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       7,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       8,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       9,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       10,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       11,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       12,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       13,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       14,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       15,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       16,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       17,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       18,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+        "allowed_mentions",
+        "users",
++       19,
+      ],
++   },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:49:22
+     47|
+     48|       expect(code).toBe('BAD_REQUEST');
+     49|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     50|       expect(procedure.databaseQueries()).toBe(before);
+     51|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/18]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of null elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of null elements, length 150, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of null elements, length 101, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S7 allowed mentions users' > refuses a list of null elements, length 150, with one issue for the list and no database access
+AssertionError: expected [ …(21) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "too_big",
+-     "message": "Array must contain at most 100 element(s)",
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       0,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       1,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       2,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       3,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       4,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       5,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       6,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       7,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       8,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       9,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       10,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       11,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       12,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       13,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       14,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       15,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       16,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       17,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "users",
++       18,
++     ],
++   },
++   {
++     "code": "invalid_type",
++     "message": "Expected string, received null",
+      "path": [
+        "message",
+        "data",
+        "allowed_mentions",
+        "users",
++       19,
+      ],
++   },
++   {
++     "code": "custom",
++     "message": "Stopped checking after 20 errors",
++     "path": [],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:49:22
+     47|
+     48|       expect(code).toBe('BAD_REQUEST');
+     49|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     50|       expect(procedure.databaseQueries()).toBe(before);
+     51|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/18]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageImportShape (the browser paste) > refuses 150 malformed mention ids with one issue for the list
+AssertionError: expected [ …(150) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "too_big",
+-     "message": "Array must contain at most 100 element(s)",
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       0,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       1,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       2,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       3,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       4,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       5,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       6,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       7,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       8,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       9,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       10,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       11,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       12,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       13,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       14,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       15,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       16,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       17,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       18,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       19,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       20,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       21,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       22,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       23,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       24,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       25,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       26,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       27,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       28,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       29,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       30,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       31,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       32,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       33,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       34,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       35,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       36,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       37,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       38,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       39,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       40,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       41,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       42,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       43,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       44,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       45,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       46,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       47,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       48,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       49,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       50,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       51,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       52,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       53,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       54,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       55,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       56,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       57,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       58,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       59,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       60,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       61,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       62,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       63,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       64,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       65,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       66,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       67,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       68,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       69,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       70,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       71,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       72,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       73,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       74,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       75,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       76,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       77,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       78,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       79,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       80,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       81,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       82,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       83,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       84,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       85,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       86,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       87,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       88,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       89,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       90,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       91,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       92,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       93,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       94,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       95,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       96,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       97,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       98,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       99,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       100,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       101,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       102,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       103,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       104,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       105,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       106,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       107,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       108,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       109,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       110,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       111,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       112,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       113,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
+      "path": [
+        "allowed_mentions",
+        "users",
++       114,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       115,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       116,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       117,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       118,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       119,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       120,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       121,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       122,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       123,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       124,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       125,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       126,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       127,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       128,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       129,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       130,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       131,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       132,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       133,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       134,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       135,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       136,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       137,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       138,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       139,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       140,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       141,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       142,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       143,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       144,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       145,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       146,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       147,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       148,
++     ],
++   },
++   {
++     "code": "invalid_string",
++     "message": "Invalid",
++     "path": [
++       "allowed_mentions",
++       "users",
++       149,
+      ],
+    },
+  ]
+
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:96:29
+     94|     const result = discordMessageImportShape.safeParse({ allowed_menti…
+     95|
+     96|     expect(reduced(result)).toEqual([{ code: 'too_big', path: ['allowe…
+       |                             ^
+     97|   });
+     98|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/18]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageImportShape (the browser paste) > refuses 101 well-formed user ids and accepts 100
+AssertionError: expected null to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected:
+[
+  {
+    "code": "too_big",
+    "message": "Array must contain at most 100 element(s)",
+    "path": [
+      "allowed_mentions",
+      "users",
+    ],
+  },
+]
+
++ Received:
+null
+
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:100:108
+     98|
+     99|   it('refuses 101 well-formed user ids and accepts 100', () => {
+    100|     expect(reduced(discordMessageImportShape.safeParse({ allowed_menti…
+       |                                                                                                            ^
+    101|       { code: 'too_big', path: ['allowed_mentions', 'users'], message:…
+    102|     ]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/18]⎯
+

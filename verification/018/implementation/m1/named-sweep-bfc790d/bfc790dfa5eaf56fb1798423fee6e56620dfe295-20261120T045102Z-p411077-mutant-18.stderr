@@ -1,0 +1,71 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the one issue of an over-limit list toward the 20
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: the refusal of a save with many errors is capped > the refusal of a save with many errors > counts the one issue of an over-limit list toward the 20
+AssertionError: expected [ { code: 'too_big', …(2) }, …(19) ] to deeply equal [ …(20) ]
+
+- Expected
++ Received
+
+@@ -1,7 +1,18 @@
+  [
+    {
++     "code": "too_big",
++     "message": "Array must contain at most 25 element(s)",
++     "path": [
++       "message",
++       "data",
++       "embeds",
++       1,
++       "fields",
++     ],
++   },
++   {
+      "code": "invalid_type",
+      "message": "Expected string, received number",
+      "path": [
+        "message",
+        "data",
+@@ -242,19 +253,8 @@
+        "embeds",
+        0,
+        "fields",
+        18,
+        "name",
+-     ],
+-   },
+-   {
+-     "code": "too_big",
+-     "message": "Array must contain at most 25 element(s)",
+-     "path": [
+-       "message",
+-       "data",
+-       "embeds",
+-       1,
+-       "fields",
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveErrorCapSpecs.ts:85:28
+     83|       const over = await refusal({ embeds: [{ fields: repeat(20, badNa…
+     84|
+     85|       expect(exact.issues).toEqual([
+       |                            ^
+     86|         ...Array.from({ length: 19 }, (_, i) => fieldIssue(0, i, 'name…
+     87|         { code: 'too_big', path: [...DATA, 'embeds', 1, 'fields'], mes…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+

@@ -1,0 +1,123 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > accepts a list of 3 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > accepts a list of 2 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > accepts a list of 3 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > accepts a list of 2 valid elements
+AssertionError: expected { passed: false, code: 'BAD_REQUEST' } to deeply equal { passed: true, …(1) }
+
+- Expected
++ Received
+
+  {
+-   "code": StringNotMatching /^BAD_REQUEST$/,
+-   "passed": true,
++   "code": "BAD_REQUEST",
++   "passed": false,
+  }
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:56:23
+     54|       const outcome = await reachesDatabase(procedure, procedureInput(…
+     55|
+     56|       expect(outcome).toEqual({ passed: true, code: expect.not.stringM…
+       |                       ^
+     57|     });
+     58|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > keeps the one issue per invalid element for a list of 3 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > keeps the one issue per invalid element for a list of 3 with the first element invalid
+AssertionError: expected [ …(3) ] to deeply equal [ { code: 'invalid_union', …(2) } ]
+
+- Expected
++ Received
+
+@@ -8,6 +8,28 @@
+        "allowed_mentions",
+        "parse",
+        0,
+      ],
+    },
++   {
++     "code": "invalid_union",
++     "message": "Invalid input",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "parse",
++       1,
++     ],
++   },
++   {
++     "code": "invalid_union",
++     "message": "Invalid input",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "parse",
++       2,
++     ],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:65:22
+     63|
+     64|       expect(code).toBe('BAD_REQUEST');
+     65|       expect(issues).toEqual([{
+       |                      ^
+     66|         code: site.invalidIssue.code,
+     67|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > keeps the one issue per invalid element for a list of 2 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > keeps the one issue per invalid element for a list of 2 with the first element invalid
+AssertionError: expected [ …(2) ] to deeply equal [ { code: 'invalid_union', …(2) } ]
+
+- Expected
++ Received
+
+@@ -8,6 +8,17 @@
+        "allowed_mentions",
+        "parse",
+        0,
+      ],
+    },
++   {
++     "code": "invalid_union",
++     "message": "Invalid input",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "parse",
++       1,
++     ],
++   },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:65:22
+     63|
+     64|       expect(code).toBe('BAD_REQUEST');
+     65|       expect(issues).toEqual([{
+       |                      ^
+     66|         code: site.invalidIssue.code,
+     67|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+

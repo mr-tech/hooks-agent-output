@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-gen/20261120T050318Z-p539766/mutant-30
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts (8 tests | 2 failed) 37ms
+     × refuses with a ZodError of the issues, each reduced to code, path and message 15ms
+     × carries no count from one refusal to the next 3ms
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (154 tests | 6 failed) 335ms
+       × lists exactly 20 issues with no summary 21ms
+       × counts the one issue of an over-limit list toward the 20 7ms
+       × counts the displayable-text issue, with its own message, toward the 20 7ms
+       × keeps two concurrent refusals apart 5ms
+       × stay small for three allowed-mention kinds of 100,000 characters 3ms
+       × return one issue for each of six failing accessories 3ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (147 tests | 6 failed) 396ms
+       × lists exactly 20 issues with no summary 38ms
+       × counts the one issue of an over-limit list toward the 20 26ms
+       × counts the displayable-text issue, with its own message, toward the 20 23ms
+       × keeps two concurrent refusals apart 29ms
+       × stay small for three allowed-mention kinds of 100,000 characters 9ms
+       × return one issue for each of six failing accessories 6ms
+
+ Test Files  3 failed | 151 passed (154)
+      Tests  14 failed | 2235 passed (2249)
+   Start at  05:15:12
+   Duration  22.45s (transform 44.39s, setup 2.05s, import 185.32s, tests 46.13s, environment 89.93s)
+

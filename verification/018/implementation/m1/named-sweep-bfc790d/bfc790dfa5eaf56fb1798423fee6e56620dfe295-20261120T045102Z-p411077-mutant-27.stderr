@@ -1,0 +1,164 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 17 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of valid elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of valid elements, length 4, with one issue for the list and no database access
+AssertionError: expected 'NOT_FOUND' to be 'BAD_REQUEST' // Object.is equality
+
+Expected: "BAD_REQUEST"
+Received: "NOT_FOUND"
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:48:20
+     46|       const { code, issues } = await refusalOf(procedure.call, procedu…
+     47|
+     48|       expect(code).toBe('BAD_REQUEST');
+       |                    ^
+     49|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+     50|       expect(procedure.databaseQueries()).toBe(before);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/17]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of valid elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of invalid elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of number elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of null elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of valid elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of invalid elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of number elements, length 53, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of null elements, length 53, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -1,9 +1,9 @@
+  [
+    {
+      "code": "too_big",
+-     "message": "Array must contain at most 3 element(s)",
++     "message": "Array must contain at most 4 element(s)",
+      "path": [
+        "message",
+        "data",
+        "allowed_mentions",
+        "parse",
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:49:22
+     47|
+     48|       expect(code).toBe('BAD_REQUEST');
+     49|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     50|       expect(procedure.databaseQueries()).toBe(before);
+     51|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/17]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of invalid elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of number elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of null elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of invalid elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of number elements, length 4, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S6 allowed mentions parse' > refuses a list of null elements, length 4, with one issue for the list and no database access
+AssertionError: expected [ …(4) ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "too_big",
+-     "message": "Array must contain at most 3 element(s)",
++     "code": "invalid_union",
++     "message": "Invalid input",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "parse",
++       0,
++     ],
++   },
++   {
++     "code": "invalid_union",
++     "message": "Invalid input",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "parse",
++       1,
++     ],
++   },
++   {
++     "code": "invalid_union",
++     "message": "Invalid input",
++     "path": [
++       "message",
++       "data",
++       "allowed_mentions",
++       "parse",
++       2,
++     ],
++   },
++   {
++     "code": "invalid_union",
++     "message": "Invalid input",
+      "path": [
+        "message",
+        "data",
+        "allowed_mentions",
+        "parse",
++       3,
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:49:22
+     47|
+     48|       expect(code).toBe('BAD_REQUEST');
+     49|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     50|       expect(procedure.databaseQueries()).toBe(before);
+     51|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/17]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageImportShape (the browser paste) > refuses 41 container children and four allowed-mention kinds
+AssertionError: expected null to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected:
+[
+  {
+    "code": "too_big",
+    "message": "Array must contain at most 3 element(s)",
+    "path": [
+      "allowed_mentions",
+      "parse",
+    ],
+  },
+]
+
++ Received:
+null
+
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:116:129
+    114|       { code: 'too_big', path: ['components', 0, 'components'], messag…
+    115|     ]);
+    116|     expect(reduced(discordMessageImportShape.safeParse({ allowed_menti…
+       |                                                                                                                                 ^
+    117|       { code: 'too_big', path: ['allowed_mentions', 'parse'], message:…
+    118|     ]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/17]⎯
+

@@ -1,0 +1,20 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-gen/20261120T050318Z-p539766/mutant-2
+
+ ❯ |dom| src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx (11 tests | 5 failed) 168ms
+     × sends the open message and at most ten stored ids for a stored list of 11 36ms
+     × sends the open message and at most ten stored ids for a stored list of 50 15ms
+     × sends at most ten stored ids, in order, with no message open, for a stored list of 11 11ms
+     × sends at most ten stored ids, in order, with no message open, for a stored list of 50 17ms
+     × moves the open message to the front of a stored list that holds it past the eleventh place 5ms
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (154 tests | 4 failed) 388ms
+     × refuses 12 valid elements with one issue for the list and no database access 11ms
+     × refuses 12 wrong primitive elements with one issue for the list and no database access 16ms
+     × refuses 12 null elements with one issue for the list and no database access 5ms
+     × refuses 61 elements with one issue for the list 2ms
+
+ Test Files  2 failed | 152 passed (154)
+      Tests  9 failed | 2240 passed (2249)
+   Start at  05:04:03
+   Duration  33.22s (transform 79.31s, setup 2.89s, import 279.43s, tests 67.82s, environment 133.11s)
+

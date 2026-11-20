@@ -1,0 +1,28 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-gen/20261120T050318Z-p539766/mutant-14
+
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (154 tests | 6 failed) 200ms
+       × refuses a list of null elements, length 4, with one issue for the list and no database access 13ms
+       × refuses a list of null elements, length 53, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 41, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 90, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 41, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 90, with one issue for the list and no database access 3ms
+ ❯ |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts (16 tests | 4 failed) 45ms
+     × runs no refinement of the enclosing object over an over-limit list 13ms
+     × refuses 41 top-level components holding a null with one issue and no throw 7ms
+     × refuses 41 container children holding a null with one issue and no throw 1ms
+     × adds no displayable-text issue to a refused list of over-long text displays 4ms
+ ❯ |node| src/server/api/routers/__tests__/message.save-limits.test.ts (147 tests | 6 failed) 214ms
+       × refuses a list of null elements, length 4, with one issue for the list and no database access 11ms
+       × refuses a list of null elements, length 53, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 41, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 90, with one issue for the list and no database access 3ms
+       × refuses a list of null elements, length 41, with one issue for the list and no database access 2ms
+       × refuses a list of null elements, length 90, with one issue for the list and no database access 2ms
+
+ Test Files  3 failed | 151 passed (154)
+      Tests  16 failed | 2233 passed (2249)
+   Start at  05:08:51
+   Duration  18.53s (transform 22.44s, setup 2.03s, import 137.72s, tests 39.94s, environment 85.52s)
+

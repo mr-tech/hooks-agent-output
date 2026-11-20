@@ -1,0 +1,144 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 21 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of valid elements, length 6, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of valid elements, length 55, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of invalid elements, length 6, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of invalid elements, length 55, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of number elements, length 6, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of number elements, length 55, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of null elements, length 6, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of null elements, length 55, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of valid elements, length 6, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of valid elements, length 55, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of invalid elements, length 6, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of invalid elements, length 55, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of number elements, length 6, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of number elements, length 55, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of null elements, length 6, with one issue for the list and no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > refuses a list of null elements, length 55, with one issue for the list and no database access
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -1,9 +1,9 @@
+  [
+    {
+      "code": "too_big",
+-     "message": "Array must contain at most 5 element(s)",
++     "message": "Array must contain at most 4 element(s)",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:49:22
+     47|
+     48|       expect(code).toBe('BAD_REQUEST');
+     49|       expect(issues).toEqual([{ code: 'too_big', path: site.listPath, …
+       |                      ^
+     50|       expect(procedure.databaseQueries()).toBe(before);
+     51|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/21]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > accepts a list of 5 valid elements
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > accepts a list of 5 valid elements
+AssertionError: expected { passed: false, code: 'BAD_REQUEST' } to deeply equal { passed: true, …(1) }
+
+- Expected
++ Received
+
+  {
+-   "code": StringNotMatching /^BAD_REQUEST$/,
+-   "passed": true,
++   "code": "BAD_REQUEST",
++   "passed": false,
+  }
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:56:23
+     54|       const outcome = await reachesDatabase(procedure, procedureInput(…
+     55|
+     56|       expect(outcome).toEqual({ passed: true, code: expect.not.stringM…
+       |                       ^
+     57|     });
+     58|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/21]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.save-limits.test.ts > message.upsert input: every list refuses an over-limit length with one issue > 'S1 action row buttons' > keeps the one issue per invalid element for a list of 5 with the first element invalid
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: every message list refuses an over-limit length with one issue > 'S1 action row buttons' > keeps the one issue per invalid element for a list of 5 with the first element invalid
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'invalid_string', …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "code": "invalid_string",
+-     "message": "Invalid url",
++     "code": "too_big",
++     "message": "Array must contain at most 4 element(s)",
+      "path": [
+        "message",
+        "data",
+        "components",
+        0,
+        "components",
+-       0,
+-       "url",
+      ],
+    },
+  ]
+
+ ❯ src/server/api/routers/__tests__/helpers/saveListBoundSpecs.ts:65:22
+     63|
+     64|       expect(code).toBe('BAD_REQUEST');
+     65|       expect(issues).toEqual([{
+       |                      ^
+     66|         code: site.invalidIssue.code,
+     67|         path: [...site.listPath, 0, ...site.invalidIssue.path],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/21]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shapes.list-bounds.test.ts > discordMessageImportShape (the browser paste) > refuses an action row of six buttons with one issue
+AssertionError: expected [ { code: 'too_big', …(2) } ] to deeply equal [ { code: 'too_big', …(2) } ]
+
+- Expected
++ Received
+
+@@ -1,9 +1,9 @@
+  [
+    {
+      "code": "too_big",
+-     "message": "Array must contain at most 5 element(s)",
++     "message": "Array must contain at most 4 element(s)",
+      "path": [
+        "components",
+        0,
+        "components",
+      ],
+
+ ❯ src/server/api/utils/__tests__/shapes.list-bounds.test.ts:132:29
+    130|     const result = discordMessageImportShape.safeParse({ components: […
+    131|
+    132|     expect(reduced(result)).toEqual([{ code: 'too_big', path: ['compon…
+       |                             ^
+    133|   });
+    134| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/21]⎯
+

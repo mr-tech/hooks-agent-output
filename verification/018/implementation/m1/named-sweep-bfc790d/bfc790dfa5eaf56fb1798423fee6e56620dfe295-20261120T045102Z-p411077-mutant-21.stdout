@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/62d383f4-5f83-48a2-99a1-2b2bac06a637/scratchpad/work-named/20261120T045102Z-p411077/mutant-21
+
+ ❯ |node| src/server/api/utils/__tests__/shapes.error-cap.test.ts (8 tests | 1 failed) 29ms
+     × create one issue for a failing separator spacing 12ms
+
+ Test Files  1 failed | 153 passed (154)
+      Tests  1 failed | 2248 passed (2249)
+   Start at  04:59:16
+   Duration  20.58s (transform 39.68s, setup 2.29s, import 167.46s, tests 38.35s, environment 89.44s)
+
