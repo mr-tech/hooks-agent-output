@@ -1,0 +1,103 @@
+{
+ "sha": "983681ca6cd7cbacd0796ed093e094057ad7f9be",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "negative-controls-round5.mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "negative-controls-round5.mutants.json",
+   "blob": "09554a0a38df7f381fa6b4173c32a7cc3ac8b9f4"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[\"src/server/api/routers/__tests__/message.personal-ownership.test.ts\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-983681c/983681ca6cd7cbacd0796ed093e094057ad7f9be-20261120T000734Z-p1376719-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-983681c/983681ca6cd7cbacd0796ed093e094057ad7f9be-20261120T000734Z-p1376719-control-1.stderr",
+   "seconds": 2.17,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 32,
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "getone-checked-row-guard-removed",
+   "run": "mutant-1",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 32,
+   "control_tests_run": 32,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.getOne on a personal message > refuses another signed-in user when the message is deleted between its load and the ownership check"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.14,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-983681c/983681ca6cd7cbacd0796ed093e094057ad7f9be-20261120T000734Z-p1376719-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-983681c/983681ca6cd7cbacd0796ed093e094057ad7f9be-20261120T000734Z-p1376719-mutant-1.stderr"
+  },
+  {
+   "id": "getone-checked-row-guard-inverted",
+   "run": "mutant-2",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [
+    "src/server/api/routers/__tests__/message.personal-ownership.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 32,
+   "control_tests_run": 32,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.getOne on a personal message > returns the message to the user who owns it",
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.getOne on a personal message > refuses another signed-in user when the message is deleted between its load and the ownership check",
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > the message number each procedure takes > getOne reads the canonical number when the browser sends leading zeros"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.13,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-983681c/983681ca6cd7cbacd0796ed093e094057ad7f9be-20261120T000734Z-p1376719-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-personal-message-access/negative-controls-983681c/983681ca6cd7cbacd0796ed093e094057ad7f9be-20261120T000734Z-p1376719-mutant-2.stderr"
+  }
+ ],
+ "score": "2 of 2 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; negative-controls-round5.mutants.json (blob 09554a0a38df7f381fa6b4173c32a7cc3ac8b9f4))"
+}

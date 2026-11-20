@@ -1,0 +1,4 @@
+[
+ {"id": "getone-checked-row-guard-removed", "file": "src/server/api/routers/message.ts", "old": "if (!oldMessageCount) {", "new": "if (oldMessageCount < 0) {", "tests": ["src/server/api/routers/__tests__/message.personal-ownership.test.ts"]},
+ {"id": "getone-checked-row-guard-inverted", "file": "src/server/api/routers/message.ts", "old": "if (!oldMessageCount) {", "new": "if (oldMessageCount) {", "tests": ["src/server/api/routers/__tests__/message.personal-ownership.test.ts"]}
+]

@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-personal-message-access
 UUID: 1b613853
 Status: Active
-Status-Detail: "Fix committed on website chain/fix-personal-message-access at ed88e7c (CR-6 folded in per rulings block 23:17Z); code review delta owed, then QA Phase 2 (117 production lines added), then security, then devops for website master on the owner's word."
-Handoff-At: ed88e7cecc3cdcd06d810dc65caaaa6f68798641 — repos=website; earlier 12bcd75, d597734, 2e50cd9
+Status-Detail: "Round 5 (security M-001, rulings block 2026-11-20T00:04Z) committed on website chain/fix-personal-message-access at 983681c: getOne refuses when the ownership check finds no row. Owed: a code review delta, then QA re-verification (124 production lines added), then a security re-review (RC-1), then devops for website master on the owner's word."
+Handoff-At: 983681ca6cd7cbacd0796ed093e094057ad7f9be — repos=website; earlier ed88e7c, 12bcd75, d597734, 2e50cd9
 Origin-Chain: none
 ---
 
@@ -41,6 +41,11 @@ production residue read is held by steering to the release seam.
 **Routed at 23:17Z** (rulings block "2026-11-19T23:17Z", record `44d13e7`): CR-6 (record `c4a3804`) is folded in before QA.
 `messageIdShape`'s int8 bound must not run `BigInt()` on text the digit check refused, so a failed parse returns a failure and never
 throws.
+
+**Routed at 2026-11-20T00:04Z** (rulings block "2026-11-20T00:04Z — security APPROVED_WITH_CONTROLS at 75f1543; M-001 routed to
+remediation (RC-1 option 1)", record `fce289f`). Security's M-001 (`security/fix-personal-message-access-security-audit.md`, record
+`99f7a3d`) is a defect at S2, inside the swept region, so it is in scope under steering's recorded ruling. The design (refuse on an empty
+check, or select the owner with the row) is mine. A suite case is owed, seen red first.
 
 The S-numbers are the sweep's (`verification/access-defects/scoping/sweep.md`, website `787bec5`). The three handoffs for S14, S15 and
 S1b are steering's under that block. This document writes none of them.
@@ -106,6 +111,12 @@ with the number it holds (`MessageProvider`, `msg.id === message?.id`). The clie
    and` the same owner term as the recent-data write, and `returning id`. The preview images are cleared only when it removed a row, so a
    delete that matched nothing leaves the owner's previews in place. No path now checks in one query and writes in another without the
    owner term in the write. `getOne` checks then returns, which is a read with no write.
+   *Reconcile note (2026-11-20, round 5):* the last sentence classed `getOne` as outside the race because it writes nothing. That was
+   wrong. `getOne` returns a value it loaded before the check, so the check has to hold for the row it loaded, and the check passed
+   when that row was gone (security M-001; Diagnosis, "Round 5"). Under this hazard's predicate ("checks in one query and acts in
+   another"), the class has four members: `getOne`, `upsert`, `updateRecentMessageData` and `delete` (`grep -n 'authorizeUser(\|authorizeAction('
+   src/server/api/routers/message.ts`; `user.ts` callers have no message id). Each is dispositioned in round 5. Only `getOne` acted on
+   a value that the check did not cover.
 7. *Production on push.* This is noted for devops and steering. The fix is on the chain branch only, with no upstream and no push.
 
 **Residue already in production** (read from the code path; S2 and S6b escaped):
@@ -120,6 +131,16 @@ with the number it holds (`MessageProvider`, `msg.id === message?.id`). The clie
 - *Who checks the live state:* the owner, since this is production data. For example, rows at or above the sequence's next number are
   planted: `select id, fk_users_id, "createdAt" from "Messages" where id >= (select last_value from "Messages_id_seq")`. This is an owner
   step. I have not run it, and nothing here reads production.
+  *Reconcile note (2026-11-20, round 5):* this query is wrong, and it must not be used. When the sequence's `is_called` is true,
+  `last_value` is the number the database already issued. So `id >= last_value` also returns the latest legitimate row. The query
+  was defensible as a sketch for the owner, but it was never run. Corrected by `verification/access-defects/scoping/residue-refutation.md`
+  (record `c4b843d`) and rulings block "2026-11-19T23:53Z". The read for his release question:
+  `select id, fk_users_id, "createdAt" from "Messages" where id > (select last_value from "Messages_id_seq") or (id = (select last_value
+  from "Messages_id_seq") and not (select is_called from "Messages_id_seq"));`
+  Stated limits, from that record: a sequence cache above 1 was not tested, and no query finds planted rows the sequence has already
+  passed. The refutation also measured what the fix does to the planted-row collision. At `75f1543`, a save that draws a planted number
+  fails once (pg 23505, surfaced as INTERNAL_SERVER_ERROR) and leaves the row unchanged. At `787bec5`, it wrote B's name and data
+  onto A's row. Round 5 does not touch that path.
 
 **Origin-Chain: none.** `git blame` at `787bec5` dates every faulty line to before the pipeline:
 - `message.ts:58` and `shared.ts:118`: `4fe53b6` (2023-08-22).
@@ -149,6 +170,36 @@ content just saved. This is the same predicate the same-number branch already us
 - N's row no longer exists, so its draft can never be offered back on that number.
 - Its content now lives at M.
 - A draft the user edited further while the save was in flight does not match, and is kept, exactly as on a same-number save.
+
+**Round 5, M-001: `getOne` and an owner's concurrent delete.** At `75f1543`, `getOne`'s personal branch does three things in order.
+It loads the row (`getMessage(messageId)`, `routers/message.ts:57`). It calls `authorizeUser(session.user.id, message.id)`, which runs
+`getAccount` and then `select fk_users_id from Messages where id in (…)` (`utils/user.ts:17-21`). It returns the loaded row.
+`authorizeUser` throws only when a returned row has another owner (`user.ts:27`). If the owner's delete commits between the load and
+that select, the select returns no row, nothing throws, and the row loaded before the delete goes to the caller.
+- *Instrument:* the red run below drives `getOne` through the real router. The fake's ownership select returns no row while the load
+  still returns the row (`world.goneAtCheck`). Result: `{ value: {…} }`, carrying the owner's content. Security's real-postgres run of
+  the same interleave at `75f1543`: 300 of 300 trials leaked (`security/out/read-race-75f1543-timing.json`).
+- *Design, my choice:* refuse when the check saw no row. `getOne` reads `oldMessageCount` from `authorizeUser` and throws `NOT_FOUND`
+  ("This message does not exist.", the wording `delete` already uses) when it is 0. This is correct in every order. The ownership
+  select runs after the load, and a personal row never changes its owner (no statement sets `fk_users_id` on an existing row). So a
+  non-empty result whose owners all equal the caller means the loaded row was the caller's. The instrument is a read this round of
+  the four `updateTable('Messages')` sites in `src` (`grep -rn "updateTable('Messages')" src`). `backfillValid.ts:210` sets `valid`,
+  `previewImage.ts:29` sets `previewImageNonce`, `shared.ts:235` sets name/data/valid/updatedAt, and `shared.ts:310` sets the recent
+  ids. None of them sets `fk_users_id` or `fk_guilds_id`. Numbers are not reused: the insert takes no
+  browser number since round 1. I did not select the owner with the row (`getMessage` with `fk_users_id`). `getMessage` is also the
+  save's read-back (`shared.ts:286`) and returns its row as the `ApiMessage` sent to the client. Adding the owner column there would
+  change a shared shape, and every caller would need to strip it.
+- *Why not in `authorizeUser` (mirror the siblings):* the empty-set pass in the shared check is not a defect for its other callers, so
+  it stays. `upsert` relies on it: an unknown number passes and becomes a create under the cap (hazard 2, round 2). `updateRecentMessageData`
+  and `delete` carry the owner term in their write, so an empty check there writes nothing (security's interleave, 3 cases passed).
+  `getOne` is the one caller that returns a value read before the check. Making the shared check fail closed would change the save of a
+  deleted message from create to refuse, which is outside this scope.
+- *Consumers of the changed outcome:* the callers of `getOne` (`MessageProvider` `/message/m/[id]`; `f/[id]/page.tsx` copy). For a
+  number whose row is gone mid-request, both already handle `NOT_FOUND` as they do for another user's message: the editor's load error,
+  and "Failed to copy message.". The owner's own read is unchanged (the owner-positive case; the inverted-guard control kills it).
+  The guild branch is unchanged.
+- *Residue:* none new. M-001 exists only on the chain branch. Production at `787bec5` has no ownership check at all (S2), and its
+  residue is the S2 entry above.
 
 **Observed outside the scope, not absorbed** (reported to steering at round 1; none is an ownership breach of a personal message). At
 22:59Z steering ruled the upsert canonical id and the delete owner term in scope, and they are fixed in round 2. The two items below
@@ -189,6 +240,10 @@ totals follow in this list:
 - Round 4 (`16bf24d`): `shapes.ts`, the CR-6 reorder of `messageIdShape`. `ed88e7c` is test-only.
 - **Totals over `787bec5..ed88e7c`: 117 production lines added** (MessageProvider 3, message.ts 15, shapes.ts 10, shared.ts 88,
   auth.ts 1).
+- Round 5 (`git diff --numstat ed88e7c 983681c`; `75f1543` is QA's test-only commit): `routers/message.ts` (7/1): `getOne`'s
+  personal branch throws `NOT_FOUND` when `authorizeUser`'s `oldMessageCount` is 0.
+- **Totals over `787bec5..983681c`: 124 production lines added** (MessageProvider 3, message.ts 21, shapes.ts 10, shared.ts 88,
+  auth.ts 1; `git diff --numstat 787bec5 983681c -- src ':!**/__tests__/**'`).
 - `src/server/auth.ts` (1/1): the hydrated callback passes `user.id` (the `Users` row id, from the adapter's `getSessionAndUser`,
   `kysely-adapter/index.ts:329-354`).
 
@@ -373,6 +428,35 @@ The SURVIVED row is a test defect of mine, kept as a record. The 20-digit case a
 int8, so the bound refused it whatever the length check said, and the case did not discriminate the length check. `ed88e7c` changed it
 to `00000000000000000042`, a value that fits, which only the length check refuses. The same control then killed it.
 
+**Round 5** (security M-001, rulings block 2026-11-20T00:04Z).
+
+New case in `routers/__tests__/message.personal-ownership.test.ts`, under "message.getOne on a personal message": "refuses another
+signed-in user when the message is deleted between its load and the ownership check". It expects `NOT_FOUND`, with the owner's content
+nowhere in the outcome. This is the audit's Testing Recommendation, in spec form. The fake gains `world.goneAtCheck`: the ownership
+select (`select "fk_users_id" from "Messages"`) returns no row while the load still returns it. *Invented value, and its falsity
+signature (Iron Law 5):* the empty ownership result stands in for a delete that commits inside the window. If the real database could
+not produce that result, the case would guard an impossible state. Security's real-postgres read-race run shows that it can (below,
+and 300 of 300 at `75f1543`).
+
+Runs:
+- **Red at `75f1543`** (the tree with the new test, before the source change): `npx vitest run --reporter=json
+  src/server/api/routers/__tests__/message.personal-ownership.test.ts`. **32 cases, 1 failed, 31 passed, exit 1.** The failure is the
+  new case: `expected { value: { …(9) } } to match object { error: { code: 'NOT_FOUND' } }`. That is M-001's signature: the row is
+  returned. Capture: `red-75f1543.json`.
+- **Green, the file at `983681c`:** 32 of 32, exit 0 (`green-file-983681c.json`).
+- **Green, whole suite at `983681c`:** **1909 cases, 1909 passed, exit 0, 148 files** (`suite-983681c.json`). Against `ed88e7c` (1904,
+  148 files): +4 are QA's cases at `75f1543` (a static count of 4 added `it(` lines, with no `it.each`), and +1 is mine. No file was
+  added.
+- **Negative controls** (`negative-controls-round5.mutants.json`, on `983681c`, `mutation-run.py --dep node_modules -- npx vitest run`
+  over the file): **2 of 2 KILLED**, 32 cases run against 32 in the control, count `checked` (`negative-controls-983681c/`):
+  - `getone-checked-row-guard-removed` (`if (oldMessageCount < 0)`): the new case.
+  - `getone-checked-row-guard-inverted` (`if (oldMessageCount)`): the owner-positive case, the new case, and `getOne`'s canonical read.
+- **Real-database run at `983681c`** (security's instrument, `security/read-race.pg.test.ts`, by `security/run-security.sh 983681c…
+  55491 <scratch> <out>`; real routers, a throwaway `postgres:16`): **8 of 8 passed, vitest exit 0**. Timing: **300 trials, 6 pollers,
+  10256 polls, `leakedTrials` 0, `leakedResponses` 0**. Captures: `pg-read-race-983681c/` (the `.log` is ignored by the record; the
+  JSON and `.exit` files are committed). The container was removed on exit (`container-rm-read-race-983681c.txt`). Security's own
+  files under `security/` were read and run, not edited. Its outputs went to my folder.
+
 No time-based test enters the suite. The real-database driver's readiness loop is in the instrument, not the suite.
 
 ## Verification
@@ -413,6 +497,10 @@ and as `.exit` files for the real-database runs. The `.log` files stay on this b
     exit 0 (`eslint-changed-files-16bf24d.txt`);
   - at `ed88e7c` (a one-line test change): suite 1904, exit 0; convention check 15 files examined, 0 FAIL, 0 CANDIDATE
     (`convention-check-ed88e7c.txt`); eslint on the changed test file, exit 0.
+- **Round 5, at `983681c`:** suite 1909, exit 0. `pnpm run typecheck` exit 0 (`typecheck-983681c.txt`). `npx eslint` over the two files
+  changed, exit 0 (`eslint-changed-files-983681c.txt`, empty). Convention check `--since=787bec5`: 15 files examined, 0 FAIL, 0
+  CANDIDATE, the same 18 SKIPs as `ed88e7c` (`convention-check-983681c.txt`; `diff` against `convention-check-ed88e7c.txt` is empty).
+  The new title names the surface and the behaviour, with no ID token. The diff adds no source comment. No package-manager operation ran.
 
 ## User-visible flows
 
@@ -431,16 +519,18 @@ For the owner's own check on production after release; no UAT stage runs:
   canonical number, so this is not visible through it.)
 - At the per-user limit of 1000 messages, a save naming a number no row holds is refused with the limit message.
 - Deleting your own message, or a server message as that server's admin, works as before.
+- Another user opening or copying a personal message at the moment its owner deletes it now gets the same "not found" as for any other
+  user's message. Before round 5 they got the message. This is not walkable by hand: the window is one request long.
 - A save whose message number is not plain digits is refused. The site's own editor always sends the database's number, so this is not
   visible through it.
 
 ## Handoff
 
-- **Handoff SHA:** website `ed88e7cecc3cdcd06d810dc65caaaa6f68798641` on `chain/fix-personal-message-access` (no upstream; not pushed).
-  Earlier handoffs were `12bcd75`, `d597734` and `2e50cd9`.
-- **Reviews:** code review (`code-reviewer-hooks-fix-personal-message-access`; a delta review from `12bcd75`), then QA Phase 2 (117
-  production lines ≥ 20), then security
-  on the change (rulings block 20:30Z).
+- **Handoff SHA:** website `983681ca6cd7cbacd0796ed093e094057ad7f9be` on `chain/fix-personal-message-access` (no upstream; not pushed).
+  Earlier handoffs were `ed88e7c`, `12bcd75`, `d597734` and `2e50cd9`.
+- **Reviews:** code review (`code-reviewer-hooks-fix-personal-message-access`; a delta review of `75f1543..983681c`), then QA
+  re-verification at the new SHA (124 production lines ≥ 20), then the security re-review of the delta (RC-1), per rulings block
+  2026-11-20T00:04Z.
 - **Merges:** devops, for website `master`, under the owner's release approval. The push deploys to production through Vercel (no beta),
   so it needs his word.
 - **Owner step at release:** the residue check on production data (Diagnosis, "Residue already in production"). Steering holds it to
@@ -448,17 +538,18 @@ For the owner's own check on production after release; no UAT stage runs:
 
 ## Resumption State
 
-Checkpoint written at steering's request (QA running).
-- **Done:** rounds 1–4 committed. Website `chain/fix-personal-message-access` HEAD is `ed88e7c` (= `Handoff-At`), and the tree is clean
-  apart from the untracked `.playwright-mcp/`, which is not this chain's. Code review is `APPROVED_WITH_COMMENTS` at `ed88e7c` (Round 1,
-  sub-entries 1a and 1b; `code-review/fix-personal-message-access-code-review.md`). The delta handoff was sent to the reviewer at 23:2xZ.
-- **Next:** nothing of mine is owed. I resume only if QA Phase 2 or security sends work back: read their document, write a red test
+Updated 2026-11-20 at the round 5 handoff.
+- **Done:** rounds 1–5 committed. Website `chain/fix-personal-message-access` HEAD is `983681c` (= `Handoff-At`), and the tree is clean
+  apart from the untracked `.playwright-mcp/`, which is not this chain's. Round 5 closes security M-001. The residue query in § Diagnosis
+  is corrected by a reconcile note. The round 5 handoff was sent to `code-reviewer-hooks-fix-personal-message-access` for a delta review.
+- **Next:** nothing of mine is owed. I resume only if code review, QA or security sends work back: read their document, write a red test
   first, add a round entry here, and hand the new SHA to the code reviewer for a delta review.
-- **Uncommitted or mutated:** none of mine. `verification/fix-personal-message-access/qa/` is untracked; it is QA's work in progress,
-  and I have not touched it.
+- **Uncommitted or mutated:** none of mine. Other sessions' untracked files in the record were left alone.
 - **Evidence not yet recorded:** none. The `.log` captures are ignored by the record (Verification, Correction).
-- **Questions open:** none. Steering holds the production residue read to the release seam (block 22:59Z).
-- **Processes and infrastructure:** no container or background run of mine is live. The scratch exports were removed.
+- **Questions open:** none. Steering holds the production residue read to the release seam, with the corrected query (blocks 22:59Z
+  and 23:53Z).
+- **Processes and infrastructure:** no container or background run of mine is live (`docker ps -a --filter name=fpma-sec` printed none).
+  The scratch exports are under this session's scratchpad.
 
 ## Changelog
 
@@ -475,3 +566,5 @@ Checkpoint written at steering's request (QA running).
 | 2026-11-19T23:20 | fixer | The 20-digit case tightened at `ed88e7c` (commit time, test only), after the length control survived at `16bf24d` |
 | 2026-11-19T23:21 | fixer | Scope, Diagnosis, Change, Test, Verification and Handoff updated for round 4; `Handoff-At` moved to `ed88e7c`; handed to code review for a delta review |
 | 2026-11-19T23:37 | fixer | Checkpoint: Resumption State written at steering's request. Disclosure: this row was first appended by an inline Python script, which the record's rule does not permit (record documents are written with the file-editing tools or `record-edit.js`). Nothing blocked it. The row's content is unchanged, and this note was added with the Edit tool |
+| 2026-11-20T00:07 | fixer | Round 5 committed at `983681c` (commit time), per rulings block 2026-11-20T00:04Z (record `fce289f`): security M-001 closed in `getOne`. Red at `75f1543`, 2 controls killed, suite 1909 with exit 0, and security's read-race instrument at `983681c` (8 of 8, 0 of 300 leaked) recorded |
+| 2026-11-20T00:09 | fixer | Scope, Diagnosis (round 5 entry; reconcile notes on hazard 6 and on the residue query, per block 23:53Z), Change, Test, Verification, flows, Handoff and Resumption State updated; `Handoff-At` moved to `983681c`; handed to code review for a delta review |

@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/26de9dd0-0210-4be5-97f5-fb44c97401fb/scratchpad/mr/20261120T000734Z-p1376719/mutant-2
+
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (32 tests | 3 failed) 43ms
+     × returns the message to the user who owns it 9ms
+     × refuses another signed-in user when the message is deleted between its load and the ownership check 6ms
+     × getOne reads the canonical number when the browser sends leading zeros 1ms
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 29 passed (32)
+   Start at  00:07:39
+   Duration  1.14s (transform 192ms, setup 0ms, import 970ms, tests 43ms, environment 0ms)
+
