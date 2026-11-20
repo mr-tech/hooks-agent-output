@@ -1,0 +1,37 @@
+--- /tmp/claude-1000/-usr-local-bin-hooks-website/279b9c46-7b6e-4f81-9968-a5a81fb29bab/scratchpad/m2fix/A/tsconfig.before.json	2026-11-20 04:57:13.236812213 +0000
++++ /tmp/claude-1000/-usr-local-bin-hooks-website/279b9c46-7b6e-4f81-9968-a5a81fb29bab/scratchpad/m2fix/B/tsconfig.json	2026-11-20 05:07:02.739989781 +0000
+@@ -15,7 +15,7 @@
+     "noEmit": true,
+     "esModuleInterop": true,
+     "module": "esnext",
+-    "moduleResolution": "node",
++    "moduleResolution": "bundler",
+     "resolveJsonModule": true,
+     "isolatedModules": true,
+     "jsx": "react-jsx",
+@@ -32,13 +32,17 @@
+       ],
+       "bot/*": [
+         "./bot/*"
++      ],
++      "highlight.js": [
++        "./node_modules/highlight.js/types/index.d.ts"
+       ]
+     }
+   },
+   "ts-node": {
+     "files": true,
+     "compilerOptions": {
+-      "module": "commonjs"
++      "module": "commonjs",
++      "moduleResolution": "node"
+     }
+   },
+   "include": [
+@@ -55,4 +59,4 @@
+     "node_modules",
+     "**/__tests__"
+   ]
+-}
++}
+\ No newline at end of file
