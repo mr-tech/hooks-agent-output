@@ -157,3 +157,24 @@ follows the chain's lockfile: the implementer runs `pnpm install --frozen-lockfi
 and again after M3, records each run's exit code in its document, and in-tree runs by code review, QA and UAT then exercise 16.4.6.
 Isolated exports stay available for base comparisons. At release devops returns the tree to `master`, which then carries the same
 lockfile. Not put to him: no product, scope or release act turns on it.
+
+## 2026-11-20T05:26Z — revision 7 approved by every gate; M2 capped; M1 to code review
+
+Read this turn: plan changelog rows 6, 7, R-5, R-6 (`57a4bef`, `af8a9d6`, `f7e0585`, `9855bef`); critique header (cycle 2 pass 2,
+APPROVED, `Reviewed-At` `af8a9d6`, stated limit SL-2); architecture header (APPROVED revision 7, `60d0a11`); QA's re-key of revision 7
+(`a7394c6`, by its message: no finding, B-9 and B-10 minted). No handoff added since 05:20Z (`git log --diff-filter=A -- handoff/`).
+- **M2 proceeds on revision 7.** Every pre-code gate approved it, no `OPEN QUESTION` open. The implementer read revision 7 and starts M2
+  on it (its message 05:2xZ).
+- **M2 capped** (steering.md, Standing check): revision 7 is M2's second revision since implementation started on revision 5 (6 and 7
+  each rewrote M2's steps and criteria). From now, each further gap on M2 below HIGH goes to the plan's Planner batch as a stated limit
+  without a revision round; a gate's severity-floor finding is excepted. Told to the critic, the architect, QA and the code reviewer.
+  Spend: 018's sessions since the M2 report at 04:55Z, `cc-usage.py chain hooks-018 --since 2026-11-20T04:55`: $25.57 (all of 018's
+  work in that window, M1's review-side and the implementer's M1 work included); M2 wall time 04:55Z to 05:26Z. Told to him in this
+  thread's next message.
+- **SL-2** (critique F-23 MEDIUM, M2-e's after-deploy look names no runner): QA's B-10 now names it as a devops Stage-1 handoff row,
+  and F-23 is in the Planner batch, folded before devops Stage 1. Routed to him as information in the same message; nothing for him to
+  choose.
+- **D-6 move told to him** (block 03:25Z): `highlight.js` 11.7.0 → 11.12.0, in the same message.
+- **M1 to code review:** `implementation/018-next-upgrade-save-size-cap-m1-implementation.md` at `003515a`, `Handoff-At` `f9e66c2`.
+  `code-reviewer-hooks-018` spawned with `steering/018-brief-code-reviewer.md`. The shared tree moves under M2 meanwhile, so the review
+  runs in an isolated export of `f9e66c2`.
