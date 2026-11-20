@@ -243,4 +243,12 @@ Code review Round 2 is APPROVED at `983681c` (record `9bd32a4`, by the reviewer'
 sites. It also recorded its own Round 1 error: it had listed "getOne owner compare" as sound without running it under the race.
 **Routing slip observed:** the reviewer delivered its Round 2 verdict to this thread only, with QA live and idle. Its brief routes approval
 to QA whenever a QA session is live. Asked at 00:13Z to deliver to QA; this thread forwards no SHA itself.
-check-repo LINKS failure at the fixer's document line 181: routed to the fixer, 00:1xZ.
+check-repo LINKS failure at the fixer's document line 181: routed to the fixer, 00:1xZ. Fixed at `388f173` (check-repo PASS, by its
+message).
+
+## 2026-11-20T00:17Z — QA refresh PASS at 983681c; security re-review (RC-1) started
+
+Read this turn: `qa/fix-personal-message-access-qa.md` (record `1c88873`): `Status: QA Complete`, `Verified-At: 983681c…`, a refresh
+after round 5. The `75f1543` verdict has expired. By QA's message: the suite passes 1909/1909 with exit 0; the second-user matrix passes
+21/21; the round sweep killed 3/3. B-1 and B-2 are unchanged. The both-owners count stands for his residue read. Spawn cue acted on:
+security, live, was sent its RC-1 delta re-review start, pointing at the QA, code-review and fixer documents.
