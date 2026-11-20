@@ -227,9 +227,9 @@ three `@typescript-eslint`/`import` presets with 32 rules; 45 top-level rules; `
 compatibility layer's plugin instances re-pointed at `eslint-config-next`'s ("Cannot redefine plugin \"jsx-a11y\""), and five rules
 `typescript-eslint` 8 no longer has (`semi`, `no-throw-literal`, `space-before-blocks`, `type-annotation-spacing`,
 `member-delimiter-style`) — and ran to exit 1 with 833 problems (455 errors, 378 warnings) against the base's 665 (300, 365). Not
-re-derived by the planner beyond reading its `README.md`, `add.log` and `lint9.txt` tail. `pnpm add` warned of unmet peers from
+re-derived by the planner beyond reading its `README.md`, `add-log.txt` and `lint9.txt` tail. `pnpm add` warned of unmet peers from
 `eslint-config-airbnb` 19.0.4 (`eslint ^7.32.0 || ^8.2.0`, `eslint-plugin-react-hooks ^4.3.0`) and from the v5 `@typescript-eslint`
-packages this milestone removes (`add.log`).
+packages this milestone removes (`add-log.txt`, the helper's `add.log` renamed so `.gitignore` admits it).
 
 **Acceptance criteria:**
 - **M3-a.** At the M3 tip, `pnpm exec eslint . --max-warnings=0` (never with `--fix` as an instrument) exits 0 or 1, never 2 (a
@@ -337,7 +337,7 @@ production; a release inside their windows changes what they read. Devops sequen
   paste; carried as M1-f's stated residue.
 - **RK-4** The release lands inside P-1's or 017's post-deploy windows and confounds their reads. Falsifier: devops's sequencing
   note in its Stage 1.
-- **RK-5** npm marks `eslint` 9.39.5 deprecated ("This version is no longer supported", the probe's `add.log`), and
+- **RK-5** npm marks `eslint` 9.39.5 deprecated ("This version is no longer supported", the probe's `add-log.txt`), and
   `eslint-config-airbnb` 19.0.4 peers ESLint 8 only, so the lint stack sits on an unsupported major behind a compatibility layer.
   Lint touches no build or runtime output (M3). Falsifier: a lint dependency that fails to install or load at a later bump;
   carried as a stated limit (X-16).
