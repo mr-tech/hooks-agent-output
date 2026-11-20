@@ -203,3 +203,13 @@ no website commit; UAT's walks open); the plan's Planner batch (15 item rows, CR
   → the architect's closing pass (from the last revision it read, 7) → implementer pins `zod` → code review → QA's last Phase 2 (M4
   and the effort-final sweep) at that tip → UAT.
 - Briefed to the planner now; the rest are briefed as each predecessor lands.
+
+## 2026-11-20T06:10Z — revision 8 (the batch fold) approved; architect's closing pass and the zod pin started together
+
+Read this turn: plan revision 8 (`2dc79a3`, changelog row 06:08; scope delta: `zod` pinned exactly at 3.22.4, M2-b's movers named, M2-e's
+post-deploy runner named UAT, the rest wording, no milestone added); the critique at `5b145f0` (Resolved, APPROVED, `Reviewed-At`
+`2dc79a3`). The delta traces to blocks 05:26Z (cap) and 05:42Z (CR-2); no delta prompt.
+- **Change to block 06:06Z's order (this thread's):** the architect's closing pass and the implementer's pin run in parallel, not in
+  series. The pin changes one specifier and no installed version, and the closing pass reads the folded plan and landed code; neither
+  waits on the other. QA's last Phase 2 still waits on the pin's code review; UAT on that Phase 2.
+- Architect briefed by message (last revision it read: 7, `af8a9d6`); implementer sent the pin, naming its Resumption State (`9774815`).
