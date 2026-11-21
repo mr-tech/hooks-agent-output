@@ -187,7 +187,7 @@ No time-based test was added. Nothing added has a lifetime or declines work.
 **Convention-check dispositions.** The 5 FAILs are eslint findings in `Navigation.tsx`, all present at `b829314` (eslint over the base
 export: same rules, each one line earlier — `prefer-nullish-coalescing` at 235, 246, 318; `react-hooks/refs` ×2 at 377). They are not
 fixed here: 318 → `??` would change what an empty message name shows, and `react-hooks/refs` is `fileMenuItems`' dependency on
-`nameRef.current` (`:177`), a refactor; either is a behaviour change beyond the named one. Raised to steering with the handoff. SKIPs:
+`nameRef.current` (`:177`), a refactor; either is a behaviour change beyond the named one. Raised to steering; its ruling (`steering/fix-get-one-absent-not-found-rulings.md`, block "2026-11-21T09:16Z"): leave them, recorded as debt — routed to `handoff/message-edit-header-preexisting-lint-findings-2026-11-21.md` (UUID b88e8be8), with base and fix eslint JSON at `verification/fix-get-one-absent-not-found/fixer/lint-{base,fix}-Navigation.tsx.json`. SKIPs:
 17 `.playwright-mcp/*.png` (untracked, not this chain's) and the ID-token/basename check, which the checker states it does not implement
 verbatim — **unchecked by the tool**; by hand, the new titles and the one comment line carry no ID token, and the comment is an
 `escaped:` line (comment-gate `ALLOW` `/^(escaped|artefact):\s/`).
@@ -227,3 +227,4 @@ Product vocabulary, for his own check after release (evidence: the cited test, a
 |---|---|---|
 | 2026-11-21T09:15 | fixer-fix-get-one-absent-not-found | Created: diagnosis, fix at website `b663b35`, red at `b829314`, 4 of 4 controls killed, suite/typecheck/lint/conventions; handed to code review. |
 | 2026-11-21T09:15 | fixer-fix-get-one-absent-not-found | The runner log and the tip suite's console capture renamed `.log` → `.txt` (the record ignores `*.log`) and committed; citations updated. |
+| 2026-11-21T09:17 | fixer-fix-get-one-absent-not-found | Navigation.tsx's five pre-existing lint findings routed to `handoff/message-edit-header-preexisting-lint-findings-2026-11-21.md` on steering's 09:16Z ruling. |
