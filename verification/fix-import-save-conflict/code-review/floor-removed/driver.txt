@@ -1,0 +1,2 @@
+settled-floor-removed SURVIVED 4.92
+0 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; floor-removed-mutants.json (blob 3fba6dc484228caf2fe3afb57ada9fe5e21c6c3e))
