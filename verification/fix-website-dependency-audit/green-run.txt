@@ -1,28 +1,29 @@
 ▶ website dependency audit
-  ✔ adds exactly one inbox entry for an advisory with no disposition, naming every installed version (126.045302ms)
-  ✔ adds no entry on a second run while the advisory stays undispositioned (204.309565ms)
-  ✔ leaves the inbox unchanged when every advisory is dispositioned (114.860087ms)
-  ✔ does not fail when a dispositioned or reported advisory has left the audit (116.993067ms)
-  ✔ treats a bare module key or a version-line key as no disposition of an advisory (117.593061ms)
-  ✔ treats a disposition with an empty assessment as no disposition (116.407538ms)
-  ✔ writes nothing on an unreadable audit and reports the advisory on the next readable run (192.065599ms)
-  ✔ separates the entry by a blank line from an inbox that lacks a final newline (118.80965ms)
-  ✔ fails naming git when the released ref does not exist, and reports no advisory (72.902163ms)
-  ✔ adds one inbox entry when a streak of failed runs starts, and none for the rest of the streak (223.31773ms)
-  ✔ adds a new failure entry for a streak that starts after a run succeeded (266.883395ms)
-  ✔ adds one entry per pair when the local released ref differs from the remote head, moving no ref (355.153346ms)
-  ✔ fails, reporting no advisory, when the remote has no head for the released branch (130.850429ms)
-  ✔ prints the procedure for adding a disposition on --help, and writes nothing (70.937568ms)
-  ✔ fails on an argument it does not know, and writes nothing (76.19464ms)
-  ✔ keeps no reported key when the inbox cannot be written, and reports the advisory on the next run (206.600644ms)
-  ✔ removes the lockfile export after a readable and after an unreadable run (207.96365ms)
-✔ website dependency audit (2719.673089ms)
-ℹ tests 17
+  ✔ adds exactly one inbox entry for an advisory with no disposition, naming every installed version (140.882914ms)
+  ✔ adds no entry on a second run while the advisory stays undispositioned (192.675768ms)
+  ✔ leaves the inbox unchanged when every advisory is dispositioned (121.578372ms)
+  ✔ does not fail when a dispositioned or reported advisory has left the audit (113.27406ms)
+  ✔ treats a bare module key or a version-line key as no disposition of an advisory (122.212428ms)
+  ✔ treats a disposition with an empty assessment as no disposition (133.632017ms)
+  ✔ writes nothing on an unreadable audit and reports the advisory on the next readable run (211.568491ms)
+  ✔ separates the entry by a blank line from an inbox that lacks a final newline (119.273925ms)
+  ✔ fails naming git when the released ref does not exist, and reports no advisory (76.444791ms)
+  ✔ adds one inbox entry when a streak of failed runs starts, and none for the rest of the streak (226.040838ms)
+  ✔ starts no streak when the failure entry cannot be written, and adds it on the next failure (181.010165ms)
+  ✔ adds a new failure entry for a streak that starts after a run succeeded (269.772458ms)
+  ✔ adds one entry per pair when the local released ref differs from the remote head, moving no ref (401.601992ms)
+  ✔ fails, reporting no advisory, when the remote has no head for the released branch (152.256211ms)
+  ✔ prints the procedure for adding a disposition on --help, and writes nothing (76.984508ms)
+  ✔ fails on an argument it does not know, and writes nothing (84.633204ms)
+  ✔ keeps no reported key when the inbox cannot be written, and reports the advisory on the next run (224.077107ms)
+  ✔ removes the lockfile export after a readable and after an unreadable run (237.748393ms)
+✔ website dependency audit (3087.712874ms)
+ℹ tests 18
 ℹ suites 1
-ℹ pass 17
+ℹ pass 18
 ℹ fail 0
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 2782.578104
+ℹ duration_ms 3153.099228
 exit 0

@@ -115,6 +115,11 @@ function appendEntries(inbox, entries) {
   fs.appendFileSync(inbox, `${lead}${entries.join('\n\n')}\n`);
 }
 
+function persist(opts, entries, state) {
+  if (entries.length) appendEntries(opts.inbox, entries);
+  writeState(opts.state, state);
+}
+
 const one = (s) => String(s).replace(/\s+/g, ' ').trim();
 const heading = (now) => `## ${now.slice(0, 10)} — website-dependency-audit (crontab, \`tools/website-dependency-audit.js\`) — FYI`;
 
@@ -149,9 +154,8 @@ function entryFor(u, sha, opts, now) {
 function recordFailure(opts, err, now) {
   const state = readState(opts.state);
   if (state.failing) return;
-  appendEntries(opts.inbox, [failureEntry(opts, err, now)]);
   state.failing = now;
-  writeState(opts.state, state);
+  persist(opts, [failureEntry(opts, err, now)], state);
 }
 
 function audit(opts, now) {
@@ -173,11 +177,10 @@ function audit(opts, now) {
   const newPair = sha !== remote && !state.stale[pair];
   const entries = [...(newPair ? [staleEntry(opts, sha, remote, now)] : []), ...fresh.map((u) => entryFor(u, sha, opts, now))];
   const changed = entries.length > 0 || Boolean(state.failing);
-  if (entries.length) appendEntries(opts.inbox, entries);
   for (const u of fresh) state.reported[u.key] = now;
   if (newPair) state.stale[pair] = now;
   delete state.failing;
-  if (changed) writeState(opts.state, state);
+  if (changed) persist(opts, entries, state);
   console.log(`${now}Z website ${sha.slice(0, 7)} (${opts.ref}; remote head ${remote.slice(0, 7)}): advisories ${Object.keys(result.advisories).length}, undispositioned ${open.length}, newly reported ${fresh.length} [${fresh.map((u) => u.key).join(', ')}]`);
 }
 

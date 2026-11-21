@@ -1,0 +1,49 @@
+▶ website dependency audit
+  ✔ adds exactly one inbox entry for an advisory with no disposition, naming every installed version (128.733055ms)
+  ✔ adds no entry on a second run while the advisory stays undispositioned (265.278521ms)
+  ✔ leaves the inbox unchanged when every advisory is dispositioned (233.170717ms)
+  ✔ does not fail when a dispositioned or reported advisory has left the audit (152.940856ms)
+  ✔ treats a bare module key or a version-line key as no disposition of an advisory (146.597007ms)
+  ✔ treats a disposition with an empty assessment as no disposition (211.609731ms)
+  ✔ writes nothing on an unreadable audit and reports the advisory on the next readable run (367.236023ms)
+  ✔ separates the entry by a blank line from an inbox that lacks a final newline (133.429452ms)
+  ✔ fails naming git when the released ref does not exist, and reports no advisory (101.900774ms)
+  ✔ adds one inbox entry when a streak of failed runs starts, and none for the rest of the streak (224.406519ms)
+  ✖ starts no streak when the failure entry cannot be written, and adds it on the next failure (130.528722ms)
+  ✔ adds a new failure entry for a streak that starts after a run succeeded (279.51798ms)
+  ✔ adds one entry per pair when the local released ref differs from the remote head, moving no ref (395.943613ms)
+  ✔ fails, reporting no advisory, when the remote has no head for the released branch (137.756567ms)
+  ✔ prints the procedure for adding a disposition on --help, and writes nothing (74.94436ms)
+  ✔ fails on an argument it does not know, and writes nothing (78.710425ms)
+  ✔ keeps no reported key when the inbox cannot be written, and reports the advisory on the next run (361.117064ms)
+  ✔ removes the lockfile export after a readable and after an unreadable run (386.10871ms)
+✖ website dependency audit (3813.225859ms)
+ℹ tests 18
+ℹ suites 1
+ℹ pass 17
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3915.435927
+
+✖ failing tests:
+
+test at ../../../../../tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/cr4/websiteDependencyAudit.test.js:235:3
+✖ starts no streak when the failure entry cannot be written, and adds it on the next failure (130.528722ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!fs.existsSync(files.state) || !JSON.parse(fs.readFileSync(files.state, 'utf8')).failing)
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/cr4/websiteDependencyAudit.test.js:241:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+exit 1

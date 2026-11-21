@@ -232,6 +232,20 @@ describe('website dependency audit', () => {
     assert.strictEqual(inbox().slice(INBOX_HEAD.length), first);
   });
 
+  it('starts no streak when the failure entry cannot be written, and adds it on the next failure', () => {
+    writeDispositions({});
+    const usable = files.inbox;
+    files.inbox = path.join(dir, 'inbox-is-a-directory');
+    fs.mkdirSync(files.inbox);
+    assert.notStrictEqual(run(null, { raw: 'not json' }).status, 0);
+    assert.ok(!fs.existsSync(files.state) || !JSON.parse(fs.readFileSync(files.state, 'utf8')).failing);
+    files.inbox = usable;
+    assert.notStrictEqual(run(null, { raw: 'not json' }).status, 0);
+    const added = inbox().slice(INBOX_HEAD.length);
+    assert.strictEqual(headings(added).length, 1);
+    assert.match(added, /failed/);
+  });
+
   it('adds a new failure entry for a streak that starts after a run succeeded', () => {
     writeDispositions({ 'ws|GHSA-3h5v-q93c-6h6q': ASSESSED });
     assert.notStrictEqual(run(null, { raw: 'not json' }).status, 0);

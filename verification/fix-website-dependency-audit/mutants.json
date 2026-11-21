@@ -2,7 +2,7 @@
   {"id":"how-required","file":"tools/website-dependency-audit.js","old":"if (d && d.how) continue;","new":"if (d) continue;"},
   {"id":"bare-module-key-honoured","file":"tools/website-dependency-audit.js","old":"const d = dispositions[key];","new":"const d = dispositions[key] || dispositions[a.module_name];"},
   {"id":"reported-not-skipped","file":"tools/website-dependency-audit.js","old":"open.filter((u) => !state.reported[u.key])","new":"open.filter(() => true)"},
-  {"id":"quiet-run-appends","file":"tools/website-dependency-audit.js","old":"if (entries.length) appendEntries","new":"if (true) appendEntries"},
+  {"id":"quiet-run-appends","file":"tools/website-dependency-audit.js","old":"  if (entries.length) appendEntries(opts.inbox, entries);\n  writeState","new":"  if (true) appendEntries(opts.inbox, entries);\n  writeState"},
   {"id":"advisories-shape-unchecked","file":"tools/website-dependency-audit.js","old":"if (!audit || typeof audit.advisories !== 'object' || audit.advisories === null) {","new":"if (!audit) {"},
   {"id":"git-exit-unchecked","file":"tools/website-dependency-audit.js","old":"if (result.status !== 0) throw","new":"if (false) throw"},
   {"id":"export-not-removed","file":"tools/website-dependency-audit.js","old":"    fs.rmSync(dir, { recursive: true, force: true });","new":""},
@@ -17,7 +17,7 @@
   {"id":"unknown-argument-accepted","file":"tools/website-dependency-audit.js","old":"|| argv[i + 1] === undefined) throw","new":"|| argv[i + 1] === undefined) if (false) throw"},
   {"id":"state-dir-not-made","file":"tools/website-dependency-audit.js","old":"  fs.mkdirSync(path.dirname(file), { recursive: true });\n","new":""},
   {"id":"absent-state-unhandled","file":"tools/website-dependency-audit.js","old":"if (!fs.existsSync(file)) return { reported: {}, stale: {} };","new":"if (false) return { reported: {}, stale: {} };"},
-  {"id":"state-written-before-append","file":"tools/website-dependency-audit.js","old":"  if (entries.length) appendEntries(opts.inbox, entries);\n  for (const u of fresh) state.reported[u.key] = now;\n  if (newPair) state.stale[pair] = now;\n  delete state.failing;\n  if (changed) writeState(opts.state, state);","new":"  for (const u of fresh) state.reported[u.key] = now;\n  if (newPair) state.stale[pair] = now;\n  delete state.failing;\n  if (changed) writeState(opts.state, state);\n  if (entries.length) appendEntries(opts.inbox, entries);"},
+  {"id":"state-written-before-append","file":"tools/website-dependency-audit.js","old":"  if (entries.length) appendEntries(opts.inbox, entries);\n  writeState(opts.state, state);","new":"  writeState(opts.state, state);\n  if (entries.length) appendEntries(opts.inbox, entries);"},
   {"id":"streak-guard-removed","file":"tools/website-dependency-audit.js","old":"  if (state.failing) return;\n","new":""},
   {"id":"streak-marker-not-set","file":"tools/website-dependency-audit.js","old":"  state.failing = now;\n","new":""},
   {"id":"streak-not-ended","file":"tools/website-dependency-audit.js","old":"  delete state.failing;\n","new":""},
@@ -26,5 +26,7 @@
   {"id":"stale-pair-unguarded","file":"tools/website-dependency-audit.js","old":"sha !== remote && !state.stale[pair]","new":"sha !== remote"},
   {"id":"stale-without-difference","file":"tools/website-dependency-audit.js","old":"sha !== remote && !state.stale[pair]","new":"!state.stale[pair]"},
   {"id":"stale-pair-not-kept","file":"tools/website-dependency-audit.js","old":"  if (newPair) state.stale[pair] = now;\n","new":""},
-  {"id":"remote-head-empty-accepted","file":"tools/website-dependency-audit.js","old":"  if (!head) throw","new":"  if (false) throw"}
+  {"id":"remote-head-empty-accepted","file":"tools/website-dependency-audit.js","old":"  if (!head) throw","new":"  if (false) throw"},
+  {"id":"failure-state-written-before-persist","file":"tools/website-dependency-audit.js","old":"  state.failing = now;\n  persist(","new":"  state.failing = now;\n  writeState(opts.state, state);\n  persist("},
+  {"id":"audit-state-written-before-persist","file":"tools/website-dependency-audit.js","old":"  if (changed) persist(opts, entries, state);","new":"  if (changed) writeState(opts.state, state);\n  if (changed) persist(opts, entries, state);"}
 ]
