@@ -1,0 +1,44 @@
+[
+  {
+    "id": "gate-on-raw-draft",
+    "file": "src/app/message/_components/NewMessageModal.tsx",
+    "old": "const gate = gateBeforePersist(settledMessage ?? loadedMessage);",
+    "new": "const gate = gateBeforePersist(loadedMessage);",
+    "tests": ["src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx"]
+  },
+  {
+    "id": "floor-on-raw-draft",
+    "file": "src/app/message/_components/NewMessageModal.tsx",
+    "old": "const contentFloorError = settledMessage\n    ? validateContentRequirements(settledMessage) : undefined;",
+    "new": "const contentFloorError = loadedMessage\n    ? validateContentRequirements(loadedMessage) : undefined;",
+    "tests": ["src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx"]
+  },
+  {
+    "id": "settled-notice-not-shown",
+    "file": "src/app/message/_components/NewMessageModal.tsx",
+    "old": "<NullableComponent show={settledNotice}>",
+    "new": "<NullableComponent show={false}>",
+    "tests": ["src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx"]
+  },
+  {
+    "id": "settled-notice-value-null",
+    "file": "src/app/message/_components/NewMessageModal.tsx",
+    "old": "settledNotice: noticeMessageForSettled(disposition),",
+    "new": "settledNotice: null,",
+    "tests": ["src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx"]
+  },
+  {
+    "id": "requires-choice-guard-removed",
+    "file": "src/app/message/_components/NewMessageModal.tsx",
+    "old": "    if (disposition.requiresChoice) return { settledMessage: undefined, settledNotice: null };\n",
+    "new": "",
+    "tests": ["src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx"]
+  },
+  {
+    "id": "no-draft-guard-removed",
+    "file": "src/app/message/_components/NewMessageModal.tsx",
+    "old": "    if (!loadedMessage) return { settledMessage: undefined, settledNotice: null };\n",
+    "new": "",
+    "tests": ["src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx"]
+  }
+]

@@ -1,0 +1,24 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — Save writes a loaded, non-conflicting draft > a classic draft loaded via the JSON tab writes through Save
+TypeError: Cannot read properties of undefined (reading 'flags')
+ ❯ src/app/message/_components/NewMessageModal.tsx:128:21
+    126|   const { settledMessage, settledNotice } = useMemo(() => {
+    127|     const disposition = resolveContentLoss(
+    128|       loadedMessage.flags as number | undefined,
+       |                     ^
+    129|       loadedMessage.components as undefined | { type: number }[],
+    130|       loadedMessage.content,
+ ❯ mountMemo node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:8777:23
+ ❯ Object.useMemo node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:26216:18
+ ❯ process.env.NODE_ENV.exports.useMemo node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:1251:34
+ ❯ NewMessageModal src/app/message/_components/NewMessageModal.tsx:126:45
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ updateSimpleMemoComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9830:14
+ ❯ updateMemoComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9763:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

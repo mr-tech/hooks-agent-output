@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080612Z-p2136315/mutant-6
+
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx (5 tests | 1 failed) 836ms
+     × a classic draft loaded via the JSON tab writes through Save 21ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  08:06:47
+   Duration  3.23s (transform 598ms, setup 23ms, import 1.19s, tests 836ms, environment 691ms)
+

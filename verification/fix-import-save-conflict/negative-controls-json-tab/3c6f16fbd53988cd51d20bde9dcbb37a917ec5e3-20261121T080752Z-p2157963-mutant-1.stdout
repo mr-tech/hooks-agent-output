@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1
+
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx (6 tests | 2 failed) 1382ms
+     × a message with V2 components and no V2 flag saves with the flag set, under the settled notice 119ms
+     × a JSON draft with both V2 components and content, kept as Components V2 in the JSON tab, saves those components unchanged 212ms
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 4 passed (6)
+   Start at  08:07:58
+   Duration  3.78s (transform 721ms, setup 23ms, import 1.13s, tests 1.38s, environment 647ms)
+

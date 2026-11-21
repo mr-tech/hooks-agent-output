@@ -1,0 +1,9 @@
+[
+  {
+    "id": "settled-draft-loses-components",
+    "file": "src/app/message/_components/NewMessageModal.tsx",
+    "old": "settledMessage: applyDisposition(loadedMessage),",
+    "new": "settledMessage: { ...applyDisposition(loadedMessage), components: [] },",
+    "tests": ["src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx"]
+  }
+]

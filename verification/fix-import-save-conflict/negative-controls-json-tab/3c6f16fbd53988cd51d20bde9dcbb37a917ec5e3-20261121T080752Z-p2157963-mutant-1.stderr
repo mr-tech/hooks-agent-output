@@ -1,0 +1,69 @@
+stderr | src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a message with V2 components and no V2 flag saves with the flag set, under the settled notice
+TypeError: textRange(...).getClientRects is not a function
+    at textCoords (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:811:43)
+    at TextView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:720:16)
+    at coordsInChildren (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1094:23)
+    at LineView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1532:20)
+    at DocView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:2774:30)
+    at EditorView.coordsAtPos (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6954:33)
+    at RectangleMarker.forRange (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7541:28)
+    at Object.markers (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7783:51)
+    at LayerView.measure (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7691:27)
+    at file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6655:34
+
+stderr | src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a JSON draft with both V2 components and content, kept as Components V2 in the JSON tab, saves those components unchanged
+TypeError: textRange(...).getClientRects is not a function
+    at textCoords (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:811:43)
+    at TextView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:720:16)
+    at coordsInChildren (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1094:23)
+    at LineView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1532:20)
+    at DocView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:2774:30)
+    at EditorView.coordsAtPos (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6954:33)
+    at RectangleMarker.forRange (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7541:28)
+    at Object.markers (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7783:51)
+    at LayerView.measure (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7691:27)
+    at file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T080752Z-p2157963/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6655:34
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a message with V2 components and no V2 flag saves with the flag set, under the settled notice
+AssertionError: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ writtenData src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:133:31
+    131|
+    132| function writtenData(): MessageData {
+    133|   expect(capturedUpsertInput).toBeTruthy();
+       |                               ^
+    134|   return (capturedUpsertInput as { message: { data: MessageData } }).m…
+    135| }
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:165:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a JSON draft with both V2 components and content, kept as Components V2 in the JSON tab, saves those components unchanged
+AssertionError: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ writtenData src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:133:31
+    131|
+    132| function writtenData(): MessageData {
+    133|   expect(capturedUpsertInput).toBeTruthy();
+       |                               ^
+    134|   return (capturedUpsertInput as { message: { data: MessageData } }).m…
+    135| }
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:212:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

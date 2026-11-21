@@ -1,0 +1,35 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a V2-flagged message with content and no V2 components saves as Classic with the flag cleared, under the settled notice
+AssertionError: expected 'Create or upload a new messageMessage…' to contain 'it has been saved as Classic and the …'
+
+Expected: "it has been saved as Classic and the flag cleared"
+Received: "Create or upload a new messageMessage LinkURL(Requires bot.)WebhookWebhook URLMessage Link or IDMessage Context CommandCodeJSON{}Copy to ClipboardPretty printMessage PreviewContinueMessage Name(0 / 32)Save To(max 50 per account / server)Select a GuildBackSave"
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:148:28
+    146|     const el = mount();
+    147|
+    148|     expect(el.textContent).toContain('it has been saved as Classic and…
+       |                            ^
+    149|     await continueAndName(el);
+    150|     press(findButton(el, 'Save'));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a message with V2 components and no V2 flag saves with the flag set, under the settled notice
+AssertionError: expected 'Create or upload a new messageMessage…' to contain 'the Components V2 flag was not set — …'
+
+Expected: "the Components V2 flag was not set — it has been set to match"
+Received: "Create or upload a new messageMessage LinkURL(Requires bot.)WebhookWebhook URLMessage Link or IDMessage Context CommandCodeJSON{}Copy to ClipboardPretty printMessage PreviewContinueMessage Name(0 / 32)Save To(max 50 per account / server)Select a GuildBackSave"
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:161:28
+    159|     const el = mount();
+    160|
+    161|     expect(el.textContent).toContain('the Components V2 flag was not s…
+       |                            ^
+    162|     await continueAndName(el);
+    163|     press(findButton(el, 'Save'));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
