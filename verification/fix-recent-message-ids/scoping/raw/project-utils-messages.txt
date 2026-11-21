@@ -1,0 +1,40 @@
+origin/master:api-extractor.json:26:  "messages": {
+origin/master:dist/index.d.ts:28:    Messages: Message;
+origin/master:dist/index.d.ts:29:    ScheduledMessages: ScheduledMessage;
+origin/master:dist/index.d.ts:49:    fk_guilds_id: string;
+origin/master:dist/index.d.ts:59:    fk_guilds_id: string | null;
+origin/master:dist/index.d.ts:63:    recentMessageId: string | null;
+origin/master:dist/index.d.ts:80:    fk_guilds_id: string;
+origin/master:dist/index.d.ts:81:    fk_messages_id: string;
+origin/master:dist/index.d.ts:100:    fk_messages_id: string;
+origin/master:prisma/schema.prisma:70:    messages Message[]
+origin/master:prisma/schema.prisma:91:    messages          Message[]
+origin/master:prisma/schema.prisma:92:    scheduledMessages ScheduledMessage[]
+origin/master:prisma/schema.prisma:101:    fk_guilds_id      BigInt?
+origin/master:prisma/schema.prisma:105:    recentMessageId   String?
+origin/master:prisma/schema.prisma:113:    guild Guild? @relation(fields: [fk_guilds_id], references: [id], onDelete: Cascade)
+origin/master:prisma/schema.prisma:119:    @@map("Messages")
+origin/master:prisma/schema.prisma:124:    fk_guilds_id BigInt
+origin/master:prisma/schema.prisma:130:    guild Guild @relation(fields: [fk_guilds_id], references: [id], onDelete: Cascade)
+origin/master:prisma/schema.prisma:138:    fk_guilds_id   BigInt
+origin/master:prisma/schema.prisma:139:    fk_messages_id BigInt   @unique
+origin/master:prisma/schema.prisma:148:    guild   Guild   @relation(fields: [fk_guilds_id], references: [id], onDelete: Cascade)
+origin/master:prisma/schema.prisma:149:    message Message @relation(fields: [fk_messages_id], references: [id], onDelete: Cascade)
+origin/master:prisma/schema.prisma:151:    @@map("ScheduledMessages")
+origin/master:prisma/schema.prisma:156:    fk_messages_id BigInt
+origin/master:prisma/schema.prisma:164:    message Message @relation(fields: [fk_messages_id], references: [id], onDelete: Cascade)
+origin/master:src/generated/Database/types.ts:34:    fk_guilds_id: string;
+origin/master:src/generated/Database/types.ts:43:    fk_guilds_id: string | null;
+origin/master:src/generated/Database/types.ts:52:    fk_guilds_id: string;
+origin/master:src/generated/Database/types.ts:53:    fk_messages_id: string;
+origin/master:src/generated/Database/types.ts:70:    fk_messages_id: string;
+origin/master:src/generated/Database/types.ts:93:    Messages: Message;
+origin/master:src/generated/Database/types.ts:94:    ScheduledMessages: ScheduledMessage;
+origin/master:src/generated/db/types.ts:36:    fk_guilds_id: string;
+origin/master:src/generated/db/types.ts:45:    fk_guilds_id: string | null;
+origin/master:src/generated/db/types.ts:49:    recentMessageId: string | null;
+origin/master:src/generated/db/types.ts:59:    fk_guilds_id: string;
+origin/master:src/generated/db/types.ts:60:    fk_messages_id: string;
+origin/master:src/generated/db/types.ts:77:    fk_messages_id: string;
+origin/master:src/generated/db/types.ts:100:    Messages: Message;
+origin/master:src/generated/db/types.ts:101:    ScheduledMessages: ScheduledMessage;

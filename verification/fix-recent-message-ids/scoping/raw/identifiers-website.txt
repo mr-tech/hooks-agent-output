@@ -1,0 +1,56 @@
+origin/master:src/@types/global.d.ts:70:    recentMessageIds?: string[];
+origin/master:src/app/message/page.tsx:74:      for (const id of session.user.preferences?.recentMessageIds ?? []) {
+origin/master:src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx:11:  sent: [] as { recentMessageIds?: string[] }[],
+origin/master:src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx:17:    data: { user: { preferences: { recentMessageIds: hoisted.stored } } },
+origin/master:src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx:21:  default: (preferences: { recentMessageIds?: string[] }) => { hoisted.sent.push(preferences); },
+origin/master:src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx:40:  return hoisted.sent.at(-1)?.recentMessageIds;
+origin/master:src/providers/MessageProvider/__tests__/usePreferences.recent-list-bound.test.tsx:93:    expect(hoisted.sent.at(-1)?.recentMessageIds).toBeUndefined();
+origin/master:src/providers/MessageProvider/usePreferences.ts:10:  const recentMessageIds = useMemo(() => {
+origin/master:src/providers/MessageProvider/usePreferences.ts:13:    for (const id of session?.user?.preferences?.recentMessageIds ?? []) {
+origin/master:src/providers/MessageProvider/usePreferences.ts:19:  }, [session?.user?.preferences?.recentMessageIds, message?.id]);
+origin/master:src/providers/MessageProvider/usePreferences.ts:22:    recentMessageIds: recentMessageIds
+origin/master:src/providers/MessageProvider/usePreferences.ts:23:      ?? session?.user?.preferences?.recentMessageIds?.slice(0, MAX_RECENT_MESSAGE_IDS),
+origin/master:src/server/__tests__/auth.hydrated-recent-messages.test.ts:60:async function hydrateAs(dbUserId: string, recentMessageIds: string[]) {
+origin/master:src/server/__tests__/auth.hydrated-recent-messages.test.ts:63:    user: { id: dbUserId, preferences: { recentMessageIds } },
+origin/master:src/server/__tests__/auth.hydrated-session.test.ts:28:  getUserRecentMessages: () => {
+origin/master:src/server/__tests__/auth.hydrated-session.test.ts:43:function hydrate(user: object = { id: 'fixture-user', preferences: { recentMessageIds: ['m1'] } }) {
+origin/master:src/server/api/routers/__tests__/user.save-limits.test.ts:38:  call: (input: unknown) => caller().updatePreferences(input as never),
+origin/master:src/server/api/routers/__tests__/user.save-limits.test.ts:44:describe('user.updatePreferences input: every message list refuses an over-limit length with one issue', () => {
+origin/master:src/server/api/routers/__tests__/user.save-limits.test.ts:51:describe('user.updatePreferences input: recentMessageIds', () => {
+origin/master:src/server/api/routers/__tests__/user.save-limits.test.ts:57:    const input = { recentMessageIds: ids(12, element) };
+origin/master:src/server/api/routers/__tests__/user.save-limits.test.ts:61:    expect(issues).toEqual([{ code: 'too_big', path: ['recentMessageIds'], message: 'Array must contain at most 11 element(s)' }]);
+origin/master:src/server/api/routers/__tests__/user.save-limits.test.ts:66:    const { issues } = await refusalOf(procedure.call, { recentMessageIds: ids(61) });
+origin/master:src/server/api/routers/__tests__/user.save-limits.test.ts:68:    expect(issues).toEqual([{ code: 'too_big', path: ['recentMessageIds'], message: 'Array must contain at most 11 element(s)' }]);
+origin/master:src/server/api/routers/__tests__/user.save-limits.test.ts:72:    const outcome = await reachesDatabase(procedure, { recentMessageIds: ids(length) });
+origin/master:src/server/api/routers/__tests__/user.save-limits.test.ts:79:describe('user.updatePreferences input: the refusal of a save with many errors is capped', () => {
+origin/master:src/server/api/routers/__tests__/user.save-limits.test.ts:86:describe('user.updatePreferences stored list', () => {
+origin/master:src/server/api/routers/__tests__/user.save-limits.test.ts:90:    await caller().updatePreferences({ recentMessageIds: sent });
+origin/master:src/server/api/routers/__tests__/user.save-limits.test.ts:93:    const stored = (update?.parameters[0] as { recentMessageIds: string[] }).recentMessageIds;
+origin/master:src/server/api/routers/message.ts:11:  cappedInput, messageIdShape, optionalIdMessageShape, recentMessageDataShape, userOrDiscordIdShape,
+origin/master:src/server/api/routers/message.ts:55:    .input(messageIdShape)
+origin/master:src/server/api/routers/message.ts:222:    .input(z.object({ id: messageIdShape }))
+origin/master:src/server/api/routers/user.ts:28:  updatePreferences: protectedProcedure
+origin/master:src/server/api/routers/user.ts:32:      recentMessageIds: boundedArray(z.string(), MAX_RECENT_MESSAGE_IDS + 1).optional(),
+origin/master:src/server/api/routers/user.ts:38:      if (preferences.recentMessageIds) {
+origin/master:src/server/api/routers/user.ts:39:        preferences.recentMessageIds = preferences.recentMessageIds
+origin/master:src/server/api/utils/__tests__/shapes.error-cap.test.ts:6:import { cappedInput, discordMessageShape, messageIdShape } from '../shapes';
+origin/master:src/server/api/utils/__tests__/shapes.error-cap.test.ts:30:    ids: z.array(messageIdShape),
+origin/master:src/server/api/utils/__tests__/shapes.message-id.test.ts:5:import { messageIdShape } from '~/server/api/utils/shapes';
+origin/master:src/server/api/utils/__tests__/shapes.message-id.test.ts:9:describe('messageIdShape', () => {
+origin/master:src/server/api/utils/__tests__/shapes.message-id.test.ts:23:    expect(() => { outcome = messageIdShape.safeParse(id); }).not.toThrow();
+origin/master:src/server/api/utils/__tests__/shapes.message-id.test.ts:32:    expect(messageIdShape.safeParse(id)).toEqual({ success: true, data: canonical });
+origin/master:src/server/api/utils/__tests__/shared.in-predicates.test.ts:7:import { getPartialMessages, getUserRecentMessages } from '~/server/api/utils/shared';
+origin/master:src/server/api/utils/__tests__/shared.in-predicates.test.ts:34:describe('getUserRecentMessages', () => {
+origin/master:src/server/api/utils/__tests__/shared.in-predicates.test.ts:36:    expect(await getUserRecentMessages([], 'u1')).toEqual([]);
+origin/master:src/server/api/utils/__tests__/shared.in-predicates.test.ts:41:    const result = await getUserRecentMessages(['m1', 'm2'], 'u1');
+origin/master:src/server/api/utils/shapes.ts:114:export const messageIdShape = z.string()
+origin/master:src/server/api/utils/shapes.ts:419:  id: messageIdShape,
+origin/master:src/server/api/utils/shapes.ts:437:  id: messageIdShape.optional(),
+origin/master:src/server/api/utils/shared.ts:109:export async function getUserRecentMessages(
+origin/master:src/server/auth.ts:12:import { getUserRecentMessages } from './api/utils/shared';
+origin/master:src/server/auth.ts:132:async function hydratedAuthCallback(params: AuthCallbackParams): Promise<NextAuthSession> {
+origin/master:src/server/auth.ts:138:    const messagePromise = Promise.resolve(preferences?.recentMessageIds
+origin/master:src/server/auth.ts:139:      ? getUserRecentMessages(preferences.recentMessageIds, user.id)
+origin/master:src/server/auth.ts:274:    session: hydratedAuthCallback,
+origin/master:src/utils/hooks/useUpdatePreferences.ts:12:  const { mutate: updatePreferences } = api.user.updatePreferences.useMutation({
+origin/master:src/utils/hooks/useUpdatePreferences.ts:18:      updatePreferences(preferences);

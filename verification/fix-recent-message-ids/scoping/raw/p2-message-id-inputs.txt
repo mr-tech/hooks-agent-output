@@ -1,0 +1,82 @@
+origin/master:bot/utils/DiscordMessage.ts:132:  public setReference(messageId: string, channelId: string) {
+origin/master:bot/utils/DiscordMessage.ts:133:    this.#messageReference = { message_id: messageId, channel_id: channelId };
+origin/master:src/@types/global.d.ts:109:    messageId: string;
+origin/master:src/app/message/_components/NewMessageModal.tsx:67:  const [messageIdOrUrl, setMessageLink] = useState('');
+origin/master:src/app/message/_components/NewMessageModal.tsx:84:  } = useValidateWebhook(webhookUrl, messageIdOrUrl);
+origin/master:src/app/message/_components/NewMessageModal.tsx:89:  } = api.message.getFromUrl.useQuery({ url: messageIdOrUrl }, {
+origin/master:src/app/message/_components/NewMessageModal.tsx:90:    enabled: loadOption === 'bot' && DISCORD_MESSAGE_LINK_REGEX.test(messageIdOrUrl) && !webhook && !!session,
+origin/master:src/app/message/_components/NewMessageModal.tsx:272:                        value={messageIdOrUrl}
+origin/master:src/app/message/_components/NewMessageModal.tsx:306:                          value={messageIdOrUrl}
+origin/master:src/app/message/m/[id]/send/_components/EditMessageMenu.tsx:22:    oldMessage, messageIdOrUrl, oldMessageError,
+origin/master:src/app/message/m/[id]/send/_components/EditMessageMenu.tsx:37:          value={messageIdOrUrl}
+origin/master:src/constants/index.ts:31:export const DISCORD_MESSAGE_LINK_REGEX = /^https:\/\/(?:(?:www|canary|ptb)\.)?discord(?:app)?\.com\/channels\/(?<guildId>\d+)\/(?<channelId>\d+)\/(?<messageId>\d+)$/;
+origin/master:src/pages/api/v1/guilds/[guildId]/messages/[id].ts:19:const queryShape = z.object({ guildId: discordIdShape, id: z.number({ coerce: true }) }).strict();
+origin/master:src/providers/MessageProvider/index.tsx:52:  const messageTimestamp = timestampFromSnowflake(stored.messageId);
+origin/master:src/providers/MessageProvider/index.tsx:58:    recentMessageId: stored.messageId ?? null,
+origin/master:src/providers/MessageProvider/index.tsx:100:function isSameMessage(destination: string, messageId: string) {
+origin/master:src/providers/MessageProvider/index.tsx:103:    && /^\/message\/m\/(\d+)\/(?:edit|send)\/?$/.exec(url.pathname)?.[1] === messageId;
+origin/master:src/providers/MessageProvider/index.tsx:108:  const { messageId: paramMessageId = '' } = useParsePathname();
+origin/master:src/providers/WebhookProvider.tsx:26:  messageIdOrUrl: string;
+origin/master:src/providers/WebhookProvider.tsx:57:  const [messageIdOrUrl, setMessageIdOrUrl] = useState('');
+origin/master:src/providers/WebhookProvider.tsx:104:    const messageId = parseMessageId(messageIdOrUrl);
+origin/master:src/providers/WebhookProvider.tsx:105:    if (selectedWebhook?.token && messageId) {
+origin/master:src/providers/WebhookProvider.tsx:107:        await withLoadingMessage(fetch(`${constructWebhookUrl(selectedWebhook, messageId, threadId)}`).then(async (res) => {
+origin/master:src/providers/WebhookProvider.tsx:140:  }, [selectedWebhook, messageIdOrUrl, threadId]);
+origin/master:src/providers/WebhookProvider.tsx:149:    messageIdOrUrl,
+origin/master:src/server/api/routers/guild.ts:16:  //   .input(z.object({ messages: z.array(idMessageShape).min(1), guildId: discordIdShape }))
+origin/master:src/server/api/routers/message.ts:11:  cappedInput, messageIdShape, optionalIdMessageShape, recentMessageDataShape, userOrDiscordIdShape,
+origin/master:src/server/api/routers/message.ts:32:  messageIds: undefined | null | string | string[],
+origin/master:src/server/api/routers/message.ts:36:    ({ account: { userId } } = await authorizeGuildUser(req, guildId, messageIds));
+origin/master:src/server/api/routers/message.ts:38:    ({ account: { userId } } = await authorizeUser(providerUserId, messageIds));
+origin/master:src/server/api/routers/message.ts:55:    .input(messageIdShape)
+origin/master:src/server/api/routers/message.ts:56:    .query(async ({ input: messageId, ctx: { req, session } }): Promise<ApiMessage | null> => {
+origin/master:src/server/api/routers/message.ts:57:      const message = await getMessage(messageId);
+origin/master:src/server/api/routers/message.ts:89:      const { guildId, channelId, messageId } = match.groups as Record<'guildId' | 'channelId' | 'messageId', string>;
+origin/master:src/server/api/routers/message.ts:104:      const { data: message, status } = await getApi().request<Message>('GET', `/channels/${channelId}/messages/${messageId}`, { validateStatus: null });
+origin/master:src/server/api/routers/message.ts:196:    .input(cappedInput(z.object({ message: optionalIdMessageShape })))
+origin/master:src/server/api/routers/message.ts:209:    .input(recentMessageDataShape)
+origin/master:src/server/api/routers/message.ts:222:    .input(z.object({ id: messageIdShape }))
+origin/master:src/server/api/routers/user.ts:3:import { boundedArray, cappedInput, partialMessageShape } from '../utils/shapes';
+origin/master:src/server/api/routers/user.ts:33:      message: partialMessageShape.nullable().optional(),
+origin/master:src/server/api/routers/user.ts:69:  //   .input(z.object({ messages: z.array(idMessageShape).min(1) }))
+origin/master:src/server/api/utils/authorizeGuildUser.ts:10:  messageIds: string | string[],
+origin/master:src/server/api/utils/authorizeGuildUser.ts:12:  messageIds = typeof messageIds === 'string' ? [messageIds] : messageIds;
+origin/master:src/server/api/utils/authorizeGuildUser.ts:13:  if (!messageIds.length) return [];
+origin/master:src/server/api/utils/authorizeGuildUser.ts:19:    .where('Messages.id', 'in', messageIds)
+origin/master:src/server/api/utils/authorizeGuildUser.ts:22:  //   where: { id: { in: messageIds.map((id) => BigInt(id)) } },
+origin/master:src/server/api/utils/authorizeGuildUser.ts:39:  messageIds?: undefined | null | string | string[],
+origin/master:src/server/api/utils/authorizeGuildUser.ts:41:  const oldMessagesPromise = messageIds && getOldMessages(guildId, messageIds);
+origin/master:src/server/api/utils/deleteMessagePreviewImages.ts:7:export default async (messageId: string) => {
+origin/master:src/server/api/utils/deleteMessagePreviewImages.ts:11:    Prefix: previewPrefix(messageId),
+origin/master:src/server/api/utils/previewBucket.ts:15:export const previewPrefix = (messageId: string) => `${env.NODE_ENV === 'development' ? 'dev/' : ''}previews/${messageId}/`;
+origin/master:src/server/api/utils/previewBucket.ts:17:export const previewKey = (messageId: string, nonce: string) => `${previewPrefix(messageId)}${nonce}.jpeg`;
+origin/master:src/server/api/utils/shapes.ts:114:export const messageIdShape = z.string()
+origin/master:src/server/api/utils/shapes.ts:418:export const recentMessageDataShape = z.object({
+origin/master:src/server/api/utils/shapes.ts:419:  id: messageIdShape,
+origin/master:src/server/api/utils/shapes.ts:431:export const partialMessageShape = messageShape.extend({
+origin/master:src/server/api/utils/shapes.ts:436:export const optionalIdMessageShape = messageShape.extend({
+origin/master:src/server/api/utils/shapes.ts:437:  id: messageIdShape.optional(),
+origin/master:src/server/api/utils/shapes.ts:440:export const idMessageShape = messageShape.extend({
+origin/master:src/server/api/utils/shared.ts:110:  messageIds: string[],
+origin/master:src/server/api/utils/shared.ts:113:  if (!messageIds.length) return [];
+origin/master:src/server/api/utils/shared.ts:122:    .where('Messages.id', 'in', messageIds)
+origin/master:src/server/api/utils/user.ts:9:  messageIds?: null | string | string[],
+origin/master:src/server/api/utils/user.ts:13:  if (messageIds) {
+origin/master:src/server/api/utils/user.ts:14:    messageIds = typeof messageIds === 'string' ? [messageIds] : messageIds;
+origin/master:src/server/api/utils/user.ts:15:    if (!messageIds.length) return { account, oldMessageCount: 0 };
+origin/master:src/server/api/utils/user.ts:20:      .where('id', 'in', messageIds)
+origin/master:src/server/api/utils/user.ts:23:    //   where: { id: { in: messageIds.map((id) => BigInt(id)) } },
+origin/master:src/utils/hooks/index.ts:179:  const messageId = pathname?.match(/^\/message\/m\/(\d+)\/?/)?.[1];
+origin/master:src/utils/hooks/index.ts:183:    messageId,
+origin/master:src/utils/hooks/index.ts:185:  return useMemo(() => state, [folderId, messageId]);
+origin/master:src/utils/hooks/useValidateWebhook.ts:13:export default (url: string, messageIdOrUrl: string) => {
+origin/master:src/utils/hooks/useValidateWebhook.ts:52:    const messageId = parseMessageId(messageIdOrUrl);
+origin/master:src/utils/hooks/useValidateWebhook.ts:53:    if (webhook && messageId) {
+origin/master:src/utils/hooks/useValidateWebhook.ts:56:          const msg = await withLoadingMessage(fetch(`${url}/messages/${messageId}`)
+origin/master:src/utils/hooks/useValidateWebhook.ts:72:  }, [webhook, url, messageIdOrUrl]);
+origin/master:src/utils/parseMessageId.ts:6:  return DISCORD_MESSAGE_LINK_REGEX.exec(text)?.groups?.messageId ?? null;
+origin/master:src/utils/redis/messageStore.ts:19:  const messageIdKey = formatKey('get-message-id', userId, message.id);
+origin/master:src/utils/redis/messageStore.ts:20:  const prevCode = await client.get(messageIdKey);
+origin/master:src/utils/redis/messageStore.ts:27:    messageId: message.id, guildId, data: messageBody, droppedComponentTypes,
+origin/master:src/utils/redis/messageStore.ts:37:  await client.set(messageIdKey, code);
+origin/master:src/utils/redis/messageStore.ts:38:  void client.expire(messageIdKey, HOUR_IN_SECONDS);

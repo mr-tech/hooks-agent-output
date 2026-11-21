@@ -1,0 +1,15 @@
+origin/master:src/app/_components/Providers.tsx:20:    const response = await fetch(`${getBaseUrl()}/api/auth/session?hydrate=true`, { headers: { cookie } });
+origin/master:src/app/page.tsx:34://       await fetch(`${getBaseUrl()}/api/auth/session?hydrate=true`, { headers: { cookie } });
+origin/master:src/pages/api/auth/[...nextauth].ts:5:import { hydratedAuthOptions } from '~/server/auth';
+origin/master:src/pages/api/auth/[...nextauth].ts:11:) => { await NextAuth(hydratedAuthOptions)(req, res); };
+origin/master:src/server/api/trpc.ts:25:import { getServerAuthSession, getHydratedServerAuthSession } from '~/server/auth';
+origin/master:src/server/api/trpc.ts:63:  const hydrate = req.query.hydrate === 'true';
+origin/master:src/server/api/trpc.ts:66:  const session = await (hydrate
+origin/master:src/server/api/trpc.ts:67:    ? getHydratedServerAuthSession({ req, res })
+origin/master:src/server/auth.ts:132:async function hydratedAuthCallback(params: AuthCallbackParams): Promise<NextAuthSession> {
+origin/master:src/server/auth.ts:271:export const hydratedAuthOptions: NextAuthOptions = {
+origin/master:src/server/auth.ts:274:    session: hydratedAuthCallback,
+origin/master:src/server/auth.ts:285:const authOptions: NextAuthOptions = {
+origin/master:src/server/auth.ts:300: * Wrapper for `getServerSession` so that you don't need to import the `authOptions` in every file.
+origin/master:src/server/auth.ts:304:export const getServerAuthSession = (ctx: NextContext) => getServerSession(ctx.req, ctx.res, authOptions);
+origin/master:src/server/auth.ts:306:export const getHydratedServerAuthSession = (ctx: NextContext) => getServerSession(ctx.req, ctx.res, hydratedAuthOptions);

@@ -1,0 +1,97 @@
+origin/master:src/app/message/f/[id]/page.tsx:221:    title = 'Messages';
+origin/master:src/pages/api/cron.ts:22:    .leftJoin('Messages', 'ScheduledMessages.fk_messages_id', 'Messages.id')
+origin/master:src/pages/api/v1/guilds/[guildId]/messages.ts:29:      .selectFrom('Messages')
+origin/master:src/pages/api/v1/guilds/[guildId]/messages.ts:30:      .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+origin/master:src/pages/api/v1/guilds/[guildId]/messages/[id].ts:29:      .selectFrom('Messages')
+origin/master:src/pages/api/v1/guilds/[guildId]/messages/[id].ts:30:      .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+origin/master:src/scripts/backfillValid.ts:195:      .selectFrom('Messages')
+origin/master:src/scripts/backfillValid.ts:210:        .updateTable('Messages')
+origin/master:src/scripts/backfillValid.ts:221:    .selectFrom('Messages')
+origin/master:src/server/__tests__/auth.hydrated-recent-messages.test.ts:47:    if (!query.sql.includes('from "Messages"')) return [];
+origin/master:src/server/__tests__/auth.hydrated-recent-messages.test.ts:81:    const select = mocks.queries.find(({ sql }) => sql.includes('from "Messages"'));
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:61:  fk_guilds_id: string | null;
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:66:  [OWNED_ID]: { fk_users_id: OWNER.dbUserId, fk_guilds_id: null, guildId: null },
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:67:  [GUILD_MESSAGE_ID]: { fk_users_id: null, fk_guilds_id: GUILD.rowId, guildId: GUILD.discordId },
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:111:  const columns = (sql.match(/^insert into "Messages" \(([^)]*)\)/)?.[1] ?? '').split(', ');
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:122:  if (sql.startsWith('select "fk_users_id" from "Messages"')) {
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:133:    return [fullRow(fresh, { fk_users_id: null, fk_guilds_id: null, guildId: null })];
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:135:  if (sql.startsWith('select "Guilds"."guildId" from "Messages"')) {
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:143:  if (sql.startsWith('insert into "Messages"')) return [{ id: insertedId(query), savedAtMicros: '1763509200000000' }];
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:144:  if (sql.startsWith('update "Messages"')) {
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:149:    const guildRow = boundTo(query, 'fk_guilds_id');
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:150:    if (guildRow !== undefined && guildRow !== row.fk_guilds_id) return [];
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:153:  if (sql.startsWith('delete from "Messages"')) {
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:237:    const inserts = writesOf('Messages').filter(({ sql }) => sql.startsWith('insert'));
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:255:    expect(writesOf('Messages').filter(({ sql }) => sql.startsWith('insert'))).toHaveLength(0);
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:267:    expect(boundTo(writesOf('Messages')[0], 'id')).toBe(OWNED_ID);
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:282:    const writes = writesOf('Messages');
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:292:    const writes = writesOf('Messages');
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:295:    expect(boundTo(writes[0], 'fk_guilds_id')).toBe(GUILD.rowId);
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:311:    const writes = writesOf('Messages');
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:320:    const writes = writesOf('Messages');
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:334:    expect(boundTo(writesOf('Messages')[0], 'id')).toBe(OWNED_ID);
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:345:    expect(boundTo(writesOf('Messages')[0], 'id')).toBe(OWNED_ID);
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:358:    const writes = writesOf('Messages');
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:367:    const writes = writesOf('Messages');
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:396:    expect(writesOf('Messages')).toEqual([]);
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:404:    expect(writesOf('Messages')).toEqual([]);
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:412:    expect(writesOf('Messages')).toEqual([]);
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:418:    expect(writesOf('Messages')).toEqual([]);
+origin/master:src/server/api/routers/message.ts:225:        .selectFrom('Messages')
+origin/master:src/server/api/routers/message.ts:226:        .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+origin/master:src/server/api/utils/__tests__/authorizeGuildUser.in-predicate.test.ts:43:    expect(captured.queries[0].sql).toContain('"Messages"."id" in ($1, $2)');
+origin/master:src/server/api/utils/__tests__/authorizeGuildUser.in-predicate.test.ts:52:    expect(captured.queries[0].sql).toContain('"Messages"."id" in ($1)');
+origin/master:src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:48:    expect(compiled.sql).toMatch(/^with "replaced" as \(select "previewImageNonce" as "prev" from "Messages" where "id" = \$1 for update\) /);
+origin/master:src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:52:    expect(compiled.sql).toMatch(/"previewImageNonce" is null or "Messages"\."previewImageNonce" collate "C" < \$/);
+origin/master:src/server/api/utils/__tests__/previewImage.commit-statement.test.ts:56:    expect(compiled.sql).toMatch(/update "Messages" set "previewImageNonce" = \$2 from "replaced" where "Messages"\."id" = \$3/);
+origin/master:src/server/api/utils/__tests__/shared.in-predicates.test.ts:23:const PARTIAL_MESSAGE_SELECT = 'select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce", "Guilds"."guildId" as "guildId" from "Messages"';
+origin/master:src/server/api/utils/__tests__/shared.in-predicates.test.ts:44:    expect(captured.queries[0].sql).toContain('"Messages"."id" in ($1, $2)');
+origin/master:src/server/api/utils/__tests__/shared.in-predicates.test.ts:45:    expect(captured.queries[0].sql).toContain('"Messages"."fk_users_id" = $3 or "Messages"."fk_guilds_id" is not null');
+origin/master:src/server/api/utils/__tests__/shared.in-predicates.test.ts:60:    expect(sql).toContain('"Messages"."fk_users_id" = $1');
+origin/master:src/server/api/utils/__tests__/shared.in-predicates.test.ts:70:    expect(sql).toContain('"Messages"."fk_users_id" = $1');
+origin/master:src/server/api/utils/__tests__/shared.message-cap.test.ts:39:      if (sql.includes('"fk_guilds_id" = $1') && parameters[0] === 'guild-row') return [{ count: String(guild) }];
+origin/master:src/server/api/utils/__tests__/shared.message-cap.test.ts:42:    if (sql.startsWith('insert into "Messages"') || sql.startsWith('update "Messages"')) return [{ id: 'saved-id', savedAtMicros: '1763509200000000' }];
+origin/master:src/server/api/utils/__tests__/shared.message-cap.test.ts:50:const insertedMessages = () => captured.queries.filter(({ sql }) => sql.startsWith('insert into "Messages"'));
+origin/master:src/server/api/utils/__tests__/shared.message-cap.test.ts:51:const updatedMessages = () => captured.queries.filter(({ sql }) => sql.startsWith('update "Messages"'));
+origin/master:src/server/api/utils/__tests__/shared.upsert-broadcast.test.ts:44:    if (sql.startsWith('insert into "Messages"') || sql.startsWith('update "Messages"')) return [{ id: '42', savedAtMicros: '1763509200000000' }];
+origin/master:src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:39:    const writesMessage = sql.startsWith('insert into "Messages"') || sql.startsWith('update "Messages"');
+origin/master:src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:80:    expect(order).toContain('update "Messages" set');
+origin/master:src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:81:    expect(order.indexOf('fetch')).toBeGreaterThan(order.indexOf('update "Messages" set'));
+origin/master:src/server/api/utils/__tests__/shared.upsert-preview-continuation.test.ts:147:    expect(order.indexOf('fetch')).toBeGreaterThan(order.indexOf('insert into "Messages"'));
+origin/master:src/server/api/utils/__tests__/shared.upsert-valid.test.ts:31:    fk_guilds_id: null,
+origin/master:src/server/api/utils/__tests__/user.in-predicate.test.ts:22:const messageQueries = () => captured.queries.filter(({ sql }) => sql.includes('from "Messages"'));
+origin/master:src/server/api/utils/authorizeGuildUser.ts:16:    .selectFrom('Messages')
+origin/master:src/server/api/utils/authorizeGuildUser.ts:17:    .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+origin/master:src/server/api/utils/guild.ts:52:    .selectFrom('Messages')
+origin/master:src/server/api/utils/guild.ts:53:    .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+origin/master:src/server/api/utils/guild.ts:54:    .leftJoin('ScheduledMessages', 'ScheduledMessages.fk_messages_id', 'Messages.id')
+origin/master:src/server/api/utils/guild.ts:69:      .whereRef('Messages.fk_guilds_id', '=', 'Guilds.id')))
+origin/master:src/server/api/utils/previewImage.ts:25:    .selectFrom('Messages')
+origin/master:src/server/api/utils/previewImage.ts:29:  .updateTable('Messages')
+origin/master:src/server/api/utils/previewImage.ts:35:    sql<boolean>`"Messages"."previewImageNonce" collate "C" < ${nonce}`,
+origin/master:src/server/api/utils/shared.ts:116:    .selectFrom('Messages')
+origin/master:src/server/api/utils/shared.ts:117:    .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+origin/master:src/server/api/utils/shared.ts:125:      eb('Messages.fk_guilds_id', 'is not', null),
+origin/master:src/server/api/utils/shared.ts:134:    .selectFrom('Messages')
+origin/master:src/server/api/utils/shared.ts:147:    .selectFrom('Messages')
+origin/master:src/server/api/utils/shared.ts:148:    .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+origin/master:src/server/api/utils/shared.ts:149:    .leftJoin('ScheduledMessages', 'ScheduledMessages.fk_messages_id', 'Messages.id')
+origin/master:src/server/api/utils/shared.ts:169:    .selectFrom('Messages')
+origin/master:src/server/api/utils/shared.ts:170:    .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+origin/master:src/server/api/utils/shared.ts:184:        .whereRef('Messages.fk_guilds_id', '=', 'Guilds.id')),
+origin/master:src/server/api/utils/shared.ts:206:): Omit<InsertObject<DatabaseSchema, 'Messages'>, 'fk_guilds_id'> & { fk_guilds_id?: string | null } {
+origin/master:src/server/api/utils/shared.ts:218:  values: InsertObject<DatabaseSchema, 'Messages'>,
+origin/master:src/server/api/utils/shared.ts:221:    .insertInto('Messages')
+origin/master:src/server/api/utils/shared.ts:232:  values: InsertObject<DatabaseSchema, 'Messages'>,
+origin/master:src/server/api/utils/shared.ts:235:    .updateTable('Messages')
+origin/master:src/server/api/utils/shared.ts:244:  return (values.fk_guilds_id
+origin/master:src/server/api/utils/shared.ts:245:    ? query.where('fk_guilds_id', '=', values.fk_guilds_id as string)
+origin/master:src/server/api/utils/shared.ts:259:  const values: InsertObject<DatabaseSchema, 'Messages'> = {
+origin/master:src/server/api/utils/shared.ts:261:    fk_guilds_id: guildRowId,
+origin/master:src/server/api/utils/shared.ts:270:    const messageCountQuery = database.selectFrom('Messages').select(database.fn.countAll().as('count'));
+origin/master:src/server/api/utils/shared.ts:272:      ? messageCountQuery.where('fk_guilds_id', '=', guildRowId)
+origin/master:src/server/api/utils/shared.ts:310:    .updateTable('Messages')
+origin/master:src/server/api/utils/shared.ts:320:    : query.where('fk_guilds_id', 'in', (eb) => eb
+origin/master:src/server/api/utils/shared.ts:329:    .deleteFrom('Messages')
+origin/master:src/server/api/utils/shared.ts:334:    : query.where('fk_guilds_id', 'in', (eb) => eb
+origin/master:src/server/api/utils/user.ts:18:      .selectFrom('Messages')
