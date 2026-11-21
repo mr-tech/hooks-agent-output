@@ -1,0 +1,68 @@
+diff --git a/package.json b/package.json
+index 3343c9d..e2da53b 100644
+--- a/package.json
++++ b/package.json
+@@ -49,7 +49,6 @@
+     "compress-json": "^2.1.2",
+     "cookies-next": "^6.1.1",
+     "copy-to-clipboard": "^3.3.3",
+-    "cron-parser": "^4.8.1",
+     "cropperjs": "^1.5.13",
+     "dayjs": "^1.11.6",
+     "discord-api-types": "^0.38.40",
+diff --git a/pnpm-lock.yaml b/pnpm-lock.yaml
+index bbd85af..4e0f1e7 100644
+--- a/pnpm-lock.yaml
++++ b/pnpm-lock.yaml
+@@ -112,9 +112,6 @@ importers:
+       copy-to-clipboard:
+         specifier: ^3.3.3
+         version: 3.3.3
+-      cron-parser:
+-        specifier: ^4.8.1
+-        version: 4.8.1
+       cropperjs:
+         specifier: ^1.5.13
+         version: 1.5.13
+@@ -3106,10 +3103,6 @@ packages:
+   crelt@1.0.5:
+     resolution: {integrity: sha512-+BO9wPPi+DWTDcNYhr/W90myha8ptzftZT+LwcmUbbok0rcP/fequmFYCw8NMoH7pkAZQzU78b3kYrlua5a9eA==}
+ 
+-  cron-parser@4.8.1:
+-    resolution: {integrity: sha512-jbokKWGcyU4gl6jAfX97E1gDpY12DJ1cLJZmoDzaAln/shZ+S3KBFBuA2Q6WeUN4gJf/8klnV1EfvhA2lK5IRQ==}
+-    engines: {node: '>=12.0.0'}
+-
+   croner@4.1.97:
+     resolution: {integrity: sha512-/f6gpQuxDaqXu+1kwQYSckUglPaOrHdbIlBAu0YuW8/Cdb45XwXYNUBXg3r/9Mo6n540Kn/smKcZWko5x99KrQ==}
+ 
+@@ -4701,10 +4694,6 @@ packages:
+     resolution: {integrity: sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA==}
+     engines: {node: '>=12'}
+ 
+-  luxon@3.3.0:
+-    resolution: {integrity: sha512-An0UCfG/rSiqtAIiBPO0Y9/zAnHUZxAMiCpTd5h2smgsj7GGmcenvrvww2cqNA8/4A5ZrD1gJpHN2mIHZQF+Mg==}
+-    engines: {node: '>=12'}
+-
+   magic-string@0.30.21:
+     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
+ 
+@@ -10441,10 +10430,6 @@ snapshots:
+ 
+   crelt@1.0.5: {}
+ 
+-  cron-parser@4.8.1:
+-    dependencies:
+-      luxon: 3.3.0
+-
+   croner@4.1.97: {}
+ 
+   cropperjs@1.5.13: {}
+@@ -12175,8 +12160,6 @@ snapshots:
+ 
+   lru-cache@7.18.3: {}
+ 
+-  luxon@3.3.0: {}
+-
+   magic-string@0.30.21:
+     dependencies:
+       '@jridgewell/sourcemap-codec': 1.5.5

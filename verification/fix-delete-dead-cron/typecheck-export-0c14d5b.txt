@@ -1,0 +1,7 @@
+
+> website@ typecheck /tmp/claude-1000/-usr-local-bin-hooks-website/edcd49b7-0c09-4f66-90f9-fc4ca774b3da/scratchpad/wt-base
+> tsc --noEmit && tsc --noEmit -p tsconfig.test.json
+
+src/pages/api/cron.ts(1,33): error TS2307: Cannot find module 'cron-parser' or its corresponding type declarations.
+ ELIFECYCLE  Command failed with exit code 2.
+base typecheck exit=2

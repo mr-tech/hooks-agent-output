@@ -1,0 +1,4 @@
+/src/pages/api/cron.ts	1:33	error	import/no-unresolved
+/src/pages/api/cron.ts	50:27	error	@typescript-eslint/no-unsafe-call
+/src/pages/api/cron.ts	50:27	error	@typescript-eslint/no-unsafe-call
+/src/pages/api/cron.ts	50:27	error	@typescript-eslint/no-unsafe-call
