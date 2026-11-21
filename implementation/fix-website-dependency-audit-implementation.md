@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-website-dependency-audit
 UUID: d9ef268a
 Status: Active
-Status-Detail: "Code review APPROVED at c5508c7 (bf39906). QA Phase 2 failed at c5508c7 on QAF-1..QAF-5 (tests only; qa/fix-website-dependency-audit-qa.md, c2295cb); fixed at ead3ea1 with production unchanged, awaiting QA's survivor re-run. Then devops installs the crontab line and reads the first run. REVIEW and _review stay at pending review until QA's verdict."
+Status-Detail: "Code review APPROVED at c5508c7 (bf39906); QA Complete at ead3ea1 (8762f1b). Review markers set to reviewed at 67f0285, no behaviour change. Awaiting devops: install the crontab line (Handoff section) and read its first run."
 Handoff-At: ead3ea1 — repos=agent-output
 Origin-Chain: none
 ---
@@ -266,7 +266,8 @@ QAF-5 LOW, tests only). At ead3ea1 the production file is byte-identical to c550
 - **Reviews:** `code-reviewer-fix-website-dependency-audit`, then QA Phase 2 (`qa-fix-website-dependency-audit`).
   The tool adds 179 production lines (non-blank, `grep -c -v '^\s*$'`), which is 20 or more.
 - **Merges:** none. The work is already on the record's `master`; there is no branch and no push. After QA's verdict,
-  the `REVIEW` constant and `_review` field go from `pending review at f943553` to `reviewed`.
+  the `REVIEW` constant and `_review` field go from `pending review at f943553` to `reviewed`. Done at `67f0285`
+  after QA Complete at `ead3ea1` (QA's message: the flip "changes no behaviour, so it does not expire the verdict").
 - **Crontab line proposed for devops**, 06:43 local daily, a minute off :00/:30. The comment follows the form of the
   crontab's other lines:
 
@@ -296,3 +297,4 @@ QAF-5 LOW, tests only). At ead3ea1 the production file is byte-identical to c550
 | 2026-11-21T00:41 | CR-2 confirmed at `c7b6898` (reviewer 9a61b8a); CR-4 fixed: a shared `persist` writer and the unwritable-inbox failure case at 5b41d04; the recovery case tightened at c5508c7 after `quiet-run-appends` survived; 18/18 green, 30/30 controls killed. Handoff-At moved to `c5508c7`. |
 | 2026-11-21T00:43 | Code review APPROVED at `c5508c7` (reviewer bf39906); the reviewer sent steering the QA Phase 2 spawn cue. |
 | 2026-11-21T01:05 | QA Phase 2 failed at `c5508c7` on QAF-1..QAF-5 (tests only; QA c2295cb). Fixed at `ead3ea1` with production unchanged: five cases added, two tightened; 23/23 green; QA's 14 actionable survivors killed, the 9 equivalents still survive; own set 30/30. Handoff-At moved to `ead3ea1`. |
+| 2026-11-21T01:10 | QA Complete at `ead3ea1` (QA 8762f1b). `REVIEW` and `_review` set to `reviewed` at `67f0285` (string literals only; 23/23 green). Devops is next. |
