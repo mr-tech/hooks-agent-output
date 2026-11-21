@@ -2,10 +2,10 @@
 ID: n/a
 Origin: fix-trpc-batch-limit
 UUID: 61d9ad16
-Reviewed-At: "3d2ceec — repos=website"
+Reviewed-At: "f47e304 — repos=website"
 Status: In Review
 Round: 1
-Verdict: REJECTED
+Verdict: APPROVED
 ---
 
 # Code Review: fix-trpc-batch-limit
@@ -21,6 +21,7 @@ premise correction in block "2026-11-21T00:11Z".
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T00:19 | steering-roadmap-hooks (brief); fixer-fix-trpc-batch-limit (document) | Round 1: review `3d2ceec`; QA Phase 2 is skipped (2 production lines), so also run the suite and the red tests | Round 1 REJECTED on CR-1 (MEDIUM, severity floor). The link production uses has no assertion that it does not batch; the test drives `proxy`, which has no production caller. Suite green, red reproduced, batch refusal attacked and holding. |
+| 2026-11-21T00:28 | fixer-fix-trpc-batch-limit (re-handoff, record `eb4f0f6`); steering ruling `9c30cd1` | Round 1 sub-entry 1: confirm the CR-1 fix at `f47e304` (test-only) | APPROVED at `f47e304`. CR-1 RESOLVED: the site-link case was re-attacked with two mutants of the reviewer's own (both fail as assertions); enumeration re-run; suite 2265/2265, exit 0; red reproduced on the pre-fix production files. Handed to devops for website `master`. |
 
 ## Scope and identity
 
@@ -119,60 +120,49 @@ None.
 
 ### Medium
 
-CR-1 MEDIUM Round 1
-**Test coverage**: The rule that no site link batches is asserted only on `proxy`, which no production code calls. The link
-production uses has no assertion.
-- **Location**: `src/pages/api/trpc/__tests__/trpc.batch-refusal.test.ts`, describe "the tRPC endpoint given the site's own link" →
-  `it('answers a single call')`, at `3d2ceec`. The live link is `src/providers/TrpcProvider.tsx` `TrpcProvider` (`trpc.createClient({ links: [httpLink(…)] })`).
-- **Class**: The change relies on "no site tRPC client sends `batch=1`", and that reliance has no assertion that fails when a client
-  production uses starts to batch.
-- **Enumeration**: `git grep -nE 'httpLink\(|httpBatchLink|httpBatchStreamLink|splitLink|createTRPCProxyClient<|createTRPCReact<|createTRPCNext<|api/trpc' 3d2ceec -- src public ':!**/__tests__/**'`
-  gives 12 hits: 3 link constructions, 3 client constructions, `url`, and 5 imports of `~/server/api/trpc` (noise). The three clients:
-  (a) `api.ts` `proxy` (`createTRPCProxyClient`). It has no production caller: `git grep -cw proxy 3d2ceec -- src ':!**/__tests__/**'`
-  gives 1, its own definition. (b) `api.ts` `api` (`createTRPCNext`). Its `config().links` reach the wire only through `withTRPC`, which
-  has 0 calls in `src`. Its hooks (9 importers of `{ api }`) resolve their client from the shared `TRPCContext`. I read this in
-  `@trpc/next` 11.10.0 `dist/index.cjs` (`createRootHooks(opts)`) and `@trpc/react-query` `shared-*.cjs` (`config?.context ??
-  TRPCContext`), and both packages resolve the same `@trpc/react-query/shared` instance. This is by reading, not execution.
-  (c) `TrpcProvider`, mounted by `Providers.tsx`. It supplies that context, so it is the link production uses. Only (a) is driven by
-  the test, and the fixer's control 1 mutated only (a). Blind spot of the predicate: a client built outside `src`/`public`, a
-  hand-written `fetch` to a variable URL with `batch=1`, and an external caller. None of those can be seen by a text search.
-- **Issue**: The fix couples the server's `allowBatching: false` to the client's choice of link. Switching `TrpcProvider` to
-  `httpBatchLink` or `httpBatchStreamLink`, a one-word edit and the stock tRPC template, would make every `api.*` query and mutation
-  on the site answer 400 in production, and the suite would stay green. The test title "the site's own link" claims coverage the
-  test does not give. A behaviour the change relies on, with no assertion that fails when it is lost, is MEDIUM at least and blocks the
-  hand-off (severity floor).
-- **Required Action**: eliminate the class, meaning every site client production uses carries an assertion that fails when it batches.
-  - **Preferred (structural)**: one site-link factory in `src/utils/api.ts` (e.g. `siteLinks()`), used by `TrpcProvider`, with the
-    dead `proxy` and the unused `config()` link deleted. The test then drives that factory, so a batching link cannot be added in one
-    place and missed by the test. Callers under each form: `TrpcProvider` changes to call the factory. The 9 `api` importers do not
-    change. `proxy` has 0 callers, so deleting it moves nothing. **Cost**: `src/utils/api.ts` and `src/providers/TrpcProvider.tsx` are
-    outside this chain's write set. That is steering's ruling (put to it in this round), not the fixer's to take.
-  - **Minimum (inside the write set)**: replace or extend `answers a single call` with a `.tsx` case beside it, under
-    `src/pages/api/trpc/__tests__/`. The case mounts the real `TrpcProvider` (`createRoot` + `act`, per Test Conventions § DOM
-    component tests) around a component that calls an `api.*` hook, against the same socket harness. The assertion is made on the
-    harness's record of the request the provider sent: its status is 200 and it carries no `batch=1`. It is not made on the hook's
-    eventual state. **Falsity signature**: with `TrpcProvider`'s link switched to `httpBatchLink` in an export, the case fails on an
-    assertion (`expected 400 to be 200`, or a recorded `batch=1`) within the default test timeout. It must not fail as a runner
-    timeout. The `QueryClient` inside `TrpcProvider` retries a failed query three times with backoff (react-query default), so an
-    assertion that waits for the hook to settle would time out instead of failing. Record that mutation as the case's control, as
-    the fixer did for `proxy`. If `proxy` is kept, keep or drop its case on its own merits, and retitle it so it no longer claims to
-    be "the site's own link".
+CR-1 MEDIUM Round 1 RESOLVED — the Minimum remedy at `f47e304`: `trpc.site-link.test.tsx` mounts the real `TrpcProvider`, and the `proxy` case is removed. Steering kept the Preferred remedy out of scope (rulings block "2026-11-21T00:20Z", `9c30cd1`). Class gone: the enumeration re-run at `f47e304` gives the same 3 clients and 3 links, and the one production uses is now asserted. The check that fails if it returns is `website:src/pages/api/trpc/__tests__/trpc.site-link.test.tsx`, which fails under my mutants (`verification/fix-trpc-batch-limit/review/round1-sub1/`). Argument at record `6e9821b`.
+
+### Round 1, sub-entry 1 — fix confirmation at `f47e304`
+
+- **Scope**: `git diff --name-only 3d2ceec f47e304` lists two test files and nothing else. `trpc.batch-refusal.test.ts` loses the
+  `proxy` case and its `PORT` stub (−11). `trpc.site-link.test.tsx` is new (+87). `package.json` and `pnpm-lock.yaml` are identical
+  (`git diff --quiet`), and production lines are unchanged at 2. The diff is test-only, so this is a sub-entry, not a new round.
+- **Re-attacked from first principles** (the fix is to a guard). The instrument is mine, not the fixer's diff: a fresh export at
+  `f47e304` with its own install, and two mutations of `src/providers/TrpcProvider.tsx`. (A) The import is aliased
+  `httpBatchLink as httpLink`. The case fails on an assertion, `expected true to be false` (the `batch` parameter is present), with
+  tests running 1.08 s. (B) The link URL is `${url}x`, so the request never reaches the handler. It fails on an assertion,
+  `expected '/api/trpcx/user.getPreferences?input=…' to match …`. Neither failed by runner timeout. Unmutated: 1 passed, exit 0.
+  The request reaching the `[trpc]` handler through `api.user.getPreferences.useQuery()` inside `TrpcProvider` also confirms by
+  execution what CR-1 stated by reading: the `api.*` hooks use `TrpcProvider`'s client.
+- **Enumeration re-run** at `f47e304` (`client-links-f47e304.txt`): 6 hits, the 3 clients and 3 links of CR-1. `proxy` has 1 word
+  hit outside tests, its definition. It is now unasserted and has no caller; it stays, per the ruling.
+- **Case review**: it asserts on the request the server recorded (`res.on('finish')`), not on the hook's state, so react-query's
+  retries cannot turn a failure into a timeout. Its expectations are literals. Its invented values are named in the fixer's document
+  (the relative-URL `fetch` stub, the `~/utils/discord` mock). It mounts through the repository's `mountDom` helper. The basename
+  matches the positive form, the ID-token class has 0 hits, and there are 0 comment lines (`test-naming-by-hand.txt`).
+  `convention-check --since=3d2ceec`: 0 FAIL, 0 CANDIDATE, 2 SKIP (id-token and basename, run by hand as above).
+- **Suite at `f47e304`**: 156 files, 2265 cases, 2265 passed, exit 0 (`suite-f47e304.{json,exit}`). `pnpm run typecheck`: exit 0.
+- **Red against the pre-fix production files** (`d1bb9b0`'s `middleware.ts`, `[trpc].ts` and `package.json`, with the `f47e304`
+  tests, in the export): 5 failed, 3 passed, exit 1. These are the same 5 failures as Round 1. The site-link case passes there, as
+  it should, since the base link does not batch; its evidence is mutants A and B (`red-prefix-production.log`).
+- Captures: `verification/fix-trpc-batch-limit/review/round1-sub1/`. The export was removed.
 
 ### Low/Info
 None.
 
 ## Verdict
 
-**Status**: REJECTED
-**Rationale**: Items 2 and 3 are sound and verified by execution. Item 1's server change is correct and held under attack: every
-`batch=1` shape is refused with 0 queries. But the scope statement's other limb, "the site's own three links keep working", is
-asserted only on a link with no production caller, and the link the site actually uses has no assertion (CR-1). That is a severity-floor
-MEDIUM, and it blocks the hand-off to devops.
+**Status**: APPROVED (at `f47e304`, Round 1 sub-entry 1). The Round 1 REJECTED verdict at `3d2ceec` is superseded.
+**Rationale**: Items 2 and 3 are sound and verified by execution. Item 1's server change held under attack: every `batch=1` shape is
+refused with 0 queries. The limb "the site's own links keep working" is now asserted on the link production uses, and the case was
+seen to fail as an assertion under two mutations of that link (CR-1 RESOLVED). Suite green at `f47e304`, typecheck green, and the red
+tests reproduce on the pre-fix production files. A change to any file under `src/` or to `package.json` after `f47e304` expires this
+verdict.
 
 ## Required Actions
 
-1. CR-1: the Minimum remedy inside the write set, with its control recorded. The Preferred remedy only if steering rules the two
-   client files into scope.
+None. The dead `proxy` export and the unused `createTRPCNext` `config()` link stay, per steering's ruling (block "2026-11-21T00:20Z":
+a candidate for a later hygiene pass, not carried by this chain).
 
 ## Assumption Not Checked
 
@@ -184,8 +174,6 @@ MEDIUM, and it blocks the hand-off to devops.
 
 ## Next Steps
 
-- **Fixer** (`fixer-fix-trpc-batch-limit`): CR-1, then re-handoff. The fix confirmation is a sub-entry of Round 1, and it re-runs the
-  enumeration above and the control.
-- **Steering** (`steering-roadmap-hooks`): to rule whether CR-1's Preferred remedy (`src/utils/api.ts`, `src/providers/TrpcProvider.tsx`,
-  deleting dead `proxy`) enters the write set.
-- **Devops**, after approval: the Round 1 Assumption Not Checked above, the post-deploy log read.
+- **Devops** for website `master`, at `f47e304`: the merge and the push, the push on the owner's word, asked in devops's own session.
+  Also the Round 1 Assumption Not Checked above: read the production function logs after the deploy. No QA Phase 2 (2 production
+  lines). Steering got the spawn cue, since no `devops-fix-trpc-batch-limit` session is live.

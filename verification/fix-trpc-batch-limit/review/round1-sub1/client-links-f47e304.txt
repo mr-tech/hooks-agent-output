@@ -1,0 +1,6 @@
+f47e304:src/providers/TrpcProvider.tsx:13:const trpc = createTRPCReact<AppRouter>();
+f47e304:src/providers/TrpcProvider.tsx:19:      httpLink({ url, transformer: superjson }),
+f47e304:src/utils/api.ts:18:export const api = createTRPCNext<AppRouter>({
+f47e304:src/utils/api.ts:31:        httpLink({ url, transformer: superjson }),
+f47e304:src/utils/api.ts:44:export const proxy = createTRPCProxyClient<AppRouter>({
+f47e304:src/utils/api.ts:46:    httpLink({ url, transformer: superjson }),
