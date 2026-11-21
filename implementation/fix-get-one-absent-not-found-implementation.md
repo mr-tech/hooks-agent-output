@@ -161,7 +161,7 @@ symlinked): `npx vitest run <both files>` → exit 1, `Tests 2 failed | 21 passe
 
 **Negative controls** (`python3 ~/.claude/tools/mutation-run.py`, `--sha b663b35`, `--dep node_modules`, a transcribed vitest config
 using `process.cwd()` for `__dirname` per the runner's stated limit; mutants `verification/fix-get-one-absent-not-found/fixer/controls/mutants.json`,
-config `controls/vitest.config.ts`, table and streams `controls/out/`, runner log `controls/mut-run.log`): control passed, 23 cases;
+config `controls/vitest.config.ts`, table and streams `controls/out/`, runner log `controls/mut-run.txt`): control passed, 23 cases;
 4 of 4 KILLED, each run's count equal to the control's.
 
 | Mutant | Edit | Killed by |
@@ -178,7 +178,7 @@ No time-based test was added. Nothing added has a lifetime or declines work.
 | Check | Command | Result |
 |---|---|---|
 | Existing suite, base | `npx vitest run --reporter=json` at `b829314` (tree clean but `.playwright-mcp/`) | exit 0; 2313 total, 2313 passed, 159 files (`fixer/suite-base.json`) |
-| Existing suite, tip | same, at `b663b35` (`git diff --quiet HEAD -- src` true) | exit 0; 2316 total, 2316 passed, 0 failed, 159 files; file sets equal by path (0 only-base, 0 only-tip) (`fixer/suite-tip.json`, `suite-tip.log`). +3 = cases 1-3 |
+| Existing suite, tip | same, at `b663b35` (`git diff --quiet HEAD -- src` true) | exit 0; 2316 total, 2316 passed, 0 failed, 159 files; file sets equal by path (0 only-base, 0 only-tip) (`fixer/suite-tip.json`, `suite-tip.txt`). +3 = cases 1-3 |
 | Typecheck (both programs) | `pnpm run typecheck` at `b663b35` | exit 0 (`fixer/typecheck.txt`) |
 | Lint | `npx eslint -f json` over the six changed files | 0 errors 0 warnings on five; `Navigation.tsx` 2 errors 3 warnings, identical rules to its base (see below) |
 | Conventions | `node ~/.claude/tools/convention-check.js website --since=b829314` | exit 1: 5 FAIL, 0 CANDIDATE, 18 SKIP (`fixer/convention-check.txt`) |
@@ -226,3 +226,4 @@ Product vocabulary, for his own check after release (evidence: the cited test, a
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-21T09:15 | fixer-fix-get-one-absent-not-found | Created: diagnosis, fix at website `b663b35`, red at `b829314`, 4 of 4 controls killed, suite/typecheck/lint/conventions; handed to code review. |
+| 2026-11-21T09:15 | fixer-fix-get-one-absent-not-found | The runner log and the tip suite's console capture renamed `.log` → `.txt` (the record ignores `*.log`) and committed; citations updated. |

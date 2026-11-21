@@ -1,0 +1,5 @@
+getone-refusal-by-trpc-code KILLED 8.97
+getmessage-default-kysely-error KILLED 9.07
+header-controls-always-hidden KILLED 5.2
+header-controls-never-hidden KILLED 4.15
+4 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob e0eff327e9cde609af27c11105fc6c58693f8fd6))
