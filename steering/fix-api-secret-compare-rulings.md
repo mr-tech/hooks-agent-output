@@ -156,3 +156,18 @@ REJECTED there (CR-2 MEDIUM, record `8214c8c0`); fixer round at `0c14d5b` (recor
 Status lines). `git diff --numstat 32d10f7 0c14d5b`: two test files only. Register B-1 (post-deploy, devops). `git ls-remote origin master`:
 `b68f94c`. `devops-fix-api-secret-compare` started with `tmux-agent spawn` (cwd website), brief `steering/fix-api-secret-compare-brief-devops.md`.
 This chain took a QA Failed and a REJECTED round: its retrospective runs as a batch of one at closure (steering.md, Fixer).
+
+## 2026-11-21T18:47Z — released; B-1 read; sessions stopped; retrospective and scoring started
+
+Release: his selection in `devops-fix-api-secret-compare`'s session, "Agent: release 0c14d5b to master (Recommended)" (ledger
+`steering/selection-ledger/2026-11-21.md`, block "2026-11-21T18:35Z — devops-fix-api-secret-compare", read whole). Devops by message
+18:3xZ: website `origin/master` `b68f94c` → `0c14d5b`, pushed 18:35:45Z; every chain document `Released` in `closed/` (record `570e3f0`);
+chain branch deleted, tree on `master` (`git log -1 master` read `0c14d5b`, 18:4xZ). `owner-wait` `release-ask` resolved 18:3xZ.
+B-1: QA briefed 18:4xZ (`steering/fix-api-secret-compare-brief-qa-postdeploy.md`, `46c0ae4`) to run it through its stage browser; QA by
+message 18:4xZ: PASS at 18:43Z (handoff 3039bc8a Item 1 Result, record `3ffb8171`) — Get Message (`get_message`) answered normally in
+the test server; its precondition, Vercel production serving `0c14d5b`, is unread (no instrument here reads Vercel). Item 2 (production
+400s on the single-message route) and the precondition are his reads on the Vercel dashboard: `OWNER-QUEUE.md`. Source handoff
+b1fdd41a stays open until those reads land, then closes Addressed (items 2, 3, 5 here; item 4 → c07b0565).
+Sessions stopped 18:46Z (`tmux-agent stop`): devops, qa, code-reviewer, fixer of this chain. Cost:
+`verification/fixes-2026-11-21-steering-hooks-4/cost/chain-5.txt`. Retrospective subagent `retrospective-fixes-2026-11-21-steering-hooks-4`
+(Origin `fixes-2026-11-21-steering-hooks-4`) and the scoring's case-list helper (website `0c14d5b`, 9 marked test files) started.

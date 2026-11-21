@@ -1,0 +1,19 @@
+chain: sessions matching '*fix-api-secret-compare' or '*fix-api-secret-compare-<n>' from 2026-11-21T13:39:00Z to (now)
+4 of 4 resolved from the registry cache (live entry gone): code-reviewer-fix-api-secret-compare, devops-fix-api-secret-compare, fixer-fix-api-secret-compare, qa-fix-api-secret-compare
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+code-reviewer-fix-api-secret- claude-opus                 98       214  15,525,159    190,880    76,369     6.16
+                                main 98 req $6.16 · cached seen 2026-11-21T15:31:08Z
+devops-fix-api-secret-compare claude-sonn                 66       132  11,373,297    228,859    54,573     2.60
+                                main 66 req $2.60 · cached seen 2026-11-21T18:24:20Z
+fixer-fix-api-secret-compare  claude-opus                114       242  18,975,776    204,544    89,535     7.22
+                                main 114 req $7.22 · cached seen 2026-11-21T13:44:18Z
+qa-fix-api-secret-compare     claude-haik,claude-opus    127       270  20,842,783    285,509    90,233     7.39
+  own                         claude-opus                113       242  20,556,271    219,552    74,967     7.37
+  general-purpose             claude-haik                 14        28     286,512     65,957    15,266     0.02
+                                main 113 req $7.37 · subagent 14 req $0.02 · cached seen 2026-11-21T18:03:09Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      405       858  66,717,015    909,792   310,710    23.37
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp
