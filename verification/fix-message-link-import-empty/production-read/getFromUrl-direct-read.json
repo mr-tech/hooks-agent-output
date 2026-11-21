@@ -1,0 +1,16 @@
+{
+  "_how": "qa-fix-message-link-import-empty, stage browser (kept profile) on https://hooks.gg/message as the signed-in test account; page.evaluate fetch GET /api/trpc/message.getFromUrl?input={json:{url}} per link; read-only GET, nothing written; bodies verbatim as returned to the tool. The evaluate's own filename save was refused (outside the browser server's allowed roots), so the returned JSON string was written here with the Write tool.",
+  "at": "2026-11-21T10:34:39.634Z",
+  "page": "https://hooks.gg/message",
+  "session_user": { "name": "", "id": "1219217003659788418" },
+  "mention": {
+    "url": "https://discord.com/channels/1566742402180456559/1566742403195469906/1573645928798355507",
+    "status": 200,
+    "body": "{\"result\":{\"data\":{\"json\":{\"guildId\":\"1566742402180456559\",\"message\":{\"username\":\"Statbot TEST\",\"content\":\"fix-message-link-import-empty diagnosis fixture: mentions <@1034527356381044828> (mention registered)\",\"embeds\":[{\"title\":\"Rich embed title\",\"description\":\"Rich embed description\",\"color\":5814783}]},\"droppedComponentTypes\":[]}}}}"
+  },
+  "plain": {
+    "url": "https://discord.com/channels/1566742402180456559/1566742403195469906/1573645137471471668",
+    "status": 200,
+    "body": "{\"result\":{\"data\":{\"json\":{\"guildId\":\"1566742402180456559\",\"message\":{\"username\":\"Statbot TEST\",\"content\":\"\",\"embeds\":[]},\"droppedComponentTypes\":[]}}}}"
+  }
+}
