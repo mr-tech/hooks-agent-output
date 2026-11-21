@@ -190,3 +190,9 @@ His words, verbatim, relayed by `steering-coordinator` by SendMessage 08:1xZ: "9
 coordinator's gloss (its words): "The weekly 98% checkpoint-and-close hold no longer applies; resume normal chain work until the limit
 resets." Acted on: this effort's chains do not checkpoint and close at weekly_all 98% before the 17:00 UTC reset (`plan-usage.py`
 read 07:59Z); the session gate at 90% is not named and stands.
+
+## 2026-11-21T09:02Z — order amended: a diagnose-first chain for the empty Message Link import
+
+His selection, recorded in `steering/fix-import-save-conflict-rulings.md` block 09:02Z ("Agent: diagnose-first chain
+(Recommended)"). **Order now:** 1, 2, 3 released; 3b `fix-get-one-absent-not-found` (running); **3c `fix-message-link-import-empty`**
+(diagnose first on the test server; a portal toggle, if that is the cause, goes to him); then 4-9 as block 05:50Z.

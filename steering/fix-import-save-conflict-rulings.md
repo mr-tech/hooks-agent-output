@@ -74,3 +74,21 @@ Source: `fixer-fix-import-save-conflict` by SendMessage 08:0xZ; `implementation/
   (`NewMessageJsonInput.tsx:110` `setMessage(applyDisposition(validated))`). The dialog's preview shows the draft Save will write
   (settled, or the raw draft while a row E choice is pending), with a test; same file, in the write set.
 Recipients: `fixer-fix-import-save-conflict` (both), `code-reviewer-fix-import-save-conflict` (reviews the next round from the record).
+
+## 2026-11-21T09:02Z — released; PD-1 closes on its read; the empty Message Link import gets a diagnose-first chain
+
+Released: website `master` `f4baebb` → `b829314` at 08:53:57Z on his selection (devops's message; `git ls-remote` read back
+`b82931402f…` by this thread). Deployment record closed Released. PD-1 (`qa-fix-import-save-conflict`, record `0818ae7c`): the release
+serves (a row D draft in the Webhook tab gets the settled notice, Continue enabled); the Message Link limb is falsified upstream —
+production's `message.getFromUrl` returned content "", embeds [] and no components for both test-bot fixtures (capture
+`verification/fix-import-save-conflict/qa/pd1/evidence/getFromUrl-direct-read.json`). Refutation helper (09:0xZ, read at refs): HOLDS —
+`src/server` and `src/utils` unchanged `f4baebb..b829314`; the fetch is `GET /channels/{id}/messages/{id}` with `DISCORD_BOT_TOKEN`
+(`message.ts:116`, `discord.ts:12-17`); `content` copied verbatim, `droppedComponentTypes: []`; the Message Content intent is inference.
+Selection prompt put 09:0xZ, answered 09:02Z (ledger block "2026-11-21T09:02Z — steering-hooks"); wording this thread's.
+- Q link import: A "Agent: diagnose-first chain (Recommended)" — "add a diagnose-first fixer chain to the queue after chain 3b. It
+  establishes the cause on the test server first. If the fix is your toggle in Discord's developer portal (the bot's Message Content
+  intent), that step comes to you; if it is code, the chain fixes it."; B "You: check the bot's intent"; C "Agent: known limit,
+  handoff"; D "Agent: don't track it". Chosen by selection: **A**.
+- Q PD-1: A "Agent: close it on this read (Recommended)"; B "Agent: hold it open". Chosen by selection: **A**.
+Recipients: `qa-fix-import-save-conflict` (close PD-1's handoff on this read, the Message Link limb carried by the new chain's
+handoff). Effort order: a diagnose-first chain `fix-message-link-import-empty` after chain 3b (effort file).
