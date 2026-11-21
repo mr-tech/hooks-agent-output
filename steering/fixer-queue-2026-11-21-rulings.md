@@ -232,3 +232,13 @@ Marked: 34 cases in the three test files `git diff --name-only f4baebb b663b354 
 (covered by 585), 1673 (covered by 1671). Covering cells: every covering id is in the merged table (0 unchecked). Nothing deleted on
 this; a deletion is a later chain's, behind a mutation re-run. Export removed (`ls -d` fails). The retrospective
 (`retrospectives/fixer-batch-2026-11-21-c-retrospective.md`) is still running.
+
+## 2026-11-21T10:28Z — batch retrospective c committed; its items for this thread
+
+`retrospectives/fixer-batch-2026-11-21-c-retrospective.md` (record `ea226320`), Active; pi only on his word, never offered. Items it
+gives this thread: (1) the architect entry on project-utils' CommonJS kysely build, owed since batch b and never lodged — lodged in
+`INBOX.md` now; (2) a deployment record citing an uncommitted `build.log` — lodged in `INBOX.md` for the record's owner (devops's
+document; its author stopped); (3) **this thread's error:** the retrospective's brief named the Origin `fixer-batch-2026-11-21-c`, not the
+lifecycle's `fixes-<date>-<thread>` form; the document records the deviation. Carried into chain 3c's later briefs: serve a production
+build before release where a module-instance or bundling assumption is open (the retrospective's finding on B-1), and take a
+production baseline of a post-deploy row's unchanged limbs before the push.
