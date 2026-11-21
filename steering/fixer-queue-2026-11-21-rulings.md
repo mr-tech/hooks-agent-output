@@ -183,3 +183,10 @@ ids; python over the two unit tables). Below 7: 104 of 221 (47.1%) — unit 1's 
 `user.save-limits.test.ts`. Covering cells: every covering id is in the merged table (0 unchecked). Two scorers noted cases kept at 8
 whose fake database is the ESM kysely (184, 186, 1656) — the escaped defect's blind spot, for chain 3b. Nothing deleted on this; a
 deletion is a later chain's, behind a mutation re-run. Export removed (`ls -d` fails).
+
+## 2026-11-21T08:12Z — his ruling, relayed by the coordinator: the 98% usage gate is lifted until reset
+
+His words, verbatim, relayed by `steering-coordinator` by SendMessage 08:1xZ: "98% usage gate is lifted until reset". The
+coordinator's gloss (its words): "The weekly 98% checkpoint-and-close hold no longer applies; resume normal chain work until the limit
+resets." Acted on: this effort's chains do not checkpoint and close at weekly_all 98% before the 17:00 UTC reset (`plan-usage.py`
+read 07:59Z); the session gate at 90% is not named and stands.
