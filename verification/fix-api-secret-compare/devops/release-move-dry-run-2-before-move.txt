@@ -1,0 +1,10 @@
+repo     /usr/local/bin/hooks/website
+ref      master
+target   0c14d5bed78fd938f8290ed9ae57834e093bfdc1
+remote   origin/master b68f94cda114bcef1efd59954aba321e246dd683
+local    master b68f94cda114bcef1efd59954aba321e246dd683
+untracked 17 path(s) left alone
+evidence reason Phase 2 verdict covers the tip: qa/closed/fix-api-secret-compare-qa.md Verified-At 0c14d5b; tip tree a2a2673d equals the Verified-At tree
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+DRY RUN: every check passed; nothing moved

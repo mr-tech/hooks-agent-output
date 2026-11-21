@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-api-secret-compare
 UUID: fbe73764
-Status: Committed
-Status-Detail: "Committed on chain/fix-api-secret-compare at website 0c14d5b (cut from origin/master b68f94c, not pushed); release to website master awaits the owner's word; post-deploy reads carried by handoff/fix-api-secret-compare-post-deploy-2026-11-21.md."
+Status: Released
+Status-Detail: "Released: website origin/master moved b68f94c to 0c14d5b at 2026-11-21T18:35Z (deployment/closed/fix-api-secret-compare-deployment.md); post-deploy reads carried by handoff/fix-api-secret-compare-post-deploy-2026-11-21.md."
 Handoff-At: 0c14d5b — repos=website
 Origin-Chain: "fix-v1-guild-messages-auth — the two v1 compares come from website 1acffee; interactions-server.ts:11 (f0f427b) and [id].ts:19 (3468587) are 2023 commits no chain made"
 ---
@@ -271,3 +271,4 @@ Source: `code-review/fix-api-secret-compare-code-review.md` at agent-output `821
 | 2026-11-21T18:12 | fixer-fix-api-secret-compare | QA Failed round (qa doc at 7d6b3007): QAF-1 resolved at website b01ae0b with QA's proposed case adapted, 6 of 6 controls killed, suite 2357/2357 exit 0; QAF-2 resolved by narrowing the leading-zeros claim in Diagnosis and User-visible flows (7-hit class swept); Handoff-At b01ae0b |
 | 2026-11-21T18:18 | fixer-fix-api-secret-compare | Code review sub-entry REJECTED at b01ae0b (review at 8214c8c0): CR-2 resolved at website 0c14d5b with the two required cases, reviewer's 6 mutants 6 of 6 killed, suite 2361/2361 exit 0; CR-1 (optional) not taken; Handoff-At 0c14d5b |
 | 2026-11-21T18:25 | devops-fix-api-secret-compare | Document closed | Status: Committed. Stage 1: chain branch chain/fix-api-secret-compare, tip 0c14d5b (tree a2a2673d), base origin/master b68f94c; QA Verified-At 0c14d5b, code review Reviewed-At 0c14d5b; nothing pushed or merged. Post-deploy reads: handoff/fix-api-secret-compare-post-deploy-2026-11-21.md |
+| 2026-11-21T18:36 | devops-fix-api-secret-compare | Released | Status: Released. Owner's release approval 18:35Z; release-move.js moved origin/master b68f94c to 0c14d5b (push 18:35:45Z); the fix branch merged into master and deleted with git branch -d. Deployment record deployment/closed/fix-api-secret-compare-deployment.md |

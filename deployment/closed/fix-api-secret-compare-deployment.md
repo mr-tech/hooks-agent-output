@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-api-secret-compare
 UUID: fbe73764
-Status: Active
-Status-Detail: "Phase 2A complete, readiness recorded; website 0c14d5b not yet on master. Awaiting the owner's release approval (Phase 2B); production push not yet run."
+Status: Released
+Status-Detail: "Website origin/master moved b68f94c to 0c14d5b at 2026-11-21T18:35:45Z on the owner's approval (Mode A). Deploy evidenced by the push. B-1 and the Statbot-ids assumption are carried on handoff/fix-api-secret-compare-post-deploy-2026-11-21.md."
 ---
 
 # Deployment Record: fix-api-secret-compare
@@ -20,6 +20,7 @@ Status-Detail: "Phase 2A complete, readiness recorded; website 0c14d5b not yet o
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T18:29 | steering-hooks (brief `steering/fix-api-secret-compare-brief-devops.md`) | Stage 1, then Stage 2 on the owner's word | Stage 1 committed (agent-output `2097c2f`): implementation, code review and QA Committed and closed, post-deploy handoff created. Phase 2A complete: tip assembled (fast-forward), verdict covers the tip, packaging re-run at the tip, readiness recorded here. Release approval not yet asked at this row. |
+| 2026-11-21T18:36 | devops-fix-api-secret-compare (own session) | Phase 2B, 2C and 2D | Owner approved at 18:35Z (selection prompt); runbook R1-R5 run; `release-move.js` pushed origin/master `b68f94c` to `0c14d5b` at 18:35:45Z; fix branch merged and deleted; included documents closed `Released`; this record closed `Released` with the post-deploy reads carried on the handoff. |
 
 ## Repositories and SHAs to ship
 
@@ -65,25 +66,57 @@ No other repository ships. The record repository (`agent-output`) is not a servi
 
 | # | Step | Result | Abort criterion |
 |---|---|---|---|
-| R1 | `git -C /usr/local/bin/hooks/website ls-remote origin master` equals `b68f94cda114bcef1efd59954aba321e246dd683` | (blank) | Any other SHA: stop, a commit landed that this verdict did not see; report to steering |
-| R2 | The owner's explicit yes to the release (Phase 2B), recorded below with the way the ask was put and its time | (blank) | No yes, or a decline: mark Aborted, nothing moves |
-| R3 | `release-move.js … master 0c14d5b… --dry-run --reason "<…>"` again, immediately before the move | (blank) | Any refusal: stop, report the refusal text, do not re-issue in another form |
-| R4 | `release-move.js … master 0c14d5b… --reason "<…>"` (fast-forwards local `master`, pushes `origin/master`, switches the tree back onto `master`) | (blank) | Any refusal or exit other than 0: stop, report; the tree must not be left switched over uncommitted work |
-| R5 | `git ls-remote origin master` equals `0c14d5bed78fd938f8290ed9ae57834e093bfdc1`; push SHA and time recorded | (blank) | A different SHA: stop |
+| R1 | `git -C /usr/local/bin/hooks/website ls-remote origin master` equals `b68f94cda114bcef1efd59954aba321e246dd683` | Done 18:35Z: `b68f94cda114bcef1efd59954aba321e246dd683 refs/heads/master` | Any other SHA: stop, a commit landed that this verdict did not see; report to steering |
+| R2 | The owner's explicit yes to the release (Phase 2B), recorded below with the way the ask was put and its time | Done: "Agent: release 0c14d5b to master (Recommended)", 18:35Z (User Confirmation) | No yes, or a decline: mark Aborted, nothing moves |
+| R3 | `release-move.js … master 0c14d5b… --dry-run --reason "<…>"` again, immediately before the move | Done 18:35Z, exit 0: "every check passed; nothing moved" (`release-move-dry-run-2-before-move.txt`) | Any refusal: stop, report the refusal text, do not re-issue in another form |
+| R4 | `release-move.js … master 0c14d5b… --reason "<…>"` (fast-forwards local `master`, pushes `origin/master`, switches the tree back onto `master`) | Done 18:35:45Z, exit 0: "OK moved master: b68f94c… -> 0c14d5b… on origin; tree on master" (`release-move-real.txt`) | Any refusal or exit other than 0: stop, report; the tree must not be left switched over uncommitted work |
+| R5 | `git ls-remote origin master` equals `0c14d5bed78fd938f8290ed9ae57834e093bfdc1`; push SHA and time recorded | Done: `git ls-remote origin master` → `0c14d5bed78fd938f8290ed9ae57834e093bfdc1 refs/heads/master`; local `HEAD`, `master` and `origin/master` all `0c14d5b…`; pushed 18:35:45Z | A different SHA: stop |
 | R6 | Post-deploy reads B-1 and the Statbot-ids assumption: not run by this session, carried on `handoff/fix-api-secret-compare-post-deploy-2026-11-21.md` | carried | Not an abort row: a failed B-1 after the push is a rollback decision for the owner (hazard 1 below) |
 
 ## User Confirmation
 
-Not yet asked. This section is written after the ask, with the way it was put (selection prompt: the `~/.claude/state/prompt-gate-off` flag is absent at 18:29Z, so prompts are on) and its time.
+- **Ask put**: as a selection prompt in this session (the `~/.claude/state/prompt-gate-off` flag was absent at 18:29Z, so prompts were on), after the readiness commit `cab3595`, at about 18:31Z. Options: "Agent: release 0c14d5b to master (Recommended)", "You: check Vercel's HOOKS_API_TOKEN first", "Agent: don't release".
+- **Summary presented**: release identifier website `master` at `0c14d5b`; no plans (fixer chain); environment Vercel production; the combined change (constant-time credential compare at three sites, the bot endpoint's empty-token refusal, the single-message id read digit for digit, tests only); QA and code review at `0c14d5b`; tip build and typecheck exit 0; rollback reverse-applies. Hazard 1 stated (production's `HOOKS_API_TOKEN` unread; if empty or unset, Get JSON fails for every hooks-bot user from the deploy until a token is set in Vercel or the release is reverted; the revert forms named). Hazard 2 stated (the Statbot caller's id form unread; no production-log instrument held; the post-deploy reads queued to others). Hazard 3: the fixer's User-visible flows quoted whole (`implementation/closed/fix-api-secret-compare-implementation.md`, "User-visible flows"). No self-hosted runner: no workflow exists.
+- **Response**: "Agent: release 0c14d5b to master (Recommended)", received at 18:35Z (the time of the next clock read, `date -u`). The released scope is the one presented; his answer is to the release, not to individual commits.
 
 ## Release Execution
 
-Not yet run.
+- **Commands, in order** (captures under `verification/fix-api-secret-compare/devops/`):
+  1. `git ls-remote origin master` → `b68f94c…` (R1, 18:35Z).
+  2. `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 0c14d5bed78fd938f8290ed9ae57834e093bfdc1 --dry-run --reason "<names qa/closed/fix-api-secret-compare-qa.md, Verified-At 0c14d5b, tree a2a2673d>"` → exit 0, "DRY RUN: every check passed; nothing moved" (`release-move-dry-run-2-before-move.txt`; the first dry run at Phase 2A is `release-move-dry-run-with-reason.txt`).
+  3. The same command without `--dry-run` → exit 0: `OK moved master: b68f94cda114bcef1efd59954aba321e246dd683 -> 0c14d5bed78fd938f8290ed9ae57834e093bfdc1 on origin; tree on master`, 2026-11-21T18:35:45Z (`release-move-real.txt`). No control or hook refused any act of this stage.
+  4. `git ls-remote origin master` → `0c14d5bed78fd938f8290ed9ae57834e093bfdc1`; `git rev-parse HEAD master origin/master` → the same SHA three times; `git status --porcelain` → `?? .playwright-mcp/` only.
+- **Refs moved**: website `origin/master` `b68f94c` → `0c14d5b` (fast-forward); local `master` `b68f94c` → `0c14d5b`; the tree switched from `chain/fix-api-secret-compare` back onto `master` (clean tracked tree at the switch). No tag, no publish (a branch move has nothing to publish).
+- **Serving state**: deployed by the push to `master`, the ref Vercel serves (the owner's word, the scoping determination). Evidence is the push — ref `master`, SHA `0c14d5bed78fd938f8290ed9ae57834e093bfdc1`, 2026-11-21T18:35:45Z — and nothing is read from a host. The Vercel production-branch setting stays an accepted-as-written risk (Mechanism table), not a verification mark.
+- **Reconciliation, deployed against verified**: the deployed ref is `origin/master`; the commit at it is `0c14d5b` (the pushed commit, read from local git). QA's `Verified-At` and the code review's `Reviewed-At` are `0c14d5b`: the same commit, so no surface diff is owed.
+- **Fix branch**: `git branch -d chain/fix-api-secret-compare` → exit 0 (merged into `master`, no `-D`); `git branch --list 'chain/*'` → empty.
 
 ## Post-Release Status
 
-Not yet released. B-1 and the Assumptions Not Checked are carried by `handoff/fix-api-secret-compare-post-deploy-2026-11-21.md`; its Review-Trigger is the deploy event. B-1's instrument was not shown on current production at Stage 1 (this session holds no Discord browser).
+Released 2026-11-21T18:35:45Z. **Known issues**: none observed; nothing is read from a host. Carried, not closed: register row B-1 (the hooks bot's Get JSON after the deploy; its instrument was not shown on current production at Stage 1 because this session holds no Discord browser) and the code review's Assumption Not Checked (the Statbot caller's single-message id form), both on `handoff/fix-api-secret-compare-post-deploy-2026-11-21.md` (Owning-Stage devops, Review-Trigger the deploy event, read by a stage or the owner; Status Open). Hazard 1 stands: if production's `HOOKS_API_TOKEN` is empty or unset, Get JSON fails for every hooks-bot user until a token is set in Vercel or the release is reverted.
+**Rollback Plan**: promote the previous production deployment (built from `b68f94c`) in Vercel (his dashboard act; accepted as written), or a revert commit on `master` pushed under a new approval; `git apply --check -R` of the release diff exits 0 (`rollback-diff-b68f94c-0c14d5b.patch`). No data to undo.
+
+## Phase 2D
+
+| Step | Result |
+|---|---|
+| Included plans | None (fixer chain). Documents set `Released`: implementation, code review, QA (each in `closed/`, changelog row 2026-11-21T18:36) |
+| Release-tip QA record | None separate: the Phase 2 record `qa/closed/fix-api-secret-compare-qa.md` is the release-tip verdict (tip tree = its `Verified-At` tree); `Released` and in `closed/` |
+| Deployment documents | This one (`ID: n/a`, `Origin` and UUID inherited from the fixer's document); one per chain |
+| Fix branch | Merged into `master` and deleted by `git branch -d` (exit 0) |
+| Architecture | `grep -l -E 'fix-api-secret-compare\|secretEquals' architecture/*.md architecture/closed/*.md` → none. No line closed or invalidated (the code review's alignment check: L117, L119, L126, L171 each hold); nothing routed |
+| Chain's documents (frontmatter `Origin: fix-api-secret-compare`) | implementation, code-review, qa: `Released`, in `closed/`; deployment (this): `Released`. Open `implementation/` documents: none, so no other fix chain's `Handoff-At` rides this tip. Handoff `handoff/fix-api-secret-compare-post-deploy-2026-11-21.md` (UUID 3039bc8a): `Open`, B-1 and the Assumption |
+| Handoffs the chain answered (source, named in the scoping block) | `handoff/website-api-handler-hardening-2026-10-10.md` (b1fdd41a): `Open`; items 1 (earlier), 2, 3 and 5 discharged by this release; item 4 moved to `handoff/statbot-api-key-env-schema-2026-11-21.md` (c07b0565): `Open`, untouched, its own trigger. Closing the source `Addressed` is steering's, after the post-deploy reads |
+| Forward items beyond the register | `Assumption Not Checked` found by `grep -rl` over the chain's documents: QA's (Vercel's Node runtime) and the code review's (Statbot ids), both on the handoff above; the implementation document carries none. CR-1 LOW (the every-route guard test's filter omits `.js`, `.jsx` and `__tests__` routes; 0 live members): declined by the fixer and accepted by the reviewer, **uncarried** by a handoff (nothing owed). The exclusions the scoping block names are carried elsewhere: `cron.ts`'s check by `handoff/cron-endpoint-key-is-a-fixed-value-2026-11-19.md` and chain 6, `.min(1)` on the token and the Discord signature check are decided exclusions |
+| Roadmap | None owed: the scoping determination names no epic or criterion |
+| Scratch | The tip export (`tip-export`, 1.3 GB copy of `node_modules` included) removed (`ls -d` → no such file); the capped scope `devops-tip-build.scope` inactive; no process left |
 
 ## Next Actions
 
-Release ask to the owner (Phase 2B); then R3 to R5; then Phase 2D.
+Row B-1 and the Statbot-ids assumption: on `handoff/fix-api-secret-compare-post-deploy-2026-11-21.md`, owned by a devops stage the owner starts for the read (or run by the owner), trigger the deploy event, now past. The record's `INBOX.md` entry for the retrospective is steering's spawn cue (a fixer chain that took a QA Failed and a REJECTED round runs its retrospective as a batch of one at closure). Nothing else is scheduled: no crontab line was installed.
+
+## Closing
+
+| Date | Agent | Change |
+|---|---|---|
+| 2026-11-21T18:36 | devops-fix-api-secret-compare | Document closed: Status Released; moved to `deployment/closed/`. Deploy evidenced by the push (18:35:45Z); the post-deploy reads ride the handoff, not this record. |

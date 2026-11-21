@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-api-secret-compare
 UUID: fbe73764
 Verified-At: "0c14d5b — repos=website; refresh pass, test-only over 32d10f7 (production byte-identical)"
-Status: Committed
-Status-Detail: "Phase 2 PASS at website 0c14d5b, committed on chain/fix-api-secret-compare; register B-1 (post-deploy, devops) carried by handoff/fix-api-secret-compare-post-deploy-2026-11-21.md."
+Status: Released
+Status-Detail: "Phase 2 PASS at website 0c14d5b, released to origin/master 2026-11-21T18:35Z (the release-tip verdict: the tip's tree is this record's Verified-At tree); register B-1 (post-deploy, devops) carried by handoff/fix-api-secret-compare-post-deploy-2026-11-21.md."
 Phase: 2
 ---
 
@@ -24,6 +24,7 @@ Phase: 2
 | 2026-11-21T18:09 | steering-hooks (brief `steering/fix-api-secret-compare-brief-qa.md`) | QA Phase 2 of website `b68f94c..32d10f7` (21 production lines) | Phase 2: QA Failed at 32d10f7 — QAF-1 MEDIUM (constant-time decision unasserted; 2 sweep survivors), QAF-2 LOW; suite 2355/2355 exit 0; sweep 39 of 43 killed; edge graph clear; id oracle 0 malformed ids reach the database |
 | 2026-11-21T18:23 | code-reviewer-fix-api-secret-compare (sub-entry APPROVED_WITH_COMMENTS at `0c14d5b`, agent-output `799172ab`) | Phase 2 refresh at website `0c14d5b` | Phase 2: QA Complete at 0c14d5b — QAF-1 and QAF-2 resolved; suite 2361/2361 exit 0; survivors 3 of 4 killed, the fourth equivalent; register B-1 minted |
 | 2026-11-21T18:25 | devops-fix-api-secret-compare | Document closed | Status: Committed (Stage 1; Verified-At 0c14d5b carried into the commit record). Register B-1's discharging document is handoff/fix-api-secret-compare-post-deploy-2026-11-21.md; State stays Open there. Minting limit: the instrument was not shown on current production at Stage 1 (no browser in the devops session), recorded in that handoff |
+| 2026-11-21T18:36 | devops-fix-api-secret-compare | Released | Status: Released. The release-tip verdict is this record: the tip 0c14d5b is its Verified-At commit (same tree a2a2673d); release-move.js took --reason naming it. Pushed 2026-11-21T18:35:45Z. B-1 State stays Open on handoff/fix-api-secret-compare-post-deploy-2026-11-21.md |
 
 ## Test Strategy (Pre-Implementation)
 
