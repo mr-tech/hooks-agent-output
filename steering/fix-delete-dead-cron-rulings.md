@@ -91,3 +91,14 @@ Spawn cue 20:4xZ (the reviewer, by SendMessage): `code-review/fix-delete-dead-cr
 `132a7ab`, round 1 APPROVED, no findings (read by this thread: the anchor line and the commit subject). Assumption Not Checked, routed to
 devops: production carries no cron (no `vercel.json`, no dashboard cron). `git ls-remote origin master`: `0c14d5b`.
 `devops-fix-delete-dead-cron` started with `tmux-agent spawn` (cwd website), brief `steering/fix-delete-dead-cron-brief-devops.md`.
+
+## 2026-11-21T23:23 — pushed on his word; Vercel's production build of it errored; production still serves the previous release
+
+Devops by message 23:2xZ: his selection "Agent: release it now (Recommended)" (in its session); website `origin/master` `0c14d5b` →
+`132a7ab`, pushed 23:18:58Z; record `deployment/closed/fix-delete-dead-cron-deployment.md` (Released). This thread's read 23:2xZ
+(Vercel CLI, look-only, his selection effort block 19:02): `vercel ls --prod` — newest production deployment
+`hooks-gg-website-dbbvp2cya-…` "● Error 17s"; `vercel inspect` of it: `dpl_E9QKLBn9M8VxTosRLrSJxrQDYSxy`, status Error, created
+23:19:00Z, aliases only the project and git-master ones; `vercel inspect https://hooks.gg` → `dpl_AsiVPq5vBJY7dqJim5PcmFVWCrn9`
+(18:35:46Z, the `0c14d5b` build). `vercel logs` of the errored one: no log lines. So the release is on `master` but not live; users see
+the previous release; the record's "Released" does not hold. Devops told at once (by message, 23:2xZ); the diagnosis is its. Owner-wait
+`release-ask` resolved. Chain 7's website half held off `master` until devops reports.
