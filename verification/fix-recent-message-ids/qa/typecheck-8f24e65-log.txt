@@ -1,0 +1,4 @@
+
+> website@ typecheck /tmp/claude-1000/-usr-local-bin-hooks-website/2a120950-d39c-41cf-ab8c-0fe1200096a5/scratchpad/exp-fix
+> tsc --noEmit && tsc --noEmit -p tsconfig.test.json
+

@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/2a120950-d39c-41cf-ab8c-0fe1200096a5/scratchpad/mut-work-sweep/20261121T062256Z-p964798/mutant-11
+
+ ❯ |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts (11 tests | 10 failed) 24ms
+     × lists a recent personal message the signed-in user owns 11ms
+     × leaves out another user's personal message stored in the preferences 2ms
+     × lists a recent server message of a server the signed-in user is owner or Administrator of 1ms
+     × leaves out a recent server message of a server the signed-in user is not owner or Administrator of 2ms
+     × leaves out every recent server message for a user who administers no server 1ms
+     × drops a stored element that is not a message number (letters) and still lists the valid ones 1ms
+     × drops a stored element that is not a message number (an empty string) and still lists the valid ones 1ms
+     × drops a stored element that is not a message number (a number past the column's range) and still lists the valid ones 1ms
+     × drops a stored element that is not a message number (a negative number) and still lists the valid ones 1ms
+     × drops a stored element that is not a message number (a non-string value) and still lists the valid ones 1ms
+ ❯ |node| src/server/__tests__/auth.hydrated-session.test.ts (20 tests | 2 failed) 24ms
+     × returns the guilds and the recent messages once both are in 8ms
+     × returns the session without guilds for an account with no access token 1ms
+
+ Test Files  2 failed | 2 passed (4)
+      Tests  12 failed | 187 passed (199)
+   Start at  06:23:24
+   Duration  1.13s (transform 412ms, setup 0ms, import 3.21s, tests 179ms, environment 0ms)
+

@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/2a120950-d39c-41cf-ab8c-0fe1200096a5/scratchpad/mut-work-sweep/20261121T062256Z-p964798/mutant-5
+
+ ❯ |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts (6 tests | 4 failed) 19ms
+     × issues no query and returns no messages for an empty id list 11ms
+     × binds a non-empty id list as parameters of one in-list, beside the caller as owner 2ms
+     × binds only the elements that are message numbers 1ms
+     × issues no query and returns no messages when no element is a message number 1ms
+ ❯ |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts (11 tests | 10 failed) 20ms
+     × lists a recent personal message the signed-in user owns 10ms
+     × leaves out another user's personal message stored in the preferences 1ms
+     × lists a recent server message of a server the signed-in user is owner or Administrator of 1ms
+     × leaves out a recent server message of a server the signed-in user is not owner or Administrator of 1ms
+     × leaves out every recent server message for a user who administers no server 1ms
+     × drops a stored element that is not a message number (letters) and still lists the valid ones 1ms
+     × drops a stored element that is not a message number (an empty string) and still lists the valid ones 0ms
+     × drops a stored element that is not a message number (a number past the column's range) and still lists the valid ones 1ms
+     × drops a stored element that is not a message number (a negative number) and still lists the valid ones 1ms
+     × drops a stored element that is not a message number (a non-string value) and still lists the valid ones 1ms
+
+ Test Files  2 failed | 2 passed (4)
+      Tests  14 failed | 185 passed (199)
+   Start at  06:23:09
+   Duration  1.15s (transform 449ms, setup 0ms, import 3.25s, tests 156ms, environment 0ms)
+

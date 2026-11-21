@@ -1,0 +1,226 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 14 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent personal message the signed-in user owns
+AssertionError: expected [] to deeply equal [ '900000000000102' ]
+
+- Expected
++ Received
+
+- [
+-   "900000000000102",
+- ]
++ []
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:106:42
+    104|     const messages = await hydrateAs(VIEWER_DB_ID, [VIEWER_MESSAGE_ID]…
+    105|
+    106|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
+       |                                          ^
+    107|   });
+    108|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/14]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out another user's personal message stored in the preferences
+AssertionError: expected [] to deeply equal [ '900000000000102' ]
+
+- Expected
++ Received
+
+- [
+-   "900000000000102",
+- ]
++ []
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:112:42
+    110|     const messages = await hydrateAs(VIEWER_DB_ID, [OWNED_MESSAGE_ID, …
+    111|
+    112|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
+       |                                          ^
+    113|     expect(JSON.stringify(messages)).not.toContain('owner-private-name…
+    114|     const select = mocks.queries.find(({ sql }) => sql.includes('from …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/14]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent server message of a server the signed-in user is owner or Administrator of
+AssertionError: expected [] to deeply equal [ Array(2) ]
+
+- Expected
++ Received
+
+- [
+-   "900000000000102",
+-   "900000000000103",
+- ]
++ []
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:123:42
+    121|     const messages = await hydrateAs(VIEWER_DB_ID, [SERVER_MESSAGE_ID,…
+    122|
+    123|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID, S…
+       |                                          ^
+    124|   });
+    125|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/14]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out a recent server message of a server the signed-in user is not owner or Administrator of
+AssertionError: expected [] to deeply equal [ '900000000000102' ]
+
+- Expected
++ Received
+
+- [
+-   "900000000000102",
+- ]
++ []
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:131:42
+    129|     const messages = await hydrateAs(VIEWER_DB_ID, [FOREIGN_SERVER_MES…
+    130|
+    131|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
+       |                                          ^
+    132|     expect(JSON.stringify(messages)).not.toContain('foreign-server-nam…
+    133|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/14]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out every recent server message for a user who administers no server
+AssertionError: expected [] to deeply equal [ '900000000000102' ]
+
+- Expected
++ Received
+
+- [
+-   "900000000000102",
+- ]
++ []
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:138:42
+    136|     const messages = await hydrateAs(VIEWER_DB_ID, [SERVER_MESSAGE_ID,…
+    137|
+    138|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
+       |                                          ^
+    139|   });
+    140|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/14]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (letters) and still lists the valid ones
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (an empty string) and still lists the valid ones
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a number past the column's range) and still lists the valid ones
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a negative number) and still lists the valid ones
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a non-string value) and still lists the valid ones
+AssertionError: expected [] to deeply equal [ '900000000000102' ]
+
+- Expected
++ Received
+
+- [
+-   "900000000000102",
+- ]
++ []
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:150:42
+    148|     const messages = await hydrateAs(VIEWER_DB_ID, [element, VIEWER_ME…
+    149|
+    150|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
+       |                                          ^
+    151|     const select = mocks.queries.find(({ sql }) => sql.includes('from …
+    152|     expect(select && boundIds(select)).toEqual([VIEWER_MESSAGE_ID]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > issues no query and returns no messages for an empty id list
+AssertionError: expected [ { id: 'm1', createdAt: +0, …(3) } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "createdAt": 0,
++     "id": "m1",
++     "name": "n",
++     "previewImageNonce": null,
++     "updatedAt": 0,
++   },
++ ]
+
+ ❯ src/server/api/utils/__tests__/shared.in-predicates.test.ts:36:51
+     34| describe('getUserRecentMessages', () => {
+     35|   it('issues no query and returns no messages for an empty id list', a…
+     36|     expect(await getUserRecentMessages([], 'u1')).toEqual([]);
+       |                                                   ^
+     37|     expect(captured.queries).toHaveLength(0);
+     38|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > binds a non-empty id list as parameters of one in-list, beside the caller as owner
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/server/api/utils/__tests__/shared.in-predicates.test.ts:43:30
+     41|     const result = await getUserRecentMessages(['900000000000001', '90…
+     42|
+     43|     expect(captured.queries).toHaveLength(1);
+       |                              ^
+     44|     expect(captured.queries[0].sql).toContain('"Messages"."id" in ($1,…
+     45|     expect(captured.queries[0].sql).toContain('"Messages"."fk_users_id…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > binds only the elements that are message numbers
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ src/server/api/utils/__tests__/shared.in-predicates.test.ts:54:30
+     52|     await getUserRecentMessages(['900000000000001', 'abc', '9223372036…
+     53|
+     54|     expect(captured.queries).toHaveLength(1);
+       |                              ^
+     55|     expect(captured.queries[0].sql).toContain('"Messages"."id" in ($1,…
+     56|     expect(captured.queries[0].parameters).toEqual(['900000000000001',…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/14]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > issues no query and returns no messages when no element is a message number
+AssertionError: expected [ { id: 'm1', createdAt: +0, …(3) } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "createdAt": 0,
++     "id": "m1",
++     "name": "n",
++     "previewImageNonce": null,
++     "updatedAt": 0,
++   },
++ ]
+
+ ❯ src/server/api/utils/__tests__/shared.in-predicates.test.ts:60:60
+     58|
+     59|   it('issues no query and returns no messages when no element is a mes…
+     60|     expect(await getUserRecentMessages(['abc', ''], 'u1')).toEqual([]);
+       |                                                            ^
+     61|     expect(captured.queries).toHaveLength(0);
+     62|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/14]⎯
+

@@ -1,0 +1,23 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses an element that is not a message number (a number past the column's range) with no database access
+ FAIL  |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses an element that is not a message number (twenty digits) with no database access
+AssertionError: expected undefined to be 'BAD_REQUEST' // Object.is equality
+
+- Expected:
+"BAD_REQUEST"
+
++ Received:
+undefined
+
+ ❯ src/server/api/routers/__tests__/user.save-limits.test.ts:80:18
+     78|     const { code, issues } = await refusalOf(procedure.call, { recentM…
+     79|
+     80|     expect(code).toBe('BAD_REQUEST');
+       |                  ^
+     81|     expect(new Set(issues.map(({ path }) => JSON.stringify(path)))).to…
+     82|     expect(captured.queries).toHaveLength(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+

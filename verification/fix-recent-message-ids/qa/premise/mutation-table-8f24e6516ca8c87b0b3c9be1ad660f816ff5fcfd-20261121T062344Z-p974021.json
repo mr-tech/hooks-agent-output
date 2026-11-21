@@ -1,0 +1,69 @@
+{
+ "sha": "8f24e6516ca8c87b0b3c9be1ad660f816ff5fcfd",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/qa/premise-mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 480.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/qa/premise-mutants.json",
+   "blob": "0caeb70e4e7272ad0e6e9b83cb54c3273812cd7e"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/qa/premise/8f24e6516ca8c87b0b3c9be1ad660f816ff5fcfd-20261121T062344Z-p974021-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/qa/premise/8f24e6516ca8c87b0b3c9be1ad660f816ff5fcfd-20261121T062344Z-p974021-control-1.stderr",
+   "seconds": 20.94,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 2281,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "premise-guild-trim-removed",
+   "run": "mutant-1",
+   "file": "src/utils/redis/index.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 2281,
+   "control_tests_run": 2281,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 21.43,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/qa/premise/8f24e6516ca8c87b0b3c9be1ad660f816ff5fcfd-20261121T062344Z-p974021-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/qa/premise/8f24e6516ca8c87b0b3c9be1ad660f816ff5fcfd-20261121T062344Z-p974021-mutant-1.stderr"
+  }
+ ],
+ "score": "0 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; premise-mutants.json (blob 0caeb70e4e7272ad0e6e9b83cb54c3273812cd7e))"
+}

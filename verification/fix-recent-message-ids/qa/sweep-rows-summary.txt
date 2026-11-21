@@ -1,0 +1,101 @@
+== sweep table: /usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/qa/sweep/mutation-table-8f24e6516ca8c87b0b3c9be1ad660f816ff5fcfd-20261121T062256Z-p964798.json
+   score="16 of 19 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; sweep-mutants.json (blob 6ab5619d59ec1c7923c4b5a89608c4316339225b))" controls={"[\"src/server/__tests__/auth.hydrated-recent-messages.test.ts\", \"src/server/__tests__/auth.hydrated-session.test.ts\", \"src/server/api/routers/__tests__/user.save-limits.test.ts\", \"src/server/api/utils/__tests__/shared.in-predicates.test.ts\"]": {"id": "control-1", "stdout": "/usr/local/bin/h
+user.ts:34:num | run=mutant-1 | outcome=KILLED | tests_run=199 | control=199 | aborted=None | n_titles=4
+      - |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses 12 valid elements with one issue for the list and no database access
+      - |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses 12 wrong primitive elements with one issue for the list and no database access
+      - |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses 12 null elements with one issue for the list and no database access
+      - |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses 61 elements with one issue for the list
+shared.ts:111:walk-first | run=mutant-2 | outcome=KILLED | tests_run=199 | control=199 | aborted=None | n_titles=12
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out another user's personal message stored in the preferences
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent server message of a server the signed-in user is owner or Administrator of
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out a recent server message of a server the signed-in user is not owner or Administrator of
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out every recent server message for a user who administers no server
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (letters) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (an empty string) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a number past the column's range) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a negative number) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a non-string value) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > gives the session's preferences only the stored elements that are message numbers
+      - |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > binds a non-empty id list as parameters of one in-list, beside the caller as owner
+      - |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > binds only the elements that are message numbers
+shared.ts:111:walk-last | run=mutant-3 | outcome=KILLED | tests_run=199 | control=199 | aborted=None | n_titles=4
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent server message of a server the signed-in user is owner or Administrator of
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > gives the session's preferences only the stored elements that are message numbers
+      - |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > binds a non-empty id list as parameters of one in-list, beside the caller as owner
+      - |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > binds only the elements that are message numbers
+shared.ts:119:if-false | run=mutant-4 | outcome=KILLED | tests_run=199 | control=199 | aborted=None | n_titles=2
+      - |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > issues no query and returns no messages for an empty id list
+      - |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > issues no query and returns no messages when no element is a message number
+shared.ts:119:not | run=mutant-5 | outcome=KILLED | tests_run=199 | control=199 | aborted=None | n_titles=14
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent personal message the signed-in user owns
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out another user's personal message stored in the preferences
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent server message of a server the signed-in user is owner or Administrator of
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out a recent server message of a server the signed-in user is not owner or Administrator of
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out every recent server message for a user who administers no server
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (letters) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (an empty string) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a number past the column's range) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a negative number) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a non-string value) and still lists the valid ones
+      - |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > issues no query and returns no messages for an empty id list
+      - |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > binds a non-empty id list as parameters of one in-list, beside the caller as owner
+      - |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > binds only the elements that are message numbers
+      - |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > issues no query and returns no messages when no element is a message number
+auth.ts:137:&& | run=mutant-6 | outcome=KILLED | tests_run=199 | control=199 | aborted=None | n_titles=3
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > gives the session's preferences only the stored elements that are message numbers
+      - |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, for a user with no recent messages > returns the guilds and no messages for a user with no preferences
+      - |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, for a user with no recent messages > returns the guilds and no messages for a user with empty preferences
+auth.ts:162:walk-first | run=mutant-7 | outcome=SURVIVED | tests_run=199 | control=199 | aborted=None | n_titles=<no key>
+auth.ts:162:walk-last | run=mutant-8 | outcome=SURVIVED | tests_run=199 | control=199 | aborted=None | n_titles=<no key>
+auth.ts:163:walk-first | run=mutant-9 | outcome=KILLED | tests_run=199 | control=199 | aborted=None | n_titles=1
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent server message of a server the signed-in user is owner or Administrator of
+auth.ts:163:walk-last | run=mutant-10 | outcome=KILLED | tests_run=199 | control=199 | aborted=None | n_titles=3
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent server message of a server the signed-in user is owner or Administrator of
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out a recent server message of a server the signed-in user is not owner or Administrator of
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out every recent server message for a user who administers no server
+auth.ts:164:not | run=mutant-11 | outcome=KILLED | tests_run=199 | control=199 | aborted=None | n_titles=12
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent personal message the signed-in user owns
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out another user's personal message stored in the preferences
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent server message of a server the signed-in user is owner or Administrator of
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out a recent server message of a server the signed-in user is not owner or Administrator of
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out every recent server message for a user who administers no server
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (letters) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (an empty string) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a number past the column's range) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a negative number) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a non-string value) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback > returns the guilds and the recent messages once both are in
+      - |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, by how the account lookup, the recent messages and the guild fetch end > returns the session without guilds for an account with no access token
+auth.ts:164:|| | run=mutant-12 | outcome=KILLED | tests_run=199 | control=199 | aborted=None | n_titles=12
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent personal message the signed-in user owns
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out another user's personal message stored in the preferences
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent server message of a server the signed-in user is owner or Administrator of
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out a recent server message of a server the signed-in user is not owner or Administrator of
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out every recent server message for a user who administers no server
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (letters) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (an empty string) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a number past the column's range) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a negative number) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a non-string value) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback > returns the guilds and the recent messages once both are in
+      - |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, by how the account lookup, the recent messages and the guild fetch end > returns the session without guilds for an account with no access token
+qa-preferences-spread-stored-wins | run=mutant-13 | outcome=KILLED | tests_run=199 | control=199 | aborted=None | n_titles=1
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > gives the session's preferences only the stored elements that are message numbers
+qa-session-preferences-as-stored | run=mutant-14 | outcome=KILLED | tests_run=199 | control=199 | aborted=None | n_titles=1
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > gives the session's preferences only the stored elements that are message numbers
+qa-filter-owner-only | run=mutant-15 | outcome=SURVIVED | tests_run=199 | control=199 | aborted=None | n_titles=<no key>
+qa-input-digits-unbounded | run=mutant-16 | outcome=KILLED | tests_run=199 | control=199 | aborted=None | n_titles=2
+      - |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses an element that is not a message number (a number past the column's range) with no database access
+      - |node| src/server/api/routers/__tests__/user.save-limits.test.ts > user.updatePreferences input: recentMessageIds > refuses an element that is not a message number (twenty digits) with no database access
+qa-keep-digits-unbounded | run=mutant-17 | outcome=KILLED | tests_run=199 | control=199 | aborted=None | n_titles=2
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a number past the column's range) and still lists the valid ones
+      - |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > binds only the elements that are message numbers
+qa-keep-admits-sign | run=mutant-18 | outcome=KILLED | tests_run=199 | control=199 | aborted=None | n_titles=2
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a negative number) and still lists the valid ones
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > gives the session's preferences only the stored elements that are message numbers
+qa-keep-admits-empty | run=mutant-19 | outcome=KILLED | tests_run=199 | control=199 | aborted=None | n_titles=2
+      - |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (an empty string) and still lists the valid ones
+      - |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > issues no query and returns no messages when no element is a message number
+== premise table: /usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/qa/premise/mutation-table-8f24e6516ca8c87b0b3c9be1ad660f816ff5fcfd-20261121T062344Z-p974021.json
+   score="0 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; premise-mutants.json (blob 0caeb70e4e7272ad0e6e9b83cb54c3273812cd7e))" controls={"[]": {"id": "control-1", "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/qa/premise/8f24e6516ca8c87b0b3c9be1ad660f816ff5fcfd-20261121T062344Z-p974021-control-1.stdout", "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/qa/premise/8f24
+premise-guild-trim-removed | run=mutant-1 | outcome=SURVIVED | tests_run=2281 | control=2281 | aborted=None | n_titles=<no key>

@@ -1,0 +1,266 @@
+[
+ {
+  "id": "user.ts:34:num",
+  "file": "src/server/api/routers/user.ts",
+  "old": " 1)",
+  "new": " 2)",
+  "op": "num",
+  "line": 34,
+  "text": "recentMessageIds: boundedArray(messageIdShape, MAX_RECENT_MESSAGE_IDS + 1).optional(),",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "shared.ts:111:walk-first",
+  "file": "src/server/api/utils/shared.ts",
+  "old": " ids.",
+  "new": " (Array.isArray(ids) ? ids.slice(0, 1) : ids).",
+  "op": "walk-first",
+  "line": 111,
+  "text": "return ids.filter((id) => messageIdShape.safeParse(id).success);",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "shared.ts:111:walk-last",
+  "file": "src/server/api/utils/shared.ts",
+  "old": " ids.",
+  "new": " (Array.isArray(ids) ? ids.slice(-1) : ids).",
+  "op": "walk-last",
+  "line": 111,
+  "text": "return ids.filter((id) => messageIdShape.safeParse(id).success);",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "shared.ts:119:if-false",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "  if (!v",
+  "new": "  if (false && !v",
+  "op": "if-false",
+  "line": 119,
+  "text": "if (!validIds.length) return [];",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "shared.ts:119:not",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "(!v",
+  "new": "(v",
+  "op": "not",
+  "line": 119,
+  "text": "if (!validIds.length) return [];",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "auth.ts:137:&&",
+  "file": "src/server/auth.ts",
+  "old": "  && k",
+  "new": "  || k",
+  "op": "&&",
+  "line": 137,
+  "text": "&& keepMessageNumbers(user.preferences.recentMessageIds);",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "auth.ts:162:walk-first",
+  "file": "src/server/auth.ts",
+  "old": "(guilds.",
+  "new": "((Array.isArray(guilds) ? guilds.slice(0, 1) : guilds).",
+  "op": "walk-first",
+  "line": 162,
+  "text": "const administeredGuildIds = new Set(guilds.map(({ id }) => id));",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "auth.ts:162:walk-last",
+  "file": "src/server/auth.ts",
+  "old": "(guilds.",
+  "new": "((Array.isArray(guilds) ? guilds.slice(-1) : guilds).",
+  "op": "walk-last",
+  "line": 162,
+  "text": "const administeredGuildIds = new Set(guilds.map(({ id }) => id));",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "auth.ts:163:walk-first",
+  "file": "src/server/auth.ts",
+  "old": " messages\n",
+  "new": " (Array.isArray(messages) ? messages.slice(0, 1) : messages)\n",
+  "op": "walk-first",
+  "line": 163,
+  "text": "const authorizedMessages = messages",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "auth.ts:163:walk-last",
+  "file": "src/server/auth.ts",
+  "old": " messages\n",
+  "new": " (Array.isArray(messages) ? messages.slice(-1) : messages)\n",
+  "op": "walk-last",
+  "line": 163,
+  "text": "const authorizedMessages = messages",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "auth.ts:164:not",
+  "file": "src/server/auth.ts",
+  "old": " !g",
+  "new": " g",
+  "op": "not",
+  "line": 164,
+  "text": ".filter(({ guildId }) => !guildId || administeredGuildIds.has(guildId));",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "auth.ts:164:||",
+  "file": "src/server/auth.ts",
+  "old": "||",
+  "new": "&&",
+  "op": "||",
+  "line": 164,
+  "text": ".filter(({ guildId }) => !guildId || administeredGuildIds.has(guildId));",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "qa-preferences-spread-stored-wins",
+  "file": "src/server/auth.ts",
+  "old": "? { ...user.preferences, recentMessageIds }",
+  "new": "? { recentMessageIds, ...user.preferences }",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "qa-session-preferences-as-stored",
+  "file": "src/server/auth.ts",
+  "old": "session.user.preferences = preferences;",
+  "new": "session.user.preferences = user.preferences;",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "qa-filter-owner-only",
+  "file": "src/server/auth.ts",
+  "old": "new Set(guilds.map(({ id }) => id))",
+  "new": "new Set(guilds.filter(({ owner }) => owner).map(({ id }) => id))",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "qa-input-digits-unbounded",
+  "file": "src/server/api/routers/user.ts",
+  "old": "boundedArray(messageIdShape, MAX_RECENT_MESSAGE_IDS + 1)",
+  "new": "boundedArray(z.string().regex(/^[0-9]+$/), MAX_RECENT_MESSAGE_IDS + 1)",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "qa-keep-digits-unbounded",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "return ids.filter((id) => messageIdShape.safeParse(id).success);",
+  "new": "return ids.filter((id) => typeof id === 'string' && /^[0-9]+$/.test(id));",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "qa-keep-admits-sign",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "return ids.filter((id) => messageIdShape.safeParse(id).success);",
+  "new": "return ids.filter((id) => typeof id === 'string' && /^-?[0-9]{1,19}$/.test(id) && BigInt(id) <= 9223372036854775807n);",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "qa-keep-admits-empty",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "return ids.filter((id) => messageIdShape.safeParse(id).success);",
+  "new": "return ids.filter((id) => typeof id === 'string' && (id === '' || messageIdShape.safeParse(id).success));",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts",
+   "src/server/api/routers/__tests__/user.save-limits.test.ts",
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ }
+]

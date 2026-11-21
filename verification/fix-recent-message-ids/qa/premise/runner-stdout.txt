@@ -1,0 +1,2 @@
+premise-guild-trim-removed SURVIVED 21.43
+0 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; premise-mutants.json (blob 0caeb70e4e7272ad0e6e9b83cb54c3273812cd7e))

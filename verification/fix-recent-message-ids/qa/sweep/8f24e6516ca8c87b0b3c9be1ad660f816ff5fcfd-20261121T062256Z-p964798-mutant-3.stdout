@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/2a120950-d39c-41cf-ab8c-0fe1200096a5/scratchpad/mut-work-sweep/20261121T062256Z-p964798/mutant-3
+
+ ❯ |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts (6 tests | 2 failed) 19ms
+     × binds a non-empty id list as parameters of one in-list, beside the caller as owner 10ms
+     × binds only the elements that are message numbers 2ms
+ ❯ |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts (11 tests | 2 failed) 21ms
+     × lists a recent server message of a server the signed-in user is owner or Administrator of 6ms
+     × gives the session's preferences only the stored elements that are message numbers 2ms
+
+ Test Files  2 failed | 2 passed (4)
+      Tests  4 failed | 195 passed (199)
+   Start at  06:23:05
+   Duration  1.15s (transform 447ms, setup 0ms, import 3.23s, tests 157ms, environment 1ms)
+

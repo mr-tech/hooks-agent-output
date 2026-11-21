@@ -1,0 +1,57 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > gives the session's preferences only the stored elements that are message numbers
+AssertionError: expected { …(2) } to deeply equal { …(2) }
+
+- Expected
++ Received
+
+  {
+    "recentGuild": "200000000000000001",
+    "recentMessageIds": [
++     "abc",
+      "900000000000102",
++     "-1",
+    ],
+  }
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:165:38
+    163|     } as never) as unknown as { user: { preferences: UserPreference } …
+    164|
+    165|     expect(session.user.preferences).toEqual({
+       |                                      ^
+    166|       recentGuild: '200000000000000001',
+    167|       recentMessageIds: [VIEWER_MESSAGE_ID],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, for a user with no recent messages > returns the guilds and no messages for a user with no preferences
+TypeError: Cannot read properties of undefined (reading 'recentMessageIds')
+ ❯ Object.hydratedAuthCallback [as session] src/server/auth.ts:137:46
+    135|   if (session.user) {
+    136|     const recentMessageIds = user.preferences?.recentMessageIds
+    137|       || keepMessageNumbers(user.preferences.recentMessageIds);
+       |                                              ^
+    138|     const preferences = recentMessageIds
+    139|       ? { ...user.preferences, recentMessageIds }
+ ❯ hydrate src/server/__tests__/auth.hydrated-session.test.ts:47:41
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:151:27
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, for a user with no recent messages > returns the guilds and no messages for a user with empty preferences
+TypeError: Cannot read properties of undefined (reading 'filter')
+ ❯ keepMessageNumbers src/server/api/utils/shared.ts:111:14
+    109|
+    110| export function keepMessageNumbers(ids: string[]) {
+    111|   return ids.filter((id) => messageIdShape.safeParse(id).success);
+       |              ^
+    112| }
+    113|
+ ❯ Object.hydratedAuthCallback [as session] src/server/auth.ts:137:10
+ ❯ hydrate src/server/__tests__/auth.hydrated-session.test.ts:47:41
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:151:27
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

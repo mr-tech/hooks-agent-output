@@ -1,0 +1,39 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a number past the column's range) and still lists the valid ones
+Error: invalid input syntax for type bigint: "9223372036854775808"
+ ❯ refuseNonInt8 src/server/__tests__/auth.hydrated-recent-messages.test.ts:63:13
+     61|   for (const value of values) {
+     62|     if (typeof value !== 'string' || !/^-?[0-9]+$/.test(value) || BigI…
+     63|       throw new Error(`invalid input syntax for type bigint: "${String…
+       |             ^
+     64|     }
+     65|   }
+ ❯ Object.mocks.respond src/server/__tests__/auth.hydrated-recent-messages.test.ts:80:5
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:22:51
+ ❯ Object.executeQuery src/server/api/utils/__tests__/helpers/capturingDatabase.ts:16:22
+ ❯ node_modules/.pnpm/kysely@0.26.1/node_modules/kysely/dist/esm/query-executor/query-executor-base.js:35:45
+ ❯ DefaultConnectionProvider.provideConnection node_modules/.pnpm/kysely@0.26.1/node_modules/kysely/dist/esm/driver/default-connection-provider.js:10:26
+ ❯ DefaultQueryExecutor.executeQuery node_modules/.pnpm/kysely@0.26.1/node_modules/kysely/dist/esm/query-executor/query-executor-base.js:34:16
+ ❯ SelectQueryBuilder.execute node_modules/.pnpm/kysely@0.26.1/node_modules/kysely/dist/esm/query-builder/select-query-builder.js:1134:24
+ ❯ getUserRecentMessages src/server/api/utils/shared.ts:135:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > binds only the elements that are message numbers
+AssertionError: expected 'select "Messages"."id", "Messages"."c…' to contain '"Messages"."id" in ($1, $2)'
+
+Expected: ""Messages"."id" in ($1, $2)"
+Received: "select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce", "Guilds"."guildId" as "guildId" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" where "Messages"."id" in ($1, $2, $3) and ("Messages"."fk_users_id" = $4 or "Messages"."fk_guilds_id" is not null)"
+
+ ❯ src/server/api/utils/__tests__/shared.in-predicates.test.ts:55:37
+     53|
+     54|     expect(captured.queries).toHaveLength(1);
+     55|     expect(captured.queries[0].sql).toContain('"Messages"."id" in ($1,…
+       |                                     ^
+     56|     expect(captured.queries[0].parameters).toEqual(['900000000000001',…
+     57|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

@@ -1,0 +1,28 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > gives the session's preferences only the stored elements that are message numbers
+AssertionError: expected { …(2) } to deeply equal { …(2) }
+
+- Expected
++ Received
+
+  {
+    "recentGuild": "200000000000000001",
+    "recentMessageIds": [
++     "abc",
+      "900000000000102",
++     "-1",
+    ],
+  }
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:165:38
+    163|     } as never) as unknown as { user: { preferences: UserPreference } …
+    164|
+    165|     expect(session.user.preferences).toEqual({
+       |                                      ^
+    166|       recentGuild: '200000000000000001',
+    167|       recentMessageIds: [VIEWER_MESSAGE_ID],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

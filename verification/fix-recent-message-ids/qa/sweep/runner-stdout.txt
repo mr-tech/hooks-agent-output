@@ -1,0 +1,20 @@
+user.ts:34:num KILLED 2.3
+shared.ts:111:walk-first KILLED 2.2
+shared.ts:111:walk-last KILLED 2.25
+shared.ts:119:if-false KILLED 2.23
+shared.ts:119:not KILLED 2.23
+auth.ts:137:&& KILLED 2.27
+auth.ts:162:walk-first SURVIVED 2.21
+auth.ts:162:walk-last SURVIVED 2.24
+auth.ts:163:walk-first KILLED 2.19
+auth.ts:163:walk-last KILLED 2.18
+auth.ts:164:not KILLED 2.24
+auth.ts:164:|| KILLED 2.23
+qa-preferences-spread-stored-wins KILLED 2.16
+qa-session-preferences-as-stored KILLED 2.3
+qa-filter-owner-only SURVIVED 2.17
+qa-input-digits-unbounded KILLED 2.23
+qa-keep-digits-unbounded KILLED 2.14
+qa-keep-admits-sign KILLED 2.22
+qa-keep-admits-empty KILLED 2.18
+16 of 19 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; sweep-mutants.json (blob 6ab5619d59ec1c7923c4b5a89608c4316339225b))

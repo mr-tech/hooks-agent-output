@@ -1,0 +1,80 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent server message of a server the signed-in user is owner or Administrator of
+AssertionError: expected [ '900000000000102' ] to deeply equal [ Array(2) ]
+
+- Expected
++ Received
+
+  [
+    "900000000000102",
+-   "900000000000103",
+  ]
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:123:42
+    121|     const messages = await hydrateAs(VIEWER_DB_ID, [SERVER_MESSAGE_ID,…
+    122|
+    123|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID, S…
+       |                                          ^
+    124|   });
+    125|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > gives the session's preferences only the stored elements that are message numbers
+AssertionError: expected { …(2) } to deeply equal { …(2) }
+
+- Expected
++ Received
+
+  {
+    "recentGuild": "200000000000000001",
+-   "recentMessageIds": [
+-     "900000000000102",
+-   ],
++   "recentMessageIds": [],
+  }
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:165:38
+    163|     } as never) as unknown as { user: { preferences: UserPreference } …
+    164|
+    165|     expect(session.user.preferences).toEqual({
+       |                                      ^
+    166|       recentGuild: '200000000000000001',
+    167|       recentMessageIds: [VIEWER_MESSAGE_ID],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > binds a non-empty id list as parameters of one in-list, beside the caller as owner
+AssertionError: expected 'select "Messages"."id", "Messages"."c…' to contain '"Messages"."id" in ($1, $2)'
+
+Expected: ""Messages"."id" in ($1, $2)"
+Received: "select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce", "Guilds"."guildId" as "guildId" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" where "Messages"."id" in ($1) and ("Messages"."fk_users_id" = $2 or "Messages"."fk_guilds_id" is not null)"
+
+ ❯ src/server/api/utils/__tests__/shared.in-predicates.test.ts:44:37
+     42|
+     43|     expect(captured.queries).toHaveLength(1);
+     44|     expect(captured.queries[0].sql).toContain('"Messages"."id" in ($1,…
+       |                                     ^
+     45|     expect(captured.queries[0].sql).toContain('"Messages"."fk_users_id…
+     46|     expect(captured.queries[0].parameters).toEqual(['900000000000001',…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > binds only the elements that are message numbers
+AssertionError: expected 'select "Messages"."id", "Messages"."c…' to contain '"Messages"."id" in ($1, $2)'
+
+Expected: ""Messages"."id" in ($1, $2)"
+Received: "select "Messages"."id", "Messages"."createdAt", "Messages"."updatedAt", "Messages"."name", "Messages"."previewImageNonce", "Guilds"."guildId" as "guildId" from "Messages" left join "Guilds" on "Messages"."fk_guilds_id" = "Guilds"."id" where "Messages"."id" in ($1) and ("Messages"."fk_users_id" = $2 or "Messages"."fk_guilds_id" is not null)"
+
+ ❯ src/server/api/utils/__tests__/shared.in-predicates.test.ts:55:37
+     53|
+     54|     expect(captured.queries).toHaveLength(1);
+     55|     expect(captured.queries[0].sql).toContain('"Messages"."id" in ($1,…
+       |                                     ^
+     56|     expect(captured.queries[0].parameters).toEqual(['900000000000001',…
+     57|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+

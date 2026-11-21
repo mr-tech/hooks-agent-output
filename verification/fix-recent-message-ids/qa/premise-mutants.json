@@ -1,0 +1,8 @@
+[
+ {
+  "id": "premise-guild-trim-removed",
+  "file": "src/utils/redis/index.ts",
+  "old": "if (guild.owner || hasDiscordPermissions(guild.permissions, ['Administrator'])) {",
+  "new": "if (true) {"
+ }
+]

@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/2a120950-d39c-41cf-ab8c-0fe1200096a5/scratchpad/mut-work-sweep/20261121T062256Z-p964798/mutant-4
+
+ ❯ |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts (6 tests | 2 failed) 22ms
+     × issues no query and returns no messages for an empty id list 12ms
+     × issues no query and returns no messages when no element is a message number 2ms
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  2 failed | 197 passed (199)
+   Start at  06:23:07
+   Duration  1.19s (transform 522ms, setup 0ms, import 3.42s, tests 175ms, environment 0ms)
+

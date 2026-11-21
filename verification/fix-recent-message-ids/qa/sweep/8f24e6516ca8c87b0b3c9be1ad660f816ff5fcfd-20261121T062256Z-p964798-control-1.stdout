@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/2a120950-d39c-41cf-ab8c-0fe1200096a5/scratchpad/mut-work-sweep/20261121T062256Z-p964798/control-1
+
+
+ Test Files  4 passed (4)
+      Tests  199 passed (199)
+   Start at  06:22:57
+   Duration  1.21s (transform 465ms, setup 0ms, import 3.46s, tests 171ms, environment 0ms)
+

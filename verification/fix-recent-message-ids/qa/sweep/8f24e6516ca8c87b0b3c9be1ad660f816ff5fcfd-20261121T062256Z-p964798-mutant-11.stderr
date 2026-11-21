@@ -1,0 +1,179 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent personal message the signed-in user owns
+AssertionError: expected [] to deeply equal [ '900000000000102' ]
+
+- Expected
++ Received
+
+- [
+-   "900000000000102",
+- ]
++ []
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:106:42
+    104|     const messages = await hydrateAs(VIEWER_DB_ID, [VIEWER_MESSAGE_ID]…
+    105|
+    106|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
+       |                                          ^
+    107|   });
+    108|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/12]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out another user's personal message stored in the preferences
+AssertionError: expected [] to deeply equal [ '900000000000102' ]
+
+- Expected
++ Received
+
+- [
+-   "900000000000102",
+- ]
++ []
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:112:42
+    110|     const messages = await hydrateAs(VIEWER_DB_ID, [OWNED_MESSAGE_ID, …
+    111|
+    112|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
+       |                                          ^
+    113|     expect(JSON.stringify(messages)).not.toContain('owner-private-name…
+    114|     const select = mocks.queries.find(({ sql }) => sql.includes('from …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/12]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent server message of a server the signed-in user is owner or Administrator of
+AssertionError: expected [ '900000000000103' ] to deeply equal [ Array(2) ]
+
+- Expected
++ Received
+
+  [
+-   "900000000000102",
+    "900000000000103",
+  ]
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:123:42
+    121|     const messages = await hydrateAs(VIEWER_DB_ID, [SERVER_MESSAGE_ID,…
+    122|
+    123|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID, S…
+       |                                          ^
+    124|   });
+    125|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/12]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out a recent server message of a server the signed-in user is not owner or Administrator of
+AssertionError: expected [ '900000000000104' ] to deeply equal [ '900000000000102' ]
+
+- Expected
++ Received
+
+  [
+-   "900000000000102",
++   "900000000000104",
+  ]
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:131:42
+    129|     const messages = await hydrateAs(VIEWER_DB_ID, [FOREIGN_SERVER_MES…
+    130|
+    131|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
+       |                                          ^
+    132|     expect(JSON.stringify(messages)).not.toContain('foreign-server-nam…
+    133|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/12]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out every recent server message for a user who administers no server
+AssertionError: expected [ '900000000000103' ] to deeply equal [ '900000000000102' ]
+
+- Expected
++ Received
+
+  [
+-   "900000000000102",
++   "900000000000103",
+  ]
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:138:42
+    136|     const messages = await hydrateAs(VIEWER_DB_ID, [SERVER_MESSAGE_ID,…
+    137|
+    138|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
+       |                                          ^
+    139|   });
+    140|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/12]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (letters) and still lists the valid ones
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (an empty string) and still lists the valid ones
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a number past the column's range) and still lists the valid ones
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a negative number) and still lists the valid ones
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > drops a stored element that is not a message number (a non-string value) and still lists the valid ones
+AssertionError: expected [] to deeply equal [ '900000000000102' ]
+
+- Expected
++ Received
+
+- [
+-   "900000000000102",
+- ]
++ []
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:150:42
+    148|     const messages = await hydrateAs(VIEWER_DB_ID, [element, VIEWER_ME…
+    149|
+    150|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
+       |                                          ^
+    151|     const select = mocks.queries.find(({ sql }) => sql.includes('from …
+    152|     expect(select && boundIds(select)).toEqual([VIEWER_MESSAGE_ID]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/12]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback > returns the guilds and the recent messages once both are in
+AssertionError: expected [] to deeply equal [ { id: 'm1' } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "id": "m1",
+-   },
+- ]
++ []
+
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:91:40
+     89|
+     90|     expect(session.user.guilds).toEqual([{ id: 'g1', name: 'G' }]);
+     91|     expect(session.hydration.messages).toEqual([{ id: 'm1' }]);
+       |                                        ^
+     92|   });
+     93|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/12]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-session.test.ts > the hydrated session callback, by how the account lookup, the recent messages and the guild fetch end > returns the session without guilds for an account with no access token
+AssertionError: expected [] to deeply equal [ { id: 'm1' } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "id": "m1",
+-   },
+- ]
++ []
+
+ ❯ src/server/__tests__/auth.hydrated-session.test.ts:274:46
+    272|
+    273|     expect(outcome.value.user.guilds).toEqual([]);
+    274|     expect(outcome.value.hydration.messages).toEqual([{ id: 'm1' }]);
+       |                                              ^
+    275|     expect(mocks.fetchUserGuilds).not.toHaveBeenCalled();
+    276|     await settle();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/12]⎯
+

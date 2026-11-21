@@ -1,0 +1,24 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists a recent server message of a server the signed-in user is owner or Administrator of
+AssertionError: expected [ '900000000000102' ] to deeply equal [ Array(2) ]
+
+- Expected
++ Received
+
+  [
+    "900000000000102",
+-   "900000000000103",
+  ]
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:123:42
+    121|     const messages = await hydrateAs(VIEWER_DB_ID, [SERVER_MESSAGE_ID,…
+    122|
+    123|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID, S…
+       |                                          ^
+    124|   });
+    125|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
