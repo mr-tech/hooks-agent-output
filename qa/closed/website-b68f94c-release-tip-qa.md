@@ -3,8 +3,8 @@ ID: n/a
 Origin: "release chain/fix-desktop-draft-as-typed -> website master b663b354fb236c3ee58d8b0be01778e1908e0e10 -> b68f94cda114bcef1efd59954aba321e246dd683 (fast-forward)"
 UUID: f2a4ebc8
 Verified-At: "b68f94c — repos=website; the tip's tree 25ab048b is the Phase 2 Verified-At tree (qa/closed/fix-desktop-draft-as-typed-qa.md, 71fc7b56)"
-Status: Release Verified
-Status-Detail: "Release-tip verdict for website master b663b35 -> b68f94c. Steps 1b and 2 ran. Of 30 open handoffs, 2 name this website release: the lockfile pin check ran and holds, and this chain's post-deploy carrier fires after the push. There is no gated time-based set."
+Status: Released
+Status-Detail: "Released 2026-11-21T11:33Z: website master moved b663b35 -> b68f94c on origin. Release-tip verdict for website master b663b35 -> b68f94c. Steps 1b and 2 ran. Of 30 open handoffs, 2 name this website release: the lockfile pin check ran and holds, and this chain's post-deploy carrier fires after the push. There is no gated time-based set."
 Phase: 3
 ---
 
@@ -35,6 +35,7 @@ red tests and controls at the same SHA. No plan-level QA document is reopened (s
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T11:30 | devops-fix-desktop-draft-as-typed (SendMessage) | Phase 3 release-tip record for website master `b663b35` → `b68f94c` | Release Verified. The tip is the Phase 2 tree. Step 1b: 30 open handoffs, 2 name this website release; the pin check holds, and the post-deploy carrier fires after the push. Step 2: no gated time-based set. |
+| 2026-11-21T11:34 | devops-fix-desktop-draft-as-typed (Phase 2D) | Release-tip record closed at release | Status Released, moved to qa/closed/. website master moved b663b35 -> b68f94c on origin at 2026-11-21T11:32:56Z to 11:33:01Z (release-move.js exit 0 with this record as `--qa-record`); ls-remote read back b68f94c at 11:33:03Z. No body change. |
 
 ## Step 1b — open handoffs whose Review-Trigger names this verdict or a website production push
 

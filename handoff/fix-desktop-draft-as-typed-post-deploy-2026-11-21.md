@@ -1,7 +1,7 @@
 ---
 UUID: 4bbe68a5
 Status: Open
-Status-Detail: "Carrier of the post-deploy row P-1 (the saved-message route, desktop, typed text survives a reload) of fix-desktop-draft-as-typed. Opened at devops Stage 1; the pre-push baseline is requested from qa-fix-desktop-draft-as-typed; the push has not happened, so P-1 is not decidable. It does not gate the release act."
+Status-Detail: "Carrier of the post-deploy row P-1 (the saved-message route, desktop, typed text survives a reload) of fix-desktop-draft-as-typed. Pushed: E-WEBSITE-PUSH is filled (website master b68f94c, 2026-11-21T11:32:56Z to 11:33:01Z); the pre-push baseline is read (as predicted); P-1 itself is unread, owed by a qa-role session. It does not gate the release act."
 Owning-Stage: qa
 Review-Trigger: "the production deploy of website master carrying fix-desktop-draft-as-typed (the E-WEBSITE-PUSH row of this record's event ledger filled) — then P-1"
 Secret-Files: none
@@ -35,7 +35,7 @@ devops does, at Stage 2.
 
 | Event | What it is | When (UTC) | Ref and SHA | Source |
 |---|---|---|---|---|
-| E-WEBSITE-PUSH | website `master` moved to the release | not yet | website `master` → `b68f94cda114bcef1efd59954aba321e246dd683` (was `b663b354fb236c3ee58d8b0be01778e1908e0e10`) | devops, Stage 2, on the owner's release approval |
+| E-WEBSITE-PUSH | website `master` moved to the release | 2026-11-21T11:32:56Z to 11:33:01Z (`release-move.js` exit 0; `ls-remote` read back `b68f94cd…` at 11:33:03Z) | website `master` → `b68f94cda114bcef1efd59954aba321e246dd683` (was `b663b354fb236c3ee58d8b0be01778e1908e0e10`) | devops, Stage 2, on the owner's release approval at the Phase 2B prompt, answered 2026-11-21T11:32Z (`deployment/closed/fix-desktop-draft-as-typed-deployment.md`; captures `verification/fix-desktop-draft-as-typed/devops/release-move-real.txt`, `post-move-readback.txt`) |
 
 ## Row
 
@@ -89,3 +89,4 @@ rows B-7 and B-10 are not this chain's and keep it open.
 |---|---|---|---|
 | 2026-11-21T11:27 | devops-fix-desktop-draft-as-typed | Created at Stage 1: row P-1 carried in full; baseline requested of qa; event ledger blank. | opened |
 | 2026-11-21T11:31 | devops-fix-desktop-draft-as-typed | Baseline of P-1 recorded (QA, `f04ee116`): as predicted on message 6008; cleanup note added to the instrument. | baseline-read |
+| 2026-11-21T11:34 | devops-fix-desktop-draft-as-typed | E-WEBSITE-PUSH filled (Stage 2). P-1 is now decidable; its reader is a qa-role session steering starts or wakes. | e-push |
