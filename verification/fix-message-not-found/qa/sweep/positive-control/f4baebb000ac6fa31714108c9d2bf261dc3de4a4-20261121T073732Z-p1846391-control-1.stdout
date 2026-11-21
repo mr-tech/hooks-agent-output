@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/qa-fmnf-pc-work/20261121T073732Z-p1846391/control-1
+
+
+ Test Files  1 passed (1)
+      Tests  11 passed (11)
+   Start at  07:37:33
+   Duration  3.01s (transform 447ms, setup 21ms, import 1.18s, tests 1.07s, environment 619ms)
+

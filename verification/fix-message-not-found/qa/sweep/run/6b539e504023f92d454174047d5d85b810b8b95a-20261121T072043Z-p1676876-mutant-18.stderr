@@ -1,0 +1,39 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne when the user's servers cannot be read from Discord > answers unauthorized, not not found
+AssertionError: expected { error: { code: 'NOT_FOUND', …(1) } } to deeply equal { error: { …(2) } }
+
+- Expected
++ Received
+
+  {
+    "error": {
+-     "code": "UNAUTHORIZED",
+-     "message": "Failed to fetch user servers.",
++     "code": "NOT_FOUND",
++     "message": "This message doesn't exist, or you don't have access to it.",
+    },
+  }
+
+ ❯ src/server/api/routers/__tests__/message.get-one-not-found.test.ts:146:21
+    144|     const outcome = await outcomeOf(callerAs(OTHER).getOne(GUILD_MESSA…
+    145|
+    146|     expect(outcome).toEqual({ error: { code: 'UNAUTHORIZED', message: …
+       |                     ^
+    147|   });
+    148| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

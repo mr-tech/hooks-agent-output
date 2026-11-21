@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/qa-fmnf-rerun-work/20261121T073412Z-p1812102/mutant-6
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx (11 tests | 1 failed) 1706ms
+     × retries a server error up to three times 34ms
+ ❯ |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts (9 tests | 3 failed) 58ms
+     × answers a server error, not not found, when the user's servers cannot be read from Discord 20ms
+     × answers a server error, not not found, when the database fails while checking the message's owner 6ms
+     × answers unauthorized, not not found, for a server message when the session has no account 4ms
+
+ Test Files  2 failed | 157 passed (159)
+      Tests  4 failed | 2299 passed (2303)
+   Start at  07:36:19
+   Duration  19.46s (transform 26.15s, setup 1.56s, import 147.12s, tests 45.79s, environment 84.16s)
+

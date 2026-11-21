@@ -1,0 +1,83 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a user who can see the message > returns a server message to a user who manages that server
+TRPCError: This message doesn't exist, or you don't have access to it.
+ ❯ messageNotFound src/server/api/routers/message.ts:30:10
+     28|
+     29| function messageNotFound() {
+     30|   return new TRPCError({
+       |          ^
+     31|     code: 'NOT_FOUND',
+     32|     message: 'This message doesn\'t exist, or you don\'t have access t…
+ ❯ src/server/api/routers/message.ts:76:36
+ ❯ resolveMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:576:21
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:682:19
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/router.ts:474:19
+ ❯ src/server/api/routers/__tests__/message.get-one-not-found.test.ts:142:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne when the load fails for a reason other than access > answers a server error, not not found, when the user's servers cannot be read from Discord
+AssertionError: expected { error: { code: 'NOT_FOUND', …(1) } } to match object { Object (error) }
+(1 matching property omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "error": {
+-     "code": "INTERNAL_SERVER_ERROR",
++     "code": "NOT_FOUND",
+    },
+  }
+
+ ❯ src/server/api/routers/__tests__/message.get-one-not-found.test.ts:154:21
+    152|     const outcome = await outcomeOf(callerAs(OTHER).getOne(GUILD_MESSA…
+    153|
+    154|     expect(outcome).toMatchObject({ error: { code: 'INTERNAL_SERVER_ER…
+       |                     ^
+    155|   });
+    156|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne when the load fails for a reason other than access > answers unauthorized, not not found, for a server message when the session has no account
+AssertionError: expected { error: { code: 'NOT_FOUND', …(1) } } to deeply equal { error: { …(2) } }
+
+- Expected
++ Received
+
+  {
+    "error": {
+-     "code": "UNAUTHORIZED",
+-     "message": "User is not authenticated.",
++     "code": "NOT_FOUND",
++     "message": "This message doesn't exist, or you don't have access to it.",
+    },
+  }
+
+ ❯ src/server/api/routers/__tests__/message.get-one-not-found.test.ts:170:21
+    168|     const outcome = await outcomeOf(callerAs(OTHER).getOne(GUILD_MESSA…
+    169|
+    170|     expect(outcome).toEqual({ error: { code: 'UNAUTHORIZED', message: …
+       |                     ^
+    171|   });
+    172| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

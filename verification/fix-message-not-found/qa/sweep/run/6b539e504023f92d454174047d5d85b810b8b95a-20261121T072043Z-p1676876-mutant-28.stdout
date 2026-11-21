@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/qa-fmnf-sweep-work/20261121T072043Z-p1676876/mutant-28
+
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 4 failed) 4833ms
+     × asks before the crumb to the server's folder leaves the page 34ms
+     × asks before either crumb to the user's folder leaves the page 21ms
+     × does not ask for the links back to this message's editor 16ms
+     × asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed 12ms
+
+ Test Files  1 failed | 158 passed (159)
+      Tests  4 failed | 2293 passed (2297)
+   Start at  07:32:41
+   Duration  24.60s (transform 48.78s, setup 1.87s, import 191.28s, tests 62.75s, environment 101.65s)
+

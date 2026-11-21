@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/qa-fmnf-sweep-work/20261121T072043Z-p1676876/mutant-20
+
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (32 tests | 1 failed) 110ms
+     × refuses another signed-in user when the message is deleted between its load and the ownership check 31ms
+
+ Test Files  1 failed | 158 passed (159)
+      Tests  1 failed | 2296 passed (2297)
+   Start at  07:29:19
+   Duration  19.20s (transform 27.09s, setup 1.49s, import 146.08s, tests 44.15s, environment 84.03s)
+

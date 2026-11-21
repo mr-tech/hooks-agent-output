@@ -1,0 +1,27 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/__tests__/trpc.batch-refusal.test.ts > the tRPC endpoint given one request naming several procedure calls > refuses two calls with a bad-request status before any call reaches the database
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/server/api/__tests__/trpc.batch-refusal.test.ts:58:5
+     56|     ['two calls', 2],
+     57|     ['five hundred calls', 500],
+     58|   ])('refuses %s with a bad-request status before any call reaches the…
+       |     ^
+     59|     const paths = Array.from({ length: count }, () => 'user.getPrefere…
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

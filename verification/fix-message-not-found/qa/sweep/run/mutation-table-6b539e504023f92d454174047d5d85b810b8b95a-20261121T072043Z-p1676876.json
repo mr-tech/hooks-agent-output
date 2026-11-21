@@ -1,0 +1,766 @@
+{
+ "sha": "6b539e504023f92d454174047d5d85b810b8b95a",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/sweep-mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/sweep-mutants.json",
+   "blob": "9a9f7808c6c03f4cc54dad6ab28c4bf173fca07b"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-control-1.stderr",
+   "seconds": 38.54,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 2297,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "MessageNotFound.tsx:9:true",
+   "run": "mutant-1",
+   "file": "src/app/message/m/[id]/_components/MessageNotFound.tsx",
+   "tests": [],
+   "carried": {
+    "op": "true",
+    "line": 9,
+    "text": "<ContainerSection innerClassName={classNames(styles.flex({ col: true, cx: true, gap: 4 }), 'rounded-lg bg-quaternary p-8 text-center')}>"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 25.48,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-1.stderr"
+  },
+  {
+   "id": "MessageNotFound.tsx:9:true:2",
+   "run": "mutant-2",
+   "file": "src/app/message/m/[id]/_components/MessageNotFound.tsx",
+   "tests": [],
+   "carried": {
+    "op": "true",
+    "line": 9,
+    "text": "<ContainerSection innerClassName={classNames(styles.flex({ col: true, cx: true, gap: 4 }), 'rounded-lg bg-quaternary p-8 text-center')}>"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 20.54,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-2.stderr"
+  },
+  {
+   "id": "MessageNotFound.tsx:9:num",
+   "run": "mutant-3",
+   "file": "src/app/message/m/[id]/_components/MessageNotFound.tsx",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 9,
+    "text": "<ContainerSection innerClassName={classNames(styles.flex({ col: true, cx: true, gap: 4 }), 'rounded-lg bg-quaternary p-8 text-center')}>"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 19.96,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-3.stderr"
+  },
+  {
+   "id": "page.tsx:132:if-false",
+   "run": "mutant-4",
+   "file": "src/app/message/m/[id]/edit/page.tsx",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 132,
+    "text": "if (isNotFound) return <MessageNotFound />;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message number the signed-in user cannot load > shows the not-found notice, in place of the page, with a link back to his messages",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message number the signed-in user cannot load > asks for the message once, without retrying the refusal"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 20.72,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-4.stderr"
+  },
+  {
+   "id": "page.tsx:114:if-false",
+   "run": "mutant-5",
+   "file": "src/app/message/m/[id]/send/page.tsx",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 114,
+    "text": "if (isNotFound) return <MessageNotFound />;"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message number the signed-in user cannot load > shows the not-found notice, in place of the page, with a link back to his messages",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message number the signed-in user cannot load > asks for the message once, without retrying the refusal"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 19.81,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-5.stderr"
+  },
+  {
+   "id": "index.tsx:66:<",
+   "run": "mutant-6",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {
+    "op": "<",
+    "line": 66,
+    "text": "return failureCount < 3 && !(status && status >= 400 && status < 500);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > retries a server error up to three times",
+    "|node| src/server/api/__tests__/trpc.batch-refusal.test.ts > the tRPC endpoint given one request naming several procedure calls > refuses two calls with a bad-request status before any call reaches the database"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 35.08,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-6.stderr"
+  },
+  {
+   "id": "index.tsx:66:num",
+   "run": "mutant-7",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 66,
+    "text": "return failureCount < 3 && !(status && status >= 400 && status < 500);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > retries a server error up to three times"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 40.44,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-7.stderr"
+  },
+  {
+   "id": "index.tsx:66:&&",
+   "run": "mutant-8",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 66,
+    "text": "return failureCount < 3 && !(status && status >= 400 && status < 500);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message number the signed-in user cannot load > shows the not-found notice, in place of the page, with a link back to his messages",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message number the signed-in user cannot load > shows the not-found notice, in place of the page, with a link back to his messages",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message number the signed-in user cannot load > asks for the message once, without retrying the refusal",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message number the signed-in user cannot load > asks for the message once, without retrying the refusal",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > does not retry a not-found answer",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > retries a server error up to three times",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > does not retry a refused number that is not a message number"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 38.69,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-8.stderr"
+  },
+  {
+   "id": "index.tsx:66:not",
+   "run": "mutant-9",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 66,
+    "text": "return failureCount < 3 && !(status && status >= 400 && status < 500);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message number the signed-in user cannot load > shows the not-found notice, in place of the page, with a link back to his messages",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message number the signed-in user cannot load > shows the not-found notice, in place of the page, with a link back to his messages",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message number the signed-in user cannot load > asks for the message once, without retrying the refusal",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message number the signed-in user cannot load > asks for the message once, without retrying the refusal",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > does not retry a not-found answer",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > retries a server error up to three times",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > does not retry a refused number that is not a message number"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 21.6,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-9.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-9.stderr"
+  },
+  {
+   "id": "index.tsx:66:&&:2",
+   "run": "mutant-10",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 66,
+    "text": "return failureCount < 3 && !(status && status >= 400 && status < 500);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > retries a server error up to three times"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 20.12,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-10.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-10.stderr"
+  },
+  {
+   "id": "index.tsx:66:>=",
+   "run": "mutant-11",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {
+    "op": ">=",
+    "line": 66,
+    "text": "return failureCount < 3 && !(status && status >= 400 && status < 500);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > does not retry a refused number that is not a message number"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 20.59,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-11.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-11.stderr"
+  },
+  {
+   "id": "index.tsx:66:num:2",
+   "run": "mutant-12",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 66,
+    "text": "return failureCount < 3 && !(status && status >= 400 && status < 500);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > does not retry a refused number that is not a message number"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 20.59,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-12.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-12.stderr"
+  },
+  {
+   "id": "index.tsx:66:&&:3",
+   "run": "mutant-13",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 66,
+    "text": "return failureCount < 3 && !(status && status >= 400 && status < 500);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > retries a server error up to three times"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 20.16,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-13.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-13.stderr"
+  },
+  {
+   "id": "index.tsx:66:<:2",
+   "run": "mutant-14",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {
+    "op": "<",
+    "line": 66,
+    "text": "return failureCount < 3 && !(status && status >= 400 && status < 500);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > retries a server error up to three times"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 19.89,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-14.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-14.stderr"
+  },
+  {
+   "id": "index.tsx:66:num:3",
+   "run": "mutant-15",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 66,
+    "text": "return failureCount < 3 && !(status && status >= 400 && status < 500);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > retries a server error up to three times"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 27.2,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-15.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-15.stderr"
+  },
+  {
+   "id": "index.tsx:338:===",
+   "run": "mutant-16",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 338,
+    "text": "isNotFound: messageError?.data?.code === 'NOT_FOUND',"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the crumb to the server's folder leaves the page",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before either crumb to the user's folder leaves the page",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > does not ask for the links back to this message's editor",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message number the signed-in user cannot load > asks for the message once, without retrying the refusal",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message number the signed-in user cannot load > asks for the message once, without retrying the refusal"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 35.73,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-16.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-16.stderr"
+  },
+  {
+   "id": "message.ts:38:===",
+   "run": "mutant-17",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 38,
+    "text": "const refused = typeof refusal === 'string'"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message number the signed-in user cannot load > shows the not-found notice, in place of the page, with a link back to his messages",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message number the signed-in user cannot load > shows the not-found notice, in place of the page, with a link back to his messages",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message number the signed-in user cannot load > asks for the message once, without retrying the refusal",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message number the signed-in user cannot load > asks for the message once, without retrying the refusal",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > does not retry a not-found answer",
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a signed-in user who cannot see the message > answers not found with the one message text for a number no message holds",
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a signed-in user who cannot see the message > answers not found with the one message text for another user's personal message",
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a signed-in user who cannot see the message > answers not found with the one message text for a message of a server the user cannot manage",
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a signed-in user who cannot see the message > gives the same answer in all three cases, with none of the message in it",
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne when the user's servers cannot be read from Discord > answers unauthorized, not not found",
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.getOne on a personal message > refuses another signed-in user, with none of the message in the outcome"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 22.92,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-17.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-17.stderr"
+  },
+  {
+   "id": "message.ts:39:&&",
+   "run": "mutant-18",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [],
+   "carried": {
+    "op": "&&",
+    "line": 39,
+    "text": "? error instanceof TRPCError && error.code === refusal"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne when the user's servers cannot be read from Discord > answers unauthorized, not not found"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 22.76,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-18.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-18.stderr"
+  },
+  {
+   "id": "message.ts:39:===",
+   "run": "mutant-19",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [],
+   "carried": {
+    "op": "===",
+    "line": 39,
+    "text": "? error instanceof TRPCError && error.code === refusal"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a signed-in user who cannot see the message > answers not found with the one message text for another user's personal message",
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a signed-in user who cannot see the message > answers not found with the one message text for a message of a server the user cannot manage",
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a signed-in user who cannot see the message > gives the same answer in all three cases, with none of the message in it",
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne when the user's servers cannot be read from Discord > answers unauthorized, not not found"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 20.16,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-19.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-19.stderr"
+  },
+  {
+   "id": "message.ts:79:if-false",
+   "run": "mutant-20",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 79,
+    "text": "if (!oldMessageCount) throw messageNotFound();"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.getOne on a personal message > refuses another signed-in user when the message is deleted between its load and the ownership check"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 20.3,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-20.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-20.stderr"
+  },
+  {
+   "id": "message.ts:79:not",
+   "run": "mutant-21",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [],
+   "carried": {
+    "op": "not",
+    "line": 79,
+    "text": "if (!oldMessageCount) throw messageNotFound();"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a user who can see the message > returns a personal message to its owner",
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.getOne on a personal message > returns the message to the user who owns it",
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.getOne on a personal message > refuses another signed-in user when the message is deleted between its load and the ownership check",
+    "|node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > the message number each procedure takes > getOne reads the canonical number when the browser sends leading zeros"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 19.58,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-21.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-21.stderr"
+  },
+  {
+   "id": "qa-guild-site-maps-plain-errors",
+   "run": "mutant-22",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 20.23,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-22.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-22.stderr"
+  },
+  {
+   "id": "qa-owner-site-maps-every-error",
+   "run": "mutant-23",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 19.07,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-23.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-23.stderr"
+  },
+  {
+   "id": "qa-load-site-maps-every-error",
+   "run": "mutant-24",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > retries a server error up to three times"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 20.34,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-24.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-24.stderr"
+  },
+  {
+   "id": "qa-guild-site-maps-unauthorized",
+   "run": "mutant-25",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne when the user's servers cannot be read from Discord > answers unauthorized, not not found"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 22.03,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-25.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-25.stderr"
+  },
+  {
+   "id": "qa-notice-on-first-failure-with-default-retry",
+   "run": "mutant-26",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/__tests__/trpc.batch-refusal.test.ts > the tRPC endpoint given one request naming several procedure calls > refuses two calls with a bad-request status before any call reaches the database"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 41.81,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-26.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-26.stderr"
+  },
+  {
+   "id": "qa-notice-on-any-refusal-code",
+   "run": "mutant-27",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 36.16,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-27.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-27.stderr"
+  },
+  {
+   "id": "qa-notice-also-on-success",
+   "run": "mutant-28",
+   "file": "src/providers/MessageProvider/index.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2297,
+   "control_tests_run": 2297,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the crumb to the server's folder leaves the page",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before either crumb to the user's folder leaves the page",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > does not ask for the links back to this message's editor",
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 26.69,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-28.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-message-not-found/qa/sweep/run/6b539e504023f92d454174047d5d85b810b8b95a-20261121T072043Z-p1676876-mutant-28.stderr"
+  }
+ ],
+ "score": "22 of 28 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; sweep-mutants.json (blob 9a9f7808c6c03f4cc54dad6ab28c4bf173fca07b))"
+}

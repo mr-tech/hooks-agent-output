@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/qa-fmnf-sweep-work/20261121T072043Z-p1676876/control-1
+
+
+ Test Files  159 passed (159)
+      Tests  2297 passed (2297)
+   Start at  07:20:46
+   Duration  35.93s (transform 107.93s, setup 2.34s, import 320.39s, tests 77.09s, environment 112.68s)
+

@@ -1,0 +1,237 @@
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message the signed-in user can load > opens the message, with no not-found notice
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message the signed-in user can load > opens the message, with no not-found notice
+An update to ConfirmationProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message the signed-in user can load > opens the message, with no not-found notice
+An update to ConfirmationProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ConfirmationProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ConfirmationProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message the signed-in user can load > opens the message, with no not-found notice
+An update to ForwardRef(LinkComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message the signed-in user can load > opens the message, with no not-found notice
+An update to ForwardRef(LinkComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message the signed-in user can load > opens the message, with no not-found notice
+An update to ConfirmationProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message the signed-in user can load > opens the message, with no not-found notice
+An update to ConfirmationProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message the signed-in user can load > opens the message, with no not-found notice
+An update to ConfirmationProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message the signed-in user can load > opens the message, with no not-found notice
+An update to ConfirmationProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ConfirmationProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ConfirmationProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message the signed-in user can load > opens the message, with no not-found notice
+An update to ForwardRef(LinkComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message the signed-in user can load > opens the message, with no not-found notice
+An update to ForwardRef(LinkComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message the signed-in user can load > opens the message, with no not-found notice
+An update to ConfirmationProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message the signed-in user can load > opens the message, with no not-found notice
+An update to ConfirmationProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message the signed-in user can load > opens the message, with no not-found notice
+AssertionError: expected null not to be null
+ ❯ src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx:207:63
+    205|     await vi.waitFor(() => {
+    206|       const marker = pageMarkers[route];
+    207|       if (marker) expect(container.querySelector(marker)).not.toBeNull…
+       |                                                               ^
+    208|       else expect(container.textContent).toContain('Review Message');
+    209|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message the signed-in user can load > opens the message, with no not-found notice
+AssertionError: expected 'This message doesn\'t exist, or you d…' to contain 'Review Message'
+
+Expected: "Review Message"
+Received: "This message doesn't exist, or you don't have access to it.Back to your messages"
+
+ ❯ src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx:208:42
+    206|       const marker = pageMarkers[route];
+    207|       if (marker) expect(container.querySelector(marker)).not.toBeNull…
+    208|       else expect(container.textContent).toContain('Review Message');
+       |                                          ^
+    209|     });
+    210|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

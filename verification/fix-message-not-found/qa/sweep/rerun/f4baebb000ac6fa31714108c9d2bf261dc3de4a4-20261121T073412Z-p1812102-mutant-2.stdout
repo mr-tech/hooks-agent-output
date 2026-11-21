@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/qa-fmnf-rerun-work/20261121T073412Z-p1812102/mutant-2
+
+ ❯ |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts (9 tests | 1 failed) 54ms
+     × answers a server error, not not found, when the database fails while checking the message's owner 13ms
+
+ Test Files  1 failed | 158 passed (159)
+      Tests  1 failed | 2302 passed (2303)
+   Start at  07:34:58
+   Duration  19.33s (transform 26.71s, setup 1.20s, import 146.51s, tests 45.77s, environment 83.69s)
+

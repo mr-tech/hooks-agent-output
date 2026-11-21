@@ -1,0 +1,17 @@
+{
+  "what": "message.getOne answers on live hooks.gg, signed in as the test account (the stage browser's kept profile), before this chain's deploy",
+  "taken_utc": "2026-11-21T07:35Z",
+  "instrument": "browser_evaluate on https://hooks.gg/message: fetch('/api/auth/session') then fetch('/api/trpc/message.getOne?input=' + encodeURIComponent(JSON.stringify({json: id}))) per id; read status, error.json.data.code, error.json.message, and whether data carries a stack key",
+  "signedIn": true,
+  "answers": {
+    "6021": [500, "INTERNAL_SERVER_ERROR", "no result", "stack: false"],
+    "6022": [500, "INTERNAL_SERVER_ERROR", "no result", "stack: false"],
+    "999999999999": [500, "INTERNAL_SERVER_ERROR", "no result", "stack: false"],
+    "1000": [403, "FORBIDDEN", "User does not have permission to access to this server."],
+    "3000": [403, "FORBIDDEN", "User does not have permission to access to this server."],
+    "5000": [403, "FORBIDDEN", "User does not have permission to access to this server."],
+    "5990": [403, "FORBIDDEN", "User does not have permission to access to this server."],
+    "6010": [200, "loaded: a message the test account may see (positive control)"]
+  },
+  "note": "6021 (test account 2's personal message in handoff editor-shows-blank-shell-when-personal-message-load-is-refused-2026-11-20) now answers as an absent number; no live member of 'another user's personal message' was found in this read. Only refusals were read; no message content of another user was returned."
+}

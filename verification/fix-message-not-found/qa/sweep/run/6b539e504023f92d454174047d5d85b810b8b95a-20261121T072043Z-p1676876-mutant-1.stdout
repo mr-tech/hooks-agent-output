@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/qa-fmnf-sweep-work/20261121T072043Z-p1676876/mutant-1
+
+
+ Test Files  159 passed (159)
+      Tests  2297 passed (2297)
+   Start at  07:21:25
+   Duration  23.27s (transform 48.14s, setup 3.05s, import 190.26s, tests 47.19s, environment 98.49s)
+

@@ -1,0 +1,49 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts > message.getOne on a personal message > refuses another signed-in user when the message is deleted between its load and the ownership check
+AssertionError: expected { value: { …(9) } } to match object { error: { code: 'NOT_FOUND' } }
+(10 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "error": {
+-     "code": "NOT_FOUND",
++   "value": {
++     "createdAt": 0,
++     "data": {
++       "content": "owner-only-content",
++     },
++     "id": "900000000000101",
++     "name": "owner-name",
++     "previewImageNonce": null,
++     "recentMessageId": null,
++     "recentThreadId": null,
++     "recentWebhookId": null,
++     "updatedAt": 0,
+    },
+  }
+
+ ❯ src/server/api/routers/__tests__/message.personal-ownership.test.ts:228:21
+    226|     );
+    227|
+    228|     expect(outcome).toMatchObject({ error: { code: 'NOT_FOUND' } });
+       |                     ^
+    229|     expect(JSON.stringify(outcome)).not.toContain(SECRET);
+    230|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

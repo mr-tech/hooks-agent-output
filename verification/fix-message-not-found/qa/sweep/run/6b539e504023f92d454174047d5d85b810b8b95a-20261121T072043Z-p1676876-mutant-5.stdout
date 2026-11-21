@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/qa-fmnf-sweep-work/20261121T072043Z-p1676876/mutant-5
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx (7 tests | 2 failed) 3278ms
+     × shows the not-found notice, in place of the page, with a link back to his messages 1062ms
+     × asks for the message once, without retrying the refusal 1014ms
+
+ Test Files  1 failed | 158 passed (159)
+      Tests  2 failed | 2295 passed (2297)
+   Start at  07:22:51
+   Duration  18.72s (transform 22.78s, setup 1.49s, import 137.74s, tests 45.50s, environment 83.76s)
+

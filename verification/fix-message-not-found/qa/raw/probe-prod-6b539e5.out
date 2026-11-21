@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/qa-fmnf-probe
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  07:21:11
+   Duration  4.51s (transform 727ms, setup 0ms, import 419ms, tests 3.64s, environment 0ms)
+

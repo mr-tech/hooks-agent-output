@@ -1,0 +1,79 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a load refused other than as not found > shows no not-found notice
+An update to ConfirmationProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a load refused other than as not found > shows no not-found notice
+An update to ForwardRef(LinkComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a load refused other than as not found > shows no not-found notice
+An update to ConfirmationProvider inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a load refused other than as not found > shows no not-found notice
+An update to ForwardRef(LinkComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a load refused other than as not found > shows no not-found notice
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a load refused other than as not found > shows no not-found notice
+AssertionError: expected 'This message doesn\'t exist, or you d…' not to contain 'This message doesn\'t exist, or you d…'
+
+Expected: "This message doesn't exist, or you don't have access to it."
+Received: "This message doesn't exist, or you don't have access to it.Back to your messages"
+
+ ❯ src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx:224:39
+    222|     });
+    223|
+    224|     expect(container.textContent).not.toContain(NOT_FOUND_TEXT);
+       |                                       ^
+    225|   });
+    226| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+

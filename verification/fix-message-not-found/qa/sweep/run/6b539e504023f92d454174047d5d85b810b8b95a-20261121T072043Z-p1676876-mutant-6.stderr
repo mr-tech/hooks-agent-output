@@ -1,0 +1,51 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > retries a server error up to three times
+AssertionError: expected [ true, true, true, true ] to deeply equal [ true, true, true, false ]
+
+- Expected
++ Received
+
+  [
+    true,
+    true,
+    true,
+-   false,
++   true,
+  ]
+
+ ❯ src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx:201:75
+    199|     const error = await errorFromTheWire(ABSENT_ID);
+    200|
+    201|     expect([0, 1, 2, 3].map((count) => retryUnlessRefused(count, error…
+       |                                                                           ^
+    202|   });
+    203|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/__tests__/trpc.batch-refusal.test.ts > the tRPC endpoint given one request naming several procedure calls > refuses two calls with a bad-request status before any call reaches the database
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/server/api/__tests__/trpc.batch-refusal.test.ts:58:5
+     56|     ['two calls', 2],
+     57|     ['five hundred calls', 500],
+     58|   ])('refuses %s with a bad-request status before any call reaches the…
+       |     ^
+     59|     const paths = Array.from({ length: count }, () => 'user.getPrefere…
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

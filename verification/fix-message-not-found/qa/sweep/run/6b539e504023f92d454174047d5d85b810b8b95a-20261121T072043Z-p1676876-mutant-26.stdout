@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/qa-fmnf-sweep-work/20261121T072043Z-p1676876/mutant-26
+
+ ❯ |node| src/server/api/__tests__/trpc.batch-refusal.test.ts (2 tests | 1 failed) 5733ms
+     × refuses two calls with a bad-request status before any call reaches the database 5009ms
+
+ Test Files  1 failed | 158 passed (159)
+      Tests  1 failed | 2296 passed (2297)
+   Start at  07:31:22
+   Duration  40.18s (transform 105.09s, setup 3.18s, import 341.39s, tests 93.71s, environment 144.43s)
+

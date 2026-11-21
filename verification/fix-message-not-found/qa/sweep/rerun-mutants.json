@@ -1,0 +1,47 @@
+[
+ {
+  "id": "qa-guild-site-maps-plain-errors",
+  "file": "src/server/api/routers/message.ts",
+  "old": "await authorizeGuildUser(req, message.guildId).catch(asNotFound('FORBIDDEN'));",
+  "new": "await authorizeGuildUser(req, message.guildId).catch((error: unknown) => { throw error instanceof TRPCError && error.code !== 'FORBIDDEN' ? error : messageNotFound(); });"
+ },
+ {
+  "id": "qa-owner-site-maps-every-error",
+  "file": "src/server/api/routers/message.ts",
+  "old": "authorizeUser(session.user.id, message.id).catch(asNotFound('NOT_FOUND'))",
+  "new": "authorizeUser(session.user.id, message.id).catch((): never => { throw messageNotFound(); })"
+ },
+ {
+  "id": "qa-notice-on-any-refusal-code",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "isNotFound: messageError?.data?.code === 'NOT_FOUND',",
+  "new": "isNotFound: !!messageError,"
+ },
+ {
+  "id": "message.ts:39:&&",
+  "file": "src/server/api/routers/message.ts",
+  "old": "&&",
+  "new": "||",
+  "op": "&&",
+  "line": 39,
+  "text": "? error instanceof TRPCError && error.code === refusal"
+ },
+ {
+  "id": "qa-guild-site-maps-unauthorized",
+  "file": "src/server/api/routers/message.ts",
+  "old": "await authorizeGuildUser(req, message.guildId).catch(asNotFound('FORBIDDEN'));",
+  "new": "await authorizeGuildUser(req, message.guildId).catch((error: unknown) => { throw error instanceof TRPCError ? messageNotFound() : error; });"
+ },
+ {
+  "id": "every-error-mapped",
+  "file": "src/server/api/routers/message.ts",
+  "old": "throw refused ? messageNotFound() : error;",
+  "new": "throw messageNotFound();"
+ },
+ {
+  "id": "server-message-always-refused",
+  "file": "src/server/api/routers/message.ts",
+  "old": "      if (message.guildId) {\n        await authorizeGuildUser(req, message.guildId).catch",
+  "new": "      if (message.guildId) {\n        if (message.guildId) throw messageNotFound();\n        await authorizeGuildUser(req, message.guildId).catch"
+ }
+]

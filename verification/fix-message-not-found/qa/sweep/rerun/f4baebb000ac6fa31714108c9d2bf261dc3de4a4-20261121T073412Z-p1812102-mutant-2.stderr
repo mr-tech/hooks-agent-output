@@ -1,0 +1,38 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne when the load fails for a reason other than access > answers a server error, not not found, when the database fails while checking the message's owner
+AssertionError: expected { error: { code: 'NOT_FOUND', …(1) } } to match object { Object (error) }
+(1 matching property omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "error": {
+-     "code": "INTERNAL_SERVER_ERROR",
++     "code": "NOT_FOUND",
+    },
+  }
+
+ ❯ src/server/api/routers/__tests__/message.get-one-not-found.test.ts:162:21
+    160|     const outcome = await outcomeOf(callerAs(OTHER).getOne(PERSONAL_ID…
+    161|
+    162|     expect(outcome).toMatchObject({ error: { code: 'INTERNAL_SERVER_ER…
+       |                     ^
+    163|   });
+    164|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

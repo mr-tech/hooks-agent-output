@@ -1,0 +1,17 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/qa-fmnf-sweep-work/20261121T072043Z-p1676876/mutant-8
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx (7 tests | 7 failed) 6220ms
+     × shows the not-found notice, in place of the page, with a link back to his messages 1147ms
+     × asks for the message once, without retrying the refusal 1020ms
+     × shows the not-found notice, in place of the page, with a link back to his messages 1024ms
+     × asks for the message once, without retrying the refusal 1042ms
+     × does not retry a not-found answer 71ms
+     × retries a server error up to three times 42ms
+     × does not retry a refused number that is not a message number 30ms
+
+ Test Files  1 failed | 158 passed (159)
+      Tests  7 failed | 2290 passed (2297)
+   Start at  07:24:27
+   Duration  37.54s (transform 86.56s, setup 3.63s, import 306.59s, tests 95.95s, environment 156.99s)
+

@@ -1,0 +1,1 @@
+{"error":{"json":{"message":"User is not authenticated.","code":-32001,"data":{"code":"UNAUTHORIZED","httpStatus":401,"path":"message.getOne"}}}}

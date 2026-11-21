@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/qa-fmnf-rerun-work/20261121T073412Z-p1812102/mutant-7
+
+ ❯ |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts (9 tests | 3 failed) 53ms
+     × returns a server message to a user who manages that server 5ms
+     × answers a server error, not not found, when the user's servers cannot be read from Discord 10ms
+     × answers unauthorized, not not found, for a server message when the session has no account 2ms
+
+ Test Files  1 failed | 158 passed (159)
+      Tests  3 failed | 2300 passed (2303)
+   Start at  07:36:40
+   Duration  20.48s (transform 29.04s, setup 1.47s, import 156.45s, tests 47.81s, environment 86.88s)
+

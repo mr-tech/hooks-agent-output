@@ -1,0 +1,113 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > retries a server error up to three times
+AssertionError: expected [ false, false, false, false ] to deeply equal [ true, true, true, false ]
+
+- Expected
++ Received
+
+  [
+-   true,
+-   true,
+-   true,
++   false,
++   false,
++   false,
+    false,
+  ]
+
+ ❯ src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx:267:75
+    265|     const error = await errorFromTheWire(ABSENT_ID);
+    266|
+    267|     expect([0, 1, 2, 3].map((count) => retryUnlessRefused(count, error…
+       |                                                                           ^
+    268|   });
+    269|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne when the load fails for a reason other than access > answers a server error, not not found, when the user's servers cannot be read from Discord
+AssertionError: expected { error: { code: 'NOT_FOUND', …(1) } } to match object { Object (error) }
+(1 matching property omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "error": {
+-     "code": "INTERNAL_SERVER_ERROR",
++     "code": "NOT_FOUND",
+    },
+  }
+
+ ❯ src/server/api/routers/__tests__/message.get-one-not-found.test.ts:154:21
+    152|     const outcome = await outcomeOf(callerAs(OTHER).getOne(GUILD_MESSA…
+    153|
+    154|     expect(outcome).toMatchObject({ error: { code: 'INTERNAL_SERVER_ER…
+       |                     ^
+    155|   });
+    156|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne when the load fails for a reason other than access > answers a server error, not not found, when the database fails while checking the message's owner
+AssertionError: expected { error: { code: 'NOT_FOUND', …(1) } } to match object { Object (error) }
+(1 matching property omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "error": {
+-     "code": "INTERNAL_SERVER_ERROR",
++     "code": "NOT_FOUND",
+    },
+  }
+
+ ❯ src/server/api/routers/__tests__/message.get-one-not-found.test.ts:162:21
+    160|     const outcome = await outcomeOf(callerAs(OTHER).getOne(PERSONAL_ID…
+    161|
+    162|     expect(outcome).toMatchObject({ error: { code: 'INTERNAL_SERVER_ER…
+       |                     ^
+    163|   });
+    164|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne when the load fails for a reason other than access > answers unauthorized, not not found, for a server message when the session has no account
+AssertionError: expected { error: { code: 'NOT_FOUND', …(1) } } to deeply equal { error: { …(2) } }
+
+- Expected
++ Received
+
+  {
+    "error": {
+-     "code": "UNAUTHORIZED",
+-     "message": "User is not authenticated.",
++     "code": "NOT_FOUND",
++     "message": "This message doesn't exist, or you don't have access to it.",
+    },
+  }
+
+ ❯ src/server/api/routers/__tests__/message.get-one-not-found.test.ts:170:21
+    168|     const outcome = await outcomeOf(callerAs(OTHER).getOne(GUILD_MESSA…
+    169|
+    170|     expect(outcome).toEqual({ error: { code: 'UNAUTHORIZED', message: …
+       |                     ^
+    171|   });
+    172| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+

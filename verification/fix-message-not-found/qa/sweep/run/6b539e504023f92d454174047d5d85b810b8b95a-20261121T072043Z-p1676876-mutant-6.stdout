@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/qa-fmnf-sweep-work/20261121T072043Z-p1676876/mutant-6
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx (7 tests | 1 failed) 2586ms
+     × retries a server error up to three times 51ms
+ ❯ |node| src/server/api/__tests__/trpc.batch-refusal.test.ts (2 tests | 1 failed) 6199ms
+     × refuses two calls with a bad-request status before any call reaches the database 5237ms
+
+ Test Files  2 failed | 157 passed (159)
+      Tests  2 failed | 2295 passed (2297)
+   Start at  07:23:11
+   Duration  33.69s (transform 73.62s, setup 2.60s, import 270.59s, tests 91.15s, environment 126.94s)
+

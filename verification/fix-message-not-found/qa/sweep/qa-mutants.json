@@ -1,0 +1,23 @@
+[
+  {"id": "qa-guild-site-maps-plain-errors", "file": "src/server/api/routers/message.ts",
+   "old": "await authorizeGuildUser(req, message.guildId).catch(asNotFound('FORBIDDEN'));",
+   "new": "await authorizeGuildUser(req, message.guildId).catch((error: unknown) => { throw error instanceof TRPCError && error.code !== 'FORBIDDEN' ? error : messageNotFound(); });"},
+  {"id": "qa-owner-site-maps-every-error", "file": "src/server/api/routers/message.ts",
+   "old": "authorizeUser(session.user.id, message.id).catch(asNotFound('NOT_FOUND'))",
+   "new": "authorizeUser(session.user.id, message.id).catch((): never => { throw messageNotFound(); })"},
+  {"id": "qa-load-site-maps-every-error", "file": "src/server/api/routers/message.ts",
+   "old": "getMessage(messageId).catch(asNotFound(NoResultError))",
+   "new": "getMessage(messageId).catch((): never => { throw messageNotFound(); })"},
+  {"id": "qa-guild-site-maps-unauthorized", "file": "src/server/api/routers/message.ts",
+   "old": "await authorizeGuildUser(req, message.guildId).catch(asNotFound('FORBIDDEN'));",
+   "new": "await authorizeGuildUser(req, message.guildId).catch((error: unknown) => { throw error instanceof TRPCError ? messageNotFound() : error; });"},
+  {"id": "qa-notice-on-first-failure-with-default-retry", "file": "src/providers/MessageProvider/index.tsx",
+   "old": "    isLoading, error: messageError, refetch, data: fetchedMessage, fetchStatus: messageFetchStatus,\n  } = api.message.getOne.useQuery(paramMessageId, {\n    enabled: paramMessageId !== '0',\n    staleTime: Infinity,\n    refetchOnWindowFocus: false,\n    refetchOnMount: 'always',\n    retry: retryUnlessRefused,",
+   "new": "    isLoading, failureReason: messageError, refetch, data: fetchedMessage, fetchStatus: messageFetchStatus,\n  } = api.message.getOne.useQuery(paramMessageId, {\n    enabled: paramMessageId !== '0',\n    staleTime: Infinity,\n    refetchOnWindowFocus: false,\n    refetchOnMount: 'always',\n    retry: 3,"},
+  {"id": "qa-notice-on-any-refusal-code", "file": "src/providers/MessageProvider/index.tsx",
+   "old": "isNotFound: messageError?.data?.code === 'NOT_FOUND',",
+   "new": "isNotFound: !!messageError,"},
+  {"id": "qa-notice-also-on-success", "file": "src/providers/MessageProvider/index.tsx",
+   "old": "isNotFound: messageError?.data?.code === 'NOT_FOUND',",
+   "new": "isNotFound: messageError?.data?.code === 'NOT_FOUND' || !!fetchedMessage,"}
+]

@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/qa-fmnf-pc-work/20261121T073732Z-p1846391/mutant-1
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx (11 tests | 2 failed) 2950ms
+     × opens the message, with no not-found notice 1043ms
+     × opens the message, with no not-found notice 1016ms
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 9 passed (11)
+   Start at  07:37:38
+   Duration  4.96s (transform 464ms, setup 22ms, import 1.21s, tests 2.95s, environment 646ms)
+

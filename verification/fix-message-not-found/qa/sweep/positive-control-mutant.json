@@ -1,0 +1,11 @@
+[
+ {
+  "id": "qa-notice-also-on-success",
+  "file": "src/providers/MessageProvider/index.tsx",
+  "old": "isNotFound: messageError?.data?.code === 'NOT_FOUND',",
+  "new": "isNotFound: messageError?.data?.code === 'NOT_FOUND' || !!fetchedMessage,",
+  "tests": [
+   "src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx"
+  ]
+ }
+]

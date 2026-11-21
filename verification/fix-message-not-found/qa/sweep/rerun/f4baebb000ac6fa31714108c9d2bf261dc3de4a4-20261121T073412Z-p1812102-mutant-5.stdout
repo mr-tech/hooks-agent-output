@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/qa-fmnf-rerun-work/20261121T073412Z-p1812102/mutant-5
+
+ ❯ |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts (9 tests | 1 failed) 51ms
+     × answers unauthorized, not not found, for a server message when the session has no account 8ms
+
+ Test Files  1 failed | 158 passed (159)
+      Tests  1 failed | 2302 passed (2303)
+   Start at  07:35:58
+   Duration  19.19s (transform 25.33s, setup 1.57s, import 146.60s, tests 44.83s, environment 83.51s)
+

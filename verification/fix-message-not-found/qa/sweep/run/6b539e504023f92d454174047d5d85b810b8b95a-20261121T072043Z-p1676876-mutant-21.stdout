@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/qa-fmnf-sweep-work/20261121T072043Z-p1676876/mutant-21
+
+ ❯ |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts (7 tests | 1 failed) 32ms
+     × returns a personal message to its owner 10ms
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (32 tests | 3 failed) 130ms
+     × returns the message to the user who owns it 15ms
+     × refuses another signed-in user when the message is deleted between its load and the ownership check 10ms
+     × getOne reads the canonical number when the browser sends leading zeros 7ms
+
+ Test Files  2 failed | 157 passed (159)
+      Tests  4 failed | 2293 passed (2297)
+   Start at  07:29:40
+   Duration  18.49s (transform 23.80s, setup 1.46s, import 139.73s, tests 41.64s, environment 82.23s)
+

@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/qa-fmnf-sweep-work/20261121T072043Z-p1676876/mutant-17
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx (7 tests | 5 failed) 5492ms
+     × shows the not-found notice, in place of the page, with a link back to his messages 1158ms
+     × asks for the message once, without retrying the refusal 1015ms
+     × shows the not-found notice, in place of the page, with a link back to his messages 1030ms
+     × asks for the message once, without retrying the refusal 1015ms
+     × does not retry a not-found answer 15ms
+ ❯ |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts (7 tests | 5 failed) 70ms
+     × answers not found with the one message text for a number no message holds 26ms
+     × answers not found with the one message text for another user's personal message 5ms
+     × answers not found with the one message text for a message of a server the user cannot manage 7ms
+     × gives the same answer in all three cases, with none of the message in it 8ms
+     × answers unauthorized, not not found 17ms
+ ❯ |node| src/server/api/routers/__tests__/message.personal-ownership.test.ts (32 tests | 1 failed) 123ms
+     × refuses another signed-in user, with none of the message in the outcome 28ms
+
+ Test Files  3 failed | 156 passed (159)
+      Tests  11 failed | 2286 passed (2297)
+   Start at  07:28:13
+   Duration  21.81s (transform 35.06s, setup 2.01s, import 167.86s, tests 54.32s, environment 89.83s)
+

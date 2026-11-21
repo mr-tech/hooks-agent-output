@@ -1,0 +1,79 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the crumb to the server's folder leaves the page
+TypeError: Cannot read properties of undefined (reading 'dispatchEvent')
+ ❯ src/components/__tests__/helpers/click.ts:5:8
+      3| export default function click(el: Element, init: MouseEventInit = {}) {
+      4|   act(() => {
+      5|     el.dispatchEvent(new MouseEvent('click', {
+       |        ^
+      6|       bubbles: true, cancelable: true, button: 0, detail: 1, ...init,
+      7|     }));
+ ❯ process.env.NODE_ENV.exports.act node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:814:22
+ ❯ Module.click src/components/__tests__/helpers/click.ts:4:3
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:414:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before either crumb to the user's folder leaves the page
+AssertionError: expected [] to have a length of 2 but got +0
+
+- Expected
++ Received
+
+- 2
++ 0
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:423:37
+    421|     await mountTree(false, sendPage);
+    422|     edit();
+    423|     expect(linksTo('/message/f/0')).toHaveLength(2);
+       |                                     ^
+    424|
+    425|     click(linksTo('/message/f/0')[1]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > does not ask for the links back to this message's editor
+AssertionError: expected 0 to be greater than or equal to 2
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:434:49
+    432|     await mountTree(false, sendPage);
+    433|     edit();
+    434|     expect(linksTo('/message/m/4/edit').length).toBeGreaterThanOrEqual…
+       |                                                 ^
+    435|
+    436|     for (const anchor of linksTo('/message/m/4/edit')) click(anchor);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the send page's own links > asks before the bot invitation, a link to another site, leaves the page, and leaves for it once confirmed
+AssertionError: no bot invitation link: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ src/app/message/__tests__/layout.navigation-guard.test.tsx:447:46
+    445|     edit();
+    446|     const invite = Array.from(document.body.querySelectorAll('a')).fin…
+    447|     expect(invite, 'no bot invitation link').toBeTruthy();
+       |                                              ^
+    448|
+    449|     click(invite);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
