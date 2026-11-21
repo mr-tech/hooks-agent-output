@@ -1,0 +1,15 @@
+178 164 14
+FAIL the hydrated session's recent messages leaves out a recent server message of a server the signed-in user is not owner or Administrator of
+FAIL the hydrated session's recent messages leaves out every recent server message for a user who administers no server
+FAIL the hydrated session's recent messages drops a stored element that is not a message number (letters) and still lists the valid ones
+FAIL the hydrated session's recent messages drops a stored element that is not a message number (an empty string) and still lists the valid ones
+FAIL the hydrated session's recent messages drops a stored element that is not a message number (a number past the column's range) and still lists the valid ones
+FAIL the hydrated session's recent messages drops a stored element that is not a message number (a negative number) and still lists the valid ones
+FAIL the hydrated session's recent messages drops a stored element that is not a message number (a non-string value) and still lists the valid ones
+FAIL user.updatePreferences input: recentMessageIds refuses an element that is not a message number (letters) with no database access
+FAIL user.updatePreferences input: recentMessageIds refuses an element that is not a message number (an empty string) with no database access
+FAIL user.updatePreferences input: recentMessageIds refuses an element that is not a message number (a number past the column's range) with no database access
+FAIL user.updatePreferences input: recentMessageIds refuses an element that is not a message number (a negative number) with no database access
+FAIL user.updatePreferences input: recentMessageIds refuses an element that is not a message number (twenty digits) with no database access
+FAIL getUserRecentMessages binds only the elements that are message numbers
+FAIL getUserRecentMessages issues no query and returns no messages when no element is a message number

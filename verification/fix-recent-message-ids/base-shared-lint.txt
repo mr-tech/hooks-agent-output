@@ -1,0 +1,4 @@
+BASE 123 @typescript-eslint/unbound-method
+BASE 178 @typescript-eslint/unbound-method
+BASE 178 @typescript-eslint/unbound-method
+BASE 178 @typescript-eslint/unbound-method

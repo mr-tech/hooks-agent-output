@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/db09c489-cb62-4138-b5bc-a817c4965c81/scratchpad/mut-work/20261121T060630Z-p812358/mutant-6
+
+ ❯ |node| src/server/api/routers/__tests__/user.save-limits.test.ts (162 tests | 5 failed) 105ms
+     × refuses an element that is not a message number (letters) with no database access 4ms
+     × refuses an element that is not a message number (an empty string) with no database access 1ms
+     × refuses an element that is not a message number (a number past the column's range) with no database access 1ms
+     × refuses an element that is not a message number (a negative number) with no database access 1ms
+     × refuses an element that is not a message number (twenty digits) with no database access 1ms
+
+ Test Files  1 failed (1)
+      Tests  5 failed | 157 passed (162)
+   Start at  06:06:54
+   Duration  561ms (transform 120ms, setup 0ms, import 303ms, tests 105ms, environment 0ms)
+

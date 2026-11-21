@@ -1,0 +1,5 @@
+
+> website@ lint /usr/local/bin/hooks/website
+> eslint --fix . --max-warnings=0
+
+ ELIFECYCLE  Command failed.

@@ -1,0 +1,85 @@
+[
+ {
+  "id": "auth-filter-removed",
+  "file": "src/server/auth.ts",
+  "old": ".filter(({ guildId }) => !guildId || administeredGuildIds.has(guildId));",
+  "new": ".filter(() => true);",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+  ]
+ },
+ {
+  "id": "auth-filter-drops-every-server-row",
+  "file": "src/server/auth.ts",
+  "old": ".filter(({ guildId }) => !guildId || administeredGuildIds.has(guildId));",
+  "new": ".filter(({ guildId }) => !guildId);",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+  ]
+ },
+ {
+  "id": "auth-filter-drops-personal-rows",
+  "file": "src/server/auth.ts",
+  "old": ".filter(({ guildId }) => !guildId || administeredGuildIds.has(guildId));",
+  "new": ".filter(({ guildId }) => !!guildId && administeredGuildIds.has(guildId));",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+  ]
+ },
+ {
+  "id": "query-guard-on-raw-list",
+  "file": "src/server/api/utils/shared.ts",
+  "old": "if (!validIds.length) return [];",
+  "new": "if (!messageIds.length) return [];",
+  "tests": [
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts"
+  ]
+ },
+ {
+  "id": "query-binds-raw-list",
+  "file": "src/server/api/utils/shared.ts",
+  "old": ".where('Messages.id', 'in', validIds)",
+  "new": ".where('Messages.id', 'in', messageIds)",
+  "tests": [
+   "src/server/api/utils/__tests__/shared.in-predicates.test.ts",
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+  ]
+ },
+ {
+  "id": "input-element-bare-string",
+  "file": "src/server/api/routers/user.ts",
+  "old": "boundedArray(messageIdShape, MAX_RECENT_MESSAGE_IDS + 1)",
+  "new": "boundedArray(z.string(), MAX_RECENT_MESSAGE_IDS + 1)",
+  "tests": [
+   "src/server/api/routers/__tests__/user.save-limits.test.ts"
+  ]
+ },
+ {
+  "id": "session-preferences-as-stored",
+  "file": "src/server/auth.ts",
+  "old": "session.user.preferences = preferences;",
+  "new": "session.user.preferences = user.preferences;",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+  ]
+ },
+ {
+  "id": "session-preferences-cleaned-list-unused",
+  "file": "src/server/auth.ts",
+  "old": "? { ...user.preferences, recentMessageIds }",
+  "new": "? { ...user.preferences }",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+  ]
+ },
+ {
+  "id": "query-given-stored-list",
+  "file": "src/server/auth.ts",
+  "old": "getUserRecentMessages(recentMessageIds, user.id)",
+  "new": "getUserRecentMessages(user.preferences?.recentMessageIds ?? [], user.id)",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts",
+   "src/server/__tests__/auth.hydrated-session.test.ts"
+  ]
+ }
+]

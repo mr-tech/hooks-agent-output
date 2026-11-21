@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/db09c489-cb62-4138-b5bc-a817c4965c81/scratchpad/mut-work/20261121T060630Z-p812358/mutant-5
+
+ ❯ |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts (6 tests | 1 failed) 20ms
+     × binds only the elements that are message numbers 7ms
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 16 passed (17)
+   Start at  06:06:52
+   Duration  1.07s (transform 262ms, setup 0ms, import 1.82s, tests 34ms, environment 0ms)
+

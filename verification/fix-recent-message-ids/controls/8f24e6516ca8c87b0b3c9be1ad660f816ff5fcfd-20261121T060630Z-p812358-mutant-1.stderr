@@ -1,0 +1,45 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out a recent server message of a server the signed-in user is not owner or Administrator of
+AssertionError: expected [ Array(2) ] to deeply equal [ '900000000000102' ]
+
+- Expected
++ Received
+
+  [
+    "900000000000102",
++   "900000000000104",
+  ]
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:131:42
+    129|     const messages = await hydrateAs(VIEWER_DB_ID, [FOREIGN_SERVER_MES…
+    130|
+    131|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
+       |                                          ^
+    132|     expect(JSON.stringify(messages)).not.toContain('foreign-server-nam…
+    133|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > leaves out every recent server message for a user who administers no server
+AssertionError: expected [ Array(2) ] to deeply equal [ '900000000000102' ]
+
+- Expected
++ Received
+
+  [
+    "900000000000102",
++   "900000000000103",
+  ]
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:138:42
+    136|     const messages = await hydrateAs(VIEWER_DB_ID, [SERVER_MESSAGE_ID,…
+    137|
+    138|     expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
+       |                                          ^
+    139|   });
+    140|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

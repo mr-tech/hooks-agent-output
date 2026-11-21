@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/db09c489-cb62-4138-b5bc-a817c4965c81/scratchpad/mut-work/20261121T060630Z-p812358/mutant-4
+
+ ❯ |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts (6 tests | 1 failed) 17ms
+     × issues no query and returns no messages when no element is a message number 6ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+   Start at  06:06:50
+   Duration  1.02s (transform 153ms, setup 0ms, import 868ms, tests 17ms, environment 0ms)
+

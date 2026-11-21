@@ -1,0 +1,30 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/shared.in-predicates.test.ts > getUserRecentMessages > issues no query and returns no messages when no element is a message number
+AssertionError: expected [ { id: 'm1', createdAt: +0, …(3) } ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "createdAt": 0,
++     "id": "m1",
++     "name": "n",
++     "previewImageNonce": null,
++     "updatedAt": 0,
++   },
++ ]
+
+ ❯ src/server/api/utils/__tests__/shared.in-predicates.test.ts:60:60
+     58|
+     59|   it('issues no query and returns no messages when no element is a mes…
+     60|     expect(await getUserRecentMessages(['abc', ''], 'u1')).toEqual([]);
+       |                                                            ^
+     61|     expect(captured.queries).toHaveLength(0);
+     62|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

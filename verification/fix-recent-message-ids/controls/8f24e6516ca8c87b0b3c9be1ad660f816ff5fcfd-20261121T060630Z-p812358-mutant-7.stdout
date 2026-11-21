@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/db09c489-cb62-4138-b5bc-a817c4965c81/scratchpad/mut-work/20261121T060630Z-p812358/mutant-7
+
+ ❯ |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts (11 tests | 1 failed) 22ms
+     × gives the session's preferences only the stored elements that are message numbers 8ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 10 passed (11)
+   Start at  06:06:56
+   Duration  1.14s (transform 196ms, setup 0ms, import 985ms, tests 22ms, environment 0ms)
+

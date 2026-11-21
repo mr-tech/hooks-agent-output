@@ -1,0 +1,20 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/db09c489-cb62-4138-b5bc-a817c4965c81/scratchpad/mut-work/20261121T060630Z-p812358/mutant-3
+
+ ❯ |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts (11 tests | 10 failed) 22ms
+     × lists a recent personal message the signed-in user owns 11ms
+     × leaves out another user's personal message stored in the preferences 1ms
+     × lists a recent server message of a server the signed-in user is owner or Administrator of 1ms
+     × leaves out a recent server message of a server the signed-in user is not owner or Administrator of 1ms
+     × leaves out every recent server message for a user who administers no server 1ms
+     × drops a stored element that is not a message number (letters) and still lists the valid ones 1ms
+     × drops a stored element that is not a message number (an empty string) and still lists the valid ones 1ms
+     × drops a stored element that is not a message number (a number past the column's range) and still lists the valid ones 1ms
+     × drops a stored element that is not a message number (a negative number) and still lists the valid ones 1ms
+     × drops a stored element that is not a message number (a non-string value) and still lists the valid ones 1ms
+
+ Test Files  1 failed (1)
+      Tests  10 failed | 1 passed (11)
+   Start at  06:06:47
+   Duration  1.16s (transform 191ms, setup 0ms, import 1.00s, tests 22ms, environment 0ms)
+
