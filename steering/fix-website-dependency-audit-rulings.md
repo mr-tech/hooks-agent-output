@@ -119,3 +119,20 @@ The four documents are `Status: Released` in `closed/` (implementation `8d59477`
   covers website `76da25c`: 4 test files the batch changed (`git diff --name-only` over both ranges). It also covers record `5d0baf8`:
   `tools/websiteDependencyAudit.test.js`.
 - The standing check is deleted. No chain of this thread is in flight, and R1 carries the one timed read.
+
+## 2026-11-21T01:49Z — test-case scoring of the fixer batch: 31 cases scored, 3 below 7 (9.7%)
+
+Scope: the cases in the test files the batch's commits changed, listed from clean exports by a helper.
+- **Website, export of `76da25c`** (`pnpm install --frozen-lockfile` exit 0; `vitest list`: 2,265 cases): 8 marked.
+  - `middleware.request-headers` 5, `trpc.batch-refusal` 2, `trpc.site-link` 1.
+  - `src/app/_components/__tests__/Providers.request-headers.test.ts` scores nothing. `7923a1d` added it and `76da25c`'s chain deleted
+    it (`git diff --name-status -M d1bb9b0 76da25c`: `D`).
+- **Record, export of `5d0baf8`** (`node --test` exit 0, 23 pass): `tools/websiteDependencyAudit.test.js`, 23 cases.
+- **Tables:** `verification/fixer-batch-2026-11-21/deweed/{website,record}.tsv`, one unit each (`-1.tsv`). Each table has one row per id
+  and no duplicate ids.
+- **Scores** (a Python count over each table):
+  - website 5 → 2, 7 → 2, 8 → 4;
+  - record 5 → 1, 7 → 3, 8 → 15, 9 → 4.
+- **Below 7:** 3 of 31 (website ids 584 and 1497; record id 20), each `remove`. Their covering ids are 583, 1496 and 12, every one
+  scored 7 or more. No covering id is unchecked.
+- Nothing is deleted on these tables. A deletion is a later chain's, behind a mutation re-run (deweeder.md). The exports are removed.

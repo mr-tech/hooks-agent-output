@@ -1,0 +1,24 @@
+id	score	verdict	class	generated	covering	reason
+1	8	kept	-	no	-	Only case where two advisory ids share one module|GHSA key: fails if versions are not merged into one entry, if the dispositioned advisory leaks in, or if the entry loses sha, url or heading form
+2	8	kept	-	no	-	Earliest assertion of the reported-key dedupe in the state file; dropping the state.reported write fails here first
+3	8	kept	-	no	-	Only case asserting that an all-dispositioned run creates no state file and prints the counts line; fails if the run persists unconditionally
+4	7	kept	-	no	-	Drives the tool with disposition and state keys matching no advisory; fails if stale keys are validated or re-reported, the ignore rule the usage text states
+5	8	kept	-	no	-	Decision-table row asserted nowhere else: a bare module or module@version key must not disposition; fails on a fallback lookup by module name
+6	9	kept	-	no	-	The one fixture where the how conjunct of 'd && d.how' alone decides: entry present, how empty
+7	8	kept	-	no	-	Only case feeding valid JSON without an advisories object; pins the operator-visible stderr and that the next readable run reports the advisory exactly once
+8	8	kept	-	no	-	Boundary asserted nowhere else: inbox without final newline gets a blank-line lead; fails if the lead is always one newline
+9	8	kept	-	no	-	Failure path an operator sees: missing ref fails naming git rev-parse and reports no advisory; asserted nowhere else
+10	8	kept	-	no	-	Pins one failure entry per streak across two failure kinds; fails if the failing marker is not stored or not consulted
+11	8	kept	-	no	-	Only assertion on the failure route that the inbox append precedes the state write; swapping the order starts a silent streak and fails here
+12	9	kept	-	no	-	The one fixture where the Boolean(state.failing) disjunct of 'changed' alone decides: the recovery run has no entries, so only that term clears the streak
+13	8	kept	-	no	-	Only assertion of one stale entry per SHA pair and that no remote-tracking ref moves; fails if the tool fetches or keys staleness on something other than the pair
+14	8	kept	-	no	-	Failure path asserted nowhere else: empty ls-remote must fail with 'has no head' and report no advisory
+15	7	kept	-	no	-	Fails if --help runs the audit before returning (an undispositioned advisory is in the fixture) or drops the key form from the procedure text
+16	9	kept	-	no	-	The fixture where the 'name in DEFAULTS' conjunct of the argument check alone decides: dashed, valued, unknown name
+17	8	kept	-	no	-	Only assertion on the audit route that an unwritable inbox leaves no reported key, so the advisory is still reported next run
+18	8	kept	-	no	-	Only case with two fresh advisories in one run: one entry each, each naming only its own GHSA; fails if only the first is reported or entries merge
+19	8	kept	-	no	-	Only case where local and remote SHAs differ while an advisory is reported: pins that the advisory entry names the audited local sha and not the remote head
+20	5	remove	-	no	12	Repeats the one-entry-per-streak behaviour with a state file that already holds a reported key; no plausible change fails it without failing case 10 or 12 first
+21	7	kept	-	no	-	Recovery that carries entries: fails if the streak marker is cleared only on the no-entries path; overlaps case 12 in part
+22	9	kept	-	no	-	The one fixture where the startsWith('--') conjunct alone decides: 'website' is a known name once the dash strip is a no-op
+23	8	kept	-	no	-	Only assertion that the temporary export is removed, on both the success and the failure path; fails if the finally block is dropped

@@ -1,0 +1,9 @@
+id	score	disposition	class	generated	covering	reason
+419	8	kept	-	no	-	Only case mounting TrpcProvider against the real endpoint handler: fails if the provider's link goes back to a batch link (batch param appears) or the unbatched request stops being answered 200; client side of the batching decision asserted nowhere else
+581	8	kept	-	yes	-	Only assertion that the exact '/message' matcher row overwrites a client-sent x-pathname (the header the session redirect trusts); fails if the matcher entry is dropped or the header is passed through or only set when absent
+582	7	kept	-	yes	-	Same matcher row as 581 but alone decides that the query string is excluded from x-pathname; fails on pathname+search or request.url, which 581 survives
+583	8	kept	-	yes	-	Only kept assertion of the '/message/(.*)' matcher row overwriting a spoofed x-pathname on a nested path; fails if that matcher entry is dropped or narrowed, which 581 survives
+584	5	remove	-	yes	583	Same '/message/(.*)' matcher row and same overwrite as 583 with other example path; no plausible wrong change fails it without failing 583 first
+585	7	kept	-	no	-	Drives the middleware through matcher and forwarded-header protocol; fails if a query-string header is forwarded to the page again (query can carry an OAuth code); absence asserted nowhere else
+1496	8	kept	-	yes	-	Minimum batch (two calls) refused 400 with zero captured queries through the real Next API handler; fails if allowBatching is enabled or removed; the server-side refusal is asserted nowhere else
+1497	5	remove	-	yes	1496	Same refusal as 1496 with a larger count; refusal is decided on batch=1 before the count is read, so any change admitting or capping batches fails the two-call case first
