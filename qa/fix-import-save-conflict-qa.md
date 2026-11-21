@@ -2,9 +2,9 @@
 ID: n/a
 Origin: fix-import-save-conflict
 UUID: 0030da7d
-Verified-At: "f23568aae25666650e687d7396c76f3ac9583bed — repos=website; chain/fix-import-save-conflict, base f4baebb"
-Status: QA Failed
-Status-Detail: "Phase 2 at website f23568a: QA Failed on QAF-1 MEDIUM (a draft that arrives after the dialog mounts has no failing assertion) and QAF-2 LOW (User-visible flow 3 is wrong about the red line). Returned to fixer-fix-import-save-conflict; a refresh pass is owed at the next SHA."
+Verified-At: "b82931402f416e850a785468f9443fa3eadfae44 — repos=website; chain/fix-import-save-conflict, base f4baebb; production tree identical to f23568a (walked and swept)"
+Status: QA Complete
+Status-Detail: "Phase 2 refresh PASS at website b829314 (test-only delta from f23568a). QAF-1 and QAF-2 RESOLVED. Next: devops for website master, on the owner's word."
 Phase: 2
 ---
 
@@ -19,6 +19,7 @@ Phase: 2
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T08:39 | steering-hooks (brief); code review's approval at `f23568a` | Phase 2 of a fixer chain at the reviewer's `Reviewed-At` | Phase 2 QA Failed. The fix is correct on every row walked in a real build: rows A to E, in all four tabs, and a draft changed in place. QAF-1 MEDIUM: no case loads a draft after the dialog mounts, and a stale settled-draft memo survives the whole suite (probe captured). QAF-2 LOW: User-visible flow 3 says no red "cannot contain" line is shown, but the real preview shows one while the choice is pending. Both of the reviewer's Assumption Not Checked lines are discharged by the walk. Disclosed: the record's stamp gate refused a typed (estimated) stamp on this row, and I replaced it with the `date -u` minute. The probe file was written with a shell heredoc (it is an instrument under `verification/`, not a record document). |
+| 2026-11-21T08:46 | code-reviewer-fix-import-save-conflict (SendMessage; review sub-entry 2 APPROVED at `b829314`, record `592a7a59`); implementation record `c4d3d17a` | Phase 2 refresh at `b829314` | Phase 2 refresh PASS. The delta `f23568a..b829314` is test-only: the persist-gate file +40/−0, and `NewMessageModal.tsx` is unchanged (`git diff --quiet`). The survivor `memo-deps-empty` was re-run by me and is KILLED (count checked, 19). Suite 2313/2313, exit 0, on a quiet re-run. Typecheck exit 0. Flow 3 was restated to match the build. QAF-1 and QAF-2 RESOLVED. |
 
 ## Scope and stage start
 
@@ -75,13 +76,9 @@ The run-1 timeout is outside this chain's surface and passed both alone and in r
 
 ## Findings
 
-QAF-1 MEDIUM Phase 2: No case loads a draft after the dialog has mounted, so a settled draft that goes stale goes unseen. The fix depends on `settledMessage`/`settledNotice` (`NewMessageModal` `useMemo` over `resolveContentLoss`) being recomputed when `loadedMessage` changes. Every real import arrives after mount: the user types a link, URL or code, and the query or fetch resolves. Every import case in `NewMessageModal.persist-gate-wiring.test.tsx` instead sets `linkImport` before `mount()`, so the draft is present on the first render. The `messageProviderDeps` `useQuery` mock returns `queryData` synchronously, whatever the `enabled` flag says. `react-hooks/exhaustive-deps` is `'off'` (`eslint.config.mjs`), so no lint gate catches a wrong dependency array either.
-- Evidence: the mutant `memo-deps-empty` survived all 4 dialog-mounting files.
-- Probe: `verification/fix-import-save-conflict/qa/probe-post-mount/NewMessageModal.post-mount-probe.test.tsx` is the shipped file plus one case. It mounts with no draft, then calls `importViaMessageLink({ components: [] })`, types a link into the URL field, and asserts the Classic notice and a write with the flag cleared. At `f23568a` it ran 10/10, exit 0 (`probe-tip.{json,out}`). Under `memo-deps-empty` it ran 9 passed and 1 failed, exit 1 (`probe-mut.{json,out}`, `probe-exit.txt`). Only the new case failed, on "expected 'Create or upload a new message…' to contain 'it has been saved as Classic and the …'".
-- Failure scenario: the memo's dependencies are lost or narrowed. A user then loads a row D message, sees no notice and gets the raw-draft floor error, which is the reported defect returning, while the suite stays green. Or, after the change in place (walk step 5), the stale settled draft of the first message is written.
-- Required: tighten the existing file with a case whose draft arrives after mount, and preferably one that changes the draft in place (row D, then row E). Each must be seen red under `memo-deps-empty`. The probe file is a ready shape. The case belongs in the shipped file, per the Test Conventions ("Before adding a test").
+QAF-1 MEDIUM Phase 2 RESOLVED: two cases were added at website `b829314`, "a V2-flagged message … that arrives after the dialog opens is settled, noticed and saved as Classic" and "a loaded message replaced by one with both V2 components and content asks on Save instead of saving the earlier settled draft". Both are KILLED under `memo-deps-empty` (my re-run, `verification/fix-import-save-conflict/qa/refresh-b829314/`). The argument and the probe are in the revision at `362c24d7`.
 
-QAF-2 LOW Phase 2: User-visible flow 3 is wrong for a running build. The implementation document says: "No red 'cannot contain' error is shown and Save is enabled." In the walk (steps 3, 5 and 8, Webhook and Message Link tabs), the dialog's red floor notice is indeed absent and Save is enabled. But the real `MessagePreview`, fed the raw row E draft as steering ruled ("as loaded while the choice is pending"), renders its own red line "Components V2 messages cannot contain embeds or content." between the content and the container (screenshots `s3-webhook-rowE.png` and `s8-link-rowE.png`, kept untracked in this session's scratchpad; text in `verification/fix-import-save-conflict/qa/walk/evidence/step3-webhook-rowE-classic.json` and `step8-link-rowE-classic.json`, field (e)). The owner checks the release against this list, so he would see a red "cannot contain" line and could read it as the defect. Required: restate flow 3 to match the build. The red line is the preview's rendering of the draft as loaded and is not this chain's code: the preview showed the raw draft at `f4baebb` too. Whether the preview should show it while the choice is pending follows steering's 08:13Z ruling. This pass does not reopen that ruling.
+QAF-2 LOW Phase 2 RESOLVED: flow 3 was restated in the implementation document (record `c4d3d17a`). It now says the preview marks the conflict with its own red line while the choice is pending, and that matches walk steps 3 and 8.
 
 ## The reviewer's Assumption Not Checked lines (both owned here)
 
@@ -131,5 +128,13 @@ This pass assumes the running `getFromUrl` and `getFromCode` procedures return t
 
 ## Handoff
 
-- **QA Failed** at website `f23568a`. Returned to `fixer-fix-import-save-conflict` for QAF-1 (a test case) and QAF-2 (the flow text). No production change is asked for. A round that changes test files and the implementation document only re-runs the survivors it closes (`memo-deps-empty`) and this pass's suite. A round that changes production code expires this verdict for the swept surface.
-- The Assumption Not Checked line goes to devops through the eventual PASS message to `steering-hooks`.
+- **QA Complete at website `b829314`** (refresh below). This verdict goes to `steering-hooks` by SendMessage, and devops starts from it. The merge to website `master` deploys to production through Vercel (the determination's read: no `.github/workflows`), and it needs the owner's word, asked by devops.
+- The Assumption Not Checked line above goes to devops as a hazard line, in that message.
+
+## Refresh pass at `b829314`
+
+- Scope: `git diff --numstat f23568a..b829314` lists only the persist-gate test file, +40/−0. `git diff --quiet f23568a b829314 -- src/app/message/_components/NewMessageModal.tsx` passed, so the production tree is the one walked and swept above. The rest of the verdict carries forward on that identity; it is not re-run.
+- Survivor closed: `memo-deps-empty`, re-run by me with `mutation-run.py` at `b829314` over the 4 dialog-mounting files (`verification/fix-import-save-conflict/qa/refresh-b829314-mutants.json`, blob `f6f78b93…`; table and driver in `refresh-b829314/` and `refresh-b829314-driver.txt`). It was KILLED, count checked 19 = control 19, on exactly the two new cases. The sweep is now 14 KILLED of the 17 mutants in `sweep-mutants.json`. The other three survivors keep their dispositions above (equivalent, residue, out of scope).
+- Suite at `b829314`: 2313 total, 2313 passed, 159 files, exit 0 on a quiet run (`suite-b829314-run2.{json,out,txt}`). The first run (`suite-b829314.*`, exit 1) ran beside the mutation run, and the same `trpc.batch-refusal.test.ts` case timed out at 5014 ms as in run 1 at `f23568a`. That is two load-coupled timeouts of one unchanged case; it is lodged in the record's `INBOX.md` and is not a finding against this chain. Persist-gate file: 11/11.
+- `pnpm run typecheck` exit 0 (`typecheck-b829314.out`). An ID-token grep (`grep -c -i -E` with the Test Conventions class) over the test file gave 0.
+- The new cases are spec-form: they state the behaviour, use literal expectations and reuse the file's helpers (`typeMessageLink` is a local helper). The second case asserts both that the stale notice clears and the V2 write, so a stale settled row D draft could not pass it.

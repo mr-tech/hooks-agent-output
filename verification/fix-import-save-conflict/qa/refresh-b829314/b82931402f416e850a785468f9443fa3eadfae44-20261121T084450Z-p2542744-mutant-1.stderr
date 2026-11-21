@@ -1,0 +1,61 @@
+stderr | src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a V2-flagged message with content and no V2 components that arrives after the dialog opens is settled, noticed and saved as Classic
+TypeError: textRange(...).getClientRects is not a function
+    at textCoords (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:811:43)
+    at TextView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:720:16)
+    at coordsInChildren (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1094:23)
+    at LineView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1532:20)
+    at DocView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:2774:30)
+    at EditorView.coordsAtPos (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6954:33)
+    at RectangleMarker.forRange (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7541:28)
+    at Object.markers (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7783:51)
+    at LayerView.measure (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7691:27)
+    at file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6655:34
+
+stderr | src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a loaded message replaced by one with both V2 components and content asks on Save instead of saving the earlier settled draft
+TypeError: textRange(...).getClientRects is not a function
+    at textCoords (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:811:43)
+    at TextView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:720:16)
+    at coordsInChildren (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1094:23)
+    at LineView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1532:20)
+    at DocView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:2774:30)
+    at EditorView.coordsAtPos (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6954:33)
+    at RectangleMarker.forRange (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7541:28)
+    at Object.markers (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7783:51)
+    at LayerView.measure (file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7691:27)
+    at file:///tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6655:34
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a V2-flagged message with content and no V2 components that arrives after the dialog opens is settled, noticed and saved as Classic
+AssertionError: expected 'Create or upload a new messageMessage…' to contain 'it has been saved as Classic and the …'
+
+Expected: "it has been saved as Classic and the flag cleared"
+Received: "Create or upload a new messageMessage LinkURL(Requires bot.)WebhookWebhook URLMessage Link or IDMessage Context CommandCodeJSON{}Copy to ClipboardPretty printMessage PreviewContinueMessage Name(0 / 32)Save To(max 50 per account / server)Select a GuildBackSave"
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:234:28
+    232|     await typeMessageLink('https://discord.com/channels/1/2/3');
+    233|
+    234|     expect(el.textContent).toContain('it has been saved as Classic and…
+       |                            ^
+    235|     await continueAndName(el);
+    236|     press(findButton(el, 'Save'));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a loaded message replaced by one with both V2 components and content asks on Save instead of saving the earlier settled draft
+AssertionError: expected 'Create or upload a new messageMessage…' not to contain 'it has been saved as Classic and the …'
+
+Expected: "it has been saved as Classic and the flag cleared"
+Received: "Create or upload a new messageMessage LinkURL(Requires bot.)WebhookWebhook URLMessage Link or IDMessage Context CommandCodeJSON{}Copy to ClipboardPretty printThis message has the Components V2 flag but also has content or embeds, which cannot be combined — it has been saved as Classic and the flag cleared.Message PreviewContinueMessage Name(0 / 32)Save To(max 50 per account / server)Select a GuildBackSave"
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:251:32
+    249|     await typeMessageLink('https://discord.com/channels/1/2/4');
+    250|
+    251|     expect(el.textContent).not.toContain('it has been saved as Classic…
+       |                                ^
+    252|     await continueAndName(el);
+    253|     press(findButton(el, 'Save'));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

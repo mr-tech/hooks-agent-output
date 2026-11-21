@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/rw/20261121T084450Z-p2542744/mutant-1
+
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx (11 tests | 2 failed) 1872ms
+     × a V2-flagged message with content and no V2 components that arrives after the dialog opens is settled, noticed and saved as Classic 116ms
+     × a loaded message replaced by one with both V2 components and content asks on Save instead of saving the earlier settled draft 99ms
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  2 failed | 17 passed (19)
+   Start at  08:44:59
+   Duration  4.19s (transform 1.34s, setup 105ms, import 5.35s, tests 3.49s, environment 2.98s)
+
