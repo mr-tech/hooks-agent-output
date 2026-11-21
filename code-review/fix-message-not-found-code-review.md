@@ -2,7 +2,7 @@
 ID: n/a
 Origin: fix-message-not-found
 UUID: 46210f8b
-Reviewed-At: "6b539e5 — repos=website"
+Reviewed-At: "f4baebb — repos=website; sub-entry 1.1, test-only delta from 6b539e5"
 Status: In Review
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
@@ -20,6 +20,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T07:14 | steering-hooks (brief `steering/fix-message-not-found-brief-code-reviewer.md`) | Round 1: review website `chain/fix-message-not-found` at the fixer's `Handoff-At` | Round 1 at `6b539e5`: APPROVED_WITH_COMMENTS. One INFO (CR-1, user-visible, routed to steering for the release flows). Adversarial probe over raw HTTP passes at `6b539e5` and fails at base `6f76c6d` (positive control). 56 production lines added, so QA Phase 2 is owed. |
+| 2026-11-21T07:42 | steering-hooks, QA's test-only commit `f4baebb` (QA record `c4c2afc`) | Round 1, sub-entry 1.1: review the `6b539e5..f4baebb` delta | The delta touches two test files only, and production is identical. Convention check clean. Every new case is red under a QA mutant. Verdict unchanged, now at `f4baebb`. |
 
 ## Tree and scope
 
@@ -104,9 +105,21 @@ None.
 - **Issue**: measured, not read (`code-review/reload-after-load.probe-tail.tsx` via `build-reload-probe.sh`, fixer's page harness, `raw/reload-6b539e5.out.json`). At `6b539e5`: owner's message loaded, one unsaved edit, row removed, Reload. Requests `[200, 404]`; the notice shows and the editor is gone; the provider still holds the message and `hasChanged` stays true. So the Back link's navigation guard still asks about unsaved changes the user just chose to discard. `reloadMessage` toasts "Message reloaded!" because `refetch()` resolves on error; that toast is pre-existing. At base `6f76c6d` the same steps gave `[200, 500]` (retrying), with the editor kept (`raw/reload-6f76c6d.out`). This state follows from scope item 2 (the load failed with NOT_FOUND), and the user has already confirmed discarding, so nothing is lost that he did not agree to lose. It is not a defect against the statement.
 - **Required Action**: no code change. Steering adds one line to the flows quoted to the owner with the release: "If you reload a message that was deleted, or that you lost access to, the page shows the same notice." Carrier: steering's release quote (this INFO is user-visible; the stage set has no UAT). `no test`: the probe's captured check is the instrument, and a suite case for it is QA's to judge.
 
+### Round 1, sub-entry 1.1 — test-only delta at website `f4baebb`
+
+- **Identity.** `git rev-parse f4baebb` = `chain/fix-message-not-found` = `f4baebb000ac6fa31714108c9d2bf261dc3de4a4` at start and end. `git log 6b539e5..f4baebb` holds one commit, `f4baebb`. `git diff --numstat 6b539e5 f4baebb` gives 2 paths: `MessageNotFound.edit-and-send-pages.test.tsx` +70/−4 and `message.get-one-not-found.test.ts` +30/−6. No production path changed, so the round-1 assessment of production code carries to `f4baebb` unchanged. The delta is test-only, so this is a scoped check and not a new round.
+- **Read against the production code it covers.**
+  - Server file: the `null` guild-list case is gone. It stood for a value `fetchUserGuilds` never returns, as found in hazard 4 above. It is replaced by a thrown `Error` worded as the real `fetchUserGuilds` throw (`Failed to fetch guilds. Got: …`), expected `INTERNAL_SERVER_ERROR`. Two cases are added: an owner-check database failure, expected `INTERNAL_SERVER_ERROR`, and a session with no account on a server message, expected `UNAUTHORIZED` "User is not authenticated.". The no-account case is the residue the round-1 probe measured, now asserted in the suite.
+  - Page file: two cases are added on each page. A loadable own message opens with `[200]` and no notice. A `BAD_REQUEST` refusal shows no notice, and it waits on the provider's own `messageError.data.code`, rendered by a test consumer of `useMessage`. The `pusher-js` mock is now a constructible function; this is the harness fault my reload probe met and worked around in its build script (QAF-4).
+  - Expected values are literals (codes, the text, `[200]`), so they are independent of the code under test. The fixtures stand in for the real reader's output: the throw text matches `fetchUserGuilds`, and the rows are shaped as `getMessage` returns them.
+- **Convention check.** `node ~/.claude/tools/convention-check.js /usr/local/bin/hooks/website --since=6b539e5`: exit 0, 2 test files examined, 0 FAIL, 0 CANDIDATE, 18 SKIP (17 untracked `.playwright-mcp/` paths and the ID-token basename check). By hand, the ID-token class over both files' `describe`/`it` titles and comment lines at `f4baebb` gives 0 hits. Basenames are unchanged. The delta adds no comment.
+- **Each new case seen red.** QA's re-run at `f4baebb` (`qa/fix-message-not-found-qa.md`, Mutation sweep, `verification/fix-message-not-found/qa/sweep/rerun/`) gives 7 of 7 killed. Its success-path control (`…/qa/sweep/positive-control/`) kills `qa-notice-also-on-success` with both "opens the message" cases. I read QA's tables and did not re-run them, since test adequacy is QA's gate.
+- **Assumption Not Checked (Round 1):** closed true by QA. Under `NODE_ENV=production` the probe finds 0 `"stack` matches in the bodies. Under the default env, the positive control, it finds 146, because the throw sites differ (`qa/fix-message-not-found-qa.md`, the refusal-probe row).
+- **CR-1:** unchanged. It is routed to steering for the release flows line.
+
 ## Verdict
 
-**Status**: APPROVED_WITH_COMMENTS
+**Status**: APPROVED_WITH_COMMENTS (unchanged at sub-entry 1.1, now bound to `f4baebb`)
 **Rationale**: All three scope items are met at `6b539e5`. The server answer is uniform, measured over raw HTTP with a positive control at base. Each page shows one notice with a link to `/message` and no retry on 4xx. Hooks are ordered correctly on both pages. The shared gate is unchanged. Tests are spec-form, independent and control-backed. The one INFO is a release-quote line, not a code change.
 
 ## Required Actions
