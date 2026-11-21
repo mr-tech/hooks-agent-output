@@ -95,3 +95,5 @@ jumps, production has it until a follow-up fix ships."; C "You: walk it after re
 fixer's User-visible flows 1-4 at `b68f94c` on a local build, typing and reload only, no Save** → devops for website `master` (his word).
 The walk's verdict carries `Verified-At`; devops starts from it and from the review. Recipients: `qa-fix-desktop-draft-as-typed` (its
 brief); devops (its later brief).
+`qa-fix-desktop-draft-as-typed` started 11:14Z (`tmux-agent spawn`, cwd website, effort medium as printed), brief
+`steering/fix-desktop-draft-as-typed-brief-qa.md` (`2ae615a`).
