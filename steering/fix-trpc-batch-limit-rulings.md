@@ -78,3 +78,15 @@ red test (block 23:57Z); `semver` absent from `pnpm audit --prod` at the fix (it
 determination by this thread unread; the check that would have caught it was reading `Redirects/index.tsx`. Item 2 stands as the
 fixer did it (the matcher now covers bare `/message`); the reviewer judges it against this corrected premise.
 Spawned `code-reviewer-fix-trpc-batch-limit` on `steering/fix-trpc-batch-limit-brief-code-reviewer.md`.
+
+## 2026-11-21T00:20Z — CR-1's Preferred remedy: not in the write set (Minimum stands)
+
+Code review round 1 (`code-review/fix-trpc-batch-limit-code-review.md`, record `6e9821b`): REJECTED at `3d2ceec` on CR-1 — the
+no-batching assertion covers only `proxy` (0 production callers, the reviewer's read); `TrpcProvider`'s `httpLink` has none. The
+Minimum remedy (a mounted `TrpcProvider` case under `src/pages/api/trpc/__tests__/`) is inside the write set and is with the fixer.
+The reviewer asked whether the Preferred remedy (one site-link factory in `src/utils/api.ts` used by `src/providers/TrpcProvider.tsx`,
+deleting the dead `proxy` export and the unused `createTRPCNext` `config()` link) enters it.
+**Ruling, this thread's** (both files lie in the sweep's P1 region, block 23:57Z, so it is mine, not a re-scope): **no.** The defect is
+the server accepting batches; the Minimum remedy asserts it on the link production uses. Consolidating links and deleting dead exports
+is hygiene outside the defect, and would move the fix toward QA's threshold for no gain in what it guards. The dead `proxy` export
+and the `config()` link stay as they are, a candidate for a later hygiene pass, not carried by this chain.
