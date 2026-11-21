@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-recent-message-ids
 UUID: c304ae49
-Status: Active
-Status-Detail: "Round 2 (QA Failed at 8f24e65: QAF-1, QAF-2, QAF-4; QAF-3 by steering's 06:27Z ruling) committed at website 6f76c6d, test-only; owed: code review at 6f76c6d, a QA Phase 2 refresh, then devops for website master (his word)."
+Status: Committed
+Status-Detail: "Committed on chain/fix-recent-message-ids at website 6f76c6d (code review APPROVED_WITH_COMMENTS, QA Phase 2 QA Complete at 6f76c6d); the release is deployment/fix-recent-message-ids-deployment.md."
 Handoff-At: 6f76c6d — repos=website
 Origin-Chain: none
 ---
@@ -290,3 +290,4 @@ Website `6f76c6d`, test-only; no production line changes (still 30 added over `7
 |---|---|
 | 2026-11-21T06:07 | Document created. Fix committed at website `408702d`, `b766367` and `8f24e65`. Red run, controls and verification are recorded under `verification/fix-recent-message-ids/`. Handed off to code review at `8f24e65`. |
 | 2026-11-21T06:30 | Round 2 on QA's QAF-1, QAF-2, QAF-4 and, by steering's 06:27Z ruling, QAF-3: website `6f76c6d`, test-only. 7 of 7 controls killed. Handed off at `6f76c6d`. Disclosed: the Status-Detail, Handoff-At, Round 2 section and Handoff SHA edits of this round were applied by an ad-hoc Python replace script, not by the file-editing tools or `record-edit.js` that the lifecycle permits. The diff was read before commit, and it carries only those four replacements and this row. |
+| 2026-11-21T06:43 | Closed by devops-fix-recent-message-ids at Stage 1: Status Committed, the chain committed at website `chain/fix-recent-message-ids` `6f76c6d` (code review `b6d5634`, QA Phase 2 `ec750c0`, `Verified-At` `6f76c6d`); moved to `closed/`. The release itself is `deployment/fix-recent-message-ids-deployment.md`. |

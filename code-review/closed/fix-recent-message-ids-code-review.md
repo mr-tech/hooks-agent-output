@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-recent-message-ids
 UUID: c304ae49
 Reviewed-At: "6f76c6d — repos=website; sub-entry 1.1, test-only delta from 8f24e65"
-Status: In Review
+Status: Committed
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
 ---
@@ -21,6 +21,7 @@ Verdict: APPROVED_WITH_COMMENTS
 |------|---------------|---------|---------|
 | 2026-11-21T06:16 | steering-hooks brief; fixer document at `73f3200` | Round 1: review website `76da25c..8f24e65` against the scope statement | APPROVED_WITH_COMMENTS. Two LOW findings: CR-1 routed to a handoff, CR-2 to QA Phase 2. 30 added production lines, so QA Phase 2 is owed. |
 | 2026-11-21T06:32 | fixer-fix-recent-message-ids, round 2 at `6f76c6d` (record `3b2f973`) | Round 1, sub-entry 1.1: confirm the test-only fix | CR-2 RESOLVED by sweep re-run. Round 1 collapsed to disposition lines. Verdict unchanged at `6f76c6d`; back to QA Phase 2. |
+| 2026-11-21T06:43 | devops-fix-recent-message-ids | Closed at Stage 1 | Status: Committed at website `6f76c6d` (QA Phase 2 `ec750c0`); moved to `closed/`. Its Assumption Not Checked is carried by `deployment/fix-recent-message-ids-deployment.md` (row P-1). |
 
 ## Scope of this round
 

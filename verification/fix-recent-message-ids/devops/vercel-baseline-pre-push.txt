@@ -1,0 +1,11 @@
+Pre-push baseline read of the production runtime logs (runbook row P-1, run once read-only before the first go).
+Read at 2026-11-21T06:4xZ by devops-fix-recent-message-ids under the standing default (steering/017-rulings.md blocks 2026-11-18T23:15Z and 23:41Z; bounds in 23:41Z: read-only CLI, counts and fixed prefixes only, no request bodies, message content, user ids or tokens).
+Command: npx -y vercel@66.2.0 logs -p hooks-gg-website --scope hooks-gg -e production -s 23h --json -n 10000   (same form as verification/017/post-deploy/kit/b7-read.sh)
+Exit: 0
+Window of records returned: 2026-11-20T08:08:39Z to 2026-11-21T06:32:15Z
+records_in_window (grep -c '"level"'): 373
+auth_session_records (grep -c '/api/auth/session'): 308
+failure_line "ids.filter is not a function" (grep -c): 0
+any "is not a function" (grep -c): 0
+The unfiltered raw output carried log text; it was kept in the session scratchpad only and deleted after counting.
+Reading: the instrument is live (308 session-route records in the window) and the failure line is absent before the push, as predicted for the old build (the old code has no keepMessageNumbers).

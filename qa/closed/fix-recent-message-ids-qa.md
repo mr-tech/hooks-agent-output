@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-recent-message-ids
 UUID: c304ae49
 Verified-At: "6f76c6d — repos=website; Phase 2 refresh over the test-only round 8f24e65..6f76c6d"
-Status: QA Complete
-Status-Detail: "Phase 2 PASS at website 6f76c6d: QAF-1 to QAF-4 resolved, all 7 refresh mutants killed, suite 2283/2283 exit 0. Next: devops for website master (his word)."
+Status: Committed
+Status-Detail: "Phase 2 PASS at website 6f76c6d (QAF-1 to QAF-4 resolved, 7 of 7 refresh mutants killed, suite 2283/2283 exit 0); committed on chain/fix-recent-message-ids, release in deployment/fix-recent-message-ids-deployment.md."
 Phase: 2
 ---
 
@@ -25,6 +25,7 @@ next save.
 |------|---------------|---------|---------|
 | 2026-11-21T06:25 | steering-hooks brief; code review committed at `cfce655` (`Reviewed-At` 8f24e65) | Phase 2 against the scope statement | Phase 2: QA Failed. Suite 2281/2281, exit 0. Typecheck exit 0. Sweep: 16 of 19 killed. 3 non-equivalent survivors, all in the guild filter (QAF-1, QAF-2). The guild-list trim has no test (QAF-3). CR-2 confirmed (QAF-4). |
 | 2026-11-21T06:37 | code-reviewer-fix-recent-message-ids, sub-entry 1.1 committed at `b6d5634` (`Reviewed-At` 6f76c6d) | Phase 2 refresh over the test-only fix round | Phase 2 refresh: QA Complete at `6f76c6d`. 0 production lines changed. 7 of 7 refresh mutants killed. Suite 2283/2283, exit 0, on the second run (the first had one STACK_TRACE_ERROR in an untouched file, already carried in INBOX). Typecheck exit 0. QAF-1 to QAF-4 resolved. |
+| 2026-11-21T06:43 | devops-fix-recent-message-ids | Closed at Stage 1 | Status: Committed at website `6f76c6d`; moved to `closed/`. QA Phase 3 followed in its own record `qa/website-6f76c6d-release-tip-qa.md` (`5379096`). Assumption Not Checked: P-1 in `deployment/fix-recent-message-ids-deployment.md`, P-2 in `handoff/fix-recent-message-ids-post-deploy-2026-11-21.md`. |
 
 ## Scope of this pass
 
