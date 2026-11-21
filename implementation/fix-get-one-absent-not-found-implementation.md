@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-get-one-absent-not-found
 UUID: fcce3991
 Status: Active
-Status-Detail: "Fix committed at website b663b35 on chain/fix-get-one-absent-not-found; handed to code review; QA Phase 2 owed (149 added production lines); merge is devops's, on the owner's word."
+Status-Detail: "Fix committed at website b663b35 on chain/fix-get-one-absent-not-found; parked on the owner's word ('Park the chains', relayed by steering-hooks), awaiting lift; the code-review send is owed at resume; QA Phase 2 owed (149 added production lines); merge is devops's, on the owner's word."
 Handoff-At: b663b35 — repos=website
 Origin-Chain: fix-message-not-found
 ---
@@ -221,6 +221,16 @@ Product vocabulary, for his own check after release (evidence: the cited test, a
   production lines).
 - **Merge**: devops's, to website `master` (Vercel production), on the owner's word asked in its own session.
 
+## Resumption State
+
+Checkpoint at 2026-11-21T09:17, on steering-hooks' relay of the owner's ruling "Park the chains".
+
+- **Done**: both scope items fixed at website `b663b35` (branch `chain/fix-get-one-absent-not-found`, HEAD `b663b35`, tree clean but the foreign `.playwright-mcp/`); red at `b829314`, 4 of 4 controls killed, suite, typecheck, lint and conventions recorded above; steering's shared.ts ruling met; the lint debt routed to `handoff/message-edit-header-preexisting-lint-findings-2026-11-21.md` (record `328c2766`).
+- **Not sent**: the hand-off SendMessage to `code-reviewer-fix-get-one-absent-not-found` (live since 09:16Z) naming this document and `Handoff-At: b663b35`. It was held for the park, not sent; steering's spawn cue (msg `91a28d5b`) told steering the SHA. At resume: send it, once.
+- **Reviewer state**: no `code-review/fix-get-one-absent-not-found-*` document exists (`git log` over that path, empty at this checkpoint).
+- **Uncommitted or mutated**: nothing. Both isolated worktrees are removed; no process of this run is running.
+- **Questions out**: none open. The shared.ts write-set ruling and the lint-FAIL ruling were both answered by steering-hooks.
+
 ## Changelog
 
 | Date | Author | Change |
@@ -228,3 +238,4 @@ Product vocabulary, for his own check after release (evidence: the cited test, a
 | 2026-11-21T09:15 | fixer-fix-get-one-absent-not-found | Created: diagnosis, fix at website `b663b35`, red at `b829314`, 4 of 4 controls killed, suite/typecheck/lint/conventions; handed to code review. |
 | 2026-11-21T09:15 | fixer-fix-get-one-absent-not-found | The runner log and the tip suite's console capture renamed `.log` → `.txt` (the record ignores `*.log`) and committed; citations updated. |
 | 2026-11-21T09:17 | fixer-fix-get-one-absent-not-found | Navigation.tsx's five pre-existing lint findings routed to `handoff/message-edit-header-preexisting-lint-findings-2026-11-21.md` on steering's 09:16Z ruling. |
+| 2026-11-21T09:17 | fixer-fix-get-one-absent-not-found | Checkpoint: parked on the owner's word; Resumption State written; the review send is owed at resume. |
