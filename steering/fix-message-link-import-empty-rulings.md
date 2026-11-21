@@ -60,3 +60,21 @@ message reads). `preview-image-generator`: not swept (I14, not completed); OUT, 
 
 **What the sweep did not cover:** paracord's source; the developer-portal setting; any live Discord read; `preview-image-generator`;
 consumers of `WebhookProvider`'s state; Discord's terms for the Message Content intent on an app in many servers (unread).
+
+## 2026-11-21T10:38Z — selection: the empty link import is a known limit for now; link-preview embeds stay dropped
+
+Put 10:37Z, answered 10:37Z (ledger `steering/selection-ledger/2026-11-21.md`, block "2026-11-21T10:37Z — steering-hooks"); option
+wording this thread's. Premises read this turn: the diagnosis (fixer's document, record `1c5541fd`: Hooks.gg app 1034527356381044828
+holds neither Message Content flag, 445 guilds; only the mention fixture reads full); QA's production read (`qa/fix-message-link-import-empty-production-read.md`,
+`96bd1c17`, 10:34:39Z: mention 101 chars + 1 rich embed, plain blank); a sonnet refutation helper: NOT REFUTED (read from code and
+captures, not run). Discord's 10,000-user application rule: a web-search summary, unread.
+- Q link import: A "You: turn on the intent (Recommended)"; B "Agent: record a known limit" — "closes the chain with a handoff recording
+  that a Message Link import loads only messages that mention Hooks.gg or that it wrote. The dialog stays as it is today: an empty draft
+  with Save off. No code change."; C "Agent: stop, don't track it". **His words, typed:** "unable to turn on intent without applying
+  first. known limit for now" — read as **B**, with his observation that the intent needs an application first (he is the instrument;
+  it settles the unread premise).
+- Q link embeds: A "Agent: keep dropping them (Recommended)"; B "Agent: include them". Chosen by selection: **A**.
+Acted on: no code; the chain closes. `fixer-fix-message-link-import-empty` writes the known-limit handoff (trigger: the app is granted
+the intent, then a qa-role re-read of the plain fixture, expected 80 chars) and closes its document; `qa-…` closes its read record;
+this thread then closes 6cc5f883 Addressed by the diagnosis and the new handoff. Website tree: the chain branch holds no commit
+(`b663b35`) and goes back to `master`.
