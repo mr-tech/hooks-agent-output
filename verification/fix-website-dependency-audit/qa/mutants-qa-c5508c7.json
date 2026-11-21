@@ -1,0 +1,14 @@
+[
+  {"id":"qa-coupling-stale-key-only-without-advisory","file":"tools/website-dependency-audit.js","old":"if (newPair) state.stale[pair] = now;","new":"if (newPair && fresh.length === 0) state.stale[pair] = now;"},
+  {"id":"qa-coupling-stale-key-only-with-advisory","file":"tools/website-dependency-audit.js","old":"if (newPair) state.stale[pair] = now;","new":"if (newPair && fresh.length > 0) state.stale[pair] = now;"},
+  {"id":"qa-coupling-reported-key-only-when-in-step","file":"tools/website-dependency-audit.js","old":"for (const u of fresh) state.reported[u.key] = now;","new":"for (const u of fresh) if (!newPair) state.reported[u.key] = now;"},
+  {"id":"qa-coupling-reported-key-only-when-stale","file":"tools/website-dependency-audit.js","old":"for (const u of fresh) state.reported[u.key] = now;","new":"for (const u of fresh) if (newPair) state.reported[u.key] = now;"},
+  {"id":"qa-coupling-marker-only-before-any-report","file":"tools/website-dependency-audit.js","old":"  state.failing = now;","new":"  if (Object.keys(state.reported).length === 0) state.failing = now;"},
+  {"id":"qa-coupling-marker-only-after-a-report","file":"tools/website-dependency-audit.js","old":"  state.failing = now;","new":"  if (Object.keys(state.reported).length > 0) state.failing = now;"},
+  {"id":"qa-coupling-streak-ends-only-on-quiet-recovery","file":"tools/website-dependency-audit.js","old":"  delete state.failing;","new":"  if (!entries.length) delete state.failing;"},
+  {"id":"qa-coupling-streak-ends-only-on-reporting-recovery","file":"tools/website-dependency-audit.js","old":"  delete state.failing;","new":"  if (entries.length) delete state.failing;"},
+  {"id":"qa-entry-omits-advisory-url","file":"tools/website-dependency-audit.js","old":"Advisory ${one(u.a.url)}; paths","new":"paths"},
+  {"id":"qa-stale-entry-names-remote-as-read","file":"tools/website-dependency-audit.js","old":"the audit read \\`${local.slice(0, 7)}\\`","new":"the audit read \\`${remote.slice(0, 7)}\\`"},
+  {"id":"qa-entry-names-remote-ref-sha","file":"tools/website-dependency-audit.js","old":"fresh.map((u) => entryFor(u, sha, opts, now))","new":"fresh.map((u) => entryFor(u, remote, opts, now))"},
+  {"id":"qa-prod-flag-dropped","file":"tools/website-dependency-audit.js","old":"['audit', '--prod', '--json']","new":"['audit', '--json']"}
+]

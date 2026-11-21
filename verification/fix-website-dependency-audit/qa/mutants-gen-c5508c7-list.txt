@@ -1,0 +1,61 @@
+60
+website-dependency-audit.js:46:num 46 num "for (let i = 0; i < argv.length; i += 2) {"
+website-dependency-audit.js:46:< 46 < "for (let i = 0; i < argv.length; i += 2) {"
+website-dependency-audit.js:46:num:2 46 num "for (let i = 0; i < argv.length; i += 2) {"
+website-dependency-audit.js:47:if-false 47 if-false "if (argv[i] === '--help') return null;"
+website-dependency-audit.js:47:=== 47 === "if (argv[i] === '--help') return null;"
+website-dependency-audit.js:49:if-false 49 if-false "if (!argv[i].startsWith('--') || !(name in DEFAULTS) || argv[i + 1] === undefined) throw new Error(`bad argum
+website-dependency-audit.js:49:not 49 not "if (!argv[i].startsWith('--') || !(name in DEFAULTS) || argv[i + 1] === undefined) throw new Error(`bad argum
+website-dependency-audit.js:49:|| 49 || "if (!argv[i].startsWith('--') || !(name in DEFAULTS) || argv[i + 1] === undefined) throw new Error(`bad argum
+website-dependency-audit.js:49:not:2 49 not "if (!argv[i].startsWith('--') || !(name in DEFAULTS) || argv[i + 1] === undefined) throw new Error(`bad argum
+website-dependency-audit.js:49:||:2 49 || "if (!argv[i].startsWith('--') || !(name in DEFAULTS) || argv[i + 1] === undefined) throw new Error(`bad argum
+website-dependency-audit.js:49:num 49 num "if (!argv[i].startsWith('--') || !(name in DEFAULTS) || argv[i + 1] === undefined) throw new Error(`bad argum
+website-dependency-audit.js:49:=== 49 === "if (!argv[i].startsWith('--') || !(name in DEFAULTS) || argv[i + 1] === undefined) throw new Error(`bad argum
+website-dependency-audit.js:50:num 50 num "opts[name] = argv[i + 1];"
+website-dependency-audit.js:56:if-false 56 if-false "if (result.status !== 0) throw new Error(`${what}: exit ${result.status} ${String(result.stderr).trim()}`);"
+website-dependency-audit.js:56:!== 56 !== "if (result.status !== 0) throw new Error(`${what}: exit ${result.status} ${String(result.stderr).trim()}`);"
+website-dependency-audit.js:56:num 56 num "if (result.status !== 0) throw new Error(`${what}: exit ${result.status} ${String(result.stderr).trim()}`);"
+website-dependency-audit.js:60:num 60 num "const gitIn = (opts, ...args) => spawnSync('git', ['-C', opts.website, ...args], { maxBuffer: 1 << 28 });"
+website-dependency-audit.js:60:num:2 60 num "const gitIn = (opts, ...args) => spawnSync('git', ['-C', opts.website, ...args], { maxBuffer: 1 << 28 });"
+website-dependency-audit.js:71:num 71 num "const head = String(check(gitIn(opts, 'ls-remote', remote, `refs/heads/${branch.join('/')}`), 'git ls-remote'
+website-dependency-audit.js:72:if-false 72 if-false "if (!head) throw new Error(`git ls-remote: ${opts.ref} has no head on ${remote}`);"
+website-dependency-audit.js:72:not 72 not "if (!head) throw new Error(`git ls-remote: ${opts.ref} has no head on ${remote}`);"
+website-dependency-audit.js:77:num 77 num "const r = spawnSync(opts.pnpm, ['audit', '--prod', '--json'], { cwd: dir, encoding: 'utf8', maxBuffer: 1 << 2
+website-dependency-audit.js:77:num:2 77 num "const r = spawnSync(opts.pnpm, ['audit', '--prod', '--json'], { cwd: dir, encoding: 'utf8', maxBuffer: 1 << 2
+website-dependency-audit.js:77:num:3 77 num "const r = spawnSync(opts.pnpm, ['audit', '--prod', '--json'], { cwd: dir, encoding: 'utf8', maxBuffer: 1 << 2
+website-dependency-audit.js:80:if-false 80 if-false "if (!audit || typeof audit.advisories !== 'object' || audit.advisories === null) {"
+website-dependency-audit.js:80:not 80 not "if (!audit || typeof audit.advisories !== 'object' || audit.advisories === null) {"
+website-dependency-audit.js:80:|| 80 || "if (!audit || typeof audit.advisories !== 'object' || audit.advisories === null) {"
+website-dependency-audit.js:80:!== 80 !== "if (!audit || typeof audit.advisories !== 'object' || audit.advisories === null) {"
+website-dependency-audit.js:80:||:2 80 || "if (!audit || typeof audit.advisories !== 'object' || audit.advisories === null) {"
+website-dependency-audit.js:80:=== 80 === "if (!audit || typeof audit.advisories !== 'object' || audit.advisories === null) {"
+website-dependency-audit.js:91:if-false 91 if-false "if (d && d.how) continue;"
+website-dependency-audit.js:91:&& 91 && "if (d && d.how) continue;"
+website-dependency-audit.js:92:|| 92 || "const seen = byKey.get(key) || { key, a, versions: new Set(), paths: new Set() };"
+website-dependency-audit.js:103:if-false 103 if-false "if (!fs.existsSync(file)) return { reported: {}, stale: {} };"
+website-dependency-audit.js:103:not 103 not "if (!fs.existsSync(file)) return { reported: {}, stale: {} };"
+website-dependency-audit.js:108:true 108 true "fs.mkdirSync(path.dirname(file), { recursive: true });"
+website-dependency-audit.js:119:if-false 119 if-false "if (entries.length) appendEntries(opts.inbox, entries);"
+website-dependency-audit.js:156:if-false 156 if-false "if (state.failing) return;"
+website-dependency-audit.js:171:true 171 true "fs.rmSync(dir, { recursive: true, force: true });"
+website-dependency-audit.js:171:true:2 171 true "fs.rmSync(dir, { recursive: true, force: true });"
+website-dependency-audit.js:175:walk-first 175 walk-first "const fresh = open.filter((u) => !state.reported[u.key]);"
+website-dependency-audit.js:175:walk-last 175 walk-last "const fresh = open.filter((u) => !state.reported[u.key]);"
+website-dependency-audit.js:175:not 175 not "const fresh = open.filter((u) => !state.reported[u.key]);"
+website-dependency-audit.js:177:!== 177 !== "const newPair = sha !== remote && !state.stale[pair];"
+website-dependency-audit.js:177:&& 177 && "const newPair = sha !== remote && !state.stale[pair];"
+website-dependency-audit.js:177:not 177 not "const newPair = sha !== remote && !state.stale[pair];"
+website-dependency-audit.js:178:walk-first 178 walk-first "const entries = [...(newPair ? [staleEntry(opts, sha, remote, now)] : []), ...fresh.map((u) => entryFor(u, sh
+website-dependency-audit.js:178:walk-last 178 walk-last "const entries = [...(newPair ? [staleEntry(opts, sha, remote, now)] : []), ...fresh.map((u) => entryFor(u, sh
+website-dependency-audit.js:179:> 179 > "const changed = entries.length > 0 || Boolean(state.failing);"
+website-dependency-audit.js:179:num 179 num "const changed = entries.length > 0 || Boolean(state.failing);"
+website-dependency-audit.js:179:|| 179 || "const changed = entries.length > 0 || Boolean(state.failing);"
+website-dependency-audit.js:181:if-false 181 if-false "if (newPair) state.stale[pair] = now;"
+website-dependency-audit.js:183:if-false 183 if-false "if (changed) persist(opts, entries, state);"
+website-dependency-audit.js:189:if-false 189 if-false "if (!opts) { console.log(USAGE); return; }"
+website-dependency-audit.js:189:not 189 not "if (!opts) { console.log(USAGE); return; }"
+website-dependency-audit.js:190:num 190 num "const now = new Date().toISOString().slice(0, 16);"
+website-dependency-audit.js:190:num:2 190 num "const now = new Date().toISOString().slice(0, 16);"
+website-dependency-audit.js:196:num 196 num "process.exitCode = 1;"
+website-dependency-audit.js:201:num 201 num "main(process.argv.slice(2));"
+website-dependency-audit.js:204:num 204 num "process.exitCode = 1;"
