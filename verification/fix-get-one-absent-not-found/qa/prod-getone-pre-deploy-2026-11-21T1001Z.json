@@ -1,0 +1,9 @@
+{
+  "note": "QA Phase 2 (qa-fix-get-one-absent-not-found): read-only re-read of post-deploy row B-1's instrument on production hooks.gg before this chain's deploy (production then serving website master b829314 by the record's release ledger). Stage browser, test account signed in (user menu present). browser_evaluate of fetch('/api/trpc/message.getOne?input=' + encodeURIComponent(JSON.stringify({json: id}))) per id; getOne is a query and writes nothing. Values transcribed verbatim from the tool result.",
+  "at": "2026-11-21T10:01:25.023Z",
+  "signedInHint": true,
+  "6022": { "status": 500, "vercelId": "pdx1::cle1::zjx9r-1795255285042-73a2c813e9c8", "code": "INTERNAL_SERVER_ERROR", "message": "no result", "ok": false },
+  "999999999999": { "status": 500, "vercelId": "pdx1::cle1::9th4v-1795255285630-e438638c664c", "code": "INTERNAL_SERVER_ERROR", "message": "no result", "ok": false },
+  "1000": { "status": 404, "vercelId": "pdx1::cle1::5d6n9-1795255286076-817a34bbf3e3", "code": "NOT_FOUND", "message": "This message doesn't exist, or you don't have access to it.", "ok": false },
+  "6010": { "status": 200, "vercelId": "pdx1::cle1::t5h2b-1795255287016-30745b95b1ec", "code": null, "message": null, "ok": true }
+}
