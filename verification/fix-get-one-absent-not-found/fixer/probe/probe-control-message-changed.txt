@@ -1,0 +1,63 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/716eed40-1b9a-44fe-887a-168d46ed41a8/scratchpad/wt-tip
+
+ ❯ |node| src/server/api/routers/__tests__/message.other-callers-probe.test.ts (2 tests | 2 failed) 62ms
+     × answers a server error with the text no result, over the ESM kysely build 13ms
+     × answers a server error with the text no result, over the CommonJS kysely build 48ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.other-callers-probe.test.ts > message.updateRecentMessageData for a number no message holds > answers a server error with the text no result, over the ESM kysely build
+AssertionError: expected { error: { …(2) } } to deeply equal { error: { …(2) } }
+
+- Expected
++ Received
+
+  {
+    "error": {
+      "code": "INTERNAL_SERVER_ERROR",
+-     "message": "no result",
++     "message": "no row",
+    },
+  }
+
+ ❯ src/server/api/routers/__tests__/message.other-callers-probe.test.ts:120:21
+    118|     const outcome = await outcomeOf(callerAs(OTHER).updateRecentMessag…
+    119|
+    120|     expect(outcome).toEqual({ error: { code: 'INTERNAL_SERVER_ERROR', …
+       |                     ^
+    121|   });
+    122|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.other-callers-probe.test.ts > message.updateRecentMessageData for a number no message holds > answers a server error with the text no result, over the CommonJS kysely build
+AssertionError: expected { error: { …(2) } } to deeply equal { error: { …(2) } }
+
+- Expected
++ Received
+
+  {
+    "error": {
+      "code": "INTERNAL_SERVER_ERROR",
+-     "message": "no result",
++     "message": "no row",
+    },
+  }
+
+ ❯ src/server/api/routers/__tests__/message.other-callers-probe.test.ts:129:21
+    127|     const outcome = await outcomeOf(callerAs(OTHER).updateRecentMessag…
+    128|
+    129|     expect(outcome).toEqual({ error: { code: 'INTERNAL_SERVER_ERROR', …
+       |                     ^
+    130|   });
+    131| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  09:11:24
+   Duration  1.27s (transform 243ms, setup 0ms, import 1.07s, tests 62ms, environment 0ms)
+

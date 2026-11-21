@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/716eed40-1b9a-44fe-887a-168d46ed41a8/scratchpad/wt-tip
+
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  09:11:22
+   Duration  1.19s (transform 229ms, setup 0ms, import 1.02s, tests 55ms, environment 0ms)
+

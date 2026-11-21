@@ -1,0 +1,46 @@
+FAIL eslint src/app/message/m/[id]/_layout/Navigation.tsx:235 — @typescript-eslint/prefer-nullish-coalescing: Prefer using nullish coalescing operator (`??=`) instead of an assignment expression, as it is simpler to read.
+FAIL eslint src/app/message/m/[id]/_layout/Navigation.tsx:246 — @typescript-eslint/prefer-nullish-coalescing: Prefer using nullish coalescing operator (`??=`) instead of an assignment expression, as it is simpler to read.
+FAIL eslint src/app/message/m/[id]/_layout/Navigation.tsx:319 — @typescript-eslint/prefer-nullish-coalescing: Prefer using nullish coalescing operator (`??`) instead of a ternary expression, as it is simpler to read.
+FAIL eslint src/app/message/m/[id]/_layout/Navigation.tsx:378 — react-hooks/refs: Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+/usr/local/bin/hooks/website/src/app/message/m/[id]/_layout/Navigation.tsx:378:18
+  376 |                 {...menuFocusWithinProps}
+  377 |               >
+> 378 |                 {menuItems.map(({
+      |                  ^^^^^^^^^ Cannot access ref value during render
+  379 |                   text, Icon, onPress, isDisabled,
+  380 |                 }, key) => (
+  381 |                   <li key={key}>
+FAIL eslint src/app/message/m/[id]/_layout/Navigation.tsx:378 — react-hooks/refs: Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+/usr/local/bin/hooks/website/src/app/message/m/[id]/_layout/Navigation.tsx:378:18
+  376 |                 {...menuFocusWithinProps}
+  377 |               >
+> 378 |                 {menuItems.map(({
+      |                  ^^^^^^^^^^^^^ Cannot access ref value during render
+  379 |                   text, Icon, onPress, isDisabled,
+  380 |                 }, key) => (
+  381 |                   <li key={key}>
+SKIP .playwright-mcp/a2-empty-textdisplay.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a2-v2b.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a4-send-empty.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a6-state.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a7-send-filled.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b1-section.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b2-thumb.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b3-gallery-alt.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b3-gallery.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-41-text-displays-base.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-41-text-displays-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-content-2100-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-control-valid-v2-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-embed-description-4097-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-empty-username-base.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-empty-username-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-fresh-text-display-tip.png: not examined — extension .png is outside the examined set
+SKIP id-token, basename: /usr/local/bin/hooks/agent-output/CLAUDE.md states an ID-token class this checker does not implement verbatim (the hooks line at cca22fd) — the checks did not run
+convention-check: 6 file(s) examined, 17 not examined, 3 test file(s); 5 FAIL, 0 CANDIDATE, 18 SKIP

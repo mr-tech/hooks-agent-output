@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/716eed40-1b9a-44fe-887a-168d46ed41a8/scratchpad/mut-work/20261121T091006Z-p2795625/mutant-3
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx (13 tests | 1 failed) 2189ms
+     × shows the message name field, the File, Edit, View and Help menus and Send for a message the user can load 1069ms
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 22 passed (23)
+   Start at  09:10:29
+   Duration  4.43s (transform 698ms, setup 28ms, import 2.49s, tests 2.26s, environment 748ms)
+

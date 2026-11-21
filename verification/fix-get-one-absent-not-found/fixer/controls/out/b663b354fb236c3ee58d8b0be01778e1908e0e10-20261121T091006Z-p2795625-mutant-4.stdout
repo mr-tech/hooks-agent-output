@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/716eed40-1b9a-44fe-887a-168d46ed41a8/scratchpad/mut-work/20261121T091006Z-p2795625/mutant-4
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx (13 tests | 1 failed) 1268ms
+     × keeps only the site navigation beside the not-found notice for a message number the user cannot load 89ms
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 22 passed (23)
+   Start at  09:10:34
+   Duration  3.28s (transform 629ms, setup 22ms, import 2.26s, tests 1.34s, environment 618ms)
+
