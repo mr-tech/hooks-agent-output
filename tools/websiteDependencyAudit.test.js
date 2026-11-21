@@ -86,6 +86,11 @@ function moveOriginMaster(name) {
 }
 
 const headings = (text) => text.split('\n').filter((l) => l.startsWith('## '));
+const entriesOf = (text) => text.split(/\n(?=## )/).filter((e) => e.startsWith('## '));
+
+function assertEntryForm(text) {
+  for (const h of headings(text)) assert.match(h, /^## \d{4}-\d{2}-\d{2} — .+ — FYI$/);
+}
 const inbox = () => fs.readFileSync(files.inbox, 'utf8');
 
 beforeEach(() => {
@@ -146,6 +151,8 @@ describe('website dependency audit', () => {
     assert.match(entry, /3\.3\.6/);
     assert.match(entry, /4\.0\.2/);
     assert.match(entry, new RegExp(git('rev-parse', '--short', 'origin/master')));
+    assert.match(entry, /https:\/\/github\.com\/advisories\/GHSA-mwcw-c2x4-8c55/);
+    assertEntryForm(entry);
     assert.doesNotMatch(entry, /GHSA-3h5v-q93c-6h6q/);
   });
 
@@ -163,6 +170,7 @@ describe('website dependency audit', () => {
     const r = run(auditOf(WS_DOS, NANOID_PREDICTABLE));
     assert.strictEqual(r.status, 0, r.stderr);
     assert.strictEqual(inbox(), INBOX_HEAD);
+    assert.strictEqual(fs.existsSync(files.state), false);
     assert.match(r.stdout, /advisories 2, undispositioned 0, newly reported 0/);
   });
 
@@ -316,6 +324,66 @@ describe('website dependency audit', () => {
     const next = run(auditOf(WS_DOS, NANOID_PREDICTABLE));
     assert.strictEqual(next.status, 0, next.stderr);
     assert.strictEqual(headings(inbox().slice(INBOX_HEAD.length)).length, 1);
+  });
+
+  it('adds one entry for each of two undispositioned advisories, and none on a second run', () => {
+    writeDispositions({});
+    assert.strictEqual(run(auditOf(WS_DOS, NANOID_PREDICTABLE)).status, 0);
+    const added = inbox().slice(INBOX_HEAD.length);
+    const entries = entriesOf(added);
+    assert.strictEqual(entries.length, 2);
+    assert.deepStrictEqual(entries.map((e) => (e.match(/GHSA-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}/g) || []).filter((g, i, all) => all.indexOf(g) === i)).sort(),
+      [['GHSA-3h5v-q93c-6h6q'], ['GHSA-mwcw-c2x4-8c55']]);
+    assertEntryForm(added);
+    assert.strictEqual(run(auditOf(WS_DOS, NANOID_PREDICTABLE)).status, 0);
+    assert.strictEqual(inbox().slice(INBOX_HEAD.length), added);
+  });
+
+  it('reports a stale clone and an undispositioned advisory once each when they occur together, naming the audited tree', () => {
+    writeDispositions({ 'ws|GHSA-3h5v-q93c-6h6q': ASSESSED });
+    const local = git('rev-parse', 'origin/master');
+    const remote = moveOriginMaster('second');
+    assert.strictEqual(run(auditOf(WS_DOS, NANOID_PREDICTABLE)).status, 0);
+    const added = inbox().slice(INBOX_HEAD.length);
+    const entries = entriesOf(added);
+    assert.strictEqual(entries.length, 2);
+    assertEntryForm(added);
+    const stale = entries.find((e) => !e.includes('GHSA-'));
+    const advisory = entries.find((e) => e.includes('GHSA-mwcw-c2x4-8c55'));
+    assert.ok(stale && advisory);
+    assert.match(stale, new RegExp(`the audit read \`${local.slice(0, 7)}\``));
+    assert.match(advisory, new RegExp(`at \`${local.slice(0, 7)}\``));
+    assert.doesNotMatch(advisory, new RegExp(remote.slice(0, 7)));
+    assert.strictEqual(run(auditOf(WS_DOS, NANOID_PREDICTABLE)).status, 0);
+    assert.strictEqual(inbox().slice(INBOX_HEAD.length), added);
+  });
+
+  it('adds one failure entry for a streak that starts after an advisory was reported', () => {
+    writeDispositions({});
+    assert.strictEqual(run(auditOf(NANOID_PREDICTABLE)).status, 0);
+    const afterReport = inbox();
+    assert.notStrictEqual(run(null, { raw: 'not json' }).status, 0);
+    assert.notStrictEqual(run(null, { raw: 'not json' }).status, 0);
+    const added = inbox().slice(afterReport.length);
+    assert.strictEqual(headings(added).length, 1);
+    assert.match(added, /failed/);
+  });
+
+  it('ends a streak on a recovery that reports an advisory, so the next streak adds its own entry', () => {
+    writeDispositions({});
+    assert.notStrictEqual(run(null, { raw: 'not json' }).status, 0);
+    assert.strictEqual(run(auditOf(NANOID_PREDICTABLE)).status, 0);
+    assert.notStrictEqual(run(null, { raw: 'not json' }).status, 0);
+    const failures = entriesOf(inbox().slice(INBOX_HEAD.length)).filter((e) => /failed/.test(e));
+    assert.strictEqual(failures.length, 2);
+  });
+
+  it('fails on a bare argument without its dashes, and writes nothing', () => {
+    writeDispositions({});
+    const r = run(auditOf(WS_DOS), { extra: ['website', website] });
+    assert.notStrictEqual(r.status, 0);
+    assert.match(r.stderr, /bad argument: website/);
+    assert.strictEqual(inbox(), INBOX_HEAD);
   });
 
   it('removes the lockfile export after a readable and after an unreadable run', () => {

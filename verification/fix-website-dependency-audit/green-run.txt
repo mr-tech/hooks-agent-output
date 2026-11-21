@@ -1,29 +1,34 @@
 ▶ website dependency audit
-  ✔ adds exactly one inbox entry for an advisory with no disposition, naming every installed version (139.890234ms)
-  ✔ adds no entry on a second run while the advisory stays undispositioned (198.740844ms)
-  ✔ leaves the inbox unchanged when every advisory is dispositioned (122.696488ms)
-  ✔ does not fail when a dispositioned or reported advisory has left the audit (125.23035ms)
-  ✔ treats a bare module key or a version-line key as no disposition of an advisory (122.359745ms)
-  ✔ treats a disposition with an empty assessment as no disposition (128.21406ms)
-  ✔ writes nothing on an unreadable audit and reports the advisory on the next readable run (204.947724ms)
-  ✔ separates the entry by a blank line from an inbox that lacks a final newline (128.148928ms)
-  ✔ fails naming git when the released ref does not exist, and reports no advisory (78.615648ms)
-  ✔ adds one inbox entry when a streak of failed runs starts, and none for the rest of the streak (214.462317ms)
-  ✔ starts no streak when the failure entry cannot be written, and adds it on the next failure (189.443913ms)
-  ✔ adds a new failure entry for a streak that starts after a run succeeded (274.026258ms)
-  ✔ adds one entry per pair when the local released ref differs from the remote head, moving no ref (363.565485ms)
-  ✔ fails, reporting no advisory, when the remote has no head for the released branch (121.868552ms)
-  ✔ prints the procedure for adding a disposition on --help, and writes nothing (66.653537ms)
-  ✔ fails on an argument it does not know, and writes nothing (68.558046ms)
-  ✔ keeps no reported key when the inbox cannot be written, and reports the advisory on the next run (195.438337ms)
-  ✔ removes the lockfile export after a readable and after an unreadable run (197.78347ms)
-✔ website dependency audit (2942.520757ms)
-ℹ tests 18
+  ✔ adds exactly one inbox entry for an advisory with no disposition, naming every installed version (124.823716ms)
+  ✔ adds no entry on a second run while the advisory stays undispositioned (190.857578ms)
+  ✔ leaves the inbox unchanged when every advisory is dispositioned (122.334207ms)
+  ✔ does not fail when a dispositioned or reported advisory has left the audit (117.449272ms)
+  ✔ treats a bare module key or a version-line key as no disposition of an advisory (126.186301ms)
+  ✔ treats a disposition with an empty assessment as no disposition (123.191804ms)
+  ✔ writes nothing on an unreadable audit and reports the advisory on the next readable run (194.437574ms)
+  ✔ separates the entry by a blank line from an inbox that lacks a final newline (117.36887ms)
+  ✔ fails naming git when the released ref does not exist, and reports no advisory (76.920147ms)
+  ✔ adds one inbox entry when a streak of failed runs starts, and none for the rest of the streak (207.929748ms)
+  ✔ starts no streak when the failure entry cannot be written, and adds it on the next failure (177.418917ms)
+  ✔ adds a new failure entry for a streak that starts after a run succeeded (255.66188ms)
+  ✔ adds one entry per pair when the local released ref differs from the remote head, moving no ref (370.670909ms)
+  ✔ fails, reporting no advisory, when the remote has no head for the released branch (125.716339ms)
+  ✔ prints the procedure for adding a disposition on --help, and writes nothing (67.174725ms)
+  ✔ fails on an argument it does not know, and writes nothing (69.27257ms)
+  ✔ keeps no reported key when the inbox cannot be written, and reports the advisory on the next run (198.025453ms)
+  ✔ adds one entry for each of two undispositioned advisories, and none on a second run (211.067382ms)
+  ✔ reports a stale clone and an undispositioned advisory once each when they occur together, naming the audited tree (233.492328ms)
+  ✔ adds one failure entry for a streak that starts after an advisory was reported (276.075983ms)
+  ✔ ends a streak on a recovery that reports an advisory, so the next streak adds its own entry (260.008389ms)
+  ✔ fails on a bare argument without its dashes, and writes nothing (79.066074ms)
+  ✔ removes the lockfile export after a readable and after an unreadable run (200.979075ms)
+✔ website dependency audit (3928.314146ms)
+ℹ tests 23
 ℹ suites 1
-ℹ pass 18
+ℹ pass 23
 ℹ fail 0
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 3002.911864
+ℹ duration_ms 3990.059982
 exit 0
