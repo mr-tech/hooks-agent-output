@@ -76,3 +76,15 @@ Project-utils `chain/fix-git-dependency-pins` cut by this thread (`git switch --
 `749606d`; HEAD `749606d`, no upstream; porcelain empty before and after, `diff` of the two captures). Briefs:
 `steering/fix-git-dependency-pins-brief-common.md`, `…-brief-fixer.md`. `fixer-fix-git-dependency-pins` started with `tmux-agent spawn`
 (category `fix-git-dependency-pins`, cwd `/usr/local/bin/hooks`, a cross-repo chain). The website half waits on chain 6's release.
+
+## 2026-11-21T23:07 — project-utils half handed off at `40ba5d3`; review; a cache file brought into scope
+
+Spawn cue 23:0xZ (the fixer, by SendMessage): `implementation/fix-git-dependency-pins-implementation.md` (record `44bb065`), `Handoff-At`
+`40ba5d3 — repos=project-utils; website half not started` (read by this thread). `git -C project-utils diff --numstat 749606d 40ba5d3`:
+`dist/prisma.js` 0/21, `dist/prisma.js.map` 0/1, `package-lock.json` 760/194 (the fixer: `prisma-kysely`'s 283-entry subtree gains
+`dev: true`, nothing added, removed or re-versioned — the reviewer re-derives), `package.json` 1/1. All in the write set.
+**This thread's ruling (inside the swept region, P3's mechanism):** the fixer found gitignored `build/js/prisma.js(.map)` in the shared
+project-utils tree (from 2023) that every rebuild copies back into `dist/` as untracked files. Deleting those two ignored files is in
+scope: they are what makes the deleted output reappear; no session owns them (no live chain on project-utils but this one; `git status
+--ignored` shows only `build/`). Untracked-only: no commit changes. `code-reviewer-fix-git-dependency-pins` started with `tmux-agent
+spawn`, brief `steering/fix-git-dependency-pins-brief-code-reviewer.md`.
