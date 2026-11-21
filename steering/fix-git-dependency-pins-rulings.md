@@ -27,4 +27,52 @@ paracord's `3f20308` tarball answers HTTP 200. Project-utils pushes: no `.github
 moving `prisma-kysely` to `devDependencies` changes the website lockfile's project-utils subtree too, so "only the two entries change" in
 option text meant no unrelated package moves — the determination bounds the lockfile diff to the two pinned packages' own subtrees.
 
-Determination, stage set and branch cut: written once chain 6 releases and the website tree is back on `master`.
+## 2026-11-21T22:58 — scoping determination: fixer chain, project-utils then website; the project-utils half opens now
+
+**His words.** Block 22:28 above (pin by hand; both tidy-ups); effort block 05:38Z item 4 and 05:50Z order. Brief common part:
+`steering/fix-git-dependency-pins-brief-common.md`. **Order amended (this thread's ruling):** effort block 05:38Z opened each chain after
+the previous one's release because of the shared trees; chain 7's project-utils half shares no tree with chain 6 (on website), so it
+opens now, and its website half starts only once chain 6 has released and this thread has switched the website tree.
+
+**Shape.** Hygiene/supply-chain. No dated event. Cause read from code and, for the pin form, run (block 22:28). Blast radius: project-utils
+`package.json` (+ its `package-lock.json`), `dist/prisma.js`, `dist/prisma.js.map`; website `package.json` lines 69 and 126 and the
+`pnpm-lock.yaml` entries of those two packages. End steps: project-utils `master` (no `.github/`; `release-move.js … 749606d --dry-run`
+22:58Z: "DRY RUN: every check passed"; "workflows none"; deploys nothing, no approval) — pushed by devops mid-chain, before the website pin;
+then website `master` (Vercel production, his word, asked by devops in its own session; dry run at `0c14d5b` passed 20:26Z).
+Trees: project-utils `master` `749606d` = `origin/master` (`git ls-remote`, 22:58Z), porcelain empty. Website: on chain 6's branch until
+chain 6 releases.
+
+**Sweep** (block 22:28 premises; `verification/fix-git-dependency-pins/scoping/sweep.md`). P1 hits: website `package.json:69`, `:126` —
+IN. P2: project-utils `package.json:14` `prisma-kysely` — IN (to `devDependencies`). P3: `dist/prisma.js`, `.map` — IN (deleted).
+Record: `architecture/system-architecture.md:121,166,236-237` (the pin and the dist listing) — OUT of the chain, lodged for the architect at
+closure. `paracord`'s other ref `1b7cadb` (handoff) — OUT (the pin is to the lockfile's `3f20308`, his "the exact version the live site
+already uses").
+
+**Stage set:** `fixer-fix-git-dependency-pins` → `code-reviewer-fix-git-dependency-pins` (production lines added under 20: the reviewer
+also runs the suites, typecheck and the fixer's red evidence) → devops: project-utils `master` push (mid-chain, no approval) → fixer: the
+website pin → reviewer → devops for website `master` (his word). No plan, critic, Phase 1, QA or UAT.
+
+**Scope statement (bounded).**
+Project-utils half, on `chain/fix-git-dependency-pins` cut from `origin/master` `749606d`:
+1. `prisma-kysely` moves from `dependencies` to `devDependencies` in `package.json`; `package-lock.json` changes only in that package's
+   `dev` flags/placement.
+2. `dist/prisma.js` and `dist/prisma.js.map` are deleted; a `npm run rebuild` (or `build` + `build:types`) leaves `dist/` byte-identical
+   to the committed tree apart from those two deletions — any other `dist/` difference is a stop-and-ask, not a fix.
+Website half, on `chain/fix-git-dependency-pins` cut from `origin/master` after chain 6's release:
+3. `package.json:69` `project-utils` names the new project-utils commit (the one devops pushed); `:126` `paracord` names `3f203086…`
+   (the lockfile's commit). Both by full SHA.
+4. `pnpm-lock.yaml` is edited by hand to match (his selection A): the two specifier lines, project-utils' resolved commit and its own
+   dependency list (`prisma-kysely` leaves its runtime set, with whatever subtree only it held); no other package version moves.
+   `pnpm install --frozen-lockfile` exits 0; suite and `pnpm run typecheck` exit 0.
+Write set: those paths; in the record, the fixer's document and `verification/fix-git-dependency-pins/`. Any other file is a re-scope.
+
+**What the sweep did not cover** (devops hazard lines): `mr-tech/paracord`'s remote beyond the tarball's HTTP 200; whether a fresh
+`dist/` build matches the committed one (to be shown in item 2); consumers of project-utils outside this workspace (statbot repos may
+pin it — unread); project-utils' and agent-output lockfiles (not read).
+
+## 2026-11-21T22:58 — chain started (project-utils half)
+
+Project-utils `chain/fix-git-dependency-pins` cut by this thread (`git switch --no-track -c … origin/master` after `git ls-remote` read
+`749606d`; HEAD `749606d`, no upstream; porcelain empty before and after, `diff` of the two captures). Briefs:
+`steering/fix-git-dependency-pins-brief-common.md`, `…-brief-fixer.md`. `fixer-fix-git-dependency-pins` started with `tmux-agent spawn`
+(category `fix-git-dependency-pins`, cwd `/usr/local/bin/hooks`, a cross-repo chain). The website half waits on chain 6's release.
