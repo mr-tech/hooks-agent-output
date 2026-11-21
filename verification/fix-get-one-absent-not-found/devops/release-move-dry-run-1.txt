@@ -1,0 +1,10 @@
+repo     /usr/local/bin/hooks/website
+ref      master
+target   b663b354fb236c3ee58d8b0be01778e1908e0e10
+remote   origin/master b82931402f416e850a785468f9443fa3eadfae44
+local    master b82931402f416e850a785468f9443fa3eadfae44
+untracked 17 path(s) left alone
+evidence reason Phase 2 verdict qa/fix-get-one-absent-not-found-qa.md Verified-At b663b35 covers the tip (same SHA); Phase 3 record requested
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+DRY RUN: every check passed; nothing moved

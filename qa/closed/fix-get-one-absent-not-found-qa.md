@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-get-one-absent-not-found
 UUID: fcce3991
 Verified-At: "b663b35 — repos=website; chain/fix-get-one-absent-not-found b663b354fb236c3ee58d8b0be01778e1908e0e10"
-Status: QA Complete
-Status-Detail: "Phase 2 PASS at website b663b35, 0 findings. Post-deploy row B-1 (this register) is carried by devops's post-deploy carrier; it does not gate the release act."
+Status: Committed
+Status-Detail: "Phase 2 PASS at website b663b35, 0 findings; committed at devops Stage 1. Post-deploy row B-1 (this register) is carried by handoff/fix-get-one-absent-not-found-post-deploy-2026-11-21.md; it does not gate the release act."
 Phase: 2
 ---
 
@@ -19,6 +19,7 @@ Phase: 2
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T10:03 | steering-hooks (brief `steering/fix-get-one-absent-not-found-brief-qa.md`) | Phase 2 at the reviewer's `Reviewed-At` | Phase 2: PASS at website `b663b35`, 0 findings. Suite 2316/2316 with exit 0; typecheck exit 0. Sweep 7 of 8 killed; the survivor is killed by the fixer's committed probe. A header probe for another user's message is red at base and green at tip. Production re-read before deploy: an absent number still answers 500. Register B-1 minted. |
+| 2026-11-21T10:09 | devops-fix-get-one-absent-not-found | Document closed at Stage 1 | Status: Committed; B-1 carried by handoff/fix-get-one-absent-not-found-post-deploy-2026-11-21.md. |
 
 ## Scope and stage start
 

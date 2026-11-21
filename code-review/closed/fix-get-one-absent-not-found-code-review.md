@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-get-one-absent-not-found
 UUID: fcce3991
 Reviewed-At: "b663b35 — repos=website"
-Status: In Review
-Status-Detail: "Round 1 APPROVED at website b663b35; handed to QA Phase 2 (149 added production lines)."
+Status: Committed
+Status-Detail: "Round 1 APPROVED at website b663b35; QA Phase 2 PASS at b663b35; committed at devops Stage 1, release is devops's on the owner's approval. Assumption Not Checked carried by handoff/fix-get-one-absent-not-found-post-deploy-2026-11-21.md."
 Round: 1
 Verdict: APPROVED
 ---
@@ -22,6 +22,7 @@ Verdict: APPROVED
 |------|---------------|---------|---------|
 | 2026-11-21T09:17 | steering-hooks | Review website `b663b35` against the 08:57Z scope statement | Round 1 opened, then parked partway on steering's relay of "Park the chains". No verdict was given. |
 | 2026-11-21T09:55 | steering-hooks (resume brief, ruling 09:51Z) | Resume round 1 | Round 1 APPROVED, 0 findings. The real-postgres probe gives B-1's 500 at `b829314` and NOT_FOUND at `b663b35`. The red run reproduced independently. Handed to QA Phase 2. |
+| 2026-11-21T10:09 | devops-fix-get-one-absent-not-found | Document closed at Stage 1 | Status: Committed. |
 
 ## Scope and stage start
 

@@ -1,0 +1,519 @@
+diff --git a/src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx b/src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx
+index a62a669..6a52d2c 100644
+--- a/src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx
++++ b/src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx
+@@ -3,6 +3,7 @@ import {
+   afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi,
+ } from 'vitest';
+ 
++import Header from '../../_layout/Navigation';
+ import EditPage from '../../edit/page';
+ import SendPage from '../../send/page';
+ 
+@@ -89,7 +90,10 @@ vi.mock('~/components/BottomPortal', () => ({
+   BottomPortalProvider: ({ children }: { children: unknown }) => children,
+ }));
+ vi.mock('~/components/ConfirmationDialog', () => ({ default: () => null }));
+-vi.mock('~/components/PresetDialog', () => ({ default: () => null }));
++vi.mock('~/components/PresetDialog', () => ({
++  default: () => null,
++  DialogFooter: ({ children }: { children: unknown }) => children,
++}));
+ vi.mock('~/components/dynamics/DiscordMessageEditor', () => ({ default: () => <div data-editor /> }));
+ vi.mock('~/components/DiscordMessageEditor', () => ({ default: () => null }));
+ vi.mock('~/components/SlateEditor', () => ({ default: () => null }));
+@@ -246,6 +250,58 @@ describe.each(pages)('the %s page for a message number the signed-in user cannot
+   });
+ });
+ 
++function mountEditPageWithHeader(id: string) {
++  mocks.pathname = `/message/m/${id}/edit`;
++  return mountDom(
++    <TrpcProvider>
++      <MessageProvider>
++        <Header />
++        <EditPage />
++      </MessageProvider>
++    </TrpcProvider>,
++  );
++}
++
++function editorControlsIn(container: HTMLElement) {
++  return {
++    nameField: container.querySelector('input[aria-label="Message Name"]') !== null,
++    menus: Array.from(container.querySelectorAll('button'))
++      .map((button) => button.textContent)
++      .filter((text) => ['File', 'Edit', 'View', 'Help'].includes(text ?? '')),
++    send: Array.from(container.querySelectorAll('a')).some((a) => /\/send$/.test(a.getAttribute('href') ?? '')),
++  };
++}
++
++function siteNavigationIn(container: HTMLElement) {
++  return {
++    themeToggle: container.querySelector('[aria-label="toggle site theme"]') !== null,
++    userMenu: container.querySelector('[aria-label="user menu"]') !== null,
++  };
++}
++
++describe('the edit page\'s header', () => {
++  it('shows the message name field, the File, Edit, View and Help menus and Send for a message the user can load', async () => {
++    const container = mountEditPageWithHeader(OWN_ID);
++
++    await vi.waitFor(() => {
++      expect(container.querySelector('[data-editor]')).not.toBeNull();
++      expect(editorControlsIn(container).nameField).toBe(true);
++    });
++
++    expect(editorControlsIn(container)).toEqual({ nameField: true, menus: ['File', 'Edit', 'View', 'Help'], send: true });
++    expect(siteNavigationIn(container)).toEqual({ themeToggle: true, userMenu: true });
++  });
++
++  it('keeps only the site navigation beside the not-found notice for a message number the user cannot load', async () => {
++    const container = mountEditPageWithHeader(ABSENT_ID);
++
++    await vi.waitFor(() => { expect(container.textContent).toContain(NOT_FOUND_TEXT); });
++
++    expect(editorControlsIn(container)).toEqual({ nameField: false, menus: [], send: false });
++    expect(siteNavigationIn(container)).toEqual({ themeToggle: true, userMenu: true });
++  });
++});
++
+ async function errorFromTheWire(id: string) {
+   return proxy.message.getOne.query(id).then(
+     () => { throw new Error('the load succeeded'); },
+diff --git a/src/app/message/m/[id]/_layout/Navigation.tsx b/src/app/message/m/[id]/_layout/Navigation.tsx
+index 339ed84..abbef2b 100644
+--- a/src/app/message/m/[id]/_layout/Navigation.tsx
++++ b/src/app/message/m/[id]/_layout/Navigation.tsx
+@@ -78,7 +78,7 @@ const Navigation = () => {
+   const { status, data: session } = useSession();
+   const path = usePathname();
+   const {
+-    message, savedMessage, isSaving, editableState, visualStyle, hasChanged, isLoading,
++    message, savedMessage, isSaving, editableState, visualStyle, hasChanged, isLoading, isNotFound,
+     updateMessage, saveMessage, reloadMessage, toggleHelp, toggleVisualStyle,
+   } = useMessage();
+   const { withConfirmation } = useConfirmation();
+@@ -265,147 +265,149 @@ const Navigation = () => {
+       <div className={classNames(styles.flex({ cy: true }), 'min-w-0')}>
+         <div className={classNames(!isMounted ? 'w-10' : 'hidden', 'shrink-0')} />
+         {avatar}
+-        <div className='ml-2 min-w-0'>
+-          <div className={classNames(styles.flex({ cy: true }), 'ml-2')} {...inputFocusWithinProps}>
+-            <br className={classNames(isMounted && 'hidden')} />
+-            <NullableComponent show={isMounted && status === 'authenticated'}>
+-              <TextField
+-                ref={nameRef}
+-                aria-label='Message Name'
+-                inputMode='text'
+-                subLabelClassName={(message?.name?.length ?? 0) > MAX_MESSAGE_NAME_LENGTH ? 'text-error' : undefined}
+-                value={message?.name ?? ' '}
+-                onChange={updateName}
+-                outerClassName={styles.flex({ cy: true, gap: 2 })}
+-                inputClassName='w-full'
+-                descriptionClassName={styles.flex({ cy: true, gap: 1 })}
+-                errorClassName="whitespace-nowrap"
+-                placeholder='New Message'
+-                isDisabled={isSaving}
+-                errorMessage={messageNameError}
+-                onBlur={() => { if (!message?.name) resetName(); }}
+-                description={(
+-                  <NullableComponent
+-                    show={isNameFocused || (message && savedMessage?.name !== message?.name)}
+-                  >
+-                    <Button
+-                      aria-label="save message name"
+-                      onPress={() => saveMessage()}
+-                      className={styles.button.brightnessHover}
+-                      isDisabled={
+-                        isSaving
+-                        || !!(message && savedMessage?.name === message?.name)
+-                        || !!messageNameError
+-                      }
++        {!isNotFound && (
++          <div className='ml-2 min-w-0'>
++            <div className={classNames(styles.flex({ cy: true }), 'ml-2')} {...inputFocusWithinProps}>
++              <br className={classNames(isMounted && 'hidden')} />
++              <NullableComponent show={isMounted && status === 'authenticated'}>
++                <TextField
++                  ref={nameRef}
++                  aria-label='Message Name'
++                  inputMode='text'
++                  subLabelClassName={(message?.name?.length ?? 0) > MAX_MESSAGE_NAME_LENGTH ? 'text-error' : undefined}
++                  value={message?.name ?? ' '}
++                  onChange={updateName}
++                  outerClassName={styles.flex({ cy: true, gap: 2 })}
++                  inputClassName='w-full'
++                  descriptionClassName={styles.flex({ cy: true, gap: 1 })}
++                  errorClassName="whitespace-nowrap"
++                  placeholder='New Message'
++                  isDisabled={isSaving}
++                  errorMessage={messageNameError}
++                  onBlur={() => { if (!message?.name) resetName(); }}
++                  description={(
++                    <NullableComponent
++                      show={isNameFocused || (message && savedMessage?.name !== message?.name)}
+                     >
+-                      <CheckIcon className={styles.smallIcon} />
+-                    </Button>
+-                    <Button
+-                      aria-label='reset message name'
+-                      onPress={resetName}
+-                      className={styles.button.brightnessHover}
+-                      isDisabled={isSaving || !!(message && savedMessage?.name === message?.name)}
+-                    >
+-                      <XMarkIcon className={styles.icon} />
+-                    </Button>
+-                  </NullableComponent>
+-                )}
+-              />
+-            </NullableComponent>
+-            <NullableComponent show={isMounted && status !== 'authenticated'}>
+-              <div>
+-                {/* eslint-disable-next-line no-nested-ternary */}
+-                {message?.name ? message?.name : (isLoading ? ' ' : 'New Message')}
+-              </div>
+-            </NullableComponent>
+-          </div>
+-          <AnchoredPopover
+-            placement='bottom-start'
+-            open={isMenuOpen}
+-            anchorElementId={`menu-${currentMenu ?? ''}`}
+-          >
+-            <AnchoredPopover.Trigger
+-              forwardedRef={menuRef}
+-              as='ul'
+-              className='flex'
++                      <Button
++                        aria-label="save message name"
++                        onPress={() => saveMessage()}
++                        className={styles.button.brightnessHover}
++                        isDisabled={
++                          isSaving
++                          || !!(message && savedMessage?.name === message?.name)
++                          || !!messageNameError
++                        }
++                      >
++                        <CheckIcon className={styles.smallIcon} />
++                      </Button>
++                      <Button
++                        aria-label='reset message name'
++                        onPress={resetName}
++                        className={styles.button.brightnessHover}
++                        isDisabled={isSaving || !!(message && savedMessage?.name === message?.name)}
++                      >
++                        <XMarkIcon className={styles.icon} />
++                      </Button>
++                    </NullableComponent>
++                  )}
++                />
++              </NullableComponent>
++              <NullableComponent show={isMounted && status !== 'authenticated'}>
++                <div>
++                  {/* eslint-disable-next-line no-nested-ternary */}
++                  {message?.name ? message?.name : (isLoading ? ' ' : 'New Message')}
++                </div>
++              </NullableComponent>
++            </div>
++            <AnchoredPopover
++              placement='bottom-start'
++              open={isMenuOpen}
++              anchorElementId={`menu-${currentMenu ?? ''}`}
+             >
+-              <li
+-                id='menu-file'
+-                className={classNames(styles.button.primaryHover, styles.button.brightnessHover, 'rounded text-sm')}
+-                {...fileHoverProps}
+-              >
+-                <Button className='px-2' onPress={showMenu} onFocus={() => setCurrentMenu('file')}>File</Button>
+-              </li>
+-              <li
+-                id='menu-edit'
+-                className={classNames(styles.button.primaryHover, styles.button.brightnessHover, 'rounded px-2 text-sm')}
+-                {...editHoverProps}
+-              >
+-                <Button className='px-2' onPress={showMenu} onFocus={() => setCurrentMenu('edit')}>Edit</Button>
+-              </li>
+-              <li
+-                id='menu-view'
+-                className={classNames(styles.button.primaryHover, styles.button.brightnessHover, 'rounded px-2 text-sm')}
+-                {...viewHoverProps}
++              <AnchoredPopover.Trigger
++                forwardedRef={menuRef}
++                as='ul'
++                className='flex'
+               >
+-                <Button className='px-2' onPress={showMenu} onFocus={() => setCurrentMenu('view')}>View</Button>
+-              </li>
+-              <li
+-                id='menu-help'
+-                className={classNames(styles.button.primaryHover, styles.button.brightnessHover, 'rounded px-2 text-sm')}
+-                {...helpHoverProps}
+-              >
+-                <Button className='px-2' onPress={showMenu} onFocus={() => setCurrentMenu('help')}>Help</Button>
+-              </li>
+-              <li
+-                id="menu-send"
+-                className={classNames(styles.button.primaryHover, styles.button.brightnessHover, 'rounded text-sm')}
++                <li
++                  id='menu-file'
++                  className={classNames(styles.button.primaryHover, styles.button.brightnessHover, 'rounded text-sm')}
++                  {...fileHoverProps}
++                >
++                  <Button className='px-2' onPress={showMenu} onFocus={() => setCurrentMenu('file')}>File</Button>
++                </li>
++                <li
++                  id='menu-edit'
++                  className={classNames(styles.button.primaryHover, styles.button.brightnessHover, 'rounded px-2 text-sm')}
++                  {...editHoverProps}
++                >
++                  <Button className='px-2' onPress={showMenu} onFocus={() => setCurrentMenu('edit')}>Edit</Button>
++                </li>
++                <li
++                  id='menu-view'
++                  className={classNames(styles.button.primaryHover, styles.button.brightnessHover, 'rounded px-2 text-sm')}
++                  {...viewHoverProps}
++                >
++                  <Button className='px-2' onPress={showMenu} onFocus={() => setCurrentMenu('view')}>View</Button>
++                </li>
++                <li
++                  id='menu-help'
++                  className={classNames(styles.button.primaryHover, styles.button.brightnessHover, 'rounded px-2 text-sm')}
++                  {...helpHoverProps}
++                >
++                  <Button className='px-2' onPress={showMenu} onFocus={() => setCurrentMenu('help')}>Help</Button>
++                </li>
++                <li
++                  id="menu-send"
++                  className={classNames(styles.button.primaryHover, styles.button.brightnessHover, 'rounded text-sm')}
++                >
++                  <StyledLink className='px-2' {...sendItem.onPress}>
++                    {sendItem.text}
++                  </StyledLink>
++                </li>
++              </AnchoredPopover.Trigger>
++              <AnchoredPopover.Child
++                as="ul"
++                portal
++                className='w-48 rounded bg-tertiary text-xs shadow drop-shadow'
++                trapFocus={isMenuOpen}
++                onKeyDown={(e) => { if (e.key === 'Escape') hideMenu(); }}
++                {...menuFocusWithinProps}
+               >
+-                <StyledLink className='px-2' {...sendItem.onPress}>
+-                  {sendItem.text}
+-                </StyledLink>
+-              </li>
+-            </AnchoredPopover.Trigger>
+-            <AnchoredPopover.Child
+-              as="ul"
+-              portal
+-              className='w-48 rounded bg-tertiary text-xs shadow drop-shadow'
+-              trapFocus={isMenuOpen}
+-              onKeyDown={(e) => { if (e.key === 'Escape') hideMenu(); }}
+-              {...menuFocusWithinProps}
+-            >
+-              {menuItems.map(({
+-                text, Icon, onPress, isDisabled,
+-              }, key) => (
+-                <li key={key}>
+-                  {onPress instanceof Function ? (
+-                    <Button
+-                      className={classNames(styles.flex({ cy: true, gap: 2 }), styles.button.primaryHover, 'w-full p-2')}
+-                      onPress={(e) => { hideMenu(); onPress(e); }}
+-                      isDisabled={isDisabled}
+-                    >
+-                      {Icon
+-                        ? <Icon className={styles.smallIcon} />
+-                        : <div className={styles.smallIcon} />}
+-                      {text}
+-                    </Button>
+-                  ) : (
+-                    <StyledLink
+-                      {...onPress}
+-                      className={classNames(styles.flex({ cy: true, gap: 2 }), styles.button.primaryHover, 'w-full p-2')}
+-                    >
+-                      {Icon
+-                        ? <Icon className={styles.smallIcon} />
+-                        : <div className={styles.smallIcon} />}
+-                      {text}
+-                    </StyledLink>
++                {menuItems.map(({
++                  text, Icon, onPress, isDisabled,
++                }, key) => (
++                  <li key={key}>
++                    {onPress instanceof Function ? (
++                      <Button
++                        className={classNames(styles.flex({ cy: true, gap: 2 }), styles.button.primaryHover, 'w-full p-2')}
++                        onPress={(e) => { hideMenu(); onPress(e); }}
++                        isDisabled={isDisabled}
++                      >
++                        {Icon
++                          ? <Icon className={styles.smallIcon} />
++                          : <div className={styles.smallIcon} />}
++                        {text}
++                      </Button>
++                    ) : (
++                      <StyledLink
++                        {...onPress}
++                        className={classNames(styles.flex({ cy: true, gap: 2 }), styles.button.primaryHover, 'w-full p-2')}
++                      >
++                        {Icon
++                          ? <Icon className={styles.smallIcon} />
++                          : <div className={styles.smallIcon} />}
++                        {text}
++                      </StyledLink>
+ 
+-                  )}
+-                </li>
+-              ))}
+-            </AnchoredPopover.Child>
+-          </AnchoredPopover>
+-        </div>
++                    )}
++                  </li>
++                ))}
++              </AnchoredPopover.Child>
++            </AnchoredPopover>
++          </div>
++        )}
+       </div>
+       <div className={classNames(styles.flex({ cy: true, gap: 2 }), 'shrink-0')}>
+         <ThemeToggle className={classNames(styles.flex({ c: true }), 'h-8 w-8 dark:opacity-80')} iconClassName='w-6 h-6' />
+diff --git a/src/server/api/routers/__tests__/message.get-one-not-found.test.ts b/src/server/api/routers/__tests__/message.get-one-not-found.test.ts
+index d952efb..faecb21 100644
+--- a/src/server/api/routers/__tests__/message.get-one-not-found.test.ts
++++ b/src/server/api/routers/__tests__/message.get-one-not-found.test.ts
+@@ -1,3 +1,4 @@
++import { createRequire } from 'node:module';
+ import {
+   beforeEach, describe, expect, it, vi,
+ } from 'vitest';
+@@ -5,7 +6,7 @@ import {
+ import createCapturingDatabase from '../../utils/__tests__/helpers/capturingDatabase';
+ import messageRouter from '../message';
+ 
+-import type { CompiledQuery } from 'kysely';
++import type * as KyselyBuild from 'kysely';
+ 
+ const mocks = vi.hoisted(() => ({
+   db: undefined as unknown,
+@@ -52,7 +53,7 @@ const rows: Record<string, { fk_users_id: string | null, guildId: string | null
+   [GUILD_MESSAGE_ID]: { fk_users_id: null, guildId: GUILD.discordId },
+ };
+ 
+-function respond({ sql, parameters }: CompiledQuery): unknown[] {
++function respond({ sql, parameters }: KyselyBuild.CompiledQuery): unknown[] {
+   if (sql.startsWith('select "userId" from "Accounts"')) {
+     const account = [OWNER, OTHER].find(({ discordId }) => parameters.includes(discordId));
+     return account ? [{ userId: account.dbUserId }] : [];
+@@ -129,6 +130,18 @@ describe('message.getOne for a signed-in user who cannot see the message', () =>
+   });
+ });
+ 
++describe('message.getOne over the CommonJS kysely build that project-utils\' getPostgres loads', () => {
++  // escaped: deployment/closed/fix-message-not-found-deployment.md
++  it('answers not found with the one message text for a number no message holds', async () => {
++    const commonJsKysely = createRequire(import.meta.url)('kysely') as typeof KyselyBuild;
++    mocks.db = createCapturingDatabase(respond, commonJsKysely).db;
++
++    const outcome = await outcomeOf(callerAs(OTHER).getOne(ABSENT_ID));
++
++    expect(outcome).toEqual({ error: { code: 'NOT_FOUND', message: NOT_FOUND_TEXT } });
++  });
++});
++
+ describe('message.getOne for a user who can see the message', () => {
+   it('returns a personal message to its owner', async () => {
+     const message = await callerAs(OWNER).getOne(PERSONAL_ID);
+diff --git a/src/server/api/routers/message.ts b/src/server/api/routers/message.ts
+index 333fc65..df786df 100644
+--- a/src/server/api/routers/message.ts
++++ b/src/server/api/routers/message.ts
+@@ -1,7 +1,6 @@
+ import { TRPCError } from '@trpc/server';
+ import { z } from 'zod';
+ import { EmbedType, type APIMessage as Message, type UserFlags } from 'discord-api-types/v10';
+-import { NoResultError } from 'kysely';
+ 
+ import authorizeGuildAdmin from '../utils/authorizeGuildAdmin';
+ import authorizeGuildUser from '../utils/authorizeGuildUser';
+@@ -12,7 +11,7 @@ import {
+   cappedInput, messageIdShape, optionalIdMessageShape, recentMessageDataShape, userOrDiscordIdShape,
+ } from '../utils/shapes';
+ import {
+-  deleteOwnedMessage, getMessage, getPartialMessages, getUserMessages,
++  deleteOwnedMessage, getMessage, getPartialMessages, getUserMessages, MessageNotFoundError,
+   updateRecentMessageData, upsertMessage,
+ } from '../utils/shared';
+ import { authorizeUser } from '../utils/user';
+@@ -33,7 +32,7 @@ function messageNotFound() {
+   });
+ }
+ 
+-function asNotFound(refusal: typeof NoResultError | TRPCError['code']) {
++function asNotFound(refusal: typeof MessageNotFoundError | TRPCError['code']) {
+   return (error: unknown): never => {
+     const refused = typeof refusal === 'string'
+       ? error instanceof TRPCError && error.code === refusal
+@@ -71,7 +70,7 @@ export default createTRPCRouter({
+   getOne: protectedProcedure
+     .input(messageIdShape)
+     .query(async ({ input: messageId, ctx: { req, session } }): Promise<ApiMessage | null> => {
+-      const message = await getMessage(messageId).catch(asNotFound(NoResultError));
++      const message = await getMessage(messageId).catch(asNotFound(MessageNotFoundError));
+       if (message.guildId) {
+         await authorizeGuildUser(req, message.guildId).catch(asNotFound('FORBIDDEN'));
+       } else {
+diff --git a/src/server/api/utils/__tests__/helpers/capturingDatabase.ts b/src/server/api/utils/__tests__/helpers/capturingDatabase.ts
+index d46e2d2..cade8e2 100644
+--- a/src/server/api/utils/__tests__/helpers/capturingDatabase.ts
++++ b/src/server/api/utils/__tests__/helpers/capturingDatabase.ts
+@@ -1,13 +1,17 @@
+-import {
+-  Kysely, PostgresAdapter, PostgresIntrospector, PostgresQueryCompiler,
+-} from 'kysely';
++import * as esmKysely from 'kysely';
+ 
+ import type { CompiledQuery, DatabaseConnection, Driver } from 'kysely';
+ import type { DatabaseSchema } from 'project-utils';
+ 
+ type Responder = (query: CompiledQuery) => unknown[];
+ 
+-export default function createCapturingDatabase(respond: Responder = () => []) {
++export default function createCapturingDatabase(
++  respond: Responder = () => [],
++  kyselyBuild: typeof esmKysely = esmKysely,
++) {
++  const {
++    Kysely, PostgresAdapter, PostgresIntrospector, PostgresQueryCompiler,
++  } = kyselyBuild;
+   const queries: CompiledQuery[] = [];
+ 
+   const connection: DatabaseConnection = {
+diff --git a/src/server/api/utils/shared.ts b/src/server/api/utils/shared.ts
+index ed2e92c..eeca1e4 100644
+--- a/src/server/api/utils/shared.ts
++++ b/src/server/api/utils/shared.ts
+@@ -148,6 +148,12 @@ export async function getUserMessages(dbUserId: string) {
+   return messages.map(mapPartialApiMessage);
+ }
+ 
++export class MessageNotFoundError extends Error {
++  constructor() {
++    super('no result');
++  }
++}
++
+ export async function getMessage(id: string) {
+   const message = await getPostgres()
+     .selectFrom('Messages')
+@@ -163,7 +169,7 @@ export async function getMessage(id: string) {
+       'ScheduledMessages.sent as scheduledMessageSent',
+     ])
+     .where('Messages.id', '=', id)
+-    .executeTakeFirstOrThrow();
++    .executeTakeFirstOrThrow(MessageNotFoundError);
+   return mapMessage(message);
+ }
+ 
