@@ -101,3 +101,25 @@ Chain started 13:44Z: website `chain/fix-api-secret-compare` cut by this thread 
 `git ls-remote` read `b68f94c`; HEAD `b68f94c`, no upstream; porcelain before and after identical, `?? .playwright-mcp/` only, `diff` of
 the two captures). Briefs: `steering/fix-api-secret-compare-brief-common.md`, `…-brief-fixer.md`. `fixer-fix-api-secret-compare` is
 started with `tmux-agent spawn` (category `fix-api-secret-compare`, cwd website). The reviewer is started on the fixer's spawn cue.
+`fixer-fix-api-secret-compare` started 13:44Z (`tmux-agent spawn`: "effort medium").
+
+## 2026-11-21T15:30Z — selection: the source handoff's item 4 moves to a new handoff
+
+Selection prompt put 13:4xZ, answered 15:30Z (ledger `steering/selection-ledger/2026-11-21.md`, block "2026-11-21T15:30Z —
+steering-hooks"); wording this thread's. Premises, read this turn: b1fdd41a item 4 (the handoff, read whole) — conditional on
+`env.mjs` entering a scope; this chain's write set excludes `env.mjs` (block 13:42Z); a required entry throws at import when the
+variable is missing (`refutation-empty-token.md` case c3, run, for `HOOKS_API_TOKEN`); production's `STATBOT_API_KEY` unread.
+Options: A "Agent: new handoff (Recommended)" — "The item moves to a new handoff that fires when env.mjs is next changed; chain 5 then
+closes the old handoff. One more open handoff; chain 5 unchanged."; B "Agent: do it in chain 5" — "STATBOT_API_KEY becomes a required
+setting (env.mjs joins chain 5). If the key is ever missing, the site's server code fails when it loads instead of only the Statbot API
+answering 401 (seen in a run for the bot token; unread: whether production has the key set)."; C "Agent: drop it". Chosen by
+selection: **A**. Carrier: `handoff/statbot-api-key-env-schema-2026-11-21.md` (c07b0565).
+
+## 2026-11-21T15:30Z — spawn cue: fixer handed off at `32d10f7`; review, then QA Phase 2
+
+Spawn cue 15:2xZ (the fixer, by SendMessage): `implementation/fix-api-secret-compare-implementation.md` (agent-output `53460cfd`),
+Handoff-At `32d10f7`. Read by this thread (`git diff --numstat b68f94c 32d10f7`): production files `interactions-server.ts` +3/-1,
+`messages.ts` +3/-1, `messages/[id].ts` +6/-4, new `src/server/api/utils/secretEquals.ts` +9 — 21 added, so QA Phase 2 follows review;
+every other path under `src/server/api/**/__tests__/**`; all in the write set. Premise correction (the fixer's): `makeRes` had 5
+importers at `b68f94c`, not 4 — `cron.scheduled-selection.test.ts` also imported it; moved with the rest (inside the write set).
+`code-reviewer-fix-api-secret-compare` started with `tmux-agent spawn`, brief `steering/fix-api-secret-compare-brief-code-reviewer.md`.
