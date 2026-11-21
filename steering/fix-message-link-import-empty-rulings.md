@@ -78,3 +78,15 @@ Acted on: no code; the chain closes. `fixer-fix-message-link-import-empty` write
 the intent, then a qa-role re-read of the plain fixture, expected 80 chars) and closes its document; `qa-…` closes its read record;
 this thread then closes 6cc5f883 Addressed by the diagnosis and the new handoff. Website tree: the chain branch holds no commit
 (`b663b35`) and goes back to `master`.
+
+## 2026-11-21T10:40Z — chain closed out (no code, no release)
+
+Fixer document `implementation/closed/fix-message-link-import-empty-implementation.md` Abandoned and the known-limit handoff
+`handoff/message-link-import-loads-only-mentioning-messages-2026-11-21.md` (UUID 8e9ccc47, Open, trigger: the app is granted the
+intent), both in record `d6d337d1`; QA's read record `qa/closed/fix-message-link-import-empty-production-read.md` Committed
+(`f827a13b`, `d294f375`). Source 6cc5f883 closed Addressed by this thread. Both sessions stopped 10:39Z. Website tree back on `master`
+`b663b35`; the chain branch, 0 commits ahead (`git rev-list --count`), deleted. INDEX rebuilt (every changed row this chain's or the
+batch-c retrospective). Box: no container; the two stage sessions' scratch dirs (108 KB) and this thread's `refute-3c/` removed.
+**This thread's error:** its ruling messages to the fixer and QA cited "block 2026-11-21T10:37Z"; the block's heading is 10:38Z (its
+`2026-11-21T10:40` stamp), so QA's record cites 10:37Z. Left as is, since commit `2cd06470`, which both cite, identifies the block. Chain 3c joins
+the next fixer batch: it took an owner-needing block (his 10:38Z selection).
