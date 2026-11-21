@@ -1,0 +1,28 @@
+diff --git a/src/middleware.ts b/src/middleware.ts
+index 69c5ddb..0678d24 100644
+--- a/src/middleware.ts
++++ b/src/middleware.ts
+@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
+ import type { NextRequest } from 'next/server';
+ 
+ export const config = {
+-  matcher: ['/message/(.*)', '/api/guilds/(.*)', '/preview'],
++  matcher: ['/message', '/message/(.*)', '/api/guilds/(.*)', '/preview'],
+ };
+ 
+ export default function middleware(request: NextRequest) {
+@@ -11,14 +11,6 @@ export default function middleware(request: NextRequest) {
+   // You can modify them with headers API: https://developer.mozilla.org/en-US/docs/Web/API/Headers
+   const requestHeaders = new Headers(request.headers);
+ 
+-  requestHeaders.set('x-pathname', request.nextUrl.pathname);
+-
+-  const queryString = request.url.split('?')[1];
+-  if (queryString) {
+-    const queryParams = new URLSearchParams(queryString);
+-    // Add new request headers
+-    requestHeaders.set('x-query-params', encodeURIComponent(queryParams.toString()));
+-  }
+ 
+   // You can also set request headers in NextResponse.rewrite
+   return NextResponse.next({
