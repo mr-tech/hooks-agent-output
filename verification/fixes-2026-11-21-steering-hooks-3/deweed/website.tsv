@@ -1,0 +1,11 @@
+id	score	disposition	class	generated	covering	reason
+262	8	kept	-	no	-	Mounts the desktop editor through DiscordContentEditor and types into the open editor; fails if Desktop's SlateEditor onChange stops forwarding to the message before blur (value would stay 'Old'); the desktop as-typed path is asserted in no other file
+263	7	kept	-	no	-	Same forwarding path as 262 but from an undefined value, per-edit, with a trailing space; alone fails on a trim, a coalesced or a skipped forward of intermediate edits, overlapping 262 only on the plain forward
+515	8	kept	-	no	-	Types into the author name ContentEditable while focused; fails if EmbedAuthor's onChange stops calling setName (name would stay 'Old' until blur); the only assertion of the author name reaching the embed as typed
+516	7	kept	-	no	-	Absent-author row of the same path: fails if the as-typed write is guarded on an existing author or the focus handler's reset clobbers the typed name; overlaps 515 on the plain forward only
+517	8	kept	-	no	-	Boundary: untrimmed 'a ' must reach the author and survive the prop round-trip to the next keystroke; alone fails if the as-typed write trims or the passed-prop sync rewrites the field mid-typing
+518	8	kept	-	no	-	Blur path: '  Ann  ' typed then focus leaves; fails if onBlurWithin drops its trim or its commit, since the as-typed write leaves the name untrimmed; trim-on-blur for the author is asserted nowhere else
+559	8	kept	-	no	-	Types into the footer text ContentEditable while focused; fails if EmbedFooter's onChange stops calling setText (text would stay 'Old' until blur); the only assertion of footer text reaching the embed as typed
+560	7	kept	-	no	-	Absent-footer row of the same path: fails if the as-typed write is guarded on an existing footer; overlaps 559 on the plain forward only
+561	8	kept	-	no	-	Boundary: untrimmed 'a ' must reach the footer and survive the next keystroke although displayText is trimmed; alone fails if the as-typed write trims or local text is resynced from the trimmed display text mid-typing
+562	8	kept	-	no	-	Blur path: '  Hello  ' typed then blur; fails if onBlur drops its trim or its commit, since the as-typed write leaves the text untrimmed; trim-on-blur for the footer is asserted nowhere else

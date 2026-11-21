@@ -274,3 +274,10 @@ Chosen by selection: **A**. Applied: the reviewer told 18:0xZ (chain rulings blo
 relayed word (a subagent cannot confirm with him), so this thread built the case list itself: `verification/fixes-2026-11-21-steering-hooks-3/deweed/website-cases.tsv`
 — 162 files, 2326 cases (= `numTotalTests`), 0 failed, exit 0; marked 10 (ids 262-263, 515-518, 559-562; python over the report). One
 deweeder unit started 18:0xZ.
+
+## 2026-11-21T18:02Z — test-case scoring beside batch retrospective d
+
+Website at `b68f94c`, clean export; suite 2326 cases, exit 0. Marked: 10 cases in the three test files chain 4 added. One deweeder unit.
+Merged: `verification/fixes-2026-11-21-steering-hooks-3/deweed/website.tsv` (10 rows, 10 unique ids; python). Below 7: 0 of 10 (0%).
+Covering cells: every covering id is in the case list (0 unchecked). Nothing deleted on this. Export removed (`du -s` 10980 before;
+`ls -d` fails after).
