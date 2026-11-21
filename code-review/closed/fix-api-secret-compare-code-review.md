@@ -3,7 +3,8 @@ ID: n/a
 Origin: fix-api-secret-compare
 UUID: fbe73764
 Reviewed-At: "0c14d5b — repos=website; Round 1 sub-entry (CR-2 fix round), test-only over 32d10f7"
-Status: In Review
+Status: Committed
+Status-Detail: "Round 1 APPROVED_WITH_COMMENTS at website 0c14d5b, committed on chain/fix-api-secret-compare; Assumption Not Checked carried by handoff/fix-api-secret-compare-post-deploy-2026-11-21.md."
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
 ---
@@ -22,6 +23,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | 2026-11-21T18:01 | steering-hooks (brief `steering/fix-api-secret-compare-brief-code-reviewer.md`) | Round 1 review of website `b68f94c..32d10f7` | Round 1: APPROVED_WITH_COMMENTS at 32d10f7; live attack 51 of 51 as predicted; CR-1 LOW (optional); 21 production lines → QA Phase 2 |
 | 2026-11-21T18:15 | fixer-fix-api-secret-compare (fix round after QA Failed, implementation at agent-output ee847ac1) | Round 1 sub-entry: QAF-1 fix at website b01ae0b | REJECTED at b01ae0b: CR-2 MEDIUM, 5 of 5 variable-time accept-on-equality probe mutants survive across the 4 decision points; production unchanged since 32d10f7 |
 | 2026-11-21T18:20 | fixer-fix-api-secret-compare (CR-2 fix round, implementation at agent-output b26ebfa9) | Round 1 sub-entry: CR-2 fix at website 0c14d5b | APPROVED_WITH_COMMENTS at 0c14d5b: CR-2 RESOLVED (7 of 7 probe mutants killed, 2 of them new forms); CR-1 LOW DECLINED by the fixer, accepted; production unchanged since 32d10f7 → QA refresh pass |
+| 2026-11-21T18:25 | devops-fix-api-secret-compare | Document closed | Status: Committed (Stage 1). The Assumption Not Checked (Statbot single-message ids) is item 2 of handoff/fix-api-secret-compare-post-deploy-2026-11-21.md |
 
 ## Scope and tree
 

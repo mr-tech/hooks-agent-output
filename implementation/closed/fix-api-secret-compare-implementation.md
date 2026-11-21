@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-api-secret-compare
 UUID: fbe73764
-Status: Active
-Status-Detail: "CR-2 fix round handed off at website 0c14d5b (test-only); code review of the round next, then QA's refresh pass, then devops for website master on the owner's word."
+Status: Committed
+Status-Detail: "Committed on chain/fix-api-secret-compare at website 0c14d5b (cut from origin/master b68f94c, not pushed); release to website master awaits the owner's word; post-deploy reads carried by handoff/fix-api-secret-compare-post-deploy-2026-11-21.md."
 Handoff-At: 0c14d5b — repos=website
 Origin-Chain: "fix-v1-guild-messages-auth — the two v1 compares come from website 1acffee; interactions-server.ts:11 (f0f427b) and [id].ts:19 (3468587) are 2023 commits no chain made"
 ---
@@ -270,3 +270,4 @@ Source: `code-review/fix-api-secret-compare-code-review.md` at agent-output `821
 | 2026-11-21T13:55 | fixer-fix-api-secret-compare | Created at hand-off: items 1-5 done at website 3a54c2f, 66699c5, 1054bbc, 32d10f7; red, green, stub, 13 controls and suite recorded under verification/fix-api-secret-compare/fixer/; Handoff-At 32d10f7 |
 | 2026-11-21T18:12 | fixer-fix-api-secret-compare | QA Failed round (qa doc at 7d6b3007): QAF-1 resolved at website b01ae0b with QA's proposed case adapted, 6 of 6 controls killed, suite 2357/2357 exit 0; QAF-2 resolved by narrowing the leading-zeros claim in Diagnosis and User-visible flows (7-hit class swept); Handoff-At b01ae0b |
 | 2026-11-21T18:18 | fixer-fix-api-secret-compare | Code review sub-entry REJECTED at b01ae0b (review at 8214c8c0): CR-2 resolved at website 0c14d5b with the two required cases, reviewer's 6 mutants 6 of 6 killed, suite 2361/2361 exit 0; CR-1 (optional) not taken; Handoff-At 0c14d5b |
+| 2026-11-21T18:25 | devops-fix-api-secret-compare | Document closed | Status: Committed. Stage 1: chain branch chain/fix-api-secret-compare, tip 0c14d5b (tree a2a2673d), base origin/master b68f94c; QA Verified-At 0c14d5b, code review Reviewed-At 0c14d5b; nothing pushed or merged. Post-deploy reads: handoff/fix-api-secret-compare-post-deploy-2026-11-21.md |
