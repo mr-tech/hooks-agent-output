@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-import-save-conflict
 UUID: 0030da7d
 Verified-At: "b82931402f416e850a785468f9443fa3eadfae44 — repos=website; chain/fix-import-save-conflict, base f4baebb; production tree identical to f23568a (walked and swept)"
-Status: QA Complete
-Status-Detail: "Phase 2 refresh PASS at website b829314 (test-only delta from f23568a). QAF-1 and QAF-2 RESOLVED. Next: devops for website master, on the owner's word."
+Status: Committed
+Status-Detail: "Phase 2 refresh PASS at website b829314; the chain is released (website master b829314, 2026-11-21T08:53:57Z, deployment/fix-import-save-conflict-deployment.md). Post-deploy row PD-1 is carried by handoff/fix-import-save-conflict-post-deploy-2026-11-21.md."
 Phase: 2
 ---
 
@@ -20,6 +20,7 @@ Phase: 2
 |------|---------------|---------|---------|
 | 2026-11-21T08:39 | steering-hooks (brief); code review's approval at `f23568a` | Phase 2 of a fixer chain at the reviewer's `Reviewed-At` | Phase 2 QA Failed. The fix is correct on every row walked in a real build: rows A to E, in all four tabs, and a draft changed in place. QAF-1 MEDIUM: no case loads a draft after the dialog mounts, and a stale settled-draft memo survives the whole suite (probe captured). QAF-2 LOW: User-visible flow 3 says no red "cannot contain" line is shown, but the real preview shows one while the choice is pending. Both of the reviewer's Assumption Not Checked lines are discharged by the walk. Disclosed: the record's stamp gate refused a typed (estimated) stamp on this row, and I replaced it with the `date -u` minute. The probe file was written with a shell heredoc (it is an instrument under `verification/`, not a record document). |
 | 2026-11-21T08:46 | code-reviewer-fix-import-save-conflict (SendMessage; review sub-entry 2 APPROVED at `b829314`, record `592a7a59`); implementation record `c4d3d17a` | Phase 2 refresh at `b829314` | Phase 2 refresh PASS. The delta `f23568a..b829314` is test-only: the persist-gate file +40/−0, and `NewMessageModal.tsx` is unchanged (`git diff --quiet`). The survivor `memo-deps-empty` was re-run by me and is KILLED (count checked, 19). Suite 2313/2313, exit 0, on a quiet re-run. Typecheck exit 0. Flow 3 was restated to match the build. QAF-1 and QAF-2 RESOLVED. |
+| 2026-11-21T08:55 | devops-fix-import-save-conflict | Document closed | Status: Committed. The chain was released: website `master` `f4baebb` → `b829314`, 08:53:53Z to 08:53:57Z. QA's Assumption Not Checked (live `getFromUrl` / `getFromCode` bodies, Discord's live responses) is carried by row PD-1 of `handoff/fix-import-save-conflict-post-deploy-2026-11-21.md`. |
 
 ## Scope and stage start
 
