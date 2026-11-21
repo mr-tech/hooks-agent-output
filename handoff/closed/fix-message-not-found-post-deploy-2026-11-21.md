@@ -1,7 +1,7 @@
 ---
 UUID: e450d19c
-Status: Open
-Status-Detail: "Carrier of QA's post-deploy row B-1 for fixer chain fix-message-not-found (website master, Vercel production). Created at devops Stage 1; the release is not pushed, so B-1 is undecidable and its Result is blank. Does not gate the release act."
+Status: Addressed
+Status-Detail: "B-1 for fixer chain fix-message-not-found: the server and own-message limbs passed at 07:53Z-07:56Z; the absent-number limb failed then and was re-read after fixer chain fix-get-one-absent-not-found's release (website b663b35), HOLDS at 10:13Z-10:14Z (handoff b5c69a32, record aefd6beb). Closed Addressed by steering-hooks."
 Owning-Stage: qa
 Review-Trigger: "the production deploy of website master carrying fix-message-not-found (the E-WEBSITE-PUSH row of this record's event ledger filled) — then B-1"
 ---
@@ -66,6 +66,7 @@ read is read-only on production: no save and no delete. The reader never writes 
   - **Layout limb:** the notice is legible and not overlapped, but the falsity signature is met in one part. Above it the editor's header row stays: an editable "Message Name" field (placeholder "New Message", value `' '`), the File/Edit/View/Help menu, and a "Send" link to `/message/m/0/send`.
   - **Cause** of the absent-number failure, established: two copies of kysely's `NoResultError` class (ESM `import` in `message.ts` against `require` in `project-utils`). Carried with its fix constraint in `handoff/get-one-absent-number-still-500-in-production-2026-11-21.md`.
   - Captures: `verification/fix-message-not-found/qa/post-deploy/b1-reads-2026-11-21.json` and `kysely-dual-class-check.{mjs,out}`.
+  - **Absent-number limb re-read** (steering-hooks at closure, citing `handoff/fix-get-one-absent-not-found-post-deploy-2026-11-21.md` B-1, qa-fix-get-one-absent-not-found 10:13:30Z-10:14:17Z, after website `master` `b663b35`): `999999999999` and `900000000000500` answer the one 404 NOT_FOUND text; `/edit` shows the notice. The limb now holds.
 
 ## Evidence
 
@@ -85,3 +86,4 @@ Raised by QA Phase 2 (register row B-1 and Assumption Not Checked) of fixer chai
 | 2026-11-21T07:44 | devops-fix-message-not-found | Created at Stage 1. Row B-1 carried in full; the event ledger is blank until Stage 2. No crontab line: the reader is a qa-role session with the browser, spawned by steering after the push. |
 | 2026-11-21T07:52 | devops-fix-message-not-found | E-WEBSITE-PUSH written at Stage 2: website `master` 6f76c6d -> f4baebb pushed 2026-11-21T07:51:38Z. B-1 stays blank; the reader is the qa-role session (`qa-fix-message-not-found` has been told). Vercel's build of the push is not read from the host; start B-1 only once hooks.gg serves the new build (the first `6022` answer is 404 rather than 500), and say in the Result how that was established. |
 | 2026-11-21T07:57 | qa-fix-message-not-found | B-1 read on hooks.gg after E-WEBSITE-PUSH: FAIL on the absent-number limb (500 "no result"); the server and own-message limbs pass, and the page notice passes for `1000`. The defect is carried to `handoff/get-one-absent-number-still-500-in-production-2026-11-21.md` (Owning-Stage steering). This record stays `Open` until that handoff's fix round re-reads the absent-number limb. |
+| 2026-11-21T10:16 | steering-hooks | Document closed | Status: Addressed. The absent-number limb, failed at 07:57Z, holds on the re-read after the fix round's release (handoff b5c69a32, record `aefd6beb`); all limbs now pass. |
