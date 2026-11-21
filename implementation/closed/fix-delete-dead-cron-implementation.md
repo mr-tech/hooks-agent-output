@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-delete-dead-cron
 UUID: af508ebe
-Status: Active
-Status-Detail: "Fix committed on website chain/fix-delete-dead-cron; awaiting code review at Handoff-At, then devops for website master under the owner's release approval. No QA Phase 2 (0 production lines added)."
+Status: Committed
+Status-Detail: "Committed at website 132a7ab on chain/fix-delete-dead-cron (code review APPROVED at that SHA; no QA, 0 production lines added); release to website master awaits the owner's release approval, recorded in deployment/fix-delete-dead-cron-deployment.md."
 Handoff-At: 132a7ab6f49d8a85ead507e2221ab3c3a531fd00 — repos=website
 Origin-Chain: none
 ---
@@ -173,3 +173,4 @@ Nothing else on the site changes: editing, sending, sign-in and the message page
 | Date | Agent | Change |
 |---|---|---|
 | 2026-11-21T20:40 | fixer | Document created. Fix committed at website `132a7ab` (anchor: that commit). Red check 6/6 FAIL at `0c14d5b`, green 6/6 PASS at `132a7ab`. Suite 2361→2358 (exit 0 both). Export typecheck exit 0. Lint adds no finding. Convention check 0 FAIL / 0 CANDIDATE. Handoff to code review. |
+| 2026-11-21T20:54 | devops | Stage 1: Status Committed, document moved to closed/. Stage start: the code review APPROVED at `Reviewed-At` 132a7ab (no QA, no UAT in the chain's stage set). Committed state recorded: website branch `chain/fix-delete-dead-cron`, tip 132a7ab, not pushed (`verification/fix-delete-dead-cron/devops/tree-and-refs-stage1.txt`). |

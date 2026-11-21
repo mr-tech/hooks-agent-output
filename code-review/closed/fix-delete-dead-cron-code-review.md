@@ -3,7 +3,8 @@ ID: n/a
 Origin: fix-delete-dead-cron
 UUID: af508ebe
 Reviewed-At: 132a7ab6f49d8a85ead507e2221ab3c3a531fd00 — repos=website
-Status: In Review
+Status: Committed
+Status-Detail: "Round 1 APPROVED at website 132a7ab; the chain is committed there and awaits the owner's release approval (deployment/fix-delete-dead-cron-deployment.md)."
 Round: 1
 Verdict: APPROVED
 ---
@@ -20,6 +21,7 @@ Verdict: APPROVED
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T20:48 | steering-hooks (brief `steering/fix-delete-dead-cron-brief-code-reviewer.md`) | Round 1: review of website `0c14d5b..132a7ab` | Round 1: APPROVED at `132a7ab`. Hazards 1, 2 and 5 re-derived and hold. Suite 2358/2358, exit 0. Typecheck exit 0 in an export. The fixer's red check is 6/6 FAIL at base and 6/6 PASS at fix. Raw-socket attack, 63 requests per tree: 0 handler executions at fix, 27 at base (control). No findings. |
+| 2026-11-21T20:54 | devops | Stage 1: Status Committed, document moved to closed/. Stage start for devops: this verdict at `Reviewed-At` 132a7ab (no QA, no UAT in the chain's stage set). |
 
 ## Stage start and criteria
 
