@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-website-dependency-audit
 UUID: d9ef268a
 Status: Active
-Status-Detail: "Round 1 REJECTED at 9fc299c; CR-1 confirmed at ed7926d; CR-2 confirmed at c7b6898; CR-4 fixed at c5508c7, awaiting the reviewer's confirmation; QA Phase 2 is owed (179 production lines); devops installs the crontab line and reads the first run."
+Status-Detail: "Code review APPROVED at c5508c7 (code-review/fix-website-dependency-audit-code-review.md, bf39906). QA Phase 2 is owed (179 production lines); then devops installs the crontab line and reads the first run. REVIEW and _review stay at pending review until QA's verdict."
 Handoff-At: c5508c7 — repos=agent-output
 Origin-Chain: none
 ---
@@ -270,3 +270,4 @@ c5508c7: green 18/18, exit 0; 30 of 30 KILLED, counts checked 18 = 18 (`mutation
 | 2026-11-21T00:18 | Code review Round 1 REJECTED at `9fc299c` on CR-1 (`code-review/fix-website-dependency-audit-code-review.md`, cd93a06). Fixed at `ed7926d`: one case for an unwritable inbox, with the reviewer's state-order mutant added; 13/13 green, 19/19 controls killed. Handoff-At moved to `ed7926d`. |
 | 2026-11-21T00:30 | CR-1 confirmed closed by the reviewer at `ed7926d` (f7849cf). CR-2 limbs (a) failure-streak entry and (b) stale-pair entry, per steering block 00:19Z: red 3 of 16 at `ed7926d`'s tool; done at c7ef844 and c7b6898; 17/17 green; 28/28 controls killed at c7b6898 (one undiscriminated default removed after it survived at c7ef844); live run quiet with the clone's refs unchanged. Handoff-At moved to `c7b6898`. |
 | 2026-11-21T00:41 | CR-2 confirmed at `c7b6898` (reviewer 9a61b8a); CR-4 fixed: a shared `persist` writer and the unwritable-inbox failure case at 5b41d04; the recovery case tightened at c5508c7 after `quiet-run-appends` survived; 18/18 green, 30/30 controls killed. Handoff-At moved to `c5508c7`. |
+| 2026-11-21T00:43 | Code review APPROVED at `c5508c7` (reviewer bf39906); the reviewer sent steering the QA Phase 2 spawn cue. |
