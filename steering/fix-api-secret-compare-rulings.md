@@ -138,3 +138,11 @@ waits on his next word for that limb only.
 His selection, answered 18:00Z (effort rulings block "2026-11-21T18:01Z"; ledger block "2026-11-21T18:00Z — steering-hooks"): "Agent:
 re-issue without 'none' (Recommended)". Relayed verbatim to `code-reviewer-fix-api-secret-compare` 18:0xZ: re-issue with only the dummy
 database name changed (`nodb`), disclosed in its round as "not completed, re-run with the dummy database name changed", no reason.
+
+## 2026-11-21T18:02Z — code review approved at `32d10f7`; QA Phase 2 started
+
+Spawn cue 18:0xZ (the reviewer, by SendMessage): `code-review/fix-api-secret-compare-code-review.md` (record `48168cf3`), `Reviewed-At`
+`32d10f7`, round 1 APPROVED_WITH_COMMENTS (read by this thread: the anchor field and the commit subject). Its live attack ran on his
+18:00Z word (51 cases, 0 unexpected, per its message). CR-1 (LOW, optional): the fixer's to take or leave. Assumption Not Checked,
+routed to devops: statbot-api sends single-message ids as plain decimals of at most 19 digits. `qa-fix-api-secret-compare` started with
+`tmux-agent spawn`, brief `steering/fix-api-secret-compare-brief-qa.md`.
