@@ -1,0 +1,11 @@
+Running scope as unit: run-rfee59827a0414740a8943dd5f41574c8.scope
+Navigation.tsx:268:not KILLED 23.31
+Navigation.tsx:268:&& KILLED 23.0
+header-guard-reads-loading-state KILLED 21.93
+header-controls-always-hidden KILLED 21.6
+header-controls-never-hidden KILLED 21.81
+getone-refusal-by-trpc-code KILLED 21.93
+getmessage-default-kysely-error KILLED 22.13
+absent-row-error-text-changed SURVIVED 22.26
+7 of 8 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob 82b9c95a0c0d8497d159e5787d0a1727f9af86ff))
+exit 0

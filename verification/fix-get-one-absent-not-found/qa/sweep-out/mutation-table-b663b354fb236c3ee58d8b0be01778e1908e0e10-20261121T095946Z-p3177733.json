@@ -1,0 +1,251 @@
+{
+ "sha": "b663b354fb236c3ee58d8b0be01778e1908e0e10",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--config",
+  "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/fixer/controls/vitest.config.ts"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/mutants.json",
+   "blob": "82b9c95a0c0d8497d159e5787d0a1727f9af86ff"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  },
+  {
+   "kind": "argument",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/fixer/controls/vitest.config.ts",
+   "blob": "7526caaa6034277a19ab79fcc2fb40e8ced3c033"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-control-1.stderr",
+   "seconds": 22.39,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 2316,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "Navigation.tsx:268:not",
+   "run": "mutant-1",
+   "file": "src/app/message/m/[id]/_layout/Navigation.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2316,
+   "control_tests_run": 2316,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > does not ask for the link to the same message's send page",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page's header > shows the message name field, the File, Edit, View and Help menus and Send for a message the user can load",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page's header > keeps only the site navigation beside the not-found notice for a message number the user cannot load"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 23.31,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-mutant-1.stderr"
+  },
+  {
+   "id": "Navigation.tsx:268:&&",
+   "run": "mutant-2",
+   "file": "src/app/message/m/[id]/_layout/Navigation.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2316,
+   "control_tests_run": 2316,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > does not ask for the link to the same message's send page",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page's header > shows the message name field, the File, Edit, View and Help menus and Send for a message the user can load",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page's header > keeps only the site navigation beside the not-found notice for a message number the user cannot load"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 23.0,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-mutant-2.stderr"
+  },
+  {
+   "id": "header-guard-reads-loading-state",
+   "run": "mutant-3",
+   "file": "src/app/message/m/[id]/_layout/Navigation.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2316,
+   "control_tests_run": 2316,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page's header > keeps only the site navigation beside the not-found notice for a message number the user cannot load"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 21.93,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-mutant-3.stderr"
+  },
+  {
+   "id": "header-controls-always-hidden",
+   "run": "mutant-4",
+   "file": "src/app/message/m/[id]/_layout/Navigation.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2316,
+   "control_tests_run": 2316,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/__tests__/layout.navigation-guard.test.tsx > the editor routes, a link away with unsaved changes > does not ask for the link to the same message's send page",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page's header > shows the message name field, the File, Edit, View and Help menus and Send for a message the user can load"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 21.6,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-mutant-4.stderr"
+  },
+  {
+   "id": "header-controls-never-hidden",
+   "run": "mutant-5",
+   "file": "src/app/message/m/[id]/_layout/Navigation.tsx",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2316,
+   "control_tests_run": 2316,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page's header > keeps only the site navigation beside the not-found notice for a message number the user cannot load"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 21.81,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-mutant-5.stderr"
+  },
+  {
+   "id": "getone-refusal-by-trpc-code",
+   "run": "mutant-6",
+   "file": "src/server/api/routers/message.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2316,
+   "control_tests_run": 2316,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message number the signed-in user cannot load > shows the not-found notice, in place of the page, with a link back to his messages",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message number the signed-in user cannot load > shows the not-found notice, in place of the page, with a link back to his messages",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message number the signed-in user cannot load > asks for the message once, without retrying the refusal",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message number the signed-in user cannot load > asks for the message once, without retrying the refusal",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page's header > keeps only the site navigation beside the not-found notice for a message number the user cannot load",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > does not retry a not-found answer",
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a signed-in user who cannot see the message > answers not found with the one message text for a number no message holds",
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a signed-in user who cannot see the message > gives the same answer in all three cases, with none of the message in it",
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne over the CommonJS kysely build that project-utils' getPostgres loads > answers not found with the one message text for a number no message holds"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 21.93,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-mutant-6.stderr"
+  },
+  {
+   "id": "getmessage-default-kysely-error",
+   "run": "mutant-7",
+   "file": "src/server/api/utils/shared.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2316,
+   "control_tests_run": 2316,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message number the signed-in user cannot load > shows the not-found notice, in place of the page, with a link back to his messages",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message number the signed-in user cannot load > shows the not-found notice, in place of the page, with a link back to his messages",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message number the signed-in user cannot load > asks for the message once, without retrying the refusal",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message number the signed-in user cannot load > asks for the message once, without retrying the refusal",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page's header > keeps only the site navigation beside the not-found notice for a message number the user cannot load",
+    "|dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > does not retry a not-found answer",
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a signed-in user who cannot see the message > answers not found with the one message text for a number no message holds",
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a signed-in user who cannot see the message > gives the same answer in all three cases, with none of the message in it",
+    "|node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne over the CommonJS kysely build that project-utils' getPostgres loads > answers not found with the one message text for a number no message holds"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 22.13,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-mutant-7.stderr"
+  },
+  {
+   "id": "absent-row-error-text-changed",
+   "run": "mutant-8",
+   "file": "src/server/api/utils/shared.ts",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 2316,
+   "control_tests_run": 2316,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 22.26,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/qa/sweep-out/b663b354fb236c3ee58d8b0be01778e1908e0e10-20261121T095946Z-p3177733-mutant-8.stderr"
+  }
+ ],
+ "score": "7 of 8 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob 82b9c95a0c0d8497d159e5787d0a1727f9af86ff))"
+}

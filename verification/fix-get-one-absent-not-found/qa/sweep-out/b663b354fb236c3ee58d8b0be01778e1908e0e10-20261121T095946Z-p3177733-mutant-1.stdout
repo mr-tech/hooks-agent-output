@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4ae8ba53-3f79-4060-b266-eb54af3554b5/scratchpad/mut-work/20261121T095946Z-p3177733/mutant-1
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx (13 tests | 2 failed) 3540ms
+     × shows the message name field, the File, Edit, View and Help menus and Send for a message the user can load 1327ms
+     × keeps only the site navigation beside the not-found notice for a message number the user cannot load 216ms
+ ❯ |dom| src/app/message/__tests__/layout.navigation-guard.test.tsx (33 tests | 1 failed) 3675ms
+     × does not ask for the link to the same message's send page 51ms
+
+ Test Files  2 failed | 157 passed (159)
+      Tests  3 failed | 2313 passed (2316)
+   Start at  10:00:10
+   Duration  22.10s (transform 30.57s, setup 2.47s, import 166.51s, tests 54.31s, environment 97.43s)
+

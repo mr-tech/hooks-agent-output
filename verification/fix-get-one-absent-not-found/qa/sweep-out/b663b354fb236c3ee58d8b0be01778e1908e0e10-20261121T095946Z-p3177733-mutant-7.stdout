@@ -1,0 +1,20 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4ae8ba53-3f79-4060-b266-eb54af3554b5/scratchpad/mut-work/20261121T095946Z-p3177733/mutant-7
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx (13 tests | 6 failed) 7119ms
+     × shows the not-found notice, in place of the page, with a link back to his messages 1024ms
+     × asks for the message once, without retrying the refusal 1024ms
+     × shows the not-found notice, in place of the page, with a link back to his messages 1013ms
+     × asks for the message once, without retrying the refusal 1010ms
+     × keeps only the site navigation beside the not-found notice for a message number the user cannot load 1078ms
+     × does not retry a not-found answer 13ms
+ ❯ |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts (10 tests | 3 failed) 163ms
+     × answers not found with the one message text for a number no message holds 39ms
+     × gives the same answer in all three cases, with none of the message in it 13ms
+     × answers not found with the one message text for a number no message holds 85ms
+
+ Test Files  2 failed | 157 passed (159)
+      Tests  9 failed | 2307 passed (2316)
+   Start at  10:02:24
+   Duration  21.02s (transform 28.70s, setup 2.22s, import 153.85s, tests 55.90s, environment 93.21s)
+
