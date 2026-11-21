@@ -113,3 +113,16 @@ selection, each his choice of the Recommended option:
 `fix-api-secret-compare` (H33, with the v1 `messages/[id].ts:19` coerced-id rider from chain 1's exclusions); 6 `fix-delete-dead-cron`
 (H09, Q4 A); 7 `fix-git-dependency-pins`; 8 `fix-middleware-dead-matcher`; 9 the diagnose-first hypothesis chains. User-visible
 breakage (2-4) ahead of hardening (5-6) and hygiene (7-9).
+
+## 2026-11-21T05:55Z — selection: chain 2's server answer is one 'not found' for the message load
+
+Selection prompt, put 05:5xZ, answered 05:55Z (ledger: `steering/selection-ledger/2026-11-21.md`, block "2026-11-21T05:55Z —
+steering-hooks"). Premise, read this turn by a refutation helper at website `76da25c` (read from code, not run): `message.getOne`
+answers 500 for an absent number (`shared.ts:160` `executeTakeFirstOrThrow`, uncaught; `trpc.ts:78` formatter passes through), NOT_FOUND
+for another user's personal message (`user.ts:27-32` via `message.ts:60`), FORBIDDEN for a server message the caller cannot manage
+(`authorizeGuildAdmin.ts:~40` via `authorizeGuildUser` at `message.ts:59`); `authorizeGuildAdmin` has 8 non-test callers, and
+`guild.ts` `getGuild` maps NOT_FOUND to null. Sweep: `verification/fix-message-not-found/scoping/sweep.md` (commit `0124978`).
+Options (wording this thread's): A "Agent: one answer for message load (Recommended)" — the message load answers 'not found' for all
+three cases; only that load changes, the shared check and its other callers keep 'forbidden'. B "Agent: page only" — server keeps
+'not found' vs 'forbidden', readable in network responses. C "Agent: change shared check" — 8 call sites, `getGuild` silently 'no
+server'. Chosen by selection: **A**.
