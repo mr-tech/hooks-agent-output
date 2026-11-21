@@ -239,7 +239,7 @@ Source: `code-review/fix-api-secret-compare-code-review.md` at agent-output `821
     exactly the configured credential → 401, response ended, `getPostgres` not called, the bot command (`get_message`, now a spy in
     the `bot/serverCommands` mock) not run. `getPostgres` became a `vi.fn` for this.
   - Both pass at the fix (16 of 16 over the two files, `cr-2/green-at-32d10f7-prod.txt`). Red by the reviewer's mutant files as they
-    stand (`code-review/mutants-b01ae0b.json`, `mutants-sites-b01ae0b.json`), run by `mutation-run.py` on `0c14d5b` with the
+    stand (`verification/fix-api-secret-compare/code-review/mutants-b01ae0b.json` and `mutants-sites-b01ae0b.json` beside it), run by `mutation-run.py` on `0c14d5b` with the
     round-1 transcribed config: **6 of 6 KILLED**, count `checked` — `timingSafeEqual(…) || a === b` and `a === b || timingSafeEqual(…)`
     by the equality case; the length-first control by three cases; each site's `!(sent === configured || secretEquals(…))` by that
     site's own new case (failing titles carry the site label). Tables under `cr-2/mutants-*-at-0c14d5b/`.
