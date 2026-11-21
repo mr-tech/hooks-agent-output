@@ -1,0 +1,128 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/6a279e01-a3a4-48fe-902c-04016bf5da8c/scratchpad/export-6f76c6d
+
+ ❯ |node| src/server/api/routers/__tests__/getOne.refusal-probe.test.ts (1 test | 1 failed) 1127ms
+   × probe 239ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/getOne.refusal-probe.test.ts > probe
+AssertionError: expected { leaks: [], …(2) } to deeply equal { Object (leaks, split, ...) }
+
+- Expected
++ Received
+
+  {
+    "leaks": [],
+    "ownerFails": [],
+-   "split": [],
++   "split": [
++     {
++       "caller": "other",
++       "distinct": [
++         "500 {\"error\":{\"json\":{\"message\":\"no result\",\"code\":-32603,\"data\":{\"code\":\"INTERNAL_SERVER_ERROR\",\"httpStatus\":500,\"path\":\"message.getOne\"}}}}",
++         "404 {\"error\":{\"json\":{\"message\":\"One of the provided messages does not exist.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
++         "403 {\"error\":{\"json\":{\"message\":\"User does not have permission to access to this server.\",\"code\":-32003,\"data\":{\"code\":\"FORBIDDEN\",\"httpStatus\":403,\"path\":\"message.getOne\"}}}}",
++       ],
++       "form": "canonical",
++     },
++     {
++       "caller": "other",
++       "distinct": [
++         "500 {\"error\":{\"json\":{\"message\":\"no result\",\"code\":-32603,\"data\":{\"code\":\"INTERNAL_SERVER_ERROR\",\"httpStatus\":500,\"path\":\"message.getOne\"}}}}",
++         "404 {\"error\":{\"json\":{\"message\":\"One of the provided messages does not exist.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
++         "403 {\"error\":{\"json\":{\"message\":\"User does not have permission to access to this server.\",\"code\":-32003,\"data\":{\"code\":\"FORBIDDEN\",\"httpStatus\":403,\"path\":\"message.getOne\"}}}}",
++       ],
++       "form": "leading-zeros",
++     },
++     {
++       "caller": "other",
++       "distinct": [
++         "500 {\"error\":{\"json\":{\"message\":\"no result\",\"code\":-32603,\"data\":{\"code\":\"INTERNAL_SERVER_ERROR\",\"httpStatus\":500,\"path\":\"message.getOne\"}}}}",
++         "404 {\"error\":{\"json\":{\"message\":\"One of the provided messages does not exist.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
++         "403 {\"error\":{\"json\":{\"message\":\"User does not have permission to access to this server.\",\"code\":-32003,\"data\":{\"code\":\"FORBIDDEN\",\"httpStatus\":403,\"path\":\"message.getOne\"}}}}",
++       ],
++       "form": "hydrate",
++     },
++     {
++       "caller": "other",
++       "distinct": [
++         "500 {\"error\":{\"json\":{\"message\":\"no result\",\"code\":-32603,\"data\":{\"code\":\"INTERNAL_SERVER_ERROR\",\"httpStatus\":500,\"path\":\"message.getOne\"}}}}",
++         "404 {\"error\":{\"json\":{\"message\":\"One of the provided messages does not exist.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
++         "403 {\"error\":{\"json\":{\"message\":\"User does not have permission to access to this server.\",\"code\":-32003,\"data\":{\"code\":\"FORBIDDEN\",\"httpStatus\":403,\"path\":\"message.getOne\"}}}}",
++       ],
++       "form": "encoded-path-dot",
++     },
++     {
++       "caller": "other",
++       "distinct": [
++         "500 {\"error\":{\"json\":{\"message\":\"no result\",\"code\":-32603,\"data\":{\"code\":\"INTERNAL_SERVER_ERROR\",\"httpStatus\":500,\"path\":\"message.getOne\"}}}}",
++         "404 {\"error\":{\"json\":{\"message\":\"One of the provided messages does not exist.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
++         "403 {\"error\":{\"json\":{\"message\":\"User does not have permission to access to this server.\",\"code\":-32003,\"data\":{\"code\":\"FORBIDDEN\",\"httpStatus\":403,\"path\":\"message.getOne\"}}}}",
++       ],
++       "form": "raw-unencoded-json",
++     },
++     {
++       "caller": "otherManagesElsewhere",
++       "distinct": [
++         "500 {\"error\":{\"json\":{\"message\":\"no result\",\"code\":-32603,\"data\":{\"code\":\"INTERNAL_SERVER_ERROR\",\"httpStatus\":500,\"path\":\"message.getOne\"}}}}",
++         "404 {\"error\":{\"json\":{\"message\":\"One of the provided messages does not exist.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
++         "403 {\"error\":{\"json\":{\"message\":\"User does not have permission to access to this server.\",\"code\":-32003,\"data\":{\"code\":\"FORBIDDEN\",\"httpStatus\":403,\"path\":\"message.getOne\"}}}}",
++       ],
++       "form": "canonical",
++     },
++     {
++       "caller": "otherManagesElsewhere",
++       "distinct": [
++         "500 {\"error\":{\"json\":{\"message\":\"no result\",\"code\":-32603,\"data\":{\"code\":\"INTERNAL_SERVER_ERROR\",\"httpStatus\":500,\"path\":\"message.getOne\"}}}}",
++         "404 {\"error\":{\"json\":{\"message\":\"One of the provided messages does not exist.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
++         "403 {\"error\":{\"json\":{\"message\":\"User does not have permission to access to this server.\",\"code\":-32003,\"data\":{\"code\":\"FORBIDDEN\",\"httpStatus\":403,\"path\":\"message.getOne\"}}}}",
++       ],
++       "form": "leading-zeros",
++     },
++     {
++       "caller": "otherManagesElsewhere",
++       "distinct": [
++         "500 {\"error\":{\"json\":{\"message\":\"no result\",\"code\":-32603,\"data\":{\"code\":\"INTERNAL_SERVER_ERROR\",\"httpStatus\":500,\"path\":\"message.getOne\"}}}}",
++         "404 {\"error\":{\"json\":{\"message\":\"One of the provided messages does not exist.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
++         "403 {\"error\":{\"json\":{\"message\":\"User does not have permission to access to this server.\",\"code\":-32003,\"data\":{\"code\":\"FORBIDDEN\",\"httpStatus\":403,\"path\":\"message.getOne\"}}}}",
++       ],
++       "form": "hydrate",
++     },
++     {
++       "caller": "otherManagesElsewhere",
++       "distinct": [
++         "500 {\"error\":{\"json\":{\"message\":\"no result\",\"code\":-32603,\"data\":{\"code\":\"INTERNAL_SERVER_ERROR\",\"httpStatus\":500,\"path\":\"message.getOne\"}}}}",
++         "404 {\"error\":{\"json\":{\"message\":\"One of the provided messages does not exist.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
++         "403 {\"error\":{\"json\":{\"message\":\"User does not have permission to access to this server.\",\"code\":-32003,\"data\":{\"code\":\"FORBIDDEN\",\"httpStatus\":403,\"path\":\"message.getOne\"}}}}",
++       ],
++       "form": "encoded-path-dot",
++     },
++     {
++       "caller": "otherManagesElsewhere",
++       "distinct": [
++         "500 {\"error\":{\"json\":{\"message\":\"no result\",\"code\":-32603,\"data\":{\"code\":\"INTERNAL_SERVER_ERROR\",\"httpStatus\":500,\"path\":\"message.getOne\"}}}}",
++         "404 {\"error\":{\"json\":{\"message\":\"One of the provided messages does not exist.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
++         "403 {\"error\":{\"json\":{\"message\":\"User does not have permission to access to this server.\",\"code\":-32003,\"data\":{\"code\":\"FORBIDDEN\",\"httpStatus\":403,\"path\":\"message.getOne\"}}}}",
++       ],
++       "form": "raw-unencoded-json",
++     },
++   ],
+  }
+
+ ❯ src/server/api/routers/__tests__/getOne.refusal-probe.test.ts:183:40
+    181|   // Oracle 3: the permitted reads succeed in every form (no form refu…
+    182|   const ownerFails = results.filter((r) => allowed(String(r.caller), S…
+    183|   expect({ leaks, split, ownerFails }).toEqual({ leaks: [], split: [],…
+       |                                        ^
+    184| });
+    185|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  07:09:44
+   Duration  1.41s (transform 240ms, setup 0ms, import 164ms, tests 1.13s, environment 0ms)
+

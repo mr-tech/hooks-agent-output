@@ -1,0 +1,1250 @@
+[
+ {
+  "caller": "owner",
+  "kind": "absent",
+  "form": "canonical",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "absent",
+  "form": "leading-zeros",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "absent",
+  "form": "hydrate",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "absent",
+  "form": "encoded-path-dot",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "absent",
+  "form": "raw-unencoded-json",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "personal",
+  "form": "canonical",
+  "status": 200,
+  "body": "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000101\",\"createdAt\":0,\"updatedAt\":0,\"previewImageNonce\":null,\"name\":\"n\",\"data\":{\"content\":\"owner-only-content-7f3a\"},\"recentWebhookId\":null,\"recentThreadId\":null,\"recentMessageId\":null}}}}",
+  "leaksSecret": true
+ },
+ {
+  "caller": "owner",
+  "kind": "personal",
+  "form": "leading-zeros",
+  "status": 200,
+  "body": "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000101\",\"createdAt\":0,\"updatedAt\":0,\"previewImageNonce\":null,\"name\":\"n\",\"data\":{\"content\":\"owner-only-content-7f3a\"},\"recentWebhookId\":null,\"recentThreadId\":null,\"recentMessageId\":null}}}}",
+  "leaksSecret": true
+ },
+ {
+  "caller": "owner",
+  "kind": "personal",
+  "form": "hydrate",
+  "status": 200,
+  "body": "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000101\",\"createdAt\":0,\"updatedAt\":0,\"previewImageNonce\":null,\"name\":\"n\",\"data\":{\"content\":\"owner-only-content-7f3a\"},\"recentWebhookId\":null,\"recentThreadId\":null,\"recentMessageId\":null}}}}",
+  "leaksSecret": true
+ },
+ {
+  "caller": "owner",
+  "kind": "personal",
+  "form": "encoded-path-dot",
+  "status": 200,
+  "body": "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000101\",\"createdAt\":0,\"updatedAt\":0,\"previewImageNonce\":null,\"name\":\"n\",\"data\":{\"content\":\"owner-only-content-7f3a\"},\"recentWebhookId\":null,\"recentThreadId\":null,\"recentMessageId\":null}}}}",
+  "leaksSecret": true
+ },
+ {
+  "caller": "owner",
+  "kind": "personal",
+  "form": "raw-unencoded-json",
+  "status": 200,
+  "body": "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000101\",\"createdAt\":0,\"updatedAt\":0,\"previewImageNonce\":null,\"name\":\"n\",\"data\":{\"content\":\"owner-only-content-7f3a\"},\"recentWebhookId\":null,\"recentThreadId\":null,\"recentMessageId\":null}}}}",
+  "leaksSecret": true
+ },
+ {
+  "caller": "owner",
+  "kind": "server",
+  "form": "canonical",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "server",
+  "form": "leading-zeros",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "server",
+  "form": "hydrate",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "server",
+  "form": "encoded-path-dot",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "server",
+  "form": "raw-unencoded-json",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "malformed",
+  "form": "number-not-string",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"number\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Expected string, received number\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "malformed",
+  "form": "negative",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "malformed",
+  "form": "plus-sign",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "malformed",
+  "form": "whitespace",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "malformed",
+  "form": "int8-overflow",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"custom\\\",\\n    \\\"message\\\": \\\"Invalid input\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "malformed",
+  "form": "twenty-digits",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "malformed",
+  "form": "empty",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "malformed",
+  "form": "array",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"array\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Expected string, received array\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "malformed",
+  "form": "missing-input",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"undefined\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Required\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "malformed",
+  "form": "post-method",
+  "status": 405,
+  "body": "{\"error\":{\"json\":{\"message\":\"Unsupported POST-request to query procedure at path \\\"message.getOne\\\"\",\"code\":-32005,\"data\":{\"code\":\"METHOD_NOT_SUPPORTED\",\"httpStatus\":405,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "owner",
+  "kind": "malformed",
+  "form": "batch",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"Batching is not enabled on the server\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "absent",
+  "form": "canonical",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "absent",
+  "form": "leading-zeros",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "absent",
+  "form": "hydrate",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "absent",
+  "form": "encoded-path-dot",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "absent",
+  "form": "raw-unencoded-json",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "personal",
+  "form": "canonical",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "personal",
+  "form": "leading-zeros",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "personal",
+  "form": "hydrate",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "personal",
+  "form": "encoded-path-dot",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "personal",
+  "form": "raw-unencoded-json",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "server",
+  "form": "canonical",
+  "status": 200,
+  "body": "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000201\",\"createdAt\":0,\"updatedAt\":0,\"previewImageNonce\":null,\"name\":\"n\",\"data\":{\"content\":\"owner-only-content-7f3a\"},\"recentWebhookId\":null,\"recentThreadId\":null,\"recentMessageId\":null,\"guildId\":\"300000000000000001\"}}}}",
+  "leaksSecret": true
+ },
+ {
+  "caller": "manager",
+  "kind": "server",
+  "form": "leading-zeros",
+  "status": 200,
+  "body": "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000201\",\"createdAt\":0,\"updatedAt\":0,\"previewImageNonce\":null,\"name\":\"n\",\"data\":{\"content\":\"owner-only-content-7f3a\"},\"recentWebhookId\":null,\"recentThreadId\":null,\"recentMessageId\":null,\"guildId\":\"300000000000000001\"}}}}",
+  "leaksSecret": true
+ },
+ {
+  "caller": "manager",
+  "kind": "server",
+  "form": "hydrate",
+  "status": 200,
+  "body": "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000201\",\"createdAt\":0,\"updatedAt\":0,\"previewImageNonce\":null,\"name\":\"n\",\"data\":{\"content\":\"owner-only-content-7f3a\"},\"recentWebhookId\":null,\"recentThreadId\":null,\"recentMessageId\":null,\"guildId\":\"300000000000000001\"}}}}",
+  "leaksSecret": true
+ },
+ {
+  "caller": "manager",
+  "kind": "server",
+  "form": "encoded-path-dot",
+  "status": 200,
+  "body": "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000201\",\"createdAt\":0,\"updatedAt\":0,\"previewImageNonce\":null,\"name\":\"n\",\"data\":{\"content\":\"owner-only-content-7f3a\"},\"recentWebhookId\":null,\"recentThreadId\":null,\"recentMessageId\":null,\"guildId\":\"300000000000000001\"}}}}",
+  "leaksSecret": true
+ },
+ {
+  "caller": "manager",
+  "kind": "server",
+  "form": "raw-unencoded-json",
+  "status": 200,
+  "body": "{\"result\":{\"data\":{\"json\":{\"id\":\"900000000000201\",\"createdAt\":0,\"updatedAt\":0,\"previewImageNonce\":null,\"name\":\"n\",\"data\":{\"content\":\"owner-only-content-7f3a\"},\"recentWebhookId\":null,\"recentThreadId\":null,\"recentMessageId\":null,\"guildId\":\"300000000000000001\"}}}}",
+  "leaksSecret": true
+ },
+ {
+  "caller": "manager",
+  "kind": "malformed",
+  "form": "number-not-string",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"number\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Expected string, received number\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "malformed",
+  "form": "negative",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "malformed",
+  "form": "plus-sign",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "malformed",
+  "form": "whitespace",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "malformed",
+  "form": "int8-overflow",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"custom\\\",\\n    \\\"message\\\": \\\"Invalid input\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "malformed",
+  "form": "twenty-digits",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "malformed",
+  "form": "empty",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "malformed",
+  "form": "array",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"array\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Expected string, received array\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "malformed",
+  "form": "missing-input",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"undefined\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Required\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "malformed",
+  "form": "post-method",
+  "status": 405,
+  "body": "{\"error\":{\"json\":{\"message\":\"Unsupported POST-request to query procedure at path \\\"message.getOne\\\"\",\"code\":-32005,\"data\":{\"code\":\"METHOD_NOT_SUPPORTED\",\"httpStatus\":405,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "manager",
+  "kind": "malformed",
+  "form": "batch",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"Batching is not enabled on the server\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "absent",
+  "form": "canonical",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "absent",
+  "form": "leading-zeros",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "absent",
+  "form": "hydrate",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "absent",
+  "form": "encoded-path-dot",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "absent",
+  "form": "raw-unencoded-json",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "personal",
+  "form": "canonical",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "personal",
+  "form": "leading-zeros",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "personal",
+  "form": "hydrate",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "personal",
+  "form": "encoded-path-dot",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "personal",
+  "form": "raw-unencoded-json",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "server",
+  "form": "canonical",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "server",
+  "form": "leading-zeros",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "server",
+  "form": "hydrate",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "server",
+  "form": "encoded-path-dot",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "server",
+  "form": "raw-unencoded-json",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "malformed",
+  "form": "number-not-string",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"number\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Expected string, received number\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "malformed",
+  "form": "negative",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "malformed",
+  "form": "plus-sign",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "malformed",
+  "form": "whitespace",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "malformed",
+  "form": "int8-overflow",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"custom\\\",\\n    \\\"message\\\": \\\"Invalid input\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "malformed",
+  "form": "twenty-digits",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "malformed",
+  "form": "empty",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "malformed",
+  "form": "array",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"array\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Expected string, received array\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "malformed",
+  "form": "missing-input",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"undefined\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Required\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "malformed",
+  "form": "post-method",
+  "status": 405,
+  "body": "{\"error\":{\"json\":{\"message\":\"Unsupported POST-request to query procedure at path \\\"message.getOne\\\"\",\"code\":-32005,\"data\":{\"code\":\"METHOD_NOT_SUPPORTED\",\"httpStatus\":405,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "other",
+  "kind": "malformed",
+  "form": "batch",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"Batching is not enabled on the server\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "absent",
+  "form": "canonical",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "absent",
+  "form": "leading-zeros",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "absent",
+  "form": "hydrate",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "absent",
+  "form": "encoded-path-dot",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "absent",
+  "form": "raw-unencoded-json",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "personal",
+  "form": "canonical",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "personal",
+  "form": "leading-zeros",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "personal",
+  "form": "hydrate",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "personal",
+  "form": "encoded-path-dot",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "personal",
+  "form": "raw-unencoded-json",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "server",
+  "form": "canonical",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "server",
+  "form": "leading-zeros",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "server",
+  "form": "hydrate",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "server",
+  "form": "encoded-path-dot",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "server",
+  "form": "raw-unencoded-json",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "malformed",
+  "form": "number-not-string",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"number\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Expected string, received number\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "malformed",
+  "form": "negative",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "malformed",
+  "form": "plus-sign",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "malformed",
+  "form": "whitespace",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "malformed",
+  "form": "int8-overflow",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"custom\\\",\\n    \\\"message\\\": \\\"Invalid input\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "malformed",
+  "form": "twenty-digits",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "malformed",
+  "form": "empty",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "malformed",
+  "form": "array",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"array\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Expected string, received array\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "malformed",
+  "form": "missing-input",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"undefined\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Required\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "malformed",
+  "form": "post-method",
+  "status": 405,
+  "body": "{\"error\":{\"json\":{\"message\":\"Unsupported POST-request to query procedure at path \\\"message.getOne\\\"\",\"code\":-32005,\"data\":{\"code\":\"METHOD_NOT_SUPPORTED\",\"httpStatus\":405,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "otherManagesElsewhere",
+  "kind": "malformed",
+  "form": "batch",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"Batching is not enabled on the server\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "absent",
+  "form": "canonical",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "absent",
+  "form": "leading-zeros",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "absent",
+  "form": "hydrate",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "absent",
+  "form": "encoded-path-dot",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "absent",
+  "form": "raw-unencoded-json",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "personal",
+  "form": "canonical",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "personal",
+  "form": "leading-zeros",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "personal",
+  "form": "hydrate",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "personal",
+  "form": "encoded-path-dot",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "personal",
+  "form": "raw-unencoded-json",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "server",
+  "form": "canonical",
+  "status": 401,
+  "body": "{\"error\":{\"json\":{\"message\":\"Failed to fetch user servers.\",\"code\":-32001,\"data\":{\"code\":\"UNAUTHORIZED\",\"httpStatus\":401,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "server",
+  "form": "leading-zeros",
+  "status": 401,
+  "body": "{\"error\":{\"json\":{\"message\":\"Failed to fetch user servers.\",\"code\":-32001,\"data\":{\"code\":\"UNAUTHORIZED\",\"httpStatus\":401,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "server",
+  "form": "hydrate",
+  "status": 401,
+  "body": "{\"error\":{\"json\":{\"message\":\"Failed to fetch user servers.\",\"code\":-32001,\"data\":{\"code\":\"UNAUTHORIZED\",\"httpStatus\":401,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "server",
+  "form": "encoded-path-dot",
+  "status": 401,
+  "body": "{\"error\":{\"json\":{\"message\":\"Failed to fetch user servers.\",\"code\":-32001,\"data\":{\"code\":\"UNAUTHORIZED\",\"httpStatus\":401,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "server",
+  "form": "raw-unencoded-json",
+  "status": 401,
+  "body": "{\"error\":{\"json\":{\"message\":\"Failed to fetch user servers.\",\"code\":-32001,\"data\":{\"code\":\"UNAUTHORIZED\",\"httpStatus\":401,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "malformed",
+  "form": "number-not-string",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"number\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Expected string, received number\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "malformed",
+  "form": "negative",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "malformed",
+  "form": "plus-sign",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "malformed",
+  "form": "whitespace",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "malformed",
+  "form": "int8-overflow",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"custom\\\",\\n    \\\"message\\\": \\\"Invalid input\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "malformed",
+  "form": "twenty-digits",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "malformed",
+  "form": "empty",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "malformed",
+  "form": "array",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"array\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Expected string, received array\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "malformed",
+  "form": "missing-input",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"undefined\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Required\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "malformed",
+  "form": "post-method",
+  "status": 405,
+  "body": "{\"error\":{\"json\":{\"message\":\"Unsupported POST-request to query procedure at path \\\"message.getOne\\\"\",\"code\":-32005,\"data\":{\"code\":\"METHOD_NOT_SUPPORTED\",\"httpStatus\":405,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "discordUnreadable",
+  "kind": "malformed",
+  "form": "batch",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"Batching is not enabled on the server\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "absent",
+  "form": "canonical",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "absent",
+  "form": "leading-zeros",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "absent",
+  "form": "hydrate",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "absent",
+  "form": "encoded-path-dot",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "absent",
+  "form": "raw-unencoded-json",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "personal",
+  "form": "canonical",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "personal",
+  "form": "leading-zeros",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "personal",
+  "form": "hydrate",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "personal",
+  "form": "encoded-path-dot",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "personal",
+  "form": "raw-unencoded-json",
+  "status": 404,
+  "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "server",
+  "form": "canonical",
+  "status": 401,
+  "body": "{\"error\":{\"json\":{\"message\":\"User is not authenticated.\",\"code\":-32001,\"data\":{\"code\":\"UNAUTHORIZED\",\"httpStatus\":401,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "server",
+  "form": "leading-zeros",
+  "status": 401,
+  "body": "{\"error\":{\"json\":{\"message\":\"User is not authenticated.\",\"code\":-32001,\"data\":{\"code\":\"UNAUTHORIZED\",\"httpStatus\":401,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "server",
+  "form": "hydrate",
+  "status": 401,
+  "body": "{\"error\":{\"json\":{\"message\":\"User is not authenticated.\",\"code\":-32001,\"data\":{\"code\":\"UNAUTHORIZED\",\"httpStatus\":401,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "server",
+  "form": "encoded-path-dot",
+  "status": 401,
+  "body": "{\"error\":{\"json\":{\"message\":\"User is not authenticated.\",\"code\":-32001,\"data\":{\"code\":\"UNAUTHORIZED\",\"httpStatus\":401,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "server",
+  "form": "raw-unencoded-json",
+  "status": 401,
+  "body": "{\"error\":{\"json\":{\"message\":\"User is not authenticated.\",\"code\":-32001,\"data\":{\"code\":\"UNAUTHORIZED\",\"httpStatus\":401,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "malformed",
+  "form": "number-not-string",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"number\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Expected string, received number\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "malformed",
+  "form": "negative",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "malformed",
+  "form": "plus-sign",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "malformed",
+  "form": "whitespace",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "malformed",
+  "form": "int8-overflow",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"custom\\\",\\n    \\\"message\\\": \\\"Invalid input\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "malformed",
+  "form": "twenty-digits",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "malformed",
+  "form": "empty",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"validation\\\": \\\"regex\\\",\\n    \\\"code\\\": \\\"invalid_string\\\",\\n    \\\"message\\\": \\\"Invalid\\\",\\n    \\\"path\\\": []\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "malformed",
+  "form": "array",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"array\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Expected string, received array\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "malformed",
+  "form": "missing-input",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"[\\n  {\\n    \\\"code\\\": \\\"invalid_type\\\",\\n    \\\"expected\\\": \\\"string\\\",\\n    \\\"received\\\": \\\"undefined\\\",\\n    \\\"path\\\": [],\\n    \\\"message\\\": \\\"Required\\\"\\n  }\\n]\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "malformed",
+  "form": "post-method",
+  "status": 405,
+  "body": "{\"error\":{\"json\":{\"message\":\"Unsupported POST-request to query procedure at path \\\"message.getOne\\\"\",\"code\":-32005,\"data\":{\"code\":\"METHOD_NOT_SUPPORTED\",\"httpStatus\":405,\"path\":\"message.getOne\"}}}}",
+  "leaksSecret": false
+ },
+ {
+  "caller": "noAccountRow",
+  "kind": "malformed",
+  "form": "batch",
+  "status": 400,
+  "body": "{\"error\":{\"json\":{\"message\":\"Batching is not enabled on the server\",\"code\":-32600,\"data\":{\"code\":\"BAD_REQUEST\",\"httpStatus\":400}}}}",
+  "leaksSecret": false
+ }
+]
