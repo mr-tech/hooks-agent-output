@@ -1,0 +1,324 @@
+diff --git a/package.json b/package.json
+index 52da7e3..3343c9d 100644
+--- a/package.json
++++ b/package.json
+@@ -134,8 +134,5 @@
+     "typescript": "^5.9.3",
+     "typescript-eslint": "^8.58.0",
+     "vitest": "^4.1.2"
+-  },
+-  "overrides": {
+-    "semver": "^7.5.3"
+   }
+ }
+\ No newline at end of file
+diff --git a/src/__tests__/middleware.request-headers.test.ts b/src/__tests__/middleware.request-headers.test.ts
+new file mode 100644
+index 0000000..e5cb779
+--- /dev/null
++++ b/src/__tests__/middleware.request-headers.test.ts
+@@ -0,0 +1,43 @@
++import { unstable_doesMiddlewareMatch as doesMiddlewareMatch } from 'next/experimental/testing/server';
++import { NextRequest } from 'next/server';
++import { describe, expect, it } from 'vitest';
++
++import middleware, { config } from '../middleware';
++
++const forwarded = 'x-middleware-request-';
++
++async function headersReachingPage(path: string, sent: Record<string, string>) {
++  const url = `http://localhost${path}`;
++  if (!doesMiddlewareMatch({ config, url })) return new Headers(sent);
++
++  const response = middleware(new NextRequest(url, { headers: sent }));
++  const overridden = response.headers.get('x-middleware-override-headers');
++  if (!overridden) return new Headers(sent);
++
++  const seen = new Headers();
++  overridden.split(',').map((name) => name.trim()).forEach((name) => {
++    seen.set(name, response.headers.get(`${forwarded}${name}`) ?? '');
++  });
++  return seen;
++}
++
++describe('a message page request carrying a client-sent x-pathname header', () => {
++  it.each([
++    ['/message', '/message'],
++    ['/message?guild_id=123', '/message'],
++    ['/message/m/1/edit', '/message/m/1/edit'],
++    ['/message/f/123', '/message/f/123'],
++  ])('reaches the page at %s with x-pathname set to %s', async (path, pathname) => {
++    const seen = await headersReachingPage(path, { 'x-pathname': '/message/m/0/edit' });
++
++    expect(seen.get('x-pathname')).toBe(pathname);
++  });
++});
++
++describe('a message page request with a query string', () => {
++  it('reaches the page with no x-query-params header', async () => {
++    const seen = await headersReachingPage('/message/m/1/edit?code=abc', {});
++
++    expect(seen.has('x-query-params')).toBe(false);
++  });
++});
+diff --git a/src/app/_components/__tests__/Providers.request-headers.test.ts b/src/app/_components/__tests__/Providers.request-headers.test.ts
+deleted file mode 100644
+index f1b3f17..0000000
+--- a/src/app/_components/__tests__/Providers.request-headers.test.ts
++++ /dev/null
+@@ -1,51 +0,0 @@
+-import {
+-  afterEach, beforeEach, describe, expect, it, vi,
+-} from 'vitest';
+-
+-import Providers from '../Providers';
+-
+-const request = vi.hoisted(() => ({ headers: {} as Record<string, string> }));
+-
+-vi.mock('next/headers', () => ({
+-  headers: async () => new Headers(request.headers),
+-}));
+-vi.mock('~/env.mjs', async () => (await import('~/providers/MessageProvider/__tests__/helpers/messageProviderDeps')).ENV_MOCK);
+-
+-const fetchSpy = vi.fn<typeof fetch>();
+-
+-beforeEach(() => {
+-  request.headers = {};
+-  fetchSpy.mockReset();
+-  fetchSpy.mockResolvedValue(new Response('{}', { status: 200 }));
+-  vi.stubGlobal('fetch', fetchSpy);
+-});
+-
+-afterEach(() => {
+-  vi.unstubAllGlobals();
+-});
+-
+-function requestedUrls() {
+-  return fetchSpy.mock.calls.map(([input]) => String(input));
+-}
+-
+-describe('the message-page providers given a client-sent x-query-params header', () => {
+-  it.each([
+-    ['a truncated percent escape', '%E0%A4%A'],
+-    ['a bare percent sign', '100%'],
+-  ])('render for %s', async (_, value) => {
+-    request.headers = { 'x-query-params': value };
+-
+-    await expect(Providers({ children: 'page' })).resolves.toBeTruthy();
+-  });
+-
+-  it.each([
+-    ['a plain code', 'code%3Dabc'],
+-    ['a code holding a path', 'code%3D..%252Fauth%252Fsession'],
+-  ])('make no request from %s', async (_, value) => {
+-    request.headers = { 'x-query-params': value };
+-
+-    await Providers({ children: 'page' });
+-
+-    expect(requestedUrls()).toEqual([]);
+-  });
+-});
+diff --git a/src/middleware.ts b/src/middleware.ts
+index 69c5ddb..a90adeb 100644
+--- a/src/middleware.ts
++++ b/src/middleware.ts
+@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
+ import type { NextRequest } from 'next/server';
+ 
+ export const config = {
+-  matcher: ['/message/(.*)', '/api/guilds/(.*)', '/preview'],
++  matcher: ['/message', '/message/(.*)', '/api/guilds/(.*)', '/preview'],
+ };
+ 
+ export default function middleware(request: NextRequest) {
+@@ -13,13 +13,6 @@ export default function middleware(request: NextRequest) {
+ 
+   requestHeaders.set('x-pathname', request.nextUrl.pathname);
+ 
+-  const queryString = request.url.split('?')[1];
+-  if (queryString) {
+-    const queryParams = new URLSearchParams(queryString);
+-    // Add new request headers
+-    requestHeaders.set('x-query-params', encodeURIComponent(queryParams.toString()));
+-  }
+-
+   // You can also set request headers in NextResponse.rewrite
+   return NextResponse.next({
+     request: {
+diff --git a/src/pages/api/trpc/[trpc].ts b/src/pages/api/trpc/[trpc].ts
+index cdbca6b..ea65928 100644
+--- a/src/pages/api/trpc/[trpc].ts
++++ b/src/pages/api/trpc/[trpc].ts
+@@ -7,6 +7,7 @@ import { createTRPCContext } from '~/server/api/trpc';
+ // export API handler
+ export default createNextApiHandler({
+   router: appRouter,
++  allowBatching: false,
+   createContext: createTRPCContext,
+   onError:
+     env.NODE_ENV === 'development'
+diff --git a/src/server/api/__tests__/trpc.batch-refusal.test.ts b/src/server/api/__tests__/trpc.batch-refusal.test.ts
+new file mode 100644
+index 0000000..0de0ad8
+--- /dev/null
++++ b/src/server/api/__tests__/trpc.batch-refusal.test.ts
+@@ -0,0 +1,66 @@
++import { createServer } from 'node:http';
++import {
++  afterAll, beforeAll, beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import type { AddressInfo } from 'node:net';
++import type { NextApiRequest, NextApiResponse } from 'next';
++
++import createCapturingDatabase from '~/server/api/utils/__tests__/helpers/capturingDatabase';
++
++const mocks = vi.hoisted(() => ({ db: undefined as unknown }));
++
++vi.mock('~/env.mjs', () => ({
++  env: new Proxy({}, { get: (_, key) => `test-${String(key)}` }),
++}));
++vi.mock('~/server/auth', () => {
++  const session = async () => ({ user: { id: '100000000000000001', guilds: [] }, expires: 'never' });
++  return { getServerAuthSession: session, getHydratedServerAuthSession: session };
++});
++vi.mock('project-utils', () => ({ getPostgres: () => mocks.db }));
++vi.mock('pusher', () => ({ default: class { trigger = vi.fn(); } }));
++vi.mock('@vercel/functions', () => ({ waitUntil: () => undefined }));
++vi.mock('~/utils/redis', () => ({ default: {} }));
++vi.mock('~/utils/redis/messageStore', () => ({ default: {} }));
++
++let captured: ReturnType<typeof createCapturingDatabase>;
++let origin = '';
++const server = createServer((req, res) => {
++  const requestUrl = new URL(req.url ?? '/', 'http://localhost');
++  const query = Object.fromEntries(requestUrl.searchParams);
++  const trpc = decodeURIComponent(requestUrl.pathname.replace(/^\/api\/trpc\//, ''));
++  Object.assign(req, { query: { ...query, trpc } });
++  import('~/pages/api/trpc/[trpc]').then(({ default: handler }) => handler(
++    req as NextApiRequest,
++    res as NextApiResponse,
++  )).catch(() => { res.statusCode = 599; res.end(); });
++});
++
++beforeAll(async () => {
++  await new Promise<void>((resolve) => { server.listen(0, resolve); });
++  const { port } = server.address() as AddressInfo;
++  origin = `http://localhost:${port}`;
++});
++
++afterAll(async () => {
++  await new Promise((resolve) => { server.close(resolve); });
++});
++
++beforeEach(() => {
++  captured = createCapturingDatabase(({ sql }) => (sql.startsWith('select "userId" from "Accounts"') ? [{ userId: '900000000000001' }] : []));
++  mocks.db = captured.db;
++});
++
++describe('the tRPC endpoint given one request naming several procedure calls', () => {
++  it.each([
++    ['two calls', 2],
++    ['five hundred calls', 500],
++  ])('refuses %s with a bad-request status before any call reaches the database', async (_, count) => {
++    const paths = Array.from({ length: count }, () => 'user.getPreferences').join(',');
++
++    const response = await fetch(`${origin}/api/trpc/${paths}?batch=1`);
++
++    expect(response.status).toBe(400);
++    expect(captured.queries).toEqual([]);
++  });
++});
+diff --git a/src/server/api/__tests__/trpc.site-link.test.tsx b/src/server/api/__tests__/trpc.site-link.test.tsx
+new file mode 100644
+index 0000000..b9866a3
+--- /dev/null
++++ b/src/server/api/__tests__/trpc.site-link.test.tsx
+@@ -0,0 +1,87 @@
++import { createServer } from 'node:http';
++import {
++  afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import type { AddressInfo } from 'node:net';
++import type { NextApiRequest, NextApiResponse } from 'next';
++
++import { mountDom, unmountDom } from '~/components/__tests__/helpers/dom';
++import TrpcProvider from '~/providers/TrpcProvider';
++import createCapturingDatabase from '~/server/api/utils/__tests__/helpers/capturingDatabase';
++import { api } from '~/utils/api';
++
++const mocks = vi.hoisted(() => ({ db: undefined as unknown }));
++
++vi.mock('~/env.mjs', () => ({
++  env: new Proxy({}, { get: (_, key) => `test-${String(key)}` }),
++}));
++vi.mock('~/server/auth', () => {
++  const session = async () => ({ user: { id: '100000000000000001', guilds: [] }, expires: 'never' });
++  return { getServerAuthSession: session, getHydratedServerAuthSession: session };
++});
++vi.mock('project-utils', () => ({ getPostgres: () => mocks.db }));
++vi.mock('pusher', () => ({ default: class { trigger = vi.fn(); } }));
++vi.mock('@vercel/functions', () => ({ waitUntil: () => undefined }));
++vi.mock('~/utils/redis', () => ({ default: {} }));
++vi.mock('~/utils/redis/messageStore', () => ({ default: {} }));
++vi.mock('~/utils/discord', () => ({ getApi: vi.fn() }));
++
++type Received = { url: string, status: number };
++
++const received: Received[] = [];
++let origin = '';
++const server = createServer((req, res) => {
++  const requestUrl = new URL(req.url ?? '/', 'http://localhost');
++  const query = Object.fromEntries(requestUrl.searchParams);
++  const trpc = decodeURIComponent(requestUrl.pathname.replace(/^\/api\/trpc\//, ''));
++  Object.assign(req, { query: { ...query, trpc } });
++  res.on('finish', () => { received.push({ url: req.url ?? '', status: res.statusCode }); });
++  import('~/pages/api/trpc/[trpc]').then(({ default: handler }) => handler(
++    req as NextApiRequest,
++    res as NextApiResponse,
++  )).catch(() => { res.statusCode = 599; res.end(); });
++});
++
++const nodeFetch = globalThis.fetch;
++
++beforeAll(async () => {
++  await import('~/pages/api/trpc/[trpc]');
++  await new Promise<void>((resolve) => { server.listen(0, resolve); });
++  const { port } = server.address() as AddressInfo;
++  origin = `http://localhost:${port}`;
++});
++
++afterAll(async () => {
++  await new Promise((resolve) => { server.close(resolve); });
++});
++
++beforeEach(() => {
++  received.length = 0;
++  const captured = createCapturingDatabase(({ sql }) => (sql.startsWith('select "userId" from "Accounts"') ? [{ userId: '900000000000001' }] : []));
++  mocks.db = captured.db;
++  vi.stubGlobal('fetch', (input: string | URL, init?: RequestInit) => nodeFetch(new URL(input, origin), init));
++});
++
++afterEach(() => {
++  unmountDom();
++  vi.unstubAllGlobals();
++});
++
++const Preferences = () => {
++  api.user.getPreferences.useQuery();
++  return null;
++};
++
++describe('the site\'s tRPC provider', () => {
++  it('sends a page\'s query as one unbatched request the endpoint answers', async () => {
++    mountDom(<TrpcProvider><Preferences /></TrpcProvider>);
++
++    await vi.waitFor(() => { expect(received.length).toBeGreaterThan(0); });
++
++    const [first] = received;
++    expect(first.url).toMatch(/^\/api\/trpc\/user\.getPreferences(\?|$)/);
++    expect(new URL(first.url, origin).searchParams.has('batch')).toBe(false);
++    expect(first.status).toBe(200);
++  });
++});

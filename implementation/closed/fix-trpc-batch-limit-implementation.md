@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-trpc-batch-limit
 UUID: 61d9ad16
-Status: Active
-Status-Detail: "Build-break fix round (steering ruling 2026-11-21T00:32Z): both tRPC endpoint tests moved out of src/pages/api at 76da25c; next build exits 0; awaiting the reviewer's confirmation, then devops (2 production lines, so no QA Phase 2)."
+Status: Committed
+Status-Detail: "Committed at website chain/fix-trpc-batch-limit tip 76da25c (devops Stage 1, 2026-11-21); awaiting the release to website master on the owner's word. Closes Released at Phase 2D."
 Handoff-At: 76da25c — repos=website
 Origin-Chain: none
 ---
@@ -305,3 +305,4 @@ Next builds every file under `src/pages/api/` as an API route, and the two test 
 | 2026-11-21T00:07 | fixer | Document created; fix committed at `3d2ceec`; handoff to code review |
 | 2026-11-21T00:25 | fixer | Code review Round 1 CR-1 (REJECTED at `3d2ceec`): Minimum remedy at `f47e304`, the provider-link case and its control; `Handoff-At` moved to `f47e304`; re-handoff to code review |
 | 2026-11-21T00:35 | fixer | Build-break fix round (steering 00:32Z ruling (a)): both tRPC endpoint tests moved to `src/server/api/__tests__/` at `76da25c`; `next build` exit 0 in an export; controls re-run; `Handoff-At` moved to `76da25c`; re-handoff to code review |
+| 2026-11-21T00:40 | devops | Document closed | Status: Committed at `76da25c` (code review APPROVED at `76da25c`, record `1dc6670`; deployment record `deployment/fix-trpc-batch-limit-deployment.md`) |
