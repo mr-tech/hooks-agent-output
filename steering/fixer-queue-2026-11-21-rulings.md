@@ -85,3 +85,11 @@ Q4 (H09, daily cron on a fixed key, nothing writes the table it sends from): A. 
 entry (Recommended; unread: whether the production table holds unsent rows); B. You: create a secret in Vercel and the agent switches
 the check to it; C. Agent: don't change.
 Answers: (pending).
+
+## 2026-11-21T05:48Z — his ruling, relayed by the coordinator: prompt him at each decision point
+
+His words, verbatim, relayed by `steering-coordinator` by SendMessage at 05:4xZ: "tell the steering sessions to prompt me and not wait
+for the chains to be blocked". The coordinator's gloss (its words): "put each decision point to the owner as a prompt when it arises,
+rather than waiting for a chain to block." Acted on: every decision point of this effort's chains is put to him as a selection prompt
+when it arises, not held in plain-message form while another chain can move. First application: the four questions of block 05:42Z,
+re-put as a selection prompt at once.
