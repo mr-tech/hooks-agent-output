@@ -89,7 +89,7 @@ Captures are under `verification/fix-get-one-absent-not-found/qa/`, committed in
 | Check | Command | Result |
 |---|---|---|
 | Full suite at tip | `npx vitest run --reporter=json --outputFile=…/qa/suite-tip.json` in the shared tree at `b663b35` | exit **0** (`suite-tip.exit`). `numTotalTests` 2316, passed 2316, failed 0, pending 0. `testResults` has 159 entries. |
-| Suite reconcile vs base | node over `qa/suite-tip.json` and `fixer/suite-base.json` (`b829314`), by path and by file::fullName | Files: 0 only-base and 0 only-tip. Cases: 3 new (cases 1 to 3 by title) and 0 lost. |
+| Suite reconcile vs base | node over `verification/fix-get-one-absent-not-found/qa/suite-tip.json` and `verification/fix-get-one-absent-not-found/fixer/suite-base.json` (`b829314`), by path and by file::fullName | Files: 0 only-base and 0 only-tip. Cases: 3 new (cases 1 to 3 by title) and 0 lost. |
 | Typecheck, both programs | `pnpm run typecheck` | exit **0** (`typecheck.exit`) |
 | Header probe, another user's message (F3) | `qa/probe/header-other-users-message.block.tsx` appended to the tip's `MessageNotFound.edit-and-send-pages.test.tsx` (blob `6a52d2c9`), in a `git archive` export per SHA, run under `unshare -rn` with loopback up | **Tip `b663b35`: exit 0, 14 passed. Base `b829314`: exit 1, 2 failed** (case 2 and the probe, each on `nameField: true`). Probe file hashes: `probe-file-{tip,base}.sha256`. At base the probe got past its 404 and notice assertions, so the other-user case already answered 404 there; the probe fails only on the header. Exports removed afterwards. |
 | Production, before deploy (B-1's instrument run read-only) | stage browser, test account signed in, `browser_evaluate` of the getOne `fetch` | 10:01:25Z: `6022` and `999999999999` give **500 `INTERNAL_SERVER_ERROR` "no result"**, `1000` gives 404 `NOT_FOUND` with the one text, `6010` gives 200 (`prod-getone-pre-deploy-2026-11-21T1001Z.json`). Production still holds the unfixed behaviour. Browser closed, no profile holder, caches emptied. |
@@ -100,7 +100,7 @@ Captures are under `verification/fix-get-one-absent-not-found/qa/`, committed in
   - `Navigation.tsx` lines 81, 268 and 410;
   - `message.ts` lines 14, 35 and 73;
   - `shared.ts` lines 151–156 and 172.
-- **Exclusion.** The 136 lines of `Navigation.tsx` that changed only in whitespace are excluded. `node ~/.claude/tools/mutant-gen.js --range b829314..b663b35` generated 37 mutants (`qa/mutants-range.json`), all in `Navigation.tsx`, and 35 of them sit on those re-indented, behaviour-unchanged lines.
+- **Exclusion.** The 136 lines of `Navigation.tsx` that changed only in whitespace are excluded. `node ~/.claude/tools/mutant-gen.js --range b829314..b663b35` generated 37 mutants (`verification/fix-get-one-absent-not-found/qa/mutants-range.json`), all in `Navigation.tsx`, and 35 of them sit on those re-indented, behaviour-unchanged lines.
 - **Generated mutants kept.** Two: `Navigation.tsx:268:not` and `:268:&&`. mutant-gen produces nothing on the `shared.ts` and `message.ts` added lines, since they carry no operators.
 - **Mutants added by QA.** `header-guard-reads-loading-state` is the guard keyed on the wrong state. `absent-row-error-text-changed` changes the preserved message text.
 - **Fixer's controls, re-run.** The fixer's four controls were re-run as a cross-check under a differently shaped instrument: the full suite, against the fixer's two files.
@@ -108,7 +108,7 @@ Captures are under `verification/fix-get-one-absent-not-found/qa/`, committed in
 - **Captures.** `qa/sweep-run.txt` and the table `qa/sweep-out/mutation-table-b663b354…-20261121T095946Z-p3177733.json`.
 - **Control.** It passed, with `tests_run` 2316. Every mutant has `count` `checked`, so tests_run equals the control's.
 
-**Result: 7 of the 8 mutants in `qa/mutants.json` (the predicate above plus the named QA and fixer additions) are KILLED.**
+**Result: 7 of the 8 mutants in `verification/fix-get-one-absent-not-found/qa/mutants.json` (the predicate above plus the named QA and fixer additions) are KILLED.**
 
 | Mutant | Outcome | Cases it reddened |
 |---|---|---|
