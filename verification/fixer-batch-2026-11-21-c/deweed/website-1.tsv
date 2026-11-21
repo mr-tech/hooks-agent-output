@@ -1,0 +1,35 @@
+id	score	disposition	class	generated	covering	reason
+471	7	kept	-	no	-	Only case writing an unconflicted draft through Save and the only one asserting the typed name reaches the upsert payload; overlaps 472 on the plain Save path only in part
+472	8	kept	-	no	-	Decision row: V2 flag with content and no V2 components is written with the flag cleared under the settled notice; fails if Save persists the loaded draft instead of the settled one
+473	8	kept	-	no	-	Decision row: V2 components without the flag are written with the flag set under its own notice; asserted nowhere else on the dialog
+474	9	kept	-	no	-	The one fixture where the requires-choice conjunct decides: Save writes nothing until a choice, then Classic drops the V2 components and clears the flag
+475	8	kept	-	no	-	Decision row for the other choice: Components V2 keeps the container, drops content and keeps the flag; fails if commitChoice ignores the chosen mode
+476	8	kept	-	no	-	Boundary: a settled draft left empty shows the content-floor error and Save writes nothing; fails if the floor check reads the loaded draft or is dropped from disableSave
+477	7	kept	-	no	-	Same row as 472 but the import arrives after mount; fails alone if the settle is computed once at open rather than per loaded message
+478	8	kept	-	no	-	Failure path: a second import replacing a settled one must ask on Save; fails if a stale settled draft is kept and written
+479	8	kept	-	no	-	Only assertion that the preview receives the settled draft, the message Save will write, rather than the loaded one
+480	7	kept	-	no	-	Only assertion that the preview shows the draft as loaded while the choice is pending; overlaps 479 on preview wiring in part
+481	7	kept	-	no	-	Drives the JSON tab Resolve choice through to the dialog Save; fails if the resolved editor draft is asked about again or re-settled; overlaps 475 in part
+580	9	kept	-	yes	-	Discriminating control for the not-found class on the edit page: real handler answers 200 once and the editor mounts without the notice
+581	9	kept	-	yes	-	Discriminating control on the send page, which has its own isNotFound branch: 200 once, Review Message shown, no notice
+582	9	kept	-	yes	-	The one fixture where the NOT_FOUND code conjunct decides: a BAD_REQUEST load error leaves the edit page without the notice
+583	9	kept	-	yes	-	Same conjunct on the send page own branch: fails if that page keys the notice on any load error
+584	8	kept	-	yes	-	User-visible failure path: notice replaces the editor with a link to /message, driven through the real HTTP handler
+585	8	kept	-	yes	-	Pins the wire answer as one 404 with no retry; fails if the provider drops the retry rule or the handler answers another status
+586	8	kept	-	yes	-	Send page own early return: notice with back link in place of Review Message; separate production branch from 584
+587	5	remove	-	yes	585	The single 404 request is decided in MessageProvider and the handler, neither of which varies by page; repeats 585 on another route
+588	9	kept	-	no	-	Discriminating control for 589: name field, four menus and Send present beside the site navigation for a loadable message; no other spec mounts this header
+589	8	kept	-	no	-	User-visible failure path asserted nowhere else: header drops the editor controls and keeps theme toggle and user menu on not found
+590	5	remove	-	no	585	A rule change that retries a 404 already fails 585, which waits on the notice within one second and expects exactly one request; same input, unit-level repeat
+591	8	kept	-	no	-	Boundary pin of the retry rule on a real 500 from the wire: true for counts 0 to 2, false at 3; asserted nowhere else
+592	8	kept	-	no	-	Pins the 4xx class beyond 404: fails if the rule narrows to code NOT_FOUND; 582 would notice only by timing
+1670	8	kept	-	yes	-	Failure path with exact code and text for an absent number over the default ESM fake; 585 overlaps on the status only
+1671	8	kept	-	yes	-	Permission row: another user personal message answers the uniform NOT_FOUND text, so existence is not disclosed; earlier than 1681, which asserts the code alone
+1672	10	kept	-	yes	-	Only assertion on getOne of the server-message permission boundary: FORBIDDEN from the guild check is answered as the uniform not found
+1673	5	remove	-	no	1671	outcomeOf keeps only code and message and 1670-1672 each pin both exactly, so equality across the three and absence of the secret cannot fail without one of them failing first
+1674	10	kept	Escaped provenance	no	-	Carries escaped provenance; the only fixture run over a kysely build other than the one the router imports, so it fails if not-found detection returns to a class-identity check against the ESM build
+1675	7	kept	-	no	-	Allow side for the owner with the returned data asserted; fails if getOne refuses everyone; 580 overlaps over HTTP on the status only, 1680 is the later repeat
+1676	9	kept	-	no	-	Discriminating control for 1672 and the only allow-side assertion for a server message on getOne
+1677	8	kept	-	no	-	Operator-visible failure path: a Discord guild-read failure stays a server error; fails if asNotFound maps every error to not found
+1678	8	kept	-	no	-	Failure path at the ownership query: a database error is not masked as not found; distinct catch site from 1677
+1679	9	kept	-	no	-	The one fixture where the refusal-code conjunct decides: a TRPCError that is UNAUTHORIZED, not FORBIDDEN, passes through with its own text

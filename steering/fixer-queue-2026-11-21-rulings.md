@@ -222,3 +222,13 @@ branch at `b663b35`; `plan-usage.py --json` live, session 0%, weekly_all 50% (th
 lift is spent; the 98% gate is back in force and far off). No deployment record open (`ls deployment/*.md`: none).
 Disclosed: a shell heredoc append to this file and the chain rulings file was refused by the record-write gate; re-issued through
 `record-edit.js`, as the gate names.
+
+## 2026-11-21T10:22Z — test-case scoring beside the batch retrospective (chains 3 and 3b)
+
+Website at `b663b354` (the batch's last release), clean export; suite 2316 cases, exit 0 (helper's JSON report, counted by python).
+Marked: 34 cases in the three test files `git diff --name-only f4baebb b663b354 -- 'src/**/__tests__/**'` lists as `*.test.ts[x]`
+(the fourth path is a helper). One deweeder unit (ids 471-481, 580-592, 1670-1679). Merged:
+`verification/fixer-batch-2026-11-21-c/deweed/website.tsv` (34 rows, 34 unique ids; python). Below 7: 3 of 34 (8.8%) — 587 and 590
+(covered by 585), 1673 (covered by 1671). Covering cells: every covering id is in the merged table (0 unchecked). Nothing deleted on
+this; a deletion is a later chain's, behind a mutation re-run. Export removed (`ls -d` fails). The retrospective
+(`retrospectives/fixer-batch-2026-11-21-c-retrospective.md`) is still running.
