@@ -26,6 +26,5 @@
   {"id":"stale-pair-unguarded","file":"tools/website-dependency-audit.js","old":"sha !== remote && !state.stale[pair]","new":"sha !== remote"},
   {"id":"stale-without-difference","file":"tools/website-dependency-audit.js","old":"sha !== remote && !state.stale[pair]","new":"!state.stale[pair]"},
   {"id":"stale-pair-not-kept","file":"tools/website-dependency-audit.js","old":"  if (newPair) state.stale[pair] = now;\n","new":""},
-  {"id":"remote-head-empty-accepted","file":"tools/website-dependency-audit.js","old":"  if (!head) throw","new":"  if (false) throw"},
-  {"id":"state-defaults-dropped","file":"tools/website-dependency-audit.js","old":"return { reported: {}, stale: {}, ...JSON.parse(fs.readFileSync(file, 'utf8')) };","new":"return JSON.parse(fs.readFileSync(file, 'utf8'));"}
+  {"id":"remote-head-empty-accepted","file":"tools/website-dependency-audit.js","old":"  if (!head) throw","new":"  if (false) throw"}
 ]

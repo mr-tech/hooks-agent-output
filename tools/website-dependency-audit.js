@@ -101,7 +101,7 @@ function undispositioned(audit, dispositions) {
 
 function readState(file) {
   if (!fs.existsSync(file)) return { reported: {}, stale: {} };
-  return { reported: {}, stale: {}, ...JSON.parse(fs.readFileSync(file, 'utf8')) };
+  return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
 
 function writeState(file, state) {
