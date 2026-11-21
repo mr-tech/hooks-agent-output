@@ -11,8 +11,8 @@ const USAGE = `Usage: node tools/website-dependency-audit.js [--website <repo>] 
   [--inbox <file>] [--state <file>] [--pnpm <path>]
 
 Runs \`pnpm audit --prod --json\` over the package.json, pnpm-lock.yaml, pnpm-workspace.yaml and patches/
-of the website's released ref (an export made with \`git archive\`; the website's own tree is never
-touched), and joins every advisory with the dispositions file. Each advisory with no disposition gets
+of the website's released ref (an export made with \`git archive\`, which fails if any of them is missing;
+the website's own tree is never touched), and joins every advisory with the dispositions file. Each advisory with no disposition gets
 one entry appended to the record's INBOX.md, once: its key is then kept in the state file, and later
 runs do not repeat it. A run where every advisory is dispositioned writes only its log line. Keys in
 either file that match no advisory in the audit are ignored. An unreadable audit exits non-zero and
@@ -57,8 +57,7 @@ function check(result, what) {
 function exportLockfile(opts, dir) {
   const git = (...args) => spawnSync('git', ['-C', opts.website, ...args], { maxBuffer: 1 << 28 });
   const sha = String(check(git('rev-parse', '--short', `${opts.ref}^{commit}`), 'git rev-parse')).trim();
-  const present = String(check(git('ls-tree', '--name-only', sha), 'git ls-tree')).split('\n');
-  const tar = check(git('archive', '--format=tar', sha, ...EXPORTED.filter((f) => present.includes(f))), 'git archive');
+  const tar = check(git('archive', '--format=tar', sha, ...EXPORTED), 'git archive');
   check(spawnSync('tar', ['-x', '-C', dir], { input: tar }), 'tar');
   return sha;
 }

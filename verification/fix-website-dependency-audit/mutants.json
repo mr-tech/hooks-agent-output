@@ -1,0 +1,20 @@
+[
+  {"id": "how-required", "file": "tools/website-dependency-audit.js", "old": "if (d && d.how) continue;", "new": "if (d) continue;"},
+  {"id": "bare-module-key-honoured", "file": "tools/website-dependency-audit.js", "old": "const d = dispositions[key];", "new": "const d = dispositions[key] || dispositions[a.module_name];"},
+  {"id": "reported-not-skipped", "file": "tools/website-dependency-audit.js", "old": "open.filter((u) => !state.reported[u.key])", "new": "open.filter(() => true)"},
+  {"id": "quiet-run-appends", "file": "tools/website-dependency-audit.js", "old": "if (fresh.length) {", "new": "if (true) {"},
+  {"id": "advisories-shape-unchecked", "file": "tools/website-dependency-audit.js", "old": "if (!audit || typeof audit.advisories !== 'object' || audit.advisories === null) {", "new": "if (!audit) {"},
+  {"id": "git-exit-unchecked", "file": "tools/website-dependency-audit.js", "old": "if (result.status !== 0) throw", "new": "if (false) throw"},
+  {"id": "export-not-removed", "file": "tools/website-dependency-audit.js", "old": "    fs.rmSync(dir, { recursive: true, force: true });", "new": ""},
+  {"id": "lead-without-newline-single", "file": "tools/website-dependency-audit.js", "old": "? '\\n' : '\\n\\n'", "new": "? '\\n' : '\\n'"},
+  {"id": "lead-with-newline-none", "file": "tools/website-dependency-audit.js", "old": "? '\\n' : '\\n\\n'", "new": "? '' : '\\n\\n'"},
+  {"id": "versions-not-merged", "file": "tools/website-dependency-audit.js", "old": "const seen = byKey.get(key) || {", "new": "const seen = {"},
+  {"id": "export-omits-package-json", "file": "tools/website-dependency-audit.js", "old": "['package.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml', 'patches']", "new": "['pnpm-lock.yaml', 'pnpm-workspace.yaml', 'patches']"},
+  {"id": "export-omits-lockfile", "file": "tools/website-dependency-audit.js", "old": "['package.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml', 'patches']", "new": "['package.json', 'pnpm-workspace.yaml', 'patches']"},
+  {"id": "export-omits-workspace", "file": "tools/website-dependency-audit.js", "old": "['package.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml', 'patches']", "new": "['package.json', 'pnpm-lock.yaml', 'patches']"},
+  {"id": "export-omits-patches", "file": "tools/website-dependency-audit.js", "old": "['package.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml', 'patches']", "new": "['package.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml']"},
+  {"id": "help-not-handled", "file": "tools/website-dependency-audit.js", "old": "    if (argv[i] === '--help') return null;\n", "new": ""},
+  {"id": "unknown-argument-accepted", "file": "tools/website-dependency-audit.js", "old": "|| argv[i + 1] === undefined) throw", "new": "|| argv[i + 1] === undefined) if (false) throw"},
+  {"id": "state-dir-not-made", "file": "tools/website-dependency-audit.js", "old": "    fs.mkdirSync(path.dirname(opts.state), { recursive: true });\n", "new": ""},
+  {"id": "absent-state-unhandled", "file": "tools/website-dependency-audit.js", "old": "if (!fs.existsSync(file)) return { reported: {} };", "new": "if (false) return { reported: {} };"}
+]
