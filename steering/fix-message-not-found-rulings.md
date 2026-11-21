@@ -86,3 +86,13 @@ QA records its Phase 2 PASS as falsified for this class. Carrier: `handoff/get-o
 number that was deleted or never existed: the notice …") is false in production at `f4baebb`; told to him in this thread's chat 07:5xZ.
 The source handoff `get-one-absent-number-fails-without-not-found-2026-11-19.md` was closed Addressed on a discharge that did not hold;
 the new handoff 7c3e91a4 carries it, so it is not reopened. A refutation helper is trying the cause before the order question is put.
+
+## 2026-11-21T08:00Z — chain closed out; the gap carried to chain 3b
+
+His selections (effort block 07:59Z): the gap is fixed by chain `fix-get-one-absent-not-found` after chain 3, with the not-found page
+dropping the editor controls. Post-deploy B-1 stays Open, carried by `handoff/fix-message-not-found-post-deploy-2026-11-21.md` until
+that chain re-reads it; handoff 7c3e91a4 carries the fix. Sessions stopped 08:00Z (four, `tmux-agent stop`). Scratch removed: four
+chain session directories under `/tmp/claude-1000/-usr-local-bin-hooks-website/` (`du -s` 584+316+20+140 KB before; `ls -d` fails
+after), none cited by an open handoff or docket. No containers (`docker ps -a`). Architecture obligation: the fixer's FYI on
+`system-architecture.md:136` sits in `INBOX.md`, uncommitted in that shared file. Retrospective: his 08:00Z selection, "Agent: run it
+now" (ledger block "2026-11-21T08:00Z — steering-hooks"), over chains `fix-recent-message-ids` and `fix-message-not-found`.

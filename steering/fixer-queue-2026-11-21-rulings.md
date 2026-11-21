@@ -166,3 +166,10 @@ built (`next.config.js` has no `serverExternalPackages`/`transpilePackages`); QA
 **Order, as amended:** 1 done; 2 released with the gap; 3 `fix-import-save-conflict` (running); **3b `fix-get-one-absent-not-found`**
 (handoff 7c3e91a4 plus the header-row limb; a red test whose error comes from the CJS kysely the query really uses; an escaped
 bug-form test is earned, `// escaped:` the deployment record); then 4-9 as block 05:50Z.
+
+## 2026-11-21T08:00Z — selection: the retrospective of chains 1 and 2 runs now
+
+Selection prompt put 07:59Z, answered 08:00Z (ledger block "2026-11-21T08:00Z — steering-hooks"); wording this thread's. Premise:
+weekly_all 94%, `source` live (`plan-usage.py --json`, 07:59Z); the 98% stop; reset 17:00 UTC (same read). Options: A "Agent: after the
+17:00 reset (Recommended)"; B "Agent: run it now" — "spawn the retrospective and the scoring helpers now, beside chain 3. It may bring
+the 98% stop sooner."; C "Agent: fold into the next batch". Chosen by selection: **B**, against this thread's recommendation.
