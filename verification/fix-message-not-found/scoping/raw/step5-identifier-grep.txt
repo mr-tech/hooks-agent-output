@@ -1,0 +1,80 @@
+$ git -C /usr/local/bin/hooks/website grep -n -E "messageError|getMessage|executeTakeFirstOrThrow|NoResultError|NOT_FOUND|retry|notFound" origin/master -- src docs '*.md' '*.json' '*.ts'
+ref origin/master = 76da25c ; 75 matching lines (re-run matched the first run line for line); lines cut to 220 chars below
+origin/master:src/app/message/_components/NewMessageModal.tsx:76:    mutate: upsertMessage, isPending: isSavingMessage, error: messageError,
+origin/master:src/app/message/_components/NewMessageModal.tsx:83:    messageError: webhookMessageError, webhookError,
+origin/master:src/app/message/_components/NewMessageModal.tsx:93:    retry: false,
+origin/master:src/app/message/_components/NewMessageModal.tsx:102:    retry: false,
+origin/master:src/app/message/_components/NewMessageModal.tsx:185:  const messageErrorString = discordMessageError?.message
+origin/master:src/app/message/_components/NewMessageModal.tsx:345:              <NullableComponent show={messageErrorString}>
+origin/master:src/app/message/_components/NewMessageModal.tsx:346:                <div className="mt-2 text-sm text-error">{messageErrorString}</div>
+origin/master:src/app/message/_components/NewMessageModal.tsx:428:              <NullableComponent show={messageError}>
+origin/master:src/app/message/_components/NewMessageModal.tsx:429:                <div className="whitespace-pre-line text-sm text-error">{formatMutationError(messageError)}</div>
+origin/master:src/app/message/m/[id]/_components/SaveAsMenu.tsx:44:    mutate: upsertMessage, isPending: isSavingMessage, error: messageError,
+origin/master:src/app/message/m/[id]/_components/SaveAsMenu.tsx:158:        <NullableComponent show={messageError}>
+origin/master:src/app/message/m/[id]/_components/SaveAsMenu.tsx:159:          <div className="whitespace-pre-line text-sm text-error">{formatMutationError(messageError)}</div>
+origin/master:src/kysely-adapter/index.ts:251:        ? await query.returningAll().executeTakeFirstOrThrow()
+origin/master:src/kysely-adapter/index.ts:252:        : await query.executeTakeFirstOrThrow().then(async () => await db
+origin/master:src/kysely-adapter/index.ts:256:          .executeTakeFirstOrThrow());
+origin/master:src/kysely-adapter/index.ts:293:        ? await query.returningAll().executeTakeFirstOrThrow()
+origin/master:src/kysely-adapter/index.ts:294:        : await query.executeTakeFirstOrThrow().then(async () => await db
+origin/master:src/kysely-adapter/index.ts:298:          .executeTakeFirstOrThrow());
+origin/master:src/kysely-adapter/index.ts:305:      await db.insertInto('Accounts').values(account).executeTakeFirstOrThrow();
+origin/master:src/kysely-adapter/index.ts:312:        .executeTakeFirstOrThrow();
+origin/master:src/kysely-adapter/index.ts:318:        ? await query.returningAll().executeTakeFirstOrThrow()
+origin/master:src/kysely-adapter/index.ts:320:          await query.executeTakeFirstOrThrow();
+origin/master:src/kysely-adapter/index.ts:325:            .executeTakeFirstOrThrow();
+origin/master:src/kysely-adapter/index.ts:363:        ? await query.returningAll().executeTakeFirstOrThrow()
+origin/master:src/kysely-adapter/index.ts:364:        : await query.executeTakeFirstOrThrow().then(async () => await db
+origin/master:src/kysely-adapter/index.ts:368:          .executeTakeFirstOrThrow());
+origin/master:src/kysely-adapter/index.ts:394:        ? await query.returningAll().executeTakeFirstOrThrow()
+origin/master:src/kysely-adapter/index.ts:395:        : await query.executeTakeFirstOrThrow().then(async () => await db
+origin/master:src/kysely-adapter/index.ts:399:          .executeTakeFirstOrThrow());
+origin/master:src/providers/GuildProvider.tsx:90:    retry: 1,
+origin/master:src/providers/GuildProvider.tsx:104:    retry: 1,
+origin/master:src/providers/MessageProvider/index.tsx:36:function getMessage(
+origin/master:src/providers/MessageProvider/index.tsx:67:  messageError: null | TRPCQueryError;
+origin/master:src/providers/MessageProvider/index.tsx:210:    isLoading, error: messageError, refetch, data: fetchedMessage, fetchStatus: messageFetchStatus,
+origin/master:src/providers/MessageProvider/index.tsx:221:      const mostRecent = getMessage(fetchedMessage, ignoreLocalRef);
+origin/master:src/providers/MessageProvider/index.tsx:330:    messageError,
+origin/master:src/providers/MessagesProvider.tsx:37:    retry: false,
+origin/master:src/providers/PartialMessagesProvider.tsx:41:    retry: false,
+origin/master:src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts:19:      select: () => ({ executeTakeFirstOrThrow: () => countResult }),
+origin/master:src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts:126:describe('reportPath — one filename per run, so overwrite-refusal does not block a legitimate retry', () => {
+origin/master:src/scripts/backfillValid.ts:223:    .executeTakeFirstOrThrow();
+origin/master:src/server/api/routers/__tests__/message.get-from-url.test.ts:51:      .rejects.toMatchObject({ code: 'NOT_FOUND' });
+origin/master:src/server/api/routers/__tests__/message.get-from-url.test.ts:127:      code: 'NOT_FOUND',
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:216:    expect(outcome).toMatchObject({ error: { code: 'NOT_FOUND' } });
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:228:    expect(outcome).toMatchObject({ error: { code: 'NOT_FOUND' } });
+origin/master:src/server/api/routers/__tests__/message.personal-ownership.test.ts:390:  const refusal = { code: 'NOT_FOUND' };
+origin/master:src/server/api/routers/guild.ts:11:  getMessages: protectedProcedure
+origin/master:src/server/api/routers/message.ts:14:  deleteOwnedMessage, getMessage, getPartialMessages, getUserMessages,
+origin/master:src/server/api/routers/message.ts:57:      const message = await getMessage(messageId);
+origin/master:src/server/api/routers/message.ts:64:            code: 'NOT_FOUND',
+origin/master:src/server/api/routers/message.ts:99:          code: 'NOT_FOUND',
+origin/master:src/server/api/routers/message.ts:123:            code: 'NOT_FOUND',
+origin/master:src/server/api/routers/message.ts:187:          code: 'NOT_FOUND',
+origin/master:src/server/api/routers/message.ts:211:      const message = await getMessage(input.id);
+origin/master:src/server/api/routers/message.ts:233:          code: 'NOT_FOUND',
+origin/master:src/server/api/utils/authorizeGuildUser.ts:28:      code: 'NOT_FOUND',
+origin/master:src/server/api/utils/getAccount.ts:23:      code: 'NOT_FOUND',
+origin/master:src/server/api/utils/guild.ts:18:      if (err.code === 'NOT_FOUND') return null;
+origin/master:src/server/api/utils/guild.ts:86:            code: 'NOT_FOUND',
+origin/master:src/server/api/utils/shared.ts:145:export async function getMessage(id: string) {
+origin/master:src/server/api/utils/shared.ts:160:    .executeTakeFirstOrThrow();
+origin/master:src/server/api/utils/shared.ts:198:    .executeTakeFirstOrThrow();
+origin/master:src/server/api/utils/shared.ts:274:    ).executeTakeFirstOrThrow();
+origin/master:src/server/api/utils/shared.ts:282:    saved = await buildInsertMessageQuery(database, values).executeTakeFirstOrThrow();
+origin/master:src/server/api/utils/shared.ts:286:  const newMessagePromise = getMessage(id);
+origin/master:src/server/api/utils/user.ts:29:        code: 'NOT_FOUND',
+origin/master:src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:118:    expect(result.messageError).toBeNull();
+origin/master:src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:145:    expect(result.messageError).toBe(FAILURE_TEXT);
+origin/master:src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx:159:    expect(result.messageError).toBe('Unknown Message');
+origin/master:src/utils/hooks/useValidateWebhook.ts:19:  const [messageError, setMessageError] = useState<string | null>(null);
+origin/master:src/utils/hooks/useValidateWebhook.ts:79:    messageError,
+origin/master:src/utils/redis/__tests__/redis.fetch-channel.test.ts:34:    [404, 'NOT_FOUND', 'Channel does not exist.'],
+origin/master:src/utils/redis/index.ts:196:        .executeTakeFirstOrThrow();
+origin/master:src/utils/redis/index.ts:267:          code: 'NOT_FOUND',
+origin/master:src/utils/redis/index.ts:351:              code: 'NOT_FOUND',
+
+$ git -C /usr/local/bin/hooks/website grep -c -E "NoResultError|notFound" origin/master -- src
+(no output: zero files match; docs/ and root *.md, *.json, *.ts also produced no hits)
