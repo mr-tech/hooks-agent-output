@@ -11,5 +11,6 @@ SHA, per your definition. You are in the set only where the fix adds 20 or more 
   common part — in particular that the absent-number red test raises its error from the kysely build production's query runs (common part, hazard 1).
 - The fixer's **User-visible flows** list is what he will read with the release; a flow your pass finds wrong is a finding.
 - A PASS carries `Verified-At: <sha>`; deliver it to `steering-hooks` by SendMessage (devops is started from it). A failure goes to
-  `fixer-fix-get-one-absent-not-found`.
+  `fixer-fix-get-one-absent-not-found` — to `steering-hooks` as a spawn cue when no fixer session is live (`ListAgents`; none was at
+  your spawn, the chain having resumed from a park, rulings block "2026-11-21T09:51Z").
 - Owner-needing items and spawn cues: SendMessage to `steering-hooks`.
