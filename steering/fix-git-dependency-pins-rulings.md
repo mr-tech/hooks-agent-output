@@ -88,3 +88,13 @@ project-utils tree (from 2023) that every rebuild copies back into `dist/` as un
 scope: they are what makes the deleted output reappear; no session owns them (no live chain on project-utils but this one; `git status
 --ignored` shows only `build/`). Untracked-only: no commit changes. `code-reviewer-fix-git-dependency-pins` started with `tmux-agent
 spawn`, brief `steering/fix-git-dependency-pins-brief-code-reviewer.md`.
+
+## 2026-11-21T23:11 — round 1 approved at `40ba5d3`; devops started for the project-utils push
+
+Spawn cue 23:1xZ (the reviewer, by SendMessage): `code-review/fix-git-dependency-pins-code-review.md` (record `fd88ffc`), `Reviewed-At`
+`40ba5d3a5b54… — repos=project-utils; round 1 covers the project-utils half only`, APPROVED, no findings (read by this thread: anchor line,
+commit subject). Assumption Not Checked: consumers outside the workspace loading `prisma-kysely` via project-utils' runtime install. This
+thread's read: no `package.json` under `/usr/local/bin/statbot` or `/usr/local/bin/paracord` names `project-utils`
+(`grep -l --include=package.json -r`, `node_modules` excluded); elsewhere unread. `devops-fix-git-dependency-pins` started with
+`tmux-agent spawn` (cwd `/usr/local/bin/hooks`), brief `steering/fix-git-dependency-pins-brief-devops.md` (release 1: project-utils
+`master`, deploys nothing).
