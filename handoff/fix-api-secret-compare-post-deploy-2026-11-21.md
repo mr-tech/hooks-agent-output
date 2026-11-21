@@ -32,8 +32,18 @@ Source: `qa/fix-api-secret-compare-qa.md` (now `qa/closed/`), "Blocking-conditio
 | Deadline | none set by the QA row; the row stays open until a read decides it |
 | State | Open |
 
-**Result:** (blank — written by the reading stage: `EXECUTED <time>, PASS|FAILED` with the observed response, or `WITHDRAWN` /
-`SUPERSEDED` with who ruled)
+**Result:** EXECUTED 2026-11-21T18:43Z, PASS — by `qa-fix-api-secret-compare` through the stage browser, test account 1 in guild
+`1566742402180456559`, `#general`. Beside the prediction ("the message JSON comes back"): the guild's member list shows the Hooks.gg app
+(read 18:43Z, so the subject exists); the bot's one message command, labelled "Get Message" (`get_message`; its name comes from
+`src/lang` via `bot/scripts/app_commands/messageCommands.ts` at website `0c14d5b`), run on a Statbot `/top` message, answered with its
+ephemeral load reply ("To load your message into the Hooks.gg editor…", a Hooks.gg link, a load code, "Open Message in Hooks.gg"). That
+reply is built by `bot/serverCommands.ts` `get_message`, which the edge relay (`bot/edgeCommands.ts` `get_message`) passes on only when
+`/api/interactions-server` answered 200, so the token guard accepted and `secretEquals` ran. Not a 401-shaped failure; not a 500.
+Evidence: `verification/fix-api-secret-compare/qa/post-deploy/b1-get-message-read.txt` (load code redacted; no screenshot kept).
+**Precondition — unread beyond the push.** origin `master` = `0c14d5bed78f…` (`git ls-remote`, 18:38Z), pushed 18:35:45Z; the GitHub
+deployments API for `hooks-gg/website` answers 404 to this account (`post-deploy/deployments.json`), and no instrument here reads Vercel's
+serving deployment. The read ran about 8 minutes after the push. If production still served `b68f94c` at 18:43Z, this PASS says nothing
+about the release, and the row stays decidable only by a read after the serving commit is shown.
 
 The QA's Assumption Not Checked (Vercel's Node runtime for Pages API routes provides both `crypto` functions) closes with this
 row: falsity signature, every request to `/api/v1/guilds/*/messages*` and `/api/interactions-server` answering 500 after the deploy.
@@ -77,3 +87,4 @@ deployment record's Post-Release Status.
 |---|---|---|
 | 2026-11-21T18:25 | devops-fix-api-secret-compare | Created at Stage 1: B-1 and the code review's Assumption carried in full; B-1's pre-deploy instrument check not run (no browser in this session) |
 | 2026-11-21T18:36 | devops-fix-api-secret-compare | Trigger fired: website origin/master moved b68f94c to 0c14d5b at 2026-11-21T18:35:45Z (deployment/closed/fix-api-secret-compare-deployment.md). Both items still Open; no read has been made; neither is run by a scheduled reader |
+| 2026-11-21T18:44 | qa-fix-api-secret-compare | Item 1 (B-1) read on steering's brief (agent-output 46c0ae4): EXECUTED 18:43Z, PASS — Hooks.gg is in the test server; Get Message returned its load reply. Vercel's serving commit unread beyond the push. Item 2 untouched; Status left to steering |

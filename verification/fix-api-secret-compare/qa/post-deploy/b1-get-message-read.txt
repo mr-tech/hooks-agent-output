@@ -1,0 +1,17 @@
+B-1 read — hooks bot "Get Message" (get_message; the bot's only message command, name from src/lang via bot/scripts/app_commands/messageCommands.ts at website 0c14d5b)
+Run by: qa-fix-api-secret-compare, stage browser, test account 1 (kept profile), guild 1566742402180456559 ("Claude"), #general
+Membership: the guild's member list shows "Hooks.gg" (Verified App) — read 2026-11-21T18:43Z
+Target message: chat-messages-1566742403195469906-1573664201787056229 (a Statbot /top result)
+Command run: 2026-11-21T18:43:5xZ (right-click > Apps > Hooks.gg > Get Message)
+Reply (message 1573770968424259745, ephemeral, innerText read 18:44Z; the load code redacted here):
+  Kiana used Get Message / Hooks.gg VERIFIED APP — 6:43 PM
+  "To load your message into the Hooks.gg editor either: Use the link, Enter the Code into the Load menu,
+   These expire at 7:43 PM (in an hour). Message URL / Hooks.gg Link / Code <redacted, 7 chars> / Open Message in Hooks.gg"
+  "Only you can see this"
+Reading: the load-code reply is produced by bot/serverCommands.ts get_message, reached only through /api/interactions-server answering 200
+(bot/edgeCommands.ts get_message relays data only when res.status === 200), i.e. the token guard accepted and secretEquals ran.
+Not a 401-shaped failure; not a 500.
+Precondition (Vercel production serving a commit containing 0c14d5b): UNREAD beyond the push — origin master = 0c14d5bed78f… (git ls-remote,
+18:38Z), pushed 18:35:45Z (deployment record); GitHub deployments API for hooks-gg/website answers 404 to this account (deployments.json);
+no instrument here reads Vercel's serving deployment. The run was ~8 min after the push. If production still served b68f94c then,
+this read says nothing about the release.
