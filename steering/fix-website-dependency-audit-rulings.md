@@ -59,3 +59,17 @@ verdict (fixer.md).
 `verification/website-deps-review/`.
 **Not covered:** whether `pnpm audit` needs network access the cron environment lacks; the registry's rate limits; how a future
 disposition is added (the fixer states the procedure in the tool's header).
+
+## 2026-11-21T00:01Z — the fixer's blocking question on bare-module defaults: answered from his words (seed per advisory)
+
+**Question** (`fixer-fix-website-dependency-audit`, message 00:0xZ, marked BLOCKED, the rest of its work proceeding): should a bare
+`module` disposition in the review's `dispositions.json` count as having assessed an advisory published after it was written? Its
+read: over `verification/018/security/out/pnpm-audit-prod-d1bb9b0.json`, 81 entries; 6 match `module|GHSA`, 8 `module@version`, 67 a
+bare module default across 27 packages. Its options: (1, recommended) seed one `module|GHSA` key per current entry, no bare defaults;
+(2) copy verbatim; (3) stop.
+**Answered by this thread, not put to him**, because his chosen words settle it: his Q2 answer "yes" to "audit the released lockfile
+and join it with the dispositions already made, so a new advisory is read by someone" (block 2026-11-20T23:44Z of
+`steering/website-deps-review-rulings.md`), and his selection of block 23:58Z above, made on the question "finds a new security
+advisory that hasn't been assessed yet". A default written before an advisory existed has not assessed it, so option 2 would leave new
+advisories in 27 packages unread. **Ruling: option 1** — seed per advisory; the review's file stays unchanged as evidence. The
+fixer's 81/6/8/67 counts are its own read, not re-derived here; they decide nothing between the options.
