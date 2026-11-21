@@ -1,0 +1,64 @@
+Vercel CLI 29.1.1
+Fetching deployment "hooks-gg-website-dbbvp2cya-hooks-gg.vercel.app" in blacklabel
+> Fetched deployment "hooks-gg-website-dbbvp2cya-hooks-gg.vercel.app" in blacklabel [217ms]
+Running build in Washington, D.C., USA (East) – iad1
+Build machine configuration: 8 cores, 16 GB (Enhanced Build Machine)
+Cloning github.com/hooks-gg/website (Branch: master, Commit: 132a7ab)
+Cloning completed: 624.000ms
+Restored build cache from previous deployment (AsiVPq5vBJY7dqJim5PcmFVWCrn9)
+Running "vercel build"
+Vercel CLI 66.2.0
+> Detected ENABLE_EXPERIMENTAL_COREPACK=1 and "pnpm@10.28.2" in package.json
+Running "install" command: `git config --global url."https://${GITHUB_USER}:${GITHUB_USER_ACCESS_TOKEN}@github.com/".insteadOf "git@github.com:" && pnpm install 1> /dev/null`...
+Detected Next.js version: 16.4.6
+Running "pnpm run build"
+
+> website@ build /vercel/path0
+> next build
+
+▲ Next.js 16.4.6 (Turbopack)
+  Applying modifyConfig from Vercel
+✓ Running next.config.js took 53ms
+
+
+  To migrate automatically, run:
+  npx @next/codemod@canary middleware-to-proxy .
+
+  Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ Compiled successfully in 4.4s
+  Running TypeScript ...
+  Finished TypeScript in 3.9s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/9) ...
+  Generating static pages using 7 workers (2/9) 
+❌ Invalid environment variables: {
+  DATABASE_URL: [ 'Required' ],
+  REDISHOST: [ 'Required' ],
+  REDISPORT: [ 'Required' ],
+  REDISUSER: [ 'Required' ],
+  REDISPASSWORD: [ 'Required' ]
+}
+Error occurred prerendering page "/". Read more: https://nextjs.org/docs/messages/prerender-error
+Error: Invalid environment variables
+    at module evaluation (src/env.mjs:115:11)
+    at module evaluation (src/utils/index.ts:13:1)
+    at module evaluation (src/components/Button.tsx:19:1)
+    at module evaluation (src/app/_components/CookieConsent.tsx:7:1)
+  113 |       parsed.error.flatten().fieldErrors,
+  114 |     );
+> 115 |     throw new Error('Invalid environment variables');
+      |           ^
+  116 |   }
+  117 |
+  118 |   env = new Proxy(parsed.data, { {
+  digest: '2204566828'
+}
+Export encountered an error on /page: /, exiting the build.
+⨯ Next.js build worker exited with code: 1 and signal: null
+ ELIFECYCLE  Command failed with exit code 1.
+Error: [BUILD_UTILS_SPAWN_1] Command "pnpm run build" exited with 1
+exit 0

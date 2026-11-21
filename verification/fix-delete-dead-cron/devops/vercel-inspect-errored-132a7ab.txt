@@ -1,0 +1,24 @@
+Vercel CLI 29.1.1
+Fetching deployment "hooks-gg-website-dbbvp2cya-hooks-gg.vercel.app" in blacklabel
+> Fetched deployment "hooks-gg-website-dbbvp2cya-hooks-gg.vercel.app" in blacklabel [643ms]
+
+  General
+
+    id		dpl_E9QKLBn9M8VxTosRLrSJxrQDYSxy
+    name	hooks-gg-website
+    status	● Error
+    url		https://hooks-gg-website-dbbvp2cya-hooks-gg.vercel.app
+    created	Sat Nov 21 2026 23:19:00 GMT+0000 (Coordinated Universal Time) [5m ago]
+
+
+  Aliases
+
+    ╶ https://hooks-gg-website-hooks-gg.vercel.app
+    ╶ https://hooks-gg-website-git-master-hooks-gg.vercel.app
+    
+
+  Builds
+
+    ╶ .        [0ms]
+    
+

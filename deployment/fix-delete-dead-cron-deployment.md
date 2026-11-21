@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-delete-dead-cron
 UUID: af508ebe
-Status: Released
-Status-Detail: "Released: website master moved 0c14d5b to 132a7ab at 2026-11-21T23:18:58Z on the owner's release approval, read back at origin. The one forward read (the Vercel dashboard Cron Jobs list) is carried by handoff/vercel-dashboard-cron-list-after-cron-removal-2026-11-21.md, which this record does not wait on."
+Status: Active
+Status-Detail: "Reopened. Website master was pushed 0c14d5b to 132a7ab at 2026-11-21T23:18:58Z on the owner's approval, but Vercel's production deployment of that push errored (build: five required settings absent at prerender), so production still serves the previous release. Awaiting the cause and the owner's decision; see Correction."
 ---
 
 # Deployment — fix-delete-dead-cron (website `master`)
@@ -15,6 +15,30 @@ Status-Detail: "Released: website master moved 0c14d5b to 132a7ab at 2026-11-21T
 | 2026-11-21T20:56 | devops | Document created at Stage 2 readiness (Phase 2A steps 1-10), after Stage 1 (record commit `e53d265`). Brief `steering/fix-delete-dead-cron-brief-devops.md` read whole; its common part read. No wake-up from an earlier session: this is the first pass. Steering's brief had arrived, so no gap is recorded there. |
 | 2026-11-21T23:18 | devops | Owner's release approval received ("Agent: release it now (Recommended)", selection prompt) and recorded under User Confirmation; pre-move reads taken. |
 | 2026-11-21T23:19 | devops | Phase 2C: website `master` moved `0c14d5b` to `132a7ab`, push at 23:18:58Z, read back at origin 23:19:01Z. Phase 2D worked: fix branch deleted with `-d`; stage documents `Released`; reconciliation table written. Status Released; document closed to `deployment/closed/`. |
+| 2026-11-21T23:25 | devops | Reopened on `steering-hooks`'s report that the production deployment for the push errored, which I then read myself (see Correction). Status Active, document back in `deployment/`. |
+
+## Correction — 2026-11-21T23:25 (reconcile note; the sections below stand as written at their times)
+
+**What this record said.** At 23:19Z (changelog row, Release Execution, Post-Release Status, Phase 2D table) it said "Deployment Complete", took serving state as evidenced by the push alone,
+and closed as `Released`. Its Release Identifier and the push itself stand: `git ls-remote origin master` reads `132a7ab6f49d8a85ead507e2221ab3c3a531fd00` again at 23:24:49Z
+(`verification/fix-delete-dead-cron/devops/post-move-origin-read-2.txt`).
+
+**Why that was defensible when written.** The deploy-evidence rule in this agent's definition takes a push to the deploy ref as a successful deployment unless the owner states otherwise, and
+forbids asking for a runner's or a workflow run's outcome. The push was read back; no contrary statement existed at 23:19Z. I made no read of Vercel's deployment state after the push, and none was
+owed under that rule. It was a wrong claim all the same: the rule's own exception, a statement otherwise, arrived at about 23:2xZ.
+
+**What is now established (read by me at 23:23-23:25Z with the look-only CLI, stdin closed, after `steering-hooks` reported it).**
+- `vercel ls --prod`: the newest production deployment, `hooks-gg-website-dbbvp2cya-hooks-gg.vercel.app`, is "Error", 17 s, created 2026-11-21T23:19:00Z; the one below it (`…oxeqdn0vp…`, built from `0c14d5b` at 18:35:46Z) is "Ready"
+  (`vercel-inspect-errored-132a7ab.txt`). `hooks.gg` is aliased to that earlier deployment, per `steering-hooks`'s read of `vercel inspect https://hooks.gg`; the errored one carries only the project and git-master aliases.
+  So production still serves the previous release, the change is NOT live, and no outage resulted.
+- The build log of the errored deployment (`vercel-build-log-errored-132a7ab.txt`) shows a clone of `master` at commit `132a7ab`, pnpm 10.28.2, install, "Compiled successfully", TypeScript finished, then
+  "Invalid environment variables" for five required names, `DATABASE_URL`, `REDISHOST`, `REDISPORT`, `REDISUSER`, `REDISPASSWORD` (names only, no value read), thrown from `src/env.mjs:115` while prerendering `/`; "Export encountered an error on /page: /, exiting the build."
+- The earlier production build of `0c14d5b` (18:35Z, `vercel-build-log-prod-0c14d5b.txt`) passed the same prerender step with the same code path, so those five settings were supplied to it.
+
+**What is not established.** Why the build did not see those settings this time. The release diff touches five paths (`package.json`, `pnpm-lock.yaml`, `cron.ts`, its test, `vercel.json`); none is read by `src/env.mjs`, and my own build at the tip with `SKIP_ENV_VALIDATION=1` passed. The control run
+without the settings (base against tip) is below. The project's setting list in Vercel is not readable by the three sanctioned commands (`ls`, `inspect`, `logs`), so whether the settings changed between 18:35Z and 23:19Z is the owner's read, or needs his word for one more look-only command.
+
+**Class of claim corrected.** The claim "serving state follows from the push" in this record: `grep -n -i -E "deployment complete|serving state|deploy evidence|evidenced by the push" deployment/fix-delete-dead-cron-deployment.md` is enumerated and each hit dispositioned in the changelog row of the closing correction (below, once the control run is read); other documents' hits are in the same note.
 
 ## Plan Reference
 
