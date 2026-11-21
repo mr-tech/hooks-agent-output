@@ -1,0 +1,111 @@
+id	score	disposition	class	generated	covering	reason
+180	8	kept	-	yes	-	only case where the edit page opens a loadable message through the real getOne route (200, one request); fails if the notice is keyed on anything but a refusal
+181	7	kept	-	yes	-	send page's own early-return wiring on the loadable path; overlaps 180 only in the shared provider
+182	9	kept	-	yes	-	the one fixture where the NOT_FOUND conjunct alone decides: a BAD_REQUEST refusal must not show the notice
+183	8	kept	-	yes	-	send page's own isNotFound branch against a non-not-found refusal; asserted nowhere else for this page
+184	8	kept	-	yes	-	user-visible failure path on the edit page: notice replaces the editor, link back to /message; note the fake database is the ESM kysely build, so the NoResultError identity the route matches on is not what production runs
+185	7	kept	-	yes	-	only wire-level assertion that the retry rule is wired into the load (one 404 request); overlaps 184 and 188 in part
+186	8	kept	-	yes	-	user-visible failure path on the send page, its own branch; same ESM-kysely fake as 184
+187	5	remove	-	yes	185	repeats 185 on the other page: the single request is decided in the shared provider, not in either page
+188	6	remove	-	no	185	same 404 row of the retry rule on the same wire error; 185 fails first on any change to it
+189	8	kept	-	no	-	only assertion of the server-error row and the three-retry boundary [true,true,true,false]
+190	8	kept	-	no	-	only assertion of the non-404 4xx row of the retry rule (BAD_REQUEST not retried)
+1028	8	kept	-	yes	-	over-limit boundary (bound+1) of action row buttons on updatePreferences, refused before any query; earliest case on these inputs
+1029	5	remove	-	yes	1028	same refusal as 1028 at bound+50; no change fails this and not 1028
+1030	7	kept	-	yes	-	action row buttons: elements of an over-limit list are not validated (one issue, not one per element); a plain max() passes 1028 and fails here
+1031	5	remove	-	yes	1030	same as 1030 at bound+50
+1032	5	remove	-	yes	1030	same no-element-validation behaviour as 1030 with a wrong-primitive element
+1033	5	remove	-	yes	1030	same as 1030 with wrong-primitive elements at bound+50
+1034	5	remove	-	yes	1030	same no-element-validation behaviour as 1030 with null elements; nothing dereferences these elements
+1035	5	remove	-	yes	1030	same as 1030 with null elements at bound+50
+1036	8	kept	-	yes	-	accept side of the action row buttons boundary: a list exactly at the bound reaches the database
+1037	5	remove	-	yes	1036	same acceptance as 1036 one below the bound
+1038	8	kept	-	yes	-	only case on this route showing action row buttons elements are still validated within the bound, at their own path; fails if the element pipe is dropped
+1039	5	remove	-	yes	1038	same as 1038 one below the bound
+1040	8	kept	-	yes	-	over-limit boundary (bound+1) of section text displays on updatePreferences, refused before any query; earliest case on these inputs
+1041	5	remove	-	yes	1040	same refusal as 1040 at bound+50; no change fails this and not 1040
+1042	7	kept	-	yes	-	section text displays: elements of an over-limit list are not validated (one issue, not one per element); a plain max() passes 1040 and fails here
+1043	5	remove	-	yes	1042	same as 1042 at bound+50
+1044	5	remove	-	yes	1042	same no-element-validation behaviour as 1042 with a wrong-primitive element
+1045	5	remove	-	yes	1042	same as 1042 with wrong-primitive elements at bound+50
+1046	7	kept	-	yes	-	null child in a list the displayable-text sum walks: a crash instead of a refusal would surface as a non-BAD_REQUEST code; not decidable from the code that 1042 always fails first
+1047	5	remove	-	yes	1046	same as 1046 at bound+50
+1048	8	kept	-	yes	-	accept side of the section text displays boundary: a list exactly at the bound reaches the database
+1049	5	remove	-	yes	1048	same acceptance as 1048 one below the bound
+1050	8	kept	-	yes	-	only case on this route showing section text displays elements are still validated within the bound, at their own path; fails if the element pipe is dropped
+1051	5	remove	-	yes	1050	same as 1050 one below the bound
+1052	8	kept	-	yes	-	over-limit boundary (bound+1) of media gallery items on updatePreferences, refused before any query; earliest case on these inputs
+1053	5	remove	-	yes	1052	same refusal as 1052 at bound+50; no change fails this and not 1052
+1054	7	kept	-	yes	-	media gallery items: elements of an over-limit list are not validated (one issue, not one per element); a plain max() passes 1052 and fails here
+1055	5	remove	-	yes	1054	same as 1054 at bound+50
+1056	5	remove	-	yes	1054	same no-element-validation behaviour as 1054 with a wrong-primitive element
+1057	5	remove	-	yes	1054	same as 1054 with wrong-primitive elements at bound+50
+1058	5	remove	-	yes	1054	same no-element-validation behaviour as 1054 with null elements; nothing dereferences these elements
+1059	5	remove	-	yes	1054	same as 1054 with null elements at bound+50
+1060	8	kept	-	yes	-	accept side of the media gallery items boundary: a list exactly at the bound reaches the database
+1061	5	remove	-	yes	1060	same acceptance as 1060 one below the bound
+1062	8	kept	-	yes	-	only case on this route showing media gallery items elements are still validated within the bound, at their own path; fails if the element pipe is dropped
+1063	5	remove	-	yes	1062	same as 1062 one below the bound
+1064	8	kept	-	yes	-	over-limit boundary (bound+1) of container children on updatePreferences, refused before any query; earliest case on these inputs
+1065	5	remove	-	yes	1064	same refusal as 1064 at bound+50; no change fails this and not 1064
+1066	7	kept	-	yes	-	container children: elements of an over-limit list are not validated (one issue, not one per element); a plain max() passes 1064 and fails here
+1067	5	remove	-	yes	1066	same as 1066 at bound+50
+1068	5	remove	-	yes	1066	same no-element-validation behaviour as 1066 with a wrong-primitive element
+1069	5	remove	-	yes	1066	same as 1066 with wrong-primitive elements at bound+50
+1070	7	kept	-	yes	-	null child in a list the displayable-text sum walks: a crash instead of a refusal would surface as a non-BAD_REQUEST code; not decidable from the code that 1066 always fails first
+1071	5	remove	-	yes	1070	same as 1070 at bound+50
+1072	6	remove	-	yes	1066	inner over-limit lists not visited: same no-element-validation behaviour as 1066 with nested data
+1073	5	remove	-	yes	1066	same as 1066 with nested elements at bound+50
+1074	8	kept	-	yes	-	accept side of the container children boundary: a list exactly at the bound reaches the database
+1075	5	remove	-	yes	1074	same acceptance as 1074 one below the bound
+1076	8	kept	-	yes	-	only case on this route showing container children elements are still validated within the bound, at their own path; fails if the element pipe is dropped
+1077	5	remove	-	yes	1076	same as 1076 one below the bound
+1078	8	kept	-	yes	-	over-limit boundary (bound+1) of embed fields on updatePreferences, refused before any query; earliest case on these inputs
+1079	5	remove	-	yes	1078	same refusal as 1078 at bound+50; no change fails this and not 1078
+1080	7	kept	-	yes	-	embed fields: elements of an over-limit list are not validated (one issue, not one per element); a plain max() passes 1078 and fails here
+1081	5	remove	-	yes	1080	same as 1080 at bound+50
+1082	5	remove	-	yes	1080	same no-element-validation behaviour as 1080 with a wrong-primitive element
+1083	5	remove	-	yes	1080	same as 1080 with wrong-primitive elements at bound+50
+1084	5	remove	-	yes	1080	same no-element-validation behaviour as 1080 with null elements; nothing dereferences these elements
+1085	5	remove	-	yes	1080	same as 1080 with null elements at bound+50
+1086	8	kept	-	yes	-	accept side of the embed fields boundary: a list exactly at the bound reaches the database
+1087	5	remove	-	yes	1086	same acceptance as 1086 one below the bound
+1088	8	kept	-	yes	-	only case on this route showing embed fields elements are still validated within the bound, at their own path; fails if the element pipe is dropped
+1089	5	remove	-	yes	1088	same as 1088 one below the bound
+1090	8	kept	-	yes	-	over-limit boundary (bound+1) of allowed-mentions parse on updatePreferences, refused before any query; earliest case on these inputs
+1091	5	remove	-	yes	1090	same refusal as 1090 at bound+50; no change fails this and not 1090
+1092	7	kept	-	yes	-	allowed-mentions parse: elements of an over-limit list are not validated (one issue, not one per element); a plain max() passes 1090 and fails here
+1093	5	remove	-	yes	1092	same as 1092 at bound+50
+1094	5	remove	-	yes	1092	same no-element-validation behaviour as 1092 with a wrong-primitive element
+1095	5	remove	-	yes	1092	same as 1092 with wrong-primitive elements at bound+50
+1096	5	remove	-	yes	1092	same no-element-validation behaviour as 1092 with null elements; nothing dereferences these elements
+1097	5	remove	-	yes	1092	same as 1092 with null elements at bound+50
+1098	8	kept	-	yes	-	accept side of the allowed-mentions parse boundary: a list exactly at the bound reaches the database
+1099	5	remove	-	yes	1098	same acceptance as 1098 one below the bound
+1100	8	kept	-	yes	-	only case on this route showing allowed-mentions parse elements are still validated within the bound, at their own path; fails if the element pipe is dropped
+1101	5	remove	-	yes	1100	same as 1100 one below the bound
+1102	8	kept	-	yes	-	over-limit boundary (bound+1) of allowed-mentions users on updatePreferences, refused before any query; earliest case on these inputs
+1103	5	remove	-	yes	1102	same refusal as 1102 at bound+50; no change fails this and not 1102
+1104	7	kept	-	yes	-	allowed-mentions users: elements of an over-limit list are not validated (one issue, not one per element); a plain max() passes 1102 and fails here
+1105	5	remove	-	yes	1104	same as 1104 at bound+50
+1106	5	remove	-	yes	1104	same no-element-validation behaviour as 1104 with a wrong-primitive element
+1107	5	remove	-	yes	1104	same as 1104 with wrong-primitive elements at bound+50
+1108	5	remove	-	yes	1104	same no-element-validation behaviour as 1104 with null elements; nothing dereferences these elements
+1109	5	remove	-	yes	1104	same as 1104 with null elements at bound+50
+1110	8	kept	-	yes	-	accept side of the allowed-mentions users boundary: a list exactly at the bound reaches the database
+1111	5	remove	-	yes	1110	same acceptance as 1110 one below the bound
+1112	8	kept	-	yes	-	only case on this route showing allowed-mentions users elements are still validated within the bound, at their own path; fails if the element pipe is dropped
+1113	5	remove	-	yes	1112	same as 1112 one below the bound
+1114	8	kept	-	yes	-	over-limit boundary (bound+1) of allowed-mentions roles on updatePreferences, refused before any query; earliest case on these inputs
+1115	5	remove	-	yes	1114	same refusal as 1114 at bound+50; no change fails this and not 1114
+1116	7	kept	-	yes	-	allowed-mentions roles: elements of an over-limit list are not validated (one issue, not one per element); a plain max() passes 1114 and fails here
+1117	5	remove	-	yes	1116	same as 1116 at bound+50
+1118	5	remove	-	yes	1116	same no-element-validation behaviour as 1116 with a wrong-primitive element
+1119	5	remove	-	yes	1116	same as 1116 with wrong-primitive elements at bound+50
+1120	5	remove	-	yes	1116	same no-element-validation behaviour as 1116 with null elements; nothing dereferences these elements
+1121	5	remove	-	yes	1116	same as 1116 with null elements at bound+50
+1122	8	kept	-	yes	-	accept side of the allowed-mentions roles boundary: a list exactly at the bound reaches the database
+1123	5	remove	-	yes	1122	same acceptance as 1122 one below the bound
+1124	8	kept	-	yes	-	only case on this route showing allowed-mentions roles elements are still validated within the bound, at their own path; fails if the element pipe is dropped
+1125	5	remove	-	yes	1124	same as 1124 one below the bound
+1126	8	kept	-	yes	-	over-limit boundary (bound+1) of embeds on updatePreferences, refused before any query; earliest case on these inputs

@@ -1,0 +1,112 @@
+id	score	disposition	class	generated	covering	reason
+1127	5	remove	-	yes	1126	same embeds bound as length 11, further over the limit; no change fails it without failing 1126
+1128	7	kept	-	yes	-	only case at the embeds list where invalid elements over the bound yield the single list issue; fails if this site reverts to a non-fatal max
+1129	5	remove	-	yes	1128	repeats the fatal-bound behaviour of 1128 at length 60
+1130	5	remove	-	yes	1128	number elements fail per element exactly as invalid ones do; same fatal-bound behaviour as 1128
+1131	5	remove	-	yes	1128	repeats 1128 with number elements at length 60
+1132	5	remove	-	yes	1128	null elements, same fatal-bound behaviour as 1128
+1133	5	remove	-	yes	1128	repeats 1128 with null elements at length 60
+1134	5	remove	-	yes	1128	embeds each holding an over-limit field list; the suppressed inner issues are the same fatal-bound behaviour as 1128
+1135	5	remove	-	yes	1128	repeats 1128 with nested elements at length 60
+1136	8	kept	-	yes	-	pins the accepting side of the embeds bound at exactly 10 on updatePreferences
+1137	5	remove	-	yes	1136	one below the bound; a lowered bound fails 1136 first
+1138	7	kept	-	yes	-	a list at the bound still reports its element's own issue with exact path and message; fails if the bound check swallows element issues
+1139	5	remove	-	yes	1138	repeats 1138 one element shorter
+1140	8	kept	-	yes	-	pins the refusing side of the top-level components bound at 41 with the one list issue and no query
+1141	5	remove	-	yes	1140	same bound as 1140 at length 90
+1142	7	kept	-	yes	-	only case at the top-level components list where invalid elements over the bound yield the single list issue
+1143	5	remove	-	yes	1142	repeats 1142 at length 90
+1144	5	remove	-	yes	1142	number elements, same fatal-bound behaviour as 1142
+1145	5	remove	-	yes	1142	repeats 1142 with number elements at length 90
+1146	5	remove	-	yes	1142	null elements, same fatal-bound behaviour as 1142
+1147	5	remove	-	yes	1142	repeats 1142 with null elements at length 90
+1148	5	remove	-	yes	1142	containers each over their own bound; suppressed inner issues are the same fatal-bound behaviour as 1142
+1149	5	remove	-	yes	1142	repeats 1142 with nested elements at length 90
+1150	8	kept	-	yes	-	pins the accepting side of the top-level components bound at exactly 40
+1151	5	remove	-	yes	1150	one below the bound; a lowered bound fails 1150 first
+1152	7	kept	-	yes	-	a components list at the bound still reports the element's own issue with exact path and message
+1153	5	remove	-	yes	1152	repeats 1152 one element shorter
+1154	8	kept	-	yes	-	pins the refusing side of the recentMessageIds input bound (12 against 11) with the one issue and no query
+1155	7	kept	-	yes	-	wrong-primitive elements over the bound yield only the list issue; fails if this list reverts to a non-fatal max
+1156	5	remove	-	yes	1155	null elements, same fatal-bound behaviour as 1155
+1157	5	remove	-	no	1154	same bound as 1154 at length 61, and asserts less (no code, no query count)
+1158	8	kept	-	yes	-	letters refused at the element path before any query; first case in the suite on the digit class of a stored recent id
+1159	8	kept	-	yes	-	empty string refused; pins the lower length bound of the id pattern (an empty string converts to 0 otherwise)
+1160	8	kept	-	yes	-	one past the int8 maximum refused; the only input here that fails when the range refine is dropped
+1161	7	kept	-	yes	-	a signed number refused; fails alone if the pattern admits a leading minus
+1162	6	remove	-	yes	1160	twenty digits also exceed the int8 maximum, so the range refine refuses it whatever the length bound; no change fails it without 1160
+1163	8	kept	-	yes	-	pins the accepting side of the input bound at 11, one above the stored maximum
+1164	5	remove	-	yes	1163	one below the bound; a lowered bound fails 1163 first
+1165	7	kept	-	yes	-	an empty list reaches the database, the clear-recents input; fails on a minimum-length or falsy-list change that no other case sees
+1166	8	kept	-	no	-	exactly 20 issues come back whole with no summary; the lower edge of the cap
+1167	8	kept	-	no	-	21 issues come back as the first 20 in order plus the summary; the upper edge of the cap
+1168	7	kept	-	no	-	cap on a different list, and the only case that renders the capped refusal through formatMutationError to 21 lines
+1169	7	kept	-	no	-	an issue added by a list bound counts toward the 20, at 19+1 and 20+1; a different issue source from 1166 and 1167
+1170	8	kept	-	no	-	the displayable-text issue keeps its own wording and counts toward the 20; fails if the cap replaces a custom message with the default
+1171	8	kept	-	no	-	only case bounding the work done after the cap is hit (property reads under 200 of 3200)
+1172	7	kept	-	no	-	interleaved refusals keep separate issue lists; fails if the collector moves out of the call
+1173	7	kept	-	yes	-	a 100k-character mention kind is not echoed into the refusal; fails if this union reverts to an enum whose message quotes the input
+1174	5	remove	-	yes	1173	same allowed-mentions union as 1173 with three elements
+1175	7	kept	-	yes	-	long link-button style not echoed; own schema site
+1176	7	kept	-	yes	-	long link-button type not echoed; own schema site
+1177	7	kept	-	yes	-	long section accessory type not echoed; the accessory union
+1178	7	kept	-	yes	-	long separator spacing not echoed; own schema site
+1179	7	kept	-	yes	-	long text-display type inside a section not echoed; own schema site
+1180	5	remove	-	yes	1177	same accessory union failing on the same key as 1177, with a media field added
+1181	7	kept	-	yes	-	a capped refusal of the widest issues stays under 16 KB with only the three keys
+1182	6	remove	-	yes	1181	same size bound and key check as 1181 on another body; the stripped union detail is pinned by 1183 and 1184
+1183	7	kept	-	no	-	exact issue of an uncapped single refusal; fails if issue reduction is dropped on the uncapped path
+1184	7	kept	-	no	-	each failing accessory yields exactly one issue at its own path; fails if the union's branch issues leak out
+1185	7	kept	-	no	-	union refusals count one each toward the cap; a score not decidable against 1167 from the code alone
+1186	8	kept	-	no	-	a failed accessory suppresses the displayable-text issue on its section; decision row asserted nowhere else on this route
+1187	8	kept	-	no	-	a matched branch keeps both of its issues in order and the displayable-text check still runs; the opposite row to 1186
+1188	7	kept	-	no	-	the matched thumbnail branch reports its nested url issue and not a generic union issue
+1189	10	kept	-	no	-	only assertion of what updatePreferences writes: the eleven admitted ids are stored as the first ten
+1656	8	kept	-	yes	-	an absent number answers NOT_FOUND with the one text; the fake database and the router share one kysely instance, so a NoResultError from another build of kysely is not exercised here
+1657	10	kept	-	yes	-	another user's personal message answers not found with the exact text; the access boundary of getOne for personal messages
+1658	10	kept	-	yes	-	a message of a server the user cannot manage answers not found, not forbidden; the access boundary of getOne for server messages
+1659	5	remove	-	no	1657	1656 to 1658 each compare the whole outcome to one literal, so sameness and the absence of the content already follow
+1660	9	kept	-	no	-	discriminating control for 1657: same message, its owner, content returned
+1661	9	kept	-	no	-	discriminating control for 1658: same message and user, server now managed, content returned
+1662	8	kept	-	no	-	a Discord failure stays a server error and is not turned into not found
+1663	8	kept	-	no	-	a database failure in the owner check stays a server error and is not turned into not found
+1664	8	kept	-	no	-	a session with no account stays UNAUTHORIZED with its own text
+1675	8	kept	-	no	-	an empty id list issues no query; the empty in-list boundary
+1676	8	kept	-	no	-	the compiled query binds the ids as one in-list and scopes personal rows to the caller; expectation is literal SQL and parameters, not production text
+1677	8	kept	-	no	-	non-numeric and out-of-range ids never reach the query's parameters
+1678	8	kept	-	no	-	no query when filtering leaves nothing; fails alone if the emptiness check is made before the filter
+1679	8	kept	-	no	-	a user with no servers gets an owner-only predicate with no empty in-list and no exists arm
+1680	10	kept	-	no	-	only assertion that getPartialMessages limits server messages to the caller's own server ids
+1704	7	kept	-	no	-	a stored recent id the user owns comes back through the session callback
+1705	10	kept	-	no	-	another user's personal message is left out and the query is bound to the session's database user id; the ownership boundary on the session route
+1706	8	kept	-	no	-	server messages of three administered servers are all listed beside the personal one; the admitting row of the server filter
+1707	10	kept	-	no	-	a server message of a server outside the user's list is left out of the session; the server boundary on this route
+1708	7	kept	-	no	-	the server filter with an empty server list; fails alone if the filter is skipped when there are no servers
+1709	7	kept	-	yes	-	a malformed stored id neither fails the session nor reaches the query, with a fake that throws as the column would; overlaps 1677 at the function below
+1710	5	remove	-	yes	1709	same outcome as 1709 with an empty string; that boundary of the id pattern is pinned by 1159
+1711	5	remove	-	yes	1709	same outcome as 1709 with an out-of-range number; 1677 binds the same value at the function
+1712	5	remove	-	yes	1709	same outcome as 1709 with a negative number; that edge of the id pattern is pinned by 1161
+1713	7	kept	-	yes	-	a stored element that is not a string at all is dropped; the one non-string input in the suite
+1714	8	kept	-	no	-	the session's preferences carry only the valid ids and keep the other preference keys; the callback's own filter, asserted nowhere else
+1930	7	kept	-	no	-	both fetches are in flight before either settles; fails when they are awaited in sequence, a latency regression and not a refactor
+1931	7	kept	-	no	-	guilds and messages both land on the returned session; the only assertion of user.guilds beside 1935
+1932	8	kept	-	no	-	a recent-messages failure rejects the callback and leaves nothing unhandled
+1933	8	kept	-	no	-	a rejection that lands during the account lookup is still reported and never unhandled; fails when the early catch is removed
+1934	8	kept	-	no	-	account not found after a recent-messages failure returns the empty session with nothing unhandled
+1935	8	kept	-	yes	-	a user with no preferences object gets guilds, no messages and no recent-messages call
+1936	7	kept	-	yes	-	an empty preferences object, the shape a new profile is given; fails alone if the guard reads past a present object
+1937	7	kept	-	no	-	a failed account lookup rejects with its own error and the guild fetch never starts
+1938	7	kept	-	no	-	the lookup's error wins over an earlier recent-messages rejection, with nothing unhandled
+1939	7	kept	-	no	-	a recent-messages rejection after the callback has already rejected stays handled
+1940	6	remove	-	no	1934	empty session for a missing account, already asserted by 1934; the code has no branch that tells the two apart
+1941	5	remove	-	no	1934	the same sequence and the same assertions as 1934
+1942	6	remove	-	no	1939	a late recent-messages rejection after the callback has left, as 1939; the empty-session result is 1934's
+1943	8	kept	-	no	-	an account with no access token gets no guilds and no guild fetch while keeping its messages; the one fixture where the token decides
+1944	7	kept	-	yes	-	a recent-messages failure still rejects on the no-token branch; overlaps 1932 only in part
+1945	5	remove	-	yes	1944	the same branch as 1944 with the rejection a tick later
+1946	6	remove	-	no	1932	the same rejection path as 1932 with the guild fetch already settled
+1947	8	kept	-	no	-	a guild fetch failure rejects the callback with its own error
+1948	6	remove	-	no	1947	the guild fetch's error surfaces as in 1947; the second rejection changes nothing the code can get wrong without 1930 or 1947 failing
+1949	8	kept	-	no	-	the earlier rejection wins when both fail; the only case that fails if the two are awaited one after the other, guilds first
+2000	10	kept	-	no	-	only assertion of which servers a user is treated as managing: owner or Administrator, sorted by name, trimmed to the session fields, fetched with the bearer token
+2001	6	remove	-	no	2000	the two excluded permission values are already excluded in 2000; only the empty result is new

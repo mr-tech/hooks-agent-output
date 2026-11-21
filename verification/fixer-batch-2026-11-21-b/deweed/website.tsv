@@ -1,0 +1,222 @@
+id	score	disposition	class	generated	covering	reason	covering_check
+180	8	kept	-	yes	-	only case where the edit page opens a loadable message through the real getOne route (200, one request); fails if the notice is keyed on anything but a refusal	
+181	7	kept	-	yes	-	send page's own early-return wiring on the loadable path; overlaps 180 only in the shared provider	
+182	9	kept	-	yes	-	the one fixture where the NOT_FOUND conjunct alone decides: a BAD_REQUEST refusal must not show the notice	
+183	8	kept	-	yes	-	send page's own isNotFound branch against a non-not-found refusal; asserted nowhere else for this page	
+184	8	kept	-	yes	-	user-visible failure path on the edit page: notice replaces the editor, link back to /message; note the fake database is the ESM kysely build, so the NoResultError identity the route matches on is not what production runs	
+185	7	kept	-	yes	-	only wire-level assertion that the retry rule is wired into the load (one 404 request); overlaps 184 and 188 in part	
+186	8	kept	-	yes	-	user-visible failure path on the send page, its own branch; same ESM-kysely fake as 184	
+187	5	remove	-	yes	185	repeats 185 on the other page: the single request is decided in the shared provider, not in either page	
+188	6	remove	-	no	185	same 404 row of the retry rule on the same wire error; 185 fails first on any change to it	
+189	8	kept	-	no	-	only assertion of the server-error row and the three-retry boundary [true,true,true,false]	
+190	8	kept	-	no	-	only assertion of the non-404 4xx row of the retry rule (BAD_REQUEST not retried)	
+1028	8	kept	-	yes	-	over-limit boundary (bound+1) of action row buttons on updatePreferences, refused before any query; earliest case on these inputs	
+1029	5	remove	-	yes	1028	same refusal as 1028 at bound+50; no change fails this and not 1028	
+1030	7	kept	-	yes	-	action row buttons: elements of an over-limit list are not validated (one issue, not one per element); a plain max() passes 1028 and fails here	
+1031	5	remove	-	yes	1030	same as 1030 at bound+50	
+1032	5	remove	-	yes	1030	same no-element-validation behaviour as 1030 with a wrong-primitive element	
+1033	5	remove	-	yes	1030	same as 1030 with wrong-primitive elements at bound+50	
+1034	5	remove	-	yes	1030	same no-element-validation behaviour as 1030 with null elements; nothing dereferences these elements	
+1035	5	remove	-	yes	1030	same as 1030 with null elements at bound+50	
+1036	8	kept	-	yes	-	accept side of the action row buttons boundary: a list exactly at the bound reaches the database	
+1037	5	remove	-	yes	1036	same acceptance as 1036 one below the bound	
+1038	8	kept	-	yes	-	only case on this route showing action row buttons elements are still validated within the bound, at their own path; fails if the element pipe is dropped	
+1039	5	remove	-	yes	1038	same as 1038 one below the bound	
+1040	8	kept	-	yes	-	over-limit boundary (bound+1) of section text displays on updatePreferences, refused before any query; earliest case on these inputs	
+1041	5	remove	-	yes	1040	same refusal as 1040 at bound+50; no change fails this and not 1040	
+1042	7	kept	-	yes	-	section text displays: elements of an over-limit list are not validated (one issue, not one per element); a plain max() passes 1040 and fails here	
+1043	5	remove	-	yes	1042	same as 1042 at bound+50	
+1044	5	remove	-	yes	1042	same no-element-validation behaviour as 1042 with a wrong-primitive element	
+1045	5	remove	-	yes	1042	same as 1042 with wrong-primitive elements at bound+50	
+1046	7	kept	-	yes	-	null child in a list the displayable-text sum walks: a crash instead of a refusal would surface as a non-BAD_REQUEST code; not decidable from the code that 1042 always fails first	
+1047	5	remove	-	yes	1046	same as 1046 at bound+50	
+1048	8	kept	-	yes	-	accept side of the section text displays boundary: a list exactly at the bound reaches the database	
+1049	5	remove	-	yes	1048	same acceptance as 1048 one below the bound	
+1050	8	kept	-	yes	-	only case on this route showing section text displays elements are still validated within the bound, at their own path; fails if the element pipe is dropped	
+1051	5	remove	-	yes	1050	same as 1050 one below the bound	
+1052	8	kept	-	yes	-	over-limit boundary (bound+1) of media gallery items on updatePreferences, refused before any query; earliest case on these inputs	
+1053	5	remove	-	yes	1052	same refusal as 1052 at bound+50; no change fails this and not 1052	
+1054	7	kept	-	yes	-	media gallery items: elements of an over-limit list are not validated (one issue, not one per element); a plain max() passes 1052 and fails here	
+1055	5	remove	-	yes	1054	same as 1054 at bound+50	
+1056	5	remove	-	yes	1054	same no-element-validation behaviour as 1054 with a wrong-primitive element	
+1057	5	remove	-	yes	1054	same as 1054 with wrong-primitive elements at bound+50	
+1058	5	remove	-	yes	1054	same no-element-validation behaviour as 1054 with null elements; nothing dereferences these elements	
+1059	5	remove	-	yes	1054	same as 1054 with null elements at bound+50	
+1060	8	kept	-	yes	-	accept side of the media gallery items boundary: a list exactly at the bound reaches the database	
+1061	5	remove	-	yes	1060	same acceptance as 1060 one below the bound	
+1062	8	kept	-	yes	-	only case on this route showing media gallery items elements are still validated within the bound, at their own path; fails if the element pipe is dropped	
+1063	5	remove	-	yes	1062	same as 1062 one below the bound	
+1064	8	kept	-	yes	-	over-limit boundary (bound+1) of container children on updatePreferences, refused before any query; earliest case on these inputs	
+1065	5	remove	-	yes	1064	same refusal as 1064 at bound+50; no change fails this and not 1064	
+1066	7	kept	-	yes	-	container children: elements of an over-limit list are not validated (one issue, not one per element); a plain max() passes 1064 and fails here	
+1067	5	remove	-	yes	1066	same as 1066 at bound+50	
+1068	5	remove	-	yes	1066	same no-element-validation behaviour as 1066 with a wrong-primitive element	
+1069	5	remove	-	yes	1066	same as 1066 with wrong-primitive elements at bound+50	
+1070	7	kept	-	yes	-	null child in a list the displayable-text sum walks: a crash instead of a refusal would surface as a non-BAD_REQUEST code; not decidable from the code that 1066 always fails first	
+1071	5	remove	-	yes	1070	same as 1070 at bound+50	
+1072	6	remove	-	yes	1066	inner over-limit lists not visited: same no-element-validation behaviour as 1066 with nested data	
+1073	5	remove	-	yes	1066	same as 1066 with nested elements at bound+50	
+1074	8	kept	-	yes	-	accept side of the container children boundary: a list exactly at the bound reaches the database	
+1075	5	remove	-	yes	1074	same acceptance as 1074 one below the bound	
+1076	8	kept	-	yes	-	only case on this route showing container children elements are still validated within the bound, at their own path; fails if the element pipe is dropped	
+1077	5	remove	-	yes	1076	same as 1076 one below the bound	
+1078	8	kept	-	yes	-	over-limit boundary (bound+1) of embed fields on updatePreferences, refused before any query; earliest case on these inputs	
+1079	5	remove	-	yes	1078	same refusal as 1078 at bound+50; no change fails this and not 1078	
+1080	7	kept	-	yes	-	embed fields: elements of an over-limit list are not validated (one issue, not one per element); a plain max() passes 1078 and fails here	
+1081	5	remove	-	yes	1080	same as 1080 at bound+50	
+1082	5	remove	-	yes	1080	same no-element-validation behaviour as 1080 with a wrong-primitive element	
+1083	5	remove	-	yes	1080	same as 1080 with wrong-primitive elements at bound+50	
+1084	5	remove	-	yes	1080	same no-element-validation behaviour as 1080 with null elements; nothing dereferences these elements	
+1085	5	remove	-	yes	1080	same as 1080 with null elements at bound+50	
+1086	8	kept	-	yes	-	accept side of the embed fields boundary: a list exactly at the bound reaches the database	
+1087	5	remove	-	yes	1086	same acceptance as 1086 one below the bound	
+1088	8	kept	-	yes	-	only case on this route showing embed fields elements are still validated within the bound, at their own path; fails if the element pipe is dropped	
+1089	5	remove	-	yes	1088	same as 1088 one below the bound	
+1090	8	kept	-	yes	-	over-limit boundary (bound+1) of allowed-mentions parse on updatePreferences, refused before any query; earliest case on these inputs	
+1091	5	remove	-	yes	1090	same refusal as 1090 at bound+50; no change fails this and not 1090	
+1092	7	kept	-	yes	-	allowed-mentions parse: elements of an over-limit list are not validated (one issue, not one per element); a plain max() passes 1090 and fails here	
+1093	5	remove	-	yes	1092	same as 1092 at bound+50	
+1094	5	remove	-	yes	1092	same no-element-validation behaviour as 1092 with a wrong-primitive element	
+1095	5	remove	-	yes	1092	same as 1092 with wrong-primitive elements at bound+50	
+1096	5	remove	-	yes	1092	same no-element-validation behaviour as 1092 with null elements; nothing dereferences these elements	
+1097	5	remove	-	yes	1092	same as 1092 with null elements at bound+50	
+1098	8	kept	-	yes	-	accept side of the allowed-mentions parse boundary: a list exactly at the bound reaches the database	
+1099	5	remove	-	yes	1098	same acceptance as 1098 one below the bound	
+1100	8	kept	-	yes	-	only case on this route showing allowed-mentions parse elements are still validated within the bound, at their own path; fails if the element pipe is dropped	
+1101	5	remove	-	yes	1100	same as 1100 one below the bound	
+1102	8	kept	-	yes	-	over-limit boundary (bound+1) of allowed-mentions users on updatePreferences, refused before any query; earliest case on these inputs	
+1103	5	remove	-	yes	1102	same refusal as 1102 at bound+50; no change fails this and not 1102	
+1104	7	kept	-	yes	-	allowed-mentions users: elements of an over-limit list are not validated (one issue, not one per element); a plain max() passes 1102 and fails here	
+1105	5	remove	-	yes	1104	same as 1104 at bound+50	
+1106	5	remove	-	yes	1104	same no-element-validation behaviour as 1104 with a wrong-primitive element	
+1107	5	remove	-	yes	1104	same as 1104 with wrong-primitive elements at bound+50	
+1108	5	remove	-	yes	1104	same no-element-validation behaviour as 1104 with null elements; nothing dereferences these elements	
+1109	5	remove	-	yes	1104	same as 1104 with null elements at bound+50	
+1110	8	kept	-	yes	-	accept side of the allowed-mentions users boundary: a list exactly at the bound reaches the database	
+1111	5	remove	-	yes	1110	same acceptance as 1110 one below the bound	
+1112	8	kept	-	yes	-	only case on this route showing allowed-mentions users elements are still validated within the bound, at their own path; fails if the element pipe is dropped	
+1113	5	remove	-	yes	1112	same as 1112 one below the bound	
+1114	8	kept	-	yes	-	over-limit boundary (bound+1) of allowed-mentions roles on updatePreferences, refused before any query; earliest case on these inputs	
+1115	5	remove	-	yes	1114	same refusal as 1114 at bound+50; no change fails this and not 1114	
+1116	7	kept	-	yes	-	allowed-mentions roles: elements of an over-limit list are not validated (one issue, not one per element); a plain max() passes 1114 and fails here	
+1117	5	remove	-	yes	1116	same as 1116 at bound+50	
+1118	5	remove	-	yes	1116	same no-element-validation behaviour as 1116 with a wrong-primitive element	
+1119	5	remove	-	yes	1116	same as 1116 with wrong-primitive elements at bound+50	
+1120	5	remove	-	yes	1116	same no-element-validation behaviour as 1116 with null elements; nothing dereferences these elements	
+1121	5	remove	-	yes	1116	same as 1116 with null elements at bound+50	
+1122	8	kept	-	yes	-	accept side of the allowed-mentions roles boundary: a list exactly at the bound reaches the database	
+1123	5	remove	-	yes	1122	same acceptance as 1122 one below the bound	
+1124	8	kept	-	yes	-	only case on this route showing allowed-mentions roles elements are still validated within the bound, at their own path; fails if the element pipe is dropped	
+1125	5	remove	-	yes	1124	same as 1124 one below the bound	
+1126	8	kept	-	yes	-	over-limit boundary (bound+1) of embeds on updatePreferences, refused before any query; earliest case on these inputs	
+1127	5	remove	-	yes	1126	same embeds bound as length 11, further over the limit; no change fails it without failing 1126	
+1128	7	kept	-	yes	-	only case at the embeds list where invalid elements over the bound yield the single list issue; fails if this site reverts to a non-fatal max	
+1129	5	remove	-	yes	1128	repeats the fatal-bound behaviour of 1128 at length 60	
+1130	5	remove	-	yes	1128	number elements fail per element exactly as invalid ones do; same fatal-bound behaviour as 1128	
+1131	5	remove	-	yes	1128	repeats 1128 with number elements at length 60	
+1132	5	remove	-	yes	1128	null elements, same fatal-bound behaviour as 1128	
+1133	5	remove	-	yes	1128	repeats 1128 with null elements at length 60	
+1134	5	remove	-	yes	1128	embeds each holding an over-limit field list; the suppressed inner issues are the same fatal-bound behaviour as 1128	
+1135	5	remove	-	yes	1128	repeats 1128 with nested elements at length 60	
+1136	8	kept	-	yes	-	pins the accepting side of the embeds bound at exactly 10 on updatePreferences	
+1137	5	remove	-	yes	1136	one below the bound; a lowered bound fails 1136 first	
+1138	7	kept	-	yes	-	a list at the bound still reports its element's own issue with exact path and message; fails if the bound check swallows element issues	
+1139	5	remove	-	yes	1138	repeats 1138 one element shorter	
+1140	8	kept	-	yes	-	pins the refusing side of the top-level components bound at 41 with the one list issue and no query	
+1141	5	remove	-	yes	1140	same bound as 1140 at length 90	
+1142	7	kept	-	yes	-	only case at the top-level components list where invalid elements over the bound yield the single list issue	
+1143	5	remove	-	yes	1142	repeats 1142 at length 90	
+1144	5	remove	-	yes	1142	number elements, same fatal-bound behaviour as 1142	
+1145	5	remove	-	yes	1142	repeats 1142 with number elements at length 90	
+1146	5	remove	-	yes	1142	null elements, same fatal-bound behaviour as 1142	
+1147	5	remove	-	yes	1142	repeats 1142 with null elements at length 90	
+1148	5	remove	-	yes	1142	containers each over their own bound; suppressed inner issues are the same fatal-bound behaviour as 1142	
+1149	5	remove	-	yes	1142	repeats 1142 with nested elements at length 90	
+1150	8	kept	-	yes	-	pins the accepting side of the top-level components bound at exactly 40	
+1151	5	remove	-	yes	1150	one below the bound; a lowered bound fails 1150 first	
+1152	7	kept	-	yes	-	a components list at the bound still reports the element's own issue with exact path and message	
+1153	5	remove	-	yes	1152	repeats 1152 one element shorter	
+1154	8	kept	-	yes	-	pins the refusing side of the recentMessageIds input bound (12 against 11) with the one issue and no query	
+1155	7	kept	-	yes	-	wrong-primitive elements over the bound yield only the list issue; fails if this list reverts to a non-fatal max	
+1156	5	remove	-	yes	1155	null elements, same fatal-bound behaviour as 1155	
+1157	5	remove	-	no	1154	same bound as 1154 at length 61, and asserts less (no code, no query count)	
+1158	8	kept	-	yes	-	letters refused at the element path before any query; first case in the suite on the digit class of a stored recent id	
+1159	8	kept	-	yes	-	empty string refused; pins the lower length bound of the id pattern (an empty string converts to 0 otherwise)	
+1160	8	kept	-	yes	-	one past the int8 maximum refused; the only input here that fails when the range refine is dropped	
+1161	7	kept	-	yes	-	a signed number refused; fails alone if the pattern admits a leading minus	
+1162	6	remove	-	yes	1160	twenty digits also exceed the int8 maximum, so the range refine refuses it whatever the length bound; no change fails it without 1160	
+1163	8	kept	-	yes	-	pins the accepting side of the input bound at 11, one above the stored maximum	
+1164	5	remove	-	yes	1163	one below the bound; a lowered bound fails 1163 first	
+1165	7	kept	-	yes	-	an empty list reaches the database, the clear-recents input; fails on a minimum-length or falsy-list change that no other case sees	
+1166	8	kept	-	no	-	exactly 20 issues come back whole with no summary; the lower edge of the cap	
+1167	8	kept	-	no	-	21 issues come back as the first 20 in order plus the summary; the upper edge of the cap	
+1168	7	kept	-	no	-	cap on a different list, and the only case that renders the capped refusal through formatMutationError to 21 lines	
+1169	7	kept	-	no	-	an issue added by a list bound counts toward the 20, at 19+1 and 20+1; a different issue source from 1166 and 1167	
+1170	8	kept	-	no	-	the displayable-text issue keeps its own wording and counts toward the 20; fails if the cap replaces a custom message with the default	
+1171	8	kept	-	no	-	only case bounding the work done after the cap is hit (property reads under 200 of 3200)	
+1172	7	kept	-	no	-	interleaved refusals keep separate issue lists; fails if the collector moves out of the call	
+1173	7	kept	-	yes	-	a 100k-character mention kind is not echoed into the refusal; fails if this union reverts to an enum whose message quotes the input	
+1174	5	remove	-	yes	1173	same allowed-mentions union as 1173 with three elements	
+1175	7	kept	-	yes	-	long link-button style not echoed; own schema site	
+1176	7	kept	-	yes	-	long link-button type not echoed; own schema site	
+1177	7	kept	-	yes	-	long section accessory type not echoed; the accessory union	
+1178	7	kept	-	yes	-	long separator spacing not echoed; own schema site	
+1179	7	kept	-	yes	-	long text-display type inside a section not echoed; own schema site	
+1180	5	remove	-	yes	1177	same accessory union failing on the same key as 1177, with a media field added	
+1181	7	kept	-	yes	-	a capped refusal of the widest issues stays under 16 KB with only the three keys	
+1182	6	remove	-	yes	1181	same size bound and key check as 1181 on another body; the stripped union detail is pinned by 1183 and 1184	
+1183	7	kept	-	no	-	exact issue of an uncapped single refusal; fails if issue reduction is dropped on the uncapped path	
+1184	7	kept	-	no	-	each failing accessory yields exactly one issue at its own path; fails if the union's branch issues leak out	
+1185	7	kept	-	no	-	union refusals count one each toward the cap; a score not decidable against 1167 from the code alone	
+1186	8	kept	-	no	-	a failed accessory suppresses the displayable-text issue on its section; decision row asserted nowhere else on this route	
+1187	8	kept	-	no	-	a matched branch keeps both of its issues in order and the displayable-text check still runs; the opposite row to 1186	
+1188	7	kept	-	no	-	the matched thumbnail branch reports its nested url issue and not a generic union issue	
+1189	10	kept	-	no	-	only assertion of what updatePreferences writes: the eleven admitted ids are stored as the first ten	
+1656	8	kept	-	yes	-	an absent number answers NOT_FOUND with the one text; the fake database and the router share one kysely instance, so a NoResultError from another build of kysely is not exercised here	
+1657	10	kept	-	yes	-	another user's personal message answers not found with the exact text; the access boundary of getOne for personal messages	
+1658	10	kept	-	yes	-	a message of a server the user cannot manage answers not found, not forbidden; the access boundary of getOne for server messages	
+1659	5	remove	-	no	1657	1656 to 1658 each compare the whole outcome to one literal, so sameness and the absence of the content already follow	
+1660	9	kept	-	no	-	discriminating control for 1657: same message, its owner, content returned	
+1661	9	kept	-	no	-	discriminating control for 1658: same message and user, server now managed, content returned	
+1662	8	kept	-	no	-	a Discord failure stays a server error and is not turned into not found	
+1663	8	kept	-	no	-	a database failure in the owner check stays a server error and is not turned into not found	
+1664	8	kept	-	no	-	a session with no account stays UNAUTHORIZED with its own text	
+1675	8	kept	-	no	-	an empty id list issues no query; the empty in-list boundary	
+1676	8	kept	-	no	-	the compiled query binds the ids as one in-list and scopes personal rows to the caller; expectation is literal SQL and parameters, not production text	
+1677	8	kept	-	no	-	non-numeric and out-of-range ids never reach the query's parameters	
+1678	8	kept	-	no	-	no query when filtering leaves nothing; fails alone if the emptiness check is made before the filter	
+1679	8	kept	-	no	-	a user with no servers gets an owner-only predicate with no empty in-list and no exists arm	
+1680	10	kept	-	no	-	only assertion that getPartialMessages limits server messages to the caller's own server ids	
+1704	7	kept	-	no	-	a stored recent id the user owns comes back through the session callback	
+1705	10	kept	-	no	-	another user's personal message is left out and the query is bound to the session's database user id; the ownership boundary on the session route	
+1706	8	kept	-	no	-	server messages of three administered servers are all listed beside the personal one; the admitting row of the server filter	
+1707	10	kept	-	no	-	a server message of a server outside the user's list is left out of the session; the server boundary on this route	
+1708	7	kept	-	no	-	the server filter with an empty server list; fails alone if the filter is skipped when there are no servers	
+1709	7	kept	-	yes	-	a malformed stored id neither fails the session nor reaches the query, with a fake that throws as the column would; overlaps 1677 at the function below	
+1710	5	remove	-	yes	1709	same outcome as 1709 with an empty string; that boundary of the id pattern is pinned by 1159	
+1711	5	remove	-	yes	1709	same outcome as 1709 with an out-of-range number; 1677 binds the same value at the function	
+1712	5	remove	-	yes	1709	same outcome as 1709 with a negative number; that edge of the id pattern is pinned by 1161	
+1713	7	kept	-	yes	-	a stored element that is not a string at all is dropped; the one non-string input in the suite	
+1714	8	kept	-	no	-	the session's preferences carry only the valid ids and keep the other preference keys; the callback's own filter, asserted nowhere else	
+1930	7	kept	-	no	-	both fetches are in flight before either settles; fails when they are awaited in sequence, a latency regression and not a refactor	
+1931	7	kept	-	no	-	guilds and messages both land on the returned session; the only assertion of user.guilds beside 1935	
+1932	8	kept	-	no	-	a recent-messages failure rejects the callback and leaves nothing unhandled	
+1933	8	kept	-	no	-	a rejection that lands during the account lookup is still reported and never unhandled; fails when the early catch is removed	
+1934	8	kept	-	no	-	account not found after a recent-messages failure returns the empty session with nothing unhandled	
+1935	8	kept	-	yes	-	a user with no preferences object gets guilds, no messages and no recent-messages call	
+1936	7	kept	-	yes	-	an empty preferences object, the shape a new profile is given; fails alone if the guard reads past a present object	
+1937	7	kept	-	no	-	a failed account lookup rejects with its own error and the guild fetch never starts	
+1938	7	kept	-	no	-	the lookup's error wins over an earlier recent-messages rejection, with nothing unhandled	
+1939	7	kept	-	no	-	a recent-messages rejection after the callback has already rejected stays handled	
+1940	6	remove	-	no	1934	empty session for a missing account, already asserted by 1934; the code has no branch that tells the two apart	
+1941	5	remove	-	no	1934	the same sequence and the same assertions as 1934	
+1942	6	remove	-	no	1939	a late recent-messages rejection after the callback has left, as 1939; the empty-session result is 1934's	
+1943	8	kept	-	no	-	an account with no access token gets no guilds and no guild fetch while keeping its messages; the one fixture where the token decides	
+1944	7	kept	-	yes	-	a recent-messages failure still rejects on the no-token branch; overlaps 1932 only in part	
+1945	5	remove	-	yes	1944	the same branch as 1944 with the rejection a tick later	
+1946	6	remove	-	no	1932	the same rejection path as 1932 with the guild fetch already settled	
+1947	8	kept	-	no	-	a guild fetch failure rejects the callback with its own error	
+1948	6	remove	-	no	1947	the guild fetch's error surfaces as in 1947; the second rejection changes nothing the code can get wrong without 1930 or 1947 failing	
+1949	8	kept	-	no	-	the earlier rejection wins when both fail; the only case that fails if the two are awaited one after the other, guilds first	
+2000	10	kept	-	no	-	only assertion of which servers a user is treated as managing: owner or Administrator, sorted by name, trimmed to the session fields, fetched with the bearer token	
+2001	6	remove	-	no	2000	the two excluded permission values are already excluded in 2000; only the empty result is new	

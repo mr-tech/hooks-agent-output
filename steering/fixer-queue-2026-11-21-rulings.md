@@ -173,3 +173,13 @@ Selection prompt put 07:59Z, answered 08:00Z (ledger block "2026-11-21T08:00Z �
 weekly_all 94%, `source` live (`plan-usage.py --json`, 07:59Z); the 98% stop; reset 17:00 UTC (same read). Options: A "Agent: after the
 17:00 reset (Recommended)"; B "Agent: run it now" — "spawn the retrospective and the scoring helpers now, beside chain 3. It may bring
 the 98% stop sooner."; C "Agent: fold into the next batch". Chosen by selection: **B**, against this thread's recommendation.
+
+## 2026-11-21T08:06Z — test-case scoring beside the batch retrospective (chains 1 and 2)
+
+Website at `f4baebb` (the batch's last release), clean export; suite 2303 cases, exit 0 (helper's JSON report, counted by python).
+Marked: 221 cases in the seven test files `git diff --name-only 76da25c f4baebb` lists under `__tests__/`. Two deweeder units
+(110 ids 180..1126; 111 ids 1127..2001). Merged: `verification/fixer-batch-2026-11-21-b/deweed/website.tsv` (221 rows, 221 unique
+ids; python over the two unit tables). Below 7: 104 of 221 (47.1%) — unit 1's 66 are mostly generated repeats in
+`user.save-limits.test.ts`. Covering cells: every covering id is in the merged table (0 unchecked). Two scorers noted cases kept at 8
+whose fake database is the ESM kysely (184, 186, 1656) — the escaped defect's blind spot, for chain 3b. Nothing deleted on this; a
+deletion is a later chain's, behind a mutation re-run. Export removed (`ls -d` fails).
