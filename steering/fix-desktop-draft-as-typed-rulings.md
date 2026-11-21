@@ -128,7 +128,9 @@ P-1 HOLDS on production at `b68f94c` (QA by message 11:3xZ; carrier closed Addre
 `verification/fix-desktop-draft-as-typed/qa/p1-after-read.md`): on saved message 6008, content and author name typed and reloaded
 both came back, with the leave prompt; the pre-push baseline lost both. No Save. Source handoff f1356f4b closed Addressed by this
 thread. QA's side observation (an emptied author name stays `{"name":""}` in the draft, so typing back does not clear it; unchanged by
-the fix) sent back to QA for a handoff, its path recorded below when it lands.
+the fix) sent back to QA for a handoff: `handoff/typed-back-edit-leaves-saved-message-draft-2026-11-21.md` (ffab0db5, `dacab1ed`,
+Owning-Stage planner, Open on its own trigger).
+Disclosed: the stamp gate refused two stamps typed as 11:40 against a clock reading 11:39; both were re-written from `date -u` (`0b700a4`).
 **This thread's error, disclosed:** the closure's first write of the closed handoff was a Python `open().write`, outside the
 record-write rule (Write/Edit/`record-edit.js` only). It was not refused. I deleted that file (`ls -d` fails) and re-made the
 closure with the Edit tool and `mv`.
