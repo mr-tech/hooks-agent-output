@@ -1,7 +1,7 @@
 ---
 UUID: 6cc5f883
-Status: Open
-Status-Detail: "On production, the new-message dialog's Message Link import (message.getFromUrl) returned content '', no embeds and no components for two messages the test bot posted with content in the Claude test server, so the draft is empty and Save stays off. Pre-existing (unchanged f4baebb..b829314). Cause not established; the Message Content intent is an inference. Carried to diagnose-first fixer chain fix-message-link-import-empty by his selection."
+Status: Addressed
+Status-Detail: "Diagnosed by fixer chain fix-message-link-import-empty: the Hooks.gg app (1034527356381044828) lacks the Message Content intent, so Discord returns other authors' messages blank; confirmed on production (qa read 10:34Z). Not code. On his ruling (block 10:38Z) it is a known limit for now, carried by handoff 8e9ccc47 (message-link-import-loads-only-mentioning-messages-2026-11-21.md). Closed Addressed by steering-hooks."
 Owning-Stage: steering-hooks (to run chain fix-message-link-import-empty)
 Review-Trigger: "when chain fix-message-link-import-empty opens (after chain fix-get-one-absent-not-found releases), or when website src/server/api/routers/message.ts getFromUrl or src/utils/discord.ts is next edited"
 ---
@@ -35,3 +35,4 @@ fix that is his toggle in Discord's developer portal comes to him; a code fix is
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-21T09:03 | steering-hooks | Created from PD-1's falsified Message Link limb, on his 09:02Z selection. |
+| 2026-11-21T10:39 | steering-hooks | Document closed | Status: Addressed. Cause established (implementation/closed/fix-message-link-import-empty-implementation.md, qa/closed/fix-message-link-import-empty-production-read.md); his ruling (steering/fix-message-link-import-empty-rulings.md, block 10:38Z): known limit for now, carried by handoff 8e9ccc47. |
