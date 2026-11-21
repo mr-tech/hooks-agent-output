@@ -385,3 +385,12 @@ this file and an unrelated `convention-check.txt`.
 - Removed `verification/fix-website-dependency-audit/code-review/live-run-one-key-removed-inbox.md` and
   `verification/017/devops/close-released.{py,sh}`; `ls` of all three failed after (3 of 3).
 - `OWNER-QUEUE.md` rewritten without its one item, so nothing of this thread's awaits him there.
+
+## 2026-11-21T03:52Z — retire: his "clean up those now"
+
+**His words, typed:** "clean up those now". They answer the two box leftovers this thread's 03:45Z close listed as belonging to none
+of its chains.
+- Docker image `postgres:16` (`2fd2c185c3dc`, 468 MB) removed by `docker image rm postgres:16`. Before the removal,
+  `docker ps -a --filter ancestor=postgres:16` showed no container. After it, `docker image ls postgres:16` showed none (`grep -c` 0).
+- `/tmp/claude-1000/-usr-local-bin-hooks/7cdb31b0-94a0-4773-a438-7d49a2e7c87e/` (8 KB, an empty `scratchpad/`, no transcript)
+  removed; `ls -d` failed after.
