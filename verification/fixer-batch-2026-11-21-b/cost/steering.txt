@@ -1,0 +1,12 @@
+chain: sessions matching '*steering-hooks' or '*steering-hooks-<n>' from 2026-11-21T05:32 to 2026-11-21T08:01
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+steering-hooks                claude-opus,claude-sonn    363       804  57,002,552    987,781   292,327    18.32
+  own                         claude-opus                186       440  45,617,695    238,446   134,760    13.73
+  general-purpose-sonnet      claude-sonn                177       364  11,384,857    749,335   157,567     4.59
+                                main 186 req $13.73 · subagent 177 req $4.59 · cached seen 2026-11-21T05:30:41Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      363       804  57,002,552    987,781   292,327    18.32
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp

@@ -1,0 +1,19 @@
+chain: sessions matching '*fix-message-not-found' or '*fix-message-not-found-<n>' from 2026-11-21T06:46 to 2026-11-21T07:52
+4 of 4 resolved from the registry cache (live entry gone): code-reviewer-fix-message-not-found, devops-fix-message-not-found, fixer-fix-message-not-found, qa-fix-message-not-found
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+code-reviewer-fix-message-not claude-opus                 74       152  10,765,725    176,006    58,978     4.74
+                                main 74 req $4.74 · cached seen 2026-11-21T07:05:15Z
+devops-fix-message-not-found  claude-sonn                 49       104   7,884,087    172,942    38,526     1.87
+                                main 49 req $1.87 · cached seen 2026-11-21T07:41:28Z
+fixer-fix-message-not-found   claude-opus                 99       200  16,602,343    211,832    67,450     6.36
+                                main 99 req $6.36 · cached seen 2026-11-21T06:47:26Z
+qa-fix-message-not-found      claude-haik,claude-opus    112       235  17,224,491    287,946    86,292     6.65
+  own                         claude-opus                 95       197  16,912,289    216,947    75,639     6.63
+  general-purpose             claude-haik                 17        38     312,202     70,999    10,653     0.02
+                                main 95 req $6.63 · subagent 17 req $0.02 · cached seen 2026-11-21T07:16:07Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      334       691  52,476,646    848,726   251,246    19.62
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp

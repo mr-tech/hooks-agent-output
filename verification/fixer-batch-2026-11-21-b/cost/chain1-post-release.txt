@@ -1,0 +1,21 @@
+chain: sessions matching '*fix-recent-message-ids' or '*fix-recent-message-ids-<n>' from 2026-11-21T06:46 to 2026-11-21T07:01
+5 of 5 resolved from the registry cache (live entry gone): code-reviewer-fix-recent-message-ids, devops-fix-recent-message-ids, fixer-fix-recent-message-ids, qa-fix-recent-message-ids, uat-fix-recent-message-ids
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+code-reviewer-fix-recent-mess -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-21T06:10:17Z
+devops-fix-recent-message-ids claude-sonn                 18        40   3,802,144     31,674    22,914     0.74
+                                main 18 req $0.74 · cached seen 2026-11-21T06:38:33Z
+fixer-fix-recent-message-ids  -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-21T05:44:24Z
+qa-fix-recent-message-ids     -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-21T06:18:16Z
+uat-fix-recent-message-ids    claude-opus,claude-sonn     58       128   5,336,451     87,343    25,413     2.08
+  own                         claude-opus                 54       120   5,258,176     57,677    23,172     1.98
+  browser-walker              claude-sonn                  4         8      78,275     29,666     2,241     0.10
+                                main 54 req $1.98 · subagent 4 req $0.10 · cached seen 2026-11-21T06:45:51Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                       76       168   9,138,595    119,017    48,327     2.82
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp

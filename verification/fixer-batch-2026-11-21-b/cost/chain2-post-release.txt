@@ -1,0 +1,17 @@
+chain: sessions matching '*fix-message-not-found' or '*fix-message-not-found-<n>' from 2026-11-21T07:52 to 2026-11-21T08:01
+4 of 4 resolved from the registry cache (live entry gone): code-reviewer-fix-message-not-found, devops-fix-message-not-found, fixer-fix-message-not-found, qa-fix-message-not-found
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+code-reviewer-fix-message-not -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-21T07:05:15Z
+devops-fix-message-not-found  claude-sonn                  9        17   1,948,534     18,718    13,238     0.40
+                                main 9 req $0.40 · cached seen 2026-11-21T07:41:28Z
+fixer-fix-message-not-found   -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-21T06:47:26Z
+qa-fix-message-not-found      claude-opus                 22        46   5,930,701     29,900    16,615     1.76
+                                main 22 req $1.76 · cached seen 2026-11-21T07:16:07Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                       31        63   7,879,235     48,618    29,853     2.16
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp
