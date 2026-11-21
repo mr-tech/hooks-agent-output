@@ -205,3 +205,6 @@ your own Checkpoint into the docket, and report back." Acted on: the one chain i
 handed off at website `b663b35`; review just begun), parks — `fixer-…` and `code-reviewer-…` asked for `/checkpoint` 09:17Z, each
 stopped once its Checkpoint is committed. Website tree stays on `chain/fix-get-one-absent-not-found`. No chain opens while parked
 (3c onward wait). Nothing awaits him from this thread; no question is held.
+Qualified 09:17Z, his words relayed by the coordinator: "Ongoing deployments can complete". This effort has none: no open deployment
+record (`ls deployment/*.md`: none, 09:17Z) and no devops session of its chains live (`cc-usage.py sessions`: the two devops sessions
+listed belong to other threads' chains). The park stands unchanged.
