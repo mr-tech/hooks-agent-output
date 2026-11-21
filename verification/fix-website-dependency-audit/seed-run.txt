@@ -1,0 +1,2 @@
+advisory entries 81, keys written 62, split by version 8: form-data|GHSA-fjxv-7rqg-78g4, nanoid|GHSA-mwcw-c2x4-8c55, ws|GHSA-3h5v-q93c-6h6q, form-data|GHSA-hmw2-7cc7-3qxx, ws|GHSA-96hv-2xvq-fx4p, nanoid|GHSA-28wg-ghj8-5hjv, nanoid|GHSA-2v37-7h3g-55p8, nanoid|GHSA-xwg4-73v4-xw9w
+exit 0

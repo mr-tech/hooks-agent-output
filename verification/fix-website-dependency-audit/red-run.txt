@@ -1,0 +1,269 @@
+▶ website dependency audit
+  ✖ adds exactly one inbox entry for an advisory with no disposition (52.473921ms)
+  ✖ adds no entry on a second run while the advisory stays undispositioned (47.243119ms)
+  ✖ leaves the inbox unchanged when every advisory is dispositioned (46.495258ms)
+  ✖ does not fail when a dispositioned or reported advisory has left the audit (42.593316ms)
+  ✖ treats a bare module key or a version-line key as no disposition of an advisory (41.503199ms)
+  ✖ treats a disposition with an empty assessment as no disposition (47.387599ms)
+  ✖ writes nothing on an unreadable audit and reports the advisory on the next readable run (70.407915ms)
+  ✖ removes the lockfile export after a readable and after an unreadable run (43.077354ms)
+✖ website dependency audit (392.497423ms)
+ℹ tests 8
+ℹ suites 1
+ℹ pass 0
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 458.109905
+
+✖ failing tests:
+
+test at tools/websiteDependencyAudit.test.js:107:3
+✖ adds exactly one inbox entry for an advisory with no disposition (52.473921ms)
+  AssertionError [ERR_ASSERTION]: node:internal/modules/cjs/loader:1459
+    throw err;
+    ^
+  
+  Error: Cannot find module '/usr/local/bin/hooks/agent-output/tools/website-dependency-audit.js'
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module._load (node:internal/modules/cjs/loader:1242:25)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+      at node:internal/main/run_main_module:33:47 {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: []
+  }
+  
+  Node.js v24.14.0
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/websiteDependencyAudit.test.js:110:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1533:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/websiteDependencyAudit.test.js:123:3
+✖ adds no entry on a second run while the advisory stays undispositioned (47.243119ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/websiteDependencyAudit.test.js:125:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/websiteDependencyAudit.test.js:132:3
+✖ leaves the inbox unchanged when every advisory is dispositioned (46.495258ms)
+  AssertionError [ERR_ASSERTION]: node:internal/modules/cjs/loader:1459
+    throw err;
+    ^
+  
+  Error: Cannot find module '/usr/local/bin/hooks/agent-output/tools/website-dependency-audit.js'
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module._load (node:internal/modules/cjs/loader:1242:25)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+      at node:internal/main/run_main_module:33:47 {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: []
+  }
+  
+  Node.js v24.14.0
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/websiteDependencyAudit.test.js:135:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/websiteDependencyAudit.test.js:140:3
+✖ does not fail when a dispositioned or reported advisory has left the audit (42.593316ms)
+  AssertionError [ERR_ASSERTION]: node:internal/modules/cjs/loader:1459
+    throw err;
+    ^
+  
+  Error: Cannot find module '/usr/local/bin/hooks/agent-output/tools/website-dependency-audit.js'
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module._load (node:internal/modules/cjs/loader:1242:25)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+      at node:internal/main/run_main_module:33:47 {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: []
+  }
+  
+  Node.js v24.14.0
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/websiteDependencyAudit.test.js:145:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/websiteDependencyAudit.test.js:149:3
+✖ treats a bare module key or a version-line key as no disposition of an advisory (41.503199ms)
+  AssertionError [ERR_ASSERTION]: node:internal/modules/cjs/loader:1459
+    throw err;
+    ^
+  
+  Error: Cannot find module '/usr/local/bin/hooks/agent-output/tools/website-dependency-audit.js'
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module._load (node:internal/modules/cjs/loader:1242:25)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+      at node:internal/main/run_main_module:33:47 {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: []
+  }
+  
+  Node.js v24.14.0
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/websiteDependencyAudit.test.js:152:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/websiteDependencyAudit.test.js:158:3
+✖ treats a disposition with an empty assessment as no disposition (47.387599ms)
+  AssertionError [ERR_ASSERTION]: node:internal/modules/cjs/loader:1459
+    throw err;
+    ^
+  
+  Error: Cannot find module '/usr/local/bin/hooks/agent-output/tools/website-dependency-audit.js'
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module._load (node:internal/modules/cjs/loader:1242:25)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+      at node:internal/main/run_main_module:33:47 {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: []
+  }
+  
+  Node.js v24.14.0
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/websiteDependencyAudit.test.js:161:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/websiteDependencyAudit.test.js:165:3
+✖ writes nothing on an unreadable audit and reports the advisory on the next readable run (70.407915ms)
+  AssertionError [ERR_ASSERTION]: node:internal/modules/cjs/loader:1459
+    throw err;
+    ^
+  
+  Error: Cannot find module '/usr/local/bin/hooks/agent-output/tools/website-dependency-audit.js'
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1456:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+      at Module._load (node:internal/modules/cjs/loader:1242:25)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+      at node:internal/main/run_main_module:33:47 {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: []
+  }
+  
+  Node.js v24.14.0
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/websiteDependencyAudit.test.js:172:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tools/websiteDependencyAudit.test.js:176:3
+✖ removes the lockfile export after a readable and after an unreadable run (43.077354ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/usr/local/bin/hooks/agent-output/tools/websiteDependencyAudit.test.js:178:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+exit 1

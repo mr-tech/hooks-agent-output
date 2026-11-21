@@ -1,0 +1,314 @@
+{
+  "_about": "Reachability dispositions for website advisories, read by tools/website-dependency-audit.js. One key per advisory, \"<module>|<GHSA id>\"; only such a key dispositions an advisory. Seeded from verification/website-deps-review/security/dispositions.json (the security review of website 983681c) over pnpm audit --prod at website d1bb9b0 (verification/018/security/out/pnpm-audit-prod-d1bb9b0.json), by verification/fix-website-dependency-audit/seed-dispositions.js. disp: REACHED | CONDITIONAL | ABSENT | HOST | BUILD | UNLOADED | DEV. ships: server | browser | both | build | none. Where an advisory's installed versions take different dispositions, disp, ships and how name each version. To add one: node tools/website-dependency-audit.js --help.",
+  "_review": "pending review at f943553",
+  "@babel/runtime|GHSA-968p-4wvh-cqc8": {
+    "disp": "ABSENT",
+    "ships": "both",
+    "how": "Bundled through @hello-pangea/color-picker, which imports only the helpers defineProperty and extends; the advisory's named-capture-group regex helper is not imported."
+  },
+  "@smithy/config-resolver|GHSA-6475-r3vj-m8vf": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "The S3 client's region is the literal 'us-east-1' in previewBucket.ts getS3; no request input reaches it."
+  },
+  "brace-expansion|GHSA-3jxr-9vmj-r5cp": {
+    "disp": "UNLOADED",
+    "ships": "none",
+    "how": "Installed under project-utils > prisma-kysely, a Prisma code generator. project-utils' committed dist requires only pg, kysely, zod and its own files, so the generator chain is never loaded by the website."
+  },
+  "brace-expansion|GHSA-6j4f-fj2g-mc7p": {
+    "disp": "UNLOADED",
+    "ships": "none",
+    "how": "Installed under project-utils > prisma-kysely, a Prisma code generator. project-utils' committed dist requires only pg, kysely, zod and its own files, so the generator chain is never loaded by the website."
+  },
+  "brace-expansion|GHSA-f886-m6hf-6m8v": {
+    "disp": "UNLOADED",
+    "ships": "none",
+    "how": "Installed under project-utils > prisma-kysely, a Prisma code generator. project-utils' committed dist requires only pg, kysely, zod and its own files, so the generator chain is never loaded by the website."
+  },
+  "brace-expansion|GHSA-mh99-v99m-4gvg": {
+    "disp": "UNLOADED",
+    "ships": "none",
+    "how": "Installed under project-utils > prisma-kysely, a Prisma code generator. project-utils' committed dist requires only pg, kysely, zod and its own files, so the generator chain is never loaded by the website."
+  },
+  "brace-expansion|GHSA-q2hr-2g5m-vwhr": {
+    "disp": "UNLOADED",
+    "ships": "none",
+    "how": "Installed under project-utils > prisma-kysely, a Prisma code generator. project-utils' committed dist requires only pg, kysely, zod and its own files, so the generator chain is never loaded by the website."
+  },
+  "brace-expansion|GHSA-qhr7-859c-m2p7": {
+    "disp": "UNLOADED",
+    "ships": "none",
+    "how": "Installed under project-utils > prisma-kysely, a Prisma code generator. project-utils' committed dist requires only pg, kysely, zod and its own files, so the generator chain is never loaded by the website."
+  },
+  "brace-expansion|GHSA-rgw5-rvv9-x895": {
+    "disp": "UNLOADED",
+    "ships": "none",
+    "how": "Installed under project-utils > prisma-kysely, a Prisma code generator. project-utils' committed dist requires only pg, kysely, zod and its own files, so the generator chain is never loaded by the website."
+  },
+  "brace-expansion|GHSA-v6h2-p8h4-qcjw": {
+    "disp": "UNLOADED",
+    "ships": "none",
+    "how": "Installed under project-utils > prisma-kysely, a Prisma code generator. project-utils' committed dist requires only pg, kysely, zod and its own files, so the generator chain is never loaded by the website."
+  },
+  "braces|GHSA-grv7-fg5c-xmjg": {
+    "disp": "BUILD",
+    "ships": "build",
+    "how": "Under @headlessui/tailwindcss > tailwindcss > chokidar: Tailwind's file watcher, run only while building, over the repository's own files."
+  },
+  "cookie|GHSA-pxg6-pf52-xh8x": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "next-auth serialises cookies whose names, paths and domains are fixed by its own configuration; no request input chooses them."
+  },
+  "cross-spawn|GHSA-3xgq-45jj-v275": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "Under @vercel/functions > @vercel/oidc > @vercel/cli-exec. The website imports only waitUntil, and the package's main entry does not load its oidc entry."
+  },
+  "diff|GHSA-73rr-hh4g-fpgx": {
+    "disp": "BUILD",
+    "ships": "build",
+    "how": "Under tailwindcss > postcss-load-config > ts-node: build tooling only."
+  },
+  "fast-loops|GHSA-3q56-9cc2-46j4": {
+    "disp": "ABSENT",
+    "ships": "browser",
+    "how": "Under react-use > nano-css > inline-style-prefixer. The react-use hooks the website imports (useLatest, useUpdateEffect, useLockBodyScroll, useClickAway and eight others) include none of the nano-css ones (useCss)."
+  },
+  "fast-xml-parser|GHSA-474x-hrwr-fgx4": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "The AWS SDK uses only XMLParser, over the object store's answers to ListObjects and DeleteObjects. The XML comes from the storage provider at CDN_ENDPOINT; an attacker would have to control that provider's responses. Object keys in a listing are built by the website from a message number and a generated nonce."
+  },
+  "fast-xml-parser|GHSA-8gc5-j5rx-235r": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "The AWS SDK uses only XMLParser, over the object store's answers to ListObjects and DeleteObjects. The XML comes from the storage provider at CDN_ENDPOINT; an attacker would have to control that provider's responses. Object keys in a listing are built by the website from a message number and a generated nonce."
+  },
+  "fast-xml-parser|GHSA-fj3w-jwp8-x2g3": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "An XMLBuilder defect; the AWS SDK packages installed use XMLParser only, and the website does not import the package."
+  },
+  "fast-xml-parser|GHSA-gh4j-gqv2-49f6": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "An XMLBuilder defect; the AWS SDK packages installed use XMLParser only, and the website does not import the package."
+  },
+  "fast-xml-parser|GHSA-jmr7-xgp7-cmfj": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "The AWS SDK uses only XMLParser, over the object store's answers to ListObjects and DeleteObjects. The XML comes from the storage provider at CDN_ENDPOINT; an attacker would have to control that provider's responses. Object keys in a listing are built by the website from a message number and a generated nonce."
+  },
+  "fast-xml-parser|GHSA-jp2q-39xq-3w4g": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "The AWS SDK uses only XMLParser, over the object store's answers to ListObjects and DeleteObjects. The XML comes from the storage provider at CDN_ENDPOINT; an attacker would have to control that provider's responses. Object keys in a listing are built by the website from a message number and a generated nonce."
+  },
+  "fast-xml-parser|GHSA-m7jm-9gc2-mpf2": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "The AWS SDK uses only XMLParser, over the object store's answers to ListObjects and DeleteObjects. The XML comes from the storage provider at CDN_ENDPOINT; an attacker would have to control that provider's responses. Object keys in a listing are built by the website from a message number and a generated nonce."
+  },
+  "form-data|GHSA-fjxv-7rqg-78g4": {
+    "disp": "UNLOADED 3.0.1; ABSENT 4.0.0",
+    "ships": "none 3.0.1; server 4.0.0",
+    "how": "3.0.1: Installed under pusher > @types/node-fetch, a package of type declarations only; nothing executes it. | 4.0.0: bot/utils/DiscordMessage.ts builds a multipart form only when a file was attached with addFile, and addFile has no caller, so no form is ever constructed."
+  },
+  "form-data|GHSA-hmw2-7cc7-3qxx": {
+    "disp": "UNLOADED 3.0.1; ABSENT 4.0.0",
+    "ships": "none 3.0.1; server 4.0.0",
+    "how": "3.0.1: Installed under pusher > @types/node-fetch, a package of type declarations only; nothing executes it. | 4.0.0: bot/utils/DiscordMessage.ts builds a multipart form only when a file was attached with addFile, and addFile has no caller, so no form is ever constructed."
+  },
+  "immutable|GHSA-v56q-mh7h-f735": {
+    "disp": "BUILD",
+    "ships": "build",
+    "how": "Under sass, which compiles the repository's own stylesheets at build time."
+  },
+  "immutable|GHSA-wf6x-7x77-mvgw": {
+    "disp": "BUILD",
+    "ships": "build",
+    "how": "Under sass, which compiles the repository's own stylesheets at build time."
+  },
+  "immutable|GHSA-xvcm-6775-5m9r": {
+    "disp": "BUILD",
+    "ships": "build",
+    "how": "Under sass, which compiles the repository's own stylesheets at build time."
+  },
+  "jose|GHSA-hhhv-q57g-882q": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "The advisory needs a JWE that decrypts. next-auth here uses database sessions (an adapter, no JWT strategy); the only encrypted tokens are its own sign-in check cookies, which cannot be forged without the server secret."
+  },
+  "js-cookie|GHSA-qjx8-664m-686j": {
+    "disp": "ABSENT",
+    "ships": "browser",
+    "how": "The website calls only Cookies.get (CookieConsent.tsx, getClientSessionCookie.ts). The advisory needs an attributes object passed to set, remove, withAttributes or withConverter. The 2.2.1 copy belongs to react-use's useCookie, which is not imported."
+  },
+  "kysely|GHSA-8cpq-38p9-67gx": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "The dialect is Postgres (project-utils postgres.js), and the website's only raw SQL is three sql template literals whose one interpolated value is a bound parameter. No sql.lit, no sql.raw, no JSON-path builder and no Kysely<any> outside a comment."
+  },
+  "kysely|GHSA-pv5w-4p9q-p3v2": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "The dialect is Postgres (project-utils postgres.js), and the website's only raw SQL is three sql template literals whose one interpolated value is a bound parameter. No sql.lit, no sql.raw, no JSON-path builder and no Kysely<any> outside a comment."
+  },
+  "kysely|GHSA-wmrf-hv6w-mr66": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "The dialect is Postgres (project-utils postgres.js), and the website's only raw SQL is three sql template literals whose one interpolated value is a bound parameter. No sql.lit, no sql.raw, no JSON-path builder and no Kysely<any> outside a comment."
+  },
+  "lodash|GHSA-r5fr-rjxr-66jc": {
+    "disp": "ABSENT",
+    "ships": "both",
+    "how": "Bundled through @hello-pangea/color-picker, which imports debounce, each, isEqual and merge; the advisories concern template, unset, omit and pullAt."
+  },
+  "lodash|GHSA-xxjr-mmjv-4gpg": {
+    "disp": "ABSENT",
+    "ships": "both",
+    "how": "Bundled through @hello-pangea/color-picker, which imports debounce, each, isEqual and merge; the advisories concern template, unset, omit and pullAt."
+  },
+  "micromatch|GHSA-952p-6rrq-rcjv": {
+    "disp": "BUILD",
+    "ships": "build",
+    "how": "Under tailwindcss: glob matching of the repository's own content paths at build time."
+  },
+  "minimatch|GHSA-23c5-xmqv-rm74": {
+    "disp": "UNLOADED",
+    "ships": "none",
+    "how": "Same generator chain as brace-expansion (project-utils > prisma-kysely > @prisma/internals); never loaded by the website."
+  },
+  "minimatch|GHSA-3ppc-4f35-3m26": {
+    "disp": "UNLOADED",
+    "ships": "none",
+    "how": "Same generator chain as brace-expansion (project-utils > prisma-kysely > @prisma/internals); never loaded by the website."
+  },
+  "minimatch|GHSA-7r86-cg39-jmmj": {
+    "disp": "UNLOADED",
+    "ships": "none",
+    "how": "Same generator chain as brace-expansion (project-utils > prisma-kysely > @prisma/internals); never loaded by the website."
+  },
+  "nanoid|GHSA-28wg-ghj8-5hjv": {
+    "disp": "BUILD 3.3.6; ABSENT 4.0.2",
+    "ships": "build 3.3.6; server 4.0.2",
+    "how": "3.3.6: The 3.x copy belongs to Tailwind's PostCSS and runs only at build time, with fixed sizes. | 4.0.2: getUrlCode.ts calls customAlphabet(alphabet, 7): the size is the literal 7, and every advisory needs a caller-controlled size. Its one caller is the Redis share-code store."
+  },
+  "nanoid|GHSA-2v37-7h3g-55p8": {
+    "disp": "BUILD 3.3.6; ABSENT 4.0.2",
+    "ships": "build 3.3.6; server 4.0.2",
+    "how": "3.3.6: The 3.x copy belongs to Tailwind's PostCSS and runs only at build time, with fixed sizes. | 4.0.2: getUrlCode.ts calls customAlphabet(alphabet, 7): the size is the literal 7, and every advisory needs a caller-controlled size. Its one caller is the Redis share-code store."
+  },
+  "nanoid|GHSA-mwcw-c2x4-8c55": {
+    "disp": "BUILD 3.3.6; ABSENT 4.0.2",
+    "ships": "build 3.3.6; server 4.0.2",
+    "how": "3.3.6: The 3.x copy belongs to Tailwind's PostCSS and runs only at build time, with fixed sizes. | 4.0.2: getUrlCode.ts calls customAlphabet(alphabet, 7): the size is the literal 7, and every advisory needs a caller-controlled size. Its one caller is the Redis share-code store."
+  },
+  "nanoid|GHSA-xwg4-73v4-xw9w": {
+    "disp": "BUILD 3.3.6; ABSENT 4.0.2",
+    "ships": "build 3.3.6; server 4.0.2",
+    "how": "3.3.6: The 3.x copy belongs to Tailwind's PostCSS and runs only at build time, with fixed sizes. | 4.0.2: getUrlCode.ts calls customAlphabet(alphabet, 7): the size is the literal 7, and every advisory needs a caller-controlled size. Its one caller is the Redis share-code store."
+  },
+  "next-auth|GHSA-5jpx-9hw9-2fx4": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "Needs the email provider and nodemailer. The only provider configured is Discord."
+  },
+  "next-auth|GHSA-7rqj-j65f-68wh": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "Needs the email (magic-link) provider. The only provider configured is Discord (src/server/auth.ts)."
+  },
+  "next-auth|GHSA-x445-f3h2-j279": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "Needs more than one OAuth provider with account linking. One provider is configured."
+  },
+  "next-auth|GHSA-xmf8-cvqr-rfgj": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "Needs the application to call getToken() itself. The website never calls it."
+  },
+  "picomatch|GHSA-3v7f-55p6-f55p": {
+    "disp": "BUILD",
+    "ships": "build",
+    "how": "Under tailwindcss > chokidar > anymatch: build-time glob matching of the repository's own paths."
+  },
+  "picomatch|GHSA-c2c7-rcm5-vvqj": {
+    "disp": "BUILD",
+    "ships": "build",
+    "how": "Under tailwindcss > chokidar > anymatch: build-time glob matching of the repository's own paths."
+  },
+  "postcss-selector-parser|GHSA-rj75-hqrm-r3gf": {
+    "disp": "BUILD",
+    "ships": "build",
+    "how": "Under tailwindcss: parses the repository's own selectors at build time."
+  },
+  "postcss|GHSA-6g55-p6wh-862q": {
+    "disp": "BUILD",
+    "ships": "build",
+    "how": "Tailwind's PostCSS, run at build time over the repository's own stylesheets; no visitor-supplied CSS is ever parsed."
+  },
+  "postcss|GHSA-fxqj-rqcc-2cmp": {
+    "disp": "BUILD",
+    "ships": "build",
+    "how": "Tailwind's PostCSS, run at build time over the repository's own stylesheets; no visitor-supplied CSS is ever parsed."
+  },
+  "postcss|GHSA-qx2v-qp2m-jg93": {
+    "disp": "BUILD",
+    "ships": "build",
+    "how": "Tailwind's PostCSS, run at build time over the repository's own stylesheets; no visitor-supplied CSS is ever parsed."
+  },
+  "postcss|GHSA-r28c-9q8g-f849": {
+    "disp": "BUILD",
+    "ships": "build",
+    "how": "Tailwind's PostCSS, run at build time over the repository's own stylesheets; no visitor-supplied CSS is ever parsed."
+  },
+  "source-map-js|GHSA-68fv-2mgg-jv7q": {
+    "disp": "BUILD",
+    "ships": "build",
+    "how": "Under tailwindcss > postcss: source maps of the repository's own stylesheets at build time."
+  },
+  "tmp|GHSA-52f5-9888-hmc6": {
+    "disp": "UNLOADED",
+    "ships": "none",
+    "how": "Same generator chain as brace-expansion (project-utils > prisma-kysely > @prisma/internals); never loaded by the website."
+  },
+  "tmp|GHSA-ph9p-34f9-6g65": {
+    "disp": "UNLOADED",
+    "ships": "none",
+    "how": "Same generator chain as brace-expansion (project-utils > prisma-kysely > @prisma/internals); never loaded by the website."
+  },
+  "uuid|GHSA-w5hq-g745-h8pq": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "The AWS retry middleware calls v4() with no buffer argument; the advisory needs v3, v5 or v6 with a caller-supplied buffer. The second copy sits in the unloaded Prisma generator chain."
+  },
+  "ws|GHSA-3h5v-q93c-6h6q": {
+    "disp": "BUILD 7.5.9; ABSENT 8.13.0",
+    "ships": "build 7.5.9; server 8.13.0",
+    "how": "7.5.9: The 7.5.9 copy belongs to webpack-bundle-analyzer, which @next/bundle-analyzer requires only when ANALYZE=true on a webpack build. | 8.13.0: The 8.13.0 copy is an optional peer of @vercel/functions, loaded by a dynamic import inside its websocket helper. The website calls only waitUntil."
+  },
+  "ws|GHSA-58qx-3vcg-4xpx": {
+    "disp": "ABSENT",
+    "ships": "server",
+    "how": "The 8.13.0 copy is an optional peer of @vercel/functions, loaded by a dynamic import inside its websocket helper. The website calls only waitUntil."
+  },
+  "ws|GHSA-96hv-2xvq-fx4p": {
+    "disp": "BUILD 7.5.9; ABSENT 8.13.0",
+    "ships": "build 7.5.9; server 8.13.0",
+    "how": "7.5.9: The 7.5.9 copy belongs to webpack-bundle-analyzer, which @next/bundle-analyzer requires only when ANALYZE=true on a webpack build. | 8.13.0: The 8.13.0 copy is an optional peer of @vercel/functions, loaded by a dynamic import inside its websocket helper. The website calls only waitUntil."
+  },
+  "yaml|GHSA-48c2-rrv3-qjmp": {
+    "disp": "BUILD",
+    "ships": "build",
+    "how": "Under tailwindcss > postcss-load-config: reads a PostCSS config file at build time; the repository's config is postcss.config.js."
+  },
+  "zod|GHSA-mrhx-c7xc-m3w5": {
+    "disp": "REACHED",
+    "ships": "server",
+    "how": "Every tRPC input is parsed with zod 3.22.4 on the server. A signed-in user can post a body of up to 1 MB to message.upsert whose array elements all fail. Measured: see F-2. (Also bundled in the browser, where a user can only slow their own tab.)"
+  }
+}
