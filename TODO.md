@@ -203,3 +203,13 @@ review's CR-4; lodged by `steering-cleanup-hooks`, 2026-11-10.
 pathname and query string as headers. Removing the entry is a one-line tidy for the next website
 effort that touches the file; it is not a security item. Read by `steering-cleanup-hooks`,
 2026-11-10, while closing the v1 guild-messages handoff.
+
+## Take over three open carriers whose route names a steering thread (retired `steering-roadmap-hooks`)
+
+Lodged 2026-11-21 by `steering-roadmap-hooks`, which the owner retired. The next hooks steering thread becomes the owning stage of
+these. Each waits on its own `Review-Trigger`, so nothing is due until a trigger fires:
+- `handoff/website-018-standing-risks-save-toast-and-lint-stack-2026-11-20.md` (Owning-Stage `steering`).
+- `handoff/website-trpc-batching-refusal-outside-caller-read-2026-11-21.md` (Owning-Stage `steering`).
+- `handoff/fix-website-dependency-audit-first-run-2026-11-21.md`, owned by devops. Its reader R1 (crontab `13 7 21-28 11 *`) closes it
+  `Addressed` on a PASS. A FAIL leaves it Open and routes to steering: read the R1 completion row in its changelog and route the fix.
+Start from `steering/website-deps-review-rulings.md`, block "2026-11-21T03:42Z — retire" and the blocks after it.

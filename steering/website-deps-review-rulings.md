@@ -312,3 +312,60 @@ Owner-wait `h002-m001-scope` resolved. **Next:** the planner, on the determinati
 **Applied:** two pieces of work. (a) A fix on website for items 1–3; its scoping determination follows in its own block after the
 scope sweep. (b) The scheduled audit; where it is built, and by which stage, follows in its own block after a search of the estate
 for an existing one. Items 4, 5 and 7 stay on the handoff on their own triggers.
+
+## 2026-11-21T03:42Z — retire: inventory of steering-roadmap-hooks (his /retire)
+
+He ran `/retire` on this thread. This thread steered several efforts, so this file, the latest effort's, takes the run's blocks. The
+backlog effort's file is `steering/backlog-2026-11-18-rulings.md`.
+- **Chains, each read at its documents:**
+  - 017 (`017-existing-items-backlog`, `planning/closed/`) and 018 (`planning/closed/018-next-upgrade-save-size-cap.md`): released and
+    retrospected (`retrospectives/018-…`).
+  - Fixer chains, each implementation `Released` in `implementation/closed/`: `fix-dialog-closes-on-first-portal-load` and
+    `fix-personal-message-access` (`retrospectives/fixer-batch-2026-11-20-retrospective.md`); `fix-message-page-header-decode`,
+    `fix-trpc-batch-limit` and `fix-website-dependency-audit` (`retrospectives/fixer-batch-2026-11-21-retrospective.md`, `7bfe4b4`).
+    None is in flight. No fixer chain is closed and unretrospected.
+- **Sessions this thread started:** none is live (`ListAgents`, 03:42Z: every peer is a `statbot-081` session, `steering-coordinator`
+  or `steering-roadmap-statbot`). All of them were stopped at their chains' close-outs (blocks in each chain's rulings file).
+- **Jobs:** cache-warm wake `94d15544` (`CronList`). Crontab lines its chains installed (`crontab -l`, 03:42Z):
+  - 017's B7R (lines 65–68) and B10R (69–72), on the open carrier `handoff/017-existing-items-backlog-post-deploy-2026-11-19.md`;
+  - the audit's daily run (82–83; the deliverable);
+  - its reader R1 (84–85), on `handoff/fix-website-dependency-audit-first-run-2026-11-21.md`.
+  All stay.
+- **Open carriers this thread owns** (Owning-Stage `steering`): `handoff/website-018-standing-risks-save-toast-and-lint-stack-2026-11-20.md`
+  and `handoff/website-trpc-batching-refusal-outside-caller-read-2026-11-21.md`. The audit carrier's FAIL route also names this thread.
+- **OWNER-QUEUE:** one item, this thread's (the audit reviewer's untracked duplicate notes file). Docket: `docket-roadmap-hooks.md`.
+
+## 2026-11-21T03:44Z — retire: closing block of steering-roadmap-hooks
+
+- **Chains:** every chain is at rest and terminal (block 03:42Z). No closure was owed and none was performed. The fixer retrospectives
+  cover all seven fixer chains; none is left without one.
+- **Sessions stopped in this run:** none. None was live, and each had been stopped at its chain's close-out.
+- **Removed from the box:** 19 exited sessions' scratch directories, `du -sc` 51,104 KB before, `ls -d` of each failing after. They were:
+  - `fix-message-page-header-decode`'s five P1R reader runs under `-usr-local-bin-hooks-agent-output/`;
+  - `uat-hooks-017-looks`, under `-usr-local-bin-hooks-website/`;
+  - `critic-hooks-017` and `uat-access-check` ×2, under `-usr-local-bin-hooks/`;
+  - ten earlier generations of this thread, under `-usr-local-bin-hooks/`.
+  No open handoff or docket cites any of them (`grep -l -F <id>` over every Open handoff and every docket: no hit).
+- **Left on the box:**
+  - the two B7R/B10R reader runs (`1439dd6b…`, `5f52c6e7…`), whose open carrier still runs;
+  - `-usr-local-bin-hooks/7cdb31b0…`, with no transcript to name its session, so not this thread's to judge;
+  - this session's own scratch and task folders;
+  - Docker image `postgres:16`, named in no chain of this thread's;
+  - devops-hooks-017's untracked `verification/017/devops/close-released.{py,sh}`, put to him.
+- **Jobs:** cache-warm wake `94d15544` deleted; `CronList` is empty. The four crontab entries (block 03:42Z) stay, each on its
+  carrier or as the deliverable.
+- **Handed on:** the two `steering`-owned carriers and the audit carrier's FAIL route, by `TODO.md` item "Take over three open
+  carriers whose route names a steering thread". No live hooks steering thread is listed.
+- **Open carriers, each on its trigger:**
+  - `handoff/website-018-standing-risks-save-toast-and-lint-stack-2026-11-20.md`;
+  - `handoff/website-trpc-batching-refusal-outside-caller-read-2026-11-21.md`;
+  - `handoff/fix-website-dependency-audit-first-run-2026-11-21.md`;
+  - `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md`;
+  - `handoff/website-git-dependencies-resolve-unpinned-2026-11-20.md`;
+  - `handoff/update-preferences-recent-message-ids-accepts-non-int8-2026-11-19.md`;
+  - `handoff/017-existing-items-backlog-post-deploy-2026-11-19.md`;
+  - `handoff/anchored-popover-first-load-test-is-order-dependent-2026-11-18.md`.
+- **Left uncommitted, by rule:** the hooks `INBOX.md` (its owning session commits it) and `steering/selection-ledger/2026-11-21.md`
+  (its UTC day has not ended).
+- **Put to him in the closing prompt:** the OWNER-QUEUE duplicate file and the two untracked 017 devops files.
+- Docket `docket-roadmap-hooks.md` and its `dockets.md` line deleted. Close-out commit: this block's.
