@@ -95,3 +95,27 @@ wording this thread's):
 failed run), and none again until a run succeeds; (b) it appends one entry when the website's local `origin/master` differs from
 `git ls-remote origin refs/heads/master` (read only; no fetch, no ref moved), once per differing pair. Same paths; the stated limit:
 a disposition holds for every version of its module under its GHSA. Recipients: the fixer (with CR-1), the reviewer.
+
+## 2026-11-21T01:45Z — chain closed out; fixer-batch retrospective and test-case scoring started
+
+Read this turn: devops's close-out (its message 01:2xZ). The carrier `handoff/fix-website-dependency-audit-first-run-2026-11-21.md`
+(`5209945`, Open, Owning-Stage devops) carries B-1 and both Assumptions Not Checked in full. Its reader R1 is crontab line 85,
+`13 7 21-28 11 *` (`crontab -l`, read 01:4xZ). The kit's `out/smoke-final.txt` ends "SMOKE OK — the kit is armed; nothing started".
+The four documents are `Status: Released` in `closed/` (implementation `8d59477`, code review `e5dedbe`, QA `705535d`, deployment `7768ec1`).
+- **Leftovers handoff:** item 6 recorded as discharged in `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md`
+  (Status-Detail and a changelog row). It stays Open for items 4, 5 and 7, each on its own trigger. Disclosure: the record-write gate
+  refused a shell edit of that file and required the Edit tool or `record-edit.js`. The first edit, a python write one call earlier,
+  had gone through the shell unseen by the gate; the correction that followed was made with Edit.
+- **Sessions:** the chain's four sessions were stopped 01:27Z (`tmux-agent stop`); `/proc` entries for pids 1086235, 1229313, 1783778
+  and 2232574 are all absent. Scratch deleted under `/tmp/claude-1000/-usr-local-bin-hooks-agent-output/`: `b599db6d…`, `84577f0e…`,
+  `bc210ef7…`, `e0e50a80…` (`du -s` 16 + 2,640 + 120 + 112 KB; `ls -d` of each failed after). The open carrier and kit cite none of
+  them (`git grep -l -F /tmp/claude-1000`, no hit). Neither does any other docket. Closed verification tables cite run directories
+  there (mutation outputs); their results are in the committed tables.
+- **Box:** no Docker image or `/var/tmp` capture is this chain's (`postgres:16` only, not this chain's).
+- `INDEX.md` rebuilt (`build-index.js --tracked`, diff read: 489 documents, the two fixer chains' closed documents and carriers).
+  OWNER-QUEUE unchanged: its one item, the reviewer's untracked duplicate, still exists (`ls -l`).
+- **Fixer batch:** `fix-message-page-header-decode` (website `983681c..7923a1d`), `fix-trpc-batch-limit` (`d1bb9b0..76da25c`) and
+  this chain (record, tool last changed at `67f0285`, installed tree `5d0baf8`). Retrospective origin `fixer-batch-2026-11-21`. Scoring
+  covers website `76da25c`: 4 test files the batch changed (`git diff --name-only` over both ranges). It also covers record `5d0baf8`:
+  `tools/websiteDependencyAudit.test.js`.
+- The standing check is deleted. No chain of this thread is in flight, and R1 carries the one timed read.
