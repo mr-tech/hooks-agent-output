@@ -1,0 +1,216 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts (7 tests | 4 failed) 27ms
+     × answers not found with the one message text for a number no message holds 14ms
+     × answers not found with the one message text for another user's personal message 2ms
+     × answers not found with the one message text for a message of a server the user cannot manage 3ms
+     × gives the same answer in all three cases, with none of the message in it 3ms
+stderr | src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message number the signed-in user cannot load > shows the not-found notice, in place of the page, with a link back to his messages
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+An update to ForwardRef(LoadableComponent) inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx (7 tests | 7 failed) 4555ms
+     × shows the not-found notice, in place of the page, with a link back to his messages 1042ms
+     × asks for the message once, without retrying the refusal 1008ms
+     × shows the not-found notice, in place of the page, with a link back to his messages 1011ms
+     × asks for the message once, without retrying the refusal 1007ms
+     × does not retry a not-found answer 7ms
+     × retries a server error up to three times 4ms
+     × does not retry a refused number that is not a message number 6ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message number the signed-in user cannot load > shows the not-found notice, in place of the page, with a link back to his messages
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message number the signed-in user cannot load > shows the not-found notice, in place of the page, with a link back to his messages
+AssertionError: expected '' to contain 'This message doesn\'t exist, or you d…'
+
+- Expected
++ Received
+
+- This message doesn't exist, or you don't have access to it.
+
+ ❯ src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx:164:60
+    162|     const container = mountPage(Page, route, ABSENT_ID);
+    163|
+    164|     await vi.waitFor(() => { expect(container.textContent).toContain(N…
+       |                                                            ^
+    165|
+    166|     const back = Array.from(container.querySelectorAll('a')).find((a) …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the edit page for a message number the signed-in user cannot load > asks for the message once, without retrying the refusal
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the send page for a message number the signed-in user cannot load > asks for the message once, without retrying the refusal
+AssertionError: expected '' to contain 'This message doesn\'t exist, or you d…'
+
+- Expected
++ Received
+
+- This message doesn't exist, or you don't have access to it.
+
+ ❯ src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx:175:60
+    173|     const container = mountPage(Page, route, ABSENT_ID);
+    174|
+    175|     await vi.waitFor(() => { expect(container.textContent).toContain(N…
+       |                                                            ^
+    176|
+    177|     expect(getOneRequests).toEqual([404]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/11]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > does not retry a not-found answer
+TypeError: retryUnlessRefused is not a function
+ ❯ src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx:192:12
+    190|     const error = await errorFromTheWire(ABSENT_ID);
+    191|
+    192|     expect(retryUnlessRefused(0, error)).toBe(false);
+       |            ^
+    193|   });
+    194|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/11]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > retries a server error up to three times
+TypeError: retryUnlessRefused is not a function
+ ❯ src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx:199:40
+    197|     const error = await errorFromTheWire(ABSENT_ID);
+    198|
+    199|     expect([0, 1, 2, 3].map((count) => retryUnlessRefused(count, error…
+       |                                        ^
+    200|   });
+    201|
+ ❯ src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx:199:25
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/11]⎯
+
+ FAIL  |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx > the message load's retry rule, on errors as the tRPC client reports them > does not retry a refused number that is not a message number
+TypeError: retryUnlessRefused is not a function
+ ❯ src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx:205:12
+    203|     const error = await errorFromTheWire('not-a-number');
+    204|
+    205|     expect(retryUnlessRefused(0, error)).toBe(false);
+       |            ^
+    206|   });
+    207| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/11]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a signed-in user who cannot see the message > answers not found with the one message text for a number no message holds
+AssertionError: expected { error: { …(2) } } to deeply equal { error: { code: 'NOT_FOUND', …(1) } }
+
+- Expected
++ Received
+
+  {
+    "error": {
+-     "code": "NOT_FOUND",
+-     "message": "This message doesn't exist, or you don't have access to it.",
++     "code": "INTERNAL_SERVER_ERROR",
++     "message": "no result",
+    },
+  }
+
+ ❯ src/server/api/routers/__tests__/message.get-one-not-found.test.ts:113:21
+    111|     const outcome = await outcomeOf(callerAs(OTHER).getOne(id));
+    112|
+    113|     expect(outcome).toEqual({ error: { code: 'NOT_FOUND', message: NOT…
+       |                     ^
+    114|   });
+    115|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/11]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a signed-in user who cannot see the message > answers not found with the one message text for another user's personal message
+AssertionError: expected { error: { code: 'NOT_FOUND', …(1) } } to deeply equal { error: { code: 'NOT_FOUND', …(1) } }
+
+- Expected
++ Received
+
+  {
+    "error": {
+      "code": "NOT_FOUND",
+-     "message": "This message doesn't exist, or you don't have access to it.",
++     "message": "One of the provided messages does not exist.",
+    },
+  }
+
+ ❯ src/server/api/routers/__tests__/message.get-one-not-found.test.ts:113:21
+    111|     const outcome = await outcomeOf(callerAs(OTHER).getOne(id));
+    112|
+    113|     expect(outcome).toEqual({ error: { code: 'NOT_FOUND', message: NOT…
+       |                     ^
+    114|   });
+    115|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/11]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a signed-in user who cannot see the message > answers not found with the one message text for a message of a server the user cannot manage
+AssertionError: expected { error: { code: 'FORBIDDEN', …(1) } } to deeply equal { error: { code: 'NOT_FOUND', …(1) } }
+
+- Expected
++ Received
+
+  {
+    "error": {
+-     "code": "NOT_FOUND",
+-     "message": "This message doesn't exist, or you don't have access to it.",
++     "code": "FORBIDDEN",
++     "message": "User does not have permission to access to this server.",
+    },
+  }
+
+ ❯ src/server/api/routers/__tests__/message.get-one-not-found.test.ts:113:21
+    111|     const outcome = await outcomeOf(callerAs(OTHER).getOne(id));
+    112|
+    113|     expect(outcome).toEqual({ error: { code: 'NOT_FOUND', message: NOT…
+       |                     ^
+    114|   });
+    115|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/11]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a signed-in user who cannot see the message > gives the same answer in all three cases, with none of the message in it
+AssertionError: expected 3 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 3
+
+ ❯ src/server/api/routers/__tests__/message.get-one-not-found.test.ts:119:78
+    117|     const outcomes = await Promise.all(cases.map(([, id]) => outcomeOf…
+    118|
+    119|     expect(new Set(outcomes.map((outcome) => JSON.stringify(outcome)))…
+       |                                                                              ^
+    120|     expect(JSON.stringify(outcomes)).not.toContain(SECRET);
+    121|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/11]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  11 failed | 3 passed (14)
+   Start at  06:53:44
+   Duration  6.40s (transform 578ms, setup 17ms, import 2.09s, tests 4.58s, environment 623ms)
+
+exit=1

@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/be9e7586-715d-4c8d-ae9c-c8031844d3de/scratchpad/mwork/20261121T070056Z-p1461612/mutant-5
+
+ ❯ |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts (7 tests | 2 failed) 25ms
+     × returns a server message to a user who manages that server 4ms
+     × answers unauthorized, not not found 5ms
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 5 passed (7)
+   Start at  07:01:13
+   Duration  1.30s (transform 238ms, setup 0ms, import 1.14s, tests 25ms, environment 0ms)
+

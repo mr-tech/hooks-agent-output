@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/be9e7586-715d-4c8d-ae9c-c8031844d3de/scratchpad/mwork/20261121T070056Z-p1461612/mutant-11
+
+ ❯ |dom| src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx (7 tests | 4 failed) 4625ms
+     × shows the not-found notice, in place of the page, with a link back to his messages 1044ms
+     × asks for the message once, without retrying the refusal 1008ms
+     × shows the not-found notice, in place of the page, with a link back to his messages 1019ms
+     × asks for the message once, without retrying the refusal 1012ms
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 3 passed (7)
+   Start at  07:01:42
+   Duration  6.60s (transform 449ms, setup 21ms, import 1.18s, tests 4.63s, environment 615ms)
+

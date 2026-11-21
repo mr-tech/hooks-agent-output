@@ -1,0 +1,46 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a signed-in user who cannot see the message > answers not found with the one message text for another user's personal message
+AssertionError: expected { error: { code: 'NOT_FOUND', …(1) } } to deeply equal { error: { code: 'NOT_FOUND', …(1) } }
+
+- Expected
++ Received
+
+  {
+    "error": {
+      "code": "NOT_FOUND",
+-     "message": "This message doesn't exist, or you don't have access to it.",
++     "message": "One of the provided messages does not exist.",
+    },
+  }
+
+ ❯ src/server/api/routers/__tests__/message.get-one-not-found.test.ts:113:21
+    111|     const outcome = await outcomeOf(callerAs(OTHER).getOne(id));
+    112|
+    113|     expect(outcome).toEqual({ error: { code: 'NOT_FOUND', message: NOT…
+       |                     ^
+    114|   });
+    115|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a signed-in user who cannot see the message > gives the same answer in all three cases, with none of the message in it
+AssertionError: expected 2 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 2
+
+ ❯ src/server/api/routers/__tests__/message.get-one-not-found.test.ts:119:78
+    117|     const outcomes = await Promise.all(cases.map(([, id]) => outcomeOf…
+    118|
+    119|     expect(new Set(outcomes.map((outcome) => JSON.stringify(outcome)))…
+       |                                                                              ^
+    120|     expect(JSON.stringify(outcomes)).not.toContain(SECRET);
+    121|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

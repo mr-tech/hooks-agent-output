@@ -1,0 +1,48 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne for a user who can see the message > returns a server message to a user who manages that server
+TRPCError: This message doesn't exist, or you don't have access to it.
+ ❯ messageNotFound src/server/api/routers/message.ts:30:10
+     28|
+     29| function messageNotFound() {
+     30|   return new TRPCError({
+       |          ^
+     31|     code: 'NOT_FOUND',
+     32|     message: 'This message doesn\'t exist, or you don\'t have access t…
+ ❯ src/server/api/routers/message.ts:76:36
+ ❯ resolveMiddleware node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:576:21
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ callRecursive node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:642:19
+ ❯ procedure node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/procedureBuilder.ts:682:19
+ ❯ node_modules/.pnpm/@trpc+server@11.10.0_typescript@5.9.3/node_modules/@trpc/server/src/unstable-core-do-not-import/router.ts:474:19
+ ❯ src/server/api/routers/__tests__/message.get-one-not-found.test.ts:134:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts > message.getOne when the user's servers cannot be read from Discord > answers unauthorized, not not found
+AssertionError: expected { error: { code: 'NOT_FOUND', …(1) } } to deeply equal { error: { …(2) } }
+
+- Expected
++ Received
+
+  {
+    "error": {
+-     "code": "UNAUTHORIZED",
+-     "message": "Failed to fetch user servers.",
++     "code": "NOT_FOUND",
++     "message": "This message doesn't exist, or you don't have access to it.",
+    },
+  }
+
+ ❯ src/server/api/routers/__tests__/message.get-one-not-found.test.ts:146:21
+    144|     const outcome = await outcomeOf(callerAs(OTHER).getOne(GUILD_MESSA…
+    145|
+    146|     expect(outcome).toEqual({ error: { code: 'UNAUTHORIZED', message: …
+       |                     ^
+    147|   });
+    148| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

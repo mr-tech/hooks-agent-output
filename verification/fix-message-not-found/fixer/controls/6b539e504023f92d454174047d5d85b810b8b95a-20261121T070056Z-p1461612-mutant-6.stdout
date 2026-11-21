@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/be9e7586-715d-4c8d-ae9c-c8031844d3de/scratchpad/mwork/20261121T070056Z-p1461612/mutant-6
+
+ ❯ |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts (7 tests | 1 failed) 19ms
+     × returns a personal message to its owner 4ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)
+   Start at  07:01:15
+   Duration  1.20s (transform 218ms, setup 0ms, import 1.05s, tests 19ms, environment 0ms)
+

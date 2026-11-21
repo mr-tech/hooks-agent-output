@@ -1,0 +1,65 @@
+FAIL eslint src/providers/MessageProvider/index.tsx:121 — @typescript-eslint/no-unnecessary-type-arguments: This value can be trivially inferred for this type parameter, so it can be omitted.
+FAIL eslint src/providers/MessageProvider/index.tsx:161 — react-hooks/set-state-in-effect: Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/usr/local/bin/hooks/website/src/providers/MessageProvider/index.tsx:161:7
+  159 |       writeRouteZeroDraft(tmp);
+  160 |       loadedRef.current = tmp;
+> 161 |       setMessage(tmp);
+      |       ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  162 |       setSavedMessage(tmp);
+  163 |       detectMode(tmp);
+  164 |     }
+FAIL eslint src/providers/MessageProvider/index.tsx:178 — react-hooks/set-state-in-effect: Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/usr/local/bin/hooks/website/src/providers/MessageProvider/index.tsx:178:7
+  176 |         : copyIntroMessage();
+  177 |       loadedRef.current = tmp;
+> 178 |       setMessage(tmp);
+      |       ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  179 |       setSavedMessage(tmp);
+  180 |       detectMode(tmp);
+  181 |     }
+FAIL eslint src/providers/MessageProvider/index.tsx:200 — @typescript-eslint/no-unnecessary-type-arguments: This value can be trivially inferred for this type parameter, so it can be omitted.
+FAIL eslint src/providers/MessageProvider/index.tsx:358 — react-hooks/use-memo: Error: Expected the dependency list for useMemo to be an array literal
+
+Expected the dependency list for useMemo to be an array literal.
+
+/usr/local/bin/hooks/website/src/providers/MessageProvider/index.tsx:358:31
+  356 |   };
+  357 |
+> 358 |   return useMemo(() => state, Object.values(state));
+      |                               ^^^^^^^^^^^^^^^^^^^^ Expected the dependency list for useMemo to be an array literal
+  359 | }
+  360 |
+  361 | const Provider = memo(({ children }: PropsWithChildren) => {
+SKIP .playwright-mcp/a2-empty-textdisplay.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a2-v2b.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a4-send-empty.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a6-state.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a7-send-filled.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b1-section.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b2-thumb.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b3-gallery-alt.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b3-gallery.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-41-text-displays-base.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-41-text-displays-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-content-2100-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-control-valid-v2-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-embed-description-4097-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-empty-username-base.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-empty-username-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-fresh-text-display-tip.png: not examined — extension .png is outside the examined set
+SKIP id-token, basename: /usr/local/bin/hooks/agent-output/CLAUDE.md states an ID-token class this checker does not implement verbatim (the hooks line at cca22fd) — the checks did not run
+convention-check: 7 file(s) examined, 17 not examined, 2 test file(s); 5 FAIL, 0 CANDIDATE, 18 SKIP

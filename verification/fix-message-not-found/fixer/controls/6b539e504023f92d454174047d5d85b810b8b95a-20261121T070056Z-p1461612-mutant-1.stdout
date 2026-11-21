@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/be9e7586-715d-4c8d-ae9c-c8031844d3de/scratchpad/mwork/20261121T070056Z-p1461612/mutant-1
+
+ ❯ |node| src/server/api/routers/__tests__/message.get-one-not-found.test.ts (7 tests | 2 failed) 22ms
+     × answers not found with the one message text for a number no message holds 13ms
+     × gives the same answer in all three cases, with none of the message in it 2ms
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 5 passed (7)
+   Start at  07:01:03
+   Duration  1.20s (transform 213ms, setup 0ms, import 1.06s, tests 22ms, environment 0ms)
+
