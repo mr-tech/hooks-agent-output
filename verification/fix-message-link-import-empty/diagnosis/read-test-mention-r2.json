@@ -1,0 +1,47 @@
+{
+  "at": "2026-11-21T10:27:14.341Z",
+  "reader": "test",
+  "reader_bot": {
+    "id": "1558266761101447248",
+    "username": "Statbot TEST"
+  },
+  "sha": "b663b35",
+  "reads": {
+    "mention-r2": {
+      "channelId": "1566742403195469906",
+      "messageId": "1573645928798355507",
+      "status": 200,
+      "raw": {
+        "author": {
+          "id": "1558266761101447248",
+          "username": "Statbot TEST",
+          "bot": true
+        },
+        "content_length": 101,
+        "content": "fix-message-link-import-empty diagnosis fixture: mentions <@1034527356381044828> (mention registered)",
+        "embed_types": [
+          "rich"
+        ],
+        "component_types": [],
+        "flags": 0,
+        "mentions": [
+          "1034527356381044828"
+        ]
+      },
+      "converted": {
+        "data": {
+          "username": "Statbot TEST",
+          "content": "fix-message-link-import-empty diagnosis fixture: mentions <@1034527356381044828> (mention registered)",
+          "embeds": [
+            {
+              "title": "Rich embed title",
+              "description": "Rich embed description",
+              "color": 5814783
+            }
+          ]
+        },
+        "droppedComponentTypes": []
+      }
+    }
+  }
+}

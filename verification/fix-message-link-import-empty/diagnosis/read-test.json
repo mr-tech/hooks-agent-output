@@ -1,0 +1,283 @@
+{
+  "at": "2026-11-21T10:26:39.378Z",
+  "reader": "test",
+  "reader_bot": {
+    "id": "1558266761101447248",
+    "username": "Statbot TEST"
+  },
+  "sha": "b663b35",
+  "reads": {
+    "plain": {
+      "channelId": "1566742403195469906",
+      "messageId": "1573645137471471668",
+      "status": 200,
+      "raw": {
+        "author": {
+          "id": "1558266761101447248",
+          "username": "Statbot TEST",
+          "bot": true
+        },
+        "content_length": 80,
+        "content": "fix-message-link-import-empty diagnosis fixture: plain content by another author",
+        "embed_types": [],
+        "component_types": [],
+        "flags": 0,
+        "mentions": []
+      },
+      "converted": {
+        "data": {
+          "username": "Statbot TEST",
+          "content": "fix-message-link-import-empty diagnosis fixture: plain content by another author",
+          "embeds": []
+        },
+        "droppedComponentTypes": []
+      }
+    },
+    "mention": {
+      "channelId": "1566742403195469906",
+      "messageId": "1573645140306956310",
+      "status": 200,
+      "raw": {
+        "author": {
+          "id": "1558266761101447248",
+          "username": "Statbot TEST",
+          "bot": true
+        },
+        "content_length": 80,
+        "content": "fix-message-link-import-empty diagnosis fixture: mentions <@1034527356381044828>",
+        "embed_types": [
+          "rich"
+        ],
+        "component_types": [],
+        "flags": 0,
+        "mentions": []
+      },
+      "converted": {
+        "data": {
+          "username": "Statbot TEST",
+          "content": "fix-message-link-import-empty diagnosis fixture: mentions <@1034527356381044828>",
+          "embeds": [
+            {
+              "title": "Rich embed title",
+              "description": "Rich embed description",
+              "color": 5814783
+            }
+          ]
+        },
+        "droppedComponentTypes": []
+      }
+    },
+    "rich": {
+      "channelId": "1566742403195469906",
+      "messageId": "1573645148011888681",
+      "status": 200,
+      "raw": {
+        "author": {
+          "id": "1558266761101447248",
+          "username": "Statbot TEST",
+          "bot": true
+        },
+        "content_length": 74,
+        "content": "fix-message-link-import-empty diagnosis fixture: content with a rich embed",
+        "embed_types": [
+          "rich"
+        ],
+        "component_types": [],
+        "flags": 0,
+        "mentions": []
+      },
+      "converted": {
+        "data": {
+          "username": "Statbot TEST",
+          "content": "fix-message-link-import-empty diagnosis fixture: content with a rich embed",
+          "embeds": [
+            {
+              "title": "Rich embed title",
+              "description": "Rich embed description",
+              "color": 5814783
+            }
+          ]
+        },
+        "droppedComponentTypes": []
+      }
+    },
+    "v2": {
+      "channelId": "1566742403195469906",
+      "messageId": "1573645156178206741",
+      "status": 200,
+      "raw": {
+        "author": {
+          "id": "1558266761101447248",
+          "username": "Statbot TEST",
+          "bot": true
+        },
+        "content_length": 0,
+        "content": "",
+        "embed_types": [],
+        "component_types": [
+          17
+        ],
+        "flags": 32768,
+        "mentions": []
+      },
+      "converted": {
+        "data": {
+          "username": "Statbot TEST",
+          "content": "",
+          "embeds": [],
+          "components": [
+            {
+              "type": 17,
+              "id": 1,
+              "accent_color": null,
+              "components": [
+                {
+                  "type": 10,
+                  "id": 2,
+                  "content": "fix-message-link-import-empty diagnosis fixture: Components V2 text"
+                }
+              ],
+              "spoiler": false
+            }
+          ],
+          "flags": 32768
+        },
+        "droppedComponentTypes": []
+      }
+    },
+    "linkembed": {
+      "channelId": "1566742403195469906",
+      "messageId": "1573645157654466580",
+      "status": 200,
+      "raw": {
+        "author": {
+          "id": "1558266761101447248",
+          "username": "Statbot TEST",
+          "bot": true
+        },
+        "content_length": 43,
+        "content": "https://github.com/discord/discord-api-docs",
+        "embed_types": [
+          "article"
+        ],
+        "component_types": [],
+        "flags": 1024,
+        "mentions": []
+      },
+      "converted": {
+        "data": {
+          "username": "Statbot TEST",
+          "content": "https://github.com/discord/discord-api-docs",
+          "embeds": [],
+          "flags": 1024
+        },
+        "droppedComponentTypes": []
+      }
+    },
+    "webhook": {
+      "channelId": "1566742403195469906",
+      "messageId": "1573645160976224267",
+      "status": 200,
+      "raw": {
+        "author": {
+          "id": "1573645159911129158",
+          "username": "diag-fixture-webhook",
+          "bot": true
+        },
+        "webhook_id": "1573645159911129158",
+        "content_length": 82,
+        "content": "fix-message-link-import-empty diagnosis fixture: webhook content with a rich embed",
+        "embed_types": [
+          "rich"
+        ],
+        "component_types": [],
+        "flags": 0,
+        "mentions": []
+      },
+      "converted": {
+        "data": {
+          "username": "diag-fixture-webhook",
+          "content": "fix-message-link-import-empty diagnosis fixture: webhook content with a rich embed",
+          "embeds": [
+            {
+              "title": "Rich embed title",
+              "description": "Rich embed description",
+              "color": 5814783
+            }
+          ]
+        },
+        "droppedComponentTypes": []
+      }
+    },
+    "pd1-classic": {
+      "channelId": "1566742403195469906",
+      "messageId": "1573621671380910101",
+      "status": 200,
+      "raw": {
+        "author": {
+          "id": "1558266761101447248",
+          "username": "Statbot TEST",
+          "bot": true
+        },
+        "content_length": 74,
+        "content": "fix-import-save-conflict post-deploy fixture: classic message with content",
+        "embed_types": [],
+        "component_types": [],
+        "flags": 0,
+        "mentions": []
+      },
+      "converted": {
+        "data": {
+          "username": "Statbot TEST",
+          "content": "fix-import-save-conflict post-deploy fixture: classic message with content",
+          "embeds": []
+        },
+        "droppedComponentTypes": []
+      }
+    },
+    "pd1-v2": {
+      "channelId": "1566742403195469906",
+      "messageId": "1573621673230602251",
+      "status": 200,
+      "raw": {
+        "author": {
+          "id": "1558266761101447248",
+          "username": "Statbot TEST",
+          "bot": true
+        },
+        "content_length": 0,
+        "content": "",
+        "embed_types": [],
+        "component_types": [
+          17
+        ],
+        "flags": 32768,
+        "mentions": []
+      },
+      "converted": {
+        "data": {
+          "username": "Statbot TEST",
+          "content": "",
+          "embeds": [],
+          "components": [
+            {
+              "type": 17,
+              "id": 1,
+              "accent_color": null,
+              "components": [
+                {
+                  "type": 10,
+                  "id": 2,
+                  "content": "fix-import-save-conflict post-deploy fixture: Components V2 message"
+                }
+              ],
+              "spoiler": false
+            }
+          ],
+          "flags": 32768
+        },
+        "droppedComponentTypes": []
+      }
+    }
+  }
+}

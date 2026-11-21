@@ -1,0 +1,20 @@
+READER hooks {'id': '1034527356381044828', 'username': 'Hooks.gg'} 2026-11-21T10:26:32.255Z
+  plain        st=200 raw: content_len=0 embeds=[] components=[] flags=0 mentions=[] | converted: content_len=0 embeds=0 components=0 dropped=[]
+  mention      st=200 raw: content_len=0 embeds=[] components=[] flags=0 mentions=[] | converted: content_len=0 embeds=0 components=0 dropped=[]
+  rich         st=200 raw: content_len=0 embeds=[] components=[] flags=0 mentions=[] | converted: content_len=0 embeds=0 components=0 dropped=[]
+  v2           st=200 raw: content_len=0 embeds=[] components=[] flags=32768 mentions=[] | converted: content_len=0 embeds=0 components=0 dropped=[]
+  linkembed    st=200 raw: content_len=0 embeds=[] components=[] flags=1024 mentions=[] | converted: content_len=0 embeds=0 components=0 dropped=[]
+  webhook      st=200 raw: content_len=0 embeds=[] components=[] flags=0 mentions=[] | converted: content_len=0 embeds=0 components=0 dropped=[]
+  pd1-classic  st=200 raw: content_len=0 embeds=[] components=[] flags=0 mentions=[] | converted: content_len=0 embeds=0 components=0 dropped=[]
+  pd1-v2       st=200 raw: content_len=0 embeds=[] components=[] flags=32768 mentions=[] | converted: content_len=0 embeds=0 components=0 dropped=[]
+READER test {'id': '1558266761101447248', 'username': 'Statbot TEST'} 2026-11-21T10:26:39.378Z
+  plain        st=200 raw: content_len=80 embeds=[] components=[] flags=0 mentions=[] | converted: content_len=80 embeds=0 components=0 dropped=[]
+  mention      st=200 raw: content_len=80 embeds=['rich'] components=[] flags=0 mentions=[] | converted: content_len=80 embeds=1 components=0 dropped=[]
+  rich         st=200 raw: content_len=74 embeds=['rich'] components=[] flags=0 mentions=[] | converted: content_len=74 embeds=1 components=0 dropped=[]
+  v2           st=200 raw: content_len=0 embeds=[] components=[17] flags=32768 mentions=[] | converted: content_len=0 embeds=0 components=1 dropped=[]
+  linkembed    st=200 raw: content_len=43 embeds=['article'] components=[] flags=1024 mentions=[] | converted: content_len=43 embeds=0 components=0 dropped=[]
+  webhook      st=200 raw: content_len=82 embeds=['rich'] components=[] flags=0 mentions=[] | converted: content_len=82 embeds=1 components=0 dropped=[]
+  pd1-classic  st=200 raw: content_len=74 embeds=[] components=[] flags=0 mentions=[] | converted: content_len=74 embeds=0 components=0 dropped=[]
+  pd1-v2       st=200 raw: content_len=0 embeds=[] components=[17] flags=32768 mentions=[] | converted: content_len=0 embeds=0 components=1 dropped=[]
+hooks 2026-11-21T10:27:13.515Z raw content_len 101 embeds ['rich'] mentions ['1034527356381044828'] | converted content_len 101 embeds 1
+test 2026-11-21T10:27:14.341Z raw content_len 101 embeds ['rich'] mentions ['1034527356381044828'] | converted content_len 101 embeds 1

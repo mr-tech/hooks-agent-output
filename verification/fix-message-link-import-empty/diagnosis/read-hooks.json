@@ -1,0 +1,223 @@
+{
+  "at": "2026-11-21T10:26:32.255Z",
+  "reader": "hooks",
+  "reader_bot": {
+    "id": "1034527356381044828",
+    "username": "Hooks.gg"
+  },
+  "sha": "b663b35",
+  "reads": {
+    "plain": {
+      "channelId": "1566742403195469906",
+      "messageId": "1573645137471471668",
+      "status": 200,
+      "raw": {
+        "author": {
+          "id": "1558266761101447248",
+          "username": "Statbot TEST",
+          "bot": true
+        },
+        "content_length": 0,
+        "content": "",
+        "embed_types": [],
+        "component_types": [],
+        "flags": 0,
+        "mentions": []
+      },
+      "converted": {
+        "data": {
+          "username": "Statbot TEST",
+          "content": "",
+          "embeds": []
+        },
+        "droppedComponentTypes": []
+      }
+    },
+    "mention": {
+      "channelId": "1566742403195469906",
+      "messageId": "1573645140306956310",
+      "status": 200,
+      "raw": {
+        "author": {
+          "id": "1558266761101447248",
+          "username": "Statbot TEST",
+          "bot": true
+        },
+        "content_length": 0,
+        "content": "",
+        "embed_types": [],
+        "component_types": [],
+        "flags": 0,
+        "mentions": []
+      },
+      "converted": {
+        "data": {
+          "username": "Statbot TEST",
+          "content": "",
+          "embeds": []
+        },
+        "droppedComponentTypes": []
+      }
+    },
+    "rich": {
+      "channelId": "1566742403195469906",
+      "messageId": "1573645148011888681",
+      "status": 200,
+      "raw": {
+        "author": {
+          "id": "1558266761101447248",
+          "username": "Statbot TEST",
+          "bot": true
+        },
+        "content_length": 0,
+        "content": "",
+        "embed_types": [],
+        "component_types": [],
+        "flags": 0,
+        "mentions": []
+      },
+      "converted": {
+        "data": {
+          "username": "Statbot TEST",
+          "content": "",
+          "embeds": []
+        },
+        "droppedComponentTypes": []
+      }
+    },
+    "v2": {
+      "channelId": "1566742403195469906",
+      "messageId": "1573645156178206741",
+      "status": 200,
+      "raw": {
+        "author": {
+          "id": "1558266761101447248",
+          "username": "Statbot TEST",
+          "bot": true
+        },
+        "content_length": 0,
+        "content": "",
+        "embed_types": [],
+        "component_types": [],
+        "flags": 32768,
+        "mentions": []
+      },
+      "converted": {
+        "data": {
+          "username": "Statbot TEST",
+          "content": "",
+          "embeds": [],
+          "flags": 32768
+        },
+        "droppedComponentTypes": []
+      }
+    },
+    "linkembed": {
+      "channelId": "1566742403195469906",
+      "messageId": "1573645157654466580",
+      "status": 200,
+      "raw": {
+        "author": {
+          "id": "1558266761101447248",
+          "username": "Statbot TEST",
+          "bot": true
+        },
+        "content_length": 0,
+        "content": "",
+        "embed_types": [],
+        "component_types": [],
+        "flags": 1024,
+        "mentions": []
+      },
+      "converted": {
+        "data": {
+          "username": "Statbot TEST",
+          "content": "",
+          "embeds": [],
+          "flags": 1024
+        },
+        "droppedComponentTypes": []
+      }
+    },
+    "webhook": {
+      "channelId": "1566742403195469906",
+      "messageId": "1573645160976224267",
+      "status": 200,
+      "raw": {
+        "author": {
+          "id": "1573645159911129158",
+          "username": "diag-fixture-webhook",
+          "bot": true
+        },
+        "webhook_id": "1573645159911129158",
+        "content_length": 0,
+        "content": "",
+        "embed_types": [],
+        "component_types": [],
+        "flags": 0,
+        "mentions": []
+      },
+      "converted": {
+        "data": {
+          "username": "diag-fixture-webhook",
+          "content": "",
+          "embeds": []
+        },
+        "droppedComponentTypes": []
+      }
+    },
+    "pd1-classic": {
+      "channelId": "1566742403195469906",
+      "messageId": "1573621671380910101",
+      "status": 200,
+      "raw": {
+        "author": {
+          "id": "1558266761101447248",
+          "username": "Statbot TEST",
+          "bot": true
+        },
+        "content_length": 0,
+        "content": "",
+        "embed_types": [],
+        "component_types": [],
+        "flags": 0,
+        "mentions": []
+      },
+      "converted": {
+        "data": {
+          "username": "Statbot TEST",
+          "content": "",
+          "embeds": []
+        },
+        "droppedComponentTypes": []
+      }
+    },
+    "pd1-v2": {
+      "channelId": "1566742403195469906",
+      "messageId": "1573621673230602251",
+      "status": 200,
+      "raw": {
+        "author": {
+          "id": "1558266761101447248",
+          "username": "Statbot TEST",
+          "bot": true
+        },
+        "content_length": 0,
+        "content": "",
+        "embed_types": [],
+        "component_types": [],
+        "flags": 32768,
+        "mentions": []
+      },
+      "converted": {
+        "data": {
+          "username": "Statbot TEST",
+          "content": "",
+          "embeds": [],
+          "flags": 32768
+        },
+        "droppedComponentTypes": []
+      }
+    }
+  }
+}
