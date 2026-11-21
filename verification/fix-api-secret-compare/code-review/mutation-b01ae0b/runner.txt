@@ -1,0 +1,5 @@
+Running scope as unit: run-r734b3bbb090842779b81f999fd2e4940.scope
+variable-time-fallback-after SURVIVED 1.26
+variable-time-accept-before SURVIVED 1.29
+length-checked-first KILLED 1.27
+1 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-b01ae0b.json (blob 142ca9af7bc15c8fd4073db46a1e578087c8de66))

@@ -1,0 +1,128 @@
+{
+ "sha": "b01ae0b4dec3e01683ae4826de9881838af99c32",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutants-b01ae0b.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--no-cache",
+  "--configLoader",
+  "runner",
+  "--config",
+  "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/vitest.config.export.ts"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutants-b01ae0b.json",
+   "blob": "142ca9af7bc15c8fd4073db46a1e578087c8de66"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  },
+  {
+   "kind": "argument",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/vitest.config.export.ts",
+   "blob": "213257153d2a9b7cd363061a1aef18443fa36ae7"
+  }
+ ],
+ "controls": {
+  "[\"src/server/api/utils/__tests__/secretEquals.equality.test.ts\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181359Z-p2789990-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181359Z-p2789990-control-1.stderr",
+   "seconds": 1.28,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 9,
+   "tests": [
+    "src/server/api/utils/__tests__/secretEquals.equality.test.ts"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "variable-time-fallback-after",
+   "run": "mutant-1",
+   "file": "src/server/api/utils/secretEquals.ts",
+   "tests": [
+    "src/server/api/utils/__tests__/secretEquals.equality.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 9,
+   "control_tests_run": 9,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 1.26,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181359Z-p2789990-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181359Z-p2789990-mutant-1.stderr"
+  },
+  {
+   "id": "variable-time-accept-before",
+   "run": "mutant-2",
+   "file": "src/server/api/utils/secretEquals.ts",
+   "tests": [
+    "src/server/api/utils/__tests__/secretEquals.equality.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 9,
+   "control_tests_run": 9,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 1.29,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181359Z-p2789990-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181359Z-p2789990-mutant-2.stderr"
+  },
+  {
+   "id": "length-checked-first",
+   "run": "mutant-3",
+   "file": "src/server/api/utils/secretEquals.ts",
+   "tests": [
+    "src/server/api/utils/__tests__/secretEquals.equality.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 9,
+   "control_tests_run": 9,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/utils/__tests__/secretEquals.equality.test.ts > secretEquals decides through crypto.timingSafeEqual > compares the SHA-256 digests of both strings, once",
+    "|node| src/server/api/utils/__tests__/secretEquals.equality.test.ts > secretEquals decides through crypto.timingSafeEqual > answers what crypto.timingSafeEqual answers"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.27,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181359Z-p2789990-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181359Z-p2789990-mutant-3.stderr"
+  }
+ ],
+ "score": "1 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-b01ae0b.json (blob 142ca9af7bc15c8fd4073db46a1e578087c8de66))"
+}

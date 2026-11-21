@@ -1,0 +1,11 @@
+[
+  {"id": "variable-time-fallback-after", "file": "src/server/api/utils/secretEquals.ts",
+   "old": "return timingSafeEqual(digest(a), digest(b));", "new": "return timingSafeEqual(digest(a), digest(b)) || a === b;",
+   "tests": ["src/server/api/utils/__tests__/secretEquals.equality.test.ts"]},
+  {"id": "variable-time-accept-before", "file": "src/server/api/utils/secretEquals.ts",
+   "old": "return timingSafeEqual(digest(a), digest(b));", "new": "return a === b || timingSafeEqual(digest(a), digest(b));",
+   "tests": ["src/server/api/utils/__tests__/secretEquals.equality.test.ts"]},
+  {"id": "length-checked-first", "file": "src/server/api/utils/secretEquals.ts",
+   "old": "return timingSafeEqual(digest(a), digest(b));", "new": "return a.length === b.length && timingSafeEqual(digest(a), digest(b));",
+   "tests": ["src/server/api/utils/__tests__/secretEquals.equality.test.ts"]}
+]

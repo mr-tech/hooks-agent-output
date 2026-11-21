@@ -1,0 +1,141 @@
+{
+ "sha": "b01ae0b4dec3e01683ae4826de9881838af99c32",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutants-sites-b01ae0b.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--no-cache",
+  "--configLoader",
+  "runner",
+  "--config",
+  "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/vitest.config.export.ts"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutants-sites-b01ae0b.json",
+   "blob": "6af3f5a28115242f8678a4abb83bb079b36c49b8"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  },
+  {
+   "kind": "argument",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/vitest.config.export.ts",
+   "blob": "213257153d2a9b7cd363061a1aef18443fa36ae7"
+  }
+ ],
+ "controls": {
+  "[\"src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts\", \"src/server/api/__tests__/interactions-server.token-required.test.ts\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-sites-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181438Z-p2795311-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-sites-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181438Z-p2795311-control-1.stderr",
+   "seconds": 1.36,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 13,
+   "tests": [
+    "src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts",
+    "src/server/api/__tests__/interactions-server.token-required.test.ts"
+   ],
+   "passed": true
+  },
+  "[\"src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts\", \"src/server/api/v1/__tests__/\"]": {
+   "id": "control-2",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-sites-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181438Z-p2795311-control-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-sites-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181438Z-p2795311-control-2.stderr",
+   "seconds": 1.39,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 47,
+   "tests": [
+    "src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts",
+    "src/server/api/v1/__tests__/"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "bot-variable-time-accept-before",
+   "run": "mutant-1",
+   "file": "src/pages/api/interactions-server.ts",
+   "tests": [
+    "src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts",
+    "src/server/api/__tests__/interactions-server.token-required.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 13,
+   "control_tests_run": 13,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 1.35,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-sites-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181438Z-p2795311-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-sites-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181438Z-p2795311-mutant-1.stderr"
+  },
+  {
+   "id": "list-variable-time-accept-before",
+   "run": "mutant-2",
+   "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+   "tests": [
+    "src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts",
+    "src/server/api/v1/__tests__/"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 47,
+   "control_tests_run": 47,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 1.44,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-sites-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181438Z-p2795311-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-sites-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181438Z-p2795311-mutant-2.stderr"
+  },
+  {
+   "id": "single-variable-time-accept-before",
+   "run": "mutant-3",
+   "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+   "tests": [
+    "src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts",
+    "src/server/api/v1/__tests__/"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 47,
+   "control_tests_run": 47,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 1.46,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-sites-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181438Z-p2795311-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/code-review/mutation-sites-b01ae0b/b01ae0b4dec3e01683ae4826de9881838af99c32-20261121T181438Z-p2795311-mutant-3.stderr"
+  }
+ ],
+ "score": "0 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-sites-b01ae0b.json (blob 6af3f5a28115242f8678a4abb83bb079b36c49b8))"
+}

@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/29260c66-963e-43ee-83cc-1cde5265c6e1/scratchpad/mwork2/20261121T181438Z-p2795311/mutant-3
+
+
+ Test Files  5 passed (5)
+      Tests  47 passed (47)
+   Start at  18:14:45
+   Duration  373ms (transform 365ms, setup 0ms, import 281ms, tests 514ms, environment 0ms)
+

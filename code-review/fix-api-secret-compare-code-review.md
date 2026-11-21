@@ -2,10 +2,10 @@
 ID: n/a
 Origin: fix-api-secret-compare
 UUID: fbe73764
-Reviewed-At: "32d10f7 — repos=website"
+Reviewed-At: "b01ae0b — repos=website; Round 1 sub-entry (QAF-1 fix round), test-only over 32d10f7"
 Status: In Review
 Round: 1
-Verdict: APPROVED_WITH_COMMENTS
+Verdict: REJECTED
 ---
 
 # Code Review: fix-api-secret-compare
@@ -20,6 +20,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T18:01 | steering-hooks (brief `steering/fix-api-secret-compare-brief-code-reviewer.md`) | Round 1 review of website `b68f94c..32d10f7` | Round 1: APPROVED_WITH_COMMENTS at 32d10f7; live attack 51 of 51 as predicted; CR-1 LOW (optional); 21 production lines → QA Phase 2 |
+| 2026-11-21T18:15 | fixer-fix-api-secret-compare (fix round after QA Failed, implementation at agent-output ee847ac1) | Round 1 sub-entry: QAF-1 fix at website b01ae0b | REJECTED at b01ae0b: CR-2 MEDIUM, 5 of 5 variable-time accept-on-equality probe mutants survive across the 4 decision points; production unchanged since 32d10f7 |
 
 ## Scope and tree
 
@@ -187,15 +188,89 @@ None
   - Falsity signature: a `.js` stub route without the guard under `src/pages/api/v1/` fails the 401 assertion.
   - Optional: this does not block, and it may ride QA Phase 2 or a later chain.
 
+### Round 1 sub-entry — QAF-1 fix round at website `b01ae0b`
+
+- **Scope**: the fix diff `32d10f7..b01ae0b` only. One commit changes
+  `src/server/api/utils/__tests__/secretEquals.equality.test.ts` (+33 −1). Production is byte-identical to `32d10f7`
+  (`git diff --quiet 32d10f7 b01ae0b -- src/pages bot src/env.mjs src/server/api/utils/secretEquals.ts` → exit 0). This is test-only,
+  so it is a sub-entry, not a new round. The branch read `b01ae0b` at the start and at the end (18:15Z).
+- **What holds**:
+  - The digest literals are independent of the code under test: `printf abc | sha256sum` → `ba7816bf…15ad` and
+    `printf abcd | sha256sum` → `88d4266f…1589`, both matching the test.
+  - The `crypto` mock spreads the real module and wraps `timingSafeEqual`, so the seven earlier cases still run the real compare.
+  - The test adds no comment and no ID token, and its name is unchanged.
+  - Re-attacked from first principles (the fix touches a test guard), not taken from the fixer's 6 of 6.
+- **Probe of the fix**: the instrument is `mutation-run.py` at `b01ae0b`, with the fixer's transcribed config. Mutants and predictions
+  were written before the run.
+
+  | Mutant | Predicted | Result |
+  |---|---|---|
+  | `timingSafeEqual(…) \|\| a === b` | survives | **SURVIVED** |
+  | `a === b \|\| timingSafeEqual(…)` | survives | **SURVIVED** |
+  | `a.length === b.length && timingSafeEqual(…)` | killed (my positive control) | **KILLED** by both new cases |
+
+  Each row ran 9 of 9 tests against a 9-test control, so the counts match. Files: `verification/fix-api-secret-compare/code-review/mutants-b01ae0b.json`
+  and `mutation-b01ae0b/`.
+
+  The same accept-on-equality form was also placed at each call site:
+  `!(sent === configured || secretEquals(sent, configured))`. It ran against `secretEquals.credential-sites` plus the site's own
+  suites: `interactions-server.token-required` for the bot (13 tests), and all of `src/server/api/v1/__tests__/` for each v1 route
+  (47 tests). **3 of 3 SURVIVED**, with the controls passing. Files: `mutants-sites-b01ae0b.json` and `mutation-sites-b01ae0b/`.
+- Scratch exports were removed (`ls -d` → no such file), and `ps` showed 0 runner processes left.
+
+**CR-2 MEDIUM Round 1 Checks That Cannot Fail**: a variable-time accept-on-equality beside `secretEquals` survives every test, at all four decision points — Duplicates: QAF-1 in qa/fix-api-secret-compare-qa.md
+- **Location**:
+  - `src/server/api/utils/__tests__/secretEquals.equality.test.ts`, the case "answers what crypto.timingSafeEqual answers";
+  - `src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts`, the case "passes the header as sent and the configured
+    credential".
+- **Class**: a credential decision's assertions never put the constant-time answer against string equality in the accept direction.
+  No case pairs equal strings with a mocked `false`, so a short-circuit `===` added beside the constant-time compare passes the
+  suite.
+- **Enumeration**:
+  - Decision points: `git grep -n "secretEquals(" b01ae0b -- src ':!**/__tests__/**'` → **4** (the definition and the three
+    sites).
+  - Fixtures that set the mocked answer against string equality: `git grep -n "mockReturnValueOnce\|mockReturnValue(" b01ae0b --
+    src/server/api/utils/__tests__/secretEquals.*` → **1**, and it is the `true`-for-unequal direction only.
+  - Measured: **5 of 5** probe mutants survive, covering all 4 points.
+  - What the predicate cannot see: a credential compared without `secretEquals` at a site not yet written. A lint rule for that is
+    excluded by the scope statement.
+  - Reject-early forms (`a === b && …`, a length check first) are already killed by the existing cases. The gap is the accept form
+    only.
+- **Issue**:
+  - The constant-time decision is the behaviour this chain exists to add, and QAF-1 named it as unasserted.
+  - The fix pins the call and its digests, but not that the answer comes from the constant-time compare alone. A variable-time
+    early accept, for an equal credential, still passes.
+  - Severity floor: a behaviour the change relies on, with no assertion that fails when it is lost, is MEDIUM and blocks hand-off to
+    QA.
+  - Magnitude: measured as survival, 5 of 5. Exploitability over the network is unmeasured, a hypothesis, as the handoff says.
+- **Required Action** (test-only; no caller of `secretEquals` changes):
+  - **Minimum, `secretEquals`**: add the opposite direction to the answer case. Mock `timingSafeEqual` to answer `false`, call
+    `secretEquals` with two equal strings, and expect `false`. Falsity signature: under either `||` mutant the assertion fails with
+    "expected true to be false".
+  - **Minimum, the three sites**: in `secretEquals.credential-sites`, make the spy answer `false` once while the sent credential is
+    exactly the configured one (`Bearer <key>`, or the hooks token). Expect 401, with no database read (v1) and no command run (bot).
+    Falsity signature: under the site mutant the status assertion fails (expected 200 or 500 to be 401). It must not show up as a
+    timeout.
+  - **Fixture property, either case**: the mocked answer opposes string equality, so the fixture fails any form that decides from
+    the strings instead of from the constant-time compare.
+  - **Preferred (structural)**: none inside this scope. A lint ban on direct credential compares is excluded by the 13:42Z block.
+  - Show each new case red under the matching mutant in `mutants-b01ae0b.json` and `mutants-sites-b01ae0b.json` (both reusable as
+    they stand) and green at the fix.
+
+**Sub-entry verdict: REJECTED** at `b01ae0b`, on CR-2 (severity floor). CR-1 LOW stands, still optional.
+
 ## Verdict
 
-**Status**: APPROVED_WITH_COMMENTS (at website `32d10f7`)
+**Status**: REJECTED at website `b01ae0b` (Round 1 sub-entry, CR-2). Superseded APPROVED_WITH_COMMENTS at `32d10f7`, retained below.
+
+**Previous status**: APPROVED_WITH_COMMENTS (at website `32d10f7`)
 **Rationale**: scope items 1–5 are met, and hazards 2–5 were re-derived and hold. The live attack found no refused credential reaching
 a command or the database, and no malformed id reaching the database. The one finding, CR-1, is LOW and does not block.
 
 ## Required Actions
 
-None blocking. CR-1 is optional, and it is the fixer's to take or leave before devops.
+- **CR-2 (blocking, at `b01ae0b`)**: the two test cases above, each shown red under its probe mutant and green at the fix.
+- CR-1 is optional, and it is the fixer's to take or leave before devops.
 
 ## Assumption Not Checked
 
@@ -207,6 +282,6 @@ release serves.
 
 ## Next Steps
 
-- QA Phase 2 (`qa-fix-api-secret-compare`) is next, since the change adds 21 production lines. The verdict goes there by SendMessage,
-  or to steering-hooks as a spawn cue if no QA session is live.
+- At `b01ae0b`: back to `fixer-fix-api-secret-compare` for CR-2.
+- Its fix returns here as a further sub-entry of Round 1, then goes to QA's refresh pass (21 production lines).
 - The Assumption Not Checked above is routed to devops.
