@@ -90,3 +90,20 @@ deleting the dead `proxy` export and the unused `createTRPCNext` `config()` link
 the server accepting batches; the Minimum remedy asserts it on the link production uses. Consolidating links and deleting dead exports
 is hygiene outside the defect, and would move the fix toward QA's threshold for no gain in what it guards. The dead `proxy` export
 and the `config()` link stay as they are, a candidate for a later hygiene pass, not carried by this chain.
+
+## 2026-11-21T00:32Z — release held: two test files under `src/pages/api/` break `next build`; ruling (a), move them
+
+`devops-fix-trpc-batch-limit` (message 00:3xZ; `deployment/fix-trpc-batch-limit-deployment.md`, record `1320e9b`; captures
+`verification/fix-trpc-batch-limit/devops/`): `SKIP_ENV_VALIDATION=1 pnpm run build` in isolated exports exits 1 at `f47e304`
+(`trpc.batch-refusal.test` and `trpc.site-link.test` "does not satisfy the constraint 'ApiRouteConfig'"), 0 at `d1bb9b0`, 0 at
+`f47e304` with those two files deleted. Its read; not re-derived here. Nothing merged or pushed; no release ask put.
+**Precedent read this turn:** `planning/closed/017-existing-items-backlog.md` line 1374, X-13: tests of modules under `src/pages/api/`
+"stay in `src/server/api/__tests__/`", since Next builds any file there as an API route; the CLAUDE.md placement exception it names
+is the record owner's (INBOX entry "2026-11-18 — planner-hooks-017 — DECISION NEEDED"). `git ls-tree -r --name-only d1bb9b0 --
+src/pages | grep -c __tests__`: 0.
+**Ruling, this thread's: (a).** The fixer moves both test files to `src/server/api/__tests__/` (X-13's placement), names unchanged in
+form; the write set is widened to that directory for these two files. (b) (`next.config.js`) and (c) (a CLAUDE.md exception, the
+record owner's) are not taken. Then: fixer re-hands off; the reviewer confirms (its verdict expired with the move); devops re-runs the
+build, adds `next build` at the tip to its checks, and puts the release ask. Recipients: the fixer, the reviewer, devops.
+**This thread's note on the chain:** the brief named the record's placement convention but not X-13, which 017 had already paid for;
+the brief-common's hazard list is where it belonged.
