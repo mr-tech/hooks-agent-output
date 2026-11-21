@@ -61,3 +61,8 @@ needs them, and `__tests__/` beside each; in the record, the fixer's document an
 warning (`useUnloadAlert`) fires on that reload; setter bodies (whether they bail out on equal value, so focusing writes a draft);
 `useLocalStorage` readers of the synchronous `storage` event; caret behaviour of `ContentEditable` under a controlled round trip;
 per-keystroke cost of the 1 MiB draft map (017's 17.2 ms / 5.1 ms figures, not re-measured); mobile `BottomPortal` close.
+
+Chain started 10:44Z: website `chain/fix-desktop-draft-as-typed` cut by this thread (`git switch --no-track -c … origin/master`, HEAD
+`b663b35`, porcelain before and after `?? .playwright-mcp/` only); determination and briefs committed `39dd56f`;
+`fixer-fix-desktop-draft-as-typed` started with `tmux-agent spawn` (category `fix-desktop-draft-as-typed`, cwd website, effort medium
+as printed), brief `steering/fix-desktop-draft-as-typed-brief-fixer.md`. The reviewer is started on the fixer's spawn cue.
