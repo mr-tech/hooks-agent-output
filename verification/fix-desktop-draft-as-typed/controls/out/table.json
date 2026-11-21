@@ -1,0 +1,102 @@
+[
+  {
+    "id": "control-fix",
+    "sha": "b68f94c",
+    "exit": 0,
+    "timed_out": false,
+    "total": 10,
+    "failed": []
+  },
+  {
+    "id": "red-base",
+    "sha": "b663b35",
+    "exit": 1,
+    "timed_out": false,
+    "total": 10,
+    "failed": [
+      "puts text typed into the open editor on the message before the editor closes",
+      "puts each successive edit on the message as it is typed",
+      "puts a typed name on the embed author while the field still has focus",
+      "puts a typed name on an embed that had no author while the field still has focus",
+      "keeps a trailing space the user is still typing on the embed author name",
+      "puts typed footer text on the embed footer while the field still has focus",
+      "puts typed footer text on an embed that had no footer while the field still has focus",
+      "keeps a trailing space the user is still typing on the embed footer text"
+    ]
+  },
+  {
+    "id": "desktop-stale-value",
+    "sha": "b68f94c",
+    "exit": 1,
+    "timed_out": false,
+    "total": 10,
+    "failed": [
+      "puts text typed into the open editor on the message before the editor closes",
+      "puts each successive edit on the message as it is typed"
+    ]
+  },
+  {
+    "id": "author-trim-per-keystroke",
+    "sha": "b68f94c",
+    "exit": 1,
+    "timed_out": false,
+    "total": 10,
+    "failed": [
+      "keeps a trailing space the user is still typing on the embed author name"
+    ]
+  },
+  {
+    "id": "author-stale-value",
+    "sha": "b68f94c",
+    "exit": 1,
+    "timed_out": false,
+    "total": 10,
+    "failed": [
+      "puts a typed name on the embed author while the field still has focus",
+      "puts a typed name on an embed that had no author while the field still has focus",
+      "keeps a trailing space the user is still typing on the embed author name"
+    ]
+  },
+  {
+    "id": "author-no-blur-trim",
+    "sha": "b68f94c",
+    "exit": 1,
+    "timed_out": false,
+    "total": 10,
+    "failed": [
+      "commits the typed name trimmed when the field loses focus"
+    ]
+  },
+  {
+    "id": "footer-trim-per-keystroke",
+    "sha": "b68f94c",
+    "exit": 1,
+    "timed_out": false,
+    "total": 10,
+    "failed": [
+      "keeps a trailing space the user is still typing on the embed footer text"
+    ]
+  },
+  {
+    "id": "footer-stale-value",
+    "sha": "b68f94c",
+    "exit": 1,
+    "timed_out": false,
+    "total": 10,
+    "failed": [
+      "puts typed footer text on the embed footer while the field still has focus",
+      "puts typed footer text on an embed that had no footer while the field still has focus",
+      "keeps a trailing space the user is still typing on the embed footer text"
+    ]
+  },
+  {
+    "id": "footer-no-blur-trim",
+    "sha": "b68f94c",
+    "exit": 1,
+    "timed_out": false,
+    "total": 10,
+    "failed": [
+      "commits the typed footer text trimmed when the field loses focus"
+    ]
+  }
+]

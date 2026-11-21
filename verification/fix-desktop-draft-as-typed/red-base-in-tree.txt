@@ -1,0 +1,204 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx (3 tests | 2 failed) 66ms
+     × puts text typed into the open editor on the message before the editor closes 45ms
+     × puts each successive edit on the message as it is typed 9ms
+stderr | src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedAuthor.typed-name-reaches-embed.test.tsx > EmbedAuthor name as typed > puts a typed name on the embed author while the field still has focus
+An update to EmbedAuthor inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedAuthor.typed-name-reaches-embed.test.tsx > EmbedAuthor name as typed > puts a typed name on an embed that had no author while the field still has focus
+An update to EmbedAuthor inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedAuthor.typed-name-reaches-embed.test.tsx > EmbedAuthor name as typed > keeps a trailing space the user is still typing on the embed author name
+An update to EmbedAuthor inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.typed-text-reaches-embed.test.tsx (4 tests | 3 failed) 261ms
+     × puts typed footer text on the embed footer while the field still has focus 162ms
+     × puts typed footer text on an embed that had no footer while the field still has focus 33ms
+     × keeps a trailing space the user is still typing on the embed footer text 28ms
+ ❯ |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedAuthor.typed-name-reaches-embed.test.tsx (4 tests | 3 failed) 271ms
+     × puts a typed name on the embed author while the field still has focus 165ms
+     × puts a typed name on an embed that had no author while the field still has focus 32ms
+     × keeps a trailing space the user is still typing on the embed author name 34ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx > DiscordContentEditor on desktop, text as typed > puts text typed into the open editor on the message before the editor closes
+AssertionError: expected 'Old' to be 'Hello' // Object.is equality
+
+Expected: "Hello"
+Received: "Old"
+
+ ❯ src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx:81:24
+     79|     const editor = open(mountDom(<Harness initial='Old' />));
+     80|     type(editor, 'Hello');
+     81|     expect(held.value).toBe('Hello');
+       |                        ^
+     82|   });
+     83|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |dom| src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx > DiscordContentEditor on desktop, text as typed > puts each successive edit on the message as it is typed
+AssertionError: expected [] to deeply equal [ 'H', 'Hi', 'Hi ' ]
+
+- Expected
++ Received
+
+- [
+-   "H",
+-   "Hi",
+-   "Hi ",
+- ]
++ []
+
+ ❯ src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx:90:36
+     88|     type(editor, 'Hi');
+     89|     type(editor, 'Hi ');
+     90|     expect(held.changes.slice(-3)).toEqual(['H', 'Hi', 'Hi ']);
+       |                                    ^
+     91|     expect(held.value).toBe('Hi ');
+     92|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedAuthor.typed-name-reaches-embed.test.tsx > EmbedAuthor name as typed > puts a typed name on the embed author while the field still has focus
+AssertionError: expected 'Old' to be 'Ann' // Object.is equality
+
+Expected: "Ann"
+Received: "Old"
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedAuthor.typed-name-reaches-embed.test.tsx:65:31
+     63|     focus(field);
+     64|     type(field, 'Ann');
+     65|     expect(held.author?.name).toBe('Ann');
+       |                               ^
+     66|   });
+     67|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedAuthor.typed-name-reaches-embed.test.tsx > EmbedAuthor name as typed > puts a typed name on an embed that had no author while the field still has focus
+AssertionError: expected undefined to be 'Ann' // Object.is equality
+
+- Expected:
+"Ann"
+
++ Received:
+undefined
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedAuthor.typed-name-reaches-embed.test.tsx:72:31
+     70|     focus(field);
+     71|     type(field, 'Ann');
+     72|     expect(held.author?.name).toBe('Ann');
+       |                               ^
+     73|   });
+     74|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedAuthor.typed-name-reaches-embed.test.tsx > EmbedAuthor name as typed > keeps a trailing space the user is still typing on the embed author name
+AssertionError: expected '' to be 'a ' // Object.is equality
+
+- Expected
++ Received
+
+- a 
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedAuthor.typed-name-reaches-embed.test.tsx:79:31
+     77|     focus(field);
+     78|     type(field, 'a ');
+     79|     expect(held.author?.name).toBe('a ');
+       |                               ^
+     80|     type(field, 'a b');
+     81|     expect(held.author?.name).toBe('a b');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.typed-text-reaches-embed.test.tsx > EmbedFooter text as typed > puts typed footer text on the embed footer while the field still has focus
+AssertionError: expected 'Old' to be 'Hello' // Object.is equality
+
+Expected: "Hello"
+Received: "Old"
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.typed-text-reaches-embed.test.tsx:56:31
+     54|     focus(field);
+     55|     type(field, 'Hello');
+     56|     expect(held.footer?.text).toBe('Hello');
+       |                               ^
+     57|   });
+     58|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/8]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.typed-text-reaches-embed.test.tsx > EmbedFooter text as typed > puts typed footer text on an embed that had no footer while the field still has focus
+AssertionError: expected undefined to be 'Hello' // Object.is equality
+
+- Expected:
+"Hello"
+
++ Received:
+undefined
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.typed-text-reaches-embed.test.tsx:63:31
+     61|     focus(field);
+     62|     type(field, 'Hello');
+     63|     expect(held.footer?.text).toBe('Hello');
+       |                               ^
+     64|   });
+     65|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/8]⎯
+
+ FAIL  |dom| src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.typed-text-reaches-embed.test.tsx > EmbedFooter text as typed > keeps a trailing space the user is still typing on the embed footer text
+AssertionError: expected '' to be 'a ' // Object.is equality
+
+- Expected
++ Received
+
+- a 
+
+ ❯ src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.typed-text-reaches-embed.test.tsx:70:31
+     68|     focus(field);
+     69|     type(field, 'a ');
+     70|     expect(held.footer?.text).toBe('a ');
+       |                               ^
+     71|     type(field, 'a b');
+     72|     expect(held.footer?.text).toBe('a b');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/8]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  8 failed | 3 passed (11)
+   Start at  10:49:03
+   Duration  1.81s (transform 465ms, setup 52ms, import 2.09s, tests 597ms, environment 1.87s)
+

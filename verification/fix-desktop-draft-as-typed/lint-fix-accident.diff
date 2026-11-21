@@ -1,0 +1,1880 @@
+diff --git a/src/app/_navigation/Redirects/Client.tsx b/src/app/_navigation/Redirects/Client.tsx
+index edb2ef6..25a7049 100644
+--- a/src/app/_navigation/Redirects/Client.tsx
++++ b/src/app/_navigation/Redirects/Client.tsx
+@@ -1,7 +1,9 @@
+ 'use client';
+ 
+ import { useSession } from 'next-auth/react';
+-import { redirect, RedirectType, usePathname, useSearchParams } from 'next/navigation';
++import {
++  redirect, RedirectType, usePathname, useSearchParams,
++} from 'next/navigation';
+ 
+ const Redirects = () => {
+   const { status } = useSession();
+diff --git a/src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx b/src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx
+index 9edbf57..8d265bb 100644
+--- a/src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx
++++ b/src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx
+@@ -1,15 +1,16 @@
+ import { act } from 'react';
+-import { describe, expect, it, vi } from 'vitest';
+-
++import {
++  describe, expect, it, vi,
++} from 'vitest';
+ import { EditorView } from '@codemirror/view';
+ 
++import NewMessageJsonInput from '../NewMessageJsonInput';
++
+ import { mountDom, unmountDom } from '~/components/__tests__/helpers/dom';
+ import press, { findButton } from '~/components/__tests__/helpers/press';
+ 
+ vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+ 
+-import NewMessageJsonInput from '../NewMessageJsonInput';
+-
+ function mount(setMessage: (message: unknown) => void = () => {}) {
+   return mountDom(<NewMessageJsonInput setMessage={setMessage as never} />);
+ }
+diff --git a/src/app/message/_components/__tests__/NewMessageJsonInput.settled-notice.test.tsx b/src/app/message/_components/__tests__/NewMessageJsonInput.settled-notice.test.tsx
+index 54e4d16..f340df8 100644
+--- a/src/app/message/_components/__tests__/NewMessageJsonInput.settled-notice.test.tsx
++++ b/src/app/message/_components/__tests__/NewMessageJsonInput.settled-notice.test.tsx
+@@ -5,14 +5,15 @@
+  */
+ import { act } from 'react';
+ import { createRoot } from 'react-dom/client';
+-import { describe, expect, it, vi } from 'vitest';
+-
++import {
++  describe, expect, it, vi,
++} from 'vitest';
+ import { EditorView } from '@codemirror/view';
+ 
+-vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+-
+ import NewMessageJsonInput from '../NewMessageJsonInput';
+ 
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++
+ let container: HTMLDivElement | null = null;
+ let root: ReturnType<typeof createRoot> | null = null;
+ 
+diff --git a/src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx b/src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx
+index 296bb15..d75c107 100644
+--- a/src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx
++++ b/src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx
+@@ -10,10 +10,13 @@
+  * animates height/visibility — so this mounts and reads the error straight away, no navigation
+  * needed.
+  */
+-import { describe, expect, it, vi, afterEach } from 'vitest';
+-
++import {
++  describe, expect, it, vi, afterEach,
++} from 'vitest';
+ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+ 
++import NewMessageModal from '../NewMessageModal';
++
+ import { mountDom, unmountDom } from '~/components/__tests__/helpers/dom';
+ 
+ // See JsonModalBody.load-settled-notice.test.tsx for why each factory inlines its own dynamic
+@@ -25,15 +28,17 @@ vi.mock('~/utils/api', async () => {
+   const { buildApiMock } = await import('~/providers/MessageProvider/__tests__/helpers/messageProviderDeps');
+   return buildApiMock({
+     mutationErrors: {
+-      'message.upsert': () => ({ message: JSON.stringify([{
+-        code: 'too_small',
+-        minimum: 1,
+-        type: 'string',
+-        inclusive: true,
+-        exact: false,
+-        message: 'String must contain at least 1 character(s)',
+-        path: ['message', 'data', 'components', 0, 'components', 0, 'content'],
+-      }], null, 2) }),
++      'message.upsert': () => ({
++        message: JSON.stringify([{
++          code: 'too_small',
++          minimum: 1,
++          type: 'string',
++          inclusive: true,
++          exact: false,
++          message: 'String must contain at least 1 character(s)',
++          path: ['message', 'data', 'components', 0, 'components', 0, 'content'],
++        }], null, 2),
++      }),
+     },
+   });
+ });
+@@ -43,8 +48,6 @@ vi.mock('~/utils/api', async () => {
+ // test, so replaced with a pass-through rather than adding that provider.
+ vi.mock('~/components/dynamics/Tooltip', () => ({ default: (props: { children: unknown }) => props.children }));
+ 
+-import NewMessageModal from '../NewMessageModal';
+-
+ afterEach(unmountDom);
+ 
+ function mount() {
+diff --git a/src/app/message/f/[id]/page.tsx b/src/app/message/f/[id]/page.tsx
+index 00baaeb..1490f1b 100644
+--- a/src/app/message/f/[id]/page.tsx
++++ b/src/app/message/f/[id]/page.tsx
+@@ -129,7 +129,7 @@ const Page = () => {
+     },
+   });
+ 
+-  const loadingRef = useRef<boolean>(isGuildLoading || isMessagesLoading || isMessageLoading);
++  const loadingRef = useRef(isGuildLoading || isMessagesLoading || isMessageLoading);
+   loadingRef.current = isGuildLoading || isMessagesLoading || isMessageLoading;
+   const refetch = useCallback(() => {
+     if (loadingRef.current) return;
+diff --git a/src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx b/src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx
+index a1ed3f9..6d34c6b 100644
+--- a/src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx
++++ b/src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx
+@@ -2,9 +2,10 @@ import { act } from 'react';
+ import {
+   describe, it, expect, vi, afterEach,
+ } from 'vitest';
+-
+ import { EditorView } from '@codemirror/view';
+ 
++import JsonModalBody from '../JsonModalBody';
++
+ import { unmountDom } from '~/components/__tests__/helpers/dom';
+ import press, { findButton } from '~/components/__tests__/helpers/press';
+ import { mountInMessageProvider } from '~/providers/MessageProvider/__tests__/helpers/mountMessageProvider';
+@@ -17,8 +18,6 @@ vi.mock('~/providers/GuildProvider', async () => (await import('~/providers/Mess
+ vi.mock('~/providers/WebhookProvider', async () => (await import('~/providers/MessageProvider/__tests__/helpers/messageProviderDeps')).WEBHOOK_PROVIDER_MOCK);
+ vi.mock('~/providers/ConfirmationProvider', async () => (await import('~/providers/MessageProvider/__tests__/helpers/messageProviderDeps')).CONFIRMATION_PROVIDER_MOCK);
+ 
+-import JsonModalBody from '../JsonModalBody';
+-
+ afterEach(unmountDom);
+ 
+ function mount(onClose: () => void) {
+diff --git a/src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx b/src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx
+index d8a8a67..07a7585 100644
+--- a/src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx
++++ b/src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx
+@@ -2,9 +2,10 @@ import { act } from 'react';
+ import {
+   describe, it, expect, vi, afterEach,
+ } from 'vitest';
+-
+ import { EditorView } from '@codemirror/view';
+ 
++import JsonModalBody from '../JsonModalBody';
++
+ import { unmountDom } from '~/components/__tests__/helpers/dom';
+ import press, { findButton } from '~/components/__tests__/helpers/press';
+ import { mountInMessageProvider } from '~/providers/MessageProvider/__tests__/helpers/mountMessageProvider';
+@@ -17,8 +18,6 @@ vi.mock('~/providers/GuildProvider', async () => (await import('~/providers/Mess
+ vi.mock('~/providers/WebhookProvider', async () => (await import('~/providers/MessageProvider/__tests__/helpers/messageProviderDeps')).WEBHOOK_PROVIDER_MOCK);
+ vi.mock('~/providers/ConfirmationProvider', async () => (await import('~/providers/MessageProvider/__tests__/helpers/messageProviderDeps')).CONFIRMATION_PROVIDER_MOCK);
+ 
+-import JsonModalBody from '../JsonModalBody';
+-
+ afterEach(unmountDom);
+ 
+ function mount(setAllowMenuClose: (allow: boolean) => void = () => {}) {
+diff --git a/src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx b/src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx
+index 86eed5e..8ca5354 100644
+--- a/src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx
++++ b/src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx
+@@ -9,10 +9,13 @@
+  * draft.
+  */
+ import { act } from 'react';
+-import { describe, expect, it, vi, afterEach } from 'vitest';
+-
++import {
++  describe, expect, it, vi, afterEach,
++} from 'vitest';
+ import { EditorView } from '@codemirror/view';
+ 
++import JsonModalBody from '../JsonModalBody';
++
+ import { findButton } from '~/components/__tests__/helpers/press';
+ import { unmountDom } from '~/components/__tests__/helpers/dom';
+ import { mountInMessageProvider } from '~/providers/MessageProvider/__tests__/helpers/mountMessageProvider';
+@@ -27,12 +30,15 @@ vi.mock('~/providers/GuildProvider', async () => (await import('~/providers/Mess
+ vi.mock('~/providers/WebhookProvider', async () => (await import('~/providers/MessageProvider/__tests__/helpers/messageProviderDeps')).WEBHOOK_PROVIDER_MOCK);
+ vi.mock('~/providers/ConfirmationProvider', async () => (await import('~/providers/MessageProvider/__tests__/helpers/messageProviderDeps')).CONFIRMATION_PROVIDER_MOCK);
+ 
+-import JsonModalBody from '../JsonModalBody';
+-
+ afterEach(unmountDom);
+ 
+ const FLAG = 1 << 15;
+-const ACTION_ROW = { type: 1, components: [{ type: 2, style: 5, label: 'x', url: 'https://e.co' }] };
++const ACTION_ROW = {
++  type: 1,
++  components: [{
++    type: 2, style: 5, label: 'x', url: 'https://e.co',
++  }],
++};
+ 
+ function mount() {
+   return mountInMessageProvider(
+diff --git a/src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx b/src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx
+index 0c7f5c6..4e3b228 100644
+--- a/src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx
++++ b/src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx
+@@ -1,9 +1,12 @@
+ import { act } from 'react';
+ import { toast } from 'react-toastify';
+-import { describe, expect, it, vi, afterEach } from 'vitest';
+-
++import {
++  describe, expect, it, vi, afterEach,
++} from 'vitest';
+ import { EditorView } from '@codemirror/view';
+ 
++import JsonModalBody from '../JsonModalBody';
++
+ import { unmountDom } from '~/components/__tests__/helpers/dom';
+ import { mountInMessageProvider } from '~/providers/MessageProvider/__tests__/helpers/mountMessageProvider';
+ 
+@@ -15,8 +18,6 @@ vi.mock('~/providers/GuildProvider', async () => (await import('~/providers/Mess
+ vi.mock('~/providers/WebhookProvider', async () => (await import('~/providers/MessageProvider/__tests__/helpers/messageProviderDeps')).WEBHOOK_PROVIDER_MOCK);
+ vi.mock('~/providers/ConfirmationProvider', async () => (await import('~/providers/MessageProvider/__tests__/helpers/messageProviderDeps')).CONFIRMATION_PROVIDER_MOCK);
+ 
+-import JsonModalBody from '../JsonModalBody';
+-
+ afterEach(unmountDom);
+ 
+ function mount() {
+diff --git a/src/app/message/m/[id]/_components/__tests__/SaveAsMenu.readable-mutation-error.test.tsx b/src/app/message/m/[id]/_components/__tests__/SaveAsMenu.readable-mutation-error.test.tsx
+index 07cab04..f7578c7 100644
+--- a/src/app/message/m/[id]/_components/__tests__/SaveAsMenu.readable-mutation-error.test.tsx
++++ b/src/app/message/m/[id]/_components/__tests__/SaveAsMenu.readable-mutation-error.test.tsx
+@@ -9,7 +9,11 @@
+  * `SaveAsMenu` renders into a portal on `document.body` (`PresetDialog`/headlessui `Dialog`), not
+  * into the mount container, so every assertion here queries `document.body`.
+  */
+-import { describe, expect, it, vi, afterEach } from 'vitest';
++import {
++  describe, expect, it, vi, afterEach,
++} from 'vitest';
++
++import SaveAsMenu from '../SaveAsMenu';
+ 
+ import { mountDom, unmountDom } from '~/components/__tests__/helpers/dom';
+ 
+@@ -22,21 +26,21 @@ vi.mock('~/utils/api', async () => {
+   const { buildApiMock } = await import('~/providers/MessageProvider/__tests__/helpers/messageProviderDeps');
+   return buildApiMock({
+     mutationErrors: {
+-      'message.upsert': () => ({ message: JSON.stringify([{
+-        code: 'too_small',
+-        minimum: 1,
+-        type: 'string',
+-        inclusive: true,
+-        exact: false,
+-        message: 'String must contain at least 1 character(s)',
+-        path: ['message', 'data', 'components', 0, 'components', 0, 'content'],
+-      }], null, 2) }),
++      'message.upsert': () => ({
++        message: JSON.stringify([{
++          code: 'too_small',
++          minimum: 1,
++          type: 'string',
++          inclusive: true,
++          exact: false,
++          message: 'String must contain at least 1 character(s)',
++          path: ['message', 'data', 'components', 0, 'components', 0, 'content'],
++        }], null, 2),
++      }),
+     },
+   });
+ });
+ 
+-import SaveAsMenu from '../SaveAsMenu';
+-
+ afterEach(unmountDom);
+ 
+ const MESSAGE: ActiveMessage = {
+diff --git a/src/assets/svg/DiscordIcon.tsx b/src/assets/svg/DiscordIcon.tsx
+index 1026795..a5a4168 100644
+--- a/src/assets/svg/DiscordIcon.tsx
++++ b/src/assets/svg/DiscordIcon.tsx
+@@ -1,5 +1,6 @@
+-import React, { createElement } from 'react';
++import { createElement } from 'react';
+ 
++import type React from 'react';
+ import type { ComponentProps, FC } from 'react';
+ 
+ type Props = ComponentProps<'svg'> & { title?: string, titleId?: string, className?: string };
+diff --git a/src/assets/svg/HooksLogoFull.tsx b/src/assets/svg/HooksLogoFull.tsx
+index 95d5b9d..e338f2b 100644
+--- a/src/assets/svg/HooksLogoFull.tsx
++++ b/src/assets/svg/HooksLogoFull.tsx
+@@ -1,5 +1,6 @@
+-import React, { createElement } from 'react';
++import { createElement } from 'react';
+ 
++import type React from 'react';
+ import type { ComponentProps, FC } from 'react';
+ 
+ type Props = ComponentProps<'svg'> & { title?: string, titleId?: string };
+diff --git a/src/assets/svg/QuestionMark.tsx b/src/assets/svg/QuestionMark.tsx
+index bffa723..f08a292 100644
+--- a/src/assets/svg/QuestionMark.tsx
++++ b/src/assets/svg/QuestionMark.tsx
+@@ -1,5 +1,6 @@
+-import React, { createElement } from 'react';
++import { createElement } from 'react';
+ 
++import type React from 'react';
+ import type { ComponentProps, FC } from 'react';
+ 
+ type Props = ComponentProps<'svg'> & { title?: string, titleId?: string };
+diff --git a/src/assets/svg/RadioButtonChecked.tsx b/src/assets/svg/RadioButtonChecked.tsx
+index 6c27dba..d292680 100644
+--- a/src/assets/svg/RadioButtonChecked.tsx
++++ b/src/assets/svg/RadioButtonChecked.tsx
+@@ -4,8 +4,9 @@
+ //   <ellipse style="" cx="12" cy="12" rx="6.667" ry="6.667"/>
+ // </svg>
+ 
+-import React, { createElement } from 'react';
++import { createElement } from 'react';
+ 
++import type React from 'react';
+ import type { ComponentProps, FC } from 'react';
+ 
+ type Props = ComponentProps<'svg'> & { title?: string, titleId?: string };
+diff --git a/src/assets/svg/RadioButtonUnchecked.tsx b/src/assets/svg/RadioButtonUnchecked.tsx
+index 50ed3e7..86feaa3 100644
+--- a/src/assets/svg/RadioButtonUnchecked.tsx
++++ b/src/assets/svg/RadioButtonUnchecked.tsx
+@@ -4,8 +4,9 @@
+ //   <ellipse style="" cx="12" cy="12" rx="6.667" ry="6.667"/>
+ // </svg>
+ 
+-import React, { createElement } from 'react';
++import { createElement } from 'react';
+ 
++import type React from 'react';
+ import type { ComponentProps, FC } from 'react';
+ 
+ type Props = ComponentProps<'svg'> & { title?: string, titleId?: string };
+diff --git a/src/assets/svg/TextIcon.tsx b/src/assets/svg/TextIcon.tsx
+index 5645381..8090b24 100644
+--- a/src/assets/svg/TextIcon.tsx
++++ b/src/assets/svg/TextIcon.tsx
+@@ -1,5 +1,6 @@
+-import React, { createElement } from 'react';
++import { createElement } from 'react';
+ 
++import type React from 'react';
+ import type { ComponentProps, FC } from 'react';
+ 
+ type Props = ComponentProps<'svg'> & { title?: string, titleId?: string, className?: string };
+diff --git a/src/assets/svg/VoiceIcon.tsx b/src/assets/svg/VoiceIcon.tsx
+index ad92933..8fbde67 100644
+--- a/src/assets/svg/VoiceIcon.tsx
++++ b/src/assets/svg/VoiceIcon.tsx
+@@ -1,5 +1,6 @@
+-import React, { createElement } from 'react';
++import { createElement } from 'react';
+ 
++import type React from 'react';
+ import type { ComponentProps, FC } from 'react';
+ 
+ type Props = ComponentProps<'svg'> & { title?: string, titleId?: string, className?: string };
+diff --git a/src/assets/svg/WebhookIcon.tsx b/src/assets/svg/WebhookIcon.tsx
+index b06c73c..8b8c220 100644
+--- a/src/assets/svg/WebhookIcon.tsx
++++ b/src/assets/svg/WebhookIcon.tsx
+@@ -1,5 +1,6 @@
+-import React, { createElement } from 'react';
++import { createElement } from 'react';
+ 
++import type React from 'react';
+ import type { ComponentProps, FC } from 'react';
+ 
+ type Props = ComponentProps<'svg'> & { title?: string, titleId?: string, className?: string };
+diff --git a/src/components/Calendar/index.tsx b/src/components/Calendar/index.tsx
+index d30f75b..6180518 100644
+--- a/src/components/Calendar/index.tsx
++++ b/src/components/Calendar/index.tsx
+@@ -1,6 +1,5 @@
+ import {
+   createCalendar, getLocalTimeZone, now, parseAbsoluteToLocal,
+-  Calendar as CalendarDate,
+ } from '@internationalized/date';
+ import classNames from 'classnames';
+ import { memo } from 'react';
+@@ -12,7 +11,10 @@ import DateTimeField from '../DateTimeField';
+ import CalendarGrid from './CalendarGrid';
+ import CalendarHeader from './CalendarHeader';
+ 
+-import type { DateValue } from '@internationalized/date';
++import type {
++  DateValue,
++  Calendar as CalendarDate,
++} from '@internationalized/date';
+ import type { CalendarStateOptions } from 'react-stately';
+ 
+ import Button from '~/components/Button';
+diff --git a/src/components/ContentEditable.tsx b/src/components/ContentEditable.tsx
+index 531b667..eb55297 100644
+--- a/src/components/ContentEditable.tsx
++++ b/src/components/ContentEditable.tsx
+@@ -18,7 +18,7 @@ type Props = AriaTextFieldProps & {
+   errorClassName?: string;
+ };
+ 
+-function ContentEditable({ ref: propRef, ...props }: Props & { ref?: Ref<HTMLDivElement> }) {
++const ContentEditable = ({ ref: propRef, ...props }: Props & { ref?: Ref<HTMLDivElement> }) => {
+   const {
+     label, fragment, description, errorMessage, outerClassName, labelClassName,
+     inputClassName, descriptionClassName, errorClassName,
+diff --git a/src/components/DiscordContentEditor/Desktop.tsx b/src/components/DiscordContentEditor/Desktop.tsx
+index 6136ab1..230c8f2 100644
+--- a/src/components/DiscordContentEditor/Desktop.tsx
++++ b/src/components/DiscordContentEditor/Desktop.tsx
+@@ -92,7 +92,10 @@ const ContentEditorDesktop: FC<Props> = (props) => {
+           <SlateEditor
+             {...focusProps}
+             initialValue={_value ?? ''}
+-            onChange={setLocalValue}
++            onChange={(str: string) => {
++              setLocalValue(str);
++              onChange(str);
++            }}
+             className={classNames(
+               'discord-visualizer__editor',
+               (isEmbed || visualStyle === 'cozy') && 'min-h-[1rem] w-full',
+diff --git a/src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx b/src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx
+index 41a8337..f5f6b47 100644
+--- a/src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx
++++ b/src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx
+@@ -41,7 +41,9 @@ interface ChildBodyProps {
+   onAutoRemove: VoidFunction;
+ }
+ 
+-const ContainerChildBody: FC<ChildBodyProps> = ({ child, showEdit, set, onAutoRemove }) => {
++const ContainerChildBody: FC<ChildBodyProps> = ({
++  child, showEdit, set, onAutoRemove,
++}) => {
+   switch (child.type) {
+     case ComponentType.ActionRow:
+       return (
+diff --git a/src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx b/src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx
+index 5ef2f99..7261f92 100644
+--- a/src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx
++++ b/src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx
+@@ -47,7 +47,7 @@ const GalleryItemVisual: FC<ItemProps> = ({
+         <img src={item.media.url} alt={item.description ?? ''} />
+       ) : (
+         <div className="flex h-full items-center justify-center">
+-          <PhotoIcon className="text-interactive-muted h-8 w-8" />
++          <PhotoIcon className="h-8 w-8 text-interactive-muted" />
+         </div>
+       )}
+ 
+diff --git a/src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx b/src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx
+index f4a506b..e8ce3a5 100644
+--- a/src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx
++++ b/src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx
+@@ -160,7 +160,9 @@ const TextDisplayWrapper: FC<TextDisplayWrapperProps> = ({
+   );
+ };
+ 
+-const SectionEditor: FC<Props> = ({ section, showEdit, setSection, onAutoRemove }) => {
++const SectionEditor: FC<Props> = ({
++  section, showEdit, setSection, onAutoRemove,
++}) => {
+   const latest = useLatest(section);
+ 
+   const setTextComponent = useCallback(
+diff --git a/src/components/DiscordMessageEditor/components/ComponentEditors/ThumbnailEditor.tsx b/src/components/DiscordMessageEditor/components/ComponentEditors/ThumbnailEditor.tsx
+index 62e4d63..6eed424 100644
+--- a/src/components/DiscordMessageEditor/components/ComponentEditors/ThumbnailEditor.tsx
++++ b/src/components/DiscordMessageEditor/components/ComponentEditors/ThumbnailEditor.tsx
+@@ -65,7 +65,7 @@ const ThumbnailEditor: FC<Props> = ({ thumbnail, showEdit, setThumbnail }) => {
+             showEdit && 'cursor-pointer',
+           )}
+         >
+-          <PhotoIcon className="text-interactive-muted h-5 w-5" />
++          <PhotoIcon className="h-5 w-5 text-interactive-muted" />
+         </div>
+       )}
+ 
+diff --git a/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx b/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx
+index 78b4b96..425ef0e 100644
+--- a/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx
++++ b/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx
+@@ -43,8 +43,8 @@ const EmbedAuthor: FC<Props> = ({ author, showEdit, setAuthor }) => {
+   // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+   const [localUsername, setLocalUsername] = usePassedProp(author?.name ?? '');
+ 
+-  const [url, _setUrl] = useStateSetter<EmbedAuthorType>(author ?? { name: localUsername }, 'url', setAuthor);
+-  const [iconUrl, _setIconUrl] = useStateSetter<EmbedAuthorType>(author ?? { name: localUsername }, 'icon_url', setAuthor);
++  const [url, _setUrl] = useStateSetter(author ?? { name: localUsername }, 'url', setAuthor);
++  const [iconUrl, _setIconUrl] = useStateSetter(author ?? { name: localUsername }, 'icon_url', setAuthor);
+   const setUrl = useCallback((val: EmbedAuthorType['url']) => _setUrl(val || undefined), [_setUrl]);
+   const setIconUrl = useCallback((val: EmbedAuthorType['icon_url']) => _setIconUrl(val || undefined), [_setIconUrl]);
+   const setImageCallback = useCallback<(url: string) => void>((dataURL) => { setIconUrl(dataURL); }, [setIconUrl]);
+@@ -133,7 +133,10 @@ const EmbedAuthor: FC<Props> = ({ author, showEdit, setAuthor }) => {
+                 inputClassName={classNames('discord-visualizer__embed-author-name', styles.clickable)}
+                 value={localUsername}
+                 placeholder='Author Name'
+-                onChange={setLocalUsername}
++                onChange={(value: string) => {
++                  setLocalUsername(value);
++                  setName(value);
++                }}
+                 onKeyDown={onBlurKey}
+                 fragment
+               />
+diff --git a/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx b/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx
+index 57b8655..0895382 100644
+--- a/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx
++++ b/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx
+@@ -45,7 +45,7 @@ const EmbedFooter: FC<Props> = ({
+   const displayText = (footer?.text?.trim() ?? '');
+   const localText = _localText;
+ 
+-  const [iconUrl, _setIconUrl] = useStateSetter<EmbedFooterType>(footer ?? { text: localText }, 'icon_url', setFooter);
++  const [iconUrl, _setIconUrl] = useStateSetter(footer ?? { text: localText }, 'icon_url', setFooter);
+   const setIconUrl = useCallback((val: EmbedFooterType['icon_url']) => _setIconUrl(val === '' ? undefined : val), [_setIconUrl]);
+ 
+   const setImageCallback = useCallback<(url: string) => void>((dataURL) => { setIconUrl(dataURL); }, [setIconUrl]);
+@@ -115,7 +115,10 @@ const EmbedFooter: FC<Props> = ({
+             inputClassName={classNames(styles.errorStateBorder, !localText && 'italic !text-mute')}
+             value={localText}
+             placeholder={PLACEHOLDER_FOOTER_TEXT}
+-            onChange={setLocalText}
++            onChange={(value: string) => {
++              setLocalText(value);
++              setText(value);
++            }}
+             onKeyDown={onBlurKey}
+             onFocus={() => {
+               if (displayText !== localText) setLocalText(displayText ?? '');
+diff --git a/src/components/Drawer/index.tsx b/src/components/Drawer/index.tsx
+index b45c3fa..955e2a4 100644
+--- a/src/components/Drawer/index.tsx
++++ b/src/components/Drawer/index.tsx
+@@ -41,7 +41,7 @@ function useThresholds(
+   initSize: number,
+   closeThreshold: number,
+ ) {
+-  const { current: fullSize } = useRef<number>((orientation === 'vertical' ? window?.innerHeight : window?.innerWidth) ?? 0);
++  const { current: fullSize } = useRef((orientation === 'vertical' ? window?.innerHeight : window?.innerWidth) ?? 0);
+   return useMemo(() => {
+     if (orientation === 'vertical') {
+       const initPosition = clamp(Math.floor(fullSize * (1 - initSize)), 0);
+@@ -195,7 +195,7 @@ const Drawer: FC<PropsWithChildren<Props>> = (props) => {
+     fullSize, initPosition, openPosition, closePosition,
+   } = useThresholds(orientation, openThreshold, initSize, closeThreshold);
+ 
+-  const [pos, setPos] = useState<number>(fullSize);
++  const [pos, setPos] = useState(fullSize);
+ 
+   useEffect(() => {
+     if (!isPartialOpen) {
+diff --git a/src/components/EmojiPicker/Picker/components/CategoryList/index.tsx b/src/components/EmojiPicker/Picker/components/CategoryList/index.tsx
+index 6c9a761..820842c 100644
+--- a/src/components/EmojiPicker/Picker/components/CategoryList/index.tsx
++++ b/src/components/EmojiPicker/Picker/components/CategoryList/index.tsx
+@@ -42,7 +42,7 @@ interface Props {
+   activeCategory: string;
+ }
+ 
+-function CategoryList({ ref: propRef, ...props }: Props & { ref?: Ref<HTMLDivElement | null> }) {
++const CategoryList = ({ ref: propRef, ...props }: Props & { ref?: Ref<HTMLDivElement | null> }) => {
+   const {
+     scrollToCategory, sidebarItems, customCategories, activeCategory,
+   } = props;
+diff --git a/src/components/EmojiPicker/Picker/components/EmojiList/index.tsx b/src/components/EmojiPicker/Picker/components/EmojiList/index.tsx
+index 5224e22..5dd4a6f 100644
+--- a/src/components/EmojiPicker/Picker/components/EmojiList/index.tsx
++++ b/src/components/EmojiPicker/Picker/components/EmojiList/index.tsx
+@@ -32,7 +32,7 @@ interface Props {
+   setShowMobileSearch?: () => void;
+ }
+ 
+-function EmojiList({ ref: propRef, ...props }: Props & { ref?: Ref<HTMLDivElement> }) {
++const EmojiList = ({ ref: propRef, ...props }: Props & { ref?: Ref<HTMLDivElement> }) => {
+   const {
+     scale,
+     onEmojiClick,
+@@ -49,7 +49,7 @@ function EmojiList({ ref: propRef, ...props }: Props & { ref?: Ref<HTMLDivElemen
+   } = props;
+   const isMobile = useIsMobile();
+ 
+-  const [collapsedCategories, setCollapseCategories] = useState<Set<string>>(new Set());
++  const [collapsedCategories, setCollapseCategories] = useState(new Set());
+ 
+   const {
+     heightStyle, rowCount, categoryComponents, currentPositions, setPositions,
+diff --git a/src/components/EmojiPicker/Picker/components/EmojiList/useCategoryPositions.ts b/src/components/EmojiPicker/Picker/components/EmojiList/useCategoryPositions.ts
+index f7a430b..54e8a1a 100644
+--- a/src/components/EmojiPicker/Picker/components/EmojiList/useCategoryPositions.ts
++++ b/src/components/EmojiPicker/Picker/components/EmojiList/useCategoryPositions.ts
+@@ -49,7 +49,7 @@ export default (customCategories: CustomCategory[], collapsedCategories: Set<str
+     return { rowCount: count, heightStyle: { height: `${totalHeight}px` } };
+   }, [categoryComponents]);
+ 
+-  const [currentPositions, setPositions] = useState<VisibleCategory[]>([{
++  const [currentPositions, setPositions] = useState([{
+     position: categoryComponents[0],
+     emojiRows: categoryComponents[0].emojiRows.slice(0, EMOJI_LIST_LENGTH),
+   }]);
+diff --git a/src/components/EmojiPicker/Picker/components/Icons/ActivitiesEmojiIcon.tsx b/src/components/EmojiPicker/Picker/components/Icons/ActivitiesEmojiIcon.tsx
+index f022677..5a78907 100644
+--- a/src/components/EmojiPicker/Picker/components/Icons/ActivitiesEmojiIcon.tsx
++++ b/src/components/EmojiPicker/Picker/components/Icons/ActivitiesEmojiIcon.tsx
+@@ -1,4 +1,6 @@
+-import React, { createElement } from 'react';
++import { createElement } from 'react';
++
++import type React from 'react';
+ 
+ const DiscordIcon = ({
+   title,
+diff --git a/src/components/EmojiPicker/Picker/components/Icons/FlagsEmojiIcon.tsx b/src/components/EmojiPicker/Picker/components/Icons/FlagsEmojiIcon.tsx
+index 60ae1d9..78ca690 100644
+--- a/src/components/EmojiPicker/Picker/components/Icons/FlagsEmojiIcon.tsx
++++ b/src/components/EmojiPicker/Picker/components/Icons/FlagsEmojiIcon.tsx
+@@ -1,4 +1,6 @@
+-import React, { createElement } from 'react';
++import { createElement } from 'react';
++
++import type React from 'react';
+ 
+ const DiscordIcon = ({
+   title,
+diff --git a/src/components/EmojiPicker/Picker/components/Icons/FoodEmojiIcon.tsx b/src/components/EmojiPicker/Picker/components/Icons/FoodEmojiIcon.tsx
+index 882b8cf..4a658f0 100644
+--- a/src/components/EmojiPicker/Picker/components/Icons/FoodEmojiIcon.tsx
++++ b/src/components/EmojiPicker/Picker/components/Icons/FoodEmojiIcon.tsx
+@@ -1,4 +1,6 @@
+-import React, { createElement } from 'react';
++import { createElement } from 'react';
++
++import type React from 'react';
+ 
+ const DiscordIcon = ({
+   title,
+diff --git a/src/components/EmojiPicker/Picker/components/Icons/FrequentlyUsedEmojiIcon.tsx b/src/components/EmojiPicker/Picker/components/Icons/FrequentlyUsedEmojiIcon.tsx
+index b21470c..27c4c46 100644
+--- a/src/components/EmojiPicker/Picker/components/Icons/FrequentlyUsedEmojiIcon.tsx
++++ b/src/components/EmojiPicker/Picker/components/Icons/FrequentlyUsedEmojiIcon.tsx
+@@ -1,4 +1,6 @@
+-import React, { createElement } from 'react';
++import { createElement } from 'react';
++
++import type React from 'react';
+ 
+ const DiscordIcon = ({
+   title,
+diff --git a/src/components/EmojiPicker/Picker/components/Icons/NatureEmojiIcon.tsx b/src/components/EmojiPicker/Picker/components/Icons/NatureEmojiIcon.tsx
+index 39347bd..49b3481 100644
+--- a/src/components/EmojiPicker/Picker/components/Icons/NatureEmojiIcon.tsx
++++ b/src/components/EmojiPicker/Picker/components/Icons/NatureEmojiIcon.tsx
+@@ -1,4 +1,6 @@
+-import React, { createElement } from 'react';
++import { createElement } from 'react';
++
++import type React from 'react';
+ 
+ const DiscordIcon = ({
+   title,
+diff --git a/src/components/EmojiPicker/Picker/components/Icons/ObjectsEmojiIcon.tsx b/src/components/EmojiPicker/Picker/components/Icons/ObjectsEmojiIcon.tsx
+index 152b400..db315e2 100644
+--- a/src/components/EmojiPicker/Picker/components/Icons/ObjectsEmojiIcon.tsx
++++ b/src/components/EmojiPicker/Picker/components/Icons/ObjectsEmojiIcon.tsx
+@@ -1,4 +1,6 @@
+-import React, { createElement } from 'react';
++import { createElement } from 'react';
++
++import type React from 'react';
+ 
+ const DiscordIcon = ({
+   title,
+diff --git a/src/components/EmojiPicker/Picker/components/Icons/PeopleEmojiIcon.tsx b/src/components/EmojiPicker/Picker/components/Icons/PeopleEmojiIcon.tsx
+index c504b96..906289c 100644
+--- a/src/components/EmojiPicker/Picker/components/Icons/PeopleEmojiIcon.tsx
++++ b/src/components/EmojiPicker/Picker/components/Icons/PeopleEmojiIcon.tsx
+@@ -1,4 +1,6 @@
+-import React, { createElement } from 'react';
++import { createElement } from 'react';
++
++import type React from 'react';
+ 
+ const DiscordIcon = ({
+   title,
+diff --git a/src/components/EmojiPicker/Picker/components/Icons/SymbolsEmojiIcon.tsx b/src/components/EmojiPicker/Picker/components/Icons/SymbolsEmojiIcon.tsx
+index d1ea2ca..c881077 100644
+--- a/src/components/EmojiPicker/Picker/components/Icons/SymbolsEmojiIcon.tsx
++++ b/src/components/EmojiPicker/Picker/components/Icons/SymbolsEmojiIcon.tsx
+@@ -1,4 +1,6 @@
+-import React, { createElement } from 'react';
++import { createElement } from 'react';
++
++import type React from 'react';
+ 
+ const DiscordIcon = ({
+   title,
+diff --git a/src/components/EmojiPicker/Picker/components/Icons/TravelEmojiIcon.tsx b/src/components/EmojiPicker/Picker/components/Icons/TravelEmojiIcon.tsx
+index 2ca5e74..bb972d1 100644
+--- a/src/components/EmojiPicker/Picker/components/Icons/TravelEmojiIcon.tsx
++++ b/src/components/EmojiPicker/Picker/components/Icons/TravelEmojiIcon.tsx
+@@ -1,4 +1,6 @@
+-import React, { createElement } from 'react';
++import { createElement } from 'react';
++
++import type React from 'react';
+ 
+ const DiscordIcon = ({
+   title,
+diff --git a/src/components/EmojiPicker/PickerSkeleton.tsx b/src/components/EmojiPicker/PickerSkeleton.tsx
+index 96bd9f5..4e9e156 100644
+--- a/src/components/EmojiPicker/PickerSkeleton.tsx
++++ b/src/components/EmojiPicker/PickerSkeleton.tsx
+@@ -18,19 +18,19 @@ const PickerSkeleton: FC = () => (
+         {/* Sidebar */}
+         <div className="flex flex-col items-center gap-2 py-2">
+           {Array.from({ length: 8 }, (_, i) => (
+-            <div key={i} className="size-7 rounded bg-primary" />
++            <div key={i} className="rounded bg-primary size-7" />
+           ))}
+         </div>
+         {/* Grid */}
+         <div className="flex flex-wrap gap-1 p-2">
+           {Array.from({ length: 40 }, (_, i) => (
+-            <div key={i} className="size-8 rounded bg-primary" />
++            <div key={i} className="rounded bg-primary size-8" />
+           ))}
+         </div>
+       </div>
+       {/* Footer */}
+       <div className="flex animate-pulse items-center gap-2 px-3 pb-3">
+-        <div className="size-8 rounded bg-primary" />
++        <div className="rounded bg-primary size-8" />
+         <div className="h-4 w-24 rounded bg-primary" />
+       </div>
+     </div>
+diff --git a/src/components/TextField.tsx b/src/components/TextField.tsx
+index ef97cc3..69548d1 100644
+--- a/src/components/TextField.tsx
++++ b/src/components/TextField.tsx
+@@ -31,7 +31,7 @@ type Props = AriaTextFieldProps
+   TooltipIcon?: SvgComponent;
+ };
+ 
+-function TextField({ ref: propRef, ...props }: Props & { ref?: Ref<HTMLInputElement> }) {
++const TextField = ({ ref: propRef, ...props }: Props & { ref?: Ref<HTMLInputElement> }) => {
+   const {
+     label, fragment = false, description, errorMessage, outerClassName, labelClassName,
+     inputClassName, descriptionClassName, errorClassName, altFocus, subLabel, subLabelClassName,
+diff --git a/src/components/Toggle.tsx b/src/components/Toggle.tsx
+index da992fe..0b64248 100644
+--- a/src/components/Toggle.tsx
++++ b/src/components/Toggle.tsx
+@@ -54,7 +54,7 @@ interface Props extends Omit<AriaToggleButtonProps, 'onClick'> {
+   onClick?: (e: MouseEvent) => void;
+ }
+ 
+-function SwitchInner({ ref, ...props }: Props & PressedHandler & { ref?: Ref<HTMLButtonElement> }) {
++const SwitchInner = ({ ref, ...props }: Props & PressedHandler & { ref?: Ref<HTMLButtonElement> }) => {
+   const { onClick, setIsPressed, ..._props } = props;
+ 
+   const fixedProps = {
+diff --git a/src/components/__tests__/TransitionHeightElement.height-and-visibility.test.tsx b/src/components/__tests__/TransitionHeightElement.height-and-visibility.test.tsx
+index 5815b41..4fb490c 100644
+--- a/src/components/__tests__/TransitionHeightElement.height-and-visibility.test.tsx
++++ b/src/components/__tests__/TransitionHeightElement.height-and-visibility.test.tsx
+@@ -7,12 +7,14 @@
+  */
+ import { act } from 'react';
+ import { createRoot } from 'react-dom/client';
+-import { describe, expect, it, vi } from 'vitest';
+-
+-vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++import {
++  describe, expect, it, vi,
++} from 'vitest';
+ 
+ import TransitionHeightElement from '../TransitionHeightElement';
+ 
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++
+ function mount(props: Record<string, unknown>) {
+   const container = document.createElement('div');
+   document.body.appendChild(container);
+diff --git a/src/providers/MarkdownProvider.tsx b/src/providers/MarkdownProvider.tsx
+index f617cfe..89fe10b 100644
+--- a/src/providers/MarkdownProvider.tsx
++++ b/src/providers/MarkdownProvider.tsx
+@@ -19,7 +19,7 @@ export const useMarkdown = () => {
+ };
+ 
+ function useValue(prop?: State) {
+-  const [markdown, setMarkdown] = useState<State>(prop);
++  const [markdown, setMarkdown] = useState(prop);
+   useEffect(() => {
+     if (!markdown) {
+       import('~/utils/markdown').then((m) => setMarkdown(m.default)).catch(console.error);
+diff --git a/src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx b/src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx
+index cadb252..236cef8 100644
+--- a/src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx
++++ b/src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx
+@@ -5,6 +5,7 @@ import {
+ } from 'vitest';
+ 
+ import { mountDom, unmountDom } from '~/components/__tests__/helpers/dom';
++import MessageProvider, { useMessage } from '~/providers/MessageProvider';
+ 
+ vi.mock('~/env.mjs', async () => (await import('./helpers/messageProviderDeps')).ENV_MOCK);
+ vi.mock('next/navigation', async () => (await import('./helpers/messageProviderDeps')).navigationMock());
+@@ -24,12 +25,10 @@ vi.mock('~/utils/api', async () => {
+   return mock;
+ });
+ 
+-import MessageProvider, { useMessage } from '~/providers/MessageProvider';
+-
+ afterEach(unmountDom);
+ 
+ let ctx: ReturnType<typeof useMessage> | null = null;
+-function Probe() {
++const Probe = () => {
+   ctx = useMessage();
+   return null;
+ }
+diff --git a/src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts b/src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts
+index 60e4be8..faefaec 100644
+--- a/src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts
++++ b/src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts
+@@ -1,4 +1,15 @@
+-import { describe, it, expect, vi } from 'vitest';
++import {
++  describe, it, expect, vi,
++} from 'vitest';
++
++import { validateMessage } from '~/utils/limits';
++import {
++  stripKeys, jsonModalSeed, resolveContentLoss, applyDisposition,
++} from '~/utils';
++import { discordMessageImportShape } from '~/server/api/utils/shapes';
++import { IS_COMPONENTS_V2_FLAG } from '~/constants';
++import useApiMethods from '~/providers/MessageProvider/useApiMethods';
++import { switchToV2, switchToClassic } from '~/utils/messageMode';
+ 
+ vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+ 
+@@ -25,15 +36,6 @@ vi.mock('react-toastify', () => ({
+   toast: Object.assign(() => 0, { dismiss: () => {}, loading: () => 0, update: () => {} }),
+ }));
+ 
+-import { validateMessage } from '~/utils/limits';
+-import {
+-  stripKeys, jsonModalSeed, resolveContentLoss, applyDisposition,
+-} from '~/utils';
+-import { discordMessageImportShape } from '~/server/api/utils/shapes';
+-import { IS_COMPONENTS_V2_FLAG } from '~/constants';
+-import useApiMethods from '~/providers/MessageProvider/useApiMethods';
+-import { switchToV2, switchToClassic } from '~/utils/messageMode';
+-
+ type Draft = { flags?: number; content?: string; embeds?: unknown[]; components?: { type: number }[] };
+ 
+ describe('JSON-editor Load->save, executed end to end', () => {
+@@ -64,9 +66,7 @@ describe('JSON-editor Load->save, executed end to end', () => {
+     const displayed = jsonModalSeed(stored);
+     const parsed = JSON.parse(displayed);
+     const validated = discordMessageImportShape.parse(parsed) as any;
+-    const disposition = resolveContentLoss(
+-      validated.flags, validated.components, validated.content, validated.embeds,
+-    );
++    const disposition = resolveContentLoss(validated.flags, validated.components, validated.content, validated.embeds);
+     if (disposition.requiresChoice) throw Error('fixture is row E — commitLoad would not load it');
+     const next = applyDisposition(validated);
+     return { displayed, disposition, saved: loadAndSaveViaShippedProvider(stored, next) };
+@@ -116,7 +116,12 @@ describe('JSON-editor Load->save, executed end to end', () => {
+       flags: 32768,
+       content: 'Hi',
+       embeds: [],
+-      components: [{ type: 1, components: [{ type: 2, style: 5, label: 'x', url: 'https://e.com' }] }],
++      components: [{
++        type: 1,
++        components: [{
++          type: 2, style: 5, label: 'x', url: 'https://e.com',
++        }],
++      }],
+     },
+   };
+ 
+diff --git a/src/providers/MessageProvider/__tests__/usePusher.hash-parity.test.ts b/src/providers/MessageProvider/__tests__/usePusher.hash-parity.test.ts
+index 94938db..206b99d 100644
+--- a/src/providers/MessageProvider/__tests__/usePusher.hash-parity.test.ts
++++ b/src/providers/MessageProvider/__tests__/usePusher.hash-parity.test.ts
+@@ -1,13 +1,15 @@
+-import { describe, it, expect, vi } from 'vitest';
+-
+-vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+-vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+-vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
++import {
++  describe, it, expect, vi,
++} from 'vitest';
+ 
+ import { hashMessage } from '~/utils';
+ import { discordMessageShape } from '~/server/api/utils/shapes';
+ import { normalizeForHash } from '~/providers/MessageProvider/usePusher';
+ 
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
++vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
++
+ describe('hashMessage producer/consumer parity after normalizeForHash', () => {
+   it('a trailing space in classic content does not create a false mismatch', () => {
+     const saved = { content: 'hello world' };
+@@ -19,15 +21,21 @@ describe('hashMessage producer/consumer parity after normalizeForHash', () => {
+   it('a trailing space in a V2 button label does not create a false mismatch', () => {
+     const saved = {
+       flags: 32768,
+-      components: [{ type: 1, components: [{
+-        type: 2, style: 5, label: 'Click me', url: 'https://example.com',
+-      }] }],
++      components: [{
++        type: 1,
++        components: [{
++          type: 2, style: 5, label: 'Click me', url: 'https://example.com',
++        }],
++      }],
+     };
+     const draftWithSpace = {
+       flags: 32768,
+-      components: [{ type: 1, components: [{
+-        type: 2, style: 5, label: 'Click me ', url: 'https://example.com',
+-      }] }],
++      components: [{
++        type: 1,
++        components: [{
++          type: 2, style: 5, label: 'Click me ', url: 'https://example.com',
++        }],
++      }],
+     };
+     expect(hashMessage(normalizeForHash({ name: 'Test', updatedAt: 0, data: draftWithSpace } as never)))
+       .toBe(hashMessage({ name: 'Test', data: discordMessageShape.parse(saved) }));
+diff --git a/src/providers/MessageProvider/index.tsx b/src/providers/MessageProvider/index.tsx
+index 0227d31..32a06ef 100644
+--- a/src/providers/MessageProvider/index.tsx
++++ b/src/providers/MessageProvider/index.tsx
+@@ -118,7 +118,7 @@ function useValue() {
+   const loadedRef = useRef<null | ActiveMessage>(null);
+ 
+   const [message, setMessage] = useState<null | ActiveMessage>(null);
+-  const [savedMessage, setSavedMessage] = useState<null | ActiveMessage>(message);
++  const [savedMessage, setSavedMessage] = useState(message);
+   const [showHelp, { toggle: toggleHelp, setFalse: closeHelp }] = useToggleState();
+   const [visualStyle, { toggle: toggleVisualStyle }] = useToggleState();
+ 
+@@ -197,7 +197,7 @@ function useValue() {
+     }
+   }, [message]);
+ 
+-  const messageRef = useLatest<null | ActiveMessage>(message);
++  const messageRef = useLatest(message);
+   useEffect(() => {
+     if (message?.recentWebhookId) {
+       const webhook = webhooks.find((wh) => wh.id === message.recentWebhookId);
+diff --git a/src/providers/NavigationGuardProvider.tsx b/src/providers/NavigationGuardProvider.tsx
+index 72feb97..ad27505 100644
+--- a/src/providers/NavigationGuardProvider.tsx
++++ b/src/providers/NavigationGuardProvider.tsx
+@@ -28,7 +28,7 @@ interface State {
+ 
+ const NO_GUARD: State = { register: () => () => {}, intercept: () => false };
+ 
+-const Context = createContext<State>(NO_GUARD);
++const Context = createContext(NO_GUARD);
+ export const useNavigationGuard = () => use(Context);
+ 
+ const Guard = ({ children }: PropsWithChildren) => {
+diff --git a/src/scripts/__tests__/backfillValid.classify.test.ts b/src/scripts/__tests__/backfillValid.classify.test.ts
+index e3bf515..6f9182d 100644
+--- a/src/scripts/__tests__/backfillValid.classify.test.ts
++++ b/src/scripts/__tests__/backfillValid.classify.test.ts
+@@ -1,10 +1,12 @@
+-import { describe, it, expect, vi } from 'vitest';
+-
+-vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++import {
++  describe, it, expect, vi,
++} from 'vitest';
+ 
+ import { classifyRow } from '~/scripts/backfillValid';
+ import { data } from '~/utils/__tests__/helpers/messageData';
+ 
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++
+ describe('classifyRow — the verdict', () => {
+   it('a sendable record computes valid: true', () => {
+     expect(classifyRow(data({ content: 'Hi' })).valid).toBe(true);
+diff --git a/src/scripts/__tests__/backfillValid.evaluation-failure-category.test.ts b/src/scripts/__tests__/backfillValid.evaluation-failure-category.test.ts
+index e9e888c..47b04fb 100644
+--- a/src/scripts/__tests__/backfillValid.evaluation-failure-category.test.ts
++++ b/src/scripts/__tests__/backfillValid.evaluation-failure-category.test.ts
+@@ -1,9 +1,11 @@
+-import { describe, it, expect, vi } from 'vitest';
+-
+-vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++import {
++  describe, it, expect, vi,
++} from 'vitest';
+ 
+ import { classifyRow, emptyReport, accumulate } from '~/scripts/backfillValid';
+ 
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++
+ describe('accumulate — evaluation failures reach the report as a category', () => {
+   it('an evaluationFailure classification lands in evaluationFailures with count AND row id', () => {
+     const report = emptyReport();
+diff --git a/src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts b/src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts
+index 645eb44..c24b23b 100644
+--- a/src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts
++++ b/src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts
+@@ -1,7 +1,6 @@
+-import { describe, it, expect, vi } from 'vitest';
+-
+-vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+-
++import {
++  describe, it, expect, vi,
++} from 'vitest';
+ import {
+   readFileSync, mkdtempSync, rmSync, writeFileSync,
+ } from 'fs';
+@@ -13,6 +12,8 @@ import {
+   resolveTargetHost, assertConfirmedTarget, hasConnectionOverrideParams, assertNoHostOverride,
+ } from '~/scripts/backfillValid';
+ 
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++
+ function fakeDatabase(countResult: Promise<{ count: number }>) {
+   return {
+     selectFrom: () => ({
+diff --git a/src/server/api/utils/__tests__/messageValidity.predicate.test.ts b/src/server/api/utils/__tests__/messageValidity.predicate.test.ts
+index 9d5ce5a..ff19ef0 100644
+--- a/src/server/api/utils/__tests__/messageValidity.predicate.test.ts
++++ b/src/server/api/utils/__tests__/messageValidity.predicate.test.ts
+@@ -1,13 +1,20 @@
+-import { describe, it, expect, vi } from 'vitest';
+-
+-vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++import {
++  describe, it, expect, vi,
++} from 'vitest';
+ 
+ import { isMessageValid } from '~/server/api/utils/messageValidity';
+ import { validateMessage } from '~/utils/limits';
+ import { data } from '~/utils/__tests__/helpers/messageData';
+ 
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++
+ const textDisplay = () => ({ type: 10, content: 'Hello' });
+-const actionRow = () => ({ type: 1, components: [{ type: 2, style: 5, url: 'https://example.com', label: 'Click' }] });
++const actionRow = () => ({
++  type: 1,
++  components: [{
++    type: 2, style: 5, url: 'https://example.com', label: 'Click',
++  }],
++});
+ 
+ describe('parity by construction', () => {
+   it('agrees with the Send gate over representative payloads (flag-set bare V2, unflagged bare V2 permitting; flag residue refusing)', () => {
+diff --git a/src/server/api/utils/__tests__/shapes.message-validation.test.ts b/src/server/api/utils/__tests__/shapes.message-validation.test.ts
+index b9a6476..c0c6b90 100644
+--- a/src/server/api/utils/__tests__/shapes.message-validation.test.ts
++++ b/src/server/api/utils/__tests__/shapes.message-validation.test.ts
+@@ -1,4 +1,12 @@
+-import { describe, it, expect, vi } from 'vitest';
++import {
++  describe, it, expect, vi,
++} from 'vitest';
++
++import { discordMessageShape, discordMessageImportShape, messageShape } from '~/server/api/utils/shapes';
++import {
++  makeLinkButton, makeActionRow, makeTextDisplay, makeThumbnail, makeSection,
++  makeMediaGallery, makeFile, makeSeparator, makeContainer,
++} from '~/utils/__tests__/helpers/components';
+ 
+ // Mock env.mjs to prevent environment variable validation at import time
+ vi.mock('~/env.mjs', () => ({
+@@ -11,12 +19,6 @@ vi.mock('~/env.mjs', () => ({
+ vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+ vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
+ 
+-import { discordMessageShape, discordMessageImportShape, messageShape } from '~/server/api/utils/shapes';
+-import {
+-  makeLinkButton, makeActionRow, makeTextDisplay, makeThumbnail, makeSection,
+-  makeMediaGallery, makeFile, makeSeparator, makeContainer,
+-} from '~/utils/__tests__/helpers/components';
+-
+ // ============================================================
+ // Tests: discordMessageShape (strict)
+ // ============================================================
+@@ -138,7 +140,9 @@ describe('discordMessageShape (strict)', () => {
+   it('rejects link button with non-URL string', () => {
+     const result = discordMessageShape.safeParse({
+       components: [
+-        makeActionRow([{ type: 2, style: 5, url: 'not-a-url', label: 'Bad' }]),
++        makeActionRow([{
++          type: 2, style: 5, url: 'not-a-url', label: 'Bad',
++        }]),
+       ],
+     });
+     expect(result.success).toBe(false);
+@@ -161,7 +165,9 @@ describe('discordMessageShape (strict)', () => {
+   it('rejects unsupported button styles (not link button)', () => {
+     const result = discordMessageShape.safeParse({
+       components: [
+-        makeActionRow([{ type: 2, style: 1, label: 'Primary', custom_id: 'test' }]),
++        makeActionRow([{
++          type: 2, style: 1, label: 'Primary', custom_id: 'test',
++        }]),
+       ],
+     });
+     expect(result.success).toBe(false);
+@@ -306,7 +312,9 @@ describe('discordMessageImportShape (lenient import)', () => {
+       components: [
+         makeContainer([
+           { type: 3, custom_id: 'sel', options: [] },
+-          { type: 4, custom_id: 'input', style: 1, label: 'Input' },
++          {
++            type: 4, custom_id: 'input', style: 1, label: 'Input',
++          },
+         ]),
+         makeTextDisplay(),
+       ],
+diff --git a/src/server/api/utils/__tests__/shapes.supported-types-parity.test.ts b/src/server/api/utils/__tests__/shapes.supported-types-parity.test.ts
+index c1feb37..697950f 100644
+--- a/src/server/api/utils/__tests__/shapes.supported-types-parity.test.ts
++++ b/src/server/api/utils/__tests__/shapes.supported-types-parity.test.ts
+@@ -1,8 +1,6 @@
+-import { describe, it, expect, vi } from 'vitest';
+-
+-vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+-vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+-vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
++import {
++  describe, it, expect, vi,
++} from 'vitest';
+ 
+ import {
+   discordMessageImportShape,
+@@ -16,6 +14,10 @@ import {
+   makeLinkButton, makeThumbnail, makeTextDisplay, makeSection, makeContainer,
+ } from '~/utils/__tests__/helpers/components';
+ 
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
++vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
++
+ describe('SUPPORTED_TOP_LEVEL_TYPES equals the discriminant set topLevelComponentShape accepts', () => {
+   it('the top-level filter set and the schema discriminant set are the same set, asserted over the sets themselves', () => {
+     const schemaDiscriminants = new Set(
+diff --git a/src/server/api/utils/shapes.ts b/src/server/api/utils/shapes.ts
+index 94d2bf4..2e1d036 100644
+--- a/src/server/api/utils/shapes.ts
++++ b/src/server/api/utils/shapes.ts
+@@ -61,7 +61,7 @@ function isolatedUnion<T extends UnionOptions>(options: T) {
+     const fatal = result.error.issues.some(({ code }) => code === z.ZodIssueCode.invalid_union);
+     result.error.issues.forEach((issue) => ctx.addIssue({ ...issue, fatal }));
+     return z.NEVER;
+-  }) as unknown as z.ZodType<z.output<T[number]>, z.ZodTypeDef, z.input<T[number]>>;
++  }) as unknown as z.ZodType<z.output<T[number]>>;
+ }
+ 
+ const MAX_REFUSAL_ISSUES = 20;
+@@ -288,7 +288,7 @@ const discordMessageBaseShape = z.object({
+ });
+ 
+ export const discordMessageShape = discordMessageBaseShape
+-  .superRefine(refineDisplayableText) as z.ZodEffects<typeof discordMessageBaseShape, MessageData>;
++  .superRefine(refineDisplayableText) as z.ZodEffects<typeof discordMessageBaseShape>;
+ 
+ const LINK_BUTTON_STYLE = 5;
+ const SECTION_TYPE = 9;
+diff --git a/src/utils/__tests__/componentsV2.data-layer.test.ts b/src/utils/__tests__/componentsV2.data-layer.test.ts
+index 29255ce..d7cba67 100644
+--- a/src/utils/__tests__/componentsV2.data-layer.test.ts
++++ b/src/utils/__tests__/componentsV2.data-layer.test.ts
+@@ -10,6 +10,10 @@ import {
+   genUuid,
+ } from '~/utils';
+ import { IS_COMPONENTS_V2_FLAG, MAX_TOTAL_COMPONENTS } from '~/constants';
++import {
++  makeLinkButton, makeActionRow, makeTextDisplay, makeThumbnail, makeSection,
++  makeMediaGallery, makeFile, makeSeparator, makeContainer,
++} from '~/utils/__tests__/helpers/components';
+ 
+ // Mock env.mjs to prevent environment variable validation at import time
+ vi.mock('~/env.mjs', () => ({
+@@ -22,11 +26,6 @@ vi.mock('~/env.mjs', () => ({
+ vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+ vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
+ 
+-import {
+-  makeLinkButton, makeActionRow, makeTextDisplay, makeThumbnail, makeSection,
+-  makeMediaGallery, makeFile, makeSeparator, makeContainer,
+-} from '~/utils/__tests__/helpers/components';
+-
+ // ============================================================
+ // collectKeys: recursively extract all _key values
+ // ============================================================
+diff --git a/src/utils/__tests__/discordResponseToMessage.rowE-persist-gate.test.ts b/src/utils/__tests__/discordResponseToMessage.rowE-persist-gate.test.ts
+index e304287..05deb4f 100644
+--- a/src/utils/__tests__/discordResponseToMessage.rowE-persist-gate.test.ts
++++ b/src/utils/__tests__/discordResponseToMessage.rowE-persist-gate.test.ts
+@@ -9,20 +9,24 @@
+  * draft — is covered (and its current limits recorded, in a handoff under `agent-output/handoff/`)
+  * separately, in `NewMessageModal.persist-gate-wiring.test.tsx`.
+  */
+-import { describe, expect, it, vi } from 'vitest';
++import {
++  describe, expect, it, vi,
++} from 'vitest';
++
++import discordResponseToMessage from '~/utils/discordResponseToMessage';
++import { gateBeforePersist } from '~/utils';
+ 
+ vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+ vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+ vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
+ 
+-import discordResponseToMessage from '~/utils/discordResponseToMessage';
+-import { gateBeforePersist } from '~/utils';
+-
+ const IS_V2 = 1 << 15;
+ const CONTAINER = { type: 17, components: [{ type: 10, content: 'x' }] };
+ 
+ const apiMessage = (over: Record<string, unknown> = {}) => ({
+-  author: { id: '1', username: 'u', avatar: null, discriminator: '0' },
++  author: {
++    id: '1', username: 'u', avatar: null, discriminator: '0',
++  },
+   content: 'hi',
+   embeds: [],
+   components: [CONTAINER],
+diff --git a/src/utils/__tests__/editableComponents.operations.test.ts b/src/utils/__tests__/editableComponents.operations.test.ts
+index bed0f75..76a27c8 100644
+--- a/src/utils/__tests__/editableComponents.operations.test.ts
++++ b/src/utils/__tests__/editableComponents.operations.test.ts
+@@ -1,4 +1,13 @@
+-import { describe, it, expect, vi } from 'vitest';
++import {
++  describe, it, expect, vi,
++} from 'vitest';
++
++import { genUuid, rekeyComponent } from '~/utils';
++import {
++  MAX_SECTION_TEXT_COMPONENTS,
++  MAX_ACTION_ROW_BUTTONS,
++  MAX_MEDIA_GALLERY_ITEMS,
++} from '~/constants';
+ 
+ // Mock env.mjs to prevent environment variable validation at import time
+ vi.mock('~/env.mjs', () => ({
+@@ -10,13 +19,6 @@ vi.mock('~/env.mjs', () => ({
+ vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+ vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
+ 
+-import { genUuid, rekeyComponent } from '~/utils';
+-import {
+-  MAX_SECTION_TEXT_COMPONENTS,
+-  MAX_ACTION_ROW_BUTTONS,
+-  MAX_MEDIA_GALLERY_ITEMS,
+-} from '~/constants';
+-
+ // ============================================================
+ // Shared fixtures
+ // ============================================================
+diff --git a/src/utils/__tests__/editableComponents.sub-component-actions.test.ts b/src/utils/__tests__/editableComponents.sub-component-actions.test.ts
+index e5b7c92..20f9a77 100644
+--- a/src/utils/__tests__/editableComponents.sub-component-actions.test.ts
++++ b/src/utils/__tests__/editableComponents.sub-component-actions.test.ts
+@@ -1,4 +1,13 @@
+-import { describe, it, expect, vi } from 'vitest';
++import {
++  describe, it, expect, vi,
++} from 'vitest';
++
++import { genUuid, rekeyComponent } from '~/utils';
++import {
++  MAX_SECTION_TEXT_COMPONENTS,
++  MAX_ACTION_ROW_BUTTONS,
++  MAX_MEDIA_GALLERY_ITEMS,
++} from '~/constants';
+ 
+ // Mock env.mjs to prevent environment variable validation at import time
+ vi.mock('~/env.mjs', () => ({
+@@ -10,13 +19,6 @@ vi.mock('~/env.mjs', () => ({
+ vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+ vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
+ 
+-import { genUuid, rekeyComponent } from '~/utils';
+-import {
+-  MAX_SECTION_TEXT_COMPONENTS,
+-  MAX_ACTION_ROW_BUTTONS,
+-  MAX_MEDIA_GALLERY_ITEMS,
+-} from '~/constants';
+-
+ // ============================================================
+ // Helper: build component fixtures with _key values
+ // ============================================================
+diff --git a/src/utils/__tests__/gateBeforePersist.thumbnail.test.ts b/src/utils/__tests__/gateBeforePersist.thumbnail.test.ts
+index 1d36804..4047b58 100644
+--- a/src/utils/__tests__/gateBeforePersist.thumbnail.test.ts
++++ b/src/utils/__tests__/gateBeforePersist.thumbnail.test.ts
+@@ -1,4 +1,6 @@
+-import { describe, expect, it, vi } from 'vitest';
++import {
++  describe, expect, it, vi,
++} from 'vitest';
+ 
+ import { gateBeforePersist } from '~/utils';
+ 
+diff --git a/src/utils/__tests__/isValidUrl.protocol-validation.test.ts b/src/utils/__tests__/isValidUrl.protocol-validation.test.ts
+index b7ac5fa..9498e40 100644
+--- a/src/utils/__tests__/isValidUrl.protocol-validation.test.ts
++++ b/src/utils/__tests__/isValidUrl.protocol-validation.test.ts
+@@ -1,4 +1,5 @@
+ import { describe, it, expect } from 'vitest';
++
+ import isValidUrl from '~/utils/isValidUrl';
+ 
+ describe('isValidUrl', () => {
+diff --git a/src/utils/__tests__/limits.import-validation.test.ts b/src/utils/__tests__/limits.import-validation.test.ts
+index 969fd71..c1359e6 100644
+--- a/src/utils/__tests__/limits.import-validation.test.ts
++++ b/src/utils/__tests__/limits.import-validation.test.ts
+@@ -4,6 +4,10 @@ import {
+ 
+ import { hasV2Components } from '~/utils';
+ import { validateContentRequirements } from '~/utils/limits';
++import {
++  makeActionRow, makeTextDisplay, makeSection,
++  makeMediaGallery, makeFile, makeContainer,
++} from '~/utils/__tests__/helpers/components';
+ 
+ // Mock env.mjs to prevent environment variable validation at import time
+ vi.mock('~/env.mjs', () => ({
+@@ -16,11 +20,6 @@ vi.mock('~/env.mjs', () => ({
+ vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+ vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
+ 
+-import {
+-  makeActionRow, makeTextDisplay, makeSection,
+-  makeMediaGallery, makeFile, makeContainer,
+-} from '~/utils/__tests__/helpers/components';
+-
+ // ============================================================
+ // Tests: validateContentRequirements
+ // ============================================================
+diff --git a/src/utils/__tests__/limits.send-gate-partition.test.ts b/src/utils/__tests__/limits.send-gate-partition.test.ts
+index f55455a..674dbdf 100644
+--- a/src/utils/__tests__/limits.send-gate-partition.test.ts
++++ b/src/utils/__tests__/limits.send-gate-partition.test.ts
+@@ -1,7 +1,8 @@
+-import { describe, it, expect, vi } from 'vitest';
+-import type { z } from 'zod';
++import {
++  describe, it, expect, vi,
++} from 'vitest';
+ 
+-vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++import type { z } from 'zod';
+ 
+ import { validateMessage } from '~/utils/limits';
+ import { IS_COMPONENTS_V2_FLAG, V2_COMPONENT_TYPE_VALUES } from '~/constants';
+@@ -9,6 +10,8 @@ import { switchToV2, switchToClassic } from '~/utils/messageMode';
+ import { topLevelComponentShape } from '~/server/api/utils/shapes';
+ import { data } from '~/utils/__tests__/helpers/messageData';
+ 
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++
+ const V2_COPY = 'Components V2 messages cannot contain embeds or content.';
+ const EMPTY_COPY = 'Message must have content, embeds, or components.';
+ 
+@@ -22,7 +25,12 @@ function verdict(result: string): Verdict {
+ }
+ 
+ const textDisplay = () => ({ type: 10, content: 'Hello' });
+-const actionRow = () => ({ type: 1, components: [{ type: 2, style: 5, url: 'https://example.com', label: 'Click' }] });
++const actionRow = () => ({
++  type: 1,
++  components: [{
++    type: 2, style: 5, url: 'https://example.com', label: 'Click',
++  }],
++});
+ 
+ const SET = IS_COMPONENTS_V2_FLAG;
+ 
+@@ -236,7 +244,9 @@ describe('the generator is closed: V2->classic clears the flag over the whole cl
+   });
+ 
+   it('the classic->V2 branch clears content and embeds but leaves an already-set flag alone', () => {
+-    const after = switchToV2({ flags: 32768, content: 'Hi', embeds: [{ title: 'T' }], components: [{ type: 1 }] } as unknown as MessageData);
++    const after = switchToV2({
++      flags: 32768, content: 'Hi', embeds: [{ title: 'T' }], components: [{ type: 1 }],
++    } as unknown as MessageData);
+     expect(after.content).toBe('');
+     expect(after.embeds).toEqual([]);
+     expect(after.components).toEqual([{ type: 1 }]);
+@@ -255,7 +265,7 @@ describe('recovering a stored record through composer controls alone', () => {
+     expect(step1.content).toBe('');
+     expect((step1.flags ?? 0) & IS_COMPONENTS_V2_FLAG).toBe(IS_COMPONENTS_V2_FLAG);
+ 
+-    const step2 = switchToClassic(step1);            // v2 -> classic, clears the flag
++    const step2 = switchToClassic(step1); // v2 -> classic, clears the flag
+     expect((step2.flags ?? 0) & IS_COMPONENTS_V2_FLAG).toBe(0);
+ 
+     expect(validateMessage({ ...step2, username: 'MOTM' } as unknown as MessageData))
+diff --git a/src/utils/__tests__/messageMode.detection.test.ts b/src/utils/__tests__/messageMode.detection.test.ts
+index d5ba7b6..6d5e587 100644
+--- a/src/utils/__tests__/messageMode.detection.test.ts
++++ b/src/utils/__tests__/messageMode.detection.test.ts
+@@ -1,14 +1,16 @@
+-import { describe, it, expect, vi } from 'vitest';
+-
+-vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+-vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+-vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
++import {
++  describe, it, expect, vi,
++} from 'vitest';
+ 
+ import { IS_COMPONENTS_V2_FLAG } from '~/constants';
+ import {
+   isMessageV2, detectMessageMode, showV2PatchWarning, switchToV2, switchToClassic,
+ } from '~/utils/messageMode';
+ 
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
++vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
++
+ describe('isMessageV2, the shared mode predicate', () => {
+   it('is true when the V2 flag bit is set, with no components at all', () => {
+     expect(isMessageV2({ flags: IS_COMPONENTS_V2_FLAG })).toBe(true);
+diff --git a/src/utils/__tests__/serverCommands.get-message.test.ts b/src/utils/__tests__/serverCommands.get-message.test.ts
+index de0929c..ec0e48d 100644
+--- a/src/utils/__tests__/serverCommands.get-message.test.ts
++++ b/src/utils/__tests__/serverCommands.get-message.test.ts
+@@ -1,6 +1,12 @@
+-import { describe, it, expect, vi } from 'vitest';
++import {
++  describe, it, expect, vi,
++} from 'vitest';
+ import { decompress } from 'compress-json';
+ 
++import commands from 'bot/serverCommands';
++import { IS_COMPONENTS_V2_FLAG } from '~/constants';
++import { author } from '~/utils/__tests__/helpers/discord';
++
+ vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+ vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+ vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
+@@ -17,10 +23,6 @@ vi.mock('~/utils/redis/client', () => ({
+   }),
+ }));
+ 
+-import commands from 'bot/serverCommands';
+-import { IS_COMPONENTS_V2_FLAG } from '~/constants';
+-import { author } from '~/utils/__tests__/helpers/discord';
+-
+ describe('bot/serverCommands.ts get_message forwards components and flags through to the store', () => {
+   it('persists the resolved message\'s components and flag bit via messageStore.store', async () => {
+     let jsonPayload: unknown;
+diff --git a/src/utils/__tests__/supportedTypes.parity.test.ts b/src/utils/__tests__/supportedTypes.parity.test.ts
+index cfc3e01..97c7dcd 100644
+--- a/src/utils/__tests__/supportedTypes.parity.test.ts
++++ b/src/utils/__tests__/supportedTypes.parity.test.ts
+@@ -1,8 +1,6 @@
+-import { describe, expect, it, vi } from 'vitest';
+-
+-vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+-vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+-vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
++import {
++  describe, expect, it, vi,
++} from 'vitest';
+ 
+ import {
+   SUPPORTED_CONTAINER_CHILD_TYPES as INGRESS_CONTAINER_CHILD_TYPES,
+@@ -13,6 +11,10 @@ import {
+   SUPPORTED_TOP_LEVEL_TYPES as SHAPE_TOP_LEVEL_TYPES,
+ } from '~/server/api/utils/shapes';
+ 
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
++vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
++
+ describe('the ingress converter and the JSON-shape filter agree on what is supported', () => {
+   it('SUPPORTED_TOP_LEVEL_TYPES is the same set at both copies', () => {
+     expect(INGRESS_TOP_LEVEL_TYPES).toEqual(SHAPE_TOP_LEVEL_TYPES);
+diff --git a/src/utils/__tests__/utils.disposition-notices.test.ts b/src/utils/__tests__/utils.disposition-notices.test.ts
+index bf3a845..0777a61 100644
+--- a/src/utils/__tests__/utils.disposition-notices.test.ts
++++ b/src/utils/__tests__/utils.disposition-notices.test.ts
+@@ -1,11 +1,13 @@
+-import { describe, it, expect, vi } from 'vitest';
++import {
++  describe, it, expect, vi,
++} from 'vitest';
++
++import { noticeMessageForSettled, describeDropSet } from '~/utils';
+ 
+ vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+ vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+ vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
+ 
+-import { noticeMessageForSettled, describeDropSet } from '~/utils';
+-
+ describe('noticeMessageForSettled — operator-visible warning text', () => {
+   it('row A/C (noticeClass "none"): nothing is shown', () => {
+     expect(noticeMessageForSettled({
+diff --git a/src/utils/__tests__/utils.disposition-resolver.test.ts b/src/utils/__tests__/utils.disposition-resolver.test.ts
+index 71ee05e..8371e55 100644
+--- a/src/utils/__tests__/utils.disposition-resolver.test.ts
++++ b/src/utils/__tests__/utils.disposition-resolver.test.ts
+@@ -1,14 +1,16 @@
+-import { describe, it, expect, vi } from 'vitest';
+-
+-vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+-vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+-vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
++import {
++  describe, it, expect, vi,
++} from 'vitest';
+ 
+ import { IS_COMPONENTS_V2_FLAG } from '~/constants';
+ import {
+   resolveContentLoss, gateBeforePersist, applyDisposition, validateContentRequirements,
+ } from '~/utils';
+ 
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
++vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
++
+ const V2_CONTAINER = [{ type: 17, components: [] }];
+ const ACTION_ROW = [{ type: 1, components: [] }];
+ const BIT = IS_COMPONENTS_V2_FLAG;
+@@ -177,7 +179,9 @@ describe('both-directions obligation', () => {
+ 
+ describe('gateBeforePersist, the persist gate', () => {
+   it('mustAsk is true for a row-E draft (5712-shaped: V2 components retained alongside classic content)', () => {
+-    const gate = gateBeforePersist({ flags: BIT, components: V2_CONTAINER, content: 'hi', embeds: [] });
++    const gate = gateBeforePersist({
++      flags: BIT, components: V2_CONTAINER, content: 'hi', embeds: [],
++    });
+     expect(gate.mustAsk).toBe(true);
+     expect(gate.options).toEqual([
+       { mode: 'classic', dropSet: ['components'] },
+@@ -186,19 +190,27 @@ describe('gateBeforePersist, the persist gate', () => {
+   });
+ 
+   it('mustAsk is false for an ordinary classic draft (a canned-intro writer: never a member)', () => {
+-    const gate = gateBeforePersist({ flags: 0, components: [], content: 'Welcome!', embeds: [] });
++    const gate = gateBeforePersist({
++      flags: 0, components: [], content: 'Welcome!', embeds: [],
++    });
+     expect(gate.mustAsk).toBe(false);
+     expect(gate.options).toBe(null);
+   });
+ 
+   it('mustAsk is false for a pure V2 draft with no classic body', () => {
+-    const gate = gateBeforePersist({ flags: BIT, components: V2_CONTAINER, content: '', embeds: [] });
++    const gate = gateBeforePersist({
++      flags: BIT, components: V2_CONTAINER, content: '', embeds: [],
++    });
+     expect(gate.mustAsk).toBe(false);
+   });
+ 
+   it('mustAsk is true regardless of whether the flag bit happens to be set (both row-E members)', () => {
+-    expect(gateBeforePersist({ flags: 0, components: V2_CONTAINER, content: 'hi', embeds: [] }).mustAsk).toBe(true);
+-    expect(gateBeforePersist({ flags: BIT, components: V2_CONTAINER, content: 'hi', embeds: [] }).mustAsk).toBe(true);
++    expect(gateBeforePersist({
++      flags: 0, components: V2_CONTAINER, content: 'hi', embeds: [],
++    }).mustAsk).toBe(true);
++    expect(gateBeforePersist({
++      flags: BIT, components: V2_CONTAINER, content: 'hi', embeds: [],
++    }).mustAsk).toBe(true);
+   });
+ 
+   it.each([
+@@ -260,34 +272,44 @@ describe('gateBeforePersist, the persist gate', () => {
+   });
+ 
+   it('mustAsk is false for a residue-bit-only draft (mask regression, at the gate)', () => {
+-    const gate = gateBeforePersist({ flags: 4, components: [], content: 'hi', embeds: [] });
++    const gate = gateBeforePersist({
++      flags: 4, components: [], content: 'hi', embeds: [],
++    });
+     expect(gate.mustAsk).toBe(false);
+   });
+ });
+ 
+ describe('applyDisposition, the application half', () => {
+   it('row A/settled: derives Classic from the draft itself and delegates to switchToClassic (no bit, no content change)', () => {
+-    const next = applyDisposition({ flags: 0, content: 'hi', embeds: [], components: [] });
++    const next = applyDisposition({
++      flags: 0, content: 'hi', embeds: [], components: [],
++    });
+     expect(next.flags).toBe(0);
+     expect(next.content).toBe('hi');
+   });
+ 
+   it('row B/C settled: derives V2 from the draft itself, sets the flag bit and clears content/embeds', () => {
+-    const next = applyDisposition({ flags: 0, content: '', embeds: [], components: V2_CONTAINER });
++    const next = applyDisposition({
++      flags: 0, content: '', embeds: [], components: V2_CONTAINER,
++    });
+     expect(!!(next.flags! & BIT)).toBe(true);
+     expect(next.content).toBe('');
+     expect(next.embeds).toEqual([]);
+   });
+ 
+   it('row D settled: derives Classic from the draft itself and clears the bit', () => {
+-    const next = applyDisposition({ flags: BIT, content: 'hi', embeds: [], components: [] });
++    const next = applyDisposition({
++      flags: BIT, content: 'hi', embeds: [], components: [],
++    });
+     expect(!!(next.flags! & BIT)).toBe(false);
+     expect(next.content).toBe('hi');
+   });
+ 
+   it('row E with the classic mode chosen: drops components, clears the bit', () => {
+     const next = applyDisposition(
+-      { flags: 0, content: 'hi', embeds: [], components: V2_CONTAINER },
++      {
++        flags: 0, content: 'hi', embeds: [], components: V2_CONTAINER,
++      },
+       'classic',
+     );
+     expect(next.components).toEqual([]);
+@@ -297,7 +319,9 @@ describe('applyDisposition, the application half', () => {
+ 
+   it('row E with the v2 mode chosen: drops content/embeds, sets the bit', () => {
+     const next = applyDisposition(
+-      { flags: 0, content: 'hi', embeds: [{ title: 'x' }], components: V2_CONTAINER },
++      {
++        flags: 0, content: 'hi', embeds: [{ title: 'x' }], components: V2_CONTAINER,
++      },
+       'v2',
+     );
+     expect(next.content).toBe('');
+@@ -306,7 +330,9 @@ describe('applyDisposition, the application half', () => {
+   });
+ 
+   it('row E with no chosen mode throws — a choice cannot be applied without being made', () => {
+-    expect(() => applyDisposition({ flags: 0, content: 'hi', embeds: [], components: V2_CONTAINER }))
++    expect(() => applyDisposition({
++      flags: 0, content: 'hi', embeds: [], components: V2_CONTAINER,
++    }))
+       .toThrow(/chosenMode/);
+   });
+ });
+diff --git a/src/utils/__tests__/utils.mutual-exclusivity.test.ts b/src/utils/__tests__/utils.mutual-exclusivity.test.ts
+index 0d74c58..2b400f9 100644
+--- a/src/utils/__tests__/utils.mutual-exclusivity.test.ts
++++ b/src/utils/__tests__/utils.mutual-exclusivity.test.ts
+@@ -11,6 +11,10 @@ import {
+ } from '~/utils';
+ import { validateMessage, validateDisplayableTextCount } from '~/utils/limits';
+ import { IS_COMPONENTS_V2_FLAG } from '~/constants';
++import {
++  makeLinkButton, makeActionRow, makeTextDisplay, makeThumbnail, makeSection,
++  makeContainer, makeSeparator,
++} from '~/utils/__tests__/helpers/components';
+ 
+ // Mock env.mjs to prevent environment variable validation at import time
+ vi.mock('~/env.mjs', () => ({
+@@ -23,11 +27,6 @@ vi.mock('~/env.mjs', () => ({
+ vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+ vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
+ 
+-import {
+-  makeLinkButton, makeActionRow, makeTextDisplay, makeThumbnail, makeSection,
+-  makeContainer, makeSeparator,
+-} from '~/utils/__tests__/helpers/components';
+-
+ // ============================================================
+ // Tests: hasV2Components
+ // ============================================================
+diff --git a/src/utils/__tests__/utils.rowd-load-disposition.test.ts b/src/utils/__tests__/utils.rowd-load-disposition.test.ts
+index 6439ef6..d9a8df8 100644
+--- a/src/utils/__tests__/utils.rowd-load-disposition.test.ts
++++ b/src/utils/__tests__/utils.rowd-load-disposition.test.ts
+@@ -1,4 +1,6 @@
+-import { describe, expect, it, vi } from 'vitest';
++import {
++  describe, expect, it, vi,
++} from 'vitest';
+ 
+ import { applyDisposition, jsonModalSeed, resolveContentLoss } from '~/utils';
+ import { validateContentRequirements } from '~/utils/limits';
+@@ -6,7 +8,12 @@ import { validateContentRequirements } from '~/utils/limits';
+ vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+ 
+ const FLAG = 1 << 15;
+-const ACTION_ROW = { type: 1, components: [{ type: 2, style: 5, label: 'x', url: 'https://e.co' }] };
++const ACTION_ROW = {
++  type: 1,
++  components: [{
++    type: 2, style: 5, label: 'x', url: 'https://e.co',
++  }],
++};
+ 
+ const rowDMembers: Array<[string, Record<string, unknown>]> = [
+   ['content only (record 5712\'s own shape)', { content: 'hi', flags: FLAG }],
+@@ -64,17 +71,23 @@ describe('row D disposition — hole check: the fix opens no new hole', () => {
+   };
+ 
+   it('empty draft (no content/comps/flag) stays BLOCKED — floor Branch 2', () => {
+-    expect(loadDisabled({ flags: 0, content: '', embeds: [], components: [] })).toBe(true);
++    expect(loadDisabled({
++      flags: 0, content: '', embeds: [], components: [],
++    })).toBe(true);
+   });
+ 
+   it('flag-only empty draft (row C — switchToV2 keeps it empty) stays BLOCKED', () => {
+-    const d = { flags: FLAG, content: '', embeds: [], components: [] };
++    const d = {
++      flags: FLAG, content: '', embeds: [], components: [],
++    };
+     expect(resolveContentLoss(d.flags, d.components as never, d.content, d.embeds).row).toBe('C');
+     expect(loadDisabled(d)).toBe(true);
+   });
+ 
+   it('whitespace-only content, no flag/comps stays BLOCKED (trim => empty)', () => {
+-    expect(loadDisabled({ flags: 0, content: '   ', embeds: [], components: [] })).toBe(true);
++    expect(loadDisabled({
++      flags: 0, content: '   ', embeds: [], components: [],
++    })).toBe(true);
+   });
+ });
+ 
+diff --git a/src/utils/__tests__/utils.save-payload-and-seed.test.ts b/src/utils/__tests__/utils.save-payload-and-seed.test.ts
+index 074f992..d81ac1c 100644
+--- a/src/utils/__tests__/utils.save-payload-and-seed.test.ts
++++ b/src/utils/__tests__/utils.save-payload-and-seed.test.ts
+@@ -1,11 +1,13 @@
+-import { describe, it, expect, vi } from 'vitest';
++import {
++  describe, it, expect, vi,
++} from 'vitest';
++
++import { saveAsPayload, jsonModalSeed } from '~/utils';
+ 
+ vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+ vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+ vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
+ 
+-import { saveAsPayload, jsonModalSeed } from '~/utils';
+-
+ describe('saveAsPayload (SaveAsMenu.onSubmit)', () => {
+   it('carries V2 components and the flag faithfully', () => {
+     const message = {
+diff --git a/src/utils/__tests__/utils.transport-form.test.ts b/src/utils/__tests__/utils.transport-form.test.ts
+index 9f04c68..bc752c8 100644
+--- a/src/utils/__tests__/utils.transport-form.test.ts
++++ b/src/utils/__tests__/utils.transport-form.test.ts
+@@ -1,4 +1,9 @@
+-import { describe, it, expect, vi } from 'vitest';
++import {
++  describe, it, expect, vi,
++} from 'vitest';
++
++import { hashMessage, stripKeys, makeEditable } from '~/utils';
++import { IS_COMPONENTS_V2_FLAG } from '~/constants';
+ 
+ vi.mock('~/env.mjs', () => ({
+   env: {
+@@ -8,9 +13,6 @@ vi.mock('~/env.mjs', () => ({
+ vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+ vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
+ 
+-import { hashMessage, stripKeys, makeEditable } from '~/utils';
+-import { IS_COMPONENTS_V2_FLAG } from '~/constants';
+-
+ const classicMessage = { name: 'Test', data: {} };
+ 
+ const v2Message = {
+diff --git a/src/utils/hooks/index.ts b/src/utils/hooks/index.ts
+index ad03e35..db1e587 100644
+--- a/src/utils/hooks/index.ts
++++ b/src/utils/hooks/index.ts
+@@ -145,7 +145,7 @@ export function useTimerCallback(
+   deps: Record<string, unknown> | DependencyList,
+   shouldSchedule?: boolean,
+ ) {
+-  const ref = useRef<Record<string, unknown> | DependencyList>(deps);
++  const ref = useRef(deps);
+   if (!isDependencyList(deps)) {
+     if (!equal(deps, ref.current)) ref.current = deps;
+     deps = [ref.current];
+diff --git a/src/utils/markdown/components/MarkdownTimestamp.tsx b/src/utils/markdown/components/MarkdownTimestamp.tsx
+index fb2fc57..eda2eb8 100644
+--- a/src/utils/markdown/components/MarkdownTimestamp.tsx
++++ b/src/utils/markdown/components/MarkdownTimestamp.tsx
+@@ -33,7 +33,7 @@ const MarkdownTimestamp: FC<Props> = ({ timestamp, format = 'f', state }) => {
+   if (!state.mounted) date = date.utc();
+ 
+   const [localDate, setLocalDate] = useState<null | Date>(date.toDate());
+-  const [localFormat, setLocalFormat] = useState<string>(format);
++  const [localFormat, setLocalFormat] = useState(format);
+ 
+   const dayjsDate = dayjs(localDate ?? date.toDate());
+   const dayjsFormat = TIMESTAMP_TO_DAYJS_FORMAT[localFormat];
+diff --git a/src/utils/omit.ts b/src/utils/omit.ts
+index 1b3bd53..1e8bc36 100644
+--- a/src/utils/omit.ts
++++ b/src/utils/omit.ts
+@@ -1,5 +1,5 @@
+ export default <T extends object>(object: T, excluded: string[]) => (Object.keys(object) as string[])
+-  .reduce<T>((result, key) => {
++  .reduce((result, key) => {
+     if (excluded.indexOf(key) === -1) {
+       result[key as keyof T] = object[key as keyof T];
+     }
+diff --git a/src/utils/redis/__tests__/messageStore.dropped-set-report.test.ts b/src/utils/redis/__tests__/messageStore.dropped-set-report.test.ts
+index c91a7d8..b163b53 100644
+--- a/src/utils/redis/__tests__/messageStore.dropped-set-report.test.ts
++++ b/src/utils/redis/__tests__/messageStore.dropped-set-report.test.ts
+@@ -1,6 +1,12 @@
+-import { describe, it, expect, vi } from 'vitest';
++import {
++  describe, it, expect, vi,
++} from 'vitest';
+ import { decompress } from 'compress-json';
+ 
++import messageStore from '~/utils/redis/messageStore';
++import { IS_COMPONENTS_V2_FLAG } from '~/constants';
++import { author } from '~/utils/__tests__/helpers/discord';
++
+ vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+ vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
+ vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
+@@ -17,10 +23,6 @@ vi.mock('~/utils/redis/client', () => ({
+   }),
+ }));
+ 
+-import messageStore from '~/utils/redis/messageStore';
+-import { IS_COMPONENTS_V2_FLAG } from '~/constants';
+-import { author } from '~/utils/__tests__/helpers/discord';
+-
+ describe('the dropped-set report is written alongside data (a redis StoredMessage write)', () => {
+   it('persists components, the copied flag bit, and the dropped-type report from a bot Get Message payload', async () => {
+     const { code } = await messageStore.store('user-1', 'guild-1', {
