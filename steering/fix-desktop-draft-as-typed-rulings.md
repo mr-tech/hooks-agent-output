@@ -70,3 +70,15 @@ Spawn cue 11:0xZ (the fixer, by SendMessage): handed off at website `b68f94c`, 1
 b663b35 b68f94c`, read by this thread: 4+8+5 over `Desktop.tsx`, `EmbedAuthor.tsx`, `EmbedFooter.tsx`, all in the write set, plus three
 test files), so code review alone. `code-reviewer-fix-desktop-draft-as-typed` started 11:06Z (`tmux-agent spawn`, cwd website, effort
 medium as printed), brief `steering/fix-desktop-draft-as-typed-brief-code-reviewer.md` (`d8f5a4a`).
+
+## 2026-11-21T11:13Z — code review approved at `b68f94c`; the browser-only limbs are a decision point
+
+`code-review/fix-desktop-draft-as-typed-code-review.md` (record `488b209`, read whole by this thread 11:1xZ): Round 1
+APPROVED_WITH_COMMENTS, `Reviewed-At` `b68f94c`; 17 production lines recounted, so no QA. Suite 2316/2316 at `b663b35` and 2326/2326 at
+`b68f94c`, exit 0 both; red 8 of 10 at base, green 10 of 10, 7 controls killed. CR-1 MEDIUM, record only: User-visible flow 5 is
+false for an unset field (opening sets it to `''`, so a draft and the reload prompt follow, as closing did at base and as mobile does
+on open); routed by the reviewer to `fixer-fix-desktop-draft-as-typed` for correction before devops quotes the flows. This thread's
+reading: no product decision in CR-1 — the end state is base's and mobile's, inside his words "as mobile does".
+Assumption Not Checked (review line 98): real-browser Slate per-keystroke emit, and the author/footer caret under the round trip;
+the reviewer routes it to his walk of flows 1-4 after the release. An agent can walk it in a browser before release (typing only, no
+Save), so whether the release waits on that walk is put to him (block below, when answered).
