@@ -99,7 +99,7 @@ there), put that message's number in account 2's saved list and confirm it does 
 account 2's list afterwards. This tests the actual fix, and tells the new build apart from the old one."
 Recipient: `uat-fix-recent-message-ids`.
 
-## 2026-11-21T07:02Z — chain closed out
+## 2026-11-21T07:00Z — chain closed out
 
 Released `6f76c6d` 06:45:05Z; deployment record closed Released (`deployment/closed/fix-recent-message-ids-deployment.md`, `f2b7a25`).
 Post-deploy: P-1 (devops, production logs, 0 matches over ~12 min, stated limit there); P-2 PASS on both accounts, test message 6029
