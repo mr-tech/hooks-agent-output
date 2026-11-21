@@ -1,0 +1,7 @@
+read_exit 0
+records_in_window 63
+session_route deploymentId dpl_H394JR3gmKdtV8dBFdFpYj5fNqjW count 35 first 2026-11-21T05:10:05.422Z last 2026-11-21T06:32:15.566Z
+session_route deploymentId dpl_DnUVq7QcUdWiVdAWWcyHaXH9HGay count 21 first 2026-11-21T06:45:47.157Z last 2026-11-21T06:46:20.142Z
+failure_line_count 0
+any_is_not_a_function_count 0
+records_at_or_after_push 28 of_which_session_route 21
