@@ -1,0 +1,13 @@
+readback 2026-11-21T06:45:09Z
+6f76c6de2daab590777c047e9439cf5f5a9ed215	refs/heads/master
+master
+6f76c6de2daab590777c047e9439cf5f5a9ed215
+6f76c6de2daab590777c047e9439cf5f5a9ed215
+?? .playwright-mcp/
+-- branch -d
+Deleted branch chain/fix-recent-message-ids (was 6f76c6d).
+rc 0
+0
+0
+ancestor 0
+6f76c6de2daab590777c047e9439cf5f5a9ed215 test(website): the hydration keeps every administered server's rows, and fetchUserGuilds keeps only owned or Administrator servers

@@ -1,0 +1,13 @@
+move-start 2026-11-21T06:45:00Z
+repo     /usr/local/bin/hooks/website
+ref      master
+target   6f76c6de2daab590777c047e9439cf5f5a9ed215
+remote   origin/master 76da25ccd8fbd063803d4896b9eda3c3759d7221
+local    master 76da25ccd8fbd063803d4896b9eda3c3759d7221
+untracked 17 path(s) left alone
+evidence qa-record /usr/local/bin/hooks/agent-output/qa/website-6f76c6d-release-tip-qa.md
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+OK moved master: 76da25ccd8fbd063803d4896b9eda3c3759d7221 -> 6f76c6de2daab590777c047e9439cf5f5a9ed215 on origin; tree on master
+move exit 0
+move-end 2026-11-21T06:45:05Z
