@@ -41,7 +41,7 @@ limits there), at website `76da25c`, project-utils `749606d`, preview-image-gene
 - Covering tests: `shared.in-predicates.test.ts` (two `getUserRecentMessages` cases, one asserting the guild arm),
   `auth.hydrated-recent-messages.test.ts` (two, personal rows only), `user.save-limits.test.ts` (length only),
   `shapes.message-id.test.ts`. No `*.pg.test.ts` in the suite; record harnesses `verification/fix-personal-message-access/pg/run-pg.sh`
-  and `security/run-security.sh` run a throwaway `postgres:16` container.
+  and `verification/fix-personal-message-access/security/run-security.sh` run a throwaway `postgres:16` container.
 
 **Stage set:** `fixer-fix-recent-message-ids` → `code-reviewer-fix-recent-message-ids` (and QA Phase 2, `qa-fix-recent-message-ids`,
 only if the fix adds 20 or more production lines; under 20 the reviewer also runs the suite and the red test) → devops for website
@@ -98,3 +98,17 @@ test server), save one test message there and confirm it shows in account 1's re
 there), put that message's number in account 2's saved list and confirm it does NOT come back. Delete the test message and restore
 account 2's list afterwards. This tests the actual fix, and tells the new build apart from the old one."
 Recipient: `uat-fix-recent-message-ids`.
+
+## 2026-11-21T07:02Z — chain closed out
+
+Released `6f76c6d` 06:45:05Z; deployment record closed Released (`deployment/closed/fix-recent-message-ids-deployment.md`, `f2b7a25`).
+Post-deploy: P-1 (devops, production logs, 0 matches over ~12 min, stated limit there); P-2 PASS on both accounts, test message 6029
+saved and deleted, both accounts' stored lists restored (handoff closed `7112fd5`, restore `4cd9c52`). Handoffs answered and closed
+Addressed this round: 98f075f4, af63220f, ed49f3d2 (its fired trigger dispositioned in the closure row). Created by the chain and left
+Open on its own trigger: `handoff/hydrated-recent-ids-not-canonicalised-2026-11-21.md` (09ed9be5, the reviewer's CR-1). Architecture
+obligation: `system-architecture.md:136` is false from this release — lodged by the fixer in `INBOX.md` (entry at line 308, uncommitted
+in that shared file; its owner commits it). Sessions stopped 07:0xZ (`tmux-agent stop`, five). Scratch removed: five chain session
+directories under `/tmp/claude-1000/-usr-local-bin-hooks-website/` (`du -s` 1212+120+64+76+104 KB before; `ls -d` fails after),
+none cited by any open handoff or docket. Box: one `postgres:16` image present (`docker image ls`), no containers; the image serves
+later chains' throwaway databases and is not this chain's by record — named, left. Retrospective: joins the next fixer batch (block
+05:43Z), the batch running when none of its chains is in flight.
