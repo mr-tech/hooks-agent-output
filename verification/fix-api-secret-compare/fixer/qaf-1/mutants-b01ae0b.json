@@ -1,0 +1,20 @@
+[
+  {"id": "plain-equality", "file": "src/server/api/utils/secretEquals.ts",
+   "old": "return timingSafeEqual(digest(a), digest(b));", "new": "return a === b;",
+   "tests": ["src/server/api/utils/__tests__/secretEquals.equality.test.ts"]},
+  {"id": "buffer-equals-over-digests", "file": "src/server/api/utils/secretEquals.ts",
+   "old": "return timingSafeEqual(digest(a), digest(b));", "new": "return digest(a).equals(digest(b));",
+   "tests": ["src/server/api/utils/__tests__/secretEquals.equality.test.ts"]},
+  {"id": "md5-digest", "file": "src/server/api/utils/secretEquals.ts",
+   "old": "createHash('sha256')", "new": "createHash('md5')",
+   "tests": ["src/server/api/utils/__tests__/secretEquals.equality.test.ts"]},
+  {"id": "digests-swapped", "file": "src/server/api/utils/secretEquals.ts",
+   "old": "timingSafeEqual(digest(a), digest(b))", "new": "timingSafeEqual(digest(b), digest(a))",
+   "tests": ["src/server/api/utils/__tests__/secretEquals.equality.test.ts"]},
+  {"id": "decided-twice", "file": "src/server/api/utils/secretEquals.ts",
+   "old": "return timingSafeEqual(digest(a), digest(b));", "new": "return timingSafeEqual(digest(a), digest(b)) && timingSafeEqual(digest(a), digest(b));",
+   "tests": ["src/server/api/utils/__tests__/secretEquals.equality.test.ts"]},
+  {"id": "secret-equals-raw-buffers", "file": "src/server/api/utils/secretEquals.ts",
+   "old": "timingSafeEqual(digest(a), digest(b))", "new": "timingSafeEqual(Buffer.from(a), Buffer.from(b))",
+   "tests": ["src/server/api/utils/__tests__/secretEquals.equality.test.ts"]}
+]

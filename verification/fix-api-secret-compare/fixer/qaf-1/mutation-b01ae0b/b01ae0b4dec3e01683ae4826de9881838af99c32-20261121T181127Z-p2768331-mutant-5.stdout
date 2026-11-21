@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/7924190e-69a2-48cf-8867-6db2863db6e7/scratchpad/mut-work/20261121T181127Z-p2768331/mutant-5
+
+ ❯ |node| src/server/api/utils/__tests__/secretEquals.equality.test.ts (9 tests | 1 failed) 10ms
+     × answers what crypto.timingSafeEqual answers 5ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 8 passed (9)
+   Start at  18:11:35
+   Duration  173ms (transform 20ms, setup 0ms, import 41ms, tests 10ms, environment 0ms)
+

@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-api-secret-compare
 UUID: fbe73764
 Status: Active
-Status-Detail: "Fix handed off at website 32d10f7; code review next, then QA Phase 2 (21 added production lines), then devops for website master on the owner's word."
-Handoff-At: 32d10f7 — repos=website
+Status-Detail: "QAF-1 fix round handed off at website b01ae0b (test-only); code review of the round next, then QA's refresh pass, then devops for website master on the owner's word."
+Handoff-At: b01ae0b — repos=website
 Origin-Chain: "fix-v1-guild-messages-auth — the two v1 compares come from website 1acffee; interactions-server.ts:11 (f0f427b) and [id].ts:19 (3468587) are 2023 commits no chain made"
 ---
 
@@ -67,7 +67,9 @@ Instrument for every cause: a read of the code path at `b68f94c`, then the red r
   not the parsed value (and is the excluded output-precision item). No guard compares the raw `req.query.id`
   (`grep -n "query.id\|\bid\b"` over the file at `32d10f7`: the parsed `id` appears at L28, its destructuring, and L34, the `where`; the
   other hits are the type, the join, the select, a dead comment and `message.id`). Behaviour base vs fix: leading zeros
-  normalise the same way (`007` → `'7'` at both; at base via `Number`, at the fix via `messageIdShape`'s BigInt round-trip).
+  normalise the same way **up to 19 characters** (`007` → `'7'` at both; at base via `Number`, at the fix via `messageIdShape`'s BigInt
+  round-trip). An id zero-padded to 20 or more characters (`00000000000000000001`) now answers 400, where the base looked it up:
+  `messageIdShape`'s regex is `^[0-9]{1,19}$` (read at `shapes.ts`, unchanged by this chain). Corrected in the QAF-2 round.
 - **Residue in production:** none. All three sites are reads; the only state they gate is a database `SELECT` and the bot's
   `get_message` relay, neither of which writes. Vercel's release replaces the functions whole, so the fix reaches every request after
   deploy. Production's `HOOKS_API_TOKEN` value is unread (hazard 1 of the common part): if it is empty or unset, `get_message` stops
@@ -196,14 +198,37 @@ of 6 (`valid-exposure-after-typing-compare.txt`).
   unread).
 - **Statbot API, `GET /api/v1/guilds/{guildId}/messages`:** unchanged for `Authorization: Bearer <key>`; every other credential still
   answers 401.
-- **Statbot API, `GET /api/v1/guilds/{guildId}/messages/{id}`:** unchanged for a plain message number. A number written as `1e3`,
-  `1.5`, a negative, one with spaces or one above 9223372036854775807 now answers 400 instead of reaching the database. A number above
+- **Statbot API, `GET /api/v1/guilds/{guildId}/messages/{id}`:** unchanged for a plain message number of up to 19 digits. A number written as `1e3`,
+  `1.5`, a negative, one with spaces, one zero-padded to 20 or more digits, or one above 9223372036854775807 now answers 400 instead of reaching the database. A number above
   2^53 now finds that exact message instead of a rounded neighbour (the response's `id` field still goes through a JS number — excluded,
   not in this scope). The Statbot caller's id form is unread.
 
+## Fix round — QA Phase 2 findings (QA Failed at 32d10f7)
+
+Source: `qa/fix-api-secret-compare-qa.md` at agent-output `7d6b3007`, delivered by `qa-fix-api-secret-compare`.
+
+- **QAF-1 MEDIUM Phase 2 RESOLVED** at website `b01ae0b` (test-only; production unchanged, still 21 added lines by
+  `git diff --numstat b68f94c..b01ae0b` over `src/pages` and `secretEquals.ts`). QA's proposed case adopted into
+  `secretEquals.equality.test.ts` with three changes for this repo's gates: its source comment dropped (comments are allowlist-only),
+  the `import()` type annotation replaced by `import type * as Crypto from 'crypto'`, the non-null `!` replaced by `?? []`. Two cases:
+  `timingSafeEqual` called once with the SHA-256 digests of `'abc'` and `'abcd'` (literal vectors, recomputed here with `sha256sum`
+  and Python `hashlib`: both agree with QA's), and `secretEquals` answers what `timingSafeEqual` answers. Both pass at the fix (9 of 9,
+  `qaf-1/green-at-32d10f7-prod.txt`), so their red is by negative control: `mutation-run.py` on `b01ae0b`, same command and transcribed
+  config as round 1, mutants `qaf-1/mutants-b01ae0b.json`, table `qaf-1/mutation-b01ae0b/` — **6 of 6 KILLED**, count `checked`
+  (9 = 9): `return a === b` and `digest(a).equals(digest(b))` (QA's two survivors; both new cases fail), `md5` digest and digests
+  swapped (the digest case), deciding twice (the answer case), raw buffers (unequal lengths ×3 and the digest case).
+  Suite at `b01ae0b`: **2357 of 2357**, 166 files, **exit 0** (`qaf-1/suite-b01ae0b.*`); typecheck exit 0, eslint on the file exit 0
+  (`qaf-1/typecheck.*`, `qaf-1/eslint.*`); convention check since `b68f94c` 0 FAIL, 0 CANDIDATE, the ID-token check again skipped by
+  the tool (`qaf-1/convention-check-b01ae0b.txt`); added comment lines in `git diff b68f94c..b01ae0b -- src`: 0.
+- **QAF-2 LOW Phase 2 RESOLVED** in this document: Diagnosis ("Consumers of the resolved `id`") and User-visible flows narrowed
+  to 19 characters and the padded case named. Class swept: every base-vs-fix equivalence claim in this document
+  (`grep -n -i "as before\|unchanged\|same way\|normalis"`, 7 hits): the two corrected here; the scope quote's "imported,
+  unchanged" (true of `shapes.ts`); "case set unchanged" and "contents unchanged" (measured); `get_message` "works as before" and
+  the list endpoint "unchanged" for the right credential (both asserted by the suite).
+
 ## Handoff
 
-- **SHA:** website `32d10f7` (`chain/fix-api-secret-compare`, no upstream; not pushed).
+- **SHA:** website `b01ae0b` (`chain/fix-api-secret-compare`, no upstream; not pushed). Round 1 handed off at `32d10f7`.
 - **Reviews:** `code-reviewer-fix-api-secret-compare`, then **QA Phase 2** (`qa-fix-api-secret-compare`): the fix adds **21**
   production lines (GLOSSARY, "Production line"), at or above 20.
 - **Merges:** devops, into website `master` on the owner's word (Vercel production; no `.github/workflows`).
@@ -218,3 +243,4 @@ of 6 (`valid-exposure-after-typing-compare.txt`).
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-21T13:55 | fixer-fix-api-secret-compare | Created at hand-off: items 1-5 done at website 3a54c2f, 66699c5, 1054bbc, 32d10f7; red, green, stub, 13 controls and suite recorded under verification/fix-api-secret-compare/fixer/; Handoff-At 32d10f7 |
+| 2026-11-21T18:12 | fixer-fix-api-secret-compare | QA Failed round (qa doc at 7d6b3007): QAF-1 resolved at website b01ae0b with QA's proposed case adapted, 6 of 6 controls killed, suite 2357/2357 exit 0; QAF-2 resolved by narrowing the leading-zeros claim in Diagnosis and User-visible flows (7-hit class swept); Handoff-At b01ae0b |

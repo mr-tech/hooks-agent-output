@@ -1,0 +1,7 @@
+plain-equality KILLED 1.22
+buffer-equals-over-digests KILLED 1.27
+md5-digest KILLED 1.26
+digests-swapped KILLED 1.28
+decided-twice KILLED 1.22
+secret-equals-raw-buffers KILLED 1.24
+6 of 6 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-b01ae0b.json (blob ff9e30e6437f39391b429c30430d1e74542cdf9c))
