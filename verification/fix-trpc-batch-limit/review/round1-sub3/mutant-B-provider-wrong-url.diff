@@ -1,0 +1,13 @@
+diff --git a/src/providers/TrpcProvider.tsx b/src/providers/TrpcProvider.tsx
+index 5b0b2f7..44c6245 100644
+--- a/src/providers/TrpcProvider.tsx
++++ b/src/providers/TrpcProvider.tsx
+@@ -16,7 +16,7 @@ const TrpcProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
+   const [queryClient] = useState(() => new QueryClient());
+   const [trpcClient] = useState(() => trpc.createClient({
+     links: [
+-      httpLink({ url, transformer: superjson }),
++      httpLink({ url: `${url}x`, transformer: superjson }),
+     ],
+   }));
+   return (

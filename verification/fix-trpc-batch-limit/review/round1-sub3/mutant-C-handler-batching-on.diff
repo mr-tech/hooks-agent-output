@@ -1,0 +1,12 @@
+diff --git a/src/pages/api/trpc/[trpc].ts b/src/pages/api/trpc/[trpc].ts
+index ea65928..cdbca6b 100644
+--- a/src/pages/api/trpc/[trpc].ts
++++ b/src/pages/api/trpc/[trpc].ts
+@@ -7,7 +7,6 @@ import { createTRPCContext } from '~/server/api/trpc';
+ // export API handler
+ export default createNextApiHandler({
+   router: appRouter,
+-  allowBatching: false,
+   createContext: createTRPCContext,
+   onError:
+     env.NODE_ENV === 'development'

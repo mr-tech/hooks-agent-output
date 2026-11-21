@@ -2,10 +2,10 @@
 ID: n/a
 Origin: fix-trpc-batch-limit
 UUID: 61d9ad16
-Reviewed-At: "f47e304 — repos=website"
+Reviewed-At: "76da25c — repos=website"
 Status: In Review
 Round: 1
-Verdict: REJECTED
+Verdict: APPROVED
 ---
 
 # Code Review: fix-trpc-batch-limit
@@ -23,6 +23,7 @@ premise correction in block "2026-11-21T00:11Z".
 | 2026-11-21T00:19 | steering-roadmap-hooks (brief); fixer-fix-trpc-batch-limit (document) | Round 1: review `3d2ceec`; QA Phase 2 is skipped (2 production lines), so also run the suite and the red tests | Round 1 REJECTED on CR-1 (MEDIUM, severity floor). The link production uses has no assertion that it does not batch; the test drives `proxy`, which has no production caller. Suite green, red reproduced, batch refusal attacked and holding. |
 | 2026-11-21T00:28 | fixer-fix-trpc-batch-limit (re-handoff, record `eb4f0f6`); steering ruling `9c30cd1` | Round 1 sub-entry 1: confirm the CR-1 fix at `f47e304` (test-only) | APPROVED at `f47e304`. CR-1 RESOLVED: the site-link case was re-attacked with two mutants of the reviewer's own (both fail as assertions); enumeration re-run; suite 2265/2265, exit 0; red reproduced on the pre-fix production files. Handed to devops for website `master`. |
 | 2026-11-21T00:33 | steering-roadmap-hooks (ruling block 00:32Z, `c12a6c2`); devops (record `1320e9b`) | Sub-entry 2: the approval at `f47e304` expires, `next build` fails | REJECTED at `f47e304`. Two test files under `src/pages/api/` are built as API routes. The reviewer's miss: Round 1 said placement conforms, and CR-1's remedy prescribed that directory. Plan 017 X-13 already recorded the hazard. `next build` and a `src/pages` `__tests__` search are owed at every confirmation from now on. The fixer moves the files (ruling (a)). |
+| 2026-11-21T00:39 | fixer-fix-trpc-batch-limit (re-handoff, record `1be490f`) | Sub-entry 3: confirm the move at `76da25c` | APPROVED at `76da25c`. `next build` exits 0, with a positive control that exits 1; mutants A, B and C fail on assertions; suite 2265/2265, exit 0; red reproduced; typecheck exit 0. Delivered to `devops-fix-trpc-batch-limit`. |
 
 ## Scope and identity
 
@@ -170,24 +171,42 @@ CR-1 MEDIUM Round 1 RESOLVED — the Minimum remedy at `f47e304`: `trpc.site-lin
   __tests__` = 0; the suite; both mutants of sub-entry 1 against the moved site-link case; and a check that the moved files'
   imports still reach the real `[trpc]` handler, not a copy.
 
+### Round 1, sub-entry 3 — the move confirmed at `76da25c`
+
+- **Scope**: `git diff -M --stat f47e304 76da25c` shows two renames, from `src/pages/api/trpc/__tests__/` to `src/server/api/__tests__/`.
+  Each changes only its handler import, `'../[trpc]'` → `'~/pages/api/trpc/[trpc]'` (+3 −3). No production file changed.
+  `git ls-tree -r --name-only 76da25c -- src/pages | grep -c __tests__`: 0.
+- **`next build`** (`SKIP_ENV_VALIDATION=1 pnpm run build`, in a fresh export with its own `pnpm install --frozen-lockfile`): exit 0
+  (`build-76da25c.log`). **Positive control**: the same export with `trpc.batch-refusal.test.ts` copied back under
+  `src/pages/api/trpc/__tests__/` exits 1 with devops's error ("does not satisfy the constraint 'ApiRouteConfig'",
+  `build-control-test-under-pages.log`). After the control file was removed, a clean rebuild exits 0 (`build-76da25c-rerun.log`).
+- **The moved tests reach the real handler**: mutant C deletes `allowBatching: false` from `[trpc].ts`, and both batch cases fail
+  with `expected 200 to be 400`. Mutants A (`httpBatchLink`) and B (wrong URL) on `TrpcProvider` fail the moved site-link case on an
+  assertion, as in sub-entry 1. Unmutated: 3 passed, exit 0.
+- **Suite**: 156 files, 2265 cases, 2265 passed, exit 0. Membership includes both moved files and `middleware.request-headers.test.ts`.
+  **Red** on `d1bb9b0`'s production files: 5 failed, 3 passed, exit 1, the same five as before.
+- **Typecheck**: exit 0. The first run exited 2 on `.next/types/validator.ts` naming the control file, which was residue of my
+  control build; after the clean rebuild it exits 0 (`typecheck-76da25c.log`).
+- **Conventions**: `convention-check --since=f47e304`: 0 FAIL, 0 CANDIDATE, 1 SKIP (id-token and basename, run by hand: both
+  basenames conform, the ID-token class has 0 hits, and there are 0 comment lines). Placement follows plan 017 X-13, beside the
+  existing `src/server/api/__tests__/interactions-edge.*` and `cron.*` tests of other `src/pages/api` routes.
+- Captures: `verification/fix-trpc-batch-limit/review/round1-sub3/`. The export was removed.
+
 ### Low/Info
 None.
 
 ## Verdict
 
-**Status**: REJECTED at `f47e304` (Round 1 sub-entry 2). `next build` fails because two test files sit under `src/pages/api/`. The
-sub-entry 1 approval is withdrawn, and the fix is ruled (steering block 00:32Z). The rest of the assessment below still holds for
-the code; it does not hold for the release tree.
+**Status**: APPROVED at `76da25c` (Round 1 sub-entry 3). The REJECTED verdict at `f47e304` (sub-entry 2) is superseded.
 **Rationale**: Items 2 and 3 are sound and verified by execution. Item 1's server change held under attack: every `batch=1` shape is
-refused with 0 queries. The limb "the site's own links keep working" is now asserted on the link production uses, and the case was
-seen to fail as an assertion under two mutations of that link (CR-1 RESOLVED). Suite green at `f47e304`, typecheck green, and the red
-tests reproduce on the pre-fix production files. A change to any file under `src/` or to `package.json` after `f47e304` expires this
-verdict.
+refused with 0 queries. The limb "the site's own links keep working" is asserted on the link production uses, and that case fails
+as an assertion under two mutations of the link (CR-1 RESOLVED). At `76da25c`, `next build` exits 0, and the build check was seen to
+fail when a test file is placed under `src/pages/api`. The suite is green, the typecheck is green, and the red tests reproduce on the
+pre-fix production files. A change to any file under `src/` or to `package.json` after `76da25c` expires this verdict.
 
 ## Required Actions
 
-1. Move `trpc.batch-refusal.test.ts` and `trpc.site-link.test.tsx` out of `src/pages/` to `src/server/api/__tests__/` (ruling
-   00:32Z), so that `next build` at the tip exits 0 and no `__tests__` file remains under `src/pages`.
+None.
 
 The dead `proxy` export and the unused `createTRPCNext` `config()` link stay, per steering's ruling (block "2026-11-21T00:20Z":
 a candidate for a later hygiene pass, not carried by this chain).
@@ -202,7 +221,6 @@ a candidate for a later hygiene pass, not carried by this chain).
 
 ## Next Steps
 
-- **Fixer** (`fixer-fix-trpc-batch-limit`, routed by steering): the move in Required Actions, then re-handoff to this reviewer.
-- **Reviewer**: confirm the move as sub-entry 3 (the re-runs listed in sub-entry 2), then deliver to `devops-fix-trpc-batch-limit`.
-- **Devops**, after that: the merge and the push, on the owner's word, and the Round 1 Assumption Not Checked above (read the
-  production function logs after the deploy).
+- **Devops** (`devops-fix-trpc-batch-limit`, messaged): website `master` at `76da25c`. That means the merge and the push, on the
+  owner's word, plus the Round 1 Assumption Not Checked above (read the production function logs after the deploy). No QA Phase 2
+  (2 production lines).
