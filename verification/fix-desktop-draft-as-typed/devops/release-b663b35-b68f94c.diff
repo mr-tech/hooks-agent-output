@@ -1,0 +1,356 @@
+diff --git a/src/components/DiscordContentEditor/Desktop.tsx b/src/components/DiscordContentEditor/Desktop.tsx
+index 6136ab1..230c8f2 100644
+--- a/src/components/DiscordContentEditor/Desktop.tsx
++++ b/src/components/DiscordContentEditor/Desktop.tsx
+@@ -92,7 +92,10 @@ const ContentEditorDesktop: FC<Props> = (props) => {
+           <SlateEditor
+             {...focusProps}
+             initialValue={_value ?? ''}
+-            onChange={setLocalValue}
++            onChange={(str: string) => {
++              setLocalValue(str);
++              onChange(str);
++            }}
+             className={classNames(
+               'discord-visualizer__editor',
+               (isEmbed || visualStyle === 'cozy') && 'min-h-[1rem] w-full',
+diff --git a/src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx b/src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx
+new file mode 100644
+index 0000000..645a47c
+--- /dev/null
++++ b/src/components/DiscordContentEditor/__tests__/DiscordContentEditor.desktop-typed-text-reaches-message.test.tsx
+@@ -0,0 +1,94 @@
++import { act, useEffect, useState } from 'react';
++import {
++  afterEach, describe, expect, it, vi,
++} from 'vitest';
++
++import DiscordContentEditor from '..';
++
++import { mountDom, unmountDom } from '~/components/__tests__/helpers/dom';
++
++interface SlateStubProps {
++  initialValue: string;
++  onChange: (value: string) => void;
++}
++
++const slate = vi.hoisted(() => ({ current: null as null | { onChange: (value: string) => void } }));
++
++vi.mock('~/components/dynamics/SlateEditor', () => {
++  const SlateEditorStub = ({ initialValue, onChange }: SlateStubProps) => {
++    useEffect(() => { slate.current = { onChange }; });
++    useEffect(() => { onChange(initialValue); }, []);
++    return <textarea aria-label='message content' data-slate-stub readOnly />;
++  };
++  return { default: SlateEditorStub };
++});
++vi.mock('~/components/EmojiPicker', () => ({
++  default: ({ children }: { children: React.ReactNode }) => children,
++}));
++vi.mock('~/components/dynamics/Markdown', () => ({
++  default: ({ value }: { value: string }) => <span>{value}</span>,
++}));
++vi.mock('~/providers/MarkdownProvider', () => ({
++  useMarkdown: () => ({ interactive: { parseEmoji: () => [] }, static: {} }),
++}));
++vi.mock('~/components/DiscordContentEditor/useCustomEmojis', () => ({ default: () => [] }));
++vi.mock('~/providers/IsMobileProvider', () => ({ useIsMobile: () => false }));
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++
++afterEach(() => {
++  unmountDom();
++  slate.current = null;
++});
++
++const held: { value: undefined | string; changes: string[] } = { value: undefined, changes: [] };
++
++const Harness = ({ initial }: { initial: undefined | string }) => {
++  const [value, setValue] = useState(initial);
++  useEffect(() => { held.value = value; });
++  const onChange = (next: string) => {
++    held.changes.push(next);
++    setValue(next);
++  };
++  return (
++    <DiscordContentEditor
++      className=''
++      showEdit
++      value={value}
++      onChange={onChange}
++      limit={2000}
++      staticParser={() => []}
++      interactiveParser={() => []}
++    />
++  );
++}
++
++function open(host: HTMLElement) {
++  const button = host.querySelector('button');
++  if (!button) throw new Error('closed editor button not rendered');
++  act(() => { button.focus(); });
++  if (!slate.current) throw new Error('content editor did not open');
++  return slate.current;
++}
++
++function type(editor: { onChange: (value: string) => void }, text: string) {
++  act(() => { editor.onChange(text); });
++}
++
++describe('DiscordContentEditor on desktop, text as typed', () => {
++  it('puts text typed into the open editor on the message before the editor closes', () => {
++    held.changes = [];
++    const editor = open(mountDom(<Harness initial='Old' />));
++    type(editor, 'Hello');
++    expect(held.value).toBe('Hello');
++  });
++
++  it('puts each successive edit on the message as it is typed', () => {
++    held.changes = [];
++    const editor = open(mountDom(<Harness initial={undefined} />));
++    type(editor, 'H');
++    type(editor, 'Hi');
++    type(editor, 'Hi ');
++    expect(held.changes.slice(-3)).toEqual(['H', 'Hi', 'Hi ']);
++    expect(held.value).toBe('Hi ');
++  });
++});
+diff --git a/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx b/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx
+index 78b4b96..a25726b 100644
+--- a/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx
++++ b/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx
+@@ -43,9 +43,11 @@ const EmbedAuthor: FC<Props> = ({ author, showEdit, setAuthor }) => {
+   // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+   const [localUsername, setLocalUsername] = usePassedProp(author?.name ?? '');
+ 
+-  const [url, _setUrl] = useStateSetter<EmbedAuthorType>(author ?? { name: localUsername }, 'url', setAuthor);
+-  const [iconUrl, _setIconUrl] = useStateSetter<EmbedAuthorType>(author ?? { name: localUsername }, 'icon_url', setAuthor);
++  const [url, _setUrl] = useStateSetter(author ?? { name: localUsername }, 'url', setAuthor);
++  const [iconUrl, _setIconUrl] = useStateSetter(author ?? { name: localUsername }, 'icon_url', setAuthor);
++  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+   const setUrl = useCallback((val: EmbedAuthorType['url']) => _setUrl(val || undefined), [_setUrl]);
++  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+   const setIconUrl = useCallback((val: EmbedAuthorType['icon_url']) => _setIconUrl(val || undefined), [_setIconUrl]);
+   const setImageCallback = useCallback<(url: string) => void>((dataURL) => { setIconUrl(dataURL); }, [setIconUrl]);
+ 
+@@ -133,7 +135,10 @@ const EmbedAuthor: FC<Props> = ({ author, showEdit, setAuthor }) => {
+                 inputClassName={classNames('discord-visualizer__embed-author-name', styles.clickable)}
+                 value={localUsername}
+                 placeholder='Author Name'
+-                onChange={setLocalUsername}
++                onChange={(value: string) => {
++                  setLocalUsername(value);
++                  setName(value);
++                }}
+                 onKeyDown={onBlurKey}
+                 fragment
+               />
+diff --git a/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx b/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx
+index 57b8655..0895382 100644
+--- a/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx
++++ b/src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx
+@@ -45,7 +45,7 @@ const EmbedFooter: FC<Props> = ({
+   const displayText = (footer?.text?.trim() ?? '');
+   const localText = _localText;
+ 
+-  const [iconUrl, _setIconUrl] = useStateSetter<EmbedFooterType>(footer ?? { text: localText }, 'icon_url', setFooter);
++  const [iconUrl, _setIconUrl] = useStateSetter(footer ?? { text: localText }, 'icon_url', setFooter);
+   const setIconUrl = useCallback((val: EmbedFooterType['icon_url']) => _setIconUrl(val === '' ? undefined : val), [_setIconUrl]);
+ 
+   const setImageCallback = useCallback<(url: string) => void>((dataURL) => { setIconUrl(dataURL); }, [setIconUrl]);
+@@ -115,7 +115,10 @@ const EmbedFooter: FC<Props> = ({
+             inputClassName={classNames(styles.errorStateBorder, !localText && 'italic !text-mute')}
+             value={localText}
+             placeholder={PLACEHOLDER_FOOTER_TEXT}
+-            onChange={setLocalText}
++            onChange={(value: string) => {
++              setLocalText(value);
++              setText(value);
++            }}
+             onKeyDown={onBlurKey}
+             onFocus={() => {
+               if (displayText !== localText) setLocalText(displayText ?? '');
+diff --git a/src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedAuthor.typed-name-reaches-embed.test.tsx b/src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedAuthor.typed-name-reaches-embed.test.tsx
+new file mode 100644
+index 0000000..005b9a4
+--- /dev/null
++++ b/src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedAuthor.typed-name-reaches-embed.test.tsx
+@@ -0,0 +1,91 @@
++import { act, useEffect, useState } from 'react';
++import {
++  afterEach, beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import EmbedAuthor from '../EmbedAuthor';
++
++import type { EmbedAuthor as EmbedAuthorType } from '../../../types';
++
++import { mountDom, unmountDom } from '~/components/__tests__/helpers/dom';
++
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
++vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
++
++const ResizeObserverStub = function ResizeObserverStub() {
++  return { observe() {}, unobserve() {}, disconnect() {} };
++};
++
++beforeEach(() => { vi.stubGlobal('ResizeObserver', ResizeObserverStub); });
++
++afterEach(() => {
++  unmountDom();
++  vi.unstubAllGlobals();
++});
++
++const held: { author: undefined | EmbedAuthorType } = { author: undefined };
++
++const Harness = ({ initial }: { initial: undefined | EmbedAuthorType }) => {
++  const [author, setAuthorState] = useState(initial);
++  useEffect(() => { held.author = author; });
++  const setAuthor = (cb: (prev: EmbedAuthorType) => EmbedAuthorType) => {
++    setAuthorState((prev) => cb(prev as EmbedAuthorType));
++  };
++  return <EmbedAuthor showEdit author={author} setAuthor={setAuthor} />;
++}
++
++function nameField(host: HTMLElement) {
++  const field = host.querySelector<HTMLElement>('[aria-label="author name"]');
++  if (!field) throw new Error('author name field not rendered');
++  return field;
++}
++
++function focus(field: HTMLElement) {
++  field.tabIndex = 0;
++  act(() => { field.focus(); });
++}
++
++function type(field: HTMLElement, text: string) {
++  act(() => {
++    field.textContent = text;
++    field.dispatchEvent(new Event('input', { bubbles: true }));
++  });
++}
++
++function leave(field: HTMLElement) {
++  act(() => { field.blur(); });
++}
++
++describe('EmbedAuthor name as typed', () => {
++  it('puts a typed name on the embed author while the field still has focus', () => {
++    const field = nameField(mountDom(<Harness initial={{ name: 'Old' }} />));
++    focus(field);
++    type(field, 'Ann');
++    expect(held.author?.name).toBe('Ann');
++  });
++
++  it('puts a typed name on an embed that had no author while the field still has focus', () => {
++    const field = nameField(mountDom(<Harness initial={undefined} />));
++    focus(field);
++    type(field, 'Ann');
++    expect(held.author?.name).toBe('Ann');
++  });
++
++  it('keeps a trailing space the user is still typing on the embed author name', () => {
++    const field = nameField(mountDom(<Harness initial={{ name: '' }} />));
++    focus(field);
++    type(field, 'a ');
++    expect(held.author?.name).toBe('a ');
++    type(field, 'a b');
++    expect(held.author?.name).toBe('a b');
++  });
++
++  it('commits the typed name trimmed when the field loses focus', () => {
++    const field = nameField(mountDom(<Harness initial={{ name: '' }} />));
++    focus(field);
++    type(field, '  Ann  ');
++    leave(field);
++    expect(held.author?.name).toBe('Ann');
++  });
++});
+diff --git a/src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.typed-text-reaches-embed.test.tsx b/src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.typed-text-reaches-embed.test.tsx
+new file mode 100644
+index 0000000..8c5d8c7
+--- /dev/null
++++ b/src/components/DiscordMessageEditor/components/EmbedEditor/__tests__/EmbedFooter.typed-text-reaches-embed.test.tsx
+@@ -0,0 +1,82 @@
++import { act, useEffect, useState } from 'react';
++import {
++  afterEach, describe, expect, it, vi,
++} from 'vitest';
++
++import EmbedFooter from '../EmbedFooter';
++
++import type { EmbedFooter as EmbedFooterType } from '../../../types';
++
++import { mountDom, unmountDom } from '~/components/__tests__/helpers/dom';
++
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++vi.mock('~/assets/svg/TextIcon', () => ({ default: {} }));
++vi.mock('~/assets/svg/VoiceIcon', () => ({ default: {} }));
++
++afterEach(() => { unmountDom(); });
++
++const held: { footer: undefined | EmbedFooterType } = { footer: undefined };
++
++const Harness = ({ initial }: { initial: undefined | EmbedFooterType }) => {
++  const [footer, setFooterState] = useState(initial);
++  useEffect(() => { held.footer = footer; });
++  const setFooter = (cb: (prev: EmbedFooterType) => EmbedFooterType) => {
++    setFooterState((prev) => cb(prev as EmbedFooterType));
++  };
++  return <EmbedFooter showEdit footer={footer} setFooter={setFooter} setTimestamp={() => {}} />;
++}
++
++function textField(host: HTMLElement) {
++  const field = host.querySelector<HTMLElement>('[aria-label="footer text"]');
++  if (!field) throw new Error('footer text field not rendered');
++  return field;
++}
++
++function focus(field: HTMLElement) {
++  field.tabIndex = 0;
++  act(() => { field.focus(); });
++}
++
++function type(field: HTMLElement, text: string) {
++  act(() => {
++    field.textContent = text;
++    field.dispatchEvent(new Event('input', { bubbles: true }));
++  });
++}
++
++function leave(field: HTMLElement) {
++  act(() => { field.blur(); });
++}
++
++describe('EmbedFooter text as typed', () => {
++  it('puts typed footer text on the embed footer while the field still has focus', () => {
++    const field = textField(mountDom(<Harness initial={{ text: 'Old' }} />));
++    focus(field);
++    type(field, 'Hello');
++    expect(held.footer?.text).toBe('Hello');
++  });
++
++  it('puts typed footer text on an embed that had no footer while the field still has focus', () => {
++    const field = textField(mountDom(<Harness initial={undefined} />));
++    focus(field);
++    type(field, 'Hello');
++    expect(held.footer?.text).toBe('Hello');
++  });
++
++  it('keeps a trailing space the user is still typing on the embed footer text', () => {
++    const field = textField(mountDom(<Harness initial={{ text: '' }} />));
++    focus(field);
++    type(field, 'a ');
++    expect(held.footer?.text).toBe('a ');
++    type(field, 'a b');
++    expect(held.footer?.text).toBe('a b');
++  });
++
++  it('commits the typed footer text trimmed when the field loses focus', () => {
++    const field = textField(mountDom(<Harness initial={{ text: '' }} />));
++    focus(field);
++    type(field, '  Hello  ');
++    leave(field);
++    expect(held.footer?.text).toBe('Hello');
++  });
++});

@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-desktop-draft-as-typed
 UUID: fa2fab0b
 Verified-At: b68f94c — repos=website; walked on a `git archive b68f94c` export (tree 25ab048b), base `b663b35` (tree 774b75be) beside it
-Status: QA Complete
-Status-Detail: "Pre-release browser walk PASS at website b68f94c: flows 1-4 hold in Chrome at route 0; base b663b35 loses the same text. No findings."
+Status: Committed
+Status-Detail: "Pre-release browser walk PASS at website b68f94c: flows 1-4 hold in Chrome at route 0; base b663b35 loses the same text. No findings. Committed at Stage 1 by devops; not released. Its Assumption Not Checked (the saved-message route) is row P-1 of handoff/fix-desktop-draft-as-typed-post-deploy-2026-11-21.md, run by a qa-role session after the push, not left to the owner's walk."
 Phase: 2
 ---
 
@@ -21,6 +21,7 @@ Phase: 2
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T11:25 | steering-hooks (brief above; stage start = the review's committed approval at `Reviewed-At b68f94c`, re-derived: `git -C website log -1` = `b68f94c`, tree clean but `.playwright-mcp/` untracked) | Phase 2, narrowed by the brief to one pre-release browser walk of User-visible flows 1-4, typing and reload only | Walk PASS at `b68f94c`: typed text in the content editor, an embed description, a field name, the author name and the footer comes back after a reload with the editor still open. The caret stays at the end on every key of "a b c" and "x y z", and blur trims. Base `b663b35` loses every one of them. Leave prompt observed with a two-direction control. Flow 5's current text is consistent with the code. No findings. |
+| 2026-11-21T11:28 | devops-fix-desktop-draft-as-typed (brief steering/fix-desktop-draft-as-typed-brief-devops.md) | Stage 1 closure | Status Committed, moved to qa/closed/; no body change. This document's Assumption Not Checked named the owner's own walk as its owner; steering's brief moved it to an agent-run post-deploy row: P-1 of handoff/fix-desktop-draft-as-typed-post-deploy-2026-11-21.md (UUID 4bbe68a5, Owning-Stage qa, Review-Trigger the E-WEBSITE-PUSH row). Residue (Chrome only; per-keystroke cost unmeasured) is carried by handoff/fix-desktop-draft-as-typed-residue-2026-11-21.md. Register: this document carries no blocking-condition register, so no pre-release row is unterminated. |
 
 ## Route and what this pass is
 

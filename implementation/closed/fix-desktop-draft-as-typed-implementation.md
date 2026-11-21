@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-desktop-draft-as-typed
 UUID: fa2fab0b
-Status: Active
-Status-Detail: "Handed off to code review at b68f94c; code review alone (17 added production lines, under 20). Merge is devops's at release, on the owner's word."
+Status: Committed
+Status-Detail: "Committed at Stage 1 by devops at b68f94c on chain/fix-desktop-draft-as-typed (code review APPROVED_WITH_COMMENTS at b68f94c; QA walk PASS at b68f94c). Not released: the merge to website master and the push are Stage 2, on the owner's release word. Outstanding items 1 and 2 discharged by QA's route-0 walk; the saved-message route is row P-1 of handoff/fix-desktop-draft-as-typed-post-deploy-2026-11-21.md; item 3 is carried by handoff/fix-desktop-draft-as-typed-residue-2026-11-21.md."
 Handoff-At: b68f94c — repos=website
 Origin-Chain: none
 ---
@@ -143,3 +143,4 @@ These are for the owner's own check (no UAT runs). Each happens on a desktop-wid
 |---|---|---|
 | 2026-11-21T11:04 | 1 | Document created at handoff: diagnosis, red run at `b663b35`, fix `9d60769` and style `b68f94c`, 7 negative controls killed, suite / typecheck / lint green, the lint-script rewrite and its restoration disclosed; handed to code review at `b68f94c`. |
 | 2026-11-21T11:13 | 2 | CR-1 (code review Round 1, `code-review/fix-desktop-draft-as-typed-code-review.md`, record `488b209`) corrected; the code is unchanged. User-visible flow 5 previously said "Opening the desktop content editor without typing leaves the message unchanged. It drafts the same text, which closing already did." That is false for an unset field: opening sets it to `''`, which counts as a change. Flow 5 now separates a field that has text from an empty one. Class sweep: `grep -n -i "unchanged\|equal\|no new state\|not a new state"` over this document gave 10 hits. Two had the same error: flow 5, and the Diagnosis line "The data is equal, so for a saved message it is a `removeDraft`… This is new timing, not a new state", now rewritten for the unset case. The other 8 are true as written: item 3 and the two dialogs, a test assertion quote, the draft-effect row, `usePassedProp`, `ContentEditable`, the trim row, and outstanding item 2. The earlier wording followed the Diagnosis's equal-value reading, which held only for a field with text. |
+| 2026-11-21T11:28 | devops | Closed by devops-fix-desktop-draft-as-typed at Stage 1 (Status Committed, moved to implementation/closed/); no body change. Owed items and their carriers: outstanding items 1 and 2 (real Slate typing path; caret under the round trip) discharged by QA's pre-release walk at b68f94c, route 0 (qa/fix-desktop-draft-as-typed-qa.md, flows 1, 3, 4 PASS); the saved-message route, which that walk did not cover, is row P-1 of handoff/fix-desktop-draft-as-typed-post-deploy-2026-11-21.md (UUID 4bbe68a5); outstanding item 3 (per-keystroke draft-write cost, unmeasured) and the browsers other than Chrome are carried by handoff/fix-desktop-draft-as-typed-residue-2026-11-21.md. |

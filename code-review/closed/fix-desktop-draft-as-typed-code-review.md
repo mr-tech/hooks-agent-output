@@ -3,7 +3,8 @@ ID: n/a
 Origin: fix-desktop-draft-as-typed
 UUID: fa2fab0b
 Reviewed-At: b68f94cda114bcef1efd59954aba321e246dd683 — repos=website
-Status: In Review
+Status: Committed
+Status-Detail: "Round 1 APPROVED_WITH_COMMENTS at b68f94c; CR-1 corrected by the fixer (record f25ef260). Committed at Stage 1 by devops; not released. The Assumption Not Checked was discharged at route 0 by QA's walk; its saved-message residue is row P-1 of handoff/fix-desktop-draft-as-typed-post-deploy-2026-11-21.md."
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
 ---
@@ -20,6 +21,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T11:12 | steering-hooks (brief `steering/fix-desktop-draft-as-typed-brief-code-reviewer.md`) | Round 1: review website `b663b35..b68f94c`; under 20 production lines, so suite and red tests run here | Round 1: APPROVED_WITH_COMMENTS at `b68f94c`. 17 production lines (recounted). Red, green and 7 negative controls reproduced; full suite green at both SHAs, exit 0. CR-1 MEDIUM: User-visible flow 5 is wrong for an unset field, shown by a probe. The fixer corrects it before devops quotes the flows. |
+| 2026-11-21T11:28 | devops-fix-desktop-draft-as-typed | Stage 1 closure | Status Committed, moved to code-review/closed/; no body change. CR-1 is closed (the fixer's correction, record f25ef260). The Assumption Not Checked (real-browser Slate emit; caret under the round trip) was discharged at route 0 by QA's pre-release walk (qa/fix-desktop-draft-as-typed-qa.md, `Verified-At` b68f94c); the saved-message route is carried by row P-1 of handoff/fix-desktop-draft-as-typed-post-deploy-2026-11-21.md (UUID 4bbe68a5), and the unmeasured per-keystroke cost (Next Steps) by handoff/fix-desktop-draft-as-typed-residue-2026-11-21.md. |
 
 ## Stage start and tree identity
 

@@ -1,0 +1,83 @@
+---
+UUID: 4bbe68a5
+Status: Open
+Status-Detail: "Carrier of the post-deploy row P-1 (the saved-message route, desktop, typed text survives a reload) of fix-desktop-draft-as-typed. Opened at devops Stage 1; the pre-push baseline is requested from qa-fix-desktop-draft-as-typed; the push has not happened, so P-1 is not decidable. It does not gate the release act."
+Owning-Stage: qa
+Review-Trigger: "the production deploy of website master carrying fix-desktop-draft-as-typed (the E-WEBSITE-PUSH row of this record's event ledger filled) — then P-1"
+Secret-Files: none
+---
+
+# fix-desktop-draft-as-typed post-deploy row (P-1)
+
+## What is seeded
+
+The fixer chain `fix-desktop-draft-as-typed` ships website `master` (Vercel production by git integration; `website/.github/workflows`
+is absent) from `b663b35` to the chain tip `b68f94c`. On desktop, text typed into the open content editor, the embed author name and
+the footer reaches the message as it is typed, so the existing draft effect stores it (as on mobile). Before the fix the text was held
+in local state until the editor closed or blurred, and a reload before then lost it. The row is the one Assumption Not Checked of QA's
+pre-release walk (`qa/fix-desktop-draft-as-typed-qa.md`, "Assumption Not Checked": the walk was on route 0, a new message, with no
+database; the saved-message route `/message/m/<id>/edit` goes through `writeDraft` / `removeDraft` by deep equality and was not
+walked), and it reads the stated limit of plan 017's B-9 (`handoff/017-existing-items-backlog-post-deploy-2026-11-19.md`, row B-9 PASS
+with "text typed into the still-open content editor was lost on a reload"). The register is point-in-time; this record's `Result` line
+is authoritative on execution state. The row does not gate the release act.
+
+**Why it is here and not run by devops.** The reader needs a signed-in Discord test account on live hooks.gg. The devops session
+carries no `mcp__playwright__*` tools (ToolSearch for them returned none), and the `discord-test-browser` skill forbids loading them
+from a session not launched with `--browser`; the `qa` and `uat` stage agents carry that browser. So there is no crontab line (the
+row is event-form, not timed, and a headless launcher run has no signed-in browser): the reader is a qa-role session
+(`qa-fix-desktop-draft-as-typed` walked the same flows at route 0) that steering starts or wakes after devops's release-complete cue.
+The precedent is `handoff/closed/fix-get-one-absent-not-found-post-deploy-2026-11-21.md`. Screenshots stay untracked and are never
+committed. The reader reads `~/.claude/skills/discord-test-browser/test-estate.json` first and writes only to the row's `Result`
+and the changelog below. **Not allowed: Save, Send or any production write on hooks.gg.** The reader never writes the event ledger;
+devops does, at Stage 2.
+
+## Event ledger (devops writes; a reader never edits it)
+
+| Event | What it is | When (UTC) | Ref and SHA | Source |
+|---|---|---|---|---|
+| E-WEBSITE-PUSH | website `master` moved to the release | not yet | website `master` → `b68f94cda114bcef1efd59954aba321e246dd683` (was `b663b354fb236c3ee58d8b0be01778e1908e0e10`) | devops, Stage 2, on the owner's release approval |
+
+## Row
+
+### P-1  (qa-role session, signed in as the Discord test account)
+
+- **Class**: post-deploy-observable
+- **Condition**: scope items 1 and 2 of the determination on the saved-message route, in production, at desktop width: on an existing
+  saved message of the test account, text typed into the open content editor and into an embed's author name survives a reload done
+  before clicking away, and the leave-page prompt fires on that reload.
+- **Precondition**: a saved message owned by the test account on production, at `/message/m/<id>/edit` (plan 017's B-9 walk used
+  `6024`; whether it still exists is unread; any saved message of the test account serves). If none exists, the row is reported
+  **NOT EXECUTED** to `steering-hooks` and is **not** satisfied by creating one.
+- **Instrument**: in the stage browser (Chrome, 1440x900), signed in as the test account on `https://hooks.gg/message/m/<id>/edit`.
+  Type a short suffix at the end of the content editor (e.g. ` QA after one`) and into an embed's author name (e.g. `a b`; add an
+  embed or an author only if the saved message has none **in the local state, never saved**), reload with the field still focused and
+  read: the text in the field, and whether a `beforeunload` dialog is raised (register **no** auto-accept dialog handler on the page;
+  as a control, the QA walk's runs A-C in `verification/fix-desktop-draft-as-typed/qa/leave-prompt-and-field-results.md` raised it on
+  the fixed build). Afterwards type each field back to its saved text (or remove the added author) so the draft is removed, reload
+  once more and read that no draft remains. **No Save.**
+- **Baseline (before the push, requested of qa-fix-desktop-draft-as-typed by devops at 11:2xZ)**: the same steps on production before
+  the release. Prediction: the typed text is gone after the reload and no prompt is raised. Its unchanged limbs (the saved text comes
+  back unchanged; a field closed before reload keeps its text) are the baseline for the after-read.
+- **Subject / fallback**: qa through the stage browser / the owner by the same page.
+- **Earliest decidable**: Vercel production serves a website build whose commit contains `b68f94c`. Establish it from the event ledger
+  above and from the first read in which typed text survives; a loss before the first survival is the old build still serving or a
+  tab opened before the deploy (it keeps the old bundle until it reloads), not a falsifier: reload the tab, wait a short while and
+  read again before calling it.
+- **Predicted**: typed text is present in both fields after the reload, the leave prompt fires on it, and after the type-back the
+  draft is gone. This is QA's flows 1 and 3 at the saved route.
+- **Falsifier**: after the new build serves (on a freshly loaded tab), the typed text is gone after the reload. Then the saved-message
+  route does not behave as route 0 did, and the fix did not reach it. A falsifier goes to the owner through `steering-hooks`.
+- **Owner**: qa. **Result**: blank (not read).
+
+## Closing duty
+
+This record closes the source handoff's discharge: `handoff/open-content-editor-text-not-drafted-until-close-2026-11-20.md` (UUID
+f1356f4b) is closed `Addressed` by steering at the chain's closure, **after P-1 is read and holds**. Plan 017's carrier
+(`handoff/017-existing-items-backlog-post-deploy-2026-11-19.md`, UUID 26c40e4f) carries a changelog row for this release; its open
+rows B-7 and B-10 are not this chain's and keep it open.
+
+## Changelog
+
+| Date (UTC) | Agent | Change | Token |
+|---|---|---|---|
+| 2026-11-21T11:27 | devops-fix-desktop-draft-as-typed | Created at Stage 1: row P-1 carried in full; baseline requested of qa; event ledger blank. | opened |
