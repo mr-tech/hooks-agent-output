@@ -1,0 +1,579 @@
+{
+ "sha": "ead3ea15f328ca387a6614de568daba8a0e580c9",
+ "repo": "/usr/local/bin/hooks/agent-output",
+ "mutantsFile": "verification/fix-website-dependency-audit/qa-survivors-c5508c7.json",
+ "command": [
+  "node",
+  "--test",
+  "tools/websiteDependencyAudit.test.js"
+ ],
+ "env": {},
+ "deps": [],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 120.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "verification/fix-website-dependency-audit/qa-survivors-c5508c7.json",
+   "blob": "aeca6ce4d36ad66b93228b1bece352aad1954652"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-control-1.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-control-1.stderr",
+   "seconds": 4.08,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 23,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "website-dependency-audit.js:49:if-false",
+   "run": "mutant-1",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "op": "if-false",
+    "line": 49,
+    "text": "if (!argv[i].startsWith('--') || !(name in DEFAULTS) || argv[i + 1] === undefined) throw new Error(`bad argument: ${argv[i]}\\n${USAGE}`);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "fails on a bare argument without its dashes, and writes nothing"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.09,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-1.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-1.stderr"
+  },
+  {
+   "id": "website-dependency-audit.js:60:num",
+   "run": "mutant-2",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 60,
+    "text": "const gitIn = (opts, ...args) => spawnSync('git', ['-C', opts.website, ...args], { maxBuffer: 1 << 28 });"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.12,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-2.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-2.stderr"
+  },
+  {
+   "id": "website-dependency-audit.js:60:num:2",
+   "run": "mutant-3",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 60,
+    "text": "const gitIn = (opts, ...args) => spawnSync('git', ['-C', opts.website, ...args], { maxBuffer: 1 << 28 });"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.1,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-3.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-3.stderr"
+  },
+  {
+   "id": "website-dependency-audit.js:77:num",
+   "run": "mutant-4",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 77,
+    "text": "const r = spawnSync(opts.pnpm, ['audit', '--prod', '--json'], { cwd: dir, encoding: 'utf8', maxBuffer: 1 << 28, timeout: 300000 });"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.12,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-4.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-4.stderr"
+  },
+  {
+   "id": "website-dependency-audit.js:77:num:2",
+   "run": "mutant-5",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 77,
+    "text": "const r = spawnSync(opts.pnpm, ['audit', '--prod', '--json'], { cwd: dir, encoding: 'utf8', maxBuffer: 1 << 28, timeout: 300000 });"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.02,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-5.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-5.stderr"
+  },
+  {
+   "id": "website-dependency-audit.js:77:num:3",
+   "run": "mutant-6",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 77,
+    "text": "const r = spawnSync(opts.pnpm, ['audit', '--prod', '--json'], { cwd: dir, encoding: 'utf8', maxBuffer: 1 << 28, timeout: 300000 });"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.04,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-6.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-6.stderr"
+  },
+  {
+   "id": "website-dependency-audit.js:171:true:2",
+   "run": "mutant-7",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "op": "true",
+    "line": 171,
+    "text": "fs.rmSync(dir, { recursive: true, force: true });"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.12,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-7.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-7.stderr"
+  },
+  {
+   "id": "website-dependency-audit.js:175:walk-first",
+   "run": "mutant-8",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "op": "walk-first",
+    "line": 175,
+    "text": "const fresh = open.filter((u) => !state.reported[u.key]);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "adds one entry for each of two undispositioned advisories, and none on a second run"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.0,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-8.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-8.stderr"
+  },
+  {
+   "id": "website-dependency-audit.js:175:walk-last",
+   "run": "mutant-9",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 175,
+    "text": "const fresh = open.filter((u) => !state.reported[u.key]);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "adds one entry for each of two undispositioned advisories, and none on a second run"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.03,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-9.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-9.stderr"
+  },
+  {
+   "id": "website-dependency-audit.js:178:walk-first",
+   "run": "mutant-10",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "op": "walk-first",
+    "line": 178,
+    "text": "const entries = [...(newPair ? [staleEntry(opts, sha, remote, now)] : []), ...fresh.map((u) => entryFor(u, sha, opts, now))];"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "adds one entry for each of two undispositioned advisories, and none on a second run"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.0,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-10.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-10.stderr"
+  },
+  {
+   "id": "website-dependency-audit.js:178:walk-last",
+   "run": "mutant-11",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "op": "walk-last",
+    "line": 178,
+    "text": "const entries = [...(newPair ? [staleEntry(opts, sha, remote, now)] : []), ...fresh.map((u) => entryFor(u, sha, opts, now))];"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "adds one entry for each of two undispositioned advisories, and none on a second run"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.19,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-11.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-11.stderr"
+  },
+  {
+   "id": "website-dependency-audit.js:179:>",
+   "run": "mutant-12",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "op": ">",
+    "line": 179,
+    "text": "const changed = entries.length > 0 || Boolean(state.failing);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "leaves the inbox unchanged when every advisory is dispositioned"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.13,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-12.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-12.stderr"
+  },
+  {
+   "id": "website-dependency-audit.js:190:num",
+   "run": "mutant-13",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 190,
+    "text": "const now = new Date().toISOString().slice(0, 16);"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "adds exactly one inbox entry for an advisory with no disposition, naming every installed version",
+    "adds one entry for each of two undispositioned advisories, and none on a second run",
+    "reports a stale clone and an undispositioned advisory once each when they occur together, naming the audited tree"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.01,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-13.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-13.stderr"
+  },
+  {
+   "id": "website-dependency-audit.js:190:num:2",
+   "run": "mutant-14",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 190,
+    "text": "const now = new Date().toISOString().slice(0, 16);"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.2,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-14.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-14.stderr"
+  },
+  {
+   "id": "website-dependency-audit.js:196:num",
+   "run": "mutant-15",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 196,
+    "text": "process.exitCode = 1;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.1,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-15.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-15.stderr"
+  },
+  {
+   "id": "website-dependency-audit.js:204:num",
+   "run": "mutant-16",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "op": "num",
+    "line": 204,
+    "text": "process.exitCode = 1;"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 4.1,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-16.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-16.stderr"
+  },
+  {
+   "id": "qa-coupling-stale-key-only-without-advisory",
+   "run": "mutant-17",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "reports a stale clone and an undispositioned advisory once each when they occur together, naming the audited tree"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.14,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-17.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-17.stderr"
+  },
+  {
+   "id": "qa-coupling-reported-key-only-when-in-step",
+   "run": "mutant-18",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "reports a stale clone and an undispositioned advisory once each when they occur together, naming the audited tree"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.2,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-18.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-18.stderr"
+  },
+  {
+   "id": "qa-coupling-marker-only-before-any-report",
+   "run": "mutant-19",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "adds one failure entry for a streak that starts after an advisory was reported"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.14,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-19.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-19.stderr"
+  },
+  {
+   "id": "qa-coupling-streak-ends-only-on-quiet-recovery",
+   "run": "mutant-20",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "ends a streak on a recovery that reports an advisory, so the next streak adds its own entry"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.14,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-20.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-20.stderr"
+  },
+  {
+   "id": "qa-entry-omits-advisory-url",
+   "run": "mutant-21",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "adds exactly one inbox entry for an advisory with no disposition, naming every installed version"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.18,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-21.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-21.stderr"
+  },
+  {
+   "id": "qa-stale-entry-names-remote-as-read",
+   "run": "mutant-22",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "reports a stale clone and an undispositioned advisory once each when they occur together, naming the audited tree"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.02,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-22.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-22.stderr"
+  },
+  {
+   "id": "qa-entry-names-remote-ref-sha",
+   "run": "mutant-23",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 23,
+   "control_tests_run": 23,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "reports a stale clone and an undispositioned advisory once each when they occur together, naming the audited tree"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.07,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-23.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/o-qa-survivors-c5508c7/ead3ea15f328ca387a6614de568daba8a0e580c9-20261121T005809Z-p2019679-mutant-23.stderr"
+  }
+ ],
+ "score": "14 of 23 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; qa-survivors-c5508c7.json (blob aeca6ce4d36ad66b93228b1bece352aad1954652))"
+}

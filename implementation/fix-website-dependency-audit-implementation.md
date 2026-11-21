@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-website-dependency-audit
 UUID: d9ef268a
 Status: Active
-Status-Detail: "Code review APPROVED at c5508c7 (code-review/fix-website-dependency-audit-code-review.md, bf39906). QA Phase 2 is owed (179 production lines); then devops installs the crontab line and reads the first run. REVIEW and _review stay at pending review until QA's verdict."
-Handoff-At: c5508c7 — repos=agent-output
+Status-Detail: "Code review APPROVED at c5508c7 (bf39906). QA Phase 2 failed at c5508c7 on QAF-1..QAF-5 (tests only; qa/fix-website-dependency-audit-qa.md, c2295cb); fixed at ead3ea1 with production unchanged, awaiting QA's survivor re-run. Then devops installs the crontab line and reads the first run. REVIEW and _review stay at pending review until QA's verdict."
+Handoff-At: ead3ea1 — repos=agent-output
 Origin-Chain: none
 ---
 
@@ -215,6 +215,29 @@ c5508c7: green 18/18, exit 0; 30 of 30 KILLED, counts checked 18 = 18 (`mutation
   `git archive`.
 - No time-based test.
 
+**QA Phase 2 round** (`qa/fix-website-dependency-audit-qa.md`, c2295cb: QA Failed at c5508c7 on QAF-1..QAF-4 MEDIUM and
+QAF-5 LOW, tests only). At ead3ea1 the production file is byte-identical to c5508c7
+(`git diff --stat c5508c7 ead3ea1 -- tools/website-dependency-audit.js` is empty).
+- QAF-1: new case "adds one entry for each of two undispositioned advisories, and none on a second run". Each entry
+  names only its own GHSA.
+- QAF-2: two new cases, "adds one failure entry for a streak that starts after an advisory was reported" and "ends
+  a streak on a recovery that reports an advisory, so the next streak adds its own entry". A third, "reports a stale
+  clone and an undispositioned advisory once each when they occur together, naming the audited tree", also carries
+  QAF-3's SHA attribution.
+- QAF-3: the first case asserts the advisory URL and the heading form. The stale-plus-advisory case asserts that the
+  advisory entry names the local SHA and not the remote one, and that the stale entry reads "the audit read
+  `<local>`". Every added heading is checked against `^## \d{4}-\d{2}-\d{2} — .+ — FYI$` (`assertEntryForm`).
+- QAF-4: the quiet-run case asserts that no state file exists afterwards.
+- QAF-5: new case "fails on a bare argument without its dashes, and writes nothing".
+- Green: 23/23, exit 0 (`green-run.txt`).
+- Controls at ead3ea1, by `mutation-run.py`, each run in its own export:
+  - QA's 23 survivors (`qa-survivors-c5508c7.json`, taken from QA's sweep file):
+    14 KILLED, counts checked. Each was killed by the case written for it
+    (`mutation-table-qa-survivors-c5508c7-at-ead3ea1.json`).
+  - The 9 that survive are the ones QA's table rules equivalent, without a reader, or residue: `60:num`,
+    `60:num:2`, `77:num`, `77:num:2`, `77:num:3`, `171:true:2`, `190:num:2`, `196:num` and `204:num`.
+  - My own set: 30 of 30 KILLED (`mutation-table-mutants-at-ead3ea1.json`).
+
 ## Verification
 
 - **Existing tests.** The record's standing `node --test` files do not name these paths (block 23:59Z: `git grep`
@@ -236,8 +259,9 @@ c5508c7: green 18/18, exit 0; 30 of 30 KILLED, counts checked 18 = 18 (`mutation
 
 ## Handoff
 
-- **SHA under review:** `c5508c7` (record `master`). Round 1 was at `9fc299c`; CR-1 was confirmed at `ed7926d` and CR-2
-  at `c7b6898`. `c7b6898..c5508c7` carries CR-4. The production diff is `git diff f943553 c5508c7 --
+- **SHA under review:** `ead3ea1` (record `master`). Round 1 was at `9fc299c`; CR-1 was confirmed at `ed7926d` and CR-2
+  at `c7b6898`. `c7b6898..c5508c7` carries CR-4, and code review approved `c5508c7`. `c5508c7..ead3ea1` changes only
+  the test file and captures, for QA's QAF-1..QAF-5. The production diff is `git diff f943553 ead3ea1 --
   tools/website-dependency-audit.js tools/websiteDependencyAudit.test.js tools/website-audit-dispositions.json`.
 - **Reviews:** `code-reviewer-fix-website-dependency-audit`, then QA Phase 2 (`qa-fix-website-dependency-audit`).
   The tool adds 179 production lines (non-blank, `grep -c -v '^\s*$'`), which is 20 or more.
@@ -271,3 +295,4 @@ c5508c7: green 18/18, exit 0; 30 of 30 KILLED, counts checked 18 = 18 (`mutation
 | 2026-11-21T00:30 | CR-1 confirmed closed by the reviewer at `ed7926d` (f7849cf). CR-2 limbs (a) failure-streak entry and (b) stale-pair entry, per steering block 00:19Z: red 3 of 16 at `ed7926d`'s tool; done at c7ef844 and c7b6898; 17/17 green; 28/28 controls killed at c7b6898 (one undiscriminated default removed after it survived at c7ef844); live run quiet with the clone's refs unchanged. Handoff-At moved to `c7b6898`. |
 | 2026-11-21T00:41 | CR-2 confirmed at `c7b6898` (reviewer 9a61b8a); CR-4 fixed: a shared `persist` writer and the unwritable-inbox failure case at 5b41d04; the recovery case tightened at c5508c7 after `quiet-run-appends` survived; 18/18 green, 30/30 controls killed. Handoff-At moved to `c5508c7`. |
 | 2026-11-21T00:43 | Code review APPROVED at `c5508c7` (reviewer bf39906); the reviewer sent steering the QA Phase 2 spawn cue. |
+| 2026-11-21T01:05 | QA Phase 2 failed at `c5508c7` on QAF-1..QAF-5 (tests only; QA c2295cb). Fixed at `ead3ea1` with production unchanged: five cases added, two tightened; 23/23 green; QA's 14 actionable survivors killed, the 9 equivalents still survive; own set 30/30. Handoff-At moved to `ead3ea1`. |
