@@ -1,0 +1,108 @@
++const SECOND_SERVER_MESSAGE_ID = '900000000000105';
++const THIRD_SERVER_MESSAGE_ID = '900000000000106';
++const SECOND_ADMINISTERED_SERVER_ID = '200000000000000003';
++const THIRD_ADMINISTERED_SERVER_ID = '200000000000000004';
++const ADMINISTRATOR_PERMISSIONS = '8';
++    id: SERVER_MESSAGE_ID, owner: null, guildId: ADMINISTERED_SERVER_ID, name: 'administered-server-name',
++    id: FOREIGN_SERVER_MESSAGE_ID, owner: null, guildId: FOREIGN_SERVER_ID, name: 'foreign-server-name',
++  },
++  {
++    id: SECOND_SERVER_MESSAGE_ID, owner: null, guildId: SECOND_ADMINISTERED_SERVER_ID, name: 'second-server-name',
++  },
++  {
++    id: THIRD_SERVER_MESSAGE_ID, owner: null, guildId: THIRD_ADMINISTERED_SERVER_ID, name: 'third-server-name',
++  it('lists the recent server messages of every server the signed-in user is owner or Administrator of', async () => {
++    mocks.fetchUserGuilds.mockResolvedValue([
++      {
++        id: ADMINISTERED_SERVER_ID, name: 'A', owner: true, permissions: '0',
++      },
++      {
++        id: SECOND_ADMINISTERED_SERVER_ID, name: 'B', owner: false, permissions: ADMINISTRATOR_PERMISSIONS,
++      },
++      {
++        id: THIRD_ADMINISTERED_SERVER_ID, name: 'C', owner: true, permissions: '0',
++      },
++    ]);
++    const messages = await hydrateAs(VIEWER_DB_ID, [
++      SERVER_MESSAGE_ID, SECOND_SERVER_MESSAGE_ID, THIRD_SERVER_MESSAGE_ID, VIEWER_MESSAGE_ID,
++    ]);
++    expect(messages.map(({ id }) => id)).toEqual([
++      VIEWER_MESSAGE_ID, SERVER_MESSAGE_ID, SECOND_SERVER_MESSAGE_ID, THIRD_SERVER_MESSAGE_ID,
++    ]);
++import {
++  afterEach, beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import redis from '../index';
++
++const fetchMock = vi.hoisted(() => vi.fn());
++
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test', DISCORD_URL: 'https://discord.test/api' } }));
++vi.mock('project-utils', () => ({ getPostgres: () => ({}) }));
++vi.mock('~/utils/discord', () => ({ getApi: () => ({ request: vi.fn() }) }));
++vi.mock('../client', () => ({
++  getClient: () => ({
++    get: async () => null,
++    set: async () => 'OK',
++    del: async () => 1,
++    publish: async () => 0,
++  }),
++  getSubscriber: () => ({ subscribe: async () => {}, on: () => {} }),
++}));
++
++const ADMINISTRATOR = '8';
++const ADMINISTRATOR_AND_MANAGE_MESSAGES = '8200';
++const MANAGE_GUILD_AND_MANAGE_MESSAGES = '8224';
++
++const wireGuild = (id: string, name: string, owner: boolean, permissions: string) => ({
++  id, name, icon: null, owner, permissions, features: ['COMMUNITY'],
++});
++
++beforeEach(() => {
++  fetchMock.mockReset();
++  vi.stubGlobal('fetch', fetchMock);
++});
++afterEach(() => { vi.unstubAllGlobals(); });
++
++describe('redis.fetchUserGuilds', () => {
++  it('keeps only the servers the user owns or holds Administrator in, by name, with the session\'s fields', async () => {
++    fetchMock.mockResolvedValue({
++      json: async () => [
++        wireGuild('300000000000000001', 'Delta', false, MANAGE_GUILD_AND_MANAGE_MESSAGES),
++        wireGuild('300000000000000002', 'Charlie', true, '0'),
++        wireGuild('300000000000000003', 'Bravo', false, ADMINISTRATOR),
++        wireGuild('300000000000000004', 'Echo', false, '0'),
++        wireGuild('300000000000000005', 'Alpha', false, ADMINISTRATOR_AND_MANAGE_MESSAGES),
++      ],
++    });
++
++    const guilds = await redis.fetchUserGuilds('100000000000000001', 'access-token');
++
++    expect(guilds).toEqual([
++      {
++        id: '300000000000000005', name: 'Alpha', icon: null, owner: false, permissions: ADMINISTRATOR_AND_MANAGE_MESSAGES,
++      },
++      {
++        id: '300000000000000003', name: 'Bravo', icon: null, owner: false, permissions: ADMINISTRATOR,
++      },
++      {
++        id: '300000000000000002', name: 'Charlie', icon: null, owner: true, permissions: '0',
++      },
++    ]);
++    expect(fetchMock).toHaveBeenCalledWith(
++      'https://discord.test/api/users/@me/guilds',
++      { headers: { Authorization: 'Bearer access-token' } },
++    );
++  });
++
++  it('keeps no server for a user who owns none and holds Administrator in none', async () => {
++    fetchMock.mockResolvedValue({
++      json: async () => [
++        wireGuild('300000000000000011', 'Delta', false, MANAGE_GUILD_AND_MANAGE_MESSAGES),
++        wireGuild('300000000000000012', 'Echo', false, '0'),
++      ],
++    });
++
++    await expect(redis.fetchUserGuilds('100000000000000002', 'access-token')).resolves.toEqual([]);
++  });
++});

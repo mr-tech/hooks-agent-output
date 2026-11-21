@@ -2,7 +2,7 @@
 ID: n/a
 Origin: fix-recent-message-ids
 UUID: c304ae49
-Reviewed-At: "8f24e65 — repos=website"
+Reviewed-At: "6f76c6d — repos=website; sub-entry 1.1, test-only delta from 8f24e65"
 Status: In Review
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
@@ -20,6 +20,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T06:16 | steering-hooks brief; fixer document at `73f3200` | Round 1: review website `76da25c..8f24e65` against the scope statement | APPROVED_WITH_COMMENTS. Two LOW findings: CR-1 routed to a handoff, CR-2 to QA Phase 2. 30 added production lines, so QA Phase 2 is owed. |
+| 2026-11-21T06:32 | fixer-fix-recent-message-ids, round 2 at `6f76c6d` (record `3b2f973`) | Round 1, sub-entry 1.1: confirm the test-only fix | CR-2 RESOLVED by sweep re-run. Round 1 collapsed to disposition lines. Verdict unchanged at `6f76c6d`; back to QA Phase 2. |
 
 ## Scope of this round
 
@@ -148,51 +149,32 @@ None.
 
 ### Low/Info
 
-**CR-1 LOW Round 1 Correctness**: `keepMessageNumbers` keeps the raw element rather than `messageIdShape`'s canonical output
-- **Location**: website `src/server/api/utils/shared.ts`, `keepMessageNumbers`; consumed by `hydratedAuthCallback` (`src/server/auth.ts`) and `getUserRecentMessages`.
-- **Class**: a caller of `messageIdShape` that keeps its input when the shape accepts it, rather than the shape's output, passes on
-  a number in non-canonical digits that a string comparison downstream cannot match.
-- **Enumeration**: `git grep -n messageIdShape 8f24e65 -- src ':!**/__tests__/**'` gives 10 hits: 6 uses, 4 import or declaration
-  lines.
-  - Five uses consume the shape's output through zod input parsing: `message.ts` `getOne` and `delete`, `user.ts`
-    `updatePreferences`, and `shapes.ts` `idMessageShape` and `optionalIdMessageShape`.
-  - One consumes only `.success`: `shared.ts` `keepMessageNumbers`. **1 member.**
-  - Blind spot: the predicate cannot see a hand-written message-id check that does not name `messageIdShape`, or a canonical form
-    reached through another shape.
-- **Issue**: a stored `'0900000000000101'` survives into `session.user.preferences` while its row comes back as
-  `'900000000000101'`. The message page's recent strip (`page.tsx`, `recentMessages`, `m.id === id`) then omits it. The next save
-  canonicalises it on the server, duplicating it where the canonical form is also listed.
-  - **Pre-existing:** the probe shows identical behaviour at `76da25c`.
-  - **Outside the scope's property:** the value is a valid int8.
-  - **Magnitude, unmeasured hypothesis:** a production population of zero is expected, because the client writes only `String(id)`
-    of database rows.
-- **Required Action**: routed. The finding is not in the scope statement's property, and it does not hold this tree.
-  - **Preferred (structural)**: `keepMessageNumbers` returns each accepted element's `safeParse(id).data`, then removes duplicates
-    keeping the first occurrence. The two callers change as follows:
-    - `getUserRecentMessages` binds canonical digits, which select the same rows (corpus: 0 value mismatches).
-    - `hydratedAuthCallback` gives the session canonical ids, so the strip matches them.
-    - No caller is changed outside the class.
-  - **Minimum**: the same, at that one site.
-  - **Test**: a non-canonical element that is neither first nor last in the list. It must fail as an inequality on the session's
-    preference list against today's code.
-- **Disposition**: routed to `handoff/hydrated-recent-ids-not-canonicalised-2026-11-21.md`. Captured check:
-  `code-review/recent.pg.test.ts`, case "leading-zero form of own personal id".
+CR-1 LOW Round 1 ROUTED — `keepMessageNumbers` keeps the raw element rather than `messageIdShape`'s canonical output; pre-existing and outside the scope. Carried by `handoff/hydrated-recent-ids-not-canonicalised-2026-11-21.md`. Captured check: `verification/fix-recent-message-ids/code-review/recent.pg.test.ts`, case "leading-zero form of own personal id". Argument in record `cfce655`.
 
-**CR-2 LOW Round 1 Test Fidelity**: the fixture's server rows carry an owner, a column combination the writer never produces, and the Test section does not name it
-- **Location**: website `src/server/__tests__/auth.hydrated-recent-messages.test.ts`, the `rows` fixture, entries `SERVER_MESSAGE_ID` and `FOREIGN_SERVER_MESSAGE_ID`.
-- **Class**: a fixture standing in for a stored `Messages` row whose column combination the production writer (`buildMessageValues`
-  / `upsertMessage`) cannot produce, and which the author's document does not name as invented (Iron Law 5; `fixer.md`, TDD).
-- **Enumeration**: `git grep -n "guildId: [A-Z'\"]" 8f24e65` over the 3 hydration and shared test files gives 2 hits, both with
-  `owner: OWNER_DB_ID`. Blind spot: the predicate sees only literal `guildId:` keys in these files, not row objects built by helpers
-  or in other test files.
-- **Issue**: today it masks nothing:
-  - Every server-row case hydrates as `VIEWER_DB_ID`, so the fake admits server rows only through the server arm, and the
-    `auth-filter-*` controls killed.
-  - A future case hydrating as `OWNER_DB_ID` would admit those rows through the owner arm. A defect that dropped the SQL's server
-    arm would then pass.
-- **Required Action**: server rows in that fixture carry `owner: null`, matching `buildMessageValues`. A test-only change, so it is
-  QA Phase 2's to judge and never opens a round here.
-- **Disposition**: routed to QA Phase 2 (`qa-fix-recent-message-ids`), in the hand-off message. `no test`.
+CR-2 LOW Round 1 RESOLVED — the fixture's server rows carried an owner the writer never sets. They carry `owner: null` at website `6f76c6d` (QA's QAF-4). The sweep re-run, two predicates, gives 0 hits (sub-entry 1.1 below). `no test`. Duplicates: QAF-4 in `qa/fix-recent-message-ids-qa.md`. Argument in record `cfce655`.
+
+### Round 1, sub-entry 1.1 — fix confirmation at website `6f76c6d`
+
+- **Scope:** the diff `8f24e65..6f76c6d` only. It is a test-only diff (`git diff --numstat`: `auth.hydrated-recent-messages.test.ts` +31 −6, new `src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts` +77), so it is a scoped check, never a new round. Production lines over `76da25c..6f76c6d` are still 4 + 11 + 15 = 30, with `src/utils/redis/index.ts` unchanged. Tree: `6f76c6d` = `chain/fix-recent-message-ids` = HEAD; `git status --porcelain -- src` is empty.
+- **CR-2 sweep, re-run over all test files at `6f76c6d`:**
+  - Round 1's predicate (a `guildId:` literal beside a non-null `owner:`): 0 hits.
+  - A predicate in a second shape (`fk_users_id` and `fk_guilds_id` both set in one fixture row): 0 hits.
+  - All four server rows in the `rows` fixture read `owner: null`.
+- **The tightened hydration case:**
+  - Three administered servers; the middle one is `owner: false` with `permissions: '8'`.
+  - Rows exist for the first, middle and last server, so the answer is not only the first or the last element.
+  - The expectation is a literal id list.
+- **The new `fetchUserGuilds` test:**
+  - Permission literals checked against Discord's flag values: Administrator `0x8` = `'8'`; plus Manage Messages `0x2000` = `'8200'`; Manage Guild `0x20` plus Manage Messages = `'8224'`, which has no Administrator bit.
+  - The expected list is a literal in name order, not computed by the trim (axiom E).
+  - `fetch` is stubbed with the wire form, and the redis client is stubbed to miss the cache.
+  - The name `redis.fetch-user-guilds` follows the precedent for a directory's `index.ts`: `redis.fetch-channel.test.ts` sits beside it, and `constants.*` and `utils.*` do the same.
+- **Conventions:**
+  - `convention-check.js --since=76da25c` at `6f76c6d`: exit 0, 8 files examined, 0 FAIL, 0 CANDIDATE, 18 SKIP (the same 17 `.playwright-mcp` files plus the id-token SKIP).
+  - By hand over the 108 added lines: 0 ID-token matches, 0 comment lines. The basename matches the positive form.
+- **Test adequacy and the 7 controls** (`controls-round2/`) are QA Phase 2's gate. They were not re-run here.
+- **Captures:** `verification/fix-recent-message-ids/code-review/round1-sub1/` (`round2.diff`, `added-lines.txt`, `convention-check-6f76c6d.txt`, `status-src.txt`).
+- **Verdict:** unchanged, APPROVED_WITH_COMMENTS, now at `6f76c6d`.
 
 ## Verdict
 
@@ -206,7 +188,7 @@ None.
 
 ## Required Actions
 
-None blocking. CR-2 is optional for QA Phase 2. CR-1 is carried by the handoff.
+None blocking. CR-2 is resolved at `6f76c6d`. CR-1 is carried by the handoff.
 
 ## Assumption Not Checked
 
