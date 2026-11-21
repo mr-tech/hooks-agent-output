@@ -281,3 +281,13 @@ Website at `b68f94c`, clean export; suite 2326 cases, exit 0. Marked: 10 cases i
 Merged: `verification/fixes-2026-11-21-steering-hooks-3/deweed/website.tsv` (10 rows, 10 unique ids; python). Below 7: 0 of 10 (0%).
 Covering cells: every covering id is in the case list (0 unchecked). Nothing deleted on this. Export removed (`du -s` 10980 before;
 `ls -d` fails after).
+
+## 2026-11-21T18:37Z — his standard for questions put to him: context first, plain English, no commit IDs
+
+His words, in this session, after reading devops's release prompt (ledger `steering/selection-ledger/2026-11-21.md`, block
+"2026-11-21T18:35Z — devops-fix-api-secret-compare"): "prompt messages have been increasingly filled with more and more jargon, and that
+they need to be clear, concise, and in plain English what they're asking me to decide on. It should be very clear at the top the context
+that the question is being asked in, and then afterward what the question is and or what is the decision that I'm making. The options
+themselves as they are is more or less okay. However, they should still avoid commit messages or commit IDs, and other technical
+information that I would otherwise have to look up to make sense of." Lodged in `~/.claude/agents/INBOX.md` (FYI, steering-hooks,
+2026-11-21) for the Escalation Form; every prompt this thread puts to him follows it from now.
