@@ -1,23 +1,24 @@
 ▶ website dependency audit
-  ✔ adds exactly one inbox entry for an advisory with no disposition, naming every installed version (127.079699ms)
-  ✔ adds no entry on a second run while the advisory stays undispositioned (178.428127ms)
-  ✔ leaves the inbox unchanged when every advisory is dispositioned (105.272035ms)
-  ✔ does not fail when a dispositioned or reported advisory has left the audit (94.541844ms)
-  ✔ treats a bare module key or a version-line key as no disposition of an advisory (88.050753ms)
-  ✔ treats a disposition with an empty assessment as no disposition (89.6065ms)
-  ✔ writes nothing on an unreadable audit and reports the advisory on the next readable run (163.539557ms)
-  ✔ separates the entry by a blank line from an inbox that lacks a final newline (90.799825ms)
-  ✔ fails naming git when the released ref does not exist, and writes nothing (59.517804ms)
-  ✔ prints the procedure for adding a disposition on --help, and writes nothing (47.387172ms)
-  ✔ fails on an argument it does not know, and writes nothing (48.719514ms)
-  ✔ removes the lockfile export after a readable and after an unreadable run (164.056189ms)
-✔ website dependency audit (1258.79569ms)
-ℹ tests 12
+  ✔ adds exactly one inbox entry for an advisory with no disposition, naming every installed version (89.215005ms)
+  ✔ adds no entry on a second run while the advisory stays undispositioned (175.973476ms)
+  ✔ leaves the inbox unchanged when every advisory is dispositioned (95.804588ms)
+  ✔ does not fail when a dispositioned or reported advisory has left the audit (97.026953ms)
+  ✔ treats a bare module key or a version-line key as no disposition of an advisory (97.305227ms)
+  ✔ treats a disposition with an empty assessment as no disposition (88.008748ms)
+  ✔ writes nothing on an unreadable audit and reports the advisory on the next readable run (165.221412ms)
+  ✔ separates the entry by a blank line from an inbox that lacks a final newline (89.285361ms)
+  ✔ fails naming git when the released ref does not exist, and writes nothing (53.004702ms)
+  ✔ prints the procedure for adding a disposition on --help, and writes nothing (52.45942ms)
+  ✔ fails on an argument it does not know, and writes nothing (49.327087ms)
+  ✔ keeps no reported key when the inbox cannot be written, and reports the advisory on the next run (145.949447ms)
+  ✔ removes the lockfile export after a readable and after an unreadable run (161.772922ms)
+✔ website dependency audit (1362.430503ms)
+ℹ tests 13
 ℹ suites 1
-ℹ pass 12
+ℹ pass 13
 ℹ fail 0
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 1333.276689
+ℹ duration_ms 1418.020465
 exit 0

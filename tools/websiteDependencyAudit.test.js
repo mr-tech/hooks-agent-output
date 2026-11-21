@@ -217,6 +217,20 @@ describe('website dependency audit', () => {
     assert.strictEqual(inbox(), INBOX_HEAD);
   });
 
+  it('keeps no reported key when the inbox cannot be written, and reports the advisory on the next run', () => {
+    writeDispositions({ 'ws|GHSA-3h5v-q93c-6h6q': ASSESSED });
+    const usable = files.inbox;
+    files.inbox = path.join(dir, 'inbox-is-a-directory');
+    fs.mkdirSync(files.inbox);
+    const failed = run(auditOf(WS_DOS, NANOID_PREDICTABLE));
+    assert.notStrictEqual(failed.status, 0);
+    assert.ok(!fs.existsSync(files.state) || !JSON.parse(fs.readFileSync(files.state, 'utf8')).reported['nanoid|GHSA-mwcw-c2x4-8c55']);
+    files.inbox = usable;
+    const next = run(auditOf(WS_DOS, NANOID_PREDICTABLE));
+    assert.strictEqual(next.status, 0, next.stderr);
+    assert.strictEqual(headings(inbox().slice(INBOX_HEAD.length)).length, 1);
+  });
+
   it('removes the lockfile export after a readable and after an unreadable run', () => {
     writeDispositions({ 'ws|GHSA-3h5v-q93c-6h6q': ASSESSED });
     assert.strictEqual(run(auditOf(WS_DOS)).status, 0);
