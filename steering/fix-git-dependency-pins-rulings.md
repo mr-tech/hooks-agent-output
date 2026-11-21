@@ -108,3 +108,12 @@ Devops by message 23:1xZ: project-utils `master` `749606d` → `40ba5d3a5b54447a
 re-read it) — it changes only if that tree re-pins; put to him in chat. Also `/home/dev/review/website`, a review copy. (2) Repository
 webhooks unread. (3) The website pin names `40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165`. Website `origin/master` still `0c14d5b`; chain 6's
 release ask still open (23:16Z), so the website switch waits.
+
+## 2026-11-21T23:58 — website half opened on a branch; its release waits on a passing production build
+
+Chain 6's push landed on website `master` (`132a7ab`, `git ls-remote` 23:58Z) but Vercel's production build fails for missing production
+settings, unrelated to either chain (chain 6 rulings block 23:55). The website half's work is on a branch and touches `master` only at
+release, so it starts now; its release (devops, his word) waits until a production build passes. Website `chain/fix-git-dependency-pins`
+cut by this thread from `origin/master` `132a7ab` (`git switch --no-track -c`; no upstream; porcelain `?? .playwright-mcp/` before and
+after, `diff` of the captures). The fixer is messaged: pin project-utils `40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165` (devops, block
+23:16) and paracord `3f203086ae38699f26dbee90dadbb395a96be227` (the lockfile's, block 22:28).
