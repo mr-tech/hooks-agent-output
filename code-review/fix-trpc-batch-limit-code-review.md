@@ -5,7 +5,7 @@ UUID: 61d9ad16
 Reviewed-At: "f47e304 — repos=website"
 Status: In Review
 Round: 1
-Verdict: APPROVED
+Verdict: REJECTED
 ---
 
 # Code Review: fix-trpc-batch-limit
@@ -22,6 +22,7 @@ premise correction in block "2026-11-21T00:11Z".
 |------|---------------|---------|---------|
 | 2026-11-21T00:19 | steering-roadmap-hooks (brief); fixer-fix-trpc-batch-limit (document) | Round 1: review `3d2ceec`; QA Phase 2 is skipped (2 production lines), so also run the suite and the red tests | Round 1 REJECTED on CR-1 (MEDIUM, severity floor). The link production uses has no assertion that it does not batch; the test drives `proxy`, which has no production caller. Suite green, red reproduced, batch refusal attacked and holding. |
 | 2026-11-21T00:28 | fixer-fix-trpc-batch-limit (re-handoff, record `eb4f0f6`); steering ruling `9c30cd1` | Round 1 sub-entry 1: confirm the CR-1 fix at `f47e304` (test-only) | APPROVED at `f47e304`. CR-1 RESOLVED: the site-link case was re-attacked with two mutants of the reviewer's own (both fail as assertions); enumeration re-run; suite 2265/2265, exit 0; red reproduced on the pre-fix production files. Handed to devops for website `master`. |
+| 2026-11-21T00:33 | steering-roadmap-hooks (ruling block 00:32Z, `c12a6c2`); devops (record `1320e9b`) | Sub-entry 2: the approval at `f47e304` expires, `next build` fails | REJECTED at `f47e304`. Two test files under `src/pages/api/` are built as API routes. The reviewer's miss: Round 1 said placement conforms, and CR-1's remedy prescribed that directory. Plan 017 X-13 already recorded the hazard. `next build` and a `src/pages` `__tests__` search are owed at every confirmation from now on. The fixer moves the files (ruling (a)). |
 
 ## Scope and identity
 
@@ -108,7 +109,7 @@ and this round reproduced both (above).
 **All Rows Complete**: n/a.
 **Concerns**: Both new files are spec-form, which is correct: no escaped-defect artefact exists (axiom B). Expectations are
 literals (axiom E). The invented values are named in the fixer's document (the auth session mock, `capturingDatabase`, the
-pages-router `req.query` transcription, the Next header merge). Placement and naming conform. The coverage gap is CR-1.
+pages-router `req.query` transcription, the Next header merge). Naming conforms. Placement does not: a test file under `src/pages/api/` breaks `next build` (corrected in sub-entry 2; this sentence first said "Placement and naming conform"). The coverage gap is CR-1.
 
 ## Findings
 
@@ -147,12 +148,36 @@ CR-1 MEDIUM Round 1 RESOLVED — the Minimum remedy at `f47e304`: `trpc.site-lin
   it should, since the base link does not batch; its evidence is mutants A and B (`red-prefix-production.log`).
 - Captures: `verification/fix-trpc-batch-limit/review/round1-sub1/`. The export was removed.
 
+### Round 1, sub-entry 2 — the approval at `f47e304` is withdrawn: `next build` fails
+
+- **What moved the verdict**: devops, at Phase 2A packaging (`deployment/fix-trpc-batch-limit-deployment.md`, record `1320e9b`;
+  captures in `verification/fix-trpc-batch-limit/devops/`). `SKIP_ENV_VALIDATION=1 pnpm run build` exits 1 at `f47e304`, exits 0 at
+  `d1bb9b0`, and exits 0 at `f47e304` with the two test files under `src/pages/api/trpc/__tests__/` deleted. Next builds every file
+  under `src/pages/api/` as an API route, and a test file has no default export ("does not satisfy the constraint
+  'ApiRouteConfig'"). Vercel runs `next build` on the pushed commit. I did not reproduce this run; it is devops's, and it moves
+  the verdict down, not up. My own check of `git ls-tree -r --name-only f47e304 -- src/pages | grep __tests__` lists exactly those two
+  files.
+- **The miss is mine, in two places.** Round 1 said "Placement and naming conform" (TDD Compliance Check) about
+  `trpc.batch-refusal.test.ts`, and CR-1's Minimum remedy told the fixer to put the new `.tsx` case under
+  `src/pages/api/trpc/__tests__/`. That is how the second file got there. The record already knew this hazard: plan 017's X-13
+  (`planning/closed/017-existing-items-backlog.md`) says tests of modules under `src/pages/api/` stay in `src/server/api/__tests__/`.
+  Neither my suite run nor `pnpm run typecheck` covers it, because only `next build` reads `.next/types/validator.ts`. The check
+  that would have caught it is `next build` at the tip, or a search for `__tests__` under `src/pages`. Both are owed at every
+  confirmation from now on.
+- **Ruling**: steering block "2026-11-21T00:32Z" (`c12a6c2`), route (a). The fixer moves both files to `src/server/api/__tests__/`,
+  and the write set is widened to that directory for those two files.
+- **What the next confirmation re-runs**: `next build` at the new tip (exit 0); `git ls-tree -r --name-only <tip> -- src/pages | grep -c
+  __tests__` = 0; the suite; both mutants of sub-entry 1 against the moved site-link case; and a check that the moved files'
+  imports still reach the real `[trpc]` handler, not a copy.
+
 ### Low/Info
 None.
 
 ## Verdict
 
-**Status**: APPROVED (at `f47e304`, Round 1 sub-entry 1). The Round 1 REJECTED verdict at `3d2ceec` is superseded.
+**Status**: REJECTED at `f47e304` (Round 1 sub-entry 2). `next build` fails because two test files sit under `src/pages/api/`. The
+sub-entry 1 approval is withdrawn, and the fix is ruled (steering block 00:32Z). The rest of the assessment below still holds for
+the code; it does not hold for the release tree.
 **Rationale**: Items 2 and 3 are sound and verified by execution. Item 1's server change held under attack: every `batch=1` shape is
 refused with 0 queries. The limb "the site's own links keep working" is now asserted on the link production uses, and the case was
 seen to fail as an assertion under two mutations of that link (CR-1 RESOLVED). Suite green at `f47e304`, typecheck green, and the red
@@ -161,7 +186,10 @@ verdict.
 
 ## Required Actions
 
-None. The dead `proxy` export and the unused `createTRPCNext` `config()` link stay, per steering's ruling (block "2026-11-21T00:20Z":
+1. Move `trpc.batch-refusal.test.ts` and `trpc.site-link.test.tsx` out of `src/pages/` to `src/server/api/__tests__/` (ruling
+   00:32Z), so that `next build` at the tip exits 0 and no `__tests__` file remains under `src/pages`.
+
+The dead `proxy` export and the unused `createTRPCNext` `config()` link stay, per steering's ruling (block "2026-11-21T00:20Z":
 a candidate for a later hygiene pass, not carried by this chain).
 
 ## Assumption Not Checked
@@ -174,6 +202,7 @@ a candidate for a later hygiene pass, not carried by this chain).
 
 ## Next Steps
 
-- **Devops** for website `master`, at `f47e304`: the merge and the push, the push on the owner's word, asked in devops's own session.
-  Also the Round 1 Assumption Not Checked above: read the production function logs after the deploy. No QA Phase 2 (2 production
-  lines). Steering got the spawn cue, since no `devops-fix-trpc-batch-limit` session is live.
+- **Fixer** (`fixer-fix-trpc-batch-limit`, routed by steering): the move in Required Actions, then re-handoff to this reviewer.
+- **Reviewer**: confirm the move as sub-entry 3 (the re-runs listed in sub-entry 2), then deliver to `devops-fix-trpc-batch-limit`.
+- **Devops**, after that: the merge and the push, on the owner's word, and the Round 1 Assumption Not Checked above (read the
+  production function logs after the deploy).
