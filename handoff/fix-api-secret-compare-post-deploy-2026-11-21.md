@@ -40,6 +40,8 @@ ephemeral load reply ("To load your message into the Hooks.gg editor…", a Hook
 reply is built by `bot/serverCommands.ts` `get_message`, which the edge relay (`bot/edgeCommands.ts` `get_message`) passes on only when
 `/api/interactions-server` answered 200, so the token guard accepted and `secretEquals` ran. Not a 401-shaped failure; not a 500.
 Evidence: `verification/fix-api-secret-compare/qa/post-deploy/b1-get-message-read.txt` (load code redacted; no screenshot kept).
+Test estate updated in the same turn: `~/.claude/skills/discord-test-browser/test-estate.json`, the guild's "Hooks.gg bot" entry set
+`verified: true` with what was read (the server entry's own flag left false: its other contents were not read).
 **Precondition — unread beyond the push.** origin `master` = `0c14d5bed78f…` (`git ls-remote`, 18:38Z), pushed 18:35:45Z; the GitHub
 deployments API for `hooks-gg/website` answers 404 to this account (`post-deploy/deployments.json`), and no instrument here reads Vercel's
 serving deployment. The read ran about 8 minutes after the push. If production still served `b68f94c` at 18:43Z, this PASS says nothing
