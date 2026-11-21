@@ -249,8 +249,9 @@ describe('website dependency audit', () => {
   it('adds a new failure entry for a streak that starts after a run succeeded', () => {
     writeDispositions({ 'ws|GHSA-3h5v-q93c-6h6q': ASSESSED });
     assert.notStrictEqual(run(null, { raw: 'not json' }).status, 0);
+    const afterFailure = inbox();
     assert.strictEqual(run(auditOf(WS_DOS)).status, 0);
-    assert.strictEqual(headings(inbox().slice(INBOX_HEAD.length)).length, 1);
+    assert.strictEqual(inbox(), afterFailure);
     assert.notStrictEqual(run(null, { raw: 'not json' }).status, 0);
     assert.strictEqual(headings(inbox().slice(INBOX_HEAD.length)).length, 2);
   });
