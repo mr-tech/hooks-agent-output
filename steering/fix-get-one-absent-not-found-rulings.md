@@ -100,3 +100,15 @@ SendMessage to `qa-fix-get-one-absent-not-found` (read only, test account, once 
 Vercel rollback). Handoffs 7c3e91a4 and e450d19c close Addressed only after B-1 holds; b88e8be8 (Navigation lint) stays Open.
 `code-reviewer-…` and `devops-…` stopped 10:12Z (their work is terminal); `qa-…` stays up for B-1. The retrospective of chains 3 and 3b
 (a batch: chain 3 took a REJECTED round) runs once the files are closed out.
+
+## 2026-11-21T10:18Z — B-1 holds; chain closed out; batch retrospective of chains 3 and 3b spawned
+
+B-1 read by `qa-fix-get-one-absent-not-found`, 10:13:30Z-10:14:17Z, on hooks.gg as the test account, read only: HOLDS on both limbs
+(carrier's Result, record `aefd6beb`); this also settles the review's and QA's Assumption Not Checked. Closed Addressed by this thread:
+b5c69a32 (carrier), e450d19c (chain 2's B-1; the absent-number limb now holds), 7c3e91a4 (the escaped defect). Routed handoffs the
+chain created: b5c69a32 (closed); b88e8be8 `handoff/message-edit-header-preexisting-lint-findings-2026-11-21.md` (Open, own trigger).
+Devops's Phase 2D ran (deployment record Released, `301e2bec`). `qa-…` stopped 10:17Z. INDEX rebuilt (`6294c517`, every row this
+chain's); `check-repo.js` exit 1 with 16 unbaselined failures, none in this chain's files (other threads' `fix-trpc-batch-limit`
+sweep links, a placeholder stamp in `verification/018`). Box: no container; the `postgres:16` image kept (shared); three exited stage
+sessions' scratch dirs removed (1760 KB). The batch retrospective (Origin `fixer-batch-2026-11-21-c`: chains `fix-import-save-conflict`
+and this one; chain 3 took a REJECTED round) and the case-list helper for its scoring are spawned.
