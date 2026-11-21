@@ -1,0 +1,7 @@
+gate-on-raw-draft KILLED 4.51
+floor-on-raw-draft KILLED 4.29
+settled-notice-not-shown KILLED 4.5
+settled-notice-value-null KILLED 4.45
+requires-choice-guard-removed KILLED 4.45
+no-draft-guard-removed KILLED 4.11
+6 of 6 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; negative-controls-mutants.json (blob ae12ed1166b78d95ed639a7eb307028b2b520607))

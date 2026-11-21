@@ -1,0 +1,2 @@
+settled-draft-loses-components KILLED 4.71
+1 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; negative-controls-json-tab-mutants.json (blob 1755e3f9c460fddc54a597365f1a69335203cfba))

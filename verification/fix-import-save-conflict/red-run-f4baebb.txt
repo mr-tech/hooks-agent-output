@@ -1,0 +1,2 @@
+JSON report written to /usr/local/bin/hooks/agent-output/verification/fix-import-save-conflict/red-run-f4baebb.json
+exit=1

@@ -70,7 +70,7 @@ Spec-form cases in `NewMessageModal.persist-gate-wiring.test.tsx`. Each one moun
 
 **Invented value (Iron Law 5).** The tRPC wrapper `{ guildId: '1', message, droppedComponentTypes }` is the test's transcription of the router's return (`src/server/api/routers/message.ts:120-121`), and the wire's superjson transform is not run. If that shape were wrong, the dialog would show no preview and Continue would stay disabled. The test's own `findButton('Continue')` press would then fail on every import case, and it does not.
 
-**Red run** at `f4baebb`: the final test file was copied into a detached `git worktree add --detach` export of `f4baebb` (removed after the run) and run with `npx vitest run <file> --reporter=json`. Exit 1: cases 1 to 4 failed, the existing classic case passed, and case 5 passed. Capture: `verification/fix-import-save-conflict/red-run-f4baebb.json` and `.log`.
+**Red run** at `f4baebb`: the final test file was copied into a detached `git worktree add --detach` export of `f4baebb` (removed after the run) and run with `npx vitest run <file> --reporter=json`. Exit 1: cases 1 to 4 failed, the existing classic case passed, and case 5 passed. Capture: `verification/fix-import-save-conflict/red-run-f4baebb.json` and `.txt` (exit line).
 
 **Green run** at `3c6f16f`: 6/6 in the file, and the full suite below.
 
@@ -92,10 +92,10 @@ Case 5 passes at base. It is kept because the `settled-draft-loses-components` c
 
 | Check | Base `f4baebb` | Handoff `3c6f16f` | Capture |
 |---|---|---|---|
-| Suite `npx vitest run --reporter=json` | 2303 total / 2303 passed, 159 files, exit 0 | 2308 total / 2308 passed, 159 files (same path set), exit 0 | `base-suite-f4baebb.json`, `fix-suite.json`, `.log` |
-| `pnpm run typecheck` (both programs) | — | exit 0 | `typecheck.log` |
+| Suite `npx vitest run --reporter=json` | 2303 total / 2303 passed, 159 files, exit 0 | 2308 total / 2308 passed, 159 files (same path set), exit 0 | `base-suite-f4baebb.json`, `fix-suite.json`, and `.txt` with the exit line |
+| `pnpm run typecheck` (both programs) | — | exit 0 | `typecheck.txt` |
 | eslint, touched files (the `lint` script runs `--fix`, so eslint was run directly without it; base read in a detached export) | modal 3 errors; test 6 errors | modal 3 errors, the same three rules (lines shifted by the insert); test 0 | `lint-base-*.json`, `lint-fix-*.json` |
-| `convention-check.js --since=f4baebb` | — | 3 FAIL (the modal's three eslint errors, present at base), 0 CANDIDATE, 18 SKIP: 17 untracked `.playwright-mcp/*.png` outside the examined set, and the id-token/basename check, which the checker states did not run (so naming is unchecked by it) | `convention-check.log` |
+| `convention-check.js --since=f4baebb` | — | 3 FAIL (the modal's three eslint errors, present at base), 0 CANDIDATE, 18 SKIP: 17 untracked `.playwright-mcp/*.png` outside the examined set, and the id-token/basename check, which the checker states did not run (so naming is unchecked by it) | `convention-check.txt` |
 
 The repository-wide eslint run without `--fix` reports problems across the whole repository at both trees. Only the two touched files are compared here; nothing outside them changed. No package-manager operation ran; the lockfile was not touched. No local build was served and no save was made, so the local-build prohibition did not come into play.
 
@@ -124,3 +124,4 @@ For the owner's own check, all in the "Create or upload a new message" dialog:
 | Date | Agent | Change |
 |---|---|---|
 | 2026-11-21T08:09 | fixer-fix-import-save-conflict | Document created. Diagnosis, red run at `f4baebb`, fix `5b6c6e3` and test `3c6f16f`, 7 negative controls killed, verification recorded, handed to code review at `3c6f16f`. |
+| 2026-11-21T08:11 | fixer-fix-import-save-conflict | The run captures were renamed from `.log` to `.txt`, because the record's `.gitignore` excludes `*.log` and the first commit (`b55fba9`) left them out; the references above are updated. |

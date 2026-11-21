@@ -1,0 +1,63 @@
+FAIL eslint src/app/message/_components/NewMessageModal.tsx:107 — react-hooks/set-state-in-effect: Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/usr/local/bin/hooks/website/src/app/message/_components/NewMessageModal.tsx:107:26
+  105 |   useEffect(() => {
+  106 |     const gId = webhook?.guild_id ?? discordMessage?.guildId ?? commandMessage?.guildId ?? null;
+> 107 |     if (!guildId && gId) setSelectedGuildId(gId);
+      |                          ^^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  108 |   }, [webhook, discordMessage, commandMessage]);
+  109 |
+  110 |   const loadedMessage = useMemo(() => {
+FAIL eslint src/app/message/_components/NewMessageModal.tsx:161 — react-hooks/set-state-in-effect: Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/usr/local/bin/hooks/website/src/app/message/_components/NewMessageModal.tsx:161:32
+  159 |
+  160 |   const { labelProps, fieldProps } = useLabel({ label: 'Save To' });
+> 161 |   useEffect(() => { if (guild) setSelectedGuildId(guild.id); }, [guild]);
+      |                                ^^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  162 |
+  163 |   const dropdownItems = useGuildDropdownItems({ setSelectedGuildId });
+  164 |
+FAIL eslint src/app/message/_components/NewMessageModal.tsx:401 — react-hooks/refs: Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+/usr/local/bin/hooks/website/src/app/message/_components/NewMessageModal.tsx:401:18
+  399 |           <Transition
+  400 |             as="div"
+> 401 |             ref={menuRefs[1]}
+      |                  ^^^^^^^^^^^ Cannot access ref value during render
+  402 |             show={page === 1}
+  403 |             unmount={false}
+  404 |             className={classNames(styles.flex({ col: true, gap: 4 }), 'absolute w-full')}
+SKIP .playwright-mcp/a2-empty-textdisplay.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a2-v2b.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a4-send-empty.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a6-state.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a7-send-filled.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b1-section.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b2-thumb.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b3-gallery-alt.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b3-gallery.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-41-text-displays-base.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-41-text-displays-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-content-2100-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-control-valid-v2-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-embed-description-4097-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-empty-username-base.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-empty-username-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-fresh-text-display-tip.png: not examined — extension .png is outside the examined set
+SKIP id-token, basename: /usr/local/bin/hooks/agent-output/CLAUDE.md states an ID-token class this checker does not implement verbatim (the hooks line at cca22fd) — the checks did not run
+convention-check: 2 file(s) examined, 17 not examined, 1 test file(s); 3 FAIL, 0 CANDIDATE, 18 SKIP
