@@ -3,8 +3,8 @@ ID: n/a
 Origin: "release chain/fix-recent-message-ids -> website 6f76c6de2daab590777c047e9439cf5f5a9ed215"
 UUID: 3b9e71d4
 Verified-At: "6f76c6d — repos=website; the tip's tree fc58d634 is the Phase 2 Verified-At tree (qa/fix-recent-message-ids-qa.md, ec750c0)"
-Status: Release Verified
-Status-Detail: "Release-tip verdict for website master 76da25c -> 6f76c6d. Steps 1b and 2 ran. Of 32 open handoffs, 1 names a website release (a lockfile pin check), which ran and holds. There is no gated time-based set. Devops holds the push for the owner's word."
+Status: Released
+Status-Detail: "Release-tip verdict for website master 76da25c -> 6f76c6d. Steps 1b and 2 ran. Of 32 open handoffs, 1 names a website release (a lockfile pin check), which ran and holds. There is no gated time-based set. Released: website master moved to 6f76c6d on 2026-11-21T06:45:05Z (deployment/fix-recent-message-ids-deployment.md)."
 Phase: 3
 ---
 
@@ -26,6 +26,7 @@ the same one Phase 2 ran on. The Phase 2 document is not reopened.
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T06:41 | devops-fix-recent-message-ids, release request | Phase 3 at the release tip `6f76c6d` | Phase 3: Release Verified. Of 32 open handoffs, 1 names a website release; it was run and holds. No gated time-based set exists. |
+| 2026-11-21T06:47 | devops-fix-recent-message-ids | Release executed; record closed | Status: Released. Website master 76da25c -> 6f76c6d pushed 2026-11-21T06:45:05Z by release-move.js (exit 0) with this record as its evidence; origin master read back as 6f76c6d. My Assumption Not Checked (Vercel installs with the frozen lockfile) is carried by deployment/fix-recent-message-ids-deployment.md and handoff/website-git-dependencies-resolve-unpinned-2026-11-20.md. |
 
 ## Step 1b — open handoffs whose Review-Trigger names this verdict or a website production push
 
