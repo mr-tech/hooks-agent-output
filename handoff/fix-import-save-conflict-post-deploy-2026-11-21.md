@@ -1,7 +1,7 @@
 ---
 UUID: e4abdf8b
 Status: Open
-Status-Detail: "Carrier of the post-deploy row PD-1 for fixer chain fix-import-save-conflict (website master, Vercel production). The release was pushed 2026-11-21T08:53:57Z (E-WEBSITE-PUSH written); PD-1 is decidable now and its Result is blank, awaiting a qa-role reader steering spawns."
+Status-Detail: "Carrier of the post-deploy row PD-1 for fixer chain fix-import-save-conflict (website master, Vercel production). The release was pushed 2026-11-21T08:53:57Z (E-WEBSITE-PUSH written); PD-1 read 09:00Z: the fix is serving; the Message Link limb is falsified by production's getFromUrl returning blank content (not this release's path). Open until steering routes that observation."
 Owning-Stage: qa
 Review-Trigger: "the production deploy of website master carrying fix-import-save-conflict (the E-WEBSITE-PUSH row of this record's event ledger filled) — then PD-1"
 ---
@@ -65,7 +65,22 @@ what Discord answered.
   contain embeds or content." line; Save enabled after the name. Classic message: preview shows the content; Save enabled; no notice.
 - **Falsifier**: no preview, or the old red error with Save off, on the Message Link tab while the Webhook tab works (QA's falsity signature).
   A falsifier goes to the owner; rollback is Vercel promote of the previous deployment (his call).
-- **Owner**: qa. **Result**: _blank — unread until the release is pushed_.
+- **Owner**: qa. **Result** (qa-fix-import-save-conflict, read 2026-11-21T08:57Z to 08:59:40Z on hooks.gg as test account 1; steps
+  `verification/fix-import-save-conflict/qa/pd1/pd1-steps.md`, evidence `…/qa/pd1/evidence/`; nothing saved, edited or deleted):
+  **prediction FALSIFIED on the real-path limb, by a cause upstream of this release; the release's own change is confirmed serving.**
+  - Serving build: PASS. In the stage browser, a V2-flagged message with content (row D) was served by a browser-side route on a fake
+    webhook URL; the Webhook tab showed the settled notice "…it has been saved as Classic and the flag cleared.", no red
+    "cannot contain" line, the preview text and Continue enabled. The old build shows the red error there instead.
+  - Message Link, both fixture messages: FAIL against the prediction. Each loaded an empty draft: the preview reads only "Message must
+    have content, embeds, or components.", the JSON tab is `{}`, and Save is disabled after a name. There was no red "cannot contain" line.
+  - Cause, read directly: production's `GET /api/trpc/message.getFromUrl` answers 200 for both, with `content: ""`, `embeds: []` and
+    no components. The V2 message keeps `flags: 32768` (`…/qa/pd1/evidence/getFromUrl-direct-read.json`). So the server receives from
+    Discord a message with its content and components blank, though devops posted both with content (`post-test-messages-output.txt`,
+    status 200). That fits Discord blanking content for an app without the Message Content intent, but this is an inference, unverified.
+  - Not this release: `src/server` and `src/utils/discordResponseToMessage.ts` are unchanged `f4baebb..b829314` (`git diff --quiet`
+    exit 0). At `f4baebb` the dialog floors the raw draft, which gives the same message and the same disabled Save. A rollback would not
+    change this read.
+  - The Webhook tab with a real test webhook was not read: no test webhook is named in `test-estate.json`.
 
 ## Evidence
 
@@ -84,3 +99,4 @@ at Stage 1.
 |---|---|---|
 | 2026-11-21T08:50 | devops-fix-import-save-conflict | Opened at Stage 1. Fixture messages posted to the test server as the test bot (two, ids above). PD-1 unread; the push has not happened. |
 | 2026-11-21T08:54 | devops-fix-import-save-conflict | E-WEBSITE-PUSH written: website `master` `f4baebb` → `b829314` at 08:53:53Z to 08:53:57Z. PD-1 is now decidable; unread. |
+| 2026-11-21T09:00 | qa-fix-import-save-conflict | PD-1 read. The fix is serving (build check PASS). The Message Link limb is falsified upstream: production's `getFromUrl` returns both fixture messages with blank content and components, a path this release did not change. Sent to steering-hooks as owner-needing. The handoff stays Open until the empty-import observation has a carrier. |
