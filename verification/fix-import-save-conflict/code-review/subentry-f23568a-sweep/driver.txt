@@ -1,0 +1,4 @@
+gate-on-raw-draft KILLED 4.71
+settled-notice-not-shown KILLED 4.64
+requires-choice-guard-removed KILLED 4.25
+3 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; subentry-f23568a-sweep-mutants.json (blob 52cbb1acabb53c8ce888472f0f150cc8a289f653))

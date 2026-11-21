@@ -1,0 +1,5 @@
+settled-floor-removed KILLED 4.64
+floor-on-raw-draft KILLED 4.54
+preview-shows-raw-draft KILLED 4.71
+preview-shows-settled-only KILLED 4.85
+4 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; subentry-f23568a-mutants.json (blob 15ef5be6ad287e6ed59e31f743f4402b40d6ce06))

@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > the preview shows a message with both V2 components and content as loaded while the choice is pending
+AssertionError: expected undefined to be 'hi' // Object.is equality
+
+- Expected:
+"hi"
+
++ Received:
+undefined
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:237:26
+    235|
+    236|     const data = previewedData();
+    237|     expect(data.content).toBe('hi');
+       |                          ^
+    238|     expect(hasComponentType(data, 17)).toBe(true);
+    239|     expect((data.flags ?? 0) & IS_V2).toBe(IS_V2);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

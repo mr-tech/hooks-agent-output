@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/2a860290-6dce-4b9a-9007-df0c19d19936/scratchpad/mutwork/20261121T082144Z-p2305322/mutant-3
+
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx (9 tests | 1 failed) 1469ms
+     × the preview shows a V2-flagged message with content and no V2 components as the Classic message Save writes 75ms
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  1 failed | 16 passed (17)
+   Start at  08:21:59
+   Duration  3.87s (transform 1.27s, setup 77ms, import 4.87s, tests 2.87s, environment 2.74s)
+

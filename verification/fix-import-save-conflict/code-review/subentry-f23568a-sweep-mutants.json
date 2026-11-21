@@ -1,0 +1,38 @@
+[
+  {
+    "id": "gate-on-raw-draft",
+    "file": "src/app/message/_components/NewMessageModal.tsx",
+    "old": "const gate = gateBeforePersist(settledMessage ?? loadedMessage);",
+    "new": "const gate = gateBeforePersist(loadedMessage);",
+    "tests": [
+      "src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx",
+      "src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx",
+      "src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx",
+      "src/app/message/f/[id]/__tests__/page.message-list.test.tsx"
+    ]
+  },
+  {
+    "id": "settled-notice-not-shown",
+    "file": "src/app/message/_components/NewMessageModal.tsx",
+    "old": "<NullableComponent show={settledNotice}>",
+    "new": "<NullableComponent show={false}>",
+    "tests": [
+      "src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx",
+      "src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx",
+      "src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx",
+      "src/app/message/f/[id]/__tests__/page.message-list.test.tsx"
+    ]
+  },
+  {
+    "id": "requires-choice-guard-removed",
+    "file": "src/app/message/_components/NewMessageModal.tsx",
+    "old": "if (disposition.requiresChoice) return { settledMessage: undefined, settledNotice: null };",
+    "new": "",
+    "tests": [
+      "src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx",
+      "src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx",
+      "src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx",
+      "src/app/message/f/[id]/__tests__/page.message-list.test.tsx"
+    ]
+  }
+]

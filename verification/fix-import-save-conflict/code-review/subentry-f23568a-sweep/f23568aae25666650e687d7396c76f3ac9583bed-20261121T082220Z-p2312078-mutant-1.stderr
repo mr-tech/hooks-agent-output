@@ -1,0 +1,35 @@
+stderr | src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a V2-flagged message with content and no V2 components saves as Classic with the flag cleared, under the settled notice
+TypeError: textRange(...).getClientRects is not a function
+    at textCoords (file:///tmp/claude-1000/-usr-local-bin-hooks-website/2a860290-6dce-4b9a-9007-df0c19d19936/scratchpad/mutwork/20261121T082220Z-p2312078/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:811:43)
+    at TextView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/2a860290-6dce-4b9a-9007-df0c19d19936/scratchpad/mutwork/20261121T082220Z-p2312078/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:720:16)
+    at coordsInChildren (file:///tmp/claude-1000/-usr-local-bin-hooks-website/2a860290-6dce-4b9a-9007-df0c19d19936/scratchpad/mutwork/20261121T082220Z-p2312078/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1094:23)
+    at LineView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/2a860290-6dce-4b9a-9007-df0c19d19936/scratchpad/mutwork/20261121T082220Z-p2312078/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1532:20)
+    at DocView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/2a860290-6dce-4b9a-9007-df0c19d19936/scratchpad/mutwork/20261121T082220Z-p2312078/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:2774:30)
+    at EditorView.coordsAtPos (file:///tmp/claude-1000/-usr-local-bin-hooks-website/2a860290-6dce-4b9a-9007-df0c19d19936/scratchpad/mutwork/20261121T082220Z-p2312078/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6954:33)
+    at RectangleMarker.forRange (file:///tmp/claude-1000/-usr-local-bin-hooks-website/2a860290-6dce-4b9a-9007-df0c19d19936/scratchpad/mutwork/20261121T082220Z-p2312078/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7541:28)
+    at Object.markers (file:///tmp/claude-1000/-usr-local-bin-hooks-website/2a860290-6dce-4b9a-9007-df0c19d19936/scratchpad/mutwork/20261121T082220Z-p2312078/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7783:51)
+    at LayerView.measure (file:///tmp/claude-1000/-usr-local-bin-hooks-website/2a860290-6dce-4b9a-9007-df0c19d19936/scratchpad/mutwork/20261121T082220Z-p2312078/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7691:27)
+    at file:///tmp/claude-1000/-usr-local-bin-hooks-website/2a860290-6dce-4b9a-9007-df0c19d19936/scratchpad/mutwork/20261121T082220Z-p2312078/mutant-1/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6655:34
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a V2-flagged message with content and no V2 components saves as Classic with the flag cleared, under the settled notice
+AssertionError: expected 32768 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 32768
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:164:39
+    162|     const data = writtenData();
+    163|     expect(data.content).toBe('hi');
+    164|     expect((data.flags ?? 0) & IS_V2).toBe(0);
+       |                                       ^
+    165|   });
+    166|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
