@@ -1,0 +1,11 @@
+repo     /usr/local/bin/hooks/project-utils
+ref      master
+target   40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165
+remote   origin/master 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f
+local    master 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f
+untracked 0 path(s) left alone
+evidence reason Release-tip verdict is code-review/fix-git-dependency-pins-code-review.md round 1 APPROVED, Reviewed-At 40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165 (record fd88ffc); no QA in this stage set; tip is the reviewed commit, fast-forward of one commit over 749606d
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/project-utils/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+DRY RUN: every check passed; nothing moved
+exit 0

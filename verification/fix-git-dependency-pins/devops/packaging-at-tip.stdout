@@ -1,0 +1,7 @@
+Running scope as unit: run-r869f76c5eb834e05bcece82b92305da2.scope
+rev 40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165 node v24.14.0 npm 11.9.0
+PASS A1 prisma-kysely is a devDependency in package.json and package-lock.json
+PASS A2 a clean rebuild reproduces the committed dist/ (lint=0 build=0)
+PASS A3 a runtime-only install omits prisma-kysely
+PASS A4 dist/index.js loads under the runtime-only install
+exit 0
