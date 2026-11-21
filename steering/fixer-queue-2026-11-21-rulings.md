@@ -126,3 +126,23 @@ Options (wording this thread's): A "Agent: one answer for message load (Recommen
 three cases; only that load changes, the shared check and its other callers keep 'forbidden'. B "Agent: page only" — server keeps
 'not found' vs 'forbidden', readable in network responses. C "Agent: change shared check" — 8 call sites, `getGuild` silently 'no
 server'. Chosen by selection: **A**.
+
+## 2026-11-21T05:59Z — selection: chain 4 reaches all typed message text; chain 3's design read
+
+Chain 4. Selection prompt, put 05:5xZ, answered 05:59Z (ledger: `steering/selection-ledger/2026-11-21.md`, block "2026-11-21T05:59Z —
+steering-hooks"). Premise: chain 4's sweep `verification/fix-desktop-draft-as-typed/scoping/sweep.md` (commit `ebd7365`, read from
+code at `76da25c`): desktop `Desktop.tsx:95` holds the content editor's text locally and commits on blur-within (`:45-48`); embed author
+name (`EmbedAuthor.tsx:58-62`) and footer text (`EmbedFooter.tsx:123`) commit on blur; the image URL dialog (`ImageUploader.tsx:54-57`)
+and JSON dialog (`JsonModalBody.tsx:88`) commit on their button. Options (wording this thread's): A "Agent: all typed text
+(Recommended)" — content editor plus author name and footer text save as typed; the two dialogs keep their button; B "Agent: content
+editor only"; C "Agent: dialogs too". Chosen by selection: **A**.
+This thread's error, recorded: the prompt was put before a refutation helper tried the sweep's conclusion (steering.md, Prompting the
+owner). One was started at 05:59Z after the answer; its result is recorded below when it lands, and reopens the selection only where it
+changes what the chain builds.
+
+Chain 3, this thread's design reading (agent-authored, inside his Q2 A words "the way the JSON tab does"): the sweep
+(`verification/fix-import-save-conflict/scoping/sweep.md`, commit `729a64f`) reads the JSON tab as two behaviours by row — a row E draft
+(V2 components and classic content) is held for the user's choice of Classic or V2, the other dropped (plan 013 D17), and rows A-D are
+settled with `applyDisposition` and a settled notice. Chain 3 reproduces both in `NewMessageModal` for every import tab, so neither the
+row E choice nor a row D silent floor leaves Save off with no way out. Not put to him: it is the JSON tab's own rule applied to a second
+surface, which his words name.
