@@ -1,7 +1,7 @@
 ---
 UUID: c3c76c16
-Status: Open
-Status-Detail: "One post-deploy row, P-2, NOT EXECUTED: read 2026-11-21T06:46Z by uat-fix-recent-message-ids and found undecidable without a save (no server row in the list; the Claude server holds no message); routed to steering-hooks for the owner's call on a save."
+Status: Addressed
+Status-Detail: "P-2 EXECUTED 2026-11-21T06:48Z-06:50Z by uat-fix-recent-message-ids, prediction held on both limbs: account 1 (admin) lists Claude-server message 6029; account 2 (member) omits it with 6029 in its stored list. 6029 deleted; account 2's list restored. Closed."
 Owning-Stage: uat
 Review-Trigger: "the production deploy of website master carrying fix-recent-message-ids (the E-WEBSITE-PUSH row of this record's event ledger filled) — then P-2"
 ---
@@ -50,16 +50,32 @@ browser. Screenshots stay untracked and are never committed (his 09:01Z ruling, 
   the previous deployment, his call.
 - **Known limits**: a message saved before the deploy reads the same either way (the old build also lists it), so a result only counts if
   read after the deploy is serving; if the list shows no server row at all and no row was saved, nothing is decided.
-- **Owner**: uat-role session. **Result**: NOT EXECUTED, undecidable. Recorded beside the prediction; nothing above it is changed.
-  Read 2026-11-21T06:46Z by `uat-fix-recent-message-ids` on hooks.gg as test account 1 (session user `1219217003659788418`). Read
-  only: nothing was saved, sent, edited or deleted. `/message`: `session.hydration.messages` (read from `/api/auth/session`) holds six
-  rows (5996, 6008, 6009, 6010, 6011, 6012), every one labelled "My Account". There is no server row. The Servers strip lists My Account,
-  Claude (`1566742402180456559`) and statbot-065-install-test. `/message/f/1566742402180456559` shows "No Messages", so the Claude server
-  has no row the list could show. This is the Known-limits case ("no server row at all and no row was saved, nothing is decided"). The
-  instrument's save step was not taken: the stage brief allowed a read only. Whether hooks.gg serves `6f76c6d` was not established, since
-  with no server rows the page reads the same on either build. The account-2 limb was not attempted because it also needs a write. Not
-  falsified: the Servers strip shows the owner/Administrator trim keeping Claude for this account, which corroborates the parse but is
-  not the row's condition. Routed to `steering-hooks` 2026-11-21T06:47Z (owner-needing: allow one test save, or leave the row unverified).
+- **Owner**: uat-role session. **Result**: **EXECUTED 2026-11-21, PASS. The prediction held on both limbs.** Recorded beside the
+  prediction; nothing above it is changed.
+  - *First read, 06:46Z, read only*: undecidable. The list held six personal rows and no server row, and the Claude server held no message
+    (record `5a245a9`).
+  - *Owner's selection A* (`steering/fix-recent-message-ids-rulings.md` block 2026-11-21T06:48Z, commit `4a0cf3a`) allowed the save,
+    the account-2 limb, the delete and the restore. Nothing else was written on production.
+  - *Limb 1, test account 1* (`1219217003659788418`, kept profile, 06:48Z): New Message in the Claude server
+    (`/message/f/1566742402180456559`). `message.upsert` returned id **6029** with `guildId` `1566742402180456559`.
+    `/api/auth/session` then gave `hydration.messages` = 5996, 6008, 6009, 6010, 6012, **6029**: the server's message is in its own list.
+    PASS (not the falsifier).
+  - *Limb 2, test account 2* (`1219222937962283038`, its own profile, scripted by the browser-walker helper): `user.guilds` holds no
+    entries, so Claude is not among them.
+    - Stored list BEFORE = `["6021","6020","5995"]`; hydration before = `[]`.
+    - `user.updatePreferences` with `["6029","6021","6020","5995"]` at 06:49:53.014Z returned 200. The stored list then read
+      `["6029","6021","6020","5995"]` and hydration `[]`: 6029 omitted. PASS.
+    - Restored with BEFORE at 06:49:53.991Z (200). It read back `["6021","6020","5995"]`, an exact match.
+  - *Which build served*: the new one. The row's Known limits ask how this was established. The old build listed a server row from the
+    stored list without a guild check (the source handoff's defect), so account 2's hydration leaving out an existing server row
+    shows `6f76c6d`'s filter serving.
+  - *Delete*: 6029 was deleted by account 1 through the server list's message actions at 06:50Z (toast "Message deleted.").
+    `message.getOne` 6029 then returned 500, and account 1's hydration no longer lists it.
+  - *Residual on account 1's own stored list* (outside the selection's acts, so left as is): it now begins with the deleted `"6029"`,
+    which hydration skips. It no longer carries `"6011"`, which the app's own 10-entry cap dropped when 6029 opened. The list before was
+    `6012,6010,6023,6024,6022,6020,6008,5996,6009,6011`.
+  - Evidence files (untracked, scratch): the walker's `walk.mjs`, `before.json`, `step1.json` and `result.json` under the UAT session's
+    scratchpad `p2-acct2/`. No screenshots were taken.
 
 ## Evidence
 
@@ -79,3 +95,4 @@ Raised by QA Phase 2 (Assumption Not Checked) of fixer chain `fix-recent-message
 | 2026-11-21T06:42 | devops-fix-recent-message-ids | Created at Stage 1. Row P-2 carried in full; the event ledger is blank until Stage 2. No crontab line: the reader is a uat-role session, spawned by steering after the push. |
 | 2026-11-21T06:45 | devops-fix-recent-message-ids | E-WEBSITE-PUSH written at Stage 2: website master 76da25c -> 6f76c6d pushed 2026-11-21T06:45:05Z. P-2 stays blank; the reader is the uat-role session steering spawns. Vercel's build of the push is not read from the host; start P-2 only once hooks.gg serves the new build (a reload shows the recent list filtered), and say in the Result how that was established. |
 | 2026-11-21T06:48 | uat-fix-recent-message-ids | P-2 read on hooks.gg as test account 1, read only. NOT EXECUTED, undecidable: the recent list has only personal rows and the Claude server holds no message. The save step was not taken under the read-only brief, and serving of 6f76c6d was not established. Routed to steering-hooks. The handoff stays Open; no screenshots were taken. |
+| 2026-11-21T06:52 | uat-fix-recent-message-ids | Document closed | Status: Addressed. P-2 EXECUTED on the owner's selection A (rulings block 06:48Z): account 1 lists Claude-server message 6029, and account 2 omits it with 6029 stored. 6029 deleted; account 2's list restored. Moved to closed/. |
