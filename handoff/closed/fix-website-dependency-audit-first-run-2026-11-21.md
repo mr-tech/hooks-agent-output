@@ -1,7 +1,7 @@
 ---
 UUID: ce9ae147
-Status: Open
-Status-Detail: "Carries chain fix-website-dependency-audit's one post-deploy row B-1 and its two Assumptions Not Checked: the first scheduled run (06:43Z 2026-11-21) of tools/website-dependency-audit.js under cron's environment. Read by scheduled reader R1 (kit verification/fix-website-dependency-audit/post-deploy/kit/). Gates nothing: the crontab line is installed and the chain is closed."
+Status: Addressed
+Status-Detail: "B-1 EXECUTED 2026-11-21T07:13:05Z, PASS: first scheduled run read advisories 81, undispositioned 0 as predicted; both Assumptions closed true. Was: carries chain fix-website-dependency-audit's one post-deploy row B-1 and its two Assumptions Not Checked: the first scheduled run (06:43Z 2026-11-21) of tools/website-dependency-audit.js under cron's environment. Read by scheduled reader R1 (kit verification/fix-website-dependency-audit/post-deploy/kit/). Gates nothing: the crontab line is installed and the chain is closed."
 Owning-Stage: devops
 Review-Trigger: "the scheduled reader R1's fire after the tool's first scheduled run (07:13Z, 2026-11-21 to 2026-11-28): its completion row, last cell run-R1-complete, in this record's changelog"
 ---
@@ -25,12 +25,14 @@ Assumptions Not Checked travel here, in full. The deployment record
 - **Earliest decidable**: the first `cron.log` line written by the 06:43Z run (the log folder was empty at install: the smoke run wrote to scratch files).
 - **Predicted**: one line `<UTC minute>Z website 76da25c (origin/master; remote head 76da25c): advisories 81, undispositioned 0, newly reported 0 []`. The local clone's `origin/master` was `76da25c` at install and differs from the seeded `d1bb9b0` only by a removed npm `overrides` block, so N = 81 and U = 0 are predicted unless advisories were published since. U > 0 is correct behaviour, with U entries in `INBOX.md`; N other than 81 with every advisory dispositioned is also correct. One observation refutes.
 - **Failure mode**: a `website-dependency-audit failed:` line (the tool works, the environment does not: network, `HOME`, `PATH`), which also puts one failure entry in `INBOX.md`; or `advisories 0` (a degraded audit that looks quiet, which the tool cannot see).
-- **Owner**: devops (R1). **Result**: _blank_
+- **Owner**: devops (R1). **Result**: **EXECUTED 2026-11-21T07:13:05Z, PASS**: `2026-11-21T06:43Z website 76da25c (origin/master; remote head 76da25c): advisories 81, undispositioned 0, newly reported 0 []`. Matches the prediction (N = 81, U = 0); nothing differs.
 
 ### The two Assumptions Not Checked
 
 1. **QA** (`qa/closed/fix-website-dependency-audit-qa.md`, "Assumption Not Checked"): real `pnpm audit --prod --json` output over `76da25c`'s lockfile has the shape the stub's fixture reproduces. Closes true on a line with `advisories N`, N > 0; false on `failed: pnpm audit gave no advisories` or `advisories 0`.
+   - **closed true** (2026-11-21T07:13:05Z): `2026-11-21T06:43Z website 76da25c (origin/master; remote head 76da25c): advisories 81, undispositioned 0, newly reported 0 []`.
 2. **Code review** (`code-review/closed/fix-website-dependency-audit-code-review.md`, "Assumption Not Checked"): cron's environment at 06:43Z (registry reach, `HOME` for pnpm's config and store, `/usr/local/bin` node on `PATH`) lets `pnpm audit` answer as it did under the reviewer's `env -i` run. Closes true on any `advisories N` line; false on a `failed:` line.
+   - **closed true** (2026-11-21T07:13:05Z): `2026-11-21T06:43Z website 76da25c (origin/master; remote head 76da25c): advisories 81, undispositioned 0, newly reported 0 []`.
 
 ## Mechanism
 
@@ -56,3 +58,4 @@ QA Phase 2 register row B-1 and the two Assumptions Not Checked above; devops br
 |---|---|---|
 | 2026-11-21T01:13 | devops-fix-website-dependency-audit | Created at the chain's close. B-1 and both Assumptions Not Checked carried in full; reader R1's kit and crontab line installed; kit smoke recorded in the next row. |
 | 2026-11-21T01:14 | devops-fix-website-dependency-audit | Reader R1 armed: crontab line `13 7 21-28 11 *` installed (live crontab: 2 lines added, none removed; `verification/fix-website-dependency-audit/post-deploy/kit/out/crontab-installed-lines.txt`). `node ~/.claude/tools/post-deploy-launcher.js verification/fix-website-dependency-audit/post-deploy/kit/briefs/R1.md --smoke` exit 0, `SMOKE OK`. `read.sh` run once against the absent log: `cron_log_present=no`. The row is open until R1's completion row. |
+| 2026-11-21T07:13 | devops-fix-website-dependency-audit-R1 | R1 read via read.sh (`verification/fix-website-dependency-audit/post-deploy/kit/out/R1.20261121T0713Z.txt`): B-1 PASS, advisories 81, undispositioned 0; both Assumptions closed true; carrier Addressed and moved to closed/. | run-R1-complete |

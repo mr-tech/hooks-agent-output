@@ -1,0 +1,7 @@
+cron_log_present=yes mtime=2026-11-21T06:43Z
+cron_log_lines=1
+run_lines=1
+failed_lines=0
+--- first 5 lines of cron.log (each cut at 300 characters)
+2026-11-21T06:43Z website 76da25c (origin/master; remote head 76da25c): advisories 81, undispositioned 0, newly reported 0 []
+state_file_present=no
