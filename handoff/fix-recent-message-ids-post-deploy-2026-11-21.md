@@ -1,7 +1,7 @@
 ---
 UUID: c3c76c16
 Status: Open
-Status-Detail: "One post-deploy row, P-2 (the hooks.gg recent list read by a Discord test account), owed after the push of website master to 6f76c6d; blank until then. The row is carried in full. No stage has read it: the devops session that owns the deployment record has no browser tools."
+Status-Detail: "One post-deploy row, P-2, NOT EXECUTED: read 2026-11-21T06:46Z by uat-fix-recent-message-ids and found undecidable without a save (no server row in the list; the Claude server holds no message); routed to steering-hooks for the owner's call on a save."
 Owning-Stage: uat
 Review-Trigger: "the production deploy of website master carrying fix-recent-message-ids (the E-WEBSITE-PUSH row of this record's event ledger filled) — then P-2"
 ---
@@ -50,7 +50,16 @@ browser. Screenshots stay untracked and are never committed (his 09:01Z ruling, 
   the previous deployment, his call.
 - **Known limits**: a message saved before the deploy reads the same either way (the old build also lists it), so a result only counts if
   read after the deploy is serving; if the list shows no server row at all and no row was saved, nothing is decided.
-- **Owner**: uat-role session. **Result**: (blank)
+- **Owner**: uat-role session. **Result**: NOT EXECUTED, undecidable. Recorded beside the prediction; nothing above it is changed.
+  Read 2026-11-21T06:46Z by `uat-fix-recent-message-ids` on hooks.gg as test account 1 (session user `1219217003659788418`). Read
+  only: nothing was saved, sent, edited or deleted. `/message`: `session.hydration.messages` (read from `/api/auth/session`) holds six
+  rows (5996, 6008, 6009, 6010, 6011, 6012), every one labelled "My Account". There is no server row. The Servers strip lists My Account,
+  Claude (`1566742402180456559`) and statbot-065-install-test. `/message/f/1566742402180456559` shows "No Messages", so the Claude server
+  has no row the list could show. This is the Known-limits case ("no server row at all and no row was saved, nothing is decided"). The
+  instrument's save step was not taken: the stage brief allowed a read only. Whether hooks.gg serves `6f76c6d` was not established, since
+  with no server rows the page reads the same on either build. The account-2 limb was not attempted because it also needs a write. Not
+  falsified: the Servers strip shows the owner/Administrator trim keeping Claude for this account, which corroborates the parse but is
+  not the row's condition. Routed to `steering-hooks` 2026-11-21T06:47Z (owner-needing: allow one test save, or leave the row unverified).
 
 ## Evidence
 
@@ -69,3 +78,4 @@ Raised by QA Phase 2 (Assumption Not Checked) of fixer chain `fix-recent-message
 |---|---|---|
 | 2026-11-21T06:42 | devops-fix-recent-message-ids | Created at Stage 1. Row P-2 carried in full; the event ledger is blank until Stage 2. No crontab line: the reader is a uat-role session, spawned by steering after the push. |
 | 2026-11-21T06:45 | devops-fix-recent-message-ids | E-WEBSITE-PUSH written at Stage 2: website master 76da25c -> 6f76c6d pushed 2026-11-21T06:45:05Z. P-2 stays blank; the reader is the uat-role session steering spawns. Vercel's build of the push is not read from the host; start P-2 only once hooks.gg serves the new build (a reload shows the recent list filtered), and say in the Result how that was established. |
+| 2026-11-21T06:48 | uat-fix-recent-message-ids | P-2 read on hooks.gg as test account 1, read only. NOT EXECUTED, undecidable: the recent list has only personal rows and the Claude server holds no message. The save step was not taken under the read-only brief, and serving of 6f76c6d was not established. Routed to steering-hooks. The handoff stays Open; no screenshots were taken. |
