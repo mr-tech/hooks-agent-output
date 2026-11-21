@@ -32,3 +32,6 @@ production serves a build containing the fix.
 - 11:37:33Z, final reload: **no dialog**. Drafts `6020`, `0:vqjq7pvgfv`; content tail `happy to help you!\n `, the saved
   text; author name `""`.
 - The saved message on the server was never written.
+
+**Disposition of the leftover draft** (pre-existing, not this fix): routed to
+`handoff/typed-back-edit-leaves-saved-message-draft-2026-11-21.md` (ffab0db5), Owning-Stage planner.
