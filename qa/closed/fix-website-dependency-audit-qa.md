@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-website-dependency-audit
 UUID: d9ef268a
 Verified-At: "ead3ea1 — repos=agent-output"
-Status: QA Complete
-Status-Detail: "Phase 2 refresh at ead3ea1: QAF-1..QAF-5 closed (tests only; production identical to c5508c7); suite 23/23, exit 0; the 72-mutant set has 63 killed, the other 9 equivalent or without a reader. Next: devops installs the crontab line and reads the first run (register row B-1)."
+Status: Released
+Status-Detail: "Phase 2 verdict QA Complete at ead3ea1 (QAF-1..QAF-5 closed; suite 23/23, exit 0; 63 of 72 mutants killed, 9 equivalent or without a reader). Closed by devops at the chain's release: crontab line installed 2026-11-21T01:11Z, no push. Register row B-1 and the Assumption Not Checked are carried by handoff/fix-website-dependency-audit-first-run-2026-11-21.md, read by scheduled reader R1."
 Phase: 2
 ---
 
@@ -20,6 +20,7 @@ Phase: 2
 |------|---------------|---------|---------|
 | 2026-11-21T00:56 | steering-roadmap-hooks (brief, record `097b839`) | Phase 2 on a fixer chain at `c5508c7` | Phase 2. A fixer chain, so there is no Phase 1 (owner's selection of the fixer route). Suite re-run network-isolated in an export: 18/18, exit 0. Mutation sweep over the chain's production file (60 generated + 12 QA mutants): 49 of 72 KILLED, 23 SURVIVED. Of the survivors, 8 are equivalent or have no reader; 15 show four claimed properties with no failing assertion (QAF-1..QAF-4, MEDIUM, severity floor) and one untested disjunct (QAF-5, LOW). **QA Failed**: to the fixer for test tightening; no production change is owed. |
 | 2026-11-21T01:09 | fixer-fix-website-dependency-audit (message; implementation document `9a21bba`, `Handoff-At: ead3ea1`) | Phase 2 refresh after the QAF round | Phase 2 refresh at `ead3ea1`. Production unchanged since `c5508c7`, the test file +68 −0. Suite network-isolated: 23/23, exit 0. My re-run of the 23 survivors at `ead3ea1`: 14 KILLED, each by the case written for it; the 9 still surviving are the ones already ruled equivalent or without a reader. QAF-1..QAF-5 closed. **QA Complete** at `ead3ea1`; to devops. |
+| 2026-11-21T01:14 | devops-fix-website-dependency-audit | Document closed | Status: Released. The tool is installed on a crontab line (01:11Z, no push). Row B-1 and this document's Assumption Not Checked are carried by `handoff/fix-website-dependency-audit-first-run-2026-11-21.md` and read at the first scheduled run (06:43Z) by reader R1. |
 
 ## Scope and criteria assessed (recorded before executing)
 
@@ -116,7 +117,7 @@ Later stage documents (the deployment record, then any handoff carrying an open 
 
 | ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable condition | Predicted value | Failure mode | Owner | Discharging document | State |
 |---|---|---|---|---|---|---|---|---|---|---|
-| B-1 | post-deploy-observable | Criteria 3–5 and 8 under cron's environment: the first scheduled run reads a non-empty audit | Read the first `cron.log` line after install (the line form is shown working in `verification/fix-website-dependency-audit/live-run-c7b6898.txt`) | devops session / none | crontab line installed, `/home/dev/.local/state/website-dependency-audit/` created, and the first 06:43-local run after that | One line `website <local7> (origin/master; remote head <remote7>): advisories N, undispositioned U, newly reported U […]`, with N > 0. The local clone's `origin/master` is `76da25c` now, and its dependency files differ from the seeded `d1bb9b0` only by a removed npm `overrides` block in `package.json` (`git diff --stat d1bb9b0 76da25c -- package.json pnpm-lock.yaml pnpm-workspace.yaml patches`, lockfile unchanged), so N = 81 and U = 0 are predicted unless advisories were published since; U > 0 is correct behaviour, with U entries in `INBOX.md`. One observation refutes. | A `website-dependency-audit failed:` line with one failure entry (the tool works, the environment does not); or `advisories 0` (a degraded audit that looks quiet, which the tool cannot see) | devops-fix-website-dependency-audit | the chain's deployment record | Open |
+| B-1 | post-deploy-observable | Criteria 3–5 and 8 under cron's environment: the first scheduled run reads a non-empty audit | Read the first `cron.log` line after install (the line form is shown working in `verification/fix-website-dependency-audit/live-run-c7b6898.txt`) | devops session / none | crontab line installed, `/home/dev/.local/state/website-dependency-audit/` created, and the first 06:43-local run after that | One line `website <local7> (origin/master; remote head <remote7>): advisories N, undispositioned U, newly reported U […]`, with N > 0. The local clone's `origin/master` is `76da25c` now, and its dependency files differ from the seeded `d1bb9b0` only by a removed npm `overrides` block in `package.json` (`git diff --stat d1bb9b0 76da25c -- package.json pnpm-lock.yaml pnpm-workspace.yaml patches`, lockfile unchanged), so N = 81 and U = 0 are predicted unless advisories were published since; U > 0 is correct behaviour, with U entries in `INBOX.md`. One observation refutes. | A `website-dependency-audit failed:` line with one failure entry (the tool works, the environment does not); or `advisories 0` (a degraded audit that looks quiet, which the tool cannot see) | devops-fix-website-dependency-audit | handoff/fix-website-dependency-audit-first-run-2026-11-21.md (reader R1; moved there at 2026-11-21T01:14, the carrier is authoritative on execution state) | Open — carried |
 
 ## Assumption Not Checked
 
