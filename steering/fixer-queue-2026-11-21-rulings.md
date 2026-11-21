@@ -138,7 +138,10 @@ and JSON dialog (`JsonModalBody.tsx:88`) commit on their button. Options (wordin
 editor only"; C "Agent: dialogs too". Chosen by selection: **A**.
 This thread's error, recorded: the prompt was put before a refutation helper tried the sweep's conclusion (steering.md, Prompting the
 owner). One was started at 05:59Z after the answer; its result is recorded below when it lands, and reopens the selection only where it
-changes what the chain builds.
+changes what the chain builds. Result (refutation helper, read from code at `76da25c`, not run): every limb HOLDS — content editor
+(`Desktop.tsx:32,45-52,95`), author name (`EmbedAuthor.tsx:44,58-62,136`), footer text (`EmbedFooter.tsx:44,118,123`), mobile
+pass-through (`Mobile.tsx:~104`); no unload flush in non-test `src` (`useUnloadAlert` prompts only); no other message input holds text
+locally. The selection stands unreopened.
 
 Chain 3, this thread's design reading (agent-authored, inside his Q2 A words "the way the JSON tab does"): the sweep
 (`verification/fix-import-save-conflict/scoping/sweep.md`, commit `729a64f`) reads the JSON tab as two behaviours by row — a row E draft
