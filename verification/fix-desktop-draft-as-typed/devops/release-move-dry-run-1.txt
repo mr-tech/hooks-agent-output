@@ -1,0 +1,11 @@
+repo     /usr/local/bin/hooks/website
+ref      master
+target   b68f94cda114bcef1efd59954aba321e246dd683
+remote   origin/master b663b354fb236c3ee58d8b0be01778e1908e0e10
+local    master b663b354fb236c3ee58d8b0be01778e1908e0e10
+untracked 17 path(s) left alone
+evidence reason Phase 2 walk verdict qa/closed/fix-desktop-draft-as-typed-qa.md Verified-At b68f94c covers the tip (tree 25ab048b); Phase 3 record pending
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+DRY RUN: every check passed; nothing moved
+exit=0

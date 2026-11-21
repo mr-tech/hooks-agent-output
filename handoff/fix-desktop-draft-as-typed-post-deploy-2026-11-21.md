@@ -55,9 +55,16 @@ devops does, at Stage 2.
   as a control, the QA walk's runs A-C in `verification/fix-desktop-draft-as-typed/qa/leave-prompt-and-field-results.md` raised it on
   the fixed build). Afterwards type each field back to its saved text (or remove the added author) so the draft is removed, reload
   once more and read that no draft remains. **No Save.**
-- **Baseline (before the push, requested of qa-fix-desktop-draft-as-typed by devops at 11:2xZ)**: the same steps on production before
-  the release. Prediction: the typed text is gone after the reload and no prompt is raised. Its unchanged limbs (the saved text comes
-  back unchanged; a field closed before reload keeps its text) are the baseline for the after-read.
+- **Baseline (taken before the push by qa-fix-desktop-draft-as-typed, 2026-11-21T11:28:12Z to 11:29:32Z)**: the same steps on
+  production's unfixed build, `verification/fix-desktop-draft-as-typed/devops/baseline/production-baseline-2026-11-21.md` (record
+  `f04ee116`). Observed as predicted: typed text lost after the reload and no prompt, for the content editor (` QA base one`) and the
+  author name (` a b`); the positive control (typed, clicked away, reload) raised the prompt. **Use message `6008`** (the test account's
+  classic message with content and two embeds, saved author name empty): `6024` answers "doesn't exist or no access" for this
+  account. **Cleanup note from the baseline:** typing the suffix back out and clicking away did not clear the `6008` draft on the
+  unfixed build (the page still judged the message changed; cause not established). The baseline removed only the `6008` entry from
+  `localStorage.messageDrafts` (a browser-local write), left the other entries (`6020`, `0:vqjq7pvgfv`) and confirmed a final reload
+  with no dialog. The after-read may do the same: remove only its own `6008` entry and say so; the type-back is tried first and its
+  result recorded.
 - **Subject / fallback**: qa through the stage browser / the owner by the same page.
 - **Earliest decidable**: Vercel production serves a website build whose commit contains `b68f94c`. Establish it from the event ledger
   above and from the first read in which typed text survives; a loss before the first survival is the old build still serving or a
@@ -81,3 +88,4 @@ rows B-7 and B-10 are not this chain's and keep it open.
 | Date (UTC) | Agent | Change | Token |
 |---|---|---|---|
 | 2026-11-21T11:27 | devops-fix-desktop-draft-as-typed | Created at Stage 1: row P-1 carried in full; baseline requested of qa; event ledger blank. | opened |
+| 2026-11-21T11:31 | devops-fix-desktop-draft-as-typed | Baseline of P-1 recorded (QA, `f04ee116`): as predicted on message 6008; cleanup note added to the instrument. | baseline-read |
