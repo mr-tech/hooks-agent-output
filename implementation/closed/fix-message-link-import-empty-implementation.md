@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-message-link-import-empty
 UUID: 214b1fae
-Status: Blocked
-Status-Detail: "Diagnosis complete: the cause is not code. Discord blanks content, embeds and components for the Hooks.gg app (1034527356381044828), which holds neither Message Content intent flag. Per the determination the chain stops here: no code written; the finding goes to the owner as a prompt (portal or intent application), then a qa-role production read. One production read requested (which app production reads with)."
+Status: Abandoned
+Status-Detail: "Closed on the owner's ruling (steering/fix-message-link-import-empty-rulings.md, block 2026-11-21T10:38Z, record 2cd06470): no code; the empty link import is a known limit for now, carried by handoff/message-link-import-loads-only-mentioning-messages-2026-11-21.md; link-preview embeds stay dropped."
 Origin-Chain: none
 ---
 
@@ -128,11 +128,10 @@ server `#general`, kept for the production read. The scratch transpile directory
 
 ## Handoff
 
-No code handoff: no SHA, no reviewer, no merge. Next acts: steering carries items 1 to 3. After the owner acts, a qa-role session reads
-production.
-
+No code handoff: no SHA, no reviewer, no merge. Items 1 to 3 were answered. The production read is `qa/fix-message-link-import-empty-production-read.md` (`96bd1c17`): it matched the prediction (mention loaded 101 characters and one rich embed; plain came back blank). The owner's ruling is in block 10:38Z: "unable to turn on intent without applying first. known limit for now", and link-preview embeds stay dropped (by selection). The known limit is carried by `handoff/message-link-import-loads-only-mentioning-messages-2026-11-21.md` (UUID 8e9ccc47). The website branch holds no commit (`b663b35`).
 ## Changelog
 
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-21T10:28 | fixer-fix-message-link-import-empty | Created (the stamp gate refused a typed stamp on the first write; the row was re-stamped from the clock). Diagnosis: Hooks.gg holds no Message Content intent, so Discord blanks the message (fixtures read through S1 with two readers). No code. Production read and owner decision sent to steering. |
+| 2026-11-21T10:39 | fixer-fix-message-link-import-empty | Document closed. Status: Abandoned, on the owner's ruling (block 10:38Z). No code. Known-limit handoff written (8e9ccc47). Nothing more posted to the test server. |
