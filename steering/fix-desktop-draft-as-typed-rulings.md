@@ -121,3 +121,14 @@ This thread's observation on devops's release message (not in its record): it sa
 in `/usr/local/bin/statbot/statbot-docs` and `/usr/local/bin/statbot/statbot-v3-website` (registry `cwd`), whose origins are
 `DiscordStatbot/statbot-docs` and `DiscordStatbot/statbot-v3-website` (`git remote get-url`), and `b663b354` is not an object in the
 latter (`git cat-file -t`, exit 128). Not relayed: no session acts on it.
+
+## 2026-11-21T11:40Z — P-1 holds; source handoff closed Addressed
+
+P-1 HOLDS on production at `b68f94c` (QA by message 11:3xZ; carrier closed Addressed `c673ee77`, capture
+`verification/fix-desktop-draft-as-typed/qa/p1-after-read.md`): on saved message 6008, content and author name typed and reloaded
+both came back, with the leave prompt; the pre-push baseline lost both. No Save. Source handoff f1356f4b closed Addressed by this
+thread. QA's side observation (an emptied author name stays `{"name":""}` in the draft, so typing back does not clear it; unchanged by
+the fix) sent back to QA for a handoff, its path recorded below when it lands.
+**This thread's error, disclosed:** the closure's first write of the closed handoff was a Python `open().write`, outside the
+record-write rule (Write/Edit/`record-edit.js` only). It was not refused. I deleted that file (`ls -d` fails) and re-made the
+closure with the Edit tool and `mv`.

@@ -1,7 +1,7 @@
 ---
 UUID: f1356f4b
-Status: Open
-Status-Detail: "Seeded by steering-roadmap-hooks from uat-hooks-017-looks's stated limit on plan 017's post-deploy row B-9 (record aaccb15). Text typed into the message editor's content editor while it is still open is saved as a draft only when the editor closes; a reload or a forced sign-out with the editor open lost it on live hooks.gg. No 017 criterion requires it, and it was not compared with the pre-017 code at 1ad625e. Whether it is a defect or the intended draft boundary is not decided."
+Status: Addressed
+Status-Detail: "Addressed by fixer chain fix-desktop-draft-as-typed on his selection 'save as you type' (effort rulings block 2026-11-21T05:50Z, reach block 05:59Z): desktop content editor, embed author name and footer text reach the draft as typed; released website master b68f94c 2026-11-21T11:33Z; post-deploy row P-1 HOLDS on production (handoff/closed/fix-desktop-draft-as-typed-post-deploy-2026-11-21.md, c673ee77)."
 Owning-Stage: planner
 Review-Trigger: when the message editor's draft store (src/utils/messageDrafts.ts) or the content editor's commit-on-close is next changed, or when the next website editing or data-loss effort is scoped
 Priority: low
@@ -35,3 +35,4 @@ thread opened one so the limit stays visible after the three item handoffs close
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-20T03:14 | steering-roadmap-hooks | Opened from the stated limit on plan 017's post-deploy row B-9 (`aaccb15`). |
+| 2026-11-21T11:40 | steering-hooks | Closed Addressed: fixer chain `fix-desktop-draft-as-typed` released `b68f94c` (11:33Z) and its post-deploy row P-1 holds (`c673ee77`); chain rulings `steering/fix-desktop-draft-as-typed-rulings.md`. |
