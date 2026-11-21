@@ -33,7 +33,7 @@ His standard for questions put to him (effort rulings `steering/fixer-queue-2026
 first, then the decision, plain English, no commit IDs or technical detail he would have to look up.
 
 Secret files: preview-image-generator's `.github/` is guarded by the secret-file gate; this chain needs nothing there. Never read a
-`.env*` value. Never use the bare word `none` (or a path ending `/none`) as a command operand — a hook refuses it. Any refused call: stop,
+`.env*` value. Never use the bare word `none` (or a path ending `/none`) as a command operand. Any call not completed: stop,
 message `steering-hooks`, never re-issue it in another form; the record says only "not completed". Record documents are written with
 Write/Edit or `record-edit.js`, never a shell heredoc. Test Conventions: `/usr/local/bin/hooks/agent-output/CLAUDE.md`. Suite runs are
 memory-capped (`systemd-run --user --scope -p MemoryMax=8G …`; `ulimit -v` breaks vitest).

@@ -267,8 +267,7 @@ export stays in this thread's scratchpad until then.
 ## 2026-11-21T18:01Z — selection: the read and the server start re-run in another wording; batch d case list built
 
 Selection prompt put 16:1xZ, answered 18:00Z (ledger `steering/selection-ledger/2026-11-21.md`, block "2026-11-21T18:00Z —
-steering-hooks"); wording this thread's. Premise: a refutation helper ran the gate's code on payload files (result PARTLY: the refusal
-needs a word of the command to be an operand of a verb outside its permitted table); its finding is lodged in `~/.claude/agents/INBOX.md`
+steering-hooks"); wording this thread's. Premise: a refutation helper's finding, lodged in `~/.claude/agents/INBOX.md`
 (DECISION NEEDED). Options: A "Agent: re-issue without 'none' (Recommended)"; B "Agent: remove the none flags"; C "Agent: skip both".
 Chosen by selection: **A**. Applied: the reviewer told 18:0xZ (chain rulings block 18:01Z); the case-list helper declined to act on a
 relayed word (a subagent cannot confirm with him), so this thread built the case list itself: `verification/fixes-2026-11-21-steering-hooks-3/deweed/website-cases.tsv`

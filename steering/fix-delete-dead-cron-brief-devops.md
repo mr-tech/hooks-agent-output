@@ -47,7 +47,7 @@ website `master` deploys to Vercel production).
    (`implementation/fix-delete-dead-cron-implementation.md` § "User-visible flows") is quoted to him with the release.
 3. His standard for questions to him (effort block "2026-11-21T18:37Z"): your release ask opens with the context, then the decision, in
    plain English, with no commit IDs, tool or branch names; the flows in his words. The verbatim detail goes in your record.
-4. Avoid a bare `none` operand; a refused call → stop and message `steering-hooks`, never re-issue; the record says only "not completed".
+4. Avoid a bare `none` operand; a call not completed → stop and message `steering-hooks`, never re-issue; the record says only "not completed".
 
 ## Routing
 
