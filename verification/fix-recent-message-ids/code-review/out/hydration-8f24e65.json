@@ -1,0 +1,228 @@
+{
+  "all rows, administers X": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": []
+  },
+  "all rows, administers X and Y": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103",
+      "900000000000104"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": [
+      "foreign-guild-name"
+    ]
+  },
+  "all rows, administers nothing": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": []
+  },
+  "all rows, no access token": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": []
+  },
+  "all rows, guild list holds Guilds.id values instead of Discord ids": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": []
+  },
+  "bad element \"abc\" beside all rows, administers X": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": []
+  },
+  "bad element \"\" beside all rows, administers X": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": []
+  },
+  "bad element \"9223372036854775808\" beside all rows, administers X": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": []
+  },
+  "bad element \"-1\" beside all rows, administers X": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": []
+  },
+  "bad element \" 900000000000101\" beside all rows, administers X": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": []
+  },
+  "bad element \"+900000000000101\" beside all rows, administers X": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": []
+  },
+  "bad element 12 beside all rows, administers X": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": []
+  },
+  "bad element null beside all rows, administers X": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": []
+  },
+  "bad element {\"id\":\"900000000000101\"} beside all rows, administers X": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": []
+  },
+  "every element bad": {
+    "threw": null,
+    "messageIds": [],
+    "preferenceIds": [],
+    "leakedNames": []
+  },
+  "leading-zero form of own personal id": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101"
+    ],
+    "preferenceIds": [
+      "0900000000000101"
+    ],
+    "leakedNames": []
+  }
+}

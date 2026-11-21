@@ -1,0 +1,64 @@
+Unable to find image 'postgres:16' locally
+16: Pulling from library/postgres
+37fb86c2a767: Pulling fs layer
+a0a147a27498: Pulling fs layer
+893773e1f215: Pulling fs layer
+a43692ded922: Pulling fs layer
+a71988767d8f: Pulling fs layer
+8c5b8924f0a2: Pulling fs layer
+a37be121ef1e: Pulling fs layer
+a43692ded922: Waiting
+8c5b8924f0a2: Waiting
+a71988767d8f: Waiting
+57869d2f2b40: Pulling fs layer
+0bda6b874f77: Pulling fs layer
+a37be121ef1e: Waiting
+4fefcc83b4c3: Pulling fs layer
+57869d2f2b40: Waiting
+0bda6b874f77: Waiting
+7ae4197f54cb: Pulling fs layer
+4fefcc83b4c3: Waiting
+a160a6fee115: Pulling fs layer
+a115041a3e47: Pulling fs layer
+7ae4197f54cb: Waiting
+a160a6fee115: Waiting
+a115041a3e47: Waiting
+a0a147a27498: Verifying Checksum
+a0a147a27498: Download complete
+893773e1f215: Verifying Checksum
+893773e1f215: Download complete
+a43692ded922: Download complete
+37fb86c2a767: Download complete
+a71988767d8f: Verifying Checksum
+a71988767d8f: Download complete
+a37be121ef1e: Verifying Checksum
+a37be121ef1e: Download complete
+8c5b8924f0a2: Verifying Checksum
+8c5b8924f0a2: Download complete
+57869d2f2b40: Verifying Checksum
+57869d2f2b40: Download complete
+4fefcc83b4c3: Verifying Checksum
+4fefcc83b4c3: Download complete
+7ae4197f54cb: Verifying Checksum
+7ae4197f54cb: Download complete
+a160a6fee115: Download complete
+a115041a3e47: Verifying Checksum
+a115041a3e47: Download complete
+37fb86c2a767: Pull complete
+a0a147a27498: Pull complete
+893773e1f215: Pull complete
+0bda6b874f77: Verifying Checksum
+0bda6b874f77: Download complete
+a43692ded922: Pull complete
+a71988767d8f: Pull complete
+8c5b8924f0a2: Pull complete
+a37be121ef1e: Pull complete
+57869d2f2b40: Pull complete
+0bda6b874f77: Pull complete
+4fefcc83b4c3: Pull complete
+7ae4197f54cb: Pull complete
+a160a6fee115: Pull complete
+a115041a3e47: Pull complete
+Digest: sha256:3950ad7c3148ca2175ef1b6c36c9efbf78957ae8fbe8b3a5d7c35af50500382f
+Status: Downloaded newer image for postgres:16
+07070260a4895c87af25c9af033f414f6952b8764b314a58d3b153f11a171f20

@@ -1,0 +1,227 @@
+{
+  "all rows, administers X": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103",
+      "900000000000104"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": [
+      "foreign-guild-name"
+    ]
+  },
+  "all rows, administers X and Y": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103",
+      "900000000000104"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": [
+      "foreign-guild-name"
+    ]
+  },
+  "all rows, administers nothing": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103",
+      "900000000000104"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": [
+      "foreign-guild-name"
+    ]
+  },
+  "all rows, no access token": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103",
+      "900000000000104"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": [
+      "foreign-guild-name"
+    ]
+  },
+  "all rows, guild list holds Guilds.id values instead of Discord ids": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103",
+      "900000000000104"
+    ],
+    "preferenceIds": [
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": [
+      "foreign-guild-name"
+    ]
+  },
+  "bad element \"abc\" beside all rows, administers X": {
+    "threw": "error: invalid input syntax for type bigint: \"abc\"",
+    "messageIds": [],
+    "preferenceIds": null,
+    "leakedNames": []
+  },
+  "bad element \"\" beside all rows, administers X": {
+    "threw": "error: invalid input syntax for type bigint: \"\"",
+    "messageIds": [],
+    "preferenceIds": null,
+    "leakedNames": []
+  },
+  "bad element \"9223372036854775808\" beside all rows, administers X": {
+    "threw": "error: value \"9223372036854775808\" is out of range for type bigint",
+    "messageIds": [],
+    "preferenceIds": null,
+    "leakedNames": []
+  },
+  "bad element \"-1\" beside all rows, administers X": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103",
+      "900000000000104"
+    ],
+    "preferenceIds": [
+      "-1",
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": [
+      "foreign-guild-name"
+    ]
+  },
+  "bad element \" 900000000000101\" beside all rows, administers X": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103",
+      "900000000000104"
+    ],
+    "preferenceIds": [
+      " 900000000000101",
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": [
+      "foreign-guild-name"
+    ]
+  },
+  "bad element \"+900000000000101\" beside all rows, administers X": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103",
+      "900000000000104"
+    ],
+    "preferenceIds": [
+      "+900000000000101",
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": [
+      "foreign-guild-name"
+    ]
+  },
+  "bad element 12 beside all rows, administers X": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103",
+      "900000000000104"
+    ],
+    "preferenceIds": [
+      12,
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": [
+      "foreign-guild-name"
+    ]
+  },
+  "bad element null beside all rows, administers X": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101",
+      "900000000000103",
+      "900000000000104"
+    ],
+    "preferenceIds": [
+      null,
+      "900000000000101",
+      "900000000000102",
+      "900000000000103",
+      "900000000000104",
+      "900000000000199"
+    ],
+    "leakedNames": [
+      "foreign-guild-name"
+    ]
+  },
+  "bad element {\"id\":\"900000000000101\"} beside all rows, administers X": {
+    "threw": "error: invalid input syntax for type bigint: \"{\"id\":\"900000000000101\"}\"",
+    "messageIds": [],
+    "preferenceIds": null,
+    "leakedNames": []
+  },
+  "every element bad": {
+    "threw": "error: invalid input syntax for type bigint: \"abc\"",
+    "messageIds": [],
+    "preferenceIds": null,
+    "leakedNames": []
+  },
+  "leading-zero form of own personal id": {
+    "threw": null,
+    "messageIds": [
+      "900000000000101"
+    ],
+    "preferenceIds": [
+      "0900000000000101"
+    ],
+    "leakedNames": []
+  }
+}

@@ -1,0 +1,156 @@
++const SERVER_MESSAGE_ID = '900000000000103';
++const FOREIGN_SERVER_MESSAGE_ID = '900000000000104';
++const ADMINISTERED_SERVER_ID = '200000000000000001';
++const FOREIGN_SERVER_ID = '200000000000000002';
++const MAX_INT8 = 9223372036854775807n;
++  {
++    id: OWNED_MESSAGE_ID, owner: OWNER_DB_ID, guildId: null, name: 'owner-private-name',
++  },
++  {
++    id: VIEWER_MESSAGE_ID, owner: VIEWER_DB_ID, guildId: null, name: 'viewer-name',
++  },
++  {
++    id: SERVER_MESSAGE_ID, owner: OWNER_DB_ID, guildId: ADMINISTERED_SERVER_ID, name: 'administered-server-name',
++  },
++  {
++    id: FOREIGN_SERVER_MESSAGE_ID, owner: OWNER_DB_ID, guildId: FOREIGN_SERVER_ID, name: 'foreign-server-name',
++  },
++function boundIds(query: CompiledQuery): unknown[] {
++  const match = query.sql.match(/"Messages"\."id" in \(([^)]*)\)/);
++  if (!match) return [];
++  return match[1].split(', ').map((placeholder) => query.parameters[Number(placeholder.slice(1)) - 1]);
++}
++
++function refuseNonInt8(values: unknown[]) {
++  for (const value of values) {
++    if (typeof value !== 'string' || !/^-?[0-9]+$/.test(value) || BigInt(value) > MAX_INT8) {
++      throw new Error(`invalid input syntax for type bigint: "${String(value)}"`);
++    }
++  }
++}
++
++    const serverArm = query.sql.includes('"Messages"."fk_guilds_id" is not null');
++    const ids = boundIds(query);
++    refuseNonInt8(ids);
++      .filter(({ id }) => ids.includes(id))
++      .filter((row) => owner === undefined || row.owner === owner
++        || (serverArm && row.guildId !== null))
++      .map(({ id, name, guildId }) => ({
++        id, name, guildId, createdAt: new Date(0), updatedAt: new Date(0), previewImageNonce: 'v1',
++async function hydrateAs(dbUserId: string, recentMessageIds: unknown[]) {
++
++  it('lists a recent server message of a server the signed-in user is owner or Administrator of', async () => {
++    mocks.fetchUserGuilds.mockResolvedValue([{ id: ADMINISTERED_SERVER_ID, name: 'G', owner: true }]);
++
++    const messages = await hydrateAs(VIEWER_DB_ID, [SERVER_MESSAGE_ID, VIEWER_MESSAGE_ID]);
++
++    expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID, SERVER_MESSAGE_ID]);
++  });
++
++  it('leaves out a recent server message of a server the signed-in user is not owner or Administrator of', async () => {
++    mocks.fetchUserGuilds.mockResolvedValue([{ id: ADMINISTERED_SERVER_ID, name: 'G', owner: true }]);
++
++    const messages = await hydrateAs(VIEWER_DB_ID, [FOREIGN_SERVER_MESSAGE_ID, VIEWER_MESSAGE_ID]);
++
++    expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
++    expect(JSON.stringify(messages)).not.toContain('foreign-server-name');
++  });
++
++  it('leaves out every recent server message for a user who administers no server', async () => {
++    const messages = await hydrateAs(VIEWER_DB_ID, [SERVER_MESSAGE_ID, VIEWER_MESSAGE_ID]);
++
++    expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
++  });
++
++  it.each([
++    ['letters', 'abc'],
++    ['an empty string', ''],
++    ['a number past the column\'s range', '9223372036854775808'],
++    ['a negative number', '-1'],
++    ['a non-string value', { id: VIEWER_MESSAGE_ID }],
++  ])('drops a stored element that is not a message number (%s) and still lists the valid ones', async (_kind, element) => {
++    const messages = await hydrateAs(VIEWER_DB_ID, [element, VIEWER_MESSAGE_ID]);
++
++    expect(messages.map(({ id }) => id)).toEqual([VIEWER_MESSAGE_ID]);
++    const select = mocks.queries.find(({ sql }) => sql.includes('from "Messages"'));
++    expect(select && boundIds(select)).toEqual([VIEWER_MESSAGE_ID]);
++  });
++
++  it('gives the session\'s preferences only the stored elements that are message numbers', async () => {
++    const session = await hydratedAuthOptions.callbacks?.session?.({
++      session: { user: {}, expires: '' },
++      user: {
++        id: VIEWER_DB_ID,
++        preferences: { recentGuild: '200000000000000001', recentMessageIds: ['abc', VIEWER_MESSAGE_ID, '-1'] },
++      },
++      token: {},
++    } as never) as unknown as { user: { preferences: UserPreference } };
++
++    expect(session.user.preferences).toEqual({
++      recentGuild: '200000000000000001',
++      recentMessageIds: [VIEWER_MESSAGE_ID],
++    });
++  });
++type KeepMessageNumbers = { keepMessageNumbers: (ids: string[]) => string[] };
++vi.mock('~/server/api/utils/shared', async (importOriginal) => ({
++  keepMessageNumbers: (await importOriginal<KeepMessageNumbers>()).keepMessageNumbers,
++function hydrate(user: object = { id: 'fixture-user', preferences: { recentMessageIds: ['900000000000001'] } }) {
++  it.each([
++    ['letters', 'abc'],
++    ['an empty string', ''],
++    ['a number past the column\'s range', '9223372036854775808'],
++    ['a negative number', '-1'],
++    ['twenty digits', '10000000000000000000'],
++  ])('refuses an element that is not a message number (%s) with no database access', async (_kind, element) => {
++    const { code, issues } = await refusalOf(procedure.call, { recentMessageIds: ['900000000000001', element] });
++
++    expect(code).toBe('BAD_REQUEST');
++    expect(new Set(issues.map(({ path }) => JSON.stringify(path)))).toEqual(new Set([JSON.stringify(['recentMessageIds', 1])]));
++    expect(captured.queries).toHaveLength(0);
++  });
++
++import {
++  boundedArray, cappedInput, messageIdShape, partialMessageShape,
++} from '../utils/shapes';
++      recentMessageIds: boundedArray(messageIdShape, MAX_RECENT_MESSAGE_IDS + 1).optional(),
++    const result = await getUserRecentMessages(['900000000000001', '900000000000002'], 'u1');
++    expect(captured.queries[0].parameters).toEqual(['900000000000001', '900000000000002', 'u1']);
++
++  it('binds only the elements that are message numbers', async () => {
++    await getUserRecentMessages(['900000000000001', 'abc', '9223372036854775808', '900000000000002'], 'u1');
++
++    expect(captured.queries).toHaveLength(1);
++    expect(captured.queries[0].sql).toContain('"Messages"."id" in ($1, $2)');
++    expect(captured.queries[0].parameters).toEqual(['900000000000001', '900000000000002', 'u1']);
++  });
++
++  it('issues no query and returns no messages when no element is a message number', async () => {
++    expect(await getUserRecentMessages(['abc', ''], 'u1')).toEqual([]);
++    expect(captured.queries).toHaveLength(0);
++  });
++import { messageIdShape } from './shapes';
++export function keepMessageNumbers(ids: string[]) {
++  return ids.filter((id) => messageIdShape.safeParse(id).success);
++}
++
++  const validIds = keepMessageNumbers(messageIds);
++  if (!validIds.length) return [];
++    .where('Messages.id', 'in', validIds)
++    .where((eb) => eb.or([
++    ? query.where((eb) => eb.or([
++      eb.exists(eb.selectFrom('Guilds')
++import { getUserRecentMessages, keepMessageNumbers } from './api/utils/shared';
++    const recentMessageIds = user.preferences?.recentMessageIds
++      && keepMessageNumbers(user.preferences.recentMessageIds);
++    const preferences = recentMessageIds
++      ? { ...user.preferences, recentMessageIds }
++      : user.preferences;
++
++    const messagePromise = Promise.resolve(recentMessageIds
++      ? getUserRecentMessages(recentMessageIds, user.id)
++    const administeredGuildIds = new Set(guilds.map(({ id }) => id));
++    const authorizedMessages = messages
++      .filter(({ guildId }) => !guildId || administeredGuildIds.has(guildId));
++
++    session.user.preferences = preferences;
++    session.hydration = { messages: authorizedMessages };
