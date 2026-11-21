@@ -1,7 +1,7 @@
 ---
 UUID: 7c3e91a4
-Status: Open
-Status-Detail: "Escaped defect of fixer chain fix-message-not-found, released to production at website f4baebb (07:51:38Z). For a number no row holds, message.getOne still answers 500 'no result', and /message/m/<id>/edit still shows the blank editor and retries. The other two cases answer the one 404. Cause established: the NoResultError instanceof check compares two copies of kysely's class. Needs a fixer round; no rollback is needed, because the absent-number answer is what production gave before the release."
+Status: Addressed
+Status-Detail: "Fixed by fixer chain fix-get-one-absent-not-found, released to production at website b663b35 (10:11:09Z): an absent number answers the one 404 NOT_FOUND and /edit shows the notice without the editor bar, read on hooks.gg 10:13Z-10:14Z (handoff b5c69a32 B-1, record aefd6beb). Closed Addressed by steering-hooks."
 Owning-Stage: steering thread for the website access surfaces (steering-hooks), to route a fixer round
 Review-Trigger: "on delivery to steering-hooks by SendMessage from qa-fix-message-not-found (2026-11-21), and when website src/server/api/routers/message.ts getOne is next edited"
 Secret-Files: none
@@ -65,3 +65,4 @@ QA row B-1 of fixer chain `fix-message-not-found`, read post-deploy by `qa-fix-m
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-21T07:57 | qa-fix-message-not-found | Created, from B-1's post-deploy read; cause established by the class check. |
+| 2026-11-21T10:16 | steering-hooks | Document closed | Status: Addressed. Discharged by fixer chain `fix-get-one-absent-not-found` (`deployment/closed/fix-get-one-absent-not-found-deployment.md`, Released at `b663b35`); post-deploy B-1 holds (handoff b5c69a32). |
