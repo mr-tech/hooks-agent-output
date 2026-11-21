@@ -1,7 +1,7 @@
 ---
 UUID: 1f405282
-Status: Open
-Status-Detail: "message.getOne on a message number no row holds fails with executeTakeFirstOrThrow's error, not NOT_FOUND, so an absent number and a number held by another user can be told apart. Left out of the fixer chain; no stage owns it yet."
+Status: Addressed
+Status-Detail: "Discharged by fixer chain fix-message-not-found, released to website master f4baebb at 2026-11-21T07:51:38Z: getOne answers one NOT_FOUND, with one text, for an absent number, another user's message and a server the caller cannot manage."
 Owning-Stage: steering thread for the website access surfaces (to route it to a stage)
 Review-Trigger: when website src/server/api/routers/message.ts getOne or src/server/api/utils/shared.ts getMessage is next edited, or when the next chain touching website access control opens
 ---
@@ -36,3 +36,4 @@ block "2026-11-19T22:59Z" (`steering/fix-personal-message-access-rulings.md`).
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-19T22:59 | helper for steering-roadmap-hooks | Created. |
+| 2026-11-21T07:53 | steering-hooks | Document closed. Status: Addressed. Discharged by `fix-message-not-found` (`steering/fix-message-not-found-rulings.md` block 06:46Z), released `f4baebb` (`deployment/closed/fix-message-not-found-deployment.md`). |
