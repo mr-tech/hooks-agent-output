@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/2a120950-d39c-41cf-ab8c-0fe1200096a5/scratchpad/mut-work-refresh/20261121T063420Z-p1089947/mutant-1
+
+ ❯ |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts (11 tests | 1 failed) 58ms
+     × lists the recent server messages of every server the signed-in user is owner or Administrator of 31ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 10 passed (11)
+   Start at  06:34:52
+   Duration  2.86s (transform 693ms, setup 0ms, import 2.34s, tests 58ms, environment 0ms)
+

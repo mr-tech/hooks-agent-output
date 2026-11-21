@@ -1,0 +1,26 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists the recent server messages of every server the signed-in user is owner or Administrator of
+AssertionError: expected [ Array(2) ] to deeply equal [ '900000000000102', …(3) ]
+
+- Expected
++ Received
+
+  [
+    "900000000000102",
+    "900000000000103",
+-   "900000000000105",
+-   "900000000000106",
+  ]
+
+ ❯ src/server/__tests__/auth.hydrated-recent-messages.test.ts:146:42
+    144|     ]);
+    145|
+    146|     expect(messages.map(({ id }) => id)).toEqual([
+       |                                          ^
+    147|       VIEWER_MESSAGE_ID, SERVER_MESSAGE_ID, SECOND_SERVER_MESSAGE_ID, …
+    148|     ]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

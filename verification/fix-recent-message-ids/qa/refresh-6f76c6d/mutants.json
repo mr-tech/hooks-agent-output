@@ -1,0 +1,75 @@
+[
+ {
+  "id": "auth.ts:162:walk-first",
+  "file": "src/server/auth.ts",
+  "old": "(guilds.",
+  "new": "((Array.isArray(guilds) ? guilds.slice(0, 1) : guilds).",
+  "op": "walk-first",
+  "line": 162,
+  "text": "const administeredGuildIds = new Set(guilds.map(({ id }) => id));",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+  ]
+ },
+ {
+  "id": "auth.ts:162:walk-last",
+  "file": "src/server/auth.ts",
+  "old": "(guilds.",
+  "new": "((Array.isArray(guilds) ? guilds.slice(-1) : guilds).",
+  "op": "walk-last",
+  "line": 162,
+  "text": "const administeredGuildIds = new Set(guilds.map(({ id }) => id));",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+  ]
+ },
+ {
+  "id": "qa-filter-owner-only",
+  "file": "src/server/auth.ts",
+  "old": "new Set(guilds.map(({ id }) => id))",
+  "new": "new Set(guilds.filter(({ owner }) => owner).map(({ id }) => id))",
+  "tests": [
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+  ]
+ },
+ {
+  "id": "premise-guild-trim-removed",
+  "file": "src/utils/redis/index.ts",
+  "old": "if (guild.owner || hasDiscordPermissions(guild.permissions, ['Administrator'])) {",
+  "new": "if (true) {",
+  "tests": [
+   "src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts",
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+  ]
+ },
+ {
+  "id": "qa-trim-owner-only",
+  "file": "src/utils/redis/index.ts",
+  "old": "if (guild.owner || hasDiscordPermissions(guild.permissions, ['Administrator'])) {",
+  "new": "if (guild.owner) {",
+  "tests": [
+   "src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts",
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+  ]
+ },
+ {
+  "id": "qa-trim-permission-only",
+  "file": "src/utils/redis/index.ts",
+  "old": "if (guild.owner || hasDiscordPermissions(guild.permissions, ['Administrator'])) {",
+  "new": "if (hasDiscordPermissions(guild.permissions, ['Administrator'])) {",
+  "tests": [
+   "src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts",
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+  ]
+ },
+ {
+  "id": "qa-trim-manage-guild",
+  "file": "src/utils/redis/index.ts",
+  "old": "if (guild.owner || hasDiscordPermissions(guild.permissions, ['Administrator'])) {",
+  "new": "if (guild.owner || hasDiscordPermissions(guild.permissions, ['ManageGuild'])) {",
+  "tests": [
+   "src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts",
+   "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+  ]
+ }
+]
