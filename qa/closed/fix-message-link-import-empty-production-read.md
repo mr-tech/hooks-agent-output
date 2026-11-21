@@ -2,11 +2,15 @@
 ID: n/a
 Origin: fix-message-link-import-empty
 UUID: 214b1fae
-Verified-At: n/a — production read: hooks.gg as served at 2026-11-21T10:34:39Z; its deployed website commit was not established; repos=website
+Verified-At: b663b35 — repos=website; website origin/master at the read, the production read of hooks.gg at 2026-11-21T10:34:39Z; the commit production was serving was not established
 Status: Committed
 Status-Detail: "Closed on the owner ruling 2026-11-21T10:37Z (steering/fix-message-link-import-empty-rulings.md, commit 2cd06470): the empty link import is a known limit for now; no code, no release, no further read owed."
-Phase: n/a (a single production read for the fixer's diagnosis; not a Phase 2, no code change)
+Phase: 2
 ---
+
+Header note: `Phase: 2` only because the field admits 1, 2 or 3. This document is a single production read for the fixer's diagnosis,
+not a Phase 2 pass: there was no code change. `Verified-At` names website `origin/master`, which Vercel deploys. It does not establish
+what production was serving at the read.
 
 # Production read — fix-message-link-import-empty
 
@@ -66,5 +70,5 @@ content (as the `test` reader saw it).
 
 | Date | Agent | Change |
 |---|---|---|
-| 2026-11-21 | qa | Production read: the mention fixture loads (101 chars + 1 rich embed) and the plain fixture is blank, so the prediction holds. Capture committed beside this document. |
-| 2026-11-21 | qa | Document closed. Status: Committed, on the owner ruling, block 2026-11-21T10:37Z of `steering/fix-message-link-import-empty-rulings.md` (`2cd06470`): a known limit for now, no code or release. The re-read named under Assumption Not Checked moves to the fixer's known-limit handoff, and no further read is owed by this document. Disclosure: the Status, Status-Detail and first form of this row were written with a shell heredoc, against the brief's rule that record documents are written with the Write or Edit tool. This row was then rewritten with Edit. |
+| 2026-11-21T10:36 | qa | Production read: the mention fixture loads (101 chars + 1 rich embed) and the plain fixture is blank, so the prediction holds. Capture committed beside this document. |
+| 2026-11-21T10:39 | qa | Document closed. Status: Committed, on the owner ruling, block 2026-11-21T10:37Z of `steering/fix-message-link-import-empty-rulings.md` (`2cd06470`): a known limit for now, no code or release. The re-read named under Assumption Not Checked moves to the fixer's known-limit handoff, and no further read is owed by this document. Disclosure: the Status, Status-Detail and first form of this row were written with a shell heredoc, against the brief's rule that record documents are written with the Write or Edit tool. This row was then rewritten with Edit. |
