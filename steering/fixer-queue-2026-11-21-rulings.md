@@ -242,3 +242,13 @@ document; its author stopped); (3) **this thread's error:** the retrospective's 
 lifecycle's `fixes-<date>-<thread>` form; the document records the deviation. Carried into chain 3c's later briefs: serve a production
 build before release where a module-instance or bundling assumption is open (the retrospective's finding on B-1), and take a
 production baseline of a post-deploy row's unchanged limbs before the push.
+
+## 2026-11-21T15:31Z — batch retrospective d (chains 3c and 4) and its scoring started
+
+Chains: 3c `fix-message-link-import-empty` (diagnosis, no code; closed on a known limit, carrier 8e9ccc47) and 4
+`fix-desktop-draft-as-typed` (released website `b68f94c`, P-1 holds, source f1356f4b closed Addressed; chain rulings block 11:39Z).
+Chain 5 `fix-api-secret-compare` is in flight and joins a later batch. Origin: `fixes-2026-11-21-steering-hooks-3`, the lifecycle's form
+(`references/documents.md` L15), suffix 3 as this thread's third batch today (b and c carried the wrong form, block 10:28Z item 3).
+Retrospective: subagent `retrospective-fixes-2026-11-21-steering-hooks-3`. Scoring: website at `b68f94c`; marked = the three test files
+`git diff --name-only b663b35 b68f94c` lists under `__tests__/` (3c changed no code); output under
+`verification/fixes-2026-11-21-steering-hooks-3/deweed/`. Result recorded below when the tables land.
