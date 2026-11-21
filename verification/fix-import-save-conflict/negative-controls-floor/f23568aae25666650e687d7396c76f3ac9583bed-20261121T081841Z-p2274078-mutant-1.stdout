@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T081841Z-p2274078/mutant-1
+
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx (9 tests | 1 failed) 1292ms
+     × a V2-flagged message whose only classic content is an empty embed is refused as empty once settled, and Save writes nothing 66ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 8 passed (9)
+   Start at  08:18:46
+   Duration  3.50s (transform 373ms, setup 21ms, import 1.14s, tests 1.29s, environment 639ms)
+

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "preview-shows-raw-draft",
+    "file": "src/app/message/_components/NewMessageModal.tsx",
+    "old": "messageData={settledMessage ?? loadedMessage}",
+    "new": "messageData={loadedMessage}",
+    "tests": ["src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx"]
+  },
+  {
+    "id": "preview-shows-settled-only",
+    "file": "src/app/message/_components/NewMessageModal.tsx",
+    "old": "messageData={settledMessage ?? loadedMessage}",
+    "new": "messageData={settledMessage as EditableMessageData}",
+    "tests": ["src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx"]
+  }
+]

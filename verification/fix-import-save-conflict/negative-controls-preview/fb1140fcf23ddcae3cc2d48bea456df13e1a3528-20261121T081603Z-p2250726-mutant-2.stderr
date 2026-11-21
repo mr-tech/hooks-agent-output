@@ -1,0 +1,23 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > the preview shows a message with both V2 components and content as loaded while the choice is pending
+AssertionError: the dialog previews no draft: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ previewedData src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:143:53
+    141|
+    142| function previewedData(): MessageData {
+    143|   expect(previewed, 'the dialog previews no draft').toBeTruthy();
+       |                                                     ^
+    144|   return previewed!;
+    145| }
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:224:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

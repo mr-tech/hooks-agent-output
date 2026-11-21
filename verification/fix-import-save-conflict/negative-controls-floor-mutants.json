@@ -1,0 +1,16 @@
+[
+  {
+    "id": "settled-floor-removed",
+    "file": "src/app/message/_components/NewMessageModal.tsx",
+    "old": "const contentFloorError = settledMessage\n    ? validateContentRequirements(settledMessage) : undefined;",
+    "new": "const contentFloorError = undefined;",
+    "tests": ["src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx"]
+  },
+  {
+    "id": "floor-on-raw-draft",
+    "file": "src/app/message/_components/NewMessageModal.tsx",
+    "old": "const contentFloorError = settledMessage\n    ? validateContentRequirements(settledMessage) : undefined;",
+    "new": "const contentFloorError = loadedMessage\n    ? validateContentRequirements(loadedMessage) : undefined;",
+    "tests": ["src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx"]
+  }
+]

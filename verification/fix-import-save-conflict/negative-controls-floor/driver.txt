@@ -1,0 +1,3 @@
+settled-floor-removed KILLED 4.31
+floor-on-raw-draft KILLED 4.19
+2 of 2 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; negative-controls-floor-mutants.json (blob 46958233e9b3f11dd6f0b477fb7bf5adebc5c1ad))

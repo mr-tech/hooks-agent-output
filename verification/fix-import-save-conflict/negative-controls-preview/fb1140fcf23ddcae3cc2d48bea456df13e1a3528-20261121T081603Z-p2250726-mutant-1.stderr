@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > the preview shows a V2-flagged message with content and no V2 components as the Classic message Save writes
+AssertionError: expected 32768 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 32768
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:217:39
+    215|     const data = previewedData();
+    216|     expect(data.content).toBe('hi');
+    217|     expect((data.flags ?? 0) & IS_V2).toBe(0);
+       |                                       ^
+    218|   });
+    219|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

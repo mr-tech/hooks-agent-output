@@ -1,0 +1,104 @@
+{
+ "sha": "f23568aae25666650e687d7396c76f3ac9583bed",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-import-save-conflict/negative-controls-floor-mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--no-cache"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-import-save-conflict/negative-controls-floor-mutants.json",
+   "blob": "46958233e9b3f11dd6f0b477fb7bf5adebc5c1ad"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[\"src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-import-save-conflict/negative-controls-floor/f23568aae25666650e687d7396c76f3ac9583bed-20261121T081841Z-p2274078-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-import-save-conflict/negative-controls-floor/f23568aae25666650e687d7396c76f3ac9583bed-20261121T081841Z-p2274078-control-1.stderr",
+   "seconds": 4.47,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 9,
+   "tests": [
+    "src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "settled-floor-removed",
+   "run": "mutant-1",
+   "file": "src/app/message/_components/NewMessageModal.tsx",
+   "tests": [
+    "src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 9,
+   "control_tests_run": 9,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal \u2014 an imported draft whose content conflicts is settled or chosen, then saved > a V2-flagged message whose only classic content is an empty embed is refused as empty once settled, and Save writes nothing"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.31,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-import-save-conflict/negative-controls-floor/f23568aae25666650e687d7396c76f3ac9583bed-20261121T081841Z-p2274078-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-import-save-conflict/negative-controls-floor/f23568aae25666650e687d7396c76f3ac9583bed-20261121T081841Z-p2274078-mutant-1.stderr"
+  },
+  {
+   "id": "floor-on-raw-draft",
+   "run": "mutant-2",
+   "file": "src/app/message/_components/NewMessageModal.tsx",
+   "tests": [
+    "src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 9,
+   "control_tests_run": 9,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal \u2014 an imported draft whose content conflicts is settled or chosen, then saved > a message with both V2 components and content asks on Save, and Save as Classic writes the content without the V2 components",
+    "|dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal \u2014 an imported draft whose content conflicts is settled or chosen, then saved > a message with both V2 components and content asks on Save, and Save as Components V2 writes the components without the content",
+    "|dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal \u2014 an imported draft whose content conflicts is settled or chosen, then saved > a V2-flagged message whose only classic content is an empty embed is refused as empty once settled, and Save writes nothing"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.19,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-import-save-conflict/negative-controls-floor/f23568aae25666650e687d7396c76f3ac9583bed-20261121T081841Z-p2274078-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-import-save-conflict/negative-controls-floor/f23568aae25666650e687d7396c76f3ac9583bed-20261121T081841Z-p2274078-mutant-2.stderr"
+  }
+ ],
+ "score": "2 of 2 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; negative-controls-floor-mutants.json (blob 46958233e9b3f11dd6f0b477fb7bf5adebc5c1ad))"
+}

@@ -30,18 +30,18 @@ Calling setState synchronously within an effect body causes cascading renders th
   162 |
   163 |   const dropdownItems = useGuildDropdownItems({ setSelectedGuildId });
   164 |
-FAIL eslint src/app/message/_components/NewMessageModal.tsx:401 — react-hooks/refs: Error: Cannot access refs during render
+FAIL eslint src/app/message/_components/NewMessageModal.tsx:405 — react-hooks/refs: Error: Cannot access refs during render
 
 React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
 
-/usr/local/bin/hooks/website/src/app/message/_components/NewMessageModal.tsx:401:18
-  399 |           <Transition
-  400 |             as="div"
-> 401 |             ref={menuRefs[1]}
+/usr/local/bin/hooks/website/src/app/message/_components/NewMessageModal.tsx:405:18
+  403 |           <Transition
+  404 |             as="div"
+> 405 |             ref={menuRefs[1]}
       |                  ^^^^^^^^^^^ Cannot access ref value during render
-  402 |             show={page === 1}
-  403 |             unmount={false}
-  404 |             className={classNames(styles.flex({ col: true, gap: 4 }), 'absolute w-full')}
+  406 |             show={page === 1}
+  407 |             unmount={false}
+  408 |             className={classNames(styles.flex({ col: true, gap: 4 }), 'absolute w-full')}
 SKIP .playwright-mcp/a2-empty-textdisplay.png: not examined — extension .png is outside the examined set
 SKIP .playwright-mcp/a2-v2b.png: not examined — extension .png is outside the examined set
 SKIP .playwright-mcp/a4-send-empty.png: not examined — extension .png is outside the examined set

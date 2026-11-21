@@ -1,0 +1,68 @@
+stderr | src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a message with both V2 components and content asks on Save, and Save as Components V2 writes the components without the content
+TypeError: textRange(...).getClientRects is not a function
+    at textCoords (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T081841Z-p2274078/mutant-2/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:811:43)
+    at TextView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T081841Z-p2274078/mutant-2/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:720:16)
+    at coordsInChildren (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T081841Z-p2274078/mutant-2/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1094:23)
+    at LineView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T081841Z-p2274078/mutant-2/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:1532:20)
+    at DocView.coordsAt (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T081841Z-p2274078/mutant-2/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:2774:30)
+    at EditorView.coordsAtPos (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T081841Z-p2274078/mutant-2/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6954:33)
+    at RectangleMarker.forRange (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T081841Z-p2274078/mutant-2/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7541:28)
+    at Object.markers (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T081841Z-p2274078/mutant-2/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7783:51)
+    at LayerView.measure (file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T081841Z-p2274078/mutant-2/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:7691:27)
+    at file:///tmp/claude-1000/-usr-local-bin-hooks-website/326a0412-3eb7-4a01-a619-7d3473939fc6/scratchpad/mut-work/20261121T081841Z-p2274078/mutant-2/node_modules/.pnpm/@codemirror+view@6.9.3/node_modules/@codemirror/view/dist/index.js:6655:34
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a message with both V2 components and content asks on Save, and Save as Classic writes the content without the V2 components
+AssertionError: expected 'Create or upload a new messageMessage…' not to contain 'Components V2 messages cannot contain…'
+
+Expected: "Components V2 messages cannot contain embeds or content."
+Received: "Create or upload a new messageMessage LinkURL(Requires bot.)WebhookWebhook URLMessage Link or IDMessage Context CommandCodeJSON{}Copy to ClipboardPretty printComponents V2 messages cannot contain embeds or content.Message PreviewContinueMessage Name(0 / 32)Save To(max 50 per account / server)Select a GuildBackSave"
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:184:32
+    182|     const el = mount();
+    183|
+    184|     expect(el.textContent).not.toContain('Components V2 messages canno…
+       |                                ^
+    185|     await continueAndName(el);
+    186|     press(findButton(el, 'Save'));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a message with both V2 components and content asks on Save, and Save as Components V2 writes the components without the content
+AssertionError: button not found: Save as Components V2: expected undefined to be truthy
+
+- Expected:
+true
+
++ Received:
+undefined
+
+ ❯ Module.findButton src/components/__tests__/helpers/press.ts:9:44
+      7|   const btn = inScope ?? Array.from(document.body.querySelectorAll('bu…
+      8|     .find((b) => b.textContent?.includes(text));
+      9|   expect(btn, `button not found: ${text}`).toBeTruthy();
+       |                                            ^
+     10|   return btn as HTMLElement;
+     11| }
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:203:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a V2-flagged message whose only classic content is an empty embed is refused as empty once settled, and Save writes nothing
+AssertionError: expected 'Create or upload a new messageMessage…' to contain 'Message must have content, embeds, or…'
+
+Expected: "Message must have content, embeds, or components."
+Received: "Create or upload a new messageMessage LinkURL(Requires bot.)WebhookWebhook URLMessage Link or IDMessage Context CommandCodeJSON{}Copy to ClipboardPretty printComponents V2 messages cannot contain embeds or content.Message PreviewContinueMessage Name(0 / 32)Save To(max 50 per account / server)Select a GuildBackSave"
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:215:28
+    213|     const el = mount();
+    214|
+    215|     expect(el.textContent).toContain('Message must have content, embed…
+       |                            ^
+    216|     expect(el.textContent).not.toContain('Components V2 messages canno…
+    217|     await continueAndName(el);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
