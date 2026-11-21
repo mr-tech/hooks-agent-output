@@ -1,0 +1,23 @@
+[
+  {"id": "variable-time-fallback-after", "file": "src/server/api/utils/secretEquals.ts",
+   "old": "return timingSafeEqual(digest(a), digest(b));", "new": "return timingSafeEqual(digest(a), digest(b)) || a === b;",
+   "tests": ["src/server/api/utils/__tests__/secretEquals.equality.test.ts"]},
+  {"id": "variable-time-accept-before", "file": "src/server/api/utils/secretEquals.ts",
+   "old": "return timingSafeEqual(digest(a), digest(b));", "new": "return a === b || timingSafeEqual(digest(a), digest(b));",
+   "tests": ["src/server/api/utils/__tests__/secretEquals.equality.test.ts"]},
+  {"id": "compare-called-answer-ignored", "file": "src/server/api/utils/secretEquals.ts",
+   "old": "return timingSafeEqual(digest(a), digest(b));", "new": "timingSafeEqual(digest(a), digest(b)); return a === b;",
+   "tests": ["src/server/api/utils/__tests__/secretEquals.equality.test.ts"]},
+  {"id": "bot-variable-time-accept-before", "file": "src/pages/api/interactions-server.ts",
+   "old": "!secretEquals(token, env.HOOKS_API_TOKEN)", "new": "!(token === env.HOOKS_API_TOKEN || secretEquals(token, env.HOOKS_API_TOKEN))",
+   "tests": ["src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts", "src/server/api/__tests__/interactions-server.token-required.test.ts"]},
+  {"id": "bot-compare-called-answer-ignored", "file": "src/pages/api/interactions-server.ts",
+   "old": "!secretEquals(token, env.HOOKS_API_TOKEN)", "new": "(secretEquals(token, env.HOOKS_API_TOKEN), token !== env.HOOKS_API_TOKEN)",
+   "tests": ["src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts", "src/server/api/__tests__/interactions-server.token-required.test.ts"]},
+  {"id": "list-variable-time-accept-before", "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+   "old": "!secretEquals(authorization, `Bearer ${key}`)", "new": "!(authorization === `Bearer ${key}` || secretEquals(authorization, `Bearer ${key}`))",
+   "tests": ["src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts", "src/server/api/v1/__tests__/"]},
+  {"id": "single-variable-time-accept-before", "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+   "old": "!secretEquals(authorization, `Bearer ${key}`)", "new": "!(authorization === `Bearer ${key}` || secretEquals(authorization, `Bearer ${key}`))",
+   "tests": ["src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts", "src/server/api/v1/__tests__/"]}
+]

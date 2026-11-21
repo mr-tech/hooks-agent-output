@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts > /api/interactions-server compares the sent credential through secretEquals > refuses the exact configured credential when secretEquals refuses it
+AssertionError: expected undefined to be 401 // Object.is equality
+
+- Expected:
+401
+
++ Received:
+undefined
+
+ ❯ src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts:84:28
+     82|     } as never, res as never);
+     83|
+     84|     expect(res.statusCode).toBe(401);
+       |                            ^
+     85|     expect(res.ended).toBe(true);
+     86|     expect(getPostgres).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

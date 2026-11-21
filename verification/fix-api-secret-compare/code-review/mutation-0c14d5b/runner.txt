@@ -1,0 +1,9 @@
+Running scope as unit: run-rb946b1f2621d4987b5025ce79f7137bd.scope
+variable-time-fallback-after KILLED 1.25
+variable-time-accept-before KILLED 1.23
+compare-called-answer-ignored KILLED 1.26
+bot-variable-time-accept-before KILLED 1.35
+bot-compare-called-answer-ignored KILLED 1.31
+list-variable-time-accept-before KILLED 1.55
+single-variable-time-accept-before KILLED 1.5
+7 of 7 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-0c14d5b.json (blob 8c3a3830914edc2cedf6d6a468346245816b0462))

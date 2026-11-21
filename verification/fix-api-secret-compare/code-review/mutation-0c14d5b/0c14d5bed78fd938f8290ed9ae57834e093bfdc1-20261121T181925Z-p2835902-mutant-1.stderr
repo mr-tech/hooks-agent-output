@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.equality.test.ts > secretEquals decides through crypto.timingSafeEqual > refuses two equal strings when crypto.timingSafeEqual refuses them
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/server/api/utils/__tests__/secretEquals.equality.test.ts:64:40
+     62|   it('refuses two equal strings when crypto.timingSafeEqual refuses th…
+     63|     vi.mocked(timingSafeEqual).mockReturnValueOnce(false);
+     64|     expect(secretEquals('abc', 'abc')).toBe(false);
+       |                                        ^
+     65|   });
+     66| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
