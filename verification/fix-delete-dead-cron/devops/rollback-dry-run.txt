@@ -1,0 +1,6 @@
+apply-check-R exit 0
+0	1	package.json
+0	17	pnpm-lock.yaml
+0	81	src/pages/api/cron.ts
+0	55	src/server/api/__tests__/cron.scheduled-selection.test.ts
+0	8	vercel.json

@@ -1,0 +1,231 @@
+diff --git a/package.json b/package.json
+index 3343c9d..e2da53b 100644
+--- a/package.json
++++ b/package.json
+@@ -49,7 +49,6 @@
+     "compress-json": "^2.1.2",
+     "cookies-next": "^6.1.1",
+     "copy-to-clipboard": "^3.3.3",
+-    "cron-parser": "^4.8.1",
+     "cropperjs": "^1.5.13",
+     "dayjs": "^1.11.6",
+     "discord-api-types": "^0.38.40",
+diff --git a/pnpm-lock.yaml b/pnpm-lock.yaml
+index bbd85af..4e0f1e7 100644
+--- a/pnpm-lock.yaml
++++ b/pnpm-lock.yaml
+@@ -112,9 +112,6 @@ importers:
+       copy-to-clipboard:
+         specifier: ^3.3.3
+         version: 3.3.3
+-      cron-parser:
+-        specifier: ^4.8.1
+-        version: 4.8.1
+       cropperjs:
+         specifier: ^1.5.13
+         version: 1.5.13
+@@ -3106,10 +3103,6 @@ packages:
+   crelt@1.0.5:
+     resolution: {integrity: sha512-+BO9wPPi+DWTDcNYhr/W90myha8ptzftZT+LwcmUbbok0rcP/fequmFYCw8NMoH7pkAZQzU78b3kYrlua5a9eA==}
+ 
+-  cron-parser@4.8.1:
+-    resolution: {integrity: sha512-jbokKWGcyU4gl6jAfX97E1gDpY12DJ1cLJZmoDzaAln/shZ+S3KBFBuA2Q6WeUN4gJf/8klnV1EfvhA2lK5IRQ==}
+-    engines: {node: '>=12.0.0'}
+-
+   croner@4.1.97:
+     resolution: {integrity: sha512-/f6gpQuxDaqXu+1kwQYSckUglPaOrHdbIlBAu0YuW8/Cdb45XwXYNUBXg3r/9Mo6n540Kn/smKcZWko5x99KrQ==}
+ 
+@@ -4701,10 +4694,6 @@ packages:
+     resolution: {integrity: sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA==}
+     engines: {node: '>=12'}
+ 
+-  luxon@3.3.0:
+-    resolution: {integrity: sha512-An0UCfG/rSiqtAIiBPO0Y9/zAnHUZxAMiCpTd5h2smgsj7GGmcenvrvww2cqNA8/4A5ZrD1gJpHN2mIHZQF+Mg==}
+-    engines: {node: '>=12'}
+-
+   magic-string@0.30.21:
+     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
+ 
+@@ -10441,10 +10430,6 @@ snapshots:
+ 
+   crelt@1.0.5: {}
+ 
+-  cron-parser@4.8.1:
+-    dependencies:
+-      luxon: 3.3.0
+-
+   croner@4.1.97: {}
+ 
+   cropperjs@1.5.13: {}
+@@ -12175,8 +12160,6 @@ snapshots:
+ 
+   lru-cache@7.18.3: {}
+ 
+-  luxon@3.3.0: {}
+-
+   magic-string@0.30.21:
+     dependencies:
+       '@jridgewell/sourcemap-codec': 1.5.5
+diff --git a/src/pages/api/cron.ts b/src/pages/api/cron.ts
+deleted file mode 100644
+index 7ed1e08..0000000
+--- a/src/pages/api/cron.ts
++++ /dev/null
+@@ -1,81 +0,0 @@
+-import { parseExpression } from 'cron-parser';
+-import { isApiError } from 'paracord';
+-import { getPostgres, type DatabaseSchema } from 'project-utils';
+-
+-import type { UpdateObject } from 'kysely';
+-import type { NextApiRequest, NextApiResponse } from 'next';
+-
+-import { getApi } from '~/utils/discord';
+-
+-const database = getPostgres();
+-
+-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+-  const api = getApi();
+-
+-  if (req.query.key !== 'vercel') {
+-    res.status(404).end();
+-    return;
+-  }
+-
+-  const scheduled = await database
+-    .selectFrom('ScheduledMessages')
+-    .leftJoin('Messages', 'ScheduledMessages.fk_messages_id', 'Messages.id')
+-    .select(['ScheduledMessages.id', 'ScheduledMessages.cron', 'ScheduledMessages.webhookUrl', 'Messages.data'])
+-    .where('ScheduledMessages.sendAt', '<=', new Date())
+-    .where('ScheduledMessages.sent', '=', false)
+-    .where('ScheduledMessages.error', 'is', null)
+-    .execute();
+-  // .scheduledMessage.findMany({
+-  //   where: {
+-  //     sendAt: { lte: new Date() },
+-  //     sent: false,
+-  //     error: null,
+-  //   },
+-  //   select: {
+-  //     id: true,
+-  //     cron: true,
+-  //     webhookUrl: true,
+-  //     message: { select: { data: true } },
+-  //   },
+-  // });
+-
+-  const promises = scheduled.map(async ({
+-    id, cron, webhookUrl, data,
+-  }) => {
+-    try {
+-      await api.request('post', webhookUrl, { data });
+-
+-      let update: UpdateObject<DatabaseSchema, 'ScheduledMessages'>;
+-      if (cron) {
+-        const newSendAt = parseExpression(cron).next().toDate();
+-        update = { sent: false, error: null, sendAt: newSendAt };
+-      } else {
+-        update = { sent: true, error: null };
+-      }
+-      await database
+-        .updateTable('ScheduledMessages')
+-        .where('id', '=', id)
+-        .set(update)
+-        .execute();
+-      // .scheduledMessage.update({
+-      //   where,
+-      //   data: update,
+-      // });
+-    } catch (err) {
+-      const message = isApiError(err) || err instanceof Error ? err.message : 'An unknown error occurred.';
+-      await database
+-        .updateTable('ScheduledMessages')
+-        .where('id', '=', id)
+-        .set({ error: message, sent: true })
+-        .execute();
+-      // .scheduledMessage.update({
+-      //   where,
+-      //   data: { error: message, sent: true },
+-      // });
+-    }
+-  });
+-
+-  await Promise.allSettled(promises);
+-
+-  res.status(200).json({ success: true });
+-}
+diff --git a/src/server/api/__tests__/cron.scheduled-selection.test.ts b/src/server/api/__tests__/cron.scheduled-selection.test.ts
+deleted file mode 100644
+index e8be60f..0000000
+--- a/src/server/api/__tests__/cron.scheduled-selection.test.ts
++++ /dev/null
+@@ -1,55 +0,0 @@
+-import {
+-  beforeEach, describe, expect, it, vi,
+-} from 'vitest';
+-
+-import createCapturingDatabase from '../utils/__tests__/helpers/capturingDatabase';
+-
+-import { makeRes } from './helpers/apiResponse';
+-
+-const holder = vi.hoisted(() => ({ db: undefined as unknown }));
+-
+-vi.mock('project-utils', () => ({ getPostgres: () => holder.db }));
+-vi.mock('~/utils/discord', () => ({ getApi: () => ({ request: vi.fn() }) }));
+-
+-type Handler = (req: never, res: never) => Promise<unknown>;
+-
+-let captured: ReturnType<typeof createCapturingDatabase>;
+-let handler: Handler;
+-
+-beforeEach(async () => {
+-  vi.resetModules();
+-  captured = createCapturingDatabase();
+-  holder.db = captured.db;
+-  ({ default: handler } = await import('~/pages/api/cron') as { default: Handler });
+-});
+-
+-describe('the cron route\'s selection of due messages', () => {
+-  it('selects only rows whose error is null, as an is-null test and not a comparison', async () => {
+-    await handler({ query: { key: 'vercel' } } as never, makeRes() as never);
+-
+-    expect(captured.queries).toHaveLength(1);
+-    const [{ sql, parameters }] = captured.queries;
+-    expect(sql).toContain('"ScheduledMessages"."error" is null');
+-    expect(sql).not.toMatch(/"error" = /);
+-    expect(parameters).not.toContain(null);
+-  });
+-
+-  it('still selects only unsent rows that are due', async () => {
+-    await handler({ query: { key: 'vercel' } } as never, makeRes() as never);
+-
+-    const [{ sql, parameters }] = captured.queries;
+-    expect(sql).toContain('"ScheduledMessages"."sendAt" <= $1');
+-    expect(sql).toContain('"ScheduledMessages"."sent" = $2');
+-    expect(parameters[0]).toBeInstanceOf(Date);
+-    expect(parameters[1]).toBe(false);
+-  });
+-
+-  it('runs no query for a request without the cron key', async () => {
+-    const res = makeRes();
+-
+-    await handler({ query: { key: 'other' } } as never, res as never);
+-
+-    expect(captured.queries).toHaveLength(0);
+-    expect(res.statusCode).toBe(404);
+-  });
+-});
+diff --git a/vercel.json b/vercel.json
+deleted file mode 100644
+index 68af085..0000000
+--- a/vercel.json
++++ /dev/null
+@@ -1,8 +0,0 @@
+-{
+-  "crons": [
+-    {
+-      "path": "/api/cron?key=vercel",
+-      "schedule": "0 0 * * *"
+-    }
+-  ]
+-}
+\ No newline at end of file
