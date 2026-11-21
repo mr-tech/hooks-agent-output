@@ -333,3 +333,9 @@ the 225K context threshold as a stop; the 19:04Z and 19:34Z checks reported the 
 act. Standing from now: a context threshold never holds a next act; the clear lands at the next seam after work is moving. Incident
 lodged in `~/.claude/agents/INBOX.md` (FYI, steering-hooks). Chain 6 `fix-delete-dead-cron`: scope-sweep helper started ~19:4xZ, output
 `verification/fix-delete-dead-cron/scoping/sweep.md`.
+
+## 2026-11-21T19:42 — his ruling: agents never ask to be cleared
+
+His words, in this session: "note, agents should never proactively ask to be cleared. if someone is managing their /clear and context
+size, they will be notified when they should checkpoint". Acted on: this thread asks no one for a `/clear`; it works on and checkpoints
+when its coordinator tells it to. It had asked the coordinator at 18:03Z and 19:05Z. Lodged in `~/.claude/agents/INBOX.md` (FYI).
