@@ -1,0 +1,30 @@
+tip tree: d1aacb53212e200019e58993656275146c7e24a1
+tip commits:
+f4baebb000ac6fa31714108c9d2bf261dc3de4a4 2026-11-21T07:25:21Z test(website): the message load keeps a server error for a Discord or database failure, and both pages open a loadable message and show no notice for another refusal
+6b539e504023f92d454174047d5d85b810b8b95a 2026-11-21T06:59:30Z fix(website): a message the signed-in user cannot load answers one not found, and its edit and send pages show one notice with a link back
+non-src paths changed (count):
+0
+is-ancestor origin/master tip exit:
+0
+prod tree equal 6b539e5 for non-test? diff numstat 6b539e5..f4baebb:
+70	4	src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx
+30	6	src/server/api/routers/__tests__/message.get-one-not-found.test.ts
+package.json version count:
+0
+tags:
+0
+lockfile/manifest diff names:
+0
+project-utils pin:
+166:      project-utils:
+167:        specifier: github:hooks-gg/project-utils#master
+168:        version: git+https://git@github.com:hooks-gg/project-utils.git#749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f
+5397:  project-utils@git+https://git@github.com:hooks-gg/project-utils.git#749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f:
+5398:    resolution: {commit: 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f, repo: git@github.com:hooks-gg/project-utils.git, type: git}
+749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f	refs/heads/master
+prod lines:
+18	0	src/app/message/m/[id]/_components/MessageNotFound.tsx
+4	1	src/app/message/m/[id]/edit/page.tsx
+5	1	src/app/message/m/[id]/send/page.tsx
+8	0	src/providers/MessageProvider/index.tsx
+21	9	src/server/api/routers/message.ts

@@ -1,0 +1,638 @@
+diff --git a/src/app/message/m/[id]/_components/MessageNotFound.tsx b/src/app/message/m/[id]/_components/MessageNotFound.tsx
+new file mode 100644
+index 0000000..6a108ce
+--- /dev/null
++++ b/src/app/message/m/[id]/_components/MessageNotFound.tsx
+@@ -0,0 +1,18 @@
++import classNames from 'classnames';
++
++import { Container, ContainerSection } from '~/app/message/_layout/Container';
++import StyledLink from '~/components/StyledLink';
++import styles from '~/styles';
++
++const MessageNotFound = () => (
++  <Container>
++    <ContainerSection innerClassName={classNames(styles.flex({ col: true, cx: true, gap: 4 }), 'rounded-lg bg-quaternary p-8 text-center')}>
++      <p>This message doesn&apos;t exist, or you don&apos;t have access to it.</p>
++      <StyledLink href="/message" className={classNames(styles.button.accent, 'rounded-full px-4 py-2')}>
++        Back to your messages
++      </StyledLink>
++    </ContainerSection>
++  </Container>
++);
++
++export default MessageNotFound;
+diff --git a/src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx b/src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx
+new file mode 100644
+index 0000000..a62a669
+--- /dev/null
++++ b/src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx
+@@ -0,0 +1,275 @@
++import { createServer } from 'node:http';
++import {
++  afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import EditPage from '../../edit/page';
++import SendPage from '../../send/page';
++
++import type { AddressInfo } from 'node:net';
++import type { NextApiRequest, NextApiResponse } from 'next';
++import type { ComponentType } from 'react';
++
++import { mountDom, unmountDom } from '~/components/__tests__/helpers/dom';
++import MessageProvider, { retryUnlessRefused, useMessage } from '~/providers/MessageProvider';
++import TrpcProvider from '~/providers/TrpcProvider';
++import createCapturingDatabase from '~/server/api/utils/__tests__/helpers/capturingDatabase';
++import { proxy } from '~/utils/api';
++
++const mocks = vi.hoisted(() => ({
++  db: undefined as unknown,
++  pathname: '/message/m/0/edit',
++}));
++
++vi.mock('~/env.mjs', () => ({
++  env: new Proxy({}, { get: (_, key) => `test-${String(key)}` }),
++}));
++vi.mock('~/server/auth', () => {
++  const session = async () => ({ user: { id: '100000000000000001', guilds: [] }, expires: 'never' });
++  return { getServerAuthSession: session, getHydratedServerAuthSession: session };
++});
++vi.mock('project-utils', () => ({ getPostgres: () => mocks.db }));
++vi.mock('pusher', () => ({ default: class { trigger = vi.fn(); } }));
++vi.mock('pusher-js', () => ({
++  default: function Pusher() {
++    return {
++      subscribe: () => ({ bind: () => undefined, unbind: () => undefined }),
++      unsubscribe: () => undefined,
++      disconnect: () => undefined,
++    };
++  },
++}));
++vi.mock('@vercel/functions', () => ({ waitUntil: () => undefined }));
++vi.mock('~/utils/redis', () => ({ default: {} }));
++vi.mock('~/utils/redis/messageStore', () => ({ default: {} }));
++vi.mock('~/utils/discord', () => ({ getApi: vi.fn() }));
++
++vi.mock('next/navigation', () => ({
++  useRouter: () => ({
++    push: vi.fn(), replace: vi.fn(), refresh: vi.fn(), back: vi.fn(),
++  }),
++  usePathname: () => mocks.pathname,
++  useSearchParams: () => new URLSearchParams(),
++}));
++vi.mock('next-auth/react', () => ({
++  useSession: () => ({ status: 'authenticated', data: { user: { guilds: [] } } }),
++  signIn: vi.fn(),
++}));
++vi.mock('next/image', () => ({ default: () => null }));
++vi.mock('~/providers/GuildProvider', () => ({
++  useGuild: () => ({
++    webhooks: [],
++    setGuildId: vi.fn(),
++    guild: null,
++    isLoading: false,
++    isLoadingChannels: false,
++    hasLoaded: true,
++    refetchAll: vi.fn(),
++  }),
++}));
++vi.mock('~/providers/WebhookProvider', () => ({
++  useWebhook: () => ({
++    setThreadId: vi.fn(),
++    setSelectedWebhook: vi.fn(),
++    oldMessage: null,
++    threadId: '',
++    threadName: '',
++    selectedWebhook: null,
++    setMessageIdOrUrl: vi.fn(),
++  }),
++}));
++vi.mock('~/providers/ConfirmationProvider', async () => (
++  await import('~/providers/MessageProvider/__tests__/helpers/messageProviderDeps')
++).CONFIRMATION_PROVIDER_MOCK);
++vi.mock('~/providers/IsMobileProvider', () => ({ useIsMobile: () => false }));
++vi.mock('react-hotkeys-hook', () => ({ useHotkeys: () => undefined }));
++vi.mock('~/providers/MarkdownProvider', () => ({ default: ({ children }: { children: unknown }) => children }));
++vi.mock('~/components/BottomPortal', () => ({
++  BottomPortalContainer: () => null,
++  BottomPortalProvider: ({ children }: { children: unknown }) => children,
++}));
++vi.mock('~/components/ConfirmationDialog', () => ({ default: () => null }));
++vi.mock('~/components/PresetDialog', () => ({ default: () => null }));
++vi.mock('~/components/dynamics/DiscordMessageEditor', () => ({ default: () => <div data-editor /> }));
++vi.mock('~/components/DiscordMessageEditor', () => ({ default: () => null }));
++vi.mock('~/components/SlateEditor', () => ({ default: () => null }));
++vi.mock('~/components/Markdown', () => ({ default: () => null }));
++vi.mock('~/components/Tooltip', () => ({ default: () => null }));
++vi.mock('~/components/EmojiPicker/Picker', () => ({ default: () => null }));
++vi.mock('~/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/Picker', () => ({ default: () => null }));
++vi.mock('~/components/Calendar', () => ({ default: () => null }));
++vi.mock('~/components/ImageUploader', () => ({ default: () => null }));
++vi.mock('~/components/Drawer', () => ({ default: () => null }));
++vi.mock('~/components/MessagePreview', () => ({ default: () => null }));
++vi.mock('../../send/_components/WebhookMenu', () => ({ default: () => null }));
++vi.mock('../../send/_components/EditMessageMenu', () => ({ default: () => null }));
++
++const ABSENT_ID = '900000000000500';
++const OWN_ID = '900000000000101';
++const OWNER_DB_ID = '900000000000001';
++const NOT_FOUND_TEXT = 'This message doesn\'t exist, or you don\'t have access to it.';
++
++const world = { messageLoadFails: false };
++
++function ownMessageRow(id: string) {
++  return {
++    id,
++    createdAt: new Date(0),
++    updatedAt: new Date(0),
++    name: 'own-message',
++    data: { content: 'own-content' },
++    previewImageNonce: null,
++    recentWebhookId: null,
++    recentThreadId: null,
++    recentMessageId: null,
++    guildId: null,
++    scheduledMessageId: null,
++    scheduledMessageCron: null,
++    scheduledMessageError: null,
++    scheduledMessageSendAt: null,
++    scheduledMessageSent: null,
++  };
++}
++const getOneRequests: number[] = [];
++
++let origin = '';
++const server = createServer((req, res) => {
++  const requestUrl = new URL(req.url ?? '/', 'http://localhost');
++  const query = Object.fromEntries(requestUrl.searchParams);
++  const trpc = decodeURIComponent(requestUrl.pathname.replace(/^\/api\/trpc\//, ''));
++  Object.assign(req, { query: { ...query, trpc } });
++  res.on('finish', () => { if (trpc === 'message.getOne') getOneRequests.push(res.statusCode); });
++  import('~/pages/api/trpc/[trpc]').then(({ default: handler }) => handler(
++    req as NextApiRequest,
++    res as NextApiResponse,
++  )).catch(() => { res.statusCode = 599; res.end(); });
++});
++
++const nodeFetch = globalThis.fetch;
++
++beforeAll(async () => {
++  await import('~/pages/api/trpc/[trpc]');
++  await new Promise<void>((resolve) => { server.listen(0, resolve); });
++  const { port } = server.address() as AddressInfo;
++  origin = `http://localhost:${port}`;
++});
++
++afterAll(async () => {
++  await new Promise((resolve) => { server.close(resolve); });
++});
++
++beforeEach(() => {
++  getOneRequests.length = 0;
++  world.messageLoadFails = false;
++  mocks.db = createCapturingDatabase(({ sql, parameters }) => {
++    if (sql.startsWith('select "userId" from "Accounts"')) return [{ userId: OWNER_DB_ID }];
++    if (world.messageLoadFails && sql.includes('left join "ScheduledMessages"')) throw new Error('connection reset');
++    if (sql.includes('left join "ScheduledMessages"') && String(parameters[0]) === OWN_ID) return [ownMessageRow(OWN_ID)];
++    if (sql.startsWith('select "fk_users_id" from "Messages"') && parameters.map(String).includes(OWN_ID)) {
++      return [{ fk_users_id: OWNER_DB_ID }];
++    }
++    return [];
++  }).db;
++  vi.stubGlobal('fetch', (input: string | URL, init?: RequestInit) => nodeFetch(new URL(input, origin), init));
++});
++
++afterEach(() => {
++  unmountDom();
++  vi.unstubAllGlobals();
++});
++
++const LoadErrorCode = () => {
++  const { messageError } = useMessage();
++  return <span data-load-error={messageError?.data?.code ?? ''} />;
++};
++
++function mountPage(Page: ComponentType, route: 'edit' | 'send', id: string) {
++  mocks.pathname = `/message/m/${id}/${route}`;
++  return mountDom(
++    <TrpcProvider>
++      <MessageProvider>
++        <LoadErrorCode />
++        <Page />
++      </MessageProvider>
++    </TrpcProvider>,
++  );
++}
++
++const pages = [['edit', EditPage], ['send', SendPage]] as const;
++const pageMarkers = { edit: '[data-editor]', send: null } as const;
++
++describe.each(pages)('the %s page for a message the signed-in user can load', (route, Page) => {
++  it('opens the message, with no not-found notice', async () => {
++    const container = mountPage(Page, route, OWN_ID);
++
++    await vi.waitFor(() => {
++      const marker = pageMarkers[route];
++      if (marker) expect(container.querySelector(marker)).not.toBeNull();
++      else expect(container.textContent).toContain('Review Message');
++    });
++
++    expect(getOneRequests).toEqual([200]);
++    expect(container.textContent).not.toContain(NOT_FOUND_TEXT);
++  });
++});
++
++describe.each(pages)('the %s page for a load refused other than as not found', (route, Page) => {
++  it('shows no not-found notice', async () => {
++    const container = mountPage(Page, route, 'not-a-number');
++
++    await vi.waitFor(() => {
++      expect(container.querySelector('[data-load-error="BAD_REQUEST"]')).not.toBeNull();
++    });
++
++    expect(container.textContent).not.toContain(NOT_FOUND_TEXT);
++  });
++});
++
++describe.each(pages)('the %s page for a message number the signed-in user cannot load', (route, Page) => {
++  it('shows the not-found notice, in place of the page, with a link back to his messages', async () => {
++    const container = mountPage(Page, route, ABSENT_ID);
++
++    await vi.waitFor(() => { expect(container.textContent).toContain(NOT_FOUND_TEXT); });
++
++    const back = Array.from(container.querySelectorAll('a')).find((a) => a.getAttribute('href') === '/message');
++    expect(back).toBeTruthy();
++    expect(container.querySelector('[data-editor]')).toBeNull();
++    expect(container.textContent).not.toContain('Review Message');
++  });
++
++  it('asks for the message once, without retrying the refusal', async () => {
++    const container = mountPage(Page, route, ABSENT_ID);
++
++    await vi.waitFor(() => { expect(container.textContent).toContain(NOT_FOUND_TEXT); });
++
++    expect(getOneRequests).toEqual([404]);
++  });
++});
++
++async function errorFromTheWire(id: string) {
++  return proxy.message.getOne.query(id).then(
++    () => { throw new Error('the load succeeded'); },
++    (error: Parameters<typeof retryUnlessRefused>[1]) => error,
++  );
++}
++
++describe('the message load\'s retry rule, on errors as the tRPC client reports them', () => {
++  it('does not retry a not-found answer', async () => {
++    const error = await errorFromTheWire(ABSENT_ID);
++
++    expect(retryUnlessRefused(0, error)).toBe(false);
++  });
++
++  it('retries a server error up to three times', async () => {
++    world.messageLoadFails = true;
++    const error = await errorFromTheWire(ABSENT_ID);
++
++    expect([0, 1, 2, 3].map((count) => retryUnlessRefused(count, error))).toEqual([true, true, true, false]);
++  });
++
++  it('does not retry a refused number that is not a message number', async () => {
++    const error = await errorFromTheWire('not-a-number');
++
++    expect(retryUnlessRefused(0, error)).toBe(false);
++  });
++});
+diff --git a/src/app/message/m/[id]/edit/page.tsx b/src/app/message/m/[id]/edit/page.tsx
+index 21e8953..e6744d2 100644
+--- a/src/app/message/m/[id]/edit/page.tsx
++++ b/src/app/message/m/[id]/edit/page.tsx
+@@ -8,6 +8,8 @@ import { useCallback, useEffect, useId } from 'react';
+ import { useLocale } from 'react-aria';
+ import { useHotkeys } from 'react-hotkeys-hook';
+ 
++import MessageNotFound from '../_components/MessageNotFound';
++
+ import DiscordIcon from '~/assets/svg/DiscordIcon';
+ import { BottomPortalContainer, BottomPortalProvider } from '~/components/BottomPortal';
+ import Button from '~/components/Button';
+@@ -90,7 +92,7 @@ const Page = () => {
+   const isMobile = useIsMobile();
+ 
+   const {
+-    message, isLoading, hasChanged,
++    message, isLoading, isNotFound, hasChanged,
+     updateMessage, saveMessage,
+     toggleHelp, showHelp, closeHelp, editableState,
+     visualStyle,
+@@ -127,6 +129,7 @@ const Page = () => {
+   }), []);
+ 
+   const dialogId = useId();
++  if (isNotFound) return <MessageNotFound />;
+   return (
+     <div className='fixed inset-0 top-16 flex flex-col' data-mobile-state={isMobile}>
+       <div id='app-container' className='relative flex min-h-0 flex-auto flex-col'>
+diff --git a/src/app/message/m/[id]/send/page.tsx b/src/app/message/m/[id]/send/page.tsx
+index 383cfbe..ff1e3bf 100644
+--- a/src/app/message/m/[id]/send/page.tsx
++++ b/src/app/message/m/[id]/send/page.tsx
+@@ -9,6 +9,8 @@ import { signIn, useSession } from 'next-auth/react';
+ import Image from 'next/image';
+ import { Fragment, useCallback, useEffect } from 'react';
+ 
++import MessageNotFound from '../_components/MessageNotFound';
++
+ import EditMessageMenu from './_components/EditMessageMenu';
+ import SendMenuTitle from './_components/SendMenuTitle';
+ import WebhookMenu from './_components/WebhookMenu';
+@@ -67,7 +69,7 @@ function getGuildIcon(
+ const Page = () => {
+   const { data: session } = useSession();
+   const {
+-    message, isLoading: isMessageLoading,
++    message, isLoading: isMessageLoading, isNotFound,
+     toggleSuppressPings, updateRecentMessageData,
+   } = useMessage();
+   const {
+@@ -109,6 +111,8 @@ const Page = () => {
+     }
+   }, [message, selectedWebhook, oldMessage, threadId, threadName, showEdit]);
+ 
++  if (isNotFound) return <MessageNotFound />;
++
+   const isLoading = isGuildLoading || isLoadingChannels || isMessageLoading;
+   if (!hasLoaded || isLoading) {
+     return (
+diff --git a/src/providers/MessageProvider/index.tsx b/src/providers/MessageProvider/index.tsx
+index e3bfe1b..0227d31 100644
+--- a/src/providers/MessageProvider/index.tsx
++++ b/src/providers/MessageProvider/index.tsx
+@@ -61,10 +61,16 @@ function storedToActive(stored: StoredMessage): Omit<ApiMessage, 'id' | 'created
+   };
+ }
+ 
++export function retryUnlessRefused(failureCount: number, error: TRPCQueryError) {
++  const status = error.data?.httpStatus;
++  return failureCount < 3 && !(status && status >= 400 && status < 500);
++}
++
+ type State = {
+   message: null | ActiveMessage;
+   isLoading: boolean;
+   messageError: null | TRPCQueryError;
++  isNotFound: boolean;
+   isSaving: boolean;
+   hasChanged: boolean;
+   savedMessage: ActiveMessage | null;
+@@ -213,6 +219,7 @@ function useValue() {
+     staleTime: Infinity,
+     refetchOnWindowFocus: false,
+     refetchOnMount: 'always',
++    retry: retryUnlessRefused,
+   });
+ 
+   // Replaces onSuccess callback removed in RQ5
+@@ -328,6 +335,7 @@ function useValue() {
+     message,
+     isLoading: paramMessageId !== '0' && (isLoading || isCodeMessageFetching),
+     messageError,
++    isNotFound: messageError?.data?.code === 'NOT_FOUND',
+     isSaving,
+     hasChanged,
+     savedMessage,
+diff --git a/src/server/api/routers/__tests__/message.get-one-not-found.test.ts b/src/server/api/routers/__tests__/message.get-one-not-found.test.ts
+new file mode 100644
+index 0000000..d952efb
+--- /dev/null
++++ b/src/server/api/routers/__tests__/message.get-one-not-found.test.ts
+@@ -0,0 +1,172 @@
++import {
++  beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import createCapturingDatabase from '../../utils/__tests__/helpers/capturingDatabase';
++import messageRouter from '../message';
++
++import type { CompiledQuery } from 'kysely';
++
++const mocks = vi.hoisted(() => ({
++  db: undefined as unknown,
++  account: null as null | { userId: string, access_token: string, providerAccountId: string },
++  userGuilds: [] as { id: string }[],
++  userGuildsFailure: null as null | Error,
++  ownerCheckFails: false,
++}));
++
++vi.mock('~/env.mjs', () => ({
++  env: new Proxy({}, { get: (_, key) => `test-${String(key)}` }),
++}));
++vi.mock('~/server/auth', () => ({
++  getServerAuthSession: vi.fn(),
++  getHydratedServerAuthSession: vi.fn(),
++}));
++vi.mock('project-utils', () => ({ getPostgres: () => mocks.db }));
++vi.mock('pusher', () => ({ default: class { trigger = vi.fn(); } }));
++vi.mock('@vercel/functions', () => ({ waitUntil: () => undefined }));
++vi.mock('~/utils/redis', () => ({
++  default: {
++    fetchAccountFromSession: async () => mocks.account,
++    fetchUserGuilds: async () => {
++      if (mocks.userGuildsFailure) throw mocks.userGuildsFailure;
++      return mocks.userGuilds;
++    },
++  },
++}));
++vi.mock('~/utils/redis/messageStore', () => ({ default: {} }));
++
++const OWNER = { discordId: '100000000000000001', dbUserId: '900000000000001' };
++const OTHER = { discordId: '100000000000000002', dbUserId: '900000000000002' };
++const GUILD = { discordId: '300000000000000001', rowId: '700000000000001' };
++
++const PERSONAL_ID = '900000000000101';
++const GUILD_MESSAGE_ID = '900000000000201';
++const ABSENT_ID = '900000000000500';
++
++const SECRET = 'owner-only-content';
++const NOT_FOUND_TEXT = 'This message doesn\'t exist, or you don\'t have access to it.';
++
++const rows: Record<string, { fk_users_id: string | null, guildId: string | null }> = {
++  [PERSONAL_ID]: { fk_users_id: OWNER.dbUserId, guildId: null },
++  [GUILD_MESSAGE_ID]: { fk_users_id: null, guildId: GUILD.discordId },
++};
++
++function respond({ sql, parameters }: CompiledQuery): unknown[] {
++  if (sql.startsWith('select "userId" from "Accounts"')) {
++    const account = [OWNER, OTHER].find(({ discordId }) => parameters.includes(discordId));
++    return account ? [{ userId: account.dbUserId }] : [];
++  }
++  if (sql.includes('left join "ScheduledMessages"')) {
++    const id = String(parameters[0]);
++    const row = rows[id];
++    return row ? [{
++      id,
++      createdAt: new Date(0),
++      updatedAt: new Date(0),
++      name: 'owner-name',
++      data: { content: SECRET },
++      previewImageNonce: null,
++      recentWebhookId: null,
++      recentThreadId: null,
++      recentMessageId: null,
++      guildId: row.guildId,
++      scheduledMessageId: null,
++      scheduledMessageCron: null,
++      scheduledMessageError: null,
++      scheduledMessageSendAt: null,
++      scheduledMessageSent: null,
++    }] : [];
++  }
++  if (sql.startsWith('select "fk_users_id" from "Messages"')) {
++    if (mocks.ownerCheckFails) throw new Error('Connection terminated unexpectedly');
++    return parameters.flatMap((value) => {
++      const row = rows[String(value)];
++      return row ? [{ fk_users_id: row.fk_users_id }] : [];
++    });
++  }
++  return [];
++}
++
++function callerAs(user: { discordId: string }) {
++  return messageRouter.createCaller({
++    session: { user: { id: user.discordId, guilds: [] }, expires: 'never' },
++    req: { headers: { cookie: '__Secure-next-auth.session-token=session-token' } },
++  } as never);
++}
++
++const outcomeOf = (promise: Promise<unknown>) => promise.then(
++  (value) => ({ value }),
++  (error: { code?: unknown, message?: unknown }) => ({ error: { code: error.code, message: error.message } }),
++);
++
++beforeEach(() => {
++  mocks.account = { userId: OTHER.dbUserId, access_token: 'access-token', providerAccountId: OTHER.discordId };
++  mocks.userGuilds = [];
++  mocks.userGuildsFailure = null;
++  mocks.ownerCheckFails = false;
++  mocks.db = createCapturingDatabase(respond).db;
++});
++
++describe('message.getOne for a signed-in user who cannot see the message', () => {
++  const cases = [
++    ['a number no message holds', ABSENT_ID],
++    ['another user\'s personal message', PERSONAL_ID],
++    ['a message of a server the user cannot manage', GUILD_MESSAGE_ID],
++  ] as const;
++
++  it.each(cases)('answers not found with the one message text for %s', async (_, id) => {
++    const outcome = await outcomeOf(callerAs(OTHER).getOne(id));
++
++    expect(outcome).toEqual({ error: { code: 'NOT_FOUND', message: NOT_FOUND_TEXT } });
++  });
++
++  it('gives the same answer in all three cases, with none of the message in it', async () => {
++    const outcomes = await Promise.all(cases.map(([, id]) => outcomeOf(callerAs(OTHER).getOne(id))));
++
++    expect(new Set(outcomes.map((outcome) => JSON.stringify(outcome))).size).toBe(1);
++    expect(JSON.stringify(outcomes)).not.toContain(SECRET);
++  });
++});
++
++describe('message.getOne for a user who can see the message', () => {
++  it('returns a personal message to its owner', async () => {
++    const message = await callerAs(OWNER).getOne(PERSONAL_ID);
++
++    expect(message?.data).toEqual({ content: SECRET });
++  });
++
++  it('returns a server message to a user who manages that server', async () => {
++    mocks.userGuilds = [{ id: GUILD.discordId }];
++
++    const message = await callerAs(OTHER).getOne(GUILD_MESSAGE_ID);
++
++    expect(message?.data).toEqual({ content: SECRET });
++  });
++});
++
++describe('message.getOne when the load fails for a reason other than access', () => {
++  it('answers a server error, not not found, when the user\'s servers cannot be read from Discord', async () => {
++    mocks.userGuildsFailure = new Error('Failed to fetch guilds. Got: {"message":"401: Unauthorized","code":0}');
++
++    const outcome = await outcomeOf(callerAs(OTHER).getOne(GUILD_MESSAGE_ID));
++
++    expect(outcome).toMatchObject({ error: { code: 'INTERNAL_SERVER_ERROR' } });
++  });
++
++  it('answers a server error, not not found, when the database fails while checking the message\'s owner', async () => {
++    mocks.ownerCheckFails = true;
++
++    const outcome = await outcomeOf(callerAs(OTHER).getOne(PERSONAL_ID));
++
++    expect(outcome).toMatchObject({ error: { code: 'INTERNAL_SERVER_ERROR' } });
++  });
++
++  it('answers unauthorized, not not found, for a server message when the session has no account', async () => {
++    mocks.account = null;
++
++    const outcome = await outcomeOf(callerAs(OTHER).getOne(GUILD_MESSAGE_ID));
++
++    expect(outcome).toEqual({ error: { code: 'UNAUTHORIZED', message: 'User is not authenticated.' } });
++  });
++});
+diff --git a/src/server/api/routers/message.ts b/src/server/api/routers/message.ts
+index 74b5f63..333fc65 100644
+--- a/src/server/api/routers/message.ts
++++ b/src/server/api/routers/message.ts
+@@ -1,6 +1,7 @@
+ import { TRPCError } from '@trpc/server';
+ import { z } from 'zod';
+ import { EmbedType, type APIMessage as Message, type UserFlags } from 'discord-api-types/v10';
++import { NoResultError } from 'kysely';
+ 
+ import authorizeGuildAdmin from '../utils/authorizeGuildAdmin';
+ import authorizeGuildUser from '../utils/authorizeGuildUser';
+@@ -25,6 +26,22 @@ import discordResponseToMessage from '~/utils/discordResponseToMessage';
+ import redis from '~/utils/redis';
+ import messageStore from '~/utils/redis/messageStore';
+ 
++function messageNotFound() {
++  return new TRPCError({
++    code: 'NOT_FOUND',
++    message: 'This message doesn\'t exist, or you don\'t have access to it.',
++  });
++}
++
++function asNotFound(refusal: typeof NoResultError | TRPCError['code']) {
++  return (error: unknown): never => {
++    const refused = typeof refusal === 'string'
++      ? error instanceof TRPCError && error.code === refusal
++      : error instanceof refusal;
++    throw refused ? messageNotFound() : error;
++  };
++}
++
+ async function authorizeAction(
+   providerUserId: DiscordId,
+   req: NextApiRequest,
+@@ -54,17 +71,12 @@ export default createTRPCRouter({
+   getOne: protectedProcedure
+     .input(messageIdShape)
+     .query(async ({ input: messageId, ctx: { req, session } }): Promise<ApiMessage | null> => {
+-      const message = await getMessage(messageId);
++      const message = await getMessage(messageId).catch(asNotFound(NoResultError));
+       if (message.guildId) {
+-        await authorizeGuildUser(req, message.guildId);
++        await authorizeGuildUser(req, message.guildId).catch(asNotFound('FORBIDDEN'));
+       } else {
+-        const { oldMessageCount } = await authorizeUser(session.user.id, message.id);
+-        if (!oldMessageCount) {
+-          throw new TRPCError({
+-            code: 'NOT_FOUND',
+-            message: 'This message does not exist.',
+-          });
+-        }
++        const { oldMessageCount } = await authorizeUser(session.user.id, message.id).catch(asNotFound('NOT_FOUND'));
++        if (!oldMessageCount) throw messageNotFound();
+       }
+       return message;
+     }),
