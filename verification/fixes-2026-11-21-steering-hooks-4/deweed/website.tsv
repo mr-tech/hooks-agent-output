@@ -1,0 +1,77 @@
+id	score	disposition	class	generated	covering	reason
+1542	8	kept	-	no	-	Compiles the real cron query through a capturing database; fails if the error filter is dropped or written as '= null' (which matches no row, so nothing is ever sent); asserted nowhere else
+1543	10	kept	-	no	-	Only assertion of the due/unsent predicates that gate the webhook post; dropping sent=false re-posts every sent message on each tick, an irreversible effect
+1544	10	kept	-	no	-	Only assertion of the cron key boundary: a request without the key gets 404 and runs no query
+1551	8	kept	-	yes	-	Absent header: without the typeof guard secretEquals throws on undefined instead of a completed 401; fails alone if the guard is narrowed to an array check
+1552	10	kept	-	yes	-	The route's core refusal: a wrong token of equal length gets 401 and no command runs; fails on any change that stops the comparison deciding
+1553	8	kept	-	yes	-	Token plus trailing characters: fails alone on a prefix or startsWith comparison, or a comparison truncated to the configured length
+1554	7	kept	-	yes	-	Empty header against a configured token: the sent value is a prefix of the token, so it fails alone on a comparison truncated to the sent length; overlaps 1552 otherwise
+1555	9	kept	-	yes	-	Array header carrying the right token: the one fixture where the typeof-string conjunct alone decides against a coercing or first-element read
+1556	9	kept	-	no	-	Discriminating control of the refusal table: an always-401 handler passes every refusal row and fails only here
+1557	9	kept	-	yes	-	Empty configured token with empty header: secretEquals('', '') is true, so the not-configured conjunct alone decides the 401
+1558	5	remove	-	yes	1557	Empty configured token with no header: the typeof guard already refuses, so the not-configured conjunct is not isolated; repeats 1557 and 1551
+1559	5	remove	-	yes	1560	Unset token with no header: the typeof guard already refuses; the unset row is decided alone in 1560
+1560	9	kept	-	yes	-	Unset token with header 'undefined': the one fixture where the unset-configuration conjunct alone decides against a stringified comparison; distinct from the empty row 1557
+1632	8	kept	-	yes	-	Extra query key: fails if the strict() on the query shape is dropped; the route's only malformed-query spec
+1633	8	kept	-	yes	-	Repeated code parameter: fails if an array reaches messageStore.retrieve or the ZodError stops mapping to a completed 400
+1634	7	kept	-	yes	-	Missing code: fails if code becomes optional; overlaps 1633 only where the string check is removed outright
+2105	4	remove	-	yes	2106	Asserts the mock's call count and argument pair on the list route; fails on a refactor that strips the scheme before comparing, while a revert to plain equality is caught by 2106
+2106	8	kept	-	yes	-	With secretEquals forced false the exact credential is refused on the list route: the only case failing on a revert to === or an ===-or-secretEquals short circuit there
+2107	4	remove	-	yes	2108	Asserts the mock's call count and argument pair on the single route; fails on a refactor that strips the scheme before comparing, while a revert to plain equality is caught by 2108
+2108	8	kept	-	yes	-	With secretEquals forced false the exact credential is refused on the single route: the only case failing on a revert to === or an ===-or-secretEquals short circuit there
+2109	4	remove	-	yes	2110	Asserts the mock's call count and argument pair on the interactions-server route; fails on a refactor that strips the scheme before comparing, while a revert to plain equality is caught by 2110
+2110	8	kept	-	yes	-	With secretEquals forced false the exact credential is refused on the interactions-server route: the only case failing on a revert to === or an ===-or-secretEquals short circuit there
+2111	7	kept	-	no	-	Equal strings hold; fails on an inverted or always-false comparison at the function's own surface, overlapping the route controls only in part
+2112	7	kept	-	no	-	Same-length unequal strings fail; fails on an always-true or length-only comparison
+2113	7	kept	-	yes	-	First longer: raw timingSafeEqual throws on unequal lengths, so this fails if the digest step is dropped; overlaps 1553 through a route only
+2114	7	kept	-	yes	-	Second longer: fails alone on a comparison truncated or padded to the first argument's length, which 2113 passes
+2115	6	remove	-	yes	2114	Empty first argument against a longer second: the same direction as 2114 with other data
+2116	5	remove	-	no	2111	Two empty strings hold: an input every caller excludes by its not-configured guard; equality itself is held by 2111
+2117	7	kept	-	no	-	Case-only difference: fails on a case-normalising comparison, which 2112 passes
+2118	4	remove	-	no	2119	Pins the SHA-256 digests handed to the mocked timingSafeEqual and its call count; fails on a refactor to another digest or an HMAC, and the length short circuit it would catch fails 2119
+2119	7	kept	-	no	-	Mocked primitive answering true for unequal-length strings: fails on a length short circuit placed before timingSafeEqual, a timing leak no value test sees
+2120	8	kept	-	no	-	Mocked primitive refusing equal strings: the only case failing on a revert to === or an ===-first short circuit inside secretEquals
+2318	8	kept	-	yes	-	List route, non-snowflake guild id: completed 400 and no database read; the list route's only id-shape spec
+2319	8	kept	-	yes	-	List route, extra query key: fails if strict() is dropped from the list query shape
+2320	8	kept	-	yes	-	Single route, non-snowflake guild id: the single route's own guild-id row, 400 before any read
+2321	8	kept	-	yes	-	Single route, non-numeric message id: fails if the route stops parsing id through messageIdShape or the ZodError becomes a 500
+2322	6	remove	-	yes	2321	Single route, exponent form message id: the same regex refusal through the same route wiring as 2321 with other data; the shape row is held in shapes.message-id
+2323	6	remove	-	yes	2321	Single route, fractional message id: the same regex refusal through the same route wiring as 2321 with other data; the shape row is held in shapes.message-id
+2324	6	remove	-	yes	2321	Single route, negative message id: the same regex refusal through the same route wiring as 2321 with other data; the shape row is held in shapes.message-id
+2325	6	remove	-	yes	2321	Single route, surrounding space message id: the same regex refusal through the same route wiring as 2321 with other data; the shape row is held in shapes.message-id
+2326	7	kept	-	yes	-	Single route, id one past the largest message number: refused by the range refinement and not the regex, so it fails where an overflow would reach the database; overlaps 2321 on the wiring
+2327	8	kept	-	yes	-	Single route, extra query key: fails if strict() is dropped from the single query shape
+2328	8	kept	-	yes	-	Largest message number reaches the lookup digit for digit: fails on a Number() round trip that loses precision; the only assertion of what id the route queries
+2329	6	remove	-	yes	2328	Leading zeros reach the lookup canonicalised: the route lookup is held by 2328 and the canonical form by the shape's own spec; the database reads either form alike
+2330	9	kept	-	yes	-	list: no authorization header; the typeof conjunct alone decides, else secretEquals throws on undefined instead of a completed 401
+2331	10	kept	-	yes	-	list: the route's core refusal, a wrong bearer gets 401 with no body and no database read
+2332	7	kept	-	yes	-	list: empty bearer, a prefix of the expected header; fails alone on a comparison truncated to the sent length
+2333	8	kept	-	yes	-	list: bare key without the scheme; fails if the route compares the key alone or makes the scheme optional
+2334	7	kept	-	yes	-	list: key under Basic; fails if the route strips any scheme before comparing, overlapping 2336 only in part
+2335	8	kept	-	yes	-	list: key with trailing characters; fails on a prefix or startsWith comparison
+2336	7	kept	-	yes	-	list: lowercase scheme; fails alone on a case-insensitive scheme match
+2337	7	kept	-	yes	-	list: key in another case; fails on a case-normalised comparison of the secret, overlapping 2336 only where the whole header is normalised
+2338	7	kept	-	yes	-	list: unauthenticated POST answers 401 and not 405; fails if the method check moves ahead of the credential check
+2339	9	kept	-	yes	-	list: discriminating control, an always-401 route passes every refusal row and fails only here
+2340	9	kept	-	yes	-	list: unset server key with 'Bearer undefined', which equals the interpolated expectation, so the not-configured conjunct alone decides
+2341	9	kept	-	yes	-	list: empty server key with 'Bearer ', which equals the interpolated expectation; the empty row of the not-configured conjunct, distinct from the unset row
+2342	9	kept	-	yes	-	single: no authorization header; the typeof conjunct alone decides, else secretEquals throws on undefined instead of a completed 401
+2343	10	kept	-	yes	-	single: the route's core refusal, a wrong bearer gets 401 with no body and no database read
+2344	7	kept	-	yes	-	single: empty bearer, a prefix of the expected header; fails alone on a comparison truncated to the sent length
+2345	8	kept	-	yes	-	single: bare key without the scheme; fails if the route compares the key alone or makes the scheme optional
+2346	7	kept	-	yes	-	single: key under Basic; fails if the route strips any scheme before comparing, overlapping 2348 only in part
+2347	8	kept	-	yes	-	single: key with trailing characters; fails on a prefix or startsWith comparison
+2348	7	kept	-	yes	-	single: lowercase scheme; fails alone on a case-insensitive scheme match
+2349	7	kept	-	yes	-	single: key in another case; fails on a case-normalised comparison of the secret, overlapping 2348 only where the whole header is normalised
+2350	7	kept	-	yes	-	single: unauthenticated POST answers 401 and not 405; fails if the method check moves ahead of the credential check
+2351	9	kept	-	yes	-	single: discriminating control, an always-401 route passes every refusal row and fails only here
+2352	9	kept	-	yes	-	single: unset server key with 'Bearer undefined', which equals the interpolated expectation, so the not-configured conjunct alone decides
+2353	9	kept	-	yes	-	single: empty server key with 'Bearer ', which equals the interpolated expectation; the empty row of the not-configured conjunct, distinct from the unset row
+2354	7	kept	-	yes	-	list: stored valid=true is exposed as valid true and never inside data; fails if the field is dropped from the select or the mapping
+2355	8	kept	-	yes	-	list: stored valid=false is exposed as false; fails alone on a truthiness spread that omits false
+2356	8	kept	-	yes	-	list: stored NULL omits the key; fails alone if null is serialised or coerced to false
+2357	7	kept	-	yes	-	single: stored valid=true is exposed as valid true and never inside data; fails if the field is dropped from the select or the mapping
+2358	8	kept	-	yes	-	single: stored valid=false is exposed as false; fails alone on a truthiness spread that omits false
+2359	8	kept	-	yes	-	single: stored NULL omits the key; fails alone if null is serialised or coerced to false
+2360	6	remove	-	yes	2330	Same request, route and assertions as 2330 (no credential, 401, no read). The enumeration that generates it is what covers a v1 route added later, and that is not this case's own failure
+2361	6	remove	-	yes	2342	Same request, route and assertions as 2342 (no credential, 401, no read). The enumeration that generates it is what covers a v1 route added later, and that is not this case's own failure

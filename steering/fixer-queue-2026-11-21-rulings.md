@@ -291,3 +291,12 @@ that the question is being asked in, and then afterward what the question is and
 themselves as they are is more or less okay. However, they should still avoid commit messages or commit IDs, and other technical
 information that I would otherwise have to look up to make sense of." Lodged in `~/.claude/agents/INBOX.md` (FYI, steering-hooks,
 2026-11-21) for the Escalation Form; every prompt this thread puts to him follows it from now.
+
+## 2026-11-21T18:51Z — test-case scoring beside batch retrospective e (chain 5 alone)
+
+Website at `0c14d5b` (chain 5's release), clean export; suite 2361 cases, exit 0 (helper's JSON report, counted by python; run under a
+`systemd-run` 8G cgroup cap). Marked: 76 cases in the nine test files `git diff --name-only b68f94c 0c14d5b -- 'src/**/__tests__/**'`
+lists as `*.test.ts` (the tenth path is a helper). One deweeder unit. Merged:
+`verification/fixes-2026-11-21-steering-hooks-4/deweed/website.tsv` (76 rows, 76 unique ids; python). Below 7: 15 of 76 (19.7%) — among
+them 2360-2361, which the scorer notes are the guard test's only enumeration of future v1 routes. Covering cells: every covering id is in
+the merged table (0 unchecked). Nothing deleted on this. Export removed (`du -s` 949712 before; `ls -d` fails after).
