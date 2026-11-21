@@ -1,0 +1,161 @@
+handoff/017-existing-items-backlog-post-deploy-2026-11-19.md
+  Status: Open
+  Review-Trigger: "the scheduled readers' completion rows (B7R, B10R: last cell run-B7R-complete or run-B10R-complete in this record's changelog) and his look report on B-6, B-8 and B-9 after both releases are live; for F-7, the next UAT walk that opens a delete warning or the image dialog in a real browser, or the next change to ImageUploader.tsx or WarningDialog.tsx"
+  MATCH
+
+handoff/anchored-popover-first-load-test-is-order-dependent-2026-11-18.md
+  Status: Open
+  Review-Trigger: when src/components/AnchoredPopover/__tests__/Child.portal-inside-open-dialog.test.tsx is next edited, or a case is added to it
+  no-match
+
+handoff/authorize-guild-admin-tests-membership-not-admin-bits-2026-11-19.md
+  Status: Open
+  Review-Trigger: when website src/server/api/routers/utils/authorizeGuildAdmin.ts or src/server/api/routers/utils/guild.ts is next edited, or when the next chain touching website access control opens
+  MATCH
+
+handoff/backfill-valid-guard-has-no-db-backed-instrument-2026-08-26.md
+  Status: Open
+  Review-Trigger: >- Re-read this if a DB-backed integration harness is proposed for any reason, if `backfillValid.ts` is modified, if a second backfill-style mass-mutation script is written for any table, or if anyone proposes running such a script against a host reached through a unix socket.
+  no-match
+
+handoff/bug-evaluation-fixes-unclosed-assumptions-2026-11-08.md
+  Status: Open
+  Review-Trigger: when the next website or preview-image-generator effort is scoped, or when a user report names one of the surfaces below (getFromUrl, the /generate endpoint, a stored message's preview image, the Upload Message / sign-out paths)
+  MATCH
+
+handoff/bug-evaluation-research-pm2-show-lines-2026-11-10.md
+  Status: Open
+  Review-Trigger: when a researcher is next commissioned in this record, and before research/codebase-bug-evaluation-2026-11-08.md is closed or its Recommendation 3 or gap G-4 is cited as an instruction for a host read
+  no-match
+
+handoff/cron-endpoint-key-is-a-fixed-value-2026-11-19.md
+  Status: Open
+  Review-Trigger: when website src/pages/api/cron.ts is next edited, or when the next chain touching website access control opens
+  MATCH
+
+handoff/deleted-message-url-serves-blank-editor-2026-11-20.md
+  Status: Open
+  Review-Trigger: when the message page's load path (src/app/message/m/[id]) or message.getOne is next changed, or when the next website polish effort is scoped
+  MATCH
+
+handoff/editor-shows-blank-shell-when-personal-message-load-is-refused-2026-11-20.md
+  Status: Open
+  Review-Trigger: when the website message editor's load path for /message/m/[id]/edit is next edited, or when the next chain touching website access control opens
+  MATCH
+
+handoff/fix-website-dependency-audit-first-run-2026-11-21.md
+  Status: Open
+  Review-Trigger: "the scheduled reader R1's fire after the tool's first scheduled run (07:13Z, 2026-11-21 to 2026-11-28): its completion row, last cell run-R1-complete, in this record's changelog"
+  no-match
+
+handoff/get-one-absent-number-fails-without-not-found-2026-11-19.md
+  Status: Open
+  Review-Trigger: when website src/server/api/routers/message.ts getOne or src/server/api/utils/shared.ts getMessage is next edited, or when the next chain touching website access control opens
+  MATCH
+
+handoff/hydrated-recent-ids-not-canonicalised-2026-11-21.md
+  Status: Open
+  Review-Trigger: when `keepMessageNumbers` (website `src/server/api/utils/shared.ts`) or `hydratedAuthCallback` (website `src/server/auth.ts`) is next edited
+  MATCH
+
+handoff/hydrated-recent-list-returns-guild-message-rows-2026-11-19.md
+  Status: Open
+  Review-Trigger: when website src/server/api/utils/shared.ts getUserRecentMessages is next edited, or when the next chain touching website access control opens
+  MATCH
+
+handoff/message-init-cached-edits-lost-2026-08-27.md
+  Status: Open
+  Review-Trigger: >- Re-read this if a user reports cached local message edits disappearing after a refresh at `/message/m/0`, or if anyone proposes writing a new test for MessageProvider's route-0 initialization.
+  no-match
+
+handoff/mutant-equivalence-by-argument-unverified-2026-11-19.md
+  Status: Open
+  Review-Trigger: "when the next chain's diff touches website src/**/leaveWithoutAlert.ts, messageDrafts.ts, withLocalStorage.ts or StyledLink.tsx, or preview-image-generator src/generateImage.ts"
+  MATCH
+
+handoff/newmessagemodal-persist-gate-choice-unreachable-2026-08-27.md
+  Status: Open
+  Review-Trigger: >- Re-read this if BC-17 (`agent-output/qa/closed/013-components-v2-editing-surfaces-qa.md`, "discord-returns-row-e") is ever discharged — i.e. if a real Discord message carrying both V2 components and classic content is observed coming back through the import path — since that is exactly the shape this finding says the user cannot currently save through `NewMessageModal`. Also re-read if anyone proposes adding coverage for `NewMessageModal.onSubmit`'s `pendingChoice` branch.
+  no-match
+
+handoff/one-hooks-user-several-discord-accounts-2026-11-08.md
+  Status: Open
+  Review-Trigger: when a Hooks user holding more than one Discord Accounts row is found (a database read) or reported
+  no-match
+
+handoff/open-content-editor-text-not-drafted-until-close-2026-11-20.md
+  Status: Open
+  Review-Trigger: when the message editor's draft store (src/utils/messageDrafts.ts) or the content editor's commit-on-close is next changed, or when the next website editing or data-loss effort is scoped
+  MATCH
+
+handoff/preview-image-generator-api-key-in-workflow-files-2026-11-08.md
+  Status: Open
+  Review-Trigger: When either preview-image-generator workflow file is next edited, when the generator's API key is rotated, or when the repository's visibility is changed or reviewed — whichever comes first.
+  no-match
+
+handoff/preview-image-generator-drain-under-load-unobserved-2026-11-08.md
+  Status: Open
+  Review-Trigger: "for item 2 only, the next production stop of hooks-image-preview-generator-prod that ends in SIGKILL while the stopped process's span shows Created instance above 0 (any later prod.yml deploy or restart that reads that way); and before any PM2 upgrade on the generator host past 5.x"
+  MATCH
+
+handoff/preview-image-generator-generic-pool-private-field-2026-11-08.md
+  Status: Open
+  Review-Trigger: when a preview-image-generator commit changes the generic-pool version its package-lock.json resolves (3.9.0 at 8de2b53); the same event triggers handoff/preview-image-generator-host-security-posture-2026-11-08.md
+  no-match
+
+handoff/preview-image-generator-host-security-posture-2026-11-08.md
+  Status: Open
+  Review-Trigger: When puppeteer or generic-pool is next bumped in preview-image-generator; when the generator host is next rebuilt, re-provisioned or its Node interpreter changed; when `.github/deploy.sh` or either generator workflow file is next edited; when a vulnerability in Chrome 116.0.5845.96 or Node 18.17.1 is reported as exploited against the product; or when the premise of the acceptance moves — the audience or data Hooks handles changes (architecture `preview-image-generator.md` P-4's scope clause) — whichever comes first
+  MATCH
+
+handoff/pusher-message-update-channels-are-public-2026-11-19.md
+  Status: Open
+  Review-Trigger: when website src/server/api/routers/shared.ts or src/providers/MessageProvider/usePusher.ts is next edited, or when the next chain touching website access control opens
+  MATCH
+
+handoff/qa-014-bc7-closing-observation-and-test-inventory-2026-11-10.md
+  Status: Open
+  Review-Trigger: when QA next runs in this record, or when the next website test effort is scoped
+  MATCH
+
+handoff/send-check-validity-excluded-toast-and-file-upload-2026-11-11.md
+  Status: Open
+  Review-Trigger: "when the owner rules on plan 016's Exclusions X-1 or X-2; when src/utils/sendWebhook.ts's toast or the File component's editor or add-menu entry is next edited; when a user reports a send failing with only the generic toast; or when the existing-items queue of his prompt-2 ruling is done (steering/queue-hooks-rulings.md, selections 1 to 4) and new feature work is next planned"
+  no-match
+
+handoff/uat-local-stack-test-free-port-race-2026-11-11.md
+  Status: Open
+  Review-Trigger: "when tools/uatLocalStack.test.js is next edited, or when a run of it next ends in EADDRINUSE or at a runner timeout"
+  no-match
+
+handoff/update-preferences-recent-message-ids-accepts-non-int8-2026-11-19.md
+  Status: Open
+  Review-Trigger: when website src/server/api/routers/user.ts updatePreferences is next edited by a chain other than 018, or when the next chain touching website message-number inputs opens
+  MATCH
+
+handoff/website-018-standing-risks-save-toast-and-lint-stack-2026-11-20.md
+  Status: Open
+  Review-Trigger: "for RK-3: a user report, or an observation by a stage, of the editor's 'Error. Failed to save message. Please try again.' toast on a message the user did not just paste, or the next edit to the editor's Save error handling; for RK-5: when a lint dependency (eslint, eslint-config-airbnb, eslint-plugin-react, typescript-eslint, eslint-config-next) next fails to install or load, or is next bumped"
+  no-match
+
+handoff/website-api-handler-hardening-2026-10-10.md
+  Status: Open
+  Review-Trigger: When any file under website src/pages/api/ is next edited, when a route is added under /api/v1/, or when src/env.mjs next enters a scope, whichever comes first.
+  MATCH
+
+handoff/website-git-dependencies-resolve-unpinned-2026-11-20.md
+  Status: Open
+  Review-Trigger: "when website's pnpm-lock.yaml is next regenerated or edited (pnpm install without --frozen-lockfile, pnpm add, pnpm update), or before the next website release whose package.json or lockfile differs from d1bb9b0's"
+  MATCH
+
+handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md
+  Status: Open
+  Review-Trigger: After chain 018's release, when website's src/pages/api/trpc/[trpc].ts, src/middleware.ts, src/app/_navigation/Redirects/Server.tsx or a dependency entry of package.json is next edited, when a tRPC procedure with a list in its input is added, when @trpc/server or zod next changes version, or when website's hosting changes (ecosystem.config.json or vercel.json is next edited, or a deployment that runs next start is proposed), whichever comes first.
+  MATCH
+
+handoff/website-trpc-batching-refusal-outside-caller-read-2026-11-21.md
+  Status: Open
+  Review-Trigger: "when a caller of /api/trpc outside the site's own client is reported or identified as failing (a script, an integration or a third-party tool whose batched request now gets a 400), or when a production request-level read of /api/trpc status codes is next made for any reason"
+  no-match
+
+handoff files read: 32; open: 32; matching /website|push|deploy|release|master|vercel|hooks\.gg|fix-recent-message-ids|verdict/i: 19

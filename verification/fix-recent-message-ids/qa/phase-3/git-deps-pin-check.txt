@@ -1,0 +1,11 @@
+== git show 6f76c6d:package.json | grep -nE 'paracord|project-utils'
+69:    "project-utils": "github:hooks-gg/project-utils#master",
+126:    "paracord": "github:mr-tech/paracord",
+== grep -c 3f203086ae38699f26dbee90dadbb395a96be227 lock@6f76c6d
+4
+== grep -c 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f lock@6f76c6d
+4
+== grep -c 1b7cadb lock@6f76c6d (negative)
+0
+== diff --quiet 76da25c 6f76c6d -- package.json pnpm-lock.yaml
+exit 0
