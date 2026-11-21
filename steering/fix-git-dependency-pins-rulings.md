@@ -98,3 +98,13 @@ thread's read: no `package.json` under `/usr/local/bin/statbot` or `/usr/local/b
 (`grep -l --include=package.json -r`, `node_modules` excluded); elsewhere unread. `devops-fix-git-dependency-pins` started with
 `tmux-agent spawn` (cwd `/usr/local/bin/hooks`), brief `steering/fix-git-dependency-pins-brief-devops.md` (release 1: project-utils
 `master`, deploys nothing).
+
+## 2026-11-21T23:16 — release 1 pushed: project-utils `master` at `40ba5d3`; the website half waits on chain 6
+
+Devops by message 23:1xZ: project-utils `master` `749606d` → `40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165` (fast-forward), pushed; record
+`deployment/fix-git-dependency-pins-deployment.md` (`935e635`), open for release 2. This thread's read: `git ls-remote origin master` →
+`40ba5d3…` (23:16Z). Devops's items: (1) a further consumer, `/usr/local/bin/hooks-deprecated/cdn/package.json`, names
+`github:hooks-gg/project-utils#master`; whether it loads `prisma-kysely` is unread (devops's read not completed; this thread does not
+re-read it) — it changes only if that tree re-pins; put to him in chat. Also `/home/dev/review/website`, a review copy. (2) Repository
+webhooks unread. (3) The website pin names `40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165`. Website `origin/master` still `0c14d5b`; chain 6's
+release ask still open (23:16Z), so the website switch waits.
