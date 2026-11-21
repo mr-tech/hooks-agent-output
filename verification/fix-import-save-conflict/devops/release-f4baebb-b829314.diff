@@ -1,0 +1,338 @@
+diff --git a/src/app/message/_components/NewMessageModal.tsx b/src/app/message/_components/NewMessageModal.tsx
+index 1ff6fa5..712d83b 100644
+--- a/src/app/message/_components/NewMessageModal.tsx
++++ b/src/app/message/_components/NewMessageModal.tsx
+@@ -36,7 +36,7 @@ import { describeDroppedComponentTypesNotice } from '~/server/api/utils/shapes';
+ import styles from '~/styles';
+ import {
+   applyDisposition, describeDropSet, formatMutationError, gateBeforePersist, makeEditable,
+-  saveAsPayload, validateContentRequirements,
++  noticeMessageForSettled, resolveContentLoss, saveAsPayload, validateContentRequirements,
+ } from '~/utils';
+ import { api } from '~/utils/api';
+ import useGuildDropdownItems from '~/utils/hooks/useGuildDropdownItems';
+@@ -123,7 +123,22 @@ const NewMessageModal: FC<Props> = (props) => {
+   ]);
+   const droppedComponentTypes = discordMessage?.droppedComponentTypes
+     ?? webhookDroppedComponentTypes ?? [];
+-  const contentFloorError = loadedMessage ? validateContentRequirements(loadedMessage) : undefined;
++  const { settledMessage, settledNotice } = useMemo(() => {
++    if (!loadedMessage) return { settledMessage: undefined, settledNotice: null };
++    const disposition = resolveContentLoss(
++      loadedMessage.flags as number | undefined,
++      loadedMessage.components as undefined | { type: number }[],
++      loadedMessage.content,
++      loadedMessage.embeds,
++    );
++    if (disposition.requiresChoice) return { settledMessage: undefined, settledNotice: null };
++    return {
++      settledMessage: applyDisposition(loadedMessage),
++      settledNotice: noticeMessageForSettled(disposition),
++    };
++  }, [loadedMessage]);
++  const contentFloorError = settledMessage
++    ? validateContentRequirements(settledMessage) : undefined;
+   const isDisabled = isFetchingDiscordMessage || isFetchingCommandMessage || isLoadingWebhook;
+   const guild = session?.user.guilds.find((g) => g.id === selectedGuildId);
+ 
+@@ -161,13 +176,13 @@ const NewMessageModal: FC<Props> = (props) => {
+ 
+   const onSubmit = useCallback(() => {
+     if (!loadedMessage) return;
+-    const gate = gateBeforePersist(loadedMessage);
++    const gate = gateBeforePersist(settledMessage ?? loadedMessage);
+     if (gate.mustAsk && gate.options) {
+       setPendingChoice({ options: gate.options });
+       return;
+     }
+     submitData(gate.data);
+-  }, [loadedMessage, submitData]);
++  }, [loadedMessage, settledMessage, submitData]);
+ 
+   const commitChoice = useCallback((chosenOption: ContentLossOption) => {
+     if (!loadedMessage) return;
+@@ -353,13 +368,20 @@ const NewMessageModal: FC<Props> = (props) => {
+               <NullableComponent show={!!loadedMessage && contentFloorError}>
+                 <div className="mt-2 text-sm text-error">{contentFloorError}</div>
+               </NullableComponent>
++              <NullableComponent show={settledNotice}>
++                <div className="mt-2 text-sm text-warning">{settledNotice}</div>
++              </NullableComponent>
+             </div>
+             <NullableComponent show={showPreview}>
+               <div className="rounded bg-tertiary p-4 pt-3">
+                 <h2 className="mb-2">Message Preview</h2>
+                 {loadedMessage ? (
+                   <div className="rounded bg-primary p-2">
+-                    <MessagePreview _key={page} messageData={loadedMessage} scale={0.5} />
++                    <MessagePreview
++                      _key={page}
++                      messageData={settledMessage ?? loadedMessage}
++                      scale={0.5}
++                    />
+                   </div>
+                 ) : (
+                   <div className={styles.flex({ cx: true })}>
+diff --git a/src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx b/src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx
+index bd584fe..814d786 100644
+--- a/src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx
++++ b/src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx
+@@ -1,25 +1,15 @@
+-/**
+- * `NewMessageModal`'s Save button writes a loaded, non-conflicting draft through
+- * `upsertMessage`. Mounted for real and driven through the JSON load tab's own CodeMirror editor
+- * and the "Continue"/"Save" buttons — not read as source text.
+- *
+- * This file deliberately does NOT assert on a structurally-conflicting (row-E) draft: mounting one
+- * shows the persist gate's own choice UI (`onSubmit`'s `pendingChoice` branch) is unreachable via
+- * the real Save button today (the unrelated content-floor check disables Save first), which is
+- * neither the old source-text test's claim nor its opposite — see the handoff record under
+- * `agent-output/handoff/` naming this surface for the full finding. Asserting either direction
+- * here would pin a state nobody has decided is correct.
+- * The disposition/gate logic itself (`gateBeforePersist`, the ingress converter's row-E
+- * reachability) is covered directly in `discordResponseToMessage.rowE-persist-gate.test.ts`.
+- */
+ import { act } from 'react';
+-import { describe, expect, it, vi, afterEach } from 'vitest';
+-
++import {
++  afterEach, describe, expect, it, vi,
++} from 'vitest';
+ import { EditorView } from '@codemirror/view';
+ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+ 
++import NewMessageModal from '../NewMessageModal';
++
+ import press, { findButton } from '~/components/__tests__/helpers/press';
+ import { mountDom, unmountDom } from '~/components/__tests__/helpers/dom';
++import discordResponseToMessage from '~/utils/discordResponseToMessage';
+ 
+ // Each factory inlines its own dynamic import of the mock-only `messageProviderDeps` module — see
+ // JsonModalBody.load-settled-notice.test.tsx for why (vi.mock's hoist analysis rejects any
+@@ -29,9 +19,11 @@ vi.mock('next/navigation', async () => (await import('~/providers/MessageProvide
+ vi.mock('next-auth/react', async () => (await import('~/providers/MessageProvider/__tests__/helpers/messageProviderDeps')).AUTH_MOCK);
+ 
+ let capturedUpsertInput: unknown;
++let linkImport: unknown;
+ vi.mock('~/utils/api', async () => {
+   const { buildApiMock } = await import('~/providers/MessageProvider/__tests__/helpers/messageProviderDeps');
+   return buildApiMock({
++    queryData: { 'message.getFromUrl': () => linkImport },
+     onMutation: {
+       'message.upsert': (_opts, input) => { capturedUpsertInput = input; },
+     },
+@@ -41,9 +33,12 @@ vi.mock('~/utils/api', async () => {
+ // Tooltip is dynamic()-loaded and reads `useIsMobile()`, which needs an `IsMobileProvider`
+ // ancestor NewMessageModal doesn't provide on its own — irrelevant to the write path under test,
+ // so replaced with a pass-through rather than adding that provider.
+-vi.mock('~/components/dynamics/Tooltip', () => ({ default: (props: { children: unknown }) => props.children }));
++let previewed: MessageData | undefined;
++vi.mock('~/components/MessagePreview', () => ({
++  default: (props: { messageData: MessageData }) => { previewed = props.messageData; return null; },
++}));
+ 
+-import NewMessageModal from '../NewMessageModal';
++vi.mock('~/components/dynamics/Tooltip', () => ({ default: (props: { children: unknown }) => props.children }));
+ 
+ afterEach(unmountDom);
+ 
+@@ -90,8 +85,7 @@ async function typeJson(json: string) {
+ // `el.value = x` bypasses that tracker and no onChange fires, so this goes through the native
+ // setter the same way a real keystroke would.
+ function typeIntoInput(input: HTMLInputElement, value: string) {
+-  const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')!.set!;
+-  setter.call(input, value);
++  Reflect.set(HTMLInputElement.prototype, 'value', value, input);
+   input.dispatchEvent(new Event('input', { bubbles: true }));
+ }
+ 
+@@ -115,3 +109,189 @@ describe('NewMessageModal — Save writes a loaded, non-conflicting draft', () =
+     expect(written.message.name).toBe('a name');
+   });
+ });
++
++const IS_V2 = 1 << 15;
++const CONTAINER = { type: 17, components: [{ type: 10, content: 'x' }] };
++
++function importViaMessageLink(over: Record<string, unknown>) {
++  const { data, droppedComponentTypes } = discordResponseToMessage({
++    author: {
++      id: '1', username: 'u', avatar: null, discriminator: '0',
++    },
++    content: 'hi',
++    embeds: [],
++    components: [CONTAINER],
++    flags: IS_V2,
++    ...over,
++  } as never);
++  linkImport = { guildId: '1', message: data, droppedComponentTypes };
++}
++
++async function typeMessageLink(link: string) {
++  await act(async () => {
++    typeIntoInput(document.body.querySelector('input[placeholder="https://discord.com/channels/..."]') as HTMLInputElement, link);
++  });
++}
++
++async function continueAndName(el: HTMLElement) {
++  press(findButton(el, 'Continue'));
++  await act(async () => {
++    typeIntoInput(document.body.querySelector('input[placeholder="New Message"]') as HTMLInputElement, 'a name');
++  });
++}
++
++function writtenData(): MessageData {
++  expect(capturedUpsertInput).toBeTruthy();
++  return (capturedUpsertInput as { message: { data: MessageData } }).message.data;
++}
++
++function previewedData(): MessageData {
++  expect(previewed, 'the dialog previews no draft').toBeTruthy();
++  return previewed!;
++}
++
++function hasComponentType(data: MessageData, type: number): boolean {
++  return ((data.components ?? []) as { type: number }[]).some((c) => c.type === type);
++}
++
++describe('NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved', () => {
++  afterEach(() => { linkImport = undefined; capturedUpsertInput = undefined; previewed = undefined; });
++
++  it('a V2-flagged message with content and no V2 components saves as Classic with the flag cleared, under the settled notice', async () => {
++    importViaMessageLink({ components: [] });
++    const el = mount();
++
++    expect(el.textContent).toContain('it has been saved as Classic and the flag cleared');
++    await continueAndName(el);
++    press(findButton(el, 'Save'));
++
++    const data = writtenData();
++    expect(data.content).toBe('hi');
++    expect((data.flags ?? 0) & IS_V2).toBe(0);
++  });
++
++  it('a message with V2 components and no V2 flag saves with the flag set, under the settled notice', async () => {
++    importViaMessageLink({ content: '', flags: 0 });
++    const el = mount();
++
++    expect(el.textContent).toContain('the Components V2 flag was not set — it has been set to match');
++    await continueAndName(el);
++    press(findButton(el, 'Save'));
++
++    const data = writtenData();
++    expect((data.flags ?? 0) & IS_V2).toBe(IS_V2);
++    expect(hasComponentType(data, 17)).toBe(true);
++  });
++
++  it('a message with both V2 components and content asks on Save, and Save as Classic writes the content without the V2 components', async () => {
++    importViaMessageLink({});
++    const el = mount();
++
++    expect(el.textContent).not.toContain('Components V2 messages cannot contain embeds or content.');
++    await continueAndName(el);
++    press(findButton(el, 'Save'));
++
++    expect(capturedUpsertInput).toBeUndefined();
++    press(findButton(el, 'Save as Classic'));
++
++    const data = writtenData();
++    expect(data.content).toBe('hi');
++    expect(hasComponentType(data, 17)).toBe(false);
++    expect((data.flags ?? 0) & IS_V2).toBe(0);
++  });
++
++  it('a message with both V2 components and content asks on Save, and Save as Components V2 writes the components without the content', async () => {
++    importViaMessageLink({});
++    const el = mount();
++
++    await continueAndName(el);
++    press(findButton(el, 'Save'));
++    press(findButton(el, 'Save as Components V2'));
++
++    const data = writtenData();
++    expect(data.content ?? '').toBe('');
++    expect(hasComponentType(data, 17)).toBe(true);
++    expect((data.flags ?? 0) & IS_V2).toBe(IS_V2);
++  });
++
++  it('a V2-flagged message whose only classic content is an empty embed is refused as empty once settled, and Save writes nothing', async () => {
++    importViaMessageLink({ content: '', components: [], embeds: [{ type: 'rich' }] });
++    const el = mount();
++
++    expect(el.textContent).toContain('Message must have content, embeds, or components.');
++    expect(el.textContent).not.toContain('Components V2 messages cannot contain embeds or content.');
++    await continueAndName(el);
++    press(findButton(el, 'Save'));
++
++    expect(capturedUpsertInput).toBeUndefined();
++  });
++
++  it('a V2-flagged message with content and no V2 components that arrives after the dialog opens is settled, noticed and saved as Classic', async () => {
++    const el = mount();
++    importViaMessageLink({ components: [] });
++    await typeMessageLink('https://discord.com/channels/1/2/3');
++
++    expect(el.textContent).toContain('it has been saved as Classic and the flag cleared');
++    await continueAndName(el);
++    press(findButton(el, 'Save'));
++
++    const data = writtenData();
++    expect(data.content).toBe('hi');
++    expect((data.flags ?? 0) & IS_V2).toBe(0);
++  });
++
++  it('a loaded message replaced by one with both V2 components and content asks on Save instead of saving the earlier settled draft', async () => {
++    importViaMessageLink({ components: [] });
++    const el = mount();
++    expect(el.textContent).toContain('it has been saved as Classic and the flag cleared');
++
++    importViaMessageLink({});
++    await typeMessageLink('https://discord.com/channels/1/2/4');
++
++    expect(el.textContent).not.toContain('it has been saved as Classic and the flag cleared');
++    await continueAndName(el);
++    press(findButton(el, 'Save'));
++
++    expect(capturedUpsertInput).toBeUndefined();
++    press(findButton(el, 'Save as Components V2'));
++
++    const data = writtenData();
++    expect(data.content ?? '').toBe('');
++    expect(hasComponentType(data, 17)).toBe(true);
++  });
++
++  it('the preview shows a V2-flagged message with content and no V2 components as the Classic message Save writes', () => {
++    importViaMessageLink({ components: [] });
++    mount();
++
++    const data = previewedData();
++    expect(data.content).toBe('hi');
++    expect((data.flags ?? 0) & IS_V2).toBe(0);
++  });
++
++  it('the preview shows a message with both V2 components and content as loaded while the choice is pending', () => {
++    importViaMessageLink({});
++    mount();
++
++    const data = previewedData();
++    expect(data.content).toBe('hi');
++    expect(hasComponentType(data, 17)).toBe(true);
++    expect((data.flags ?? 0) & IS_V2).toBe(IS_V2);
++  });
++
++  it('a JSON draft with both V2 components and content, kept as Components V2 in the JSON tab, saves those components unchanged', async () => {
++    const el = mount();
++    await typeJson(JSON.stringify({
++      content: 'hi', flags: IS_V2, embeds: [], components: [CONTAINER],
++    }));
++    press(findButton(el, 'Resolve'));
++    press(findButton(el, 'Save as Components V2'));
++
++    await continueAndName(el);
++    press(findButton(el, 'Save'));
++
++    const data = writtenData();
++    expect(data.content ?? '').toBe('');
++    expect(hasComponentType(data, 17)).toBe(true);
++  });
++});

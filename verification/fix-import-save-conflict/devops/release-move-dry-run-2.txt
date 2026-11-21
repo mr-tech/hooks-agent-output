@@ -1,0 +1,10 @@
+repo     /usr/local/bin/hooks/website
+ref      master
+target   b82931402f416e850a785468f9443fa3eadfae44
+remote   origin/master f4baebb000ac6fa31714108c9d2bf261dc3de4a4
+local    master f4baebb000ac6fa31714108c9d2bf261dc3de4a4
+untracked 17 path(s) left alone
+evidence qa-record /usr/local/bin/hooks/agent-output/qa/website-b829314-release-tip-qa.md
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+DRY RUN: every check passed; nothing moved
