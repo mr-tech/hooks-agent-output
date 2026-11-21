@@ -1,0 +1,12 @@
+{
+  "installedBase": 301,
+  "installedFix": 18,
+  "removed": 283,
+  "added": [],
+  "reversioned": [],
+  "lockDevGained": 283,
+  "removedNotDevGained": [],
+  "devGainedNotRemoved": [],
+  "prismaKyselyInstalledFix": false,
+  "ok": true
+}

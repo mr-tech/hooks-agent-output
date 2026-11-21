@@ -1,0 +1,4 @@
+PASS A1 prisma-kysely is a devDependency in package.json and package-lock.json
+PASS A2 a clean rebuild reproduces the committed dist/ (lint=0 build=0)
+PASS A3 a runtime-only install omits prisma-kysely
+PASS A4 dist/index.js loads under the runtime-only install

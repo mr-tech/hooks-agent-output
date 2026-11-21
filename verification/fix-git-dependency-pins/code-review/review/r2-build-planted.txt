@@ -1,0 +1,19 @@
+npm warn deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+
+added 449 packages in 4s
+
+> build
+> tsc -b && rimraf dist && cp -r build/js dist
+
+
+> build:types
+> tsc -p ./tsconfig.json --declaration true --outDir build/types && api-extractor run
+
+
+[1mapi-extractor 7.49.2 [36m - https://api-extractor.com/[39m
+[22m
+Using configuration from ./api-extractor.json
+Analysis will use the bundled TypeScript version 5.7.2
+
+API Extractor completed successfully
+exit 0

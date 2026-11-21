@@ -1,0 +1,2 @@
+getPostgres
+exit 0

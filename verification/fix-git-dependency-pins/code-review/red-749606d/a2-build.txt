@@ -1,0 +1,16 @@
+
+> build
+> tsc -b && rimraf dist && cp -r build/js dist
+
+
+> build:types
+> tsc -p ./tsconfig.json --declaration true --outDir build/types && api-extractor run
+
+
+[1mapi-extractor 7.49.2 [36m - https://api-extractor.com/[39m
+[22m
+Using configuration from ./api-extractor.json
+Analysis will use the bundled TypeScript version 5.7.2
+
+API Extractor completed successfully
+exit 0

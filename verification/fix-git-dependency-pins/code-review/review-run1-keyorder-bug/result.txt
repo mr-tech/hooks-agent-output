@@ -1,0 +1,3 @@
+R1 exit=1 {"installedBase":301,"installedFix":18,"removed":283,"added":0,"reversioned":0,"lockDevGained":57,"removedNotDevGained":226,"devGainedNotRemoved":0,"prismaKyselyInstalledFix":false,"ok":false}
+R2 shared-cache rebuild: distdiff=0 lines=0 prisma_in_dist=no
+R2 control (planted cache): distdiff=1 lines=2 prisma_in_dist=yes
