@@ -66,3 +66,15 @@ refused after release; none is known (the public API is `/api/v1`) — read from
 **Branch cut** 23:57:29Z: `git switch --no-track -c chain/fix-trpc-batch-limit origin/master` in `/usr/local/bin/hooks/website`, over a
 tracked tree read clean (`git status --porcelain --untracked-files=no` to a file, 0 bytes); before and after `d1bb9b0`; the lockfile
 is unchanged across the switch (same commit).
+
+## 2026-11-21T00:11Z — fixer handed off; a correction to the sweep's P2 premise; reviewer started
+
+Fixer's spawn cue (00:1xZ): `implementation/fix-trpc-batch-limit-implementation.md` (record `abdc57b`), Handoff-At website
+`3d2ceec`; 2 production lines (its `git diff --numstat d1bb9b0..3d2ceec`), so no QA Phase 2 and the reviewer runs the suite and the
+red test (block 23:57Z); `semver` absent from `pnpm audit --prod` at the fix (its read).
+**Correction, routed by the fixer's message:** block 23:57Z's sweep said `Redirects/Server.tsx` "is mounted under
+`src/app/message/layout.tsx`". It is not: `<Server />` is commented out in `src/app/_navigation/Redirects/index.tsx` (line 6 at
+`d1bb9b0`, `{/* <Server /> */}`, this thread's `git show` 00:11Z). The error is this thread's helper's, carried into the
+determination by this thread unread; the check that would have caught it was reading `Redirects/index.tsx`. Item 2 stands as the
+fixer did it (the matcher now covers bare `/message`); the reviewer judges it against this corrected premise.
+Spawned `code-reviewer-fix-trpc-batch-limit` on `steering/fix-trpc-batch-limit-brief-code-reviewer.md`.
