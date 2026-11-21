@@ -66,3 +66,7 @@ Chain started 10:44Z: website `chain/fix-desktop-draft-as-typed` cut by this thr
 `b663b35`, porcelain before and after `?? .playwright-mcp/` only); determination and briefs committed `39dd56f`;
 `fixer-fix-desktop-draft-as-typed` started with `tmux-agent spawn` (category `fix-desktop-draft-as-typed`, cwd website, effort medium
 as printed), brief `steering/fix-desktop-draft-as-typed-brief-fixer.md`. The reviewer is started on the fixer's spawn cue.
+Spawn cue 11:0xZ (the fixer, by SendMessage): handed off at website `b68f94c`, 17 added production lines (`git diff --numstat
+b663b35 b68f94c`, read by this thread: 4+8+5 over `Desktop.tsx`, `EmbedAuthor.tsx`, `EmbedFooter.tsx`, all in the write set, plus three
+test files), so code review alone. `code-reviewer-fix-desktop-draft-as-typed` started 11:06Z (`tmux-agent spawn`, cwd website, effort
+medium as printed), brief `steering/fix-desktop-draft-as-typed-brief-code-reviewer.md` (`d8f5a4a`).
