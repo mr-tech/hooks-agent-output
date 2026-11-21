@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-delete-dead-cron
 UUID: af508ebe
-Status: Active
-Status-Detail: "Stage 1 done (committed at website 132a7ab on chain/fix-delete-dead-cron, not pushed). Stage 2 readiness complete; the release is not yet asked of the owner or run. The release moves website master, which Vercel deploys to production."
+Status: Released
+Status-Detail: "Released: website master moved 0c14d5b to 132a7ab at 2026-11-21T23:18:58Z on the owner's release approval, read back at origin. The one forward read (the Vercel dashboard Cron Jobs list) is carried by handoff/vercel-dashboard-cron-list-after-cron-removal-2026-11-21.md, which this record does not wait on."
 ---
 
 # Deployment — fix-delete-dead-cron (website `master`)
@@ -13,6 +13,8 @@ Status-Detail: "Stage 1 done (committed at website 132a7ab on chain/fix-delete-d
 | Date (UTC) | Agent | Change |
 |---|---|---|
 | 2026-11-21T20:56 | devops | Document created at Stage 2 readiness (Phase 2A steps 1-10), after Stage 1 (record commit `e53d265`). Brief `steering/fix-delete-dead-cron-brief-devops.md` read whole; its common part read. No wake-up from an earlier session: this is the first pass. Steering's brief had arrived, so no gap is recorded there. |
+| 2026-11-21T23:18 | devops | Owner's release approval received ("Agent: release it now (Recommended)", selection prompt) and recorded under User Confirmation; pre-move reads taken. |
+| 2026-11-21T23:19 | devops | Phase 2C: website `master` moved `0c14d5b` to `132a7ab`, push at 23:18:58Z, read back at origin 23:19:01Z. Phase 2D worked: fix branch deleted with `-d`; stage documents `Released`; reconciliation table written. Status Released; document closed to `deployment/closed/`. |
 
 ## Plan Reference
 
@@ -31,7 +33,7 @@ Website `master` at `132a7ab6f49d8a85ead507e2221ab3c3a531fd00` (no tag is create
 
 ## Release Date
 
-Not yet run. Filled in Phase 2C.
+2026-11-21, push at 23:18:58Z (read back at origin 23:19:01Z).
 
 ## Execution Mode
 
@@ -91,11 +93,11 @@ Repository: website.
 
 | # | Step | Abort if | Result |
 |---|---|---|---|
-| 1 | `git ls-remote origin master` | not `0c14d5b…` (someone else moved it) | |
-| 2 | `git -C /usr/local/bin/hooks/website status --porcelain` | any tracked change | |
-| 3 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 132a7ab6f49d8a85ead507e2221ab3c3a531fd00 --reason "<review record and Reviewed-At>"` | exit not 0, or a refusal | |
-| 4 | `git ls-remote origin master` | not `132a7ab…` | |
-| 5 | `git -C /usr/local/bin/hooks/website branch --show-current` | not `master` | |
+| 1 | `git ls-remote origin master` | not `0c14d5b…` (someone else moved it) | `0c14d5bed78fd938f8290ed9ae57834e093bfdc1`, read 23:18Z. Proceed. |
+| 2 | `git -C /usr/local/bin/hooks/website status --porcelain` | any tracked change | `?? .playwright-mcp/` only; `git diff --quiet HEAD` exit 0. Proceed. |
+| 3 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 132a7ab6f49d8a85ead507e2221ab3c3a531fd00 --reason "<review record and Reviewed-At>"` | exit not 0, or a refusal | exit 0: "OK moved master: 0c14d5b… -> 132a7ab… on origin; tree on master" (`release-move-real.txt`). |
+| 4 | `git ls-remote origin master` | not `132a7ab…` | `132a7ab6f49d8a85ead507e2221ab3c3a531fd00 refs/heads/master`, 23:19:01Z (`post-move-readback.txt`). |
+| 5 | `git -C /usr/local/bin/hooks/website branch --show-current` | not `master` | `master`, HEAD `132a7ab`. |
 
 A refused or classifier-blocked push is reported to the owner and to `steering-hooks`, never retried in another form.
 
@@ -115,18 +117,49 @@ No session can run any of these read steps before the first ref moves: the dashb
 
 ## User Confirmation
 
-To be filled when asked. The ask is put by selection prompt (the prompt flag `~/.claude/state/prompt-gate-off` is absent), in the owner's words: context, then the decision, no commit IDs. The three user-visible flows
-from the fixer's document are quoted to him.
+Put by selection prompt from this session (the prompt flag `~/.claude/state/prompt-gate-off` was absent), in his form: context first, then the decision, no commit IDs.
+The summary named the live site and its automatic publish, and quoted the fixer's three user-visible flows in plain words: (1) `/api/cron` shows the site's normal not-found page; (2) Vercel's
+scheduled-jobs list should be empty, which only he can see, so he would be asked to look once after release; (3) any waiting scheduled message never sends, and no check was made first (his selection A, 20:26Z).
+Options: "Agent: release it now (Recommended)" and "Agent: hold, don't release".
+
+- Response: "Agent: release it now (Recommended)". The prompt was put after 2026-11-21T20:56Z (the readiness commit `4b616d2`); the answer's own time was not stamped by the prompt, and the first clock read after it is 2026-11-21T23:18Z (the pre-move reads below).
+- Release approval recorded: yes, for the release as a whole (this chain's one commit), not for individual plans.
 
 ## Release Execution
 
-Not yet run.
+Mode A, run by this session after the owner's release approval above. Commands and outputs are in the runbook (results column) and in
+`verification/fix-delete-dead-cron/devops/release-move-real.txt`. The tool ran its checks first (fast-forward from the remote, no sibling serving ref, no workflow), then
+`git branch -f master 132a7ab`, `git checkout master`, `git push origin refs/heads/master:refs/heads/master`. The push, at 2026-11-21T23:18:58Z, took `origin/master` from
+`0c14d5b` to `132a7ab`. No tag and no publish: a branch move has nothing to publish.
+
+**Serving state** is evidenced by the push, per the deploy-evidence rule: the push to `master` is the deployment, and the Vercel Git integration builds `master` (re-derived above).
+No host-side read was made or requested. Nothing is marked NOT VERIFIED for serving state. No artifact-side check was left unperformed.
+
+Consumers resolving to the release: none pin this repository by SHA; `project-utils` and `paracord` are consumed by website, not the reverse.
 
 ## Post-Release Status
 
-Not yet run. The only forward read is the dashboard cron list, carried by `handoff/vercel-dashboard-cron-list-after-cron-removal-2026-11-21.md`.
+- Status: Deployment Complete, 2026-11-21T23:19Z.
+- Known issues: none known. The one forward read is the Vercel dashboard's Cron Jobs list, carried by `handoff/vercel-dashboard-cron-list-after-cron-removal-2026-11-21.md` (`Owning-Stage` owner); this record does not wait on it.
+- Rollback plan: a revert of the one commit, released through `release-move.js` under a new approval (the reverse apply was dry-run at `rollback-dry-run.txt`, exit 0), or a dashboard redeploy of the previous
+  production deployment (accepted as written, not run).
+
+## Phase 2D reconciliation
+
+| Step | Result |
+|---|---|
+| Plans/stage documents Released | The chain has no plan. Its two stage documents, `implementation/closed/fix-delete-dead-cron-implementation.md` and `code-review/closed/fix-delete-dead-cron-code-review.md`, are `Released` with changelog rows, in `closed/`. |
+| Deployed against verified, per repository | website: deployed ref `master`, commit at it `132a7ab6f49d8a85ead507e2221ab3c3a531fd00` (the pushed commit, read from local git and by `ls-remote`). The code review's `Reviewed-At` is `132a7ab6f49d8a85ead507e2221ab3c3a531fd00`: the same commit, so no diff between the two is owed. |
+| Release-tip QA record | None exists (no QA in the stage set); nothing to close. |
+| Metadata | Release identifier `132a7ab` on website `master`; environment Vercel production; timestamp 2026-11-21T23:18:58Z; authorizer the owner, by selection prompt in this session; included plans: none (fixer chain `fix-delete-dead-cron`). |
+| Fix branch | `git branch -d chain/fix-delete-dead-cron` succeeded without `-D` (`fix-branch-delete.txt`); `git branch --list` for it prints nothing; the tree is on `master`. |
+| Architecture | `architecture/system-architecture.md` line 172 ("Cron: daily `/api/cron?key=vercel` per `vercel.json`") is made stale by this release. The brief assigns lodging it for the architect to `steering-hooks` ("steering lodges it"), so this record names it and the message to steering repeats it; no second inbox line is written here. |
+| Chain documents by `Origin` (`grep -rl "^Origin: fix-delete-dead-cron"` outside `verification/`) | Three: the fixer document `Released`, the code review `Released`, and this record. Terminal tokens: `Released`, `Released`, `Released` (this record at its close). The source handoff `handoff/cron-endpoint-key-is-a-fixed-value-2026-11-19.md` is `Open`: its closing `Addressed` is steering's, after the dashboard read. |
+| Other `fix-` chains carried by this release | None. The release is one commit onto `0c14d5b`. The only other open `fix-` documents, `fix-git-dependency-pins` (`Handoff-At` `40ba5d3`, repos=project-utils), are not in website's history (`132a7ab` carries one patch, the cron removal), and are not this release's. |
+| Forward items beyond the register | `grep -l 'Assumption Not Checked'` over the chain's documents finds the code review and this record. The code review's two limbs: pnpm major, closed here; no dashboard cron, carried by the handoff above. The fixer document has no section of that name; its "Residue in production" items are this record's table above. No Risks table, Planner batch or routing phrase with an uncarried item. |
+| Roadmap obligation | None owed: the scoping determination names no epic or criterion (`fix-` chain). |
 
 ## Next Actions
 
-- Owner: the dashboard read above (carried by the handoff).
-- Steering: closes the source handoff after the post-deploy reads, and lodges the architecture record's L172 for the architect (both named in the brief).
+- Owner: the dashboard read above, carried by `handoff/vercel-dashboard-cron-list-after-cron-removal-2026-11-21.md` (event-form trigger, written before this record closes).
+- Steering: closes the source handoff `4bc9b626` after that read; lodges the architecture line 172 for the architect; spawns the retrospective on the cue sent with this record's closing.

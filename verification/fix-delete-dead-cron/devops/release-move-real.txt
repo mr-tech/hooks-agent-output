@@ -1,0 +1,10 @@
+repo     /usr/local/bin/hooks/website
+ref      master
+target   132a7ab6f49d8a85ead507e2221ab3c3a531fd00
+remote   origin/master 0c14d5bed78fd938f8290ed9ae57834e093bfdc1
+local    master 0c14d5bed78fd938f8290ed9ae57834e093bfdc1
+untracked 17 path(s) left alone
+evidence reason Code review APPROVED at Reviewed-At 132a7ab (agent-output code-review/closed/fix-delete-dead-cron-code-review.md); no QA in the stage set; the tip is the reviewed commit; owner release approval given in this session
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+OK moved master: 0c14d5bed78fd938f8290ed9ae57834e093bfdc1 -> 132a7ab6f49d8a85ead507e2221ab3c3a531fd00 on origin; tree on master

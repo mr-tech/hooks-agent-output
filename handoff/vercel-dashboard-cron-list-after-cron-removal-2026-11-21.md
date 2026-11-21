@@ -33,7 +33,7 @@ section (`verification/fix-delete-dead-cron/devops/vercel-inspect-prod-0c14d5b.t
 
 ## Origin
 
-`deployment/fix-delete-dead-cron-deployment.md` (devops, Stage 1, 2026-11-21), carrying the code review's Assumption Not Checked for
+`deployment/closed/fix-delete-dead-cron-deployment.md` (devops, Stage 1, 2026-11-21), carrying the code review's Assumption Not Checked for
 the chain `fix-delete-dead-cron`.
 
 ## Changelog
@@ -41,3 +41,4 @@ the chain `fix-delete-dead-cron`.
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-21T20:54 | devops-fix-delete-dead-cron | Created at Stage 1 as the carrier of the dashboard read. |
+| 2026-11-21T23:19 | devops-fix-delete-dead-cron | Review-Trigger fired: the release reached production (push to website master at 23:18:58Z, `origin/master` `132a7ab`). The read is now owed by the owner; devops asks it in the release report to steering. Origin path repointed to the closed deployment record. |
