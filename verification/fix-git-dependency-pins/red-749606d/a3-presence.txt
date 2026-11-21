@@ -1,0 +1,3 @@
+node_modules/@mrleebo/prisma-ast
+node_modules/@prisma/internals
+node_modules/prisma-kysely
