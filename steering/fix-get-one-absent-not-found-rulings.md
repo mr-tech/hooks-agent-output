@@ -89,3 +89,14 @@ The reviewer resumes first. Its round 1 was under way at the park, on the fixer'
 work until a rejection, and a rejection comes back here as a spawn cue). `code-reviewer-fix-get-one-absent-not-found` is respawned with
 `steering/fix-get-one-absent-not-found-brief-code-reviewer-resume.md`, which names its Resumption State (record `05f414ba`). QA Phase 2
 (149 added production lines) starts on the reviewer's approval, with brief `steering/fix-get-one-absent-not-found-brief-qa.md`.
+
+## 2026-11-21T10:13Z — released; B-1 read briefed; reviewer and devops stopped
+
+Released: website `master` `b829314` → `b663b354` at 10:11:09Z, on his selection "Agent: push master to b663b35 (Recommended)" at
+devops's Phase 2B prompt (devops's message; `git ls-remote` read back `b663b354…` by this thread 10:12Z). Deployment record
+`deployment/closed/fix-get-one-absent-not-found-deployment.md` Released (record `301e2bec`); implementation, code review and QA in
+`closed/`. B-1 is carried by `handoff/fix-get-one-absent-not-found-post-deploy-2026-11-21.md` (UUID b5c69a32), and its read was briefed by
+SendMessage to `qa-fix-get-one-absent-not-found` (read only, test account, once the new build serves). A falsifier goes to him (a
+Vercel rollback). Handoffs 7c3e91a4 and e450d19c close Addressed only after B-1 holds; b88e8be8 (Navigation lint) stays Open.
+`code-reviewer-…` and `devops-…` stopped 10:12Z (their work is terminal); `qa-…` stays up for B-1. The retrospective of chains 3 and 3b
+(a batch: chain 3 took a REJECTED round) runs once the files are closed out.
