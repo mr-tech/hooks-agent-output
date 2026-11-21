@@ -1,7 +1,7 @@
 ---
 UUID: 98f075f4
-Status: Open
-Status-Detail: "After the personal-message access fix, the hydrated recent-messages list still returns server (guild) message rows for any server whose message number a user has stored in recentMessageIds. Left out of the fixer chain; no stage owns it yet."
+Status: Addressed
+Status-Detail: "Discharged by fixer chain fix-recent-message-ids, released to website master 6f76c6d at 2026-11-21T06:45:05Z: the hydrated session lists a server message only for a server the caller owns or administers. Post-deploy P-2 passed on both test accounts (handoff/closed/fix-recent-message-ids-post-deploy-2026-11-21.md)."
 Owning-Stage: steering thread for the website access surfaces (to route it to a stage)
 Review-Trigger: when website src/server/api/utils/shared.ts getUserRecentMessages is next edited, or when the next chain touching website access control opens
 ---
@@ -38,3 +38,4 @@ block "2026-11-19T22:59Z" (`steering/fix-personal-message-access-rulings.md`): g
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-19T22:59 | helper for steering-roadmap-hooks | Created. |
+| 2026-11-21T06:59 | steering-hooks | Document closed. Status: Addressed. Discharged by `fix-recent-message-ids` (scope item 1, `steering/fix-recent-message-ids-rulings.md` block 05:43Z), released `6f76c6d` (`deployment/closed/fix-recent-message-ids-deployment.md`, record `f2b7a25`). |
