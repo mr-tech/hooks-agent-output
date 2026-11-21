@@ -369,3 +369,19 @@ backlog effort's file is `steering/backlog-2026-11-18-rulings.md`.
   (its UTC day has not ended).
 - **Put to him in the closing prompt:** the OWNER-QUEUE duplicate file and the two untracked 017 devops files.
 - Docket `docket-roadmap-hooks.md` and its `dockets.md` line deleted. Close-out commit: this block's.
+
+## 2026-11-21T03:45Z — retire: his closing selections; both deletions done
+
+**Selection, put 03:44Z, answered 03:45Z** (ledger `steering/selection-ledger/2026-11-21.md`, block "2026-11-21T03:45Z —
+steering-roadmap-hooks"; wording this thread's). Premises read that turn: the duplicate is byte-identical to the tracked `.txt` beside
+it (`cmp` exit 0; `git ls-files --error-unmatch` exit 0 for the `.txt`). No 017 record cites `close-released`: `git grep -l` hits only
+this file and an unrelated `convention-check.txt`.
+- Q "Duplicate": **Agent: I delete it (Recommended)**, CHOSEN by selection. "I run rm on that one path on your word here, check that
+  ls fails, and remove the item from OWNER-QUEUE.md. Nothing is lost: the committed .txt copy stays." Not chosen: You: delete it
+  yourself.
+- Q "017 scripts": **Agent: delete both (Recommended)**, CHOSEN by selection. "I remove the two untracked files on your word here.
+  The record holds nothing that depends on them." Not chosen: Agent: leave for cleanup.
+**Done:**
+- Removed `verification/fix-website-dependency-audit/code-review/live-run-one-key-removed-inbox.md` and
+  `verification/017/devops/close-released.{py,sh}`; `ls` of all three failed after (3 of 3).
+- `OWNER-QUEUE.md` rewritten without its one item, so nothing of this thread's awaits him there.

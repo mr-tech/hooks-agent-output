@@ -26,15 +26,3 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ---
 
-## Delete a duplicate notes file the audit reviewer left behind
-
-The reviewer of the new dependency audit tool left an untracked duplicate of a file it had already committed. A record check stopped
-it from removing the file, so the delete is yours (or tell steering to do it). Nothing is lost: the committed `.txt` copy beside it
-holds the same content.
-
-```sh
-rm /usr/local/bin/hooks/agent-output/verification/fix-website-dependency-audit/code-review/live-run-one-key-removed-inbox.md
-```
-
-Pass: `ls` on that path says "No such file or directory".
-
