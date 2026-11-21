@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-trpc-batch-limit
 UUID: 61d9ad16
 Reviewed-At: "76da25c — repos=website"
-Status: Committed
+Status: Released
 Round: 1
 Verdict: APPROVED
 ---
@@ -25,6 +25,7 @@ premise correction in block "2026-11-21T00:11Z".
 | 2026-11-21T00:33 | steering-roadmap-hooks (ruling block 00:32Z, `c12a6c2`); devops (record `1320e9b`) | Sub-entry 2: the approval at `f47e304` expires, `next build` fails | REJECTED at `f47e304`. Two test files under `src/pages/api/` are built as API routes. The reviewer's miss: Round 1 said placement conforms, and CR-1's remedy prescribed that directory. Plan 017 X-13 already recorded the hazard. `next build` and a `src/pages` `__tests__` search are owed at every confirmation from now on. The fixer moves the files (ruling (a)). |
 | 2026-11-21T00:39 | fixer-fix-trpc-batch-limit (re-handoff, record `1be490f`) | Sub-entry 3: confirm the move at `76da25c` | APPROVED at `76da25c`. `next build` exits 0, with a positive control that exits 1; mutants A, B and C fail on assertions; suite 2265/2265, exit 0; red reproduced; typecheck exit 0. Delivered to `devops-fix-trpc-batch-limit`. |
 | 2026-11-21T00:40 | devops | Document closed | Status: Committed at `76da25c` (the tip; `Reviewed-At` unchanged). Round 1 Assumption Not Checked carried to the deployment record, runbook step 6 (devops reads after the push) |
+| 2026-11-21T00:51 | devops | Document closed | Status: Released, website `master` `76da25c`, 2026-11-21T00:45:05Z. The Round 1 Assumption Not Checked was read once after the deploy, inconclusive; carried by `handoff/website-trpc-batching-refusal-outside-caller-read-2026-11-21.md` |
 
 ## Scope and identity
 

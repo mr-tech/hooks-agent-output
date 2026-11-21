@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-trpc-batch-limit
 UUID: 61d9ad16
-Status: Active
-Status-Detail: "Phase 2A complete at website 76da25c (build, rollback check and dry run pass); awaiting the owner's release approval (Phase 2B). Nothing merged or pushed."
+Status: Released
+Status-Detail: "Released: website master moved d1bb9b0 to 76da25c at 2026-11-21T00:45:05Z on the owner's release approval, read back at origin. The one post-deploy read could not decide the code review's Assumption Not Checked; it is carried by handoff/website-trpc-batching-refusal-outside-caller-read-2026-11-21.md, which this record does not wait on."
 ---
 
 # Deployment — fix-trpc-batch-limit (website `master`)
@@ -14,6 +14,7 @@ Status-Detail: "Phase 2A complete at website 76da25c (build, rollback check and 
 |------|---------------|---------|---------|
 | 2026-11-21T00:31 | steering-roadmap-hooks (brief `steering/fix-trpc-batch-limit-brief-devops.md`; spawn cue from the code review's APPROVED at `f47e304`, record `7c91e51`) | Stage 1 and Phase 2A for `chain/fix-trpc-batch-limit` at `f47e304` | Packaging at `f47e304` FAILED: `next build` exit 1 (two test files under `src/pages/api/trpc/__tests__/` are compiled as API routes); `d1bb9b0` exit 0; the tip without those two files exit 0. Held; steering notified; record `1320e9b`. |
 | 2026-11-21T00:41 | steering-roadmap-hooks (ruling block 2026-11-21T00:32Z, `c12a6c2`: move the tests to `src/server/api/__tests__/`); code-reviewer-fix-trpc-batch-limit (message; record `1dc6670`, Round 1 sub-entry 3) | Resume at website `76da25c` | Re-derived here, not taken from the reviewer: tip, diff, tree identity, packaging build at the tip (exit 0), rollback check (exit 0), dry run of the move (exit 0). Stage 1 step 8 done: implementation and code-review documents set `Committed` and moved to `closed/`. Phase 2A complete; the Phase 2B ask follows. Nothing pushed. |
+| 2026-11-21T00:51 | owner (selection prompt), devops | Release approved, executed and closed | The owner answered the selection prompt with "Agent: push master to 76da25c (Recommended)". Move run in this session: `release-move.js` exit 0 ending 00:45:05Z; origin `master` read back as `76da25cc…`; chain branch deleted. One post-deploy read (inconclusive; its instrument defect and my cleanup slip are disclosed under Release Execution) carried by a handoff. Phase 2D worked in order (section below); implementation and code-review documents set `Released`. Record closed `Released`. |
 
 ## Plan Reference
 
@@ -21,11 +22,15 @@ No plan: a `fix-` chain (`ID: n/a`). Fixer document `implementation/closed/fix-t
 
 ## Release Identifier
 
-Website `master` at `76da25ccd8fbd063803d4896b9eda3c3759d7221` (no tag; the SHA on the serving ref is the identifier). Planned, until the move.
+Website `master` at `76da25ccd8fbd063803d4896b9eda3c3759d7221` (no tag; the SHA on the serving ref is the identifier).
+
+## Release Date
+
+2026-11-21T00:45:05Z (website `master` moved; read back at origin).
 
 ## Execution Mode
 
-Mode A, agent-executed, in this session, on the owner's sanction put here (Phase 2B). The move is `release-move.js`.
+Mode A, agent-executed, in this session, on the owner's sanction put here (Phase 2B). The move was `release-move.js`.
 
 ## Release Summary
 
@@ -83,12 +88,12 @@ At `f47e304` the two endpoint tests sat under `src/pages/api/trpc/__tests__/`, a
 
 | # | Step | Abort criterion | Result |
 |---|---|---|---|
-| 1 | `git ls-remote origin refs/heads/master` | not `d1bb9b0724cded3c3c303203c2cbafe5df7bbf96` → stop, the base moved | |
-| 2 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 76da25ccd8fbd063803d4896b9eda3c3759d7221 --reason <text naming the code review record and its Reviewed-At> --dry-run` | exit ≠ 0 | |
-| 3 | The same without `--dry-run` | exit ≠ 0 → stop and report, never retried in another form | |
-| 4 | `git ls-remote origin refs/heads/master` | not `76da25cc…` | |
-| 5 | Tree back on `master` (the tool's switch, over a tracked-clean tree only), then `git branch -d chain/fix-trpc-batch-limit` | dirty tracked tree → stop, route to the owner | |
-| 6 | Read the production function logs (Vercel, read-only, `--scope hooks-gg`; counts, timestamps and the fixed message text only; no bodies, ids or tokens; bounds from `steering/017-rulings.md` block 2026-11-18T23:41Z) for 400s carrying "Batching is not enabled on the server" on `/api/trpc/*?batch=1` | a refused read is recorded, not re-issued | |
+| 1 | `git ls-remote origin refs/heads/master` | not `d1bb9b0724cded3c3c303203c2cbafe5df7bbf96` → stop, the base moved | `d1bb9b0724cded3c3c303203c2cbafe5df7bbf96` at 00:44Z, as expected |
+| 2 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 76da25ccd8fbd063803d4896b9eda3c3759d7221 --reason <text naming the code review record and its Reviewed-At> --dry-run` | exit ≠ 0 | exit 0, "DRY RUN: every check passed; nothing moved" |
+| 3 | The same without `--dry-run` | exit ≠ 0 → stop and report, never retried in another form | exit 0, ended 00:45:05Z: "OK moved master: d1bb9b0… -> 76da25cc… on origin; tree on master" |
+| 4 | `git ls-remote origin refs/heads/master` | not `76da25cc…` | `76da25ccd8fbd063803d4896b9eda3c3759d7221` (local `master` the same) |
+| 5 | Tree back on `master` (the tool's switch, over a tracked-clean tree only), then `git branch -d chain/fix-trpc-batch-limit` | dirty tracked tree → stop, route to the owner | tree on `master`, tracked-clean; `git branch -d` exit 0 ("Deleted branch … (was 76da25c)"); no `chain/*` branch remains; `git worktree list` shows the main tree only |
+| 6 | Read the production function logs (Vercel, read-only, `--scope hooks-gg`; counts, timestamps and the fixed message text only; no bodies, ids or tokens; bounds from `steering/017-rulings.md` block 2026-11-18T23:41Z) for 400s carrying "Batching is not enabled on the server" on `/api/trpc/*?batch=1` | a refused read is recorded, not re-issued | Taken once, 00:48Z to 00:50Z; inconclusive. See Release Execution |
 
 ## Open disagreements with predecessor documents
 
@@ -101,16 +106,52 @@ None open. The one gap (no `next build` row in the review's first two rounds) wa
 
 ## User Confirmation
 
-To be put to the owner directly by this session (Phase 2B), after this record is committed.
+Put to the owner directly by this session as a blocking selection prompt (`~/.claude/state/prompt-gate-off` absent at 2026-11-21T00:42Z), after the record commit `47becbe`, the tip build, the rollback check and the dry run. The prompt stated: the identifier (`master` `d1bb9b0` to `76da25c`, a fast-forward of 3 commits, 7 files, +198 −62), the environment (hooks.gg through Vercel, a push to `master` deploys; no GitHub workflow; the Vercel project link unread, accepted as written), what changes for users, what was checked and not (Vercel's request-size limits, outside callers, the `/message` matcher against production), the rollback, and the post-deploy read. Options: push, hold, abort. **Response: "Agent: push master to 76da25c (Recommended)"**, by selection, before the runbook's first step. Declined: no.
 
 ## Release Execution
 
-None yet. `origin/master` read `d1bb9b0724cded3c3c303203c2cbafe5df7bbf96` at 2026-11-21T00:40Z (`git ls-remote origin refs/heads/master`).
+Mode A. Captures: `verification/fix-trpc-batch-limit/devops/runbook-steps-1-2.txt`, `runbook-steps-3-4.txt`, `runbook-step-5.txt`, `prod-log-read-76da25c.txt`. The runbook table above is the execution record.
+
+**Push evidence (the deployment, per "Deploy evidence"):** ref `master`, SHA `76da25ccd8fbd063803d4896b9eda3c3759d7221`, 2026-11-21T00:45:05Z, read back at origin by `git ls-remote`. Serving state is evidenced by the push.
+
+**Deployed against verified, per repository (website).** Deployed ref `master`; the pushed commit is `76da25c`, read from `ls-remote` after the move. The code review's `Reviewed-At`, the fixer's `Handoff-At` and the tip this record built are all `76da25ccd8fbd063803d4896b9eda3c3759d7221`: **the same commit**, so no diff of the surface is owed.
+
+**Deploy mechanism, as accepted:** a push to `master` deploys through Vercel (no workflow). Named risk, not a verification: that Vercel builds the pushed commit by its default-ref behaviour.
+
+**The post-deploy read (runbook step 6; the code review's Assumption Not Checked), 2026-11-21T00:48Z to 00:50Z, read-only, `--scope hooks-gg`, counts only (`prod-log-read-76da25c.txt`):**
+- `vercel logs` (CLI 29.1.1), twice (one plain, one `--follow` capped at 40 s): returned 76 lines, all build output, none a request or runtime line. It does not return runtime logs (`verification/017/qa-phase1/vercel-runtime-logs/README.md`).
+- `npx vercel@66.2.0 logs -p hooks-gg-website --scope hooks-gg -e production -s 10m --json -n 1000` (the instrument 017 used): 35 runtime stderr records from 00:44:53Z to 00:50:06Z over 2 deployments; 14 on `/api/trpc` paths; 0 on a comma path; 0 containing "Batching is not enabled on the server". A first run of this read crashed in my counting script before its numbers were recorded, and its raw file was deleted by my own cleanup; it was re-run, and both runs are in the capture.
+- **Result: inconclusive, not a pass.** The window is about five minutes. And in production the handler's `onError` logs only when `env.NODE_ENV === 'development'` (`src/pages/api/trpc/[trpc].ts` lines 12-15 at `76da25c`), so a production 400 from `allowBatching: false` writes no stderr line: the falsity signature as the review wrote it cannot appear in function logs. The assumption stays open; it is carried by `handoff/website-trpc-batching-refusal-outside-caller-read-2026-11-21.md` (`Owning-Stage: steering`, event-form trigger).
 
 ## Post-Release Status
 
-`Active`. Not released. Known issues: none known. Rollback Plan: above.
+Status `Released` at 2026-11-21T00:45:05Z. Authorizer: the owner (selection above). Included plans: none (a `fix-` chain); the one chain `fix-trpc-batch-limit`. Known issues: none known; the open assumption above is not a known issue. Rollback Plan: above (a reversing `master` commit; the patch applies cleanly; the push takes his word).
+
+## Phase 2D reconciliation
+
+**The chain's documents** (enumerated by `grep -rl '61d9ad16'` and `grep -rlE '^Origin: "?fix-trpc-batch-limit'` over the record, `verification/` excluded), with terminal tokens:
+
+| Document | Status | Location |
+|---|---|---|
+| `implementation/closed/fix-trpc-batch-limit-implementation.md` | Released (was `Committed` from Stage 1, 00:40Z) | `implementation/closed/` |
+| `code-review/closed/fix-trpc-batch-limit-code-review.md` | Released (was `Committed`) | `code-review/closed/` |
+| `deployment/fix-trpc-batch-limit-deployment.md` (this record) | Released | `deployment/closed/` |
+| `handoff/website-trpc-batching-refusal-outside-caller-read-2026-11-21.md` | `Open`, carries the assumption above | `handoff/` |
+
+No plan, QA, UAT, critique or security document exists for the chain. No release-tip QA record exists (none was in the stage set), so step 2b has nothing to close. The one other open `fix-` chain, `fix-website-dependency-audit`, has `Handoff-At: c5508c7` in the `agent-output` repository, not a website commit; the release ships none of it, and `git merge-base --is-ancestor` in website does not apply (`c5508c7` is not a website object). The fix branch is merged (`git branch -d` exit 0) and deleted.
+
+**Handoffs the chain answered:** `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md`, `Status: Open`, items 1 to 3 discharged by this release; items 4 to 7 stay (item 6 is chain `fix-website-dependency-audit`'s). Closing or reconciling it is steering's, at the chain's closure. `handoff/website-018-standing-risks-save-toast-and-lint-stack-2026-11-20.md`, `Status: Open`: the brief said its trigger names edits to these routes; read whole, it does not (RK-3: a user report of the Save toast or the next edit to the editor's Save error handling; RK-5: a lint dependency failing or bumped). This release touches neither, so the trigger did not fire and nothing was changed there.
+
+**Architecture:** `architecture/system-architecture.md` line 234 states the old matcher and the `x-query-params` write, both changed by this release. Routed to the architect by one `INBOX.md` entry ("2026-11-21 — devops-fix-trpc-batch-limit — FYI", uncommitted per the inbox rule), beside the fixer's earlier entry. Nothing in `architecture/` was edited.
+
+**Roadmap:** a `fix-` chain owes none (the scoping determination names no epic or criterion).
+
+**Forward items beyond the register** (`grep -l 'Assumption Not Checked'` over the chain's documents: the code review and this record; the fixer's document has none):
+- The code review's Assumption Not Checked (outside callers that batch): read once, inconclusive, carried by `handoff/website-trpc-batching-refusal-outside-caller-read-2026-11-21.md`. No scheduled reader: the instrument that could see the signal is not established.
+- The dead `proxy` export in `src/utils/api.ts` and the unused `createTRPCNext` `config()` link: left in place by steering's ruling (block "2026-11-21T00:20Z": "a candidate for a later hygiene pass, not carried by this chain"). **Uncarried by that ruling**; no handoff is written by this record.
+- The test-placement behaviour (a test under `src/pages/api/` fails `next build`) and the record's Test Conventions placement line: X-13 of plan 017, whose CLAUDE.md placement exception is the record owner's (`INBOX.md`, "2026-11-18 — planner-hooks-017 — DECISION NEEDED"); this chain followed X-13's placement. For the retrospective: a test gap, no suite cell runs `next build` over a test file placed under `src/pages/api/`.
+- Matcher on bare `/message` against production; Vercel's request-size limits; which pnpm major Vercel runs: named risks above, accepted as written; no carrier owed.
 
 ## Next Actions
 
-The Phase 2B ask; then the runbook; then Phase 2D.
+None owed by this record. Rows whose trigger is at or after its closure have carriers: the outside-caller read (the handoff above), the architecture line (INBOX entry), the source handoff's items 1 to 3 (steering, at the chain's closure).

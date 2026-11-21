@@ -1,0 +1,21 @@
+read 2026-11-21T00:48:40Z .. 2026-11-21T00:48:41Z, deployment hooks-gg-website-ijl602uao, window since 2026-11-21T00:44:00Z, -n 1000
+lines: 76
+Batching is not enabled: 0
+api/trpc lines: 1
+api/trpc lines with batch=1: 0
+stderr lines (non-deprecation): 2
+follow read 2026-11-21T00:48:52Z .. 2026-11-21T00:49:32Z (40 s cap)
+lines: 76
+Batching is not enabled: 0
+api/trpc lines: 1
+api/trpc batch=1 lines: 0
+lines with an HTTP status (GET|POST|HEAD): 0
+--- instrument 2: npx vercel@66.2.0 logs -p hooks-gg-website --scope hooks-gg -e production -s 8m --json -n 1000, run 2026-11-21T00:49:49Z (CLI 29.1.1 returns build logs only; per verification/017/qa-phase1/vercel-runtime-logs/README.md)
+--- instrument 2 (redo; the first run's computation failed on a timestamp type and its raw file was deleted): npx vercel@66.2.0 logs -p hooks-gg-website --scope hooks-gg -e production -s 10m --json -n 1000, run 2026-11-21T00:50:19Z, exit 0
+(CLI 29.1.1 returned build logs only, per verification/017/qa-phase1/vercel-runtime-logs/README.md)
+runtime log records: 35 timestamps 2026-11-21T00:44:53.685Z to 2026-11-21T00:50:06.795Z
+distinct deploymentIds: 2
+records whose requestPath contains /api/trpc: 14
+records whose requestPath contains /api/trpc and a comma: 0
+records whose message contains 'Batching is not enabled': 0
+level counts: {'error': 35}

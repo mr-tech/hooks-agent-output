@@ -1,0 +1,15 @@
+2026-11-21T00:44:55Z
+step1:
+d1bb9b0724cded3c3c303203c2cbafe5df7bbf96	refs/heads/master
+step2 dry-run:
+repo     /usr/local/bin/hooks/website
+ref      master
+target   76da25ccd8fbd063803d4896b9eda3c3759d7221
+remote   origin/master d1bb9b0724cded3c3c303203c2cbafe5df7bbf96
+local    master d1bb9b0724cded3c3c303203c2cbafe5df7bbf96
+untracked 17 path(s) left alone
+evidence reason code review APPROVED Reviewed-At 76da25c (code-review/closed/fix-trpc-batch-limit-code-review.md, record 1dc6670); no QA Phase 2 (2 production lines); tip tree is the reviewed tree
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+DRY RUN: every check passed; nothing moved
+exit=0
