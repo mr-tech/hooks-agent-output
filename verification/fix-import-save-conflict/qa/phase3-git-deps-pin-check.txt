@@ -1,0 +1,15 @@
+# pin check at b829314 (git show b829314:pnpm-lock.yaml; git diff --quiet)
+166:      project-utils:
+167:        specifier: github:hooks-gg/project-utils#master
+168:        version: git+https://git@github.com:hooks-gg/project-utils.git#749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f
+332:      paracord:
+333:        specifier: github:mr-tech/paracord
+334:        version: https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227
+5148:  paracord@https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227:
+5149:    resolution: {tarball: https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227}
+5397:  project-utils@git+https://git@github.com:hooks-gg/project-utils.git#749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f:
+5398:    resolution: {commit: 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f, repo: git@github.com:hooks-gg/project-utils.git, type: git}
+12605:  paracord@https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227:
+12890:  project-utils@git+https://git@github.com:hooks-gg/project-utils.git#749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f:
+f4baebb..b829314 package.json+pnpm-lock.yaml diff-quiet exit=0
+cde60d974305f021f6781b48621c6b7b13d05b78
