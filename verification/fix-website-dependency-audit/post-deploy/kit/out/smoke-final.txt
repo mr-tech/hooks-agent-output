@@ -1,0 +1,8 @@
+ok   brief /usr/local/bin/hooks/agent-output/verification/fix-website-dependency-audit/post-deploy/kit/briefs/R1.md
+ok   agent devops; allowedTools 17
+ok   carrier handoff/fix-website-dependency-audit-first-run-2026-11-21.md
+info carrier as it stands: not complete
+ok   predicate: a real completion row is classed complete
+ok   predicate: a prose mention of the token is not classed complete
+ok   reader command claude on PATH
+SMOKE OK — the kit is armed; nothing started

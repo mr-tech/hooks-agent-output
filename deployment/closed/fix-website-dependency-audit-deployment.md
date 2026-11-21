@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-website-dependency-audit
 UUID: d9ef268a
-Status: Active
-Status-Detail: "Crontab line installed 2026-11-21T01:11Z; no push and no serving ref (record origin deploys nothing). Open on the chain's end step: the first scheduled run, 2026-11-21T06:43Z, is read at B-1."
+Status: Released
+Status-Detail: "Crontab line installed 2026-11-21T01:11Z; no push and no serving ref (record origin deploys nothing). The first scheduled run (06:43Z) and both Assumptions Not Checked are carried on handoff/fix-website-dependency-audit-first-run-2026-11-21.md and read by reader R1."
 ---
 
 # Deployment Record: fix-website-dependency-audit
@@ -19,6 +19,7 @@ Status-Detail: "Crontab line installed 2026-11-21T01:11Z; no push and no serving
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T01:11 | steering-roadmap-hooks (brief, record `6d1e563`) | Install the crontab line; read the first run | Stage 1 and the end step's install. Tree and verdict checked, cron-environment smoke run at `5d0baf8` quiet, log folder made, line installed (below). The first scheduled run is 06:43Z, hours out: record open on B-1. |
+| 2026-11-21T01:15 | steering-roadmap-hooks (message) | Carry B-1 and both Assumptions on a handoff with a scheduled reader; close | Handoff `handoff/fix-website-dependency-audit-first-run-2026-11-21.md` created (5209945), reader R1 kit and crontab line installed, `--smoke` exit 0. Implementation, code review and QA closed `Released`; this record closed `Released` (Phase 2D below). The first-run read is not this record's. |
 
 ## Pre-Release Verification
 
@@ -64,20 +65,30 @@ Status-Detail: "Crontab line installed 2026-11-21T01:11Z; no push and no serving
 
 | ID | Class | Condition | Prediction | State |
 |---|---|---|---|---|
-| B-1 | post-deploy-observable | The first scheduled run under cron's environment reads a non-empty audit | One line `website 76da25c (origin/master; remote head 76da25c): advisories 81, undispositioned 0, newly reported 0 []` unless advisories were published since; U > 0 is correct behaviour, with U entries in `INBOX.md`. Refuted by a `failed:` line with one failure entry, or by `advisories 0` | **Open** — to be read at `cron.log` after 2026-11-21T06:43Z, result in the record below |
+| B-1 | post-deploy-observable | The first scheduled run under cron's environment reads a non-empty audit | One line `website 76da25c (origin/master; remote head 76da25c): advisories 81, undispositioned 0, newly reported 0 []` unless advisories were published since; U > 0 is correct behaviour, with U entries in `INBOX.md`. Refuted by a `failed:` line with one failure entry, or by `advisories 0` | **Open — carried** to `handoff/fix-website-dependency-audit-first-run-2026-11-21.md` (steering's instruction, 2026-11-21): the carrier is authoritative on its execution state, and this record does not hold it open |
 
-Both Assumptions Not Checked (QA: real `pnpm audit` output over `76da25c`'s lockfile has the fixture's shape; the code review: the cron environment lets `pnpm audit` answer) close at the same read. The smoke run above is the same environment run by hand and gave the predicted line, which lowers the risk without closing either.
+Both Assumptions Not Checked (QA: real `pnpm audit` output over `76da25c`'s lockfile has the fixture's shape; the code review: the cron environment lets `pnpm audit` answer) close at the same read, carried on the same handoff. The smoke run above is the same environment run by hand and gave the predicted line, which lowers the risk without closing either.
 
-## First scheduled run (to be completed)
+## First scheduled run
 
-Fire time 2026-11-21T06:43Z. Read: `/home/dev/.local/state/website-dependency-audit/cron.log`; `INBOX.md` is read only by `grep -c` for this tool's entries, never written.
-
-(not yet read)
+Fire time 2026-11-21T06:43Z, hours after this record's close. Not read here. Reader R1 (kit `verification/fix-website-dependency-audit/post-deploy/kit/`, crontab line `13 7 21-28 11 *`, tagged `# fix-website-dependency-audit R1`) reads `/home/dev/.local/state/website-dependency-audit/cron.log` at 07:13Z daily to 2026-11-28 and writes the Result on the handoff. Kit smoke: `node ~/.claude/tools/post-deploy-launcher.js verification/fix-website-dependency-audit/post-deploy/kit/briefs/R1.md --smoke` exit 0, `SMOKE OK`, run at 2026-11-21T01:15Z after the carrier's last write (committed at 5209945; capture `…/kit/out/smoke-final.txt`). Installed lines: `verification/fix-website-dependency-audit/post-deploy/kit/out/crontab-installed-lines.txt`.
 
 ## Post-Release Status
 
-Installed 2026-11-21T01:11Z. Known issues: none yet. Rollback: above. Forward items: the handoff `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md` item 6 is this chain's; steering owns that handoff's routing and is told at close.
+Installed 2026-11-21T01:11Z (deploy evidence: the crontab read back equal to the intended file, per Release Execution). Known issues: none known; the first scheduled run is unread (B-1, carried). Rollback: above.
+
+## Phase 2D
+
+| Step | Result |
+|---|---|
+| Included plans | None (fixer chain). Documents: implementation, code review and QA closed `Released` at 2026-11-21T01:14Z (e5dedbe, 705535d, 8d59477); this record `Released` |
+| Release-tip QA record | None: no release tip was assembled; QA's Phase 2 verdict `Verified-At ead3ea1` closed as above |
+| Fix branch | None: the chain built on record `master` |
+| Architecture | `grep -l fix-website-dependency-audit architecture/*.md architecture/closed/*.md` lists none; no line closed or invalidated, nothing routed |
+| Chain's documents (frontmatter `ID: n/a`, `Origin: fix-website-dependency-audit`) | implementation, code-review, qa, deployment (this): terminal, in `closed/`. Handoff `handoff/fix-website-dependency-audit-first-run-2026-11-21.md`: `Open`, owned by reader R1. Source handoff `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md`: `Open`, item 6 is this chain's; closing it `Addressed` is steering's |
+| Forward items beyond the register | The `Assumption Not Checked` lines (grep over the chain's documents): QA's and the code review's, both on the handoff above. The implementation document carries none. The stated limits (CR-3 versions; the rate limits of the registry not measured; the audit reads the clone's `origin/master` and never fetches) are the fixer's and steering's block 00:19Z, uncarried by design |
+| Roadmap | None owed: the scoping determination names no epic or criterion |
 
 ## Next Actions
 
-The first-run read at 06:43Z is this record's own end step, not a later trigger; it is read in this session (cache-warm wake armed), and the record closes after it.
+Row B-1 and both Assumptions are on the handoff, read by R1 (07:13Z, 2026-11-21 to 2026-11-28). Nothing else is scheduled.
