@@ -135,6 +135,7 @@ These are for the owner's own check (no UAT runs). Each happens on a desktop-wid
 - SHA: `b68f94c` (website, `chain/fix-desktop-draft-as-typed`, no upstream).
 - Review: `code-reviewer-fix-desktop-draft-as-typed`. With 17 production lines there is no QA Phase 2, and the reviewer runs the suite and the red tests (`controls/run.py` reproduces both: `python3 controls/run.py <website> <work> <out>`).
 - Merge: devops, into website `master` (Vercel production), on the owner's word asked in its own session.
+- Delivery: at 11:10Z `ListAgents` listed no `code-reviewer-fix-desktop-draft-as-typed` session, so the spawn cue went to `steering-hooks` (msg `9a107bcc-bc37-423a-8700-623d39aade7c`).
 
 ## Changelog
 
