@@ -1,0 +1,144 @@
+##### 0c14d5b  env .env files: 0  DATABASE_URL set: no
+install-exit 0
+Running scope as unit: run-re36df5f4ac0244eca602a327cafd0143.scope
+
+> website@ build /tmp/claude-1000/-usr-local-bin-hooks-website/0f1145cc-6157-43ab-923c-f272e712caf3/scratchpad/envrepro-0c14d5b
+> next build
+
+▲ Next.js 16.4.6 (Turbopack)
+✓ Running next.config.js took 16ms
+
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead.
+
+  To migrate automatically, run:
+  npx @next/codemod@canary middleware-to-proxy .
+
+  Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ Compiled successfully in 9.2s
+  Running TypeScript ...
+  Finished TypeScript in 10.7s ...
+  Collecting page data using 17 workers ...
+⚠ The Edge Runtime is deprecated. You can use the "nodejs" runtime instead. Learn more: https://nextjs.org/docs/messages/edge-runtime-deprecated
+  Generating static pages using 17 workers (0/9) ...
+❌ Invalid environment variables: {
+  DATABASE_URL: [ 'Required' ],
+  NEXTAUTH_SECRET: [ 'Required' ],
+  DISCORD_CLIENT_SECRET: [ 'Required' ],
+  DISCORD_URL: [ 'Required' ],
+  DISCORD_BOT_TOKEN: [ 'Required' ],
+  REDISHOST: [ 'Required' ],
+  REDISPORT: [ 'Required' ],
+  REDISUSER: [ 'Required' ],
+  REDISPASSWORD: [ 'Required' ],
+  CDN_KEY: [ 'Required' ],
+  CDN_SECRET: [ 'Required' ],
+  CDN_BUCKET: [ 'Required' ],
+  CDN_ENDPOINT: [ 'Required' ],
+  DISCORD_PUBLIC_KEY: [ 'Required' ],
+  ENCRYPTION_KEY: [ 'Required' ],
+  ENCRYPTION_IV: [ 'Required' ],
+  HOOKS_API_TOKEN: [ 'Required' ],
+  PUSHER_APP_ID: [ 'Required' ],
+  PUSHER_SECRET: [ 'Required' ],
+  PREVIEW_IMAGE_URL: [ 'Required' ],
+  PREVIEW_IMAGE_API_KEY: [ 'Required' ],
+  NEXT_PUBLIC_PUSHER_KEY: [ 'Required' ],
+  NEXT_PUBLIC_PUSHER_CLUSTER: [ 'Required' ],
+  NEXT_PUBLIC_DISCORD_CLIENT_ID: [ 'Required' ]
+}
+  Generating static pages using 17 workers (2/9) 
+Error occurred prerendering page "/". Read more: https://nextjs.org/docs/messages/prerender-error
+Error: Invalid environment variables
+    at module evaluation (src/env.mjs:115:11)
+    at module evaluation (src/utils/index.ts:13:1)
+    at module evaluation (src/components/Button.tsx:19:1)
+    at module evaluation (src/app/_components/CookieConsent.tsx:7:1)
+  113 |       parsed.error.flatten().fieldErrors,
+  114 |     );
+> 115 |     throw new Error('Invalid environment variables');
+      |           ^
+  116 |   }
+  117 |
+  118 |   env = new Proxy(parsed.data, { {
+  digest: '272862339'
+}
+Export encountered an error on /page: /, exiting the build.
+⨯ Next.js build worker exited with code: 1 and signal: null
+ ELIFECYCLE  Command failed with exit code 1.
+build-exit 1
+##### 132a7ab  env .env files: 0  DATABASE_URL set: no
+install-exit 0
+Running scope as unit: run-rc5bce01993a4478fbce165044a534998.scope
+
+> website@ build /tmp/claude-1000/-usr-local-bin-hooks-website/0f1145cc-6157-43ab-923c-f272e712caf3/scratchpad/envrepro-132a7ab
+> next build
+
+▲ Next.js 16.4.6 (Turbopack)
+✓ Running next.config.js took 16ms
+
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead.
+
+  To migrate automatically, run:
+  npx @next/codemod@canary middleware-to-proxy .
+
+  Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ Compiled successfully in 9.6s
+  Running TypeScript ...
+  Finished TypeScript in 11.1s ...
+  Collecting page data using 17 workers ...
+⚠ The Edge Runtime is deprecated. You can use the "nodejs" runtime instead. Learn more: https://nextjs.org/docs/messages/edge-runtime-deprecated
+  Generating static pages using 17 workers (0/9) ...
+❌ Invalid environment variables: {
+  DATABASE_URL: [ 'Required' ],
+  NEXTAUTH_SECRET: [ 'Required' ],
+  DISCORD_CLIENT_SECRET: [ 'Required' ],
+  DISCORD_URL: [ 'Required' ],
+  DISCORD_BOT_TOKEN: [ 'Required' ],
+  REDISHOST: [ 'Required' ],
+  REDISPORT: [ 'Required' ],
+  REDISUSER: [ 'Required' ],
+  REDISPASSWORD: [ 'Required' ],
+  CDN_KEY: [ 'Required' ],
+  CDN_SECRET: [ 'Required' ],
+  CDN_BUCKET: [ 'Required' ],
+  CDN_ENDPOINT: [ 'Required' ],
+  DISCORD_PUBLIC_KEY: [ 'Required' ],
+  ENCRYPTION_KEY: [ 'Required' ],
+  ENCRYPTION_IV: [ 'Required' ],
+  HOOKS_API_TOKEN: [ 'Required' ],
+  PUSHER_APP_ID: [ 'Required' ],
+  PUSHER_SECRET: [ 'Required' ],
+  PREVIEW_IMAGE_URL: [ 'Required' ],
+  PREVIEW_IMAGE_API_KEY: [ 'Required' ],
+  NEXT_PUBLIC_PUSHER_KEY: [ 'Required' ],
+  NEXT_PUBLIC_PUSHER_CLUSTER: [ 'Required' ],
+  NEXT_PUBLIC_DISCORD_CLIENT_ID: [ 'Required' ]
+}
+  Generating static pages using 17 workers (2/9) 
+Error occurred prerendering page "/". Read more: https://nextjs.org/docs/messages/prerender-error
+Error: Invalid environment variables
+    at module evaluation (src/env.mjs:115:11)
+    at module evaluation (src/utils/index.ts:13:1)
+    at module evaluation (src/components/Button.tsx:19:1)
+    at module evaluation (src/app/_components/CookieConsent.tsx:7:1)
+  113 |       parsed.error.flatten().fieldErrors,
+  114 |     );
+> 115 |     throw new Error('Invalid environment variables');
+      |           ^
+  116 |   }
+  117 |
+  118 |   env = new Proxy(parsed.data, { {
+  digest: '3345586275'
+}
+Export encountered an error on /page: /, exiting the build.
+⨯ Next.js build worker exited with code: 1 and signal: null
+ ELIFECYCLE  Command failed with exit code 1.
+build-exit 1

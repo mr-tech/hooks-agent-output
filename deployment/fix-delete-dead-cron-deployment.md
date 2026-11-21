@@ -36,9 +36,17 @@ owed under that rule. It was a wrong claim all the same: the rule's own exceptio
 - The earlier production build of `0c14d5b` (18:35Z, `vercel-build-log-prod-0c14d5b.txt`) passed the same prerender step with the same code path, so those five settings were supplied to it.
 
 **What is not established.** Why the build did not see those settings this time. The release diff touches five paths (`package.json`, `pnpm-lock.yaml`, `cron.ts`, its test, `vercel.json`); none is read by `src/env.mjs`, and my own build at the tip with `SKIP_ENV_VALIDATION=1` passed. The control run
-without the settings (base against tip) is below. The project's setting list in Vercel is not readable by the three sanctioned commands (`ls`, `inspect`, `logs`), so whether the settings changed between 18:35Z and 23:19Z is the owner's read, or needs his word for one more look-only command.
+(`env-control-base-vs-tip.txt`, driver `.sh`, both trees exported by `git archive`, installed frozen, built with none of the app's settings and without `SKIP_ENV_VALIDATION`): base `0c14d5b` and tip `132a7ab` both exit 1 with the same
+"Invalid environment variables" error at `src/env.mjs:115` while prerendering `/`. So without the settings the old code fails too: the failure is not a property of the change. It does not say why Vercel's build lacked the settings. One more fact: the errored build names
+only five missing settings, whereas a build with none supplied names 40-odd, so Vercel supplied the rest (`NEXTAUTH_SECRET`, the Discord, CDN, encryption, Pusher and preview-image ones) and lacked only the database and Redis ones. The project's setting list in Vercel is not readable by the three sanctioned commands (`ls`, `inspect`, `logs`), so whether the settings changed between 18:35Z and 23:19Z is the owner's read, or needs his word for one more look-only command.
 
-**Class of claim corrected.** The claim "serving state follows from the push" in this record: `grep -n -i -E "deployment complete|serving state|deploy evidence|evidenced by the push" deployment/fix-delete-dead-cron-deployment.md` is enumerated and each hit dispositioned in the changelog row of the closing correction (below, once the control run is read); other documents' hits are in the same note.
+**Class of claim corrected.** The claim "serving state follows from the push" in this record: `grep -n -i -E "deployment complete|serving state|deploy evidence|evidenced by the push|is the deployment"` over this record: 5 hits before this paragraph was written (Release Execution "Serving state is evidenced by the push" and the line after it, Post-Release Status "Deployment Complete", and the two lines of this Correction). Dispositions: the Release Execution pair and the Post-Release Status line are superseded by this note and marked in place; the Correction's own lines are the correction. Over the other chain documents (`grep -n -i -E "deployment complete|reached production|serving state|is live|evidenced by the push"` over the implementation, code-review and handoff documents): 2 hits, the handoff's 23:19 row ("the release reached production"), corrected by its 23:25 row, and the implementation's 23:25 row, which is the correction. No other chain document states that the change is live.
+
+**Update 2026-11-21T23:54 — the settings read, on the owner's selection.** Put to him in his form (the release is not live; why; who can fix it); he chose "Agent: list setting names with the Vercel tool", which extends his 19:02Z
+bound (list deployments and read logs) by this one command, and is the permission for it. `vercel env ls` from the website directory, stdin closed, exit 0 at 23:53Z (`vercel-env-names-2026-11-21.txt`; every value prints "Encrypted", none read; 27 rows):
+`DATABASE_URL`, `REDISHOST`, `REDISPORT`, `REDISUSER` and `REDISPASSWORD` have no row at all, in any environment. The rows that exist are the other names the build needs (`NEXTAUTH_SECRET`, the Discord, CDN, encryption and Pusher ones), all created 229 days ago or more.
+So the five are not project-level settings now, and nothing in this list shows when they were removed. Two readings the list cannot separate: (1) they were project settings that were removed after the 18:35Z good build; (2) they reach the build another way this command does not list (for example team-level shared settings linked to the project, or an integration) and that link broke. Both are
+read in the Vercel dashboard only. Nothing in this chain's diff touches settings, and no agent changed any (agents never change settings). Next: the owner restores the five and presses Redeploy on the errored deployment (no new push); I then read `vercel ls --prod` and the new build log.
 
 ## Plan Reference
 
@@ -156,14 +164,14 @@ Mode A, run by this session after the owner's release approval above. Commands a
 `git branch -f master 132a7ab`, `git checkout master`, `git push origin refs/heads/master:refs/heads/master`. The push, at 2026-11-21T23:18:58Z, took `origin/master` from
 `0c14d5b` to `132a7ab`. No tag and no publish: a branch move has nothing to publish.
 
-**Serving state** is evidenced by the push, per the deploy-evidence rule: the push to `master` is the deployment, and the Vercel Git integration builds `master` (re-derived above).
+**[SUPERSEDED at 23:25Z, see Correction: the push is read back, but the change is not serving.]** **Serving state** is evidenced by the push, per the deploy-evidence rule: the push to `master` is the deployment, and the Vercel Git integration builds `master` (re-derived above).
 No host-side read was made or requested. Nothing is marked NOT VERIFIED for serving state. No artifact-side check was left unperformed.
 
 Consumers resolving to the release: none pin this repository by SHA; `project-utils` and `paracord` are consumed by website, not the reverse.
 
 ## Post-Release Status
 
-- Status: Deployment Complete, 2026-11-21T23:19Z.
+- Status: Deployment Complete, 2026-11-21T23:19Z. **[SUPERSEDED at 23:25Z, see Correction: Vercel's production deployment of the push errored; the state is "Deployment Failed", production unchanged.]**
 - Known issues: none known. The one forward read is the Vercel dashboard's Cron Jobs list, carried by `handoff/vercel-dashboard-cron-list-after-cron-removal-2026-11-21.md` (`Owning-Stage` owner); this record does not wait on it.
 - Rollback plan: a revert of the one commit, released through `release-move.js` under a new approval (the reverse apply was dry-run at `rollback-dry-run.txt`, exit 0), or a dashboard redeploy of the previous
   production deployment (accepted as written, not run).

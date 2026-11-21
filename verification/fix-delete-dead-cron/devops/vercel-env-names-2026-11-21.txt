@@ -1,0 +1,34 @@
+Vercel CLI 29.1.1
+Retrieving project…
+> Environment Variables found in Project hooks-gg-website [144ms]
+
+ name                               value               environments                        created
+ ENABLE_EXPERIMENTAL_COREPACK       Encrypted           Development, Preview, Production    229d ago
+ NEXT_PUBLIC_CDN_HOST               Encrypted           Development, Preview, Production    1188d ago
+ PREVIEW_IMAGE_URL                  Encrypted           Production                          1189d ago
+ PREVIEW_IMAGE_URL                  Encrypted           Preview                             1189d ago
+ PREVIEW_IMAGE_API_KEY              Encrypted           Production, Preview                 1189d ago
+ NEXTAUTH_URL                       Encrypted           Preview                             1190d ago
+ CDN_KEY                            Encrypted           Preview, Production                 1190d ago
+ CDN_SECRET                         Encrypted           Preview, Production                 1190d ago
+ CDN_BUCKET                         Encrypted           Preview, Production                 1190d ago
+ CDN_ENDPOINT                       Encrypted           Preview, Production                 1190d ago
+ NEXT_PUBLIC_PUSHER_CLUSTER         Encrypted           Development, Preview, Production    1222d ago
+ NEXT_PUBLIC_PUSHER_KEY             Encrypted           Development, Preview, Production    1222d ago
+ PUSHER_APP_ID                      Encrypted           Development, Preview, Production    1222d ago
+ PUSHER_SECRET                      Encrypted           Development, Preview, Production    1222d ago
+ STATBOT_API_KEY                    Encrypted           Production, Preview, Development    1274d ago
+ ENCRYPTION_KEY                     Encrypted           Production, Preview, Development    1291d ago
+ ENCRYPTION_IV                      Encrypted           Production, Preview, Development    1291d ago
+ HOOKS_API_TOKEN                    Encrypted           Production, Preview, Development    1291d ago
+ NEXT_TELEMETRY_DISABLED            Encrypted           Development, Preview, Production    1293d ago
+ DISCORD_PUBLIC_KEY                 Encrypted           Development, Preview, Production    1293d ago
+ DISCORD_BOT_TOKEN                  Encrypted           Production, Preview, Development    1357d ago
+ GITHUB_USER                        Encrypted           Development, Preview, Production    1361d ago
+ GITHUB_USER_ACCESS_TOKEN           Encrypted           Production, Preview, Development    1361d ago
+ NEXTAUTH_SECRET                    Encrypted           Production, Preview, Development    1363d ago
+ DISCORD_URL                        Encrypted           Production, Preview, Development    1363d ago
+ NEXT_PUBLIC_DISCORD_CLIENT_ID      Encrypted           Production, Preview, Development    1364d ago
+ DISCORD_CLIENT_SECRET              Encrypted           Production, Preview, Development    1364d ago
+
+exit 0
