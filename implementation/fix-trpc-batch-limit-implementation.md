@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-trpc-batch-limit
 UUID: 61d9ad16
 Status: Active
-Status-Detail: "Code review Round 1 CR-1 fixed (Minimum remedy, test-only) at f47e304; awaiting the reviewer's fix confirmation (2 production lines, so no QA Phase 2); merge to master is devops's, on the owner's word."
-Handoff-At: f47e304 — repos=website
+Status-Detail: "Build-break fix round (steering ruling 2026-11-21T00:32Z): both tRPC endpoint tests moved out of src/pages/api at 76da25c; next build exits 0; awaiting the reviewer's confirmation, then devops (2 production lines, so no QA Phase 2)."
+Handoff-At: 76da25c — repos=website
 Origin-Chain: none
 ---
 
@@ -266,9 +266,42 @@ lines unchanged at 2):
 Exports `wt2` (at `3d2ceec`) and `wt3` (at `f47e304`) were removed with `git worktree remove --force`; `git worktree list` shows only
 the main tree.
 
+## Build-break fix round — the tests move out of `src/pages/api/`
+
+Source: devops found the break (`deployment/fix-trpc-batch-limit-deployment.md`, record `1320e9b`). `next build` exits 1 at `f47e304`:
+Next builds every file under `src/pages/api/` as an API route, and the two test files there "do not satisfy the constraint
+'ApiRouteConfig'". The ruling is steering's (a), `steering/fix-trpc-batch-limit-rulings.md` block "2026-11-21T00:32Z" (commit
+`c12a6c2`): move both files to `src/server/api/__tests__/`, the placement 017's X-13 used. The code review's sub-entry 2 (record
+`58574af`) requires the same.
+
+**My miss.** Neither my Verification nor my Round 1 table had a `next build` row. Typecheck and the suite never read
+`.next/types/validator.ts`, so they could not see the break. 017 had already recorded the hazard (X-13), and I did not read it.
+
+**Change, commit `76da25c`** (test-only; production lines unchanged at 2):
+- `trpc.batch-refusal.test.ts` and `trpc.site-link.test.tsx` move from `src/pages/api/trpc/__tests__/` to
+  `src/server/api/__tests__/`. Their basenames are unchanged. The handler import `'../[trpc]'` becomes `'~/pages/api/trpc/[trpc]'`:
+  1 line in the first file, 2 in the second.
+- `src/pages/api/trpc/__tests__/` is removed. `git ls-tree -r --name-only 76da25c -- src/pages | grep -c __tests__` gives 0.
+
+**Verification at `76da25c`** (`verification/fix-trpc-batch-limit/fixer/round2/`):
+- **`next build`**, as devops ran it: a `git archive` export with no `.env`; `pnpm install --frozen-lockfile` exit 0 (pnpm 10.28.2);
+  `SKIP_ENV_VALIDATION=1 pnpm run build` exit 0. The route table lists `/api/trpc/[trpc]` and no test file
+  (`build-install-76da25c.txt`, `build-76da25c.txt`). The export was then removed.
+- Moved tests in that export: 3 passed, exit 0 (`green-export-76da25c.log`).
+- **Controls re-run on the moved files**, in the same export:
+  - With `TrpcProvider`'s link switched to `httpBatchLink` (round 1's diff), the provider case fails with `expected true to be
+    false` in 77 ms (`control-provider-httpBatchLink.log`).
+  - With `allowBatching: false` deleted from `[trpc].ts`, both batch cases fail with `expected 200 to be 400`, 2 failed and exit 1
+    (`control-no-allowBatching.log`).
+- Suite in the shared tree: 156 files, 2265 cases, 2265 passed, exit 0 (`suite-76da25c.*`).
+- `pnpm run typecheck`: exit 0 (`typecheck-76da25c.log`).
+- `eslint --max-warnings=0` over both moved files: exit 0 (`lint-changed.log`).
+- `convention-check --since=f47e304`: 0 FAIL, 0 CANDIDATE.
+
 ## Changelog
 
 | Date | Agent | Change |
 |---|---|---|
 | 2026-11-21T00:07 | fixer | Document created; fix committed at `3d2ceec`; handoff to code review |
 | 2026-11-21T00:25 | fixer | Code review Round 1 CR-1 (REJECTED at `3d2ceec`): Minimum remedy at `f47e304`, the provider-link case and its control; `Handoff-At` moved to `f47e304`; re-handoff to code review |
+| 2026-11-21T00:35 | fixer | Build-break fix round (steering 00:32Z ruling (a)): both tRPC endpoint tests moved to `src/server/api/__tests__/` at `76da25c`; `next build` exit 0 in an export; controls re-run; `Handoff-At` moved to `76da25c`; re-handoff to code review |
