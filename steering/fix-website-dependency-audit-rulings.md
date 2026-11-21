@@ -73,3 +73,25 @@ and join it with the dispositions already made, so a new advisory is read by som
 advisory that hasn't been assessed yet". A default written before an advisory existed has not assessed it, so option 2 would leave new
 advisories in 27 packages unread. **Ruling: option 1** — seed per advisory; the review's file stays unchanged as evidence. The
 fixer's 81/6/8/67 counts are its own read, not re-derived here; they decide nothing between the options.
+
+## 2026-11-21T00:19Z — CR-2 and CR-3: his selections (re-scope: failure and staleness entries in; versions a stated limit)
+
+Code review round 1 (`code-review/fix-website-dependency-audit-code-review.md`, record `cd93a06`): REJECTED at `9fc299c` on CR-1
+(MEDIUM; to the fixer: one test case asserting append-before-state). CR-2 and CR-3 (LOW) asked for scoping rulings; ruling either in
+widens block 23:59Z, so both went to him.
+**Premises read that turn** (helper `general-purpose-sonnet`, executed against scratch inbox and state files, outputs in this
+thread's scratchpad `refute-audit/`): three induced failures (`PATH=/nonexistent`; `npm_config_registry=http://127.0.0.1:9`; a fake
+pnpm printing `not json`) each exited 1 with one stderr line and left the scratch inbox at 0 bytes; the tool reads `origin/master` by
+`git rev-parse` and `grep -ciE 'fetch|ls-remote|pull'` over it gives 0; `rev-parse origin/master` = `ls-remote origin
+refs/heads/master` = `d1bb9b0` at 00:1xZ. "54 of 62 keys name no version" was the reviewer's count, marked unread in the option text.
+**Selection, answered 00:19Z** (ledger `steering/selection-ledger/2026-11-21.md`, block "2026-11-21T00:19Z — steering-roadmap-hooks";
+wording this thread's):
+- Q "Silent fail": **Agent: entry on break or stale (Recommended)** — CHOSEN. "One inbox entry when a run of failures starts, not one
+  per day, and one when this box's copy of the live branch differs from the live branch (checked read-only, nothing moved). … Costs
+  one more fix round on the tool before its QA pass." Not chosen: Agent: entry on break only; Agent: leave it as is.
+- Q "Versions": **Agent: accept as a known limit (Recommended)** — CHOSEN. "Leave it keyed by advisory. … Recorded as a known
+  limit; no extra round." Not chosen: Agent: tie them to versions.
+**Re-scope of block 23:59Z, added limbs:** (a) the tool appends one `INBOX.md` entry when a streak of failed runs starts (not one per
+failed run), and none again until a run succeeds; (b) it appends one entry when the website's local `origin/master` differs from
+`git ls-remote origin refs/heads/master` (read only; no fetch, no ref moved), once per differing pair. Same paths; the stated limit:
+a disposition holds for every version of its module under its GHSA. Recipients: the fixer (with CR-1), the reviewer.
