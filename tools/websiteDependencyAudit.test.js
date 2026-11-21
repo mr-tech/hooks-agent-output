@@ -48,21 +48,24 @@ function auditOf(...advisories) {
 
 let dir;
 let website;
+let origin;
 let tmp;
 let files;
 
-function git(...args) {
-  return execFileSync('git', ['-C', website, ...args], {
+function gitIn(repo, ...args) {
+  return execFileSync('git', ['-C', repo, ...args], {
     encoding: 'utf8',
     env: { ...process.env, GIT_AUTHOR_NAME: 't', GIT_AUTHOR_EMAIL: 't@t', GIT_COMMITTER_NAME: 't', GIT_COMMITTER_EMAIL: 't@t' },
   }).trim();
 }
 
+const git = (...args) => gitIn(website, ...args);
+
 function writeDispositions(entries) {
   fs.writeFileSync(files.dispositions, JSON.stringify({ _about: 'test', ...entries }));
 }
 
-function run(audit, { exitCode = 1, raw, ref = 'released', extra = [] } = {}) {
+function run(audit, { exitCode = 1, raw, ref = 'origin/master', extra = [] } = {}) {
   fs.writeFileSync(files.fixture, raw === undefined ? JSON.stringify(audit) : raw);
   return spawnSync(process.execPath, [TOOL,
     '--website', website, '--ref', ref,
@@ -71,12 +74,24 @@ function run(audit, { exitCode = 1, raw, ref = 'released', extra = [] } = {}) {
   ], { encoding: 'utf8', env: { ...process.env, TMPDIR: tmp, FIXTURE: files.fixture, FIXTURE_EXIT: String(exitCode) }, timeout: 60000 });
 }
 
+function moveOriginMaster(name) {
+  git('checkout', '-q', '-b', name);
+  fs.writeFileSync(path.join(website, 'README.md'), `${name}\n`);
+  git('commit', '-q', '-am', name);
+  gitIn(origin, 'fetch', '-q', website, `${name}:refs/heads/${name}`);
+  git('checkout', '-q', 'master');
+  const sha = gitIn(origin, 'rev-parse', name);
+  gitIn(origin, 'update-ref', 'refs/heads/master', sha);
+  return sha;
+}
+
 const headings = (text) => text.split('\n').filter((l) => l.startsWith('## '));
 const inbox = () => fs.readFileSync(files.inbox, 'utf8');
 
 beforeEach(() => {
   dir = fs.mkdtempSync(path.join(os.tmpdir(), 'website-audit-test-'));
   website = path.join(dir, 'website');
+  origin = path.join(dir, 'origin.git');
   tmp = path.join(dir, 'tmp');
   fs.mkdirSync(website);
   fs.mkdirSync(tmp);
@@ -87,7 +102,7 @@ beforeEach(() => {
     fixture: path.join(dir, 'audit.json'),
     pnpm: path.join(dir, 'pnpm-stub.js'),
   };
-  git('init', '-q', '-b', 'released');
+  git('init', '-q', '-b', 'master');
   fs.writeFileSync(path.join(website, 'package.json'), '{"name":"site"}\n');
   fs.writeFileSync(path.join(website, 'pnpm-lock.yaml'), "lockfileVersion: '9.0'\n");
   fs.writeFileSync(path.join(website, 'pnpm-workspace.yaml'), 'patchedDependencies: {}\n');
@@ -96,6 +111,9 @@ beforeEach(() => {
   fs.writeFileSync(path.join(website, 'README.md'), 'not exported\n');
   git('add', 'package.json', 'pnpm-lock.yaml', 'pnpm-workspace.yaml', 'patches', 'README.md');
   git('commit', '-q', '-m', 'released tree');
+  execFileSync('git', ['clone', '-q', '--bare', website, origin]);
+  git('remote', 'add', 'origin', origin);
+  git('fetch', '-q', 'origin');
   fs.writeFileSync(files.pnpm, [
     '#!/usr/bin/env node',
     "const fs = require('fs');",
@@ -127,7 +145,7 @@ describe('website dependency audit', () => {
     assert.match(entry, /nanoid/);
     assert.match(entry, /3\.3\.6/);
     assert.match(entry, /4\.0\.2/);
-    assert.match(entry, new RegExp(git('rev-parse', '--short', 'released')));
+    assert.match(entry, new RegExp(git('rev-parse', '--short', 'origin/master')));
     assert.doesNotMatch(entry, /GHSA-3h5v-q93c-6h6q/);
   });
 
@@ -178,11 +196,13 @@ describe('website dependency audit', () => {
     const failed = run(null, { raw: '{"error":{"code":"ERR_PNPM_AUDIT_BAD_RESPONSE"}}' });
     assert.notStrictEqual(failed.status, 0);
     assert.match(failed.stderr, /pnpm audit gave no advisories/);
-    assert.strictEqual(inbox(), INBOX_HEAD);
-    assert.strictEqual(fs.existsSync(files.state), false);
+    const afterFailure = inbox();
+    assert.doesNotMatch(afterFailure, /GHSA-mwcw-c2x4-8c55/);
     const next = run(auditOf(WS_DOS, NANOID_PREDICTABLE));
     assert.strictEqual(next.status, 0, next.stderr);
-    assert.strictEqual(headings(inbox().slice(INBOX_HEAD.length)).length, 1);
+    const added = inbox().slice(afterFailure.length);
+    assert.strictEqual(headings(added).length, 1);
+    assert.match(added, /GHSA-mwcw-c2x4-8c55/);
   });
 
   it('separates the entry by a blank line from an inbox that lacks a final newline', () => {
@@ -192,13 +212,65 @@ describe('website dependency audit', () => {
     assert.ok(inbox().startsWith('# Inbox\n\n## '));
   });
 
-  it('fails naming git when the released ref does not exist, and writes nothing', () => {
+  it('fails naming git when the released ref does not exist, and reports no advisory', () => {
     writeDispositions({});
-    const r = run(auditOf(WS_DOS), { ref: 'no-such-ref' });
+    const r = run(auditOf(WS_DOS), { ref: 'origin/no-such-branch' });
     assert.notStrictEqual(r.status, 0);
     assert.match(r.stderr, /git rev-parse/);
-    assert.strictEqual(inbox(), INBOX_HEAD);
-    assert.strictEqual(fs.existsSync(files.state), false);
+    assert.doesNotMatch(inbox(), /GHSA-3h5v-q93c-6h6q/);
+  });
+
+  it('adds one inbox entry when a streak of failed runs starts, and none for the rest of the streak', () => {
+    writeDispositions({});
+    assert.notStrictEqual(run(null, { raw: 'not json' }).status, 0);
+    const first = inbox().slice(INBOX_HEAD.length);
+    assert.strictEqual(headings(first).length, 1);
+    assert.match(first, /failed/);
+    assert.match(first, /pnpm audit gave no advisories/);
+    assert.notStrictEqual(run(null, { raw: 'not json' }).status, 0);
+    assert.notStrictEqual(run(auditOf(WS_DOS), { ref: 'origin/no-such-branch' }).status, 0);
+    assert.strictEqual(inbox().slice(INBOX_HEAD.length), first);
+  });
+
+  it('adds a new failure entry for a streak that starts after a run succeeded', () => {
+    writeDispositions({ 'ws|GHSA-3h5v-q93c-6h6q': ASSESSED });
+    assert.notStrictEqual(run(null, { raw: 'not json' }).status, 0);
+    assert.strictEqual(run(auditOf(WS_DOS)).status, 0);
+    assert.strictEqual(headings(inbox().slice(INBOX_HEAD.length)).length, 1);
+    assert.notStrictEqual(run(null, { raw: 'not json' }).status, 0);
+    assert.strictEqual(headings(inbox().slice(INBOX_HEAD.length)).length, 2);
+  });
+
+  it('adds one entry per pair when the local released ref differs from the remote head, moving no ref', () => {
+    writeDispositions({ 'ws|GHSA-3h5v-q93c-6h6q': ASSESSED });
+    const local = git('rev-parse', 'origin/master');
+    const refsBefore = git('for-each-ref');
+    const remote = moveOriginMaster('second');
+    assert.strictEqual(run(auditOf(WS_DOS)).status, 0);
+    const first = inbox().slice(INBOX_HEAD.length);
+    assert.strictEqual(headings(first).length, 1);
+    assert.match(first, new RegExp(local.slice(0, 7)));
+    assert.match(first, new RegExp(remote.slice(0, 7)));
+    assert.strictEqual(run(auditOf(WS_DOS)).status, 0);
+    assert.strictEqual(inbox().slice(INBOX_HEAD.length), first);
+    const refsAfterSecond = git('for-each-ref');
+    const third = moveOriginMaster('third');
+    assert.strictEqual(run(auditOf(WS_DOS)).status, 0);
+    const added = inbox().slice(INBOX_HEAD.length + first.length);
+    assert.strictEqual(headings(added).length, 1);
+    assert.match(added, new RegExp(third.slice(0, 7)));
+    assert.strictEqual(git('rev-parse', 'origin/master'), local);
+    assert.strictEqual(refsAfterSecond.split('\n').filter((l) => l.includes('refs/remotes/')).join('\n'),
+      refsBefore.split('\n').filter((l) => l.includes('refs/remotes/')).join('\n'));
+  });
+
+  it('fails, reporting no advisory, when the remote has no head for the released branch', () => {
+    writeDispositions({});
+    gitIn(origin, 'update-ref', '-d', 'refs/heads/master');
+    const r = run(auditOf(WS_DOS));
+    assert.notStrictEqual(r.status, 0);
+    assert.match(r.stderr, /has no head/);
+    assert.doesNotMatch(inbox(), /GHSA-3h5v-q93c-6h6q/);
   });
 
   it('prints the procedure for adding a disposition on --help, and writes nothing', () => {

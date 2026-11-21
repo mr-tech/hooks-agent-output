@@ -1,0 +1,83 @@
+▶ website dependency audit
+  ✔ adds exactly one inbox entry for an advisory with no disposition, naming every installed version (120.859ms)
+  ✔ adds no entry on a second run while the advisory stays undispositioned (180.89438ms)
+  ✔ leaves the inbox unchanged when every advisory is dispositioned (116.65343ms)
+  ✔ does not fail when a dispositioned or reported advisory has left the audit (109.20827ms)
+  ✔ treats a bare module key or a version-line key as no disposition of an advisory (109.489128ms)
+  ✔ treats a disposition with an empty assessment as no disposition (140.367206ms)
+  ✔ writes nothing on an unreadable audit and reports the advisory on the next readable run (193.243154ms)
+  ✔ separates the entry by a blank line from an inbox that lacks a final newline (115.789288ms)
+  ✔ fails naming git when the released ref does not exist, and reports no advisory (77.934805ms)
+  ✖ adds one inbox entry when a streak of failed runs starts, and none for the rest of the streak (112.939146ms)
+  ✖ adds a new failure entry for a streak that starts after a run succeeded (200.522641ms)
+  ✖ adds one entry per pair when the local released ref differs from the remote head, moving no ref (169.944301ms)
+  ✔ prints the procedure for adding a disposition on --help, and writes nothing (70.084227ms)
+  ✔ fails on an argument it does not know, and writes nothing (67.896696ms)
+  ✔ keeps no reported key when the inbox cannot be written, and reports the advisory on the next run (228.835556ms)
+  ✔ removes the lockfile export after a readable and after an unreadable run (210.790016ms)
+✖ website dependency audit (2227.339264ms)
+ℹ tests 16
+ℹ suites 1
+ℹ pass 13
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2292.567483
+
+✖ failing tests:
+
+test at ../../../../../tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/red-limbs/websiteDependencyAudit.test.js:223:3
+✖ adds one inbox entry when a streak of failed runs starts, and none for the rest of the streak (112.939146ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/red-limbs/websiteDependencyAudit.test.js:227:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../../tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/red-limbs/websiteDependencyAudit.test.js:235:3
+✖ adds a new failure entry for a streak that starts after a run succeeded (200.522641ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/red-limbs/websiteDependencyAudit.test.js:239:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../../tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/red-limbs/websiteDependencyAudit.test.js:244:3
+✖ adds one entry per pair when the local released ref differs from the remote head, moving no ref (169.944301ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/tmp/claude-1000/-usr-local-bin-hooks-agent-output/b599db6d-bad2-4e33-aa87-ed4f89e60475/scratchpad/red-limbs/websiteDependencyAudit.test.js:251:12)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+exit 1
