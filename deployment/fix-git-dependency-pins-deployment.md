@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-git-dependency-pins
 UUID: 84f208f7
 Status: Active
-Status-Detail: "Release 1 of 2 (project-utils master, mid-chain, deploys nothing) ready and about to be moved by this session. Release 2 (website master, on the owner's word) follows a later brief; this record stays open for it."
+Status-Detail: "Release 1 of 2 done: project-utils master moved to 40ba5d3 at 23:15Z (mid-chain, deploys nothing). Release 2 (website master, on the owner's word) follows a later brief; this record stays open for it."
 ---
 
 # Deployment — fix-git-dependency-pins
@@ -16,6 +16,7 @@ written under its own brief.
 | Date (UTC) | Agent | Change |
 |---|---|---|
 | 2026-11-21T23:14 | devops | Document created at Stage 2 readiness for release 1 (project-utils `master`). Brief `steering/fix-git-dependency-pins-brief-devops.md` and its common part read whole; steering's brief had arrived, so no gap is recorded there. This is the first pass: no earlier session. |
+| 2026-11-21T23:15 | devops | Release 1 executed (Mode A): project-utils `master` `749606d` to `40ba5d3`, read back by `git ls-remote` at 23:15:10Z; `chain/fix-git-dependency-pins` deleted by `git branch -d`. Runbook results, Release Execution and Post-Release Status filled. Readiness committed first at record `e8f7d9d`. |
 
 ## Plan Reference
 
@@ -38,7 +39,7 @@ project-utils `master` at `40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165` (no tag is 
 
 ### Release Date
 
-Filled in Phase 2C (below).
+2026-11-21, pushed and read back at 23:15Z.
 
 ### Execution Mode
 
@@ -102,12 +103,12 @@ Repository: project-utils.
 
 | # | Step | Abort if | Result |
 |---|---|---|---|
-| 1 | `git -C /usr/local/bin/hooks/project-utils ls-remote origin master` | not `749606d…` (someone else moved it) | |
-| 2 | `git -C /usr/local/bin/hooks/project-utils status --porcelain` | any tracked change | |
-| 3 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/project-utils master 40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165 --reason "<review record and Reviewed-At>"` | exit not 0, or a refusal, or a classifier or permission block (reported to steering and not retried in another form) | |
-| 4 | `git -C /usr/local/bin/hooks/project-utils ls-remote origin master` | not `40ba5d3…` | |
-| 5 | `git -C /usr/local/bin/hooks/project-utils branch --show-current` | not `master` | |
-| 6 | `git -C /usr/local/bin/hooks/project-utils branch -d chain/fix-git-dependency-pins`, output captured | refused (then `merge-base --is-ancestor` is read; `-D` only after that shows exit 0) | |
+| 1 | `git -C /usr/local/bin/hooks/project-utils ls-remote origin master` | not `749606d…` (someone else moved it) | `749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f` — proceed |
+| 2 | `git -C /usr/local/bin/hooks/project-utils status --porcelain` | any tracked change | 0 lines (branch `chain/fix-git-dependency-pins`) — proceed |
+| 3 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/project-utils master 40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165 --reason "<review record and Reviewed-At>"` | exit not 0, or a refusal, or a classifier or permission block (reported to steering and not retried in another form) | exit 0: "OK moved master: 749606d… -> 40ba5d3… on origin; tree on master" (`release-move-run.txt`) |
+| 4 | `git -C /usr/local/bin/hooks/project-utils ls-remote origin master` | not `40ba5d3…` | `40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165 refs/heads/master` at 23:15:10Z (`post-move-readback.txt`) |
+| 5 | `git -C /usr/local/bin/hooks/project-utils branch --show-current` | not `master` | `master`; HEAD and `master` both `40ba5d3…`; porcelain 0 lines |
+| 6 | `git -C /usr/local/bin/hooks/project-utils branch -d chain/fix-git-dependency-pins`, output captured | refused (then `merge-base --is-ancestor` is read; `-D` only after that shows exit 0) | "Deleted branch chain/fix-git-dependency-pins (was 40ba5d3)", exit 0; `branch --list` shows `master` only (`branch-delete.txt`) |
 
 ### Open disagreements with predecessor documents
 
@@ -129,11 +130,21 @@ Not asked: the push deploys nothing and takes no owner approval (above). The bri
 
 ### Release Execution
 
-Not yet run.
+Mode A, run by this session, 2026-11-21T23:15Z. Commands and results are the runbook rows above (captures under `verification/fix-git-dependency-pins/devops/`:
+`release-move-run.txt`, `post-move-readback.txt`, `branch-delete.txt`).
+
+- Ref moved: project-utils `origin/master`, `749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f` to `40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165`, a fast-forward of one commit. Local `master` moved with it
+  and the tree is on `master`. No tag created; nothing published (a branch move has no registry).
+- Deploy evidence: the push, ref `master`, SHA `40ba5d3`, 23:15Z, read back by `git ls-remote origin master`. The push deploys nothing: no workflow, no host. Serving state is not otherwise probed.
+- Reconciliation, deployed against verified: the commit at the serving ref is `40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165`, which is the code review's `Reviewed-At` SHA. They are the same commit.
+- Consumers resolving to the release: none do yet. Website's lockfile still pins `749606d` (above); it moves only in release 2.
+- The fix branch `chain/fix-git-dependency-pins` was merged by the fast-forward and deleted by `git branch -d` alone (captured). Its commit is on `master`.
 
 ### Post-Release Status
 
-Not yet run.
+Release 1: pushed 2026-11-21T23:15Z. Known issues: none known; the one open read is the outside-consumer assumption above, owned by `steering-hooks`, which this release does not wait on (it exercises no
+host, and changes no consumer until a re-pin). Rollback Plan: the reverse-apply dry run above (a revert commit through the same tool); no consumer has re-pinned.
+The chain stays open: the fixer's and the reviewer's documents are not closed here (brief), and release 2 follows.
 
 ## Record notes
 

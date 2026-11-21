@@ -1,0 +1,2 @@
+Deleted branch chain/fix-git-dependency-pins (was 40ba5d3).
+exit 0
