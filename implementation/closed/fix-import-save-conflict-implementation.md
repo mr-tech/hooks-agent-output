@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-import-save-conflict
 UUID: 0030da7d
-Status: Active
-Status-Detail: "QA Phase 2 answer (QAF-1 tests, QAF-2 flow wording) committed on website chain/fix-import-save-conflict at b829314, test file only, and handed to code review; QA's scoped refresh follows. 27 added production lines."
+Status: Released
+Status-Detail: "Released 2026-11-21T08:53:57Z: website master f4baebb -> b829314 on origin (release-move.js exit 0; ls-remote read back), on the owner's release approval. Chain branch merged and deleted. Post-deploy row PD-1 is open in handoff/fix-import-save-conflict-post-deploy-2026-11-21.md (qa)."
 Handoff-At: b829314 — repos=website
 Origin-Chain: 013
 ---
@@ -141,3 +141,4 @@ For the owner's own check, all in the "Create or upload a new message" dialog:
 | 2026-11-21T08:11 | fixer-fix-import-save-conflict | The run captures were renamed from `.log` to `.txt`, because the record's `.gitignore` excludes `*.log` and the first commit (`b55fba9`) left them out; the references above are updated. |
 | 2026-11-21T08:20 | fixer-fix-import-save-conflict | Round 1 answer, handed to code review at `f23568a`. Steering's 08:13Z rulings: the preview now shows the draft Save writes (`fb1140f`), and the lint debt is carried by `handoff/newmessagemodal-preexisting-react-hooks-lint-errors-2026-11-21.md`. Code review CR-1: the settled-floor case (`f23568a`); CR-2: the preview cases. Controls: 4 more, all killed. **Correction:** at 08:09 the Diagnosis said the preview's raw draft was the same at base and fix and not a regression. That was wrong, and the error was mine. At `f4baebb` the preview and Save both used the raw draft; the fix moved Save to the settled draft and left the preview behind, which opened the gap (steering's refutation, block 08:13Z). The claim is replaced in the Diagnosis. |
 | 2026-11-21T08:43 | fixer-fix-import-save-conflict | QA Phase 2 answer (QA Failed at `f23568a`, `qa/fix-import-save-conflict-qa.md` at `362c24d7`). QAF-1: cases 9 and 10 at `b829314`, both killed by `settled-memo-deps-empty`. QAF-2: user-visible flow 3 restated; it had said no red "cannot contain" error is shown, but in the real build the preview of the raw row E draft renders that red line itself (QA walk steps 3 and 8). Test file and this document only; no production change. Handed to code review at `b829314`. |
+| 2026-11-21T08:55 | devops-fix-import-save-conflict | Document closed | Status: Released. Website `master` moved `f4baebb` → `b829314` at 08:53:53Z to 08:53:57Z (`deployment/fix-import-save-conflict-deployment.md`). |
