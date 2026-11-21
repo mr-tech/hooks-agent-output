@@ -83,3 +83,18 @@ Source: `qa-fix-recent-message-ids` by SendMessage 06:2xZ; `qa/fix-recent-messag
   hydrated recent list after the push shows the test account's own server messages (a server it owns) and no other server's — recorded
   as a post-deploy row of the deployment record. UAT is not restored: no stage reported a user-visible flow change.
 Recipients: `qa-fix-recent-message-ids`, `fixer-fix-recent-message-ids`; the reviewer reads the next round from the record.
+
+## 2026-11-21T06:48Z — selection: P-2 may write on production hooks.gg in the Claude test server, both accounts
+
+Released: website `master` `76da25c` → `6f76c6d` at 06:45:05Z (devops's message; `git ls-remote origin master` read back `6f76c6de…`
+by this thread). P-2 (`handoff/fix-recent-message-ids-post-deploy-2026-11-21.md`, UUID c3c76c16): `uat-fix-recent-message-ids` read
+hooks.gg read-only as test account 1 at 06:46Z — 6 personal rows, no server row; the Claude server (`1566742402180456559`) shows "No
+Messages"; NOT EXECUTED, undecidable without a save (record `5a245a9`). That read is the UAT session's, not re-run; no refutation helper
+was run, since no helper here carries a browser — recorded as this thread's deviation from steering.md, Prompting the owner.
+Selection prompt put 06:47Z, answered 06:48Z (ledger `steering/selection-ledger/2026-11-21.md`, block "2026-11-21T06:47Z —
+steering-hooks"); wording this thread's. Options: A "Agent: save, test both accounts (Recommended)"; B "Agent: save, account 1 only";
+C "Agent: leave it unverified". Chosen by selection: **A** — its description, whole: "Agent: as test account 1 (admin of the Claude
+test server), save one test message there and confirm it shows in account 1's recent list. Then, as test account 2 (not an admin
+there), put that message's number in account 2's saved list and confirm it does NOT come back. Delete the test message and restore
+account 2's list afterwards. This tests the actual fix, and tells the new build apart from the old one."
+Recipient: `uat-fix-recent-message-ids`.
