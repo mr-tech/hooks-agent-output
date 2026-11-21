@@ -1,0 +1,20 @@
+chain: sessions matching '*fix-desktop-draft-as-typed' or '*fix-desktop-draft-as-typed-<n>' from 2026-11-21T10:43 to 2026-11-21T11:34
+4 of 4 resolved from the registry cache (live entry gone): code-reviewer-fix-desktop-draft-as-typed, devops-fix-desktop-draft-as-typed, fixer-fix-desktop-draft-as-typed, qa-fix-desktop-draft-as-typed
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+code-reviewer-fix-desktop-dra claude-opus                 41        81   4,362,555    118,458    28,881     2.40
+                                main 41 req $2.40 · cached seen 2026-11-21T11:07:00Z
+devops-fix-desktop-draft-as-t claude-sonn                 56       115   8,515,938    168,019    49,378     2.02
+                                main 56 req $2.02 · cached seen 2026-11-21T11:26:11Z
+fixer-fix-desktop-draft-as-ty claude-opus                 79       160  11,239,740    166,803    55,990     4.70
+                                main 79 req $4.70 · cached seen 2026-11-21T10:45:00Z
+qa-fix-desktop-draft-as-typed claude-opus,claude-sonn    169       349  18,740,676    246,041    84,499     6.43
+  own                         claude-opus                115       241  15,882,462    165,430    60,148     5.70
+  browser-walker              claude-sonn                 54       108   2,858,214     80,611    24,351     0.73
+                                main 115 req $5.70 · subagent 54 req $0.73 · cached seen 2026-11-21T11:14:28Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      345       705  42,858,909    699,321   218,748    15.55
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp
+exit 0

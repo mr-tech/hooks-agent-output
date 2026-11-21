@@ -1,0 +1,6 @@
+4	1	src/components/DiscordContentEditor/Desktop.tsx
+8	3	src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx
+5	2	src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx
+4	1	src/components/DiscordContentEditor/Desktop.tsx
+8	3	src/components/DiscordMessageEditor/components/EmbedEditor/EmbedAuthor.tsx
+5	2	src/components/DiscordMessageEditor/components/EmbedEditor/EmbedFooter.tsx

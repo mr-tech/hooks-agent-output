@@ -1,0 +1,24 @@
+chain: sessions matching '*steering-hooks' or '*steering-hooks-<n>' from 2026-11-21T10:20 to 2026-11-21T11:40
+3 of 4 resolved from the registry cache (live entry gone): steering-hooks, steering-hooks, steering-hooks
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+steering-hooks [7f338190]     -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-21T05:30:41Z
+steering-hooks [c9d29d3a]     claude-fabl,claude-opus     87       192  17,474,883    161,654    82,939     6.74
+  own                         claude-opus                 50       118  10,785,770     62,989    38,252     3.43
+  deweeder                    claude-fabl                  4         8     251,046     23,828     9,772     1.04
+  general-purpose-sonnet      claude-sonn                  4         8      53,283     23,571     2,243     0.09
+  retrospective               claude-opus                 29        58   6,384,784     51,266    32,672     2.19
+                                main 50 req $3.43 · subagent 37 req $3.31 · cached seen 2026-11-21T09:49:50Z
+steering-hooks [09d0a152]     claude-opus,claude-sonn    105       230  14,837,970    251,583    78,663     5.95
+  own                         claude-opus                 87       192  14,421,829    176,601    63,167     5.56
+  general-purpose-sonnet      claude-sonn                 18        38     416,141     74,982    15,496     0.38
+                                main 87 req $5.56 · subagent 18 req $0.38 · cached seen 2026-11-21T10:41:37Z
+steering-hooks [015af98a]     -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-21T13:41:10Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      192       422  32,312,853    413,237   161,602    12.68
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp
+exit 0

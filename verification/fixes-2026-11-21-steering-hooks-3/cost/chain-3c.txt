@@ -1,0 +1,14 @@
+chain: sessions matching '*fix-message-link-import-empty' or '*fix-message-link-import-empty-<n>' from 2026-11-21T10:20 to 2026-11-21T10:41
+2 of 2 resolved from the registry cache (live entry gone): fixer-fix-message-link-import-empty, qa-fix-message-link-import-empty
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+fixer-fix-message-link-import claude-opus                 44        95   4,416,207    100,132    32,137     2.33
+                                main 44 req $2.33 · cached seen 2026-11-21T10:21:33Z
+qa-fix-message-link-import-em claude-opus                 42        93   3,820,147     71,887    16,949     1.68
+                                main 42 req $1.68 · cached seen 2026-11-21T10:29:03Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                       86       188   8,236,354    172,019    49,086     4.01
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp
+exit 0
