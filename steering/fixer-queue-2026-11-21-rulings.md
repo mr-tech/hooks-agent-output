@@ -311,3 +311,5 @@ b1fdd41a close on his Vercel reads (`OWNER-QUEUE.md`); (4) two contradicted stam
 (5) the `secretEquals` rule for the architecture record — lodged in `INBOX.md` for the architect. **This thread's errors, as the
 retrospective records them:** two owner prompts held the chain about 3h24m — the item-4 prompt put while the chain could move, and the
 live-attack server start put while its cause was a guess; the same question reached him twice.
+Disclosed: this block's heading was first typed (18:57Z) before the clock read it; the stamp gate refused it at 18:56Z; the heading is
+kept after `date -u` read 18:57.
