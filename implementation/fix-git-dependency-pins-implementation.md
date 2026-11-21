@@ -150,8 +150,8 @@ No lifetime is added, no work is declined, and no irreversible action is added b
 satisfy the gate, and did not bypass it. The hook's rebuild then recreated `dist/prisma.js(.map)` as untracked files from the stale
 `build/js/` cache (Diagnosis). This session removed both files by literal path and removed `node_modules` by literal path. Porcelain
 was empty before the change and is empty after (`git -C project-utils status --porcelain`). The hook also rewrote the gitignored
-`build/` outputs (`build/js/*`, `build/types/`, `tsconfig.tsbuildinfo`) as any build does. `build/js/prisma.js(.map)` was left as found:
-it is outside the write set (Handoff, item for steering).
+`build/` outputs (`build/js/*`, `build/types/`, `tsconfig.tsbuildinfo`) as any build does. `build/js/prisma.js(.map)` was first left as found, as outside the
+write set. It was deleted after steering's ruling (Handoff).
 
 ## Handoff
 
@@ -160,10 +160,13 @@ it is outside the write set (Handoff, item for steering).
   `749606d` and at `40ba5d3`. QA Phase 2 is not in the stage set (1 production line). Merge and push: devops brings `40ba5d3` onto
   project-utils `master` and pushes it mid-chain. No approval is needed: there is no `.github/` and the push deploys nothing (block
   22:58). The fix branch is merged into `master` at that push and deleted after.
-- **For steering (not blocking):** the shared tree's gitignored `build/js/prisma.js` and `build/js/prisma.js.map` (2023-07-26) make
-  every rebuild in `/usr/local/bin/hooks/project-utils` recreate `dist/prisma.js(.map)` as untracked files. A later
-  `git add .`-style commit there would bring them back. Deleting the two cache files is outside this chain's write set; this session
-  has not touched them.
+- **Stale build cache, ruled in scope and deleted:** the shared tree's gitignored `build/js/prisma.js` and `build/js/prisma.js.map`
+  (2023-07-26) made every rebuild in `/usr/local/bin/hooks/project-utils` recreate `dist/prisma.js(.map)` as untracked files. A later
+  `git add .`-style commit there would bring them back. This session raised it to steering (message `4722949e`). Steering ruled the
+  two files in scope: rulings block "2026-11-21T23:07" (record `7c2839f`), relayed by `steering-hooks`: "Delete those two files only,
+  record it in your document, no commit change". Deleted at 23:07Z by literal path. Before the delete, `git check-ignore -v` named
+  `.gitignore:76:build` for both, and `git ls-files build` listed nothing. After it, `ls -d` finds neither, project-utils porcelain is
+  empty, and HEAD is still `40ba5d3`. No commit changed.
 - **Website half:** not started. It begins when `steering-hooks` says the website tree is on `chain/fix-git-dependency-pins` and names
   the pushed project-utils commit.
 
@@ -177,3 +180,4 @@ half adds the flows for the owner's check.
 | Date | Agent | Change |
 |---|---|---|
 | 2026-11-21T23:04 | fixer-fix-git-dependency-pins | Document created. Project-utils half: red at `749606d`, fix committed `40ba5d3`, green at `40ba5d3`; handed to code review |
+| 2026-11-21T23:07 | fixer-fix-git-dependency-pins | Stale gitignored `build/js/prisma.js(.map)` deleted in the shared project-utils tree, under steering's ruling (block "2026-11-21T23:07", `7c2839f`). No commit changed; `Handoff-At` stays `40ba5d3` |
