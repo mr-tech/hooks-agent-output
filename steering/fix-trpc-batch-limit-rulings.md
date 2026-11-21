@@ -107,3 +107,22 @@ record owner's) are not taken. Then: fixer re-hands off; the reviewer confirms (
 build, adds `next build` at the tip to its checks, and puts the release ask. Recipients: the fixer, the reviewer, devops.
 **This thread's note on the chain:** the brief named the record's placement convention but not X-13, which 017 had already paid for;
 the brief-common's hazard list is where it belonged.
+
+## 2026-11-21T00:52Z — released and closed out; sessions stopped; retrospective joins the fixer batch
+
+devops (message 00:4xZ): website `master` `76da25c`, pushed 2026-11-21T00:45:05Z on his selection "Agent: push master to 76da25c
+(Recommended)"; this thread's read: `git ls-remote origin refs/heads/master` → `76da25cc…` (00:5xZ); the tree on `master`, no
+`chain/*` branch left (`git branch --list 'chain/*'`, empty). Implementation, code review and deployment documents in `closed/`
+(devops's closure, `Released`).
+**Carriers:** `handoff/website-trpc-batch-size-and-deps-review-leftovers-2026-11-20.md` — items 1–3 discharged, row added this turn;
+stays Open for 4, 5, 7 (6 in chain `fix-website-dependency-audit`). Created by the chain:
+`handoff/website-trpc-batching-refusal-outside-caller-read-2026-11-21.md` (Owning-Stage steering, event trigger; the code review's
+Assumption Not Checked — the one 5-minute read could not decide it). Architecture: devops's `INBOX.md` entry for the architect,
+left uncommitted per the inbox rule.
+**Correction (devops's):** the devops brief said the 018 standing-risks handoff's trigger names these routes. It does not (RK-3 Save
+toast, RK-5 lint dependency); this thread's error, from not reading its trigger before citing it.
+**Stopped** (`tmux-agent stop`, 00:5xZ): `fixer-fix-trpc-batch-limit` (pid 1060963), `code-reviewer-fix-trpc-batch-limit` (1246203),
+`devops-fix-trpc-batch-limit` (1525594). Their scratch dirs under `/tmp/claude-1000/-usr-local-bin-hooks-website/` (`9066afa9…` 68,
+`0ba81606…` 972, `44c6b747…` 96 KB by `du -s`) deleted, `ls -d` failing after (3 of 3); no open handoff or docket cites them.
+Box: Docker image `postgres:16` is not this chain's (2 days old); no `/var/tmp` capture named for it.
+**Retrospective:** joins the next fixer batch (this chain took a REJECTED round), run once `fix-website-dependency-audit` is closed.
