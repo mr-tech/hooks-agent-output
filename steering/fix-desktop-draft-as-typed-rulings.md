@@ -97,3 +97,11 @@ The walk's verdict carries `Verified-At`; devops starts from it and from the rev
 brief); devops (its later brief).
 `qa-fix-desktop-draft-as-typed` started 11:14Z (`tmux-agent spawn`, cwd website, effort medium as printed), brief
 `steering/fix-desktop-draft-as-typed-brief-qa.md` (`2ae615a`).
+
+## 2026-11-21T11:25Z — QA walk PASS at `b68f94c`; devops started
+
+`qa/fix-desktop-draft-as-typed-qa.md` (record `71fc7b56`, Status "QA Complete", `Verified-At` `b68f94c`, read this turn): flows 1-4 hold
+in Chrome at route 0; base `b663b35` loses the same text; caret held on every key; no findings; no database, no Save. Its Assumption
+Not Checked (line 103, the saved-message route) is put on devops's post-deploy row, run by a test-account session, not left to his
+walk (an agent can perform it). Chain tip `b68f94c`, `origin/master` `b663b35` (`git ls-remote`, 11:2xZ).
+`devops-fix-desktop-draft-as-typed` started with `tmux-agent spawn`, brief `steering/fix-desktop-draft-as-typed-brief-devops.md`.
