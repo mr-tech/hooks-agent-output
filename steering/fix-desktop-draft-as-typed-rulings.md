@@ -82,3 +82,16 @@ reading: no product decision in CR-1 — the end state is base's and mobile's, i
 Assumption Not Checked (review line 98): real-browser Slate per-keystroke emit, and the author/footer caret under the round trip;
 the reviewer routes it to his walk of flows 1-4 after the release. An agent can walk it in a browser before release (typing only, no
 Save), so whether the release waits on that walk is put to him (block below, when answered).
+
+## 2026-11-21T11:14Z — selection: an agent walks flows 1-4 in a browser before the release
+
+Selection prompt put 11:13Z, answered 11:14Z (ledger `steering/selection-ledger/2026-11-21.md`, block "2026-11-21T11:13Z —
+steering-hooks"); wording this thread's. Premise: the review's Assumption Not Checked (line 98) and its hazard 5 (a stub `SlateEditor`),
+read this turn. Options: A "Agent: walk before release (Recommended)" — "A QA session builds b68f94c locally and, in a desktop-width
+browser, types into the content editor, author name and footer, then reloads. It types only and never saves. Devops asks your release
+word after that. Costs one QA session, roughly 30-60 minutes, before the push."; B "Agent: release, check after" — "… If the cursor
+jumps, production has it until a follow-up fix ships."; C "You: walk it after release". Chosen by selection: **A**.
+**Stage set, amended:** `fixer` → `code-reviewer` (approved) → **`qa-fix-desktop-draft-as-typed`, a pre-release browser walk of the
+fixer's User-visible flows 1-4 at `b68f94c` on a local build, typing and reload only, no Save** → devops for website `master` (his word).
+The walk's verdict carries `Verified-At`; devops starts from it and from the review. Recipients: `qa-fix-desktop-draft-as-typed` (its
+brief); devops (its later brief).
