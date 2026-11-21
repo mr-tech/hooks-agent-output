@@ -1,0 +1,9 @@
+[
+  {
+    "id": "settled-memo-deps-empty",
+    "file": "src/app/message/_components/NewMessageModal.tsx",
+    "old": "  }, [loadedMessage]);\n  const contentFloorError",
+    "new": "  }, []);\n  const contentFloorError",
+    "tests": ["src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx"]
+  }
+]

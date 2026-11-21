@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-import-save-conflict
 UUID: 0030da7d
 Status: Active
-Status-Detail: "Round 1 answer (CR-1 and CR-2, plus the 08:13Z rulings) committed on website chain/fix-import-save-conflict and handed to code review at f23568a. 27 added production lines, so QA Phase 2 is owed after review."
-Handoff-At: f23568a — repos=website
+Status-Detail: "QA Phase 2 answer (QAF-1 tests, QAF-2 flow wording) committed on website chain/fix-import-save-conflict at b829314, test file only, and handed to code review; QA's scoped refresh follows. 27 added production lines."
+Handoff-At: b829314 — repos=website
 Origin-Chain: 013
 ---
 
@@ -56,7 +56,7 @@ Route: owner selection → effort rulings block 05:50Z → this thread's reading
 - `src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx`: eight spec-form cases added (below), plus a stub of `~/components/MessagePreview` that records the `messageData` prop it receives (the real renderer is a `next/dynamic` import that does not settle in this harness; the dialog's choice of prop is what is under test). The header comment is deleted: it said the file avoids row E because the choice UI was unreachable, which is false after the fix, and the comment allowlist admits no replacement prose. The file's pre-existing lint findings are fixed (import grouping, `import/first`, and `unbound-method` by mirroring the siblings' `Reflect.set(HTMLInputElement.prototype, 'value', …)`).
 - Not touched: `NewMessageJsonInput.tsx` and the utilities. The resolution is shared by calling the existing exports; nothing new is written beside them.
 
-Commits on website `chain/fix-import-save-conflict`: `5b6c6e3` (fix and four cases), `3c6f16f` (the JSON-tab case), `fb1140f` (the preview and its two cases), `f23568a` (the settled-floor case).
+Commits on website `chain/fix-import-save-conflict`: `5b6c6e3` (fix and four cases), `3c6f16f` (the JSON-tab case), `fb1140f` (the preview and its two cases), `f23568a` (the settled-floor case), `b829314` (the post-mount and in-place cases).
 
 ## Test
 
@@ -70,6 +70,8 @@ Spec-form cases in `NewMessageModal.persist-gate-wiring.test.tsx`. Each one moun
 6. The preview shows a row D message as the Classic message Save writes (flag cleared).
 7. The preview shows a row E message as loaded (content, V2 container and flag) while the choice is pending.
 8. A V2-flagged message whose only classic content is an empty embed (row C) is refused as empty once settled: the text "Message must have content, embeds, or components." is shown, the raw draft's "Components V2 messages cannot contain…" is not, and Save writes nothing.
+9. A row D message that arrives after the dialog has opened (the user types the link) is settled, noticed and saved as Classic.
+10. A loaded row D message replaced in place by a row E one asks on Save, instead of saving the earlier settled draft, and Save as Components V2 writes the components.
 
 **Invented value (Iron Law 5).** The tRPC wrapper `{ guildId: '1', message, droppedComponentTypes }` is the test's transcription of the router's return (`src/server/api/routers/message.ts:120-121`), and the wire's superjson transform is not run. If that shape were wrong, the dialog would show no preview and Continue would stay disabled. The test's own `findButton('Continue')` press would then fail on every import case, and it does not.
 
@@ -77,9 +79,9 @@ Spec-form cases in `NewMessageModal.persist-gate-wiring.test.tsx`. Each one moun
 
 **Red run of the preview** at `3c6f16f`, the tip before the preview change, in a detached export with the `fb1140f` test file: exit 1, case 6 failed ("expected 32768 to be +0"), and cases 1 to 5 and 7 passed. Capture: `red-run-preview-3c6f16f.json` and `.txt`.
 
-**Green run** at `f23568a`: 9/9 in the file, and the full suite below.
+**Green run** at `b829314`: 11/11 in the file, and the full suite below.
 
-**Negative controls** (`mutation-run.py` on committed SHAs, each run in its own export; tables under `verification/fix-import-save-conflict/negative-controls/` at `5b6c6e3`, `negative-controls-json-tab/` at `3c6f16f`, `negative-controls-preview/` at `fb1140f` and `negative-controls-floor/` at `f23568a`; mutants files beside them). All 11 KILLED, with test counts checked against their controls. The controls at earlier SHAs mutate lines that later commits did not change:
+**Negative controls** (`mutation-run.py` on committed SHAs, each run in its own export; tables under `verification/fix-import-save-conflict/negative-controls/` at `5b6c6e3`, `negative-controls-json-tab/` at `3c6f16f`, `negative-controls-preview/` at `fb1140f`, `negative-controls-floor/` at `f23568a` and `negative-controls-memo/` at `b829314`; mutants files beside them). All 12 KILLED, with test counts checked against their controls. The controls at earlier SHAs mutate lines that later commits did not change:
 
 | Control | What it removes | Cases it turns red |
 |---|---|---|
@@ -94,14 +96,15 @@ Spec-form cases in `NewMessageModal.persist-gate-wiring.test.tsx`. Each one moun
 | `preview-shows-settled-only` | the preview's raw-draft fallback during a row E choice | 7 |
 | `settled-floor-removed` | the floor, replaced with `undefined` (the reviewer's CR-1 probe) | 8, on its assertion "expected … to contain 'Message must have content…'" |
 | `floor-on-raw-draft` (re-run at `f23568a`) | the floor reads the raw draft | 3, 4, 8 |
+| `settled-memo-deps-empty` | the settled draft's memo dependency (`[loadedMessage]` → `[]`, QA's QAF-1 survivor; `react-hooks/exhaustive-deps` is off in the eslint config) | 9, 10, each on an assertion about the notice |
 
 Case 5 passes at base. It is kept because the `settled-draft-loses-components` control turns it red. Case 7 passes at `3c6f16f`. It is kept because `preview-shows-settled-only` turns it red. Case 2's flag assertion alone does not separate base from fix, since the row B write sets the flag at base too; the case is red at base on its notice. This chain adds no lifetime and no time-based test. Row E's held draft is the existing choice UI; cases 3 and 4 follow it to its write, and they are red at base.
 
 ## Verification
 
-| Check | Base `f4baebb` | Handoff `f23568a` | Capture |
+| Check | Base `f4baebb` | Handoff `b829314` | Capture |
 |---|---|---|---|
-| Suite `npx vitest run --reporter=json` | 2303 total / 2303 passed, 159 files, exit 0 | 2311 total / 2311 passed, 159 files (same path set), exit 0 | `base-suite-f4baebb.json`, `fix-suite.json`, and `.txt` with the exit line |
+| Suite `npx vitest run --reporter=json` | 2303 total / 2303 passed, 159 files, exit 0 | 2313 total / 2313 passed, 159 files (same path set), exit 0 | `base-suite-f4baebb.json`, `fix-suite.json`, and `.txt` with the exit line |
 | `pnpm run typecheck` (both programs) | — | exit 0 | `typecheck.txt` |
 | eslint, touched files (the `lint` script runs `--fix`, so eslint was run directly without it; base read in a detached export) | modal 3 errors; test 6 errors | modal 3 errors, the same three rules (lines shifted by the insert); test 0 | `lint-base-*.json`, `lint-fix-*.json` |
 | `convention-check.js --since=f4baebb` | — | 3 FAIL (the modal's three eslint errors at :107, :161 and :405, present at base; disposition below), 0 CANDIDATE, 18 SKIP: 17 untracked `.playwright-mcp/*.png` outside the examined set, and the id-token/basename check, which the checker states did not run (so naming is unchecked by it) | `convention-check.txt` |
@@ -114,7 +117,7 @@ For the owner's own check, all in the "Create or upload a new message" dialog:
 
 1. Message Link, Webhook or Message Context Command tab: load a message that has the Components V2 flag but only text or embeds. A yellow notice says it "has been saved as Classic and the flag cleared". Continue, name it, Save. The editor opens with a Classic message.
 2. The same tabs, with a message that has V2 components but no V2 flag. A yellow notice says the flag "has been set to match". Save works.
-3. The same tabs, with a message that has both V2 components and text or embeds. No red "cannot contain" error is shown and Save is enabled. Save opens "Are you sure?" with Save as Classic and Save as Components V2, each naming what it drops, plus Cancel. The chosen one is saved.
+3. The same tabs, with a message that has both V2 components and text or embeds. No red error is shown under the tabs and Save is enabled. The preview shows the message as loaded until a choice is made, so it marks the conflict with its own red line, "Components V2 messages cannot contain embeds or content." Save opens "Are you sure?" with Save as Classic and Save as Components V2, each naming what it drops, plus Cancel. The chosen one is saved.
 4. In all three cases above, the Message Preview shows the message as it will be saved (for 3, as loaded until a choice is made).
 5. The same tabs, with a V2-flagged message that has nothing in it but an empty embed: a red "Message must have content, embeds, or components." is shown and Save stays off.
 6. The JSON tab behaves as before.
@@ -126,7 +129,7 @@ For the owner's own check, all in the "Create or upload a new message" dialog:
 
 ## Handoff
 
-- SHA: `f23568a` (website `chain/fix-import-save-conflict`), base `f4baebb`. Production lines added: 27 (`git diff --numstat f4baebb..f23568a`, `NewMessageModal.tsx`), so QA Phase 2 is owed.
+- SHA: `b829314` (website `chain/fix-import-save-conflict`), base `f4baebb`. Production lines added: 27 (`git diff --numstat f4baebb..b829314`, `NewMessageModal.tsx`), so QA Phase 2 is owed.
 - Code review: `code-reviewer-fix-import-save-conflict`. Then QA Phase 2: `qa-fix-import-save-conflict`.
 - Merge to website `master`: devops, on the owner's word. A push to `master` deploys to production through Vercel.
 
@@ -137,3 +140,4 @@ For the owner's own check, all in the "Create or upload a new message" dialog:
 | 2026-11-21T08:09 | fixer-fix-import-save-conflict | Document created. Diagnosis, red run at `f4baebb`, fix `5b6c6e3` and test `3c6f16f`, 7 negative controls killed, verification recorded, handed to code review at `3c6f16f`. |
 | 2026-11-21T08:11 | fixer-fix-import-save-conflict | The run captures were renamed from `.log` to `.txt`, because the record's `.gitignore` excludes `*.log` and the first commit (`b55fba9`) left them out; the references above are updated. |
 | 2026-11-21T08:20 | fixer-fix-import-save-conflict | Round 1 answer, handed to code review at `f23568a`. Steering's 08:13Z rulings: the preview now shows the draft Save writes (`fb1140f`), and the lint debt is carried by `handoff/newmessagemodal-preexisting-react-hooks-lint-errors-2026-11-21.md`. Code review CR-1: the settled-floor case (`f23568a`); CR-2: the preview cases. Controls: 4 more, all killed. **Correction:** at 08:09 the Diagnosis said the preview's raw draft was the same at base and fix and not a regression. That was wrong, and the error was mine. At `f4baebb` the preview and Save both used the raw draft; the fix moved Save to the settled draft and left the preview behind, which opened the gap (steering's refutation, block 08:13Z). The claim is replaced in the Diagnosis. |
+| 2026-11-21T08:43 | fixer-fix-import-save-conflict | QA Phase 2 answer (QA Failed at `f23568a`, `qa/fix-import-save-conflict-qa.md` at `362c24d7`). QAF-1: cases 9 and 10 at `b829314`, both killed by `settled-memo-deps-empty`. QAF-2: user-visible flow 3 restated; it had said no red "cannot contain" error is shown, but in the real build the preview of the raw row E draft renders that red line itself (QA walk steps 3 and 8). Test file and this document only; no production change. Handed to code review at `b829314`. |
