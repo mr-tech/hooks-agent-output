@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-website-dependency-audit
 UUID: d9ef268a
 Status: Active
-Status-Detail: "Handed off for code review at 9fc299c; QA Phase 2 is owed (123 production lines); devops installs the crontab line and reads the first run."
-Handoff-At: 9fc299c — repos=agent-output
+Status-Detail: "Round 1 REJECTED at 9fc299c on CR-1 (one test case); fixed at ed7926d, awaiting the reviewer's fix confirmation; QA Phase 2 is owed (123 production lines); devops installs the crontab line and reads the first run."
+Handoff-At: ed7926d — repos=agent-output
 Origin-Chain: none
 ---
 
@@ -104,7 +104,7 @@ Deleting it makes the next run report every undispositioned advisory once more.
 | Exit between acquiring and releasing | Disposition |
 |---|---|
 | Inbox append throws (before any key is written) | No key is written. The next run reports the advisory again; nothing is lost |
-| State write throws (after the append) | The inbox has the entry but no key was kept. The next run repeats the entry once. Appending first is deliberate: a duplicate is preferred to a lost report |
+| State write throws (after the append) | The inbox has the entry but no key was kept. The next run repeats the entry once. Appending first is deliberate: a duplicate is preferred to a lost report. The case "keeps no reported key when the inbox cannot be written, and reports the advisory on the next run" holds this order: it is red under mutant `state-written-before-append` (CR-1), at ed7926d |
 | The advisory is later dispositioned, or leaves the audit | The key stays. It is ignored, because only keys of currently undispositioned advisories are read (case "does not fail when … has left the audit") |
 
 The temporary export is a second lifetime. It is created by `mkdtemp` and removed in `finally` on every path:
@@ -152,6 +152,9 @@ one inbox entry …" and "adds no entry on a second run …".
 | unknown-argument-accepted | bad-argument throw | fails on an argument it does not know |
 | state-dir-not-made | `mkdirSync` of the state folder | 6 cases |
 | absent-state-unhandled | missing state file | 9 cases |
+| state-written-before-append (CR-1, the reviewer's mutant, added at ed7926d) | inbox append before the state write | keeps no reported key when the inbox cannot be written, and reports the advisory on the next run |
+
+**Round 1 fix (CR-1).** One case was added at ed7926d. The inbox path is a directory, so the read and the append fail with `EISDIR`, which holds for root too; the run must exit non-zero with no key for the advisory, and the next run, with a usable inbox, adds exactly one entry. Green: 13/13, exit 0 (`green-run.txt`). Negative controls at ed7926d: 19 of 19 KILLED, counts checked 13 = 13 (`mutation-table-ed7926d.json`, `mutation-driver-ed7926d.txt`). No production change.
 
 - **Invented values.** The audit JSON is made up of real advisory objects from
   `verification/018/security/out/pnpm-audit-prod-d1bb9b0.json` (ws GHSA-3h5v-q93c-6h6q and nanoid
@@ -183,7 +186,7 @@ one inbox entry …" and "adds no entry on a second run …".
 
 ## Handoff
 
-- **SHA under review:** `9fc299c` (record `master`). The production diff is `git diff f943553 9fc299c --
+- **SHA under review:** `ed7926d` (record `master`; Round 1 was at `9fc299c`, and `9fc299c..ed7926d` changes only the test file and `mutants.json`). The production diff is `git diff f943553 ed7926d --
   tools/website-dependency-audit.js tools/websiteDependencyAudit.test.js tools/website-audit-dispositions.json`.
 - **Reviews:** `code-reviewer-fix-website-dependency-audit`, then QA Phase 2 (`qa-fix-website-dependency-audit`).
   The tool adds 123 production lines (non-blank, `grep -c -v '^\s*$'`), which is 20 or more.
@@ -208,3 +211,4 @@ one inbox entry …" and "adds no entry on a second run …".
 | Date | Change |
 |---|---|
 | 2026-11-21T00:09 | Created. Tool, test and seeded dispositions committed at `afb3ff2` and `9fc299c`; 18/18 negative controls killed; handed off at `9fc299c`. |
+| 2026-11-21T00:18 | Code review Round 1 REJECTED at `9fc299c` on CR-1 (`code-review/fix-website-dependency-audit-code-review.md`, cd93a06). Fixed at `ed7926d`: one case for an unwritable inbox, with the reviewer's state-order mutant added; 13/13 green, 19/19 controls killed. Handoff-At moved to `ed7926d`. |
