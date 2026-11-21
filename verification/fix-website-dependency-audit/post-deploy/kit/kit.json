@@ -1,0 +1,25 @@
+{
+  "carrier": "handoff/fix-website-dependency-audit-first-run-2026-11-21.md",
+  "agent": "devops",
+  "allowedTools": [
+    "Bash(bash verification/fix-website-dependency-audit/post-deploy/kit/read.sh:*)",
+    "Bash(git commit --only:*)",
+    "Bash(git add --intent-to-add:*)",
+    "Bash(mv:*)",
+    "Bash(git diff:*)",
+    "Bash(git status:*)",
+    "Bash(git log:*)",
+    "Bash(date:*)",
+    "Bash(ls:*)",
+    "Bash(grep:*)",
+    "Bash(mkdir:*)",
+    "Bash(node tools/check-repo.js:*)",
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob"
+  ],
+  "timeoutSeconds": 900,
+  "lock": "fix-website-dependency-audit-post-deploy"
+}
