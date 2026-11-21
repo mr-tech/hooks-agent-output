@@ -26,6 +26,19 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ---
 
+## Put back five missing website settings in Vercel, then redeploy (urgent: every website release fails until done)
+
+Tonight's website release (removing the old daily job) failed to build on Vercel: the build stops because five settings it needs are
+missing for Production — `DATABASE_URL`, `REDISHOST`, `REDISPORT`, `REDISUSER`, `REDISPASSWORD`. The site itself is fine: hooks.gg
+still runs the 18:35 UTC version. But until these are back, no website release from anyone can go live.
+
+1. Vercel → website project → **Settings → Environment Variables**: add the five for **Production** with the values production uses
+   (if they used to come from a team-level setting or an integration, reconnect that instead).
+2. **Deployments** → the failed one from 23:19 UTC → **Redeploy**. No new push is needed.
+3. Then, in **Settings → Cron Jobs**, check the list is empty (the release removed the daily job).
+
+Tell devops-fix-delete-dead-cron (or steering-hooks) when step 2 is done; the agents check the new build and the live site.
+
 ## Check the website's request logs on Vercel for refused message numbers
 
 The website change that makes the API and the bot check their passwords more safely is live (since 18:35 UTC on 21 Nov) and the bot

@@ -102,3 +102,14 @@ Devops by message 23:2xZ: his selection "Agent: release it now (Recommended)" (i
 (18:35:46Z, the `0c14d5b` build). `vercel logs` of the errored one: no log lines. So the release is on `master` but not live; users see
 the previous release; the record's "Released" does not hold. Devops told at once (by message, 23:2xZ); the diagnosis is its. Owner-wait
 `release-ask` resolved. Chain 7's website half held off `master` until devops reports.
+
+## 2026-11-21T23:55 — cause: five production settings missing; his dashboard step queued
+
+Devops by message 23:5xZ (record reopened, Status Active, `893b6f2`, `e6e04e1`): the errored build failed at prerender of "/" with
+"Invalid environment variables" naming `DATABASE_URL`, `REDISHOST`, `REDISPORT`, `REDISUSER`, `REDISPASSWORD` (`src/env.mjs:115`); a
+control build of base `0c14d5b` with no settings fails identically, so not the change; on his selection in devops's session ("Agent: list
+setting names with the Vercel tool", which extends block 19:02's bound by that one command) `vercel env ls` shows no row for those five
+in any environment. Every push to website `master` fails to deploy until they are supplied; a revert would fail the same. Devops
+withdrew its earlier retrospective cue (not acted on here). His step queued in `OWNER-QUEUE.md` (restore the five for Production,
+Redeploy the 23:19 deployment, check Cron Jobs empty); devops reads the result. Devops's rule finding lodged in `~/.claude/agents/INBOX.md`
+(FYI). Chain 7's website half stays off `master` until a production build passes.
