@@ -1,13 +1,7 @@
 ---
 UUID: 7f21ac93
-Status: Open
-Status-Detail: >-
-  Discovered while converting a source-text test (`013-fqa19-ingress-gate-reachability.test.ts`,
-  plan 014 M4c row 19) to a real mount. The old test asserted `onSubmit`'s gate-then-write ordering
-  by reading `NewMessageModal.tsx`'s own source text; it never actually rendered the component or
-  clicked a real button. Mounting it for real (`src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx`)
-  shows the gated choice UI the old test's ROUTE 1/ROUTE 2 cases described is unreachable via the
-  Save button today. This chain does not fix product code (D2); logged here instead.
+Status: Addressed
+Status-Detail: "Discharged by fixer chain fix-import-save-conflict, released to website master b829314 at 2026-11-21T08:53:57Z: the new-message dialog settles a conflicting imported draft the way the JSON tab does (row E offers the choice), Save writes the settled or chosen draft, with the owed test. Post-deploy PD-1 closed on its read (handoff/closed/fix-import-save-conflict-post-deploy-2026-11-21.md); its Message Link limb is carried by handoff/message-link-import-returns-empty-message-2026-11-21.md."
 Owning-Stage: >-
   Unassigned. Next step, if anyone picks this up: decide whether `NewMessageModal.tsx`'s
   `contentFloorError` (line ~126) should float the resolved draft the way `JsonModalBody.tsx`'s did
@@ -110,3 +104,9 @@ reachable behaviour (`qa/closed/fix-website-save-gate-embeds-qa.md`, "Mutation s
 handoff's work makes the choice path reachable, it owes a test that fails if `onSubmit` submits the
 raw draft instead of `gate.data`** (a V2 draft beside only-empty embeds must be written without
 them). The handoff stays Open.
+
+## Changelog
+
+| Date | Author | Change |
+|---|---|---|
+| 2026-11-21T09:04 | steering-hooks | Document closed. Status: Addressed. Discharged by `fix-import-save-conflict` (`steering/fix-import-save-conflict-rulings.md` blocks 07:54Z, 08:13Z, 09:02Z), released `b829314` (`deployment/closed/fix-import-save-conflict-deployment.md`); closed after PD-1 was read (`e4f72e00`). |
