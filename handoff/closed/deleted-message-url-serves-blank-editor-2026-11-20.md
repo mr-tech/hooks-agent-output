@@ -1,7 +1,7 @@
 ---
 UUID: 61603fe9
-Status: Open
-Status-Detail: "Seeded by steering-roadmap-hooks from uat-hooks-017-looks's note during plan 017's post-deploy walk (record aaccb15). After the test account deleted messages 6022, 6023 and 6024 on live hooks.gg (by 03:10:16Z on 2026-11-20), their URLs still answered 200 with a blank editor instead of a not-found state. Outside 017's criteria. Whether a deleted message should show not-found is not decided; the behaviour is the walker's observation, not re-derived."
+Status: Addressed
+Status-Detail: "Discharged by fixer chain fix-message-not-found, released to website master f4baebb at 2026-11-21T07:51:38Z, on his selection of a not-found state (steering/fixer-queue-2026-11-21-rulings.md, 05:50Z Q1): a deleted message's edit and send pages show the one notice. The page itself still answers HTTP 200; the notice is rendered client-side."
 Owning-Stage: planner
 Review-Trigger: when the message page's load path (src/app/message/m/[id]) or message.getOne is next changed, or when the next website polish effort is scoped
 Priority: low
@@ -32,3 +32,4 @@ outside 017 and only noted."
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-20T03:14 | steering-roadmap-hooks | Opened from uat-hooks-017-looks's cleanup note on plan 017's post-deploy walk (`aaccb15`). |
+| 2026-11-21T07:53 | steering-hooks | Document closed. Status: Addressed. Discharged by `fix-message-not-found` (`steering/fix-message-not-found-rulings.md` block 06:46Z), released `f4baebb` (`deployment/closed/fix-message-not-found-deployment.md`). |
