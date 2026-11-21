@@ -1,0 +1,19 @@
+how-required KILLED 1.32
+bare-module-key-honoured KILLED 1.42
+reported-not-skipped KILLED 1.31
+quiet-run-appends KILLED 1.32
+advisories-shape-unchecked KILLED 1.33
+git-exit-unchecked KILLED 1.37
+export-not-removed KILLED 1.27
+lead-without-newline-single KILLED 1.3
+lead-with-newline-none KILLED 1.27
+versions-not-merged KILLED 1.27
+export-omits-package-json KILLED 1.11
+export-omits-lockfile KILLED 1.11
+export-omits-workspace KILLED 1.1
+export-omits-patches KILLED 1.79
+help-not-handled KILLED 3.74
+unknown-argument-accepted KILLED 1.51
+state-dir-not-made KILLED 1.24
+absent-state-unhandled KILLED 0.76
+18 of 18 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob e1bb4310b74ea39569332de72dbe52dd5e538094))
