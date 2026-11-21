@@ -196,3 +196,12 @@ read 07:59Z); the session gate at 90% is not named and stands.
 His selection, recorded in `steering/fix-import-save-conflict-rulings.md` block 09:02Z ("Agent: diagnose-first chain
 (Recommended)"). **Order now:** 1, 2, 3 released; 3b `fix-get-one-absent-not-found` (running); **3c `fix-message-link-import-empty`**
 (diagnose first on the test server; a portal toggle, if that is the cause, goes to him); then 4-9 as block 05:50Z.
+
+## 2026-11-21T09:17Z — his ruling, relayed by the coordinator: park the chains
+
+His words, verbatim, relayed by `steering-coordinator` by SendMessage 09:1xZ: "Park the chains". The coordinator's gloss (its words):
+"Park every chain you steer per the Parking rules in steering.md: ask each stage session for /checkpoint, stop it once committed, write
+your own Checkpoint into the docket, and report back." Acted on: the one chain in flight, 3b `fix-get-one-absent-not-found` (fixer
+handed off at website `b663b35`; review just begun), parks — `fixer-…` and `code-reviewer-…` asked for `/checkpoint` 09:17Z, each
+stopped once its Checkpoint is committed. Website tree stays on `chain/fix-get-one-absent-not-found`. No chain opens while parked
+(3c onward wait). Nothing awaits him from this thread; no question is held.
