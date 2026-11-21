@@ -1,0 +1,9 @@
+fatal: path 'vercel.json' does not exist in '132a7ab'
+PASS  route module resolving /api/cron  — no file
+PASS  vercel.json crons key  — vercel.json absent
+PASS  cron-parser declared in package.json  — not declared
+PASS  cron-parser lines in pnpm-lock.yaml  — 0 line(s)
+PASS  cron route test file  — absent
+PASS  source importing the route or cron-parser  — none found
+sha=132a7ab limbs=6 failed=0
+132a7ab exit 0

@@ -1,0 +1,5 @@
+
+> website@ typecheck /tmp/claude-1000/-usr-local-bin-hooks-website/844aaf20-8770-4051-8abf-d7e8e76a167a/scratchpad/export-132a7ab
+> tsc --noEmit && tsc --noEmit -p tsconfig.test.json
+
+typecheck exit 0

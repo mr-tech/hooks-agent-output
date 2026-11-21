@@ -1,0 +1,63 @@
+fix-132a7ab	GET	/api/cron?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+fix-132a7ab	GET	/api/cron	404	text/html; charset=utf-8	17972	NOT_FOUND	
+fix-132a7ab	GET	/api/cron?key=wrong	404	text/html; charset=utf-8	17992	NOT_FOUND	
+fix-132a7ab	GET	/api/cron/	308		19	REDIRECT	/api/cron
+fix-132a7ab	GET	/api/cron/ -> /api/cron	404	text/html; charset=utf-8	17972	NOT_FOUND	
+fix-132a7ab	GET	/api/cron/?key=vercel	308		31	REDIRECT	/api/cron?key=vercel
+fix-132a7ab	GET	/api/cron/?key=vercel -> /api/cron?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+fix-132a7ab	GET	/API/CRON?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+fix-132a7ab	GET	/api/Cron?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+fix-132a7ab	GET	/api/%63ron?key=vercel	404	text/html; charset=utf-8	17996	NOT_FOUND	
+fix-132a7ab	GET	/api/cron%2F?key=vercel	404	text/html; charset=utf-8	17997	NOT_FOUND	
+fix-132a7ab	GET	/api/./cron?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+fix-132a7ab	GET	/api/x/../cron?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+fix-132a7ab	GET	//api/cron?key=vercel	308		31	REDIRECT	/api/cron?key=vercel
+fix-132a7ab	GET	//api/cron?key=vercel -> /api/cron?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+fix-132a7ab	GET	/api/cron.ts?key=vercel	404	text/html; charset=utf-8	17997	NOT_FOUND	
+fix-132a7ab	GET	/api/cron.js?key=vercel	404	text/html; charset=utf-8	17997	NOT_FOUND	
+fix-132a7ab	GET	/api/cron/index?key=vercel	404	text/html; charset=utf-8	18004	NOT_FOUND	
+fix-132a7ab	GET	/api/cron?key=vercel&key=vercel	404	text/html; charset=utf-8	18026	NOT_FOUND	
+fix-132a7ab	GET	/api/cron;?key=vercel	404	text/html; charset=utf-8	17995	NOT_FOUND	
+fix-132a7ab	GET	http://127.0.0.1/api/cron?key=vercel	308		47	REDIRECT	http://127.0.0.1/api/cron?key=vercel
+fix-132a7ab	POST	/api/cron?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+fix-132a7ab	POST	/api/cron	404	text/html; charset=utf-8	17972	NOT_FOUND	
+fix-132a7ab	POST	/api/cron?key=wrong	404	text/html; charset=utf-8	17992	NOT_FOUND	
+fix-132a7ab	POST	/api/cron/	308		19	REDIRECT	/api/cron
+fix-132a7ab	POST	/api/cron/ -> /api/cron	404	text/html; charset=utf-8	17972	NOT_FOUND	
+fix-132a7ab	POST	/api/cron/?key=vercel	308		31	REDIRECT	/api/cron?key=vercel
+fix-132a7ab	POST	/api/cron/?key=vercel -> /api/cron?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+fix-132a7ab	POST	/API/CRON?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+fix-132a7ab	POST	/api/Cron?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+fix-132a7ab	POST	/api/%63ron?key=vercel	404	text/html; charset=utf-8	17996	NOT_FOUND	
+fix-132a7ab	POST	/api/cron%2F?key=vercel	404	text/html; charset=utf-8	17997	NOT_FOUND	
+fix-132a7ab	POST	/api/./cron?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+fix-132a7ab	POST	/api/x/../cron?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+fix-132a7ab	POST	//api/cron?key=vercel	308		31	REDIRECT	/api/cron?key=vercel
+fix-132a7ab	POST	//api/cron?key=vercel -> /api/cron?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+fix-132a7ab	POST	/api/cron.ts?key=vercel	404	text/html; charset=utf-8	17997	NOT_FOUND	
+fix-132a7ab	POST	/api/cron.js?key=vercel	404	text/html; charset=utf-8	17997	NOT_FOUND	
+fix-132a7ab	POST	/api/cron/index?key=vercel	404	text/html; charset=utf-8	18004	NOT_FOUND	
+fix-132a7ab	POST	/api/cron?key=vercel&key=vercel	404	text/html; charset=utf-8	18026	NOT_FOUND	
+fix-132a7ab	POST	/api/cron;?key=vercel	404	text/html; charset=utf-8	17995	NOT_FOUND	
+fix-132a7ab	POST	http://127.0.0.1/api/cron?key=vercel	308		47	REDIRECT	http://127.0.0.1/api/cron?key=vercel
+fix-132a7ab	HEAD	/api/cron?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+fix-132a7ab	HEAD	/api/cron	404	text/html; charset=utf-8	0	NOT_FOUND	
+fix-132a7ab	HEAD	/api/cron?key=wrong	404	text/html; charset=utf-8	0	NOT_FOUND	
+fix-132a7ab	HEAD	/api/cron/	308		0	REDIRECT	/api/cron
+fix-132a7ab	HEAD	/api/cron/ -> /api/cron	404	text/html; charset=utf-8	0	NOT_FOUND	
+fix-132a7ab	HEAD	/api/cron/?key=vercel	308		0	REDIRECT	/api/cron?key=vercel
+fix-132a7ab	HEAD	/api/cron/?key=vercel -> /api/cron?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+fix-132a7ab	HEAD	/API/CRON?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+fix-132a7ab	HEAD	/api/Cron?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+fix-132a7ab	HEAD	/api/%63ron?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+fix-132a7ab	HEAD	/api/cron%2F?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+fix-132a7ab	HEAD	/api/./cron?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+fix-132a7ab	HEAD	/api/x/../cron?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+fix-132a7ab	HEAD	//api/cron?key=vercel	308		0	REDIRECT	/api/cron?key=vercel
+fix-132a7ab	HEAD	//api/cron?key=vercel -> /api/cron?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+fix-132a7ab	HEAD	/api/cron.ts?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+fix-132a7ab	HEAD	/api/cron.js?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+fix-132a7ab	HEAD	/api/cron/index?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+fix-132a7ab	HEAD	/api/cron?key=vercel&key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+fix-132a7ab	HEAD	/api/cron;?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+fix-132a7ab	HEAD	http://127.0.0.1/api/cron?key=vercel	308		0	REDIRECT	http://127.0.0.1/api/cron?key=vercel

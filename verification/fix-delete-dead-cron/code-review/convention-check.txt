@@ -1,0 +1,25 @@
+SKIP package.json: not examined — extension .json is outside the examined set
+SKIP pnpm-lock.yaml: not examined — extension .yaml is outside the examined set
+SKIP src/pages/api/cron.ts: not examined — missing file
+SKIP src/server/api/__tests__/cron.scheduled-selection.test.ts: not examined — missing file
+SKIP vercel.json: not examined — missing file
+SKIP .playwright-mcp/a2-empty-textdisplay.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a2-v2b.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a4-send-empty.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a6-state.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/a7-send-filled.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b1-section.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b2-thumb.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b3-gallery-alt.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/b3-gallery.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-41-text-displays-base.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-41-text-displays-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-content-2100-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-control-valid-v2-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-embed-description-4097-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-empty-username-base.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-empty-username-tip.png: not examined — extension .png is outside the examined set
+SKIP .playwright-mcp/c-fresh-text-display-tip.png: not examined — extension .png is outside the examined set
+SKIP id-token, basename: /usr/local/bin/hooks/agent-output/CLAUDE.md states an ID-token class this checker does not implement verbatim (the hooks line at cca22fd) — the checks did not run
+convention-check: 0 file(s) examined, 22 not examined, 0 test file(s); 0 FAIL, 0 CANDIDATE, 23 SKIP
+exit 0

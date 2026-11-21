@@ -1,0 +1,8 @@
+FAIL  route module resolving /api/cron  — src/pages/api/cron.ts
+FAIL  vercel.json crons key  — vercel.json keys: crons
+FAIL  cron-parser declared in package.json  — dependencies
+FAIL  cron-parser lines in pnpm-lock.yaml  — 3 line(s)
+FAIL  cron route test file  — present
+FAIL  source importing the route or cron-parser  — 0c14d5b:src/pages/api/cron.ts, 0c14d5b:src/server/api/__tests__/cron.scheduled-selection.test.ts
+sha=0c14d5b limbs=6 failed=6
+0c14d5b exit 1

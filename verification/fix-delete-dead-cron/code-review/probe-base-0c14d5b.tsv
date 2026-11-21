@@ -1,0 +1,63 @@
+base-0c14d5b	GET	/api/cron?key=vercel	500	text/html; charset=utf-8	5485	HANDLER	
+base-0c14d5b	GET	/api/cron	500	text/html; charset=utf-8	5471	HANDLER	
+base-0c14d5b	GET	/api/cron?key=wrong	500	text/html; charset=utf-8	5484	HANDLER	
+base-0c14d5b	GET	/api/cron/	308		19	REDIRECT	/api/cron
+base-0c14d5b	GET	/api/cron/ -> /api/cron	500	text/html; charset=utf-8	5471	HANDLER	
+base-0c14d5b	GET	/api/cron/?key=vercel	308		31	REDIRECT	/api/cron?key=vercel
+base-0c14d5b	GET	/api/cron/?key=vercel -> /api/cron?key=vercel	500	text/html; charset=utf-8	5485	HANDLER	
+base-0c14d5b	GET	/API/CRON?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+base-0c14d5b	GET	/api/Cron?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+base-0c14d5b	GET	/api/%63ron?key=vercel	404	text/html; charset=utf-8	17996	NOT_FOUND	
+base-0c14d5b	GET	/api/cron%2F?key=vercel	404	text/html; charset=utf-8	17997	NOT_FOUND	
+base-0c14d5b	GET	/api/./cron?key=vercel	500	text/html; charset=utf-8	5485	HANDLER	
+base-0c14d5b	GET	/api/x/../cron?key=vercel	500	text/html; charset=utf-8	5485	HANDLER	
+base-0c14d5b	GET	//api/cron?key=vercel	308		31	REDIRECT	/api/cron?key=vercel
+base-0c14d5b	GET	//api/cron?key=vercel -> /api/cron?key=vercel	500	text/html; charset=utf-8	5485	HANDLER	
+base-0c14d5b	GET	/api/cron.ts?key=vercel	404	text/html; charset=utf-8	17997	NOT_FOUND	
+base-0c14d5b	GET	/api/cron.js?key=vercel	404	text/html; charset=utf-8	17997	NOT_FOUND	
+base-0c14d5b	GET	/api/cron/index?key=vercel	404	text/html; charset=utf-8	18004	NOT_FOUND	
+base-0c14d5b	GET	/api/cron?key=vercel&key=vercel	500	text/html; charset=utf-8	5496	HANDLER	
+base-0c14d5b	GET	/api/cron;?key=vercel	404	text/html; charset=utf-8	17995	NOT_FOUND	
+base-0c14d5b	GET	http://127.0.0.1/api/cron?key=vercel	308		47	REDIRECT	http://127.0.0.1/api/cron?key=vercel
+base-0c14d5b	POST	/api/cron?key=vercel	500	text/html; charset=utf-8	5485	HANDLER	
+base-0c14d5b	POST	/api/cron	500	text/html; charset=utf-8	5471	HANDLER	
+base-0c14d5b	POST	/api/cron?key=wrong	500	text/html; charset=utf-8	5484	HANDLER	
+base-0c14d5b	POST	/api/cron/	308		19	REDIRECT	/api/cron
+base-0c14d5b	POST	/api/cron/ -> /api/cron	500	text/html; charset=utf-8	5471	HANDLER	
+base-0c14d5b	POST	/api/cron/?key=vercel	308		31	REDIRECT	/api/cron?key=vercel
+base-0c14d5b	POST	/api/cron/?key=vercel -> /api/cron?key=vercel	500	text/html; charset=utf-8	5485	HANDLER	
+base-0c14d5b	POST	/API/CRON?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+base-0c14d5b	POST	/api/Cron?key=vercel	404	text/html; charset=utf-8	17994	NOT_FOUND	
+base-0c14d5b	POST	/api/%63ron?key=vercel	404	text/html; charset=utf-8	17996	NOT_FOUND	
+base-0c14d5b	POST	/api/cron%2F?key=vercel	404	text/html; charset=utf-8	17997	NOT_FOUND	
+base-0c14d5b	POST	/api/./cron?key=vercel	500	text/html; charset=utf-8	5485	HANDLER	
+base-0c14d5b	POST	/api/x/../cron?key=vercel	500	text/html; charset=utf-8	5485	HANDLER	
+base-0c14d5b	POST	//api/cron?key=vercel	308		31	REDIRECT	/api/cron?key=vercel
+base-0c14d5b	POST	//api/cron?key=vercel -> /api/cron?key=vercel	500	text/html; charset=utf-8	5485	HANDLER	
+base-0c14d5b	POST	/api/cron.ts?key=vercel	404	text/html; charset=utf-8	17997	NOT_FOUND	
+base-0c14d5b	POST	/api/cron.js?key=vercel	404	text/html; charset=utf-8	17997	NOT_FOUND	
+base-0c14d5b	POST	/api/cron/index?key=vercel	404	text/html; charset=utf-8	18004	NOT_FOUND	
+base-0c14d5b	POST	/api/cron?key=vercel&key=vercel	500	text/html; charset=utf-8	5496	HANDLER	
+base-0c14d5b	POST	/api/cron;?key=vercel	404	text/html; charset=utf-8	17995	NOT_FOUND	
+base-0c14d5b	POST	http://127.0.0.1/api/cron?key=vercel	308		47	REDIRECT	http://127.0.0.1/api/cron?key=vercel
+base-0c14d5b	HEAD	/api/cron?key=vercel	500	text/html; charset=utf-8	0	HANDLER	
+base-0c14d5b	HEAD	/api/cron	500	text/html; charset=utf-8	0	HANDLER	
+base-0c14d5b	HEAD	/api/cron?key=wrong	500	text/html; charset=utf-8	0	HANDLER	
+base-0c14d5b	HEAD	/api/cron/	308		0	REDIRECT	/api/cron
+base-0c14d5b	HEAD	/api/cron/ -> /api/cron	500	text/html; charset=utf-8	0	HANDLER	
+base-0c14d5b	HEAD	/api/cron/?key=vercel	308		0	REDIRECT	/api/cron?key=vercel
+base-0c14d5b	HEAD	/api/cron/?key=vercel -> /api/cron?key=vercel	500	text/html; charset=utf-8	0	HANDLER	
+base-0c14d5b	HEAD	/API/CRON?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+base-0c14d5b	HEAD	/api/Cron?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+base-0c14d5b	HEAD	/api/%63ron?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+base-0c14d5b	HEAD	/api/cron%2F?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+base-0c14d5b	HEAD	/api/./cron?key=vercel	500	text/html; charset=utf-8	0	HANDLER	
+base-0c14d5b	HEAD	/api/x/../cron?key=vercel	500	text/html; charset=utf-8	0	HANDLER	
+base-0c14d5b	HEAD	//api/cron?key=vercel	308		0	REDIRECT	/api/cron?key=vercel
+base-0c14d5b	HEAD	//api/cron?key=vercel -> /api/cron?key=vercel	500	text/html; charset=utf-8	0	HANDLER	
+base-0c14d5b	HEAD	/api/cron.ts?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+base-0c14d5b	HEAD	/api/cron.js?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+base-0c14d5b	HEAD	/api/cron/index?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+base-0c14d5b	HEAD	/api/cron?key=vercel&key=vercel	500	text/html; charset=utf-8	0	HANDLER	
+base-0c14d5b	HEAD	/api/cron;?key=vercel	404	text/html; charset=utf-8	0	NOT_FOUND	
+base-0c14d5b	HEAD	http://127.0.0.1/api/cron?key=vercel	308		0	REDIRECT	http://127.0.0.1/api/cron?key=vercel
