@@ -1,0 +1,542 @@
+diff --git a/src/pages/api/interactions-server.ts b/src/pages/api/interactions-server.ts
+index 33bff5f..dc7bcb6 100644
+--- a/src/pages/api/interactions-server.ts
++++ b/src/pages/api/interactions-server.ts
+@@ -2,13 +2,15 @@ import type { NextApiRequest, NextApiResponse } from 'next';
+ 
+ import serverCommands from 'bot/serverCommands';
+ import { env } from '~/env.mjs';
++import secretEquals from '~/server/api/utils/secretEquals';
+ 
+ export default async function handler(req: Omit<NextApiRequest, 'body'> & { body: RawCommand }, res: NextApiResponse) {
+   if (req.method !== 'POST') {
+     return res.status(405).end();
+   }
+ 
+-  if (req.headers['x-hooks-api-token'] !== env.HOOKS_API_TOKEN) {
++  const token = req.headers['x-hooks-api-token'];
++  if (!env.HOOKS_API_TOKEN || typeof token !== 'string' || !secretEquals(token, env.HOOKS_API_TOKEN)) {
+     return res.status(401).end();
+   }
+ 
+diff --git a/src/pages/api/v1/guilds/[guildId]/messages.ts b/src/pages/api/v1/guilds/[guildId]/messages.ts
+index 5564186..6113a27 100644
+--- a/src/pages/api/v1/guilds/[guildId]/messages.ts
++++ b/src/pages/api/v1/guilds/[guildId]/messages.ts
+@@ -3,6 +3,7 @@ import { z } from 'zod';
+ 
+ import type { NextApiRequest, NextApiResponse } from 'next';
+ 
++import secretEquals from '~/server/api/utils/secretEquals';
+ import { discordIdShape } from '~/server/api/utils/shapes';
+ 
+ interface GuildRequest extends NextApiRequest {
+@@ -20,7 +21,8 @@ const queryShape = z.object({ guildId: discordIdShape }).strict();
+ 
+ export default async function handler(req: GuildRequest, res: NextApiResponse<ResponseMessage[]>) {
+   const key = process.env.STATBOT_API_KEY;
+-  if (!key || req.headers.authorization !== `Bearer ${key}`) return res.status(401).end();
++  const { authorization } = req.headers;
++  if (!key || typeof authorization !== 'string' || !secretEquals(authorization, `Bearer ${key}`)) return res.status(401).end();
+   if (req.method !== 'GET') return res.status(405).end();
+   try {
+     const { guildId } = queryShape.parse(req.query);
+diff --git a/src/pages/api/v1/guilds/[guildId]/messages/[id].ts b/src/pages/api/v1/guilds/[guildId]/messages/[id].ts
+index 3ef6050..1221ace 100644
+--- a/src/pages/api/v1/guilds/[guildId]/messages/[id].ts
++++ b/src/pages/api/v1/guilds/[guildId]/messages/[id].ts
+@@ -3,7 +3,8 @@ import { z } from 'zod';
+ 
+ import type { NextApiRequest, NextApiResponse } from 'next';
+ 
+-import { discordIdShape } from '~/server/api/utils/shapes';
++import secretEquals from '~/server/api/utils/secretEquals';
++import { discordIdShape, messageIdShape } from '~/server/api/utils/shapes';
+ 
+ interface GuildRequest extends NextApiRequest {
+   query: { guildId: string, id: string };
+@@ -16,11 +17,12 @@ interface ResponseMessage {
+   valid?: boolean;
+ }
+ 
+-const queryShape = z.object({ guildId: discordIdShape, id: z.number({ coerce: true }) }).strict();
++const queryShape = z.object({ guildId: discordIdShape, id: messageIdShape }).strict();
+ 
+ export default async function handler(req: GuildRequest, res: NextApiResponse<ResponseMessage>) {
+   const key = process.env.STATBOT_API_KEY;
+-  if (!key || req.headers.authorization !== `Bearer ${key}`) return res.status(401).end();
++  const { authorization } = req.headers;
++  if (!key || typeof authorization !== 'string' || !secretEquals(authorization, `Bearer ${key}`)) return res.status(401).end();
+   if (req.method !== 'GET') return res.status(405).end();
+   try {
+     const { guildId, id } = queryShape.parse(req.query);
+@@ -29,7 +31,7 @@ export default async function handler(req: GuildRequest, res: NextApiResponse<Re
+       .selectFrom('Messages')
+       .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+       .select(['Messages.id', 'Messages.name', 'Messages.data', 'Messages.valid', 'Guilds.guildId'])
+-      .where('Messages.id', '=', id.toString())
++      .where('Messages.id', '=', id)
+       .executeTakeFirst();
+ 
+     // .message.findUnique({
+diff --git a/src/server/api/__tests__/cron.scheduled-selection.test.ts b/src/server/api/__tests__/cron.scheduled-selection.test.ts
+index c7dfdd2..e8be60f 100644
+--- a/src/server/api/__tests__/cron.scheduled-selection.test.ts
++++ b/src/server/api/__tests__/cron.scheduled-selection.test.ts
+@@ -3,7 +3,8 @@ import {
+ } from 'vitest';
+ 
+ import createCapturingDatabase from '../utils/__tests__/helpers/capturingDatabase';
+-import { makeRes } from '../v1/__tests__/helpers/apiResponse';
++
++import { makeRes } from './helpers/apiResponse';
+ 
+ const holder = vi.hoisted(() => ({ db: undefined as unknown }));
+ 
+diff --git a/src/server/api/v1/__tests__/helpers/apiResponse.ts b/src/server/api/__tests__/helpers/apiResponse.ts
+similarity index 100%
+rename from src/server/api/v1/__tests__/helpers/apiResponse.ts
+rename to src/server/api/__tests__/helpers/apiResponse.ts
+diff --git a/src/server/api/__tests__/interactions-server.token-required.test.ts b/src/server/api/__tests__/interactions-server.token-required.test.ts
+new file mode 100644
+index 0000000..4177d9b
+--- /dev/null
++++ b/src/server/api/__tests__/interactions-server.token-required.test.ts
+@@ -0,0 +1,66 @@
++import {
++  beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import { makeRes } from './helpers/apiResponse';
++
++type JsonRes = { status: (n: number) => { json: (b: unknown) => unknown } };
++
++const { env, getMessage } = vi.hoisted(() => ({
++  env: { HOOKS_API_TOKEN: undefined as string | undefined },
++  getMessage: vi.fn((_req: unknown, res: JsonRes) => res.status(200).json({ forwarded: true })),
++}));
++
++vi.mock('~/env.mjs', () => ({ env }));
++vi.mock('bot/serverCommands', () => ({ default: { get_message: getMessage } }));
++
++const TOKEN = 'test-hooks-token';
++const body = { data: { name: 'get_message' } };
++
++type Handler = (req: never, res: never) => Promise<unknown>;
++
++async function call(headers: Record<string, unknown>) {
++  const { default: handler } = await import('~/pages/api/interactions-server') as { default: Handler };
++  const res = makeRes();
++  await handler({ method: 'POST', headers, body } as never, res as never);
++  return res;
++}
++
++describe('/api/interactions-server requires the hooks API token', () => {
++  beforeEach(() => {
++    getMessage.mockClear();
++    env.HOOKS_API_TOKEN = TOKEN;
++  });
++
++  it.each([
++    ['no token header', {}],
++    ['a wrong token of the same length', { 'x-hooks-api-token': 'test-hooks-tokex' }],
++    ['the token with trailing characters', { 'x-hooks-api-token': `${TOKEN}x` }],
++    ['an empty token header', { 'x-hooks-api-token': '' }],
++    ['a repeated token header', { 'x-hooks-api-token': [TOKEN] }],
++  ])('refuses %s with 401 and runs no command', async (_case, headers) => {
++    const res = await call(headers);
++    expect(res.statusCode).toBe(401);
++    expect(res.ended).toBe(true);
++    expect(getMessage).not.toHaveBeenCalled();
++  });
++
++  it('runs the command for exactly the configured token', async () => {
++    const res = await call({ 'x-hooks-api-token': TOKEN });
++    expect(res.statusCode).toBe(200);
++    expect(getMessage).toHaveBeenCalledTimes(1);
++  });
++
++  it.each([
++    ['empty, with an empty header', '', { 'x-hooks-api-token': '' }],
++    ['empty, with no header', '', {}],
++    ['unset, with no header', undefined, {}],
++    ['unset, with the header "undefined"', undefined, { 'x-hooks-api-token': 'undefined' }],
++  ])('fails closed when the configured token is %s', async (_case, configured, headers) => {
++    env.HOOKS_API_TOKEN = configured;
++    const res = await call(headers);
++    expect(res.statusCode).toBe(401);
++    expect(res.ended).toBe(true);
++    expect(getMessage).not.toHaveBeenCalled();
++  });
++});
+diff --git a/src/server/api/messages/__tests__/messageCodes.malformed-query.test.ts b/src/server/api/messages/__tests__/messageCodes.malformed-query.test.ts
+index cc83aca..6971b34 100644
+--- a/src/server/api/messages/__tests__/messageCodes.malformed-query.test.ts
++++ b/src/server/api/messages/__tests__/messageCodes.malformed-query.test.ts
+@@ -2,7 +2,7 @@ import {
+   beforeEach, describe, expect, it, vi,
+ } from 'vitest';
+ 
+-import { makeRes } from '../../v1/__tests__/helpers/apiResponse';
++import { makeRes } from '../../__tests__/helpers/apiResponse';
+ 
+ const { retrieve } = vi.hoisted(() => ({ retrieve: vi.fn() }));
+ 
+diff --git a/src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts b/src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts
+new file mode 100644
+index 0000000..c2163c8
+--- /dev/null
++++ b/src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts
+@@ -0,0 +1,89 @@
++import {
++  afterEach, beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import { makeRes } from '../../__tests__/helpers/apiResponse';
++
++import type * as SecretEqualsModule from '~/server/api/utils/secretEquals';
++
++const { env, getPostgres, runCommand } = vi.hoisted(() => {
++  const query: Record<string, unknown> = {};
++  Object.assign(query, {
++    selectFrom: () => query,
++    leftJoin: () => query,
++    select: () => query,
++    where: () => query,
++    execute: async () => [],
++    executeTakeFirst: async () => undefined,
++  });
++  return {
++    env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test', HOOKS_API_TOKEN: 'test-hooks-token' },
++    getPostgres: vi.fn(() => query),
++    runCommand: vi.fn(),
++  };
++});
++
++vi.mock('~/env.mjs', () => ({ env }));
++vi.mock('project-utils', () => ({ getPostgres }));
++vi.mock('bot/serverCommands', () => ({ default: { get_message: runCommand } }));
++vi.mock('~/server/api/utils/secretEquals', async (importOriginal) => {
++  const actual = await importOriginal<typeof SecretEqualsModule>();
++  return { default: vi.fn(actual.default) };
++});
++
++const KEY = 'test-statbot-key';
++const GUILD = '123456789012345678';
++
++type Handler = (req: never, res: never) => Promise<unknown>;
++
++const sites = [
++  ['/api/v1 guild messages (list)', '~/pages/api/v1/guilds/[guildId]/messages', 'GET',
++    { authorization: 'Bearer sent-value' }, { guildId: GUILD }, ['Bearer sent-value', `Bearer ${KEY}`],
++    { authorization: `Bearer ${KEY}` }],
++  ['/api/v1 guild messages (single)', '~/pages/api/v1/guilds/[guildId]/messages/[id]', 'GET',
++    { authorization: 'Bearer sent-value' }, { guildId: GUILD, id: '1' }, ['Bearer sent-value', `Bearer ${KEY}`],
++    { authorization: `Bearer ${KEY}` }],
++  ['/api/interactions-server', '~/pages/api/interactions-server', 'POST',
++    { 'x-hooks-api-token': 'sent-value' }, {}, ['sent-value', 'test-hooks-token'],
++    { 'x-hooks-api-token': 'test-hooks-token' }],
++] as const;
++
++describe.each(sites)('%s compares the sent credential through secretEquals', (_label, path, method, headers, query, expected, matching) => {
++  beforeEach(() => {
++    vi.stubEnv('STATBOT_API_KEY', KEY);
++    getPostgres.mockClear();
++    runCommand.mockClear();
++  });
++  afterEach(() => {
++    vi.unstubAllEnvs();
++  });
++
++  it('passes the header as sent and the configured credential', async () => {
++    const { default: secretEquals } = await import('~/server/api/utils/secretEquals');
++    vi.mocked(secretEquals).mockClear();
++    const { default: handler } = await import(path) as { default: Handler };
++    const res = makeRes();
++    await handler({
++      method, headers, query, body: { data: { name: 'get_message' } },
++    } as never, res as never);
++
++    expect(res.statusCode).toBe(401);
++    expect(secretEquals).toHaveBeenCalledTimes(1);
++    expect(secretEquals).toHaveBeenCalledWith(...expected);
++  });
++
++  it('refuses the exact configured credential when secretEquals refuses it', async () => {
++    const { default: secretEquals } = await import('~/server/api/utils/secretEquals');
++    vi.mocked(secretEquals).mockClear().mockReturnValueOnce(false);
++    const { default: handler } = await import(path) as { default: Handler };
++    const res = makeRes();
++    await handler({
++      method, headers: matching, query, body: { data: { name: 'get_message' } },
++    } as never, res as never);
++
++    expect(res.statusCode).toBe(401);
++    expect(res.ended).toBe(true);
++    expect(getPostgres).not.toHaveBeenCalled();
++    expect(runCommand).not.toHaveBeenCalled();
++  });
++});
+diff --git a/src/server/api/utils/__tests__/secretEquals.equality.test.ts b/src/server/api/utils/__tests__/secretEquals.equality.test.ts
+new file mode 100644
+index 0000000..2df6f42
+--- /dev/null
++++ b/src/server/api/utils/__tests__/secretEquals.equality.test.ts
+@@ -0,0 +1,66 @@
++import { timingSafeEqual } from 'crypto';
++import {
++  beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import type * as Crypto from 'crypto';
++
++import secretEquals from '~/server/api/utils/secretEquals';
++
++vi.mock('crypto', async (importOriginal) => {
++  const actual = await importOriginal<typeof Crypto>();
++  return { ...actual, timingSafeEqual: vi.fn(actual.timingSafeEqual) };
++});
++
++describe('secretEquals', () => {
++  it('holds for two equal strings', () => {
++    expect(secretEquals('Bearer test-key', 'Bearer test-key')).toBe(true);
++  });
++
++  it('fails for two unequal strings of the same length', () => {
++    expect(secretEquals('Bearer test-key', 'Bearer test-kez')).toBe(false);
++  });
++
++  it.each([
++    ['the first longer', 'Bearer test-keyx', 'Bearer test-key'],
++    ['the second longer', 'Bearer test-key', 'Bearer test-keyx'],
++    ['one empty', '', 'Bearer test-key'],
++  ])('fails, without throwing, for strings of unequal length (%s)', (_case, a, b) => {
++    expect(secretEquals(a, b)).toBe(false);
++  });
++
++  it('holds for two empty strings', () => {
++    expect(secretEquals('', '')).toBe(true);
++  });
++
++  it('distinguishes strings that differ only in case', () => {
++    expect(secretEquals('Bearer test-key', 'bearer test-key')).toBe(false);
++  });
++});
++
++describe('secretEquals decides through crypto.timingSafeEqual', () => {
++  beforeEach(() => {
++    vi.mocked(timingSafeEqual).mockClear();
++  });
++
++  it('compares the SHA-256 digests of both strings, once', () => {
++    secretEquals('abc', 'abcd');
++
++    expect(timingSafeEqual).toHaveBeenCalledTimes(1);
++    const [first, second] = vi.mocked(timingSafeEqual).mock.calls[0] ?? [];
++    expect(Buffer.from(first as Uint8Array).toString('hex'))
++      .toBe('ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad');
++    expect(Buffer.from(second as Uint8Array).toString('hex'))
++      .toBe('88d4266fd4e6338d13b845fcf289579d209c897823b9217da3e161936f031589');
++  });
++
++  it('answers what crypto.timingSafeEqual answers', () => {
++    vi.mocked(timingSafeEqual).mockReturnValueOnce(true);
++    expect(secretEquals('abc', 'abcd')).toBe(true);
++  });
++
++  it('refuses two equal strings when crypto.timingSafeEqual refuses them', () => {
++    vi.mocked(timingSafeEqual).mockReturnValueOnce(false);
++    expect(secretEquals('abc', 'abc')).toBe(false);
++  });
++});
+diff --git a/src/server/api/utils/secretEquals.ts b/src/server/api/utils/secretEquals.ts
+new file mode 100644
+index 0000000..06df264
+--- /dev/null
++++ b/src/server/api/utils/secretEquals.ts
+@@ -0,0 +1,9 @@
++import { createHash, timingSafeEqual } from 'crypto';
++
++function digest(value: string) {
++  return createHash('sha256').update(value).digest();
++}
++
++export default function secretEquals(a: string, b: string) {
++  return timingSafeEqual(digest(a), digest(b));
++}
+diff --git a/src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts b/src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts
+index c269217..23eb138 100644
+--- a/src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts
++++ b/src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts
+@@ -2,7 +2,7 @@ import {
+   afterEach, beforeEach, describe, expect, it, vi,
+ } from 'vitest';
+ 
+-import { makeRes } from './helpers/apiResponse';
++import { makeRes } from '../../__tests__/helpers/apiResponse';
+ 
+ vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+ 
+@@ -41,6 +41,11 @@ describe('/api/v1 guild messages answer a malformed query with a completed 400',
+     ['list, unexpected query key', LIST, { guildId: GUILD, extra: '1' }],
+     ['single, non-snowflake guild id', SINGLE, { guildId: 'abc', id: '1' }],
+     ['single, non-numeric message id', SINGLE, { guildId: GUILD, id: 'x' }],
++    ['single, message id in exponent form', SINGLE, { guildId: GUILD, id: '1e3' }],
++    ['single, fractional message id', SINGLE, { guildId: GUILD, id: '1.5' }],
++    ['single, negative message id', SINGLE, { guildId: GUILD, id: '-1' }],
++    ['single, message id with surrounding space', SINGLE, { guildId: GUILD, id: ' 1' }],
++    ['single, message id above the largest message number', SINGLE, { guildId: GUILD, id: '9223372036854775808' }],
+     ['single, unexpected query key', SINGLE, { guildId: GUILD, id: '1', extra: '1' }],
+   ])('%s', async (_case, path, query) => {
+     const res = await call(path, query);
+@@ -49,3 +54,31 @@ describe('/api/v1 guild messages answer a malformed query with a completed 400',
+     expect(getPostgres).not.toHaveBeenCalled();
+   });
+ });
++
++describe('/api/v1 single guild message reads the message number it was given', () => {
++  beforeEach(() => {
++    vi.stubEnv('STATBOT_API_KEY', KEY);
++  });
++  afterEach(() => {
++    vi.unstubAllEnvs();
++    getPostgres.mockReset();
++  });
++
++  it.each([
++    ['the largest message number, digit for digit', '9223372036854775807', '9223372036854775807'],
++    ['a number with leading zeros, without them', '007', '7'],
++  ])('looks up %s', async (_case, id, looked) => {
++    const where = vi.fn();
++    const query = {
++      selectFrom: () => query,
++      leftJoin: () => query,
++      select: () => query,
++      where: (...args: unknown[]) => { where(...args); return query; },
++      executeTakeFirst: async () => undefined,
++    };
++    getPostgres.mockReturnValue(query);
++    const res = await call(SINGLE, { guildId: GUILD, id });
++    expect(where).toHaveBeenCalledWith('Messages.id', '=', looked);
++    expect(res.statusCode).toBe(404);
++  });
++});
+diff --git a/src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts b/src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts
+index 7dcbfa6..f3ad755 100644
+--- a/src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts
++++ b/src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts
+@@ -2,7 +2,7 @@ import {
+   afterEach, beforeEach, describe, expect, it, vi,
+ } from 'vitest';
+ 
+-import { makeRes } from './helpers/apiResponse';
++import { makeRes } from '../../__tests__/helpers/apiResponse';
+ 
+ vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+ 
+diff --git a/src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts b/src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts
+index 92976cc..34ceb8c 100644
+--- a/src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts
++++ b/src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts
+@@ -2,7 +2,7 @@ import {
+   afterEach, beforeEach, describe, it, expect, vi,
+ } from 'vitest';
+ 
+-import { makeRes } from './helpers/apiResponse';
++import { makeRes } from '../../__tests__/helpers/apiResponse';
+ 
+ vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
+ 
+@@ -34,8 +34,10 @@ afterEach(() => {
+   vi.unstubAllEnvs();
+ });
+ 
+-function serialized(body: unknown) {
+-  return JSON.parse(JSON.stringify(body));
++type Serialized = { valid?: boolean; data: object };
++
++function serialized<T extends Serialized | Serialized[]>(body: unknown) {
++  return JSON.parse(JSON.stringify(body)) as T;
+ }
+ 
+ describe('/api/v1/guilds/[guildId]/messages (list)', () => {
+@@ -53,7 +55,7 @@ describe('/api/v1/guilds/[guildId]/messages (list)', () => {
+     const res = makeRes();
+     await handler(req, res as never);
+ 
+-    const body = serialized(res.body)[0];
++    const body = serialized<Serialized[]>(res.body)[0];
+     if (stored === null) {
+       expect('valid' in body).toBe(false);
+     } else {
+@@ -80,7 +82,7 @@ describe('/api/v1/guilds/[guildId]/messages/[id] (single)', () => {
+     const res = makeRes();
+     await handler(req, res as never);
+ 
+-    const body = serialized(res.body);
++    const body = serialized<Serialized>(res.body);
+     if (stored === null) {
+       expect('valid' in body).toBe(false);
+     } else {
+diff --git a/src/server/api/v1/__tests__/v1Routes.statbot-key-required.test.ts b/src/server/api/v1/__tests__/v1Routes.statbot-key-required.test.ts
+new file mode 100644
+index 0000000..908d2bd
+--- /dev/null
++++ b/src/server/api/v1/__tests__/v1Routes.statbot-key-required.test.ts
+@@ -0,0 +1,56 @@
++import { readdirSync } from 'node:fs';
++import { join, resolve } from 'node:path';
++import {
++  afterEach, beforeEach, describe, expect, it, vi,
++} from 'vitest';
++
++import { makeRes } from '../../__tests__/helpers/apiResponse';
++
++vi.mock('~/env.mjs', () => ({ env: { NEXT_PUBLIC_DISCORD_CLIENT_ID: 'test' } }));
++
++const { getPostgres } = vi.hoisted(() => {
++  const query: Record<string, unknown> = {};
++  Object.assign(query, {
++    selectFrom: () => query,
++    leftJoin: () => query,
++    select: () => query,
++    selectAll: () => query,
++    where: () => query,
++    execute: async () => [],
++    executeTakeFirst: async () => undefined,
++  });
++  return { getPostgres: vi.fn(() => query) };
++});
++
++vi.mock('project-utils', () => ({ getPostgres }));
++
++type Handler = (req: never, res: never) => Promise<unknown>;
++
++const V1 = resolve(process.cwd(), 'src/pages/api/v1');
++
++const routes = readdirSync(V1, { recursive: true, encoding: 'utf8' })
++  .filter((file) => /\.tsx?$/.test(file) && !file.endsWith('.d.ts') && !file.split(/[\\/]/).includes('__tests__'))
++  .sort();
++
++function queryFor(route: string) {
++  return Object.fromEntries([...route.matchAll(/\[(\w+)\]/g)].map(([, name]) => [name, '123456789012345678']));
++}
++
++describe('every /api/v1 route requires the Statbot key', () => {
++  beforeEach(() => {
++    getPostgres.mockClear();
++    vi.stubEnv('STATBOT_API_KEY', 'test-statbot-key');
++  });
++  afterEach(() => {
++    vi.unstubAllEnvs();
++  });
++
++  it.each(routes)('%s refuses a request with no credential with 401 and never reads the database', async (route) => {
++    const { default: handler } = await import(join(V1, route)) as { default: Handler };
++    const res = makeRes();
++    await handler({ method: 'GET', query: queryFor(route), headers: {} } as never, res as never);
++    expect(res.statusCode).toBe(401);
++    expect(res.ended).toBe(true);
++    expect(getPostgres).not.toHaveBeenCalled();
++  });
++});
