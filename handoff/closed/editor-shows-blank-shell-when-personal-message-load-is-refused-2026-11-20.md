@@ -1,7 +1,7 @@
 ---
 UUID: 4acd59e4
-Status: Open
-Status-Detail: "On production, an account refused another user's personal message at /message/m/<id>/edit saw a blank editor shell while the page kept retrying getOne on 404, and no load-error text had appeared by the 8 s read. Whether the text appears once the retries end is unchecked. No stage owns it yet."
+Status: Addressed
+Status-Detail: "Discharged by fixer chain fix-message-not-found, released to website master f4baebb at 2026-11-21T07:51:38Z: a refused load shows the one not-found notice with a link back to his messages, and is not retried."
 Owning-Stage: steering thread for the website access surfaces (to route it to a stage)
 Review-Trigger: when the website message editor's load path for /message/m/[id]/edit is next edited, or when the next chain touching website access control opens
 ---
@@ -45,3 +45,4 @@ Finding F-1 of the post-deploy reads of fixer chain `fix-personal-message-access
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-20T01:44 | helper for steering-roadmap-hooks | Created from F-1 of the post-deploy reads. F-2 is cross-referenced to the existing absent-number handoff, not duplicated. Disclosure: the record-write gate refused the first, shell-heredoc write; re-issued with the Write tool |
+| 2026-11-21T07:53 | steering-hooks | Document closed. Status: Addressed. Discharged by `fix-message-not-found` (`steering/fix-message-not-found-rulings.md` block 06:46Z), released `f4baebb` (`deployment/closed/fix-message-not-found-deployment.md`). |
