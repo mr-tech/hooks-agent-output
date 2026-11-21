@@ -1,0 +1,11 @@
+single token	HTTP/1.1 200 OK	x-hooks-api-token=string:"tok"	authorization=undefined
+repeated token	HTTP/1.1 200 OK	x-hooks-api-token=string:"other, tok"	authorization=undefined
+empty token	HTTP/1.1 200 OK	x-hooks-api-token=string:""	authorization=undefined
+token with surrounding whitespace	HTTP/1.1 200 OK	x-hooks-api-token=string:"tok"	authorization=undefined
+token header uppercase name	HTTP/1.1 200 OK	x-hooks-api-token=string:"tok"	authorization=undefined
+repeated authorization, wrong first	HTTP/1.1 200 OK	x-hooks-api-token=undefined	authorization=string:"Bearer wrong"
+repeated authorization, right first	HTTP/1.1 200 OK	x-hooks-api-token=undefined	authorization=string:"Bearer key"
+authorization with a latin-1 byte	HTTP/1.1 200 OK	x-hooks-api-token=undefined	authorization=string:"Bearer keyÿ"
+no credential header	HTTP/1.1 200 OK	x-hooks-api-token=undefined	authorization=undefined
+node v24.14.0
+exit 0

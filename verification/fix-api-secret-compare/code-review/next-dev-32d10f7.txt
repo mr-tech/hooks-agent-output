@@ -1,0 +1,221 @@
+Running scope as unit: run-r8306e69455ae4759808e677ce6bf5dbe.scope
+▲ Next.js 16.4.6 (webpack)
+- Local:         http://127.0.0.1:39417
+- Network:       http://127.0.0.1:39417
+✓ Ready in 403ms
+✓ Running next.config.js took 23ms
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead.
+
+  To migrate automatically, run:
+  npx @next/codemod@canary middleware-to-proxy .
+
+  Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+
+API handler should not return a value, received object.
+ POST /api/interactions-server 400 in 122ms (next.js: 109ms, application-code: 13ms)
+API handler should not return a value, received object.
+ POST /api/interactions-server 401 in 1.9ms (next.js: 0.4ms, application-code: 1.5ms)
+API handler should not return a value, received object.
+ POST /api/interactions-server 401 in 1.3ms (next.js: 0.3ms, application-code: 1.0ms)
+API handler should not return a value, received object.
+ POST /api/interactions-server 401 in 1.5ms (next.js: 0.3ms, application-code: 1.2ms)
+API handler should not return a value, received object.
+ POST /api/interactions-server 401 in 1.4ms (next.js: 0.3ms, application-code: 1.1ms)
+API handler should not return a value, received object.
+ POST /api/interactions-server 401 in 1.6ms (next.js: 0.3ms, application-code: 1.3ms)
+API handler should not return a value, received object.
+ POST /api/interactions-server 401 in 1.7ms (next.js: 0.3ms, application-code: 1.4ms)
+API handler should not return a value, received object.
+ POST /api/interactions-server 401 in 1.3ms (next.js: 0.2ms, application-code: 1.1ms)
+API handler should not return a value, received object.
+ POST /api/interactions-server 401 in 2ms (next.js: 0.3ms, application-code: 1.9ms)
+API handler should not return a value, received object.
+ POST /api/interactions-server 401 in 1.7ms (next.js: 0.3ms, application-code: 1.4ms)
+API handler should not return a value, received object.
+ POST /api/interactions-server 401 in 1.0ms (next.js: 0.2ms, application-code: 0.8ms)
+API handler should not return a value, received object.
+ POST /api/interactions-server 400 in 1.1ms (next.js: 0.3ms, application-code: 0.9ms)
+API handler should not return a value, received object.
+ POST /api/interactions-server 400 in 1.1ms (next.js: 0.2ms, application-code: 0.9ms)
+API handler should not return a value, received object.
+ POST /api/interactions-server 401 in 1.0ms (next.js: 0.2ms, application-code: 0.8ms)
+API handler should not return a value, received object.
+ GET /api/interactions-server 405 in 1.0ms (next.js: 0.3ms, application-code: 0.8ms)
+Error: connect ECONNREFUSED 127.0.0.1:1
+    at async handler (src/pages/api/v1/guilds/[guildId]/messages.ts:30:22)
+  28 |     const { guildId } = queryShape.parse(req.query);
+  29 |
+> 30 |     const messages = await getPostgres()
+     |                      ^
+  31 |       .selectFrom('Messages')
+  32 |       .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+  33 |       .select(['Messages.id', 'Messages.name', 'Messages.data', 'Messages.valid']) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 1
+}
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages 500 in 156ms (next.js: 76ms, application-code: 80ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages 401 in 1.2ms (next.js: 0.3ms, application-code: 0.9ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages 401 in 1.1ms (next.js: 0.2ms, application-code: 1.0ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages 401 in 1.1ms (next.js: 0.2ms, application-code: 0.9ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages 401 in 1.1ms (next.js: 0.2ms, application-code: 0.9ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages 401 in 1.1ms (next.js: 0.2ms, application-code: 0.9ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages 401 in 1.1ms (next.js: 0.2ms, application-code: 0.9ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages 401 in 1.1ms (next.js: 0.2ms, application-code: 0.9ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages 401 in 1.2ms (next.js: 0.2ms, application-code: 0.9ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages 401 in 1.1ms (next.js: 0.2ms, application-code: 0.9ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages 401 in 1.0ms (next.js: 0.2ms, application-code: 0.8ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages 401 in 1.0ms (next.js: 0.2ms, application-code: 0.8ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages 401 in 1.0ms (next.js: 0.2ms, application-code: 0.8ms)
+Error: connect ECONNREFUSED 127.0.0.1:1
+    at async handler (src/pages/api/v1/guilds/[guildId]/messages.ts:30:22)
+  28 |     const { guildId } = queryShape.parse(req.query);
+  29 |
+> 30 |     const messages = await getPostgres()
+     |                      ^
+  31 |       .selectFrom('Messages')
+  32 |       .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+  33 |       .select(['Messages.id', 'Messages.name', 'Messages.data', 'Messages.valid']) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 1
+}
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages 500 in 3ms (next.js: 0.2ms, application-code: 3ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages 401 in 0.9ms (next.js: 0.2ms, application-code: 0.8ms)
+API handler should not return a value, received object.
+ POST /api/v1/guilds/123456789012345678/messages 401 in 1.0ms (next.js: 0.2ms, application-code: 0.8ms)
+API handler should not return a value, received object.
+ POST /api/v1/guilds/123456789012345678/messages 405 in 1.7ms (next.js: 0.6ms, application-code: 1.1ms)
+Error: connect ECONNREFUSED 127.0.0.1:1
+    at async handler (src/pages/api/v1/guilds/[guildId]/messages/[id].ts:30:21)
+  28 |     const { guildId, id } = queryShape.parse(req.query);
+  29 |
+> 30 |     const message = await getPostgres()
+     |                     ^
+  31 |       .selectFrom('Messages')
+  32 |       .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+  33 |       .select(['Messages.id', 'Messages.name', 'Messages.data', 'Messages.valid', 'Guilds.guildId']) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 1
+}
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/1 500 in 19ms (next.js: 13ms, application-code: 6ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/1 401 in 1.2ms (next.js: 0.2ms, application-code: 1.0ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/1 401 in 1.0ms (next.js: 0.2ms, application-code: 0.8ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/1e3 401 in 1.7ms (next.js: 0.3ms, application-code: 1.4ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/1e3 400 in 2ms (next.js: 0.2ms, application-code: 1.8ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/1.5 400 in 1.2ms (next.js: 0.2ms, application-code: 1.0ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/-1 400 in 1.2ms (next.js: 0.2ms, application-code: 1.0ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/%201 400 in 1.6ms (next.js: 0.2ms, application-code: 1.5ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/1%0A 400 in 1.5ms (next.js: 0.2ms, application-code: 1.3ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/0x10 400 in 1.2ms (next.js: 0.2ms, application-code: 1.0ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/%EF%BC%91 400 in 1.4ms (next.js: 0.3ms, application-code: 1.1ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/Infinity 400 in 1.3ms (next.js: 0.2ms, application-code: 1.1ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/10000000000000000000 400 in 1.8ms (next.js: 0.2ms, application-code: 1.6ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/9223372036854775808 400 in 1.2ms (next.js: 0.2ms, application-code: 1.0ms)
+Error: connect ECONNREFUSED 127.0.0.1:1
+    at async handler (src/pages/api/v1/guilds/[guildId]/messages/[id].ts:30:21)
+  28 |     const { guildId, id } = queryShape.parse(req.query);
+  29 |
+> 30 |     const message = await getPostgres()
+     |                     ^
+  31 |       .selectFrom('Messages')
+  32 |       .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+  33 |       .select(['Messages.id', 'Messages.name', 'Messages.data', 'Messages.valid', 'Guilds.guildId']) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 1
+}
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/9223372036854775807 500 in 3ms (next.js: 0.2ms, application-code: 3ms)
+Error: connect ECONNREFUSED 127.0.0.1:1
+    at async handler (src/pages/api/v1/guilds/[guildId]/messages/[id].ts:30:21)
+  28 |     const { guildId, id } = queryShape.parse(req.query);
+  29 |
+> 30 |     const message = await getPostgres()
+     |                     ^
+  31 |       .selectFrom('Messages')
+  32 |       .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+  33 |       .select(['Messages.id', 'Messages.name', 'Messages.data', 'Messages.valid', 'Guilds.guildId']) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 1
+}
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/007 500 in 3ms (next.js: 0.2ms, application-code: 3ms)
+Error: connect ECONNREFUSED 127.0.0.1:1
+    at async handler (src/pages/api/v1/guilds/[guildId]/messages/[id].ts:30:21)
+  28 |     const { guildId, id } = queryShape.parse(req.query);
+  29 |
+> 30 |     const message = await getPostgres()
+     |                     ^
+  31 |       .selectFrom('Messages')
+  32 |       .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+  33 |       .select(['Messages.id', 'Messages.name', 'Messages.data', 'Messages.valid', 'Guilds.guildId']) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 1
+}
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/0 500 in 3ms (next.js: 0.2ms, application-code: 3ms)
+Error: connect ECONNREFUSED 127.0.0.1:1
+    at async handler (src/pages/api/v1/guilds/[guildId]/messages/[id].ts:30:21)
+  28 |     const { guildId, id } = queryShape.parse(req.query);
+  29 |
+> 30 |     const message = await getPostgres()
+     |                     ^
+  31 |       .selectFrom('Messages')
+  32 |       .leftJoin('Guilds', 'Messages.fk_guilds_id', 'Guilds.id')
+  33 |       .select(['Messages.id', 'Messages.name', 'Messages.data', 'Messages.valid', 'Guilds.guildId']) {
+  errno: -111,
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 1
+}
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/1?id=2 500 in 3ms (next.js: 0.2ms, application-code: 3ms)
+API handler should not return a value, received object.
+ GET /api/v1/guilds/123456789012345678/messages/1?extra=1 400 in 1.3ms (next.js: 0.2ms, application-code: 1.1ms)
+[?25h

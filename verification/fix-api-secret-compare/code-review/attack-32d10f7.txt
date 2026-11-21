@@ -1,0 +1,53 @@
+OK	bot	exactly the token	expect=pass	HTTP/1.1 400 Bad Request	db-attempts=0
+OK	bot	no token header	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	bot	empty token header	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	bot	wrong token, same length	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	bot	token prefix	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	bot	token plus a character	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	bot	token in upper case	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	bot	the string undefined	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	bot	token plus a latin-1 byte	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	bot	repeated header, wrong then right	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	bot	repeated header, right twice	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	bot	header name upper case, exact token	expect=pass	HTTP/1.1 400 Bad Request	db-attempts=0
+OK	bot	exact token padded with whitespace (HTTP strips OWS)	expect=pass	HTTP/1.1 400 Bad Request	db-attempts=0
+OK	bot	token under Authorization instead	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	bot	GET with the token	expect=405	HTTP/1.1 405 Method Not Allowed	db-attempts=0
+OK	list	exactly Bearer key	expect=pass	HTTP/1.1 500 Internal Server Error	db-attempts=2
+OK	list	no authorization	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	list	empty authorization	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	list	Bearer and nothing	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	list	wrong key, same length	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	list	key without scheme	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	list	key under Basic	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	list	lowercase scheme	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	list	double space after scheme	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	list	key plus a character	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	list	key in upper case	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	list	Bearer undefined	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	list	repeated authorization, wrong first	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	list	repeated authorization, right first (Node keeps the first)	expect=pass	HTTP/1.1 500 Internal Server Error	db-attempts=2
+OK	list	key under x-hooks-api-token instead	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	list	POST without credential	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	list	POST with the key	expect=405	HTTP/1.1 405 Method Not Allowed	db-attempts=0
+OK	single	exactly Bearer key, id 1	expect=pass	HTTP/1.1 500 Internal Server Error	db-attempts=2
+OK	single	no authorization, id 1	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	single	wrong key, same length, id 1	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	single	no authorization, malformed id 1e3	expect=refuse	HTTP/1.1 401 Unauthorized	db-attempts=0
+OK	single	id 1e3	expect=400	HTTP/1.1 400 Bad Request	db-attempts=0
+OK	single	id 1.5	expect=400	HTTP/1.1 400 Bad Request	db-attempts=0
+OK	single	id -1	expect=400	HTTP/1.1 400 Bad Request	db-attempts=0
+OK	single	id with a leading space	expect=400	HTTP/1.1 400 Bad Request	db-attempts=0
+OK	single	id with a trailing newline	expect=400	HTTP/1.1 400 Bad Request	db-attempts=0
+OK	single	id 0x10	expect=400	HTTP/1.1 400 Bad Request	db-attempts=0
+OK	single	id fullwidth digit one	expect=400	HTTP/1.1 400 Bad Request	db-attempts=0
+OK	single	id Infinity	expect=400	HTTP/1.1 400 Bad Request	db-attempts=0
+OK	single	id of 20 digits	expect=400	HTTP/1.1 400 Bad Request	db-attempts=0
+OK	single	id 2^63 (one above the largest)	expect=400	HTTP/1.1 400 Bad Request	db-attempts=0
+OK	single	id 2^63-1 (the largest)	expect=pass	HTTP/1.1 500 Internal Server Error	db-attempts=2
+OK	single	id 007	expect=pass	HTTP/1.1 500 Internal Server Error	db-attempts=2
+OK	single	id 0	expect=pass	HTTP/1.1 500 Internal Server Error	db-attempts=2
+RECORDED	single	repeated id query beside the path id	expect=any	HTTP/1.1 500 Internal Server Error	db-attempts=2
+OK	single	unexpected query key	expect=400	HTTP/1.1 400 Bad Request	db-attempts=0
+cases 51, unexpected 0
+exit 0

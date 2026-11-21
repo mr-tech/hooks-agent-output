@@ -1,0 +1,10 @@
+next default pageExtensions: ["tsx","ts","jsx","js"]
+guilds/[guildId]/messages.ts	next-routes=true	guard-test-enumerates=true
+guilds/[guildId]/unguarded.ts	next-routes=true	guard-test-enumerates=true
+guilds/[guildId]/unguarded.tsx	next-routes=true	guard-test-enumerates=true
+guilds/[guildId]/unguarded.js	next-routes=true	guard-test-enumerates=false	MISSED
+guilds/[guildId]/unguarded.jsx	next-routes=true	guard-test-enumerates=false	MISSED
+guilds/__tests__/unguarded.ts	next-routes=true	guard-test-enumerates=false	MISSED
+guilds/[guildId]/types.d.ts	next-routes=false	guard-test-enumerates=false
+routed but not enumerated: 3
+exit 0
