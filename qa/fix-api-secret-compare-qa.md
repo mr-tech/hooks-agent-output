@@ -2,9 +2,9 @@
 ID: n/a
 Origin: fix-api-secret-compare
 UUID: fbe73764
-Verified-At: "32d10f7 — repos=website"
-Status: QA Failed
-Status-Detail: "Phase 2 at website 32d10f7: QAF-1 MEDIUM blocks (secretEquals's constant-time decision has no assertion that fails when lost); handed to fixer-fix-api-secret-compare with a proposed case shown red; a refresh pass follows the fix."
+Verified-At: "0c14d5b — repos=website; refresh pass, test-only over 32d10f7 (production byte-identical)"
+Status: QA Complete
+Status-Detail: "Phase 2 PASS at website 0c14d5b (refresh after QAF-1); QAF-1 and QAF-2 resolved; register B-1 (post-deploy, devops) open; devops for website master next."
 Phase: 2
 ---
 
@@ -22,6 +22,7 @@ Phase: 2
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T18:09 | steering-hooks (brief `steering/fix-api-secret-compare-brief-qa.md`) | QA Phase 2 of website `b68f94c..32d10f7` (21 production lines) | Phase 2: QA Failed at 32d10f7 — QAF-1 MEDIUM (constant-time decision unasserted; 2 sweep survivors), QAF-2 LOW; suite 2355/2355 exit 0; sweep 39 of 43 killed; edge graph clear; id oracle 0 malformed ids reach the database |
+| 2026-11-21T18:23 | code-reviewer-fix-api-secret-compare (sub-entry APPROVED_WITH_COMMENTS at `0c14d5b`, agent-output `799172ab`) | Phase 2 refresh at website `0c14d5b` | Phase 2: QA Complete at 0c14d5b — QAF-1 and QAF-2 resolved; suite 2361/2361 exit 0; survivors 3 of 4 killed, the fourth equivalent; register B-1 minted |
 
 ## Test Strategy (Pre-Implementation)
 
@@ -141,9 +142,39 @@ value's canonical decimal). Summary `id-oracle-summary.txt`:
   all ids zero-padded to 20+ characters, answered 400 with no read (QAF-2).
 - `b68f94c` (discrimination control): 205 disagreements (e.g. `1e3` looked up as 1000, `9223372036854775807` as `…6000`, `''` as 0).
 
+## Phase 2 refresh at website `0c14d5b`
+
+- **Stage start**: the reviewer's committed sub-entry "Round 1 sub-entry — CR-2 fix round at website `0c14d5b`" (agent-output
+  `799172ab`, `Reviewed-At` `0c14d5b`); fixer's document `Handoff-At` `0c14d5b`. Branch read `0c14d5b` (`git rev-parse`, 18:20Z).
+- **Differential** (scopes the pass, never replaces it): `git diff --numstat 32d10f7 0c14d5b` → 2 test files only
+  (`secretEquals.equality.test.ts` +38 −1, `secretEquals.credential-sites.test.ts` +29 −8); `git diff --quiet 32d10f7 0c14d5b -- src/pages
+  src/server/api/utils/secretEquals.ts bot src/env.mjs` → exit 0. Production is byte-identical, so the edge graph and id oracle results at
+  `32d10f7` stand for this tree; the sweep re-runs only the survivors this round closes (owner ruling on round re-runs).
+- **Test audit of the diff**: spec-form; names and titles conform, no ID token; expectations are literals (SHA-256 vectors from FIPS
+  180-2 and `sha256sum`), not computed by the code under test. New cases: `secretEquals decides through crypto.timingSafeEqual` ×3
+  (digests once; answers what `timingSafeEqual` answers; refuses equal strings when it refuses) and, per site,
+  `refuses the exact configured credential when secretEquals refuses it` ×3 — fixtures that oppose string equality in both directions.
+- **Suite** at `0c14d5b` (shared tree): **exit 0**, 2361 of 2361, 166 files (`suite-0c14d5b.*`). Against `suite-32d10f7.json` by path and
+  case: same files; the only changes are +3 cases in each of the two files above, all passed. `pnpm run typecheck`: exit 0
+  (`typecheck-0c14d5b.*`).
+- **Survivor re-run** (`mutants-survivors-0c14d5b.json`, blob `fbd3b2e6`; `mutation-run.py` at `0c14d5b`, same 7-file suite and config;
+  helper run, table read here: `mutation-0c14d5b/mutation-table-0c14d5be…-20261121T182157Z-p2859270.json`): **3 of 4 mutants from the
+  first sweep's survivor list killed**, count checked, control 70 cases (= 64 + 6). `a === b` and `Buffer.equals` killed by all three
+  new `secretEquals` cases; md5 by the digest case. `qa-bot-coupling-type-gated-on-env` survives — equivalent, as dispositioned above.
+- The reviewer's CR-2 attack (7 of 7, `code-review/mutation-0c14d5b/`) is the reviewer's instrument, read and not re-run.
+- CR-1 LOW: declined by the fixer, accepted by the reviewer; this gate concurs (0 live members) and raises nothing on it.
+
 ## Findings
 
-QAF-1 MEDIUM Phase 2 — `secretEquals` (`src/server/api/utils/secretEquals.ts`, `secretEquals`) has no assertion that fails when its
+QAF-1 MEDIUM Phase 2 RESOLVED — the constant-time decision is asserted at website `0c14d5b`
+(`secretEquals.equality.test.ts`, describe "secretEquals decides through crypto.timingSafeEqual"); survivors killed, refresh above.
+
+QAF-2 LOW Phase 2 RESOLVED — the fixer's Diagnosis and User-visible flows narrowed to 19 characters with the padded case named
+(`implementation/fix-api-secret-compare-implementation.md`, lines read at agent-output `799172ab`).
+
+## Findings as raised at `32d10f7` (superseded by the dispositions above)
+
+QAF-1 (as raised) — `secretEquals` (`src/server/api/utils/secretEquals.ts`, `secretEquals`) has no assertion that fails when its
 decision stops going through `crypto.timingSafeEqual`: with `return a === b;` or `digest(a).equals(digest(b))` every case in the suite
 passes (sweep survivors above). The constant-time compare is the property scope item 1 claims and the reason for the chain; the
 credential-sites spy pins only the hop from the three sites into `secretEquals`. Severity floor: a claimed behaviour with no failing
@@ -155,7 +186,7 @@ assertion — blocks.
   `a === b` (2 cases), `Buffer.equals` (2 cases) and md5 (1 case) — driver `proposed-case-red.sh`, captures `proposed-case-red-*.txt`.
   Not run through `pnpm run typecheck` or eslint (the shared tree is not this stage's to write); the fixer's gates apply.
 
-QAF-2 LOW Phase 2 — the claim "leading zeros normalise as before" (fixer's Diagnosis, "Consumers of the resolved `id`") holds only to
+QAF-2 (as raised) — the claim "leading zeros normalise as before" (fixer's Diagnosis, "Consumers of the resolved `id`") holds only to
 19 characters: an id zero-padded to 20 or more characters (`00000000000000000001`) answers 400 at `32d10f7` where `b68f94c` looked it up
 (oracle above). Fails closed; the Statbot caller sends JSON numbers re-serialised, never zero-padded (reviewer's Assumption Not
 Checked, not re-read). Disposition owed: the fixer's document narrows the claim (and its User-visible flows line, if it keeps one on
@@ -168,14 +199,33 @@ Phase 2: This pass assumes Vercel's Node.js runtime for the Pages API routes pro
 `/api/v1/guilds/*/messages*` and `/api/interactions-server` answers 500 after the website `master` deploy (the bot's "Get JSON" fails for
 everyone). Owner: devops, its post-deploy `get_message` read.
 
+Phase 2 refresh: This pass assumes the differential's file predicate (`src/pages`, `secretEquals.ts`, `bot`, `src/env.mjs`) covers every
+production path the routes load at `0c14d5b`, and does not re-run the edge graph or the id oracle on that ground. Falsity signature: a
+non-test path outside those four changed in `32d10f7..0c14d5b` — `git diff --name-only 32d10f7 0c14d5b` lists two test files only, so
+the premise is checked as far as this pass can see. Owner of anything later: devops's Phase 3 tip check where the tip differs.
+
 ## Blocking-condition register
 
-Not minted this pass: the verdict is QA Failed and the tree will move. The chain's register will be in this document, written at the
-refresh pass. The fixer's QAF-1 round reaches this stage again before devops.
+The chain's one register (fixer chain: no UAT in the stage set; there is no plan, so no plan validation line designates an
+operator-observed check). Later stage documents — the deployment record and devops's handoff — are authoritative on each row's
+execution state.
+
+| ID | Class | Condition | Primary instrument | Subject / fallback | Earliest-decidable condition | Predicted value | Failure mode | Owner | Discharging document | State |
+|---|---|---|---|---|---|---|---|---|---|---|
+| B-1 | post-deploy-observable | Scope item 2 and the runtime premise above: after the website `master` deploy, the bot endpoint still accepts production's configured token and the Node runtime runs `secretEquals` | One run of the hooks bot's "Get JSON" (`get_message`) on any message, after the release commit serves on production | The test account in the agents' Discord test server, if the hooks bot is there (unchecked by every stage so far); fallback the owner | Vercel production serving a deployment whose commit contains `0c14d5b` | The message JSON comes back. One failure refutes by construction: a 401-shaped "command failed" means production's `HOOKS_API_TOKEN` is empty or unset; a 500 means the runtime premise is false | If Get JSON fails after the deploy, every hooks-bot user loses it until a non-empty token is set in Vercel or the release is reverted | devops | `handoff/<name>.md`, created by devops at Stage 1 | Open |
+
+B-1 minting limit: the instrument was not run read-only at minting — whether the hooks bot is in the agents' test server is unchecked, and
+no stage here holds a production token. Devops shows it on current production at Stage 1, where a pass is expected whatever the token
+holds (the old compare accepts an empty one). The reviewer's Assumption Not Checked (Statbot single-message 400s) stays the reviewer's,
+routed to devops, and is not a row here.
 
 ## Verdict
 
-**QA Failed** at website `32d10f7` (this tree only). Blocking: QAF-1. Everything else assessed holds: suite and typecheck green,
+**QA Complete (PASS)** at website `0c14d5b` (`Verified-At`; this tree only — any later production change expires it). Every criterion
+listed above holds; QAF-1 and QAF-2 are resolved; no finding is open. B-1 is post-deploy and does not gate the release act. Next: devops
+for website `master`, on the owner's word.
+
+Earlier in this phase: **QA Failed** at website `32d10f7` (this tree only). Blocking: QAF-1. Everything else assessed holds: suite and typecheck green,
 39 of 43 mutants killed with two equivalents, edge graph clear, no malformed id reaches the database. A refresh pass at the fixer's new
 SHA covers QAF-1's diff (the new cases red under the two survivors, green at the tip), re-runs the suite, and mints the register.
 

@@ -1,0 +1,6 @@
+[
+  {"id": "qa-secret-equals-plain-equality", "file": "src/server/api/utils/secretEquals.ts", "old": "return timingSafeEqual(digest(a), digest(b));", "new": "return a === b;"},
+  {"id": "qa-secret-equals-buffer-equals", "file": "src/server/api/utils/secretEquals.ts", "old": "return timingSafeEqual(digest(a), digest(b));", "new": "return digest(a).equals(digest(b));"},
+  {"id": "qa-secret-equals-md5", "file": "src/server/api/utils/secretEquals.ts", "old": "createHash('sha256')", "new": "createHash('md5')"},
+  {"id": "qa-bot-coupling-type-gated-on-env", "file": "src/pages/api/interactions-server.ts", "old": "typeof token !== 'string' || ", "new": "(!!env.HOOKS_API_TOKEN && typeof token !== 'string') || "}
+]

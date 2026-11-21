@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e2cf77b-ced4-4094-b1d7-54a362e1fe18/scratchpad/mutwork/20261121T182157Z-p2859270/mutant-1
+
+ ❯ |node| src/server/api/utils/__tests__/secretEquals.equality.test.ts (10 tests | 3 failed) 12ms
+     × compares the SHA-256 digests of both strings, once 4ms
+     × answers what crypto.timingSafeEqual answers 3ms
+     × refuses two equal strings when crypto.timingSafeEqual refuses them 1ms
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  3 failed | 67 passed (70)
+   Start at  18:22:00
+   Duration  408ms (transform 663ms, setup 0ms, import 548ms, tests 678ms, environment 1ms)
+

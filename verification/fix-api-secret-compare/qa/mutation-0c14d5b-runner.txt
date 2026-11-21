@@ -1,0 +1,5 @@
+qa-secret-equals-plain-equality KILLED 1.51
+qa-secret-equals-buffer-equals KILLED 1.56
+qa-secret-equals-md5 KILLED 1.48
+qa-bot-coupling-type-gated-on-env SURVIVED 1.44
+3 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-survivors-0c14d5b.json (blob fbd3b2e63048df7ddd253cf8ef5a36f600bfbd0a))

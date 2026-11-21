@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.equality.test.ts > secretEquals decides through crypto.timingSafeEqual > compares the SHA-256 digests of both strings, once
+AssertionError: expected '900150983cd24fb0d6963f7d28e17f72' to be 'ba7816bf8f01cfea414140de5dae2223b0036…' // Object.is equality
+
+Expected: "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+Received: "900150983cd24fb0d6963f7d28e17f72"
+
+ ❯ src/server/api/utils/__tests__/secretEquals.equality.test.ts:52:8
+     50|     const [first, second] = vi.mocked(timingSafeEqual).mock.calls[0] ?…
+     51|     expect(Buffer.from(first as Uint8Array).toString('hex'))
+     52|       .toBe('ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f…
+       |        ^
+     53|     expect(Buffer.from(second as Uint8Array).toString('hex'))
+     54|       .toBe('88d4266fd4e6338d13b845fcf289579d209c897823b9217da3e161936…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

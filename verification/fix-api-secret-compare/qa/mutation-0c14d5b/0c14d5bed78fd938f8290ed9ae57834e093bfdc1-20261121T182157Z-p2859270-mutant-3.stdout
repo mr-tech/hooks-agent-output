@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e2cf77b-ced4-4094-b1d7-54a362e1fe18/scratchpad/mutwork/20261121T182157Z-p2859270/mutant-3
+
+ ❯ |node| src/server/api/utils/__tests__/secretEquals.equality.test.ts (10 tests | 1 failed) 14ms
+     × compares the SHA-256 digests of both strings, once 7ms
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  1 failed | 69 passed (70)
+   Start at  18:22:03
+   Duration  390ms (transform 460ms, setup 0ms, import 467ms, tests 575ms, environment 1ms)
+
