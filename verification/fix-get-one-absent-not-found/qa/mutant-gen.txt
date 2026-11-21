@@ -1,0 +1,4 @@
+skipped src/app/message/m/[id]/_components/__tests__/MessageNotFound.edit-and-send-pages.test.tsx (test file)
+skipped src/server/api/routers/__tests__/message.get-one-not-found.test.ts (test file)
+skipped src/server/api/utils/__tests__/helpers/capturingDatabase.ts (test file)
+37 mutants written; dropped (not unique) 0

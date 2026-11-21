@@ -1,0 +1,50 @@
+[
+  {
+    "id": "Navigation.tsx:268:not",
+    "file": "src/app/message/m/[id]/_layout/Navigation.tsx",
+    "old": "{!isNotFound && (",
+    "new": "{isNotFound && ("
+  },
+  {
+    "id": "Navigation.tsx:268:&&",
+    "file": "src/app/message/m/[id]/_layout/Navigation.tsx",
+    "old": "{!isNotFound && (",
+    "new": "{!isNotFound || ("
+  },
+  {
+    "id": "header-guard-reads-loading-state",
+    "file": "src/app/message/m/[id]/_layout/Navigation.tsx",
+    "old": "{!isNotFound && (",
+    "new": "{!isLoading && ("
+  },
+  {
+    "id": "header-controls-always-hidden",
+    "file": "src/app/message/m/[id]/_layout/Navigation.tsx",
+    "old": "{!isNotFound && (",
+    "new": "{false && ("
+  },
+  {
+    "id": "header-controls-never-hidden",
+    "file": "src/app/message/m/[id]/_layout/Navigation.tsx",
+    "old": "{!isNotFound && (",
+    "new": "{true && ("
+  },
+  {
+    "id": "getone-refusal-by-trpc-code",
+    "file": "src/server/api/routers/message.ts",
+    "old": ".catch(asNotFound(MessageNotFoundError));",
+    "new": ".catch(asNotFound('NOT_FOUND'));"
+  },
+  {
+    "id": "getmessage-default-kysely-error",
+    "file": "src/server/api/utils/shared.ts",
+    "old": ".executeTakeFirstOrThrow(MessageNotFoundError);",
+    "new": ".executeTakeFirstOrThrow();"
+  },
+  {
+    "id": "absent-row-error-text-changed",
+    "file": "src/server/api/utils/shared.ts",
+    "old": "super('no result');",
+    "new": "super('no row');"
+  }
+]
