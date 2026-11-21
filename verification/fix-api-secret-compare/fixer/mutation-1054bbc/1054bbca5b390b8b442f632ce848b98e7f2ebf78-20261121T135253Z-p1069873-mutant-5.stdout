@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/7924190e-69a2-48cf-8867-6db2863db6e7/scratchpad/mut-work/20261121T135253Z-p1069873/mutant-5
+
+ ❯ |node| src/server/api/__tests__/interactions-server.token-required.test.ts (10 tests | 3 failed) 18ms
+     × refuses a wrong token of the same length with 401 and runs no command 5ms
+     × refuses the token with trailing characters with 401 and runs no command 1ms
+     × refuses an empty token header with 401 and runs no command 1ms
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 7 passed (10)
+   Start at  13:53:07
+   Duration  183ms (transform 27ms, setup 0ms, import 39ms, tests 18ms, environment 0ms)
+

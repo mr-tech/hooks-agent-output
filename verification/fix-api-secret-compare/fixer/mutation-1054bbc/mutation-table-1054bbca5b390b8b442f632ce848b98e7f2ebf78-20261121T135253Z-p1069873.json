@@ -1,0 +1,412 @@
+{
+ "sha": "1054bbca5b390b8b442f632ce848b98e7f2ebf78",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutants-1054bbc.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--no-cache",
+  "--configLoader",
+  "runner",
+  "--config",
+  "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/vitest.config.export.ts"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutants-1054bbc.json",
+   "blob": "0e027d275a7ef0ab79985b5da41bbd20bfa04a4f"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  },
+  {
+   "kind": "argument",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/vitest.config.export.ts",
+   "blob": "213257153d2a9b7cd363061a1aef18443fa36ae7"
+  }
+ ],
+ "controls": {
+  "[\"src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-control-1.stderr",
+   "seconds": 1.41,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 24,
+   "tests": [
+    "src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts"
+   ],
+   "passed": true
+  },
+  "[\"src/server/api/__tests__/interactions-server.token-required.test.ts\"]": {
+   "id": "control-2",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-control-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-control-2.stderr",
+   "seconds": 1.25,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 10,
+   "tests": [
+    "src/server/api/__tests__/interactions-server.token-required.test.ts"
+   ],
+   "passed": true
+  },
+  "[\"src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts\"]": {
+   "id": "control-3",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-control-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-control-3.stderr",
+   "seconds": 1.32,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 3,
+   "tests": [
+    "src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts"
+   ],
+   "passed": true
+  },
+  "[\"src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts\"]": {
+   "id": "control-4",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-control-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-control-4.stderr",
+   "seconds": 1.32,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 12,
+   "tests": [
+    "src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts"
+   ],
+   "passed": true
+  },
+  "[\"src/server/api/utils/__tests__/secretEquals.equality.test.ts\"]": {
+   "id": "control-5",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-control-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-control-5.stderr",
+   "seconds": 1.22,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 7,
+   "tests": [
+    "src/server/api/utils/__tests__/secretEquals.equality.test.ts"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "list-header-type-guard-removed",
+   "run": "mutant-1",
+   "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+   "tests": [
+    "src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 24,
+   "control_tests_run": 24,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (list) requires the Statbot key > refuses no authorization header with 401 and never reads the database",
+    "|node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (list) requires the Statbot key > refuses an unauthenticated non-GET with 401, before the method check"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.36,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-1.stderr"
+  },
+  {
+   "id": "single-header-type-guard-removed",
+   "run": "mutant-2",
+   "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+   "tests": [
+    "src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 24,
+   "control_tests_run": 24,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > refuses no authorization header with 401 and never reads the database",
+    "|node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > refuses an unauthenticated non-GET with 401, before the method check"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.36,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-2.stderr"
+  },
+  {
+   "id": "bot-header-type-guard-removed",
+   "run": "mutant-3",
+   "file": "src/pages/api/interactions-server.ts",
+   "tests": [
+    "src/server/api/__tests__/interactions-server.token-required.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 10,
+   "control_tests_run": 10,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses no token header with 401 and runs no command",
+    "|node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses a repeated token header with 401 and runs no command"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.3,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-3.stderr"
+  },
+  {
+   "id": "bot-empty-token-guard-removed",
+   "run": "mutant-4",
+   "file": "src/pages/api/interactions-server.ts",
+   "tests": [
+    "src/server/api/__tests__/interactions-server.token-required.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 10,
+   "control_tests_run": 10,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > fails closed when the configured token is empty, with an empty header",
+    "|node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > fails closed when the configured token is unset, with the header \"undefined\""
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.28,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-4.stderr"
+  },
+  {
+   "id": "bot-compare-removed",
+   "run": "mutant-5",
+   "file": "src/pages/api/interactions-server.ts",
+   "tests": [
+    "src/server/api/__tests__/interactions-server.token-required.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 10,
+   "control_tests_run": 10,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses a wrong token of the same length with 401 and runs no command",
+    "|node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses the token with trailing characters with 401 and runs no command",
+    "|node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses an empty token header with 401 and runs no command"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.24,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-5.stderr"
+  },
+  {
+   "id": "bot-compare-always-refuses",
+   "run": "mutant-6",
+   "file": "src/pages/api/interactions-server.ts",
+   "tests": [
+    "src/server/api/__tests__/interactions-server.token-required.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 10,
+   "control_tests_run": 10,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > runs the command for exactly the configured token"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.31,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-6.stderr"
+  },
+  {
+   "id": "bot-reads-another-header",
+   "run": "mutant-7",
+   "file": "src/pages/api/interactions-server.ts",
+   "tests": [
+    "src/server/api/__tests__/interactions-server.token-required.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 10,
+   "control_tests_run": 10,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > runs the command for exactly the configured token"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.24,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-7.stderr"
+  },
+  {
+   "id": "bot-plain-compare",
+   "run": "mutant-8",
+   "file": "src/pages/api/interactions-server.ts",
+   "tests": [
+    "src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 3,
+   "control_tests_run": 3,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts > /api/interactions-server compares the sent credential through secretEquals > passes the header as sent and the configured credential"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.28,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-8.stderr"
+  },
+  {
+   "id": "list-plain-compare",
+   "run": "mutant-9",
+   "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+   "tests": [
+    "src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 3,
+   "control_tests_run": 3,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts > /api/v1 guild messages (list) compares the sent credential through secretEquals > passes the header as sent and the configured credential"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.29,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-9.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-9.stderr"
+  },
+  {
+   "id": "single-plain-compare",
+   "run": "mutant-10",
+   "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+   "tests": [
+    "src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 3,
+   "control_tests_run": 3,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts > /api/v1 guild messages (single) compares the sent credential through secretEquals > passes the header as sent and the configured credential"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.36,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-10.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-10.stderr"
+  },
+  {
+   "id": "single-id-digits-only-no-normalise",
+   "run": "mutant-11",
+   "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+   "tests": [
+    "src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 12,
+   "control_tests_run": 12,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts > /api/v1 guild messages answer a malformed query with a completed 400 > single, message id above the largest message number",
+    "|node| src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts > /api/v1 single guild message reads the message number it was given > looks up a number with leading zeros, without them"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.33,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-11.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-11.stderr"
+  },
+  {
+   "id": "secret-equals-raw-buffers",
+   "run": "mutant-12",
+   "file": "src/server/api/utils/secretEquals.ts",
+   "tests": [
+    "src/server/api/utils/__tests__/secretEquals.equality.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 7,
+   "control_tests_run": 7,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/utils/__tests__/secretEquals.equality.test.ts > secretEquals > fails, without throwing, for strings of unequal length (the first longer)",
+    "|node| src/server/api/utils/__tests__/secretEquals.equality.test.ts > secretEquals > fails, without throwing, for strings of unequal length (the second longer)",
+    "|node| src/server/api/utils/__tests__/secretEquals.equality.test.ts > secretEquals > fails, without throwing, for strings of unequal length (one empty)"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.22,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-12.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135253Z-p1069873-mutant-12.stderr"
+  }
+ ],
+ "score": "12 of 12 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-1054bbc.json (blob 0e027d275a7ef0ab79985b5da41bbd20bfa04a4f))"
+}

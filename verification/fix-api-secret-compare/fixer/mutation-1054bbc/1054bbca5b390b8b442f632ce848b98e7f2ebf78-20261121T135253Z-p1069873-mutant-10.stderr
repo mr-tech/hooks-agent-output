@@ -1,0 +1,15 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts > /api/v1 guild messages (single) compares the sent credential through secretEquals > passes the header as sent and the configured credential
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts:65:26
+     63|
+     64|     expect(res.statusCode).toBe(401);
+     65|     expect(secretEquals).toHaveBeenCalledTimes(1);
+       |                          ^
+     66|     expect(secretEquals).toHaveBeenCalledWith(...expected);
+     67|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

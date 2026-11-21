@@ -1,0 +1,8 @@
+import { getPostgres } from 'project-utils';
+
+import type { NextApiRequest, NextApiResponse } from 'next';
+
+export default async function handler(_req: NextApiRequest, res: NextApiResponse) {
+  const rows = await getPostgres().selectFrom('Messages').selectAll().execute();
+  return res.status(200).json(rows);
+}

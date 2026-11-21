@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > runs the command for exactly the configured token
+AssertionError: expected 401 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 401
+
+ ❯ src/server/api/__tests__/interactions-server.token-required.test.ts:50:28
+     48|   it('runs the command for exactly the configured token', async () => {
+     49|     const res = await call({ 'x-hooks-api-token': TOKEN });
+     50|     expect(res.statusCode).toBe(200);
+       |                            ^
+     51|     expect(getMessage).toHaveBeenCalledTimes(1);
+     52|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,18 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.equality.test.ts > secretEquals > fails, without throwing, for strings of unequal length (the first longer)
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.equality.test.ts > secretEquals > fails, without throwing, for strings of unequal length (the second longer)
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.equality.test.ts > secretEquals > fails, without throwing, for strings of unequal length (one empty)
+RangeError: Input buffers must have the same byte length
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:10
+      6|
+      7| export default function secretEquals(a: string, b: string) {
+      8|   return timingSafeEqual(Buffer.from(a), Buffer.from(b));
+       |          ^
+      9| }
+     10|
+ ❯ src/server/api/utils/__tests__/secretEquals.equality.test.ts:19:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+

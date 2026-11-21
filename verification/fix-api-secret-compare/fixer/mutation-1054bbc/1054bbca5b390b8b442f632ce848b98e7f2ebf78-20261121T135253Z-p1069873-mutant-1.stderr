@@ -1,0 +1,35 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (list) requires the Statbot key > refuses no authorization header with 401 and never reads the database
+TypeError: The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received undefined
+ ❯ digest src/server/api/utils/secretEquals.ts:4:31
+      2|
+      3| function digest(value: string) {
+      4|   return createHash('sha256').update(value).digest();
+       |                               ^
+      5| }
+      6|
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:26
+ ❯ handler src/pages/api/v1/guilds/[guildId]/messages.ts:25:16
+ ❯ call src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts:42:9
+ ❯ src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts:65:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (list) requires the Statbot key > refuses an unauthenticated non-GET with 401, before the method check
+TypeError: The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received undefined
+ ❯ digest src/server/api/utils/secretEquals.ts:4:31
+      2|
+      3| function digest(value: string) {
+      4|   return createHash('sha256').update(value).digest();
+       |                               ^
+      5| }
+      6|
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:26
+ ❯ handler src/pages/api/v1/guilds/[guildId]/messages.ts:25:16
+ ❯ call src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts:42:9
+ ❯ src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts:73:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

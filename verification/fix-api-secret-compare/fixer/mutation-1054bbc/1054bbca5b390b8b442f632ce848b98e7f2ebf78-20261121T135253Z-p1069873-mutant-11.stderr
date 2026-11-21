@@ -1,0 +1,57 @@
+stderr | src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts > /api/v1 guild messages answer a malformed query with a completed 400 > single, message id above the largest message number
+TypeError: Cannot read properties of undefined (reading 'selectFrom')
+    at handler (/tmp/claude-1000/-usr-local-bin-hooks-website/7924190e-69a2-48cf-8867-6db2863db6e7/scratchpad/mut-work/20261121T135253Z-p1069873/mutant-11/src/pages/api/v1/guilds/[guildId]/messages/[id].ts:30:40)
+    at call (/tmp/claude-1000/-usr-local-bin-hooks-website/7924190e-69a2-48cf-8867-6db2863db6e7/scratchpad/mut-work/20261121T135253Z-p1069873/mutant-11/src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts:22:9)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at /tmp/claude-1000/-usr-local-bin-hooks-website/7924190e-69a2-48cf-8867-6db2863db6e7/scratchpad/mut-work/20261121T135253Z-p1069873/mutant-11/src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts:51:17
+    at file:///tmp/claude-1000/-usr-local-bin-hooks-website/7924190e-69a2-48cf-8867-6db2863db6e7/scratchpad/mut-work/20261121T135253Z-p1069873/mutant-11/node_modules/.pnpm/@vitest+runner@4.1.2/node_modules/@vitest/runner/dist/chunk-artifact.js:1893:20
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts > /api/v1 guild messages answer a malformed query with a completed 400 > single, message id above the largest message number
+AssertionError: expected 500 to be 400 // Object.is equality
+
+- Expected
++ Received
+
+- 400
++ 500
+
+ ❯ src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts:52:28
+     50|   ])('%s', async (_case, path, query) => {
+     51|     const res = await call(path, query);
+     52|     expect(res.statusCode).toBe(400);
+       |                            ^
+     53|     expect(res.ended).toBe(true);
+     54|     expect(getPostgres).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts > /api/v1 single guild message reads the message number it was given > looks up a number with leading zeros, without them
+AssertionError: expected "vi.fn()" to be called with arguments: [ 'Messages.id', '=', '7' ]
+
+Received:
+
+  1st vi.fn() call:
+
+  [
+    "Messages.id",
+    "=",
+-   "7",
++   "007",
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts:81:19
+     79|     getPostgres.mockReturnValue(query);
+     80|     const res = await call(SINGLE, { guildId: GUILD, id });
+     81|     expect(where).toHaveBeenCalledWith('Messages.id', '=', looked);
+       |                   ^
+     82|     expect(res.statusCode).toBe(404);
+     83|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

@@ -1,0 +1,5 @@
+[
+  {"id": "bot-empty-token-and-header-type-guards-removed", "file": "src/pages/api/interactions-server.ts",
+   "old": "!env.HOOKS_API_TOKEN || typeof token !== 'string' || ", "new": "",
+   "tests": ["src/server/api/__tests__/interactions-server.token-required.test.ts"]}
+]

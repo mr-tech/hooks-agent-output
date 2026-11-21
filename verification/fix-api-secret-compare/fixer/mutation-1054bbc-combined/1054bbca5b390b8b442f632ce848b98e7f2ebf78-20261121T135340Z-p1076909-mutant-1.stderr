@@ -1,0 +1,87 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses no token header with 401 and runs no command
+TypeError: The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received undefined
+ ❯ digest src/server/api/utils/secretEquals.ts:4:31
+      2|
+      3| function digest(value: string) {
+      4|   return createHash('sha256').update(value).digest();
+       |                               ^
+      5| }
+      6|
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:26
+ ❯ handler src/pages/api/interactions-server.ts:13:8
+ ❯ call src/server/api/__tests__/interactions-server.token-required.test.ts:25:9
+ ❯ src/server/api/__tests__/interactions-server.token-required.test.ts:42:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses a repeated token header with 401 and runs no command
+TypeError: The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received an instance of Array
+ ❯ digest src/server/api/utils/secretEquals.ts:4:31
+      2|
+      3| function digest(value: string) {
+      4|   return createHash('sha256').update(value).digest();
+       |                               ^
+      5| }
+      6|
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:26
+ ❯ handler src/pages/api/interactions-server.ts:13:8
+ ❯ call src/server/api/__tests__/interactions-server.token-required.test.ts:25:9
+ ❯ src/server/api/__tests__/interactions-server.token-required.test.ts:42:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > fails closed when the configured token is empty, with an empty header
+AssertionError: expected 200 to be 401 // Object.is equality
+
+- Expected
++ Received
+
+- 401
++ 200
+
+ ❯ src/server/api/__tests__/interactions-server.token-required.test.ts:62:28
+     60|     env.HOOKS_API_TOKEN = configured;
+     61|     const res = await call(headers);
+     62|     expect(res.statusCode).toBe(401);
+       |                            ^
+     63|     expect(res.ended).toBe(true);
+     64|     expect(getMessage).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > fails closed when the configured token is empty, with no header
+ FAIL  |node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > fails closed when the configured token is unset, with no header
+TypeError: The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received undefined
+ ❯ digest src/server/api/utils/secretEquals.ts:4:31
+      2|
+      3| function digest(value: string) {
+      4|   return createHash('sha256').update(value).digest();
+       |                               ^
+      5| }
+      6|
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:26
+ ❯ handler src/pages/api/interactions-server.ts:13:8
+ ❯ call src/server/api/__tests__/interactions-server.token-required.test.ts:25:9
+ ❯ src/server/api/__tests__/interactions-server.token-required.test.ts:61:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > fails closed when the configured token is unset, with the header "undefined"
+TypeError: The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received undefined
+ ❯ digest src/server/api/utils/secretEquals.ts:4:31
+      2|
+      3| function digest(value: string) {
+      4|   return createHash('sha256').update(value).digest();
+       |                               ^
+      5| }
+      6|
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:37
+ ❯ handler src/pages/api/interactions-server.ts:13:8
+ ❯ call src/server/api/__tests__/interactions-server.token-required.test.ts:25:9
+ ❯ src/server/api/__tests__/interactions-server.token-required.test.ts:61:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+

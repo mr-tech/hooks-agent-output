@@ -1,0 +1,92 @@
+{
+ "sha": "1054bbca5b390b8b442f632ce848b98e7f2ebf78",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutants-1054bbc-combined.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--no-cache",
+  "--configLoader",
+  "runner",
+  "--config",
+  "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/vitest.config.export.ts"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutants-1054bbc-combined.json",
+   "blob": "016f99fb067d41943aa428dde83ade149dc12c38"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  },
+  {
+   "kind": "argument",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/vitest.config.export.ts",
+   "blob": "213257153d2a9b7cd363061a1aef18443fa36ae7"
+  }
+ ],
+ "controls": {
+  "[\"src/server/api/__tests__/interactions-server.token-required.test.ts\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc-combined/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135340Z-p1076909-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc-combined/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135340Z-p1076909-control-1.stderr",
+   "seconds": 1.24,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 10,
+   "tests": [
+    "src/server/api/__tests__/interactions-server.token-required.test.ts"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "bot-empty-token-and-header-type-guards-removed",
+   "run": "mutant-1",
+   "file": "src/pages/api/interactions-server.ts",
+   "tests": [
+    "src/server/api/__tests__/interactions-server.token-required.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 10,
+   "control_tests_run": 10,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses no token header with 401 and runs no command",
+    "|node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses a repeated token header with 401 and runs no command",
+    "|node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > fails closed when the configured token is empty, with an empty header",
+    "|node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > fails closed when the configured token is empty, with no header",
+    "|node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > fails closed when the configured token is unset, with no header",
+    "|node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > fails closed when the configured token is unset, with the header \"undefined\""
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.26,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc-combined/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135340Z-p1076909-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-api-secret-compare/fixer/mutation-1054bbc-combined/1054bbca5b390b8b442f632ce848b98e7f2ebf78-20261121T135340Z-p1076909-mutant-1.stderr"
+  }
+ ],
+ "score": "1 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-1054bbc-combined.json (blob 016f99fb067d41943aa428dde83ade149dc12c38))"
+}

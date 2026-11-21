@@ -1,0 +1,2 @@
+bot-empty-token-and-header-type-guards-removed KILLED 1.26
+1 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-1054bbc-combined.json (blob 016f99fb067d41943aa428dde83ade149dc12c38))

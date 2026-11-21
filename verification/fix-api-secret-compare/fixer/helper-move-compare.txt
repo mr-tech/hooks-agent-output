@@ -1,0 +1,6 @@
+src/server/api/__tests__/cron.scheduled-selection.test.ts	base=3	after=3	passset_identical=True	all_passed=True
+src/server/api/messages/__tests__/messageCodes.malformed-query.test.ts	base=3	after=3	passset_identical=True	all_passed=True
+src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts	base=5	after=5	passset_identical=True	all_passed=True
+src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts	base=24	after=24	passset_identical=True	all_passed=True
+src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts	base=6	after=6	passset_identical=True	all_passed=True
+ALL_IDENTICAL True after_files 5

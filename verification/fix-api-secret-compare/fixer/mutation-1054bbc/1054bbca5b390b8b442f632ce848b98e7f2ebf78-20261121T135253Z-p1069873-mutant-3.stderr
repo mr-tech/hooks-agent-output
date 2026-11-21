@@ -1,0 +1,35 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses no token header with 401 and runs no command
+TypeError: The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received undefined
+ ❯ digest src/server/api/utils/secretEquals.ts:4:31
+      2|
+      3| function digest(value: string) {
+      4|   return createHash('sha256').update(value).digest();
+       |                               ^
+      5| }
+      6|
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:26
+ ❯ handler src/pages/api/interactions-server.ts:13:32
+ ❯ call src/server/api/__tests__/interactions-server.token-required.test.ts:25:9
+ ❯ src/server/api/__tests__/interactions-server.token-required.test.ts:42:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses a repeated token header with 401 and runs no command
+TypeError: The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received an instance of Array
+ ❯ digest src/server/api/utils/secretEquals.ts:4:31
+      2|
+      3| function digest(value: string) {
+      4|   return createHash('sha256').update(value).digest();
+       |                               ^
+      5| }
+      6|
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:26
+ ❯ handler src/pages/api/interactions-server.ts:13:32
+ ❯ call src/server/api/__tests__/interactions-server.token-required.test.ts:25:9
+ ❯ src/server/api/__tests__/interactions-server.token-required.test.ts:42:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
