@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e2cf77b-ced4-4094-b1d7-54a362e1fe18/scratchpad/mutwork/20261121T180542Z-p2716153/mutant-38
+
+ ❯ |node| src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts (12 tests | 1 failed) 117ms
+     × looks up the largest message number, digit for digit 11ms
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  1 failed | 63 passed (64)
+   Start at  18:06:42
+   Duration  355ms (transform 462ms, setup 0ms, import 397ms, tests 520ms, environment 1ms)
+

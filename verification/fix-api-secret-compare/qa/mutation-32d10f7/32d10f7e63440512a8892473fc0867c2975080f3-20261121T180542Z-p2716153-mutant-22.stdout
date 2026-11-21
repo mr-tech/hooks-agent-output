@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e2cf77b-ced4-4094-b1d7-54a362e1fe18/scratchpad/mutwork/20261121T180542Z-p2716153/mutant-22
+
+ ❯ |node| src/server/api/__tests__/interactions-server.token-required.test.ts (10 tests | 2 failed) 27ms
+     × refuses no token header with 401 and runs no command 18ms
+     × refuses a repeated token header with 401 and runs no command 1ms
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  2 failed | 62 passed (64)
+   Start at  18:06:17
+   Duration  355ms (transform 481ms, setup 0ms, import 402ms, tests 548ms, environment 1ms)
+

@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e2cf77b-ced4-4094-b1d7-54a362e1fe18/scratchpad/mutwork/20261121T180542Z-p2716153/mutant-18
+
+ ❯ |node| src/server/api/v1/__tests__/v1Routes.statbot-key-required.test.ts (2 tests | 1 failed) 68ms
+     × guilds/[guildId]/messages/[id].ts refuses a request with no credential with 401 and never reads the database 17ms
+ ❯ |node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts (3 tests | 1 failed) 71ms
+     × passes the header as sent and the configured credential 17ms
+ ❯ |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts (24 tests | 9 failed) 173ms
+     × refuses no authorization header with 401 and never reads the database 6ms
+     × refuses a wrong bearer with 401 and never reads the database 6ms
+     × refuses an empty bearer with 401 and never reads the database 3ms
+     × refuses the key without the Bearer scheme with 401 and never reads the database 3ms
+     × refuses the key under another scheme with 401 and never reads the database 4ms
+     × refuses the key with trailing characters with 401 and never reads the database 3ms
+     × refuses a lowercase scheme with 401 and never reads the database 3ms
+     × refuses the key in another case with 401 and never reads the database 3ms
+     × refuses an unauthenticated non-GET with 401, before the method check 4ms
+
+ Test Files  3 failed | 4 passed (7)
+      Tests  11 failed | 53 passed (64)
+   Start at  18:06:11
+   Duration  372ms (transform 405ms, setup 0ms, import 445ms, tests 551ms, environment 1ms)
+

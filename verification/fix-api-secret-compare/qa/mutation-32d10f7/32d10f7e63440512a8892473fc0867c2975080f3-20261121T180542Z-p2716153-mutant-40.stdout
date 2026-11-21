@@ -1,0 +1,31 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e2cf77b-ced4-4094-b1d7-54a362e1fe18/scratchpad/mutwork/20261121T180542Z-p2716153/mutant-40
+
+ ❯ |node| src/server/api/utils/__tests__/secretEquals.equality.test.ts (7 tests | 3 failed) 9ms
+     × fails, without throwing, for strings of unequal length (the first longer) 3ms
+     × fails, without throwing, for strings of unequal length (the second longer) 1ms
+     × fails, without throwing, for strings of unequal length (one empty) 0ms
+ ❯ |node| src/server/api/__tests__/interactions-server.token-required.test.ts (10 tests | 2 failed) 31ms
+     × refuses the token with trailing characters with 401 and runs no command 3ms
+     × refuses an empty token header with 401 and runs no command 1ms
+ ❯ |node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts (3 tests | 3 failed) 80ms
+     × passes the header as sent and the configured credential 66ms
+     × passes the header as sent and the configured credential 9ms
+     × passes the header as sent and the configured credential 2ms
+ ❯ |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts (24 tests | 10 failed) 174ms
+     × refuses a wrong bearer with 401 and never reads the database 7ms
+     × refuses an empty bearer with 401 and never reads the database 4ms
+     × refuses the key without the Bearer scheme with 401 and never reads the database 3ms
+     × refuses the key under another scheme with 401 and never reads the database 5ms
+     × refuses the key with trailing characters with 401 and never reads the database 6ms
+     × refuses a wrong bearer with 401 and never reads the database 3ms
+     × refuses an empty bearer with 401 and never reads the database 3ms
+     × refuses the key without the Bearer scheme with 401 and never reads the database 3ms
+     × refuses the key under another scheme with 401 and never reads the database 3ms
+     × refuses the key with trailing characters with 401 and never reads the database 4ms
+
+ Test Files  4 failed | 3 passed (7)
+      Tests  18 failed | 46 passed (64)
+   Start at  18:06:45
+   Duration  373ms (transform 436ms, setup 0ms, import 434ms, tests 601ms, environment 1ms)
+

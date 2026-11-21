@@ -1,0 +1,32 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e2cf77b-ced4-4094-b1d7-54a362e1fe18/scratchpad/mutwork/20261121T180542Z-p2716153/mutant-17
+
+ ❯ |node| src/server/api/v1/__tests__/v1Routes.statbot-key-required.test.ts (2 tests | 1 failed) 63ms
+     × guilds/[guildId]/messages/[id].ts refuses a request with no credential with 401 and never reads the database 14ms
+ ❯ |node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts (3 tests | 1 failed) 82ms
+     × passes the header as sent and the configured credential 15ms
+ ❯ |node| src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts (6 tests | 3 failed) 84ms
+     × stored valid=true 12ms
+     × stored valid=false 3ms
+     × stored valid=NULL 2ms
+ ❯ |node| src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts (12 tests | 10 failed) 121ms
+     × single, non-snowflake guild id 14ms
+     × single, non-numeric message id 4ms
+     × single, message id in exponent form 7ms
+     × single, fractional message id 4ms
+     × single, negative message id 3ms
+     × single, message id with surrounding space 5ms
+     × single, message id above the largest message number 3ms
+     × single, unexpected query key 4ms
+     × looks up the largest message number, digit for digit 4ms
+     × looks up a number with leading zeros, without them 5ms
+ ❯ |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts (24 tests | 3 failed) 156ms
+     × refuses no authorization header with 401 and never reads the database 6ms
+     × refuses an unauthenticated non-GET with 401, before the method check 3ms
+     × serves the rows for exactly `Bearer <key>` 7ms
+
+ Test Files  5 failed | 2 passed (7)
+      Tests  18 failed | 46 passed (64)
+   Start at  18:06:09
+   Duration  367ms (transform 431ms, setup 0ms, import 403ms, tests 531ms, environment 1ms)
+

@@ -1,0 +1,29 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e2cf77b-ced4-4094-b1d7-54a362e1fe18/scratchpad/mutwork/20261121T180542Z-p2716153/mutant-35
+
+ ❯ |node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts (3 tests | 1 failed) 67ms
+     × passes the header as sent and the configured credential 16ms
+ ❯ |node| src/server/api/v1/__tests__/guildMessages.valid-exposure.test.ts (6 tests | 3 failed) 84ms
+     × stored valid=true 10ms
+     × stored valid=false 3ms
+     × stored valid=NULL 2ms
+ ❯ |node| src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts (12 tests | 10 failed) 123ms
+     × single, non-snowflake guild id 12ms
+     × single, non-numeric message id 4ms
+     × single, message id in exponent form 9ms
+     × single, fractional message id 4ms
+     × single, negative message id 4ms
+     × single, message id with surrounding space 6ms
+     × single, message id above the largest message number 3ms
+     × single, unexpected query key 3ms
+     × looks up the largest message number, digit for digit 5ms
+     × looks up a number with leading zeros, without them 3ms
+ ❯ |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts (24 tests | 2 failed) 155ms
+     × refuses the key without the Bearer scheme with 401 and never reads the database 8ms
+     × serves the rows for exactly `Bearer <key>` 3ms
+
+ Test Files  4 failed | 3 passed (7)
+      Tests  16 failed | 48 passed (64)
+   Start at  18:06:37
+   Duration  388ms (transform 488ms, setup 0ms, import 514ms, tests 518ms, environment 1ms)
+

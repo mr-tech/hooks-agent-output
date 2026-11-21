@@ -1,0 +1,43 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses a wrong token of the same length with 401 and runs no command
+ FAIL  |node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses the token with trailing characters with 401 and runs no command
+ FAIL  |node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses an empty token header with 401 and runs no command
+AssertionError: expected 200 to be 401 // Object.is equality
+
+- Expected
++ Received
+
+- 401
++ 200
+
+ ❯ src/server/api/__tests__/interactions-server.token-required.test.ts:43:28
+     41|   ])('refuses %s with 401 and runs no command', async (_case, headers)…
+     42|     const res = await call(headers);
+     43|     expect(res.statusCode).toBe(401);
+       |                            ^
+     44|     expect(res.ended).toBe(true);
+     45|     expect(getMessage).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts > /api/interactions-server compares the sent credential through secretEquals > passes the header as sent and the configured credential
+AssertionError: expected 400 to be 401 // Object.is equality
+
+- Expected
++ Received
+
+- 401
++ 400
+
+ ❯ src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts:64:28
+     62|     } as never, res as never);
+     63|
+     64|     expect(res.statusCode).toBe(401);
+       |                            ^
+     65|     expect(secretEquals).toHaveBeenCalledTimes(1);
+     66|     expect(secretEquals).toHaveBeenCalledWith(...expected);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+

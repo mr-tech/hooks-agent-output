@@ -1,0 +1,46 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e2cf77b-ced4-4094-b1d7-54a362e1fe18/scratchpad/proposed-export
+
+ ❯ |node| src/server/api/utils/__tests__/secretEquals.equality.test.ts (9 tests | 2 failed) 10ms
+     × compares the SHA-256 digests of both strings through crypto.timingSafeEqual 4ms
+     × answers what crypto.timingSafeEqual answers 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.equality.test.ts > secretEquals decides in constant time > compares the SHA-256 digests of both strings through crypto.timingSafeEqual
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/server/api/utils/__tests__/secretEquals.equality.test.ts:47:29
+     45|     secretEquals('abc', 'abcd');
+     46|
+     47|     expect(timingSafeEqual).toHaveBeenCalledTimes(1);
+       |                             ^
+     48|     const [first, second] = vi.mocked(timingSafeEqual).mock.calls[0]!;
+     49|     // SHA-256 of "abc" (FIPS 180-2 test vector) and of "abcd", taken …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.equality.test.ts > secretEquals decides in constant time > answers what crypto.timingSafeEqual answers
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/server/api/utils/__tests__/secretEquals.equality.test.ts:58:41
+     56|   it('answers what crypto.timingSafeEqual answers', () => {
+     57|     vi.mocked(timingSafeEqual).mockReturnValueOnce(true);
+     58|     expect(secretEquals('abc', 'abcd')).toBe(true);
+       |                                         ^
+     59|   });
+     60| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 7 passed (9)
+   Start at  18:08:35
+   Duration  166ms (transform 20ms, setup 0ms, import 38ms, tests 10ms, environment 0ms)
+

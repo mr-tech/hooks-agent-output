@@ -1,0 +1,320 @@
+[
+  {
+    "id": "interactions-server.ts:13:if-false",
+    "file": "src/pages/api/interactions-server.ts",
+    "old": " if (!",
+    "new": " if (false && !",
+    "op": "if-false",
+    "line": 13,
+    "text": "if (!env.HOOKS_API_TOKEN || typeof token !== 'string' || !secretEquals(token, env.HOOKS_API_TOKEN)) {"
+  },
+  {
+    "id": "interactions-server.ts:13:not",
+    "file": "src/pages/api/interactions-server.ts",
+    "old": "(!e",
+    "new": "(e",
+    "op": "not",
+    "line": 13,
+    "text": "if (!env.HOOKS_API_TOKEN || typeof token !== 'string' || !secretEquals(token, env.HOOKS_API_TOKEN)) {"
+  },
+  {
+    "id": "interactions-server.ts:13:||",
+    "file": "src/pages/api/interactions-server.ts",
+    "old": "N || t",
+    "new": "N && t",
+    "op": "||",
+    "line": 13,
+    "text": "if (!env.HOOKS_API_TOKEN || typeof token !== 'string' || !secretEquals(token, env.HOOKS_API_TOKEN)) {"
+  },
+  {
+    "id": "interactions-server.ts:13:!==",
+    "file": "src/pages/api/interactions-server.ts",
+    "old": "n !== '",
+    "new": "n === '",
+    "op": "!==",
+    "line": 13,
+    "text": "if (!env.HOOKS_API_TOKEN || typeof token !== 'string' || !secretEquals(token, env.HOOKS_API_TOKEN)) {"
+  },
+  {
+    "id": "interactions-server.ts:13:||:2",
+    "file": "src/pages/api/interactions-server.ts",
+    "old": "' || !",
+    "new": "' && !",
+    "op": "||",
+    "line": 13,
+    "text": "if (!env.HOOKS_API_TOKEN || typeof token !== 'string' || !secretEquals(token, env.HOOKS_API_TOKEN)) {"
+  },
+  {
+    "id": "interactions-server.ts:13:not:2",
+    "file": "src/pages/api/interactions-server.ts",
+    "old": " !s",
+    "new": " s",
+    "op": "not",
+    "line": 13,
+    "text": "if (!env.HOOKS_API_TOKEN || typeof token !== 'string' || !secretEquals(token, env.HOOKS_API_TOKEN)) {"
+  },
+  {
+    "id": "messages.ts:25:if-false",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+    "old": " if (!",
+    "new": " if (false && !",
+    "op": "if-false",
+    "line": 25,
+    "text": "if (!key || typeof authorization !== 'string' || !secretEquals(authorization, `Bearer ${key}`)) return res.status(401).end();"
+  },
+  {
+    "id": "messages.ts:25:not",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+    "old": "(!k",
+    "new": "(k",
+    "op": "not",
+    "line": 25,
+    "text": "if (!key || typeof authorization !== 'string' || !secretEquals(authorization, `Bearer ${key}`)) return res.status(401).end();"
+  },
+  {
+    "id": "messages.ts:25:||",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+    "old": "y || t",
+    "new": "y && t",
+    "op": "||",
+    "line": 25,
+    "text": "if (!key || typeof authorization !== 'string' || !secretEquals(authorization, `Bearer ${key}`)) return res.status(401).end();"
+  },
+  {
+    "id": "messages.ts:25:!==",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+    "old": "n !== '",
+    "new": "n === '",
+    "op": "!==",
+    "line": 25,
+    "text": "if (!key || typeof authorization !== 'string' || !secretEquals(authorization, `Bearer ${key}`)) return res.status(401).end();"
+  },
+  {
+    "id": "messages.ts:25:||:2",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+    "old": "' || !",
+    "new": "' && !",
+    "op": "||",
+    "line": 25,
+    "text": "if (!key || typeof authorization !== 'string' || !secretEquals(authorization, `Bearer ${key}`)) return res.status(401).end();"
+  },
+  {
+    "id": "messages.ts:25:not:2",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+    "old": " !s",
+    "new": " s",
+    "op": "not",
+    "line": 25,
+    "text": "if (!key || typeof authorization !== 'string' || !secretEquals(authorization, `Bearer ${key}`)) return res.status(401).end();"
+  },
+  {
+    "id": "messages.ts:25:num",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+    "old": "401",
+    "new": "402",
+    "op": "num",
+    "line": 25,
+    "text": "if (!key || typeof authorization !== 'string' || !secretEquals(authorization, `Bearer ${key}`)) return res.status(401).end();"
+  },
+  {
+    "id": "[id].ts:25:if-false",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+    "old": " if (!",
+    "new": " if (false && !",
+    "op": "if-false",
+    "line": 25,
+    "text": "if (!key || typeof authorization !== 'string' || !secretEquals(authorization, `Bearer ${key}`)) return res.status(401).end();"
+  },
+  {
+    "id": "[id].ts:25:not",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+    "old": "(!k",
+    "new": "(k",
+    "op": "not",
+    "line": 25,
+    "text": "if (!key || typeof authorization !== 'string' || !secretEquals(authorization, `Bearer ${key}`)) return res.status(401).end();"
+  },
+  {
+    "id": "[id].ts:25:||",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+    "old": "y || t",
+    "new": "y && t",
+    "op": "||",
+    "line": 25,
+    "text": "if (!key || typeof authorization !== 'string' || !secretEquals(authorization, `Bearer ${key}`)) return res.status(401).end();"
+  },
+  {
+    "id": "[id].ts:25:!==",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+    "old": "n !== '",
+    "new": "n === '",
+    "op": "!==",
+    "line": 25,
+    "text": "if (!key || typeof authorization !== 'string' || !secretEquals(authorization, `Bearer ${key}`)) return res.status(401).end();"
+  },
+  {
+    "id": "[id].ts:25:||:2",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+    "old": "' || !",
+    "new": "' && !",
+    "op": "||",
+    "line": 25,
+    "text": "if (!key || typeof authorization !== 'string' || !secretEquals(authorization, `Bearer ${key}`)) return res.status(401).end();"
+  },
+  {
+    "id": "[id].ts:25:not:2",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+    "old": " !s",
+    "new": " s",
+    "op": "not",
+    "line": 25,
+    "text": "if (!key || typeof authorization !== 'string' || !secretEquals(authorization, `Bearer ${key}`)) return res.status(401).end();"
+  },
+  {
+    "id": "[id].ts:25:num",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+    "old": "401",
+    "new": "402",
+    "op": "num",
+    "line": 25,
+    "text": "if (!key || typeof authorization !== 'string' || !secretEquals(authorization, `Bearer ${key}`)) return res.status(401).end();"
+  },
+  {
+    "id": "qa-bot-empty-conjunct-removed",
+    "file": "src/pages/api/interactions-server.ts",
+    "old": "!env.HOOKS_API_TOKEN || ",
+    "new": ""
+  },
+  {
+    "id": "qa-bot-type-conjunct-removed",
+    "file": "src/pages/api/interactions-server.ts",
+    "old": "typeof token !== 'string' || ",
+    "new": ""
+  },
+  {
+    "id": "qa-bot-compare-conjunct-removed",
+    "file": "src/pages/api/interactions-server.ts",
+    "old": " || !secretEquals(token, env.HOOKS_API_TOKEN)",
+    "new": ""
+  },
+  {
+    "id": "qa-bot-self-compare",
+    "file": "src/pages/api/interactions-server.ts",
+    "old": "secretEquals(token, env.HOOKS_API_TOKEN)",
+    "new": "secretEquals(token, token)"
+  },
+  {
+    "id": "qa-bot-coupling-type-gated-on-env",
+    "file": "src/pages/api/interactions-server.ts",
+    "old": "typeof token !== 'string' || ",
+    "new": "(!!env.HOOKS_API_TOKEN && typeof token !== 'string') || "
+  },
+  {
+    "id": "qa-list-key-conjunct-removed",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+    "old": "!key || ",
+    "new": ""
+  },
+  {
+    "id": "qa-list-type-conjunct-removed",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+    "old": "typeof authorization !== 'string' || ",
+    "new": ""
+  },
+  {
+    "id": "qa-list-compare-conjunct-removed",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+    "old": " || !secretEquals(authorization, `Bearer ${key}`)",
+    "new": ""
+  },
+  {
+    "id": "qa-list-self-compare",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+    "old": "secretEquals(authorization, `Bearer ${key}`)",
+    "new": "secretEquals(authorization, authorization)"
+  },
+  {
+    "id": "qa-list-scheme-dropped",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages.ts",
+    "old": "secretEquals(authorization, `Bearer ${key}`)",
+    "new": "secretEquals(authorization, key)"
+  },
+  {
+    "id": "qa-single-key-conjunct-removed",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+    "old": "!key || ",
+    "new": ""
+  },
+  {
+    "id": "qa-single-type-conjunct-removed",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+    "old": "typeof authorization !== 'string' || ",
+    "new": ""
+  },
+  {
+    "id": "qa-single-compare-conjunct-removed",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+    "old": " || !secretEquals(authorization, `Bearer ${key}`)",
+    "new": ""
+  },
+  {
+    "id": "qa-single-self-compare",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+    "old": "secretEquals(authorization, `Bearer ${key}`)",
+    "new": "secretEquals(authorization, authorization)"
+  },
+  {
+    "id": "qa-single-scheme-dropped",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+    "old": "secretEquals(authorization, `Bearer ${key}`)",
+    "new": "secretEquals(authorization, key)"
+  },
+  {
+    "id": "qa-single-id-unvalidated",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+    "old": "id: messageIdShape }",
+    "new": "id: z.string() }"
+  },
+  {
+    "id": "qa-single-id-base-coerce-restored",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+    "old": "id: messageIdShape }",
+    "new": "id: z.number({ coerce: true }).transform(String) }"
+  },
+  {
+    "id": "qa-single-where-through-number",
+    "file": "src/pages/api/v1/guilds/[guildId]/messages/[id].ts",
+    "old": ".where('Messages.id', '=', id)",
+    "new": ".where('Messages.id', '=', Number(id).toString())"
+  },
+  {
+    "id": "qa-secret-equals-one-side",
+    "file": "src/server/api/utils/secretEquals.ts",
+    "old": "timingSafeEqual(digest(a), digest(b))",
+    "new": "timingSafeEqual(digest(a), digest(a))"
+  },
+  {
+    "id": "qa-secret-equals-raw-buffers",
+    "file": "src/server/api/utils/secretEquals.ts",
+    "old": "timingSafeEqual(digest(a), digest(b))",
+    "new": "timingSafeEqual(Buffer.from(a), Buffer.from(b))"
+  },
+  {
+    "id": "qa-secret-equals-plain-equality",
+    "file": "src/server/api/utils/secretEquals.ts",
+    "old": "return timingSafeEqual(digest(a), digest(b));",
+    "new": "return a === b;"
+  },
+  {
+    "id": "qa-secret-equals-buffer-equals",
+    "file": "src/server/api/utils/secretEquals.ts",
+    "old": "return timingSafeEqual(digest(a), digest(b));",
+    "new": "return digest(a).equals(digest(b));"
+  },
+  {
+    "id": "qa-secret-equals-md5",
+    "file": "src/server/api/utils/secretEquals.ts",
+    "old": "createHash('sha256')",
+    "new": "createHash('md5')"
+  }
+]

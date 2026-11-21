@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e2cf77b-ced4-4094-b1d7-54a362e1fe18/scratchpad/mutwork/20261121T180542Z-p2716153/mutant-26
+
+ ❯ |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts (24 tests | 2 failed) 143ms
+     × fails closed when the server key is unset 9ms
+     × fails closed when the server key is empty 6ms
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  2 failed | 62 passed (64)
+   Start at  18:06:23
+   Duration  344ms (transform 423ms, setup 0ms, import 424ms, tests 472ms, environment 1ms)
+

@@ -1,0 +1,114 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 18 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses the token with trailing characters with 401 and runs no command
+ FAIL  |node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses an empty token header with 401 and runs no command
+RangeError: Input buffers must have the same byte length
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:10
+      6|
+      7| export default function secretEquals(a: string, b: string) {
+      8|   return timingSafeEqual(Buffer.from(a), Buffer.from(b));
+       |          ^
+      9| }
+     10|
+ ❯ handler src/pages/api/interactions-server.ts:13:61
+ ❯ call src/server/api/__tests__/interactions-server.token-required.test.ts:25:9
+ ❯ src/server/api/__tests__/interactions-server.token-required.test.ts:42:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/18]⎯
+
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (list) requires the Statbot key > refuses a wrong bearer with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (list) requires the Statbot key > refuses an empty bearer with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (list) requires the Statbot key > refuses the key without the Bearer scheme with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (list) requires the Statbot key > refuses the key under another scheme with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (list) requires the Statbot key > refuses the key with trailing characters with 401 and never reads the database
+RangeError: Input buffers must have the same byte length
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:10
+      6|
+      7| export default function secretEquals(a: string, b: string) {
+      8|   return timingSafeEqual(Buffer.from(a), Buffer.from(b));
+       |          ^
+      9| }
+     10|
+ ❯ handler src/pages/api/v1/guilds/[guildId]/messages.ts:25:53
+ ❯ call src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts:42:9
+ ❯ src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts:65:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/18]⎯
+
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > refuses a wrong bearer with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > refuses an empty bearer with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > refuses the key without the Bearer scheme with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > refuses the key under another scheme with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > refuses the key with trailing characters with 401 and never reads the database
+RangeError: Input buffers must have the same byte length
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:10
+      6|
+      7| export default function secretEquals(a: string, b: string) {
+      8|   return timingSafeEqual(Buffer.from(a), Buffer.from(b));
+       |          ^
+      9| }
+     10|
+ ❯ handler src/pages/api/v1/guilds/[guildId]/messages/[id].ts:25:53
+ ❯ call src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts:42:9
+ ❯ src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts:65:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/18]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts > /api/v1 guild messages (list) compares the sent credential through secretEquals > passes the header as sent and the configured credential
+RangeError: Input buffers must have the same byte length
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:50
+      6|
+      7| export default function secretEquals(a: string, b: string) {
+      8|   return timingSafeEqual(Buffer.from(a), Buffer.from(b));
+       |                                                  ^
+      9| }
+     10|
+ ❯ handler src/pages/api/v1/guilds/[guildId]/messages.ts:25:53
+ ❯ src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts:60:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/18]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts > /api/v1 guild messages (single) compares the sent credential through secretEquals > passes the header as sent and the configured credential
+RangeError: Input buffers must have the same byte length
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:50
+      6|
+      7| export default function secretEquals(a: string, b: string) {
+      8|   return timingSafeEqual(Buffer.from(a), Buffer.from(b));
+       |                                                  ^
+      9| }
+     10|
+ ❯ handler src/pages/api/v1/guilds/[guildId]/messages/[id].ts:25:53
+ ❯ src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts:60:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/18]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts > /api/interactions-server compares the sent credential through secretEquals > passes the header as sent and the configured credential
+RangeError: Input buffers must have the same byte length
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:50
+      6|
+      7| export default function secretEquals(a: string, b: string) {
+      8|   return timingSafeEqual(Buffer.from(a), Buffer.from(b));
+       |                                                  ^
+      9| }
+     10|
+ ❯ handler src/pages/api/interactions-server.ts:13:61
+ ❯ src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts:60:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/18]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.equality.test.ts > secretEquals > fails, without throwing, for strings of unequal length (the first longer)
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.equality.test.ts > secretEquals > fails, without throwing, for strings of unequal length (the second longer)
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.equality.test.ts > secretEquals > fails, without throwing, for strings of unequal length (one empty)
+RangeError: Input buffers must have the same byte length
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:10
+      6|
+      7| export default function secretEquals(a: string, b: string) {
+      8|   return timingSafeEqual(Buffer.from(a), Buffer.from(b));
+       |          ^
+      9| }
+     10|
+ ❯ src/server/api/utils/__tests__/secretEquals.equality.test.ts:19:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/18]⎯
+

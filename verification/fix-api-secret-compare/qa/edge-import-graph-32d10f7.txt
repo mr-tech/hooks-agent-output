@@ -1,0 +1,33 @@
+== src/pages/api/interactions-edge.ts
+local inputs (10):
+  bot/constants.ts
+  bot/edgeCommands.ts
+  bot/utils/DiscordEmbed.ts
+  bot/utils/DiscordMessage.ts
+  bot/utils/isCommand.ts
+  src/constants/index.ts
+  src/constants/messageLimits.ts
+  src/env.mjs
+  src/pages/api/interactions-edge.ts
+  src/utils/getBaseUrl.ts
+external packages: discord-verify, form-data, next/server, zod
+reaches secretEquals.ts: false; reaches crypto: false
+== src/pages/api/interactions-server.ts
+local inputs (14):
+  bot/constants.ts
+  bot/serverCommands.ts
+  bot/utils/DiscordEmbed.ts
+  bot/utils/DiscordMessage.ts
+  src/env.mjs
+  src/pages/api/interactions-server.ts
+  src/server/api/utils/secretEquals.ts
+  src/utils/constructImageUrl.ts
+  src/utils/discordResponseToMessage.ts
+  src/utils/getUrlCode.ts
+  src/utils/redis/client.ts
+  src/utils/redis/formatKey.ts
+  src/utils/redis/messageStore.ts
+  src/utils/withCode.ts
+external packages: compress-json, crypto, discord-api-types/v10, form-data, ioredis, nanoid, zod
+reaches secretEquals.ts: true; reaches crypto: true
+RESULT: edge route clear; positive control fires

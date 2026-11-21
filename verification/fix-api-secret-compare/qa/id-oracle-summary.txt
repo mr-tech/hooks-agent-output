@@ -1,0 +1,27 @@
+32d10f7: inputs=1422 oracle-accept=519 oracle-reject=903 disagree=8
+  status counts {400: 911, 404: 511}
+  disagreements: accepted-by-oracle 8 rejected-by-oracle 0
+   {"id": "00000000000000000001", "status": 400, "dbRead": false, "looked": null} oracle {"accept": true, "lookup": "1"}
+   {"id": "000000000000000000001", "status": 400, "dbRead": false, "looked": null} oracle {"accept": true, "lookup": "1"}
+   {"id": "09223372036854775807", "status": 400, "dbRead": false, "looked": null} oracle {"accept": true, "lookup": "9223372036854775807"}
+   {"id": "01328232906740986967", "status": 400, "dbRead": false, "looked": null} oracle {"accept": true, "lookup": "1328232906740986967"}
+   {"id": "01545555887040984330", "status": 400, "dbRead": false, "looked": null} oracle {"accept": true, "lookup": "1545555887040984330"}
+   {"id": "07339237709719346087", "status": 400, "dbRead": false, "looked": null} oracle {"accept": true, "lookup": "7339237709719346087"}
+   {"id": "01898919872851870674", "status": 400, "dbRead": false, "looked": null} oracle {"accept": true, "lookup": "1898919872851870674"}
+   {"id": "06133250385872225837", "status": 400, "dbRead": false, "looked": null} oracle {"accept": true, "lookup": "6133250385872225837"}
+b68f94c: inputs=1422 oracle-accept=519 oracle-reject=903 disagree=205
+  status counts {404: 636, 400: 786}
+  disagreements: accepted-by-oracle 88 rejected-by-oracle 117
+   {"id": "", "status": 404, "dbRead": true, "looked": "0"} oracle {"accept": false}
+   {"id": "9223372036854775806", "status": 404, "dbRead": true, "looked": "9223372036854776000"} oracle {"accept": true, "lookup": "9223372036854775806"}
+   {"id": "9223372036854775807", "status": 404, "dbRead": true, "looked": "9223372036854776000"} oracle {"accept": true, "lookup": "9223372036854775807"}
+   {"id": "9223372036854775808", "status": 404, "dbRead": true, "looked": "9223372036854776000"} oracle {"accept": false}
+   {"id": "9999999999999999999", "status": 404, "dbRead": true, "looked": "10000000000000000000"} oracle {"accept": false}
+   {"id": "10000000000000000000", "status": 404, "dbRead": true, "looked": "10000000000000000000"} oracle {"accept": false}
+   {"id": "09223372036854775807", "status": 404, "dbRead": true, "looked": "9223372036854776000"} oracle {"accept": true, "lookup": "9223372036854775807"}
+   {"id": "18446744073709551615", "status": 404, "dbRead": true, "looked": "18446744073709552000"} oracle {"accept": false}
+   {"id": "9007199254740993", "status": 404, "dbRead": true, "looked": "9007199254740992"} oracle {"accept": true, "lookup": "9007199254740993"}
+   {"id": "1e3", "status": 404, "dbRead": true, "looked": "1000"} oracle {"accept": false}
+   {"id": "1E3", "status": 404, "dbRead": true, "looked": "1000"} oracle {"accept": false}
+   {"id": "1.5", "status": 404, "dbRead": true, "looked": "1.5"} oracle {"accept": false}
+   ... 193 more

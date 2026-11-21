@@ -1,0 +1,66 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses no token header with 401 and runs no command
+TypeError: The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received undefined
+ ❯ digest src/server/api/utils/secretEquals.ts:4:31
+      2|
+      3| function digest(value: string) {
+      4|   return createHash('sha256').update(value).digest();
+       |                               ^
+      5| }
+      6|
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:26
+ ❯ handler src/pages/api/interactions-server.ts:13:61
+ ❯ call src/server/api/__tests__/interactions-server.token-required.test.ts:25:9
+ ❯ src/server/api/__tests__/interactions-server.token-required.test.ts:42:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > refuses a repeated token header with 401 and runs no command
+TypeError: The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received an instance of Array
+ ❯ digest src/server/api/utils/secretEquals.ts:4:31
+      2|
+      3| function digest(value: string) {
+      4|   return createHash('sha256').update(value).digest();
+       |                               ^
+      5| }
+      6|
+ ❯ secretEquals src/server/api/utils/secretEquals.ts:8:26
+ ❯ handler src/pages/api/interactions-server.ts:13:61
+ ❯ call src/server/api/__tests__/interactions-server.token-required.test.ts:25:9
+ ❯ src/server/api/__tests__/interactions-server.token-required.test.ts:42:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |node| src/server/api/__tests__/interactions-server.token-required.test.ts > /api/interactions-server requires the hooks API token > runs the command for exactly the configured token
+AssertionError: expected 401 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 401
+
+ ❯ src/server/api/__tests__/interactions-server.token-required.test.ts:50:28
+     48|   it('runs the command for exactly the configured token', async () => {
+     49|     const res = await call({ 'x-hooks-api-token': TOKEN });
+     50|     expect(res.statusCode).toBe(200);
+       |                            ^
+     51|     expect(getMessage).toHaveBeenCalledTimes(1);
+     52|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts > /api/interactions-server compares the sent credential through secretEquals > passes the header as sent and the configured credential
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts:65:26
+     63|
+     64|     expect(res.statusCode).toBe(401);
+     65|     expect(secretEquals).toHaveBeenCalledTimes(1);
+       |                          ^
+     66|     expect(secretEquals).toHaveBeenCalledWith(...expected);
+     67|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+

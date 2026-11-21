@@ -1,0 +1,30 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts > /api/v1 single guild message reads the message number it was given > looks up the largest message number, digit for digit
+AssertionError: expected "vi.fn()" to be called with arguments: [ 'Messages.id', '=', …(1) ]
+
+Received:
+
+  1st vi.fn() call:
+
+  [
+    "Messages.id",
+    "=",
+-   "9223372036854775807",
++   "9223372036854776000",
+  ]
+
+
+Number of calls: 1
+
+ ❯ src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts:81:19
+     79|     getPostgres.mockReturnValue(query);
+     80|     const res = await call(SINGLE, { guildId: GUILD, id });
+     81|     expect(where).toHaveBeenCalledWith('Messages.id', '=', looked);
+       |                   ^
+     82|     expect(res.statusCode).toBe(404);
+     83|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

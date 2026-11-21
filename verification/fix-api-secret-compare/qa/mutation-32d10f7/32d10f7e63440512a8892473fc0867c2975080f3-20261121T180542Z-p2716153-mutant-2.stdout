@@ -1,0 +1,15 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e2cf77b-ced4-4094-b1d7-54a362e1fe18/scratchpad/mutwork/20261121T180542Z-p2716153/mutant-2
+
+ ❯ |node| src/server/api/__tests__/interactions-server.token-required.test.ts (10 tests | 3 failed) 30ms
+     × runs the command for exactly the configured token 7ms
+     × fails closed when the configured token is empty, with an empty header 2ms
+     × fails closed when the configured token is unset, with the header "undefined" 1ms
+ ❯ |node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts (3 tests | 1 failed) 87ms
+     × passes the header as sent and the configured credential 5ms
+
+ Test Files  2 failed | 5 passed (7)
+      Tests  4 failed | 60 passed (64)
+   Start at  18:05:46
+   Duration  366ms (transform 487ms, setup 0ms, import 397ms, tests 585ms, environment 1ms)
+

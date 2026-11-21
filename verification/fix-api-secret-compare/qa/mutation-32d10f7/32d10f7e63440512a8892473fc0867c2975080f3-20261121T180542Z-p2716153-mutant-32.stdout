@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e2cf77b-ced4-4094-b1d7-54a362e1fe18/scratchpad/mutwork/20261121T180542Z-p2716153/mutant-32
+
+ ❯ |node| src/server/api/v1/__tests__/v1Routes.statbot-key-required.test.ts (2 tests | 1 failed) 66ms
+     × guilds/[guildId]/messages/[id].ts refuses a request with no credential with 401 and never reads the database 15ms
+ ❯ |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts (24 tests | 2 failed) 150ms
+     × refuses no authorization header with 401 and never reads the database 6ms
+     × refuses an unauthenticated non-GET with 401, before the method check 3ms
+
+ Test Files  2 failed | 5 passed (7)
+      Tests  3 failed | 61 passed (64)
+   Start at  18:06:32
+   Duration  345ms (transform 472ms, setup 0ms, import 439ms, tests 517ms, environment 1ms)
+

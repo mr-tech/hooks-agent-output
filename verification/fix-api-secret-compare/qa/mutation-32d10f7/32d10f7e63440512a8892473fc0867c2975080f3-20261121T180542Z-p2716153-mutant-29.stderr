@@ -1,0 +1,47 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts > /api/v1 guild messages (list) compares the sent credential through secretEquals > passes the header as sent and the configured credential
+AssertionError: expected 200 to be 401 // Object.is equality
+
+- Expected
++ Received
+
+- 401
++ 200
+
+ ❯ src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts:64:28
+     62|     } as never, res as never);
+     63|
+     64|     expect(res.statusCode).toBe(401);
+       |                            ^
+     65|     expect(secretEquals).toHaveBeenCalledTimes(1);
+     66|     expect(secretEquals).toHaveBeenCalledWith(...expected);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (list) requires the Statbot key > refuses a wrong bearer with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (list) requires the Statbot key > refuses an empty bearer with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (list) requires the Statbot key > refuses the key without the Bearer scheme with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (list) requires the Statbot key > refuses the key under another scheme with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (list) requires the Statbot key > refuses the key with trailing characters with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (list) requires the Statbot key > refuses a lowercase scheme with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (list) requires the Statbot key > refuses the key in another case with 401 and never reads the database
+AssertionError: expected 200 to be 401 // Object.is equality
+
+- Expected
++ Received
+
+- 401
++ 200
+
+ ❯ src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts:66:28
+     64|   ])('refuses %s with 401 and never reads the database', async (_case,…
+     65|     const res = await call(path, query, headers);
+     66|     expect(res.statusCode).toBe(401);
+       |                            ^
+     67|     expect(res.ended).toBe(true);
+     68|     expect(res.body).toBeUndefined();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+

@@ -1,0 +1,106 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 13 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts > /api/v1 guild messages (single) compares the sent credential through secretEquals > passes the header as sent and the configured credential
+AssertionError: expected 402 to be 401 // Object.is equality
+
+- Expected
++ Received
+
+- 401
++ 402
+
+ ❯ src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts:64:28
+     62|     } as never, res as never);
+     63|
+     64|     expect(res.statusCode).toBe(401);
+       |                            ^
+     65|     expect(secretEquals).toHaveBeenCalledTimes(1);
+     66|     expect(secretEquals).toHaveBeenCalledWith(...expected);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/13]⎯
+
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > refuses no authorization header with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > refuses a wrong bearer with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > refuses an empty bearer with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > refuses the key without the Bearer scheme with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > refuses the key under another scheme with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > refuses the key with trailing characters with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > refuses a lowercase scheme with 401 and never reads the database
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > refuses the key in another case with 401 and never reads the database
+AssertionError: expected 402 to be 401 // Object.is equality
+
+- Expected
++ Received
+
+- 401
++ 402
+
+ ❯ src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts:66:28
+     64|   ])('refuses %s with 401 and never reads the database', async (_case,…
+     65|     const res = await call(path, query, headers);
+     66|     expect(res.statusCode).toBe(401);
+       |                            ^
+     67|     expect(res.ended).toBe(true);
+     68|     expect(res.body).toBeUndefined();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/13]⎯
+
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > refuses an unauthenticated non-GET with 401, before the method check
+AssertionError: expected 402 to be 401 // Object.is equality
+
+- Expected
++ Received
+
+- 401
++ 402
+
+ ❯ src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts:74:28
+     72|   it('refuses an unauthenticated non-GET with 401, before the method c…
+     73|     const res = await call(path, query, {}, 'POST');
+     74|     expect(res.statusCode).toBe(401);
+       |                            ^
+     75|     expect(res.ended).toBe(true);
+     76|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/13]⎯
+
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > fails closed when the server key is unset
+ FAIL  |node| src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts > /api/v1 guild messages (single) requires the Statbot key > fails closed when the server key is empty
+AssertionError: expected 402 to be 401 // Object.is equality
+
+- Expected
++ Received
+
+- 401
++ 402
+
+ ❯ src/server/api/v1/__tests__/guildMessages.statbot-key-required.test.ts:90:28
+     88|     vi.stubEnv('STATBOT_API_KEY', serverKey);
+     89|     const res = await call(path, query, { authorization });
+     90|     expect(res.statusCode).toBe(401);
+       |                            ^
+     91|     expect(res.ended).toBe(true);
+     92|     expect(getPostgres).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/13]⎯
+
+ FAIL  |node| src/server/api/v1/__tests__/v1Routes.statbot-key-required.test.ts > every /api/v1 route requires the Statbot key > guilds/[guildId]/messages/[id].ts refuses a request with no credential with 401 and never reads the database
+AssertionError: expected 402 to be 401 // Object.is equality
+
+- Expected
++ Received
+
+- 401
++ 402
+
+ ❯ src/server/api/v1/__tests__/v1Routes.statbot-key-required.test.ts:52:28
+     50|     const res = makeRes();
+     51|     await handler({ method: 'GET', query: queryFor(route), headers: {}…
+     52|     expect(res.statusCode).toBe(401);
+       |                            ^
+     53|     expect(res.ended).toBe(true);
+     54|     expect(getPostgres).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/13]⎯
+

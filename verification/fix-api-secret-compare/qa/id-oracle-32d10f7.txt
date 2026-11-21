@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e2cf77b-ced4-4094-b1d7-54a362e1fe18/scratchpad/oracle-32d10f7
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  18:07:13
+   Duration  305ms (transform 68ms, setup 0ms, import 47ms, tests 145ms, environment 0ms)
+

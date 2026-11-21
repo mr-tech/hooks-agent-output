@@ -1,0 +1,17 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e2cf77b-ced4-4094-b1d7-54a362e1fe18/scratchpad/mutwork/20261121T180542Z-p2716153/mutant-36
+
+ ❯ |node| src/server/api/v1/__tests__/guildMessages.malformed-query.test.ts (12 tests | 7 failed) 123ms
+     × single, non-numeric message id 10ms
+     × single, message id in exponent form 4ms
+     × single, fractional message id 5ms
+     × single, negative message id 3ms
+     × single, message id with surrounding space 4ms
+     × single, message id above the largest message number 4ms
+     × looks up a number with leading zeros, without them 4ms
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  7 failed | 57 passed (64)
+   Start at  18:06:39
+   Duration  346ms (transform 417ms, setup 0ms, import 399ms, tests 507ms, environment 1ms)
+

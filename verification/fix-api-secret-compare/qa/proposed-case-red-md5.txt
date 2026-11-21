@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e2cf77b-ced4-4094-b1d7-54a362e1fe18/scratchpad/proposed-export
+
+ ❯ |node| src/server/api/utils/__tests__/secretEquals.equality.test.ts (9 tests | 1 failed) 11ms
+     × compares the SHA-256 digests of both strings through crypto.timingSafeEqual 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/server/api/utils/__tests__/secretEquals.equality.test.ts > secretEquals decides in constant time > compares the SHA-256 digests of both strings through crypto.timingSafeEqual
+AssertionError: expected '900150983cd24fb0d6963f7d28e17f72' to be 'ba7816bf8f01cfea414140de5dae2223b0036…' // Object.is equality
+
+Expected: "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+Received: "900150983cd24fb0d6963f7d28e17f72"
+
+ ❯ src/server/api/utils/__tests__/secretEquals.equality.test.ts:51:8
+     49|     // SHA-256 of "abc" (FIPS 180-2 test vector) and of "abcd", taken …
+     50|     expect(Buffer.from(first as Uint8Array).toString('hex'))
+     51|       .toBe('ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f…
+       |        ^
+     52|     expect(Buffer.from(second as Uint8Array).toString('hex'))
+     53|       .toBe('88d4266fd4e6338d13b845fcf289579d209c897823b9217da3e161936…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 8 passed (9)
+   Start at  18:08:36
+   Duration  168ms (transform 21ms, setup 0ms, import 39ms, tests 11ms, environment 0ms)
+

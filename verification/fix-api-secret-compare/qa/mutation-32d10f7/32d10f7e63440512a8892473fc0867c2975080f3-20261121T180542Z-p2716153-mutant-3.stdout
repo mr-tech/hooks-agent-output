@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e2cf77b-ced4-4094-b1d7-54a362e1fe18/scratchpad/mutwork/20261121T180542Z-p2716153/mutant-3
+
+ ❯ |node| src/server/api/__tests__/interactions-server.token-required.test.ts (10 tests | 4 failed) 26ms
+     × refuses no token header with 401 and runs no command 16ms
+     × refuses a repeated token header with 401 and runs no command 1ms
+     × fails closed when the configured token is empty, with an empty header 5ms
+     × fails closed when the configured token is unset, with the header "undefined" 0ms
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  4 failed | 60 passed (64)
+   Start at  18:05:47
+   Duration  338ms (transform 438ms, setup 0ms, import 430ms, tests 499ms, environment 1ms)
+

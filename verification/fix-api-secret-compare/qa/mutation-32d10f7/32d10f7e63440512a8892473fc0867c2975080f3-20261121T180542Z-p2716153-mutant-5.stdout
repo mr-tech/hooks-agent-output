@@ -1,0 +1,17 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4e2cf77b-ced4-4094-b1d7-54a362e1fe18/scratchpad/mutwork/20261121T180542Z-p2716153/mutant-5
+
+ ❯ |node| src/server/api/__tests__/interactions-server.token-required.test.ts (10 tests | 5 failed) 27ms
+     × refuses no token header with 401 and runs no command 19ms
+     × refuses a wrong token of the same length with 401 and runs no command 4ms
+     × refuses the token with trailing characters with 401 and runs no command 1ms
+     × refuses an empty token header with 401 and runs no command 1ms
+     × refuses a repeated token header with 401 and runs no command 0ms
+ ❯ |node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts (3 tests | 1 failed) 84ms
+     × passes the header as sent and the configured credential 7ms
+
+ Test Files  2 failed | 5 passed (7)
+      Tests  6 failed | 58 passed (64)
+   Start at  18:05:51
+   Duration  347ms (transform 502ms, setup 0ms, import 420ms, tests 538ms, environment 1ms)
+
