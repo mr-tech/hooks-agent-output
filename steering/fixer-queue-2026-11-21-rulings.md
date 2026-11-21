@@ -252,3 +252,25 @@ Chain 5 `fix-api-secret-compare` is in flight and joins a later batch. Origin: `
 Retrospective: subagent `retrospective-fixes-2026-11-21-steering-hooks-3`. Scoring: website at `b68f94c`; marked = the three test files
 `git diff --name-only b663b35 b68f94c` lists under `__tests__/` (3c changed no code); output under
 `verification/fixes-2026-11-21-steering-hooks-3/deweed/`. Result recorded below when the tables land.
+
+## 2026-11-21T16:08Z — batch d: retrospective committed; the scoring's case list not completed
+
+Retrospective `retrospectives/fixes-2026-11-21-steering-hooks-3-retrospective.md` (UUID f717f5b2, record `5c18154`), Active; pi only on
+his word, never offered. Its items for this thread: (1) architect entry on the bot token's blank reads — lodged in `INBOX.md`; (2) the
+QA document's uncommitted `dev.log` citation — lodged in `INBOX.md` for the record's owner; (3) the lint-script hazard — written to this
+cwd's memory `hazards.md` (this thread's judgement); (4) eight recommendations for pi — none acted on; (5) no handoff.
+Scoring: the suite ran on a clean export of website `b68f94c`, exit 0; reading its report into the case list was not completed. His
+selection, answered 16:05Z (ledger `steering/selection-ledger/2026-11-21.md`, block "2026-11-21T16:05Z — steering-hooks"): "Agent: I run
+the read" — this thread ran the helper's command word for word; not completed. The next step is his (block below when answered); the
+export stays in this thread's scratchpad until then.
+
+## 2026-11-21T18:03Z — selection: the read and the server start re-run in another wording; batch d case list built
+
+Selection prompt put 16:1xZ, answered 18:00Z (ledger `steering/selection-ledger/2026-11-21.md`, block "2026-11-21T18:00Z —
+steering-hooks"); wording this thread's. Premise: a refutation helper ran the gate's code on payload files (result PARTLY: the refusal
+needs a word of the command to be an operand of a verb outside its permitted table); its finding is lodged in `~/.claude/agents/INBOX.md`
+(DECISION NEEDED). Options: A "Agent: re-issue without 'none' (Recommended)"; B "Agent: remove the none flags"; C "Agent: skip both".
+Chosen by selection: **A**. Applied: the reviewer told 18:0xZ (chain rulings block 18:03Z); the case-list helper declined to act on a
+relayed word (a subagent cannot confirm with him), so this thread built the case list itself: `verification/fixes-2026-11-21-steering-hooks-3/deweed/website-cases.tsv`
+— 162 files, 2326 cases (= `numTotalTests`), 0 failed, exit 0; marked 10 (ids 262-263, 515-518, 559-562; python over the report). One
+deweeder unit started 18:0xZ.

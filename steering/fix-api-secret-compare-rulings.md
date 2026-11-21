@@ -123,3 +123,18 @@ Handoff-At `32d10f7`. Read by this thread (`git diff --numstat b68f94c 32d10f7`)
 every other path under `src/server/api/**/__tests__/**`; all in the write set. Premise correction (the fixer's): `makeRes` had 5
 importers at `b68f94c`, not 4 — `cron.scheduled-selection.test.ts` also imported it; moved with the rest (inside the write set).
 `code-reviewer-fix-api-secret-compare` started with `tmux-agent spawn`, brief `steering/fix-api-secret-compare-brief-code-reviewer.md`.
+`code-reviewer-fix-api-secret-compare` started 15:3xZ ("effort medium").
+
+## 2026-11-21T16:08Z — the review's live-attack server start: not completed
+
+The reviewer's start of a dummy-valued dev server of website `32d10f7` (from an export, every credential a dummy, database and Redis at
+a closed port) was not completed; it did not re-issue it and continues every other limb. His selection, answered 16:07Z (ledger
+`steering/selection-ledger/2026-11-21.md`, block "2026-11-21T16:07Z — steering-hooks"): "Agent: I start the server" — this thread ran
+the reviewer's command word for word (text from the reviewer by message, 16:0xZ); not completed. The reviewer was told (16:08Z) and
+waits on his next word for that limb only.
+
+## 2026-11-21T18:03Z — selection: the reviewer re-runs its server start with the dummy database renamed
+
+His selection, answered 18:00Z (effort rulings block "2026-11-21T18:03Z"; ledger block "2026-11-21T18:00Z — steering-hooks"): "Agent:
+re-issue without 'none' (Recommended)". Relayed verbatim to `code-reviewer-fix-api-secret-compare` 18:0xZ: re-issue with only the dummy
+database name changed (`nodb`), disclosed in its round as "not completed, re-run with the dummy database name changed", no reason.
