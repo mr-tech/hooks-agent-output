@@ -1,0 +1,3 @@
+audit-state-written-before-append KILLED 2.85
+failure-state-written-before-append SURVIVED 2.94
+1 of 2 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-state-order-c7b6898.json (blob d52b138dda16565b12f79ecb11f414d76f254a06))

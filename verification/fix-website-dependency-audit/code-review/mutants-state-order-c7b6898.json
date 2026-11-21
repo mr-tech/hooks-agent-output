@@ -1,0 +1,16 @@
+[
+ {
+  "id": "audit-state-written-before-append",
+  "file": "tools/website-dependency-audit.js",
+  "old": "  if (entries.length) appendEntries(opts.inbox, entries);\n  for (const u of fresh) state.reported[u.key] = now;\n  if (newPair) state.stale[pair] = now;\n  delete state.failing;\n  if (changed) writeState(opts.state, state);",
+  "new": "  for (const u of fresh) state.reported[u.key] = now;\n  if (newPair) state.stale[pair] = now;\n  delete state.failing;\n  if (changed) writeState(opts.state, state);\n  if (entries.length) appendEntries(opts.inbox, entries);",
+  "probe": "CR-1 class at c7b6898: append-before-state in each writer"
+ },
+ {
+  "id": "failure-state-written-before-append",
+  "file": "tools/website-dependency-audit.js",
+  "old": "  appendEntries(opts.inbox, [failureEntry(opts, err, now)]);\n  state.failing = now;\n  writeState(opts.state, state);",
+  "new": "  state.failing = now;\n  writeState(opts.state, state);\n  appendEntries(opts.inbox, [failureEntry(opts, err, now)]);",
+  "probe": "CR-1 class at c7b6898: append-before-state in each writer"
+ }
+]

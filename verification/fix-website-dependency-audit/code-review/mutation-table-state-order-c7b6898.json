@@ -1,0 +1,87 @@
+{
+ "sha": "c7b6898685a40aeeae59d4628a8d011121a2ec5a",
+ "repo": "/usr/local/bin/hooks/agent-output",
+ "mutantsFile": "verification/fix-website-dependency-audit/code-review/mutants-state-order-c7b6898.json",
+ "command": [
+  "node",
+  "--test",
+  "tools/websiteDependencyAudit.test.js"
+ ],
+ "env": {},
+ "deps": [],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 120.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "verification/fix-website-dependency-audit/code-review/mutants-state-order-c7b6898.json",
+   "blob": "d52b138dda16565b12f79ecb11f414d76f254a06"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/84577f0e-874c-402e-85bf-8999a0c5ce99/scratchpad/mut3/out/c7b6898685a40aeeae59d4628a8d011121a2ec5a-20261121T003204Z-p1574029-control-1.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/84577f0e-874c-402e-85bf-8999a0c5ce99/scratchpad/mut3/out/c7b6898685a40aeeae59d4628a8d011121a2ec5a-20261121T003204Z-p1574029-control-1.stderr",
+   "seconds": 3.14,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 17,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "audit-state-written-before-append",
+   "run": "mutant-1",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "probe": "CR-1 class at c7b6898: append-before-state in each writer"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 17,
+   "control_tests_run": 17,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "keeps no reported key when the inbox cannot be written, and reports the advisory on the next run"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.85,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/84577f0e-874c-402e-85bf-8999a0c5ce99/scratchpad/mut3/out/c7b6898685a40aeeae59d4628a8d011121a2ec5a-20261121T003204Z-p1574029-mutant-1.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/84577f0e-874c-402e-85bf-8999a0c5ce99/scratchpad/mut3/out/c7b6898685a40aeeae59d4628a8d011121a2ec5a-20261121T003204Z-p1574029-mutant-1.stderr"
+  },
+  {
+   "id": "failure-state-written-before-append",
+   "run": "mutant-2",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "probe": "CR-1 class at c7b6898: append-before-state in each writer"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 17,
+   "control_tests_run": 17,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 2.94,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/84577f0e-874c-402e-85bf-8999a0c5ce99/scratchpad/mut3/out/c7b6898685a40aeeae59d4628a8d011121a2ec5a-20261121T003204Z-p1574029-mutant-2.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/84577f0e-874c-402e-85bf-8999a0c5ce99/scratchpad/mut3/out/c7b6898685a40aeeae59d4628a8d011121a2ec5a-20261121T003204Z-p1574029-mutant-2.stderr"
+  }
+ ],
+ "score": "1 of 2 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-state-order-c7b6898.json (blob d52b138dda16565b12f79ecb11f414d76f254a06))"
+}
