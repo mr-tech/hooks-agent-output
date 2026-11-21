@@ -1,0 +1,4 @@
+bot-variable-time-accept-before KILLED 1.37
+list-variable-time-accept-before KILLED 1.51
+single-variable-time-accept-before KILLED 1.49
+3 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-sites-b01ae0b.json (blob 6af3f5a28115242f8678a4abb83bb079b36c49b8))

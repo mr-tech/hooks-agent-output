@@ -1,0 +1,4 @@
+variable-time-fallback-after KILLED 1.27
+variable-time-accept-before KILLED 1.25
+length-checked-first KILLED 1.27
+3 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-b01ae0b.json (blob 142ca9af7bc15c8fd4073db46a1e578087c8de66))

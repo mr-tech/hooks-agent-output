@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/7924190e-69a2-48cf-8867-6db2863db6e7/scratchpad/mut-work/20261121T181727Z-p2818604/mutant-3
+
+ ❯ |node| src/server/api/utils/__tests__/secretEquals.credential-sites.test.ts (6 tests | 1 failed) 101ms
+     × refuses the exact configured credential when secretEquals refuses it 9ms
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 49 passed (50)
+   Start at  18:17:35
+   Duration  386ms (transform 400ms, setup 0ms, import 372ms, tests 519ms, environment 0ms)
+
