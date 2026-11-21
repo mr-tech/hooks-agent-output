@@ -136,3 +136,24 @@ Scope: the cases in the test files the batch's commits changed, listed from clea
 - **Below 7:** 3 of 31 (website ids 584 and 1497; record id 20), each `remove`. Their covering ids are 583, 1496 and 12, every one
   scored 7 or more. No covering id is unchecked.
 - Nothing is deleted on these tables. A deletion is a later chain's, behind a mutation re-run (deweeder.md). The exports are removed.
+
+## 2026-11-21T01:59Z — retrospective written; the scoring's record id 20 is contradicted by QA's executed run
+
+`retrospectives/fixer-batch-2026-11-21-retrospective.md` (`7bfe4b4`, Status Active, read at its header this turn), written by
+`retrospective-hooks-fixer-batch-2026-11-21`. It rests until pi runs on his word. It finds value delivered for all three chains. Its
+Recommendation 5 leaves to him what satisfies the release-tip gate on a fixer chain with no QA Phase 2.
+- **Correction to block 01:49Z** (raised by the retrospective, re-derived here):
+  - Record id 20 is "adds one failure entry for a streak that starts after an advisory was reported" (the case list). It is scored 5,
+    `remove`, covered by 12.
+  - QA's executed tables contradict that score. At `c5508c7`, mutant `qa-coupling-marker-only-before-any-report` SURVIVED 18 cases,
+    10 and 12 among them (`verification/fix-website-dependency-audit/qa/mutation-table-sweep-c5508c7.json`, run `mutant-65`).
+  - At `ead3ea1` it was KILLED, and its only failing title is id 20's
+    (`verification/fix-website-dependency-audit/mutation-table-qa-survivors-c5508c7-at-ead3ea1.json`, run `mutant-19`).
+  - So id 20 alone guards a behaviour: it is a kept case, not a repeat. The scoring table stays as its scorer wrote it. The corrected
+    count is 2 of 31 below 7 (website ids 584 and 1497).
+- Inbox entries lodged, uncommitted:
+  - this record's `INBOX.md`: a second sighting for the pending "2026-11-18 — planner-hooks-017" placement decision;
+  - `~/.claude/agents/INBOX.md`: the scorer read no executed mutation table.
+- This batch's close-out is complete. Nothing of this thread is in flight; its open carriers wait on their triggers.
+- Disclosure: the record-write gate refused a shell command that named this file (a `grep -c` after a `sed` on `/dev/null`; nothing
+  was written). The heading time, first written as a guess, is now `date -u`'s 01:59Z, set with Edit.
