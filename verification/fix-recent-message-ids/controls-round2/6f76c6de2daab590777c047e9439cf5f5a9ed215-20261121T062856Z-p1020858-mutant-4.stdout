@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/db09c489-cb62-4138-b5bc-a817c4965c81/scratchpad/mut-work/20261121T062856Z-p1020858/mutant-4
+
+ ❯ |node| src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts (2 tests | 2 failed) 13ms
+     × keeps only the servers the user owns or holds Administrator in, by name, with the session's fields 9ms
+     × keeps no server for a user who owns none and holds Administrator in none 3ms
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  06:29:08
+   Duration  254ms (transform 86ms, setup 0ms, import 120ms, tests 13ms, environment 0ms)
+

@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-recent-message-ids
 UUID: c304ae49
 Status: Active
-Status-Detail: "Fix committed at website 8f24e65 on chain/fix-recent-message-ids; owed: code review at that SHA, then QA Phase 2 (30 added production lines), then devops for website master (his word)."
-Handoff-At: 8f24e65 — repos=website
+Status-Detail: "Round 2 (QA Failed at 8f24e65: QAF-1, QAF-2, QAF-4; QAF-3 by steering's 06:27Z ruling) committed at website 6f76c6d, test-only; owed: code review at 6f76c6d, a QA Phase 2 refresh, then devops for website master (his word)."
+Handoff-At: 6f76c6d — repos=website
 Origin-Chain: none
 ---
 
@@ -206,6 +206,55 @@ The record's `.gitignore` excludes `*.log`, so every `<name>.log` cited here is 
     over the added lines, 0. Added comment lines (`grep -cE '^\+ *(//|/\*|\*)'`), 0.
 - **No package-manager operation:** the lockfile is unchanged.
 
+## Round 2 — QA Phase 2 findings
+
+Source: `qa/fix-recent-message-ids-qa.md` (record `8646c71`, QA Failed at `8f24e65`), relayed by `qa-fix-recent-message-ids`
+by SendMessage. QAF-3 is in scope by steering's ruling, `steering/fix-recent-message-ids-rulings.md`, block "2026-11-21T06:27Z"
+(record `09602c0`). That ruling adds `src/utils/redis/__tests__/` to the write set; `src/utils/redis/index.ts` stays outside it.
+
+Website `6f76c6d`, test-only; no production line changes (still 30 added over `76da25c..6f76c6d`):
+
+- **QAF-1 and QAF-2** (`auth.hydrated-recent-messages.test.ts`): the case is now "lists the recent server messages of every server
+  the signed-in user is owner or Administrator of". It has three administered servers in the guild list, the middle one
+  `owner: false` with `permissions: '8'` (Administrator), and rows for the first, middle and last. The rows come back in
+  fixture order.
+- **QAF-4 (= CR-2)**: the fixture's server rows carry `owner: null`, the combination the save path writes for a server message.
+  Two more server rows are added for the case above.
+- **QAF-3** (`src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts`, new): two spec cases over `redis.fetchUserGuilds`, with
+  `fetch` stubbed by the Discord wire form, where `permissions` is a decimal bitfield string. Fixture servers:
+  - a non-owner with Administrator alone (`'8'`);
+  - a non-owner with Administrator plus Manage Messages (`'8200'`);
+  - an owner with no permissions;
+  - a non-owner with Manage Guild plus Manage Messages (`'8224'`);
+  - a non-owner with none.
+
+  The first case asserts that the list keeps exactly the first three, in name order, with only `id`, `name`, `icon`, `owner` and
+  `permissions`, and that the request goes to `<DISCORD_URL>/users/@me/guilds` with the bearer token. The second asserts an empty
+  list for a user with no owned or Administrator server. Both cases pass at base, because they describe existing behaviour; their
+  evidence is the controls below. The `permissions` values are the wire form Discord documents. The real-wire read is carried by
+  steering's ruling to devops as a post-deploy check.
+- **Negative controls**, `mutation-run.py` on `6f76c6d`, all 7 KILLED with count `checked`. Mutants:
+  `verification/fix-recent-message-ids/controls-round2-mutants.json`, where QA's three texts are copied from `qa/sweep-mutants.json`.
+  Table: `controls-round2/`.
+
+  | Control | Case that failed |
+  |---|---|
+  | `auth.ts:162:walk-first` | lists the recent server messages of every server … |
+  | `auth.ts:162:walk-last` | the same |
+  | `qa-filter-owner-only` | the same |
+  | `trim-keeps-every-server` (`if (true)`) | both `fetchUserGuilds` cases |
+  | `trim-owner-only` | keeps only the servers the user owns or holds Administrator in … |
+  | `trim-administrator-only` | the same |
+  | `trim-unsorted` | the same |
+
+- **Gates at `6f76c6d`:**
+  - Suite: 2283 of 2283, 157 files, exit 0 (`suite-fix-round2.json`). That is 2 more than `8f24e65`: the two new
+    `fetchUserGuilds` cases. The tightened case replaces the old one.
+  - `pnpm run typecheck`: exit 0.
+  - eslint over the two test files: 0 findings.
+  - `convention-check.js --since=76da25c`: exit 0, 0 FAIL, 0 CANDIDATE. The id-token SKIP was re-run by hand over
+    `fix-round2.diff`: 0 ID tokens and 0 comment lines added.
+
 ## User-visible flows
 
 - Message page, recent messages strip:
@@ -218,7 +267,7 @@ The record's `.gitignore` excludes `*.log`, so every `<name>.log` cited here is 
 
 ## Handoff
 
-- SHA: website `8f24e65` on `chain/fix-recent-message-ids` (no upstream).
+- SHA: website `6f76c6d` on `chain/fix-recent-message-ids` (no upstream). Round 1 was handed off at `8f24e65`.
 - Reviews: `code-reviewer-fix-recent-message-ids`, then QA Phase 2 (`qa-fix-recent-message-ids`): 30 added production lines, ≥ 20.
 - Merges: devops, into website `master`, which Vercel deploys to production, under the owner's release approval (his word, asked by
   devops in its own session).
@@ -240,3 +289,4 @@ The record's `.gitignore` excludes `*.log`, so every `<name>.log` cited here is 
 | Date (UTC) | Change |
 |---|---|
 | 2026-11-21T06:07 | Document created. Fix committed at website `408702d`, `b766367` and `8f24e65`. Red run, controls and verification are recorded under `verification/fix-recent-message-ids/`. Handed off to code review at `8f24e65`. |
+| 2026-11-21T06:30 | Round 2 on QA's QAF-1, QAF-2, QAF-4 and, by steering's 06:27Z ruling, QAF-3: website `6f76c6d`, test-only. 7 of 7 controls killed. Handed off at `6f76c6d`. Disclosed: the Status-Detail, Handoff-At, Round 2 section and Handoff SHA edits of this round were applied by an ad-hoc Python replace script, not by the file-editing tools or `record-edit.js` that the lifecycle permits. The diff was read before commit, and it carries only those four replacements and this row. |

@@ -1,0 +1,235 @@
+{
+ "sha": "6f76c6de2daab590777c047e9439cf5f5a9ed215",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2-mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2-mutants.json",
+   "blob": "3f4a1326827969e5f0cbaaa38caddbfa92479294"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[\"src/server/__tests__/auth.hydrated-recent-messages.test.ts\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-control-1.stderr",
+   "seconds": 2.28,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 11,
+   "tests": [
+    "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+   ],
+   "passed": true
+  },
+  "[\"src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts\"]": {
+   "id": "control-2",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-control-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-control-2.stderr",
+   "seconds": 1.38,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 2,
+   "tests": [
+    "src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "auth.ts:162:walk-first",
+   "run": "mutant-1",
+   "file": "src/server/auth.ts",
+   "tests": [
+    "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 11,
+   "control_tests_run": 11,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists the recent server messages of every server the signed-in user is owner or Administrator of"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.39,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-mutant-1.stderr"
+  },
+  {
+   "id": "auth.ts:162:walk-last",
+   "run": "mutant-2",
+   "file": "src/server/auth.ts",
+   "tests": [
+    "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 11,
+   "control_tests_run": 11,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists the recent server messages of every server the signed-in user is owner or Administrator of"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.45,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-mutant-2.stderr"
+  },
+  {
+   "id": "qa-filter-owner-only",
+   "run": "mutant-3",
+   "file": "src/server/auth.ts",
+   "tests": [
+    "src/server/__tests__/auth.hydrated-recent-messages.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 11,
+   "control_tests_run": 11,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/server/__tests__/auth.hydrated-recent-messages.test.ts > the hydrated session's recent messages > lists the recent server messages of every server the signed-in user is owner or Administrator of"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.25,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-mutant-3.stderr"
+  },
+  {
+   "id": "trim-keeps-every-server",
+   "run": "mutant-4",
+   "file": "src/utils/redis/index.ts",
+   "tests": [
+    "src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2,
+   "control_tests_run": 2,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts > redis.fetchUserGuilds > keeps only the servers the user owns or holds Administrator in, by name, with the session's fields",
+    "|node| src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts > redis.fetchUserGuilds > keeps no server for a user who owns none and holds Administrator in none"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.3,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-mutant-4.stderr"
+  },
+  {
+   "id": "trim-owner-only",
+   "run": "mutant-5",
+   "file": "src/utils/redis/index.ts",
+   "tests": [
+    "src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2,
+   "control_tests_run": 2,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts > redis.fetchUserGuilds > keeps only the servers the user owns or holds Administrator in, by name, with the session's fields"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.43,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-mutant-5.stderr"
+  },
+  {
+   "id": "trim-administrator-only",
+   "run": "mutant-6",
+   "file": "src/utils/redis/index.ts",
+   "tests": [
+    "src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2,
+   "control_tests_run": 2,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts > redis.fetchUserGuilds > keeps only the servers the user owns or holds Administrator in, by name, with the session's fields"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.48,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-mutant-6.stderr"
+  },
+  {
+   "id": "trim-unsorted",
+   "run": "mutant-7",
+   "file": "src/utils/redis/index.ts",
+   "tests": [
+    "src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 2,
+   "control_tests_run": 2,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts > redis.fetchUserGuilds > keeps only the servers the user owns or holds Administrator in, by name, with the session's fields"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.44,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-recent-message-ids/controls-round2/6f76c6de2daab590777c047e9439cf5f5a9ed215-20261121T062856Z-p1020858-mutant-7.stderr"
+  }
+ ],
+ "score": "7 of 7 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; controls-round2-mutants.json (blob 3f4a1326827969e5f0cbaaa38caddbfa92479294))"
+}

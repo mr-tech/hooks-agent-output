@@ -1,0 +1,51 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts > redis.fetchUserGuilds > keeps only the servers the user owns or holds Administrator in, by name, with the session's fields
+AssertionError: expected [ …(3) ] to deeply equal [ …(3) ]
+
+- Expected
++ Received
+
+  [
+    {
+      "icon": null,
+-     "id": "300000000000000005",
+-     "name": "Alpha",
+-     "owner": false,
+-     "permissions": "8200",
++     "id": "300000000000000002",
++     "name": "Charlie",
++     "owner": true,
++     "permissions": "0",
+    },
+    {
+      "icon": null,
+      "id": "300000000000000003",
+      "name": "Bravo",
+      "owner": false,
+      "permissions": "8",
+    },
+    {
+      "icon": null,
+-     "id": "300000000000000002",
+-     "name": "Charlie",
+-     "owner": true,
+-     "permissions": "0",
++     "id": "300000000000000005",
++     "name": "Alpha",
++     "owner": false,
++     "permissions": "8200",
+    },
+  ]
+
+ ❯ src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts:50:20
+     48|     const guilds = await redis.fetchUserGuilds('100000000000000001', '…
+     49|
+     50|     expect(guilds).toEqual([
+       |                    ^
+     51|       {
+     52|         id: '300000000000000005', name: 'Alpha', icon: null, owner: fa…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
