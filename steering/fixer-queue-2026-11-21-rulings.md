@@ -93,3 +93,23 @@ for the chains to be blocked". The coordinator's gloss (its words): "put each de
 rather than waiting for a chain to block." Acted on: every decision point of this effort's chains is put to him as a selection prompt
 when it arises, not held in plain-message form while another chain can move. First application: the four questions of block 05:42Z,
 re-put as a selection prompt at once.
+
+## 2026-11-21T05:50Z — selection: his answers to the four questions; the order extended
+
+Selection prompt, put 05:48Z, answered 05:50Z (ledger: `steering/selection-ledger/2026-11-21.md`, block "2026-11-21T05:50Z —
+steering-hooks"). The option sets and premises are block 05:42Z's, as re-put; the prompt's wording is this thread's. Answered by
+selection, each his choice of the Recommended option:
+- Q1 not-found page: "Agent: one not-found page (Recommended)" — the same 'not found' wording for all three cases, so the page never
+  reveals whether a message number exists, plus a link back to his messages; the page does not retry on that error.
+- Q2 import Save: "Agent: resolve like JSON tab (Recommended)" — a fixer chain resolves the conflict the way the JSON tab does, so Save
+  works.
+- Q3 desktop draft: "Agent: save as you type (Recommended)" — a fixer chain makes desktop save the draft as he types, as mobile does.
+- Q4 dead cron: "Agent: delete the cron (Recommended)" — a fixer chain deletes the cron endpoint and its `vercel.json` entry
+  (unread at the selection: whether the production table holds unsent rows; chain 6's sweep reads what it can).
+`owner-wait` `decision-items` resolved 05:50Z.
+
+**Order, as extended** (replaces block 05:38Z's list; its reasons stand): 1 `fix-recent-message-ids` (running); 2
+`fix-message-not-found` (Q1 A); 3 `fix-import-save-conflict` (H17, Q2 A); 4 `fix-desktop-draft-as-typed` (H19, Q3 A); 5
+`fix-api-secret-compare` (H33, with the v1 `messages/[id].ts:19` coerced-id rider from chain 1's exclusions); 6 `fix-delete-dead-cron`
+(H09, Q4 A); 7 `fix-git-dependency-pins`; 8 `fix-middleware-dead-matcher`; 9 the diagnose-first hypothesis chains. User-visible
+breakage (2-4) ahead of hardening (5-6) and hygiene (7-9).
