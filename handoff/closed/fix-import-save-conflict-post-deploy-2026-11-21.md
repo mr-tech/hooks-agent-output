@@ -1,7 +1,7 @@
 ---
 UUID: e4abdf8b
-Status: Open
-Status-Detail: "Carrier of the post-deploy row PD-1 for fixer chain fix-import-save-conflict (website master, Vercel production). The release was pushed 2026-11-21T08:53:57Z (E-WEBSITE-PUSH written); PD-1 read 09:00Z: the fix is serving; the Message Link limb is falsified by production's getFromUrl returning blank content (not this release's path). Open until steering routes that observation."
+Status: Addressed
+Status-Detail: "PD-1 terminal on its 09:00Z read, closed on the owner's selection (steering/fix-import-save-conflict-rulings.md, block 2026-11-21T09:02Z). The release serves the fix; the Message Link limb's blank import is carried by handoff/message-link-import-returns-empty-message-2026-11-21.md."
 Owning-Stage: qa
 Review-Trigger: "the production deploy of website master carrying fix-import-save-conflict (the E-WEBSITE-PUSH row of this record's event ledger filled) — then PD-1"
 ---
@@ -81,6 +81,8 @@ what Discord answered.
     exit 0). At `f4baebb` the dialog floors the raw draft, which gives the same message and the same disabled Save. A rollback would not
     change this read.
   - The Webhook tab with a real test webhook was not read: no test webhook is named in `test-estate.json`.
+  - **Terminal.** The owner closed the row on this read (`steering/fix-import-save-conflict-rulings.md`, block "2026-11-21T09:02Z"). The
+    Message Link limb is carried by `handoff/message-link-import-returns-empty-message-2026-11-21.md`, a diagnose-first chain.
 
 ## Evidence
 
@@ -100,3 +102,4 @@ at Stage 1.
 | 2026-11-21T08:50 | devops-fix-import-save-conflict | Opened at Stage 1. Fixture messages posted to the test server as the test bot (two, ids above). PD-1 unread; the push has not happened. |
 | 2026-11-21T08:54 | devops-fix-import-save-conflict | E-WEBSITE-PUSH written: website `master` `f4baebb` → `b829314` at 08:53:53Z to 08:53:57Z. PD-1 is now decidable; unread. |
 | 2026-11-21T09:00 | qa-fix-import-save-conflict | PD-1 read. The fix is serving (build check PASS). The Message Link limb is falsified upstream: production's `getFromUrl` returns both fixture messages with blank content and components, a path this release did not change. Sent to steering-hooks as owner-needing. The handoff stays Open until the empty-import observation has a carrier. |
+| 2026-11-21T09:04 | qa-fix-import-save-conflict | Document closed. Status: Addressed. PD-1 is terminal on the 09:00Z read, on the owner's selection (rulings block 09:02Z). The Message Link limb is carried by `handoff/message-link-import-returns-empty-message-2026-11-21.md`. |
