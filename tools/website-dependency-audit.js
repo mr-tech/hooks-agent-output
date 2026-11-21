@@ -1,6 +1,6 @@
 'use strict';
 
-const REVIEW = 'pending review at f943553';
+const REVIEW = 'reviewed';
 
 const fs = require('node:fs');
 const os = require('node:os');

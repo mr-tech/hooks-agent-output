@@ -1,6 +1,6 @@
 {
   "_about": "Reachability dispositions for website advisories, read by tools/website-dependency-audit.js. One key per advisory, \"<module>|<GHSA id>\"; only such a key dispositions an advisory. Seeded from verification/website-deps-review/security/dispositions.json (the security review of website 983681c) over pnpm audit --prod at website d1bb9b0 (verification/018/security/out/pnpm-audit-prod-d1bb9b0.json), by verification/fix-website-dependency-audit/seed-dispositions.js. disp: REACHED | CONDITIONAL | ABSENT | HOST | BUILD | UNLOADED | DEV. ships: server | browser | both | build | none. Where an advisory's installed versions take different dispositions, disp, ships and how name each version. To add one: node tools/website-dependency-audit.js --help.",
-  "_review": "pending review at f943553",
+  "_review": "reviewed",
   "@babel/runtime|GHSA-968p-4wvh-cqc8": {
     "disp": "ABSENT",
     "ships": "both",
