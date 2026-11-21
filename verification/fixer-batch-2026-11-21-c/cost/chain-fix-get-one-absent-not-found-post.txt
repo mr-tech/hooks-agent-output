@@ -1,0 +1,19 @@
+chain: sessions matching '*fix-get-one-absent-not-found' or '*fix-get-one-absent-not-found-<n>' from 2026-11-21T10:12 to 2026-11-21T10:19
+5 of 5 resolved from the registry cache (live entry gone): code-reviewer-fix-get-one-absent-not-found, code-reviewer-fix-get-one-absent-not-found, devops-fix-get-one-absent-not-found, fixer-fix-get-one-absent-not-found, qa-fix-get-one-absent-not-found
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+code-reviewer-fix- [d8563fc1] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-21T09:16:14Z
+code-reviewer-fix- [a30f06dc] -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-21T09:51:32Z
+devops-fix-get-one-absent-not claude-sonn                  4         8     775,964      9,802     3,085     0.15
+                                main 4 req $0.15 · cached seen 2026-11-21T10:06:33Z
+fixer-fix-get-one-absent-not- -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-21T08:58:45Z
+qa-fix-get-one-absent-not-fou claude-opus                 16        33   3,374,488     18,574     8,991     1.00
+                                main 16 req $1.00 · cached seen 2026-11-21T09:56:27Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                       20        41   4,150,452     28,376    12,076     1.15
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp
