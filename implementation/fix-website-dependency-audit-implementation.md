@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-website-dependency-audit
 UUID: d9ef268a
 Status: Active
-Status-Detail: "Round 1 REJECTED at 9fc299c; CR-1 confirmed closed at ed7926d; CR-2 limbs (a) and (b), re-scoped in by steering block 00:19Z, done at c7b6898, awaiting the reviewer's confirmation; QA Phase 2 is owed (177 production lines); devops installs the crontab line and reads the first run."
-Handoff-At: c7b6898 — repos=agent-output
+Status-Detail: "Round 1 REJECTED at 9fc299c; CR-1 confirmed at ed7926d; CR-2 confirmed at c7b6898; CR-4 fixed at c5508c7, awaiting the reviewer's confirmation; QA Phase 2 is owed (179 production lines); devops installs the crontab line and reads the first run."
+Handoff-At: c5508c7 — repos=agent-output
 Origin-Chain: none
 ---
 
@@ -113,7 +113,7 @@ Deleting it makes the next run report every undispositioned advisory once more.
 |---|---|
 | Further failed runs | The marker holds; no entry is added. Red under `streak-guard-removed` and `streak-marker-not-set` (case "adds one inbox entry when a streak of failed runs starts, and none for the rest of the streak") |
 | A run succeeds | **Released**: `delete state.failing`, and the state is written even when the run has no entries. Red under `streak-not-ended` and `state-not-written-on-recovery` (case "adds a new failure entry for a streak that starts after a run succeeded") |
-| The failure entry's append throws (inbox unwritable) | No marker is set, so the next failure tries again. The run exits 1 with both errors in the log |
+| The failure entry's append throws (inbox unwritable) | No marker is set, so the next failure tries again. The run exits 1 with both errors in the log. Since c5508c7 both writers go through one function, `persist` (append, then write state). The order is held by the case "starts no streak when the failure entry cannot be written, and adds it on the next failure" (CR-4). It is red under the reviewer's `failure-state-written-before-append` applied to c7b6898 (`red-run-cr4-reviewer-mutant.txt`), and under `failure-state-written-before-persist` and `state-written-before-append` (the order inside `persist`) at c5508c7 |
 | A bad argument | It fails before any path is known, so no entry and no marker are written; only the log has it (case "fails on an argument it does not know") |
 | The state file cannot be read | `recordFailure` cannot read it either; the failure reaches only the log. Stated limit below. The state is written by `rename` from a temporary file, so the tool itself never leaves a partial one |
 
@@ -194,6 +194,18 @@ in `state.stale`; test: "adds one entry per pair …").
   remote head d1bb9b0): advisories 81, undispositioned 0, newly reported 0`, exit 0, the scratch inbox unchanged at
   16 bytes, and the website clone's refs unchanged.
 
+**CR-4** (reviewer's sub-entry at 9a61b8a): the failure writer lacked a case holding append-before-state. I did both of
+the reviewer's options. Structurally, `persist(opts, entries, state)` appends (when there are entries) and then writes
+state, and both `audit` and `recordFailure` call it. A recovery with no entries still writes state. The minimum: one
+new case, in which an unreadable audit meets an inbox that is a directory (`EISDIR`, which also holds for root), and
+the next failure, with a usable inbox, adds exactly one failure entry. At c7b6898 under the reviewer's mutant, 17 of
+18 pass and the new case fails (`red-run-cr4-reviewer-mutant.txt`). At 5b41d04, 29 of 30 controls were killed. The
+survivor was `quiet-run-appends`, whose guard now sits inside `persist`, where only a recovery with no entries
+reaches it. The recovery case now asserts the inbox is byte-identical across the successful run (c5508c7). At
+c5508c7: green 18/18, exit 0; 30 of 30 KILLED, counts checked 18 = 18 (`mutation-table-c5508c7.json`,
+`mutation-driver-c5508c7.txt`). `mutants.json` adds `failure-state-written-before-persist` and
+`audit-state-written-before-persist`.
+
 - **Invented values.** The audit JSON is made up of real advisory objects from
   `verification/018/security/out/pnpm-audit-prod-d1bb9b0.json` (ws GHSA-3h5v-q93c-6h6q and nanoid
   GHSA-mwcw-c2x4-8c55, both version entries), trimmed to the fields the tool reads. They reach the tool through a stub
@@ -224,11 +236,11 @@ in `state.stale`; test: "adds one entry per pair …").
 
 ## Handoff
 
-- **SHA under review:** `c7b6898` (record `master`). Round 1 was at `9fc299c`, and CR-1 was confirmed at `ed7926d`.
-  `ed7926d..c7b6898` carries limbs (a) and (b). The production diff is `git diff f943553 c7b6898 --
+- **SHA under review:** `c5508c7` (record `master`). Round 1 was at `9fc299c`; CR-1 was confirmed at `ed7926d` and CR-2
+  at `c7b6898`. `c7b6898..c5508c7` carries CR-4. The production diff is `git diff f943553 c5508c7 --
   tools/website-dependency-audit.js tools/websiteDependencyAudit.test.js tools/website-audit-dispositions.json`.
 - **Reviews:** `code-reviewer-fix-website-dependency-audit`, then QA Phase 2 (`qa-fix-website-dependency-audit`).
-  The tool adds 177 production lines (non-blank, `grep -c -v '^\s*$'`), which is 20 or more.
+  The tool adds 179 production lines (non-blank, `grep -c -v '^\s*$'`), which is 20 or more.
 - **Merges:** none. The work is already on the record's `master`; there is no branch and no push. After QA's verdict,
   the `REVIEW` constant and `_review` field go from `pending review at f943553` to `reviewed`.
 - **Crontab line proposed for devops**, 06:43 local daily, a minute off :00/:30. The comment follows the form of the
@@ -257,3 +269,4 @@ in `state.stale`; test: "adds one entry per pair …").
 | 2026-11-21T00:09 | Created. Tool, test and seeded dispositions committed at `afb3ff2` and `9fc299c`; 18/18 negative controls killed; handed off at `9fc299c`. |
 | 2026-11-21T00:18 | Code review Round 1 REJECTED at `9fc299c` on CR-1 (`code-review/fix-website-dependency-audit-code-review.md`, cd93a06). Fixed at `ed7926d`: one case for an unwritable inbox, with the reviewer's state-order mutant added; 13/13 green, 19/19 controls killed. Handoff-At moved to `ed7926d`. |
 | 2026-11-21T00:30 | CR-1 confirmed closed by the reviewer at `ed7926d` (f7849cf). CR-2 limbs (a) failure-streak entry and (b) stale-pair entry, per steering block 00:19Z: red 3 of 16 at `ed7926d`'s tool; done at c7ef844 and c7b6898; 17/17 green; 28/28 controls killed at c7b6898 (one undiscriminated default removed after it survived at c7ef844); live run quiet with the clone's refs unchanged. Handoff-At moved to `c7b6898`. |
+| 2026-11-21T00:41 | CR-2 confirmed at `c7b6898` (reviewer 9a61b8a); CR-4 fixed: a shared `persist` writer and the unwritable-inbox failure case at 5b41d04; the recovery case tightened at c5508c7 after `quiet-run-appends` survived; 18/18 green, 30/30 controls killed. Handoff-At moved to `c5508c7`. |
