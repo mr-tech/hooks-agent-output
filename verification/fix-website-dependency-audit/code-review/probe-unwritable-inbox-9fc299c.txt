@@ -1,0 +1,9 @@
+Probe for CR-1, run 2026-11-21T00:13Z. Tool at 9fc299c (git archive export) vs the same file with mutant-state-order.json applied.
+Inbox path: a directory (cannot be read or appended). Dispositions: tools/website-audit-dispositions.json at 9fc299c with key nanoid|GHSA-mwcw-c2x4-8c55 removed. Live pnpm audit of website origin/master d1bb9b0, env -i PATH=/usr/local/bin:/usr/bin:/bin.
+
+2026-11-21T00:13Z website-dependency-audit failed: EISDIR: illegal operation on a directory, read
+head exit 1; state: (absent)
+2026-11-21T00:13Z website-dependency-audit failed: EISDIR: illegal operation on a directory, read
+mutant exit 1; state: {"reported":{"nanoid|GHSA-mwcw-c2x4-8c55":"2026-11-21T00:13"}}
+
+Reading: at head a failed inbox write leaves no state key, so the next run reports the advisory; under the mutant the key is kept and the advisory is never reported. The suite at 9fc299c passes under the mutant (mutation-table-state-order-9fc299c.json: SURVIVED).

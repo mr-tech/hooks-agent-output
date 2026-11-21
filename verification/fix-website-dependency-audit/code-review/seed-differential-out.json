@@ -1,0 +1,18 @@
+{
+ "entries": 81,
+ "forms": {
+  "ghsa": 6,
+  "version": 8,
+  "bare": 67
+ },
+ "bareModules": 27,
+ "units": 84,
+ "same": 68,
+ "splitMatch": 16,
+ "bad": [],
+ "seededKeys": 62,
+ "keysNotInAudit": [],
+ "auditKeysNotSeeded": [],
+ "nonGhsaForm": [],
+ "emptyHow": []
+}

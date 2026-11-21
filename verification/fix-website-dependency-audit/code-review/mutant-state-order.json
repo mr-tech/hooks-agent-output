@@ -1,0 +1,9 @@
+[
+ {
+  "id": "state-written-before-append",
+  "file": "tools/website-dependency-audit.js",
+  "old": "    const lead = fs.readFileSync(opts.inbox, 'utf8').endsWith('\\n') ? '\\n' : '\\n\\n';\n    fs.appendFileSync(opts.inbox, `${lead}${fresh.map((u) => entryFor(u, sha, opts, now.slice(0, 10))).join('\\n\\n')}\\n`);\n    for (const u of fresh) state.reported[u.key] = now;\n    fs.mkdirSync(path.dirname(opts.state), { recursive: true });\n    fs.writeFileSync(opts.state, `${JSON.stringify(state, null, 2)}\\n`);",
+  "new": "    for (const u of fresh) state.reported[u.key] = now;\n    fs.mkdirSync(path.dirname(opts.state), { recursive: true });\n    fs.writeFileSync(opts.state, `${JSON.stringify(state, null, 2)}\\n`);\n    const lead = fs.readFileSync(opts.inbox, 'utf8').endsWith('\\n') ? '\\n' : '\\n\\n';\n    fs.appendFileSync(opts.inbox, `${lead}${fresh.map((u) => entryFor(u, sha, opts, now.slice(0, 10))).join('\\n\\n')}\\n`);",
+  "probe": "CR-1: the lifetimes table claims append-then-state ordering (a duplicate preferred to a lost report)"
+ }
+]

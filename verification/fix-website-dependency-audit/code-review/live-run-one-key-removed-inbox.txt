@@ -1,0 +1,6 @@
+# Inbox
+
+## 2026-11-21 — website-dependency-audit (crontab, `tools/website-dependency-audit.js`) — FYI
+`website` at `d1bb9b0` (origin/master): `pnpm audit --prod` lists nanoid GHSA-mwcw-c2x4-8c55 (moderate, "Predictable results in nanoid generation when given non-integer values", installed 3.3.6, 4.0.2), which `tools/website-audit-dispositions.json` does not disposition.
+Asked: judge whether it reaches hooks.gg and add its disposition (procedure: `node tools/website-dependency-audit.js --help`). Advisory https://github.com/advisories/GHSA-mwcw-c2x4-8c55; paths `.>@headlessui/tailwindcss>tailwindcss>postcss>nanoid`, `.>nanoid` (2 in all).
+**Done here**: reported once; later runs do not repeat it. **Not done**: no reachability judgement — that is an assessment, not this tool's.
