@@ -1,0 +1,2 @@
+settled-memo-deps-empty KILLED 4.67
+1 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; subentry-b829314-mutants.json (blob e07bfa23e92811b3d599009721c69a0f71997ce0))

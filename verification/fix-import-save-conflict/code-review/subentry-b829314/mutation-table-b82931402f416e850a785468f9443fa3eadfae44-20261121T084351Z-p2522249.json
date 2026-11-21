@@ -1,0 +1,85 @@
+{
+ "sha": "b82931402f416e850a785468f9443fa3eadfae44",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-import-save-conflict/code-review/subentry-b829314-mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--no-cache"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-import-save-conflict/code-review/subentry-b829314-mutants.json",
+   "blob": "e07bfa23e92811b3d599009721c69a0f71997ce0"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[\"src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx\", \"src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx\", \"src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx\", \"src/app/message/f/[id]/__tests__/page.message-list.test.tsx\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-import-save-conflict/code-review/subentry-b829314/b82931402f416e850a785468f9443fa3eadfae44-20261121T084351Z-p2522249-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-import-save-conflict/code-review/subentry-b829314/b82931402f416e850a785468f9443fa3eadfae44-20261121T084351Z-p2522249-control-1.stderr",
+   "seconds": 4.7,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 19,
+   "tests": [
+    "src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx",
+    "src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx",
+    "src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx",
+    "src/app/message/f/[id]/__tests__/page.message-list.test.tsx"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "settled-memo-deps-empty",
+   "run": "mutant-1",
+   "file": "src/app/message/_components/NewMessageModal.tsx",
+   "tests": [
+    "src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx",
+    "src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx",
+    "src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx",
+    "src/app/message/f/[id]/__tests__/page.message-list.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 19,
+   "control_tests_run": 19,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal \u2014 an imported draft whose content conflicts is settled or chosen, then saved > a V2-flagged message with content and no V2 components that arrives after the dialog opens is settled, noticed and saved as Classic",
+    "|dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal \u2014 an imported draft whose content conflicts is settled or chosen, then saved > a loaded message replaced by one with both V2 components and content asks on Save instead of saving the earlier settled draft"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.67,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-import-save-conflict/code-review/subentry-b829314/b82931402f416e850a785468f9443fa3eadfae44-20261121T084351Z-p2522249-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-import-save-conflict/code-review/subentry-b829314/b82931402f416e850a785468f9443fa3eadfae44-20261121T084351Z-p2522249-mutant-1.stderr"
+  }
+ ],
+ "score": "1 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; subentry-b829314-mutants.json (blob e07bfa23e92811b3d599009721c69a0f71997ce0))"
+}

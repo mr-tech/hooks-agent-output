@@ -2,9 +2,9 @@
 ID: n/a
 Origin: fix-import-save-conflict
 UUID: 0030da7d
-Reviewed-At: f23568aae25666650e687d7396c76f3ac9583bed — repos=website; Round 1 first pass at 3c6f16f, sub-entry 1 at f23568a
+Reviewed-At: b82931402f416e850a785468f9443fa3eadfae44 — repos=website; Round 1 first pass at 3c6f16f, sub-entry 1 at f23568a, sub-entry 2 at b829314 (test-only, QAF-1)
 Status: In Review
-Status-Detail: "Round 1 sub-entry 1 APPROVED at website f23568a; handed to QA Phase 2 (27 added production lines)."
+Status-Detail: "Round 1 sub-entry 2 APPROVED at website b829314 (test-only answer to QA's QAF-1); back to QA for its refresh pass."
 Round: 1
 Verdict: APPROVED
 ---
@@ -22,6 +22,7 @@ Verdict: APPROVED
 |------|---------------|---------|---------|
 | 2026-11-21T08:17 | steering-hooks (brief `steering/fix-import-save-conflict-brief-code-reviewer.md`) | Round 1: review website `chain/fix-import-save-conflict` at `3c6f16f` against the 07:54Z scope statement | Round 1 REJECTED on two MEDIUM findings: CR-1 (the settled-draft floor had no assertion that failed when it was lost) and CR-2 (the preview showed the raw draft; steering's 08:13Z ruling). The fix itself was correct for rows A to E. Disclosed: the record's stamp gate refused a typed (estimated) changelog stamp, and it was replaced with `date -u`'s value. Record `258f3fbf`. |
 | 2026-11-21T08:23 | fixer-fix-import-save-conflict (SendMessage; implementation record `28ac5cac`) | Round 1 sub-entry 1: confirm the fix of CR-1 and CR-2 at `f23568a` | Round 1 sub-entry 1 APPROVED. CR-1 and CR-2 are RESOLVED. I re-ran 7 probes myself at `f23568a`, and all 7 were KILLED on the expected cases. The delta (`fb1140f`, `f23568a`) touches only the findings' scope, so no new round opens. Production lines are now 27, so the approval goes to QA Phase 2. I corrected one broken path in the Round 1 text (`eslint-base-NewMessageModal.json` is under `verification/…/code-review/`). |
+| 2026-11-21T08:44 | fixer-fix-import-save-conflict (SendMessage; implementation record `c4d3d17a`), answering QA's QAF-1 (`qa/fix-import-save-conflict-qa.md` at `362c24d7`) | Round 1 sub-entry 2: the test-only diff `f23568a..b829314` | Round 1 sub-entry 2 APPROVED. The diff touches only the test file (+40, `git diff --numstat`), so the production lines are unchanged at 27 and no round opens. Cases 9 (a draft that arrives after mount) and 10 (a draft replaced in place by a row E one) are spec-form, with literal expectations, no ID tokens (grep 0) and no added comments (grep 0). I re-ran QA's survivor `settled-memo-deps-empty` at `b829314` over the 4 dialog-mounting files: KILLED on cases 9 and 10, control 19/19 (`verification/fix-import-save-conflict/code-review/subentry-b829314/`). Test adequacy and QAF-2 (flow 3 restated) are QA's to judge in its refresh pass. |
 
 ## Identity
 
@@ -90,7 +91,7 @@ None.
 
 ## Verdict
 
-**Status**: APPROVED (Round 1 sub-entry 1, at `f23568a`)
+**Status**: APPROVED (Round 1 sub-entry 1, at `f23568a`; confirmed at `b829314` by sub-entry 2, a test-only diff whose production tree is byte-identical: `git diff --numstat f23568a..b829314` lists the test file only)
 **Rationale**: Criteria 1, 2 and 3 hold on every row traced (A to E, plus the JSON tab's already-settled drafts). Each decision the dialog takes on its settled draft now has a test that fails when the decision is lost; I re-ran the probes myself. The lint debt is carried by the owner-chosen handoff. 27 added production lines, so this goes to QA Phase 2.
 
 ## Required Actions
@@ -104,5 +105,5 @@ None.
 
 ## Next Steps
 
-- Handed to QA Phase 2, `qa-fix-import-save-conflict`, at website `f23568a`; cued through `steering-hooks` if no QA session is live. QA owns both Assumption Not Checked lines above.
+- Handed to QA Phase 2, `qa-fix-import-save-conflict`, at website `f23568a`. Sub-entry 2 returns it to QA's refresh pass at `b829314`. QA owns both Assumption Not Checked lines above.
 - After QA: devops for website `master`, on the owner's word.
