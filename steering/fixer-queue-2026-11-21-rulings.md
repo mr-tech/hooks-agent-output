@@ -25,3 +25,42 @@ Record state at this read: no open plan, implementation, code-review, QA, UAT or
 1 porcelain line; project-utils `master` `749606d`, clean; preview-image-generator `master` `8512a1d`, clean.
 
 Candidate inventory: helper (`general-purpose-sonnet`), output `verification/fixer-queue-2026-11-21/scoping/inventory.md`.
+
+## 2026-11-21T05:38Z — candidate inventory read; priority order (this thread's ruling)
+
+Source: `verification/fixer-queue-2026-11-21/scoping/inventory.md` (helper, read whole by this thread 05:3xZ): 113 rows over 31 open
+handoffs, `TODO.md`'s 10 items, `research/codebase-bug-evaluation-2026-11-08.md` F-1..F-50 and H-1..H-8, and `INBOX.md` at HEAD (no
+entries). Classes, its `grep -c` per class: CANDIDATE 17, already-fixed 56, record 17, needs-decision 9, test-only 8, feature 3,
+owner-only 3. Each "still present" premise below is the helper's read at website `76da25c` / project-utils `749606d`; each chain's own
+scope sweep re-reads it at the ref the chain is cut from before its scope statement is written.
+
+**Order** — each a fixer chain, run one at a time over the shared trees, each opened only after the previous one's code is released
+or parked:
+1. `fix-recent-message-ids` — inventory H14 + H29: session hydration returns metadata of server (guild) messages the caller has no
+   right to (`shared.ts` guild arm), and the stored list it reads accepts entries the column cannot hold, failing the user's own
+   session (`user.ts` `recentMessageIds`). One data path: the list is written by `updatePreferences` and read by the hydration.
+   First because it is the only item that discloses data to the wrong user, with cause read from code and a small fix.
+   Prior effort's ruling put to him as history, not a bar: `fix-personal-message-access` left guild messages out under his word
+   "personal" (`steering/fix-personal-message-access-rulings.md`, 2026-11-19T22:59Z).
+2. `fix-message-not-found` — H12 + H11 + H10: `getOne` on an absent number fails with a raw error rather than NOT_FOUND, and the editor
+   shows a blank shell (retrying) for a refused or deleted message, its provider's load error rendered nowhere. User-visible on
+   production (H11, H10 observed there). Needs his word on what a refused or deleted message's page says (both handoffs).
+3. `fix-api-secret-compare` — H33: three API-key / token comparisons use `!==`, none constant-time.
+4. `fix-git-dependency-pins` — H37 + H41 + inventory F-36: website names `paracord` and `project-utils` without a commit; project-utils
+   lists `prisma-kysely` under `dependencies` and still tracks a stale `dist/prisma.js`. Cross-repo (project-utils, then website's
+   lockfile). The H37 handoff asks for his routing; his commission is read as that routing, vetoable from this record.
+5. `fix-middleware-dead-matcher` — T9: the matcher's `/api/guilds/(.*)` entry guards nothing. XS; runs alone only if no earlier chain
+   touches `src/middleware.ts`, else rides there as a named rider.
+6. Diagnose-first chains over the research's never-run hypotheses, in this order: R-H3 (cut on a collapsed caret deletes a character),
+   R-H6, R-H4, R-H2, R-H5, R-H7, R-H8. Each is a fixer chain whose first act is the red test; a hypothesis whose test stays green closes
+   the chain with no fix.
+
+**Held, needing his decision first** (inventory needs-decision): H17 NewMessageModal Save disabled on a conflicting imported draft;
+H19 open content editor's text lost on reload; H09 the fixed cron key; H18 several Discord accounts per user; H24 public Pusher
+channels; H30 the reason-less re-save toast; H35 `STATBOT_API_KEY` through `env.mjs`; H05 backfill guard host; H44 hosting assumption.
+Held by an earlier effort's owner ruling, history only: H23 generator host posture ("no effort", 2026-11-08). Not candidates: test-only,
+record, feature and already-fixed rows, as classed. Closing the handoffs whose premise no longer holds (H03, H15) is record work this
+commission does not name; left open.
+
+Disclosure: this block's first write, a shell heredoc, was refused by the record-write gate (record documents are edited with the
+Edit/Write tool); re-issued with the Edit tool.
