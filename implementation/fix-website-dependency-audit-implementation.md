@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-website-dependency-audit
 UUID: d9ef268a
 Status: Active
-Status-Detail: "Round 1 REJECTED at 9fc299c on CR-1 (one test case); fixed at ed7926d, awaiting the reviewer's fix confirmation; QA Phase 2 is owed (123 production lines); devops installs the crontab line and reads the first run."
-Handoff-At: ed7926d — repos=agent-output
+Status-Detail: "Round 1 REJECTED at 9fc299c; CR-1 confirmed closed at ed7926d; CR-2 limbs (a) and (b), re-scoped in by steering block 00:19Z, done at c7b6898, awaiting the reviewer's confirmation; QA Phase 2 is owed (177 production lines); devops installs the crontab line and reads the first run."
+Handoff-At: c7b6898 — repos=agent-output
 Origin-Chain: none
 ---
 
@@ -107,21 +107,37 @@ Deleting it makes the next run report every undispositioned advisory once more.
 | State write throws (after the append) | The inbox has the entry but no key was kept. The next run repeats the entry once. Appending first is deliberate: a duplicate is preferred to a lost report. The case "keeps no reported key when the inbox cannot be written, and reports the advisory on the next run" holds this order: it is red under mutant `state-written-before-append` (CR-1), at ed7926d |
 | The advisory is later dispositioned, or leaves the audit | The key stays. It is ignored, because only keys of currently undispositioned advisories are read (case "does not fail when … has left the audit") |
 
+**Failure-streak marker** (`state.failing`, CR-2 limb (a)). It is set when a streak's first failure has appended its inbox entry, and released by the next run that succeeds.
+
+| Exit between acquiring and releasing | Disposition |
+|---|---|
+| Further failed runs | The marker holds; no entry is added. Red under `streak-guard-removed` and `streak-marker-not-set` (case "adds one inbox entry when a streak of failed runs starts, and none for the rest of the streak") |
+| A run succeeds | **Released**: `delete state.failing`, and the state is written even when the run has no entries. Red under `streak-not-ended` and `state-not-written-on-recovery` (case "adds a new failure entry for a streak that starts after a run succeeded") |
+| The failure entry's append throws (inbox unwritable) | No marker is set, so the next failure tries again. The run exits 1 with both errors in the log |
+| A bad argument | It fails before any path is known, so no entry and no marker are written; only the log has it (case "fails on an argument it does not know") |
+| The state file cannot be read | `recordFailure` cannot read it either; the failure reaches only the log. Stated limit below. The state is written by `rename` from a temporary file, so the tool itself never leaves a partial one |
+
+**Stale-pair keys** (`state.stale["<local>..<remote>"]`, CR-2 limb (b)). A key is written when its pair's entry is appended, and never removed: a pair of SHAs cannot recur once the clone is fetched. Red under `stale-pair-unguarded` and `stale-pair-not-kept` (case "adds one entry per pair …"), and under `stale-without-difference` (8 cases) when equal SHAs are reported. The check is `git ls-remote <remote> refs/heads/<branch>`, read only. The case asserts that the clone's `refs/remotes/` and its `origin/master` are unchanged. The live run hashes `git for-each-ref` of the real website clone before and after: `bdc949b5896e06cf` both times (`live-run-c7b6898.txt`). An empty ls-remote answer fails the run (`remote-head-empty-accepted`, case "fails … when the remote has no head for the released branch").
+
 The temporary export is a second lifetime. It is created by `mkdtemp` and removed in `finally` on every path:
 success, git failure, tar failure, pnpm failure and unparseable output. The case "removes the lockfile export after a
 readable and after an unreadable run" was red with the removal deleted (mutant `export-not-removed`). There is no
 `await`: the tool is synchronous.
 
 **Declined work.**
-- An unreadable audit declines the whole run. Nothing is written, and the next daily run reports what it would have.
-  The case "writes nothing on an unreadable audit and reports the advisory on the next readable run" follows one
-  advisory from the declined run to its report. It is red with the shape guard removed (`advisories-shape-unchecked`).
+- A failed run declines the whole audit and reports no advisory. Since c7b6898 the first failure of a streak appends
+  one failure entry (limb (a)); the next run that succeeds reports what the failed runs would have. The case
+  "writes nothing on an unreadable audit and reports the advisory on the next readable run" follows one advisory from
+  the declined run to its report. It is red with the shape guard removed (`advisories-shape-unchecked`).
+- A pair of differing SHAs that was already reported is not reported again. Its entry is already in `INBOX.md`.
 - An advisory already reported is skipped. Its one entry is already in `INBOX.md`, where the session that processes
   the inbox reads it.
 
 **Irreversible effects.** An append to `INBOX.md` (shared, uncommitted) · route: the tool's `appendFileSync`, after a
 readable audit · precondition: the advisory has no `module|GHSA` disposition and no state key · test: "adds exactly
-one inbox entry …" and "adds no entry on a second run …".
+one inbox entry …" and "adds no entry on a second run …". The same append carries a failure entry (precondition: no
+`state.failing`; tests: the two streak cases) and a stale-pair entry (precondition: local ≠ remote and the pair not
+in `state.stale`; test: "adds one entry per pair …").
 
 ## Test
 
@@ -156,6 +172,28 @@ one inbox entry …" and "adds no entry on a second run …".
 
 **Round 1 fix (CR-1).** One case was added at ed7926d. The inbox path is a directory, so the read and the append fail with `EISDIR`, which holds for root too; the run must exit non-zero with no key for the advisory, and the next run, with a usable inbox, adds exactly one entry. Green: 13/13, exit 0 (`green-run.txt`). Negative controls at ed7926d: 19 of 19 KILLED, counts checked 13 = 13 (`mutation-table-ed7926d.json`, `mutation-driver-ed7926d.txt`). No production change.
 
+**CR-2 limbs (a) and (b)** (steering block "2026-11-21T00:19Z"; production change at c7ef844 and c7b6898).
+- Red run (`red-run-limbs.txt`): the new test file against `ed7926d`'s tool, in a scratch copy. 16 tests, 13 pass,
+  3 fail, exit 1. The 3 that fail are the streak case, the streak-after-success case and the per-pair case. A first
+  attempt at this red run was discarded: its test helper made the stale commit with `git push` to the clone's own
+  origin URL, which also moved the clone's `refs/remotes/`. The helper now has the bare origin fetch from the clone.
+- Existing cases changed: "fails naming git when the released ref does not exist" now asserts that no advisory is
+  reported, not that the inbox is untouched, because a failure writes its streak entry. The unreadable-audit case
+  likewise counts only the advisory entry that the next run adds.
+- One case was added beside the limbs: a remote with no head for the branch fails the run.
+- Green (`green-run.txt`, at c7b6898): 17/17, exit 0.
+- Negative controls: at c7ef844, 28 of 29 KILLED (`mutation-table-c7ef844.json`). The survivor,
+  `state-defaults-dropped`, removed the `{ reported: {}, stale: {} }` default when an existing state file is read. No
+  case discriminates it, since every state file the tool writes already carries both keys, so the default was
+  removed from the code (c7b6898) rather than kept. At c7b6898: 28 of 28 KILLED, all counts checked 17 = 17
+  (`mutation-table-c7b6898.json`, `mutation-driver-c7b6898.txt`). The old mutants whose sites moved
+  (`quiet-run-appends`, `state-dir-not-made`, `absent-state-unhandled`, `state-written-before-append`) were re-pointed
+  at the new code. The ten new ones are named in the lifetime tables above, together with `failure-not-recorded`
+  (the `recordFailure` call; both streak cases go red).
+- Live run (`live-run-c7b6898.txt`), in the cron environment against a scratch inbox: `website d1bb9b0 (origin/master;
+  remote head d1bb9b0): advisories 81, undispositioned 0, newly reported 0`, exit 0, the scratch inbox unchanged at
+  16 bytes, and the website clone's refs unchanged.
+
 - **Invented values.** The audit JSON is made up of real advisory objects from
   `verification/018/security/out/pnpm-audit-prod-d1bb9b0.json` (ws GHSA-3h5v-q93c-6h6q and nanoid
   GHSA-mwcw-c2x4-8c55, both version entries), trimmed to the fields the tool reads. They reach the tool through a stub
@@ -182,29 +220,35 @@ one inbox entry …" and "adds no entry on a second run …".
 - **Rounds disclosed.** One live-run command was refused by `record-write-gate-hook`. It read `$S/INBOX.md`, a
   shell-variable path to the scratch inbox, as a record document inside the repository. The scratch inbox was then
   created with the Write tool, and the run was issued with literal absolute paths under the scratchpad. The target
-  was never a record document. The stamp gate refused this document's first changelog row, whose time had been typed rather than taken from the clock. The row was rewritten through `record-edit.js` with `2026-11-21T00:09`.
+  was never a record document. The stamp gate refused this document's first changelog row, whose time had been typed rather than taken from the clock. The row was rewritten through `record-edit.js` with a stamp taken from the clock.
 
 ## Handoff
 
-- **SHA under review:** `ed7926d` (record `master`; Round 1 was at `9fc299c`, and `9fc299c..ed7926d` changes only the test file and `mutants.json`). The production diff is `git diff f943553 ed7926d --
+- **SHA under review:** `c7b6898` (record `master`). Round 1 was at `9fc299c`, and CR-1 was confirmed at `ed7926d`.
+  `ed7926d..c7b6898` carries limbs (a) and (b). The production diff is `git diff f943553 c7b6898 --
   tools/website-dependency-audit.js tools/websiteDependencyAudit.test.js tools/website-audit-dispositions.json`.
 - **Reviews:** `code-reviewer-fix-website-dependency-audit`, then QA Phase 2 (`qa-fix-website-dependency-audit`).
-  The tool adds 123 production lines (non-blank, `grep -c -v '^\s*$'`), which is 20 or more.
+  The tool adds 177 production lines (non-blank, `grep -c -v '^\s*$'`), which is 20 or more.
 - **Merges:** none. The work is already on the record's `master`; there is no branch and no push. After QA's verdict,
   the `REVIEW` constant and `_review` field go from `pending review at f943553` to `reviewed`.
 - **Crontab line proposed for devops**, 06:43 local daily, a minute off :00/:30. The comment follows the form of the
   crontab's other lines:
 
 ```
-# 2026-11-21 (devops-fix-website-dependency-audit; owner Q2 'yes', steering/website-deps-review-rulings.md 23:44Z; record entry only, steering/fix-website-dependency-audit-rulings.md 23:58Z): daily pnpm audit of website origin/master joined with tools/website-audit-dispositions.json; new undispositioned advisories go to INBOX.md once. Remove when the owner retires the audit.
+# 2026-11-21 (devops-fix-website-dependency-audit; owner Q2 'yes', steering/website-deps-review-rulings.md 23:44Z; record entry only, steering/fix-website-dependency-audit-rulings.md 23:58Z): daily pnpm audit of website origin/master joined with tools/website-audit-dispositions.json; new undispositioned advisories, the start of a failure streak and a clone behind its remote go to INBOX.md once each. Remove when the owner retires the audit.
 43 6 * * * cd /usr/local/bin/hooks/agent-output && PATH=/usr/local/bin:/usr/bin:/bin /usr/local/bin/node tools/website-dependency-audit.js --pnpm /home/dev/.local/share/pnpm/pnpm >> /home/dev/.local/state/website-dependency-audit/cron.log 2>&1 # fix-website-dependency-audit
 ```
 
   The log folder must exist before the first run, or the redirect fails: `mkdir -p
   /home/dev/.local/state/website-dependency-audit`. The tool creates it only once it writes state.
-- **Stated limits.** The audit reads `origin/master` as the local website clone last fetched it; the tool does not
-  fetch. A failed run writes only to `cron.log`, which nobody is prompted to read. The registry's rate limits were not
-  measured. A new installed version of an advisory that already has a disposition is not reported.
+- **Stated limits.**
+  - The audit reads `origin/master` as the local website clone last fetched it, and never fetches. A difference from
+    the remote head is reported once per pair (limb (b)).
+  - A failure reaches the inbox once per streak (limb (a)). The exceptions reach only `cron.log`: a bad argument in
+    the crontab line, an unreadable state file, and an inbox that cannot be written.
+  - The registry's rate limits were not measured.
+  - CR-3, accepted by steering block 00:19Z: a disposition holds for every installed version of its module under its
+    GHSA, so a new version line of an assessed advisory is not reported.
 
 ## Changelog
 
@@ -212,3 +256,4 @@ one inbox entry …" and "adds no entry on a second run …".
 |---|---|
 | 2026-11-21T00:09 | Created. Tool, test and seeded dispositions committed at `afb3ff2` and `9fc299c`; 18/18 negative controls killed; handed off at `9fc299c`. |
 | 2026-11-21T00:18 | Code review Round 1 REJECTED at `9fc299c` on CR-1 (`code-review/fix-website-dependency-audit-code-review.md`, cd93a06). Fixed at `ed7926d`: one case for an unwritable inbox, with the reviewer's state-order mutant added; 13/13 green, 19/19 controls killed. Handoff-At moved to `ed7926d`. |
+| 2026-11-21T00:30 | CR-1 confirmed closed by the reviewer at `ed7926d` (f7849cf). CR-2 limbs (a) failure-streak entry and (b) stale-pair entry, per steering block 00:19Z: red 3 of 16 at `ed7926d`'s tool; done at c7ef844 and c7b6898; 17/17 green; 28/28 controls killed at c7b6898 (one undiscriminated default removed after it survived at c7ef844); live run quiet with the clone's refs unchanged. Handoff-At moved to `c7b6898`. |
