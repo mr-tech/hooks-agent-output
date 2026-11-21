@@ -149,3 +149,20 @@ Chain 3, this thread's design reading (agent-authored, inside his Q2 A words "th
 settled with `applyDisposition` and a settled notice. Chain 3 reproduces both in `NewMessageModal` for every import tab, so neither the
 row E choice nor a row D silent floor leaves Save off with no way out. Not put to him: it is the JSON tab's own rule applied to a second
 surface, which his words name.
+
+## 2026-11-21T07:59Z — selection: chain 2's escaped gap runs after chain 3, and the not-found page drops the editor controls
+
+Selection prompt put 07:5xZ, answered 07:59Z (ledger `steering/selection-ledger/2026-11-21.md`, block "2026-11-21T07:59Z —
+steering-hooks"); wording this thread's. Premises: chain 2's escaped defect, `steering/fix-message-not-found-rulings.md` block 07:58Z
+(QA's production read; carrier `handoff/get-one-absent-number-still-500-in-production-2026-11-21.md`, UUID 7c3e91a4); a refutation
+helper (run under Node in `scratchpad/refute-noresult/`, 07:5xZ): limbs 1-4 HOLD — `message.ts:4` ESM `NoResultError`, `:74`
+`asNotFound(NoResultError)` by `instanceof`; project-utils `dist/postgres.js` `require("kysely")`; kysely 0.26.1's `exports` split
+`import`/`require`; a CJS query's `NoResultError` is not `instanceof` the ESM class — PARTLY on production, since no Next bundle was
+built (`next.config.js` has no `serverExternalPackages`/`transpilePackages`); QA's production read is the observation.
+- Q timing: A "Agent: right after chain 3 (Recommended)"; B "Agent: now, in a second copy"; C "Agent: pause chain 3"; D "Agent: don't
+  fix". Chosen by selection: **A**.
+- Q header row: A "Agent: hide editor controls (Recommended)" — "in the same fix round, the not-found page drops the name field, the
+  menu and Send, keeping only the site's normal navigation and the notice"; B "Agent: leave as is". Chosen by selection: **A**.
+**Order, as amended:** 1 done; 2 released with the gap; 3 `fix-import-save-conflict` (running); **3b `fix-get-one-absent-not-found`**
+(handoff 7c3e91a4 plus the header-row limb; a red test whose error comes from the CJS kysely the query really uses; an escaped
+bug-form test is earned, `// escaped:` the deployment record); then 4-9 as block 05:50Z.
