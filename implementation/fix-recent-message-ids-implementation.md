@@ -234,7 +234,7 @@ Website `6f76c6d`, test-only; no production line changes (still 30 added over `7
   evidence is the controls below. The `permissions` values are the wire form Discord documents. The real-wire read is carried by
   steering's ruling to devops as a post-deploy check.
 - **Negative controls**, `mutation-run.py` on `6f76c6d`, all 7 KILLED with count `checked`. Mutants:
-  `verification/fix-recent-message-ids/controls-round2-mutants.json`, where QA's three texts are copied from `qa/sweep-mutants.json`.
+  `verification/fix-recent-message-ids/controls-round2-mutants.json`, where QA's three texts are copied from `verification/fix-recent-message-ids/qa/sweep-mutants.json`.
   Table: `controls-round2/`.
 
   | Control | Case that failed |
