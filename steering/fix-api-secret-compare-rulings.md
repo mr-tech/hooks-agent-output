@@ -133,8 +133,8 @@ a closed port) was not completed; it did not re-issue it and continues every oth
 the reviewer's command word for word (text from the reviewer by message, 16:0xZ); not completed. The reviewer was told (16:08Z) and
 waits on his next word for that limb only.
 
-## 2026-11-21T18:03Z — selection: the reviewer re-runs its server start with the dummy database renamed
+## 2026-11-21T18:01Z — selection: the reviewer re-runs its server start with the dummy database renamed
 
-His selection, answered 18:00Z (effort rulings block "2026-11-21T18:03Z"; ledger block "2026-11-21T18:00Z — steering-hooks"): "Agent:
+His selection, answered 18:00Z (effort rulings block "2026-11-21T18:01Z"; ledger block "2026-11-21T18:00Z — steering-hooks"): "Agent:
 re-issue without 'none' (Recommended)". Relayed verbatim to `code-reviewer-fix-api-secret-compare` 18:0xZ: re-issue with only the dummy
 database name changed (`nodb`), disclosed in its round as "not completed, re-run with the dummy database name changed", no reason.
