@@ -1,0 +1,18 @@
+{
+  "note": "Post-deploy row B-1 (handoff/fix-get-one-absent-not-found-post-deploy-2026-11-21.md), read by qa-fix-get-one-absent-not-found in the stage browser, test account 1 signed in (user menu present). Read only: getOne queries and page loads, no save. Values transcribed verbatim from the browser tool results.",
+  "wire": {
+    "instrument": "browser_evaluate on https://hooks.gg/message of fetch('/api/trpc/message.getOne?input=' + encodeURIComponent(JSON.stringify({json: id}))) per id",
+    "at": "2026-11-21T10:13:30.368Z",
+    "signedInHint": true,
+    "6022": { "status": 404, "vercelId": "pdx1::cle1::627lb-1795256010387-cbd3b3799e36", "code": "NOT_FOUND", "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}" },
+    "999999999999": { "status": 404, "vercelId": "pdx1::cle1::sk6nn-1795256011047-49a4db282c02", "code": "NOT_FOUND", "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}" },
+    "900000000000500": { "status": 404, "vercelId": "pdx1::cle1::wnfmh-1795256011529-ca012868ce96", "code": "NOT_FOUND", "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}" },
+    "1000": { "status": 404, "vercelId": "pdx1::cle1::sk6nn-1795256011971-78759ca593ca", "code": "NOT_FOUND", "body": "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}" },
+    "6010": { "status": 200, "vercelId": "pdx1::cle1::627lb-1795256012940-82fa84ae707b", "ok": true }
+  },
+  "page": {
+    "instrument": "browser_navigate to /message/m/<id>/edit, then browser_evaluate: wait for the notice text (up to 10 s), then 12 s more; read the selectors below and performance resource entries for message.getOne; for 6022 also browser_network_requests filtered to message.getOne",
+    "999999999999": { "at": "2026-11-21T10:13:56.331Z", "notice": true, "nameField": false, "menus": [], "send": false, "themeToggle": true, "userMenu": true, "backLinks": ["Back to your messages"], "getOneRequests": [404] },
+    "6022": { "at": "2026-11-21T10:14:17.735Z", "notice": true, "nameField": false, "menus": [], "send": false, "themeToggle": true, "userMenu": true, "getOneRequests": [404], "networkRequests": "130. [GET] https://hooks.gg/api/trpc/message.getOne?input=%7B%22json%22%3A%226022%22%7D => [404]" }
+  }
+}

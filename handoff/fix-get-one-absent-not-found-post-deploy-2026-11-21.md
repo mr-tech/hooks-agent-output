@@ -67,7 +67,20 @@ Stage 2.
   duplicated module instance in the Next bundle (the Assumption Not Checked), and the user still sees a blank editor that retries. If
   the editor bar still shows above the notice, the header half did not ship. If `6010` fails, loading broke. A falsifier goes to the
   owner through `steering-hooks`.
-- **Owner**: qa. **Result**: blank — not yet decidable.
+- **Owner**: qa. **Result** (qa-fix-get-one-absent-not-found, 2026-11-21T10:13:30Z to 10:14:17Z): **HOLDS on both limbs.**
+  - **How I established that the new build serves.** At 10:01:25Z, on the old build, `999999999999` answered 500 "no result", which shows no row held it then. It is also eight digits beyond the test account's own `6010`. `900000000000500` lies in the local-build id range (CLAUDE.md, the `Messages_id_seq` restart). At 10:13:30Z both answer 404. Only `b663b35`'s `getOne` can give a 404 for a number no row holds, and the first read after the push already did, so no re-read was needed.
+  - **Absent numbers.** `6022`, `999999999999` and `900000000000500` all give 404 `NOT_FOUND` "This message doesn't exist, or you don't have access to it.", with bodies byte-identical to `1000`'s. As predicted.
+  - **Is `6022` still absent?** The fixed build cannot settle this: by design, it gives an absent number and another user's message the same answer. The absent-number limb therefore rests on `999999999999` and `900000000000500`, which no row can hold. `6022` answers exactly as they do.
+  - **Server not managed:** `1000` gives 404 with the one text. **Own message:** `6010` gives 200. Both as predicted.
+  - **Page.** I checked `/message/m/999999999999/edit` (10:13:56Z) and `/message/m/6022/edit` (10:14:17Z), each read 12 s after the notice showed:
+    - the notice shows ("Back to your messages" links to `/message`);
+    - `input[aria-label="Message Name"]` is absent, there are no File/Edit/View/Help buttons, and there is no `a[href$="/send"]`;
+    - the theme toggle and the user menu are present;
+    - there is 1 `message.getOne` request (404), from both performance entries and, for `6022`, `browser_network_requests`.
+
+    As predicted: the header half shipped.
+  - **The Assumption Not Checked is settled.** An absent number answers 404 on the production build, so the class `getMessage` throws is the class `getOne` checks there.
+  - **Read only.** I made no save and no other write. The browser was closed afterwards, with no profile holder, and its caches were emptied. Capture: `verification/fix-get-one-absent-not-found/qa/post-deploy/b1-reads-2026-11-21T1013Z.json`. Screenshots: none taken.
 
 ## After the read holds
 
@@ -93,3 +106,4 @@ Raised by QA Phase 2 (register row B-1 and Assumption Not Checked) and the code 
 |---|---|---|
 | 2026-11-21T10:08 | devops-fix-get-one-absent-not-found | Created at Stage 1. Row B-1 carried in full; the event ledger is blank until Stage 2. No crontab line: the reader is a qa-role session with the browser, started or woken by steering after the push. |
 | 2026-11-21T10:11 | devops-fix-get-one-absent-not-found | E-WEBSITE-PUSH written at Stage 2: website `master` b829314 -> b663b35 pushed 2026-11-21T10:11:09Z. B-1 stays blank; the reader is a qa-role session with the browser (`qa-fix-get-one-absent-not-found` minted the row). Vercel's build of the push is not read from the host; start B-1 only once hooks.gg serves the new build (the first `6022` answer is 404 rather than 500), and say in the Result how that was established. |
+| 2026-11-21T10:14 | qa-fix-get-one-absent-not-found | B-1 read on hooks.gg, 10:13:30Z to 10:14:17Z: HOLDS on both limbs. Disclosure: the stamp gate refused my first stamp for this row, which I typed a minute ahead of the clock (10:15 against 10:14Z); I re-stamped it from `date -u` (a gate satisfied). Absent numbers give the one 404 with bodies byte-identical to `1000`'s, and `6010` gives 200. `/edit` shows the notice with no name field, menus or Send, after 1 request. The Assumption Not Checked is settled. Result written; capture `verification/fix-get-one-absent-not-found/qa/post-deploy/b1-reads-2026-11-21T1013Z.json`. Closing is steering's. |
