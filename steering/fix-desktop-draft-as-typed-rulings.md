@@ -122,7 +122,7 @@ in `/usr/local/bin/statbot/statbot-docs` and `/usr/local/bin/statbot/statbot-v3-
 `DiscordStatbot/statbot-docs` and `DiscordStatbot/statbot-v3-website` (`git remote get-url`), and `b663b354` is not an object in the
 latter (`git cat-file -t`, exit 128). Not relayed: no session acts on it.
 
-## 2026-11-21T11:40Z — P-1 holds; source handoff closed Addressed
+## 2026-11-21T11:39Z — P-1 holds; source handoff closed Addressed
 
 P-1 HOLDS on production at `b68f94c` (QA by message 11:3xZ; carrier closed Addressed `c673ee77`, capture
 `verification/fix-desktop-draft-as-typed/qa/p1-after-read.md`): on saved message 6008, content and author name typed and reloaded

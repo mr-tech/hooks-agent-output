@@ -35,4 +35,4 @@ thread opened one so the limit stays visible after the three item handoffs close
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-20T03:14 | steering-roadmap-hooks | Opened from the stated limit on plan 017's post-deploy row B-9 (`aaccb15`). |
-| 2026-11-21T11:40 | steering-hooks | Closed Addressed: fixer chain `fix-desktop-draft-as-typed` released `b68f94c` (11:33Z) and its post-deploy row P-1 holds (`c673ee77`); chain rulings `steering/fix-desktop-draft-as-typed-rulings.md`. |
+| 2026-11-21T11:39 | steering-hooks | Closed Addressed: fixer chain `fix-desktop-draft-as-typed` released `b68f94c` (11:33Z) and its post-deploy row P-1 holds (`c673ee77`); chain rulings `steering/fix-desktop-draft-as-typed-rulings.md`. |
