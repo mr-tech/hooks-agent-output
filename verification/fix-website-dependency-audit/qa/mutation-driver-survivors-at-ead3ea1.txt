@@ -1,0 +1,24 @@
+website-dependency-audit.js:49:if-false KILLED 4.22
+website-dependency-audit.js:60:num SURVIVED 4.1
+website-dependency-audit.js:60:num:2 SURVIVED 4.14
+website-dependency-audit.js:77:num SURVIVED 4.13
+website-dependency-audit.js:77:num:2 SURVIVED 4.02
+website-dependency-audit.js:77:num:3 SURVIVED 4.06
+website-dependency-audit.js:171:true:2 SURVIVED 4.08
+website-dependency-audit.js:175:walk-first KILLED 3.99
+website-dependency-audit.js:175:walk-last KILLED 3.95
+website-dependency-audit.js:178:walk-first KILLED 3.99
+website-dependency-audit.js:178:walk-last KILLED 4.04
+website-dependency-audit.js:179:> KILLED 4.16
+website-dependency-audit.js:190:num KILLED 3.91
+website-dependency-audit.js:190:num:2 SURVIVED 4.06
+website-dependency-audit.js:196:num SURVIVED 4.1
+website-dependency-audit.js:204:num SURVIVED 4.22
+qa-coupling-stale-key-only-without-advisory KILLED 4.19
+qa-coupling-reported-key-only-when-in-step KILLED 4.1
+qa-coupling-marker-only-before-any-report KILLED 4.11
+qa-coupling-streak-ends-only-on-quiet-recovery KILLED 4.1
+qa-entry-omits-advisory-url KILLED 4.0
+qa-stale-entry-names-remote-as-read KILLED 3.96
+qa-entry-names-remote-ref-sha KILLED 3.89
+14 of 23 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-survivors-c5508c7.json (blob aeca6ce4d36ad66b93228b1bece352aad1954652))

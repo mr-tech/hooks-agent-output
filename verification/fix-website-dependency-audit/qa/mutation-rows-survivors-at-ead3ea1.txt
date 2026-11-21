@@ -1,0 +1,23 @@
+website-dependency-audit.js:49:if-false	KILLED	checked	fails on a bare argument without its dashes, and writes nothing
+website-dependency-audit.js:60:num	SURVIVED	0	
+website-dependency-audit.js:60:num:2	SURVIVED	0	
+website-dependency-audit.js:77:num	SURVIVED	0	
+website-dependency-audit.js:77:num:2	SURVIVED	0	
+website-dependency-audit.js:77:num:3	SURVIVED	0	
+website-dependency-audit.js:171:true:2	SURVIVED	0	
+website-dependency-audit.js:175:walk-first	KILLED	checked	adds one entry for each of two undispositioned advisories, and none on a second run
+website-dependency-audit.js:175:walk-last	KILLED	checked	adds one entry for each of two undispositioned advisories, and none on a second run
+website-dependency-audit.js:178:walk-first	KILLED	checked	adds one entry for each of two undispositioned advisories, and none on a second run
+website-dependency-audit.js:178:walk-last	KILLED	checked	adds one entry for each of two undispositioned advisories, and none on a second run
+website-dependency-audit.js:179:>	KILLED	checked	leaves the inbox unchanged when every advisory is dispositioned
+website-dependency-audit.js:190:num	KILLED	checked	adds exactly one inbox entry for an advisory with no disposition, naming every installed version | adds one entry for each of two undispositioned advisories, and none on a second run | reports a stale clone and an undispositioned advisory once each when they occur together, naming the audited tree
+website-dependency-audit.js:190:num:2	SURVIVED	0	
+website-dependency-audit.js:196:num	SURVIVED	0	
+website-dependency-audit.js:204:num	SURVIVED	0	
+qa-coupling-stale-key-only-without-advisory	KILLED	checked	reports a stale clone and an undispositioned advisory once each when they occur together, naming the audited tree
+qa-coupling-reported-key-only-when-in-step	KILLED	checked	reports a stale clone and an undispositioned advisory once each when they occur together, naming the audited tree
+qa-coupling-marker-only-before-any-report	KILLED	checked	adds one failure entry for a streak that starts after an advisory was reported
+qa-coupling-streak-ends-only-on-quiet-recovery	KILLED	checked	ends a streak on a recovery that reports an advisory, so the next streak adds its own entry
+qa-entry-omits-advisory-url	KILLED	checked	adds exactly one inbox entry for an advisory with no disposition, naming every installed version
+qa-stale-entry-names-remote-as-read	KILLED	checked	reports a stale clone and an undispositioned advisory once each when they occur together, naming the audited tree
+qa-entry-names-remote-ref-sha	KILLED	checked	reports a stale clone and an undispositioned advisory once each when they occur together, naming the audited tree

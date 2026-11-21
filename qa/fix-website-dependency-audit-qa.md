@@ -2,9 +2,9 @@
 ID: n/a
 Origin: fix-website-dependency-audit
 UUID: d9ef268a
-Verified-At: "c5508c7 — repos=agent-output"
-Status: QA Failed
-Status-Detail: "Phase 2 at c5508c7: suite 18/18 green, exit 0; mutation sweep 49 of 72 killed. QAF-1..QAF-4 (MEDIUM, test-only, no production change owed) and QAF-5 (LOW) to fixer-fix-website-dependency-audit. Devops not yet cued."
+Verified-At: "ead3ea1 — repos=agent-output"
+Status: QA Complete
+Status-Detail: "Phase 2 refresh at ead3ea1: QAF-1..QAF-5 closed (tests only; production identical to c5508c7); suite 23/23, exit 0; the 72-mutant set has 63 killed, the other 9 equivalent or without a reader. Next: devops installs the crontab line and reads the first run (register row B-1)."
 Phase: 2
 ---
 
@@ -19,6 +19,7 @@ Phase: 2
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T00:56 | steering-roadmap-hooks (brief, record `097b839`) | Phase 2 on a fixer chain at `c5508c7` | Phase 2. A fixer chain, so there is no Phase 1 (owner's selection of the fixer route). Suite re-run network-isolated in an export: 18/18, exit 0. Mutation sweep over the chain's production file (60 generated + 12 QA mutants): 49 of 72 KILLED, 23 SURVIVED. Of the survivors, 8 are equivalent or have no reader; 15 show four claimed properties with no failing assertion (QAF-1..QAF-4, MEDIUM, severity floor) and one untested disjunct (QAF-5, LOW). **QA Failed**: to the fixer for test tightening; no production change is owed. |
+| 2026-11-21T01:09 | fixer-fix-website-dependency-audit (message; implementation document `9a21bba`, `Handoff-At: ead3ea1`) | Phase 2 refresh after the QAF round | Phase 2 refresh at `ead3ea1`. Production unchanged since `c5508c7`, the test file +68 −0. Suite network-isolated: 23/23, exit 0. My re-run of the 23 survivors at `ead3ea1`: 14 KILLED, each by the case written for it; the 9 still surviving are the ones already ruled equivalent or without a reader. QAF-1..QAF-5 closed. **QA Complete** at `ead3ea1`; to devops. |
 
 ## Scope and criteria assessed (recorded before executing)
 
@@ -121,6 +122,40 @@ Later stage documents (the deployment record, then any handoff carrying an open 
 
 This pass assumes that real `pnpm audit --prod --json` output over `76da25c`'s lockfile has the shape the stub's fixture reproduces, and does not test it (every run here was network-isolated by rule; the fixer's and the reviewer's live runs at `d1bb9b0` are the evidence). If false, B-1's first line reads `failed: pnpm audit gave no advisories` or `advisories 0`. Owner: devops, at B-1.
 
+## Phase 2 refresh at `ead3ea1`
+
+**Tree.** `git diff --quiet c5508c7 ead3ea1 -- tools/website-dependency-audit.js tools/website-audit-dispositions.json` exit 0; `git diff --numstat c5508c7 ead3ea1 -- tools/` gives `68 0 tools/websiteDependencyAudit.test.js` only. Record `HEAD` matched `ead3ea1` on the three paths (`git diff --quiet`, exit 0). The fixer's own runs were not network-isolated; mine below were.
+
+**Scope (a round with no production change re-runs only the survivors it closes).** The 23 SURVIVED rows of `verification/fix-website-dependency-audit/qa/mutation-table-sweep-c5508c7.json`, extracted into `verification/fix-website-dependency-audit/qa/mutants-survivors-c5508c7.json` (its id set equals the table's SURVIVED set, checked by node). Because the test diff only adds lines, the 49 kills at `c5508c7` stand.
+
+| Run | Result | Capture |
+|---|---|---|
+| Suite, `unshare -rn node --test tools/websiteDependencyAudit.test.js` in an export of `ead3ea1` (blobs verified) | 23 tests, 23 pass, **exit 0** | `verification/fix-website-dependency-audit/qa/suite-run-ead3ea1.txt` |
+| Survivors, `mutation-run.py --sha ead3ea1` with the same confinement as the sweep (runs delegated to a helper; table read here) | control green, 23 = 23; **14 of 23 KILLED**, all count-checked; 9 SURVIVED | `verification/fix-website-dependency-audit/qa/mutation-table-survivors-at-ead3ea1.json`, `verification/fix-website-dependency-audit/qa/mutation-driver-survivors-at-ead3ea1.txt`, `verification/fix-website-dependency-audit/qa/mutation-rows-survivors-at-ead3ea1.txt` |
+
+**Which case killed each mutant** (`failing_titles`):
+- QAF-1: `175:walk-*` and `178:walk-*` by "adds one entry for each of two undispositioned advisories, and none on a second run".
+- QAF-2:
+  - `-stale-key-only-without-advisory` and `-reported-key-only-when-in-step` by "reports a stale clone and an undispositioned advisory once each when they occur together, naming the audited tree".
+  - `-marker-only-before-any-report` by "adds one failure entry for a streak that starts after an advisory was reported".
+  - `-streak-ends-only-on-quiet-recovery` by "ends a streak on a recovery that reports an advisory, so the next streak adds its own entry".
+- QAF-3:
+  - `qa-entry-omits-advisory-url` by the first case.
+  - `qa-entry-names-remote-ref-sha` and `qa-stale-entry-names-remote-as-read` by the stale-plus-advisory case.
+  - `190:num` by three cases' heading-form check.
+- QAF-4: `179:>` by "leaves the inbox unchanged when every advisory is dispositioned".
+- QAF-5: `49:if-false` by "fails on a bare argument without its dashes, and writes nothing".
+
+Each case is green at `ead3ea1` and red under its mutant, so it counts as evidence. The new cases are spec-form, and no title carries an ID token. The still-surviving 9 (`60:num`, `60:num:2`, `77:num`, `77:num:2`, `77:num:3`, `171:true:2`, `190:num:2`, `196:num`, `204:num`) keep their dispositions from the table above.
+
+**Effort-final sweep figure.** Of the 72 mutants matching mutant-gen's operators over `tools/website-dependency-audit.js` plus the 12 QA mutants, 63 are killed: 49 at `c5508c7` and 14 at `ead3ea1`. The other 9 are dispositioned as equivalent or without a reader. Excluded: `??`, `?.`, `=>`, comparisons inside template substitutions, and the data file `website-audit-dispositions.json`, which is covered by the review's seed differential instead.
+
+**Findings.** QAF-1, QAF-2, QAF-3, QAF-4 and QAF-5 are closed at `ead3ea1`. The checks that fail if any of them returns are the kill table above and the mutant set `verification/fix-website-dependency-audit/qa/mutants-sweep-c5508c7.json`.
+
+**Verdict: QA Complete at `ead3ea1`**, for the paths `tools/website-dependency-audit.js`, `tools/websiteDependencyAudit.test.js` and `tools/website-audit-dispositions.json`. Any later change to those paths expires it. The `REVIEW` constant and `_review` field moving to `reviewed`, which is the fixer's post-verdict act, changes no behaviour. Register row B-1 stays open, owned by devops. The Assumption Not Checked above stands unchanged for this pass.
+
 ## Handoff
 
-QA Failed at `c5508c7` → `fixer-fix-website-dependency-audit` for QAF-1..QAF-4 (tests only, spec-form, each new or tightened case seen red under its surviving mutant in `verification/fix-website-dependency-audit/qa/mutants-sweep-c5508c7.json`), QAF-5 optional. The re-run after that round covers the survivors it closes (no production change, so no wider sweep). Devops is cued only after a passing verdict.
+QA Complete at `ead3ea1`. To `devops-fix-website-dependency-audit`: install the crontab line and read the first run (B-1). If no devops session is live, the spawn cue goes to `steering-roadmap-hooks`. The fixer moves `REVIEW` and `_review` to `reviewed`.
+
+Earlier handoff, at `c5508c7`: QA Failed at `c5508c7` → `fixer-fix-website-dependency-audit` for QAF-1..QAF-4 (tests only, spec-form, each new or tightened case seen red under its surviving mutant in `verification/fix-website-dependency-audit/qa/mutants-sweep-c5508c7.json`), QAF-5 optional. The re-run after that round covers the survivors it closes (no production change, so no wider sweep). Devops is cued only after a passing verdict.

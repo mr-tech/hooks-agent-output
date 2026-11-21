@@ -1,0 +1,35 @@
+command: unshare -rn node --test tools/websiteDependencyAudit.test.js (cwd: git archive export of record ead3ea1; blobs verified); 2026-11-21T01:05Z
+▶ website dependency audit
+  ✔ adds exactly one inbox entry for an advisory with no disposition, naming every installed version (133.341854ms)
+  ✔ adds no entry on a second run while the advisory stays undispositioned (199.055401ms)
+  ✔ leaves the inbox unchanged when every advisory is dispositioned (119.497323ms)
+  ✔ does not fail when a dispositioned or reported advisory has left the audit (120.029904ms)
+  ✔ treats a bare module key or a version-line key as no disposition of an advisory (116.485595ms)
+  ✔ treats a disposition with an empty assessment as no disposition (120.771743ms)
+  ✔ writes nothing on an unreadable audit and reports the advisory on the next readable run (202.295444ms)
+  ✔ separates the entry by a blank line from an inbox that lacks a final newline (122.872707ms)
+  ✔ fails naming git when the released ref does not exist, and reports no advisory (80.954124ms)
+  ✔ adds one inbox entry when a streak of failed runs starts, and none for the rest of the streak (221.802473ms)
+  ✔ starts no streak when the failure entry cannot be written, and adds it on the next failure (182.72822ms)
+  ✔ adds a new failure entry for a streak that starts after a run succeeded (266.955926ms)
+  ✔ adds one entry per pair when the local released ref differs from the remote head, moving no ref (380.556309ms)
+  ✔ fails, reporting no advisory, when the remote has no head for the released branch (123.627262ms)
+  ✔ prints the procedure for adding a disposition on --help, and writes nothing (81.047366ms)
+  ✔ fails on an argument it does not know, and writes nothing (73.916693ms)
+  ✔ keeps no reported key when the inbox cannot be written, and reports the advisory on the next run (200.248396ms)
+  ✔ adds one entry for each of two undispositioned advisories, and none on a second run (206.111731ms)
+  ✔ reports a stale clone and an undispositioned advisory once each when they occur together, naming the audited tree (236.286756ms)
+  ✔ adds one failure entry for a streak that starts after an advisory was reported (280.504809ms)
+  ✔ ends a streak on a recovery that reports an advisory, so the next streak adds its own entry (281.768473ms)
+  ✔ fails on a bare argument without its dashes, and writes nothing (82.090214ms)
+  ✔ removes the lockfile export after a readable and after an unreadable run (192.795315ms)
+✔ website dependency audit (4028.146674ms)
+ℹ tests 23
+ℹ suites 1
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4092.778497
+EXIT=0
