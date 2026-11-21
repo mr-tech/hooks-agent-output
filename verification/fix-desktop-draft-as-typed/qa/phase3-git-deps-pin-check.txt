@@ -1,0 +1,16 @@
+# pin check, 2026-11-21T11:30:12Z, website b68f94c
+## lockfile lines naming paracord / project-utils at b68f94c (git show b68f94c:pnpm-lock.yaml | grep -n)
+167:        specifier: github:hooks-gg/project-utils#master
+168:        version: git+https://git@github.com:hooks-gg/project-utils.git#749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f
+334:        version: https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227
+5148:  paracord@https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227:
+5149:    resolution: {tarball: https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227}
+5397:  project-utils@git+https://git@github.com:hooks-gg/project-utils.git#749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f:
+5398:    resolution: {commit: 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f, repo: git@github.com:hooks-gg/project-utils.git, type: git}
+12605:  paracord@https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227:
+12890:  project-utils@git+https://git@github.com:hooks-gg/project-utils.git#749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f:
+## counts of the recorded identifiers at b68f94c
+3f203086ae38: 4
+749606d01b7f: 4
+## git diff --quiet b663b35 b68f94c -- package.json pnpm-lock.yaml
+exit=0
