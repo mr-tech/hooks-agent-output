@@ -1,0 +1,22 @@
+diff --git a/src/providers/TrpcProvider.tsx b/src/providers/TrpcProvider.tsx
+index 5b0b2f7..b45b408 100644
+--- a/src/providers/TrpcProvider.tsx
++++ b/src/providers/TrpcProvider.tsx
+@@ -1,7 +1,7 @@
+ 'use client';
+ 
+ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+-import { httpLink } from '@trpc/client';
++import { httpBatchStreamLink } from '@trpc/client';
+ import { createTRPCReact } from '@trpc/react-query';
+ import { useState } from 'react';
+ import superjson from 'superjson';
+@@ -16,7 +16,7 @@ const TrpcProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
+   const [queryClient] = useState(() => new QueryClient());
+   const [trpcClient] = useState(() => trpc.createClient({
+     links: [
+-      httpLink({ url, transformer: superjson }),
++      httpBatchStreamLink({ url, transformer: superjson }),
+     ],
+   }));
+   return (

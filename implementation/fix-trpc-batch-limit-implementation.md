@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-trpc-batch-limit
 UUID: 61d9ad16
 Status: Active
-Status-Detail: "Fix committed on website chain/fix-trpc-batch-limit; awaiting code review (2 production lines added, so no QA Phase 2); merge to master is devops's, on the owner's word."
-Handoff-At: 3d2ceec — repos=website
+Status-Detail: "Code review Round 1 CR-1 fixed (Minimum remedy, test-only) at f47e304; awaiting the reviewer's fix confirmation (2 production lines, so no QA Phase 2); merge to master is devops's, on the owner's word."
+Handoff-At: f47e304 — repos=website
 Origin-Chain: none
 ---
 
@@ -219,8 +219,56 @@ early per-file red logs (`fixer/red-batch-refusal-d1bb9b0.log`, `fixer/red-middl
 shared tree before any source edit, with earlier forms of the tests. They are kept as the first sighting only; the red run of record is
 `red-d1bb9b0.log`.
 
+## Code review Round 1 — CR-1 response
+
+The review is `code-review/fix-trpc-batch-limit-code-review.md` (record `6e9821b`), REJECTED at `3d2ceec`. CR-1 MEDIUM: the rule
+that no site link batches was asserted only on `proxy` (`api.ts:46`), which nothing in production calls, while the link production
+uses (`TrpcProvider`) had no assertion. The finding is accepted. My earlier `answers a single call` case and its title claimed coverage
+the test did not give.
+
+**Remedy: Minimum, inside the write set.** The Preferred remedy touches `src/utils/api.ts` and `TrpcProvider.tsx`, which are outside
+the write set; whether it enters scope is steering's ruling, put to steering by the reviewer. Commit `f47e304` (test-only; production
+lines unchanged at 2):
+- New `src/pages/api/trpc/__tests__/trpc.site-link.test.tsx` (DOM project, `mountDom`/`unmountDom` from
+  `~/components/__tests__/helpers/dom`). It mounts the real `TrpcProvider` around a component calling
+  `api.user.getPreferences.useQuery()`. The real `[trpc]` handler runs behind a Node `http` server, which records each request's
+  URL and final status. The assertion is on the first recorded request: path `user.getPreferences`, no `batch` parameter, and
+  status 200. It does not wait for the hook to settle, so react-query's retries cannot turn a failure into a timeout.
+  The request reaching the server through an `api.*` hook confirms, by execution, the reviewer's reading that those hooks use
+  `TrpcProvider`'s client.
+- `trpc.batch-refusal.test.ts`: the `proxy` case ("the site's own link → answers a single call") and its `PORT` env stub are removed.
+  Production does not call `proxy`, so its case had no merit of its own.
+- **Invented values, named.** jsdom makes `getBaseUrl()` return `''`, so the provider fetches the relative `/api/trpc/…`. The test's
+  `fetch` stub resolves that against the harness origin, as a browser resolves it against the page. If that were false, no request
+  would reach the server and `vi.waitFor` would fail on `expected 0 to be greater than 0`. The server modules run in the DOM
+  project, where `~/utils/discord` throws on `window`; it is mocked (`getApi: vi.fn()`) beside the siblings' redis and pusher mocks.
+  `user.getPreferences` does not reach it.
+- **In-round corrections.** The first export run failed with `expected 0 to be greater than 0`: the handler module loaded cold inside
+  the request and took longer than `vi.waitFor`'s 1 s default. The handler is now imported in `beforeAll`. An interim
+  `{ timeout: 3000 }` on the wait was flagged by convention-check as a wall-clock CANDIDATE and was removed; the default wait passed
+  3 of 3 runs. Lint (`no-base-to-string`, `function-component-definition`) was fixed by typing the stub's input as `string | URL` and
+  making the component an arrow function.
+
+**Control (the reviewer's falsity signature).** In a detached export at `f47e304`, `TrpcProvider`'s link was switched to
+`httpBatchLink` (`fixer/round1/control-provider-httpBatchLink.diff`). The case fails on an assertion, `expected true to be false`
+(the `batch` parameter is present), in 78 ms, not as a timeout. With `httpBatchStreamLink` it fails the same way in 80 ms. Logs:
+`fixer/round1/control-provider-*.log`. Green in the same export: 3 passed, exit 0 (`green-export-f47e304.log`). The case passes at
+`d1bb9b0` too, because the base link does not batch, so these controls are its evidence.
+
+**Verification at `f47e304`** (`verification/fix-trpc-batch-limit/fixer/round1/`):
+- Suite: 156 files, 2265 cases, 2265 passed, exit 0 (`suite-f47e304.*`). That is +1 file and the same case count, since the `proxy`
+  case went out and one new case came in.
+- `pnpm run typecheck`: exit 0.
+- `eslint --max-warnings=0` over both trpc test files: exit 0.
+- `convention-check --since=3d2ceec`: 0 FAIL, 0 CANDIDATE. Its ID-token/basename SKIP was run by hand: the basename matches the
+  positive form (`grep -cE` 1), the ID-token class gives 0, and there are 0 comment lines.
+
+Exports `wt2` (at `3d2ceec`) and `wt3` (at `f47e304`) were removed with `git worktree remove --force`; `git worktree list` shows only
+the main tree.
+
 ## Changelog
 
 | Date | Agent | Change |
 |---|---|---|
 | 2026-11-21T00:07 | fixer | Document created; fix committed at `3d2ceec`; handoff to code review |
+| 2026-11-21T00:25 | fixer | Code review Round 1 CR-1 (REJECTED at `3d2ceec`): Minimum remedy at `f47e304`, the provider-link case and its control; `Handoff-At` moved to `f47e304`; re-handoff to code review |
