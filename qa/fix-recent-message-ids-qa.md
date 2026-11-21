@@ -161,6 +161,9 @@ QAF-3 MEDIUM Phase 2 — the owner/Administrator trim the filter relies on has n
 - **Why this needs steering:** the covering test belongs in `src/utils/redis/__tests__/`, which is **outside the write set**. That
   makes it a re-scope, put to `steering-hooks` as an owner-needing item. If the test is ruled out of scope, this finding is
   re-dispositioned to a handoff on that ruling. QA does not narrow the scope itself.
+- **Reconcile 2026-11-21T06:27:** steering ruled QAF-3 in this chain as a test-only addition (`steering/fix-recent-message-ids-rulings.md`,
+  block "2026-11-21T06:27Z", record `09602c0`). The write set gains `src/utils/redis/__tests__/` only; `index.ts` stays
+  outside. The fixer writes the test in its next round, and the refresh re-runs `premise-guild-trim-removed`.
 
 QAF-4 LOW Phase 2 — the fixture's server rows carry `owner: OWNER_DB_ID`, a combination `buildMessageValues`/`upsertMessage` never
 writes, and the fixer's document does not name it.
@@ -191,6 +194,8 @@ not test it.
   dashboard access then vanish for that user.
 - **Owner:** the QAF-3 test pins the parse against a documented Discord value. The real-wire read is steering's to route, since
   the stage set has no UAT. The handoff to steering names it.
+- **Reconcile 2026-11-21T06:27:** steering routed the real-wire read to the devops brief as a post-deploy check on hooks.gg by the Discord
+  test account, recorded as a post-deploy row of the deployment record (same ruling block, `09602c0`).
 
 ## Verdict
 
