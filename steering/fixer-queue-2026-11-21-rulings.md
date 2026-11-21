@@ -208,3 +208,6 @@ stopped once its Checkpoint is committed. Website tree stays on `chain/fix-get-o
 Qualified 09:17Z, his words relayed by the coordinator: "Ongoing deployments can complete". This effort has none: no open deployment
 record (`ls deployment/*.md`: none, 09:17Z) and no devops session of its chains live (`cc-usage.py sessions`: the two devops sessions
 listed belong to other threads' chains). The park stands unchanged.
+Parked 09:18Z: `fixer-fix-get-one-absent-not-found` Checkpoint `9e357ef5`, stopped; `code-reviewer-fix-get-one-absent-not-found`
+Checkpoint `05f414ba` (partial round 1, no verdict), stopped. This thread's Checkpoint is in its docket
+(`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks.md`); its standing check `821f9fe8` deleted. Waits on his word to unpark.
