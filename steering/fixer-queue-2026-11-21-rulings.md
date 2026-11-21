@@ -313,3 +313,14 @@ retrospective records them:** two owner prompts held the chain about 3h24m — t
 live-attack server start put while its cause was a guess; the same question reached him twice.
 Disclosed: this block's heading was first typed (18:57Z) before the clock read it; the stamp gate refused it at 18:56Z; the heading is
 kept after `date -u` read 18:57.
+
+## 2026-11-21T19:02 — selection: agents may use the Vercel CLI for look-only checks
+
+Selection prompt put 18:5xZ, answered 19:0xZ (ledger `steering/selection-ledger/2026-11-21.md`, this thread's block of that minute);
+wording this thread's. Premises read this turn: `/usr/local/bin/vercel` exists (`command -v`); `~/.local/share/com.vercel.cli/auth.json`
+exists (`ls -la`, mode 600, contents unread); `website/.vercel/project.json` links an org and project (keys read, values not printed);
+the CLI never run before the prompt; which account it is signed in as and that token's scope unread. Options: A "Agent: look-only
+Vercel checks (Recommended)" — "Agents may list deployments and read logs with the tool already signed in here; nothing else. Nothing
+technical stops it doing more — the limit is the rule. I'd run chain 5's two checks myself now and take them off your list."; B "You:
+keep doing them". Chosen by selection: **A**. Bounds, from the question's text: listing deployments and reading production logs only;
+never deploy, change settings or read secret values. Binds this thread's chains; the fleet-wide form goes to `~/.claude/agents/INBOX.md`.

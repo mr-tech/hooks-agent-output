@@ -26,16 +26,14 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ---
 
-## Check the website's latest release on Vercel (two looks, one dashboard)
+## Check the website's request logs on Vercel for refused message numbers
 
-The website change that makes the API and the bot check their passwords more safely went out at 18:35 UTC on 21 Nov. The bot's
-"Get Message" was tried afterwards and works, but no agent can see Vercel, so two things need your eyes:
+The website change that makes the API and the bot check their passwords more safely is live (since 18:35 UTC on 21 Nov) and the bot
+works. One thing is left that the agents' Vercel tool cannot show — request logs:
 
-1. In Vercel, open the website project's **Deployments**. Pass: the current Production deployment was built at or after 18:35 UTC
-   on 21 Nov. If it is older, say so — the bot check above then proves nothing yet.
-2. In the same project's **Logs**, filter to Production, since 18:35 UTC, path `/api/v1/guilds/`, status 400. Pass: no 400s on
-   addresses ending in a message number. If there are some, tell steering-hooks the paths you see (the Statbot API may be sending
-   message numbers in a form the site now refuses).
+In the Vercel website project's **Logs**, filter to Production, since 18:35 UTC on 21 Nov, path `/api/v1/guilds/`, status 400.
+Pass: no 400s on addresses ending in a message number. If there are some, tell steering-hooks the paths you see (the Statbot API may
+be sending message numbers in a form the site now refuses).
 
-Tell steering-hooks the result of each; it then closes the old hardening handoff.
+Tell steering-hooks the result; it then closes the old hardening task.
 

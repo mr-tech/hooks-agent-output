@@ -1,0 +1,20 @@
+Vercel serving-deployment read, steering-hooks, 2026-11-21T19:02Z, on his selection (effort rulings block 2026-11-21T19:02).
+Instrument: Vercel CLI 29.1.1 (/usr/local/bin/vercel), signed in on this box; run from /usr/local/bin/hooks/website (linked project), stdin closed. Look-only.
+
+1. `vercel ls --prod` — newest production deployment:
+   27m  https://hooks-gg-website-oxeqdn0vp-hooks-gg.vercel.app  ● Ready  23s  (next newest: 7h old)
+
+2. `vercel inspect https://hooks-gg-website-oxeqdn0vp-hooks-gg.vercel.app`:
+   id       dpl_AsiVPq5vBJY7dqJim5PcmFVWCrn9
+   status   ● Ready
+   created  Sat Nov 21 2026 18:35:46 GMT+0000
+   Aliases: https://hooks.gg, https://hooks-gg-website.vercel.app, https://www.hooks.gg,
+            https://hooks-gg-website-hooks-gg.vercel.app, https://hooks-gg-website-git-master-hooks-gg.vercel.app
+
+3. `vercel logs https://hooks-gg-website-oxeqdn0vp-hooks-gg.vercel.app --since 2026-11-21T18:35:00Z --output raw` (this CLI version
+   returns the deployment's build log, not request logs; 0 lines matching `(GET|POST) /`):
+   line 8:  Cloning github.com/hooks-gg/website (Branch: master, Commit: 0c14d5b)
+   line 75: Build Completed in /vercel/output [12s]
+
+Reading: production (hooks.gg) serves the deployment built from master commit 0c14d5b, created 18:35:46Z and Ready about 23 s later —
+before QA's B-1 read at 18:43Z. Request logs (Item 2) are not readable with this CLI version.

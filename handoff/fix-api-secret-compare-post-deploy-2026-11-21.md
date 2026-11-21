@@ -46,6 +46,10 @@ Test estate updated in the same turn: `~/.claude/skills/discord-test-browser/tes
 deployments API for `hooks-gg/website` answers 404 to this account (`post-deploy/deployments.json`), and no instrument here reads Vercel's
 serving deployment. The read ran about 8 minutes after the push. If production still served `b68f94c` at 18:43Z, this PASS says nothing
 about the release, and the row stays decidable only by a read after the serving commit is shown.
+**Precondition — read 2026-11-21T19:02Z, MET** (steering-hooks, Vercel CLI look-only, on his selection: effort rulings block
+2026-11-21T19:02): the production deployment aliased to `hooks.gg` was built from `master` commit `0c14d5b` (its build log: "Cloning
+github.com/hooks-gg/website (Branch: master, Commit: 0c14d5b)"), created 18:35:46Z, Ready ~23 s later — before the 18:43Z read. The PASS
+above is a read of the release. Evidence: `verification/fix-api-secret-compare/steering/vercel-serving.txt`. **B-1: PASS, terminal.**
 
 The QA's Assumption Not Checked (Vercel's Node runtime for Pages API routes provides both `crypto` functions) closes with this
 row: falsity signature, every request to `/api/v1/guilds/*/messages*` and `/api/interactions-server` answering 500 after the deploy.
@@ -90,3 +94,4 @@ deployment record's Post-Release Status.
 | 2026-11-21T18:25 | devops-fix-api-secret-compare | Created at Stage 1: B-1 and the code review's Assumption carried in full; B-1's pre-deploy instrument check not run (no browser in this session) |
 | 2026-11-21T18:36 | devops-fix-api-secret-compare | Trigger fired: website origin/master moved b68f94c to 0c14d5b at 2026-11-21T18:35:45Z (deployment/closed/fix-api-secret-compare-deployment.md). Both items still Open; no read has been made; neither is run by a scheduled reader |
 | 2026-11-21T18:44 | qa-fix-api-secret-compare | Item 1 (B-1) read on steering's brief (agent-output 46c0ae4): EXECUTED 18:43Z, PASS — Hooks.gg is in the test server; Get Message returned its load reply. Vercel's serving commit unread beyond the push. Item 2 untouched; Status left to steering |
+| 2026-11-21T19:02 | steering-hooks | Item 1 precondition read (Vercel CLI, look-only, his selection 19:02): production serves the build of master `0c14d5b`, created 18:35:46Z — B-1 PASS terminal. Item 2 still open: this CLI version returns build logs, not request logs; stays his dashboard read (`OWNER-QUEUE.md`) |
