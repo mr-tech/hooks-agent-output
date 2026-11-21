@@ -60,3 +60,13 @@ answers 404 with the one text and `/edit` shows the notice without the editor ba
 
 **What the sweep did not cover:** the outer `/message` header; `SendMenuTitle`; how `isNotFound` is set in `MessageProvider`; nothing
 run; the Next server bundle's module resolution.
+
+## 2026-11-21T09:03Z — write-set reading: getMessage's own error class is in scope (this thread's ruling)
+
+Source: `fixer-fix-get-one-absent-not-found` by SendMessage 09:0xZ, marked BLOCKED: is `export class MessageNotFoundError extends Error`
+(6 lines), declared directly above `getMessage` in `shared.ts` and passed as `getMessage`'s `executeTakeFirstOrThrow(MessageNotFoundError)`,
+inside the write set "`shared.ts` (`getMessage` only)"? The fixer's options: 1 in scope (its recommendation); 2 the class in
+`message.ts` with an error-constructor parameter on `getMessage`; 3 stop. Ruled **1**, not put to him (a reading of this thread's own
+write set): the class exists only as `getMessage`'s error. Conditions: nothing else in `shared.ts` changes; the fixer's document records
+that `getMessage`'s other callers (`updateRecentMessageData`, `upsertMessage`) answer as before; a `git grep` at the tip shows no other
+code catches `NoResultError` from `getMessage`. Sent to the fixer 09:0xZ.
