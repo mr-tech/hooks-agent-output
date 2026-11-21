@@ -27,7 +27,7 @@ browser. Screenshots stay untracked and are never committed (his 09:01Z ruling, 
 
 | Event | What it is | When (UTC) | Ref and SHA | Source |
 |---|---|---|---|---|
-| E-WEBSITE-PUSH | website `master` moved to the release | (blank until Stage 2) | website `master` `6f76c6de2daab590777c047e9439cf5f5a9ed215` (was `76da25ccd8fbd063803d4896b9eda3c3759d7221`) | devops, Stage 2 (`deployment/fix-recent-message-ids-deployment.md`) |
+| E-WEBSITE-PUSH | website `master` moved to the release | 2026-11-21T06:45:00Z to 06:45:05Z (`release-move.js` exit 0; `ls-remote` read back `6f76c6de…` at 06:45:09Z) | website `master` `6f76c6de2daab590777c047e9439cf5f5a9ed215` (was `76da25ccd8fbd063803d4896b9eda3c3759d7221`) | devops, Stage 2, on the owner's release approval at the Phase 2B prompt (`deployment/fix-recent-message-ids-deployment.md`) |
 
 ## Row
 
@@ -68,3 +68,4 @@ Raised by QA Phase 2 (Assumption Not Checked) of fixer chain `fix-recent-message
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-21T06:42 | devops-fix-recent-message-ids | Created at Stage 1. Row P-2 carried in full; the event ledger is blank until Stage 2. No crontab line: the reader is a uat-role session, spawned by steering after the push. |
+| 2026-11-21T06:45 | devops-fix-recent-message-ids | E-WEBSITE-PUSH written at Stage 2: website master 76da25c -> 6f76c6d pushed 2026-11-21T06:45:05Z. P-2 stays blank; the reader is the uat-role session steering spawns. Vercel's build of the push is not read from the host; start P-2 only once hooks.gg serves the new build (a reload shows the recent list filtered), and say in the Result how that was established. |
