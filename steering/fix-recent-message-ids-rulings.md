@@ -65,5 +65,21 @@ record, the fixer's document and `verification/fix-recent-message-ids/`.
   P2 site in a later sweep.
 - Rewriting stored bad or foreign ids in production `Users.preferences`: OUT; item 3 makes them inert. A production count is unread.
 
-**What the sweep did not cover** (devops hazard lines): no production count of bad or foreign stored ids; other writers of
+**What the sweep did not cover** (devops hazard lines, as amended below): no production count of bad or foreign stored ids; other writers of
 `Users.preferences` not enumerated; NextAuth internals and the 600-second guild cache not exercised; the `bot/` tree not read.
+
+## 2026-11-21T06:27Z — QAF-3 and QA's real-wire item: this thread's rulings (no re-scope, nothing to him)
+
+Source: `qa-fix-recent-message-ids` by SendMessage 06:2xZ; `qa/fix-recent-message-ids-qa.md` (record `8646c71`), Status read 06:27Z:
+"QA Failed" at website `8f24e65`. QAF-1, 2 and 4 are with the fixer.
+- **QAF-3** (the owner/Administrator trim in `fetchUserGuilds`, `src/utils/redis/index.ts`, has no test; a mutant to `true` survives
+  2281 cases): IN this chain as a test-only addition. The trim is the rule the determination names as "authorized for a guild" (sweep
+  P1), so it lies inside the swept region (steering.md, Scoping determination: a member found later inside that region is in scope on
+  this thread's recorded ruling), and a test-only case closing a survivor is a Standing Default (escalation.md), acted on, never asked.
+  The write set gains `src/utils/redis/__tests__/` (new or existing test files) only; `src/utils/redis/index.ts` itself stays outside —
+  a production change there is a re-scope. The fixer writes it in its next round; QA re-runs the survivor.
+- **Real-wire form of Discord's `permissions` field untested; no UAT in the set**: not an owner item. A read an agent can make is made
+  (escalation.md, Standing Defaults): carried to the devops brief as a post-deploy check on hooks.gg by the Discord test account — the
+  hydrated recent list after the push shows the test account's own server messages (a server it owns) and no other server's — recorded
+  as a post-deploy row of the deployment record. UAT is not restored: no stage reported a user-visible flow change.
+Recipients: `qa-fix-recent-message-ids`, `fixer-fix-recent-message-ids`; the reviewer reads the next round from the record.
