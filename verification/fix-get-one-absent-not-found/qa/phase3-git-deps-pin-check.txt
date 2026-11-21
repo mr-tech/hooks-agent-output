@@ -1,0 +1,15 @@
+# pin check at b663b35 (2026-11-21T10:07:39Z)
+git diff --quiet b829314 b663b35 -- package.json pnpm-lock.yaml
+exit 0
+git diff --quiet d1bb9b0 b663b35 -- package.json pnpm-lock.yaml
+exit 1
+grep -n -E 'paracord|project-utils' in b663b35:pnpm-lock.yaml (resolution lines)
+167:        specifier: github:hooks-gg/project-utils#master
+168:        version: git+https://git@github.com:hooks-gg/project-utils.git#749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f
+5397:  project-utils@git+https://git@github.com:hooks-gg/project-utils.git#749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f:
+12890:  project-utils@git+https://git@github.com:hooks-gg/project-utils.git#749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f:
+grep -n 'paracord' resolution lines in b663b35:pnpm-lock.yaml
+334:        version: https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227
+5148:  paracord@https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227:
+5149:    resolution: {tarball: https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227}
+12605:  paracord@https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227:
