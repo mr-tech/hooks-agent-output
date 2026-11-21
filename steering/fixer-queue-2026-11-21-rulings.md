@@ -339,3 +339,5 @@ lodged in `~/.claude/agents/INBOX.md` (FYI, steering-hooks). Chain 6 `fix-delete
 His words, in this session: "note, agents should never proactively ask to be cleared. if someone is managing their /clear and context
 size, they will be notified when they should checkpoint". Acted on: this thread asks no one for a `/clear`; it works on and checkpoints
 when its coordinator tells it to. It had asked the coordinator at 18:03Z and 19:05Z. Lodged in `~/.claude/agents/INBOX.md` (FYI).
+His confirmation, same session, on the parking case: "confirmed that even a parking chain need-not tell me to clear. it already will
+tell me when it's done parking and that's enough." Added to the same inbox entry.
