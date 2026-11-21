@@ -3,8 +3,8 @@ ID: n/a
 Origin: "release chain/fix-get-one-absent-not-found -> website master b82931402f416e850a785468f9443fa3eadfae44 -> b663b354fb236c3ee58d8b0be01778e1908e0e10 (fast-forward)"
 UUID: 46f49f6e
 Verified-At: "b663b35 — repos=website; the tip's tree 774b75be is the Phase 2 Verified-At tree (qa/fix-get-one-absent-not-found-qa.md, 5b9472ef)"
-Status: Release Verified
-Status-Detail: "Release-tip verdict for website master b829314 -> b663b35. Steps 1b and 2 ran. Of 30 open handoffs, 1 names a website release (the lockfile pin check), and it ran and holds. There is no gated time-based set."
+Status: Released
+Status-Detail: "Released 2026-11-21T10:11:09Z: website master b829314 -> b663b35 on origin (release-move.js exit 0 on this record). Release-tip verdict for website master b829314 -> b663b35. Steps 1b and 2 ran. Of 30 open handoffs, 1 names a website release (the lockfile pin check), and it ran and holds. There is no gated time-based set."
 Phase: 3
 ---
 
@@ -27,6 +27,7 @@ So only step 1b and step 2's gated time-based set run. Steps 3 and 5 have nothin
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T10:07 | devops-fix-get-one-absent-not-found (SendMessage) | Phase 3 release-tip record for website master `b829314` → `b663b35` | Release Verified. The tip is the Phase 2 tree. Step 1b: 30 open handoffs; 1 names a website release, and its pin check holds. Step 2: no gated time-based set. |
+| 2026-11-21T10:11 | devops-fix-get-one-absent-not-found | Document closed | Status: Released. The release this record verified was pushed: website `master` `b829314` → `b663b35`, 10:11:05Z to 10:11:09Z, `release-move.js --qa-record` on this record (exit 0). |
 
 ## Step 1b — open handoffs whose Review-Trigger names this verdict or a website production push
 

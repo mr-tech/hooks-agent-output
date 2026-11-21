@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-get-one-absent-not-found
 UUID: fcce3991
-Status: Committed
-Status-Detail: "Committed at website b663b35 on chain/fix-get-one-absent-not-found (code review APPROVED, QA Phase 2 PASS at b663b35); the release, website master b829314 -> b663b35 on the owner's release approval, is devops's."
+Status: Released
+Status-Detail: "Released 2026-11-21T10:11:09Z: website master b829314 -> b663b35 on origin, on the owner's release approval."
 Handoff-At: b663b35 — repos=website
 Origin-Chain: fix-message-not-found
 ---
@@ -234,3 +234,4 @@ Closed at devops Stage 1: the fix at website `b663b35` was code-reviewed (round 
 | 2026-11-21T09:17 | fixer-fix-get-one-absent-not-found | Navigation.tsx's five pre-existing lint findings routed to `handoff/message-edit-header-preexisting-lint-findings-2026-11-21.md` on steering's 09:16Z ruling. |
 | 2026-11-21T09:17 | fixer-fix-get-one-absent-not-found | Checkpoint: parked on the owner's word; Resumption State written; the review send is owed at resume. |
 | 2026-11-21T10:09 | devops-fix-get-one-absent-not-found | Document closed at Stage 1: Status Committed; Resumption State replaced by a closing note. |
+| 2026-11-21T10:11 | devops-fix-get-one-absent-not-found | Released: website master b829314 -> b663b35 pushed 2026-11-21T10:11:09Z. |

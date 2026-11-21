@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-get-one-absent-not-found
 UUID: fcce3991
-Status: Active
-Status-Detail: "Stage 1 and Phase 2A complete; nothing pushed. Awaiting the owner's release approval (Phase 2B), asked in this session."
+Status: Released
+Status-Detail: "Released 2026-11-21T10:11:09Z: website master b829314 -> b663b35 on origin (release-move.js exit 0; ls-remote read back), on the owner's release approval. Chain branch merged and deleted. B-1 (hooks.gg test-account read) is carried by handoff b5c69a32, not yet read."
 ---
 
 # Deployment Record: fix-get-one-absent-not-found
@@ -18,6 +18,7 @@ Status-Detail: "Stage 1 and Phase 2A complete; nothing pushed. Awaiting the owne
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T10:10 | steering-hooks (brief `steering/fix-get-one-absent-not-found-brief-devops.md` with its common part, on QA's Phase 2 PASS at `b663b35`) | Stage 1 and Phase 2A for `chain/fix-get-one-absent-not-found` at `b663b35` | Briefs, QA, code review, fixer document and rulings read whole. Tip build `next build` exit 0 in an isolated export (removed). Both dry runs passed; the reversing patch applies. QA Phase 3 requested by message and received (record `0f0b91bd`). Carrier handoff for B-1 created. Fixer, code-review and QA documents set `Committed` and moved to `closed/`. Nothing pushed. Disclosures: the first two attempts at the tip build failed on my own invocation (the first because the backgrounded wrapper exited and the scope killed the copy; the second because the script `cd`s into the export and I passed relative log paths); each partial export and capture directory was removed and the build re-run with absolute paths — no gate was involved. |
+| 2026-11-21T10:12 | devops-fix-get-one-absent-not-found | Release approved, executed and closed | The owner answered the selection prompt with "Agent: push master to b663b35 (Recommended)". Move run in this session: `release-move.js` exit 0 at 10:11:05Z to 10:11:09Z; origin `master` read back as `b663b35`. Chain branch deleted. E-WEBSITE-PUSH written to the carrier handoff; QA Phase 3 record and the fixer's document `Released`. Phase 2D worked in order (section above). B-1 is carried, not read. Record closed `Released`. |
 
 ## Stage 1 verification (website, at b663b35)
 
@@ -72,27 +73,75 @@ Included: chain `fix-get-one-absent-not-found` only. Execution mode: **Mode A, a
 
 | # | Step | Abort criterion | Result |
 |---|---|---|---|
-| 1 | `git -C /usr/local/bin/hooks/website ls-remote origin master` | not `b82931402f416e850a785468f9443fa3eadfae44` → stop; the tip is no longer a fast-forward and the verdict must be re-taken | |
-| 2 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master b663b354fb236c3ee58d8b0be01778e1908e0e10 --dry-run --qa-record /usr/local/bin/hooks/agent-output/qa/website-b663b35-release-tip-qa.md` | exit ≠ 0 → stop | an earlier dry run with the `--reason` form: exit 0 at 2026-11-21T10:07:51Z (`release-move-dry-run-1.txt`); with `--qa-record`: exit 0 at 2026-11-21T10:08:47Z, "ff-from-remote ok; sibling serving refs (none) on one line ok … DRY RUN: every check passed; nothing moved" (`release-move-dry-run-2.txt`). Re-run immediately before step 4 |
-| 3 | the owner's yes to the release, in this session | no yes → Aborted; nothing moved | |
-| 4 | the step 2 command without `--dry-run` (moves local `master`, pushes, switches the tree back to `master`) | exit 2 → nothing moved, stop; exit 1 → read the report for ref state, route to the owner | |
-| 5 | `git ls-remote origin refs/heads/master` equals `b663b354…`; tree on `master`; `git status --porcelain` shows only `?? .playwright-mcp/` | any difference → route to the owner | |
-| 6 | `git branch -d chain/fix-get-one-absent-not-found` (merged); `ls-remote --heads origin 'chain/*'` shows none | `-d` refuses → name it to the owner; do not force | |
-| 7 | write E-WEBSITE-PUSH into the carrier handoff's ledger; send steering the release-complete cue naming the B-1 reader | — | |
-| 8 | **B-1**: carried by `handoff/fix-get-one-absent-not-found-post-deploy-2026-11-21.md`, not run by this session | the handoff's falsifier → the owner, through steering | |
+| 1 | `git -C /usr/local/bin/hooks/website ls-remote origin master` | not `b82931402f416e850a785468f9443fa3eadfae44` → stop; the tip is no longer a fast-forward and the verdict must be re-taken | `b82931402f416e850a785468f9443fa3eadfae44` at 2026-11-21T10:11:00Z, just before the move (`step1-ls-remote-before.txt`). Abort criterion not met |
+| 2 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master b663b354fb236c3ee58d8b0be01778e1908e0e10 --dry-run --qa-record /usr/local/bin/hooks/agent-output/qa/website-b663b35-release-tip-qa.md` | exit ≠ 0 → stop | an earlier dry run with the `--reason` form: exit 0 at 2026-11-21T10:07:51Z (`release-move-dry-run-1.txt`); with `--qa-record`: exit 0 at 2026-11-21T10:08:47Z, "ff-from-remote ok; sibling serving refs (none) on one line ok … DRY RUN: every check passed; nothing moved" (`release-move-dry-run-2.txt`). Re-run immediately before step 4 at 2026-11-21T10:11:00Z: exit 0, "DRY RUN: every check passed; nothing moved" (`release-move-dry-run-3.txt`) |
+| 3 | the owner's yes to the release, in this session | no yes → Aborted; nothing moved | Yes, by selection, answered before 2026-11-21T10:10:59Z: "Agent: push master to b663b35 (Recommended)" (see User Confirmation) |
+| 4 | the step 2 command without `--dry-run` (moves local `master`, pushes, switches the tree back to `master`) | exit 2 → nothing moved, stop; exit 1 → read the report for ref state, route to the owner | exit 0, 2026-11-21T10:11:05Z to 10:11:09Z: "OK moved master: b82931402f416e850a785468f9443fa3eadfae44 -> b663b354fb236c3ee58d8b0be01778e1908e0e10 on origin; tree on master" (`release-move-real.txt`) |
+| 5 | `git ls-remote origin refs/heads/master` equals `b663b354…`; tree on `master`; `git status --porcelain` shows only `?? .playwright-mcp/` | any difference → route to the owner | `ls-remote` = `b663b354fb236c3ee58d8b0be01778e1908e0e10` at 10:11:12Z; `branch --show-current` = `master`; `rev-parse HEAD master` both `b663b354…`; porcelain `?? .playwright-mcp/` only. Pass (`post-move-readback.txt`) |
+| 6 | `git branch -d chain/fix-get-one-absent-not-found` (merged); `ls-remote --heads origin 'chain/*'` shows none | `-d` refuses → name it to the owner; do not force | `git branch -d` exit 0 ("Deleted branch chain/fix-get-one-absent-not-found (was b663b35)", `branch-delete.txt`); `git branch --list 'chain/*'` and `ls-remote --heads origin 'chain/*'` both empty; `git merge-base --is-ancestor b663b35 origin/master` exit 0. Pass |
+| 7 | write E-WEBSITE-PUSH into the carrier handoff's ledger; send steering the release-complete cue naming the B-1 reader | — | E-WEBSITE-PUSH written to the carrier (this turn's record commit); the cue goes to `steering-hooks` in this turn's message. Done |
+| 8 | **B-1**: carried by `handoff/fix-get-one-absent-not-found-post-deploy-2026-11-21.md`, not run by this session | the handoff's falsifier → the owner, through steering | **Not executed by this session; carried.** Open, `Result` blank in the handoff (UUID b5c69a32). Not read, so not falsified and not established |
 
 ## User Confirmation
 
-Pending. To be put to the owner directly by this session as a blocking selection prompt (`~/.claude/state/prompt-gate-off` absent, `ls -d` exit 2, read at 2026-11-21T10:09Z before this record was written).
+Put to the owner directly by this session as a blocking selection prompt (`~/.claude/state/prompt-gate-off` absent, read at 2026-11-21T10:10:42Z, just before the ask), after QA's Phase 3 record (`0f0b91bd`), the tip build and the dry runs, with `origin/master` re-read as `b829314` and the tip as `b663b35` immediately before. The prompt stated: the identifier (`master` `b829314` → `b663b35`, a fast-forward of one commit, 149 added production lines of which 136 are a re-indent, 6 files, `src/` only), the environment (hooks.gg through Vercel git integration, no beta, no GitHub workflow, no self-hosted runner), what was checked and what was not (production itself; the Next bundle's module-identity assumption, read after the push by a qa session), the five pre-existing lint findings shipping unchanged on his earlier ruling, the fixer's four User-visible flows each with its evidence, and the rollback. Options: push, hold, abort. **Response: "Agent: push master to b663b35 (Recommended)"**, by selection, answered before 2026-11-21T10:10:59Z. Declined: no.
 
 ## Release Execution
 
-Pending (Mode A).
+Mode A. Commands and results are in the runbook. `release-move.js` exit 0 with `--qa-record qa/website-b663b35-release-tip-qa.md` (now `qa/closed/…`); origin `master` = `b663b354fb236c3ee58d8b0be01778e1908e0e10`, read by `git ls-remote origin refs/heads/master` at 10:11:12Z. Push ref `master`, SHA `b663b354…`, timestamp 2026-11-21T10:11:05Z to 10:11:09Z. Captures: `verification/fix-get-one-absent-not-found/devops/{step1-ls-remote-before.txt,step3-yes-recorded-at.txt,release-move-dry-run-3.txt,release-move-real.txt,post-move-readback.txt,branch-delete.txt}`.
+
+**Serving state**: the push is the deploy evidence, complete as it stands, and it is recorded VERIFIED on the push. What Vercel built is not read from the host and is not marked NOT VERIFIED. Named risk, accepted as written: which commit the git integration checks out is its default-ref behaviour (see "Deploy mechanism").
+
+## Phase 2D: release metadata and reconciliation
+
+Standing note: point-in-time as of 2026-11-21T10:15Z; the serving line may have moved since, and later records are authoritative on their own refs.
+
+| Field | Value |
+|---|---|
+| Release identifier | website `master` → `b663b354fb236c3ee58d8b0be01778e1908e0e10` (was `b82931402f416e850a785468f9443fa3eadfae44`; no version field, no tags; none created) |
+| Environment / serving ref | production (Vercel git integration, no beta); `master`, the sole serving ref (`release-move --report`: no pair) |
+| Release date | 2026-11-21, 10:11:09Z |
+| Execution mode | Mode A, agent-executed, in this session |
+| Authorizer | the owner, by selection at the Phase 2B prompt |
+| Included plans | none; chain `fix-get-one-absent-not-found` only (fixer route, `ID: n/a`, UUID `fcce3991`) |
+| Repositories and SHAs shipped | `website` only: `b829314` → `b663b35` (one commit). `project-utils` is read only and unchanged; `agent-output` is the record, not a shipped repository |
+
+**Deployed against verified, per repository (website).** Deployed ref `master`; the pushed commit is `b663b35`, read from `ls-remote` after the move. Phase 2's `Verified-At`, the release-tip record's `Verified-At`, the code review's `Reviewed-At` and the fixer's `Handoff-At` are all `b663b35`. **The same commit**, so no diff of the surface is owed.
+
+**Fix branch.** `chain/fix-get-one-absent-not-found` is merged (`git merge-base --is-ancestor b663b35 origin/master` exit 0) and deleted by `git branch -d` (exit 0, `branch-delete.txt`; no such head on origin). It never had an upstream.
+
+**Architecture and roadmap.** The shipped work closes or invalidates no line in `architecture/`: `system-architecture.md:136` and :213 state that `getOne` answers `NOT_FOUND` for another user's personal message, which stays true, and no line names `NoResultError` or the header; both the reviewer and QA found no new mechanism for the record. No architect entry is owed. The determination names no epic or criterion, so a `fix-` chain owes the roadmap none.
+
+**The chain's documents and terminal tokens** (enumerated by `grep -rl "Origin: fix-get-one-absent-not-found"` over the record outside `verification/`, plus the Phase 3 record by its own Origin):
+
+| Document | Terminal token | Where |
+|---|---|---|
+| `implementation/…-implementation.md` | Released | `implementation/closed/` |
+| `code-review/…-code-review.md` | Committed | `code-review/closed/` |
+| `qa/…-qa.md` (Phase 2) | Committed | `qa/closed/` |
+| `qa/website-b663b35-release-tip-qa.md` (Phase 3) | Released | `qa/closed/` |
+| this deployment record | Released | `deployment/` → `deployment/closed/` |
+| `handoff/fix-get-one-absent-not-found-post-deploy-2026-11-21.md` (B-1 carrier, UUID b5c69a32) | Open (Owning-Stage qa; B-1 blank) | `handoff/` |
+
+`fix-` chains whose `Handoff-At` is an ancestor of `b663b35` (`git merge-base --is-ancestor`, loop over every `fix-*` implementation document in `implementation/closed/`): this chain and earlier ones, all already terminal — `Released` for `fix-agent-comment-sweep-merge`, `fix-dialog-closes-on-first-portal-load`, `fix-import-save-conflict`, `fix-message-not-found`, `fix-message-page-header-decode`, `fix-personal-message-access`, `fix-recent-message-ids`, `fix-trpc-batch-limit`, `fix-website-save-gate-embeds`; `Committed` for `fix-v1-guild-messages-auth` (with its own `Released` deployment record). Earlier releases' documents; none is this release's to rewrite. **The handoffs the chain answered** (its scoping block's sources), with their `Status` at this write: `handoff/get-one-absent-number-still-500-in-production-2026-11-21.md` (UUID 7c3e91a4) `Open`; `handoff/fix-message-not-found-post-deploy-2026-11-21.md` (UUID e450d19c, row B-1) `Open`. Both close only after B-1's absent-number limb is read and holds, at the chain's closure, which is steering's. In-chain record: `handoff/message-edit-header-preexisting-lint-findings-2026-11-21.md` (UUID b88e8be8) `Open`, its own trigger.
+
+**Forward items beyond the register**, found by `grep -l 'Assumption Not Checked'` over the chain's documents (the code review, QA Phase 2, QA Phase 3; the fixer's document has none) and the routing phrases:
+- Code review's and QA Phase 2's Assumption Not Checked (one module instance in the Next bundle): B-1, carried by `handoff/fix-get-one-absent-not-found-post-deploy-2026-11-21.md` (UUID b5c69a32), `Open`, not read.
+- QA Phase 3's assumption (Vercel installs with the frozen lockfile): the diff changes no manifest or lockfile; accepted as written, owner `handoff/website-git-dependencies-resolve-unpinned-2026-11-20.md` (`Open`, its edit limb unfired by this release, QA's pin check).
+- QA Phase 2's residue, each **uncarried** and recorded as residue, not a finding: (a) the standing suite does not pin the other callers' `INTERNAL_SERVER_ERROR "no result"` text — the fixer's committed probe is the only assertion (`verification/fix-get-one-absent-not-found/fixer/probe/`), red under the sole survivor; (b) while an absent number is still loading, the full editor bar shows until the single NOT_FOUND arrives; (c) flow 3's server limb (an unmanaged server) was not mounted as a header case, only read from the wire code.
+- Lint debt: `handoff/message-edit-header-preexisting-lint-findings-2026-11-21.md` (`Open`).
+- Hazards the sweep did not cover (the brief): the outer `/message` header; `SendMenuTitle`; production data. Named risks, carried here only; the Next bundle's module resolution is B-1.
+- Retrospective: not mine to invoke; the spawn cue goes to steering in this turn's message.
 
 ## Post-Release Status
 
-Pending.
+- **Status**: Released, 2026-11-21T10:11:09Z. Deploy evidenced by the push. B-1 not yet read; it is carried by `handoff/fix-get-one-absent-not-found-post-deploy-2026-11-21.md` and does not hold this record open.
+- **Known issues**: none open in this chain's code. Limits: B-1's absent-number limb (the Next bundle assumption) is unread; the five pre-existing lint findings in `Navigation.tsx` ship unchanged (handoff above). No production write was made by this release or by this session.
+- **Rollback plan**: Vercel promote of the previous deployment (the one serving `b829314`; accepted as written, not exercised). A git revert of `b829314..b663b35` applies cleanly (`git apply --check -R`, exit 0) and ships as a new fast-forward push, which needs a new ask. Communicating a rollback to anyone is the owner's.
 
 ## Next Actions
 
-Pending.
+Standing note: later documents are authoritative on current state.
+- A qa-role session reads B-1 (handoff b5c69a32) once hooks.gg serves the new build; `steering-hooks` starts or wakes it on my release-complete cue. A falsifier (500 "no result" after the new build serves, or the editor bar on the notice page) goes to the owner through steering.
+- Steering closes `get-one-absent-number-still-500…` (7c3e91a4) and `fix-message-not-found-post-deploy…` (e450d19c) `Addressed` after B-1 holds.
+- The retrospective joins the fixer batch (cue in this turn's message).

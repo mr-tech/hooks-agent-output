@@ -38,7 +38,7 @@ Stage 2.
 
 | Event | What it is | When (UTC) | Ref and SHA | Source |
 |---|---|---|---|---|
-| E-WEBSITE-PUSH | website `master` moved to the release | blank until Stage 2 | website `master` → `b663b354fb236c3ee58d8b0be01778e1908e0e10` (was `b82931402f416e850a785468f9443fa3eadfae44`) | devops, Stage 2, on the owner's release approval |
+| E-WEBSITE-PUSH | website `master` moved to the release | 2026-11-21T10:11:05Z to 10:11:09Z (`release-move.js` exit 0; `ls-remote` read back `b663b354…` at 10:11:12Z) | website `master` `b663b354fb236c3ee58d8b0be01778e1908e0e10` (was `b82931402f416e850a785468f9443fa3eadfae44`) | devops, Stage 2, on the owner's release approval at the Phase 2B prompt (`deployment/fix-get-one-absent-not-found-deployment.md`; captures `verification/fix-get-one-absent-not-found/devops/release-move-real.txt`, `post-move-readback.txt`) |
 
 ## Row
 
@@ -92,3 +92,4 @@ Raised by QA Phase 2 (register row B-1 and Assumption Not Checked) and the code 
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-21T10:08 | devops-fix-get-one-absent-not-found | Created at Stage 1. Row B-1 carried in full; the event ledger is blank until Stage 2. No crontab line: the reader is a qa-role session with the browser, started or woken by steering after the push. |
+| 2026-11-21T10:11 | devops-fix-get-one-absent-not-found | E-WEBSITE-PUSH written at Stage 2: website `master` b829314 -> b663b35 pushed 2026-11-21T10:11:09Z. B-1 stays blank; the reader is a qa-role session with the browser (`qa-fix-get-one-absent-not-found` minted the row). Vercel's build of the push is not read from the host; start B-1 only once hooks.gg serves the new build (the first `6022` answer is 404 rather than 500), and say in the Result how that was established. |
