@@ -56,3 +56,21 @@ gates prevent the row). Normalising `discordResponseToMessage` at ingress: OUT (
 
 **What the sweep did not cover** (devops hazard lines): whether Discord ever returns row E (BC-17); production data; `PresetDialog` and
 `Form` submit handling; the server `upsert` on a row E payload; `EditMessageMenu` and the `oldMessage` flow.
+
+## 2026-11-21T08:13Z — the fixer's two items: lint debt by his selection; the preview by this thread's ruling
+
+Source: `fixer-fix-import-save-conflict` by SendMessage 08:0xZ; `implementation/fix-import-save-conflict-implementation.md` (record
+`1e4d899`, Handoff-At `3c6f16f`, 22 added production lines → QA Phase 2 owed). Refutation helper (08:1xZ; exports of `f4baebb` and
+`3c6f16f` in `scratchpad/refute3/`, eslint run, the component read by grep and diff):
+- Lint: HOLDS — 3 errors at both SHAs (`set-state-in-effect` 107 and 146→161, `refs` 383→401), none on lines the fix wrote.
+  Selection prompt put 08:1xZ, answered 08:13Z (ledger block "2026-11-21T08:13Z — steering-hooks"); wording this thread's. Options: A
+  "Agent: ship, record debt (Recommended)" — "the chain ships without touching those lines; the three errors are written up on a handoff
+  as pre-existing, for a later chain"; B "Agent: fix them in this chain"; C "Agent: stop chain 3". Chosen by selection: **A**. The
+  fixer writes the handoff in its next round.
+- Preview: HOLDS, and sharper than reported — at `f4baebb` the preview (`MessagePreview messageData={loadedMessage}`, line 362) matched
+  what Save wrote (the raw draft); at `3c6f16f` Save writes `gateBeforePersist(settledMessage ?? loadedMessage)` (line 179) while the
+  preview stays on `loadedMessage` (line 380), so the fix opens a gap between what is shown and what is saved. **This thread's ruling, not
+  put to him:** in scope — his words are "the way the JSON tab does", and the JSON tab settles the draft before it is previewed
+  (`NewMessageJsonInput.tsx:110` `setMessage(applyDisposition(validated))`). The dialog's preview shows the draft Save will write
+  (settled, or the raw draft while a row E choice is pending), with a test; same file, in the write set.
+Recipients: `fixer-fix-import-save-conflict` (both), `code-reviewer-fix-import-save-conflict` (reviews the next round from the record).
