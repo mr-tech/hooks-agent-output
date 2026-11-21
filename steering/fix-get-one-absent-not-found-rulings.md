@@ -70,3 +70,14 @@ inside the write set "`shared.ts` (`getMessage` only)"? The fixer's options: 1 i
 write set): the class exists only as `getMessage`'s error. Conditions: nothing else in `shared.ts` changes; the fixer's document records
 that `getMessage`'s other callers (`updateRecentMessageData`, `upsertMessage`) answer as before; a `git grep` at the tip shows no other
 code catches `NoResultError` from `getMessage`. Sent to the fixer 09:0xZ.
+
+## 2026-11-21T09:16Z — pre-existing lint errors in Navigation.tsx: shipped and recorded, on his earlier ruling of the same case
+
+Source: the fixer's handoff message 09:1xZ (document record `8400307c`, Handoff-At `b663b35`, 149 added production lines by numstat,
+136 of them a re-indent — QA Phase 2 owed): convention-check reports 5 eslint FAILs in `_layout/Navigation.tsx`, all present at `b829314`
+(`prefer-nullish-coalescing` ×3, `react-hooks/refs` ×2), outside the named change. Acted on, not re-asked (escalation.md: an item a
+ruling's own words already answer): his selection in `steering/fix-import-save-conflict-rulings.md` block 08:13Z, "Agent: ship, record
+debt (Recommended)" — "the chain ships without touching those lines; the three errors are written up on a handoff as pre-existing, for a
+later chain" — is the same case on a sibling file of this effort. The fixer leaves the five lines and records them on a handoff (a new
+one, or an added section of `handoff/newmessagemodal-preexisting-react-hooks-lint-errors-2026-11-21.md`), before review closes.
+`code-reviewer-fix-get-one-absent-not-found` spawned 09:16Z.
