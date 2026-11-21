@@ -1,0 +1,1 @@
+JSON report written to /usr/local/bin/hooks/agent-output/verification/fix-get-one-absent-not-found/code-review/out/vitest-b829314.json

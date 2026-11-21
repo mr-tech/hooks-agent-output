@@ -1,0 +1,29 @@
+{
+  "notFoundText": "This message doesn't exist, or you don't have access to it.",
+  "outcomes": {
+    "absentAsOther": {
+      "error": {
+        "code": "NOT_FOUND",
+        "message": "This message doesn't exist, or you don't have access to it.",
+        "cause": null
+      }
+    },
+    "absentAsOwner": {
+      "error": {
+        "code": "NOT_FOUND",
+        "message": "This message doesn't exist, or you don't have access to it.",
+        "cause": null
+      }
+    },
+    "ownerOwnMessage": {
+      "value": "900000000000101"
+    },
+    "otherOnOwnersMessage": {
+      "error": {
+        "code": "NOT_FOUND",
+        "message": "This message doesn't exist, or you don't have access to it.",
+        "cause": null
+      }
+    }
+  }
+}
