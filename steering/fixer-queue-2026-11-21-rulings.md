@@ -64,3 +64,24 @@ commission does not name; left open.
 
 Disclosure: this block's first write, a shell heredoc, was refused by the record-write gate (record documents are edited with the
 Edit/Write tool); re-issued with the Edit tool.
+
+## 2026-11-21T05:42Z — four questions put to him, plain-message form (chain 1 can still move); unanswered
+
+Put in this thread's chat at 05:4xZ, with one `owner-wait` notice (`--chain fixer-queue-2026-11-21 --wait-key decision-items`).
+Premises, each read this turn: the refutation helper's `verification/fixer-queue-2026-11-21/scoping/refutation-decision-items.md`
+(read from code at website `76da25c`, nothing run) — C1 HOLDS, with the refinement that another user's number already gets NOT_FOUND
+(from `authorizeUser`) and only an absent number gets the raw error; C2 HOLDS (whether each import path can produce the conflicting
+draft is unchecked); C3 PARTLY (desktop only; mobile writes on every keystroke); C4 HOLDS (daily Vercel cron in `vercel.json` with
+`?key=vercel`; no writer of `ScheduledMessages` in any repo; the table's rows unread).
+
+Q1 (chain 2, refused/absent/deleted message page): A. Agent: one "not found" state for all three, the same wording for each so the
+page never tells whether a number exists, with a link back to his messages, and no retry on that error (Recommended); B. Agent: send
+the user to a new message with an error notice in that wording; C. You: type the wording you want; D. Agent: don't fix.
+Q2 (H17, Save disabled on an imported draft with both V2 components and plain content): A. Agent: settle the conflict the way the
+JSON tab already does, so Save works (Recommended); B. Agent: keep Save off but say why; C. Agent: don't change.
+Q3 (H19, desktop content editor's text lost on reload while open): A. Agent: save the draft as he types on desktop, as mobile already
+does (Recommended); B. Agent: don't change.
+Q4 (H09, daily cron on a fixed key, nothing writes the table it sends from): A. Agent: delete the cron endpoint and its `vercel.json`
+entry (Recommended; unread: whether the production table holds unsent rows); B. You: create a secret in Vercel and the agent switches
+the check to it; C. Agent: don't change.
+Answers: (pending).
