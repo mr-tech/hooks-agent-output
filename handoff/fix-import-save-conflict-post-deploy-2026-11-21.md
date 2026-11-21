@@ -1,7 +1,7 @@
 ---
 UUID: e4abdf8b
 Status: Open
-Status-Detail: "Carrier of the post-deploy row PD-1 for fixer chain fix-import-save-conflict (website master, Vercel production). Created at devops Stage 1; the release is not pushed, so PD-1 is undecidable and its Result is blank. Does not gate the release act."
+Status-Detail: "Carrier of the post-deploy row PD-1 for fixer chain fix-import-save-conflict (website master, Vercel production). The release was pushed 2026-11-21T08:53:57Z (E-WEBSITE-PUSH written); PD-1 is decidable now and its Result is blank, awaiting a qa-role reader steering spawns."
 Owning-Stage: qa
 Review-Trigger: "the production deploy of website master carrying fix-import-save-conflict (the E-WEBSITE-PUSH row of this record's event ledger filled) — then PD-1"
 ---
@@ -44,7 +44,7 @@ what Discord answered.
 
 | Event | What it is | When (UTC) | Ref and SHA | Source |
 |---|---|---|---|---|
-| E-WEBSITE-PUSH | website `master` moved to the release | _blank until Stage 2_ | _blank until Stage 2_ | devops, Stage 2 (`deployment/fix-import-save-conflict-deployment.md`) |
+| E-WEBSITE-PUSH | website `master` moved to the release | 2026-11-21T08:53:53Z to 08:53:57Z (`release-move.js` exit 0; `ls-remote` read back `b829314…` at 08:54:00Z) | website `master` `b82931402f416e850a785468f9443fa3eadfae44` (was `f4baebb000ac6fa31714108c9d2bf261dc3de4a4`); contains `5b6c6e3` | devops, Stage 2, on the owner's release approval at the Phase 2B prompt (`deployment/fix-import-save-conflict-deployment.md`; captures `verification/fix-import-save-conflict/devops/release-move-real.txt`, `post-move-readback.txt`) |
 
 ## Row
 
@@ -83,3 +83,4 @@ at Stage 1.
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-21T08:50 | devops-fix-import-save-conflict | Opened at Stage 1. Fixture messages posted to the test server as the test bot (two, ids above). PD-1 unread; the push has not happened. |
+| 2026-11-21T08:54 | devops-fix-import-save-conflict | E-WEBSITE-PUSH written: website `master` `f4baebb` → `b829314` at 08:53:53Z to 08:53:57Z. PD-1 is now decidable; unread. |
