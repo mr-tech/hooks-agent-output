@@ -1,0 +1,29 @@
+{
+  "what": "Row B-1 (handoff/fix-message-not-found-post-deploy-2026-11-21.md): message.getOne answers and the edit page on live hooks.gg after website master moved to f4baebb (E-WEBSITE-PUSH 07:51:38Z), signed in as test account 1 (stage browser, kept profile)",
+  "instrument": "browser_evaluate fetch('/api/trpc/message.getOne?input=' + encodeURIComponent(JSON.stringify({json: id}))) on https://hooks.gg/message; then browser_navigate /message/m/<id>/edit, browser_wait_for, browser_network_requests filtered on message\\.getOne, browser_evaluate over the DOM",
+  "read_1_2026-11-21T07:53:46Z": {
+    "signedIn": true,
+    "6022": [500, "{\"error\":{\"json\":{\"message\":\"no result\",\"code\":-32603,\"data\":{\"code\":\"INTERNAL_SERVER_ERROR\",\"httpStatus\":500,\"path\":\"message.getOne\"}}}}"],
+    "1000": [404, "{\"error\":{\"json\":{\"message\":\"This message doesn't exist, or you don't have access to it.\",\"code\":-32004,\"data\":{\"code\":\"NOT_FOUND\",\"httpStatus\":404,\"path\":\"message.getOne\"}}}}"],
+    "6010": [200, "loaded"]
+  },
+  "read_2_after_60s_wait_2026-11-21T07:54:27Z_to_07:54:31Z": [
+    {"6022": [500, "no result", "x5xfs"], "999999999999": [500, "no result", "x5xfs"], "1000": [404, "This message doesn't exist, or you don't have access to it.", "zxj7b"]},
+    {"6022": [500, "no result", "5t52t"], "999999999999": [500, "no result", "5t52t"], "1000": [404, "This message doesn't exist, or you don't have access to it.", "kb22k"]},
+    {"6022": [500, "no result", "x5xfs"], "999999999999": [500, "no result", "zxj7b"], "1000": [404, "This message doesn't exist, or you don't have access to it.", "nmjfk"]}
+  ],
+  "serving_build": "The new build serves: the 404 text for 1000 exists only in 6b539e5's message.ts. One instance answered both shapes: zxj7b gave 1000 a 404 at 07:54:27Z and 999999999999 a 500 at 07:54:31Z, and the cell label is the x-vercel-id's instance segment. So this is not two builds serving side by side.",
+  "page_1000_edit_2026-11-21T07:55Z": {
+    "notice": "shown, visible, on top at its centre point (elementFromPoint); box [419,120,442,24] in a 1280x884 viewport",
+    "back_link": {"href": "/message", "onTop": true},
+    "getOne_requests_after_12s_or_more": ["GET message.getOne 1000 => 404"],
+    "header_row_above_notice": "textbox 'Message Name' (placeholder 'New Message', value ' ', not disabled, not readOnly), menu File/Edit/View/Help, link 'Send' -> /message/m/0/send"
+  },
+  "page_6022_edit_2026-11-21T07:55:59Z": {
+    "noticeShown": false,
+    "editor_shell_present": true,
+    "console_errors_in_12s": 4,
+    "getOne_requests": "1 listed in flight at the read (status not yet set)"
+  },
+  "note": "Only refusals and the test account's own loadable message were read. No save, no delete. No screenshot taken."
+}
