@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-website-dependency-audit
 UUID: d9ef268a
-Status: Active
-Status-Detail: "Code review APPROVED at c5508c7 (bf39906); QA Complete at ead3ea1 (8762f1b). Review markers set to reviewed at 67f0285, no behaviour change. Awaiting devops: install the crontab line (Handoff section) and read its first run."
+Status: Released
+Status-Detail: "Code review APPROVED at c5508c7 (bf39906); QA Complete at ead3ea1 (8762f1b); review markers reviewed at 67f0285. Crontab line installed 2026-11-21T01:11Z, no push. The first scheduled run (06:43Z) is read by reader R1 on handoff/fix-website-dependency-audit-first-run-2026-11-21.md."
 Handoff-At: ead3ea1 — repos=agent-output
 Origin-Chain: none
 ---
@@ -298,3 +298,4 @@ QAF-5 LOW, tests only). At ead3ea1 the production file is byte-identical to c550
 | 2026-11-21T00:43 | Code review APPROVED at `c5508c7` (reviewer bf39906); the reviewer sent steering the QA Phase 2 spawn cue. |
 | 2026-11-21T01:05 | QA Phase 2 failed at `c5508c7` on QAF-1..QAF-5 (tests only; QA c2295cb). Fixed at `ead3ea1` with production unchanged: five cases added, two tightened; 23/23 green; QA's 14 actionable survivors killed, the 9 equivalents still survive; own set 30/30. Handoff-At moved to `ead3ea1`. |
 | 2026-11-21T01:10 | QA Complete at `ead3ea1` (QA 8762f1b). `REVIEW` and `_review` set to `reviewed` at `67f0285` (string literals only; 23/23 green). Devops is next. |
+| 2026-11-21T01:14 | Document closed by devops. Status: Released. The crontab line proposed in "Handoff" is installed (01:11Z, with a comment recording a minor wording change; no push). First-run read carried on `handoff/fix-website-dependency-audit-first-run-2026-11-21.md`. |
