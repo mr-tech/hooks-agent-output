@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-message-not-found
 UUID: 46210f8b
-Status: Active
-Status-Detail: "Fix committed on website chain/fix-message-not-found at 6b539e5; handed to code review. Then QA Phase 2 (56 added production lines), then devops for website master on his word."
+Status: Released
+Status-Detail: "Released 2026-11-21T07:51:38Z: website master 6f76c6d -> f4baebb on origin (production change 6b539e5, QA test cases f4baebb). Record: deployment/closed/fix-message-not-found-deployment.md."
 Handoff-At: 6b539e5 — repos=website
 Origin-Chain: fix-personal-message-access
 ---
@@ -243,3 +243,4 @@ Instrument disclosures:
 |---|---|---|
 | 2026-11-21T07:01 | fixer-fix-message-not-found | Created. Red run at `6f76c6d`, fix committed at `6b539e5`, verification recorded. |
 | 2026-11-21T07:04 | fixer-fix-message-not-found | Negative controls (14 of 14 killed) and the suite at `6b539e5` recorded; INBOX entry for the architect; handed to code review at `6b539e5`. |
+| 2026-11-21T07:52 | devops-fix-message-not-found | Document closed. Status: Released. Website `master` moved `6f76c6d` -> `f4baebb` at 07:51:38Z on the owner's release approval. Moved to closed/. |

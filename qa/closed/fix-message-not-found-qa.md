@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-message-not-found
 UUID: 46210f8b
 Verified-At: "f4baebb — repos=website; production code identical to 6b539e5 (6b539e5..f4baebb touches two test files only)"
-Status: QA Complete
-Status-Detail: "Phase 2 PASS at website f4baebb (chain/fix-message-not-found). Two MEDIUM test gaps were closed in this pass by QA cases committed at f4baebb, with no production change. Devops releases a tip containing f4baebb. Post-deploy row B-1 is open (qa, read on hooks.gg after the deploy)."
+Status: Committed
+Status-Detail: "Phase 2 PASS at website f4baebb (chain/fix-message-not-found), released with master at f4baebb on 2026-11-21T07:51:38Z. Post-deploy row B-1 is open, carried by handoff/fix-message-not-found-post-deploy-2026-11-21.md (Owning-Stage qa)."
 Phase: 2
 ---
 
@@ -20,6 +20,7 @@ Phase: 2
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T07:40 | steering-hooks (brief above); stage start is the code review's committed verdict at `Reviewed-At` `6b539e5` | Phase 2 for a fixer chain at 56 added production lines | Phase 2 at `6b539e5`, then re-anchored on QA's test-only commit `f4baebb`. Suite 2297/2297 at `6b539e5` and 2303/2303 at `f4baebb`, exit 0 both times. A 28-mutant sweep over the production diff left 6 survivors. QAF-1 and QAF-2 (MEDIUM) were closed by QA cases at `f4baebb`: 7 of 7 re-run mutants killed, plus 1 of 1 for the success path. QAF-3 LOW is a stated limit; QAF-4 LOW (harness) was fixed. The reviewer's Assumption Not Checked is closed true. Post-deploy row B-1 was minted, and its instrument read current production. **PASS.** |
+| 2026-11-21T07:52 | devops-fix-message-not-found | Document closed | Status: Committed. Released with website `master` at `f4baebb` (07:51:38Z). Row B-1 is carried by `handoff/fix-message-not-found-post-deploy-2026-11-21.md`, `Owning-Stage` qa; the register row's `State` stays `open` there, not here. Moved to closed/. |
 
 ## Scope of this pass
 

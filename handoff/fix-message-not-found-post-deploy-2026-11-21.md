@@ -30,7 +30,7 @@ read is read-only on production: no save and no delete. The reader never writes 
 
 | Event | What it is | When (UTC) | Ref and SHA | Source |
 |---|---|---|---|---|
-| E-WEBSITE-PUSH | website `master` moved to the release | _blank until Stage 2_ | website `master`, was `6f76c6de2daab590777c047e9439cf5f5a9ed215` | devops, Stage 2 |
+| E-WEBSITE-PUSH | website `master` moved to the release | 2026-11-21T07:51:34Z to 07:51:38Z (`release-move.js` exit 0; `ls-remote` read back `f4baebb…` at 07:51:40Z) | website `master` `f4baebb000ac6fa31714108c9d2bf261dc3de4a4` (was `6f76c6de2daab590777c047e9439cf5f5a9ed215`); contains `6b539e5` | devops, Stage 2, on the owner's release approval at the Phase 2B prompt (`deployment/fix-message-not-found-deployment.md`; captures `verification/fix-message-not-found/devops/release-move-real.txt`, `post-move-readback.txt`) |
 
 ## Row
 
@@ -76,3 +76,4 @@ Raised by QA Phase 2 (register row B-1 and Assumption Not Checked) of fixer chai
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-21T07:44 | devops-fix-message-not-found | Created at Stage 1. Row B-1 carried in full; the event ledger is blank until Stage 2. No crontab line: the reader is a qa-role session with the browser, spawned by steering after the push. |
+| 2026-11-21T07:52 | devops-fix-message-not-found | E-WEBSITE-PUSH written at Stage 2: website `master` 6f76c6d -> f4baebb pushed 2026-11-21T07:51:38Z. B-1 stays blank; the reader is the qa-role session (`qa-fix-message-not-found` has been told). Vercel's build of the push is not read from the host; start B-1 only once hooks.gg serves the new build (the first `6022` answer is 404 rather than 500), and say in the Result how that was established. |

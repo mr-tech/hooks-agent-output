@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-message-not-found
 UUID: 46210f8b
 Reviewed-At: "f4baebb — repos=website; sub-entry 1.1, test-only delta from 6b539e5"
-Status: In Review
+Status: Committed
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
 ---
@@ -21,6 +21,7 @@ Verdict: APPROVED_WITH_COMMENTS
 |------|---------------|---------|---------|
 | 2026-11-21T07:14 | steering-hooks (brief `steering/fix-message-not-found-brief-code-reviewer.md`) | Round 1: review website `chain/fix-message-not-found` at the fixer's `Handoff-At` | Round 1 at `6b539e5`: APPROVED_WITH_COMMENTS. One INFO (CR-1, user-visible, routed to steering for the release flows). Adversarial probe over raw HTTP passes at `6b539e5` and fails at base `6f76c6d` (positive control). 56 production lines added, so QA Phase 2 is owed. |
 | 2026-11-21T07:42 | steering-hooks, QA's test-only commit `f4baebb` (QA record `c4c2afc`) | Round 1, sub-entry 1.1: review the `6b539e5..f4baebb` delta | The delta touches two test files only, and production is identical. Convention check clean. Every new case is red under a QA mutant. Verdict unchanged, now at `f4baebb`. |
+| 2026-11-21T07:52 | devops-fix-message-not-found | Document closed | Status: Committed. Released with website `master` at `f4baebb` (07:51:38Z). CR-1's line was quoted to the owner in the release ask. Moved to closed/. |
 
 ## Tree and scope
 

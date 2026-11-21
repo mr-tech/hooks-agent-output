@@ -3,8 +3,8 @@ ID: n/a
 Origin: "release chain/fix-message-not-found -> website master 6f76c6de2daab590777c047e9439cf5f5a9ed215 -> f4baebb000ac6fa31714108c9d2bf261dc3de4a4 (fast-forward)"
 UUID: 291f1656
 Verified-At: "f4baebb — repos=website; the tip's tree d1aacb53 is the Phase 2 Verified-At tree (qa/fix-message-not-found-qa.md, c4c2afc)"
-Status: Release Verified
-Status-Detail: "Release-tip verdict for website master 6f76c6d -> f4baebb. Steps 1b and 2 ran. Of 29 open handoffs, 1 names a website release (the lockfile pin check), which ran and holds; 1 fires on every QA run and leaves nothing for QA. There is no gated time-based set."
+Status: Released
+Status-Detail: "Released 2026-11-21T07:51:38Z: website master 6f76c6d -> f4baebb. Release-tip verdict for that push. Steps 1b and 2 ran. Of 29 open handoffs, 1 names a website release (the lockfile pin check), which ran and holds; 1 fires on every QA run and leaves nothing for QA. There is no gated time-based set."
 Phase: 3
 ---
 
@@ -31,6 +31,7 @@ document is not reopened.
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-21T07:46 | devops-fix-message-not-found, release request | Phase 3 at the release tip `f4baebb` | Phase 3: Release Verified. Of 29 open handoffs, 1 names a website release: the pin check ran and holds. 1 fires on every QA run and leaves nothing for QA. No gated time-based set exists. |
+| 2026-11-21T07:52 | devops-fix-message-not-found | Document closed | Status: Released. Website `master` moved to `f4baebb` at 07:51:38Z; moved to closed/. |
 
 ## Step 1b — open handoffs whose Review-Trigger names this verdict or a website production push
 
