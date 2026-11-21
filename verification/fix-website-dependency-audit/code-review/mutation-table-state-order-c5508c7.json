@@ -1,0 +1,116 @@
+{
+ "sha": "c5508c72e8e6c676d2335962363b8c0f0d4663da",
+ "repo": "/usr/local/bin/hooks/agent-output",
+ "mutantsFile": "verification/fix-website-dependency-audit/code-review/mutants-state-order-c5508c7.json",
+ "command": [
+  "node",
+  "--test",
+  "tools/websiteDependencyAudit.test.js"
+ ],
+ "env": {},
+ "deps": [],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 120.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "verification/fix-website-dependency-audit/code-review/mutants-state-order-c5508c7.json",
+   "blob": "707593114f9cefdea3fcf2e165bb76a975a6c0b5"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/84577f0e-874c-402e-85bf-8999a0c5ce99/scratchpad/mut4/out/c5508c72e8e6c676d2335962363b8c0f0d4663da-20261121T004227Z-p1763142-control-1.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/84577f0e-874c-402e-85bf-8999a0c5ce99/scratchpad/mut4/out/c5508c72e8e6c676d2335962363b8c0f0d4663da-20261121T004227Z-p1763142-control-1.stderr",
+   "seconds": 3.35,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 18,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "persist-state-before-append",
+   "run": "mutant-1",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "probe": "CR-4 re-attack at c5508c7"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 18,
+   "control_tests_run": 18,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "starts no streak when the failure entry cannot be written, and adds it on the next failure",
+    "keeps no reported key when the inbox cannot be written, and reports the advisory on the next run"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.9,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/84577f0e-874c-402e-85bf-8999a0c5ce99/scratchpad/mut4/out/c5508c72e8e6c676d2335962363b8c0f0d4663da-20261121T004227Z-p1763142-mutant-1.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/84577f0e-874c-402e-85bf-8999a0c5ce99/scratchpad/mut4/out/c5508c72e8e6c676d2335962363b8c0f0d4663da-20261121T004227Z-p1763142-mutant-1.stderr"
+  },
+  {
+   "id": "recordFailure-bypasses-persist",
+   "run": "mutant-2",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "probe": "CR-4 re-attack at c5508c7"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 18,
+   "control_tests_run": 18,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "starts no streak when the failure entry cannot be written, and adds it on the next failure"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.09,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/84577f0e-874c-402e-85bf-8999a0c5ce99/scratchpad/mut4/out/c5508c72e8e6c676d2335962363b8c0f0d4663da-20261121T004227Z-p1763142-mutant-2.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/84577f0e-874c-402e-85bf-8999a0c5ce99/scratchpad/mut4/out/c5508c72e8e6c676d2335962363b8c0f0d4663da-20261121T004227Z-p1763142-mutant-2.stderr"
+  },
+  {
+   "id": "audit-bypasses-persist",
+   "run": "mutant-3",
+   "file": "tools/website-dependency-audit.js",
+   "tests": [],
+   "carried": {
+    "probe": "CR-4 re-attack at c5508c7"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 18,
+   "control_tests_run": 18,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "keeps no reported key when the inbox cannot be written, and reports the advisory on the next run"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.03,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/84577f0e-874c-402e-85bf-8999a0c5ce99/scratchpad/mut4/out/c5508c72e8e6c676d2335962363b8c0f0d4663da-20261121T004227Z-p1763142-mutant-3.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-agent-output/84577f0e-874c-402e-85bf-8999a0c5ce99/scratchpad/mut4/out/c5508c72e8e6c676d2335962363b8c0f0d4663da-20261121T004227Z-p1763142-mutant-3.stderr"
+  }
+ ],
+ "score": "3 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-state-order-c5508c7.json (blob 707593114f9cefdea3fcf2e165bb76a975a6c0b5))"
+}

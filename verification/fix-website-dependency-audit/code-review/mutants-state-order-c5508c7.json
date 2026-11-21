@@ -1,0 +1,23 @@
+[
+ {
+  "id": "persist-state-before-append",
+  "file": "tools/website-dependency-audit.js",
+  "old": "  if (entries.length) appendEntries(opts.inbox, entries);\n  writeState(opts.state, state);",
+  "new": "  writeState(opts.state, state);\n  if (entries.length) appendEntries(opts.inbox, entries);",
+  "probe": "CR-4 re-attack at c5508c7"
+ },
+ {
+  "id": "recordFailure-bypasses-persist",
+  "file": "tools/website-dependency-audit.js",
+  "old": "  persist(opts, [failureEntry(opts, err, now)], state);",
+  "new": "  writeState(opts.state, state);\n  persist(opts, [failureEntry(opts, err, now)], state);",
+  "probe": "CR-4 re-attack at c5508c7"
+ },
+ {
+  "id": "audit-bypasses-persist",
+  "file": "tools/website-dependency-audit.js",
+  "old": "  if (changed) persist(opts, entries, state);",
+  "new": "  if (changed) writeState(opts.state, state);\n  if (changed) persist(opts, entries, state);",
+  "probe": "CR-4 re-attack at c5508c7"
+ }
+]

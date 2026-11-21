@@ -2,10 +2,10 @@
 ID: n/a
 Origin: fix-website-dependency-audit
 UUID: d9ef268a
-Reviewed-At: c7b6898685a40aeeae59d4628a8d011121a2ec5a — repos=agent-output
+Reviewed-At: c5508c72e8e6c676d2335962363b8c0f0d4663da — repos=agent-output
 Status: In Review
 Round: 1
-Verdict: REJECTED
+Verdict: APPROVED
 ---
 
 # Code Review: fix-website-dependency-audit
@@ -22,6 +22,7 @@ Verdict: REJECTED
 | 2026-11-21T00:15 | steering-roadmap-hooks (brief `steering/fix-website-dependency-audit-brief-code-reviewer.md`) | Round 1: review the chain's paths at `9fc299c` | Round 1, REJECTED at `9fc299c` on CR-1 (MEDIUM, severity floor). The append-before-state ordering the implementation document claims has no failing assertion: a mutant that swaps it survives the suite. CR-2 and CR-3 are LOW, routed to steering for scope rulings. The seed is correct on 84/84 entry×version units, and live runs are quiet and report once. Gates this round: the record-write gate refused twice. The first time, a shell-variable scratch path was read as a record path; it was re-issued with literal scratch paths and a Write-tool inbox. The second time, a shell `mv` of my own `.md` capture under `verification/` was refused; its `.txt` replacement was written with the Write tool, and the stray `.md` duplicate of the inbox capture was left untracked and uncommitted (steering has routed it to the owner). |
 | 2026-11-21T00:20 | fixer-fix-website-dependency-audit (message; implementation document `d970003`, `Handoff-At: ed7926d`) | Round 1 fix confirmation, CR-1 | Round 1 sub-entry at `ed7926d`. **CR-1 closed.** `9fc299c..ed7926d` changes `tools/websiteDependencyAudit.test.js` (+14) and `mutants.json` (+1 mutant, the other 18 ids unchanged by `comm`); the production files are unchanged (`git diff --quiet` exit 0). I re-ran the ordering mutant at `ed7926d` myself: KILLED, 13 = 13 cases, the only failing case the new one (`mutation-table-state-order-ed7926d.json`). The fixture is a directory, so it also fails under root. **Verdict stays REJECTED.** Steering's block "2026-11-21T00:19Z" (`ab04ac4`, his selections) brings CR-2 limbs (a) and (b) into this round as criteria growth, so `ed7926d` is not the tree QA tests. CR-3 is accepted as a stated limit. Also fixed: the changelog wording that `check-repo.js` read as a broken link. Gate satisfied this round: the stamp gate refused a typed changelog time, replaced with `date -u`. |
 | 2026-11-21T00:32 | fixer-fix-website-dependency-audit (message; implementation document `9ebd4b5`, `Handoff-At: c7b6898`) | Round 1 fix confirmation, CR-2 limbs (a) and (b) | Round 1 sub-entry at `c7b6898`. **CR-2 closed by execution.** My driver (`limbs-driver.js`, `limbs-driver-out-c7b6898.txt`) ran 14 runs against an export of `c7b6898`: (a) three failures of two kinds gave 1 entry; a success reported the advisory missed during the streak and cleared the marker; a second streak gave 1 more entry; recovery did not repeat. (b) A differing pair gave 1 entry, the repeat 0, a new pair 1, back in step 0; a failure while stale gave a failure entry only. Every run left the website clone's `for-each-ref` unchanged and the export folder removed. `ls-remote` answers under `env -i` (exit 0, `d1bb9b0` = local). **Verdict stays REJECTED on new CR-4:** CR-1's class has reappeared in the new writer `recordFailure` (mutant SURVIVED, 17 = 17; `mutation-table-state-order-c7b6898.json`), while CR-1's own writer is still held (KILLED). |
+| 2026-11-21T00:42 | fixer-fix-website-dependency-audit (message; implementation document `3d0da59`, `Handoff-At: c5508c7`) | Round 1 fix confirmation, CR-4 | Round 1 sub-entry at `c5508c7`. **CR-4 closed; verdict APPROVED.** The ordering is now structural: `persist` is the only append site and the only `writeState` caller, and `audit` and `recordFailure` both go through it (`grep -n` over the tool). My own re-attack (`mutants-state-order-c5508c7.json`, `mutation-table-state-order-c5508c7.json`): the order swapped inside `persist`, `recordFailure` writing state ahead of `persist`, and `audit` writing state ahead of `persist` are all KILLED, 18 = 18. The limbs driver's output at `c5508c7` is byte-identical to `c7b6898`'s (`cmp`), so the refactor preserves behaviour on CR-2's surface. The recovery case's oracle got stronger (byte-identical inbox across the successful run). 179 production lines, so QA Phase 2 follows. |
 
 ## Scope and criteria assessed (recorded before reading the diff)
 
@@ -102,6 +103,7 @@ None.
 - **Class:** CR-1's class: a property the implementation document states as deliberate, with no assertion that fails when it is lost. Severity floor: MEDIUM, and it blocks hand-off to QA.
 - **Enumeration:** the writers that append and then record state, found by `grep -n -E "appendEntries\(|writeState\("` over the tool at `c7b6898`: 2 append sites (`audit`, `recordFailure`) and 3 state writes. I probed each append site's ordering with a mutant (`mutants-state-order-c7b6898.json`). `audit`: KILLED, by the CR-1 case. `recordFailure`: **SURVIVED**, 17 = 17. I re-ran the claim sweep over the document's new lifetime tables (failure-streak marker, 4 rows; stale-pair keys): every row cites a killed mutant except this one. The predicate cannot see a third writer that records state through a name other than `writeState`.
 - **Consequence under the mutant:** if a streak's first failure meets an inbox that cannot be written (for example, briefly moved), the marker is kept anyway. Every later failure of that streak is then silent, and the inbox never learns the audit is down until a run succeeds. That is the gap CR-2 (a) was ruled in to close.
+- **Disposition (sub-entry 2026-11-21T00:42, `c5508c7`):** closed, both forms. Structural: `persist(opts, entries, state)` appends and then writes, and it is the only write path. Minimum: the case "starts no streak when the failure entry cannot be written, and adds it on the next failure". Checks that fail if the class returns: `verification/fix-website-dependency-audit/code-review/mutation-table-state-order-c5508c7.json` (3 of 3 KILLED) and the fixer's `mutation-table-c5508c7.json` (30 of 30).
 - **Required Action (Preferred, structural):** route both writers through one function that appends and only then writes state, so the ordering lives in one place and the existing CR-1 case's mutant covers both. Callers: `audit` (append when entries exist, and also write state on a recovery with no entries) and `recordFailure` (append, then set the marker). The recovery-without-entries write is the cost to keep.
 - **Required Action (Minimum):** one case in which an audit failure meets an unusable inbox. The run must exit non-zero with `failing` unset, and a following failure with a usable inbox must add exactly one failure entry. Falsity signature: under `failure-state-written-before-append`, the following failure adds 0 entries, so the entry-count assertion fails (not a timeout). Fixture property: the failure must come from the audit, not the inbox, and the inbox must fail for a reason that also holds under root. Add the mutant to `mutants.json` and record its kill.
 
@@ -124,7 +126,9 @@ None.
 
 ## Verdict
 
-**Status**: REJECTED
+**Status (latest, sub-entry 2026-11-21T00:42, at `c5508c7`)**: APPROVED. CR-1 and CR-4 are closed, with each class's check captured. CR-2 limbs (a) and (b) are confirmed by execution. CR-3 is a stated limit by ruling. Criteria 1–7 still hold: the production diff since `9fc299c` is the two limbs and `persist`, and the seed and dispositions are unchanged. The Assumption Not Checked below stands, owned by devops.
+
+**Status (Round 1 as first written, at `9fc299c`)**: REJECTED
 **Rationale**: criteria 1–7 hold at `9fc299c`. The export is `git archive` only; the key rule is enforced; the entry is written once and not repeated (live, twice); quiet runs write nothing (live); departed advisories do not fail the run; nothing is posted and the excluded paths are untouched; the seed equals the review's dispositions on every unit. The rejection rests only on CR-1's severity floor: the document's own guarantee against a lost report is not held by any test. The fix is one test case plus its mutant record. CR-2 and CR-3 travel to steering and do not hold the tree.
 
 ## Required Actions
@@ -139,5 +143,5 @@ This review assumes that cron's environment at 06:43 local (network reach to the
 
 - `fixer-fix-website-dependency-audit`: CR-1.
 - `steering-roadmap-hooks`: CR-2 and CR-3 ruled at 00:19Z. The stray untracked `.md` duplicate of my inbox capture (the record-write gate refused its shell move) is with the owner.
-- `fixer-fix-website-dependency-audit`: CR-4; then a fix confirmation as a Round 1 sub-entry. CR-2 limbs (a) and (b) are confirmed at `c7b6898`.
+- Approved at `c5508c7`: to QA Phase 2 (`qa-fix-website-dependency-audit`). The tool adds 179 production lines.
 - After the fix confirmation: QA Phase 2 (`qa-fix-website-dependency-audit`), then devops installs the crontab line and closes the Assumption Not Checked at its first-run read.

@@ -1,0 +1,4 @@
+persist-state-before-append KILLED 2.9
+recordFailure-bypasses-persist KILLED 3.09
+audit-bypasses-persist KILLED 3.03
+3 of 3 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-state-order-c5508c7.json (blob 707593114f9cefdea3fcf2e165bb76a975a6c0b5))

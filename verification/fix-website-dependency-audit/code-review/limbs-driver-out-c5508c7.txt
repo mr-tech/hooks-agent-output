@@ -1,0 +1,17 @@
+# limb (a): streak, recovery, second streak; an advisory published during the streak
+{"label":"fail-1 (not json)","exit":1,"headings":1,"failure":1,"stale":0,"advisory":0,"failing":"set","stalePairs":0,"refsUnchanged":true,"tmpEmpty":true}
+{"label":"fail-2 (error object)","exit":1,"headings":1,"failure":1,"stale":0,"advisory":0,"failing":"set","stalePairs":0,"refsUnchanged":true,"tmpEmpty":true}
+{"label":"fail-3 (not json)","exit":1,"headings":1,"failure":1,"stale":0,"advisory":0,"failing":"set","stalePairs":0,"refsUnchanged":true,"tmpEmpty":true}
+{"label":"success: B undispositioned, should report B and end streak","exit":0,"headings":2,"failure":1,"stale":0,"advisory":1,"failing":"unset","stalePairs":0,"refsUnchanged":true,"tmpEmpty":true}
+{"label":"success again: nothing new","exit":0,"headings":2,"failure":1,"stale":0,"advisory":1,"failing":"unset","stalePairs":0,"refsUnchanged":true,"tmpEmpty":true}
+{"label":"fail-4: new streak","exit":1,"headings":3,"failure":2,"stale":0,"advisory":1,"failing":"set","stalePairs":0,"refsUnchanged":true,"tmpEmpty":true}
+{"label":"fail-5","exit":1,"headings":3,"failure":2,"stale":0,"advisory":1,"failing":"set","stalePairs":0,"refsUnchanged":true,"tmpEmpty":true}
+{"label":"success: ends second streak, B not repeated","exit":0,"headings":3,"failure":2,"stale":0,"advisory":1,"failing":"unset","stalePairs":0,"refsUnchanged":true,"tmpEmpty":true}
+# limb (b): differing pair, same pair, new pair, back in step
+{"label":"pair-1","exit":0,"headings":4,"failure":2,"stale":1,"advisory":1,"failing":"unset","stalePairs":1,"refsUnchanged":true,"tmpEmpty":true}
+{"label":"pair-1 repeat","exit":0,"headings":4,"failure":2,"stale":1,"advisory":1,"failing":"unset","stalePairs":1,"refsUnchanged":true,"tmpEmpty":true}
+{"label":"pair-2","exit":0,"headings":5,"failure":2,"stale":2,"advisory":1,"failing":"unset","stalePairs":2,"refsUnchanged":true,"tmpEmpty":true}
+{"label":"in step after a fetch (driver fetch, not the tool)","exit":0,"headings":5,"failure":2,"stale":2,"advisory":1,"failing":"unset","stalePairs":2,"refsUnchanged":true,"tmpEmpty":true}
+# combined: failure while stale gives no stale entry; recovery while stale on a known pair adds nothing for it
+{"label":"fail while stale","exit":1,"headings":6,"failure":3,"stale":2,"advisory":1,"failing":"set","stalePairs":2,"refsUnchanged":true,"tmpEmpty":true}
+{"label":"recover while stale, new pair","exit":0,"headings":7,"failure":3,"stale":3,"advisory":1,"failing":"unset","stalePairs":3,"refsUnchanged":true,"tmpEmpty":true}
