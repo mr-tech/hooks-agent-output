@@ -146,3 +146,13 @@ Spawn cue 18:0xZ (the reviewer, by SendMessage): `code-review/fix-api-secret-com
 18:00Z word (51 cases, 0 unexpected, per its message). CR-1 (LOW, optional): the fixer's to take or leave. Assumption Not Checked,
 routed to devops: statbot-api sends single-message ids as plain decimals of at most 19 digits. `qa-fix-api-secret-compare` started with
 `tmux-agent spawn`, brief `steering/fix-api-secret-compare-brief-qa.md`.
+
+## 2026-11-21T18:23Z — QA Failed, a fix round, review and QA pass at `0c14d5b`; devops started
+
+QA Phase 2 QA Failed at `32d10f7` (`qa/fix-api-secret-compare-qa.md`, record `7d6b3007`): QAF-1 MEDIUM (no assertion that `secretEquals`
+decides through `timingSafeEqual`), QAF-2 LOW; routed by QA to the fixer. Fixer round at `b01ae0b` (record `ee847ac1`); review sub-entry
+REJECTED there (CR-2 MEDIUM, record `8214c8c0`); fixer round at `0c14d5b` (record `6f7be029`); review sub-entry APPROVED_WITH_COMMENTS at
+`0c14d5b` (record `799172ab`); QA refresh QA Complete, `Verified-At` `0c14d5b` (record `fc63b90e`; read by this thread: the anchor and
+Status lines). `git diff --numstat 32d10f7 0c14d5b`: two test files only. Register B-1 (post-deploy, devops). `git ls-remote origin master`:
+`b68f94c`. `devops-fix-api-secret-compare` started with `tmux-agent spawn` (cwd website), brief `steering/fix-api-secret-compare-brief-devops.md`.
+This chain took a QA Failed and a REJECTED round: its retrospective runs as a batch of one at closure (steering.md, Fixer).
