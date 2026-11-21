@@ -70,3 +70,19 @@ state, one new component for the not-found state beside its first user, their `_
 
 **What the sweep did not cover** (devops hazard lines): nothing executed; `useApiMethods`/`usePusher` refetch after a refusal not traced;
 `WebhookProvider`'s Discord-message loads not read.
+
+## 2026-11-21T07:58Z — released, and an escaped defect on scope item 1's absent-number limb
+
+Released: website `master` `6f76c6d` → `f4baebb` at 07:51:38Z on his selection (devops's message; `git ls-remote origin master` read
+back `f4baebb000ac…` by this thread 07:5xZ); deployment record closed Released. Source handoffs closed Addressed 07:53Z.
+Post-deploy B-1 (`qa-fix-message-not-found`, message 07:5xZ; record `e37f4ef`): FAILS on the absent-number limb — on hooks.gg as the
+test account 07:53-07:56Z, 6022 and 999999999999 still answer 500 "no result" and `/message/m/6022/edit` is still the blank editor
+with retries; 1000 (unmanaged server) gets the new 404 and notice with one request, so the new build serves. QA's established cause:
+`instanceof NoResultError` compares kysely's ESM class (imported by `message.ts`) with the CJS one (project-utils' `getPostgres`
+`require("kysely")`); every instrument faked `getPostgres` with ESM kysely. Not a regression (production answered 500 before too).
+QA records its Phase 2 PASS as falsified for this class. Carrier: `handoff/get-one-absent-number-still-500-in-production-2026-11-21.md`
+(UUID 7c3e91a4, Owning-Stage this thread); B-1 stays Open in `handoff/fix-message-not-found-post-deploy-2026-11-21.md`.
+**Correction owed to him:** the first User-visible flow quoted with the release ("Signed in, open `/message/m/<number>/edit` for a
+number that was deleted or never existed: the notice …") is false in production at `f4baebb`; told to him in this thread's chat 07:5xZ.
+The source handoff `get-one-absent-number-fails-without-not-found-2026-11-19.md` was closed Addressed on a discharge that did not hold;
+the new handoff 7c3e91a4 carries it, so it is not reopened. A refutation helper is trying the cause before the order question is put.
