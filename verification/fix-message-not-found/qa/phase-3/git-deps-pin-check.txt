@@ -1,0 +1,6 @@
+website f4baebb pnpm-lock.yaml pin check, 2026-11-21T07:45Z
+git diff --quiet 6f76c6d f4baebb -- package.json pnpm-lock.yaml: exit 0
+git diff --quiet d1bb9b0 f4baebb -- package.json pnpm-lock.yaml: exit 1
+grep -c paracord 3f203086ae38699f26dbee90dadbb395a96be227: 4
+grep -c project-utils 749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f: 4
+negative control grep -c 1b7cadb: 0
