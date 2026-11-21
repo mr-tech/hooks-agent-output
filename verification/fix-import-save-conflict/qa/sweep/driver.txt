@@ -1,0 +1,18 @@
+NewMessageModal.tsx:127:if-false KILLED 4.58
+NewMessageModal.tsx:127:not KILLED 5.38
+NewMessageModal.tsx:134:if-false KILLED 4.84
+NewMessageModal.tsx:383:num SURVIVED 9.18
+gate-on-raw-draft KILLED 12.3
+floor-on-raw-draft-base-form KILLED 10.96
+floor-row-e-too KILLED 11.5
+floor-removed KILLED 10.99
+settled-is-raw KILLED 10.3
+preview-raw KILLED 11.61
+preview-settled-only KILLED 5.53
+notice-hidden KILLED 4.89
+notice-null KILLED 4.63
+row-e-stray-notice SURVIVED 4.51
+row-e-settled KILLED 5.13
+memo-deps-empty SURVIVED 4.61
+submit-deps-drop-settled SURVIVED 4.86
+13 of 17 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; sweep-mutants.json (blob dd5b75aed4f49c006cd0a40c15dae0f27384e85d))

@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/sweep-work/20261121T082636Z-p2353784/mutant-1
+
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx (2 tests | 2 failed) 26ms
+     × does not render the raw JSON payload 22ms
+     × renders the formatted, readable text instead 3ms
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx (3 tests | 3 failed) 34ms
+     × shows "Invalid URL" once, on the shared error line, when the network fails 27ms
+     × shows "Invalid URL" once, on the shared error line, when the response body is not JSON 3ms
+     × shows Discord's own refusal on the shared error line, not "Invalid URL" 3ms
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx (9 tests | 2 failed) 1084ms
+     × a classic draft loaded via the JSON tab writes through Save 24ms
+     × a JSON draft with both V2 components and content, kept as Components V2 in the JSON tab, saves those components unchanged 3ms
+
+ Test Files  3 failed | 1 passed (4)
+      Tests  7 failed | 10 passed (17)
+   Start at  08:26:42
+   Duration  3.41s (transform 1.47s, setup 95ms, import 5.29s, tests 1.41s, environment 2.87s)
+

@@ -1,0 +1,97 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx > NewMessageModal, a failed webhook load > shows "Invalid URL" once, on the shared error line, when the network fails
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx > NewMessageModal, a failed webhook load > shows "Invalid URL" once, on the shared error line, when the response body is not JSON
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx > NewMessageModal, a failed webhook load > shows Discord's own refusal on the shared error line, not "Invalid URL"
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — Save writes a loaded, non-conflicting draft > a classic draft loaded via the JSON tab writes through Save
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a JSON draft with both V2 components and content, kept as Components V2 in the JSON tab, saves those components unchanged
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx > NewMessageModal — renders the mutation error through formatMutationError, not raw > does not render the raw JSON payload
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx > NewMessageModal — renders the mutation error through formatMutationError, not raw > renders the formatted, readable text instead
+TypeError: Cannot read properties of undefined (reading 'flags')
+ ❯ src/app/message/_components/NewMessageModal.tsx:129:21
+    127|     if (loadedMessage) return { settledMessage: undefined, settledNoti…
+    128|     const disposition = resolveContentLoss(
+    129|       loadedMessage.flags as number | undefined,
+       |                     ^
+    130|       loadedMessage.components as undefined | { type: number }[],
+    131|       loadedMessage.content,
+ ❯ mountMemo node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:8777:23
+ ❯ Object.useMemo node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:26216:18
+ ❯ process.env.NODE_ENV.exports.useMemo node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:1251:34
+ ❯ NewMessageModal src/app/message/_components/NewMessageModal.tsx:126:45
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ updateSimpleMemoComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9830:14
+ ❯ updateMemoComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9763:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a V2-flagged message with content and no V2 components saves as Classic with the flag cleared, under the settled notice
+AssertionError: expected 'Create or upload a new messageMessage…' to contain 'it has been saved as Classic and the …'
+
+Expected: "it has been saved as Classic and the flag cleared"
+Received: "Create or upload a new messageMessage LinkURL(Requires bot.)WebhookWebhook URLMessage Link or IDMessage Context CommandCodeJSONMessage PreviewContinueMessage Name(0 / 32)Save To(max 50 per account / server)Select a GuildBackSave"
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:158:28
+    156|     const el = mount();
+    157|
+    158|     expect(el.textContent).toContain('it has been saved as Classic and…
+       |                            ^
+    159|     await continueAndName(el);
+    160|     press(findButton(el, 'Save'));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/11]⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a message with V2 components and no V2 flag saves with the flag set, under the settled notice
+AssertionError: expected 'Create or upload a new messageMessage…' to contain 'the Components V2 flag was not set — …'
+
+Expected: "the Components V2 flag was not set — it has been set to match"
+Received: "Create or upload a new messageMessage LinkURL(Requires bot.)WebhookWebhook URLMessage Link or IDMessage Context CommandCodeJSONMessage PreviewContinueMessage Name(0 / 32)Save To(max 50 per account / server)Select a GuildBackSave"
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:171:28
+    169|     const el = mount();
+    170|
+    171|     expect(el.textContent).toContain('the Components V2 flag was not s…
+       |                            ^
+    172|     await continueAndName(el);
+    173|     press(findButton(el, 'Save'));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/11]⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a V2-flagged message whose only classic content is an empty embed is refused as empty once settled, and Save writes nothing
+AssertionError: expected 'Create or upload a new messageMessage…' to contain 'Message must have content, embeds, or…'
+
+Expected: "Message must have content, embeds, or components."
+Received: "Create or upload a new messageMessage LinkURL(Requires bot.)WebhookWebhook URLMessage Link or IDMessage Context CommandCodeJSONMessage PreviewContinueMessage Name(0 / 32)Save To(max 50 per account / server)Select a GuildBackSave"
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:215:28
+    213|     const el = mount();
+    214|
+    215|     expect(el.textContent).toContain('Message must have content, embed…
+       |                            ^
+    216|     expect(el.textContent).not.toContain('Components V2 messages canno…
+    217|     await continueAndName(el);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/11]⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > the preview shows a V2-flagged message with content and no V2 components as the Classic message Save writes
+AssertionError: expected 32768 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 32768
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:229:39
+    227|     const data = previewedData();
+    228|     expect(data.content).toBe('hi');
+    229|     expect((data.flags ?? 0) & IS_V2).toBe(0);
+       |                                       ^
+    230|   });
+    231|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/11]⎯
+

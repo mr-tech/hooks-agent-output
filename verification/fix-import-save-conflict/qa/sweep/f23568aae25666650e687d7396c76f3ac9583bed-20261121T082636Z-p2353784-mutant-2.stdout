@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/sweep-work/20261121T082636Z-p2353784/mutant-2
+
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx (2 tests | 2 failed) 29ms
+     × does not render the raw JSON payload 25ms
+     × renders the formatted, readable text instead 2ms
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.failed-webhook-load.test.tsx (3 tests | 3 failed) 34ms
+     × shows "Invalid URL" once, on the shared error line, when the network fails 28ms
+     × shows "Invalid URL" once, on the shared error line, when the response body is not JSON 3ms
+     × shows Discord's own refusal on the shared error line, not "Invalid URL" 2ms
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx (9 tests | 6 failed) 1512ms
+     × a classic draft loaded via the JSON tab writes through Save 26ms
+     × a V2-flagged message with content and no V2 components saves as Classic with the flag cleared, under the settled notice 314ms
+     × a message with V2 components and no V2 flag saves with the flag set, under the settled notice 109ms
+     × a V2-flagged message whose only classic content is an empty embed is refused as empty once settled, and Save writes nothing 179ms
+     × the preview shows a V2-flagged message with content and no V2 components as the Classic message Save writes 143ms
+     × a JSON draft with both V2 components and content, kept as Components V2 in the JSON tab, saves those components unchanged 7ms
+
+ Test Files  3 failed | 1 passed (4)
+      Tests  11 failed | 6 passed (17)
+   Start at  08:26:47
+   Duration  4.01s (transform 1.53s, setup 90ms, import 5.49s, tests 1.86s, environment 3.20s)
+

@@ -1,0 +1,26 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a message with both V2 components and content asks on Save, and Save as Classic writes the content without the V2 components
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a message with both V2 components and content asks on Save, and Save as Components V2 writes the components without the content
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > the preview shows a message with both V2 components and content as loaded while the choice is pending
+Error: applyDisposition: a chosenMode is required when requiresChoice is true
+ ❯ applyDisposition src/utils/index.ts:204:13
+    202|   if (disposition.requiresChoice) {
+    203|     if (!chosenMode) {
+    204|       throw new Error('applyDisposition: a chosenMode is required when…
+       |             ^
+    205|     }
+    206|     return applyModeSwitch(chosenMode, draft);
+ ❯ src/app/message/_components/NewMessageModal.tsx:136:23
+ ❯ mountMemo node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:8777:23
+ ❯ Object.useMemo node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:26216:18
+ ❯ process.env.NODE_ENV.exports.useMemo node_modules/.pnpm/react@19.2.4/node_modules/react/cjs/react.development.js:1251:34
+ ❯ NewMessageModal src/app/message/_components/NewMessageModal.tsx:126:45
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ updateSimpleMemoComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9830:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+

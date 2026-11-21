@@ -1,0 +1,2 @@
+tip exit=0
+mut exit=1

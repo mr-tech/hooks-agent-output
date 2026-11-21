@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/fd2d388b-4b35-45cb-93ec-797066948871/scratchpad/sweep-work/20261121T082636Z-p2353784/mutant-15
+
+ ❯ |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx (9 tests | 3 failed) 1371ms
+     × a message with both V2 components and content asks on Save, and Save as Classic writes the content without the V2 components 10ms
+     × a message with both V2 components and content asks on Save, and Save as Components V2 writes the components without the content 2ms
+     × the preview shows a message with both V2 components and content as loaded while the choice is pending 2ms
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  3 failed | 14 passed (17)
+   Start at  08:28:37
+   Duration  3.86s (transform 1.65s, setup 105ms, import 6.07s, tests 2.96s, environment 2.99s)
+

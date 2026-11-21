@@ -1,0 +1,107 @@
+▲ Next.js 16.4.6 (Turbopack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+- Environments: .env.local
+✓ Ready in 499ms
+✓ Running next.config.js took 20ms
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead.
+
+  To migrate automatically, run:
+  npx @next/codemod@canary middleware-to-proxy .
+
+  Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+
+✓ Generated AGENTS.md for AI agents. Set `agentRules: false` in next.config to disable.
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+○ Compiling /message ...
+ GET /message 200 in 7.2s (next.js: 6.6s, proxy.ts: 74ms, application-code: 482ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 3.3ms
+ GET /api/auth/session?hydrate=true 200 in 1571ms (next.js: 1523ms, application-code: 48ms)
+ GET /message 200 in 2.1s (next.js: 136ms, proxy.ts: 9ms, application-code: 1915ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.9ms
+ GET /api/auth/session?hydrate=true 200 in 6ms (next.js: 0.8ms, application-code: 5ms)
+ GET /message/m/0/edit 200 in 2.7s (next.js: 2.5s, proxy.ts: 4ms, application-code: 199ms)
+ GET /api/auth/providers 200 in 4ms (next.js: 0.8ms, application-code: 3ms)
+ GET /api/auth/csrf 200 in 3ms (next.js: 0.5ms, application-code: 2ms)
+ POST /api/auth/signin/discord 200 in 10ms (next.js: 0.7ms, application-code: 10ms)
+kysely:query: select "Users".* from "Users" inner join "Accounts" on "Users"."id" = "Accounts"."userId" where "Accounts"."providerAccountId" = $1 and "Accounts"."provider" = $2
+kysely:query: duration: 2.0ms
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.0ms
+kysely:query: select "Users".* from "Users" inner join "Accounts" on "Users"."id" = "Accounts"."userId" where "Accounts"."providerAccountId" = $1 and "Accounts"."provider" = $2
+kysely:query: duration: 1.1ms
+kysely:query: insert into "Users" ("name", "image", "preferences", "emailVerified") values ($1, $2, $3, $4) returning *
+kysely:query: duration: 3.5ms
+kysely:query: insert into "Accounts" ("provider", "type", "providerAccountId", "token_type", "access_token", "expires_at", "refresh_token", "scope", "userId") values ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+kysely:query: duration: 1.8ms
+kysely:query: insert into "Sessions" ("sessionToken", "userId", "expires") values ($1, $2, $3) returning *
+kysely:query: duration: 1.8ms
+ GET /api/auth/callback/discord?code=ybyPZa1rrVipCnwbuCuElMCO9w8kRH&state=zpXyJgDhsP5UaYX1SsPXAlIjevamUDO6ZHyzwHe2kaI&iss=https%3A%2F%2Fdiscord.com 302 in 562ms (next.js: 0.6ms, application-code: 561ms)
+ GET /?callbackUrl=%2Fmessage 200 in 84ms (next.js: 12ms, application-code: 72ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.7ms
+kysely:query: select "id", "access_token", "refresh_token", "providerAccountId", "expires_at" from "Accounts" where "userId" = $1
+kysely:query: duration: 1.2ms
+ GET /api/auth/session?hydrate=true 200 in 439ms (next.js: 0.6ms, application-code: 438ms)
+ GET /message 200 in 586ms (next.js: 20ms, proxy.ts: 6ms, application-code: 560ms)
+ GET /message 200 in 19ms (next.js: 8ms, proxy.ts: 3ms, application-code: 7ms)
+ GET /message 200 in 29ms (next.js: 8ms, proxy.ts: 4ms, application-code: 17ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 2.4ms
+ GET /api/auth/session?hydrate=true 200 in 20ms (next.js: 0.5ms, application-code: 19ms)
+ GET /message 200 in 130ms (next.js: 8ms, proxy.ts: 4ms, application-code: 118ms)
+ GET /message 200 in 24ms (next.js: 11ms, proxy.ts: 5ms, application-code: 8ms)
+ GET /message 200 in 28ms (next.js: 8ms, proxy.ts: 4ms, application-code: 16ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 2.8ms
+ GET /api/auth/session?hydrate=true 200 in 18ms (next.js: 0.8ms, application-code: 18ms)
+ GET /message 200 in 129ms (next.js: 11ms, proxy.ts: 5ms, application-code: 113ms)
+ GET /message 200 in 21ms (next.js: 9ms, proxy.ts: 5ms, application-code: 7ms)
+ GET /message 200 in 25ms (next.js: 7ms, proxy.ts: 4ms, application-code: 15ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 3.3ms
+ GET /api/auth/session?hydrate=true 200 in 31ms (next.js: 0.7ms, application-code: 31ms)
+ GET /message 200 in 406ms (next.js: 26ms, proxy.ts: 17ms, application-code: 363ms)
+ GET /message 200 in 30ms (next.js: 14ms, proxy.ts: 5ms, application-code: 10ms)
+ GET /message 200 in 80ms (next.js: 21ms, proxy.ts: 4ms, application-code: 55ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 17.7ms
+ GET /api/auth/session?hydrate=true 200 in 51ms (next.js: 0.5ms, application-code: 51ms)
+ GET /message 200 in 258ms (next.js: 13ms, proxy.ts: 5ms, application-code: 241ms)
+ GET /message 200 in 27ms (next.js: 10ms, proxy.ts: 5ms, application-code: 12ms)
+ GET /message 200 in 59ms (next.js: 16ms, proxy.ts: 6ms, application-code: 37ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 2.1ms
+ GET /api/auth/session?hydrate=true 200 in 17ms (next.js: 0.4ms, application-code: 16ms)
+ GET /message 200 in 115ms (next.js: 8ms, proxy.ts: 3ms, application-code: 104ms)
+ GET /message 200 in 15ms (next.js: 6ms, proxy.ts: 4ms, application-code: 5ms)
+ GET /message 200 in 26ms (next.js: 7ms, proxy.ts: 2ms, application-code: 16ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 2.6ms
+ GET /api/auth/session?hydrate=true 200 in 19ms (next.js: 0.4ms, application-code: 19ms)
+ GET /message 200 in 127ms (next.js: 7ms, proxy.ts: 3ms, application-code: 117ms)
+ GET /message 200 in 19ms (next.js: 9ms, proxy.ts: 4ms, application-code: 7ms)
+ GET /message 200 in 27ms (next.js: 8ms, proxy.ts: 3ms, application-code: 16ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 1.7ms
+ GET /api/auth/session?hydrate=true 200 in 8ms (next.js: 0.6ms, application-code: 8ms)
+ GET /message 200 in 128ms (next.js: 7ms, proxy.ts: 4ms, application-code: 117ms)
+ GET /message 200 in 18ms (next.js: 8ms, proxy.ts: 3ms, application-code: 6ms)
+ GET /message 200 in 34ms (next.js: 11ms, proxy.ts: 4ms, application-code: 18ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 2.4ms
+ GET /api/auth/session?hydrate=true 200 in 18ms (next.js: 0.5ms, application-code: 17ms)
+ GET /message 200 in 115ms (next.js: 7ms, proxy.ts: 2ms, application-code: 106ms)
+ GET /message 200 in 18ms (next.js: 8ms, proxy.ts: 4ms, application-code: 6ms)
+ GET /message 200 in 29ms (next.js: 8ms, proxy.ts: 2ms, application-code: 19ms)
+kysely:query: select "Users".*, "Sessions"."id" as "sessionId", "Sessions"."userId", "Sessions"."sessionToken", "Sessions"."expires" from "Sessions" inner join "Users" on "Users"."id" = "Sessions"."userId" where "Sessions"."sessionToken" = $1
+kysely:query: duration: 2.5ms
+ GET /api/auth/session?hydrate=true 200 in 18ms (next.js: 0.5ms, application-code: 17ms)
+ GET /message 200 in 118ms (next.js: 8ms, proxy.ts: 3ms, application-code: 107ms)
+ GET /message 200 in 16ms (next.js: 8ms, proxy.ts: 4ms, application-code: 5ms)
+ GET /message 200 in 27ms (next.js: 7ms, proxy.ts: 2ms, application-code: 18ms)
+[?25h

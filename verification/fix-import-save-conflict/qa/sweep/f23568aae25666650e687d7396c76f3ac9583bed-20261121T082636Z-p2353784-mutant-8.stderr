@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx > NewMessageModal — an imported draft whose content conflicts is settled or chosen, then saved > a V2-flagged message whose only classic content is an empty embed is refused as empty once settled, and Save writes nothing
+AssertionError: expected 'Create or upload a new messageMessage…' to contain 'Message must have content, embeds, or…'
+
+Expected: "Message must have content, embeds, or components."
+Received: "Create or upload a new messageMessage LinkURL(Requires bot.)WebhookWebhook URLMessage Link or IDMessage Context CommandCodeJSON{}Copy to ClipboardPretty printMessage PreviewContinueMessage Name(0 / 32)Save To(max 50 per account / server)Select a GuildBackSave"
+
+ ❯ src/app/message/_components/__tests__/NewMessageModal.persist-gate-wiring.test.tsx:215:28
+    213|     const el = mount();
+    214|
+    215|     expect(el.textContent).toContain('Message must have content, embed…
+       |                            ^
+    216|     expect(el.textContent).not.toContain('Components V2 messages canno…
+    217|     await continueAndName(el);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

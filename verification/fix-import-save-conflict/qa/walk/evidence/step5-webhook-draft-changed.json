@@ -1,0 +1,4 @@
+{"obs1_rowD":{"warn":["This message has the Components V2 flag but also has content or embeds, which cannot be combined — it has been saved as Classic and the flag cleared."],"v2":false,"empty":false,"preview":"Message Preview\nu\nBOT\nToday at 8:34 AM\nwalk row D text"},
+"obs2_rowE_after_id_change":{"warn":[],"v2":true,"empty":false,"preview":"Message Preview\nu\nBOT\nToday at 8:34 AM\nwalk row E text\nComponents V2 messages cannot contain embeds or content.\nwalk container text"},
+"headingsAfterSave":["Are you sure?"],"upsertsBeforeCancel":[],
+"afterCancel":{"heads":["Create or upload a new message","Message Preview","Enter Image URL"],"text":"Create or upload a new message\nMessage Name\n(7 / 32)\nSave To(max 50 per account / server)\nClaude\nBack\nSave","btns":["Copy to Clipboard","Pretty print","Continue","Claude","Back","Save","Cancel","Clear","Save"]},"upsertsEnd":[]}

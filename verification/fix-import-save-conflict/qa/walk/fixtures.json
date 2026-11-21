@@ -1,0 +1,254 @@
+{
+ "raw-rowD": {
+  "id": "1400000000000000001",
+  "channel_id": "1400000000000000002",
+  "author": {
+   "id": "1",
+   "username": "u",
+   "avatar": null,
+   "discriminator": "0",
+   "public_flags": 0,
+   "global_name": null
+  },
+  "embeds": [],
+  "components": [],
+  "content": "walk row D text",
+  "flags": 32768
+ },
+ "trpc-getFromUrl-rowD": {
+  "result": {
+   "data": {
+    "json": {
+     "guildId": "1566742402180456559",
+     "message": {
+      "username": "u",
+      "content": "walk row D text",
+      "embeds": [],
+      "flags": 32768
+     },
+     "droppedComponentTypes": []
+    }
+   }
+  }
+ },
+ "trpc-getFromCode-rowD": {
+  "result": {
+   "data": {
+    "json": {
+     "data": {
+      "username": "u",
+      "content": "walk row D text",
+      "embeds": [],
+      "flags": 32768
+     },
+     "guildId": "1566742402180456559"
+    }
+   }
+  }
+ },
+ "raw-rowB": {
+  "id": "1400000000000000001",
+  "channel_id": "1400000000000000002",
+  "author": {
+   "id": "1",
+   "username": "u",
+   "avatar": null,
+   "discriminator": "0",
+   "public_flags": 0,
+   "global_name": null
+  },
+  "embeds": [],
+  "components": [
+   {
+    "type": 17,
+    "components": [
+     {
+      "type": 10,
+      "content": "walk container text"
+     }
+    ]
+   }
+  ],
+  "content": "",
+  "flags": 0
+ },
+ "trpc-getFromUrl-rowB": {
+  "result": {
+   "data": {
+    "json": {
+     "guildId": "1566742402180456559",
+     "message": {
+      "username": "u",
+      "content": "",
+      "embeds": [],
+      "components": [
+       {
+        "type": 17,
+        "components": [
+         {
+          "type": 10,
+          "content": "walk container text"
+         }
+        ]
+       }
+      ]
+     },
+     "droppedComponentTypes": []
+    }
+   }
+  }
+ },
+ "trpc-getFromCode-rowB": {
+  "result": {
+   "data": {
+    "json": {
+     "data": {
+      "username": "u",
+      "content": "",
+      "embeds": [],
+      "components": [
+       {
+        "type": 17,
+        "components": [
+         {
+          "type": 10,
+          "content": "walk container text"
+         }
+        ]
+       }
+      ]
+     },
+     "guildId": "1566742402180456559"
+    }
+   }
+  }
+ },
+ "raw-rowE": {
+  "id": "1400000000000000001",
+  "channel_id": "1400000000000000002",
+  "author": {
+   "id": "1",
+   "username": "u",
+   "avatar": null,
+   "discriminator": "0",
+   "public_flags": 0,
+   "global_name": null
+  },
+  "embeds": [],
+  "components": [
+   {
+    "type": 17,
+    "components": [
+     {
+      "type": 10,
+      "content": "walk container text"
+     }
+    ]
+   }
+  ],
+  "content": "walk row E text",
+  "flags": 32768
+ },
+ "trpc-getFromUrl-rowE": {
+  "result": {
+   "data": {
+    "json": {
+     "guildId": "1566742402180456559",
+     "message": {
+      "username": "u",
+      "content": "walk row E text",
+      "embeds": [],
+      "components": [
+       {
+        "type": 17,
+        "components": [
+         {
+          "type": 10,
+          "content": "walk container text"
+         }
+        ]
+       }
+      ],
+      "flags": 32768
+     },
+     "droppedComponentTypes": []
+    }
+   }
+  }
+ },
+ "trpc-getFromCode-rowE": {
+  "result": {
+   "data": {
+    "json": {
+     "data": {
+      "username": "u",
+      "content": "walk row E text",
+      "embeds": [],
+      "components": [
+       {
+        "type": 17,
+        "components": [
+         {
+          "type": 10,
+          "content": "walk container text"
+         }
+        ]
+       }
+      ],
+      "flags": 32768
+     },
+     "guildId": "1566742402180456559"
+    }
+   }
+  }
+ },
+ "raw-emptyEmbed": {
+  "id": "1400000000000000001",
+  "channel_id": "1400000000000000002",
+  "author": {
+   "id": "1",
+   "username": "u",
+   "avatar": null,
+   "discriminator": "0",
+   "public_flags": 0,
+   "global_name": null
+  },
+  "embeds": [
+   {}
+  ],
+  "components": [],
+  "content": "",
+  "flags": 32768
+ },
+ "trpc-getFromUrl-emptyEmbed": {
+  "result": {
+   "data": {
+    "json": {
+     "guildId": "1566742402180456559",
+     "message": {
+      "username": "u",
+      "content": "",
+      "embeds": [],
+      "flags": 32768
+     },
+     "droppedComponentTypes": []
+    }
+   }
+  }
+ },
+ "trpc-getFromCode-emptyEmbed": {
+  "result": {
+   "data": {
+    "json": {
+     "data": {
+      "username": "u",
+      "content": "",
+      "embeds": [],
+      "flags": 32768
+     },
+     "guildId": "1566742402180456559"
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,4 @@
+
+> website@ typecheck /usr/local/bin/hooks/website
+> tsc --noEmit && tsc --noEmit -p tsconfig.test.json
+
