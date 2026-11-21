@@ -211,3 +211,14 @@ listed belong to other threads' chains). The park stands unchanged.
 Parked 09:18Z: `fixer-fix-get-one-absent-not-found` Checkpoint `9e357ef5`, stopped; `code-reviewer-fix-get-one-absent-not-found`
 Checkpoint `05f414ba` (partial round 1, no verdict), stopped. This thread's Checkpoint is in its docket
 (`~/.claude/projects/-usr-local-bin-hooks/memory/docket-hooks.md`); its standing check `821f9fe8` deleted. Waits on his word to unpark.
+
+## 2026-11-21T09:51Z — his ruling, relayed by the coordinator: continue the threads (the park lifts)
+
+His words, verbatim, relayed by `steering-coordinator` in this thread's respawn brief (its scratchpad `respawn-hooks.md`): "continue
+the threads". The coordinator's gloss (its words): "Unpark your parked chain and resume the queue in the recorded order under your
+standing rulings." Acted on: chain 3b `fix-get-one-absent-not-found` resumes (its chain rulings block of this minute); 3c onward
+follow in the order of block 09:02Z. Premises re-read 09:50Z: website `origin/master` `b829314` (`git ls-remote`), tree on the chain
+branch at `b663b35`; `plan-usage.py --json` live, session 0%, weekly_all 50% (the weekly limit has reset since block 08:12Z, so that
+lift is spent; the 98% gate is back in force and far off). No deployment record open (`ls deployment/*.md`: none).
+Disclosed: a shell heredoc append to this file and the chain rulings file was refused by the record-write gate; re-issued through
+`record-edit.js`, as the gate names.

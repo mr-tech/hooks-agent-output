@@ -81,3 +81,11 @@ debt (Recommended)" — "the chain ships without touching those lines; the three
 later chain" — is the same case on a sibling file of this effort. The fixer leaves the five lines and records them on a handoff (a new
 one, or an added section of `handoff/newmessagemodal-preexisting-react-hooks-lint-errors-2026-11-21.md`), before review closes.
 `code-reviewer-fix-get-one-absent-not-found` spawned 09:16Z.
+
+## 2026-11-21T09:51Z — unparked on his relayed word "continue the threads" (effort block of this minute)
+
+The reviewer resumes first. Its round 1 was under way at the park, on the fixer's committed document (`Handoff-At: b663b35`, record
+`9e357ef5`), so the fixer's unsent hand-off message is moot. No fixer session is spawned now (this thread's ruling: the fixer has no
+work until a rejection, and a rejection comes back here as a spawn cue). `code-reviewer-fix-get-one-absent-not-found` is respawned with
+`steering/fix-get-one-absent-not-found-brief-code-reviewer-resume.md`, which names its Resumption State (record `05f414ba`). QA Phase 2
+(149 added production lines) starts on the reviewer's approval, with brief `steering/fix-get-one-absent-not-found-brief-qa.md`.
