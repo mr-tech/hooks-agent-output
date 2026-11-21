@@ -92,3 +92,14 @@ Selection prompt put 09:0xZ, answered 09:02Z (ledger block "2026-11-21T09:02Z â€
 - Q PD-1: A "Agent: close it on this read (Recommended)"; B "Agent: hold it open". Chosen by selection: **A**.
 Recipients: `qa-fix-import-save-conflict` (close PD-1's handoff on this read, the Message Link limb carried by the new chain's
 handoff). Effort order: a diagnose-first chain `fix-message-link-import-empty` after chain 3b (effort file).
+
+## 2026-11-21T09:05Z â€” chain closed out
+
+PD-1 closed Addressed by `qa-fix-import-save-conflict` (`e4f72e00`, `handoff/closed/fix-import-save-conflict-post-deploy-2026-11-21.md`);
+the Message Link limb carried by `handoff/message-link-import-returns-empty-message-2026-11-21.md` (6cc5f883, `30729bcf`). Source handoff
+7f21ac93 closed Addressed after PD-1 (this round). Created by the chain and left Open on their own triggers:
+`handoff/newmessagemodal-preexisting-react-hooks-lint-errors-2026-11-21.md` (his 08:13Z selection) and
+`handoff/fix-import-save-conflict-unchecked-hazards-2026-11-21.md` (devops; Owning-Stage this thread; its five hazard lines are the
+determination's "did not cover"). Architecture/roadmap: none owed (devops's sweep). Sessions stopped 09:05Z (four). Scratch removed:
+four chain session directories (`du -s` 60+72+24+1484 KB; `ls -d` fails after), none cited. No containers. Retrospective: joins the
+next fixer batch (chains 3b onward).
