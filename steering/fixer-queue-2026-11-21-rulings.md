@@ -300,3 +300,14 @@ lists as `*.test.ts` (the tenth path is a helper). One deweeder unit. Merged:
 `verification/fixes-2026-11-21-steering-hooks-4/deweed/website.tsv` (76 rows, 76 unique ids; python). Below 7: 15 of 76 (19.7%) — among
 them 2360-2361, which the scorer notes are the guard test's only enumeration of future v1 routes. Covering cells: every covering id is in
 the merged table (0 unchecked). Nothing deleted on this. Export removed (`du -s` 949712 before; `ls -d` fails after).
+
+## 2026-11-21T18:57Z — batch retrospective e committed; its items for this thread
+
+`retrospectives/fixes-2026-11-21-steering-hooks-4-retrospective.md` (UUID d6194936, record `844f87f`), Active; pi only on his word, never
+offered. One of its reads was not completed (recorded so; told to him in chat). Items for this thread: (1) Recommendations 2 (Test
+Conventions) and 8 (website edge-graph test) — lodged in `INBOX.md` for the record's owner; (2) a read-only Vercel instrument (serving
+commit, request logs) would close the post-deploy gap for every website release — his decision, put to him; (3) handoffs 3039bc8a and
+b1fdd41a close on his Vercel reads (`OWNER-QUEUE.md`); (4) two contradicted stamps in the closed code review — lodged in `INBOX.md`;
+(5) the `secretEquals` rule for the architecture record — lodged in `INBOX.md` for the architect. **This thread's errors, as the
+retrospective records them:** two owner prompts held the chain about 3h24m — the item-4 prompt put while the chain could move, and the
+live-attack server start put while its cause was a guess; the same question reached him twice.
