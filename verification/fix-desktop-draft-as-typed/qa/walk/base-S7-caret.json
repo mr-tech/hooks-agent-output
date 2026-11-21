@@ -1,0 +1,57 @@
+[
+  {
+    "text": "x",
+    "codes": [
+      120
+    ],
+    "focused": true,
+    "focusOffset": 1,
+    "anchorNodeText": "x"
+  },
+  {
+    "text": "x ",
+    "codes": [
+      120,
+      32
+    ],
+    "focused": true,
+    "focusOffset": 2,
+    "anchorNodeText": "x "
+  },
+  {
+    "text": "x y",
+    "codes": [
+      120,
+      32,
+      121
+    ],
+    "focused": true,
+    "focusOffset": 3,
+    "anchorNodeText": "x y"
+  },
+  {
+    "text": "x y ",
+    "codes": [
+      120,
+      32,
+      121,
+      32
+    ],
+    "focused": true,
+    "focusOffset": 4,
+    "anchorNodeText": "x y "
+  },
+  {
+    "text": "x y z",
+    "codes": [
+      120,
+      32,
+      121,
+      32,
+      122
+    ],
+    "focused": true,
+    "focusOffset": 5,
+    "anchorNodeText": "x y z"
+  }
+]

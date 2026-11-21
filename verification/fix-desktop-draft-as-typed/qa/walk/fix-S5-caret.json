@@ -1,0 +1,62 @@
+[
+  {
+    "key": null,
+    "text": "a",
+    "codes": [
+      97
+    ],
+    "focused": true,
+    "focusOffset": 1,
+    "anchorNodeText": "a"
+  },
+  {
+    "key": null,
+    "text": "a ",
+    "codes": [
+      97,
+      32
+    ],
+    "focused": true,
+    "focusOffset": 2,
+    "anchorNodeText": "a "
+  },
+  {
+    "key": null,
+    "text": "a b",
+    "codes": [
+      97,
+      32,
+      98
+    ],
+    "focused": true,
+    "focusOffset": 3,
+    "anchorNodeText": "a b"
+  },
+  {
+    "key": null,
+    "text": "a b ",
+    "codes": [
+      97,
+      32,
+      98,
+      32
+    ],
+    "focused": true,
+    "focusOffset": 4,
+    "anchorNodeText": "a b "
+  },
+  {
+    "key": null,
+    "text": "a b c",
+    "codes": [
+      97,
+      32,
+      98,
+      32,
+      99
+    ],
+    "focused": true,
+    "focusOffset": 5,
+    "anchorNodeText": "a b c"
+  }
+]
