@@ -1,7 +1,7 @@
 ---
 UUID: ed49f3d2
-Status: Open
-Status-Detail: "authorizeGuildAdmin tests guild membership, not admin permission bits; whether session.user.guilds holds only managed guilds is unread. Left out of the access-defects fixer chain; no stage owns it yet."
+Status: Addressed
+Status-Detail: "Answered: the guild list authorizeGuildAdmin searches holds only servers the user owns or holds Administrator in (redis fetchUserGuilds trim), so the membership test is the admin test. Now tested by redis.fetch-user-guilds.test.ts (fix-recent-message-ids, released 6f76c6d) and read on production by its P-2. No defect."
 Owning-Stage: steering thread for the website access surfaces (to route it to a stage)
 Review-Trigger: when website src/server/api/routers/utils/authorizeGuildAdmin.ts or src/server/api/routers/utils/guild.ts is next edited, or when the next chain touching website access control opens
 ---
@@ -36,3 +36,4 @@ Raised by the scoping determination of the chain `fix-personal-message-access` (
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-19T22:36 | helper for steering-roadmap-hooks | Created. |
+| 2026-11-21T06:59 | steering-hooks | Document closed. Status: Addressed. The unread question is answered by `fix-recent-message-ids`: `src/utils/redis/__tests__/redis.fetch-user-guilds.test.ts` (QAF-3, `steering/fix-recent-message-ids-rulings.md` block 06:27Z) specifies the owner/Administrator trim, mutant-killed by QA (`qa/closed/fix-recent-message-ids-qa.md`); released `6f76c6d`. Trigger fired (the chain touched website access control) and dispositioned by this closure. |
