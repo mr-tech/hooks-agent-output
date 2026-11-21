@@ -105,3 +105,19 @@ in Chrome at route 0; base `b663b35` loses the same text; caret held on every ke
 Not Checked (line 103, the saved-message route) is put on devops's post-deploy row, run by a test-account session, not left to his
 walk (an agent can perform it). Chain tip `b68f94c`, `origin/master` `b663b35` (`git ls-remote`, 11:2xZ).
 `devops-fix-desktop-draft-as-typed` started with `tmux-agent spawn`, brief `steering/fix-desktop-draft-as-typed-brief-devops.md`.
+
+## 2026-11-21T11:36Z — released; P-1 read by QA
+
+Released on his selection in devops's session ("Agent: push master to b68f94c (Recommended)", put 11:32:05Z; devops's record
+`deployment/closed/fix-desktop-draft-as-typed-deployment.md`, `dbe8fdc`, Released): website `master` `b663b35` → `b68f94c`, 11:32:56Z to
+11:33:01Z. Read back by this thread: `git ls-remote origin master` = `b68f94cda114…`; tree on `master` `b68f94c`, porcelain
+`?? .playwright-mcp/` only (11:3xZ). Pre-push baseline (message 6008: text lost, no prompt) read by QA, per devops.
+P-1 (`handoff/fix-desktop-draft-as-typed-post-deploy-2026-11-21.md`, 4bbe68a5, Owning-Stage qa) briefed by message to
+`qa-fix-desktop-draft-as-typed` 11:3xZ: fresh tab, message 6008, no Save, draft typed back afterwards. The source handoff f1356f4b
+closes only after P-1 holds. Residue carrier `handoff/fix-desktop-draft-as-typed-residue-2026-11-21.md` (9e2b7c14) stays Open on its
+own trigger.
+This thread's observation on devops's release message (not in its record): it said the website chains `fix-docs-emoji-api-pages` and
+`fix-website-emoji-long-names-legend` release from `b663b35` and need a rebase. They do not share this repository: their sessions run
+in `/usr/local/bin/statbot/statbot-docs` and `/usr/local/bin/statbot/statbot-v3-website` (registry `cwd`), whose origins are
+`DiscordStatbot/statbot-docs` and `DiscordStatbot/statbot-v3-website` (`git remote get-url`), and `b663b354` is not an object in the
+latter (`git cat-file -t`, exit 128). Not relayed: no session acts on it.
