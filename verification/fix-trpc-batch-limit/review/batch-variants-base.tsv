@@ -1,0 +1,12 @@
+GET two paths batch=1	status=200	queries=4
+GET two paths encoded comma batch=1	status=200	queries=4
+GET two paths batch=1&batch=0	status=200	queries=4
+GET two paths batch=0&batch=1	status=404	queries=0
+GET two paths batch=true	status=404	queries=0
+GET two paths no batch	status=404	queries=0
+GET one path batch=1 (batch of one)	status=200	queries=2
+GET two paths batch=1 trpc-accept jsonl	status=200	queries=4
+POST two paths batch=1 json	status=405	queries=0
+POST two paths octet-stream	status=404	queries=0
+POST two paths form-data	status=404	queries=0
+control: GET one path no batch	status=200	queries=2
