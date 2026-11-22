@@ -97,3 +97,13 @@ L167-168, L177). Options: A "Agent: re-run with label renamed (Recommended)" —
 with that word removed, then finishes and closes the release. A few seconds' work."; B "You: check it yourself" — "In a private browser
 window (signed out), open hooks.gg/message/m/0/edit: it should open the blank editor without bouncing."; C "Skip the live check" — "Close
 the release on the reviewer's running-copy test alone." Chosen: **A**; relayed verbatim to devops.
+
+## 2026-11-22T18:49 — released and live; chain closed; sessions stopped
+
+Devops by message ~18:50Z: `deployment/closed/fix-middleware-dead-matcher-deployment.md` Released (`74c34bde`, read: subject); production
+`dpl_7amFajR7sNEhdbPLBcjWDUc9psb2` Ready, built from `master` `453de76` (its build log: `ƒ Proxy (Middleware)`, 0 deprecation lines); the
+two signed-out requests on hooks.gg re-run on his 18:4x selection: `/message/m/0/edit` no redirect, `/message/m/1/edit` redirects, the
+`x-pathname` spoof not honoured. Proxy region placement unread (accepted at 17:15). Stopped: `devops-`, `fixer-`,
+`code-reviewer-fix-middleware-dead-matcher` (all "stopped"). Source: `TODO.md` item "website `src/middleware.ts` carries a dead matcher
+entry" deleted (resolution is deletion). Architect entry lodged in the record `INBOX.md`. Cue counted toward the fixer batch. CR-1 (the
+`/preview` entry): its own chain after 9f. Website `master` free: chain 9a starts from `453de76`.
