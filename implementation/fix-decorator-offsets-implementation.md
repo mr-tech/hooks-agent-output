@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
 Status: Active
-Status-Detail: "Round 5 (review REJECTED a7e1adb on CR-5, a code line split by an emoji) fixed at website 24eda1c and handed to code review for a scoped check, then the QA refresh pass; 128 production lines; merge to website master by devops on the owner's word."
+Status-Detail: "Code review APPROVED at website 24eda1c (CR-5 scoped check, record 58a83897; CR-6 LOW routed by steering to fix-decorator-nested-styles); QA Phase 2 refresh owed, started by steering; 128 production lines; merge to website master by devops on the owner's word."
 Handoff-At: 24eda1c — repos=website
 Origin-Chain: none
 ---
@@ -15,7 +15,7 @@ Origin-Chain: none
 - **Done:** CR-5 fixed on website `chain/fix-decorator-offsets`, HEAD `24eda1c` (`7708a8a` the projection, `24eda1c` four limbs with no effect
   removed); evidence under `verification/fix-decorator-offsets/round5/`; hand-off sent to `code-reviewer-fix-decorator-offsets`, copied to
   `steering-hooks-fixer` and `qa-fix-decorator-offsets`.
-- **Next:** wait for the reviewer's scoped check of `a7e1adb..24eda1c`, then QA's refresh pass. On findings: re-read Rounds 5 and 4 and the
+- **Next:** the scoped check came back APPROVED at `24eda1c` (record `58a83897`, read); QA's refresh pass is next, started by steering. On findings: re-read Rounds 5 and 4 and the
   finding's document; fix on the same branch; re-run red, controls, suite and typecheck in exports, QA's scorer v2 and the reviewer's
   split probe.
 - **Approach in flight:** none. **Uncommitted / locally mutated:** none of mine; website tree clean apart from `.playwright-mcp/`; scratch
@@ -41,6 +41,13 @@ The consumer makes them redundant. slate-react's `Text` component passes `decora
 (`node_modules/slate-react/dist/index.js` L1422-1423), the function the test reads through. That function takes `Range.edges`, skips any
 range that ends before or starts after a leaf, and splits within it (`node_modules/slate/dist/index.js` L2036-2110). The rows that
 exercise them do reach negative and past-end offsets: span 2 of `const s = "a :smile: b";` gets a string range from -10.
+
+**Correction (2026-11-22T22:50, after the review of `24eda1c`).** The sentence above is complete only for ranges with width. There was also a
+fifth removal, which I did not list and did not control. Since `7708a8a` the code-line path returns before the markdown path's final
+`anchor < focus` filter, so empty ranges are no longer dropped on code lines. CR-6 (record `58a83897`) finds that highlight.js does emit
+zero-length scopes (`haxe`, `profile`). `Text.decorations` does not skip an empty range inside a leaf: it splits the leaf and adds an
+empty one. Base had no filter on this path, so it is not worse than base. The reviewer rates it LOW, and steering routes it to
+`fix-decorator-nested-styles` (one exit filter for both paths). It is not changed in this chain.
 
 **Test** (test file +38 −11 net with round 4's helpers refactored into `labelled`): a new table, "rendered text for a code line split by an
 emoji", has 4 rows. Each builds a `codeBlock` with children `[span, emoji element, span]`. The emoji element's `ast` is the real
@@ -577,3 +584,4 @@ For the owner's own look in any editor text box (message content, embed title, e
 | 2026-11-22T22:15 | — | Round 4 (QAF-1, QA Phase 2 QA Failed at `2e6127e`): a code-block line with a language is highlighted as one whole line from its own text; top-level text merged; website `a7e1adb`. Whole-line scorer: 0 right→wrong over 195 languages; corpus byte-identical outside code blocks; 14 rows red at the QA'd tip (10) and base (12); controls 4 of 4; suite 2608/2608, typecheck and lint exit 0. 118 production lines. `Handoff-At` `a7e1adb`; handed to code review for a scoped check, then QA. |
 | 2026-11-22T22:20 | — | Round 4 scores re-run with QA's scorer v2 (record `5374339e`): 0 right→wrong; 44,388 of 44,390 characters right over 195 languages; the 2 left are CR-4's class. v1 figures superseded. |
 | 2026-11-22T22:45 | — | Round 5 (CR-5, review REJECTED `a7e1adb`): a code line is highlighted once as its whole element line and each text node gets its part, website `7708a8a`; four limbs the leaf splitter makes redundant removed, `24eda1c`. Split probe 131/131; scorer v2 0 right→wrong; corpus identical; red 2 at `a7e1adb`; controls 9 of 9; suite 2612/2612, typecheck and lint exit 0. 128 production lines. `Handoff-At` `24eda1c`; handed to code review for a scoped check. |
+| 2026-11-22T22:50 | — | Code review scoped check APPROVED at website `24eda1c` (record `58a83897`). Round 5's claim about the removed limbs corrected: the code-line path also no longer drops empty ranges, which CR-6 LOW shows highlight.js can emit; not worse than base; routed to `fix-decorator-nested-styles`. QA Phase 2 refresh owed. |
