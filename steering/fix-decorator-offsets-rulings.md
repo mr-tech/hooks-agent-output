@@ -173,3 +173,13 @@ exit 0; blocking-condition row B-1 (real-browser look at four editor lines on pr
 cap (nested scope, `fix-decorator-nested-styles`). Devops brief `steering/fix-decorator-offsets-brief-devops.md` (B-1 as its post-deploy
 row); `devops-fix-decorator-offsets` started with `tmux-agent spawn`. Disclosed: the brief was first composed by a python script run from
 the shell (standing sections copied from 9a's devops brief), then edited with Edit; no gate fired.
+
+## 2026-11-22T22:56 — released and live; B-1 passed; chain closed
+
+Devops by message ~22:5xZ: his selection "Agent: release it now" (22:44:21Z, its session); website `master` `8845b7e` → `febf20e`
+(22:44:37Z; this thread's `git ls-remote` at 22:45Z read `febf20e3…`); production `dpl_7khAExbcAo1i9oupzJRKqyxxm5Xw` Ready, built from
+`febf20e`. B-1 (browser, production, signed out, nothing saved) PASS on all four lines. Records closed: deployment, implementation, code
+review, QA (Released), B-1 handoff (Addressed); devops commits `cba7c35`, `bb2660a`, `9c46ca9`. Stopped: fixer, code-reviewer, QA
+("stopped"); devops refused as busy, retried at the next check. Source research H-4 discharged (document the researcher's). The two
+follow-on chains are carried as `TODO.md` items (written this turn). No architecture passage names the decorator. Owner-wait resolved.
+Cue counted toward the fixer batch.

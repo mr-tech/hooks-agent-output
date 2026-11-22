@@ -205,10 +205,21 @@ these. Each waits on its own `Review-Trigger`, so nothing is due until a trigger
   `Addressed` on a PASS. A FAIL leaves it Open and routes to steering: read the R1 completion row in its changelog and route the fix.
 Start from `steering/website-deps-review-rulings.md`, block "2026-11-21T03:42Z — retire" and the blocks after it.
 
-## website editor: an emoji before formatting may shift its syntax colouring
+## website editor: the emoji pre-transform shifts widths — pasted text lost (fixer chain `fix-emoji-pretransform-widths`, NEXT)
 
-`interactiveParser` (`src/utils/markdown/utils.ts` L62-76) rewrites a Unicode emoji to its `:name:` form before parsing, so every
-source offset after it is off by the width difference; `🙂 **a**` colours nothing (same at website `8845b7e` and at the decorator fix
-`e6a5766`). Whether the editor ever hands such text to the decorator is read from code only (the normaliser moves emoji out of text
-leaves). Next: probe reachability in a mounted editor; fix if reachable (its own fixer chain, effort `fixer-queue-2026-11-21`, after 9f).
-Found by `fixer-fix-decorator-offsets`; routed by `steering-hooks-fixer`, 2026-11-22 (`steering/fix-decorator-offsets-rulings.md`).
+`interactiveParser` (`src/utils/markdown/utils.ts` L62-76) rewrites a Unicode emoji to its `:name:` form before parsing, so offsets after
+it are off by the width difference. Live at website `febf20e` (all four identical at `8845b7e`): (1) **E-1, text lost on paste** — a pasted
+line with an emoji then text loses characters (`x🙂 abcdefghijklmnopq` → `x🙂lmnopq`; refutation held, scratch `refute-paste/`);
+`withNormalizeNode.ts` `handleElement` sizes its insert range from the pre-transformed content; (2) an emoji in a fenced code line deletes
+the text after it on normalize (reviewer's probe, `verification/fix-decorator-offsets/code-review/tip-a7e1adb/`); (3) **E-2** a stored
+`\🙂 **a**` loads as `:slight_smile: **a**`; (4) an escaped emoji before formatting skews its colouring (QA,
+`verification/fix-decorator-offsets/qa/emoji-rows-*.jsonl`). QA's unrun assumption: a custom Discord emoji via the picker in a code line.
+His selection 2026-11-22T22:1x: this chain goes next (`steering/fix-decorator-offsets-rulings.md`, its blocks from 22:0x on).
+
+## website editor: nested formatting loses the outer style (fixer chain `fix-decorator-nested-styles`, after 9f)
+
+A run following a sibling inside an outer run loses the outer run's style (`||**a** __b__||`: `b` without spoiler), 3,641 of 7,137
+grammar-oracle rows (`verification/fix-decorator-offsets/code-review/tip-e6a5766/oracle-tip.json.gz`); the code-line analogue (a nested
+highlight scope whose outer scope is a line's first range: python `f"a {b} c"`, ruby `"a #{b} c"`, `/** @param */`, fixer's
+`round6/nested-probe.out`); CR-6 (zero-length highlight.js scopes, 2 of 193 languages). Pre-existing; display only. Rulings
+`steering/fix-decorator-offsets-rulings.md` blocks 21:21 onward.
