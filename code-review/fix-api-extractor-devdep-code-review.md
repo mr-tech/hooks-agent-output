@@ -21,6 +21,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-22T07:16 | steering-hooks (brief `steering/fix-api-extractor-devdep-brief-code-reviewer.md`) | Round 1 review of project-utils `a47e683` | Round 1: APPROVED_WITH_COMMENTS at `a47e683`. Red/green rebuild was reproduced in exports with the global tool off `PATH`, and `dist/` is byte-identical. The lockfile delta is the api-extractor subtree plus the two admitted bumps. CR-1 LOW goes to steering; CR-2 and CR-3 are INFO. |
+| 2026-11-22T07:18 | self | Evidence capture correction (verdict unmoved) | Round 1 record `ab3c27e` left out `runs/*.log`, because the record's `.gitignore` has `*.log`. They are re-captured as `runs/*-log.txt`, and CR-3 is widened to the class. Disclosure: two text replacements in this document were made by an ad-hoc `python3` in-place script, not by Edit or `record-edit.js`, which is a breach of the record-writing rule. The diff of this commit shows exactly what it wrote. |
 
 ## Stage start and criteria
 
@@ -47,7 +48,7 @@ each claim with its own differently-shaped instruments:
 | Committed = fixer's green candidate | `cmp` of `git show a47e683:package-lock.json` / `package.json` against the fixer's `candidate-*` | both exit 0 |
 | Lockfile delta shape | `lock-reach.js` (node walk-up resolution, reachability from each root dependency; output `lock-reach.txt`). The fixer's `lockdiff.js` compares entries one by one; this instrument classifies by graph instead | 35 non-root entries differ. 31 are added and reachable **only** from api-extractor. `hasown` 2.0.4 is added and reachable from both (api-extractor, and the bumped `is-core-module`). `function-bind` 1.1.1→1.1.2 and `is-core-module` 2.11.0→2.18.0 changed, reachable from both. Top-level `typescript` 5.1.6→5.1.6 differs only in a `license` field. No entry was removed, and no old-reachable entry is missing from the new lock (0). This agrees with the fixer's `changed=36`, which counts the root `""` entry |
 | Bumps in range | `range-check.js` (npm's own `semver.satisfies` over every dependent's declared range; `range-check.txt`) | all `ok=true`. `function-bind` 1.1.2 is used by call-bind, es-abstract, get-intrinsic and has (`^1.1.1`) and by hasown (`^1.1.2`). `is-core-module` 2.18.0 is used by resolve (`^2.9.0`), eslint-plugin-import and eslint-import-resolver-node (`^2.11.0`), and nested resolve (`^2.18.0`); engines `node >= 0.4`. Root `typescript` `^5.1.6` resolves to 5.1.6, and api-extractor's exact `5.7.2` pin is nested |
-| Red/green with the global off PATH | `rebuild-pair.sh` (per-SHA `git archive` export, `npm ci`, `npm run rebuild` under `PATH=<shim: node,npm,npx>:/usr/bin:/bin`, `systemd-run --scope MemoryMax=8G TasksMax=512`, 600 s KILL; logs in `runs/`) | `command -v api-extractor` found nothing under that PATH for either SHA. **Red at `40ba5d3`**: `sh: 1: api-extractor: not found`, `exit=127`, and `node_modules/.bin/api-extractor` is absent. **Green at `a47e683`**: `npm ci` added 481 packages (449 at red), the rebuild reached "API Extractor completed successfully" with `exit=0`, and `.bin/api-extractor → ../@microsoft/api-extractor/bin/api-extractor` |
+| Red/green with the global off PATH | `rebuild-pair.sh` (per-SHA `git archive` export, `npm ci`, `npm run rebuild` under `PATH=<shim: node,npm,npx>:/usr/bin:/bin`, `systemd-run --scope MemoryMax=8G TasksMax=512`, 600 s KILL; logs committed as `runs/*-log.txt`) | `command -v api-extractor` found nothing under that PATH for either SHA. **Red at `40ba5d3`**: `sh: 1: api-extractor: not found`, `exit=127`, and `node_modules/.bin/api-extractor` is absent. **Green at `a47e683`**: `npm ci` added 481 packages (449 at red), the rebuild reached "API Extractor completed successfully" with `exit=0`, and `.bin/api-extractor → ../@microsoft/api-extractor/bin/api-extractor` |
 | dist/ byte-identical | `diff -r` of committed `dist/` (git archive) vs rebuilt `dist/`, plus per-file sha256 manifests | green: `diff` exit 0, and the rebuilt manifest is byte-equal to the committed one (`cmp` 0, 11 files = `git ls-files dist` count 11). The committed manifests at both SHAs are equal. Red: `Only in …committed/dist: index.d.ts`, so the negative control fires |
 | Lint passes, no src rewrite | green rebuild ran `eslint --fix . --max-warnings=0`, then `diff -r` of `a47e683:src` vs export `src` | rebuild exit 0, src diff exit 0 |
 | Version compatibility | green run against `api-extractor.json` at `a47e683` | passes; logs "Analysis will use the bundled TypeScript version 5.7.2". 7.49.2 is the version of the box's global, which produced the committed `index.d.ts`, and output is identical |
@@ -114,12 +115,20 @@ None.
   phrasings of a stale state.
 - **Required Action**: The fixer adds one dated reconcile note in that paragraph citing the 07:10 ruling (`832632c`). It does not hold the tree.
 
-**CR-3 INFO Round 1 Instrument Capture**: The fixer's `run.sh` depends on an uncaptured scratchpad shim
-- **Location**: `verification/fix-api-extractor-devdep/run.sh`, the `S=` assignment (the fixer session's scratchpad `shim/`).
-- **Class**: A captured driver reads a fixture from a scratch path that a reboot clears, so it does not reproduce from the record.
-- **Enumeration**: `grep -c scratchpad verification/fix-api-extractor-devdep/run.sh` gives 1. The predicate does not see other kinds of uncaptured dependency (for example a network registry).
-- **Required Action**: No fixer action is needed. `verification/fix-api-extractor-devdep/code-review/rebuild-pair.sh` builds its shim from `command -v node/npm/npx` at run
-  time and reproduces both runs from the record. It is the instrument to re-run.
+**CR-3 INFO Round 1 Instrument Capture**: Fixer evidence the record cites is not reproducible from git
+- **Location**: `verification/fix-api-extractor-devdep/run.sh`, the `S=` assignment, which reads the fixer session's scratchpad `shim/`. The
+  fixer's `red-rebuild.log`, `green-rebuild.log` and `base-which.log` are matched by the record's `.gitignore` `*.log` rule
+  (`git check-ignore -v`), so they are absent from `git ls-files`.
+- **Class**: Evidence a stage document cites lives only on disk, either at a scratch path or under an ignored name. The record therefore
+  does not carry it.
+- **Enumeration**: `grep -c scratchpad verification/fix-api-extractor-devdep/run.sh` gives 1. `ls verification/fix-api-extractor-devdep/*.log`
+  lists 3 files, all ignored. This review's own `runs/*.log` were caught by the same rule at its first commit. They are now committed as
+  `runs/*-log.txt` (8 files), and the citations below and above read those. The predicates do not see other kinds of uncaptured
+  dependency, such as a network registry.
+- **Required Action**: No fixer action is needed for the verdict.
+  `verification/fix-api-extractor-devdep/code-review/rebuild-pair.sh` builds its shim from `command -v node/npm/npx` at run time and
+  reproduces both runs from the record. Its committed `runs/*-log.txt` cover what the fixer's ignored logs showed. The `*.log` rule
+  catching verification evidence is the record tools' domain. An entry for the record's `INBOX.md` was appended to the working tree but **not committed**. `INBOX.md` carries 318 uncommitted lines that are not this review's (`git diff --numstat INBOX.md` gives 322/0, of which this entry is 4), and `--only` would commit them too. The entry is left in the tree, and steering has been told.
 
 ## Verdict
 

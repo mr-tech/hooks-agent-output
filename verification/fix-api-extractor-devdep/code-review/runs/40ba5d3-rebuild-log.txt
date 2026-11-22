@@ -1,0 +1,18 @@
+
+> rebuild
+> npm run lint && npm run build && npm run build:types
+
+
+> lint
+> eslint --fix . --max-warnings=0
+
+
+> build
+> tsc -b && rimraf dist && cp -r build/js dist
+
+
+> build:types
+> tsc -p ./tsconfig.json --declaration true --outDir build/types && api-extractor run
+
+sh: 1: api-extractor: not found
+exit=127

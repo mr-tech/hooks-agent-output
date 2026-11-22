@@ -1,0 +1,2 @@
+lrwxrwxrwx 1 dev dev 45 Nov 22 07:15 /tmp/claude-1000/-usr-local-bin-hooks-project-utils/d4bd3a2c-dca8-481d-b12c-3a7c26ff7a66/scratchpad/export-a47e683/node_modules/.bin/api-extractor -> ../@microsoft/api-extractor/bin/api-extractor
+exit=0

@@ -1,0 +1,2 @@
+ls: cannot access '/tmp/claude-1000/-usr-local-bin-hooks-project-utils/d4bd3a2c-dca8-481d-b12c-3a7c26ff7a66/scratchpad/export-40ba5d3/node_modules/.bin/api-extractor': No such file or directory
+exit=2
