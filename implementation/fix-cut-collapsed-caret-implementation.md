@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-cut-collapsed-caret
 UUID: 22b61dde
 Status: Active
-Status-Detail: "Code review Round 1 (REJECTED at 329cc20, CR-1) answered at website 8845b7e; re-verification and devops's merge to website master are owed."
+Status-Detail: "Code review APPROVED at website 8845b7e (Round 1 sub-entry 1a); devops's merge to website master, under the owner's release approval, is owed."
 Handoff-At: 8845b7e — repos=website
 Origin-Chain: none
 ---
@@ -163,3 +163,4 @@ recommended keeping it; steering ruled to keep it on the owner's 02:09 words.
 | 2026-11-22T18:53 | Handoff message id recorded. The stamp gate refused this row's first, typed stamp; re-stamped from `date -u`. Disclosure: that one line was first written by an in-place `sed` on this file, against the record rule (file-editing tools or `record-edit.js` only); later edits by the Edit tool. `Handoff-At` set to the branch base so the anchor field carries a SHA. |
 | 2026-11-22T19:05 | Ruling 18:53 read at its commit; fix and three-case test committed (`c576417`, `329cc20`); red, green, negative controls, suite, typecheck, lint and convention check recorded; Status Active, `Handoff-At` 329cc20; handed to code review via steering. |
 | 2026-11-22T19:12 | Code review Round 1 CR-1 answered: copy case added (`8845b7e`); the reviewer's mutant added to `mutants.json` and killed with the other four; red, green, suite (2366), typecheck, changed-file lint re-run at `8845b7e`; `Handoff-At` 8845b7e. |
+| 2026-11-22T19:15 | Code review APPROVED at `8845b7e` (`code-review/fix-cut-collapsed-caret-code-review.md` sub-entry 1a, record `de261824`, read at its `Verdict` field); Status-Detail moved to the merge owed. |
