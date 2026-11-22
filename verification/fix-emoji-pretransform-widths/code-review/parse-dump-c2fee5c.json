@@ -1,0 +1,317 @@
+[
+ {
+  "x": ":a🙂 a",
+  "nodes": [
+   {
+    "type": "nameEmoji",
+    "source": ":a:",
+    "renamed": [
+     0,
+     3
+    ],
+    "original": [
+     0,
+     4
+    ]
+   },
+   {
+    "type": "text",
+    "source": "slight",
+    "renamed": [
+     3,
+     9
+    ],
+    "original": [
+     4,
+     4
+    ]
+   },
+   {
+    "type": "text",
+    "source": "_smile",
+    "renamed": [
+     9,
+     15
+    ],
+    "original": [
+     4,
+     4
+    ]
+   },
+   {
+    "type": "text",
+    "source": ": a",
+    "renamed": [
+     15,
+     18
+    ],
+    "original": [
+     4,
+     6
+    ]
+   },
+   {
+    "type": "text",
+    "source": "\n\n",
+    "renamed": [
+     18,
+     20
+    ],
+    "original": [
+     6,
+     8
+    ]
+   }
+  ]
+ },
+ {
+  "x": ":ok🙂 a",
+  "nodes": [
+   {
+    "type": "nameEmoji",
+    "source": ":ok:",
+    "renamed": [
+     0,
+     4
+    ],
+    "original": [
+     0,
+     5
+    ]
+   },
+   {
+    "type": "text",
+    "source": "slight",
+    "renamed": [
+     4,
+     10
+    ],
+    "original": [
+     5,
+     5
+    ]
+   },
+   {
+    "type": "text",
+    "source": "_smile",
+    "renamed": [
+     10,
+     16
+    ],
+    "original": [
+     5,
+     5
+    ]
+   },
+   {
+    "type": "text",
+    "source": ": a",
+    "renamed": [
+     16,
+     19
+    ],
+    "original": [
+     5,
+     7
+    ]
+   },
+   {
+    "type": "text",
+    "source": "\n\n",
+    "renamed": [
+     19,
+     21
+    ],
+    "original": [
+     7,
+     9
+    ]
+   }
+  ]
+ },
+ {
+  "x": "\\🙂ok:",
+  "nodes": [
+   {
+    "type": "text",
+    "source": "\\:",
+    "renamed": [
+     0,
+     2
+    ],
+    "original": [
+     0,
+     3
+    ]
+   },
+   {
+    "type": "text",
+    "source": "s",
+    "renamed": [
+     2,
+     3
+    ],
+    "original": [
+     3,
+     3
+    ]
+   },
+   {
+    "type": "text",
+    "source": "l",
+    "renamed": [
+     3,
+     4
+    ],
+    "original": [
+     3,
+     3
+    ]
+   },
+   {
+    "type": "text",
+    "source": "i",
+    "renamed": [
+     4,
+     5
+    ],
+    "original": [
+     3,
+     3
+    ]
+   },
+   {
+    "type": "text",
+    "source": "g",
+    "renamed": [
+     5,
+     6
+    ],
+    "original": [
+     3,
+     3
+    ]
+   },
+   {
+    "type": "text",
+    "source": "h",
+    "renamed": [
+     6,
+     7
+    ],
+    "original": [
+     3,
+     3
+    ]
+   },
+   {
+    "type": "text",
+    "source": "t",
+    "renamed": [
+     7,
+     8
+    ],
+    "original": [
+     3,
+     3
+    ]
+   },
+   {
+    "type": "text",
+    "source": "_",
+    "renamed": [
+     8,
+     9
+    ],
+    "original": [
+     3,
+     3
+    ]
+   },
+   {
+    "type": "text",
+    "source": "s",
+    "renamed": [
+     9,
+     10
+    ],
+    "original": [
+     3,
+     3
+    ]
+   },
+   {
+    "type": "text",
+    "source": "m",
+    "renamed": [
+     10,
+     11
+    ],
+    "original": [
+     3,
+     3
+    ]
+   },
+   {
+    "type": "text",
+    "source": "i",
+    "renamed": [
+     11,
+     12
+    ],
+    "original": [
+     3,
+     3
+    ]
+   },
+   {
+    "type": "text",
+    "source": "l",
+    "renamed": [
+     12,
+     13
+    ],
+    "original": [
+     3,
+     3
+    ]
+   },
+   {
+    "type": "text",
+    "source": "e",
+    "renamed": [
+     13,
+     14
+    ],
+    "original": [
+     3,
+     3
+    ]
+   },
+   {
+    "type": "nameEmoji",
+    "source": ":ok:",
+    "renamed": [
+     14,
+     18
+    ],
+    "original": [
+     3,
+     6
+    ]
+   },
+   {
+    "type": "text",
+    "source": "\n\n",
+    "renamed": [
+     18,
+     20
+    ],
+    "original": [
+     6,
+     8
+    ]
+   }
+  ]
+ }
+]

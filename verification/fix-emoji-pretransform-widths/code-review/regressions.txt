@@ -1,0 +1,11 @@
+loadOk pass at base, fail at fix: 8
+   ':ok🙂 a' -> ':ok: a'
+   ':a🙂 a' -> ':a: a'
+   ':_🙂ok:.\\ok:' -> ':_🙂:ok:.\\ok:'
+   '`_:ok🙂~~🙂ok:~~' -> '`_:ok:~~🙂:ok:~~'
+   '_<:x:123>:ok🙂' -> '_<:x:123>:ok:'
+   '<:x:123>_aok::ok👍🏻**' -> '<:x:123>_aok::ok:**'
+   ' :ok🙂:<:x:123>' -> ' :ok::<:x:123>'
+   ':ok🙂🙂||' -> ':ok::slight_smile:||'
+typedOk pass at base, fail at fix: 0
+decoOutOfBounds newly >0 at fix: 0

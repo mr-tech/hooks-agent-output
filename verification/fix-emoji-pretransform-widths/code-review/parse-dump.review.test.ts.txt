@@ -1,0 +1,14 @@
+import { writeFileSync } from 'fs';
+import { it, vi } from 'vitest';
+import markdown from '~/utils/markdown';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+it('dump', () => {
+  const out: unknown[] = [];
+  for (const x of [':a🙂 a', ':ok🙂 a', '\\🙂ok:']) {
+    const ast = markdown.interactive.parseEmoji(x);
+    const m = (ast as unknown as { sourceOffset: (n: number) => number }).sourceOffset;
+    let o = 0;
+    out.push({ x, nodes: ast.map((n) => { const s = (n.source ?? n.content) as string; const r = { type: n.type, source: s, renamed: [o, o + s.length], original: [m(o), m(o + s.length)] }; o += s.length; return r; }) });
+  }
+  writeFileSync(process.env.DUMP_OUT as string, JSON.stringify(out, null, 1));
+});

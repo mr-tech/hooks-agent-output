@@ -1,0 +1,10 @@
+import { writeFileSync } from 'fs';
+import { it, vi } from 'vitest';
+import flattenNodeText from '~/components/SlateEditor/utils/flattenNodeText';
+import getInitialValue from '~/components/SlateEditor/utils/getInitialValue';
+import markdown from '~/utils/markdown';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+it('realistic', () => {
+  const rows = ['see you at 10:30🙂', 'Note:done👍 ok', 'ratio 3:1🔥 wow', 'see you at 10:30 🙂', 'thanks :D🙂', 'lol :P👍 ok', ':3❤️', 'wow :o🙂', 'no :x👍 ok'].map((x) => ({ x, loaded: flattenNodeText(getInitialValue(x, markdown.interactive.parseEmoji, false)) }));
+  writeFileSync(process.env.DUMP_OUT as string, JSON.stringify(rows, null, 1));
+});

@@ -1,0 +1,77 @@
+import { appendFileSync } from 'fs';
+
+import { createEditor, Editor, Text, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { describe, expect, it, vi } from 'vitest';
+
+import flattenNodeText from '../flattenNodeText';
+import getInitialValue from '../getInitialValue';
+import decorator from '../decorator';
+import { withEmojis, withNormalizeNode } from '..';
+
+import type { Descendant, Range } from 'slate';
+
+import markdown from '~/utils/markdown';
+import { translateSurrogatesToInlineEmoji as canon } from '~/utils/markdown/emoji';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+
+const OUT = process.env.PROBE_OUT as string;
+const log = (o: unknown) => appendFileSync(OUT, `${JSON.stringify(o)}\n`);
+
+const TOKENS = ['a', 'bc', ' ', '🙂', '👍🏻', '\\', '*', '**', '_', '~~', '||', '`', ':', ':ok', ':ok:', 'ok:', '<:x:123>', '#', '.'];
+let seed = 20261122;
+const rnd = () => { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; };
+const corpus: string[] = [];
+for (let n = 0; n < 400; n++) {
+  const len = 1 + Math.floor(rnd() * 8);
+  let s = '';
+  for (let k = 0; k < len; k++) s += TOKENS[Math.floor(rnd() * TOKENS.length)];
+  corpus.push(s);
+}
+const FIXED = [':ok🙂 a', ':a🙂 a', 'x🙂 abcdefghijklmnopq', '\\🙂 **a**', '🙂 *a*', ':thumbsup:🏻 x', '👍🏻 *a*'];
+
+const loadText = (x: string) => flattenNodeText(getInitialValue(x, markdown.interactive.parseEmoji, false));
+
+const typed = (x: string) => {
+  const editor = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, markdown.interactive.parseEmoji);
+  editor.children = [{ type: 'div', lang: '', startCodeBlock: false, empty: true, children: [{ type: 'span', text: '' }] } as unknown as Descendant];
+  Transforms.select(editor, Editor.end(editor, [0]));
+  Transforms.insertText(editor, x);
+  return flattenNodeText(editor.children[0] as Descendant);
+};
+
+const labelled = (text: string) => {
+  const editor = createEditor();
+  const span = { type: 'span', text } as unknown as Text;
+  editor.children = [{ type: 'div', lang: '', startCodeBlock: false, children: [span] } as unknown as Descendant];
+  const ranges: Range[] = decorator(editor, true, false, markdown.interactive.parseContent)([span, [0, 0]]);
+  const bad = ranges.filter((r) => r.anchor.offset < 0 || r.focus.offset > text.length);
+  const leaves = Text.decorations(span, ranges).map(({ leaf }) => {
+    const l = leaf as Text & { syntax?: boolean, classNames?: string[] };
+    return [canon(leaf.text), [l.syntax ? 'S' : '', ...[...(l.classNames ?? [])].sort()].filter(Boolean).join('+')];
+  });
+  const merged: string[][] = [];
+  for (const [t, lab] of leaves) {
+    const last = merged.at(-1);
+    if (last && last[1] === lab) last[0] += t; else merged.push([t, lab]);
+  }
+  return { out: merged.map(([t, lab]) => `${JSON.stringify(t)}:${lab || '-'}`).join(' '), bad: bad.length };
+};
+
+describe('review probe', () => {
+  it('runs', () => {
+    for (const x of [...FIXED, ...corpus]) {
+      const row: Record<string, unknown> = { x };
+      try { const l = loadText(x); row.load = l; row.loadOk = canon(l) === canon(x); } catch (e) { row.loadErr = String(e); }
+      try { const t = typed(x); row.typed = t; row.typedOk = canon(t) === canon(x); } catch (e) { row.typedErr = String(e).slice(0, 120); }
+      try {
+        const a = labelled(x); const b = labelled(canon(x));
+        row.deco = a.out; row.decoCanon = b.out; row.decoOk = a.out === b.out; row.decoOutOfBounds = a.bad;
+      } catch (e) { row.decoErr = String(e).slice(0, 120); }
+      log(row);
+    }
+    expect(true).toBe(true);
+  });
+});
