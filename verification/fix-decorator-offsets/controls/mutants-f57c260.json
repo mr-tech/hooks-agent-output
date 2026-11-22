@@ -1,0 +1,8 @@
+[
+  {"id": "strong-delimiter-width", "file": "src/components/SlateEditor/utils/decorator.tsx", "old": "  ['strong', 2],", "new": "  ['strong', 1],"},
+  {"id": "em-delimiter-width", "file": "src/components/SlateEditor/utils/decorator.tsx", "old": "  ['em', 1],", "new": "  ['em', 2],"},
+  {"id": "reverse-merge-link-guard-removed", "file": "src/components/SlateEditor/utils/decorator.tsx", "old": "  if (reverse && child.type === 'link') return acc;", "new": ""},
+  {"id": "last-link-exclusion-removed", "file": "src/components/SlateEditor/utils/decorator.tsx", "old": " && a.type !== 'link',", "new": ","},
+  {"id": "first-index-chosen-as-last", "file": "src/components/SlateEditor/utils/decorator.tsx", "old": "        first: i === 0,", "new": "        first: i === astContent.length - 1,"},
+  {"id": "last-index-chosen-as-first", "file": "src/components/SlateEditor/utils/decorator.tsx", "old": "        last: i === astContent.length - 1", "new": "        last: i === 0"}
+]

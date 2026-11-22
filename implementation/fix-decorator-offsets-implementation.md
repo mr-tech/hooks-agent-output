@@ -2,15 +2,30 @@
 ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
-Status: Blocked
-Status-Detail: "BLOCKED to steering-hooks-fixer at 2026-11-22T20:29Z: a second defect (heading lines never step over their # marker) found on the way; it decides whether the fix's two parent-delimiter guards are kept, so code review waits on the re-scope."
-Handoff-At: 99fd3c3 — repos=website; provisional, not handed off while Blocked
+Status: Active
+Status-Detail: "Handed to code review at website f57c260 (2026-11-22T20:33Z); merge to website master by devops on the owner's word."
+Handoff-At: f57c260 — repos=website
 Origin-Chain: none
 ---
 
 # fix-decorator-offsets — implementation
 
-## BLOCKED: question for steering (owner-needing)
+## Block resolved: ruling A
+
+Steering ruled **A** (`steering/fix-decorator-offsets-rulings.md`, block "2026-11-22T20:31", committed `4554b711`): keep the scope as
+determined, drop the two `Boolean(offset) &&` guards, hand off for code review. Done at website `f57c260`; controls, suite, typecheck and
+lint re-run there (Test, Verification).
+
+**Heading defect: found here, carried by the queued fixer chain `fix-decorator-headings`** (same rulings block: queued after 9f; how
+a heading marker is coloured goes to the owner at that chain's scoping where more than one answer is reasonable). Evidence held for it:
+`verification/fix-decorator-offsets/probe/subtext-wt-base.out` (base `8845b7e`) and `probe/subtext-website.out` (fix): `# **a**`,
+`-# **a**`, `-# *a* b`, `-# a **b**` all mis-coloured at base; and `probe/depth-99fd3c3.out`, 16 inputs probed for a parent without
+delimiters holding a delimited edge child (`> **a**`, `# **a**`, `-# **a**`, `- **a**`, `**> a**`, `**# a**`, `**<https://x.y>**`,
+`**https://x.y**`, `||> **a**||`, ``**`a`**``, `**a\nb**`, `>>> **a**`, `[**a**](https://x.y)`, `**<@123>**`, `**:smile:**`,
+`*a* **b** __c__`), of which only the mid-line heading `-# **a**` reached one. With the guards dropped, a delimited child at the edge of
+a mid-line heading skips its own delimiter; that line is mis-coloured at base and stays so until that chain lands.
+
+## BLOCKED: question for steering (owner-needing; resolved above)
 
 **Context, for the owner, plain English.** The fix works for everything the scope names: bold-italic (`***text***`) and the other
 places where one style sits flush inside another (bold inside a spoiler, italic inside underline, strike inside bold-italic, a link at
@@ -108,12 +123,14 @@ so `none`.
 ## Change
 
 - `src/components/SlateEditor/utils/decorator.tsx`: children get `first` when they are the first child and `last` when they are the last
-  (each only under a parent that has delimiters; `last` not for a link); the reverse adjacent-syntax merge stops at a link. Two signatures
+  (`last` not for a link); the reverse adjacent-syntax merge stops at a link. At `99fd3c3` both flags were also conditioned on the parent
+  having delimiters; those two conditions were dropped at `f57c260` under ruling A (above). Two signatures
   wrapped to 100 columns (lint, below), no behaviour.
 - `src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts` (new): 6 `it` + 2 `it.each` (6 + 3 rows) = 15
   cases.
 
-`git diff --numstat 8845b7e 99fd3c3`: `163 0` test, `18 4` `decorator.tsx`. Production lines added: **18** (under 20: code review only).
+`git diff --numstat 8845b7e f57c260` (the handoff): `163 0` test, `18 4` `decorator.tsx`. Production lines added: **18** (under 20:
+code review only). Website commits: `99fd3c3` (fix + test), `f57c260` (guards dropped).
 
 ## Test
 
@@ -141,8 +158,12 @@ all. `~/env.mjs` is mocked as the sibling `DiscordContentEditor` tests do; the d
 | `first-parent-offset-guard-removed` | added guard `Boolean(offset) &&` on `first` | **SURVIVED** |
 | `last-parent-offset-guard-removed` | added guard `Boolean(offset) &&` on `last` | **SURVIVED** |
 
-The two survivors are the conditions the BLOCKED question is about: only a mid-line heading reaches them (`probe/depth-99fd3c3.out`), and
-the heading defect leaves no correct expectation to assert. Disposition waits on steering's ruling.
+The two survivors are the conditions the BLOCKED question was about: only a mid-line heading reaches them (`probe/depth-99fd3c3.out`), and
+the heading defect leaves no correct expectation to assert. **Dropped** at `f57c260` (ruling A).
+
+- **Controls at the handoff `f57c260`** (`controls/mutants-f57c260.json`, table `controls/run2/`, log `controls/run2.txt`, exit 0): the six
+  remaining controls, strings re-pointed at the new lines, all **KILLED** (6 of 6). No added guard or chosen value is left uncontrolled.
+- **Green at `f57c260`**, shared tree: `green-run-guards-dropped.txt` — 15 passed, exit 0.
 
 ## Verification
 
@@ -158,6 +179,10 @@ the heading defect leaves no correct expectation to assert. Disposition waits on
   gate reports for a touched file (wrapped). `npx eslint` over the two files at `99fd3c3`: exit 0 (`eslint-fix.txt`). SKIP named as
   unchecked by the tool: the ID-token check; run by hand instead with the CLAUDE.md class over the test file, `grep -ciE` → 0. Other SKIPs
   are `.playwright-mcp/` images (not this chain's).
+- **At the handoff `f57c260`** (clean `git worktree` export, `node_modules` symlinked, `next-env.d.ts` copied in as above): suite 168
+  files, 2381 tests, all passed, exit 0 (`suite-tip.json`, `suite-tip.txt`); `pnpm run typecheck` exit 0 (`typecheck-tip.txt`); `npx eslint`
+  over the two files exit 0 (`eslint-tip.txt`); `convention-check.js --since=8845b7e` on the shared tree before the commit, exit 0
+  (`convention-check-guards-dropped.txt`).
 - No package-manager operation; no lockfile change.
 
 ## User-visible flows
@@ -169,15 +194,19 @@ For the owner's own look in any editor text box (message content, embed fields, 
 - Type `**bold**`, `*italic*`, `**bold** *italic*` and `**bold *italic* bold** after`: they look exactly as before.
 - Type `__*underlined italic*__`, `||**bold spoiler**||` or `***~~struck~~***`: only the markers are greyed, the text is styled.
 - Type `**[label](https://example.com)**`: the brackets and parentheses are greyed, the label and address coloured as a link.
-- Known and unchanged (see BLOCKED): a line starting with `# ` is still coloured a couple of characters off.
+- Known, not fixed here: a line starting with `# ` (or with a `#` heading partway along) is still coloured a couple of characters off;
+  that is the queued fix `fix-decorator-headings`.
 
 ## Handoff
 
-Not handed off: Blocked. On a ruling, the handoff is to `code-reviewer-fix-decorator-offsets` at the then `Handoff-At` (spawned by
-`steering-hooks-fixer`), merge to website `master` by devops on the owner's word (rulings 20:19).
+- **SHA:** website `f57c260` on `chain/fix-decorator-offsets`.
+- **Who reviews:** `code-reviewer-fix-decorator-offsets`, spawned by `steering-hooks-fixer` on this document's spawn cue. With fewer than
+  20 production lines the reviewer also runs the suite, typecheck and the red test; no QA Phase 2.
+- **Who merges:** devops, to website `master`, on the owner's word (rulings block 20:19). Vercel deploys `master` to production.
 
 ## Changelog
 
 | Date | Rev | Change |
 |---|---|---|
 | 2026-11-22T20:29 | — | Created. Fix and test committed on `chain/fix-decorator-offsets` at `99fd3c3`; red, green, controls, suite, typecheck and lint recorded. BLOCKED to steering on the heading-marker defect and the two parent-delimiter guards. |
+| 2026-11-22T20:33 | — | Ruling A (rulings block 20:31): two guards dropped at website `f57c260`; 6 of 6 controls killed, suite 2381/2381, typecheck and lint exit 0 there. Heading defect recorded as carried by `fix-decorator-headings`. Status Blocked → Active; `Handoff-At` `f57c260`; handed to code review. |

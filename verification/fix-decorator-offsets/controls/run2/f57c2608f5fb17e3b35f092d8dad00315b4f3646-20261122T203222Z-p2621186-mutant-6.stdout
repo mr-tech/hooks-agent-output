@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4c8508ed-d797-4cd5-824a-33f08e873764/scratchpad/mut-work2/20261122T203222Z-p2621186/mutant-6
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (15 tests | 3 failed) 31ms
+     × keeps shared delimiters inside the text for bold opening an italic run 9ms
+     × keeps shared delimiters inside the text for italic opening a bold run 3ms
+     × keeps shared delimiters inside the text for bold closing an italic run 2ms
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 12 passed (15)
+   Start at  20:32:39
+   Duration  1.39s (transform 469ms, setup 0ms, import 1.21s, tests 31ms, environment 0ms)
+

@@ -1,0 +1,333 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator emphasis ranges > keeps shared delimiters inside the text for bold opening an italic run
+AssertionError: expected [ { from: +0, to: 3, …(2) }, …(5) ] to deeply equal [ { from: +0, to: 3, …(2) }, …(4) ]
+
+- Expected
++ Received
+
+@@ -9,29 +9,37 @@
+      "classNames": [
+        "emText",
+      ],
+      "from": 3,
+      "syntax": false,
+-     "to": 8,
++     "to": 10,
++   },
++   {
++     "classNames": [
++       "emText",
++     ],
++     "from": 3,
++     "syntax": true,
++     "to": 5,
+    },
+    {
+      "classNames": [
+        "emText",
+        "strongText",
+      ],
+-     "from": 3,
++     "from": 5,
+      "syntax": false,
+-     "to": 4,
++     "to": 6,
+    },
+    {
+      "classNames": [],
+-     "from": 4,
++     "from": 6,
+      "syntax": true,
+-     "to": 6,
++     "to": 8,
+    },
+    {
+      "classNames": [],
+-     "from": 8,
++     "from": 10,
+      "syntax": true,
+-     "to": 9,
++     "to": 11,
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:130:28
+    128|     ]],
+    129|   ])('keeps shared delimiters inside the text for %s', (_name, text, r…
+    130|     expect(decorate(text)).toEqual(ranges);
+       |                            ^
+    131|   });
+    132|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator emphasis ranges > keeps shared delimiters inside the text for italic opening a bold run
+AssertionError: expected [ { from: +0, to: 3, …(2) }, …(5) ] to deeply equal [ { from: +0, to: 3, …(2) }, …(4) ]
+
+- Expected
++ Received
+
+@@ -9,29 +9,37 @@
+      "classNames": [
+        "strongText",
+      ],
+      "from": 3,
+      "syntax": false,
+-     "to": 7,
++     "to": 8,
+    },
+    {
+      "classNames": [
+-       "emText",
+        "strongText",
+      ],
+      "from": 3,
+-     "syntax": false,
++     "syntax": true,
+      "to": 4,
+    },
+    {
+-     "classNames": [],
++     "classNames": [
++       "emText",
++       "strongText",
++     ],
+      "from": 4,
+-     "syntax": true,
++     "syntax": false,
+      "to": 5,
+    },
+    {
+      "classNames": [],
+-     "from": 7,
++     "from": 5,
+      "syntax": true,
+-     "to": 9,
++     "to": 6,
++   },
++   {
++     "classNames": [],
++     "from": 8,
++     "syntax": true,
++     "to": 10,
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:130:28
+    128|     ]],
+    129|   ])('keeps shared delimiters inside the text for %s', (_name, text, r…
+    130|     expect(decorate(text)).toEqual(ranges);
+       |                            ^
+    131|   });
+    132|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator emphasis ranges > keeps shared delimiters inside the text for bold closing an italic run
+AssertionError: expected [ { from: +0, to: 1, …(2) }, …(3) ] to deeply equal [ { from: +0, to: 1, …(2) }, …(4) ]
+
+- Expected
++ Received
+
+@@ -9,31 +9,23 @@
+      "classNames": [
+        "emText",
+      ],
+      "from": 1,
+      "syntax": false,
+-     "to": 6,
++     "to": 4,
+    },
+    {
+      "classNames": [
+        "emText",
++       "strongText",
+      ],
+      "from": 3,
+-     "syntax": true,
+-     "to": 5,
+-   },
+-   {
+-     "classNames": [
+-       "emText",
+-       "strongText",
+-     ],
+-     "from": 5,
+      "syntax": false,
+-     "to": 6,
++     "to": 4,
+    },
+    {
+      "classNames": [],
+-     "from": 6,
++     "from": 4,
+      "syntax": true,
+-     "to": 9,
++     "to": 7,
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:130:28
+    128|     ]],
+    129|   ])('keeps shared delimiters inside the text for %s', (_name, text, r…
+    130|     expect(decorate(text)).toEqual(ranges);
+       |                            ^
+    131|   });
+    132|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator emphasis ranges > colours a masked link opening bold text with its target between the brackets and the bold delimiters
+AssertionError: expected [ { from: +0, to: 3, …(2) }, …(7) ] to deeply equal [ { from: +0, to: 3, …(2) }, …(6) ]
+
+- Expected
++ Received
+
+@@ -9,43 +9,51 @@
+      "classNames": [
+        "strongText",
+      ],
+      "from": 3,
+      "syntax": false,
+-     "to": 20,
++     "to": 21,
++   },
++   {
++     "classNames": [
++       "strongText",
++     ],
++     "from": 3,
++     "syntax": true,
++     "to": 4,
+    },
+    {
+      "classNames": [
+        "linkText",
+        "strongText",
+      ],
+-     "from": 3,
++     "from": 4,
+      "syntax": false,
+-     "to": 4,
++     "to": 5,
+    },
+    {
+      "classNames": [],
+-     "from": 4,
++     "from": 5,
+      "syntax": true,
+-     "to": 6,
++     "to": 7,
+    },
+    {
+      "classNames": [
+        "linkText",
+      ],
+-     "from": 6,
++     "from": 7,
+      "syntax": false,
+-     "to": 17,
++     "to": 18,
+    },
+    {
+      "classNames": [],
+-     "from": 17,
++     "from": 18,
+      "syntax": true,
+-     "to": 18,
++     "to": 19,
+    },
+    {
+      "classNames": [],
+-     "from": 20,
++     "from": 21,
+      "syntax": true,
+-     "to": 22,
++     "to": 23,
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:161:28
+    159|     ]],
+    160|   ])('colours a masked link %s with its target between the brackets an…
+    161|     expect(decorate(text)).toEqual(ranges);
+       |                            ^
+    162|   });
+    163| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator emphasis ranges > colours a masked link closing bold text with its target between the brackets and the bold delimiters
+AssertionError: expected [ { from: +0, to: 2, …(2) }, …(5) ] to deeply equal [ { from: +0, to: 2, …(2) }, …(6) ]
+
+- Expected
++ Received
+
+@@ -9,45 +9,37 @@
+      "classNames": [
+        "strongText",
+      ],
+      "from": 2,
+      "syntax": false,
+-     "to": 20,
++     "to": 19,
+    },
+    {
+      "classNames": [
++       "linkText",
+        "strongText",
+      ],
+      "from": 4,
+-     "syntax": true,
++     "syntax": false,
+      "to": 5,
+    },
+    {
+-     "classNames": [
+-       "linkText",
+-       "strongText",
+-     ],
++     "classNames": [],
+      "from": 5,
+-     "syntax": false,
+-     "to": 6,
+-   },
+-   {
+-     "classNames": [],
+-     "from": 6,
+      "syntax": true,
+-     "to": 8,
++     "to": 7,
+    },
+    {
+      "classNames": [
+        "linkText",
+      ],
+-     "from": 8,
++     "from": 7,
+      "syntax": false,
+-     "to": 19,
++     "to": 18,
+    },
+    {
+      "classNames": [],
+-     "from": 19,
++     "from": 18,
+      "syntax": true,
+-     "to": 22,
++     "to": 21,
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:161:28
+    159|     ]],
+    160|   ])('colours a masked link %s with its target between the brackets an…
+    161|     expect(decorate(text)).toEqual(ranges);
+       |                            ^
+    162|   });
+    163| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
