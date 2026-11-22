@@ -1,0 +1,113 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "\\🙂 **a**" with its text unchanged
+AssertionError: expected '\� **a* **a** **a****a***a*****' to be '\🙂 **a**' // Object.is equality
+
+Expected: "\🙂 **a**"
+Received: "\� **a* **a** **a****a***a*****"
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:25:43
+     23|     'a \\🙂ok: b',
+     24|   ])('loads %j with its text unchanged', (text) => {
+     25|     expect(flattenNodeText(loaded(text))).toBe(text);
+       |                                           ^
+     26|   });
+     27|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "a \\🙂" with its text unchanged
+AssertionError: expected 'a \�' to be 'a \🙂' // Object.is equality
+
+Expected: "a \🙂"
+Received: "a \�"
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:25:43
+     23|     'a \\🙂ok: b',
+     24|   ])('loads %j with its text unchanged', (text) => {
+     25|     expect(flattenNodeText(loaded(text))).toBe(text);
+       |                                           ^
+     26|   });
+     27|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "a :ok🙂 b" with its text unchanged
+AssertionError: expected 'a :ok� b b b' to be 'a :ok🙂 b' // Object.is equality
+
+Expected: "a :ok🙂 b"
+Received: "a :ok� b b b"
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:25:43
+     23|     'a \\🙂ok: b',
+     24|   ])('loads %j with its text unchanged', (text) => {
+     25|     expect(flattenNodeText(loaded(text))).toBe(text);
+       |                                           ^
+     26|   });
+     27|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "a \\🙂ok: b" with its text unchanged
+AssertionError: expected 'a \�ookok:ok: ok: bok: bok: bok: bok:…' to be 'a \🙂ok: b' // Object.is equality
+
+Expected: "a \🙂ok: b"
+Received: "a \�ookok:ok: ok: bok: bok: bok: bok: bok: bok: bok: b b"
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:25:43
+     23|     'a \\🙂ok: b',
+     24|   ])('loads %j with its text unchanged', (text) => {
+     25|     expect(flattenNodeText(loaded(text))).toBe(text);
+       |                                           ^
+     26|   });
+     27|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "a :ok🙂 🙂 b" into its own text node
+AssertionError: expected [ 'a :ok� 🙂 b 🙂 b 🙂 b', …(2) ] to deeply equal [ Array(3) ]
+
+- Expected
++ Received
+
+  [
+-   "a :ok🙂 ",
++   "a :ok� 🙂 b 🙂 b 🙂 b",
+    "[:slight_smile:]",
+    " b",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:37:8
+     35|     expect(first.children
+     36|       .map((child) => (isEmojiElement(child) ? `[${child.ast.name as s…
+     37|       .toEqual(children);
+       |        ^
+     38|   });
+     39| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "a \\🙂ok: 🙂 b" into its own text node
+AssertionError: expected [ …(3) ] to deeply equal [ 'a \🙂ok: ', …(2) ]
+
+- Expected
++ Received
+
+  [
+-   "a \\🙂ok: ",
++   "a \\�ookok:ok: ok: �ok: 🙂ok: 🙂 ok: 🙂 bok: 🙂 bok: 🙂 bok: 🙂 bok: 🙂 b 🙂 b",
+    "[:slight_smile:]",
+    " b",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:37:8
+     35|     expect(first.children
+     36|       .map((child) => (isEmojiElement(child) ? `[${child.ast.name as s…
+     37|       .toEqual(children);
+       |        ^
+     38|   });
+     39| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+

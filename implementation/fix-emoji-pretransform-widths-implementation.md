@@ -3,12 +3,94 @@ ID: n/a
 Origin: fix-emoji-pretransform-widths
 UUID: 27c7b0a0
 Status: Active
-Status-Detail: "Handed off at website c2fee5c; owed: code review, then QA Phase 2 (70 added production lines), then devops's merge to website master."
-Handoff-At: c2fee5c — repos=website
+Status-Detail: "Round 2 (CR-1) handed off at website 0411d3b; owed: code review Round 2, then QA Phase 2 (83 added production lines), then devops's merge to website master."
+Handoff-At: 0411d3b — repos=website
 Origin-Chain: none
 ---
 
 # fix-emoji-pretransform-widths — implementation
+
+## Round 2: CR-1, an emoji next to a name the rename manufactured (review Round 1 at `c2fee5c`, REJECTED)
+
+The round-1 sections below record the work through `c2fee5c`. This section and its rows are authoritative from round 2 on: the
+header, the production-line count and the Handoff.
+
+**Finding** (`code-review/fix-emoji-pretransform-widths-code-review.md`, record `b7f2aac4`, CR-1 HIGH). The rename can manufacture a
+`:name:` token that begins or ends inside a renamed emoji. `:ok🙂` becomes `:ok:slight_smile:`, where `:ok:` (👌) ends inside the
+renamed 🙂. `\🙂ok:` becomes `\:slight_smile:ok:`, where `:ok:` begins at the renamed name's closing colon. Round 1's map sent an
+offset inside a renamed name to that name's end. That handed the 🙂 to the straddling token, and the element replaced it. `wow :o🙂`
+loaded and typed as `wow :o:`, where base had renamed it to `wow :o:slight_smile:`. The reviewer's probe found 8 of 407 rows passing at
+base and failing at `c2fee5c` (`verification/fix-emoji-pretransform-widths/code-review/regressions.txt`). Re-derived here by the red
+run below and by re-running that probe.
+
+**Route taken: the reviewer's minimum, not the preferred.** The map now also answers `splitsName(offset)`: is the offset strictly
+inside a renamed name? An emoji node whose start or end splits a name is not converted. The normalizer skips it and goes on to the
+next node. The initial value keeps it as its typed text, sliced through the same map. Text concatenation was already exact, because
+the rounded map never decreases. The decorator converts nothing, and its ranges round through the same map. The route not taken was
+parsing surrogates without the rename. It would need the `text` rule changed, since text runs through surrogates today
+(`[\s\S]+?(?=[^0-9A-Za-z\sÀ-￿]…)`, `rules.tsx:451`). It would also change the stored `:name:` form, which the ruling excludes,
+and every interactive parser's output. That is a design decision beyond this scope. Consequence: an emoji that a name runs into or out
+of stays as a plain emoji character in the line, not an emoji element. The text is kept whole.
+
+**CR-2 (LOW, optional): not taken.** Declaring `sourceOffsets` on `InteractiveParser` means editing `src/@types/simple-markdown.d.ts`,
+which is outside the write set (rulings block "2026-11-22T22:59").
+
+**Change** (`0411d3b`). `emoji.tsx`: `surrogateSourceOffset` becomes `surrogateSourceOffsets`, which returns `{ at, splitsName }` (type
+`SurrogateSourceOffsets`). `utils.ts` attaches it as `sourceOffsets`. `common.ts`: `sourceOffsetsOf` replaces `sourceOffsetOf` and
+imports the type only, which is erased at build and so keeps the markdown module out of the editor bundle. `withNormalizeNode.ts` and
+`getInitialValue.ts`: the emoji branch is `isEmojiNode(x) && !offsets.splitsName(start) && !offsets.splitsName(end)`, written inline
+rather than as a type-predicate helper, because a predicate with extra conditions would narrow a straddling emoji node to "not an
+emoji" on `false`. `decorator.tsx`: `offsets.at` in place of `toSource`.
+
+`git diff --numstat febf20e 0411d3b` (production paths): `common.ts` 7/0, `decorator.tsx` 9/5, `getInitialValue.ts` 15/6,
+`withNormalizeNode.ts` 16/7, `emoji.tsx` 31/0, `utils.ts` 5/3. **Production lines added: 83**, so QA Phase 2 still runs. Tests:
+decorator 21/0, initial value 39/0, normalizer 66/0.
+
+**Tests added** (spec-form, real parser, the real name `:ok:`, the straddle neither first nor last on its line, both directions):
+- Normalizer: `a :ok🙂 🙂 b` gives `['a :ok🙂 ', '[:slight_smile:]', ' b']`, and `a \🙂ok: 🙂 b` gives `['a \🙂ok: ', '[:slight_smile:]', ' b']`.
+  The straddle stays as typed and the following emoji is still converted.
+- Initial value: `a :ok🙂 b` and `a \🙂ok: b` load unchanged, and the two lines above load to the same shapes.
+- Decorator: `a :ok🙂 *b*` and `a \🙂ok: *b*` colour `*b*` at its own position.
+
+**Red run** at `c2fee5c` (export with the three updated test files; `verification/fix-emoji-pretransform-widths/red-run-straddle-c2fee5c.{json,txt,exit}`):
+exit 1, 277 cases, 271 passed, 6 failed. All six are new straddle cases, quoted: normalizer `[ 'a ', '[:ok:]', ' ', …]` and
+`[ 'a \🙂', '[:ok:]', ' ', …]`; initial value `expected 'a :ok: b'` and `expected 'a \🙂:ok: b'`, plus the two shapes. The two decorator
+rows pass at `c2fee5c`, because the decorator converts nothing. Their controls are below.
+
+**Negative controls** at `0411d3b` (`mutation-run.py … --sha 0411d3b --mutants verification/fix-emoji-pretransform-widths/round-2/mutants.json
+--dep node_modules --timeout 300 -- npx vitest run`, exit 0; table
+`round-2/controls/mutation-table-0411d3ba…-20261122T232828Z-p450104.json`). 17 of 17 are KILLED with the count checked. The 11 round-1
+controls are re-pointed at the new names, and 6 are new:
+- `splitsName` start check dropped, at the normalizer and at the initial value: each KILLED by the `\🙂ok:` direction.
+- `splitsName` end check dropped, at the normalizer and at the initial value: each KILLED by the `:ok🙂` direction.
+- `start <= offset` and `offset <= end`: each KILLED, because every whole emoji then reads as split.
+
+The decorator row `a :ok🙂 *b*` fails under `decorator-anchor-unmapped`. The row `a \🙂ok: *b*` fails under it and under
+`decorator-focus-unmapped`. The identity-map control is now `at` returning its input.
+
+**Reviewer's probe re-run** on the round-2 tree (`code-review/probe.review.test.tsx.txt` unchanged, output
+`round-2/review-probe-worktree.jsonl`, comparison `round-2/review-probe-compare.txt`). 407 rows, the same inputs as both review
+captures. Rows passing at base and failing here: 0 for load, 0 for typed, 0 for the decorator. Rows passing: load 352 / 397 / 407,
+typed 283 / 397 / 407, decorator 390 / 407 / 407 (base / `c2fee5c` / round 2).
+
+**Found, not absorbed.** Three probe rows still emit a decorator range past the end of the line: `:ok:# ~~`, `# :_#bc👍🏻` and
+`#~~:ok:#  `. All three are heading-syntax ranges, and each is out of bounds at base too (base capture `decoOutOfBounds` 1 for each).
+`:ok:# ~~` contains no emoji, so the offset map is the identity there and the cause is not this chain's property. Base had 20 such rows
+and round 2 has 3. Routed to steering as a candidate separate defect; not fixed here.
+
+**Verification at `0411d3b`** (clean `git archive` export; captures under `verification/fix-emoji-pretransform-widths/round-2/`):
+
+| Check | Result |
+|---|---|
+| Suite: `npx vitest run --reporter=json` | exit 0; 2643 / 2643 passed, 170 files (`suite-0411d3b.*`) |
+| `pnpm run typecheck` | exit 0 (`typecheck-0411d3b.*`) |
+| `npx eslint . --max-warnings=0` | exit 1; 751 problems (423 errors, 328 warnings) in 265 files, the same totals as `c2fee5c`. None in a touched path (`grep -c` over the nine paths: 0). |
+| `convention-check.js website --since=febf20e` | exit 0; 0 FAIL, 0 CANDIDATE (`convention-check-0411d3b.txt`); SKIPs as in round 1 |
+
+2643 − 2635 = 8 new cases: normalizer 2, initial value 4, decorator 2.
+
+**User-visible flows added:** type or paste `wow :ok🙂 hi`. Every character stays. The 🙂 stays a plain emoji character beside the
+`:ok` text and is not turned into the 👌 emoji. Before round 2 the 🙂 disappeared; at base it was saved as `:slight_smile:`.
 
 ## Scope statement
 
@@ -223,3 +305,4 @@ Unchanged on purpose: an emoji inserted into the editor is still saved and copie
 | Date | Change |
 |---|---|
 | 2026-11-22T23:14 | Created at hand-off. Fix committed at `1da7727`, `8cb9265`, `c2fee5c`. Red, controls and verification captured under `verification/fix-emoji-pretransform-widths/`. `Handoff-At: c2fee5c`. |
+| 2026-11-22T23:31 | Round 2 (CR-1, review Round 1 REJECTED at `c2fee5c`): straddling emoji nodes are left unconverted, committed at `0411d3b`; red at `c2fee5c`, 17 controls KILLED, reviewer's probe 0 regressions; `Handoff-At: 0411d3b`. CR-2 not taken (outside the write set). |

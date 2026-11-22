@@ -1,0 +1,13 @@
+rows 407 407 407 same inputs: True
+loadOk pass at base, fail at c2fee5c: 8 [':ok🙂 a', ':a🙂 a', ':_🙂ok:.\\ok:', '`_:ok🙂~~🙂ok:~~', '_<:x:123>:ok🙂', '<:x:123>_aok::ok👍🏻**', ' :ok🙂:<:x:123>', ':ok🙂🙂||']
+loadOk pass at base, fail at worktree: 0 []
+loadOk passing count base/c2fee5c/worktree: 352 397 407
+typedOk pass at base, fail at c2fee5c: 0 []
+typedOk pass at base, fail at worktree: 0 []
+typedOk passing count base/c2fee5c/worktree: 283 397 407
+decoOk pass at base, fail at c2fee5c: 0 []
+decoOk pass at base, fail at worktree: 0 []
+decoOk passing count base/c2fee5c/worktree: 390 407 407
+base decoOutOfBounds>0: 20 errors: 5
+c2fee5c decoOutOfBounds>0: 3 errors: 0
+worktree decoOutOfBounds>0: 3 errors: 0

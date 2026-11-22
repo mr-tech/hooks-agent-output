@@ -1,0 +1,72 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped asterisk before the emoji and every character after it
+AssertionError: expected [ '\*🙂abc' ] to deeply equal [ '\*', '[:slight_smile:]', 'abc' ]
+
+- Expected
++ Received
+
+  [
+-   "\\*",
+-   "[:slight_smile:]",
+-   "abc",
++   "\\*🙂abc",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:42:8
+     40|   it('keeps an escaped asterisk before the emoji and every character a…
+     41|     expect(typedInto([line('div', '', false, '')], 0, '\\*🙂abc'))
+     42|       .toEqual(['\\*', '[:slight_smile:]', 'abc']);
+       |        ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped emoji as text and turns the emoji after it into an element
+AssertionError: expected [ '\🙂🙂 abc' ] to deeply equal [ '\🙂', '[:slight_smile:]', ' abc' ]
+
+- Expected
++ Received
+
+  [
+-   "\\🙂",
+-   "[:slight_smile:]",
+-   " abc",
++   "\\🙂🙂 abc",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:47:8
+     45|   it('keeps an escaped emoji as text and turns the emoji after it into…
+     46|     expect(typedInto([line('div', '', false, '')], 0, '\\🙂🙂 abc'))
+     47|       .toEqual(['\\🙂', '[:slight_smile:]', ' abc']);
+       |        ^
+     48|   });
+     49|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps "a \\🙂ok: 🙂 b" as typed where a name would run into the emoji, and turns the next emoji into an element
+AssertionError: expected [ 'a \🙂ok: 🙂 b' ] to deeply equal [ 'a \🙂ok: ', …(2) ]
+
+- Expected
++ Received
+
+  [
+-   "a \\🙂ok: ",
+-   "[:slight_smile:]",
+-   " b",
++   "a \\🙂ok: 🙂 b",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:54:62
+     52|     ['a \\🙂ok: 🙂 b', ['a \\🙂ok: ', '[:slight_smile:]', ' b']],
+     53|   ] as const)('keeps %j as typed where a name would run into the emoji…
+     54|     expect(typedInto([line('div', '', false, '')], 0, text)).toEqual(c…
+       |                                                              ^
+     55|   });
+     56|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

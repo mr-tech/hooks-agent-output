@@ -1,0 +1,20 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/6b08efee-885a-42cc-b941-8975e343b07f/scratchpad/mut-work2/20261122T232828Z-p450104/mutant-17
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (262 tests | 10 failed) 168ms
+     × with the content parser colours "🙂 *a*" as "🙂 ":- "*":S "a":emText "*":S 8ms
+     × with the title parser colours "🙂 *a*" as "🙂 ":- "*":S "a":emText "*":S 2ms
+     × with the field parser colours "🙂 *a*" as "🙂 ":- "*":S "a":emText "*":S 1ms
+     × with the content parser colours "\\*🙂 *a*" as "\\*🙂 ":- "*":S "a":emText "*":S 1ms
+     × with the title parser colours "\\*🙂 *a*" as "\\*🙂 ":- "*":S "a":emText "*":S 1ms
+     × with the field parser colours "\\*🙂 *a*" as "\\*🙂 ":- "*":S "a":emText "*":S 1ms
+     × with the content parser colours "**🙂 a**" as "**":S "🙂 a":strongText "**":S 1ms
+     × with the title parser colours "**🙂 a**" as "**":S "🙂 a":strongText "**":S 1ms
+     × with the field parser colours "**🙂 a**" as "**":S "🙂 a":strongText "**":S 1ms
+     × with the content parser colours "a \\🙂ok: *b*" as "a \\🙂ok: ":- "*":S "b":emText "*":S 1ms
+
+ Test Files  1 failed (1)
+      Tests  10 failed | 252 passed (262)
+   Start at  23:29:46
+   Duration  1.72s (transform 553ms, setup 0ms, import 1.36s, tests 168ms, environment 0ms)
+

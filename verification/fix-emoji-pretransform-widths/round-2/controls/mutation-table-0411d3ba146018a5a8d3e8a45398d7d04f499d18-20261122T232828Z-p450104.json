@@ -1,0 +1,598 @@
+{
+ "sha": "0411d3ba146018a5a8d3e8a45398d7d04f499d18",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/mutants.json",
+   "blob": "317dac1bf0a3a268e90b23f65d0d6e8303c0256a"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[\"src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts\"]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-control-1.stderr",
+   "seconds": 2.44,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 9,
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts"
+   ],
+   "passed": true
+  },
+  "[\"src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts\", \"src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx\", \"src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts\"]": {
+   "id": "control-2",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-control-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-control-2.stderr",
+   "seconds": 3.36,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 277,
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts"
+   ],
+   "passed": true
+  },
+  "[\"src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx\"]": {
+   "id": "control-3",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-control-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-control-3.stderr",
+   "seconds": 3.25,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 6,
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx"
+   ],
+   "passed": true
+  },
+  "[\"src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts\"]": {
+   "id": "control-4",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-control-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-control-4.stderr",
+   "seconds": 2.77,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 262,
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts"
+   ],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "parse-result-carries-identity-map",
+   "run": "mutant-1",
+   "file": "src/utils/markdown/emoji.tsx",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 9,
+   "control_tests_run": 9,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a\ud83d\ude42 b c\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"\\\\*\ud83d\ude42 b\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a :ok\ud83d\ude42 \ud83d\ude42 b\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a \\\\\ud83d\ude42ok: \ud83d\ude42 b\" into its own text node"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.56,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-1.stderr"
+  },
+  {
+   "id": "map-guard-before-name-removed",
+   "run": "mutant-2",
+   "file": "src/utils/markdown/emoji.tsx",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 277,
+   "control_tests_run": 277,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character after the emoji in a plain line",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped asterisk before the emoji and every character after it",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped emoji as text and turns the emoji after it into an element",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps \"a :ok\ud83d\ude42 \ud83d\ude42 b\" as typed where a name would run into the emoji, and turns the next emoji into an element",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps \"a \\\\\ud83d\ude42ok: \ud83d\ude42 b\" as typed where a name would run into the emoji, and turns the next emoji into an element",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character after the emoji in a fenced code line",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the content parser colours \"**\ud83d\ude42 a**\" as \"**\":S \"\ud83d\ude42 a\":strongText \"**\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the title parser colours \"**\ud83d\ude42 a**\" as \"**\":S \"\ud83d\ude42 a\":strongText \"**\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the field parser colours \"**\ud83d\ude42 a**\" as \"**\":S \"\ud83d\ude42 a\":strongText \"**\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"\\\\\ud83d\ude42 **a**\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"a \\\\\ud83d\ude42\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"a :ok\ud83d\ude42 b\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"a \\\\\ud83d\ude42ok: b\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a\ud83d\ude42 b c\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"\\\\*\ud83d\ude42 b\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a :ok\ud83d\ude42 \ud83d\ude42 b\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a \\\\\ud83d\ude42ok: \ud83d\ude42 b\" into its own text node"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 4.13,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-2.stderr"
+  },
+  {
+   "id": "map-guard-inside-name-removed",
+   "run": "mutant-3",
+   "file": "src/utils/markdown/emoji.tsx",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 277,
+   "control_tests_run": 277,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"\\\\\ud83d\ude42 **a**\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"a \\\\\ud83d\ude42\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"a :ok\ud83d\ude42 b\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"a \\\\\ud83d\ude42ok: b\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a :ok\ud83d\ude42 \ud83d\ude42 b\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a \\\\\ud83d\ude42ok: \ud83d\ude42 b\" into its own text node"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.51,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-3.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-3.stderr"
+  },
+  {
+   "id": "splits-name-start-inclusive",
+   "run": "mutant-4",
+   "file": "src/utils/markdown/emoji.tsx",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 277,
+   "control_tests_run": 277,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character after the emoji in a plain line",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped asterisk before the emoji and every character after it",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped emoji as text and turns the emoji after it into an element",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps \"a :ok\ud83d\ude42 \ud83d\ude42 b\" as typed where a name would run into the emoji, and turns the next emoji into an element",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps \"a \\\\\ud83d\ude42ok: \ud83d\ude42 b\" as typed where a name would run into the emoji, and turns the next emoji into an element",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character after the emoji in a fenced code line",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a\ud83d\ude42 b c\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"\\\\*\ud83d\ude42 b\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a :ok\ud83d\ude42 \ud83d\ude42 b\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a \\\\\ud83d\ude42ok: \ud83d\ude42 b\" into its own text node"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 7.36,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-4.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-4.stderr"
+  },
+  {
+   "id": "splits-name-end-inclusive",
+   "run": "mutant-5",
+   "file": "src/utils/markdown/emoji.tsx",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts",
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx",
+    "src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 277,
+   "control_tests_run": 277,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character after the emoji in a plain line",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped asterisk before the emoji and every character after it",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped emoji as text and turns the emoji after it into an element",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps \"a :ok\ud83d\ude42 \ud83d\ude42 b\" as typed where a name would run into the emoji, and turns the next emoji into an element",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps \"a \\\\\ud83d\ude42ok: \ud83d\ude42 b\" as typed where a name would run into the emoji, and turns the next emoji into an element",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character after the emoji in a fenced code line",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a\ud83d\ude42 b c\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"\\\\*\ud83d\ude42 b\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a :ok\ud83d\ude42 \ud83d\ude42 b\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a \\\\\ud83d\ude42ok: \ud83d\ude42 b\" into its own text node"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 7.1,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-5.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-5.stderr"
+  },
+  {
+   "id": "normalizer-start-split-ignored",
+   "run": "mutant-6",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 6,
+   "control_tests_run": 6,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps \"a \\\\\ud83d\ude42ok: \ud83d\ude42 b\" as typed where a name would run into the emoji, and turns the next emoji into an element"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 5.57,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-6.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-6.stderr"
+  },
+  {
+   "id": "normalizer-end-split-ignored",
+   "run": "mutant-7",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 6,
+   "control_tests_run": 6,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps \"a :ok\ud83d\ude42 \ud83d\ude42 b\" as typed where a name would run into the emoji, and turns the next emoji into an element"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.63,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-7.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-7.stderr"
+  },
+  {
+   "id": "initial-value-start-split-ignored",
+   "run": "mutant-8",
+   "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 9,
+   "control_tests_run": 9,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"a \\\\\ud83d\ude42ok: b\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a \\\\\ud83d\ude42ok: \ud83d\ude42 b\" into its own text node"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.64,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-8.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-8.stderr"
+  },
+  {
+   "id": "initial-value-end-split-ignored",
+   "run": "mutant-9",
+   "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 9,
+   "control_tests_run": 9,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"a :ok\ud83d\ude42 b\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a :ok\ud83d\ude42 \ud83d\ude42 b\" into its own text node"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.62,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-9.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-9.stderr"
+  },
+  {
+   "id": "normalizer-anchor-unmapped",
+   "run": "mutant-10",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 6,
+   "control_tests_run": 6,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped emoji as text and turns the emoji after it into an element",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps \"a :ok\ud83d\ude42 \ud83d\ude42 b\" as typed where a name would run into the emoji, and turns the next emoji into an element",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps \"a \\\\\ud83d\ude42ok: \ud83d\ude42 b\" as typed where a name would run into the emoji, and turns the next emoji into an element"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.62,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-10.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-10.stderr"
+  },
+  {
+   "id": "normalizer-focus-unmapped",
+   "run": "mutant-11",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 6,
+   "control_tests_run": 6,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character after the emoji in a plain line",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped asterisk before the emoji and every character after it",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped emoji as text and turns the emoji after it into an element",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps \"a :ok\ud83d\ude42 \ud83d\ude42 b\" as typed where a name would run into the emoji, and turns the next emoji into an element",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps \"a \\\\\ud83d\ude42ok: \ud83d\ude42 b\" as typed where a name would run into the emoji, and turns the next emoji into an element",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character after the emoji in a fenced code line"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.5,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-11.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-11.stderr"
+  },
+  {
+   "id": "normalizer-content-width",
+   "run": "mutant-12",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 6,
+   "control_tests_run": 6,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped asterisk before the emoji and every character after it",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped emoji as text and turns the emoji after it into an element",
+    "|dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps \"a \\\\\ud83d\ude42ok: \ud83d\ude42 b\" as typed where a name would run into the emoji, and turns the next emoji into an element"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 3.3,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-12.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-12.stderr"
+  },
+  {
+   "id": "initial-value-start-unmapped",
+   "run": "mutant-13",
+   "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 9,
+   "control_tests_run": 9,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"\\\\\ud83d\ude42 **a**\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"a \\\\\ud83d\ude42\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"a :ok\ud83d\ude42 b\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"a \\\\\ud83d\ude42ok: b\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a\ud83d\ude42 b c\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"\\\\*\ud83d\ude42 b\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a :ok\ud83d\ude42 \ud83d\ude42 b\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a \\\\\ud83d\ude42ok: \ud83d\ude42 b\" into its own text node"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.62,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-13.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-13.stderr"
+  },
+  {
+   "id": "initial-value-end-unmapped",
+   "run": "mutant-14",
+   "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 9,
+   "control_tests_run": 9,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"\\\\\ud83d\ude42 **a**\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"a \\\\\ud83d\ude42\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"a :ok\ud83d\ude42 b\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads \"a \\\\\ud83d\ude42ok: b\" with its text unchanged",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a :ok\ud83d\ude42 \ud83d\ude42 b\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a \\\\\ud83d\ude42ok: \ud83d\ude42 b\" into its own text node"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.77,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-14.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-14.stderr"
+  },
+  {
+   "id": "initial-value-content-width",
+   "run": "mutant-15",
+   "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 9,
+   "control_tests_run": 9,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"\\\\*\ud83d\ude42 b\" into its own text node",
+    "|node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in \"a \\\\\ud83d\ude42ok: \ud83d\ude42 b\" into its own text node"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.66,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-15.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-15.stderr"
+  },
+  {
+   "id": "decorator-anchor-unmapped",
+   "run": "mutant-16",
+   "file": "src/components/SlateEditor/utils/decorator.tsx",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 262,
+   "control_tests_run": 262,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the content parser colours \"\\\\\ud83d\ude42 **a**\" as \"\\\\\ud83d\ude42 \":- \"**\":S \"a\":strongText \"**\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the title parser colours \"\\\\\ud83d\ude42 **a**\" as \"\\\\\ud83d\ude42 \":- \"**\":S \"a\":strongText \"**\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the field parser colours \"\\\\\ud83d\ude42 **a**\" as \"\\\\\ud83d\ude42 \":- \"**\":S \"a\":strongText \"**\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the content parser colours \"\ud83d\ude42 *a*\" as \"\ud83d\ude42 \":- \"*\":S \"a\":emText \"*\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the title parser colours \"\ud83d\ude42 *a*\" as \"\ud83d\ude42 \":- \"*\":S \"a\":emText \"*\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the field parser colours \"\ud83d\ude42 *a*\" as \"\ud83d\ude42 \":- \"*\":S \"a\":emText \"*\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the content parser colours \"\\\\*\ud83d\ude42 *a*\" as \"\\\\*\ud83d\ude42 \":- \"*\":S \"a\":emText \"*\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the title parser colours \"\\\\*\ud83d\ude42 *a*\" as \"\\\\*\ud83d\ude42 \":- \"*\":S \"a\":emText \"*\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the field parser colours \"\\\\*\ud83d\ude42 *a*\" as \"\\\\*\ud83d\ude42 \":- \"*\":S \"a\":emText \"*\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the content parser colours \"**\ud83d\ude42 a**\" as \"**\":S \"\ud83d\ude42 a\":strongText \"**\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the title parser colours \"**\ud83d\ude42 a**\" as \"**\":S \"\ud83d\ude42 a\":strongText \"**\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the field parser colours \"**\ud83d\ude42 a**\" as \"**\":S \"\ud83d\ude42 a\":strongText \"**\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the content parser colours \"a :ok\ud83d\ude42 *b*\" as \"a :ok\ud83d\ude42 \":- \"*\":S \"b\":emText \"*\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the content parser colours \"a \\\\\ud83d\ude42ok: *b*\" as \"a \\\\\ud83d\ude42ok: \":- \"*\":S \"b\":emText \"*\":S"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.89,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-16.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-16.stderr"
+  },
+  {
+   "id": "decorator-focus-unmapped",
+   "run": "mutant-17",
+   "file": "src/components/SlateEditor/utils/decorator.tsx",
+   "tests": [
+    "src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts"
+   ],
+   "carried": {},
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 262,
+   "control_tests_run": 262,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the content parser colours \"\ud83d\ude42 *a*\" as \"\ud83d\ude42 \":- \"*\":S \"a\":emText \"*\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the title parser colours \"\ud83d\ude42 *a*\" as \"\ud83d\ude42 \":- \"*\":S \"a\":emText \"*\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the field parser colours \"\ud83d\ude42 *a*\" as \"\ud83d\ude42 \":- \"*\":S \"a\":emText \"*\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the content parser colours \"\\\\*\ud83d\ude42 *a*\" as \"\\\\*\ud83d\ude42 \":- \"*\":S \"a\":emText \"*\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the title parser colours \"\\\\*\ud83d\ude42 *a*\" as \"\\\\*\ud83d\ude42 \":- \"*\":S \"a\":emText \"*\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the field parser colours \"\\\\*\ud83d\ude42 *a*\" as \"\\\\*\ud83d\ude42 \":- \"*\":S \"a\":emText \"*\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the content parser colours \"**\ud83d\ude42 a**\" as \"**\":S \"\ud83d\ude42 a\":strongText \"**\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the title parser colours \"**\ud83d\ude42 a**\" as \"**\":S \"\ud83d\ude42 a\":strongText \"**\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the field parser colours \"**\ud83d\ude42 a**\" as \"**\":S \"\ud83d\ude42 a\":strongText \"**\":S",
+    "|node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the content parser colours \"a \\\\\ud83d\ude42ok: *b*\" as \"a \\\\\ud83d\ude42ok: \":- \"*\":S \"b\":emText \"*\":S"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 2.9,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-17.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/round-2/controls/0411d3ba146018a5a8d3e8a45398d7d04f499d18-20261122T232828Z-p450104-mutant-17.stderr"
+  }
+ ],
+ "score": "17 of 17 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob 317dac1bf0a3a268e90b23f65d0d6e8303c0256a))"
+}

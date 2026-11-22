@@ -1,0 +1,21 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/6b08efee-885a-42cc-b941-8975e343b07f/scratchpad/mut-work2/20261122T232828Z-p450104/mutant-5
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (9 tests | 4 failed) 58ms
+     × loads the text on each side of the emoji in "a🙂 b c" into its own text node 13ms
+     × loads the text on each side of the emoji in "\\*🙂 b" into its own text node 2ms
+     × loads the text on each side of the emoji in "a :ok🙂 🙂 b" into its own text node 1ms
+     × loads the text on each side of the emoji in "a \\🙂ok: 🙂 b" into its own text node 2ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (6 tests | 6 failed) 60ms
+     × keeps every character after the emoji in a plain line 40ms
+     × keeps an escaped asterisk before the emoji and every character after it 5ms
+     × keeps an escaped emoji as text and turns the emoji after it into an element 4ms
+     × keeps "a :ok🙂 🙂 b" as typed where a name would run into the emoji, and turns the next emoji into an element 2ms
+     × keeps "a \\🙂ok: 🙂 b" as typed where a name would run into the emoji, and turns the next emoji into an element 4ms
+     × keeps every character after the emoji in a fenced code line 3ms
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  10 failed | 267 passed (277)
+   Start at  23:29:02
+   Duration  4.65s (transform 3.77s, setup 13ms, import 9.52s, tests 442ms, environment 1.17s)
+

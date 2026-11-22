@@ -1,0 +1,233 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character after the emoji in a plain line
+AssertionError: expected [ 'x🙂 abcdefghijklmnopq' ] to deeply equal [ 'x', '[:slight_smile:]', …(1) ]
+
+- Expected
++ Received
+
+  [
+-   "x",
+-   "[:slight_smile:]",
+-   " abcdefghijklmnopq",
++   "x🙂 abcdefghijklmnopq",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:37:8
+     35|   it('keeps every character after the emoji in a plain line', () => {
+     36|     expect(typedInto([line('div', '', false, '')], 0, 'x🙂 abcdefghijk…
+     37|       .toEqual(['x', '[:slight_smile:]', ' abcdefghijklmnopq']);
+       |        ^
+     38|   });
+     39|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped asterisk before the emoji and every character after it
+AssertionError: expected [ '\*🙂abc' ] to deeply equal [ '\*', '[:slight_smile:]', 'abc' ]
+
+- Expected
++ Received
+
+  [
+-   "\\*",
+-   "[:slight_smile:]",
+-   "abc",
++   "\\*🙂abc",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:42:8
+     40|   it('keeps an escaped asterisk before the emoji and every character a…
+     41|     expect(typedInto([line('div', '', false, '')], 0, '\\*🙂abc'))
+     42|       .toEqual(['\\*', '[:slight_smile:]', 'abc']);
+       |        ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped emoji as text and turns the emoji after it into an element
+AssertionError: expected [ '\🙂🙂 abc' ] to deeply equal [ '\🙂', '[:slight_smile:]', ' abc' ]
+
+- Expected
++ Received
+
+  [
+-   "\\🙂",
+-   "[:slight_smile:]",
+-   " abc",
++   "\\🙂🙂 abc",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:47:8
+     45|   it('keeps an escaped emoji as text and turns the emoji after it into…
+     46|     expect(typedInto([line('div', '', false, '')], 0, '\\🙂🙂 abc'))
+     47|       .toEqual(['\\🙂', '[:slight_smile:]', ' abc']);
+       |        ^
+     48|   });
+     49|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps "a :ok🙂 🙂 b" as typed where a name would run into the emoji, and turns the next emoji into an element
+AssertionError: expected [ 'a :ok🙂 🙂 b' ] to deeply equal [ Array(3) ]
+
+- Expected
++ Received
+
+  [
+-   "a :ok🙂 ",
+-   "[:slight_smile:]",
+-   " b",
++   "a :ok🙂 🙂 b",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:54:62
+     52|     ['a \\🙂ok: 🙂 b', ['a \\🙂ok: ', '[:slight_smile:]', ' b']],
+     53|   ] as const)('keeps %j as typed where a name would run into the emoji…
+     54|     expect(typedInto([line('div', '', false, '')], 0, text)).toEqual(c…
+       |                                                              ^
+     55|   });
+     56|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps "a \\🙂ok: 🙂 b" as typed where a name would run into the emoji, and turns the next emoji into an element
+AssertionError: expected [ 'a \🙂ok: 🙂 b' ] to deeply equal [ 'a \🙂ok: ', …(2) ]
+
+- Expected
++ Received
+
+  [
+-   "a \\🙂ok: ",
+-   "[:slight_smile:]",
+-   " b",
++   "a \\🙂ok: 🙂 b",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:54:62
+     52|     ['a \\🙂ok: 🙂 b', ['a \\🙂ok: ', '[:slight_smile:]', ' b']],
+     53|   ] as const)('keeps %j as typed where a name would run into the emoji…
+     54|     expect(typedInto([line('div', '', false, '')], 0, text)).toEqual(c…
+       |                                                              ^
+     55|   });
+     56|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character after the emoji in a fenced code line
+AssertionError: expected [ 'x = "🙂" + 1;' ] to deeply equal [ 'x = "', '[:slight_smile:]', …(1) ]
+
+- Expected
++ Received
+
+  [
+-   "x = \"",
+-   "[:slight_smile:]",
+-   "\" + 1;",
++   "x = \"🙂\" + 1;",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:64:8
+     62|     ];
+     63|     expect(typedInto(lines, 1, 'x = "🙂" + 1;'))
+     64|       .toEqual(['x = "', '[:slight_smile:]', '" + 1;']);
+       |        ^
+     65|   });
+     66| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "a🙂 b c" into its own text node
+AssertionError: expected [ 'a🙂 b c' ] to deeply equal [ 'a', '[:slight_smile:]', ' b c' ]
+
+- Expected
++ Received
+
+  [
+-   "a",
+-   "[:slight_smile:]",
+-   " b c",
++   "a🙂 b c",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:37:8
+     35|     expect(first.children
+     36|       .map((child) => (isEmojiElement(child) ? `[${child.ast.name as s…
+     37|       .toEqual(children);
+       |        ^
+     38|   });
+     39| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "\\*🙂 b" into its own text node
+AssertionError: expected [ '\*🙂 b' ] to deeply equal [ '\*', '[:slight_smile:]', ' b' ]
+
+- Expected
++ Received
+
+  [
+-   "\\*",
+-   "[:slight_smile:]",
+-   " b",
++   "\\*🙂 b",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:37:8
+     35|     expect(first.children
+     36|       .map((child) => (isEmojiElement(child) ? `[${child.ast.name as s…
+     37|       .toEqual(children);
+       |        ^
+     38|   });
+     39| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/10]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "a :ok🙂 🙂 b" into its own text node
+AssertionError: expected [ 'a :ok🙂 🙂 b' ] to deeply equal [ Array(3) ]
+
+- Expected
++ Received
+
+  [
+-   "a :ok🙂 ",
+-   "[:slight_smile:]",
+-   " b",
++   "a :ok🙂 🙂 b",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:37:8
+     35|     expect(first.children
+     36|       .map((child) => (isEmojiElement(child) ? `[${child.ast.name as s…
+     37|       .toEqual(children);
+       |        ^
+     38|   });
+     39| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/10]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "a \\🙂ok: 🙂 b" into its own text node
+AssertionError: expected [ 'a \🙂ok: 🙂 b' ] to deeply equal [ 'a \🙂ok: ', …(2) ]
+
+- Expected
++ Received
+
+  [
+-   "a \\🙂ok: ",
+-   "[:slight_smile:]",
+-   " b",
++   "a \\🙂ok: 🙂 b",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:37:8
+     35|     expect(first.children
+     36|       .map((child) => (isEmojiElement(child) ? `[${child.ast.name as s…
+     37|       .toEqual(children);
+       |        ^
+     38|   });
+     39| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/10]⎯
+

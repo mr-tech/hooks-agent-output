@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/6b08efee-885a-42cc-b941-8975e343b07f/scratchpad/mut-work2/20261122T232828Z-p450104/mutant-7
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (6 tests | 1 failed) 53ms
+     × keeps "a :ok🙂 🙂 b" as typed where a name would run into the emoji, and turns the next emoji into an element 11ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+   Start at  23:29:14
+   Duration  2.25s (transform 539ms, setup 27ms, import 1.35s, tests 53ms, environment 670ms)
+

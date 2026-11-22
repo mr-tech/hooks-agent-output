@@ -1,0 +1,28 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps "a :ok🙂 🙂 b" as typed where a name would run into the emoji, and turns the next emoji into an element
+AssertionError: expected [ 'a ', '[:ok:]', ' ', …(2) ] to deeply equal [ Array(3) ]
+
+- Expected
++ Received
+
+  [
+-   "a :ok🙂 ",
++   "a ",
++   "[:ok:]",
++   " ",
+    "[:slight_smile:]",
+    " b",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:54:62
+     52|     ['a \\🙂ok: 🙂 b', ['a \\🙂ok: ', '[:slight_smile:]', ' b']],
+     53|   ] as const)('keeps %j as typed where a name would run into the emoji…
+     54|     expect(typedInto([line('div', '', false, '')], 0, text)).toEqual(c…
+       |                                                              ^
+     55|   });
+     56|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
