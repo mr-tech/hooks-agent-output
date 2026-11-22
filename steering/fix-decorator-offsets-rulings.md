@@ -164,3 +164,12 @@ Fixer round 6 (record `c25925bb`) at `febf20e`, handed to QA directly. This thre
 in this turn's output: the test file only). The release tip moves, so the reviewer is asked for a scoped `Reviewed-At febf20e`. Row for
 `fix-decorator-nested-styles` (fixer's, `round6/nested-probe.out`): a nested highlight scope whose outer scope is a code line's first range
 loses the outer class (`f"a {b} c"` python, ruby `"a #{b} c"`, a leading `/** @param */` in js); not worse than base.
+
+## 2026-11-22T22:33 — reviewed at febf20e; QA Phase 2 complete at febf20e; devops started
+
+Reviewer's scoped confirmation APPROVED at `febf20e` (record `4dfe5b40`; test-only, +2/-0). QA by message ~22:4xZ:
+`qa/fix-decorator-offsets-qa.md` (record `b2a0bd6b`), `Verified-At febf20e39905…` (read above); QAF-1, QAF-2 resolved; suite 2614/2614
+exit 0; blocking-condition row B-1 (real-browser look at four editor lines on production) owned by devops; one stated limit under the
+cap (nested scope, `fix-decorator-nested-styles`). Devops brief `steering/fix-decorator-offsets-brief-devops.md` (B-1 as its post-deploy
+row); `devops-fix-decorator-offsets` started with `tmux-agent spawn`. Disclosed: the brief was first composed by a python script run from
+the shell (standing sections copied from 9a's devops brief), then edited with Edit; no gate fired.
