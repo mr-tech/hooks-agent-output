@@ -1,0 +1,10 @@
+Running scope as unit: run-rcadb3f8909864bed8cb8422df5215334.scope
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ec1d0481-5568-424b-b101-0e502fb846b7/scratchpad/exp-febf20e
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  23:37:18
+   Duration  5.64s (transform 551ms, setup 21ms, import 1.30s, tests 3.56s, environment 632ms)
+

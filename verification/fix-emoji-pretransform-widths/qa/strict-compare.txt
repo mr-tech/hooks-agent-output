@@ -1,0 +1,30 @@
+load: rows 1415; fail base 306; fail tip 0; pass at base and fail at tip 0
+paste: rows 1215; fail base 500; fail tip 0; pass at base and fail at tip 0
+typed: rows 1215; fail base 500; fail tip 0; pass at base and fail at tip 0
+inserted: rows 20; fail base 12; fail tip 0; pass at base and fail at tip 0
+loadLone base 0 tip 0
+pasteLone base 74 tip 0
+typedLone base 77 tip 0
+deco base rows 1215 oob 25 split-surrogate 0 err 0
+deco tip rows 1215 oob 5 split-surrogate 0 err 0
+deco oob/split newly >0 at tip: []
+mid code line "🙂" ok ["x = \"a", "[:slight_smile:]", "b\";"]
+mid code line "👍🏻" ok ["x = \"a", "[:thumbsup::skin-tone-1:]", "b\";"]
+mid code line "<:pepe:123456789012345678>" ok ["x = \"a<:pepe:123456789012345678>b\";"]
+mid code line "<a:dance:9>" ok ["x = \"a<a:dance:9>b\";"]
+mid code line after emoji "🙂" ok ["x = \"", "[:slight_smile:]", "a", "[:slight_smile:]", "b\";"]
+mid code line after emoji "👍🏻" ok ["x = \"", "[:slight_smile:]", "a", "[:thumbsup::skin-tone-1:]", "b\";"]
+mid code line after emoji "<:pepe:123456789012345678>" ok ["x = \"", "[:slight_smile:]", "a<:pepe:123456789012345678>b\";"]
+mid code line after emoji "<a:dance:9>" ok ["x = \"", "[:slight_smile:]", "a<a:dance:9>b\";"]
+mid plain line "🙂" ok ["hello", "[:slight_smile:]", " world"]
+mid plain line "👍🏻" ok ["hello", "[:thumbsup::skin-tone-1:]", " world"]
+mid plain line "<:pepe:123456789012345678>" ok ["hello<:pepe:123456789012345678> world"]
+mid plain line "<a:dance:9>" ok ["hello<a:dance:9> world"]
+mid after :ok "🙂" ok ["wow :ok🙂 hi"]
+mid after :ok "👍🏻" ok ["wow :ok👍🏻 hi"]
+mid after :ok "<:pepe:123456789012345678>" ok ["wow :ok<:pepe:123456789012345678> hi"]
+mid after :ok "<a:dance:9>" ok ["wow :ok<a:dance:9> hi"]
+mid before ok: "🙂" ok ["wow ", "[:slight_smile:]", "ok: hi"]
+mid before ok: "👍🏻" ok ["wow ", "[:thumbsup::skin-tone-1:]", "ok: hi"]
+mid before ok: "<:pepe:123456789012345678>" ok ["wow <:pepe:123456789012345678>ok: hi"]
+mid before ok: "<a:dance:9>" ok ["wow <a:dance:9>ok: hi"]

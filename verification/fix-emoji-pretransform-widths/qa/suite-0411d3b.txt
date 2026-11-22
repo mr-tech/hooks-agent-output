@@ -1,0 +1,13 @@
+Running scope as unit: run-raace514bd5d94ceeb0731b394a37487d.scope
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+JSON report written to /usr/local/bin/hooks/agent-output/verification/fix-emoji-pretransform-widths/qa/suite-0411d3b.json

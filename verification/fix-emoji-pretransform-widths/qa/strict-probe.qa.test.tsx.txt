@@ -1,0 +1,168 @@
+// QA Phase 2 probe, fix-emoji-pretransform-widths. Copied into an export as
+// src/components/SlateEditor/utils/__tests__/strict-probe.qa.test.tsx and run with PROBE_OUT set.
+// Oracle (independent of the code under test's offset map): every character of the input is kept exactly,
+// in order. A text child must equal the input at its position; an emoji element may stand for either its own
+// source literal (`:ok:`, `<:x:1>`) or a run of the input whose emoji rename equals that source (the exclusion:
+// an element is stored as `:name:`). Nothing else is accepted, so a rename of text the user typed fails.
+import { appendFileSync } from 'fs';
+
+import { createEditor, Editor, Text, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { describe, expect, it, vi } from 'vitest';
+
+import getInitialValue from '../getInitialValue';
+import decorator from '../decorator';
+import { withEmojis, withNormalizeNode } from '..';
+
+import type { Descendant, Element, Range } from 'slate';
+
+import markdown from '~/utils/markdown';
+import { translateSurrogatesToInlineEmoji as canon } from '~/utils/markdown/emoji';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+
+const OUT = process.env.PROBE_OUT as string;
+const log = (o: unknown) => appendFileSync(OUT, `${JSON.stringify(o)}\n`);
+
+type AnyNode = { type?: string, text?: string, ast?: { source?: string, content?: string, name?: string }, children?: AnyNode[] };
+
+// Returns null when the line's children reproduce `x` exactly, else a reason.
+function strictLine(x: string, el: AnyNode): string | null {
+  let pos = 0;
+  const kids = el.children ?? [];
+  const lineText = el.type === 'blockQuote' ? x.replace(/^ *> /, '') : x;
+  for (const c of kids) {
+    if (c.type === 'emoji' && c.ast) {
+      const src = (c.ast.source ?? c.ast.content) as string;
+      if (lineText.startsWith(src, pos)) { pos += src.length; continue; }
+      let k = 1;
+      for (; k <= 24; k++) {
+        const seg = lineText.slice(pos, pos + k);
+        if (seg !== src && canon(seg) === src) break;
+      }
+      if (k > 24) return `element ${JSON.stringify(src)} at ${pos} matches nothing in ${JSON.stringify(lineText.slice(pos, pos + 20))}`;
+      pos += k;
+    } else {
+      const t = c.text ?? '';
+      if (!lineText.startsWith(t, pos)) return `text ${JSON.stringify(t)} at ${pos} differs from ${JSON.stringify(lineText.slice(pos, pos + t.length))}`;
+      pos += t.length;
+    }
+  }
+  return pos === lineText.length ? null : `consumed ${pos} of ${lineText.length}`;
+}
+
+function strictLines(x: string, lines: AnyNode[]): string | null {
+  const xs = x.split('\n');
+  if (xs.length !== lines.length) return `line count ${lines.length} for ${xs.length}`;
+  for (let i = 0; i < xs.length; i++) {
+    const r = strictLine(xs[i] as string, lines[i] as AnyNode);
+    if (r) return `line ${i}: ${r}`;
+  }
+  return null;
+}
+
+// Lone surrogate anywhere in a text child (a split pair).
+const loneSurrogate = (lines: AnyNode[]) => JSON.stringify(lines).match(/\\ud[89ab][0-9a-f]{2}(?!\\ud[c-f])|(?<!\\ud[89ab][0-9a-f]{2})\\ud[c-f][0-9a-f]{2}/i) !== null;
+
+const newEditor = () => withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, markdown.interactive.parseEmoji);
+const line = (type: string, lang: string, startCodeBlock: boolean, text: string) => ({
+  type, lang, startCodeBlock, empty: !text, children: [{ type: 'span', text }],
+}) as unknown as Descendant;
+
+// One insert at the end of an empty line (a paste of the whole line).
+const pasted = (x: string) => {
+  const editor = newEditor();
+  editor.children = [line('div', '', false, '')];
+  Transforms.select(editor, Editor.end(editor, [0]));
+  Transforms.insertText(editor, x);
+  return editor.children as unknown as AnyNode[];
+};
+
+// One insert per code point (an emoji grapheme as one insert, as a picker or IME commits it), cursor following.
+const typedChars = (x: string) => {
+  const editor = newEditor();
+  editor.children = [line('div', '', false, '')];
+  Transforms.select(editor, Editor.end(editor, [0]));
+  const units = x.match(/\p{Extended_Pictographic}(?:\p{Emoji_Modifier}|️)*|[\s\S]/gu) ?? [];
+  for (const u of units) editor.insertText(u);
+  return editor.children as unknown as AnyNode[];
+};
+
+// The picker's path (`SlateEditor/index.tsx`: setOnInsert → editor.insertText) at a cursor in the middle of a line.
+const insertedMid = (lines: Descendant[], at: number, offset: number, ins: string) => {
+  const editor = newEditor();
+  editor.children = lines;
+  Transforms.select(editor, { path: [at, 0], offset });
+  editor.insertText(ins);
+  return editor.children as unknown as AnyNode[];
+};
+
+const decoBad = (text: string) => {
+  const editor = createEditor();
+  const span = { type: 'span', text } as unknown as Text;
+  editor.children = [{ type: 'div', lang: '', startCodeBlock: false, children: [span] } as unknown as Descendant];
+  const ranges: Range[] = decorator(editor, true, false, markdown.interactive.parseContent)([span, [0, 0]]);
+  const isLow = (i: number) => { const c = text.charCodeAt(i); return c >= 0xdc00 && c <= 0xdfff; };
+  return {
+    oob: ranges.filter((r) => r.anchor.offset < 0 || r.focus.offset > text.length).length,
+    split: ranges.filter((r) => isLow(r.anchor.offset) || isLow(r.focus.offset)).length,
+  };
+};
+
+const TOKENS = ['a', ' ', 'b', '🙂', '👍🏻', '❤️', '🔥', '👍', '\\', '*', '**', '_', '~~', '`', '||', ':', ':o', ':x', ':a', ':ok', ':100', ':smile', ':thumbsup',
+  'ok:', 'o:', 'smile:', ':ok:', ':slight_smile:', 'slight_smile', '<:x:123>', '<a:dance:9>', '#', '.', '1', '0:'];
+let seed = 7349;
+const rnd = () => { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; };
+const gen = () => {
+  const len = 1 + Math.floor(rnd() * 9);
+  let s = '';
+  for (let k = 0; k < len; k++) s += TOKENS[Math.floor(rnd() * TOKENS.length)];
+  return s;
+};
+const corpus: string[] = [];
+for (let n = 0; n < 1200; n++) corpus.push(gen());
+const FIXED = ['x🙂 abcdefghijklmnopq', 'wow :ok🙂 hi', 'wow :o🙂 hi', 'a \\🙂ok: b', '\\🙂 **a**', '\\*a\\*', ':ok:🙂', '🙂:ok:',
+  ':slight_smile🙂 a', 'a🙂:smile: b', '<:pepe:123456789012345678>🙂 a', '🙂<a:dance:9> a', ':ok<:x:1> a', '10:30🙂', '👍🏻👍🏻 a'];
+
+const MID_INSERTS = ['🙂', '👍🏻', '<:pepe:123456789012345678>', '<a:dance:9>'];
+const MID_LINES: Array<[string, Descendant[], number, number]> = [
+  ['code line', [line('div', '', false, '```js'), line('codeBlock', 'js', true, 'x = "ab";'), line('div', '', true, '```')], 1, 6],
+  ['code line after emoji', [line('div', '', false, '```js'), line('codeBlock', 'js', true, 'x = "🙂ab";'), line('div', '', true, '```')], 1, 8],
+  ['plain line', [line('div', '', false, 'hello world')], 0, 5],
+  ['after :ok', [line('div', '', false, 'wow :ok hi')], 0, 7],
+  ['before ok:', [line('div', '', false, 'wow ok: hi')], 0, 4],
+];
+
+describe('qa strict probe', () => {
+  it('runs', () => {
+    for (const x of [...FIXED, ...corpus]) {
+      const row: Record<string, unknown> = { x };
+      try { const l = getInitialValue(x, markdown.interactive.parseEmoji, false) as unknown as AnyNode[]; row.load = strictLines(x, l); row.loadLone = loneSurrogate(l); } catch (e) { row.loadErr = String(e).slice(0, 120); }
+      try { const p = pasted(x); row.paste = strictLines(x, p); row.pasteLone = loneSurrogate(p); } catch (e) { row.pasteErr = String(e).slice(0, 120); }
+      try { const t = typedChars(x); row.typed = strictLines(x, t); row.typedLone = loneSurrogate(t); } catch (e) { row.typedErr = String(e).slice(0, 120); }
+      try { Object.assign(row, { deco: decoBad(x) }); } catch (e) { row.decoErr = String(e).slice(0, 120); }
+      log(row);
+    }
+    for (let n = 0; n + 1 < 400; n += 2) {
+      const x = `${corpus[n]}\n\`\`\`js\n${corpus[n + 1]}\n\`\`\``;
+      const row: Record<string, unknown> = { x, multiline: true };
+      try { const l = getInitialValue(x, markdown.interactive.parseEmoji, false) as unknown as AnyNode[]; row.load = strictLines(x, l); } catch (e) { row.loadErr = String(e).slice(0, 120); }
+      log(row);
+    }
+    for (const [name, lines, at, offset] of MID_LINES) {
+      for (const ins of MID_INSERTS) {
+        const before = (lines[at] as unknown as { children: Array<{ text: string }> }).children[0]!.text;
+        const expected = before.slice(0, offset) + ins + before.slice(offset);
+        const row: Record<string, unknown> = { mid: name, ins, x: expected };
+        try {
+          const out = insertedMid(JSON.parse(JSON.stringify(lines)) as Descendant[], at, offset, ins);
+          row.inserted = strictLine(expected, out[at] as AnyNode);
+          row.children = (out[at] as Element).children.map((c) => ((c as AnyNode).type === 'emoji' ? `[${(c as AnyNode).ast?.name}]` : (c as AnyNode).text));
+        } catch (e) { row.insertedErr = String(e).slice(0, 120); }
+        log(row);
+      }
+    }
+    expect(true).toBe(true);
+  });
+});

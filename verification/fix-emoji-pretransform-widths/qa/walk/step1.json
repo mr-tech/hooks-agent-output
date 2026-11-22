@@ -1,0 +1,7 @@
+{
+  "url": "http://localhost:3417/qa-editor?data=%7B%22content%22%3A%22wow%20%3Aok%F0%9F%99%82%20hi%5Cn%5C%5C%F0%9F%99%82%20**a**%22%7D",
+  "slateEditorCount": 0,
+  "pageTextHead": "Classic\nComponents V2\nBOT\nToday at 11:44 PM\n\nSomething went wrong:\n\nuseIsMobile must be used within a IsMobileProvider\nError: useIsMobile must be used within a IsMobileProvider\n    at useIsMobile (web",
+  "qaMessage": null,
+  "errorLine": "useIsMobile must be used within a IsMobileProvider"
+}

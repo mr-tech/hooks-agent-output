@@ -1,0 +1,61 @@
+'use client';
+
+// QA harness, fix-emoji-pretransform-widths: copied into a git-archive export of website as
+// src/app/qa-editor/page.tsx, never into the shared tree or a commit. It is src/app/preview/page.tsx
+// with the editable state the edit page uses (useEditableState) so the real editor mounts, and a
+// setMessage that only records the message on window.__qaMessage (nothing is saved or sent).
+import { useSearchParams } from 'next/navigation';
+import { Suspense, useState } from 'react';
+import { useLocale } from 'react-aria';
+
+import DiscordMessageEditor from '~/components/DiscordMessageEditor';
+import GuildProvider from '~/providers/GuildProvider';
+import IsMobileProvider from '~/providers/IsMobileProvider';
+import MarkdownProvider from '~/providers/MarkdownProvider';
+import SessionProvider from '~/providers/SessionProvider';
+import TrpcProvider from '~/providers/TrpcProvider';
+import useEditableState from '~/providers/MessageProvider/useEditableState';
+import { makeEditable } from '~/utils';
+
+const Inner = () => {
+  const query = useSearchParams()?.get('data') ?? '{"content":""}';
+  const { locale } = useLocale();
+  const editableState = useEditableState();
+  const [message, setMessageState] = useState(() => makeEditable({ data: JSON.parse(query) } as ApiMessage).data);
+  return (
+    <div className="dark max-w-3xl bg-primary text-default">
+      <MarkdownProvider>
+        <DiscordMessageEditor
+          message={message}
+          setMessage={(m: unknown) => {
+            const next = typeof m === 'function' ? (m as (p: unknown) => unknown)(message) : m;
+            (window as unknown as { __qaMessage: unknown }).__qaMessage = next;
+            setMessageState(next as typeof message);
+          }}
+          locale={locale}
+          editableState={editableState}
+          hideValidation
+          onMount={() => {}}
+        />
+      </MarkdownProvider>
+    </div>
+  );
+};
+
+// The desktop editor reads the guild context for custom emoji (useCustomEmojis); the real providers are used,
+// with no session, as src/app/_components/Providers.tsx nests them.
+const Page = () => (
+  <TrpcProvider>
+    <SessionProvider session={null}>
+      <IsMobileProvider initMobile={false}>
+        <Suspense fallback={null}>
+          <GuildProvider>
+            <Inner />
+          </GuildProvider>
+        </Suspense>
+      </IsMobileProvider>
+    </SessionProvider>
+  </TrpcProvider>
+);
+
+export default Page;

@@ -1,0 +1,40 @@
+▲ Next.js 16.4.6 (Turbopack)
+- Local:         http://localhost:3417
+- Network:       http://10.0.2.15:3417
+✓ Ready in 480ms
+✓ Running next.config.js took 29ms
+Turbopack build encountered 1 error:
+./src/app
+Error: Could not find the Next.js package (next/package.json)
+Resolved from: /tmp/claude-1000/-usr-local-bin-hooks-website/ec1d0481-5568-424b-b101-0e502fb846b7/scratchpad/exp-0411d3b/src/app
+Filesystem root used for resolution: /tmp/claude-1000/-usr-local-bin-hooks-website/ec1d0481-5568-424b-b101-0e502fb846b7/scratchpad/exp-0411d3b
+
+Possible causes:
+  - node_modules is being reorganized by a concurrent install (e.g. pnpm adding a package with a `next` peer dependency). This is transient and should clear once the install completes.
+  - node_modules/next was removed, renamed, or has a broken symlink.
+  - The workspace root is incorrect — see turbopack.root in the Next.js config docs for how to configure it.
+  - In a monorepo, the Next.js package may only exist in a directory above the closest directory containing a package manager lockfile. The workspace root is detected by locating the nearest package manager lockfile.
+  - Next.js is installed globally rather than as a project dependency. This is not supported; install it locally.
+
+Note: To ensure a hermetic build and a portable cache, files outside of the workspace root are not compiled.
+
+https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory
+
+
+
+✓ Generated AGENTS.md for AI agents. Set `agentRules: false` in next.config to disable.
+Error: ENOENT: no such file or directory, open '/tmp/claude-1000/-usr-local-bin-hooks-website/ec1d0481-5568-424b-b101-0e502fb846b7/scratchpad/exp-0411d3b/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/tmp/claude-1000/-usr-local-bin-hooks-website/ec1d0481-5568-424b-b101-0e502fb846b7/scratchpad/exp-0411d3b/.next/dev/server/pages/_app/build-manifest.json'
+}
+Error: ENOENT: no such file or directory, open '/tmp/claude-1000/-usr-local-bin-hooks-website/ec1d0481-5568-424b-b101-0e502fb846b7/scratchpad/exp-0411d3b/.next/dev/server/pages/_app/build-manifest.json'
+    at ignore-listed frames {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/tmp/claude-1000/-usr-local-bin-hooks-website/ec1d0481-5568-424b-b101-0e502fb846b7/scratchpad/exp-0411d3b/.next/dev/server/pages/_app/build-manifest.json'
+}
+[?25h

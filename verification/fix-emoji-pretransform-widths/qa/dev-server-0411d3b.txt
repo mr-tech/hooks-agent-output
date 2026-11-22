@@ -1,0 +1,243 @@
+▲ Next.js 16.4.6 (webpack)
+- Local:         http://localhost:3417
+- Network:       http://10.0.2.15:3417
+✓ Ready in 330ms
+✓ Running next.config.js took 22ms
+
+○ Compiling /preview/page ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+ GET /preview?data=%7B%22content%22%3A%22a%22%7D 200 in 17.8s (next.js: 17.2s, proxy.ts: 100ms, application-code: 427ms)
+ GET /preview?data=%7B%22content%22%3A%22wow%20%3Aok%F0%9F%99%82%20hi%5Cn%5C%5C%F0%9F%99%82%20**a**%22%7D 200 in 59ms (next.js: 3ms, proxy.ts: 15ms, application-code: 41ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/preview" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <RootLayout>
+                        <html
+                          lang="en"
++                         className="dark bg-document text-default __className_d8ebd1"
+-                         className="bg-document text-default __className_d8ebd1"
+                        >
+                  ...
+ 
+ GET /preview?data=%7B%22content%22%3A%22wow%20%3Aok%F0%9F%99%82%20hi%5Cn%5C%5C%F0%9F%99%82%20**a**%22%7D 200 in 69ms (next.js: 5ms, proxy.ts: 13ms, application-code: 52ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/preview" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <RootLayout>
+                        <html
+                          lang="en"
++                         className="dark bg-document text-default __className_d8ebd1"
+-                         className="bg-document text-default __className_d8ebd1"
+                        >
+                  ...
+ 
+ GET /preview?data=%7B%22content%22%3A%22wow%20%3Aok%F0%9F%99%82%20hi%5Cn%5C%5C%F0%9F%99%82%20**a**%22%7D 200 in 49ms (next.js: 5ms, proxy.ts: 6ms, application-code: 38ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/preview" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <RootLayout>
+                        <html
+                          lang="en"
++                         className="dark bg-document text-default __className_d8ebd1"
+-                         className="bg-document text-default __className_d8ebd1"
+                        >
+                  ...
+ 
+ GET /qa-editor?data=%7B%22content%22%3A%22a%22%7D 200 in 525ms (next.js: 133ms, application-code: 392ms)
+ GET /qa-editor?data=%7B%22content%22%3A%22a%22%7D 200 in 37ms (next.js: 1.5ms, application-code: 36ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/qa-editor" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <RootLayout>
+                        <html
+                          lang="en"
++                         className="dark bg-document text-default __className_d8ebd1"
+-                         className="bg-document text-default __className_d8ebd1"
+                        >
+                  ...
+ 
+ GET /qa-editor?data=%7B%22content%22%3A%22a%22%7D 404 in 2.9s (next.js: 2.9s, application-code: 79ms)
+○ Compiling /message/qa-editor/page ...
+ GET /message/qa-editor?data=%7B%22content%22%3A%22a%22%7D 200 in 6.3s (next.js: 5.7s, proxy.ts: 110ms, application-code: 511ms)
+ GET /qa-editor?data=%7B%22content%22%3A%22a%22%7D 404 in 8.0s (next.js: 7.8s, application-code: 195ms)
+ GET /qa-editor?data=%7B%22content%22%3A%22a%22%7D 404 in 367ms (next.js: 3ms, application-code: 363ms)
+ GET /qa-editor?data=%7B%22content%22%3A%22a%22%7D 404 in 8.4s (next.js: 7.8s, application-code: 593ms)
+ GET /message/qa-editor?data=%7B%22content%22%3A%22a%22%7D 200 in 403ms (next.js: 49ms, proxy.ts: 26ms, application-code: 329ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/message/q..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <RootLayout>
+                        <html
+                          lang="en"
++                         className="dark bg-document text-default __className_d8ebd1"
+-                         className="bg-document text-default __className_d8ebd1"
+                        >
+                  ...
+ 
+○ Compiling /message/m/[id]/edit/page ...
+ GET /message/m/0/edit 200 in 6.3s (next.js: 5.8s, proxy.ts: 5ms, application-code: 455ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/message/m..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <RootLayout>
+                        <html
+                          lang="en"
++                         className="dark bg-document text-default __className_d8ebd1"
+-                         className="bg-document text-default __className_d8ebd1"
+                        >
+                  ...
+ 
+ GET /message/m/0/edit 200 in 1299ms (next.js: 104ms, proxy.ts: 17ms, application-code: 1179ms)
+ GET /message/m/0/edit 200 in 1145ms (next.js: 999ms, proxy.ts: 20ms, application-code: 127ms)
+○ Compiling /qa-editor/page ...
+ GET /qa-editor?data=%7B%22content%22%3A%22a%22%7D 200 in 373ms (next.js: 94ms, application-code: 278ms)
+ GET /message/m/0/edit 200 in 192ms (next.js: 113ms, proxy.ts: 20ms, application-code: 59ms)
+ GET /qa-editor?data=%7B%22content%22%3A%22a%22%7D 200 in 45ms (next.js: 1.0ms, application-code: 44ms)
+ GET /qa-editor?data=%7B%22content%22%3A%22wow%20%3Aok%F0%9F%99%82%20hi%5Cn%5C%5C%F0%9F%99%82%20**a**%22%7D 200 in 69ms (next.js: 1.7ms, application-code: 68ms)
+ GET /qa-editor?data=%7B%22content%22%3A%22a%22%7D 200 in 65ms (next.js: 0.9ms, application-code: 64ms)
+ GET /qa-editor?data=%7B%22content%22%3A%22a%22%7D 200 in 579ms (next.js: 136ms, application-code: 443ms)
+ GET /qa-editor?data=%7B%22content%22%3A%22wow%20%3Aok%F0%9F%99%82%20hi%5Cn%5C%5C%F0%9F%99%82%20**a**%22%7D 200 in 59ms (next.js: 2ms, application-code: 57ms)
+ GET /qa-editor?data=%7B%22content%22%3A%22a%22%7D 200 in 46ms (next.js: 0.9ms, application-code: 45ms)
+ GET /qa-editor?data=%7B%22content%22%3A%22a%22%7D 200 in 53ms (next.js: 1.8ms, application-code: 51ms)
+ GET /qa-editor?data=%7B%22content%22%3A%22a%22%7D 200 in 36ms (next.js: 0.9ms, application-code: 35ms)
+[?25h

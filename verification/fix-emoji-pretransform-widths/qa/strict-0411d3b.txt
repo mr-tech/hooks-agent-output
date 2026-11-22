@@ -1,0 +1,28 @@
+Running scope as unit: run-rad67174c3d144ce881075bb8ae8d515c.scope
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/ec1d0481-5568-424b-b101-0e502fb846b7/scratchpad/exp-0411d3b
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/strict-probe.qa.test.tsx (1 test | 1 failed) 6112ms
+     × runs 6111ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/strict-probe.qa.test.tsx > qa strict probe > runs
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/components/SlateEditor/utils/__tests__/strict-probe.qa.test.tsx:138:3
+    136|
+    137| describe('qa strict probe', () => {
+    138|   it('runs', () => {
+       |   ^
+    139|     for (const x of [...FIXED, ...corpus]) {
+    140|       const row: Record<string, unknown> = { x };
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  23:37:18
+   Duration  8.21s (transform 562ms, setup 22ms, import 1.30s, tests 6.11s, environment 640ms)
+
