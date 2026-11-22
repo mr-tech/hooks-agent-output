@@ -1,0 +1,89 @@
+sha 3859c29d557c920a5b611b8e3a4e7b5bf7b1222e  tree 5259fe832f408658afd0984a53b38b82c5fba888
+env-files in export: 0
+pnpm 10.28.2  node v24.14.0    "packageManager": "pnpm@10.28.2",
+=== install --frozen-lockfile
++ jsdom 30.0.1
++ next-remote-watch 2.0.0
++ paracord 0.0.5
++ postcss 8.4.31
++ prisma 4.11.0
++ rimraf 3.0.2
++ tailwind-scrollbar 2.0.1
++ tailwindcss 3.2.4
++ ts-node 10.9.1
++ tsconfig-paths 4.2.0
++ typescript 5.9.3
++ typescript-eslint 8.58.0
++ vitest 4.1.2
+
+╭ Warning ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│   Ignored build scripts: @prisma/client@4.14.1, @prisma/engines@4.11.0,      │
+│   @vercel/speed-insights@1.0.10, bufferutil@4.0.7, esbuild@0.14.47,          │
+│   prisma@4.11.0, protobufjs@7.2.4, protobufjs@7.5.4,                         │
+│   utf-8-validate@5.0.10.                                                     │
+│   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+│   to run scripts.                                                            │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Done in 10s using pnpm v10.28.2
+install-exit 0
+lockfile byte-identical to tip blob after install
+=== build
+Running scope as unit: run-rbca863ddd6fa4b93b69e7b352d721d0e.scope
+
+> website@ build /tmp/claude-1000/-usr-local-bin-hooks/47ad006d-8be8-49e6-b197-5d309ccf90f5/scratchpad/pk/exp-3859c29
+> next build
+
+▲ Next.js 16.4.6 (Turbopack)
+✓ Running next.config.js took 20ms
+
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead.
+
+  To migrate automatically, run:
+  npx @next/codemod@canary middleware-to-proxy .
+
+  Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ Compiled successfully in 10.4s
+  Running TypeScript ...
+  Finished TypeScript in 12.6s ...
+  Collecting page data using 17 workers ...
+⚠ The Edge Runtime is deprecated. You can use the "nodejs" runtime instead. Learn more: https://nextjs.org/docs/messages/edge-runtime-deprecated
+  Generating static pages using 17 workers (0/9) ...
+  Generating static pages using 17 workers (2/9) 
+  Generating static pages using 17 workers (4/9) 
+  Generating static pages using 17 workers (6/9) 
+✓ Generating static pages using 17 workers (9/9) in 847ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /legal/privacy
+├ ○ /legal/terms
+├ ƒ /message
+├ ƒ /message/f/[id]
+├ ƒ /message/m/[id]/edit
+├ ƒ /message/m/[id]/send
+├ ƒ /message/m/new
+└ ○ /preview
+
+Route (pages)
+┌ ƒ /api/auth/[...nextauth]
+├ ƒ /api/interactions-edge
+├ ƒ /api/interactions-server
+├ ƒ /api/messages/codes/[code]
+├ ƒ /api/trpc/[trpc]
+├ ƒ /api/v1/guilds/[guildId]/messages
+└ ƒ /api/v1/guilds/[guildId]/messages/[id]
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+build-exit 0

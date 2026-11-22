@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-git-dependency-pins
 UUID: 84f208f7
 Status: Active
-Status-Detail: "Release 1 of 2 done: project-utils master moved to 40ba5d3 at 23:15Z. Release 2 (website master, tip 3859c29): Stage 1 done, no release ask yet, held until a Ready production deployment of 132a7ab serves hooks.gg (steering brief)."
+Status-Detail: "Release 1 of 2 done: project-utils master moved to 40ba5d3 at 23:15Z. Release 2 (website master, tip 3859c29): Stage 1 and Stage 2 readiness done; gate met 2026-11-22T16:59Z; the release ask is about to be put to the owner, nothing pushed."
 ---
 
 # Deployment — fix-git-dependency-pins
@@ -18,6 +18,7 @@ written under its own brief.
 | 2026-11-21T23:14 | devops | Document created at Stage 2 readiness for release 1 (project-utils `master`). Brief `steering/fix-git-dependency-pins-brief-devops.md` and its common part read whole; steering's brief had arrived, so no gap is recorded there. This is the first pass: no earlier session. |
 | 2026-11-21T23:15 | devops | Release 1 executed (Mode A): project-utils `master` `749606d` to `40ba5d3`, read back by `git ls-remote` at 23:15:10Z; `chain/fix-git-dependency-pins` deleted by `git branch -d`. Runbook results, Release Execution and Post-Release Status filled. Readiness committed first at record `e8f7d9d`. |
 | 2026-11-22T00:21 | devops | Release 2 brief read whole (steering `46d15db`). Stage 1 recorded for website `3859c29` on `chain/fix-git-dependency-pins`; deploy-host install read from the last successful production build log (pnpm 10.28.2; private fetch is HTTPS with a token, not SSH). Gate on the release ask not met: newest production deployment `Error`, newest Ready is the `0c14d5b` build. Two re-captures of the deployment list were not completed. |
+| 2026-11-22T17:02 | devops | Gate read and met: `steering-hooks-fixer` reported the redeploy; this session read `vercel inspect https://hooks.gg` itself (`dpl_CnknfaUPDjpEMaaw1781YXMq34rW`, Ready, 16:55:59Z) and its log (Commit 132a7ab). Stage 2 Phase 2A readiness written: packaging at `3859c29` (cold store, pnpm 10.28.2: install and build exit 0), dry runs, operational re-derivation, runbook, refutation helper (not refuted). Found: project-utils `master` moved to `a47e683` after release 1 (the owner's direct change, not this chain's); pin `40ba5d3` still an ancestor. Owner ask not yet put. |
 
 ## Plan Reference
 
@@ -180,11 +181,60 @@ Instrument: the Vercel build log of the last Ready production deployment, `dpl_A
 Brief: no release ask to the owner until a Ready production deployment of `132a7ab` serves `hooks.gg`.
 
 - Read at 00:15Z (`vercel ls --prod`, look-only): the newest production deployment, `hooks-gg-website-dbbvp2cya` (55 minutes old, `Error`), is the `132a7ab` build whose log is captured above; the newest Ready one is `hooks-gg-website-oxeqdn0vp`, 6 hours old, built from `0c14d5b`. **The gate is not met.** Two later attempts to re-capture the list into a file were not completed (timeout); the 00:15Z read stands and is re-read before the ask.
-- No report that the five Production settings are fixed has reached this session. Nothing here has been asked of the owner.
+- **Gate met at 2026-11-22T16:59Z.** `steering-hooks-fixer` messaged that the production build was redeployed (its read: `dpl_CnknfaUPDjpEMaaw1781YXMq34rW`, Ready, created 16:55:59Z; it did not read the commit). This session read it itself: `vercel inspect https://hooks.gg` (`gate-inspect-hooks-gg.txt`): `dpl_CnknfaUPDjpEMaaw1781YXMq34rW`, name `hooks-gg-website`, status Ready, created Sun Nov 22 2026 16:55:59 GMT+0000, aliases include `https://hooks.gg` and `…-git-master-…`. Its build log (`vercel logs https://hooks-gg-website-1nodvml13-hooks-gg.vercel.app`, `gate-build-log-1nodvml13.txt`): "Cloning github.com/hooks-gg/website (Branch: master, Commit: 132a7ab)", "Skipping build cache, deployment was triggered without cache", pnpm 10.28.2 downloaded by corepack, the install command, then `next build`. So a Ready production deployment of `132a7ab` serves `hooks.gg`, and a **cold-cache** production install of the pre-change lockfile completed on the host. The capture file is the head 40 lines of the log (the build's end is not in it); the status Ready is from `inspect`.
 
-### Pending for Stage 2 (Phase 2A-2C), written when the gate opens
+### Stage 2 — Phase 2A readiness (website `master`)
 
-Release identifier: website `master` at `3859c29d557c920a5b611b8e3a4e7b5bf7b1222e` (fast-forward of one commit over `132a7ab`, if `origin/master` is still there). Mode A, `release-move.js /usr/local/bin/hooks/website master 3859c29d557c920a5b611b8e3a4e7b5bf7b1222e --reason <review round 2 and its Reviewed-At>`. The release-tip verdict is the code review, round 2, as the stage set has no QA. A production move: the sanction is put to the owner by selection prompt from this session, with the fixer's User-visible flows in his form (context first, plain English, no commit IDs or tool names), saying that where the site uses paracord was not read by the fixer (the review read three uses and the resolved tarball is unchanged). Deploy evidence after the push is the production deployment's own state (`vercel ls --prod`, `vercel inspect https://hooks.gg`), not the push alone. Outside consumer: `/usr/local/bin/hooks-deprecated/cdn` names project-utils `#master`; unread; changes only if it re-pins (rulings block 23:16).
+| Item | State |
+|---|---|
+| Release tracker | The one included chain; both halves `Committed` (documents closed at Stage 1). |
+| Release tip assembled (2a) | No assembly: `chain/fix-git-dependency-pins` is a single commit over `origin/master`; the move is a fast-forward of one commit (`release-move.js` dry run: "ff-from-remote ok"). Website `git ls-remote origin master` at 17:02Z: `132a7ab6f49d8a85ead507e2221ab3c3a531fd00`. |
+| Release-tip verdict (3) | No QA record exists (stage set). The tip IS the reviewed commit: `3859c29^{tree}` is `5259fe832f408658afd0984a53b38b82c5fba888` (`packaging-install-build-at-3859c29.txt`, line 1). The code review round 2, `code-review/closed/fix-git-dependency-pins-code-review.md`, `Reviewed-At` `…3859c29d557c920a5b611b8e3a4e7b5bf7b1222e`, APPROVED, no findings. The move takes `--reason` naming it, not `--qa-record`. This is the stage set's own last verdict, not a Phase 2 QA verdict. No defect first found at this gate. |
+| Release consistency (4) | Re-read at 17:02Z (`stage2-readiness-refs.txt`): pins are full SHAs in `package.json` (`:68`, `:125`) and the lockfile. **project-utils `origin/master` has moved since release 1: it reads `a47e683b1f33288ff89052c5ed7a982237b773aa`** ("Declare @microsoft/api-extractor as a devDependency", author `lando`, 2026-11-22T07:12Z; `git diff --numstat 40ba5d3 origin/master`: `package.json` 1/0, `package-lock.json` 745/15). It is not this chain's: a direct change by the owner, outside the pipeline, which is how such work ships (a deploy, not a release; no record is owed). The pinned commit `40ba5d3` is still an ancestor of `origin/master` (`git merge-base --is-ancestor`, exit 0, after a `git fetch origin master` that moved only the remote-tracking ref), so the pin names a served commit and the intended target. The pin is deliberately not the branch head; the new commit adds a devDependency only, which no consumer installs. |
+| Re-derived populations (4b) | Serving refs of website: `master` only (`report-serving-refs-website.txt`). Consumers of project-utils: website (this release), `hooks-deprecated/cdn` and `/home/dev/review/website` (listed at release 1; unread, change only on a re-pin). Consumers of paracord's pin: website only; the resolved tarball is the one the old lock held. |
+| Packaging at the tip (5) | A build re-run at `3859c29` in a `git archive` export under the session scratch (no `.env*` file, 0 counted), driver `packaging-at-tip.sh` (parameterised from chain 6's), under pnpm 10.28.2 (the host's), node v24.14.0, with an **empty pnpm store**, as the host's cold-cache install: `pnpm install --frozen-lockfile` exit 0, lockfile byte-identical to the tip's blob afterwards; `SKIP_ENV_VALIDATION=1 pnpm run build` (`next build`, Turbopack) exit 0 (`packaging-install-build-at-3859c29.txt`). project-utils resolved to `…project-utils.git+40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165`, with no `prisma` file under its `dist/` and no `prisma-kysely` directory in the store (`packaging-resolution-at-3859c29.txt`). The export and store were removed (`ls -A` of the scratch directory: empty); no process remains. The build ran with validation skipped, so it does not test the host's Production settings; that is the production build's read after the push. |
+| Lockfile or package-manager change (5) | Yes (hand-edited lockfile). Installed under pnpm 10.28.2, the `packageManager` pin and the version the host's log shows (host's major read, not assumed). Result above. |
+| Workspace (6) | Website `git status --porcelain`: only `?? .playwright-mcp/` (another session's; the tool leaves 17 untracked paths alone and refuses only tracked changes). Nothing under `verification/fix-git-dependency-pins/` is uncommitted before this stage's writes. Predecessor exclusions: the shared tree's gitignored `.next/types/validator.ts` (stale, per the common brief) affects no release mechanism: the tool reads tracked changes only, and Vercel builds from a clean clone. |
+| Rewritten history (7) | None: `3859c29` is the chain branch's tip, not rebased; it stays reachable from `master` after the move. |
+| Mode (8) | Mode A, this session. |
+| Serving refs on one line (10) | `release-move.js website --report`: "one serving ref at origin (master); no pair". |
+
+### Operational text re-derived against the mechanism (before the first ref moves)
+
+Repository: website.
+
+| Line | Statement | Mark |
+|---|---|---|
+| Deploy mechanism | A push to `master` makes Vercel's Git integration build and deploy production. No `.github/workflows` (`release-move.js` prints "workflows none … absent"; `git ls-tree -r 3859c29` lists no `.github`). The live deployment's log reads "Cloning … (Branch: master, Commit: 132a7ab)" and its aliases include `hooks.gg`. The build runs `git config … insteadOf … && pnpm install` then `next build`. | re-derived: log and `inspect` above |
+| What a failed build does to the live site | If the production build of the new commit errors, which deployment keeps serving `hooks.gg` was not tested here. Vercel ordinarily keeps the last Ready deployment on the aliases, and the earlier Error build (`132a7ab`, 2026-11-21) left Ready deployments listed beneath it. | **accepted as written, a named risk**; told to the owner in the ask |
+| Rollback | Reverse application of the release diff: `git apply --check -R release-diff-132a7ab-3859c29.patch` (diff written to a file first), exit 0 (`rollback-dry-run-website.txt`); a revert commit is released through the same tool and the same approval. Vercel also keeps the current Ready production deployment `dpl_CnknfaUPDjpEMaaw1781YXMq34rW` (built from `132a7ab`) for a dashboard redeploy. | the reverse apply is re-derived by dry run; the dashboard redeploy is accepted as written (not run), a named risk |
+| Ordering constraints | project-utils `40ba5d3` must be on GitHub before this push: it is (an ancestor of project-utils `origin/master`, now `a47e683…`, read 17:02Z); paracord's commit is served (`gh api`, same read). No other ordering. | re-derived |
+| Serving refs | `master` only. | re-derived: `--report` |
+| Dry run of the move | `release-move.js /usr/local/bin/hooks/website master 3859c29… --dry-run --reason <text>`: "ff-from-remote ok; sibling serving refs (none) on one line ok", "workflows none", "DRY RUN: every check passed; nothing moved", exit 0 (`release-move-dry-run-website.txt`). | re-derived |
+
+### Release refutation helper (Escalation Form: the asker's factual conclusion is tried against a refutation before it is put)
+
+Conclusion put to a `general-purpose-sonnet` helper, briefed with the conclusion alone: the move from `132a7ab` to `3859c29` changes nothing observable (diff names only `package.json` and `pnpm-lock.yaml`; only the two references and the install set change; no website source imports a removed package; project-utils' shipped files differ only by the two deleted prisma files). Result, reported by 17:02Z, **not refuted**, each limb held: (a) two rows only (`package.json` 2/2, `pnpm-lock.yaml` 6/1190); (b) exactly the two reference lines changed; (c) the only added key in `packages:` and `snapshots:` is project-utils `#40ba5d3…`, 1276 package names became 1170 (106 names gone: `prisma-kysely` and its subtree; other removed keys are old versions of packages that stay at another version, so no installed version changes); (d) no website source, script or config at `3859c29` names any removed package (distinctive names by plain substring: no hit; generic names by import, require and dynamic-import forms: no hit; caveat: the generic names were searched by import form only), website's only `project-utils` specifier is the bare package name (45 uses, no sub-path), `kysely`, `prisma` and `@prisma/client` stay installed; (e) project-utils' `dist/` and `src/` differ only by the two deleted files, `getPostgres` still resolves through `postgres.js`. Not checked by the helper: runtime behaviour, a build, the suite (those are the reviewer's and this stage's runs above), and the paracord tree itself. Three of the helper's read calls were not completed and were re-issued by it as counts and listings. Its scratch files are under the session scratchpad `refute-release2/`.
+
+### Runbook (Mode A; results blank until run)
+
+| # | Step | Abort if | Result |
+|---|---|---|---|
+| 1 | `git -C /usr/local/bin/hooks/website ls-remote origin master` | not `132a7ab…` | |
+| 2 | `git -C /usr/local/bin/hooks/website status --porcelain` | any tracked change | |
+| 3 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 3859c29d557c920a5b611b8e3a4e7b5bf7b1222e --reason "<review record and Reviewed-At>"` (a production move: only after the owner's yes in this session) | exit not 0, a refusal, or a classifier or permission block (reported to steering and the owner, never retried in another form) | |
+| 4 | `git ls-remote origin master` | not `3859c29…` | |
+| 5 | `git branch --show-current` | not `master` | |
+| 6 | Poll `vercel ls --prod` (website dir, stdin closed, look-only), a bounded loop: at most 20 reads 30 s apart; the loop exits non-zero after 3 consecutive unreadable reads | the newest production deployment is `Error`, or no new deployment appears in the bound | |
+| 7 | `vercel inspect https://hooks.gg`: the id differs from `dpl_CnknfaUPDjpEMaaw1781YXMq34rW`, status Ready | still the old id after the new one is Ready | |
+| 8 | `vercel logs <new deployment url>`: "Commit: 3859c29", the install command ran, `next build` completed | Commit not `3859c29`; install or build error | |
+| 9 | `git -C /usr/local/bin/hooks/website branch -d chain/fix-git-dependency-pins`, output captured | refused (then `merge-base --is-ancestor`; `-D` only after exit 0) | |
+
+A step 6-8 abort is not rolled back by this session: the failure is reported to the owner and `steering-hooks` with the two rollback forms above; the rollback is his call.
+
+### User Confirmation
+
+To be filled when asked (selection prompt; `~/.claude/state/prompt-gate-off` is absent, `ls` at 17:02Z).
 
 ## Record notes
 
