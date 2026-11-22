@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-cut-collapsed-caret
 UUID: 22b61dde
-Status: Committed
-Status-Detail: "Committed on website chain branch chain/fix-cut-collapsed-caret at 8845b7e (code review APPROVED); release to website master awaits the owner's approval, recorded in deployment/fix-cut-collapsed-caret-deployment.md."
+Status: Released
+Status-Detail: "Released 2026-11-22T20:13Z: website master 453de76 -> 8845b7e; record in deployment/closed/fix-cut-collapsed-caret-deployment.md."
 Handoff-At: 8845b7e — repos=website
 Origin-Chain: none
 ---
@@ -165,3 +165,4 @@ recommended keeping it; steering ruled to keep it on the owner's 02:09 words.
 | 2026-11-22T19:12 | Code review Round 1 CR-1 answered: copy case added (`8845b7e`); the reviewer's mutant added to `mutants.json` and killed with the other four; red, green, suite (2366), typecheck, changed-file lint re-run at `8845b7e`; `Handoff-At` 8845b7e. |
 | 2026-11-22T19:15 | Code review APPROVED at `8845b7e` (`code-review/fix-cut-collapsed-caret-code-review.md` sub-entry 1a, record `de261824`, read at its `Verdict` field); Status-Detail moved to the merge owed. |
 | 2026-11-22T19:16 | Document closed by devops Stage 1 (`devops-fix-cut-collapsed-caret`): Status: Committed; moved to `implementation/closed/`. Nothing pushed. Disclosure: this row's first stamp was typed ahead of the clock and refused by the stamp gate; re-stamped from the clock. |
+| 2026-11-22T20:18 | Released by devops Phase 2D: website `master` moved to `8845b7e` (push 20:13:19Z to 20:13:24Z, owner's release approval); Status: Released. The Status-Detail written at Stage 1 (release awaiting approval) is superseded. |

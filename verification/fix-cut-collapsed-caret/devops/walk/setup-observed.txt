@@ -1,0 +1,3 @@
+2026-11-22 ~20:16Z Chrome/157.0.0.0 Linux x86_64
+https://hooks.gg/message/m/new -> server-select page, signed in (avatar, Claude / statbot-065-install-test servers), contenteditable count 0
+https://hooks.gg/message -> Recent Messages list of test account, signed in, contenteditable count 0

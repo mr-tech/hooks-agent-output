@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-cut-collapsed-caret
 UUID: 22b61dde
-Status: Active
-Status-Detail: "Stage 1 committed and Phase 2A complete at website 8845b7e; nothing pushed; the release ask to the owner is the next act. Mode A (agent-executed)."
+Status: Released
+Status-Detail: "Released 2026-11-22T20:13Z: website master 453de76 -> 8845b7e on origin (release-move.js exit 0; ls-remote read back); Vercel deployment dpl_3JEEF7Vs… Ready, built from 8845b7e, aliased hooks.gg. Real-browser Ctrl+X walk passed on the production alias origin. Fix branch merged and deleted."
 ---
 
 # Deployment Record: fix-cut-collapsed-caret
@@ -19,6 +19,7 @@ Status-Detail: "Stage 1 committed and Phase 2A complete at website 8845b7e; noth
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-22T19:17 | `steering-hooks-fixer` (brief above) | Stage 1 and Phase 2A for `chain/fix-cut-collapsed-caret` at 8845b7e | Stage 1 verified (table below); implementation and code-review documents closed `Committed`. Phase 2A: tip build at 8845b7e exit 0; `release-move.js --dry-run` exit 0; reverse patch checks. Nothing pushed. Disclosure: two changelog stamps typed ahead of the clock were refused by the stamp gate and re-stamped from the clock with `record-edit.js` (implementation and code-review documents). |
+| 2026-11-22T20:18 | devops (Phase 2B to 2D) | Release ask answered; release executed; walk run; record closed | The owner answered the selection prompt put in this session with "Agent: push it live now (Recommended)". Move run in this session: `release-move.js` exit 0, 20:13:19Z to 20:13:24Z; origin `master` read back as `8845b7e`; fix branch deleted. Deployment `dpl_3JEEF7Vs4MaWBa3Gk82TsxdbDpud` Ready, built from `8845b7e`. Walk: first run not completed (signed-in profile, nothing opened); re-run on the production alias origin passed. Phase 2D worked in order (sections above). Record closed `Released`. Two `vercel inspect`/`logs` calls each timed out once at 60s and were retried, as the brief allows. |
 
 ## Stage 1 verification (website, at 8845b7e)
 
@@ -72,23 +73,66 @@ Included: chain `fix-cut-collapsed-caret` only. Execution mode: **Mode A, agent-
 | 5 | `git ls-remote origin refs/heads/master` equals `8845b7e…`; tree on `master`, `git status --porcelain` shows only `.playwright-mcp/` | any difference → route to the owner | `ls-remote` = `8845b7e3409782e0f07ecd36a818f48f4ebcc721`; `branch --show-current` = `master`; `rev-parse HEAD master` both `8845b7e…`; porcelain `?? .playwright-mcp/` only. Pass |
 | 6 | `git branch -d chain/fix-cut-collapsed-caret`, its output captured | `-d` refuses → name it to the owner; do not force | "Deleted branch chain/fix-cut-collapsed-caret (was 8845b7e).", exit 0 (`devops/branch-d.txt`); `git branch --list 'chain/fix-cut*'` 0 lines; `ls-remote --heads origin 'chain/*'` 0 lines. Pass |
 | 7 | `vercel inspect https://hooks.gg`, then `vercel logs <deployment url>` (look-only; `timeout 60`, stdin closed, retry up to twice; a hang is not a control): the serving deployment is a new one, Ready, built from the pushed commit, serving hooks.gg | deployment Error, or built from another commit → report to the owner; a rollback is his call (Vercel promote) | **`vercel inspect https://hooks.gg`** (20:14:30Z, exit 0 on the second try; the first timed out at 60s; `devops/vercel-inspect-after-1.txt`, `-2.txt`): id `dpl_3JEEF7Vs4MaWBa3Gk82TsxdbDpud` (a new id; the pre-push one was `dpl_7amFajR7sNEhdbPLBcjWDUc9psb2`), `hooks-gg-website`, status **Ready**, created 20:13:25Z, aliases `hooks.gg`, `www.hooks.gg`, `hooks-gg-website-git-master-hooks-gg.vercel.app` and two others. **`vercel logs <deployment url>`** (exit 0 on the second try; the first timed out; `devops/vercel-logs-1.txt`, `-2.txt`): "Cloning github.com/hooks-gg/website (Branch: master, Commit: 8845b7e)"; "Detected Next.js version: 16.4.6"; "Compiled successfully in 4.8s"; "Deployment completed" 20:14:02Z. Passes: Ready, built from the pushed commit, serving hooks.gg |
-| 8 | post-deploy browser walk on hooks.gg, signed out, blank message editor, nothing saved (`browser-walker` helper): type a short text; place a plain caret mid-word, nothing highlighted; press Ctrl+X; read the text back. Pass: unchanged | the text changes → the Assumption Not Checked is false; report to `steering-hooks-fixer` and the owner at once | |
-| 9 | same walk: highlight one word; press Ctrl+X; read the text back. Pass: the word is gone | the word remains → report | |
+| 8 | post-deploy browser walk on hooks.gg, signed out, blank message editor, nothing saved (`browser-walker` helper): type a short text; place a plain caret mid-word, nothing highlighted; press Ctrl+X; read the text back. Pass: unchanged | the text changes → the Assumption Not Checked is false; report to `steering-hooks-fixer` and the owner at once | **First run (20:16Z): NOT RUN.** The helper's browser profile is signed in as the test account, so hooks.gg showed a signed-in page with no editor (`devops/walk/setup-observed.txt`); the helper opened nothing, typed nothing, saved nothing. **Re-run (`devops/walk/run2/observed.txt`, 20:17Z to 20:17:40Z), Chrome 157.0.0.0, Linux x86_64**, on `https://hooks-gg-website-hooks-gg.vercel.app/message/m/0/edit`, the production deployment's own alias (it is one of the aliases of the deployment read at row 7; its cookies are separate from hooks.gg's, so the page is signed out: "You're not logged in" modal, login button, no avatar). Deviations from the brief, stated: the origin is the alias, not hooks.gg itself (the same deployment; a `curl` of that path at hooks.gg signed out returned the same 47241 bytes); the editor was pre-filled with sample text, not blank, and appeared after a click on it; the helper pressed Ctrl+A and typed over the sample text (in-page only; nothing saved or sent). A document-level capture listener recorded `cut` events. Step 1: text "alpha beta gamma". Step 2: caret collapsed, offset 8. Step 3, one real Ctrl+X: text **"alpha beta gamma" (unchanged)**, `__cuts` length 1 (the cut event reached the page: not a vacuous pass). **Pass** |
+| 9 | same walk: highlight one word; press Ctrl+X; read the text back. Pass: the word is gone | the word remains → report | Same run: selection "beta" (`getSelection().toString()`), one real Ctrl+X: text **"alpha  gamma"** (word gone, neighbours present), `__cuts` length 2. **Pass.** Screenshots `step3.png`, `step4-selection.png`, `step5.png` sit in `devops/walk/run2/`, uncommitted by the owner's rule (media stay out of commits). The clicked-emoji case is not in this walk; its coverage is the unit test (`onCopy.cut.test.tsx`) and the code reads recorded in the fixer's document, read from code, not run in a browser |
 
 **Assumption Not Checked carried to the post-deploy walk (devops's, this record until Phase 2D).** The code review's: a real browser's native cut on a collapsed plain caret in a `contenteditable` removes nothing; falsified by row 8 (text changes) in a real browser. The fixer's and the brief's: slate-react's `onCut` beyond the refutation's read, and a real browser's cut event (brief-common, "What this brief did not check"), read by rows 8 and 9. If no real browser is available to the helper, rows 8 and 9 are recorded "not run" and `steering-hooks-fixer` is told.
 
 ## User Confirmation
 
-*(not yet put; filled by Phase 2B)*
+Put to the owner directly by this session as a selection prompt (Phase 2B), in his form: the context first, then the decision, plain English, no commit IDs or tool names. It stated what the fix does in every editor text box, that a reviewer approved it, the suite passes (2366 of 2366) and a test build completes, that nothing was live, that going live means pushing the website's main line which the hosting service publishes to hooks.gg (the premise resting on the last release today and untested before the push), what was not tested (a real browser's own Ctrl+X, to be tried on the live site right after), his four user-visible flows quoted from the fixer's document, and the rollback (re-promote the previous version, his step, not exercised; or a reverse change asked about first). Options: push now (Recommended), hold, drop. **Response: "Agent: push it live now (Recommended)"**, by selection, answered by 20:13:13Z (`devops/confirmation-time.txt`). Declined: no.
 
 ## Release Execution
 
-*(not yet executed)*
+Mode A. Commands and results are in the runbook above. `release-move.js` exit 0 at 20:13:19Z to 20:13:24Z; origin `master` = `8845b7e3409782e0f07ecd36a818f48f4ebcc721` read back by `git ls-remote origin refs/heads/master`. Push ref `master`, SHA `8845b7e`, timestamp 20:13:19Z to 20:13:24Z. Fix branch merged (it was the pushed commit) and deleted with `git branch -d`.
+
+**Serving state**: VERIFIED. The push is the deploy evidence (ref `master`, SHA `8845b7e`, 20:13:19Z to 20:13:24Z); the production deployment itself was also read (row 7): `dpl_3JEEF7Vs4MaWBa3Gk82TsxdbDpud`, Ready, created 20:13:25Z, built from `master` commit `8845b7e`, aliased to hooks.gg. The real-browser check of the code review's Assumption Not Checked (rows 8 and 9) ran on the production alias origin and passed. Not carried as NOT VERIFIED: nothing in this record rests on a host-side read.
+
+## Phase 2D: release metadata and reconciliation
+
+Standing note: point-in-time as of 2026-11-22T20:18Z; the serving line may have moved since, and later records are authoritative on their own refs.
+
+| Field | Value |
+|---|---|
+| Release identifier | website `master` → `8845b7e3409782e0f07ecd36a818f48f4ebcc721` (no version field, no tags; none created) |
+| Environment / serving ref | production (Vercel project `hooks-gg-website`, aliased hooks.gg); `master`, the sole serving ref (`release-move`: no sibling to split) |
+| Release date | 2026-11-22, 20:13Z |
+| Execution mode | Mode A, agent-executed, in this session |
+| Authorizer | the owner, by selection at the Phase 2B prompt |
+| Included plans | none; chain `fix-cut-collapsed-caret` only (fixer route, `ID: n/a`) |
+| Repositories and SHAs shipped | `website` only: `453de76` → `8845b7e` (`c576417`, `329cc20`, `8845b7e`). `agent-output` is the record, not a shipped repository |
+
+**Deployed against verified (website).** Deployed ref `master`; the pushed commit is `8845b7e`, read from `ls-remote` after the move and again in the Vercel build log ("Commit: 8845b7e"). The code review's `Reviewed-At` is `8845b7e`: **the same commit**, so no diff of the surface is owed. No QA verdict exists in this stage set (5 production lines); no release-tip QA record to close.
+
+**Fix branch.** `chain/fix-cut-collapsed-caret` merged (it was the pushed commit) and deleted with `git branch -d` (`devops/branch-d.txt`, exit 0; no local or remote `chain/*` branch remains).
+
+**Architecture lines.** No `architecture/` line names the cut handler (code review, Architecture Alignment: 1 unrelated hit in `system-architecture.md`, 0 in `website.md`); none is closed or invalidated by this release, so none is routed. Steering lodges any entry at closure (brief). Roadmap: `agent-output/roadmap/` holds only `.gitkeep`; the determination names no epic or criterion, so a `fix-` chain owes no roadmap obligation.
+
+## Chain documents and terminal tokens (Phase 2D steps 2b, 5b, 5c)
+
+Enumerated by `grep -rl 'Origin: fix-cut-collapsed-caret'` over the record outside `verification/`: three documents.
+
+| Document | Terminal token | Where |
+|---|---|---|
+| `implementation/…-implementation.md` | Released | `implementation/closed/` |
+| `code-review/…-code-review.md` | Committed | `code-review/closed/` |
+| this deployment record | Released | `deployment/closed/` |
+
+No QA, UAT, plan or critique document exists in the chain. `fix-` chains whose `Handoff-At` is an ancestor of `master` at `8845b7e` and whose implementation document is still open: none (`ls implementation/*.md` outside `closed/` lists no file). The handoffs the chain answered: its source is research `codebase-bug-evaluation-2026-11-08.md` H-3 (Status Active; a standing evaluation, with no closing condition this release meets), not a handoff record, so none is listed; closing handoffs `Addressed` is steering's at closure.
+
+**Forward items beyond the register**, by `grep -l 'Assumption Not Checked'` over the chain's documents (code review, this record):
+- Code review, Assumption Not Checked (a real browser's Ctrl+X on a plain caret removes nothing): **discharged** by rows 8 and 9 on the production alias origin, in a real Chrome; the cut event reached the page and the text stayed. Not covered by that walk: hooks.gg's own origin (the alias is the same deployment), and the other five editor surfaces, which pass through the one shared handler (code review, hazard 4).
+- Fixer's document: no "Assumption Not Checked" section; its clicked-emoji case is read from code and covered by the unit test, not walked in a browser. No carrier created: nothing in the chain's documents schedules one, and the owner's flows list invites his own check.
+- The brief's "did not check" (a real browser's cut event; slate-react's `onCut` beyond the refutation's read): the first is discharged as above; the second is unchanged.
+- Retrospective: not mine to invoke; the spawn cue goes to steering in this turn's message.
 
 ## Post-Release Status
 
-*(Active: nothing released.)*
+- **Status**: Released, 2026-11-22T20:13Z. The chain has no register. Deploy evidenced by the push and by the Ready deployment built from `8845b7e`; the real-browser walk (rows 8 and 9) passed.
+- **Known issues**: none open in this chain. The walk's first run was not completed (signed-in profile) and was re-run on the alias origin, as recorded; the clicked-emoji case was not walked in a browser.
+- **Rollback plan**: Vercel promote of the previous deployment `dpl_7amFajR7sNEhdbPLBcjWDUc9psb2` (the owner's; not exercised here). A git revert of `453de76..8845b7e` applies cleanly (`git apply --check -R`, exit 0 at 19:16Z, `devops/reverse.diff`) and ships as a new fast-forward push, which needs a new ask.
 
 ## Next Actions
 
-- Phase 2B: the release ask, in this session.
+Standing note: later documents are authoritative on current state.
+- Nothing has a trigger at or after this record's closure that lacks a carrier. Architecture: steering lodges any entry at closure.

@@ -1,0 +1,8 @@
+origin https://hooks-gg-website-hooks-gg.vercel.app/message/m/0/edit ; Chrome/157.0.0.0 Linux x86_64 (UA Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/157.0.0.0 Safari/537.36)
+setup 2026-11-22T20:17:12Z: "You're not logged in" modal (dismissed via "I'll do it later"), login button, no avatar/server list; 5 contenteditable at load (username, embed author/footer); message content editor (.discord-visualizer__editor) appears after clicking the sample message text; it was pre-filled with sample text, not blank; Ctrl+A then typing replaced it (in-page only).
+step1 20:17:29Z text="alpha beta gamma"
+step2 20:17:32Z collapsed=true anchorOffset=8 node="alpha beta gamma"
+step3 20:17:34Z text="alpha beta gamma" cuts=1 [{defaultPrevented:false,target:SPAN}]
+step4 20:17:38Z selection="beta" text="alpha beta gamma"
+step5 20:17:40Z text="alpha  gamma" cuts=2 [{false,SPAN},{false,SPAN}]
+step6 not needed (step 3 ran)
