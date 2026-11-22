@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
 Status: Active
-Status-Detail: "Round 3 (rulings 21:21: CR-4 fixture swap, CR-3) handed to code review for a scoped check at website 2e6127e (2026-11-22T21:30Z); 116 production lines, so QA Phase 2 follows the scoped approval; merge to website master by devops on the owner's word."
+Status-Detail: "Code review APPROVED at website 2e6127e (scoped check of round 3, review record 201856c0); 116 production lines, so QA Phase 2 is owed, started by steering; merge to website master by devops on the owner's word."
 Handoff-At: 2e6127e — repos=website
 Origin-Chain: none
 ---
@@ -14,9 +14,8 @@ Origin-Chain: none
 
 - **Done:** round 3 committed on website `chain/fix-decorator-offsets`, HEAD `2e6127e` (CR-4 fixture swap, CR-3); evidence under
   `verification/fix-decorator-offsets/round3/`; hand-off sent to `code-reviewer-fix-decorator-offsets`, copied to `steering-hooks-fixer`.
-- **Next:** wait for the reviewer's scoped check of `e6a5766..2e6127e`. On findings: re-read Round 3 below and the review document; fix
-  on the same branch, re-run red, controls, suite and typecheck in exports. On approval: nothing for this stage; QA Phase 2 is steering's
-  to start.
+- **Next:** the scoped check came back APPROVED at `2e6127e` (`code-review/fix-decorator-offsets-code-review.md`, record `201856c0`, read).
+  Nothing for this stage until QA Phase 2 (steering starts it) returns findings; then re-read Round 3 and fix on the same branch.
 - **Approach in flight:** none. **Uncommitted / locally mutated:** none of mine; the website tree is clean apart from the foreign
   `.playwright-mcp/`; scratch worktrees removed (`git worktree list` shows only the shared tree).
 
@@ -428,3 +427,4 @@ For the owner's own look in any editor text box (message content, embed title, e
 | 2026-11-22T20:33 | — | Ruling A (rulings block 20:31): two guards dropped at website `f57c260`; 6 of 6 controls killed, suite 2381/2381, typecheck and lint exit 0 there. Heading defect recorded as carried by `fix-decorator-headings`. Status Blocked → Active; `Handoff-At` `f57c260`; handed to code review. |
 | 2026-11-22T21:12 | — | Round 2 under the 20:44 re-scope (review round 1 REJECTED, CR-1/CR-2): every node kind colours by its source width, `rules.tsx` stamps sources, website `2ad482a` and `e6a5766`; 227 cases, red 150/77 at base, controls 38 of 38, suite 2593/2593, typecheck and lint exit 0, reviewer corpus 0 clean→wrong. 111 production lines: QA Phase 2 restored. One control run in the shared tree disclosed. `Handoff-At` `e6a5766`; handed to code review. |
 | 2026-11-22T21:30 | — | Round 3 (rulings 21:21): CR-4's pinning rows' fixture swapped (test-only), CR-3 taken (heading rule stamps `markerWidth`; regex and cast gone), website `2e6127e`; corpus byte-identical to `e6a5766`; red 151/77 at base; controls 5 of 5; suite 2594/2594, typecheck and lint exit 0. 116 production lines. `Handoff-At` `2e6127e`; handed to code review for a scoped check. |
+| 2026-11-22T21:33 | — | Code review scoped check APPROVED at website `2e6127e` (review record `201856c0`): CR-3, CR-4 resolved. QA Phase 2 owed (116 production lines), steering's to start. |
