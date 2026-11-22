@@ -26,18 +26,15 @@ lines about items nobody is waiting on.** If it does not need the owner to act, 
 
 ---
 
-## Put back five missing website settings in Vercel, then redeploy (urgent: every website release fails until done)
+## Check Vercel has no daily job left for the website
 
-Tonight's website release (removing the old daily job) failed to build on Vercel: the build stops because five settings it needs are
-missing for Production — `DATABASE_URL`, `REDISHOST`, `REDISPORT`, `REDISUSER`, `REDISPASSWORD`. The site itself is fine: hooks.gg
-still runs the 18:35 UTC version. But until these are back, no website release from anyone can go live.
+The release that removed the website's old once-a-day job is now live. That job could also have been set up in Vercel's own settings,
+outside the code, and no tool the agents have can show that list.
 
-1. Vercel → website project → **Settings → Environment Variables**: add the five for **Production** with the values production uses
-   (if they used to come from a team-level setting or an integration, reconnect that instead).
-2. **Deployments** → the failed one from 23:19 UTC → **Redeploy**. No new push is needed.
-3. Then, in **Settings → Cron Jobs**, check the list is empty (the release removed the daily job).
+In the Vercel dashboard, open the project **hooks-gg-website** → **Settings → Cron Jobs**.
+Pass: the list is empty. If a job is listed, it now calls an address that no longer exists, once a day near 00:00 UTC.
 
-Tell devops-fix-delete-dead-cron (or steering-hooks) when step 2 is done; the agents check the new build and the live site.
+Tell steering-hooks-fixer "empty", or the job's name and schedule.
 
 ## Check the website's request logs on Vercel for refused message numbers
 
@@ -45,8 +42,8 @@ The website change that makes the API and the bot check their passwords more saf
 works. One thing is left that the agents' Vercel tool cannot show — request logs:
 
 In the Vercel website project's **Logs**, filter to Production, since 18:35 UTC on 21 Nov, path `/api/v1/guilds/`, status 400.
-Pass: no 400s on addresses ending in a message number. If there are some, tell steering-hooks the paths you see (the Statbot API may
+Pass: no 400s on addresses ending in a message number. If there are some, tell steering-hooks-fixer the paths you see (the Statbot API may
 be sending message numbers in a form the site now refuses).
 
-Tell steering-hooks the result; it then closes the old hardening task.
+Tell steering-hooks-fixer the result; it then closes the old hardening task.
 

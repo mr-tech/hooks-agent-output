@@ -152,3 +152,15 @@ hung both tries (`timeout 60`), not read. Not read by this thread: the commit it
 Sent by message: `devops-fix-delete-dead-cron` (its post-deploy read now due: build, live site, Cron Jobs handoff trigger) and
 `devops-fix-git-dependency-pins` (its release-2 gate is its own read; it asks him for the release if met). Owner-wait
 `fix-delete-dead-cron` resolved (`challenge-alert.js resolved`).
+
+## 2026-11-22T17:06 — released and live; chain 6 sessions stopped; retrospective cue counted toward the fixer batch
+
+Devops by message ~17:05Z: hooks.gg serves `dpl_CnknfaUPDjpEMaaw1781YXMq34rW`, built from website `master` `132a7ab` (its build log
+`verification/fix-delete-dead-cron/devops/vercel-build-log-redeploy-132a7ab.txt`); record `deployment/closed/fix-delete-dead-cron-deployment.md`
+Released (`d7b965f`, read by this thread: commit subject and Status line). Its last-closure cue is counted toward the fixer batch, not
+acted on alone (chain 7 still in flight). Sessions `devops-`, `fixer-`, `code-reviewer-fix-delete-dead-cron` stopped (`tmux-agent stop`,
+all three answered "stopped"). Open: his Cron Jobs list read (handoff `vercel-dashboard-cron-list-after-cron-removal-2026-11-21.md`,
+trigger fired) — queued in `OWNER-QUEUE.md` (rewritten: settings entry deleted, the cron read its own entry); source handoff 4bc9b626
+closes on his answer. Architect L172 entry: already in the record `INBOX.md` (read, line 362). Devops's standing-risk line (the five
+settings' source is now unrecorded) put to him in chat. Disclosed: a `sed` edit of `OWNER-QUEUE.md` was refused by the record-write
+gate; the same two name edits were re-made with the Edit tool.
