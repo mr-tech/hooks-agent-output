@@ -133,3 +133,18 @@ Spawn cue 00:1xZ (the reviewer, by SendMessage): round 2 APPROVED, record `41193
 repos=project-utils,website`, no findings. Assumption Not Checked: the deploy host's pnpm and private fetch of project-utils, routed to
 devops. Release 2 brief `steering/fix-git-dependency-pins-brief-devops-release2.md` sent to the live `devops-fix-git-dependency-pins`:
 Stage 1 now; no release ask until a Ready production deployment of website `132a7ab` serves `hooks.gg`.
+
+## 2026-11-22T17:09 — released; chain closed; sessions stopped; source handoff Addressed
+
+Devops by message ~17:06Z: his selection "Agent: release now (Recommended)" at 17:03:47Z (in its session); website `master` `132a7ab` →
+`3859c29`; production deployment `dpl_8oenan2E9c2YzyeB3kVrZvtD43XC` Ready, built from `3859c29`, serving hooks.gg (its read 17:04:50Z);
+record `deployment/closed/fix-git-dependency-pins-deployment.md` Released (`f456adc`, read: subject). This thread's reads: `git ls-remote
+origin master` → `3859c29d557c…`; website tree on `master`, chain branch gone; `package.json` lines 68/125 pin both by full commit.
+Closed: source handoff efcca7d0 `website-git-dependencies-resolve-unpinned-2026-11-20.md` → `handoff/closed/`, Addressed. Stopped:
+`devops-`, `fixer-`, `code-reviewer-fix-git-dependency-pins` (all "stopped"). Cue counted toward the fixer batch (with
+`fix-api-extractor-devdep` and `fix-delete-dead-cron`); the batch retrospective waits on chain 6's source handoff 4bc9b626, which closes on
+his Cron Jobs answer. New handoffs (devops's): `project-utils-consumers-outside-workspace-lose-prisma-kysely-2026-11-22.md` (owner; the
+hooks-deprecated/cdn read is an agent's, this thread's to route) and `website-paracord-listed-as-devdependency-but-imported-at-runtime-2026-11-22.md`
+(planner) — own triggers. Architect follow-up lodged in the record `INBOX.md` (a shell append was refused by the record-write gate; re-made
+with `record-edit.js`). Devops's note: `fix-v1-guild-messages-auth` reads Committed though already in `master` — a record-hygiene item, docket.
+Website `master` is now free: chain 8 starts from `3859c29`.
