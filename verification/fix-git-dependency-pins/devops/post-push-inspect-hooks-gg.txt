@@ -1,0 +1,15 @@
+2026-11-22T17:04:50Z
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Fetching deployment "hooks.gg" in blacklabel
+> Fetched deployment "hooks-gg-website-6sx0jkh48-hooks-gg.vercel.app" in blacklabel [709ms]
+    id		dpl_8oenan2E9c2YzyeB3kVrZvtD43XC
+    name	hooks-gg-website
+    status	● Ready
+    url		https://hooks-gg-website-6sx0jkh48-hooks-gg.vercel.app
+    created	Sun Nov 22 2026 17:04:00 GMT+0000 (Coordinated Universal Time) [51s ago]
+    ╶ https://hooks.gg
+    ╶ https://hooks-gg-website.vercel.app
+    ╶ https://www.hooks.gg
+    ╶ https://hooks-gg-website-hooks-gg.vercel.app
+    ╶ https://hooks-gg-website-git-master-hooks-gg.vercel.app
+exit 0

@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-git-dependency-pins
 UUID: 84f208f7
-Status: Committed
-Status-Detail: "Both halves committed and approved in code review. Project-utils 40ba5d3 is on project-utils master (released, devops record deployment/fix-git-dependency-pins-deployment.md). Website 3859c29 on chain/fix-git-dependency-pins awaits its master release (devops, his word), held until a production build passes (rulings block 23:58)."
+Status: Released
+Status-Detail: "Released in two pushes on the owner's approval where one was needed: project-utils master 749606d to 40ba5d3 (2026-11-21T23:15Z) and website master 132a7ab to 3859c29 (2026-11-22T17:04Z; production deployment Ready, serving hooks.gg). Record: deployment/closed/fix-git-dependency-pins-deployment.md. Both fix branches merged and deleted."
 Handoff-At: 40ba5d3,3859c29 — repos=project-utils,website
 Origin-Chain: none
 ---
@@ -276,3 +276,4 @@ Those flows read and write the database through project-utils. Where the site us
 | 2026-11-21T23:07 | fixer-fix-git-dependency-pins | Stale gitignored `build/js/prisma.js(.map)` deleted in the shared project-utils tree, under steering's ruling (block "2026-11-21T23:07", `7c2839f`). No commit changed; `Handoff-At` stays `40ba5d3` |
 | 2026-11-22T00:06 | fixer-fix-git-dependency-pins | Website half (rulings block "2026-11-21T23:58"): hand pin committed `3859c29`; red at `132a7ab`, green at `3859c29`; lock classified with three controls; handed to code review. `Handoff-At` `40ba5d3,3859c29`. This row's stamp was first typed as `00:20`; the record's stamp gate refused it, and it was replaced with the `date -u` minute |
 | 2026-11-22T00:21 | devops | Document closed. Status: Committed. Stage 1 for release 2 (deployment record `deployment/fix-git-dependency-pins-deployment.md`): both halves approved at `Handoff-At` `40ba5d3,3859c29`; project-utils half released at `40ba5d3` (23:15Z); website `3859c29` on its chain branch awaits the `master` release. The deploy-host install question the review routed to devops is read and recorded there |
+| 2026-11-22T17:07 | devops | Status: Released. Website master moved `132a7ab` to `3859c29` at 17:04Z on the owner's release approval; the production build of `3859c29` is Ready and serves hooks.gg (`deployment/closed/fix-git-dependency-pins-deployment.md`). The two forward items this document leaves (outside-workspace consumers of project-utils; paracord listed as a devDependency) are carried by `handoff/project-utils-consumers-outside-workspace-lose-prisma-kysely-2026-11-22.md` and `handoff/website-paracord-listed-as-devdependency-but-imported-at-runtime-2026-11-22.md` |

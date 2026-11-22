@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-git-dependency-pins
 UUID: 84f208f7
 Reviewed-At: 40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165,3859c29d557c920a5b611b8e3a4e7b5bf7b1222e — repos=project-utils,website; round 1 the project-utils half, round 2 the website half
-Status: Committed
-Status-Detail: "Rounds 1 and 2 APPROVED, no findings. Project-utils half released at 40ba5d3; website 3859c29 awaits its master release (deployment record deployment/fix-git-dependency-pins-deployment.md)."
+Status: Released
+Status-Detail: "Rounds 1 and 2 APPROVED, no findings. Project-utils released at 40ba5d3 (2026-11-21T23:15Z) and website at 3859c29 (2026-11-22T17:04Z, production Ready); deployment/closed/fix-git-dependency-pins-deployment.md. The two Assumptions Not Checked are carried or closed there."
 Round: 2
 Verdict: APPROVED
 ---
@@ -25,6 +25,7 @@ Verdict: APPROVED
 | 2026-11-21T23:10 | steering-hooks (brief `steering/fix-git-dependency-pins-brief-code-reviewer.md`) | Round 1: the project-utils half at `40ba5d3` | Round 1: APPROVED. Red and green re-run, lockfile claim reproduced by a second instrument, the shared-cache rebuild checked. No findings |
 | 2026-11-22T00:12 | steering-hooks (brief `steering/fix-git-dependency-pins-brief-code-reviewer-round2.md`, record `41d56a7`) | Round 2: the website half at `3859c29` | Round 2: APPROVED. Red and green re-run (suite, typecheck, frozen install). Cold-store install fetches both commits. The installed set reproduces the 144-package removal. Classifier controls run; one blind spot found, and the field it misses checked against pnpm's own output. No findings |
 | 2026-11-22T00:21 | devops | Document closed | Status: Committed. Stage 1 for release 2. Round 2's Assumption Not Checked (deploy-host pnpm and private fetch) is read and recorded in `deployment/fix-git-dependency-pins-deployment.md` (pnpm 10.28.2; the fetch is HTTPS with a token, not SSH). Round 1's outside-consumer assumption is carried by `steering/fix-git-dependency-pins-rulings.md` block "2026-11-21T23:16" and that deployment record |
+| 2026-11-22T17:07 | devops | Status: Released | Both releases done (project-utils `40ba5d3`, website `3859c29`, production Ready). Round 2's Assumption Not Checked (deploy-host install) is closed in the deployment record. Round 1's is carried by `handoff/project-utils-consumers-outside-workspace-lose-prisma-kysely-2026-11-22.md`; round 2's note on paracord in devDependencies by `handoff/website-paracord-listed-as-devdependency-but-imported-at-runtime-2026-11-22.md` |
 
 ## Scope of this round
 

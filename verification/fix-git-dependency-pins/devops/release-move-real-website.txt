@@ -1,0 +1,11 @@
+repo     /usr/local/bin/hooks/website
+ref      master
+target   3859c29d557c920a5b611b8e3a4e7b5bf7b1222e
+remote   origin/master 132a7ab6f49d8a85ead507e2221ab3c3a531fd00
+local    master 132a7ab6f49d8a85ead507e2221ab3c3a531fd00
+untracked 17 path(s) left alone
+evidence reason Release-tip verdict is code-review/closed/fix-git-dependency-pins-code-review.md round 2 APPROVED, Reviewed-At 40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165,3859c29d557c920a5b611b8e3a4e7b5bf7b1222e (record 41193a1); no QA in this stage set; tip is the reviewed commit, fast-forward of one commit over 132a7ab
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+OK moved master: 132a7ab6f49d8a85ead507e2221ab3c3a531fd00 -> 3859c29d557c920a5b611b8e3a4e7b5bf7b1222e on origin; tree on master
+exit 0

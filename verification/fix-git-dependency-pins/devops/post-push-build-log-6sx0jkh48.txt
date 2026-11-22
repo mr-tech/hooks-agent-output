@@ -1,0 +1,19 @@
+2026-11-22T17:04:51Z
+2026-11-22T17:04:01.655Z  Cloning github.com/hooks-gg/website (Branch: master, Commit: 3859c29)
+2026-11-22T17:04:02.239Z  Cloning completed: 584.000ms
+2026-11-22T17:04:03.962Z  > Detected ENABLE_EXPERIMENTAL_COREPACK=1 and "pnpm@10.28.2" in package.json
+2026-11-22T17:04:04.108Z  Running "install" command: `git config --global url."https://${GITHUB_USER}:${GITHUB_USER_ACCESS_TOKEN}@github.com/".insteadOf "git@github.com:" && pnpm install 1> /dev/null`...
+2026-11-22T17:04:05.718Z  Detected Next.js version: 16.4.6
+2026-11-22T17:04:10.266Z  ✓ Compiled successfully in 3.7s
+2026-11-22T17:04:20.601Z    Finished TypeScript in 10.3s ...
+2026-11-22T17:04:21.055Z    Generating static pages using 7 workers (0/9) ...
+2026-11-22T17:04:21.123Z    Generating static pages using 7 workers (2/9) 
+2026-11-22T17:04:21.358Z    Generating static pages using 7 workers (4/9) 
+2026-11-22T17:04:21.370Z    Generating static pages using 7 workers (6/9) 
+2026-11-22T17:04:21.447Z  ✓ Generating static pages using 7 workers (9/9) in 392ms
+2026-11-22T17:04:21.707Z  Route (app)
+2026-11-22T17:04:21.707Z  Route (pages)
+2026-11-22T17:04:21.841Z  Build Completed in /vercel/output [18s]
+2026-11-22T17:04:21.854Z  Deploying outputs...
+2026-11-22T17:04:38.174Z  Created build cache: 9s
+exit 0
