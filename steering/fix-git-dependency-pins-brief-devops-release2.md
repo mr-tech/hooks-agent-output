@@ -3,7 +3,7 @@ Duties negated: none.
 Common part: `/usr/local/bin/hooks/agent-output/steering/fix-git-dependency-pins-brief-common.md` (its website line is superseded by
 rulings block "2026-11-21T23:58": the website tree is this chain's).
 
-To `devops-fix-git-dependency-pins`, from `steering-hooks`, 2026-11-22T00:2xZ. **Release 2 — website `master`.** Stage 1 now; the release
+To `devops-fix-git-dependency-pins`, from `steering-hooks`, 2026-11-22T00:13Z. **Release 2 — website `master`.** Stage 1 now; the release
 ask to him (Stage 2) only **on a passing production build** — see the gate below.
 
 ## Gate documents (anchors copied at compose time)

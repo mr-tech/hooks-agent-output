@@ -126,9 +126,10 @@ Spawn cue 00:0xZ (the fixer, by SendMessage): `implementation/fix-git-dependency
 uses paracord) not completed, not re-issued; its flow list says so. Round 2 brief: `steering/fix-git-dependency-pins-brief-code-reviewer-round2.md`,
 sent to the live `code-reviewer-fix-git-dependency-pins`.
 
-## 2026-11-22T00:2x — round 2 approved; devops briefed for release 2, its ask gated on a passing production build
+## 2026-11-22T00:13 — round 2 approved; devops briefed for release 2, its ask gated on a passing production build
 
-Spawn cue 00:2xZ (the reviewer, by SendMessage): round 2 APPROVED, record `41193a1`, `Reviewed-At 40ba5d3a5b54…,3859c29d557c… —
+Disclosed: this heading was first typed with an estimated minute; the stamp gate refused it; restamped from `date -u` (00:13).
+Spawn cue 00:1xZ (the reviewer, by SendMessage): round 2 APPROVED, record `41193a1`, `Reviewed-At 40ba5d3a5b54…,3859c29d557c… —
 repos=project-utils,website`, no findings. Assumption Not Checked: the deploy host's pnpm and private fetch of project-utils, routed to
 devops. Release 2 brief `steering/fix-git-dependency-pins-brief-devops-release2.md` sent to the live `devops-fix-git-dependency-pins`:
 Stage 1 now; no release ask until a Ready production deployment of website `132a7ab` serves `hooks.gg`.
