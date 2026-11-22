@@ -83,3 +83,17 @@ CR-1 does not ride this release (a re-round would move the reviewed tree, and re
 preview-image-generator screenshots, unmeasured); it is its own fixer chain, queued after 9f, its determination measuring the
 screenshot path first. Devops brief `steering/fix-middleware-dead-matcher-brief-devops.md` (CR-1 correction carried in its first lines);
 `devops-fix-middleware-dead-matcher` started with `tmux-agent spawn`.
+
+## 2026-11-22T18:45 — pushed on his word; deploy reads; his selection on the signed-out checks
+
+Devops by message ~18:43Z: his selection "Agent: push it live now (Recommended)" (in its session); website `master` `3859c29` → `453de76`
+(18:41:16Z; `git ls-remote` read by devops); record `deployment/fix-middleware-dead-matcher-deployment.md` Active (`6711bc29`). Its
+Vercel reads hung (exit 124, four tries) and its two signed-out requests were not completed. This thread's read (`vercel inspect
+https://hooks.gg`, 18:44Z, first try): `dpl_7amFajR7sNEhdbPLBcjWDUc9psb2` Ready, created 18:41:17Z; built-from commit not read here.
+Ruled to devops (this thread's): a CLI timeout is not a control — retry under `timeout 60`, two tries each. Owner-wait `release-ask` resolved.
+Selection prompt put 18:4xZ, answered 18:4xZ (ledger `steering/selection-ledger/2026-11-22.md`, this thread's block of that minute);
+wording this thread's. Premise read: the review's two discriminating requests (`code-review/closed/fix-middleware-dead-matcher-code-review.md`
+L167-168, L177). Options: A "Agent: re-run with label renamed (Recommended)" — "the deploy agent re-runs the two signed-out visits to hooks.gg
+with that word removed, then finishes and closes the release. A few seconds' work."; B "You: check it yourself" — "In a private browser
+window (signed out), open hooks.gg/message/m/0/edit: it should open the blank editor without bouncing."; C "Skip the live check" — "Close
+the release on the reviewer's running-copy test alone." Chosen: **A**; relayed verbatim to devops.
