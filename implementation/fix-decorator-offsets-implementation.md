@@ -49,20 +49,20 @@ the reference QA scores against. No second answer was reasonable, so this did no
   paragraph's (`normalizeAst` over the unwrapped top level), so a block with no language colours its line as one `codeBlockText` range,
   not one per chunk (the same look, previously split).
 
-**Measured** (QA's scorer, unchanged; rows with ranges past the text dropped from both sides before scoring, since the scorer aligns
-by index; `round4/score-qa_*.txt`):
+**Measured** with QA's scorer v2 (`qa/instruments/score-code-block-v2.cjs`, record `5374339e`). v2 pairs rows by identity and keeps
+class names that contain a space. Output: `round4/score-v2-*-vs-a7e1adb.txt`, 0 unpaired rows in each. The v1 figures, scored on
+pre-filtered rows, are kept beside them as `score-qa_*.txt` and superseded:
 
 | Comparison | Rows | Right → wrong | Wrong → right | Right at `a7e1adb` |
 |---|---|---|---|---|
 | QA's 4 languages, base `8845b7e` | 32 | 0 | 162 | 460 of 460 |
 | QA's 4 languages, tip `2e6127e` | 32 | 0 | 134 | 460 of 460 |
-| All 195 highlight.js languages, base | 3,088 | 0 | 13,066 | 44,374 of 44,390 |
-| All 195 languages, tip | 3,088 | 0 | 9,162 | 44,374 of 44,390 |
+| All 195 highlight.js languages, base | 3,088 | 0 | 13,070 | 44,388 of 44,390 |
+| All 195 languages, tip | 3,088 | 0 | 9,166 | 44,388 of 44,390 |
 
-The 16 characters still unmatched over all languages are 12 rows that are equally wrong at base and tip (none right → wrong). In 8 of
-them the class name contains a space (`hljs-variable constant_`, `hljs-meta prompt_`, `hljs-variable language_`, `hljs-char escape_`), and
-the scorer's label parse cuts it at the space. In the other 4, a nested scope's outer class is not inherited (`dts`
-`hljs-number+hljs-params`). That is CR-4's class-inheritance defect, carried by `fix-decorator-nested-styles`. Ranges past the text on
+The 2 characters still unmatched, wrong at base and tip alike, are `dts`'s `<@1>` under each parser. A nested scope's outer class is
+not inherited (`hljs-number+hljs-params` expected, `hljs-number` given). That is CR-4's class-inheritance defect, carried by
+`fix-decorator-nested-styles`. (Under v1, 14 more characters were counted wrong: the class names with a space that v1 cut.) Ranges past the text on
 reachable rows (a language, `startCodeBlock: true`): 0 (base 22, tip 492). The remaining 20 rows with past-end ranges are lines with no
 language, where the parser's trailing `\n\n` chunk is merged into the range; `Text.decorations` ignores the excess, as accepted in round 2.
 
@@ -524,3 +524,4 @@ For the owner's own look in any editor text box (message content, embed title, e
 | 2026-11-22T21:30 | — | Round 3 (rulings 21:21): CR-4's pinning rows' fixture swapped (test-only), CR-3 taken (heading rule stamps `markerWidth`; regex and cast gone), website `2e6127e`; corpus byte-identical to `e6a5766`; red 151/77 at base; controls 5 of 5; suite 2594/2594, typecheck and lint exit 0. 116 production lines. `Handoff-At` `2e6127e`; handed to code review for a scoped check. |
 | 2026-11-22T21:33 | — | Code review scoped check APPROVED at website `2e6127e` (review record `201856c0`): CR-3, CR-4 resolved. QA Phase 2 owed (116 production lines), steering's to start. |
 | 2026-11-22T22:15 | — | Round 4 (QAF-1, QA Phase 2 QA Failed at `2e6127e`): a code-block line with a language is highlighted as one whole line from its own text; top-level text merged; website `a7e1adb`. Whole-line scorer: 0 right→wrong over 195 languages; corpus byte-identical outside code blocks; 14 rows red at the QA'd tip (10) and base (12); controls 4 of 4; suite 2608/2608, typecheck and lint exit 0. 118 production lines. `Handoff-At` `a7e1adb`; handed to code review for a scoped check, then QA. |
+| 2026-11-22T22:20 | — | Round 4 scores re-run with QA's scorer v2 (record `5374339e`): 0 right→wrong; 44,388 of 44,390 characters right over 195 languages; the 2 left are CR-4's class. v1 figures superseded. |
