@@ -1,0 +1,64 @@
+{
+ "sha": "a94735b7d3466e76e8452c32a15c3a77170d0277",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-decorator-offsets/round6/mutants-qa-survivor.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-decorator-offsets/round6/mutants-qa-survivor.json",
+   "blob": "1ceab4295f3667b931c438a4288b5d2b9c59205e"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-decorator-offsets/round6/controls/a94735b7d3466e76e8452c32a15c3a77170d0277-20261122T222636Z-p3922767-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-decorator-offsets/round6/controls/a94735b7d3466e76e8452c32a15c3a77170d0277-20261122T222636Z-p3922767-control-1.stderr",
+   "seconds": 3.07,
+   "exit": 1,
+   "timedOut": false,
+   "tests_run": 248,
+   "tests": [],
+   "passed": false
+  }
+ },
+ "mutants": [
+  {
+   "id": "qa-code-ranges-not-normalized",
+   "run": "mutant-1",
+   "file": "src/components/SlateEditor/utils/decorator.tsx",
+   "tests": [],
+   "carried": {
+    "origin": "qa"
+   },
+   "controlPassed": false,
+   "killed": false,
+   "outcome": "CONTROL-FAILED"
+  }
+ ],
+ "score": "0 of 0 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 1; mutants-qa-survivor.json (blob 1ceab4295f3667b931c438a4288b5d2b9c59205e))"
+}

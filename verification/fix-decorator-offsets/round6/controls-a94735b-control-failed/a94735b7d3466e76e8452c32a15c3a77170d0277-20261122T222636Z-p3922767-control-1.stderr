@@ -1,0 +1,20 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "python" block with the content parser colours "f\"a {b} c\"" as "f\"a ":hljs-string "{b}":hljs-string+hljs-subst " c\"":hljs-string
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "python" block with the field parser colours "f\"a {b} c\"" as "f\"a ":hljs-string "{b}":hljs-string+hljs-subst " c\"":hljs-string
+AssertionError: expected '"f\"a ":hljs-string "{b}":hljs-subst …' to be '"f\"a ":hljs-string "{b}":hljs-string…' // Object.is equality
+
+Expected: ""f\"a ":hljs-string "{b}":hljs-string+hljs-subst " c\"":hljs-string"
+Received: ""f\"a ":hljs-string "{b}":hljs-subst " c\"":hljs-string"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:434:87
+    432|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    433|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    434|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    435|   });
+    436| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+

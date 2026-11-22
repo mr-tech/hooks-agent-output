@@ -1,0 +1,9 @@
+[
+ {
+  "id": "qa-code-ranges-not-normalized",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "return normalizeRanges(leaf.ranges).map((range) => ({",
+  "new": "return leaf.ranges.map((range) => ({",
+  "origin": "qa"
+ }
+]

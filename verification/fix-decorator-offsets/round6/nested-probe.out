@@ -1,0 +1,18 @@
+"js"            content "f(`t ${y}`);"                       "f":hljs-title function_ "(":- "`t ":hljs-string "${y}":hljs-string+hljs-subst "`":hljs-string ");":-
+"js"            field   "f(`t ${y}`);"                       "f":hljs-title function_ "(":- "`t ":hljs-string "${y}":hljs-string+hljs-subst "`":hljs-string ");":-
+"js"            content "/** @param x */"                    "/** ":hljs-comment "@param":hljs-doctag " x */":hljs-comment
+"js"            field   "/** @param x */"                    "/** ":hljs-comment "@param":hljs-doctag " x */":hljs-comment
+"python"        content "f\"a {b} c\""                       "f\"a ":hljs-string "{b}":hljs-subst " c\"":hljs-string
+"python"        field   "f\"a {b} c\""                       "f\"a ":hljs-string "{b}":hljs-subst " c\"":hljs-string
+"ruby"          content "\"a #{b} c\""                       "\"a ":hljs-string "#{b}":hljs-subst " c\"":hljs-string
+"ruby"          field   "\"a #{b} c\""                       "\"a ":hljs-string "#{b}":hljs-subst " c\"":hljs-string
+"haskell"       content "x = '\\\\*'"                        "x":hljs-title " = '\\\\*'":-
+"haskell"       field   "x = '\\\\*'"                        "x":hljs-title " = '\\\\*'":-
+"python"        content "x = f\"a {b} c\""                   "x = ":- "f\"a ":hljs-string "{b}":hljs-subst " c\"":hljs-string
+"python"        field   "x = f\"a {b} c\""                   "x = ":- "f\"a ":hljs-string "{b}":hljs-subst " c\"":hljs-string
+"ruby"          content "x = \"a #{b} c\""                   "x = ":- "\"a ":hljs-string "#{b}":hljs-subst " c\"":hljs-string
+"ruby"          field   "x = \"a #{b} c\""                   "x = ":- "\"a ":hljs-string "#{b}":hljs-subst " c\"":hljs-string
+"js"            content "x = 1; /** @param y */"             "x = ":- "1":hljs-number "; ":- "/** ":hljs-comment "@param":hljs-comment+hljs-doctag " y */":hljs-comment
+"js"            field   "x = 1; /** @param y */"             "x = ":- "1":hljs-number "; ":- "/** ":hljs-comment "@param":hljs-comment+hljs-doctag " y */":hljs-comment
+"python"        content "print(f\"a {b}\")"                  "print":hljs-built_in "(":- "f\"a ":hljs-string "{b}":hljs-string+hljs-subst "\"":hljs-string ")":-
+"python"        field   "print(f\"a {b}\")"                  "print":hljs-built_in "(":- "f\"a ":hljs-string "{b}":hljs-string+hljs-subst "\"":hljs-string ")":-

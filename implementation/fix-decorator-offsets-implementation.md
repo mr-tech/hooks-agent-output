@@ -3,23 +3,52 @@ ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
 Status: Active
-Status-Detail: "Code review APPROVED at website 24eda1c (CR-5 scoped check, record 58a83897; CR-6 LOW routed by steering to fix-decorator-nested-styles); QA Phase 2 refresh owed, started by steering; 128 production lines; merge to website master by devops on the owner's word."
-Handoff-At: 24eda1c — repos=website
+Status-Detail: "Round 6 (QA refresh at 24eda1c QA Failed on QAF-2, test-only) at website febf20e, handed to QA for the survivor re-run; production code unchanged since the approved 24eda1c; 128 production lines; merge to website master by devops on the owner's word."
+Handoff-At: febf20e — repos=website
 Origin-Chain: none
 ---
 
 # fix-decorator-offsets — implementation
 
-## Resumption State (2026-11-22T22:45Z, round 5 handed off)
+## Resumption State (2026-11-22T23:05Z, round 6 handed off)
 
-- **Done:** CR-5 fixed on website `chain/fix-decorator-offsets`, HEAD `24eda1c` (`7708a8a` the projection, `24eda1c` four limbs with no effect
-  removed); evidence under `verification/fix-decorator-offsets/round5/`; hand-off sent to `code-reviewer-fix-decorator-offsets`, copied to
-  `steering-hooks-fixer` and `qa-fix-decorator-offsets`.
-- **Next:** the scoped check came back APPROVED at `24eda1c` (record `58a83897`, read); QA's refresh pass is next, started by steering. On findings: re-read Rounds 5 and 4 and the
-  finding's document; fix on the same branch; re-run red, controls, suite and typecheck in exports, QA's scorer v2 and the reviewer's
-  split probe.
+- **Done:** QAF-2's test row committed on website `chain/fix-decorator-offsets`, HEAD `febf20e` (test-only; `a94735b` a first fixture, replaced);
+  evidence under `verification/fix-decorator-offsets/round6/`; hand-off sent to `qa-fix-decorator-offsets`, copied to `steering-hooks-fixer`
+  and `code-reviewer-fix-decorator-offsets`.
+- **Next:** wait for QA's re-run of its survivor at `febf20e`. On findings: re-read Rounds 4 to 6.
 - **Approach in flight:** none. **Uncommitted / locally mutated:** none of mine; website tree clean apart from `.playwright-mcp/`; scratch
   worktrees removed.
+
+## Round 6: QAF-2, a code line with a nested scope (QA Phase 2 refresh at `24eda1c`, test-only)
+
+**Finding** (`qa/fix-decorator-offsets-qa.md`, record `11dc38ef`): QA's mutant `qa-code-ranges-not-normalized` survived all 356 cases.
+It drops `normalizeRanges` from `codeLineRanges`, and with it the step that gives a nested highlight scope its outer scope's class.
+No row had a nested scope. QAF-1 is resolved; nothing else failed.
+
+**Change, test only:** two rows in the code-block table, `print(f"a {b}")` in a `python` block under the content and field parsers.
+The expected value, `"print":hljs-built_in "(":- "f\"a ":hljs-string "{b}":hljs-string+hljs-subst "\"":hljs-string ")":-`, is read from
+highlight.js's whole-line HTML. Website `febf20e`.
+
+**Choosing the fixture** (probe `round6/nested-probe.out`, real decorator at `a94735b`):
+- QA's example, `` f(`t ${y}`); ``, renders right, but the repository's eslint forbids `${` inside a string literal
+  (`no-template-curly-in-string`). Splitting the literal trips `no-useless-concat`, and doing it only to get past the rule would be a
+  workaround, so I did not use it.
+- My first replacement, `f"a {b} c"`, was committed at `a94735b`. The mutation runner's unmutated control then **failed** on it
+  (`round6/controls-a94735b-control-failed*`). At the tip, `{b}` comes back as `hljs-subst` alone. Ruby `"a #{b} c"` and a JS doc comment's
+  `@param` at line start do the same (`nested-probe.out`).
+- Cause, read in `normalizeRanges`: a range inherits classes only from an earlier non-syntax range (`prevMarkup`). That variable is seeded
+  from the first range only when that range is syntax. So when the outer scope is the line's first range, its nested scope loses the
+  outer class. That is CR-4's class (`fix-decorator-nested-styles`), so asserting it would pin a known-wrong value (axiom D). It is not
+  worse than base: at base these lines highlighted only their first chunk.
+- `print(f"a {b}")` puts a range before the string, so it is right at the tip.
+
+**Evidence:**
+- **Survivor re-run** (`mutation-run.py` at `febf20e`, `round6/mutants-qa-survivor.json`, the QA mutant verbatim; `round6/controls/`,
+  `controls.txt`, exit 0): control passed, 248 cases; **KILLED**, count checked, by exactly the two new rows. This is also their red run.
+- **Suite** at `febf20e` (clean export): 168 files, 2614 tests, all passed, exit 0 (`round6/suite.txt`); 2612 + 2.
+- **Typecheck:** exit 0. **eslint** on the test file: exit 0. **convention-check** `--since=8845b7e`: exit 0, 0 FAIL, 0 CANDIDATE
+  (`round6/convention-check.txt`). Its first two runs FAILed the two fixtures above, which I replaced instead.
+- `git diff --numstat 24eda1c febf20e`: test `2 0`, no production file: still **128 production lines**.
 
 ## Round 5: CR-5, a code line split by an emoji (review of `a7e1adb`, REJECTED)
 
@@ -565,7 +594,8 @@ For the owner's own look in any editor text box (message content, embed title, e
 
 ## Handoff
 
-- **SHA:** website `24eda1c` on `chain/fix-decorator-offsets` (round 5, CR-5: scoped check of `a7e1adb..24eda1c`, then QA's refresh pass;
+- **SHA:** website `febf20e` on `chain/fix-decorator-offsets` (round 6, QAF-2, test-only: QA's survivor re-run; production code as reviewed at
+  `24eda1c`; round 5 `24eda1c` (CR-5: scoped check of `a7e1adb..24eda1c`);
   round 4 `a7e1adb`, round 3 `2e6127e`, round 2 `e6a5766`, round 1 `f57c260`).
 - **Who reviews:** `code-reviewer-fix-decorator-offsets` (round numbering is the reviewer's), spawned or resumed by `steering-hooks-fixer`
   on this document's spawn cue; round 3 sent to it directly, steering copied (block 21:21). **116 production lines: QA Phase 2 follows an approving review** (`qa-fix-decorator-offsets`, started by
@@ -585,3 +615,4 @@ For the owner's own look in any editor text box (message content, embed title, e
 | 2026-11-22T22:20 | — | Round 4 scores re-run with QA's scorer v2 (record `5374339e`): 0 right→wrong; 44,388 of 44,390 characters right over 195 languages; the 2 left are CR-4's class. v1 figures superseded. |
 | 2026-11-22T22:45 | — | Round 5 (CR-5, review REJECTED `a7e1adb`): a code line is highlighted once as its whole element line and each text node gets its part, website `7708a8a`; four limbs the leaf splitter makes redundant removed, `24eda1c`. Split probe 131/131; scorer v2 0 right→wrong; corpus identical; red 2 at `a7e1adb`; controls 9 of 9; suite 2612/2612, typecheck and lint exit 0. 128 production lines. `Handoff-At` `24eda1c`; handed to code review for a scoped check. |
 | 2026-11-22T22:50 | — | Code review scoped check APPROVED at website `24eda1c` (record `58a83897`). Round 5's claim about the removed limbs corrected: the code-line path also no longer drops empty ranges, which CR-6 LOW shows highlight.js can emit; not worse than base; routed to `fix-decorator-nested-styles`. QA Phase 2 refresh owed. |
+| 2026-11-22T23:05 | — | Round 6 (QAF-2, QA refresh at `24eda1c` QA Failed): two test rows with a nested highlight scope (`print(f"a {b}")`), website `febf20e`; QA's survivor KILLED by them; suite 2614/2614, typecheck and lint exit 0; no production change. A nested scope whose outer scope is a line's first range loses the outer class (CR-4's class): recorded and routed. `Handoff-At` `febf20e`; handed to QA. |

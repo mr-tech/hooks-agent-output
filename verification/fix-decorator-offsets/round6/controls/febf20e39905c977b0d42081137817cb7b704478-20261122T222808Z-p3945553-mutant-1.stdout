@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/f9cf51a5-acaf-4105-852b-c564aac3ee83/scratchpad/mwork8/20261122T222808Z-p3945553/mutant-1
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (248 tests | 2 failed) 130ms
+     × in a "python" block with the content parser colours "print(f\"a {b}\")" as "print":hljs-built_in "(":- "f\"a ":hljs-string "{b}":hljs-string+hljs-subst "\"":hljs-string ")":- 8ms
+     × in a "python" block with the field parser colours "print(f\"a {b}\")" as "print":hljs-built_in "(":- "f\"a ":hljs-string "{b}":hljs-string+hljs-subst "\"":hljs-string ")":- 2ms
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 246 passed (248)
+   Start at  22:28:12
+   Duration  1.55s (transform 497ms, setup 0ms, import 1.27s, tests 130ms, environment 0ms)
+
