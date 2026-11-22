@@ -4,7 +4,10 @@ Fixer chain steered by `steering-hooks-fixer` (cwd `/usr/local/bin/hooks`; coord
 `fixer-queue-2026-11-21`. tmux category: `fix-emoji-pretransform-widths`. Source: `TODO.md` item "website editor: the emoji pre-transform
 shifts widths — pasted text lost"; findings and evidence in `steering/fix-decorator-offsets-rulings.md`, blocks from 2026-11-22T22:0x on.
 
-## 2026-11-22T22:58 — his two selections: this chain goes next, and starts now despite the weekly limit
+## 2026-11-22T22:56 — his two selections: this chain goes next, and starts now despite the weekly limit
+
+Disclosed: this heading was first typed with an estimated minute (22:58, ahead of the clock); the stamp gate flagged it after the commit;
+restamped from `date -u`.
 
 (1) Recorded in `steering/fix-decorator-offsets-rulings.md` block 22:1x: "Agent: fix it next (Recommended)" — the four remaining small editor
 fixes each move back one place. (2) Selection prompt put 22:5xZ, answered 22:5xZ (ledger `steering/selection-ledger/2026-11-22.md`);
