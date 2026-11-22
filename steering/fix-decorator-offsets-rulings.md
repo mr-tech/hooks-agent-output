@@ -86,3 +86,18 @@ before parsing, changing source widths after it; `🙂 **a**` colours nothing at
 normaliser read from code, not run. Disposition (this thread's, under block 04:50): same class, outside this write set — a probe of
 whether the editor ever hands such text to the decorator, then a fix if it does, as its own item queued after 9f (`TODO.md`). Fixer's
 disclosure (a negative control once in the shared tree, restored) is in its document. Fixer asked for `/checkpoint` (past threshold).
+
+## 2026-11-22T21:21 — round-1 sub-entry APPROVED_WITH_COMMENTS at e6a5766; CR-4 ruled (own chain + fixture swap); CR-3 rides
+
+Reviewer's cue by message ~21:3xZ: `code-review/fix-decorator-offsets-code-review.md` (record `d9134997`, read: `Reviewed-At e6a57665…`,
+`APPROVED_WITH_COMMENTS`); 111 production lines confirmed; suite 2593/2593 exit 0; two instruments (its 36,000-row corpus; a grammar oracle
+of 7,137 rows) find 0 inputs worse than base; CR-1, CR-2 resolved. CR-4 MEDIUM (pre-existing, not this chain's): a run following a sibling
+inside an outer run loses the outer run's style (`||**a** __b__||`: `b` without spoiler style), 3,641 of 7,137 oracle rows, base and tip
+alike; one test row pair pins it (axiom D). CR-3 LOW: the heading-marker regex duplicated behind a cast.
+**Ruling (this thread's, under block 04:50):** CR-4 is a different property (style inheritance across siblings, not syntax width) — its own
+fixer chain `fix-decorator-nested-styles`, queued after 9f, the oracle's rows its acceptance set. In this chain the fixer swaps the pinning
+test rows' fixture for one that asserts no CR-4 value (test-only) and takes CR-3 (a few lines); the reviewer runs a scoped check of that
+delta; QA Phase 2 starts on the scoped approval. QA's brief carries the reviewer's unrun assumption (a Unicode emoji never sits in a text
+leaf; mounted editor holding `🙂 **a**`), which also answers the `TODO.md` emoji item's reachability. Sent to the fixer (cleared;
+briefed with its Resumption State, `implementation/fix-decorator-offsets-implementation.md` § "Resumption State", record `816977d9`) and
+the reviewer.
