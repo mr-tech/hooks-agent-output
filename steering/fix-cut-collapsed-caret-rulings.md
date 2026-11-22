@@ -70,3 +70,11 @@ Assumption Not Checked (real browser: Ctrl+X with a plain caret removes nothing)
 (this thread's): an agent can perform it — a browser walk of the signed-out editor (signed-out visitors reach the blank editor, chain 8's
 live checks) — so it is not queued for him; it rides the devops brief as a post-deploy walk by a `browser-walker` helper, typing text,
 placing a plain caret, pressing Ctrl+X, reading the text back; no save.
+
+## 2026-11-22T19:15 — review approved at 8845b7e; devops started
+
+Reviewer's spawn cue by message ~19:1xZ: `code-review/fix-cut-collapsed-caret-code-review.md` (record `de261824`, read: `Reviewed-At
+8845b7e3409782e0…`, Round 1, `APPROVED`; sub-entry 1a fixed CR-1 with a Copy case); suite 2366/2366 exit 0; 5 production lines. Fixer's
+`Handoff-At` now `8845b7e` (read). The reviewer's Assumption Not Checked (real-browser Ctrl+X) stays routed to an agent walk, not to him
+(round-1 block). Devops brief `steering/fix-cut-collapsed-caret-brief-devops.md` (post-deploy browser-walk row); `devops-fix-cut-collapsed-caret`
+started with `tmux-agent spawn`.
