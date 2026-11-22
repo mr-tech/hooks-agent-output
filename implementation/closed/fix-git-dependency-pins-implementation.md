@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-git-dependency-pins
 UUID: 84f208f7
-Status: Active
-Status-Detail: "Both halves committed. Project-utils 40ba5d3 is on project-utils master (pushed by devops). Website 3859c29 on chain/fix-git-dependency-pins is handed to code review. Website master release follows (devops, his word) and waits on a passing production build (rulings block 23:58)."
+Status: Committed
+Status-Detail: "Both halves committed and approved in code review. Project-utils 40ba5d3 is on project-utils master (released, devops record deployment/fix-git-dependency-pins-deployment.md). Website 3859c29 on chain/fix-git-dependency-pins awaits its master release (devops, his word), held until a production build passes (rulings block 23:58)."
 Handoff-At: 40ba5d3,3859c29 — repos=project-utils,website
 Origin-Chain: none
 ---
@@ -275,3 +275,4 @@ Those flows read and write the database through project-utils. Where the site us
 | 2026-11-21T23:04 | fixer-fix-git-dependency-pins | Document created. Project-utils half: red at `749606d`, fix committed `40ba5d3`, green at `40ba5d3`; handed to code review |
 | 2026-11-21T23:07 | fixer-fix-git-dependency-pins | Stale gitignored `build/js/prisma.js(.map)` deleted in the shared project-utils tree, under steering's ruling (block "2026-11-21T23:07", `7c2839f`). No commit changed; `Handoff-At` stays `40ba5d3` |
 | 2026-11-22T00:06 | fixer-fix-git-dependency-pins | Website half (rulings block "2026-11-21T23:58"): hand pin committed `3859c29`; red at `132a7ab`, green at `3859c29`; lock classified with three controls; handed to code review. `Handoff-At` `40ba5d3,3859c29`. This row's stamp was first typed as `00:20`; the record's stamp gate refused it, and it was replaced with the `date -u` minute |
+| 2026-11-22T00:21 | devops | Document closed. Status: Committed. Stage 1 for release 2 (deployment record `deployment/fix-git-dependency-pins-deployment.md`): both halves approved at `Handoff-At` `40ba5d3,3859c29`; project-utils half released at `40ba5d3` (23:15Z); website `3859c29` on its chain branch awaits the `master` release. The deploy-host install question the review routed to devops is read and recorded there |
