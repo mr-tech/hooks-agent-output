@@ -1,0 +1,6 @@
+marker-spaces-not-counted KILLED 2.79
+marker-leading-spaces-not-counted KILLED 2.76
+marker-hashes-not-counted KILLED 2.82
+marker-width-not-stamped KILLED 2.85
+heading-opening-ignored KILLED 2.76
+5 of 5 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-2e6127e.json (blob d1a2605a04facf1cbb0fdb3dbaafaefec7cecc6d))

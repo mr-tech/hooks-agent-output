@@ -1,0 +1,1 @@
+JSON report written to /tmp/claude-1000/-usr-local-bin-hooks-website/f9cf51a5-acaf-4105-852b-c564aac3ee83/scratchpad/red.json

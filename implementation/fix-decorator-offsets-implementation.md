@@ -3,29 +3,88 @@ ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
 Status: Active
-Status-Detail: "Round 2 handed to code review at website e6a5766 (2026-11-22T21:12Z) under the 20:44 re-scope; 111 production lines, so QA Phase 2 follows review; merge to website master by devops on the owner's word."
-Handoff-At: e6a5766 — repos=website
+Status-Detail: "Round 3 (rulings 21:21: CR-4 fixture swap, CR-3) handed to code review for a scoped check at website 2e6127e (2026-11-22T21:30Z); 116 production lines, so QA Phase 2 follows the scoped approval; merge to website master by devops on the owner's word."
+Handoff-At: 2e6127e — repos=website
 Origin-Chain: none
 ---
 
 # fix-decorator-offsets — implementation
 
-## Resumption State (checkpoint 2026-11-22T21:16Z, on steering's request)
+## Resumption State (2026-11-22T21:30Z, round 3 handed off)
 
-- **Done:** round 2 committed on website `chain/fix-decorator-offsets`, HEAD `e6a5766` (`2ad482a` the class fix, `e6a5766` limbs
-  removed + link-edge rows); this document at record `c88dbcd4`; spawn cue sent to `steering-hooks-fixer` (msg `887e5f62`), which
-  relayed it to the reviewer.
-- **Next:** wait for code review of `e6a5766` (round numbering the reviewer's). On findings: re-read this Round 2 section, the review
-  document, and `steering/fix-decorator-offsets-rulings.md` from block 20:44 on; fix on the same branch, re-run red/controls/suite/
-  typecheck in exports, and re-run the reviewer's corpus probe (`verification/fix-decorator-offsets/code-review/decorator.differential-probe.test.ts`
-  + `visible.mjs`, plus `round2/invariants.mjs`) at base and tip. On approval: nothing for this stage; QA Phase 2 is steering's to start.
-- **Approach in flight:** none; no edit or run open.
-- **Uncommitted / locally mutated:** none of mine. The website tree is clean apart from the foreign `.playwright-mcp/`. The worktrees
-  `wt-base`, `wt-tip` and `wt-fix` are removed, and no probe file remains in `__tests__/`.
-- **Evidence:** all committed under `verification/fix-decorator-offsets/round2/` and `controls/run3`, `run4`. Scratch copies in the session
-  scratchpad are not relied on.
-- **Questions sent:** to steering with the hand-off: (1) the emoji pre-treatment in `utils.ts` (outside the write set); (2) the disclosed
-  shared-tree control. Neither blocks review.
+- **Done:** round 3 committed on website `chain/fix-decorator-offsets`, HEAD `2e6127e` (CR-4 fixture swap, CR-3); evidence under
+  `verification/fix-decorator-offsets/round3/`; hand-off sent to `code-reviewer-fix-decorator-offsets`, copied to `steering-hooks-fixer`.
+- **Next:** wait for the reviewer's scoped check of `e6a5766..2e6127e`. On findings: re-read Round 3 below and the review document; fix
+  on the same branch, re-run red, controls, suite and typecheck in exports. On approval: nothing for this stage; QA Phase 2 is steering's
+  to start.
+- **Approach in flight:** none. **Uncommitted / locally mutated:** none of mine; the website tree is clean apart from the foreign
+  `.playwright-mcp/`; scratch worktrees removed (`git worktree list` shows only the shared tree).
+
+## Round 3: CR-4 fixture swap and CR-3 (rulings block "2026-11-22T21:21")
+
+**Scope** (block 21:21, read whole; review `code-review/fix-decorator-offsets-code-review.md` record `d9134997`, APPROVED_WITH_COMMENTS
+at `e6a5766`): "the fixer swaps the pinning test rows' fixture for one that asserts no CR-4 value (test-only) and takes CR-3 (a few
+lines)". CR-4's defect itself (style inheritance across sibling runs) is carried by the queued chain `fix-decorator-nested-styles`, not
+here.
+
+**CR-4 (test-only).** The `content` and `field` rows of `__||c d[a](https://x.y)\*https://x.y||` asserted the bare URL inside the spoiler
+as `linkText` without `spoilerText`, a known-wrong value (axiom D). Their fixture is now `__||c d[a](https://x.y)||\*https://x.y`: the
+spoiler closes after the masked link, so the escape and the bare URL sit at the root. It keeps what the row was for (an escape between a
+masked link and a bare URL, after a spoilered link) and meets the reviewer's fixture property: no leaf in the expectation follows a
+sibling run inside a shared enclosing run. Expected, read character by character against the input (probe output
+`round3/leaves-new.out`): `"__":- "||":S "c d":spoilerText "[":S+spoilerText "a":linkText+spoilerText "](":S "https://x.y":linkText ")":S
+"||":S "\\*":- "https://x.y":linkText`. (The masked target as `linkText` alone is the long-standing design the review does not count.)
+The `title` row of the old fixture is unchanged: under the title parser it asserts `spoilerText` on every leaf inside the spoiler, so it
+pins no CR-4 value.
+
+**CR-3.** `decorator.tsx` re-derived the heading marker with its own regex behind a cast (`HEADING_MARKER.exec(…) as RegExpExecArray`),
+which would throw if it drifted from the rule's pattern. Now the interactive `heading` rule (`rules.tsx`) stamps `markerWidth` from its
+own captures (leading spaces and `#`s up to the end of `capture[1]`, then the run of spaces after it, the same span the old regex took),
+and `openingWidth` reads `ast.markerWidth ?? 0`. The regex and the cast are gone.
+
+**Behaviour unchanged, by instrument:** the reviewer's corpus probe (36,000 rows, three parsers) at `e6a5766` and with this round's two
+production files is byte-identical (`round3/corpus-identity.txt`, sha256 equal). The instrument responds: with the space loop removed it
+differs (`corpus-ctl.json.gz`). The leaf probe over the new fixtures and heading shapes is identical too (`leaves-e6a5766.out`,
+`leaves-new.out`).
+
+### Change (round 3)
+
+- `src/utils/markdown/rules.tsx` (+8): an interactive `heading` entry whose parse adds `markerWidth` to the static heading's node.
+- `src/components/SlateEditor/utils/decorator.tsx` (+2 −5): `markerWidth` on the node type; `HEADING_MARKER` and the cast removed.
+- Test file (+3 −2): the two CR-4 rows' fixture swapped; one row added, `' # **a**'` (a heading with a leading space), which is the
+  only row that discriminates the leading-space offset (below).
+
+Website commit `2e6127e`. `git diff --numstat 8845b7e 2e6127e`: test `411 0`, `decorator.tsx` `99 39`, `rules.tsx` `17 1`:
+**116 production lines added**, so QA Phase 2 still follows review.
+
+### Test (round 3)
+
+- **Red run** (test file at `2e6127e` against base `8845b7e`'s `decorator.tsx` and `rules.tsx`, `git worktree --detach` export):
+  `round3/red-run.txt`, `red-run.json.gz`: 151 failed, 77 passed, 228 total, exit 1. The three changed or added rows are all among the
+  failures.
+- **Green** at `2e6127e`: 228 passed (in the suite below).
+- **Negative controls** for this round's code (`mutation-run.py` at `2e6127e`, `round3/mutants-2e6127e.json`, table `round3/controls/`,
+  log `round3/controls.txt`, exit 0): **5 of 5 KILLED**, counts checked (228 = 228).
+
+| Control | Covers | Outcome |
+|---|---|---|
+| `marker-spaces-not-counted` | the space loop (added guard) | KILLED (13 cases) |
+| `marker-leading-spaces-not-counted` | chosen value `indexOf(capture[1])` | KILLED (`' # **a**'` only) |
+| `marker-hashes-not-counted` | `+ capture[1].length` | KILLED (13) |
+| `marker-width-not-stamped` | the stamp | KILLED (13) |
+| `heading-opening-ignored` | the decorator's read | KILLED (13) |
+
+### Verification (round 3)
+
+- **Suite** at `2e6127e` (clean `git worktree` export, `node_modules` symlinked, `next-env.d.ts` copied in as before): 168 files, 2594
+  tests, all passed, exit 0 (`round3/suite.txt`, `suite.json.gz`); membership by path identical to round 2's; 2593 + 1 row = 2594.
+- **Typecheck** (`pnpm run typecheck`, both programs), same export: exit 0 (`round3/typecheck.txt`).
+- **Lint**: `npx eslint` over the three files in the export, exit 0 (`round3/eslint.txt`); `convention-check.js website --since=8845b7e`
+  on the shared tree before the commit, exit 0, 0 FAIL, 0 CANDIDATE (`round3/convention-check.txt`); SKIPs: the ID-token check (run by
+  hand over the added test lines with the CLAUDE.md class, `grep -ciE` → 0) and `.playwright-mcp/` images (not this chain's). No
+  comment lines added.
+- No package-manager operation; no lockfile change. Nothing ran in the shared tree but the commit and the convention check; the corpus
+  control ran in an export.
 
 ## Round 2: re-scope after review round 1 (rulings block "2026-11-22T20:44")
 
@@ -354,9 +413,10 @@ For the owner's own look in any editor text box (message content, embed title, e
 
 ## Handoff
 
-- **SHA:** website `e6a5766` on `chain/fix-decorator-offsets` (round 2; round 1 was `f57c260`).
+- **SHA:** website `2e6127e` on `chain/fix-decorator-offsets` (round 3, scoped check of `e6a5766..2e6127e`; round 2 was `e6a5766`,
+  round 1 `f57c260`).
 - **Who reviews:** `code-reviewer-fix-decorator-offsets` (round numbering is the reviewer's), spawned or resumed by `steering-hooks-fixer`
-  on this document's spawn cue. **111 production lines: QA Phase 2 follows an approving review** (`qa-fix-decorator-offsets`, started by
+  on this document's spawn cue; round 3 sent to it directly, steering copied (block 21:21). **116 production lines: QA Phase 2 follows an approving review** (`qa-fix-decorator-offsets`, started by
   steering, rulings 20:44).
 - **Who merges:** devops, to website `master`, on the owner's word (rulings block 20:19). Vercel deploys `master` to production.
 
@@ -367,3 +427,4 @@ For the owner's own look in any editor text box (message content, embed title, e
 | 2026-11-22T20:29 | — | Created. Fix and test committed on `chain/fix-decorator-offsets` at `99fd3c3`; red, green, controls, suite, typecheck and lint recorded. BLOCKED to steering on the heading-marker defect and the two parent-delimiter guards. |
 | 2026-11-22T20:33 | — | Ruling A (rulings block 20:31): two guards dropped at website `f57c260`; 6 of 6 controls killed, suite 2381/2381, typecheck and lint exit 0 there. Heading defect recorded as carried by `fix-decorator-headings`. Status Blocked → Active; `Handoff-At` `f57c260`; handed to code review. |
 | 2026-11-22T21:12 | — | Round 2 under the 20:44 re-scope (review round 1 REJECTED, CR-1/CR-2): every node kind colours by its source width, `rules.tsx` stamps sources, website `2ad482a` and `e6a5766`; 227 cases, red 150/77 at base, controls 38 of 38, suite 2593/2593, typecheck and lint exit 0, reviewer corpus 0 clean→wrong. 111 production lines: QA Phase 2 restored. One control run in the shared tree disclosed. `Handoff-At` `e6a5766`; handed to code review. |
+| 2026-11-22T21:30 | — | Round 3 (rulings 21:21): CR-4's pinning rows' fixture swapped (test-only), CR-3 taken (heading rule stamps `markerWidth`; regex and cast gone), website `2e6127e`; corpus byte-identical to `e6a5766`; red 151/77 at base; controls 5 of 5; suite 2594/2594, typecheck and lint exit 0. 116 production lines. `Handoff-At` `2e6127e`; handed to code review for a scoped check. |

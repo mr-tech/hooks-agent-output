@@ -1,0 +1,12 @@
+[
+ {"id": "marker-spaces-not-counted", "file": "src/utils/markdown/rules.tsx",
+  "old": "      while (capture[0][markerWidth] === ' ') markerWidth += 1;\n", "new": ""},
+ {"id": "marker-leading-spaces-not-counted", "file": "src/utils/markdown/rules.tsx",
+  "old": "let markerWidth = capture[0].indexOf(capture[1]) + capture[1].length;", "new": "let markerWidth = 0 + capture[1].length;"},
+ {"id": "marker-hashes-not-counted", "file": "src/utils/markdown/rules.tsx",
+  "old": "let markerWidth = capture[0].indexOf(capture[1]) + capture[1].length;", "new": "let markerWidth = capture[0].indexOf(capture[1]);"},
+ {"id": "marker-width-not-stamped", "file": "src/utils/markdown/rules.tsx",
+  "old": "return { ...staticBaseRules.heading.parse(capture, parse, state), markerWidth };", "new": "return { ...staticBaseRules.heading.parse(capture, parse, state) };"},
+ {"id": "heading-opening-ignored", "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  return ast.markerWidth ?? 0;", "new": "  return 0;"}
+]

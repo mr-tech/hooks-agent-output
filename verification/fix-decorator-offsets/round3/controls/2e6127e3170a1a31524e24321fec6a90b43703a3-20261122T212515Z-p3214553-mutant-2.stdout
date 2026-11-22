@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/f9cf51a5-acaf-4105-852b-c564aac3ee83/scratchpad/mwork/20261122T212515Z-p3214553/mutant-2
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (228 tests | 1 failed) 106ms
+     × with the content parser colours " # **a**" as " # **":S "a":strongText "**":S 9ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 227 passed (228)
+   Start at  21:25:22
+   Duration  1.63s (transform 545ms, setup 0ms, import 1.36s, tests 106ms, environment 0ms)
+

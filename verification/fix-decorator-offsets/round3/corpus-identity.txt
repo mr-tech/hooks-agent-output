@@ -1,0 +1,7 @@
+Reviewer corpus probe (code-review/decorator.differential-probe.test.ts), 36,000 rows x 3 parsers, in git worktree exports:
+old = e6a5766; new = e6a5766 + this round's rules.tsx and decorator.tsx (identical to 2e6127e's); ctl = new with the marker-space loop removed
+d137b1e877688b2bbb6fa39598a95fc70c4c2eab1769145369144c5f93c35598  wt-old.corpus.json
+d137b1e877688b2bbb6fa39598a95fc70c4c2eab1769145369144c5f93c35598  wt-new.corpus.json
+2416cf40ae694d22d6ea0a023c573bd7607594d74cd974e030c8f526d3a4cb8f  wt-ctl.corpus.json
+cmp old new: identical
+cmp old ctl: wt-old.corpus.json wt-ctl.corpus.json differ: byte 13145, line 1
