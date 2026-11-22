@@ -2,10 +2,10 @@
 ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
-Reviewed-At: a7e1adbe62b588d5462e3c1db5add910481ae17c — repos=website
+Reviewed-At: 24eda1cdbcf980e91015582297daac0dfe4a0be1 — repos=website
 Status: In Review
 Round: 1
-Verdict: REJECTED
+Verdict: APPROVED
 ---
 
 # Code Review: fix-decorator-offsets
@@ -26,6 +26,7 @@ directory root; the sub-entry at `e6a5766` is in `tip-e6a5766/`.
 | 2026-11-22T20:43 | `steering-hooks-fixer` (brief `steering/fix-decorator-offsets-brief-code-reviewer.md`) | Round 1 review of website `f57c260` | Round 1: REJECTED. CR-1 HIGH (bare URL at a run's edge, right → wrong); CR-2 MEDIUM to steering (other width faults moved). Argument in record `f6b9baa6`. |
 | 2026-11-22T20:44 | `steering-hooks-fixer` | Ruling on CR-2 and write set | Round 1 note: re-scope to every node kind's source width; `rules.tsx` joins the write set; QA at 20+ lines. Record `2dc9572d`. |
 | 2026-11-22T21:19 | `steering-hooks-fixer` (fixer hand-off, record `c88dbcd4`) | Round 1 sub-entry: re-review at website `e6a5766` | Round 1 sub-entry: APPROVED_WITH_COMMENTS. CR-1 and CR-2 resolved, measured by two instruments of different shape: 0 inputs colour worse than at base. CR-3 LOW (heading marker regex duplicated with a non-null assertion). CR-4 MEDIUM (a test row pins a pre-existing missing-outer-class defect; the defect is put to steering). 111 production lines, so QA Phase 2 is restored. Process note for the retrospective: the fixer disclosed one negative control run in the shared tree, restored before commit; the reviewed tree is the committed `e6a5766`, read from an export. |
+| 2026-11-22T22:18 | `fixer-fix-decorator-offsets` (record `8a9082f5`) | Round 1 fix confirmation for CR-5 at website `24eda1c` | Round 1 sub-entry: APPROVED. CR-5 resolved (split lines 131/131, 0 worse than base). CR-6 LOW (empty-range filter removed; 2 zero-length highlight.js scopes found), routed. Suite 2612/2612, typecheck 0, red 2 at `a7e1adb`; 128 production lines, so QA Phase 2. |
 | 2026-11-22T22:14 | `steering-hooks-fixer` | Ruling on the code-line emoji escalation | Round 1 note: the text loss folds into `fix-emoji-pretransform-widths` (next chain, block 22:13); this chain's scope is unchanged; CR-5 stays with the fixer. Verdict unchanged. |
 | 2026-11-22T22:07 | `fixer-fix-decorator-offsets` (record `b7e392a0`) | Round 1 fix confirmation for QAF-1 at website `a7e1adb` | Round 1 sub-entry: REJECTED, CR-5 MEDIUM (severity floor). A code line split by an emoji element is highlighted per text node; 5 characters right at base are wrong. Lines without a language are identical to `2e6127e`; suite 2608/2608, typecheck 0. A pre-existing data loss (a Unicode emoji in a code line deletes the text after it, base and tip) is escalated to steering. |
 | 2026-11-22T21:29 | `fixer-fix-decorator-offsets` (record `21813123`) | Round 1 fix confirmation at website `2e6127e` | Round 1 sub-entry: APPROVED. CR-3 and CR-4 resolved. Corpus, grammar oracle and heading edges identical to `e6a5766` (0 rows differ). Suite 2594/2594 exit 0, typecheck exit 0, red 151/77. 116 production lines, so QA Phase 2. |
@@ -212,9 +213,47 @@ For `const s = "a 🙂 b";` the children become `["const s = \"a ", <emoji>, ""]
 affected (`a 🙂 b` keeps ` b`), because `getInitialValue` lifts their emoji itself. This is the round-2 emoji pre-treatment item, now
 with a data-loss signature.
 
+### Fix confirmation — website `24eda1c`, CR-5 (2026-11-22T22:18)
+
+Delta `a7e1adb..24eda1c` (`7708a8a`, `24eda1c`): `decorator.tsx` gains `codeLineRanges`. It highlights `flattenNodeText(line)` once,
+then shifts the ranges by the flattened width of the children before the node. At `24eda1c` the shifted ranges are no longer
+clamped or filtered. Production lines from base: 111 + 17 = **128**.
+
+CR-5 MEDIUM Round 1 RESOLVED: split code lines are highlighted as the whole line. My split probe at `24eda1c`: 131/131 characters
+equal the whole-line rendering (base 80, `a7e1adb` 110), and **0 right at base → wrong**. The 10 unsplit lines are identical to
+`a7e1adb`. Captured check: the test's 4 split-line rows; at `a7e1adb` 2 fail, with ` b"` received without `hljs-string` and
+` d` without `hljs-comment` (`r5-red.txt`).
+
+Unclamped ranges: slate-react 0.123's `Text` passes the node's decorations to `slate.Text.decorations`. That function skips a
+range whose end is at or before the leaf's start (`decorationEnd < leafStart`, or `=== leafStart` when the range is non-empty), and
+any range starting at or after the leaf's end. I read the dist code, and the split probe renders through it.
+
+| Check (`tip-24eda1c/`) | Result |
+|---|---|
+| Suite (export) | 2612/2612, exit 0 (`r5-suite.txt`) |
+| `pnpm run typecheck` | exit 0 |
+| Red: tip test file against `a7e1adb` production | 246: 2 failed (the split rows above), exit 1 |
+| Corpus probe / grammar oracle vs `a7e1adb` | 0 of 36,000 / 0 of 7,137 differ |
+| Split probe | 131/131, 0 worse than base (`split-tip5.json`) |
+
+CR-6 LOW Round 1
+- **Category**: Checks removed on survival evidence alone
+- **Title**: The empty-range filter on the code-line path was removed, but highlight.js does emit zero-length scopes
+- **Location**: `decorator.tsx`, `codeLineRanges` (no `anchor < focus` filter, unlike the markdown path's return).
+- **Class**: A guard is removed because its negative control survived. Survival shows no test reaches the guard; it does not show
+  the guarded input is unreachable.
+- **Enumeration**: `hljs-empty-scopes.cjs`: 193 languages × 25 sample lines, **2 zero-length scopes** (`haxe` `{"a": ""}` → `type`;
+  `profile` `f()` → `string`). An empty range inside a leaf is not skipped by `Text.decorations` (start equals end), so it splits the
+  leaf and adds an empty leaf. Not matched: sample lines beyond the 25.
+- **Magnitude**: unmeasured hypothesis on rendering. An extra empty leaf in a code line has no visible colour, and its caret effect
+  is not established. Base had no filter on this path either, so it is not worse than base.
+- **Required Action**: none for this release. **Preferred**: one exit filter shared by both paths. Routed with the queued
+  `fix-decorator-nested-styles` chain, which works in the same function (steering, below).
+
 ## Verdict
 
-**Status (current, at `a7e1adb`)**: REJECTED: CR-5 (severity floor on the scope's no-worse-than-base criterion).
+**Status (current, at `24eda1c`)**: APPROVED. CR-5 resolved, CR-6 LOW routed. QA Phase 2 re-verifies QAF-1 at `24eda1c` (128 production lines).
+**Earlier status (at `a7e1adb`)**: REJECTED: CR-5 (severity floor on the scope's no-worse-than-base criterion).
 **Earlier status**: APPROVED (round 1 sub-entry, fix confirmation at `2e6127e`)
 **Rationale**: every criterion of block 20:44 is met, and no input colours worse than at base by two independent instruments.
 CR-1 to CR-4 are all resolved. The CR-3 change is behaviour-identical on the corpus, the grammar oracle and the heading edge shapes.
@@ -222,8 +261,7 @@ Suite, typecheck and red run are clean.
 
 ## Required Actions
 
-1. CR-5 (fixer): highlight each code line once and project the result onto its text nodes. Add the split-line test with the stated
-   fixture property, then a scoped check here and QA Phase 2's re-run of QAF-1.
+1. None in this chain (CR-5 resolved at `24eda1c`). CR-6 LOW goes to steering as a row for `fix-decorator-nested-styles`.
 2. The pre-existing code-line emoji text loss, ruled 2026-11-22T22:13 (`steering/fix-decorator-offsets-rulings.md` block "22:13"):
    it folds into the fixer chain `fix-emoji-pretransform-widths`, which runs next after this one. Its evidence is this review's
    `tip-a7e1adb/withNormalizeNode.code-emoji-probe.test.ts` and `norm-*.json`. This chain's scope is unchanged.
@@ -244,6 +282,7 @@ text leaf would colour `**a**` at offsets shifted by the rewrite. Owner: QA Phas
 
 ## Next Steps
 
-- **Fixer** (`fixer-fix-decorator-offsets`): CR-5.
-- **QA** (`qa-fix-decorator-offsets`): after CR-5's scoped check, QAF-1 re-verified, including split code lines.
+- **Steering** (`steering-hooks-fixer`): resume QA Phase 2 at `24eda1c`, and carry CR-6 to `fix-decorator-nested-styles`.
+- **QA** (`qa-fix-decorator-offsets`): QAF-1 re-verified at `24eda1c`, including split code lines (`tip-24eda1c/split-tip5.json`, probe
+  `tip-a7e1adb/decorator.code-split-probe.test.ts`).
 - **Devops**: round 1's assumption, at the post-deploy walk.

@@ -1,0 +1,2 @@
+JSON report written to /tmp/claude-1000/-usr-local-bin-hooks-website/7b0ffe38-5cc8-4cb1-9e13-231adb56cd05/scratchpad/r5-red.json
+red exit 1
