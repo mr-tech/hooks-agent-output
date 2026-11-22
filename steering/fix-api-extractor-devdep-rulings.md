@@ -47,3 +47,15 @@ lint passes. **Ruling (this thread's; scope item 1's "only by that package's own
 unchanged):** option 1 — commit the green candidate as it stands; the two in-range hoisted bumps of dev-only tooling are part of placing the
 subtree. Not option 2 (a hand-placed nested lock the next `npm install` undoes). Not put to him: a technical bound inside the write set
 under his "fix everything you find" (effort block 04:50); no product behaviour and no consumer install changes (devDependencies).
+
+## 2026-11-22T07:11 — the fixer's second BLOCKED: the pre-commit hook's rebuild in the shared tree is admitted (this thread's ruling)
+
+The fixer by message 07:1xZ: the commit was not made — project-utils' pre-commit hook (`core.hooksPath=.githooks/`, read: `npm run rebuild`
+then refuse if `git ls-files -m` is non-empty) stopped at lint (`eslint: not found`) because the shared tree has no `node_modules`
+(`ls -d` fails, 07:11Z); passing it needs `npm ci` in the tree and a rebuild that rewrites gitignored `build/js`, `build/types` and `dist/`.
+This thread's read: `build/` was created 2023-03-02 but `build/js` was last written 2026-11-21 (`ls -la`) — chain 7's own hooked commit
+rewrote it; it is regenerated build output, owned by no live session. **Ruling: option 1** — `npm ci` in the shared tree (its gitignored
+`node_modules/` is the intended steady state for a tree whose hook needs it) and the hook's rewrite of `build/`; commit with the hook active
+(never `--no-verify`), then show `git diff --quiet HEAD -- dist` and `git status` clean. The brief's "leave anything in `build/` you did not
+create" was this thread's guidance for the stale prisma cache, now superseded for regenerated output. The hook is a build gate whose remedy
+is the rebuild — satisfying it, disclosed here.
