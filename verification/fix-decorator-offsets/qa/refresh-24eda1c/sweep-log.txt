@@ -1,0 +1,19 @@
+decorator.tsx:201:walk-first KILLED 12.02
+decorator.tsx:201:walk-last KILLED 14.33
+decorator.tsx:201:num KILLED 8.94
+decorator.tsx:201:num:2 KILLED 7.19
+decorator.tsx:203:walk-first KILLED 7.87
+decorator.tsx:203:walk-last KILLED 7.14
+decorator.tsx:220:if-false KILLED 6.8
+decorator.tsx:223:walk-first KILLED 7.16
+decorator.tsx:223:walk-last KILLED 7.13
+decorator.tsx:224:=== KILLED 6.52
+qa-start-includes-own-node KILLED 6.67
+qa-start-emoji-width-zero KILLED 6.54
+qa-highlight-node-text-only KILLED 6.82
+qa-anchor-not-shifted KILLED 8.04
+qa-focus-not-shifted KILLED 8.65
+qa-language-branch-always KILLED 7.91
+qa-code-ranges-not-normalized SURVIVED 7.65
+qa-top-level-merge-dropped KILLED 6.51
+17 of 18 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-qa-24eda1c.json (blob 9ae131631f3654193e0e5321417508b7aa98677f))

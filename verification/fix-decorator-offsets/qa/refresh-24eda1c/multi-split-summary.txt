@@ -1,0 +1,5 @@
+js 'const s = "a :smile: b :smile: c";' base 11 / 20 tip 20 / 20 tip wrong []
+js 'f(`t :smile: ${y} :smile:`);' base 4 / 14 tip 14 / 14 tip wrong []
+js 'const s = "a < b";' base 11 / 17 tip 17 / 17 tip wrong []
+python 'print("x < y :smile: z")' base 7 / 16 tip 16 / 16 tip wrong []
+js '// c < d < e' base 0 / 10 tip 10 / 10 tip wrong []

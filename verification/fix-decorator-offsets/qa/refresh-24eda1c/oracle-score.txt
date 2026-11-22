@@ -1,0 +1,70 @@
+{"rows":7137,"baseOk":911,"tipOk":3496,"worse":0,"better":2585,"bothBad":3641}
+tip mismatch reasons {
+ "classes X expected X+X+X": 1518,
+ "classes X expected X+X": 1237,
+ "classes X+X expected X+X+X": 886
+}
+
+## worse than base
+
+## tip mismatches (first 60)
+{"parser":"content","text":"__||~~abc a~~ *b abc*|| b__","at":15,"why":"classes emText expected emText+spoilerText+uText"}
+{"parser":"field","text":"__||~~abc a~~ *b abc*|| b__","at":15,"why":"classes emText expected emText+spoilerText+uText"}
+{"parser":"content","text":"https://x.y ||*<@123> ~~b abc b~~ __cd__*|| `c`","at":36,"why":"classes uText expected emText+spoilerText+uText"}
+{"parser":"field","text":"https://x.y ||*<@123> ~~b abc b~~ __cd__*|| `c`","at":36,"why":"classes uText expected emText+spoilerText+uText"}
+{"parser":"content","text":"*||cd ~~cd~~|| [abc](https://x.y) <@123>* a","at":16,"why":"classes linkText expected emText+linkText"}
+{"parser":"field","text":"*||cd ~~cd~~|| [abc](https://x.y) <@123>* a","at":16,"why":"classes linkText expected emText+linkText"}
+{"parser":"content","text":"# **`c`** **__<https://x.y> ||cd b||__ ~~b a~~**","at":30,"why":"classes spoilerText expected spoilerText+strongText+uText"}
+{"parser":"content","text":"# ~~<https://x.y> __https://x.y *abc* https://x.y__~~","at":20,"why":"classes linkText+uText expected linkText+sText+uText"}
+{"parser":"content","text":"~~__**a**__ [a](https://x.y) `c`~~ <https://x.y>","at":13,"why":"classes linkText expected linkText+sText"}
+{"parser":"field","text":"~~__**a**__ [a](https://x.y) `c`~~ <https://x.y>","at":13,"why":"classes linkText expected linkText+sText"}
+{"parser":"content","text":"~~||*cd cd a* <https://x.y> b|| ||cd *b b*|| __**b abc abc** **cd cd a**__~~ b \\*","at":15,"why":"classes linkText expected linkText+sText+spoilerText"}
+{"parser":"field","text":"~~||*cd cd a* <https://x.y> b|| ||cd *b b*|| __**b abc abc** **cd cd a**__~~ b \\*","at":15,"why":"classes linkText expected linkText+sText+spoilerText"}
+{"parser":"content","text":"~~**||b b b|| ||a cd|| cd**~~","at":16,"why":"classes spoilerText expected sText+spoilerText+strongText"}
+{"parser":"field","text":"~~**||b b b|| ||a cd|| cd**~~","at":16,"why":"classes spoilerText expected sText+spoilerText+strongText"}
+{"parser":"content","text":"__cd ||b a|| *<https://x.y> [a](https://x.y)*__ b cd","at":15,"why":"classes emText+linkText expected emText+linkText+uText"}
+{"parser":"field","text":"__cd ||b a|| *<https://x.y> [a](https://x.y)*__ b cd","at":15,"why":"classes emText+linkText expected emText+linkText+uText"}
+{"parser":"content","text":"__~~||a||~~ abc ~~*b b b* b ||cd||~~__","at":19,"why":"classes emText+sText expected emText+sText+uText"}
+{"parser":"field","text":"__~~||a||~~ abc ~~*b b b* b ||cd||~~__","at":19,"why":"classes emText+sText expected emText+sText+uText"}
+{"parser":"content","text":"# abc ~~<https://x.y> <https://x.y> <https://x.y>~~ [a](https://x.y)","at":23,"why":"classes linkText expected linkText+sText"}
+{"parser":"content","text":"https://x.y *abc ~~a __cd a cd__~~ ||\\* ~~a~~ ~~cd~~||* https://x.y","at":37,"why":"classes spoilerText expected emText+spoilerText"}
+{"parser":"field","text":"https://x.y *abc ~~a __cd a cd__~~ ||\\* ~~a~~ ~~cd~~||* https://x.y","at":37,"why":"classes spoilerText expected emText+spoilerText"}
+{"parser":"content","text":"||__https://x.y **a cd**__ cd|| **~~<@123> \\*~~ \\***","at":18,"why":"classes strongText expected spoilerText+strongText+uText"}
+{"parser":"field","text":"||__https://x.y **a cd**__ cd|| **~~<@123> \\*~~ \\***","at":18,"why":"classes strongText expected spoilerText+strongText+uText"}
+{"parser":"content","text":"**<https://x.y>** ||*__b__ [cd](https://x.y) [cd](https://x.y)*||","at":28,"why":"classes linkText expected emText+linkText+spoilerText"}
+{"parser":"field","text":"**<https://x.y>** ||*__b__ [cd](https://x.y) [cd](https://x.y)*||","at":28,"why":"classes linkText expected emText+linkText+spoilerText"}
+{"parser":"content","text":"*||__b abc cd__|| https://x.y ||<@123>||*","at":18,"why":"classes linkText expected emText+linkText"}
+{"parser":"field","text":"*||__b abc cd__|| https://x.y ||<@123>||*","at":18,"why":"classes linkText expected emText+linkText"}
+{"parser":"content","text":"*`c` ||~~a~~ __cd__||* ||[cd](https://x.y) __**cd** https://x.y__ \\*||","at":9,"why":"classes sText+spoilerText expected emText+sText+spoilerText"}
+{"parser":"field","text":"*`c` ||~~a~~ __cd__||* ||[cd](https://x.y) __**cd** https://x.y__ \\*||","at":9,"why":"classes sText+spoilerText expected emText+sText+spoilerText"}
+{"parser":"content","text":"||~~**b** \\*~~ __a__ [abc](https://x.y)||","at":17,"why":"classes uText expected spoilerText+uText"}
+{"parser":"field","text":"||~~**b** \\*~~ __a__ [abc](https://x.y)||","at":17,"why":"classes uText expected spoilerText+uText"}
+{"parser":"content","text":"# \\* a ~~||cd|| *||b cd abc||* __||cd||__~~","at":19,"why":"classes emText+spoilerText expected emText+sText+spoilerText"}
+{"parser":"content","text":"**https://x.y ~~cd~~ ||~~cd~~ https://x.y cd||**","at":16,"why":"classes sText expected sText+strongText"}
+{"parser":"field","text":"**https://x.y ~~cd~~ ||~~cd~~ https://x.y cd||**","at":16,"why":"classes sText expected sText+strongText"}
+{"parser":"content","text":"b **||~~b~~ ~~cd~~ __cd a abc__|| b __\\* ||b cd b||__** abc","at":14,"why":"classes sText expected sText+spoilerText+strongText"}
+{"parser":"field","text":"b **||~~b~~ ~~cd~~ __cd a abc__|| b __\\* ||b cd b||__** abc","at":14,"why":"classes sText expected sText+spoilerText+strongText"}
+{"parser":"content","text":"||<https://x.y> ~~[cd](https://x.y) abc a~~ https://x.y||","at":19,"why":"classes linkText+sText expected linkText+sText+spoilerText"}
+{"parser":"field","text":"||<https://x.y> ~~[cd](https://x.y) abc a~~ https://x.y||","at":19,"why":"classes linkText+sText expected linkText+sText+spoilerText"}
+{"parser":"content","text":"||[a](https://x.y) `c`|| __https://x.y ||*cd a*|| `c`__ https://x.y","at":19,"why":"classes inlineCodeText expected inlineCodeText+spoilerText"}
+{"parser":"field","text":"||[a](https://x.y) `c`|| __https://x.y ||*cd a*|| `c`__ https://x.y","at":19,"why":"classes inlineCodeText expected inlineCodeText+spoilerText"}
+{"parser":"content","text":"||*__abc abc__ <https://x.y>* https://x.y|| ||[a](https://x.y)||","at":16,"why":"classes linkText expected emText+linkText+spoilerText"}
+{"parser":"field","text":"||*__abc abc__ <https://x.y>* https://x.y|| ||[a](https://x.y)||","at":16,"why":"classes linkText expected emText+linkText+spoilerText"}
+{"parser":"content","text":"~~cd **`c`** __**abc b** b <https://x.y>__~~ abc `c`","at":17,"why":"classes strongText+uText expected sText+strongText+uText"}
+{"parser":"field","text":"~~cd **`c`** __**abc b** b <https://x.y>__~~ abc `c`","at":17,"why":"classes strongText+uText expected sText+strongText+uText"}
+{"parser":"content","text":"\\* ||~~abc [abc](https://x.y) [abc](https://x.y)~~ ~~**a**~~|| <@123>","at":31,"why":"classes linkText expected linkText+sText+spoilerText"}
+{"parser":"field","text":"\\* ||~~abc [abc](https://x.y) [abc](https://x.y)~~ ~~**a**~~|| <@123>","at":31,"why":"classes linkText expected linkText+sText+spoilerText"}
+{"parser":"content","text":"# **~~__b__ \\* [abc](https://x.y)~~ ||__abc cd abc__ a||**","at":16,"why":"classes linkText expected linkText+sText+strongText"}
+{"parser":"content","text":"**||[a](https://x.y)|| <https://x.y>** cd \\*","at":24,"why":"classes linkText expected linkText+strongText"}
+{"parser":"field","text":"**||[a](https://x.y)|| <https://x.y>** cd \\*","at":24,"why":"classes linkText expected linkText+strongText"}
+{"parser":"content","text":"*\\* ~~||a|| [a](https://x.y) __a a__~~* cd a","at":13,"why":"classes linkText expected emText+linkText+sText"}
+{"parser":"field","text":"*\\* ~~||a|| [a](https://x.y) __a a__~~* cd a","at":13,"why":"classes linkText expected emText+linkText+sText"}
+{"parser":"content","text":"__||~~abc~~ **b abc b** a||__ *||cd b||*","at":14,"why":"classes strongText expected spoilerText+strongText+uText"}
+{"parser":"field","text":"__||~~abc~~ **b abc b** a||__ *||cd b||*","at":14,"why":"classes strongText expected spoilerText+strongText+uText"}
+{"parser":"content","text":"https://x.y ~~__*a abc b* **a a** b__ *https://x.y ||b cd|| ||abc abc abc||* cd~~ **<https://x.y> https://x.y ||cd a||**","at":28,"why":"classes strongText expected sText+strongText+uText"}
+{"parser":"field","text":"https://x.y ~~__*a abc b* **a a** b__ *https://x.y ||b cd|| ||abc abc abc||* cd~~ **<https://x.y> https://x.y ||cd a||**","at":28,"why":"classes strongText expected sText+strongText+uText"}
+{"parser":"content","text":"||~~[cd](https://x.y)~~ https://x.y [b](https://x.y)||","at":24,"why":"classes linkText expected linkText+spoilerText"}
+{"parser":"field","text":"||~~[cd](https://x.y)~~ https://x.y [b](https://x.y)||","at":24,"why":"classes linkText expected linkText+spoilerText"}
+{"parser":"content","text":"# **~~b~~ ~~<https://x.y>~~ b**","at":13,"why":"classes linkText+sText expected linkText+sText+strongText"}
+{"parser":"content","text":"__||<@123> ~~b cd~~ *cd b*|| ~~<@123>~~ ~~cd *abc* *a a*~~__","at":21,"why":"classes emText expected emText+spoilerText+uText"}
+{"parser":"field","text":"__||<@123> ~~b cd~~ *cd b*|| ~~<@123>~~ ~~cd *abc* *a a*~~__","at":21,"why":"classes emText expected emText+spoilerText+uText"}

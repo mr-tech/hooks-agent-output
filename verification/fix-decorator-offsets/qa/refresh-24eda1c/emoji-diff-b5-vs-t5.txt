@@ -1,0 +1,4 @@
+13c13
+< code block [{'path': [0, 0], 'text': 'a', 'rewritten': False, 'decorated': '"a":-'}, {'path': [1, 0], 'text': '```js', 'rewritten': False, 'decorated': '"```":S "js":-'}, {'path': [2, 0], 'text': 'const a = 1;', 'rewritten': False, 'decorated': '"const":hljs-keyword " a = 1;":-'}, {'path': [3, 0], 'text': '```', 'rewritten': False, 'decorated': '"```":S'}, {'path': [4, 0], 'text': 'b', 'rewritten': False, 'decorated': '"b":-'}] None
+---
+> code block [{'path': [0, 0], 'text': 'a', 'rewritten': False, 'decorated': '"a":-'}, {'path': [1, 0], 'text': '```js', 'rewritten': False, 'decorated': '"```":S "js":codeBlockText'}, {'path': [2, 0], 'text': 'const a = 1;', 'rewritten': False, 'decorated': '"const":hljs-keyword " a = ":- "1":hljs-number ";":-'}, {'path': [3, 0], 'text': '```', 'rewritten': False, 'decorated': '"```":S'}, {'path': [4, 0], 'text': 'b', 'rewritten': False, 'decorated': '"b":-'}] None

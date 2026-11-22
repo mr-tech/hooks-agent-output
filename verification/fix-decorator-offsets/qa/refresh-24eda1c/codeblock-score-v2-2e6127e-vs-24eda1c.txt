@@ -1,0 +1,10 @@
+{
+ "rows": 3088,
+ "unpaired": 0,
+ "rightToWrong": 0,
+ "wrongToRight": 9166,
+ "baseRight": 35222,
+ "tipRight": 44388,
+ "chars": 44390,
+ "rowsWithRightToWrong": 0
+}

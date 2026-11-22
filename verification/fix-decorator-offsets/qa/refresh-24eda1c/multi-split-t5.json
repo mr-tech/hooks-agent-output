@@ -1,0 +1,37 @@
+[
+ {
+  "lang": "js",
+  "flat": "const s = \"a :smile: b :smile: c\";",
+  "total": 20,
+  "right": 20,
+  "wrong": []
+ },
+ {
+  "lang": "js",
+  "flat": "f(`t :smile: ${y} :smile:`);",
+  "total": 14,
+  "right": 14,
+  "wrong": []
+ },
+ {
+  "lang": "js",
+  "flat": "const s = \"a < b\";",
+  "total": 17,
+  "right": 17,
+  "wrong": []
+ },
+ {
+  "lang": "python",
+  "flat": "print(\"x < y :smile: z\")",
+  "total": 16,
+  "right": 16,
+  "wrong": []
+ },
+ {
+  "lang": "js",
+  "flat": "// c < d < e",
+  "total": 10,
+  "right": 10,
+  "wrong": []
+ }
+]

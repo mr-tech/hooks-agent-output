@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4077fbfc-421c-4a34-bbed-c6515511141f/scratchpad/mwork5/20261122T221958Z-p3840508/mutant-10
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (246 tests | 13 failed) 125ms
+     × with the content parser colours "# a" as "# ":S "a":- 6ms
+     × with the content parser colours " # **a**" as " # **":S "a":strongText "**":S 2ms
+     × with the content parser colours "## **a**" as "## **":S "a":strongText "**":S 1ms
+     × with the content parser colours "### a #" as "### ":S "a":- " #":S 2ms
+     × with the content parser colours "# **a** b" as "# **":S "a":strongText "**":S " b":- 1ms
+     × with the content parser colours "> **a**" as "> ":- "**":S "a":strongText "**":S 1ms
+     × with the content parser colours "```js" as "```":S "js":codeBlockText 0ms
+     × with the content parser colours "```" as "```":S 0ms
+     × with the content parser colours "# # a b" as "# # ":S "a b":- 1ms
+     × with the content parser colours "# __[a](https://x.y)***~~__\\*____" as "# __[":S "a":linkText+uText "](":S "https://x.y":linkText ")":S "***~~":uText "__":S "\\*":- "_":S "__":emText "_":S 1ms
+     × with the content parser colours "# ~~***<@123> ***c d[b](<https://x.y>)b" as "# ":S "~~":- "***":S "<@123> ":emText+strongText "***":S "c d":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b":- 2ms
+     × in a "" block with the content parser colours "**a** `b` # c" as "**a** `b` # c":codeBlockText 0ms
+     × in a "" block with the field parser colours "**a** `b` # c" as "**a** `b` # c":codeBlockText 0ms
+
+ Test Files  1 failed | 20 passed (21)
+      Tests  13 failed | 343 passed (356)
+   Start at  22:21:26
+   Duration  5.38s (transform 8.83s, setup 483ms, import 33.39s, tests 10.04s, environment 20.83s)
+

@@ -1,0 +1,35 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a code line split by an emoji > in a "js" block before "const s = \"a " and after " b\";" the text node at 2 colours as " b\"":hljs-string ";":-
+AssertionError: expected '" b\"":- ";":hljs-string' to be '" b\"":hljs-string ";":-' // Object.is equality
+
+Expected: "" b\"":hljs-string ";":-"
+Received: "" b\"":- ";":hljs-string"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:463:65
+    461|     'in a %j block before %j and after %j the text node at %i colours …
+    462|     (lang, before, after, index, leaves) => {
+    463|       expect(renderedSplitCodeLine(lang, before, after, index)).toBe(l…
+       |                                                                 ^
+    464|     },
+    465|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a code line split by an emoji > in a "js" block before "const s = \"a \" + " and after " + 1;" the text node at 2 colours as " + ":- "1":hljs-number ";":-
+AssertionError: expected '" + ":- "1;":hljs-string' to be '" + ":- "1":hljs-number ";":-' // Object.is equality
+
+Expected: "" + ":- "1":hljs-number ";":-"
+Received: "" + ":- "1;":hljs-string"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:463:65
+    461|     'in a %j block before %j and after %j the text node at %i colours …
+    462|     (lang, before, after, index, leaves) => {
+    463|       expect(renderedSplitCodeLine(lang, before, after, index)).toBe(l…
+       |                                                                 ^
+    464|     },
+    465|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

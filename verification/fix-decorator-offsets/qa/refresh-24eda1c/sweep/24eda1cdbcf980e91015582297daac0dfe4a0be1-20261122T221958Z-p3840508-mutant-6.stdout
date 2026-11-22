@@ -1,0 +1,17 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4077fbfc-421c-4a34-bbed-c6515511141f/scratchpad/mwork5/20261122T221958Z-p3840508/mutant-6
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (246 tests | 7 failed) 138ms
+     × in a "js" block with the content parser colours "const s = \"**a**\"; // *b*" as "const":hljs-keyword " s = ":- "\"**a**\"":hljs-string "; ":- "// *b*":hljs-comment 20ms
+     × in a "js" block with the field parser colours "const s = \"**a**\"; // *b*" as "const":hljs-keyword " s = ":- "\"**a**\"":hljs-string "; ":- "// *b*":hljs-comment 2ms
+     × in a "js" block with the content parser colours "const a = 1;" as "const":hljs-keyword " a = ":- "1":hljs-number ";":- 1ms
+     × in a "js" block with the field parser colours "const a = 1;" as "const":hljs-keyword " a = ":- "1":hljs-number ";":- 1ms
+     × in a "js" block with the content parser colours "x = \"\\🙂\" + 1" as "x = ":- "\"\\🙂\"":hljs-string " + ":- "1":hljs-number 3ms
+     × in a "js" block with the field parser colours "x = \"\\🙂\" + 1" as "x = ":- "\"\\🙂\"":hljs-string " + ":- "1":hljs-number 1ms
+     × in a "js" block before "const s = \"a " and after " b\";" the text node at 0 colours as "const":hljs-keyword " s = ":- "\"a ":hljs-string 1ms
+
+ Test Files  1 failed | 20 passed (21)
+      Tests  7 failed | 349 passed (356)
+   Start at  22:20:57
+   Duration  5.92s (transform 11.27s, setup 790ms, import 37.11s, tests 10.28s, environment 23.35s)
+

@@ -1,0 +1,158 @@
+[
+ {
+  "id": "decorator.tsx:201:walk-first",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "line.children.slice(0, path.at(-1))",
+  "new": "(Array.isArray(line.children.slice(0, path.at(-1))) ? line.children.slice(0, path.at(-1)).slice(0, 1) : line.children.slice(0, path.at(-1)))",
+  "op": "walk-first",
+  "line": 201,
+  "text": "const start = line.children.slice(0, path.at(-1)).map((c) => flattenNodeText(c)).join('').length;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:201:walk-last",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "line.children.slice(0, path.at(-1))",
+  "new": "(Array.isArray(line.children.slice(0, path.at(-1))) ? line.children.slice(0, path.at(-1)).slice(-1) : line.children.slice(0, path.at(-1)))",
+  "op": "walk-last",
+  "line": 201,
+  "text": "const start = line.children.slice(0, path.at(-1)).map((c) => flattenNodeText(c)).join('').length;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:201:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "e(0, ",
+  "new": "e(1, ",
+  "op": "num",
+  "line": 201,
+  "text": "const start = line.children.slice(0, path.at(-1)).map((c) => flattenNodeText(c)).join('').length;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:201:num:2",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "(-1))",
+  "new": "(-2))",
+  "op": "num",
+  "line": 201,
+  "text": "const start = line.children.slice(0, path.at(-1)).map((c) => flattenNodeText(c)).join('').length;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:203:walk-first",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "n normalizeRanges(leaf.ranges).m",
+  "new": "n (Array.isArray(normalizeRanges(leaf.ranges)) ? normalizeRanges(leaf.ranges).slice(0, 1) : normalizeRanges(leaf.ranges)).m",
+  "op": "walk-first",
+  "line": 203,
+  "text": "return normalizeRanges(leaf.ranges).map((range) => ({",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:203:walk-last",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "n normalizeRanges(leaf.ranges).m",
+  "new": "n (Array.isArray(normalizeRanges(leaf.ranges)) ? normalizeRanges(leaf.ranges).slice(-1) : normalizeRanges(leaf.ranges)).m",
+  "op": "walk-last",
+  "line": 203,
+  "text": "return normalizeRanges(leaf.ranges).map((range) => ({",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:220:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (an",
+  "new": "  if (false && an",
+  "op": "if-false",
+  "line": 220,
+  "text": "if (ancestor.lang) return codeLineRanges(leaf, ancestor, path);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:223:walk-first",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "t(ast.f",
+  "new": "t((Array.isArray(ast) ? ast.slice(0, 1) : ast).f",
+  "op": "walk-first",
+  "line": 223,
+  "text": "const normalized = normalizeAst(ast.flatMap((a) => (",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:223:walk-last",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "t(ast.f",
+  "new": "t((Array.isArray(ast) ? ast.slice(-1) : ast).f",
+  "op": "walk-last",
+  "line": 223,
+  "text": "const normalized = normalizeAst(ast.flatMap((a) => (",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:224:===",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "pe === 'p",
+  "new": "pe !== 'p",
+  "op": "===",
+  "line": 224,
+  "text": "a.type === 'paragraph' ? a.content as unknown as StrictSingleASTNode[] : [a]",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "qa-start-includes-own-node",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "line.children.slice(0, path.at(-1))",
+  "new": "line.children.slice(0, (path.at(-1) as number) + 1)",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-start-emoji-width-zero",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": ".map((c) => flattenNodeText(c)).join('')",
+  "new": ".map((c) => flattenNodeText(c, false)).join('')",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-highlight-node-text-only",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "handleCodeBlockRange(leaf, line.lang, flattenNodeText(line));",
+  "new": "handleCodeBlockRange(leaf, line.lang, flattenNodeText(line.children[path.at(-1) as number]));",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-anchor-not-shifted",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "anchor: { ...range.anchor, offset: range.anchor.offset - start },",
+  "new": "anchor: { ...range.anchor, offset: range.anchor.offset },",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-focus-not-shifted",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "focus: { ...range.focus, offset: range.focus.offset - start },",
+  "new": "focus: { ...range.focus, offset: range.focus.offset },",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-language-branch-always",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "if (ancestor.lang) return codeLineRanges",
+  "new": "if (true) return codeLineRanges",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-code-ranges-not-normalized",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "return normalizeRanges(leaf.ranges).map((range) => ({",
+  "new": "return leaf.ranges.map((range) => ({",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-top-level-merge-dropped",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "const normalized = normalizeAst(ast.flatMap((a) => (\n    a.type === 'paragraph' ? a.content as unknown as StrictSingleASTNode[] : [a]\n  )));",
+  "new": "const normalized = ast.flatMap((a) => (\n    a.type === 'paragraph' ? normalizeAst(a.content as unknown as StrictSingleASTNode[]) : [a]\n  ));",
+  "origin": "qa"
+ }
+]

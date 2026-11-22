@@ -1,0 +1,2 @@
+skipped src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (test file)
+10 mutants written; dropped (not unique) 0

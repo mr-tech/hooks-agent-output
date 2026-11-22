@@ -1,0 +1,3 @@
+b5 vs t5: {"lines":10,"chars":131,"baseRight":80,"tipRight":131,"rightToWrong":0,"wrongToRight":51}
+r2e vs t5: {"lines":10,"chars":131,"baseRight":100,"tipRight":131,"rightToWrong":0,"wrongToRight":31}
+t5 vs b5: {"lines":10,"chars":131,"baseRight":131,"tipRight":80,"rightToWrong":51,"wrongToRight":0}

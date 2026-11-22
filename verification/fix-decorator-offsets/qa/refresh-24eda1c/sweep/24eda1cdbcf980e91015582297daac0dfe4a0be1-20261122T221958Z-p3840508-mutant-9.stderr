@@ -1,0 +1,68 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "> **a**" as "> ":- "**":S "a":strongText "**":S
+AssertionError: expected '"> ":S "*":strongText "*a":S "**":-' to be '"> ":- "**":S "a":strongText "**":S' // Object.is equality
+
+Expected: ""> ":- "**":S "a":strongText "**":S"
+Received: ""> ":S "*":strongText "*a":S "**":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:365:36
+    363|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    364|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    365|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    366|   });
+    367| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "```js" as "```":S "js":codeBlockText
+AssertionError: expected '"``":codeBlockText "`js":-' to be '"```":S "js":codeBlockText' // Object.is equality
+
+Expected: ""```":S "js":codeBlockText"
+Received: ""``":codeBlockText "`js":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:365:36
+    363|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    364|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    365|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    366|   });
+    367| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "```" as "```":S
+AssertionError: expected '"``":codeBlockText "`":-' to be '"```":S' // Object.is equality
+
+Expected: ""```":S"
+Received: ""``":codeBlockText "`":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:365:36
+    363|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    364|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    365|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    366|   });
+    367| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "" block with the content parser colours "**a** `b` # c" as "**a** `b` # c":codeBlockText
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "" block with the field parser colours "**a** `b` # c" as "**a** `b` # c":codeBlockText
+AssertionError: expected '"**":codeBlockText "a** `b` # c":-' to be '"**a** `b` # c":codeBlockText' // Object.is equality
+
+Expected: ""**a** `b` # c":codeBlockText"
+Received: ""**":codeBlockText "a** `b` # c":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:432:87
+    430|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    431|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    432|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    433|   });
+    434| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+

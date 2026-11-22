@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4077fbfc-421c-4a34-bbed-c6515511141f/scratchpad/mwork5/20261122T221958Z-p3840508/mutant-15
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (246 tests | 2 failed) 184ms
+     × in a "js" block before "const s = \"a " and after " b\";" the text node at 2 colours as " b\"":hljs-string ";":- 11ms
+     × in a "js" block before "const s = \"a \" + " and after " + 1;" the text node at 2 colours as " + ":- "1":hljs-number ";":- 2ms
+
+ Test Files  1 failed | 20 passed (21)
+      Tests  2 failed | 354 passed (356)
+   Start at  22:22:01
+   Duration  7.46s (transform 17.27s, setup 653ms, import 53.08s, tests 12.85s, environment 23.06s)
+

@@ -1,0 +1,102 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the content parser colours "const s = \"**a**\"; // *b*" as "const":hljs-keyword " s = ":- "\"**a**\"":hljs-string "; ":- "// *b*":hljs-comment
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the field parser colours "const s = \"**a**\"; // *b*" as "const":hljs-keyword " s = ":- "\"**a**\"":hljs-string "; ":- "// *b*":hljs-comment
+AssertionError: expected '"const":hljs-keyword " s = \"**a**\";…' to be '"const":hljs-keyword " s = ":- "\"**a…' // Object.is equality
+
+Expected: ""const":hljs-keyword " s = ":- "\"**a**\"":hljs-string "; ":- "// *b*":hljs-comment"
+Received: ""const":hljs-keyword " s = \"**a**\"; // *b*":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:432:87
+    430|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    431|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    432|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    433|   });
+    434| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the content parser colours "const a = 1;" as "const":hljs-keyword " a = ":- "1":hljs-number ";":-
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the field parser colours "const a = 1;" as "const":hljs-keyword " a = ":- "1":hljs-number ";":-
+AssertionError: expected '"const":hljs-keyword " a = 1;":-' to be '"const":hljs-keyword " a = ":- "1":hl…' // Object.is equality
+
+Expected: ""const":hljs-keyword " a = ":- "1":hljs-number ";":-"
+Received: ""const":hljs-keyword " a = 1;":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:432:87
+    430|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    431|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    432|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    433|   });
+    434| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the content parser colours "x = \"\\🙂\" + 1" as "x = ":- "\"\\🙂\"":hljs-string " + ":- "1":hljs-number
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the field parser colours "x = \"\\🙂\" + 1" as "x = ":- "\"\\🙂\"":hljs-string " + ":- "1":hljs-number
+AssertionError: expected '"x = ":- "\"\\🙂\"":hljs-string " + 1…' to be '"x = ":- "\"\\🙂\"":hljs-string " + "…' // Object.is equality
+
+Expected: ""x = ":- "\"\\🙂\"":hljs-string " + ":- "1":hljs-number"
+Received: ""x = ":- "\"\\🙂\"":hljs-string " + 1":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:432:87
+    430|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    431|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    432|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    433|   });
+    434| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/9]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a code line split by an emoji > in a "js" block before "const s = \"a " and after " b\";" the text node at 0 colours as "const":hljs-keyword " s = ":- "\"a ":hljs-string
+AssertionError: expected '"const":hljs-keyword " s = \"a ":-' to be '"const":hljs-keyword " s = ":- "\"a "…' // Object.is equality
+
+Expected: ""const":hljs-keyword " s = ":- "\"a ":hljs-string"
+Received: ""const":hljs-keyword " s = \"a ":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:463:65
+    461|     'in a %j block before %j and after %j the text node at %i colours …
+    462|     (lang, before, after, index, leaves) => {
+    463|       expect(renderedSplitCodeLine(lang, before, after, index)).toBe(l…
+       |                                                                 ^
+    464|     },
+    465|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/9]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a code line split by an emoji > in a "js" block before "const s = \"a " and after " b\";" the text node at 2 colours as " b\"":hljs-string ";":-
+AssertionError: expected '" b\";":-' to be '" b\"":hljs-string ";":-' // Object.is equality
+
+Expected: "" b\"":hljs-string ";":-"
+Received: "" b\";":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:463:65
+    461|     'in a %j block before %j and after %j the text node at %i colours …
+    462|     (lang, before, after, index, leaves) => {
+    463|       expect(renderedSplitCodeLine(lang, before, after, index)).toBe(l…
+       |                                                                 ^
+    464|     },
+    465|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/9]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a code line split by an emoji > in a "js" block before "const s = \"a \" + " and after " + 1;" the text node at 2 colours as " + ":- "1":hljs-number ";":-
+AssertionError: expected '" + 1;":-' to be '" + ":- "1":hljs-number ";":-' // Object.is equality
+
+Expected: "" + ":- "1":hljs-number ";":-"
+Received: "" + 1;":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:463:65
+    461|     'in a %j block before %j and after %j the text node at %i colours …
+    462|     (lang, before, after, index, leaves) => {
+    463|       expect(renderedSplitCodeLine(lang, before, after, index)).toBe(l…
+       |                                                                 ^
+    464|     },
+    465|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/9]⎯
+

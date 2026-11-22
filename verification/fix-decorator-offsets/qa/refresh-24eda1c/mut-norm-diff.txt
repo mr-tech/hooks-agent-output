@@ -1,0 +1,18 @@
+rows differing 12 reachable (startCodeBlock true) 6
+('haskell', False, 'content', 'x = "🙂" + \'\\*\'')
+('haskell', False, 'field', 'x = "🙂" + \'\\*\'')
+('haskell', True, 'content', 'x = "🙂" + \'\\*\'')
+('haskell', True, 'field', 'x = "🙂" + \'\\*\'')
+('livescript', False, 'content', '```')
+('livescript', False, 'content', '```js')
+('livescript', False, 'field', '```')
+('livescript', False, 'field', '```js')
+('livescript', True, 'content', '```')
+('livescript', True, 'content', '```js')
+('livescript', True, 'field', '```')
+('livescript', True, 'field', '```js')
+split js 'f(`t  ${y}`);'
+  char 6 '$' tip {'syntax': False, 'classes': 'hljs-string+hljs-subst'} mut {'syntax': False, 'classes': 'hljs-subst'}
+  char 7 '{' tip {'syntax': False, 'classes': 'hljs-string+hljs-subst'} mut {'syntax': False, 'classes': 'hljs-subst'}
+  char 8 'y' tip {'syntax': False, 'classes': 'hljs-string+hljs-subst'} mut {'syntax': False, 'classes': 'hljs-subst'}
+  char 9 '}' tip {'syntax': False, 'classes': 'hljs-string+hljs-subst'} mut {'syntax': False, 'classes': 'hljs-subst'}

@@ -2,9 +2,9 @@
 ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
-Verified-At: "2e6127e3170a1a31524e24321fec6a90b43703a3 — repos=website; verdict QA Failed (QAF-1)"
+Verified-At: "24eda1cdbcf980e91015582297daac0dfe4a0be1 — repos=website; refresh pass, verdict QA Failed (QAF-2)"
 Status: QA Failed
-Status-Detail: "Phase 2 at website 2e6127e: QA Failed on QAF-1 MEDIUM (lines inside a fenced code block with a language are highlighted differently from base and no test asserts them). Routed to fixer-fix-decorator-offsets. A refresh pass at the fix round's SHA comes before devops."
+Status-Detail: "Phase 2 refresh at website 24eda1c: QA Failed on QAF-2 MEDIUM (codeLineRanges' normalizeRanges call is unasserted; one test row closes it, test-only). QAF-1 resolved. Routed to fixer-fix-decorator-offsets; the next pass re-runs the one survivor."
 Phase: 2
 ---
 
@@ -27,6 +27,7 @@ production lines (block 20:44).
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-22T21:51 | `steering-hooks-fixer` (brief `steering/fix-decorator-offsets-brief-qa.md`) | Phase 2 at website `2e6127e` | Phase 2: **QA Failed**. Suite 2594/2594 exit 0, typecheck exit 0. Mutation sweep 97 of 101 killed; the 4 survivors are 2 equivalent mutants and 2 that expose QAF-1. Three instruments find 0 inputs worse than base, outside code blocks. QAF-1 MEDIUM: lines inside a fenced code block with a language now render differently from base (32 characters move from wrong to right, 4 from right to wrong), and no test asserts them. The emoji assumption is answered: false for an escaped emoji. Two separate emoji defects in the editor (pre-existing, identical at base) go to steering. |
+| 2026-11-22T22:24 | `steering-hooks-fixer` (message; rounds 4–5, review record `58a83897`) | Phase 2 refresh at website `24eda1c` | Phase 2: **QA Failed**. QAF-1 resolved. QAF-2 MEDIUM: `codeLineRanges`'s `normalizeRanges` call (enclosing class on a nested highlight scope, e.g. `${y}` in a template string) has no assertion; its mutant survives. Otherwise clean: suite 2612/2612 exit 0, typecheck 0, sweep 17 of 18 over the round's diff; outside code lines byte-identical to `2e6127e`; inside code lines 0 characters regress against base or `2e6127e` (195 languages, split lines 131/131). |
 
 ## Criteria assessed (recorded before execution)
 
@@ -189,34 +190,89 @@ and does not shift the colouring.
 
 ## Findings
 
-QAF-1 MEDIUM Phase 2
+QAF-1 MEDIUM Phase 2 RESOLVED — code-block lines with a language are highlighted whole from the line's own text, and the test asserts 14 code-line rows and 4 split-line rows: 12 of them fail against `2e6127e`, and 0 characters regress against base or `2e6127e` over 195 languages. Fixer rounds 4–5 (`a7e1adb`, `24eda1c`); refresh pass below; evidence `verification/fix-decorator-offsets/qa/refresh-24eda1c/`.
 
-**Lines inside a fenced code block with a language are highlighted differently from base, and no test asserts them.** In
-`decorator.tsx`, the default export now walks every top-level node (base walked only `ast[0]`). So inside a code block, where the
-parser yields several `text` chunks that `normalizeAst` does not merge (no paragraph wraps them), `handleCodeBlockRange`
-highlights each chunk separately. Both mutants of that branch's guard (`decorator.tsx` `walkAst`,
-`if (leaf.lang !== '' && typeof ast.content === 'string')`) survive all 338 cases. Measured by
-`instruments/decorator.code-block-lines.test.ts`: 144 rows (4 languages × startCodeBlock × 2 parsers × 9 lines), 51 rendered
-differently from base. The editor's real shapes, confirmed in the mounted editor (`emoji-rows-tip.jsonl`, "code block shapes"),
-are inner lines `codeBlock`/lang/`startCodeBlock: true` and the closing fence `div`/`''`/`true`. The mounted DOM shows the per-chunk
-highlighting (`"1"`:hljs-number). Over every `hljs.listLanguages()` entry (195, `QA_ALL_LANGS=1`, 7,020 rows per tree, `codeblock-all-langs-summary.txt`) there are 0 throws at either tree. Ranges ending past the line's text occur on rows with `startCodeBlock: true`: 22 at base, 492 at tip (338 of them the line holding `🙂`, where the emoji pre-transform widens the text inside the code block). `Text.decorations` ignores those offsets in jsdom (see Assumption Not Checked). Scored against highlight.js run on the **whole line** (`score-code-block.cjs`, independent of the
-decorator), over the 32 reachable rows with a highlight.js language: base right on 298 of 460 characters, tip right on 326. 32
-characters move from wrong to right and **4 move from right to wrong**, on 4 rows. For example, in a ```` ```js ```` block,
-`` **a** `b` # c `` colours the space after the closing backtick as a string, because the chunk `` ` `` is highlighted as an open
-template literal. Python colours `<` in `<@1>` as `hljs-meta`. Each of those 4 rows also gains correct characters. So no row is
-"right at base, wrong at tip", the reading both reviewer instruments use. Read per character, 4 characters regress. Scorer control:
-with base and tip swapped it reports 32 right-to-wrong and 4 wrong-to-right (`codeblock-score-swapped-control.txt`). Ground: a
-behaviour this change alters, with no assertion that fails when it is lost, which sets a floor of MEDIUM and blocks the verdict.
+QAF-2 MEDIUM Phase 2
 
-*Failure scenario:* a user writes a fenced ```` ```js ```` block. The highlighting of its lines is now produced chunk by chunk,
-which is sometimes better and sometimes worse than base, and nothing in the suite would notice if the branch were deleted, inverted
-or changed again.
+**A nested highlight scope inside a code line keeps its enclosing class only through `codeLineRanges`'s `normalizeRanges` call, and
+no test asserts it.** Mutant `qa-code-ranges-not-normalized` (`decorator.tsx` `codeLineRanges`: `return normalizeRanges(leaf.ranges).map(…)`
+→ `return leaf.ranges.map(…)`) survives all 356 cases of the sweep. On the code-block instrument it changes 12 rows (6 reachable) and on the
+reviewer's split probe 1 line. In a `js` block, `` f(`t ${y}`); `` renders `${y}` as `hljs-string+hljs-subst` at `24eda1c` (matching
+whole-line highlight.js: a substitution inside a template string) and as `hljs-subst` alone without the call. The Haskell line with `'\*'`
+behaves the same way, with `hljs-char escape_` losing `hljs-string`. No row of the test file has a nested scope: the file's only `${` is
+in its `labelled` helper. Ground: a behaviour this round relies on, with no assertion that fails when it is lost, which sets a floor of
+MEDIUM and blocks the verdict (`mut-norm-diff.txt`, `mut-norm-identity.sha256`).
 
-*Required (fixer):* spec-form rows in `decorator.emphasis-syntax-ranges.test.ts` that decorate an inner code-block line (element
-`codeBlock`, a highlight.js language, `startCodeBlock: true`), plus one with `lang: ''` and one with an unknown language, all with
-literal expectations. Each must be seen red under the two surviving mutants. Which expectation is the specification (whole-line
-highlighting, which the 4 regressions point to, or the tip's per-chunk output) is a design choice for the fixer, put to steering
-if more than one reading is reasonable. Whichever is chosen, C1 is re-measured per character on this instrument at the new tip.
+*Failure scenario:* someone simplifies `codeLineRanges` and drops the `normalizeRanges` call. Every test still passes, and template
+substitutions and string escapes in users' code blocks lose their string colouring.
+
+*Required (fixer, test-only):* a spec-form row in the code-line table with a nested scope, for example `` f(`t ${y}`); `` in a `js`
+block, with its literal expectation read from highlight.js's HTML for the whole line. It must be seen red under
+`qa-code-ranges-not-normalized` (in `refresh-24eda1c/mutants-qa-24eda1c.json`) and green at the new tip. A round with no production
+change is re-run against that one survivor only.
+
+## Phase 2 refresh at website `24eda1c`
+
+**Stage start**: `code-review/fix-decorator-offsets-code-review.md` at record `58a83897`, `Reviewed-At: 24eda1cdbcf9…`, `APPROVED`
+(CR-5 fix confirmation). The brief was `steering-hooks-fixer`'s message. Gate documents: the implementation § "Round 4" and § "Round 5"
+(record `8a9082f5`, `Handoff-At: 24eda1c`). Tree: a `git archive` export of `24eda1c` (`decorator.tsx` blob `0cdd886f…`). Evidence:
+`verification/fix-decorator-offsets/qa/refresh-24eda1c/`.
+
+**Criteria for this pass** (set before running anything): QAF-1 closed; C1 (no input worse than base) re-measured at `24eda1c` on every
+instrument, including the code-line axis and the split-line shape (CR-5); a sweep over the round's production diff; suite and typecheck.
+
+**Delta**: `git diff --numstat 2e6127e 24eda1c`: `decorator.tsx` 20/10, test 71/16. From base: `decorator.tsx` 111/41 and `rules.tsx`
+17/1, so **128 production lines added**.
+
+| Run (export of `24eda1c`) | Result | Exit |
+|---|---|---|
+| Whole suite, JSON reporter | 168 files, 2612 tests, all passed. File membership by path is the same as at `2e6127e`; only `decorator.emphasis-syntax-ranges.test.ts` moves, 228 → 246 | 0 |
+| `pnpm run typecheck` | clean | 0 |
+| Red: test file at `24eda1c` against `2e6127e`'s production files | 246: 12 failed (the 10 code-line rows wrong at `2e6127e`, including QAF-1's 4 regressed characters, and the 2 split-line rows), 234 passed | 1 |
+| Red: the same file against base | 246: 167 failed, 79 passed | 1 |
+
+**Sweep** (the round's diff only, as ruled): `mutant-gen --range 2e6127e..24eda1c` gives 10 mutants. I added 8 for `codeLineRanges` and the
+top-level merge (start including its own node, emoji width zero, highlighting the node's text, anchor or focus not shifted, the language
+branch always taken, ranges not normalised, the merge dropped) via `refresh-24eda1c/build-mutants.py`. Set `mutants-qa-24eda1c.json`, blob
+`9ae13163…`. The runner (blob `b26916e7…`) used the same suite selection as before; control 356 tests, passed. Kill table
+`refresh-24eda1c/sweep/mutation-table-24eda1c…-20261122T221958Z-p3840508.json`, which I read myself. **17 of 18 mutants over the 30
+changed production lines of `2e6127e..24eda1c` in `decorator.tsx`, excluding the test file**; all 17 KILLED rows have `count: checked`.
+The survivor is `qa-code-ranges-not-normalized`, which is not equivalent: it is QAF-2. The first pass's two QAF-1 survivors mutated a
+guard this round removed; the branch that replaced it is killed both ways (`decorator.tsx:220:if-false`, 16 cases;
+`qa-language-branch-always`, 220).
+
+**C1 at `24eda1c`.** Every instrument was run on base, `2e6127e` and `24eda1c` in one pass each
+(`instruments-run-{b5,r2e,t5}.out`, all exit 0):
+
+| Instrument | Base → `24eda1c` | `2e6127e` → `24eda1c` |
+|---|---|---|
+| Corpus probe (36,000 rows) | 0 clean → wrong; 16,258 wrong → clean (`visible-score.txt`) | byte-identical (sha256 `d137b1e8…`, the same as the first pass; `identity.sha256`) |
+| Grammar oracle (7,137 rows) | 0 worse, 2,585 better (`oracle-score.txt`) | byte-identical |
+| Sentinel oracle (819 rows, 25 rule keys) | as in the first pass | byte-identical |
+| Code-block lines, scorer v2, 195 languages (3,088 reachable rows, 44,390 characters) | 0 right → wrong, 13,070 wrong → right; right 44,388 | 0 right → wrong, 9,166 wrong → right |
+| Reviewer's split probe (10 lines, 131 characters), scored against whole-line highlight.js (`refresh-24eda1c/score-split.cjs`, new) | 0 right → wrong; 80 → 131 right | 0 right → wrong; 100 → 131 right |
+| Mounted editor (emoji and code-block shapes) | differs only on the code-block line (`"1"` now `hljs-number`) and the fence line (`js` as `codeBlockText`, which the test asserts) | identical (`emoji-diff-*-vs-t5.txt`) |
+
+Positive controls: each scorer run with its arguments swapped reports the same counts in reverse (split: `t5 vs b5`, 51 right → wrong;
+code-block scorer: first pass). The 2 code-block characters still wrong at `24eda1c` are `dts`'s `<@1>` under each parser, wrong at base
+and `2e6127e` too. They are the enclosing-class property carried by `fix-decorator-nested-styles` (CR-4, CR-6).
+
+**C1 verdict at `24eda1c`: met** on every instrument, ordinary lines and code lines alike. **C5: not met** (QAF-2).
+
+**Out of scope, carried elsewhere** (steering's message): the emoji data-loss items (E-1, E-2, and the code-line variant the reviewer
+found) belong to `fix-emoji-pretransform-widths`.
+
+**Multi-emoji split lines (run, not assumed):** `refresh-24eda1c/decorator.code-multi-split.test.ts` decorates each text node of a code line
+that two `:smile:` elements split, and scores it against highlight.js over the flattened line (`multi-split-summary.txt`). At `24eda1c`:
+`const s = "a :smile: b :smile: c";` 20/20 (base 11), ``f(`t :smile: ${y} :smile:`);`` 14/14 (base 4). Its three custom-emoji rows
+do not represent the case: `parseEmoji` returns `<:e:1>`, `<a:e:1>` and a full-length id as plain `text` nodes, unmounted and mounted, so
+no custom-emoji element arises through the normaliser. Those rows are lines split by a text node, all right at the tip.
+
+**Assumption Not Checked (refresh):** This pass assumes that a custom Discord emoji never becomes an emoji element in the editor. That
+is read from `parseEmoji`'s output on four strings and from the picker's insert path (`useEmojiPicker` inserts `<:name:id>` as text),
+and is not exercised through the picker in a mounted editor. If false, the signature is a code line holding an element with
+`ast.type === 'discordEmoji'`, whose later text node colours off by the difference between its flattened and rendered widths. Owner:
+`fix-emoji-pretransform-widths`, whose subject is those widths (named in the message to steering).
 
 ## Irreversible Side-Effect Register
 

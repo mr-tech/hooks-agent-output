@@ -1,0 +1,199 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 13 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "# a" as "# ":S "a":-
+AssertionError: expected '"# a":-' to be '"# ":S "a":-' // Object.is equality
+
+Expected: ""# ":S "a":-"
+Received: ""# a":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:365:36
+    363|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    364|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    365|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    366|   });
+    367| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/13]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours " # **a**" as " # **":S "a":strongText "**":S
+AssertionError: expected '" #":S " ":strongText "**":S "a**":-' to be '" # **":S "a":strongText "**":S' // Object.is equality
+
+Expected: "" # **":S "a":strongText "**":S"
+Received: "" #":S " ":strongText "**":S "a**":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:365:36
+    363|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    364|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    365|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    366|   });
+    367| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/13]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "## **a**" as "## **":S "a":strongText "**":S
+AssertionError: expected '"##":S " ":strongText "**":S "a**":-' to be '"## **":S "a":strongText "**":S' // Object.is equality
+
+Expected: ""## **":S "a":strongText "**":S"
+Received: ""##":S " ":strongText "**":S "a**":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:365:36
+    363|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    364|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    365|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    366|   });
+    367| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/13]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "### a #" as "### ":S "a":- " #":S
+AssertionError: expected '"### a #":-' to be '"### ":S "a":- " #":S' // Object.is equality
+
+Expected: ""### ":S "a":- " #":S"
+Received: ""### a #":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:365:36
+    363|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    364|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    365|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    366|   });
+    367| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/13]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "# **a** b" as "# **":S "a":strongText "**":S " b":-
+AssertionError: expected '"# ":S "*":strongText "*a":S "** b":-' to be '"# **":S "a":strongText "**":S " b":-' // Object.is equality
+
+Expected: ""# **":S "a":strongText "**":S " b":-"
+Received: ""# ":S "*":strongText "*a":S "** b":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:365:36
+    363|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    364|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    365|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    366|   });
+    367| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/13]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "> **a**" as "> ":- "**":S "a":strongText "**":S
+TypeError: Cannot use 'in' operator to search for 'content' in > 
+ ❯ normalizeAst src/components/SlateEditor/utils/decorator.tsx:149:39
+    147|   for (const a of ast) {
+    148|     const prevNode = normalized.at(-1);
+    149|     if (prevNode && 'content' in a && 'content' in prevNode) {
+       |                                       ^
+    150|       if (MERGE_NODES.has(a.type) && MERGE_NODES.has(prevNode?.type) &…
+    151|         prevNode.content += a.content;
+ ❯ src/components/SlateEditor/utils/decorator.tsx:223:22
+ ❯ rangesOf src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:27:65
+ ❯ rendered src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:41:28
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:365:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/13]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "```js" as "```":S "js":codeBlockText
+TypeError: Cannot use 'in' operator to search for 'content' in 
+
+
+ ❯ normalizeAst src/components/SlateEditor/utils/decorator.tsx:149:21
+    147|   for (const a of ast) {
+    148|     const prevNode = normalized.at(-1);
+    149|     if (prevNode && 'content' in a && 'content' in prevNode) {
+       |                     ^
+    150|       if (MERGE_NODES.has(a.type) && MERGE_NODES.has(prevNode?.type) &…
+    151|         prevNode.content += a.content;
+ ❯ src/components/SlateEditor/utils/decorator.tsx:223:22
+ ❯ rangesOf src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:27:65
+ ❯ rendered src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:41:28
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:365:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/13]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "```" as "```":S
+TypeError: Cannot read properties of undefined (reading 'node')
+ ❯ src/components/SlateEditor/utils/decorator.tsx:29:57
+     27|
+     28| function unflattened(nodes: SourcedNode[]): SourcedNode[] {
+     29|   return nodes.map((a) => (a as { node?: SourcedNode }).node ?? a);
+       |                                                         ^
+     30| }
+     31|
+ ❯ unflattened src/components/SlateEditor/utils/decorator.tsx:29:16
+ ❯ src/components/SlateEditor/utils/decorator.tsx:226:19
+ ❯ rangesOf src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:27:65
+ ❯ rendered src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:41:28
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:365:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/13]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "# # a b" as "# # ":S "a b":-
+AssertionError: expected '"# ":S "# a b":-' to be '"# # ":S "a b":-' // Object.is equality
+
+Expected: ""# # ":S "a b":-"
+Received: ""# ":S "# a b":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:365:36
+    363|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    364|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    365|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    366|   });
+    367| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/13]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for shapes whose widths cancelled or shifted before > with the content parser colours "# __[a](https://x.y)***~~__\\*____" as "# __[":S "a":linkText+uText "](":S "https://x.y":linkText ")":S "***~~":uText "__":S "\\*":- "_":S "__":emText "_":S
+AssertionError: expected '"# _":S "_":linkText+uText "[a":S "](…' to be '"# __[":S "a":linkText+uText "](":S "…' // Object.is equality
+
+Expected: ""# __[":S "a":linkText+uText "](":S "https://x.y":linkText ")":S "***~~":uText "__":S "\\*":- "_":S "__":emText "_":S"
+Received: ""# _":S "_":linkText+uText "[a":S "](https://x":linkText ".":S "y)***":uText "~~":S "__":- "\\":S "*_":emText "_":S "__":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:411:36
+    409|     ['field', '# ~~***<@123> ***c d[b](<https://x.y>)b', '"# ~~":- "**…
+    410|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    411|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    412|   });
+    413| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/13]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for shapes whose widths cancelled or shifted before > with the content parser colours "# ~~***<@123> ***c d[b](<https://x.y>)b" as "# ":S "~~":- "***":S "<@123> ":emText+strongText "***":S "c d":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b":-
+AssertionError: expected '"# ":- "~~*":S "**<@123":emText+stron…' to be '"# ":S "~~":- "***":S "<@123> ":emTex…' // Object.is equality
+
+Expected: ""# ":S "~~":- "***":S "<@123> ":emText+strongText "***":S "c d":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b":-"
+Received: ""# ":- "~~*":S "**<@123":emText+strongText "> *":S "**c":- " ":S "d":linkText "[b]":S "(<https://x":linkText ".y":S ">)b":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:411:36
+    409|     ['field', '# ~~***<@123> ***c d[b](<https://x.y>)b', '"# ~~":- "**…
+    410|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    411|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    412|   });
+    413| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/13]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "" block with the content parser colours "**a** `b` # c" as "**a** `b` # c":codeBlockText
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "" block with the field parser colours "**a** `b` # c" as "**a** `b` # c":codeBlockText
+TypeError: Cannot use 'in' operator to search for 'content' in *a
+ ❯ normalizeAst src/components/SlateEditor/utils/decorator.tsx:149:21
+    147|   for (const a of ast) {
+    148|     const prevNode = normalized.at(-1);
+    149|     if (prevNode && 'content' in a && 'content' in prevNode) {
+       |                     ^
+    150|       if (MERGE_NODES.has(a.type) && MERGE_NODES.has(prevNode?.type) &…
+    151|         prevNode.content += a.content;
+ ❯ src/components/SlateEditor/utils/decorator.tsx:223:22
+ ❯ rangesOf src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:27:65
+ ❯ rendered src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:41:28
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:432:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/13]⎯
+

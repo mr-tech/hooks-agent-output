@@ -1,0 +1,86 @@
+[
+ {
+  "lang": "js",
+  "flat": "const s = \"a :smile: b :smile: c\";",
+  "total": 20,
+  "right": 11,
+  "wrong": [
+   "\"\\\"\"@10:≠hljs-string",
+   "\"a\"@11:≠hljs-string",
+   "\" \"@12:≠hljs-string",
+   "\" \"@20:≠hljs-string",
+   "\"b\"@21:≠hljs-string",
+   "\" \"@22:≠hljs-string",
+   "\" \"@30:≠hljs-string",
+   "\"c\"@31:≠hljs-string",
+   "\"\\\"\"@32:≠hljs-string"
+  ]
+ },
+ {
+  "lang": "js",
+  "flat": "f(`t :smile: ${y} :smile:`);",
+  "total": 14,
+  "right": 4,
+  "wrong": [
+   "\"f\"@0:≠hljs-title function_",
+   "\"`\"@2:≠hljs-string",
+   "\"t\"@3:≠hljs-string",
+   "\" \"@4:≠hljs-string",
+   "\" \"@12:≠hljs-string",
+   "\"$\"@13:≠hljs-string+hljs-subst",
+   "\"{\"@14:≠hljs-string+hljs-subst",
+   "\"y\"@15:≠hljs-string+hljs-subst",
+   "\"}\"@16:≠hljs-string+hljs-subst",
+   "\" \"@17:≠hljs-string"
+  ]
+ },
+ {
+  "lang": "js",
+  "flat": "const s = \"a < b\";",
+  "total": 17,
+  "right": 11,
+  "wrong": [
+   "\"\\\"\"@10:≠hljs-string",
+   "\"a\"@11:≠hljs-string",
+   "\" \"@12:≠hljs-string",
+   "\" \"@14:≠hljs-string",
+   "\"b\"@15:≠hljs-string",
+   "\"\\\"\"@16:≠hljs-string"
+  ]
+ },
+ {
+  "lang": "python",
+  "flat": "print(\"x < y :smile: z\")",
+  "total": 16,
+  "right": 7,
+  "wrong": [
+   "\"\\\"\"@6:≠hljs-string",
+   "\"x\"@7:≠hljs-string",
+   "\" \"@8:≠hljs-string",
+   "\" \"@10:≠hljs-string",
+   "\"y\"@11:≠hljs-string",
+   "\" \"@12:≠hljs-string",
+   "\" \"@20:≠hljs-string",
+   "\"z\"@21:≠hljs-string",
+   "\"\\\"\"@22:≠hljs-string"
+  ]
+ },
+ {
+  "lang": "js",
+  "flat": "// c < d < e",
+  "total": 10,
+  "right": 0,
+  "wrong": [
+   "\"/\"@0:≠hljs-comment",
+   "\"/\"@1:≠hljs-comment",
+   "\" \"@2:≠hljs-comment",
+   "\"c\"@3:≠hljs-comment",
+   "\" \"@4:≠hljs-comment",
+   "\" \"@6:≠hljs-comment",
+   "\"d\"@7:≠hljs-comment",
+   "\" \"@8:≠hljs-comment",
+   "\" \"@10:≠hljs-comment",
+   "\"e\"@11:≠hljs-comment"
+  ]
+ }
+]
