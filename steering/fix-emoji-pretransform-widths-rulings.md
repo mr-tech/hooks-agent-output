@@ -20,3 +20,29 @@ last fix alone moved the week about 4 points" was not measured by a command (91%
 included).
 Scope sweep started (helper; output `verification/fix-emoji-pretransform-widths/scoping/sweep.md`). Determination, stage set and branch
 cut on its return, from `origin/master` `febf20e`.
+
+## 2026-11-22T22:59 — determination and stage set
+
+Sweep (helper, at `origin/master` `febf20e`): `verification/fix-emoji-pretransform-widths/scoping/sweep.md`. One input rewrite exists,
+`translateSurrogatesToInlineEmoji` (`emoji.tsx:83`), applied by both parsers (`utils.ts:41`, `:66`); width only grows (`🙂` 2 → 14). A
+related node-width gap: the `escape` rule's `content` is 1 narrower than its source. Class (a) widths applied to the original text:
+`withNormalizeNode.ts:172-198`, `decorator.tsx:222` (+ `createLeaf.ts`), `getInitialValue.ts:49,65`. Class (b) text rebuilt from the tree:
+`getInitialValue.ts:49-69`, `SlateEditor/index.tsx:53,58-59` via `flattenNodeText.ts:11`, `onCopy.ts:29`, `withNormalizeNode.ts:183`. Class
+(c) render only: unaffected. No test touches `getInitialValue.ts` or `withNormalizeNode.ts`. `release-move.js --dry-run` on `master` `febf20e`
+(22:59Z): passed.
+**Determination.** Shape: defect, cause proven (QA's and the reviewer's probes; the refutation helper's paste probe HOLDS). Blast radius:
+every editor built on `SlateEditor`; E-1 and the code-fence case lose the user's text. End step: website `master`, Vercel production.
+Pipeline: the `fixer` agent.
+**Scope statement** (website, from `febf20e`): code that applies parsed widths or positions to the editor's original text uses the source
+width of each node, never the pre-treated width: (1) `withNormalizeNode.ts` `handleElement` — a pasted or typed line with an emoji keeps
+every character (E-1), including in a fenced code line, and an escape (`\*`) before an emoji shifts nothing (sweep's extra find); (2)
+`getInitialValue.ts` — a stored message loads with its text unchanged, an escaped emoji included (E-2); (3) `decorator.tsx` — formatting
+after an emoji (escaped or not) colours at its true position. A test drives each through the real parser with literal expectations.
+Write set: those three files and any helper beside them, `src/utils/markdown/` where a node must carry its source width, new tests per Test
+Conventions, the fixer's document and `verification/fix-emoji-pretransform-widths/`. **Exclusion he sees (told in chat):** an emoji element
+is stored and copied as its `:name:` form (`flattenNodeText.ts:11`, `onCopy.ts:29`) — existing behaviour whose intent is undecided; not
+changed here. QA's unrun case (a custom Discord emoji via the picker in a code line) is a QA candidate.
+**Stage set:** `fixer-fix-emoji-pretransform-widths` → `code-reviewer-fix-emoji-pretransform-widths` (under 20 production lines: the
+reviewer also runs the suite, typecheck, red test) → QA Phase 2 at 20 or more → devops for website `master` (his word). No plan, critic,
+Phase 1 or UAT. **Usage:** weekly at 95%; at 98% every session checkpoints and stops (his selection 22:56). **Not covered by the sweep:**
+real paste events, IME, Slate normalisation order, DOM mapping — devops's post-deploy browser walk pastes the E-1 line.
