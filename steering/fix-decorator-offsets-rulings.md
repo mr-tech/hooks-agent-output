@@ -121,3 +121,19 @@ stored `\🙂 **a**` loads as `:slight_smile: **a**`, and onChange reports the r
 changes source widths. Disposition (this thread's, under block 04:50): fixed, as one fixer chain `fix-emoji-pretransform-widths` (the
 `TODO.md` item, E-1, E-2). E-1 loses users' text, so its place in the queue (next after 9b, ahead of 9c-9f, or as ordered) is put to him;
 a refutation helper runs the paste probe through the real code path first (scratch `refute-paste/`).
+
+## 2026-11-22T22:13 — refutation held; his selection: the emoji chain goes next; QAF-1 round 4 rejected (CR-5); code-fence escalation folds in
+
+Refutation helper (general-purpose-sonnet; export of `8845b7e`, real composed editor and parser, `ReactEditor.insertData`, scratch
+`refute-paste/`, exit 0): **HOLDS** — `x🙂 abcdefghijklmnopq` → visible `xlmnopq`; no-emoji control intact; `x😀 …` loses 8; `a🙂b🙂c` → `a`.
+Cause read: `handleElement` uses offsets from the translated AST against the original leaf text. Caveat: editor-level jsdom, not a
+real-browser paste. `8845b7e` is production (chain 9a's devops read).
+Selection prompt put 22:1xZ, answered 22:1xZ (ledger `steering/selection-ledger/2026-11-22.md`); wording this thread's. Options: A
+"Agent: fix it next (Recommended)" — "It starts as soon as the bold-italic fix is released (that one is in its last QA round). The four
+remaining small editor fixes (code fences, timestamps, image upload links, quotes) each move back one place."; B "Keep the current
+order" — "It goes after the four remaining small editor fixes and the other queued items. Users keep losing pasted text until then."
+Chosen: **A**. Queue: 9b → `fix-emoji-pretransform-widths` → 9c-9f → riders → `fix-decorator-nested-styles` → CR-1.
+Since: fixer round 4 (QAF-1) at `a7e1adb` (record `b7e392a0`); reviewer REJECTED it (record `e993a249`, CR-5 MEDIUM: a code line split by
+an emoji is highlighted per node; 5 characters right → wrong) — to the fixer. Reviewer's escalation (pre-existing, base and tip): a Unicode
+emoji inside a fenced code line deletes the text after it on normalize (`const s = "a 🙂 b";` → `" b";` gone; jsdom, real plugins).
+Ruling (this thread's): same pre-transform class — folds into `fix-emoji-pretransform-widths`, its evidence the reviewer's probe.
