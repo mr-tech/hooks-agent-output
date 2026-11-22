@@ -54,3 +54,12 @@ Fixer's cue by message ~23:1xZ: document `implementation/fix-emoji-pretransform-
 count; QA Phase 2 follows review), three test files. Owner residue named in its Diagnosis (text already lost to E-1; stored messages
 rewritten on load before the fix) — told him in chat. Reviewer brief `steering/fix-emoji-pretransform-widths-brief-code-reviewer.md`;
 `code-reviewer-fix-emoji-pretransform-widths` started with `tmux-agent spawn`. weekly_all 96% (23:17Z, live).
+
+## 2026-11-22T23:23 — review round 1 REJECTED (CR-1 HIGH, to the fixer); CR-3 carried in TODO.md
+
+Reviewer's copy by message ~23:3xZ: `code-review/fix-emoji-pretransform-widths-code-review.md` (record `b7f2aac4`), Round 1 REJECTED at
+`c2fee5c`. CR-1 HIGH: an emoji right after a `:name:` token is deleted on load and on typing (`wow :o🙂` → `wow :o:`; base gave
+`wow :o:slight_smile:`); 8 of 407 probe lines right at base, text lost at fix. The rest of the scope is delivered; 70 production lines
+re-derived. CR-3 (pre-existing, decorator ranges past a line's end on some `#` lines) carried in the `TODO.md` item
+"nested formatting loses the outer style" (same function's chain). The reviewer's open assumption (real paste/IME) goes to QA's walk.
+weekly_all 97% (live read this turn).

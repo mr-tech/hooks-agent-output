@@ -221,5 +221,7 @@ His selection 2026-11-22T22:1x: this chain goes next (`steering/fix-decorator-of
 A run following a sibling inside an outer run loses the outer run's style (`||**a** __b__||`: `b` without spoiler), 3,641 of 7,137
 grammar-oracle rows (`verification/fix-decorator-offsets/code-review/tip-e6a5766/oracle-tip.json.gz`); the code-line analogue (a nested
 highlight scope whose outer scope is a line's first range: python `f"a {b} c"`, ruby `"a #{b} c"`, `/** @param */`, fixer's
-`round6/nested-probe.out`); CR-6 (zero-length highlight.js scopes, 2 of 193 languages). Pre-existing; display only. Rulings
+`round6/nested-probe.out`); CR-6 (zero-length highlight.js scopes, 2 of 193 languages); and the emoji chain's CR-3 (the decorator emits ranges past the line's end
+on some lines with `#`: 3 probe rows at website `c2fee5c`, 20 at base `febf20e`, `code-review/fix-emoji-pretransform-widths-code-review.md`,
+record `b7f2aac4`). Pre-existing; display only. Rulings
 `steering/fix-decorator-offsets-rulings.md` blocks 21:21 onward.
