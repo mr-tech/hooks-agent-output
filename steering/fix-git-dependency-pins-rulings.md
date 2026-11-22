@@ -117,3 +117,11 @@ release, so it starts now; its release (devops, his word) waits until a producti
 cut by this thread from `origin/master` `132a7ab` (`git switch --no-track -c`; no upstream; porcelain `?? .playwright-mcp/` before and
 after, `diff` of the captures). The fixer is messaged: pin project-utils `40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165` (devops, block
 23:16) and paracord `3f203086ae38699f26dbee90dadbb395a96be227` (the lockfile's, block 22:28).
+
+## 2026-11-22T00:07 — website half handed off at `3859c29`; review round 2
+
+Spawn cue 00:0xZ (the fixer, by SendMessage): `implementation/fix-git-dependency-pins-implementation.md` (record `80a5778`), `Handoff-At`
+`40ba5d3,3859c29 — repos=project-utils,website` (read by this thread). `git diff --numstat 132a7ab 3859c29`: `package.json` 2/2,
+`pnpm-lock.yaml` 6/1190; in the write set. Production lines across both halves: 3 (the fixer's count). One fixer read (where website
+uses paracord) not completed, not re-issued; its flow list says so. Round 2 brief: `steering/fix-git-dependency-pins-brief-code-reviewer-round2.md`,
+sent to the live `code-reviewer-fix-git-dependency-pins`.
