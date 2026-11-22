@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-api-extractor-devdep
 UUID: 3c9e71a4
 Status: Blocked
-Status-Detail: "Blocked on steering's ruling: the candidate lockfile moves two hoisted pins (function-bind, is-core-module) outside @microsoft/api-extractor's own subtree, which the scope statement does not admit. Nothing committed to project-utils."
+Status-Detail: "Lockfile scope ruled (rulings 07:10, option 1). Blocked on steering's ruling over the pre-commit hook's shared-tree rebuild (writes build/). Candidate applied in the tree, uncommitted; HEAD 40ba5d3."
 Handoff-At: 40ba5d3 — repos=project-utils; base, no fix commit yet
 Origin-Chain: none
 ---
@@ -115,3 +115,4 @@ because nothing deploys.
 | Date | Change |
 |---|---|
 | 2026-11-22T07:09 | Created. Diagnosis, red and green runs recorded. Blocked on the lockfile-scope ruling. |
+| 2026-11-22T07:11 | Steering ruled option 1 (rulings block "2026-11-22T07:10", agent-output `832632c`). Candidate applied to the shared tree (`git diff --numstat`: package.json 1/0, package-lock.json 745/15). The fix commit was not made: the `.githooks/pre-commit` hook (`core.hooksPath`) runs `npm run rebuild`, the shared tree has no `node_modules`, and the hook stopped at lint before build. Blocked on steering's ruling over running the hook's rebuild in the shared tree, which writes `build/`. |
