@@ -38,3 +38,15 @@ Exclusions: the markdown parser itself (a dependency); other decorations the wal
 the suite, typecheck and the red test) → devops for website `master` (his word). No plan, critic, Phase 1, QA or UAT; 20 or more
 production lines restores QA Phase 2. **Not covered:** rendering in a real browser (devops's post-deploy walk can look at the colours).
 Disclosed: the two 9b briefs were composed by a python script run from the shell (its standing section copied from 9a's common brief), not with Write/Edit as this thread's own rule asks; no gate fired. Contents read back (no 9a names left).
+
+## 2026-11-22T20:31 — the fixer's block: heading lines mis-coloured at base; ruled A (own chain), no owner prompt
+
+Fixer by message ~20:4xZ (document `implementation/fix-decorator-offsets-implementation.md`, record `fe7e8c0f`, section "BLOCKED: question
+for steering"): fix and test at website `99fd3c3` (18 production lines; 15 cases, 11 red at base); heading lines (`# …`, mid-line `-# **a**`)
+are mis-coloured at base because the walk never steps over the heading marker, whose width the parsed node does not keep; the fix's two
+`Boolean(offset) &&` guards survive their negative controls, reachable only by a mid-line heading, where no correct value can be asserted
+while headings stay broken. Options A (keep scope, drop the two guards, headings their own item), B (widen), C (keep untested guards, a
+waiver), D (stop). Ruling (this thread's): **A**. His block-04:50 words ("fix everything you find along the way") settle fix-or-not —
+headings are fixed, as their own fixer chain `fix-decorator-headings`, queued after 9f (before CR-1); how a heading marker should be
+coloured is put to him at that chain's scoping if more than one answer is reasonable. B is not taken: it widens a reviewed-size fix past
+the QA line for a defect with its own design question. No owner prompt for this block (his ruling covers it); told him in chat.
