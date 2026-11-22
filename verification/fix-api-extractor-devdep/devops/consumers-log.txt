@@ -1,0 +1,3 @@
+/usr/local/bin/hooks/website/package.json
+/usr/local/bin/hooks-deprecated/cdn/package.json
+/home/dev/review/website/package.json

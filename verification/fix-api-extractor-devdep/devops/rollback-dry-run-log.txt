@@ -1,0 +1,1 @@
+git apply --check -R release-diff.patch exit=0
