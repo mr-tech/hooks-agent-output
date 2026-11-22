@@ -1,7 +1,7 @@
 ---
 UUID: efcca7d0
-Status: Open
-Status-Detail: "Website's two git dependencies, paracord and project-utils, are named without a commit in package.json and held only by pnpm-lock.yaml. A lockfile regeneration re-resolves paracord (3f20308 to 1b7cadb, a second zod tree moves) and can move project-utils. Frozen installs, which Vercel and the QA exports use, are unaffected. Carried from plan 018's closure; pre-existing, outside H-002."
+Status: Addressed
+Status-Detail: "Addressed by fixer chain fix-git-dependency-pins: website master 3859c29 (released 2026-11-22, production deployment dpl_8oenan2E9c2YzyeB3kVrZvtD43XC Ready at hooks.gg) names both git dependencies by full commit in package.json: project-utils 40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165 and paracord 3f203086ae38699f26dbee90dadbb395a96be227. Record: deployment/closed/fix-git-dependency-pins-deployment.md."
 Owning-Stage: devops
 Review-Trigger: "when website's pnpm-lock.yaml is next regenerated or edited (pnpm install without --frozen-lockfile, pnpm add, pnpm update), or before the next website release whose package.json or lockfile differs from d1bb9b0's"
 ---
@@ -37,3 +37,4 @@ Plan 018's Planner batch (M2-I4, CR-7), carried here by devops at Stage 1 becaus
 | Date | Author | Change |
 |---|---|---|
 | 2026-11-20T07:09 | devops-hooks-018 | Opened at Stage 1; the release tip's lockfile read: `paracord` 3f20308 and `project-utils` 749606d, unchanged from base. |
+| 2026-11-22T17:08 | steering-hooks-fixer | Document closed. Status: Addressed. Discharge: website `master` `3859c29` (`git ls-remote origin master`, 17:0xZ) pins both by full commit in `package.json` (lines 68 and 125, read at that tree); released by `devops-fix-git-dependency-pins`, record `deployment/closed/fix-git-dependency-pins-deployment.md` (Released, `f456adc`). |
