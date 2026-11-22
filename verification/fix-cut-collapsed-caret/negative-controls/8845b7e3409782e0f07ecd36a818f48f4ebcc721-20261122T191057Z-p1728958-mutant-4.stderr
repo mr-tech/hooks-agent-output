@@ -1,0 +1,40 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx > editor copy and cut handler > removes the highlighted text and copies it when a range is selected
+AssertionError: expected 'abc' to be 'ac' // Object.is equality
+
+Expected: "ac"
+Received: "abc"
+
+ ❯ src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx:69:33
+     67|     onCopy(editor, true)(clipboardEvent());
+     68|
+     69|     expect(Node.string(editor)).toBe('ac');
+       |                                 ^
+     70|     expect(copy).toHaveBeenCalledWith('b', { format: 'text/plain' });
+     71|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx > editor copy and cut handler > removes a clicked emoji and copies it
+AssertionError: expected [ 'div', 'emoji' ] to deeply equal [ 'div' ]
+
+- Expected
++ Received
+
+  [
+    "div",
++   "emoji",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx:92:76
+     90|
+     91|     expect(Node.string(editor)).toBe('ac');
+     92|     expect(Array.from(Node.elements(editor), ([element]) => element.ty…
+       |                                                                            ^
+     93|     expect(copy).toHaveBeenCalledWith('🙂', { format: 'text/plain' });
+     94|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

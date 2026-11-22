@@ -1,2 +1,2 @@
-84	0	src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx
+95	0	src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx
 5	4	src/components/SlateEditor/utils/onCopy.ts

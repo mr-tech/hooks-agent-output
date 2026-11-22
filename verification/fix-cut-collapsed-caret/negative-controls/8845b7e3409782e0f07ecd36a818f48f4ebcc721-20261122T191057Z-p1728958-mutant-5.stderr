@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx > editor copy and cut handler > copies a selected range without removing it when the event is a copy
+AssertionError: expected 'ac' to be 'abc' // Object.is equality
+
+Expected: "abc"
+Received: "ac"
+
+ ❯ src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx:80:33
+     78|     onCopy(editor)(clipboardEvent());
+     79|
+     80|     expect(Node.string(editor)).toBe('abc');
+       |                                 ^
+     81|     expect(copy).toHaveBeenCalledWith('b', { format: 'text/plain' });
+     82|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

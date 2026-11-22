@@ -26,5 +26,12 @@
     "old": "Transforms.delete(editor, {\n        at: selection,\n      });",
     "new": "",
     "expect": "highlighted-range and clicked-emoji cases red"
+  },
+  {
+    "id": "cut-conjunct-dropped",
+    "file": "src/components/SlateEditor/utils/onCopy.ts",
+    "old": "if (cut && (Range.isExpanded(selection)",
+    "new": "if (true && (Range.isExpanded(selection)",
+    "expect": "copy case red (code review CR-1's mutant)"
   }
 ]

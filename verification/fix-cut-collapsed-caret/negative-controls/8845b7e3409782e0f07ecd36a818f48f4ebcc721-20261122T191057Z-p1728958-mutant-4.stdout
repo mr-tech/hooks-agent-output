@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/acf881db-3969-474d-a04c-1dde839c08c2/scratchpad/mut-work/20261122T191057Z-p1728958/mutant-4
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx (4 tests | 2 failed) 17ms
+     × removes the highlighted text and copies it when a range is selected 6ms
+     × removes a clicked emoji and copies it 3ms
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 2 passed (4)
+   Start at  19:11:06
+   Duration  1.02s (transform 92ms, setup 14ms, import 232ms, tests 17ms, environment 611ms)
+

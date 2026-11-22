@@ -1,0 +1,182 @@
+{
+ "sha": "8845b7e3409782e0f07ecd36a818f48f4ebcc721",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-cut-collapsed-caret/mutants.json",
+ "command": [
+  "node_modules/.bin/vitest",
+  "run",
+  "--no-cache",
+  "--configLoader",
+  "runner",
+  "--config",
+  "/usr/local/bin/hooks/agent-output/verification/fix-cut-collapsed-caret/vitest.mutation.config.mts",
+  "src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-cut-collapsed-caret/mutants.json",
+   "blob": "4aaa51c3561c161e4cb805a2b7938d681f5e0eaa"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  },
+  {
+   "kind": "argument",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-cut-collapsed-caret/vitest.mutation.config.mts",
+   "blob": "0a02cc98123913ceb0ff971140fdf99a77932cf9"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-website/acf881db-3969-474d-a04c-1dde839c08c2/scratchpad/mut-out/8845b7e3409782e0f07ecd36a818f48f4ebcc721-20261122T191057Z-p1728958-control-1.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-website/acf881db-3969-474d-a04c-1dde839c08c2/scratchpad/mut-out/8845b7e3409782e0f07ecd36a818f48f4ebcc721-20261122T191057Z-p1728958-control-1.stderr",
+   "seconds": 1.79,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 4,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "guard-removed",
+   "run": "mutant-1",
+   "file": "src/components/SlateEditor/utils/onCopy.ts",
+   "tests": [],
+   "carried": {
+    "expect": "plain-caret case red"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 4,
+   "control_tests_run": 4,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx > editor copy and cut handler > leaves the text unchanged when the caret is collapsed"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.81,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-website/acf881db-3969-474d-a04c-1dde839c08c2/scratchpad/mut-out/8845b7e3409782e0f07ecd36a818f48f4ebcc721-20261122T191057Z-p1728958-mutant-1.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-website/acf881db-3969-474d-a04c-1dde839c08c2/scratchpad/mut-out/8845b7e3409782e0f07ecd36a818f48f4ebcc721-20261122T191057Z-p1728958-mutant-1.stderr"
+  },
+  {
+   "id": "expanded-limb-false",
+   "run": "mutant-2",
+   "file": "src/components/SlateEditor/utils/onCopy.ts",
+   "tests": [],
+   "carried": {
+    "expect": "highlighted-range case red"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 4,
+   "control_tests_run": 4,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx > editor copy and cut handler > removes the highlighted text and copies it when a range is selected"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.79,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-website/acf881db-3969-474d-a04c-1dde839c08c2/scratchpad/mut-out/8845b7e3409782e0f07ecd36a818f48f4ebcc721-20261122T191057Z-p1728958-mutant-2.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-website/acf881db-3969-474d-a04c-1dde839c08c2/scratchpad/mut-out/8845b7e3409782e0f07ecd36a818f48f4ebcc721-20261122T191057Z-p1728958-mutant-2.stderr"
+  },
+  {
+   "id": "emoji-limb-false",
+   "run": "mutant-3",
+   "file": "src/components/SlateEditor/utils/onCopy.ts",
+   "tests": [],
+   "carried": {
+    "expect": "clicked-emoji case red"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 4,
+   "control_tests_run": 4,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx > editor copy and cut handler > removes a clicked emoji and copies it"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.84,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-website/acf881db-3969-474d-a04c-1dde839c08c2/scratchpad/mut-out/8845b7e3409782e0f07ecd36a818f48f4ebcc721-20261122T191057Z-p1728958-mutant-3.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-website/acf881db-3969-474d-a04c-1dde839c08c2/scratchpad/mut-out/8845b7e3409782e0f07ecd36a818f48f4ebcc721-20261122T191057Z-p1728958-mutant-3.stderr"
+  },
+  {
+   "id": "delete-removed",
+   "run": "mutant-4",
+   "file": "src/components/SlateEditor/utils/onCopy.ts",
+   "tests": [],
+   "carried": {
+    "expect": "highlighted-range and clicked-emoji cases red"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 4,
+   "control_tests_run": 4,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx > editor copy and cut handler > removes the highlighted text and copies it when a range is selected",
+    "|dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx > editor copy and cut handler > removes a clicked emoji and copies it"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.76,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-website/acf881db-3969-474d-a04c-1dde839c08c2/scratchpad/mut-out/8845b7e3409782e0f07ecd36a818f48f4ebcc721-20261122T191057Z-p1728958-mutant-4.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-website/acf881db-3969-474d-a04c-1dde839c08c2/scratchpad/mut-out/8845b7e3409782e0f07ecd36a818f48f4ebcc721-20261122T191057Z-p1728958-mutant-4.stderr"
+  },
+  {
+   "id": "cut-conjunct-dropped",
+   "run": "mutant-5",
+   "file": "src/components/SlateEditor/utils/onCopy.ts",
+   "tests": [],
+   "carried": {
+    "expect": "copy case red (code review CR-1's mutant)"
+   },
+   "controlPassed": true,
+   "killed": true,
+   "applied": true,
+   "tests_run": 4,
+   "control_tests_run": 4,
+   "outcome": "KILLED",
+   "count": "checked",
+   "failing_titles": [
+    "|dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx > editor copy and cut handler > copies a selected range without removing it when the event is a copy"
+   ],
+   "exit": 1,
+   "timedOut": false,
+   "seconds": 1.83,
+   "stdout": "/tmp/claude-1000/-usr-local-bin-hooks-website/acf881db-3969-474d-a04c-1dde839c08c2/scratchpad/mut-out/8845b7e3409782e0f07ecd36a818f48f4ebcc721-20261122T191057Z-p1728958-mutant-5.stdout",
+   "stderr": "/tmp/claude-1000/-usr-local-bin-hooks-website/acf881db-3969-474d-a04c-1dde839c08c2/scratchpad/mut-out/8845b7e3409782e0f07ecd36a818f48f4ebcc721-20261122T191057Z-p1728958-mutant-5.stderr"
+  }
+ ],
+ "score": "5 of 5 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob 4aaa51c3561c161e4cb805a2b7938d681f5e0eaa))"
+}

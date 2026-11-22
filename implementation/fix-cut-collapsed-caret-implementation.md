@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-cut-collapsed-caret
 UUID: 22b61dde
 Status: Active
-Status-Detail: "Handed to code review at website 329cc20; review (with suite, typecheck and red test, under 20 production lines) and devops's merge to website master are owed."
-Handoff-At: 329cc20 — repos=website
+Status-Detail: "Code review Round 1 (REJECTED at 329cc20, CR-1) answered at website 8845b7e; re-verification and devops's merge to website master are owed."
+Handoff-At: 8845b7e — repos=website
 Origin-Chain: none
 ---
 
@@ -74,8 +74,9 @@ live-state check is owed.
 - `website/src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx` — new, three cases.
 
 Commits on `chain/fix-cut-collapsed-caret`: `c576417` (fix + test), `329cc20` (test selects through slate's `Editor.range` /
-point, after the export typecheck refused hand-built range literals as `CustomRange`). `git diff --numstat 453de76 329cc20`
-(`numstat.txt`): `84 0` test file, `5 4` `onCopy.ts`. **Production lines added: 5** (under 20: no QA Phase 2).
+point, after the export typecheck refused hand-built range literals as `CustomRange`), `8845b7e` (code review CR-1: a copy case).
+`git diff --numstat 453de76 8845b7e` (`numstat.txt`): `95 0` test file, `5 4` `onCopy.ts`. **Production lines added: 5** (under 20: no
+QA Phase 2).
 
 ## Test
 
@@ -91,12 +92,15 @@ No existing test covered the cut surface (block 18:49: no test under `src/compon
 | Run | Tree | Command | Result |
 |---|---|---|---|
 | Red (first) | shared tree, test only, unfixed handler | `npx vitest run <test>` | exit 1; plain-caret case × (Expected "abc", Received "ac") — `red-run.txt` (two-case draft) |
-| Red (final) | export at `329cc20` with `onCopy.ts` from `453de76` | same | exit 1; `1 failed \| 2 passed (3)`, the plain-caret case — `red-run-final.txt` |
-| Green | export at `329cc20` | same | exit 0; `3 passed (3)` — `green-run.txt` |
+| Red (final) | export at `8845b7e` with `onCopy.ts` from `453de76` | same | exit 1; `1 failed \| 3 passed (4)`, the plain-caret case — `red-run-final.txt` |
+| Green | export at `8845b7e` | same | exit 0; `4 passed (4)` — `green-run.txt` |
 
-**Negative controls** (`mutation-run.py`, SHA `329cc20`, `mutants.json`, outputs `negative-controls/`; control 3/3 passed; config
-`vitest.mutation.config.mts`, a dependency-free transcription of the repo's config with `process.cwd()` for `__dirname`, its control count
-3 equal to the original's 3):
+Four cases: plain caret (cut) unchanged; highlighted range (cut) removed and copied; **highlighted range (copy) left in place and copied**
+(added for code review CR-1 — no case had called the handler with `cut` false); clicked emoji (cut) removed and copied.
+
+**Negative controls** (`mutation-run.py`, SHA `8845b7e`, `mutants.json`, outputs `negative-controls/` — the `329cc20` set under
+`negative-controls/329cc20/`; control 4/4 passed; config `vitest.mutation.config.mts`, a dependency-free transcription of the repo's config
+with `process.cwd()` for `__dirname`, its control count equal to the original config's):
 
 | Mutant | Outcome | Failing case |
 |---|---|---|
@@ -104,6 +108,7 @@ No existing test covered the cut surface (block 18:49: no test under `src/compon
 | `expanded-limb-false` | KILLED | removes the highlighted text and copies it when a range is selected |
 | `emoji-limb-false` | KILLED | removes a clicked emoji and copies it |
 | `delete-removed` | KILLED | the highlighted-range and clicked-emoji cases |
+| `cut-conjunct-dropped` (`if (cut && (` → `if (true && (`, the reviewer's; survived at `329cc20`) | KILLED, assertion failure Expected "abc" Received "ac" | copies a selected range without removing it when the event is a copy |
 
 Disclosure: the first control run failed at config load (`Cannot find module 'vitest/config'` from a config outside the export); the
 config was rewritten to import nothing and the run repeated. An earlier full control set at `c576417` killed the same four.
@@ -113,14 +118,14 @@ config was rewritten to import nothing and the run repeated. An earlier full con
 All in detached `git worktree` exports (`node_modules` linked to the tree's), the shared tree's `.next/types` being stale; memory-capped
 by `systemd-run --user --scope -p MemoryMax=8G`.
 
-| Check | Base `453de76` | Fix `329cc20` |
+| Check | Base `453de76` | Fix `8845b7e` |
 |---|---|---|
-| Suite, `npx vitest run --reporter=json` | exit 0; 2362 / 2362 passed, 166 files (`suite-base.*`) | exit 0; 2365 / 2365 passed, 167 files (`suite-fix.*`) |
+| Suite, `npx vitest run --reporter=json` | exit 0; 2362 / 2362 passed, 166 files (`suite-base.*`) | exit 0; 2366 / 2366 passed, 167 files (`suite-fix.*`) |
 | File membership | — | only at fix: `onCopy.cut.test.tsx`; none only at base |
 | `npx next typegen` then `pnpm run typecheck` (both tsc programs) | exit 0 (`typecheck-base.txt`) | exit 0 (`typecheck-fix.txt`) |
-| Lint, `npx eslint . --max-warnings=0 -f json` (not the `lint` script, which runs `--fix`) | exit 1, 740 findings | exit 1, 740 findings; set difference 0 both ways (paths normalised) |
-| Lint, the two changed files | — | exit 0 (`lint-changed-files-fix.txt`) |
-| Convention check `--since=453de76` | — | 0 FAIL, 0 CANDIDATE (`convention-check.txt`) |
+| Lint, `npx eslint . --max-warnings=0 -f json` (not the `lint` script, which runs `--fix`) | exit 1, 740 findings | at `329cc20`: exit 1, 740 findings; set difference 0 both ways (paths normalised). Not re-run at `8845b7e`, whose only change is the test file, linted clean in the next row |
+| Lint, the two changed files | — | exit 0 at `8845b7e` (`lint-changed-files-fix.txt`) |
+| Convention check `--since=453de76` | — | 0 FAIL, 0 CANDIDATE at `8845b7e` (`convention-check.txt`) |
 
 Convention-check SKIPs: the `.playwright-mcp/` images (not this chain's, untracked); and "id-token, basename … the checks did not run" —
 **unchecked by the tool**; checked by hand: the basename matches the positive form (`grep -c -P` 1) and the ID-token class matches 0 lines
@@ -142,7 +147,8 @@ embed field name and value):
 
 ## Handoff
 
-`Handoff-At: 329cc20` (website). Reviewer: `code-reviewer-fix-cut-collapsed-caret` (under 20 production lines: it also runs the suite,
+`Handoff-At: 8845b7e` (website; first handoff `329cc20`, Round 1 REJECTED on CR-1 in `code-review/fix-cut-collapsed-caret-code-review.md`,
+record commit `bc02a58b`; answered by `8845b7e`, test-only, sent to the reviewer directly). Reviewer: `code-reviewer-fix-cut-collapsed-caret` (under 20 production lines: it also runs the suite,
 typecheck and the red test). Merge: devops to website `master`, which Vercel deploys to production, under the owner's release approval.
 Spawn cue to `steering-hooks-fixer` by SendMessage.
 
@@ -156,3 +162,4 @@ recommended keeping it; steering ruled to keep it on the owner's 02:09 words.
 | 2026-11-22T18:52 | Created; red test written and seen red; emoji-cut probe at base; Status Blocked on re-scope. |
 | 2026-11-22T18:53 | Handoff message id recorded. The stamp gate refused this row's first, typed stamp; re-stamped from `date -u`. Disclosure: that one line was first written by an in-place `sed` on this file, against the record rule (file-editing tools or `record-edit.js` only); later edits by the Edit tool. `Handoff-At` set to the branch base so the anchor field carries a SHA. |
 | 2026-11-22T19:05 | Ruling 18:53 read at its commit; fix and three-case test committed (`c576417`, `329cc20`); red, green, negative controls, suite, typecheck, lint and convention check recorded; Status Active, `Handoff-At` 329cc20; handed to code review via steering. |
+| 2026-11-22T19:12 | Code review Round 1 CR-1 answered: copy case added (`8845b7e`); the reviewer's mutant added to `mutants.json` and killed with the other four; red, green, suite (2366), typecheck, changed-file lint re-run at `8845b7e`; `Handoff-At` 8845b7e. |

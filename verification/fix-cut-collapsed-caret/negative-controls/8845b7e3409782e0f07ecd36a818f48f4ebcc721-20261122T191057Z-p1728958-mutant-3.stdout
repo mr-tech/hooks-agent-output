@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/acf881db-3969-474d-a04c-1dde839c08c2/scratchpad/mut-work/20261122T191057Z-p1728958/mutant-3
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx (4 tests | 1 failed) 23ms
+     × removes a clicked emoji and copies it 7ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  19:11:04
+   Duration  1.08s (transform 102ms, setup 15ms, import 245ms, tests 23ms, environment 641ms)
+
