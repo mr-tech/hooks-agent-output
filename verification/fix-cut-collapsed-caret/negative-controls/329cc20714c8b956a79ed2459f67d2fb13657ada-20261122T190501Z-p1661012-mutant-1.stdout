@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/acf881db-3969-474d-a04c-1dde839c08c2/scratchpad/mut-work/20261122T190501Z-p1661012/mutant-1
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx (3 tests | 1 failed) 21ms
+     × leaves the text unchanged when the caret is collapsed 14ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  19:05:04
+   Duration  1.08s (transform 82ms, setup 14ms, import 211ms, tests 21ms, environment 694ms)
+

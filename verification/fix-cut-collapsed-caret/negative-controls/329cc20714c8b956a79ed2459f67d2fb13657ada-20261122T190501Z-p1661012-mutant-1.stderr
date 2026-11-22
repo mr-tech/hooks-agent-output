@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx > editor cut handler > leaves the text unchanged when the caret is collapsed
+AssertionError: expected 'ac' to be 'abc' // Object.is equality
+
+Expected: "abc"
+Received: "ac"
+
+ ❯ src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx:59:33
+     57|     onCopy(editor, true)(clipboardEvent());
+     58|
+     59|     expect(Node.string(editor)).toBe('abc');
+       |                                 ^
+     60|   });
+     61|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

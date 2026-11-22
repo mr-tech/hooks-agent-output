@@ -1,0 +1,30 @@
+[
+  {
+    "id": "guard-removed",
+    "file": "src/components/SlateEditor/utils/onCopy.ts",
+    "old": "if (cut && (Range.isExpanded(selection) || Editor.void(editor, { at: selection.anchor }))) {",
+    "new": "if (cut) {",
+    "expect": "plain-caret case red"
+  },
+  {
+    "id": "expanded-limb-false",
+    "file": "src/components/SlateEditor/utils/onCopy.ts",
+    "old": "Range.isExpanded(selection) ||",
+    "new": "false ||",
+    "expect": "highlighted-range case red"
+  },
+  {
+    "id": "emoji-limb-false",
+    "file": "src/components/SlateEditor/utils/onCopy.ts",
+    "old": "|| Editor.void(editor, { at: selection.anchor })",
+    "new": "|| false",
+    "expect": "clicked-emoji case red"
+  },
+  {
+    "id": "delete-removed",
+    "file": "src/components/SlateEditor/utils/onCopy.ts",
+    "old": "Transforms.delete(editor, {\n        at: selection,\n      });",
+    "new": "",
+    "expect": "highlighted-range and clicked-emoji cases red"
+  }
+]

@@ -1,0 +1,5 @@
+guard-removed KILLED 1.97
+expanded-limb-false KILLED 1.7
+emoji-limb-false KILLED 1.72
+delete-removed KILLED 1.72
+4 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob 1c07354599b7b3437917a33264df25c520569984))

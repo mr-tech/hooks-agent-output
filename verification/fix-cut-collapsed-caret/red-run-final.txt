@@ -1,0 +1,31 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/acf881db-3969-474d-a04c-1dde839c08c2/scratchpad/ex-red
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx (3 tests | 1 failed) 22ms
+     × leaves the text unchanged when the caret is collapsed 14ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx > editor cut handler > leaves the text unchanged when the caret is collapsed
+AssertionError: expected 'ac' to be 'abc' // Object.is equality
+
+Expected: "abc"
+Received: "ac"
+
+ ❯ src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx:59:33
+     57|     onCopy(editor, true)(clipboardEvent());
+     58|
+     59|     expect(Node.string(editor)).toBe('abc');
+       |                                 ^
+     60|   });
+     61|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  19:02:54
+   Duration  966ms (transform 104ms, setup 22ms, import 233ms, tests 22ms, environment 566ms)
+
+exit=1
