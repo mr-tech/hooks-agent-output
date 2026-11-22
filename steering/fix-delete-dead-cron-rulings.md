@@ -132,3 +132,14 @@ five and its removal deleted them) is withdrawn, the error this thread's: it res
 five; at 23:53Z `vercel env ls` listed 27 project settings and none of the five; devops's two readings are (1) project settings removed
 after 18:35Z, (2) a link that the project list does not show (e.g. team-level shared settings) broke. Put to him: Vercel's activity log
 and the team's shared settings as the places that can show which, and the manual copy from Railway (public addresses) as the restore.
+
+## 2026-11-22T16:48 — his clarification: there was an integration, and it is gone from the marketplace
+
+His words, in this session: "no, I 100% had some kind of integration before. what I mean is that I can't find it anymore. it doesn't
+exist on the marketplace". Correction to block 16:46: this thread misread his "there is no railway integration" as "never was"; he
+meant it no longer exists. The integration reading of block 16:44 is reinstated as a candidate (still not read at the mechanism).
+Reads this turn (web): no notice of the Railway-Vercel integration's removal found; `vercel.com/marketplace/railway` and
+`vercel.com/integrations/railway` answer 200 but render client-side (inconclusive); Railway's changelog index 2023-08-18..2026-11-20 names
+no removal (titles only). Whether Vercel deletes an integration's settings when the integration goes: not found in Vercel's docs.
+Restore path put to him: copy the five from Railway by hand (public addresses), then Redeploy.
+Disclosed: this heading was first typed with an estimated minute; the stamp gate refused it; restamped with the tool's `2026-11-22T16:48`.
