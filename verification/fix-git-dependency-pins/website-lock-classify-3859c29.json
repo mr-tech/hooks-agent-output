@@ -1,0 +1,34 @@
+{
+  "importerChanges": [
+    "dependencies.project-utils",
+    "devDependencies.paracord"
+  ],
+  "sections": {
+    "packages": {
+      "removed": 144,
+      "added": [
+        "project-utils@git+https://git@github.com:hooks-gg/project-utils.git#40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165"
+      ],
+      "changed": []
+    },
+    "snapshots": {
+      "removed": 144,
+      "added": [
+        "project-utils@git+https://git@github.com:hooks-gg/project-utils.git#40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165"
+      ],
+      "changed": []
+    }
+  },
+  "projectUtilsSnapshot": {
+    "dependencies": {
+      "kysely": "0.26.1",
+      "pg": "8.11.1",
+      "zod": "3.22.4"
+    },
+    "transitivePeerDependencies": [
+      "pg-native"
+    ]
+  },
+  "problems": [],
+  "ok": true
+}

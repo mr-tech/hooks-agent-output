@@ -1,0 +1,6 @@
+rev 3859c29d557c920a5b611b8e3a4e7b5bf7b1222e node v24.14.0 pnpm 10.28.2
+PASS W1 project-utils and paracord are pinned by full commit
+PASS W2 pnpm install --frozen-lockfile exits 0
+PASS W3 the installed project-utils brings no prisma-kysely
+PASS W4 vitest exits 0, no failed case ({"numTotalTests":2358,"numPassedTests":2358,"numFailedTests":0,"numPendingTests":0,"files":165})
+PASS W5 pnpm run typecheck exits 0

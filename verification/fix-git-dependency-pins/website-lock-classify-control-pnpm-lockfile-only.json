@@ -1,0 +1,50 @@
+{
+  "importerChanges": [
+    "dependencies.project-utils",
+    "devDependencies.paracord"
+  ],
+  "sections": {
+    "packages": {
+      "removed": 145,
+      "added": [
+        "project-utils@git+https://git@github.com:hooks-gg/project-utils.git#40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165"
+      ],
+      "changed": [
+        "basic-ftp@5.0.3",
+        "charm@0.1.2",
+        "uuid@3.4.0"
+      ]
+    },
+    "snapshots": {
+      "removed": 145,
+      "added": [
+        "project-utils@git+https://git@github.com:hooks-gg/project-utils.git#40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165"
+      ],
+      "changed": [
+        "paracord@https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227",
+        "pm2-axon-rpc@0.7.1",
+        "pm2-axon@4.0.1",
+        "pm2-sysmonit@1.2.8",
+        "pm2@5.3.0(bufferutil@4.0.7)(utf-8-validate@5.0.10)",
+        "yargs@17.7.2"
+      ]
+    }
+  },
+  "projectUtilsSnapshot": {
+    "dependencies": {
+      "kysely": "0.26.1",
+      "pg": "8.11.1",
+      "zod": "3.22.4"
+    },
+    "transitivePeerDependencies": [
+      "pg-native"
+    ]
+  },
+  "problems": [
+    "packages: changed basic-ftp@5.0.3 charm@0.1.2 uuid@3.4.0",
+    "packages: removed but still reachable: protobufjs@7.2.4",
+    "snapshots: changed paracord@https://codeload.github.com/mr-tech/paracord/tar.gz/3f203086ae38699f26dbee90dadbb395a96be227 pm2-axon-rpc@0.7.1 pm2-axon@4.0.1 pm2-sysmonit@1.2.8 pm2@5.3.0(bufferutil@4.0.7)(utf-8-validate@5.0.10) yargs@17.7.2",
+    "snapshots: removed but still reachable: protobufjs@7.2.4"
+  ],
+  "ok": false
+}

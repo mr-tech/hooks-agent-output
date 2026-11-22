@@ -1,0 +1,2 @@
+/tmp/claude-1000/-usr-local-bin-hooks/e11b9b66-cdab-4658-b5ff-ab3dee387c9d/scratchpad/web-check.xYzEsG/node_modules/.pnpm/project-utils@git+https+++git@github.com+hooks-gg+project-utils.git+40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165/node_modules/project-utils
+project-utils@git+https+++git@github.com+hooks-gg+project-utils.git+40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165

@@ -1,0 +1,5 @@
+FAIL W1 project-utils and paracord are pinned by full commit ({"projectUtils":"github:hooks-gg/project-utils#master","paracord":"github:mr-tech/paracord"})
+PASS W2 pnpm install --frozen-lockfile exits 0
+FAIL W3 the installed project-utils brings no prisma-kysely (manifest exit 1; see w3-store.txt)
+PASS W4 vitest exits 0, no failed case ({"numTotalTests":2358,"numPassedTests":2358,"numFailedTests":0,"numPendingTests":0,"files":165})
+PASS W5 pnpm run typecheck exits 0

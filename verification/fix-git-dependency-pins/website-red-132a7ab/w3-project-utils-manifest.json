@@ -1,0 +1,1 @@
+{"dependencies":["kysely","pg","prisma-kysely","zod"],"devDependencies":["@types/node","@types/pg","@typescript-eslint/eslint-plugin","@typescript-eslint/parser","eslint","eslint-config-airbnb-base","eslint-plugin-import","prisma","rimraf","typescript"]}
