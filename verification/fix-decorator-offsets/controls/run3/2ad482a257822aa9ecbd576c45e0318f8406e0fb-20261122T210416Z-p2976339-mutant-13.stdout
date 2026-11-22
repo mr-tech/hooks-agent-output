@@ -1,0 +1,22 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4c8508ed-d797-4cd5-824a-33f08e873764/scratchpad/mut-work3/20261122T210416Z-p2976339/mutant-13
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (221 tests | 12 failed) 89ms
+     × with the content parser colours "# a" as "# ":S "a":- 7ms
+     × with the content parser colours "## **a**" as "## **":S "a":strongText "**":S 1ms
+     × with the content parser colours "### a #" as "### ":S "a":- " #":S 1ms
+     × with the content parser colours "-# **a**" as "-":- "# **":S "a":strongText "**":S 1ms
+     × with the content parser colours "a # **b**" as "a ":- "# **":S "b":strongText "**":S 1ms
+     × with the content parser colours "# **a** b" as "# **":S "a":strongText "**":S " b":- 1ms
+     × with the content parser colours "# # a b" as "# # ":S "a b":- 0ms
+     × with the content parser colours "__-# > __[b](<https://x.y>)" as "__":S "-":uText "# ":S+uText ">":uText " ":S+uText "__[":S+uText "b":linkText "](<":S "https://x.y":linkText ">)":S 1ms
+     × with the content parser colours "**-# a **b" as "**":S "-":strongText "# ":S+strongText "a":strongText " ":S+strongText "**":S+strongText "b":- 1ms
+     × with the content parser colours "\\*ac d# **<https://x.y>***" as "\\*ac d":- "# **<":S "https://x.y":linkText+strongText ">":S "*":strongText "**":S 1ms
+     × with the content parser colours "# __[a](https://x.y)***~~__\\*____" as "# __[":S "a":linkText+uText "](":S "https://x.y":linkText ")":S "***~~":uText "__":S "\\*":- "_":S "__":emText "_":S 1ms
+     × with the content parser colours "# ~~***<@123> ***c d[b](<https://x.y>)b" as "# ":S "~~":- "***":S "<@123> ":emText+strongText "***":S "c d":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b":- 1ms
+
+ Test Files  1 failed (1)
+      Tests  12 failed | 209 passed (221)
+   Start at  21:04:54
+   Duration  1.44s (transform 460ms, setup 0ms, import 1.19s, tests 89ms, environment 0ms)
+

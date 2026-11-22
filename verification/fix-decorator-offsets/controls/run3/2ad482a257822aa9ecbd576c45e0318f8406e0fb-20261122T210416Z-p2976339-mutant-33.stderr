@@ -1,0 +1,310 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 22 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the title parser colours "[a](https://x.y)" as "[a](":- "https://x.y":linkText ")":-
+AssertionError: expected '"[a":- "](https://x":linkText ".y)":-' to be '"[a](":- "https://x.y":linkText ")":-' // Object.is equality
+
+Expected: ""[a](":- "https://x.y":linkText ")":-"
+Received: ""[a":- "](https://x":linkText ".y)":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:356:36
+    354|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    355|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    356|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    357|   });
+    358| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the title parser colours "[a](https://x.y) **b**" as "[a](":- "https://x.y":linkText ") ":- "**":S "b":strongText "**":S
+AssertionError: expected '"[a":- "](https://x":linkText ".y":- …' to be '"[a](":- "https://x.y":linkText ") ":…' // Object.is equality
+
+Expected: ""[a](":- "https://x.y":linkText ") ":- "**":S "b":strongText "**":S"
+Received: ""[a":- "](https://x":linkText ".y":- ") ":S "*":strongText "*b":S "**":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:356:36
+    354|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    355|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    356|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    357|   });
+    358| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the title parser colours "[a](<https://x.y>)" as "[a](":- "<":S "https://x.y":linkText ">":S ")":-
+AssertionError: expected '"[a":- "]":S "(<https://x":linkText "…' to be '"[a](":- "<":S "https://x.y":linkText…' // Object.is equality
+
+Expected: ""[a](":- "<":S "https://x.y":linkText ">":S ")":-"
+Received: ""[a":- "]":S "(<https://x":linkText ".":S "y>)":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:356:36
+    354|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    355|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    356|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    357|   });
+    358| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the title parser colours "[a](<https://x.y>) **b**" as "[a](":- "<":S "https://x.y":linkText ">":S ") ":- "**":S "b":strongText "**":S
+AssertionError: expected '"[a":- "]":S "(<https://x":linkText "…' to be '"[a](":- "<":S "https://x.y":linkText…' // Object.is equality
+
+Expected: ""[a](":- "<":S "https://x.y":linkText ">":S ") ":- "**":S "b":strongText "**":S"
+Received: ""[a":- "]":S "(<https://x":linkText ".":S "y>":- ") ":S "*":strongText "*b":S "**":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:356:36
+    354|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    355|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    356|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    357|   });
+    358| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the title parser colours "[a](https://x.y \"t\")" as "[a](":- "https://x.y":linkText " \"t\")":-
+AssertionError: expected '"[a":- "](https://x":linkText ".y \"t…' to be '"[a](":- "https://x.y":linkText " \"t…' // Object.is equality
+
+Expected: ""[a](":- "https://x.y":linkText " \"t\")":-"
+Received: ""[a":- "](https://x":linkText ".y \"t\")":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:356:36
+    354|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    355|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    356|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    357|   });
+    358| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the title parser colours "[a](https://x.y \"t\") **b**" as "[a](":- "https://x.y":linkText " \"t\") ":- "**":S "b":strongText "**":S
+AssertionError: expected '"[a":- "](https://x":linkText ".":- "…' to be '"[a](":- "https://x.y":linkText " \"t…' // Object.is equality
+
+Expected: ""[a](":- "https://x.y":linkText " \"t\") ":- "**":S "b":strongText "**":S"
+Received: ""[a":- "](https://x":linkText ".":- "y ":S "\"":strongText "t\"":S ") **b**":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:356:36
+    354|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    355|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    356|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    357|   });
+    358| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "\\* **b**" as "\\* ":- "**":S "b":strongText "**":S
+AssertionError: expected '"\\*":- " *":S "*":strongText "b*":S …' to be '"\\* ":- "**":S "b":strongText "**":S' // Object.is equality
+
+Expected: ""\\* ":- "**":S "b":strongText "**":S"
+Received: ""\\*":- " *":S "*":strongText "b*":S "*":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:356:36
+    354|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    355|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    356|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    357|   });
+    358| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours ">>> **a**" as ">>> ":- "**":S "a":strongText "**":S
+AssertionError: expected '">":- ">>":S " ":strongText "**":S "a…' to be '">>> ":- "**":S "a":strongText "**":S' // Object.is equality
+
+Expected: "">>> ":- "**":S "a":strongText "**":S"
+Received: "">":- ">>":S " ":strongText "**":S "a**":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:356:36
+    354|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    355|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    356|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    357|   });
+    358| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for shapes whose widths cancelled or shifted before > with the content parser colours "\\*ac d# **<https://x.y>***" as "\\*ac d":- "# **<":S "https://x.y":linkText+strongText ">":S "*":strongText "**":S
+AssertionError: expected '"\\*":- "ac d#":S " **<https:/":linkT…' to be '"\\*ac d":- "# **<":S "https://x.y":l…' // Object.is equality
+
+Expected: ""\\*ac d":- "# **<":S "https://x.y":linkText+strongText ">":S "*":strongText "**":S"
+Received: ""\\*":- "ac d#":S " **<https:/":linkText+strongText "/":S "x":strongText ".y>*":S "**":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:402:36
+    400|     ['field', '# ~~***<@123> ***c d[b](<https://x.y>)b', '"# ~~":- "**…
+    401|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    402|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    403|   });
+    404| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for shapes whose widths cancelled or shifted before > with the title parser colours "\\*ac d# **<https://x.y>***" as "\\*ac d# ":- "**<":S "https://x.y":linkText+strongText ">":S "*":strongText "**":S
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for shapes whose widths cancelled or shifted before > with the field parser colours "\\*ac d# **<https://x.y>***" as "\\*ac d# ":- "**<":S "https://x.y":linkText+strongText ">":S "*":strongText "**":S
+AssertionError: expected '"\\*":- "ac ":S "d# **<https":linkTex…' to be '"\\*ac d# ":- "**<":S "https://x.y":l…' // Object.is equality
+
+Expected: ""\\*ac d# ":- "**<":S "https://x.y":linkText+strongText ">":S "*":strongText "**":S"
+Received: ""\\*":- "ac ":S "d# **<https":linkText+strongText ":":S "/":strongText "/x":S ".y>***":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:402:36
+    400|     ['field', '# ~~***<@123> ***c d[b](<https://x.y>)b', '"# ~~":- "**…
+    401|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    402|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    403|   });
+    404| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for shapes whose widths cancelled or shifted before > with the content parser colours "__||c d[a](https://x.y)\\*https://x.y||" as "__":- "||":S "c d":spoilerText "[":S+spoilerText "a":linkText+spoilerText "](":S "https://x.y":linkText ")":S "\\*":spoilerText "https://x.y":linkText "||":S
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for shapes whose widths cancelled or shifted before > with the field parser colours "__||c d[a](https://x.y)\\*https://x.y||" as "__":- "||":S "c d":spoilerText "[":S+spoilerText "a":linkText+spoilerText "](":S "https://x.y":linkText ")":S "\\*":spoilerText "https://x.y":linkText "||":S
+AssertionError: expected '"_":- "_|":S "|c ":spoilerText "d":S+…' to be '"__":- "||":S "c d":spoilerText "[":S…' // Object.is equality
+
+Expected: ""__":- "||":S "c d":spoilerText "[":S+spoilerText "a":linkText+spoilerText "](":S "https://x.y":linkText ")":S "\\*":spoilerText "https://x.y":linkText "||":S"
+Received: ""_":- "_|":S "|c ":spoilerText "d":S+spoilerText "[":linkText+spoilerText "a]":S "(https://x.":linkText "y":S ")\\":spoilerText "*https://x.":linkText "y|":S "|":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:402:36
+    400|     ['field', '# ~~***<@123> ***c d[b](<https://x.y>)b', '"# ~~":- "**…
+    401|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    402|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    403|   });
+    404| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for shapes whose widths cancelled or shifted before > with the title parser colours "__||c d[a](https://x.y)\\*https://x.y||" as "__":- "||":S "c d[a](":spoilerText "https://x.y)\\*https://x.y":linkText+spoilerText "||":S
+AssertionError: expected '"_":- "_|":S "|c ":spoilerText "d[a](…' to be '"__":- "||":S "c d[a](":spoilerText "…' // Object.is equality
+
+Expected: ""__":- "||":S "c d[a](":spoilerText "https://x.y)\\*https://x.y":linkText+spoilerText "||":S"
+Received: ""_":- "_|":S "|c ":spoilerText "d[a](https://x.y)\\*https:":linkText+spoilerText "//x.y|":S "|":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:402:36
+    400|     ['field', '# ~~***<@123> ***c d[b](<https://x.y>)b', '"# ~~":- "**…
+    401|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    402|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    403|   });
+    404| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for shapes whose widths cancelled or shifted before > with the content parser colours "~~\\*:smile:**[a](https://x.y)***" as "~~\\*:smile:":- "**[":S "a":linkText+strongText "](":S "https://x.y":linkText ")":S "*":strongText "**":S
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for shapes whose widths cancelled or shifted before > with the field parser colours "~~\\*:smile:**[a](https://x.y)***" as "~~\\*:smile:":- "**[":S "a":linkText+strongText "](":S "https://x.y":linkText ")":S "*":strongText "**":S
+AssertionError: expected '"~~\\*:smi":- "le:":S "*":linkText+st…' to be '"~~\\*:smile:":- "**[":S "a":linkText…' // Object.is equality
+
+Expected: ""~~\\*:smile:":- "**[":S "a":linkText+strongText "](":S "https://x.y":linkText ")":S "*":strongText "**":S"
+Received: ""~~\\*:smi":- "le:":S "*":linkText+strongText "*[":S "a](https://":linkText "x":S ".":strongText "y)":S "***":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:402:36
+    400|     ['field', '# ~~***<@123> ***c d[b](<https://x.y>)b', '"# ~~":- "**…
+    401|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    402|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    403|   });
+    404| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for shapes whose widths cancelled or shifted before > with the title parser colours "~~\\*:smile:**[a](https://x.y)***" as "~~\\*:smile:":- "**":S "[a](":strongText "https://x.y)*":linkText+strongText "**":S
+AssertionError: expected '"~~\\*:smi":- "le":S ":*":strongText …' to be '"~~\\*:smile:":- "**":S "[a](":strong…' // Object.is equality
+
+Expected: ""~~\\*:smile:":- "**":S "[a](":strongText "https://x.y)*":linkText+strongText "**":S"
+Received: ""~~\\*:smi":- "le":S ":*":strongText "*[a](https://":linkText+strongText "x.y)":S "***":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:402:36
+    400|     ['field', '# ~~***<@123> ***c d[b](<https://x.y>)b', '"# ~~":- "**…
+    401|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    402|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    403|   });
+    404| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for shapes whose widths cancelled or shifted before > with the title parser colours "# __[a](https://x.y)***~~__\\*____" as "# ":- "__":S "[a](":uText "https://x.y)***~~":linkText+uText "__":S "\\*":- "_":S "__":emText "_":S
+AssertionError: expected '"# ":- "__":S "[a":uText "](https://x…' to be '"# ":- "__":S "[a](":uText "https://x…' // Object.is equality
+
+Expected: ""# ":- "__":S "[a](":uText "https://x.y)***~~":linkText+uText "__":S "\\*":- "_":S "__":emText "_":S"
+Received: ""# ":- "__":S "[a":uText "](https://x.y)***":linkText+uText "~~__":S "\\*":- "_":S "_":emText "__":S"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:402:36
+    400|     ['field', '# ~~***<@123> ***c d[b](<https://x.y>)b', '"# ~~":- "**…
+    401|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    402|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    403|   });
+    404| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for shapes whose widths cancelled or shifted before > with the field parser colours "# __[a](https://x.y)***~~__\\*____" as "# ":- "__[":S "a":linkText+uText "](":S "https://x.y":linkText ")":S "***~~":uText "__":S "\\*":- "_":S "__":emText "_":S
+AssertionError: expected '"# ":- "__[":S "a":linkText+uText "](…' to be '"# ":- "__[":S "a":linkText+uText "](…' // Object.is equality
+
+Expected: ""# ":- "__[":S "a":linkText+uText "](":S "https://x.y":linkText ")":S "***~~":uText "__":S "\\*":- "_":S "__":emText "_":S"
+Received: ""# ":- "__[":S "a":linkText+uText "](":S "https://x.y":linkText ")":S "*":uText "**~~__":S "\\*":- "_":S "_":emText "__":S"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:402:36
+    400|     ['field', '# ~~***<@123> ***c d[b](<https://x.y>)b', '"# ~~":- "**…
+    401|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    402|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    403|   });
+    404| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for shapes whose widths cancelled or shifted before > with the title parser colours "***> \\****\\*[b](<https://x.y>)b||" as "***":S "> \\*":emText+strongText "***":S "\\*[b](":- "<":S "https://x.y":linkText ">":S ")b||":-
+AssertionError: expected '"***":S "> \\*":emText+strongText "**…' to be '"***":S "> \\*":emText+strongText "**…' // Object.is equality
+
+Expected: ""***":S "> \\*":emText+strongText "***":S "\\*[b](":- "<":S "https://x.y":linkText ">":S ")b||":-"
+Received: ""***":S "> \\*":emText+strongText "***":S "\\*":- "[":S "b](<https:/":linkText "/":S "x.y>)b||":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:402:36
+    400|     ['field', '# ~~***<@123> ***c d[b](<https://x.y>)b', '"# ~~":- "**…
+    401|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    402|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    403|   });
+    404| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for shapes whose widths cancelled or shifted before > with the title parser colours "# ~~***<@123> ***c d[b](<https://x.y>)b" as "# ~~":- "***":S "<@123> ":emText+strongText "***":S "c d[b](":- "<":S "https://x.y":linkText ">":S ")b":-
+AssertionError: expected '"# ":- "~~*":S "**<@123":emText+stron…' to be '"# ~~":- "***":S "<@123> ":emText+str…' // Object.is equality
+
+Expected: ""# ~~":- "***":S "<@123> ":emText+strongText "***":S "c d[b](":- "<":S "https://x.y":linkText ">":S ")b":-"
+Received: ""# ":- "~~*":S "**<@123":emText+strongText "> *":S "**c":- " ":S "d[b](<https":linkText ":":S "//x.y>)b":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:402:36
+    400|     ['field', '# ~~***<@123> ***c d[b](<https://x.y>)b', '"# ~~":- "**…
+    401|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    402|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    403|   });
+    404| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/22]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for shapes whose widths cancelled or shifted before > with the field parser colours "# ~~***<@123> ***c d[b](<https://x.y>)b" as "# ~~":- "***":S "<@123> ":emText+strongText "***":S "c d":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b":-
+AssertionError: expected '"# ":- "~~*":S "**<@123":emText+stron…' to be '"# ~~":- "***":S "<@123> ":emText+str…' // Object.is equality
+
+Expected: ""# ~~":- "***":S "<@123> ":emText+strongText "***":S "c d":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b":-"
+Received: ""# ":- "~~*":S "**<@123":emText+strongText "> *":S "**c":- " ":S "d":linkText "[b]":S "(<https://x":linkText ".y":S ">)b":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:402:36
+    400|     ['field', '# ~~***<@123> ***c d[b](<https://x.y>)b', '"# ~~":- "**…
+    401|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    402|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    403|   });
+    404| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/22]⎯
+

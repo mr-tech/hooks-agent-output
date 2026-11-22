@@ -1,0 +1,35 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "__-# > __[b](<https://x.y>)" as "__":S "-":uText "# ":S+uText ">":uText " ":S+uText "__[":S+uText "b":linkText "](<":S "https://x.y":linkText ">)":S
+AssertionError: expected '"__":S "-":uText "# ":S+uText ">":uTe…' to be '"__":S "-":uText "# ":S+uText ">":uTe…' // Object.is equality
+
+Expected: ""__":S "-":uText "# ":S+uText ">":uText " ":S+uText "__[":S+uText "b":linkText "](<":S "https://x.y":linkText ">)":S"
+Received: ""__":S "-":uText "# ":S+uText ">":uText " __":S "[":linkText "b](":S "<https://x.":linkText "y>":S ")":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:362:36
+    360|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    361|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    362|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    363|   });
+    364| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "**-# a **b" as "**":S "-":strongText "# ":S+strongText "a":strongText " ":S+strongText "**":S+strongText "b":-
+AssertionError: expected '"**":S "-":strongText "# ":S+strongTe…' to be '"**":S "-":strongText "# ":S+strongTe…' // Object.is equality
+
+Expected: ""**":S "-":strongText "# ":S+strongText "a":strongText " ":S+strongText "**":S+strongText "b":-"
+Received: ""**":S "-":strongText "# ":S+strongText "a":strongText " *":S "*b":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:362:36
+    360|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    361|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    362|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    363|   });
+    364| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

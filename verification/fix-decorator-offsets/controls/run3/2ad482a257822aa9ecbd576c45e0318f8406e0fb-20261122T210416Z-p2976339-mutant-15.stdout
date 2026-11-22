@@ -1,0 +1,33 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4c8508ed-d797-4cd5-824a-33f08e873764/scratchpad/mut-work3/20261122T210416Z-p2976339/mutant-15
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (221 tests | 23 failed) 108ms
+     × keeps the syntax ranges of bold italic text inside its three-asterisk delimiters 9ms
+     × leaves the text after bold italic text uncoloured 2ms
+     × keeps shared delimiters inside the text for bold closing an italic run 3ms
+     × keeps shared delimiters inside the text for strikethrough inside bold italic 2ms
+     × keeps shared delimiters inside the text for italic inside underline 1ms
+     × keeps shared delimiters inside the text for bold inside a spoiler 1ms
+     × with the content parser colours "**b *e***" as "**":S "b ":strongText "*":S+strongText "e":emText+strongText "***":S 2ms
+     × with the content parser colours "*b **s***" as "*":S "b ":emText "**":S+emText "s":emText+strongText "***":S 0ms
+     × with the content parser colours "**b __u__**" as "**":S "b ":strongText "__":S+strongText "u":strongText+uText "__**":S 0ms
+     × with the content parser colours "*b __u__*" as "*":S "b ":emText "__":S+emText "u":emText+uText "__*":S 0ms
+     × with the content parser colours "**b ~~s~~**" as "**":S "b ":strongText "~~":S+strongText "s":sText+strongText "~~**":S 0ms
+     × with the content parser colours "*b ~~s~~*" as "*":S "b ":emText "~~":S+emText "s":emText+sText "~~*":S 0ms
+     × with the content parser colours "**b ||p||**" as "**":S "b ":strongText "||":S+strongText "p":spoilerText+strongText "||**":S 0ms
+     × with the content parser colours "*b ||p||*" as "*":S "b ":emText "||":S+emText "p":emText+spoilerText "||*":S 1ms
+     × with the content parser colours "_*a*_" as "_*":S "a":emText+emText "*_":S 1ms
+     × with the content parser colours "****a****" as "****":S "a":strongText+strongText "****":S 0ms
+     × with the content parser colours "**a** ****b****" as "**":S "a":strongText "**":S " ":- "****":S "b":strongText+strongText "****":S 0ms
+     × with the content parser colours "***> \\****\\*[b](<https://x.y>)b||" as "***":S "> \\*":emText+strongText "***":S "\\*":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b||":- 1ms
+     × with the title parser colours "***> \\****\\*[b](<https://x.y>)b||" as "***":S "> \\*":emText+strongText "***":S "\\*[b](":- "<":S "https://x.y":linkText ">":S ")b||":- 1ms
+     × with the field parser colours "***> \\****\\*[b](<https://x.y>)b||" as "***":S "> \\*":emText+strongText "***":S "\\*":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b||":- 1ms
+     × with the content parser colours "# ~~***<@123> ***c d[b](<https://x.y>)b" as "# ":S "~~":- "***":S "<@123> ":emText+strongText "***":S "c d":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b":- 1ms
+     × with the title parser colours "# ~~***<@123> ***c d[b](<https://x.y>)b" as "# ~~":- "***":S "<@123> ":emText+strongText "***":S "c d[b](":- "<":S "https://x.y":linkText ">":S ")b":- 1ms
+     × with the field parser colours "# ~~***<@123> ***c d[b](<https://x.y>)b" as "# ~~":- "***":S "<@123> ":emText+strongText "***":S "c d":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b":- 1ms
+
+ Test Files  1 failed (1)
+      Tests  23 failed | 198 passed (221)
+   Start at  21:05:00
+   Duration  1.51s (transform 476ms, setup 0ms, import 1.20s, tests 108ms, environment 0ms)
+

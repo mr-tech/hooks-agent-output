@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4c8508ed-d797-4cd5-824a-33f08e873764/scratchpad/mut-work4/20261122T210833Z-p3025110/mutant-3
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (227 tests | 13 failed) 100ms
+     × keeps shared delimiters inside the text for italic inside underline 15ms
+     × with the content parser colours "__u__" as "__":S "u":uText "__":S 8ms
+     × with the content parser colours "**__u__ b**" as "**__":S "u":strongText+uText "__":S " b":strongText "**":S 1ms
+     × with the content parser colours "**b __u__**" as "**":S "b ":strongText "__":S+strongText "u":strongText+uText "__**":S 1ms
+     × with the content parser colours "*b __u__*" as "*":S "b ":emText "__":S+emText "u":emText+uText "__*":S 1ms
+     × with the content parser colours "__u__ **b**" as "__":S "u":uText "__":S " ":- "**":S "b":strongText "**":S 1ms
+     × with the content parser colours "__-# > __[b](<https://x.y>)" as "__":S "-":uText "# ":S+uText ">":uText " ":S+uText "__[":S+uText "b":linkText "](<":S "https://x.y":linkText ">)":S 1ms
+     × with the content parser colours "__a https://x.y__" as "__":S "a ":uText "https://x.y":linkText+uText "__":S 1ms
+     × with the title parser colours "__a https://x.y__" as "__":S "a ":uText "https://x.y":linkText+uText "__":S 0ms
+     × with the field parser colours "__a https://x.y__" as "__":S "a ":uText "https://x.y":linkText+uText "__":S 1ms
+     × with the content parser colours "# __[a](https://x.y)***~~__\\*____" as "# __[":S "a":linkText+uText "](":S "https://x.y":linkText ")":S "***~~":uText "__":S "\\*":- "_":S "__":emText "_":S 1ms
+     × with the title parser colours "# __[a](https://x.y)***~~__\\*____" as "# ":- "__":S "[a](":uText "https://x.y)***~~":linkText+uText "__":S "\\*":- "_":S "__":emText "_":S 1ms
+     × with the field parser colours "# __[a](https://x.y)***~~__\\*____" as "# ":- "__[":S "a":linkText+uText "](":S "https://x.y":linkText ")":S "***~~":uText "__":S "\\*":- "_":S "__":emText "_":S 1ms
+
+ Test Files  1 failed (1)
+      Tests  13 failed | 214 passed (227)
+   Start at  21:08:43
+   Duration  1.44s (transform 463ms, setup 0ms, import 1.18s, tests 100ms, environment 0ms)
+

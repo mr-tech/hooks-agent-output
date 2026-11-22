@@ -1,0 +1,25 @@
+{
+ "t": {
+  "rows": 36000,
+  "visibleSame": 12542,
+  "visibleDiffer": 23458,
+  "newWrong": 0,
+  "fixedToClean": 16258,
+  "bothWrong": 0,
+  "bothClean": 7200
+ },
+ "byFeature": {
+  "bothClean other": 1606,
+  "fixedToClean other": 3450,
+  "fixedToClean hash": 6354,
+  "bothClean hash": 3774,
+  "fixedToClean bare-or-autolink": 6454,
+  "bothClean bare-or-autolink": 1820
+ }
+}
+bothClean other ["***ab***","__*a*__","||**a**||","***~~a~~***","> ***a***","- ***a***","****a****","_**a**_"]
+fixedToClean other ["***ab*** cd","**[a](https://x.y)**","**b [a](https://x.y)**","***a** b*","***a* b**","*a **b***","[b](<https://x.y>)","b[a](https://x.y)a__||:smile:*[a](https://x.y)"]
+fixedToClean hash ["# **a**","## ***a***","x -# ***a*** y","**c d<@123>***# `# <https://x.y>"," _-# ||**<https://x.y>-# c d","**||a_<https://x.y>a-# <https://x.y> ","<https://x.y> \\*-# <https://x.y>~~b<https://x.y>-# ","||__https://x.y> # [b](<https://x.y>)~~"]
+bothClean hash ["-# **a**","-# *a* b","-# a **b**","## ***a***","x -# ***a*** y","**c d<@123>***# `# <https://x.y>"," _-# ||**<https://x.y>-# c d"," -# \\*||||_"]
+fixedToClean bare-or-autolink ["b[a](https://x.y)https://x.y<https://x.y>","_<@123>*https://x.y<https://x.y>***","\\*<https://x.y>*","https://x.y[b](<https://x.y>)||__[b](<https://x.y>)[a](https://x.y)a","<https://x.y>_`||<https://x.y><@123>**","*_<https://x.y>a<https://x.y>`","||[a](https://x.y)> <https://x.y>https://x.y[a](https://x.y)","<@123>||b*__https://x.y"]
+bothClean bare-or-autolink ["<https://x.y>_","\\*b _b* https://x.y:smile:","<https://x.y>`~~","<https://x.y>\\*:smile:> ","<https://x.y> ","> <@123><https://x.y>||*** *https://x.y","<https://x.y>`__ ","> https://x.y\\*~~"]

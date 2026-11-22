@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4c8508ed-d797-4cd5-824a-33f08e873764/scratchpad/mut-work4/20261122T210833Z-p3025110/mutant-22
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (227 tests | 4 failed) 87ms
+     × with the content parser colours "**<t:1700000000:R> b**" as "**":S "<t:1700000000:R> b":strongText "**":S 7ms
+     × with the content parser colours "**b <t:1700000000:R>**" as "**":S "b <t:1700000000:R>":strongText "**":S 1ms
+     × with the content parser colours "*b <t:1700000000:R>*" as "*":S "b <t:1700000000:R>":emText "*":S 1ms
+     × with the content parser colours "<t:1700000000:R> **b**" as "<t:1700000000:R> ":- "**":S "b":strongText "**":S 1ms
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 223 passed (227)
+   Start at  21:09:36
+   Duration  1.44s (transform 472ms, setup 0ms, import 1.20s, tests 87ms, environment 0ms)
+

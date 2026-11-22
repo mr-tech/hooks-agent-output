@@ -1,0 +1,28 @@
+import { appendFileSync } from 'fs';
+import { createEditor, Text } from 'slate';
+import { it, vi } from 'vitest';
+import decorator from '../decorator';
+import markdown from '~/utils/markdown';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+const KINDS: Record<string, string> = {
+  url: 'https://x.y', autolink: '<https://x.y>', masked: '[a](https://x.y)', maskedAngle: '[a](<https://x.y>)', maskedTitle: '[a](https://x.y "t")',
+  user: '<@123>', role: '<@&123>', channel: '<#123>', everyone: '@everyone', timestamp: '<t:1700000000:R>', customEmoji: '<:e:123>', nameEmoji: ':smile:',
+  escape: '\\*', inlineCode: '`c`', em: '*e*', strong: '**s**', u: '__u__', s: '~~s~~', spoiler: '||p||', text: 'w',
+};
+const forms = (x: string) => [x, `**${x} b**`, `**b ${x}**`, `*b ${x}*`, `${x} **b**`];
+const BLOCK = ['# a', '## **a**', '### a #', '-# **a**', 'a # **b**', '# **a** b', '> **a**', '>>> **a**', '- **a**', '1. **a**', '```js', '```', 'code', '🙂 **a**'];
+const EXTRA = (process.env.PROBE_INPUTS ? JSON.parse(process.env.PROBE_INPUTS) : []) as string[];
+it('probe', () => {
+  const inputs = EXTRA.length ? EXTRA : [...Object.values(KINDS).flatMap(forms), ...BLOCK];
+  for (const text of inputs) {
+    for (const [name, parser, isEmbed] of [['content', markdown.interactive.parseContent, false], ['title', markdown.interactive.parseEmbedTitle, true], ['field', markdown.interactive.parseEmbedField, true]] as const) {
+      const editor = createEditor();
+      const span = { type: 'span', text } as unknown as Text;
+      editor.children = [{ type: 'div', lang: '', startCodeBlock: false, children: [span] } as any];
+      const ranges = decorator(editor, true, isEmbed, parser)([span, [0, 0]]);
+      const leaves = (Text.decorations(span, ranges as any) as any[]).map((w) => w.leaf ?? w)
+        .map((l: any) => `${JSON.stringify(l.text)}:${[l.syntax ? 'S' : '', ...[...(l.classNames ?? [])].sort()].filter(Boolean).join('+') || '-'}`);
+      appendFileSync(process.env.PROBE_OUT as string, `${name.padEnd(7)} ${JSON.stringify(text).padEnd(30)} ${leaves.join(' ')}\n`);
+    }
+  }
+});

@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4c8508ed-d797-4cd5-824a-33f08e873764/scratchpad/mut-work4/20261122T210833Z-p3025110/mutant-21
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (227 tests | 3 failed) 92ms
+     × with the content parser colours "[a](https://x.y/\\_)" as "[":S "a":linkText "](":S "https://x.y/\\_":linkText ")":S 7ms
+     × with the field parser colours "**b [a](https://x.y/\\_)**" as "**":S "b ":strongText "[":S+strongText "a":linkText+strongText "](":S "https://x.y/\\_":linkText ")":S "**":S 1ms
+     × with the content parser colours "[a](<https://x.y/\\_> \"t\") **b**" as "[":S "a":linkText "](<":S "https://x.y/\\_":linkText "> \"t\")":S " ":- "**":S "b":strongText "**":S 1ms
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 224 passed (227)
+   Start at  21:09:33
+   Duration  1.48s (transform 491ms, setup 0ms, import 1.24s, tests 92ms, environment 0ms)
+

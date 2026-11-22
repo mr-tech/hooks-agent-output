@@ -3,12 +3,143 @@ ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
 Status: Active
-Status-Detail: "Handed to code review at website f57c260 (2026-11-22T20:33Z); merge to website master by devops on the owner's word."
-Handoff-At: f57c260 — repos=website
+Status-Detail: "Round 2 handed to code review at website e6a5766 (2026-11-22T21:12Z) under the 20:44 re-scope; 111 production lines, so QA Phase 2 follows review; merge to website master by devops on the owner's word."
+Handoff-At: e6a5766 — repos=website
 Origin-Chain: none
 ---
 
 # fix-decorator-offsets — implementation
+
+## Round 2: re-scope after review round 1 (rulings block "2026-11-22T20:44")
+
+**Scope statement, replacing block 20:19's** (`steering/fix-decorator-offsets-rulings.md`, block "2026-11-22T20:44", record `601c68ca`,
+read whole): "`decorator.tsx`'s ranges account for the source width of every node kind the website's markdown rules produce
+(`src/utils/markdown/rules.tsx` enumerated: emphasis forms, links masked and bare and autolink, escapes, mentions, heading markers, and
+any other kind found there); no input colours worse than at base; a test drives every kind, alone, at a bold/italic edge and at root,
+with literal expectations. Heading markers are coloured as syntax, like every other delimiter." Write set adds `src/utils/markdown/rules.tsx`
+"where a node must carry its width". The queued chain `fix-decorator-headings` (block 20:31) folds into this one and is withdrawn. QA
+Phase 2 is restored at 20 or more production lines. Review round 1 (`code-review/fix-decorator-offsets-code-review.md`, record `f6b9baa6`,
+REJECTED at `f57c260`): CR-1 (bare URLs ending a delimited run, 5 grid shapes right → wrong) and CR-2 (escape, mention, URL and heading
+width faults; 7 escape/mention rows right → wrong) are this round's acceptance cases.
+
+### Diagnosis (round 2)
+
+**Cause, as one class.** The walk placed each node's syntax from a fixed table of delimiter widths and its `content` length. Any node
+whose source is wider than that table and its content (bare URL: 0 delimiters, not 1; autolink: `<`/`>` with no `(target)`; masked
+link with `<target>` or a title; escape `\*` with content `*`; mentions `<@1>`, `<@&1>`, `<#1>` with content one bracket narrower each
+side; timestamp with no content at all; heading marker; a same-kind nesting the parser's `flattenAst` (`src/utils/markdown/utils.ts`
+L16-34) replaces by its bare content array) shifted every later range. Instrument: the reviewer's own corpus probe
+(`code-review/decorator.differential-probe.test.ts`, 36,000 rows, three parsers) and my leaf probe (`round2/probe-leaves.test.ts.txt`),
+both run against the real `decorator` and the real interactive parsers at base and at the fix.
+
+**Node kinds enumerated from `rules.tsx`** (`baseInteractiveRules`, L477-522 at base, plus the static rules it spreads), with each kind's
+source geometry and how the fix handles it:
+
+| Kind | Source | Handling at `e6a5766` |
+|---|---|---|
+| `em`, `strong`, `u`, `s`, `spoiler` | fixed delimiters each side | opening from the table; closing = source − opening − content |
+| `link`, masked | `[` label `](` target … `)` | opening 1; closing split `](`/`](<` syntax, raw target `linkText`, rest (`>`, title, `)`) syntax |
+| `link`, autolink | `<` url `>` | opening 1, closing 1, merged with a parent's closing |
+| `link`, bare url (`url` rule) | url | no delimiters |
+| `heading` | ` *#{1,3} +` content trailing | marker syntax, trailing `#`/spaces syntax (ruling 20:44) |
+| `escape` (type `text`) | `\` + char | stepped over at its source width, no colour (as at base) |
+| `discordUser`, `discordRole`, `discordChannel` | `<@1>`, `<@&1>`, `<#1>` | stepped over at source width, no colour (as at base) |
+| `discordTimestamp` | `<t:…>`, no content | stepped over at source width |
+| `discordEmoji`, `emoji`, `nameEmoji`, `discordEveryone`, `inlineCode`, `text`, `blockQuote` (interactive) | content equals source | unchanged |
+| `codeBlock` (interactive) | ```` ``` ```` + lang, no content | unchanged (its own branch) |
+| `newline`, `paragraph` | container / no content | paragraph unwrapped at root; other top-level nodes now walked (base walked only `ast[0]`) |
+| `list` | no `content` key | not decorated at base or fix (out of the walk; not a width fault) |
+
+**Base vs fix over the corpus** (`round2/visible-summary.txt`, the reviewer's `visible.mjs` oracle, base `8845b7e` vs `e6a5766`):
+36,000 rows; 23,458 differ visibly; **0 clean → wrong; 0 wrong at both**; 16,258 wrong → clean; 7,200 clean at both (changed, e.g. a class
+on a syntax character). My invariants over the same rows (`round2/invariants.txt`, `round2/invariants.mjs`): no throws, no
+empty or reversed range (base 630), no overlapping syntax ranges at either tree; ranges past the text's end 3,498 (base 54,452: heading
+lines' trailing newlines the parser appends), which Slate's `Text.decorations` ignores. The oracle is partial (the reviewer's note: it
+cannot see a merely shifted styled range), so the rendered-leaf table below is the per-kind check.
+
+**CR-1's 5 shapes** render identically to base on all three parsers (`round2/accept-*.out`); **CR-2's escape/mention rows** (the 8
+tagged rows of `code-review/newwrong-nonheading.txt`) render correctly at the fix and are in the test with literal leaves.
+
+**Found, not absorbed (outside the write set): emoji pre-treatment.** `interactiveParser` (`src/utils/markdown/utils.ts` L62-76) runs
+`translateSurrogatesToInlineEmoji` before parsing, which turns a Unicode emoji (2 characters) into its `:name:` form, so every source width
+after it is the pre-treated text's, not the editor's. `🙂 **a**` colours nothing at base and at the fix (`round2/leaves-*.out`), so not
+worse. Read from code, not run: in the editor `withNormalizeNode.ts` L172 moves every emoji `parseEmoji` finds into its own element, so a
+text leaf does not hold one. Not in the test (it would pin a known-wrong value, axiom D). Routed to steering with the hand-off.
+
+**Base vs fix for lists:** `- **a**` and `1. **a**` colour nothing at either tree (the `list` node has no `content`). Not a width
+fault; recorded, not in the test.
+
+### Change (round 2)
+
+- `src/utils/markdown/rules.tsx` (+9 −1): the interactive rule wrapper stamps every parsed node with `source: capture[0]` and gives its
+  content list a hidden `node` link back to it (so a node `flattenAst` replaces by its content is recovered); the interactive masked-link
+  parse keeps `targetSource: capture[2]` (the raw target, before `unescapeUrl`).
+- `src/components/SlateEditor/utils/decorator.tsx`: widths from each node's source (table above); same-kind nestings walked as
+  themselves; every top-level node walked, paragraphs unwrapped; merged text nodes merge their sources; empty ranges dropped.
+- Test file: 227 cases (below).
+
+`git diff --numstat 8845b7e e6a5766`: test `410 0`, `decorator.tsx` `102 39`, `rules.tsx` `9 1`. **Production lines added: 111**, so
+**QA Phase 2 is restored** (rulings 20:44). Website commits this round: `2ad482a` (the class fix), `e6a5766` (two limbs no rendered text
+depends on removed, six link-edge rows added).
+
+**Limbs removed as unreachable or without effect** (each: a control or a corpus comparison showing it changes nothing):
+- `first` skip limited to children with an opening of their own: removing it changed 0 of 36,000 corpus rows. Removed at `2ad482a`.
+- `opening &&` before the opening grow: survived its control at `2ad482a` (`controls/run3/`), and removing it changed 0 of 36,000 corpus
+  rows. Removed at `e6a5766`.
+- Clipping ranges to the text: survived its control (`ranges-not-clipped`, `controls/run3/`); Slate's leaf splitting already ignores
+  offsets past the end. Removed at `e6a5766`.
+- `sourceOf`'s empty fallback and the masked-link "target not found" fallback: no input reaches them once every node carries its source
+  and the raw target is kept.
+- The `last` skip limited to children whose closing merges with the parent's **is** reachable (a heading ending underline text,
+  `__-# > __…`; the corpus found it after I first removed it); kept and tested.
+
+### Test (round 2)
+
+Spec-form. One file, `decorator.emphasis-syntax-ranges.test.ts`: the 15 range-level cases from round 1, unchanged and passing, plus two
+tables asserting what each character **renders**. These drive the real `decorator` with the real `parseContent`, `parseEmbedTitle` and
+`parseEmbedField`, and read the result through Slate's own `Text.decorations`, the consumer that applies decorations to leaves (last
+range wins per character, `Object.assign`). That gives 212 rows: every kind above alone, first and last at a bold edge, last at an italic
+edge, and at the root before bold text, under `parseContent`. The link kinds are repeated under both embed parsers, along with heading,
+block-quote, code-fence and same-kind nesting rows, the escaped-target and link-edge rows, and all 13 acceptance rows × 3 parsers.
+Expectations are literal strings. Each was read character by character against its input before it was written, from the leaf probe's
+output at the fix, with base's output beside it (`round2/leaves-*.out`, `accept-*.out`, `esc-*.out`, `nest-*.out`, `sv-*.out`, `hl.out`).
+They were not computed by the code under test at assertion time, but they were transcribed from its reviewed output; the reviewer may
+weigh that.
+
+- **Red run** (final file, 227 cases, against base `decorator.tsx` and `rules.tsx` in a `git worktree --detach` export at `8845b7e`):
+  `round2/red-run.txt`: 150 failed, 77 passed, exit 1.
+- **Green** at `e6a5766`: 227 passed (within the suite run below).
+- **Negative controls** at `e6a5766` (`controls/mutants-e6a5766.json`, 38 mutants, table `controls/run4/`, log `controls/run4.txt`, exit 0):
+  **38 of 38 KILLED**. They cover each delimiter width, the heading-marker pattern, every added condition and chosen index, the source
+  stamp, the flattened-node link, the raw target, the text-merge source, the top-level walk and the empty-range filter. The union of
+  their failing titles is all 227 cases, so every case that passes at base was seen red under some control.
+- **History:** at `2ad482a` 35 of 40 killed (`controls/run3/`). Survivors `masked-link-closing-adjacent` and `reduce-past-zero-width` were
+  reachable but hidden by text ending at the link: rows with text after the link were added. `target-search-from-start` needed a link whose
+  label equals its target: row added. `opening-zero-guard-removed` and `ranges-not-clipped`: code removed (above).
+
+### Verification (round 2)
+
+- **Suite** at `e6a5766` (clean `git worktree` export, `node_modules` symlinked, the shared tree's generated `next-env.d.ts` copied in
+  as in round 1): 168 files, 2593 tests, all passed, exit 0 (`round2/suite.txt`, `round2/suite.json.gz`); by path, only-tip = this test
+  file, only-base = empty (base 2366 + 227 = 2593).
+- **Typecheck** (`pnpm run typecheck`, both programs) in the same export: exit 0 (`round2/typecheck.txt`).
+- **Lint**: `convention-check.js website --since=8845b7e` on the shared tree at `e6a5766`, exit 0, 0 FAIL, 0 CANDIDATE; SKIP: the
+  ID-token check, run by hand over the test file's `describe`/`it` titles with the CLAUDE.md class (`grep -ciE` → 0); no comment lines
+  added (`grep -cE "^\s*//"` → 0 in both changed source files and the test).
+- No package-manager operation; no lockfile change.
+
+### Disclosed in this round
+
+- **One negative control ran in the shared tree, against my constraints.** To show the corpus rows `**b [a *c*](https://x.y)** d` and
+  `*b [**c**](https://x.y)* d` discriminate the zero-width stop in `reduceAdjacentSyntax`, I deleted `if (!width) return acc;` from the
+  working `decorator.tsx`, ran the leaf probe, and restored the line with Edit. The window was uncommitted, between `2ad482a` and
+  `e6a5766`, with `git diff` read after (only the two intended removals). The same mutant then ran properly in an export
+  (`reduce-past-zero-width`, KILLED in `controls/run4/`).
+- Scratch probe files (`decorator.probe-*.test.ts`, `decorator.differential-probe.test.ts`) were copied into the shared tree's
+  `__tests__/` for single runs and deleted after each; none was committed (`git status` read before each commit). Their sources are kept
+  under `verification/fix-decorator-offsets/probe/` and `round2/`.
+
+## Round 1 record (history; scope superseded by block 20:44)
 
 ## Block resolved: ruling A
 
@@ -16,7 +147,8 @@ Steering ruled **A** (`steering/fix-decorator-offsets-rulings.md`, block "2026-1
 determined, drop the two `Boolean(offset) &&` guards, hand off for code review. Done at website `f57c260`; controls, suite, typecheck and
 lint re-run there (Test, Verification).
 
-**Heading defect: found here, carried by the queued fixer chain `fix-decorator-headings`** (same rulings block: queued after 9f; how
+**Superseded by block 20:44:** the queued chain below was withdrawn and headings folded into this chain (Round 2 above). As written at
+20:33: **Heading defect: found here, carried by the queued fixer chain `fix-decorator-headings`** (same rulings block: queued after 9f; how
 a heading marker is coloured goes to the owner at that chain's scoping where more than one answer is reasonable). Evidence held for it:
 `verification/fix-decorator-offsets/probe/subtext-wt-base.out` (base `8845b7e`) and `probe/subtext-website.out` (fix): `# **a**`,
 `-# **a**`, `-# *a* b`, `-# a **b**` all mis-coloured at base; and `probe/depth-99fd3c3.out`, 16 inputs probed for a parent without
@@ -187,21 +319,28 @@ the heading defect leaves no correct expectation to assert. **Dropped** at `f57c
 
 ## User-visible flows
 
-For the owner's own look in any editor text box (message content, embed fields, usernames):
+For the owner's own look in any editor text box (message content, embed title, embed fields), as of round 2:
 
 - Type `***bold italic***`: the three stars at each end are greyed as markers, the words in between are bold and italic, and text typed
   after it is not coloured.
 - Type `**bold**`, `*italic*`, `**bold** *italic*` and `**bold *italic* bold** after`: they look exactly as before.
 - Type `__*underlined italic*__`, `||**bold spoiler**||` or `***~~struck~~***`: only the markers are greyed, the text is styled.
-- Type `**[label](https://example.com)**`: the brackets and parentheses are greyed, the label and address coloured as a link.
-- Known, not fixed here: a line starting with `# ` (or with a `#` heading partway along) is still coloured a couple of characters off;
-  that is the queued fix `fix-decorator-headings`.
+- Type `**[label](https://example.com)** after`: the brackets and parentheses are greyed, the label and address coloured as a link, the
+  closing stars greyed, and "after" plain.
+- Type `**read this https://example.com**` or `<https://example.com>`: the address is coloured as a link with no greyed first letter;
+  the angle brackets are greyed.
+- Type `# **Heading**` or `-# **small text**`: the `#` marker is greyed like the other markers, and the bold word lines up with its stars.
+- Type `**<@123> hello**`, `**\* hello**` or a timestamp inside bold: the mention, escape or timestamp is left uncoloured and the bold
+  and its closing stars land in the right place.
+- In an embed title (where links are not allowed), `[label](https://example.com)` shows the address as a link and the brackets plain.
+- Unchanged: list lines (`- item`) are not coloured at all, as before.
 
 ## Handoff
 
-- **SHA:** website `f57c260` on `chain/fix-decorator-offsets`.
-- **Who reviews:** `code-reviewer-fix-decorator-offsets`, spawned by `steering-hooks-fixer` on this document's spawn cue. With fewer than
-  20 production lines the reviewer also runs the suite, typecheck and the red test; no QA Phase 2.
+- **SHA:** website `e6a5766` on `chain/fix-decorator-offsets` (round 2; round 1 was `f57c260`).
+- **Who reviews:** `code-reviewer-fix-decorator-offsets` (round numbering is the reviewer's), spawned or resumed by `steering-hooks-fixer`
+  on this document's spawn cue. **111 production lines: QA Phase 2 follows an approving review** (`qa-fix-decorator-offsets`, started by
+  steering, rulings 20:44).
 - **Who merges:** devops, to website `master`, on the owner's word (rulings block 20:19). Vercel deploys `master` to production.
 
 ## Changelog
@@ -210,3 +349,4 @@ For the owner's own look in any editor text box (message content, embed fields, 
 |---|---|---|
 | 2026-11-22T20:29 | — | Created. Fix and test committed on `chain/fix-decorator-offsets` at `99fd3c3`; red, green, controls, suite, typecheck and lint recorded. BLOCKED to steering on the heading-marker defect and the two parent-delimiter guards. |
 | 2026-11-22T20:33 | — | Ruling A (rulings block 20:31): two guards dropped at website `f57c260`; 6 of 6 controls killed, suite 2381/2381, typecheck and lint exit 0 there. Heading defect recorded as carried by `fix-decorator-headings`. Status Blocked → Active; `Handoff-At` `f57c260`; handed to code review. |
+| 2026-11-22T21:12 | — | Round 2 under the 20:44 re-scope (review round 1 REJECTED, CR-1/CR-2): every node kind colours by its source width, `rules.tsx` stamps sources, website `2ad482a` and `e6a5766`; 227 cases, red 150/77 at base, controls 38 of 38, suite 2593/2593, typecheck and lint exit 0, reviewer corpus 0 clean→wrong. 111 production lines: QA Phase 2 restored. One control run in the shared tree disclosed. `Handoff-At` `e6a5766`; handed to code review. |

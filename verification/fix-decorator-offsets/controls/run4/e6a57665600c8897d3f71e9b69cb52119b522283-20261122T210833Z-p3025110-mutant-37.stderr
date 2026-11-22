@@ -1,0 +1,25 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "_*a*_" as "_*":S "a":emText+emText "*_":S
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "****a****" as "****":S "a":strongText+strongText "****":S
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "# # a b" as "# # ":S "a b":-
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "**a** ****b****" as "**":S "a":strongText "**":S " ":- "****":S "b":strongText+strongText "****":S
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "[https://x.y](https://x.y)" as "[":S "https://x.y":linkText+linkText "](":S "https://x.y":linkText ")":S
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ walkAst src/components/SlateEditor/utils/decorator.tsx:93:30
+     91|       leaf.grow(ast.lang.length, hljs.getLanguage(ast.lang) ? 'lang' :…
+     92|     } else {
+     93|       leaf.jump(sourceOf(ast).length);
+       |                              ^
+     94|     }
+     95|     return;
+ ❯ src/components/SlateEditor/utils/decorator.tsx:111:32
+ ❯ walkAst src/components/SlateEditor/utils/decorator.tsx:111:14
+ ❯ src/components/SlateEditor/utils/decorator.tsx:219:44
+ ❯ rangesOf src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:27:65
+ ❯ rendered src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:31:28
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:362:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+

@@ -1,0 +1,39 @@
+content "**a https://x.y**"            "**":S "a ":strongText "https://x.y":linkText+strongText "**":S
+title   "**a https://x.y**"            "**":S "a ":strongText "https://x.y":linkText+strongText "**":S
+field   "**a https://x.y**"            "**":S "a ":strongText "https://x.y":linkText+strongText "**":S
+content "*a https://x.y*"              "*":S "a ":emText "https://x.y":emText+linkText "*":S
+title   "*a https://x.y*"              "*":S "a ":emText "https://x.y":emText+linkText "*":S
+field   "*a https://x.y*"              "*":S "a ":emText "https://x.y":emText+linkText "*":S
+content "__a https://x.y__"            "__":S "a ":uText "https://x.y":linkText+uText "__":S
+title   "__a https://x.y__"            "__":S "a ":uText "https://x.y":linkText+uText "__":S
+field   "__a https://x.y__"            "__":S "a ":uText "https://x.y":linkText+uText "__":S
+content "~~a https://x.y~~"            "~~":S "a ":sText "https://x.y":linkText+sText "~~":S
+title   "~~a https://x.y~~"            "~~":S "a ":sText "https://x.y":linkText+sText "~~":S
+field   "~~a https://x.y~~"            "~~":S "a ":sText "https://x.y":linkText+sText "~~":S
+content "||a https://x.y||"            "||":S "a ":spoilerText "https://x.y":linkText+spoilerText "||":S
+title   "||a https://x.y||"            "||":S "a ":spoilerText "https://x.y":linkText+spoilerText "||":S
+field   "||a https://x.y||"            "||":S "a ":spoilerText "https://x.y":linkText+spoilerText "||":S
+content "\\*ac d# **<https://x.y>***"  "\\*ac ":- "d":S "# **<https:":linkText "//":S "x.y>***":linkText
+title   "\\*ac d# **<https://x.y>***"  "\\*ac d#":- " **":S "<":S+strongText "https://x.y":linkText+strongText ">*":S "**":linkText
+field   "\\*ac d# **<https://x.y>***"  "\\*ac d#":- " **":S "<":S+strongText "https://x.y":linkText+strongText ">*":S "**":linkText
+content "__||c d[a](https://x.y)\\*https://x.y||" "__":- "||":S "c d":spoilerText "[":S+spoilerText "a":linkText+spoilerText "](":S "https://x.y":linkText ")":S "\\":spoilerText "*https://x.":linkText "y|":S "|":linkText
+title   "__||c d[a](https://x.y)\\*https://x.y||" "__":- "||":S "c d[a](":spoilerText "https://x.y)\\*https://x.y":linkText+spoilerText "||":S
+field   "__||c d[a](https://x.y)\\*https://x.y||" "__":- "||":S "c d":spoilerText "[":S+spoilerText "a":linkText+spoilerText "](":S "https://x.y":linkText ")":S "\\":spoilerText "*https://x.":linkText "y|":S "|":linkText
+content "~~\\*:smile:**[a](https://x.y)***" "~~\\*:smile":- ":**":S "[":S+strongText "a":linkText+strongText "](":S "https://x.y":linkText ")":S "*":strongText "**":S
+title   "~~\\*:smile:**[a](https://x.y)***" "~~\\*:smile":- ":*":S "*[a]":strongText "(https://x.y)":linkText+strongText "**":S "*":linkText
+field   "~~\\*:smile:**[a](https://x.y)***" "~~\\*:smile":- ":**":S "[":S+strongText "a":linkText+strongText "](":S "https://x.y":linkText ")":S "*":strongText "**":S
+content "# __[a](https://x.y)***~~__\\*____" "# _":S "_":S+uText "[":linkText+uText "a]":S "(https://x.":linkText "y":S ")***~":uText "~_":S "_":- "\\":S "*_":emText "_":S "__":-
+title   "# __[a](https://x.y)***~~__\\*____" "# ":- "__":S "[a](":uText "https://x.y)***~~":linkText+uText "__":S "\\*____":linkText
+field   "# __[a](https://x.y)***~~__\\*____" "# ":- "__[":S "a":S+uText "]":linkText+uText "(h":S "ttps://x.y)":linkText "*":S "**~~_":uText "_\\":S "*":- "_":S "__":emText "_":S
+content "||[a](https://x.y)\\*||"      "||[":S "a":S+spoilerText "]":linkText+spoilerText "(h":S "ttps://x.y)":linkText "\\":S "*":spoilerText "||":S
+title   "||[a](https://x.y)\\*||"      "||":S "[a](":spoilerText "https://x.y)\\*":linkText+spoilerText "||":S
+field   "||[a](https://x.y)\\*||"      "||[":S "a":S+spoilerText "]":linkText+spoilerText "(h":S "ttps://x.y)":linkText "\\":S "*":spoilerText "||":S
+content "***> \\****\\*[b](<https://x.y>)b||" "***":S "> \\":emText+strongText "**":S "**\\":S "*":- "[":S "b":linkText "](":S "<https://x.":linkText "y":S ">)b||":-
+title   "***> \\****\\*[b](<https://x.y>)b||" "***":S "> \\":emText+strongText "**":S "**\\":S "*[b](":- "<":S "https://x.y":linkText ">)":S "b||":linkText
+field   "***> \\****\\*[b](<https://x.y>)b||" "***":S "> \\":emText+strongText "**":S "**\\":S "*":- "[":S "b":linkText "](":S "<https://x.":linkText "y":S ">)b||":-
+content "**[a](https://x.y)***<@123>_:smile:-#  " "**[":S "a":S+strongText "]":linkText+strongText "(h":S "ttps://x.y)":linkText "*":S "*":strongText "*<":S "@123>_:smile:-#  ":-
+title   "**[a](https://x.y)***<@123>_:smile:-#  " "**":S "[a](":strongText "https://x.y)*":linkText+strongText "**":S "<@123>_:smile":linkText ":":S "-# ":S " ":-
+field   "**[a](https://x.y)***<@123>_:smile:-#  " "**[":S "a":S+strongText "]":linkText+strongText "(h":S "ttps://x.y)":linkText "*":S "*":strongText "*<":S "@123>_:smile:-#  ":-
+content "# ~~***<@123> ***c d[b](<https://x.y>)b" "# ":- "~~*":S "**<@1":emText+strongText "23":S "> *":S "**c":- " ":S "d":linkText "[b":S "](<https://":linkText "x":S ".y>)b":-
+title   "# ~~***<@123> ***c d[b](<https://x.y>)b" "# ~~":- "***":S "<@123":emText+strongText "> ":S "***":S "c d[b](":- "<":S "https://x.y":linkText ">)":S "b":linkText
+field   "# ~~***<@123> ***c d[b](<https://x.y>)b" "# ~~":- "***":S "<@123":emText+strongText "> ":S "***":S "c d":- "[":S "b":linkText "](":S "<https://x.":linkText "y":S ">)b":-

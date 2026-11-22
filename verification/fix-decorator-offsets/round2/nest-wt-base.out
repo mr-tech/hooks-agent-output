@@ -1,0 +1,12 @@
+content "_*a*_"                        "_":S "":S "*":S "a*_":-
+title   "_*a*_"                        "_":S "":S "*":S "a*_":-
+field   "_*a*_"                        "_":S "":S "*":S "a*_":-
+content "****a****"                    "**":S "":S "**":S "a****":-
+title   "****a****"                    "**":S "":S "**":S "a****":-
+field   "****a****"                    "**":S "":S "**":S "a****":-
+content "# # a b"                      "# # a b":-
+title   "# # a b"                      "# # a b":-
+field   "# # a b"                      "# # a b":-
+content "**a** ****b****"              "**":S "a":strongText "**":S " ":- "**":S "":S "**":S "b****":-
+title   "**a** ****b****"              "**":S "a":strongText "**":S " ":- "**":S "":S "**":S "b****":-
+field   "**a** ****b****"              "**":S "a":strongText "**":S " ":- "**":S "":S "**":S "b****":-

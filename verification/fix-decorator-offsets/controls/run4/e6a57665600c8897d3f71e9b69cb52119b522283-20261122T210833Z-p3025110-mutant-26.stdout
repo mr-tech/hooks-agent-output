@@ -1,0 +1,46 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4c8508ed-d797-4cd5-824a-33f08e873764/scratchpad/mut-work4/20261122T210833Z-p3025110/mutant-26
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (227 tests | 36 failed) 107ms
+     × with the content parser colours "**<@123> b**" as "**":S "<@123> b":strongText "**":S 8ms
+     × with the content parser colours "**b <@123>**" as "**":S "b <@123>":strongText "**":S 1ms
+     × with the content parser colours "*b <@123>*" as "*":S "b <@123>":emText "*":S 1ms
+     × with the content parser colours "<@123> **b**" as "<@123> ":- "**":S "b":strongText "**":S 1ms
+     × with the content parser colours "**<@&123> b**" as "**":S "<@&123> b":strongText "**":S 1ms
+     × with the content parser colours "**b <@&123>**" as "**":S "b <@&123>":strongText "**":S 1ms
+     × with the content parser colours "*b <@&123>*" as "*":S "b <@&123>":emText "*":S 1ms
+     × with the content parser colours "<@&123> **b**" as "<@&123> ":- "**":S "b":strongText "**":S 1ms
+     × with the content parser colours "**<#123> b**" as "**":S "<#123> b":strongText "**":S 1ms
+     × with the content parser colours "**b <#123>**" as "**":S "b <#123>":strongText "**":S 1ms
+     × with the content parser colours "*b <#123>*" as "*":S "b <#123>":emText "*":S 1ms
+     × with the content parser colours "<#123> **b**" as "<#123> ":- "**":S "b":strongText "**":S 1ms
+     × with the content parser colours "**\\* b**" as "**":S "\\* b":strongText "**":S 1ms
+     × with the content parser colours "**b \\***" as "**":S "b \\*":strongText "**":S 1ms
+     × with the content parser colours "*b \\**" as "*":S "b \\*":emText "*":S 7ms
+     × with the content parser colours "\\* **b**" as "\\* ":- "**":S "b":strongText "**":S 1ms
+     × with the content parser colours "\\*ac d# **<https://x.y>***" as "\\*ac d":- "# **<":S "https://x.y":linkText+strongText ">":S "*":strongText "**":S 1ms
+     × with the title parser colours "\\*ac d# **<https://x.y>***" as "\\*ac d# ":- "**<":S "https://x.y":linkText+strongText ">":S "*":strongText "**":S 1ms
+     × with the field parser colours "\\*ac d# **<https://x.y>***" as "\\*ac d# ":- "**<":S "https://x.y":linkText+strongText ">":S "*":strongText "**":S 1ms
+     × with the content parser colours "__||c d[a](https://x.y)\\*https://x.y||" as "__":- "||":S "c d":spoilerText "[":S+spoilerText "a":linkText+spoilerText "](":S "https://x.y":linkText ")":S "\\*":spoilerText "https://x.y":linkText "||":S 1ms
+     × with the field parser colours "__||c d[a](https://x.y)\\*https://x.y||" as "__":- "||":S "c d":spoilerText "[":S+spoilerText "a":linkText+spoilerText "](":S "https://x.y":linkText ")":S "\\*":spoilerText "https://x.y":linkText "||":S 1ms
+     × with the content parser colours "~~\\*:smile:**[a](https://x.y)***" as "~~\\*:smile:":- "**[":S "a":linkText+strongText "](":S "https://x.y":linkText ")":S "*":strongText "**":S 1ms
+     × with the title parser colours "~~\\*:smile:**[a](https://x.y)***" as "~~\\*:smile:":- "**":S "[a](":strongText "https://x.y)*":linkText+strongText "**":S 1ms
+     × with the field parser colours "~~\\*:smile:**[a](https://x.y)***" as "~~\\*:smile:":- "**[":S "a":linkText+strongText "](":S "https://x.y":linkText ")":S "*":strongText "**":S 1ms
+     × with the content parser colours "# __[a](https://x.y)***~~__\\*____" as "# __[":S "a":linkText+uText "](":S "https://x.y":linkText ")":S "***~~":uText "__":S "\\*":- "_":S "__":emText "_":S 1ms
+     × with the title parser colours "# __[a](https://x.y)***~~__\\*____" as "# ":- "__":S "[a](":uText "https://x.y)***~~":linkText+uText "__":S "\\*":- "_":S "__":emText "_":S 1ms
+     × with the field parser colours "# __[a](https://x.y)***~~__\\*____" as "# ":- "__[":S "a":linkText+uText "](":S "https://x.y":linkText ")":S "***~~":uText "__":S "\\*":- "_":S "__":emText "_":S 1ms
+     × with the content parser colours "||[a](https://x.y)\\*||" as "||[":S "a":linkText+spoilerText "](":S "https://x.y":linkText ")":S "\\*":spoilerText "||":S 0ms
+     × with the field parser colours "||[a](https://x.y)\\*||" as "||[":S "a":linkText+spoilerText "](":S "https://x.y":linkText ")":S "\\*":spoilerText "||":S 1ms
+     × with the content parser colours "***> \\****\\*[b](<https://x.y>)b||" as "***":S "> \\*":emText+strongText "***":S "\\*":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b||":- 1ms
+     × with the title parser colours "***> \\****\\*[b](<https://x.y>)b||" as "***":S "> \\*":emText+strongText "***":S "\\*[b](":- "<":S "https://x.y":linkText ">":S ")b||":- 1ms
+     × with the field parser colours "***> \\****\\*[b](<https://x.y>)b||" as "***":S "> \\*":emText+strongText "***":S "\\*":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b||":- 1ms
+     × with the content parser colours "**[a](https://x.y)***<@123>_:smile:-#  " as "**[":S "a":linkText+strongText "](":S "https://x.y":linkText ")":S "*":strongText "**":S "<@123>_:smile:-":- "#  ":S 1ms
+     × with the content parser colours "# ~~***<@123> ***c d[b](<https://x.y>)b" as "# ":S "~~":- "***":S "<@123> ":emText+strongText "***":S "c d":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b":- 1ms
+     × with the title parser colours "# ~~***<@123> ***c d[b](<https://x.y>)b" as "# ~~":- "***":S "<@123> ":emText+strongText "***":S "c d[b](":- "<":S "https://x.y":linkText ">":S ")b":- 1ms
+     × with the field parser colours "# ~~***<@123> ***c d[b](<https://x.y>)b" as "# ~~":- "***":S "<@123> ":emText+strongText "***":S "c d":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b":- 1ms
+
+ Test Files  1 failed (1)
+      Tests  36 failed | 191 passed (227)
+   Start at  21:09:47
+   Duration  1.56s (transform 473ms, setup 0ms, import 1.22s, tests 107ms, environment 0ms)
+
