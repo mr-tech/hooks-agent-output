@@ -1,0 +1,35 @@
+(node:1804428) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Vercel CLI 29.1.1
+Fetching deployment "hooks.gg" in blacklabel
+> Fetched deployment "hooks-gg-website-h2wiis6lt-hooks-gg.vercel.app" in blacklabel [731ms]
+
+  General
+
+    id		dpl_7amFajR7sNEhdbPLBcjWDUc9psb2
+    name	hooks-gg-website
+    status	● Ready
+    url		https://hooks-gg-website-h2wiis6lt-hooks-gg.vercel.app
+    created	Sun Nov 22 2026 18:41:17 GMT+0000 (Coordinated Universal Time) [36m ago]
+
+
+  Aliases
+
+    ╶ https://hooks.gg
+    ╶ https://hooks-gg-website.vercel.app
+    ╶ https://www.hooks.gg
+    ╶ https://hooks-gg-website-hooks-gg.vercel.app
+    ╶ https://hooks-gg-website-git-master-hooks-gg.vercel.app
+    
+
+  Builds
+
+    ┌ .        [0ms]
+    ├── λ index (2.62MB) [cle1]
+    ├── λ index.rsc (2.62MB) [cle1]
+    ├── λ index.segments/_full.segment.rsc (2.62MB) [cle1]
+    ├── λ index.segments/__PAGE__.segment.rsc (2.62MB) [cle1]
+    ├── λ index.segments/_tree.segment.rsc (2.62MB) [cle1]
+    └── 36 output items hidden
+    
+

@@ -1,0 +1,132 @@
+diff --git a/src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx b/src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx
+new file mode 100644
+index 0000000..cfe6663
+--- /dev/null
++++ b/src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx
+@@ -0,0 +1,95 @@
++import copy from 'copy-to-clipboard';
++import {
++  createEditor, Editor, Node, Transforms,
++} from 'slate';
++import { withReact } from 'slate-react';
++import {
++  afterEach, describe, expect, it, vi,
++} from 'vitest';
++
++import { withEmojis } from '..';
++import onCopy from '../onCopy';
++
++import type { ClipboardEvent } from 'react';
++import type { Descendant } from 'slate';
++
++vi.mock('copy-to-clipboard', () => ({ default: vi.fn() }));
++
++const span = (text: string) => ({ type: 'span', text });
++
++const emoji = {
++  type: 'emoji',
++  ast: {
++    type: 'emoji', content: '🙂', name: 'slight_smile', src: '',
++  },
++  children: [span('')],
++};
++
++const makeEditor = (children: unknown[]): Editor => {
++  const editor = withEmojis(withReact(createEditor()));
++  editor.children = [{ type: 'div', children } as unknown as Descendant];
++  return editor;
++};
++
++const writeFragmentLikeSlateDom = (editor: Editor) => {
++  editor.setFragmentData = (data) => {
++    const fragment = JSON.stringify(Node.fragment(editor, editor.selection!));
++    data.setData('application/x-slate-fragment', window.btoa(encodeURIComponent(fragment)));
++  };
++};
++
++const clipboardEvent = () => ({
++  preventDefault: vi.fn(),
++  stopPropagation: vi.fn(),
++}) as unknown as ClipboardEvent<HTMLDivElement>;
++
++const at = (offset: number) => ({ path: [0, 0], offset });
++
++afterEach(() => {
++  vi.mocked(copy).mockClear();
++});
++
++describe('editor copy and cut handler', () => {
++  it('leaves the text unchanged when the caret is collapsed', () => {
++    const editor = makeEditor([span('abc')]);
++    Transforms.select(editor, at(1));
++
++    onCopy(editor, true)(clipboardEvent());
++
++    expect(Node.string(editor)).toBe('abc');
++  });
++
++  it('removes the highlighted text and copies it when a range is selected', () => {
++    const editor = makeEditor([span('abc')]);
++    Transforms.select(editor, Editor.range(editor, at(1), at(2)));
++    writeFragmentLikeSlateDom(editor);
++
++    onCopy(editor, true)(clipboardEvent());
++
++    expect(Node.string(editor)).toBe('ac');
++    expect(copy).toHaveBeenCalledWith('b', { format: 'text/plain' });
++  });
++
++  it('copies a selected range without removing it when the event is a copy', () => {
++    const editor = makeEditor([span('abc')]);
++    Transforms.select(editor, Editor.range(editor, at(1), at(2)));
++    writeFragmentLikeSlateDom(editor);
++
++    onCopy(editor)(clipboardEvent());
++
++    expect(Node.string(editor)).toBe('abc');
++    expect(copy).toHaveBeenCalledWith('b', { format: 'text/plain' });
++  });
++
++  it('removes a clicked emoji and copies it', () => {
++    const editor = makeEditor([span('a'), emoji, span('c')]);
++    Transforms.select(editor, Editor.start(editor, [0, 1]));
++    writeFragmentLikeSlateDom(editor);
++
++    onCopy(editor, true)(clipboardEvent());
++
++    expect(Node.string(editor)).toBe('ac');
++    expect(Array.from(Node.elements(editor), ([element]) => element.type)).toEqual(['div']);
++    expect(copy).toHaveBeenCalledWith('🙂', { format: 'text/plain' });
++  });
++});
+diff --git a/src/components/SlateEditor/utils/onCopy.ts b/src/components/SlateEditor/utils/onCopy.ts
+index f1327c3..75d4f20 100644
+--- a/src/components/SlateEditor/utils/onCopy.ts
++++ b/src/components/SlateEditor/utils/onCopy.ts
+@@ -1,11 +1,11 @@
+ import copy from 'copy-to-clipboard';
+-import { Transforms } from 'slate';
++import { Editor, Range, Transforms } from 'slate';
+ import { ReactEditor } from 'slate-react';
+ 
+ import flattenNodeText from './flattenNodeText';
+ 
+ import type { ClipboardEvent } from 'react';
+-import type { Descendant, Editor } from 'slate';
++import type { Descendant } from 'slate';
+ 
+ const getDummyDataTransfer = (): DataTransfer => {
+   const storage = new Map<string, string>();
+@@ -31,9 +31,10 @@ export default (editor: Editor, cut = false) => (e: ClipboardEvent<HTMLDivElemen
+       });
+     }
+ 
+-    if (cut) {
++    const { selection } = editor;
++    if (cut && (Range.isExpanded(selection) || Editor.void(editor, { at: selection.anchor }))) {
+       Transforms.delete(editor, {
+-        at: editor.selection,
++        at: selection,
+       });
+     }
+   }

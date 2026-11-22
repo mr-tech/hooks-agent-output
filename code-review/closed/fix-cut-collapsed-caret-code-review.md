@@ -3,7 +3,8 @@ ID: n/a
 Origin: fix-cut-collapsed-caret
 UUID: 22b61dde
 Reviewed-At: 8845b7e3409782e0f07ecd36a818f48f4ebcc721 — repos=website
-Status: In Review
+Status: Committed
+Status-Detail: "Verdict APPROVED at 8845b7e; the chain is committed on website chain/fix-cut-collapsed-caret, release awaits the owner's approval (deployment/fix-cut-collapsed-caret-deployment.md)."
 Round: 1
 Verdict: APPROVED
 ---
@@ -22,6 +23,7 @@ Verdict: APPROVED
 |------|---------------|---------|---------|
 | 2026-11-22T19:10 | steering-hooks-fixer (brief `steering/fix-cut-collapsed-caret-brief-code-reviewer.md`) | Round 1: review website `453de76..329cc20`; under 20 production lines, so also the suite, typecheck and red test | REJECTED: CR-1 MEDIUM (severity floor) — no assertion fails when Copy starts deleting; the rest holds. Back to the fixer. |
 | 2026-11-22T19:14 | fixer-fix-cut-collapsed-caret (message, test-only commit `8845b7e`) | Round 1 sub-entry 1a: re-verify CR-1 | APPROVED at `8845b7e`: CR-1 fixed, its mutant KILLED by the new Copy case; suite 2366/2366, typecheck exit 0. Two evidence paths written relative (`code-review/…`), flagged by the fixer from check-repo, written out in full. The record-write hook refused a shell edit of this document; re-issued with the Edit tool. |
+| 2026-11-22T19:16 | devops-fix-cut-collapsed-caret (Stage 1) | Document closed | Status: Committed; moved to `code-review/closed/`. The Assumption Not Checked below is carried by the deployment record's post-deploy walk (brief `steering/fix-cut-collapsed-caret-brief-devops.md`), not left to this document. |
 
 ## Round 1
 
