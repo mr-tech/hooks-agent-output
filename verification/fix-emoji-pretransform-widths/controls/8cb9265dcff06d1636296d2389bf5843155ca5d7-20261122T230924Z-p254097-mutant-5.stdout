@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/6b08efee-885a-42cc-b941-8975e343b07f/scratchpad/mut-work/20261122T230924Z-p254097/mutant-5
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (4 tests | 4 failed) 43ms
+     × keeps every character after the emoji in a plain line 32ms
+     × keeps an escaped asterisk before the emoji and every character after it 3ms
+     × keeps an escaped emoji as text and turns the emoji after it into an element 3ms
+     × keeps every character after the emoji in a fenced code line 2ms
+
+ Test Files  1 failed (1)
+      Tests  4 failed (4)
+   Start at  23:09:54
+   Duration  2.17s (transform 541ms, setup 22ms, import 1.30s, tests 43ms, environment 646ms)
+

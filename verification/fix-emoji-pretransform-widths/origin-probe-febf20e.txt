@@ -1,0 +1,3 @@
+PROBE "🙂 *a*" [[15,16,true,[]],[16,17,false,["emText"]],[17,18,true,[]]]
+PROBE "\\🙂 **a**" [[16,18,true,[]],[18,19,false,["strongText"]],[19,21,true,[]]]
+PROBE "x *a*" [[2,3,true,[]],[3,4,false,["emText"]],[4,5,true,[]]]

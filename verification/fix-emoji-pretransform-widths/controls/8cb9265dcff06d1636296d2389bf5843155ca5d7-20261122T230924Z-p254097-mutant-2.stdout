@@ -1,0 +1,23 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/6b08efee-885a-42cc-b941-8975e343b07f/scratchpad/mut-work/20261122T230924Z-p254097/mutant-2
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (5 tests | 4 failed) 36ms
+     × loads "\\🙂 **a**" with its text unchanged 22ms
+     × loads "a \\🙂" with its text unchanged 2ms
+     × loads the text on each side of the emoji in "a🙂 b c" into its own text node 4ms
+     × loads the text on each side of the emoji in "\\*🙂 b" into its own text node 1ms
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (260 tests | 3 failed) 190ms
+     × with the content parser colours "**🙂 a**" as "**":S "🙂 a":strongText "**":S 9ms
+     × with the title parser colours "**🙂 a**" as "**":S "🙂 a":strongText "**":S 1ms
+     × with the field parser colours "**🙂 a**" as "**":S "🙂 a":strongText "**":S 1ms
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (4 tests | 4 failed) 93ms
+     × keeps every character after the emoji in a plain line 40ms
+     × keeps an escaped asterisk before the emoji and every character after it 17ms
+     × keeps an escaped emoji as text and turns the emoji after it into an element 19ms
+     × keeps every character after the emoji in a fenced code line 16ms
+
+ Test Files  3 failed (3)
+      Tests  11 failed | 258 passed (269)
+   Start at  23:09:43
+   Duration  2.85s (transform 1.53s, setup 23ms, import 4.36s, tests 318ms, environment 788ms)
+

@@ -1,0 +1,14 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/6b08efee-885a-42cc-b941-8975e343b07f/scratchpad/mut-work/20261122T230924Z-p254097/mutant-7
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (5 tests | 4 failed) 35ms
+     × loads "\\🙂 **a**" with its text unchanged 22ms
+     × loads "a \\🙂" with its text unchanged 1ms
+     × loads the text on each side of the emoji in "a🙂 b c" into its own text node 3ms
+     × loads the text on each side of the emoji in "\\*🙂 b" into its own text node 1ms
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 1 passed (5)
+   Start at  23:10:01
+   Duration  1.47s (transform 490ms, setup 0ms, import 1.27s, tests 35ms, environment 0ms)
+

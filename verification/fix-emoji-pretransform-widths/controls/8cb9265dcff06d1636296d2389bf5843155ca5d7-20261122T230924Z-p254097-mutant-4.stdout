@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/6b08efee-885a-42cc-b941-8975e343b07f/scratchpad/mut-work/20261122T230924Z-p254097/mutant-4
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx (4 tests | 1 failed) 54ms
+     × keeps an escaped emoji as text and turns the emoji after it into an element 22ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  23:09:51
+   Duration  2.40s (transform 513ms, setup 24ms, import 1.31s, tests 54ms, environment 755ms)
+

@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/6b08efee-885a-42cc-b941-8975e343b07f/scratchpad/mut-work/20261122T230924Z-p254097/mutant-8
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts (5 tests | 2 failed) 29ms
+     × loads "\\🙂 **a**" with its text unchanged 20ms
+     × loads "a \\🙂" with its text unchanged 1ms
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 3 passed (5)
+   Start at  23:10:04
+   Duration  1.75s (transform 612ms, setup 0ms, import 1.56s, tests 29ms, environment 0ms)
+

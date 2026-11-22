@@ -1,0 +1,49 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "a🙂 b c" into its own text node
+AssertionError: expected [ 'a', '[:slight_smile:]', '' ] to deeply equal [ 'a', '[:slight_smile:]', ' b c' ]
+
+- Expected
++ Received
+
+  [
+    "a",
+    "[:slight_smile:]",
+-   " b c",
++   "",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:33:8
+     31|     expect(first.children
+     32|       .map((child) => (isEmojiElement(child) ? `[${child.ast.name as s…
+     33|       .toEqual(children);
+       |        ^
+     34|   });
+     35| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads the text on each side of the emoji in "\\*🙂 b" into its own text node
+AssertionError: expected [ '\*', '[:slight_smile:]', '' ] to deeply equal [ '\*', '[:slight_smile:]', ' b' ]
+
+- Expected
++ Received
+
+  [
+    "\\*",
+    "[:slight_smile:]",
+-   " b",
++   "",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:33:8
+     31|     expect(first.children
+     32|       .map((child) => (isEmojiElement(child) ? `[${child.ast.name as s…
+     33|       .toEqual(children);
+       |        ^
+     34|   });
+     35| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

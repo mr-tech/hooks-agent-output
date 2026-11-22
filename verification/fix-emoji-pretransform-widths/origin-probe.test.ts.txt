@@ -1,0 +1,15 @@
+import { createEditor } from 'slate';
+import { appendFileSync } from 'fs';
+import { it, vi } from 'vitest';
+import decorator from '../decorator';
+import markdown from '~/utils/markdown';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+it('probe', () => {
+  for (const text of ['🙂 *a*', '\\🙂 **a**', 'x *a*']) {
+    const editor = createEditor();
+    const span = { type: 'span', text } as any;
+    editor.children = [{ type: 'div', lang: '', startCodeBlock: false, children: [span] } as any];
+    const ranges = decorator(editor, true, false, markdown.interactive.parseContent)([span, [0, 0]]);
+    appendFileSync(process.env.PROBE_OUT as string, ['PROBE', JSON.stringify(text), JSON.stringify(ranges.map((r: any) => [r.anchor.offset, r.focus.offset, r.syntax, r.classNames]))].join(' ') + '\n');
+  }
+});

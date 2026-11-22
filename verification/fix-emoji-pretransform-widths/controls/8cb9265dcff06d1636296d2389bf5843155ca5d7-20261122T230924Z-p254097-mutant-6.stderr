@@ -1,0 +1,26 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped asterisk before the emoji and every character after it
+AssertionError: expected [ '\', '[:slight_smile:]', 'abc' ] to deeply equal [ '\*', '[:slight_smile:]', 'abc' ]
+
+- Expected
++ Received
+
+  [
+-   "\\*",
++   "\\",
+    "[:slight_smile:]",
+    "abc",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:42:8
+     40|   it('keeps an escaped asterisk before the emoji and every character a…
+     41|     expect(typedInto([line('div', '', false, '')], 0, '\\*🙂abc'))
+     42|       .toEqual(['\\*', '[:slight_smile:]', 'abc']);
+       |        ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

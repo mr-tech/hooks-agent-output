@@ -1,0 +1,19 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/6b08efee-885a-42cc-b941-8975e343b07f/scratchpad/mut-work/20261122T230924Z-p254097/mutant-11
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (260 tests | 9 failed) 177ms
+     × with the content parser colours "🙂 *a*" as "🙂 ":- "*":S "a":emText "*":S 9ms
+     × with the title parser colours "🙂 *a*" as "🙂 ":- "*":S "a":emText "*":S 1ms
+     × with the field parser colours "🙂 *a*" as "🙂 ":- "*":S "a":emText "*":S 1ms
+     × with the content parser colours "\\*🙂 *a*" as "\\*🙂 ":- "*":S "a":emText "*":S 1ms
+     × with the title parser colours "\\*🙂 *a*" as "\\*🙂 ":- "*":S "a":emText "*":S 1ms
+     × with the field parser colours "\\*🙂 *a*" as "\\*🙂 ":- "*":S "a":emText "*":S 1ms
+     × with the content parser colours "**🙂 a**" as "**":S "🙂 a":strongText "**":S 1ms
+     × with the title parser colours "**🙂 a**" as "**":S "🙂 a":strongText "**":S 1ms
+     × with the field parser colours "**🙂 a**" as "**":S "🙂 a":strongText "**":S 1ms
+
+ Test Files  1 failed (1)
+      Tests  9 failed | 251 passed (260)
+   Start at  23:10:13
+   Duration  1.63s (transform 526ms, setup 0ms, import 1.29s, tests 177ms, environment 0ms)
+

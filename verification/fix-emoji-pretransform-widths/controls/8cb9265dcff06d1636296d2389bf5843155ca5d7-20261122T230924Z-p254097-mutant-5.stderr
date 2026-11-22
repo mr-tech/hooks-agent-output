@@ -1,0 +1,95 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character after the emoji in a plain line
+AssertionError: expected [ 'x', '[:slight_smile:]', 'lmnopq' ] to deeply equal [ 'x', '[:slight_smile:]', …(1) ]
+
+- Expected
++ Received
+
+  [
+    "x",
+    "[:slight_smile:]",
+-   " abcdefghijklmnopq",
++   "lmnopq",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:37:8
+     35|   it('keeps every character after the emoji in a plain line', () => {
+     36|     expect(typedInto([line('div', '', false, '')], 0, 'x🙂 abcdefghijk…
+     37|       .toEqual(['x', '[:slight_smile:]', ' abcdefghijklmnopq']);
+       |        ^
+     38|   });
+     39|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped asterisk before the emoji and every character after it
+AssertionError: expected [ '\*', '[:slight_smile:]', '' ] to deeply equal [ '\*', '[:slight_smile:]', 'abc' ]
+
+- Expected
++ Received
+
+  [
+    "\\*",
+    "[:slight_smile:]",
+-   "abc",
++   "",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:42:8
+     40|   it('keeps an escaped asterisk before the emoji and every character a…
+     41|     expect(typedInto([line('div', '', false, '')], 0, '\\*🙂abc'))
+     42|       .toEqual(['\\*', '[:slight_smile:]', 'abc']);
+       |        ^
+     43|   });
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped emoji as text and turns the emoji after it into an element
+AssertionError: expected [ '\🙂', '[:slight_smile:]', '' ] to deeply equal [ '\🙂', '[:slight_smile:]', ' abc' ]
+
+- Expected
++ Received
+
+  [
+    "\\🙂",
+    "[:slight_smile:]",
+-   " abc",
++   "",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:47:8
+     45|   it('keeps an escaped emoji as text and turns the emoji after it into…
+     46|     expect(typedInto([line('div', '', false, '')], 0, '\\🙂🙂 abc'))
+     47|       .toEqual(['\\🙂', '[:slight_smile:]', ' abc']);
+       |        ^
+     48|   });
+     49|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character after the emoji in a fenced code line
+AssertionError: expected [ 'x = "', '[:slight_smile:]', '' ] to deeply equal [ 'x = "', '[:slight_smile:]', …(1) ]
+
+- Expected
++ Received
+
+  [
+    "x = \"",
+    "[:slight_smile:]",
+-   "\" + 1;",
++   "",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:57:8
+     55|     ];
+     56|     expect(typedInto(lines, 1, 'x = "🙂" + 1;'))
+     57|       .toEqual(['x = "', '[:slight_smile:]', '" + 1;']);
+       |        ^
+     58|   });
+     59| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+

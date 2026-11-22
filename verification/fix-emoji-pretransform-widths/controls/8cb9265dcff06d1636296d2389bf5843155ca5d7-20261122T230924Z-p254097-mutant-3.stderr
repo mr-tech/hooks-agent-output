@@ -1,0 +1,35 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "\\🙂 **a**" with its text unchanged
+AssertionError: expected '\🙂 *� **a**' to be '\🙂 **a**' // Object.is equality
+
+Expected: "\🙂 **a**"
+Received: "\🙂 *� **a**"
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:23:43
+     21|     '\\*a\\*',
+     22|   ])('loads %j with its text unchanged', (text) => {
+     23|     expect(flattenNodeText(loaded(text))).toBe(text);
+       |                                           ^
+     24|   });
+     25|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "a \\🙂" with its text unchanged
+AssertionError: expected 'a a \🙂' to be 'a \🙂' // Object.is equality
+
+Expected: "a \🙂"
+Received: "a a \🙂"
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:23:43
+     21|     '\\*a\\*',
+     22|   ])('loads %j with its text unchanged', (text) => {
+     23|     expect(flattenNodeText(loaded(text))).toBe(text);
+       |                                           ^
+     24|   });
+     25|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

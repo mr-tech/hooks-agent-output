@@ -1,0 +1,75 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the content parser colours "\\🙂 **a**" as "\\🙂 ":- "**":S "a":strongText "**":S
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the title parser colours "\\🙂 **a**" as "\\🙂 ":- "**":S "a":strongText "**":S
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the field parser colours "\\🙂 **a**" as "\\🙂 ":- "**":S "a":strongText "**":S
+AssertionError: expected '"\\🙂 **a**":-' to be '"\\🙂 ":- "**":S "a":strongText "**":S' // Object.is equality
+
+Expected: ""\\🙂 ":- "**":S "a":strongText "**":S"
+Received: ""\\🙂 **a**":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:430:36
+    428|     ['field', '**🙂 a**', '"**":S "🙂 a":strongText "**":S'],
+    429|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    430|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    431|   });
+    432| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/12]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the content parser colours "🙂 *a*" as "🙂 ":- "*":S "a":emText "*":S
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the title parser colours "🙂 *a*" as "🙂 ":- "*":S "a":emText "*":S
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the field parser colours "🙂 *a*" as "🙂 ":- "*":S "a":emText "*":S
+AssertionError: expected '"🙂 *a*":-' to be '"🙂 ":- "*":S "a":emText "*":S' // Object.is equality
+
+Expected: ""🙂 ":- "*":S "a":emText "*":S"
+Received: ""🙂 *a*":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:430:36
+    428|     ['field', '**🙂 a**', '"**":S "🙂 a":strongText "**":S'],
+    429|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    430|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    431|   });
+    432| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/12]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the content parser colours "\\*🙂 *a*" as "\\*🙂 ":- "*":S "a":emText "*":S
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the title parser colours "\\*🙂 *a*" as "\\*🙂 ":- "*":S "a":emText "*":S
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the field parser colours "\\*🙂 *a*" as "\\*🙂 ":- "*":S "a":emText "*":S
+AssertionError: expected '"\\*🙂 *a*":-' to be '"\\*🙂 ":- "*":S "a":emText "*":S' // Object.is equality
+
+Expected: ""\\*🙂 ":- "*":S "a":emText "*":S"
+Received: ""\\*🙂 *a*":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:430:36
+    428|     ['field', '**🙂 a**', '"**":S "🙂 a":strongText "**":S'],
+    429|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    430|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    431|   });
+    432| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/12]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the content parser colours "**🙂 a**" as "**":S "🙂 a":strongText "**":S
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the title parser colours "**🙂 a**" as "**":S "🙂 a":strongText "**":S
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line with an emoji left as text > with the field parser colours "**🙂 a**" as "**":S "🙂 a":strongText "**":S
+AssertionError: expected '"**":S "🙂 a":strongText "**":-' to be '"**":S "🙂 a":strongText "**":S' // Object.is equality
+
+Expected: ""**":S "🙂 a":strongText "**":S"
+Received: ""**":S "🙂 a":strongText "**":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:430:36
+    428|     ['field', '**🙂 a**', '"**":S "🙂 a":strongText "**":S'],
+    429|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    430|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    431|   });
+    432| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/12]⎯
+
