@@ -66,3 +66,12 @@ Spawn cue 07:1xZ (the fixer): record `1168acc`, `Handoff-At: a47e683 — repos=p
 `git diff --numstat 40ba5d3 a47e683`: `package.json` 1/0, `package-lock.json` 745/15; in the write set. The fixer: hook active and passing;
 `git diff --quiet HEAD -- dist` exit 0; porcelain empty. `code-reviewer-fix-api-extractor-devdep` started with `tmux-agent spawn` (cwd
 `/usr/local/bin/hooks/project-utils`, a folder Claude Code now trusts), brief `steering/fix-api-extractor-devdep-brief-code-reviewer.md`.
+
+## 2026-11-22T07:19 — review approved at `a47e683`; devops started
+
+Spawn cue 07:1xZ (the reviewer): record `f23a0fe`, `Reviewed-At: "a47e683 — repos=project-utils; base 40ba5d3"`, round 1
+APPROVED_WITH_COMMENTS (read: anchor line, commit subject). Red at `40ba5d3` exit 127; green at `a47e683` exit 0, `dist/` byte-identical (11
+files, sha256 manifests). CR-1 LOW: `/usr/local/bin/statbot/statbot-utils` has the same undeclared `api-extractor` — outside this workspace;
+lodged in `/usr/local/bin/statbot/agent-output/INBOX.md` for that record's owner. The reviewer disclosed an in-place python edit of its own
+document (recorded in its changelog) and an uncommitted `INBOX.md` entry of its own. `devops-fix-api-extractor-devdep` started with
+`tmux-agent spawn` (cwd `/usr/local/bin/hooks/project-utils`), brief `steering/fix-api-extractor-devdep-brief-devops.md`.
