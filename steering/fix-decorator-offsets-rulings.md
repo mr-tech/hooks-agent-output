@@ -137,3 +137,11 @@ Since: fixer round 4 (QAF-1) at `a7e1adb` (record `b7e392a0`); reviewer REJECTED
 an emoji is highlighted per node; 5 characters right → wrong) — to the fixer. Reviewer's escalation (pre-existing, base and tip): a Unicode
 emoji inside a fenced code line deletes the text after it on normalize (`const s = "a 🙂 b";` → `" b";` gone; jsdom, real plugins).
 Ruling (this thread's): same pre-transform class — folds into `fix-emoji-pretransform-widths`, its evidence the reviewer's probe.
+
+## 2026-11-22T22:19 — CR-5 fixed at 24eda1c and approved; QA refresh cued; CR-6 carried by the nested-styles chain
+
+Fixer round 5 at `24eda1c` (record `8a9082f5`; `Handoff-At 24eda1c`, read); reviewer's fix confirmation APPROVED (record `58a83897`,
+read: `Reviewed-At 24eda1cdbcf9…`, `APPROVED`): split code lines 131/131 equal to whole-line rendering, 0 worse than base; suite 2612/2612
+exit 0; 128 production lines. QA refresh cued to `qa-fix-decorator-offsets` by message. CR-6 LOW (the code-line path dropped the
+empty-range filter; highlight.js emits zero-length scopes in 2 of 193 languages; not worse than base; rendering effect unmeasured):
+carried as a row of the queued chain `fix-decorator-nested-styles` (same function).
