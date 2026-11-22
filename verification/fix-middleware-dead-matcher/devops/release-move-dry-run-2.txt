@@ -1,0 +1,11 @@
+repo     /usr/local/bin/hooks/website
+ref      master
+target   453de76187c5c368732a20d2dd8a671ed97eed4c
+remote   origin/master 3859c29d557c920a5b611b8e3a4e7b5bf7b1222e
+local    master 3859c29d557c920a5b611b8e3a4e7b5bf7b1222e
+untracked 17 path(s) left alone
+evidence reason Code review APPROVED_WITH_COMMENTS Reviewed-At 453de76 (code-review/closed/fix-middleware-dead-matcher-code-review.md, record 4823fb3); under 20 production lines, no QA in the stage set; the tip is the reviewed commit
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+DRY RUN: every check passed; nothing moved
+exit 0

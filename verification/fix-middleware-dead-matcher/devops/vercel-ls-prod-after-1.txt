@@ -1,0 +1,6 @@
+(node:1416624) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Vercel CLI 29.1.1
+Retrieving project…
+Fetching deployments in hooks-gg
+exit 124

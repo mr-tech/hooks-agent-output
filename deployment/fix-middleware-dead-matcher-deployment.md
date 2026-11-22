@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-middleware-dead-matcher
 UUID: 54d67da4
 Status: Active
-Status-Detail: "Stage 1 committed and Phase 2A complete at website 453de76; the release ask is put to the owner in this session; nothing pushed."
+Status-Detail: "Pushed: website master = 453de76 at 18:41Z on the owner's yes; fix branch deleted. Open: the production deployment read and the two signed-out requests were not completed; Phase 2D not worked."
 ---
 
 # Deployment Record: fix-middleware-dead-matcher
@@ -18,6 +18,7 @@ Status-Detail: "Stage 1 committed and Phase 2A complete at website 453de76; the 
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-22T17:44 | `steering-hooks-fixer` (brief `steering/fix-middleware-dead-matcher-brief-devops.md` and `-brief-common.md`, arrived and read whole) | Stage 1 and Phase 2A for `chain/fix-middleware-dead-matcher` at 453de76 | Stage 1 verified (table below); implementation and code-review documents closed `Committed`. Phase 2A: tip build at 453de76 exit 0, `check-proxy-registered.py` PASS, no deprecation line; `release-move.js --dry-run` exit 0. Nothing pushed. Two `vercel ls --prod` look-only reads were not completed (see Pre-deploy reads). |
+| 2026-11-22T18:44 | devops (Phase 2B and 2C) | Release ask answered; release executed | The owner answered the selection prompt put in this session with "Agent: push it live now (Recommended)". Move run in this session: `release-move.js` exit 0, 18:41:12Z to 18:41:16Z; origin `master` read back as `453de76`; fix branch deleted. Post-push: `vercel ls --prod` twice timed out; the two signed-out requests were not completed. Not re-issued; reported to `steering-hooks-fixer`. Record stays Active. |
 
 ## Stage 1 verification (website, at 453de76)
 
@@ -67,24 +68,26 @@ Included: chain `fix-middleware-dead-matcher` only. Execution mode: **Mode A, ag
 |---|---|---|---|
 | 1 | `git -C /usr/local/bin/hooks/website ls-remote origin master` | not `3859c29d557c920a5b611b8e3a4e7b5bf7b1222e` → stop; the tip is no longer a fast-forward and the review must be re-taken | `3859c29…` (fetch at 17:44Z); re-read just before the move |
 | 2 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master 453de76187c5c368732a20d2dd8a671ed97eed4c --dry-run --reason "<review record and Reviewed-At>"` | exit ≠ 0 → stop | exit 0 (`devops/release-move-dry-run-1.txt`); re-run just before the move |
-| 3 | the owner's yes to the release, in this session | no yes → Aborted; nothing moved | |
-| 4 | the same command without `--dry-run` | exit 2 → nothing moved, stop; exit 1 → read the report for ref state, route to the owner | |
-| 5 | `git ls-remote origin refs/heads/master` equals `453de76…`; tree on `master`, `git status --porcelain` shows only `.playwright-mcp/` | any difference → route to the owner | |
-| 6 | `git branch -d chain/fix-middleware-dead-matcher`, its output captured | `-d` refuses → name it to the owner; do not force | |
-| 7 | `vercel ls --prod`, then `vercel inspect <url>` and `vercel logs <url>` (look-only; `timeout 60`, stdin closed, retry once): the newest production deployment is Ready, built from the pushed commit, serving hooks.gg; build log has no "middleware file convention is deprecated" line; record what `inspect` shows of the proxy's deployment | deployment Error, or built from another commit → report to the owner; a rollback is his call (Vercel promote) | |
-| 8 | signed-out `GET https://hooks.gg/message/m/0/edit` must not redirect (the header is present) | a redirect to itself → the assumption is false; report | |
-| 9 | signed-out `GET https://hooks.gg/message/m/1/edit` sent with `x-pathname: /message/m/0/edit` must redirect (the header is overwritten) | rendered without a redirect → the spoof is honoured; report | |
+| 3 | the owner's yes to the release, in this session | no yes → Aborted; nothing moved | Yes, by selection ("Agent: push it live now (Recommended)"), before 18:41:05Z |
+| 4 | the same command without `--dry-run` | exit 2 → nothing moved, stop; exit 1 → read the report for ref state, route to the owner | Step 1 and 2 re-run at 18:41:05Z (`ls-remote` = `3859c29…`; dry run exit 0, `devops/release-move-dry-run-2.txt`). Real move exit 0, 18:41:12Z to 18:41:16Z: "OK moved master: 3859c29… -> 453de76… on origin; tree on master" (`devops/release-move-real.txt`) |
+| 5 | `git ls-remote origin refs/heads/master` equals `453de76…`; tree on `master`, `git status --porcelain` shows only `.playwright-mcp/` | any difference → route to the owner | `ls-remote` = `453de76187c5c368732a20d2dd8a671ed97eed4c`; `branch --show-current` = `master`; `rev-parse HEAD master` both `453de76…`; porcelain `?? .playwright-mcp/` only. Pass |
+| 6 | `git branch -d chain/fix-middleware-dead-matcher`, its output captured | `-d` refuses → name it to the owner; do not force | "Deleted branch chain/fix-middleware-dead-matcher (was 453de76)", exit 0 (`devops/branch-d.txt`); `git branch --list 'chain/fix-middleware*'` 0 lines; `ls-remote --heads origin 'chain/*'` 0 lines. Pass |
+| 7 | `vercel ls --prod`, then `vercel inspect <url>` and `vercel logs <url>` (look-only; `timeout 60`, stdin closed, retry once): the newest production deployment is Ready, built from the pushed commit, serving hooks.gg; build log has no "middleware file convention is deprecated" line; record what `inspect` shows of the proxy's deployment | deployment Error, or built from another commit → report to the owner; a rollback is his call (Vercel promote) | **Not completed.** `vercel ls --prod` was issued twice after the push (18:42Z to 18:44Z, `timeout 60`, stdin closed), each time timing out (exit 124) at "Fetching deployments"/"Retrieving project…" (`devops/vercel-ls-prod-after-1.txt`, `-2.txt`). No deployment URL was obtained, so `inspect` and `logs` were not issued. Not re-issued, per the brief |
+| 8 | signed-out `GET https://hooks.gg/message/m/0/edit` must not redirect (the header is present) | a redirect to itself → the assumption is false; report | **Not completed** (the request call was not completed); not re-issued, reported to `steering-hooks-fixer` |
+| 9 | signed-out `GET https://hooks.gg/message/m/1/edit` sent with `x-pathname: /message/m/0/edit` must redirect (the header is overwritten) | rendered without a redirect → the spoof is honoured; report | **Not completed**, as step 8 |
 
 **Assumption Not Checked carried to the post-deploy reads (devops's, this record until Phase 2D).** The code review's: Vercel's build of `master` registers and serves `src/proxy.ts` as a Node proxy on the three matchers; falsified by steps 8 or 9, or by a build log lacking `ƒ Proxy (Middleware)` or still printing the deprecation line (step 7). The fixer's: not checked there are a running `next dev`/`next start` walk, Vercel's handling of the Node proxy (regions, latency), Turbopack vs webpack on Vercel; region placement and latency stay unmeasured and are recorded as what `inspect` shows. CR-1 (the `/preview` entry runs the proxy where nothing reads the header) is ruled outside this release and carried by steering's own chain.
 
 ## User Confirmation
 
-To be put to the owner directly by this session as a selection prompt (Phase 2B), in his form: the context first, then the decision, plain English; the fixer's user-visible flows in his words.
+Put to the owner directly by this session as a selection prompt (Phase 2B), put at about 17:47Z, in his form: the context first, then the decision, plain English, no identifiers. It stated what the fix does, that the review approved it and the suite passes (2362 of 2362) and a test build works, that nothing is live, that going live means pushing the website's main line which Vercel publishes to hooks.gg (the premise marked as resting on his earlier confirmations and untested this time; no automatic checks in the repository), the post-push reads, the fixer's user-visible flows (editor pages work as before and a signed-out visitor still goes to the blank editor; the preview page opens as before; nothing else changes; the build log loses the deprecation warning; possibly a slightly slower first response for distant visitors, unmeasured), what was not tested (Vercel's own build) and the rollback. Options: push now (Recommended), hold, drop. **Response: "Agent: push it live now (Recommended)"**, by selection, answered before 18:41:05Z. Declined: no.
 
 ## Release Execution
 
-Not yet executed.
+Mode A. Commands and results are in the runbook above. `release-move.js` exit 0 at 18:41:12Z to 18:41:16Z; origin `master` = `453de76187c5c368732a20d2dd8a671ed97eed4c` read back by `git ls-remote origin refs/heads/master`. Push ref `master`, SHA `453de76`, timestamp 18:41:12Z to 18:41:16Z. Fix branch merged (it was the pushed commit) and deleted with `git branch -d`.
+
+**Serving state**: the production deployment of this push has **not yet been read**: the Vercel look-only reads (runbook step 7) and the two signed-out requests (steps 8 and 9) were not completed, so the deploy evidence the brief asks for (Ready, built from the pushed commit, serving hooks.gg) is open. It is not marked verified here and is not marked NOT VERIFIED either; steering rules how it is closed.
 
 ## Post-Release Status
 
-Not yet released.
+Pushed 2026-11-22T18:41Z; record stays Active until the deployment reads are settled. Phase 2D not yet worked.
