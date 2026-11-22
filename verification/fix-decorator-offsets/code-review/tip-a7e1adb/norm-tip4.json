@@ -1,0 +1,220 @@
+[
+ {
+  "input": "```js\nconst s = \"a 🙂 b\";\n```",
+  "children": [
+   {
+    "type": "div",
+    "lang": "",
+    "startCodeBlock": false,
+    "children": [
+     {
+      "type": "span",
+      "text": "```js"
+     }
+    ],
+    "empty": false
+   },
+   {
+    "type": "codeBlock",
+    "lang": "js",
+    "startCodeBlock": true,
+    "children": [
+     {
+      "type": "span",
+      "text": "const s = \"a "
+     },
+     {
+      "type": "emoji",
+      "lang": "",
+      "startCodeBlock": false,
+      "ast": "[ast]",
+      "children": [
+       {
+        "type": "span",
+        "text": ""
+       }
+      ],
+      "empty": false
+     },
+     {
+      "type": "span",
+      "text": ""
+     }
+    ],
+    "empty": false
+   },
+   {
+    "type": "div",
+    "lang": "",
+    "startCodeBlock": true,
+    "children": [
+     {
+      "type": "span",
+      "text": "```"
+     }
+    ],
+    "empty": false
+   }
+  ]
+ },
+ {
+  "input": "```js\nconst s = \"a :smile: b\";\n```",
+  "children": [
+   {
+    "type": "div",
+    "lang": "",
+    "startCodeBlock": false,
+    "children": [
+     {
+      "type": "span",
+      "text": "```js"
+     }
+    ],
+    "empty": false
+   },
+   {
+    "type": "codeBlock",
+    "lang": "js",
+    "startCodeBlock": true,
+    "children": [
+     {
+      "type": "span",
+      "text": "const s = \"a "
+     },
+     {
+      "type": "emoji",
+      "lang": "",
+      "startCodeBlock": false,
+      "ast": "[ast]",
+      "children": [
+       {
+        "type": "span",
+        "text": ""
+       }
+      ],
+      "empty": false
+     },
+     {
+      "type": "span",
+      "text": " b\";"
+     }
+    ],
+    "empty": false
+   },
+   {
+    "type": "div",
+    "lang": "",
+    "startCodeBlock": true,
+    "children": [
+     {
+      "type": "span",
+      "text": "```"
+     }
+    ],
+    "empty": false
+   }
+  ]
+ },
+ {
+  "input": "a 🙂 b",
+  "children": [
+   {
+    "type": "div",
+    "lang": "",
+    "startCodeBlock": false,
+    "children": [
+     {
+      "type": "span",
+      "text": "a "
+     },
+     {
+      "type": "emoji",
+      "lang": "",
+      "startCodeBlock": false,
+      "ast": "[ast]",
+      "children": [
+       {
+        "type": "span",
+        "text": ""
+       }
+      ],
+      "empty": false
+     },
+     {
+      "type": "span",
+      "text": " b"
+     }
+    ],
+    "empty": false
+   }
+  ]
+ },
+ {
+  "input": "**a** 🙂 **b**",
+  "children": [
+   {
+    "type": "div",
+    "lang": "",
+    "startCodeBlock": false,
+    "children": [
+     {
+      "type": "span",
+      "text": "**a** "
+     },
+     {
+      "type": "emoji",
+      "lang": "",
+      "startCodeBlock": false,
+      "ast": "[ast]",
+      "children": [
+       {
+        "type": "span",
+        "text": ""
+       }
+      ],
+      "empty": false
+     },
+     {
+      "type": "span",
+      "text": " **b**"
+     }
+    ],
+    "empty": false
+   }
+  ]
+ },
+ {
+  "input": "x 👍🏽 y",
+  "children": [
+   {
+    "type": "div",
+    "lang": "",
+    "startCodeBlock": false,
+    "children": [
+     {
+      "type": "span",
+      "text": "x "
+     },
+     {
+      "type": "emoji",
+      "lang": "",
+      "startCodeBlock": false,
+      "ast": "[ast]",
+      "children": [
+       {
+        "type": "span",
+        "text": ""
+       }
+      ],
+      "empty": false
+     },
+     {
+      "type": "span",
+      "text": " y"
+     }
+    ],
+    "empty": false
+   }
+  ]
+ }
+]

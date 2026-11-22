@@ -2,10 +2,10 @@
 ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
-Reviewed-At: 2e6127e3170a1a31524e24321fec6a90b43703a3 — repos=website
+Reviewed-At: a7e1adbe62b588d5462e3c1db5add910481ae17c — repos=website
 Status: In Review
 Round: 1
-Verdict: APPROVED
+Verdict: REJECTED
 ---
 
 # Code Review: fix-decorator-offsets
@@ -26,6 +26,7 @@ directory root; the sub-entry at `e6a5766` is in `tip-e6a5766/`.
 | 2026-11-22T20:43 | `steering-hooks-fixer` (brief `steering/fix-decorator-offsets-brief-code-reviewer.md`) | Round 1 review of website `f57c260` | Round 1: REJECTED. CR-1 HIGH (bare URL at a run's edge, right → wrong); CR-2 MEDIUM to steering (other width faults moved). Argument in record `f6b9baa6`. |
 | 2026-11-22T20:44 | `steering-hooks-fixer` | Ruling on CR-2 and write set | Round 1 note: re-scope to every node kind's source width; `rules.tsx` joins the write set; QA at 20+ lines. Record `2dc9572d`. |
 | 2026-11-22T21:19 | `steering-hooks-fixer` (fixer hand-off, record `c88dbcd4`) | Round 1 sub-entry: re-review at website `e6a5766` | Round 1 sub-entry: APPROVED_WITH_COMMENTS. CR-1 and CR-2 resolved, measured by two instruments of different shape: 0 inputs colour worse than at base. CR-3 LOW (heading marker regex duplicated with a non-null assertion). CR-4 MEDIUM (a test row pins a pre-existing missing-outer-class defect; the defect is put to steering). 111 production lines, so QA Phase 2 is restored. Process note for the retrospective: the fixer disclosed one negative control run in the shared tree, restored before commit; the reviewed tree is the committed `e6a5766`, read from an export. |
+| 2026-11-22T22:07 | `fixer-fix-decorator-offsets` (record `b7e392a0`) | Round 1 fix confirmation for QAF-1 at website `a7e1adb` | Round 1 sub-entry: REJECTED, CR-5 MEDIUM (severity floor). A code line split by an emoji element is highlighted per text node; 5 characters right at base are wrong. Lines without a language are identical to `2e6127e`; suite 2608/2608, typecheck 0. A pre-existing data loss (a Unicode emoji in a code line deletes the text after it, base and tip) is escalated to steering. |
 | 2026-11-22T21:29 | `fixer-fix-decorator-offsets` (record `21813123`) | Round 1 fix confirmation at website `2e6127e` | Round 1 sub-entry: APPROVED. CR-3 and CR-4 resolved. Corpus, grammar oracle and heading edges identical to `e6a5766` (0 rows differ). Suite 2594/2594 exit 0, typecheck exit 0, red 151/77. 116 production lines, so QA Phase 2. |
 | 2026-11-22T21:21 | `steering-hooks-fixer` | Ruling on CR-4 | Round 1 note: CR-4's defect goes to the queued chain `fix-decorator-nested-styles`; the fixer swaps the pinning fixture and takes CR-3; a scoped check of that delta comes before QA Phase 2. |
 
@@ -156,16 +157,75 @@ The fixer's `markerWidth` takes the first `#` run from `capture[1]` and then eve
 including space-only content, that equals the removed greedy `HEADING_MARKER`, so behaviour is unchanged and only the source of
 the width moved.
 
+### Fix confirmation — website `a7e1adb`, QAF-1 (2026-11-22T22:07)
+
+Delta `2e6127e..a7e1adb` (one commit, for QA's QAF-1 in `qa/fix-decorator-offsets-qa.md`): `decorator.tsx` +11/−10, test +27/−6.
+Production lines from base: 101 + 17 = **118**. Now, a line whose element has a `lang` is highlighted with highlight.js over
+`node.text`; other lines parse and walk as before, with top-level text merged.
+
+The mechanism claim holds. `withNormalizeNode.ts` `handleEditor` and `getInitialValue.ts` set `lang` only where
+`isFullCodeBlock`/`isCodeBlock` is true, which is a line inside a block that contains no ```` ``` ````.
+
+| Check (`tip-a7e1adb/`) | Result |
+|---|---|
+| Suite (export) | 2608/2608, exit 0 (`r4-suite.txt`) |
+| `pnpm run typecheck` | exit 0 (`r4-typecheck.txt`) |
+| Corpus probe and grammar oracle, `2e6127e` vs `a7e1adb` (all lines without a language) | 0 of 36,000 and 0 of 7,137 differ |
+| **Code line split by an emoji element** (`decorator.code-split-probe.test.ts`; 10 lines in js/python/ts/json, each decorated as two text nodes the way the editor holds them, scored per character against the same line highlighted whole) | right: base 80/131, `2e6127e` 100/131, `a7e1adb` 110/131. **5 characters right at base are wrong at `a7e1adb`** (6 against `2e6127e`), in 4 of the 10 lines: `const s = "a │ b";`, ``f(`t │ ${y}`);``, `print("x │ y")`, `type T = "a │ b";` (`split-*.json`) |
+| Is the split reachable? (`withNormalizeNode.code-emoji-probe.test.ts`: `getInitialValue`, then `withNormalizeNode(withEmojis(createEditor()))`, `Editor.normalize({ force: true })`) | yes. A `js` block line with `:smile:` becomes `["const s = \"a ", <emoji>, " b\";"]` at base and tip (`norm-*.json`) |
+
+CR-5 MEDIUM Round 1
+- **Category**: Correctness / the scope criterion "no input colours worse than at base" (block 20:44)
+- **Title**: A code line split by an emoji element is highlighted one text node at a time, and some characters regress from base
+- **Location**: `decorator.tsx`, default export, the `if (ancestor.lang)` branch: `handleCodeBlockRange(leaf, ancestor.lang, node.text)`.
+- **Class**: Code highlighting tokenises less than the line. Any line whose `codeBlock` element holds more than one text node (an emoji
+  element between them) is highlighted per node, so a token that spans the split (a string, template or comment) restarts in the
+  second node.
+- **Enumeration**: `decorator`'s only line-level input is `[node, path]`, one text node. Every `codeBlock` element with an emoji element
+  child is in the class. That is reachable by `withNormalizeNode`'s lifting of any emoji in a code line (`handleElement` runs for
+  every non-emoji element, `codeBlock` included). Measured: 10 hand-picked lines, 4 with a regression, 5 of 131 characters right →
+  wrong against base (30 wrong → right). **Not matched**: more than one emoji per line, emoji at a line's start or end, and languages
+  outside js/python/ts/json. Population not measured, so it is QA's.
+- **Magnitude**: measured in jsdom on the real decorator and normalizer: 5 of 131 characters in a hand-picked set. It is not a usage
+  measure. Display only.
+- **Issue**: the round's own claim is "0 right → wrong over 195 languages". QA's scorer drives one text node per line, so it cannot
+  see this. The scope criterion is a no-worse-than-base property, and no assertion covers the split line, so the severity floor
+  applies: MEDIUM, blocking.
+- **Required Action**:
+  - **Preferred (structural)**: highlight the line once and project the result onto each text node. Join the element's children's
+    text (an emoji element contributes its source width, e.g. `flattenNodeText`'s content), highlight that string, then emit for
+    `[node, path]` only the ranges inside that node's span, offset to it. The token stream is then the whole line by construction.
+  - **Minimum**: none that keeps the criterion. Per-node highlighting with a wider context is the same projection.
+  - **Callers**: `decorator`'s sole caller is `SlateEditor/index.tsx` `decorate=`. Lines without a language are unchanged by either
+    form.
+  - **Test shape**: a `codeBlock` element with children `[span "const s = \"a ", emoji element, span " b\";"]`, decorating the second
+    span. Expected: literal leaves showing ` b"` as `hljs-string` and `;` uncoloured, read from highlight.js's HTML for the whole line.
+    The fixture property: a string token opens before the emoji and closes after it. Falsity signature at `a7e1adb`: an assertion
+    failure where ` b` is received without `hljs-string`.
+
+**Found, pre-existing, outside the write set (escalated to steering, not this chain's):** a Unicode emoji inside a fenced code line
+**deletes the text after it** on normalize. `getInitialValue` leaves a code line as one span, then `withNormalizeNode` lifts the emoji
+using offsets from `parseEmoji`'s pre-treated text (`:slight_smile:`, wider than `🙂`), and the insert's range swallows what follows.
+For `const s = "a 🙂 b";` the children become `["const s = \"a ", <emoji>, ""]`, with ` b";` gone, at **base and tip alike**
+(`norm-base2.json`, `norm-tip4.json`). This was observed in jsdom with the real plugins, not in a browser. Ordinary lines are not
+affected (`a 🙂 b` keeps ` b`), because `getInitialValue` lifts their emoji itself. This is the round-2 emoji pre-treatment item, now
+with a data-loss signature.
+
 ## Verdict
 
-**Status**: APPROVED (round 1 sub-entry, fix confirmation at `2e6127e`)
+**Status (current, at `a7e1adb`)**: REJECTED: CR-5 (severity floor on the scope's no-worse-than-base criterion).
+**Earlier status**: APPROVED (round 1 sub-entry, fix confirmation at `2e6127e`)
 **Rationale**: every criterion of block 20:44 is met, and no input colours worse than at base by two independent instruments.
 CR-1 to CR-4 are all resolved. The CR-3 change is behaviour-identical on the corpus, the grammar oracle and the heading edge shapes.
 Suite, typecheck and red run are clean.
 
 ## Required Actions
 
-None in this chain. CR-4's defect is carried by `fix-decorator-nested-styles`.
+1. CR-5 (fixer): highlight each code line once and project the result onto its text nodes. Add the split-line test with the stated
+   fixture property, then a scoped check here and QA Phase 2's re-run of QAF-1.
+2. Steering: the pre-existing code-line emoji text loss (above), which is outside this chain's write set.
+
+CR-4's defect is carried by `fix-decorator-nested-styles`.
 
 ## Assumption Not Checked
 
@@ -181,6 +241,7 @@ text leaf would colour `**a**` at offsets shifted by the rewrite. Owner: QA Phas
 
 ## Next Steps
 
-- **Steering** (`steering-hooks-fixer`): start QA Phase 2 (116 production lines, block 20:44).
-- **QA** (`qa-fix-decorator-offsets`): Phase 2 at `2e6127e`, including the mutation sweep and the sub-entry's assumption above.
+- **Fixer** (`fixer-fix-decorator-offsets`): CR-5.
+- **Steering** (`steering-hooks-fixer`): rule on the pre-existing code-line emoji text loss (scope, carrier, owner).
+- **QA** (`qa-fix-decorator-offsets`): after CR-5's scoped check, QAF-1 re-verified, including split code lines.
 - **Devops**: round 1's assumption, at the post-deploy walk.
