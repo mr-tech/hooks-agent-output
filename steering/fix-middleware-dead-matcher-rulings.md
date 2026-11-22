@@ -63,3 +63,12 @@ critic, Phase 1, QA or UAT; a production count of 20 or more restores QA Phase 2
 printing the deprecation warning at base and not at the tip. **Not covered by the sweeps:** a real build, Vercel's handling of a Node
 proxy (regions, latency), Turbopack vs webpack on Vercel. Devops hazard: post-deploy, the build log carries no deprecation line and the
 `/message` pages still render (the header's consumer).
+
+## 2026-11-22T17:32 — handed to code review at website 453de76; reviewer started
+
+Fixer's spawn cue by message ~17:4xZ: document `implementation/fix-middleware-dead-matcher-implementation.md` (record `2e61217`;
+`Handoff-At: 453de76 — repos=website`, read). This thread's reads: `git log 3859c29..453de76` (three commits); `git diff --numstat`:
+`src/proxy.ts` 19/0, `src/middleware.ts` 0/23, `proxy.matcher-routes.test.ts` 49/0, header test moved 2/2. Fixer's figures (its document,
+not re-run here): suite 2362/2362 exit 0; base build prints the deprecation line once, tip none; tip registers the proxy as nodejs (base
+edge). Two calls not completed at first issue and each re-issued once (fixer's report, recorded in its document). Reviewer brief
+`steering/fix-middleware-dead-matcher-brief-code-reviewer.md`; `code-reviewer-fix-middleware-dead-matcher` started with `tmux-agent spawn`.
