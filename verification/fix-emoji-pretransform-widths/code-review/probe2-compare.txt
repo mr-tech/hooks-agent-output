@@ -1,0 +1,19 @@
+decoOk false: ':ok🙂_:' | base decoOk False 
+   fix  ":ok:slight_smile:":- "_":S ":":- 
+   canon ":ok:slight":- "_":S "smile:":emText "_":S ":":-
+decoOk false: '🙂o:a🙂_:up:' | base decoOk False 
+   fix  ":slight_smile:o:a:slight_smile:":- "_":S ":up:":- 
+   canon ":slight_smile:o:a:slight":- "_":S "smile:":emText "_":S ":up:":-
+decoOk false: ':a\\🙂:ma_' | base decoOk False 
+   fix  ":a\\:slight_smile:":- ":ma":emText "_":S 
+   canon ":a\\:slight":- "_":S "smile::ma":emText "_":S
+oob '👍🏻:b.# :o_\\' fix 1 base 2 has-surrogate True
+oob ':id:id:a:up# thumbsup::id' fix 1 base 1 has-surrogate False
+oob ':# thumbsup:~~::100' fix 1 base 1 has-surrogate False
+oob '# :bo:*a' fix 1 base 1 has-surrogate False
+oob ':a:id# .🙂o:\\' fix 1 base 1 has-surrogate True
+oob 'ok:# thumbsup:' fix 1 base 1 has-surrogate False
+loadOk pass at base, fail at round 2: 0
+typedOk pass at base, fail at round 2: 0
+decoOk pass at base, fail at round 2: 0
+oob newly >0: 0

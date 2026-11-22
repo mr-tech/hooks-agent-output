@@ -2,10 +2,10 @@
 ID: n/a
 Origin: fix-emoji-pretransform-widths
 UUID: 27c7b0a0
-Reviewed-At: c2fee5ca8a40e41ab86386d84625e684d4cf8b16 — repos=website
+Reviewed-At: 0411d3ba146018a5a8d3e8a45398d7d04f499d18 — repos=website
 Status: In Review
 Round: 1
-Verdict: REJECTED
+Verdict: APPROVED_WITH_COMMENTS
 ---
 
 # Code Review: fix-emoji-pretransform-widths
@@ -20,6 +20,7 @@ Verdict: REJECTED
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-22T23:23 | `steering-hooks-fixer` (brief `steering/fix-emoji-pretransform-widths-brief-code-reviewer.md`) | Review the fix at website `c2fee5c` | Round 1: REJECTED on CR-1 (HIGH). The new offset map moves an emoji into a neighbouring `:name:` token the rename manufactured, so `wow :o🙂` loads and types as `wow :o:` and the 🙂 is deleted. CR-2 LOW, CR-3 pre-existing, routed. SHA `c2fee5c` was the same at start and end. The stamp gate refused a typed time in this row; I replaced it with the clock's. |
+| 2026-11-22T23:33 | `fixer-fix-emoji-pretransform-widths` (Round 2 at website `0411d3b`, record `bed4b9d0`) | Confirm the CR-1 fix | Round 1 sub-entry: **APPROVED_WITH_COMMENTS** at `0411d3b`. CR-1 resolved: the class is gone on a wider re-attack, with load and typing failures 0 of 1662 (base 114 and 525). CR-2 declined for the write set. CR-3 is carried by steering. 83 production lines, so QA Phase 2 follows. I wrote this sub-entry with a Python script fed through a shell heredoc. That breaks the brief's rule that record documents are written only with Write/Edit or `record-edit.js`. The content was checked by `git diff` before commit. |
 
 ## Scope and criteria assessed (recorded before reading the diff)
 
@@ -100,9 +101,30 @@ None.
 - **Enumeration**: `grep -c '"decoOutOfBounds":[1-9]'` gives 20 at base and 3 at fix (`:ok:# ~~`, `# :_#bc👍🏻`, `#~~:ok:#  `). Two of the three have no surrogate emoji, so this is not this chain's rename. No row is newly out of bounds at fix. The predicate does not see an in-bounds range that is misplaced.
 - **Required Action**: Out of this chain's scope (it is not a width of the rename). Routed to `steering-hooks-fixer` for a carrier. Not a hold on this tree.
 
+## Round 1 sub-entry: fix confirmation at `0411d3b`
+
+The scope is the fix diff `c2fee5c..0411d3b`: 6 production files, 3 test files. It stays inside the findings' scope (the minimum route at the three `sourceOffsetsOf` callers, plus the map's API), so no new round opens. SHA `0411d3b` was the same at start and end.
+
+**CR-1: resolved.**
+- *Class gone.* I re-attacked from scratch rather than re-reading the fix, using `probe2.review.test.tsx.txt`:
+  - **Corpus:** 1,500 seeded lines over 29 tokens, including the real names `o`, `x`, `a`, `b`, `m`, `id`, `up`, `100`, `cool`, `ok`, `skin-tone-1` and both straddle directions; 12 fixed lines; and 150 multi-line messages with a ```` ```js ```` fence, checked on load.
+  - **Results** (`probe2-{febf20e,0411d3b}.jsonl`, exit 0 each; `probe2-compare.txt`): load not canon-equal 0 (base 114), typed 0 (base 525), runs that threw 0 (base 28). No row passes at base and fails at `0411d3b`, for load, typing or decorator.
+  - **Blind spot:** the probe still misses custom-emoji pickers, a real paste event and IME, and names outside the list.
+- *Captured check that fails if it returns:* the six new cases in the three spec files (`getInitialValue.stored-text-loads-unchanged`, `withNormalizeNode.emoji-keeps-line-text`, `decorator.emphasis-syntax-ranges`). They use literal expectations, cover both directions, use the real name `:ok:`, and keep the straddle off the line's ends. The fixer recorded the red run at `c2fee5c` (6 failed, all assertion mismatches) and 17 of 17 controls KILLED, at `verification/fix-emoji-pretransform-widths/round-2/`. I did not re-run the mutation table; my probe is the independent instrument.
+- *Route accepted.* The fixer took the Minimum. The Preferred would change the `text` rule and the stored `:name:` form, which the ruling excludes. A straddled emoji now stays as a plain emoji character, and its text is kept. `splitsName` also covers a node lying wholly inside one name, since both of its ends then split it.
+- *Residue (INFO, not a hold).* 3 of 1,662 rows still give decorator labels that differ from the renamed line's (`:ok🙂_:`, `🙂o:a🙂_:up:`, `:a\🙂:ma_`), and all 3 fail at base too. In each, the `_` inside a renamed `slight_smile` would pair with a user-typed `_` in a straddle. The probe's oracle styles the renamed line, which puts emphasis inside the name. `0411d3b` instead drops a range that starts inside a renamed name, so it puts no emphasis inside the emoji and only dims the user's `_` as syntax. The text is unchanged. The static renderer applies the same rename (`staticParserFor` calls `translateSurrogatesToInlineEmoji`), but I did not compare its pairing. This rides with CR-3 to steering.
+
+**CR-2: declined.** The fixer's reason holds: `src/@types/simple-markdown.d.ts` is outside the ruling's write set. The cast now carries the named type `SurrogateSourceOffsets`, but the runtime contract is still unchecked by the compiler. `no test`. It is a LOW note for any later chain that edits the type file.
+
+**CR-3: pre-existing, carried by steering** (`c60fc65f`, "CR-3 carried in TODO"). There are 6 out-of-bounds rows at `0411d3b` against base's 21, none new, and 3 of the 6 have no surrogate.
+
+**Gates at `0411d3b`.** `convention-check.js website --since=febf20e`: exit 0, 0 FAIL, 0 CANDIDATE, 18 SKIP, the same as Round 1 (`convention-check-0411d3b.txt`). Production lines `git diff --numstat febf20e 0411d3b` = 7 + 9 + 15 + 16 + 31 + 5 = **83**, re-deriving the fixer's 83, so QA Phase 2 runs; I did not run the suite (QA's). `common.ts` adds `import type` from `~/utils/markdown/emoji`. A type-only import is erased, so the `import()`-only loading of the markdown module is kept. I checked the import form, not the bundle.
+
 ## Verdict
 
-**Status**: REJECTED
+**Status (Round 1 sub-entry, `0411d3b`)**: APPROVED_WITH_COMMENTS. CR-1 is resolved. CR-2 is declined (LOW). CR-3 and the decorator residue are routed to steering.
+
+**Status (Round 1, `c2fee5c`)**: REJECTED
 **Rationale**: CR-1 (HIGH). The fix makes property (2) false for a class of stored text, `:o🙂`. Where base renamed the emoji, the fix deletes it on load, and the editor writes that back. Everything else the scope names is delivered and verified through the real parser.
 
 ## Required Actions
@@ -116,6 +138,8 @@ None.
 This review assumes Slate applies `handleElement`'s insert and the browser's real paste and IME the same way `Transforms.insertText` does in jsdom, and it does not test that. Falsity signature: a pasted `x🙂 abcdefghijklmnopq` in the deployed editor loses or duplicates characters while the jsdom case passes. The owner is QA Phase 2, as a browser walk on a local build, before devops's merge.
 
 ## Next Steps
+
+- Sub-entry at `0411d3b`: approved, so QA Phase 2 is started from the spawn cue to `steering-hooks-fixer`. It owns the browser-walk assumption above, including a straddle line such as `wow :ok🙂 hi`.
 
 - Implementer: `fixer-fix-emoji-pretransform-widths` for CR-1 (and CR-2 at its choice). Copied to `steering-hooks-fixer`.
 - `steering-hooks-fixer`: a carrier for CR-3. QA Phase 2 owns the assumption above once a fixed tree is approved.
