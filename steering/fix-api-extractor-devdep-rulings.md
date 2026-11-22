@@ -75,3 +75,14 @@ files, sha256 manifests). CR-1 LOW: `/usr/local/bin/statbot/statbot-utils` has t
 lodged in `/usr/local/bin/statbot/agent-output/INBOX.md` for that record's owner. The reviewer disclosed an in-place python edit of its own
 document (recorded in its changelog) and an uncommitted `INBOX.md` entry of its own. `devops-fix-api-extractor-devdep` started with
 `tmux-agent spawn` (cwd `/usr/local/bin/hooks/project-utils`), brief `steering/fix-api-extractor-devdep-brief-devops.md`.
+
+## 2026-11-22T07:25 — released (project-utils `master` at `a47e683`); chain closed; sessions stopped
+
+Devops by message 07:2xZ: project-utils `master` `40ba5d3` → `a47e683` (fast-forward), no approval (deploys nothing); implementation,
+code-review and deployment documents `Released` in `closed/` (records `70c7840d`, `160d96c`); branch deleted; tree on `master`, porcelain
+empty. This thread's read: `git ls-remote origin master` → `a47e683…` (07:25Z); `git branch --show-current` → `master`. Toolchain named as a
+risk by devops: node v24.14.0, npm 11.9.0. Sessions stopped 07:25Z (`tmux-agent stop`): devops, reviewer, fixer. Cost:
+`verification/fixes-2026-11-22-steering-hooks-5/cost/fix-api-extractor-devdep.txt` ($5.05). Retrospective: this chain had an owner-needing
+block (the folder-trust prompt, 04:58-07:0xZ), so it is retrospected — with the batch that runs once chains 6 and 7, still in flight, close.
+Carriers: CR-1 in the statbot record's `INBOX.md` (uncommitted there; not this thread's to commit); CR-3 in this record's `INBOX.md` (the
+reviewer's entry, uncommitted beside other sessions' lines).
