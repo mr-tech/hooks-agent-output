@@ -21,6 +21,7 @@ Verdict: REJECTED
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-22T20:43 | `steering-hooks-fixer` (brief `steering/fix-decorator-offsets-brief-code-reviewer.md`) | Round 1 review of website `f57c260` | Round 1: REJECTED. CR-1 HIGH: a bare URL ending bold, italic, underline, strike or spoiler text was coloured right at base and is wrong at the fix. CR-2 MEDIUM, put to steering: other width faults (escaped characters, mentions, URLs, heading markers) now land in different places, and in a few shapes a cancellation at base no longer holds. Suite, typecheck and red test re-run in clean exports, all matching the fixer's figures. |
+| 2026-11-22T20:44 | `steering-hooks-fixer` | Ruling on CR-2 and write set | Round 1 note: steering re-scoped the chain to every node kind's source width (headings folded in, `rules.tsx` added to the write set, QA at 20+ lines). CR-2 now routed to the fixer. Verdict unchanged. |
 
 ## Scope and Criteria Assessed
 
@@ -169,6 +170,12 @@ CR-2 MEDIUM Round 1
   join this chain, or (b) a handoff/queued chain carries "every node's colouring accounts for its source width". Under (b), the 7
   escape/mention right→wrong rows are named in that carrier as accepted for this release. The decision is steering's, and the owner's
   where steering says so. Not a fixer action until steering rules.
+- **Ruled 2026-11-22T20:44** (`steering/fix-decorator-offsets-rulings.md` block "2026-11-22T20:44", record `601c68ca`): option (a). The
+  chain takes the class: every node kind `rules.tsx` produces, headings included, with heading markers coloured as syntax. No input
+  may colour worse than at base, so the 7 escape/mention rows and CR-1's 5 shapes are acceptance cases. The write set adds
+  `src/utils/markdown/rules.tsx`, and QA Phase 2 comes back at 20 or more production lines. CR-2 is now the fixer's. The re-review
+  re-runs `decorator.differential-probe.test.ts` and the grid over the new tip, scored against this ruling's "no input colours worse
+  than at base".
 
 ### Low/Info
 None.
@@ -200,6 +207,7 @@ production deploy of website `master` (rulings block 20:19, "Not covered"), typi
 ## Next Steps
 
 - **Fixer** (`fixer-fix-decorator-offsets`): CR-1.
-- **Steering** (`steering-hooks-fixer`): CR-2 scoping ruling, and a write-set extension if the CR-1 preferred remedy needs `rules.tsx`.
+- **Steering**: CR-2 ruled at 20:44 (re-scope to the whole source-width class, `rules.tsx` added to the write set). CR-1 and CR-2 now
+  both go to the fixer.
 - **Devops**: the Assumption Not Checked above, at the post-deploy walk once a later round approves.
 - Re-review is a sub-entry of Round 1 on the fix diff, unless the fix goes beyond CR-1/CR-2's scope.
