@@ -1,0 +1,937 @@
+[
+ {
+  "id": "decorator.tsx:26:walk-first",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " nodes.",
+  "new": " (Array.isArray(nodes) ? nodes.slice(0, 1) : nodes).",
+  "op": "walk-first",
+  "line": 26,
+  "text": "return nodes.map((a) => (a as { node?: SourcedNode }).node ?? a);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:26:walk-last",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " nodes.",
+  "new": " (Array.isArray(nodes) ? nodes.slice(-1) : nodes).",
+  "op": "walk-last",
+  "line": 26,
+  "text": "return nodes.map((a) => (a as { node?: SourcedNode }).node ?? a);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:34:walk-first",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " childrenOf(ast).",
+  "new": " (Array.isArray(childrenOf(ast)) ? childrenOf(ast).slice(0, 1) : childrenOf(ast)).",
+  "op": "walk-first",
+  "line": 34,
+  "text": "return childrenOf(ast).reduce((width, a) => width + sourceOf(a).length, 0);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:34:walk-last",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " childrenOf(ast).",
+  "new": " (Array.isArray(childrenOf(ast)) ? childrenOf(ast).slice(-1) : childrenOf(ast)).",
+  "op": "walk-last",
+  "line": 34,
+  "text": "return childrenOf(ast).reduce((width, a) => width + sourceOf(a).length, 0);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:34:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " 0)",
+  "new": " 1)",
+  "op": "num",
+  "line": 34,
+  "text": "return childrenOf(ast).reduce((width, a) => width + sourceOf(a).length, 0);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:38:===",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " ast.type === 'link' &&",
+  "new": " ast.type !== 'link' &&",
+  "op": "===",
+  "line": 38,
+  "text": "return ast.type === 'link' && sourceOf(ast).startsWith('[');",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:38:&&",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "' && s",
+  "new": "' || s",
+  "op": "&&",
+  "line": 38,
+  "text": "return ast.type === 'link' && sourceOf(ast).startsWith('[');",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:43:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " if (d",
+  "new": " if (false && d",
+  "op": "if-false",
+  "line": 43,
+  "text": "if (delimiter) return delimiter;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:44:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "r;\n  if (ast.t",
+  "new": "r;\n  if (false && ast.t",
+  "op": "if-false",
+  "line": 44,
+  "text": "if (ast.type === 'link') return /^[[<]/.test(sourceOf(ast)) ? 1 : 0;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:44:===",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "st.type === 'link')",
+  "new": "st.type !== 'link')",
+  "op": "===",
+  "line": 44,
+  "text": "if (ast.type === 'link') return /^[[<]/.test(sourceOf(ast)) ? 1 : 0;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:44:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "? 1 :",
+  "new": "? 2 :",
+  "op": "num",
+  "line": 44,
+  "text": "if (ast.type === 'link') return /^[[<]/.test(sourceOf(ast)) ? 1 : 0;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:44:num:2",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": ": 0;\n",
+  "new": ": 1;\n",
+  "op": "num",
+  "line": 44,
+  "text": "if (ast.type === 'link') return /^[[<]/.test(sourceOf(ast)) ? 1 : 0;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:45:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "? 0;\n",
+  "new": "? 1;\n",
+  "op": "num",
+  "line": 45,
+  "text": "return ast.markerWidth ?? 0;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:53:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " if (D",
+  "new": " if (false && D",
+  "op": "if-false",
+  "line": 53,
+  "text": "if (DELIMITERS.has(ast.type)) return closingWidth(ast);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:54:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": ");\n  if (ast.t",
+  "new": ");\n  if (false && ast.t",
+  "op": "if-false",
+  "line": 54,
+  "text": "if (ast.type === 'link' && !isMaskedLink(ast)) return closingWidth(ast);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:54:===",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "(ast.type === 'link' &&",
+  "new": "(ast.type !== 'link' &&",
+  "op": "===",
+  "line": 54,
+  "text": "if (ast.type === 'link' && !isMaskedLink(ast)) return closingWidth(ast);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:54:&&",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "' && !",
+  "new": "' || !",
+  "op": "&&",
+  "line": 54,
+  "text": "if (ast.type === 'link' && !isMaskedLink(ast)) return closingWidth(ast);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:54:not",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " !i",
+  "new": " i",
+  "op": "not",
+  "line": 54,
+  "text": "if (ast.type === 'link' && !isMaskedLink(ast)) return closingWidth(ast);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:55:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "n 0;\n",
+  "new": "n 1;\n",
+  "op": "num",
+  "line": 55,
+  "text": "return 0;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:60:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "t(-1) :",
+  "new": "t(-2) :",
+  "op": "num",
+  "line": 60,
+  "text": "const child = reverse ? children.at(-1) : children[0];",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:60:num:2",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "n[0];",
+  "new": "n[1];",
+  "op": "num",
+  "line": 60,
+  "text": "const child = reverse ? children.at(-1) : children[0];",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:61:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (!c",
+  "new": "  if (false && !c",
+  "op": "if-false",
+  "line": 61,
+  "text": "if (!child) return acc;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:61:not",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "(!c",
+  "new": "(c",
+  "op": "not",
+  "line": 61,
+  "text": "if (!child) return acc;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:65:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (!w",
+  "new": "  if (false && !w",
+  "op": "if-false",
+  "line": 65,
+  "text": "if (!width) return acc;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:65:not",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "(!w",
+  "new": "(w",
+  "op": "not",
+  "line": 65,
+  "text": "if (!width) return acc;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:71:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "= 1 +",
+  "new": "= 2 +",
+  "op": "num",
+  "line": 71,
+  "text": "const bracket = 1 + reduceAdjacentSyntax(0, ast, true);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:71:num:2",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "ceAdjacentSyntax(0, ast, true);\n  c",
+  "new": "ceAdjacentSyntax(1, ast, true);\n  c",
+  "op": "num",
+  "line": 71,
+  "text": "const bracket = 1 + reduceAdjacentSyntax(0, ast, true);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:71:true",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " ast, true);\n  c",
+  "new": " ast, false);\n  c",
+  "op": "true",
+  "line": 71,
+  "text": "const bracket = 1 + reduceAdjacentSyntax(0, ast, true);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:74:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " 2)",
+  "new": " 3)",
+  "op": "num",
+  "line": 74,
+  "text": "const targetStart = sourceOf(ast).indexOf(target, labelEnd + 2) - labelEnd;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:75:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "- 1 +",
+  "new": "- 2 +",
+  "op": "num",
+  "line": 75,
+  "text": "leaf.grow(targetStart - 1 + bracket, 'syntax');",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:85:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (!(",
+  "new": "  if (false && !(",
+  "op": "if-false",
+  "line": 85,
+  "text": "if (!('content' in ast)) {",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:85:not",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "(!(",
+  "new": "((",
+  "op": "not",
+  "line": 85,
+  "text": "if (!('content' in ast)) {",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:86:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "   if (ast",
+  "new": "   if (false && ast",
+  "op": "if-false",
+  "line": 86,
+  "text": "if (ast.type === 'codeBlock') {",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:86:===",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "pe === 'c",
+  "new": "pe !== 'c",
+  "op": "===",
+  "line": 86,
+  "text": "if (ast.type === 'codeBlock') {",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:87:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "3",
+  "new": "4",
+  "op": "num",
+  "line": 87,
+  "text": "leaf.grow(3, 'syntax');",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:95:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " if (l",
+  "new": " if (false && l",
+  "op": "if-false",
+  "line": 95,
+  "text": "if (leaf.lang !== '' && typeof ast.content === 'string') {",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:95:!==",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "g !== '",
+  "new": "g === '",
+  "op": "!==",
+  "line": 95,
+  "text": "if (leaf.lang !== '' && typeof ast.content === 'string') {",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:95:&&",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "'' && ty",
+  "new": "'' || ty",
+  "op": "&&",
+  "line": 95,
+  "text": "if (leaf.lang !== '' && typeof ast.content === 'string') {",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:95:===",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "t.content === 'string')",
+  "new": "t.content !== 'string')",
+  "op": "===",
+  "line": 95,
+  "text": "if (leaf.lang !== '' && typeof ast.content === 'string') {",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:100:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "yntax(0, ast)",
+  "new": "yntax(1, ast)",
+  "op": "num",
+  "line": 100,
+  "text": "const opening = openingWidth(ast) + reduceAdjacentSyntax(0, ast);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:101:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (!e",
+  "new": "  if (false && !e",
+  "op": "if-false",
+  "line": 101,
+  "text": "if (!edgeChild.first) leaf.grow(opening, 'syntax');",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:101:not",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "(!e",
+  "new": "(e",
+  "op": "not",
+  "line": 101,
+  "text": "if (!edgeChild.first) leaf.grow(opening, 'syntax');",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:106:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (Ar",
+  "new": "  if (false && Ar",
+  "op": "if-false",
+  "line": 106,
+  "text": "if (Array.isArray(astContent)) {",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:108:walk-first",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  children.f",
+  "new": "  (Array.isArray(children) ? children.slice(0, 1) : children).f",
+  "op": "walk-first",
+  "line": 108,
+  "text": "children.forEach((a, i) => walkAst(leaf, a, { first: i === 0, last: i === children.length - 1 }));",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:108:walk-last",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  children.f",
+  "new": "  (Array.isArray(children) ? children.slice(-1) : children).f",
+  "op": "walk-last",
+  "line": 108,
+  "text": "children.forEach((a, i) => walkAst(leaf, a, { first: i === 0, last: i === children.length - 1 }));",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:108:===",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "i === 0",
+  "new": "i !== 0",
+  "op": "===",
+  "line": 108,
+  "text": "children.forEach((a, i) => walkAst(leaf, a, { first: i === 0, last: i === children.length - 1 }));",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:108:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " 0,",
+  "new": " 1,",
+  "op": "num",
+  "line": 108,
+  "text": "children.forEach((a, i) => walkAst(leaf, a, { first: i === 0, last: i === children.length - 1 }));",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:108:===:2",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "i === c",
+  "new": "i !== c",
+  "op": "===",
+  "line": 108,
+  "text": "children.forEach((a, i) => walkAst(leaf, a, { first: i === 0, last: i === children.length - 1 }));",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:108:num:2",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "- 1 }",
+  "new": "- 2 }",
+  "op": "num",
+  "line": 108,
+  "text": "children.forEach((a, i) => walkAst(leaf, a, { first: i === 0, last: i === children.length - 1 }));",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:109:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "e if (ty",
+  "new": "e if (false && ty",
+  "op": "if-false",
+  "line": 109,
+  "text": "} else if (typeof astContent === 'string') leaf.jump(sourceOf(ast).length);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:109:===",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "Content === 'string",
+  "new": "Content !== 'string",
+  "op": "===",
+  "line": 109,
+  "text": "} else if (typeof astContent === 'string') leaf.jump(sourceOf(ast).length);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:112:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (!A",
+  "new": "  if (false && !A",
+  "op": "if-false",
+  "line": 112,
+  "text": "if (!Array.isArray(astContent)) return;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:112:not",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "(!A",
+  "new": "(A",
+  "op": "not",
+  "line": 112,
+  "text": "if (!Array.isArray(astContent)) return;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:114:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (is",
+  "new": "  if (false && is",
+  "op": "if-false",
+  "line": 114,
+  "text": "if (isMaskedLink(ast)) {",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:118:num",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "ceAdjacentSyntax(0, ast, true);\n  i",
+  "new": "ceAdjacentSyntax(1, ast, true);\n  i",
+  "op": "num",
+  "line": 118,
+  "text": "const trailing = closing + reduceAdjacentSyntax(0, ast, true);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:118:true",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " ast, true);\n  i",
+  "new": " ast, false);\n  i",
+  "op": "true",
+  "line": 118,
+  "text": "const trailing = closing + reduceAdjacentSyntax(0, ast, true);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:119:if-false",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (tr",
+  "new": "  if (false && tr",
+  "op": "if-false",
+  "line": 119,
+  "text": "if (trailing && !(edgeChild.last && adjacentClosingWidth(ast))) leaf.grow(trailing, 'syntax');",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:119:&&",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "g && !",
+  "new": "g || !",
+  "op": "&&",
+  "line": 119,
+  "text": "if (trailing && !(edgeChild.last && adjacentClosingWidth(ast))) leaf.grow(trailing, 'syntax');",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:119:not",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " !(",
+  "new": " (",
+  "op": "not",
+  "line": 119,
+  "text": "if (trailing && !(edgeChild.last && adjacentClosingWidth(ast))) leaf.grow(trailing, 'syntax');",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:119:&&:2",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "st && ad",
+  "new": "st || ad",
+  "op": "&&",
+  "line": 119,
+  "text": "if (trailing && !(edgeChild.last && adjacentClosingWidth(ast))) leaf.grow(trailing, 'syntax');",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:212:walk-first",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "= ast.f",
+  "new": "= (Array.isArray(ast) ? ast.slice(0, 1) : ast).f",
+  "op": "walk-first",
+  "line": 212,
+  "text": "const normalized = ast.flatMap((a) => (",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:212:walk-last",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "= ast.f",
+  "new": "= (Array.isArray(ast) ? ast.slice(-1) : ast).f",
+  "op": "walk-last",
+  "line": 212,
+  "text": "const normalized = ast.flatMap((a) => (",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:213:===",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "pe === 'p",
+  "new": "pe !== 'p",
+  "op": "===",
+  "line": 213,
+  "text": "a.type === 'paragraph' ? normalizeAst(a.content as unknown as StrictSingleASTNode[]) : [a]",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:218:walk-first",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "normalizeRanges(leaf.ranges)",
+  "new": "(Array.isArray(normalizeRanges(leaf.ranges)) ? normalizeRanges(leaf.ranges).slice(0, 1) : normalizeRanges(leaf.ranges))",
+  "op": "walk-first",
+  "line": 218,
+  "text": "return normalizeRanges(leaf.ranges).filter((range) => range.anchor.offset < range.focus.offset);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:218:walk-last",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "normalizeRanges(leaf.ranges)",
+  "new": "(Array.isArray(normalizeRanges(leaf.ranges)) ? normalizeRanges(leaf.ranges).slice(-1) : normalizeRanges(leaf.ranges))",
+  "op": "walk-last",
+  "line": 218,
+  "text": "return normalizeRanges(leaf.ranges).filter((range) => range.anchor.offset < range.focus.offset);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "decorator.tsx:218:<",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": " < ",
+  "new": " <= ",
+  "op": "<",
+  "line": 218,
+  "text": "return normalizeRanges(leaf.ranges).filter((range) => range.anchor.offset < range.focus.offset);",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "rules.tsx:505:num",
+  "file": "src/utils/markdown/rules.tsx",
+  "old": "re[0].i",
+  "new": "re[1].i",
+  "op": "num",
+  "line": 505,
+  "text": "let markerWidth = capture[0].indexOf(capture[1]) + capture[1].length;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "rules.tsx:505:num:2",
+  "file": "src/utils/markdown/rules.tsx",
+  "old": "pture[1]) + c",
+  "new": "pture[2]) + c",
+  "op": "num",
+  "line": 505,
+  "text": "let markerWidth = capture[0].indexOf(capture[1]) + capture[1].length;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "rules.tsx:505:num:3",
+  "file": "src/utils/markdown/rules.tsx",
+  "old": "re[1].l",
+  "new": "re[2].l",
+  "op": "num",
+  "line": 505,
+  "text": "let markerWidth = capture[0].indexOf(capture[1]) + capture[1].length;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "rules.tsx:506:num",
+  "file": "src/utils/markdown/rules.tsx",
+  "old": "e[0][",
+  "new": "e[1][",
+  "op": "num",
+  "line": 506,
+  "text": "while (capture[0][markerWidth] === ' ') markerWidth += 1;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "rules.tsx:506:===",
+  "file": "src/utils/markdown/rules.tsx",
+  "old": "] === '",
+  "new": "] !== '",
+  "op": "===",
+  "line": 506,
+  "text": "while (capture[0][markerWidth] === ' ') markerWidth += 1;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "rules.tsx:506:num:2",
+  "file": "src/utils/markdown/rules.tsx",
+  "old": "= 1;\n",
+  "new": "= 2;\n",
+  "op": "num",
+  "line": 506,
+  "text": "while (capture[0][markerWidth] === ' ') markerWidth += 1;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "rules.tsx:517:num",
+  "file": "src/utils/markdown/rules.tsx",
+  "old": "e[2],",
+  "new": "e[3],",
+  "op": "num",
+  "line": 517,
+  "text": "targetSource: capture[2],",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "rules.tsx:544:if-false",
+  "file": "src/utils/markdown/rules.tsx",
+  "old": ");\n        if (Array.isArr",
+  "new": ");\n        if (false && Array.isArr",
+  "op": "if-false",
+  "line": 544,
+  "text": "if (Array.isArray(node)) return node;",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "rules.tsx:545:num",
+  "file": "src/utils/markdown/rules.tsx",
+  "old": ": capture[0] };\n     ",
+  "new": ": capture[1] };\n     ",
+  "op": "num",
+  "line": 545,
+  "text": "const sourced: { content?: unknown, source: string } = { ...node, source: capture[0] };",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "rules.tsx:546:if-false",
+  "file": "src/utils/markdown/rules.tsx",
+  "old": "};\n        if (Array.isArr",
+  "new": "};\n        if (false && Array.isArr",
+  "op": "if-false",
+  "line": 546,
+  "text": "if (Array.isArray(sourced.content)) Object.defineProperty(sourced.content, 'node', { value: sourced });",
+  "origin": "mutant-gen"
+ },
+ {
+  "id": "qa-trailing-guard-dropped",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "if (trailing && !(edgeChild.last",
+  "new": "if (!(edgeChild.last",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-trailing-last-conjunct-dropped",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "!(edgeChild.last && adjacentClosingWidth(ast))",
+  "new": "!(adjacentClosingWidth(ast))",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-trailing-adjacent-conjunct-dropped",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "!(edgeChild.last && adjacentClosingWidth(ast))",
+  "new": "!(edgeChild.last)",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-trailing-always-grown",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "if (trailing && !(edgeChild.last && adjacentClosingWidth(ast))) leaf",
+  "new": "if (trailing) leaf",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-adjacent-link-type-dropped",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "if (ast.type === 'link' && !isMaskedLink(ast)) return closingWidth(ast);",
+  "new": "if (!isMaskedLink(ast)) return closingWidth(ast);",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-adjacent-masked-conjunct-dropped",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "if (ast.type === 'link' && !isMaskedLink(ast)) return closingWidth(ast);",
+  "new": "if (ast.type === 'link') return closingWidth(ast);",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-masked-type-conjunct-dropped",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "return ast.type === 'link' && sourceOf(ast).startsWith('[');",
+  "new": "return sourceOf(ast).startsWith('[');",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-masked-source-conjunct-dropped",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "return ast.type === 'link' && sourceOf(ast).startsWith('[');",
+  "new": "return ast.type === 'link';",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-link-opening-bracket-only",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "/^[[<]/.test",
+  "new": "/^\\[/.test",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-link-opening-angle-only",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "/^[[<]/.test",
+  "new": "/^</.test",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-codeblock-lang-conjunct-dropped",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "if (leaf.lang !== '' && typeof ast.content === 'string') {",
+  "new": "if (typeof ast.content === 'string') {",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-opening-always-grown",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "if (!edgeChild.first) leaf.grow(opening, 'syntax');",
+  "new": "leaf.grow(opening, 'syntax');",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-first-never-set",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "{ first: i === 0, last:",
+  "new": "{ first: false, last:",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-last-never-set",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "last: i === children.length - 1 }",
+  "new": "last: false }",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-merge-source-not-merged",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "(prevNode as SourcedNode).source = sourceOf(prevNode) + sourceOf(a);",
+  "new": "",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-backlink-ignored",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "return nodes.map((a) => (a as { node?: SourcedNode }).node ?? a);",
+  "new": "return nodes;",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-string-content-width-not-source",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "} else if (typeof astContent === 'string') leaf.jump(sourceOf(ast).length);",
+  "new": "} else if (typeof astContent === 'string') leaf.jump(astContent.length);",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-contentless-jump-zero",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "      leaf.jump(sourceOf(ast).length);\n    }\n    return;",
+  "new": "      leaf.jump(0);\n    }\n    return;",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-top-level-unflatten-dropped",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "for (const a of unflattened(normalized)) walkAst",
+  "new": "for (const a of normalized) walkAst",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-empty-range-filter-dropped",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "return normalizeRanges(leaf.ranges).filter((range) => range.anchor.offset < range.focus.offset);",
+  "new": "return normalizeRanges(leaf.ranges);",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-source-of-content-only",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "return ast.source ?? ast.content as string;",
+  "new": "return ast.content as string;",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-marker-width-default-content",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "return ast.markerWidth ?? 0;",
+  "new": "return 0;",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-target-source-dropped",
+  "file": "src/utils/markdown/rules.tsx",
+  "old": "        targetSource: capture[2],\n",
+  "new": "",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-backlink-not-defined",
+  "file": "src/utils/markdown/rules.tsx",
+  "old": "        if (Array.isArray(sourced.content)) Object.defineProperty(sourced.content, 'node', { value: sourced });\n",
+  "new": "",
+  "origin": "qa"
+ },
+ {
+  "id": "qa-source-stamp-dropped",
+  "file": "src/utils/markdown/rules.tsx",
+  "old": "const sourced: { content?: unknown, source: string } = { ...node, source: capture[0] };",
+  "new": "const sourced: { content?: unknown, source: string } = { ...node, source: undefined as unknown as string };",
+  "origin": "qa"
+ }
+]

@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4077fbfc-421c-4a34-bbed-c6515511141f/scratchpad/mwork/20261122T213252Z-p3303411/mutant-74
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (228 tests | 1 failed) 99ms
+     × with the content parser colours "```js" as "```":S "js":codeBlockText 7ms
+
+ Test Files  1 failed | 20 passed (21)
+      Tests  1 failed | 337 passed (338)
+   Start at  21:42:11
+   Duration  5.66s (transform 10.10s, setup 616ms, import 35.03s, tests 10.58s, environment 22.54s)
+

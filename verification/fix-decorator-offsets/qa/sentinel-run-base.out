@@ -1,0 +1,10 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4077fbfc-421c-4a34-bbed-c6515511141f/scratchpad/base
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  21:40:09
+   Duration  3.00s (transform 986ms, setup 0ms, import 2.35s, tests 193ms, environment 0ms)
+
+sentinel base exit=0

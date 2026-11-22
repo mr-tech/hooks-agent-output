@@ -1,0 +1,72 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "<t:1700000000:R>" as "<t:1700000000:R>":-
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "<t:1700000000:R> **b**" as "<t:1700000000:R> ":- "**":S "b":strongText "**":S
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ walkAst src/components/SlateEditor/utils/decorator.tsx:88:26
+     86|     if (ast.type !== 'codeBlock') {
+     87|       leaf.grow(3, 'syntax');
+     88|       leaf.grow(ast.lang.length, hljs.getLanguage(ast.lang) ? 'lang' :…
+       |                          ^
+     89|     } else {
+     90|       leaf.jump(sourceOf(ast).length);
+ ❯ src/components/SlateEditor/utils/decorator.tsx:216:44
+ ❯ rangesOf src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:27:65
+ ❯ rendered src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:31:28
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:363:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "**<t:1700000000:R> b**" as "**":S "<t:1700000000:R> b":strongText "**":S
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "**b <t:1700000000:R>**" as "**":S "b <t:1700000000:R>":strongText "**":S
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "*b <t:1700000000:R>*" as "*":S "b <t:1700000000:R>":emText "*":S
+TypeError: Cannot read properties of undefined (reading 'length')
+ ❯ walkAst src/components/SlateEditor/utils/decorator.tsx:88:26
+     86|     if (ast.type !== 'codeBlock') {
+     87|       leaf.grow(3, 'syntax');
+     88|       leaf.grow(ast.lang.length, hljs.getLanguage(ast.lang) ? 'lang' :…
+       |                          ^
+     89|     } else {
+     90|       leaf.jump(sourceOf(ast).length);
+ ❯ src/components/SlateEditor/utils/decorator.tsx:108:32
+ ❯ walkAst src/components/SlateEditor/utils/decorator.tsx:108:14
+ ❯ src/components/SlateEditor/utils/decorator.tsx:216:44
+ ❯ rangesOf src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:27:65
+ ❯ rendered src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:31:28
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:363:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "```js" as "```":S "js":codeBlockText
+AssertionError: expected '"```":- "js":codeBlockText' to be '"```":S "js":codeBlockText' // Object.is equality
+
+Expected: ""```":S "js":codeBlockText"
+Received: ""```":- "js":codeBlockText"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:363:36
+    361|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    362|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    363|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    364|   });
+    365| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text per markdown kind > with the content parser colours "```" as "```":S
+AssertionError: expected '"```":-' to be '"```":S' // Object.is equality
+
+Expected: ""```":S"
+Received: ""```":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:363:36
+    361|     ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkTex…
+    362|   ] as const)('with the %s parser colours %j as %s', (parser, text, le…
+    363|     expect(rendered(text, parser)).toBe(leaves);
+       |                                    ^
+    364|   });
+    365| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+

@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4077fbfc-421c-4a34-bbed-c6515511141f/scratchpad/qa-top-level-unflatten-dropped
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  21:48:44
+   Duration  5.79s (transform 466ms, setup 0ms, import 1.17s, tests 4.49s, environment 0ms)
+

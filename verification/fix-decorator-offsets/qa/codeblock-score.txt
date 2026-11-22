@@ -1,0 +1,13 @@
+{
+ "rows": 32,
+ "rightToWrong": 4,
+ "wrongToRight": 32,
+ "baseRight": 298,
+ "tipRight": 326,
+ "chars": 460,
+ "rowsWithRightToWrong": 4
+}
+{"lang":"js","parser":"content","text":"**a** `b` # c","rightToWrongChars":1,"expected":"||||||hljs-string|hljs-string|hljs-string||||","base":"||||||||||||","tip":"||||||hljs-string|hljs-string|hljs-string|hljs-string|||"}
+{"lang":"js","parser":"field","text":"**a** `b` # c","rightToWrongChars":1,"expected":"||||||hljs-string|hljs-string|hljs-string||||","base":"||||||||||||","tip":"||||||hljs-string|hljs-string|hljs-string|hljs-string|||"}
+{"lang":"python","parser":"content","text":"<@1> https://x.y [l](https://x.y)","rightToWrongChars":1,"expected":"||hljs-number||||||||||||||||||||||||||||||","base":"||||||||||||||||||||||||||||||||","tip":"|hljs-meta|hljs-number||||||||||||||||||||||||||||||"}
+{"lang":"python","parser":"field","text":"<@1> https://x.y [l](https://x.y)","rightToWrongChars":1,"expected":"||hljs-number||||||||||||||||||||||||||||||","base":"||||||||||||||||||||||||||||||||","tip":"|hljs-meta|hljs-number||||||||||||||||||||||||||||||"}

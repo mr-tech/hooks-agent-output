@@ -1,0 +1,2 @@
+base rows 7020 langs 195 throws 0 out-of-text rows 794 of which reachable (startCodeBlock true) 22 [('', 22)]
+tip rows 7020 langs 195 throws 0 out-of-text rows 1308 of which reachable (startCodeBlock true) 492 [('x = "🙂" + \'\\*\'', 338), ('const a = 1;', 22), ('const s = "**a**"; // *b*', 22), ('**a** `b` # c', 22)]

@@ -1,0 +1,155 @@
+rows 144 identical 93
+hljs-bearing rows (positive: highlighting reaches leaves) tip 42 base 26
+DIFF js False content '**a** `b` # c' 
+  base "**":S "a":strongText "**":S " ":- "`b`":hljs-string " # c":- 
+  tip  "**":S "a":strongText "**":S " ":- "`b`":hljs-string " # ":S "c":-
+DIFF js False content '# heading' 
+  base "# heading":- 
+  tip  "# ":S "heading":-
+DIFF js False content '<@1> https://x.y [l](https://x.y)' 
+  base "<":- "@":hljs-number "1":- ">":S " http":hljs-attr+linkText "s":linkText "://x.":hljs-comment "y ":S "[l](https:/":linkText "/":S "x":- ".":S "y":linkText ")":S 
+  tip  "<":- "@":hljs-number "1":- "> htt":hljs-attr+linkText "p":linkText "s://x":hljs-comment ".":- "y":S " ":linkText "[l":S "](https://x":linkText ".":S "y)":-
+DIFF js False field '<@1> https://x.y [l](https://x.y)' 
+  base "<":- "@":hljs-number "1":- ">":S " http":hljs-attr+linkText "s":linkText "://x.":hljs-comment "y ":S "[l](https:/":linkText "/":S "x":- ".":S "y":linkText ")":S 
+  tip  "<":- "@":hljs-number "1":- "> htt":hljs-attr+linkText "p":linkText "s://x":hljs-comment ".":- "y":S " ":linkText "[l":S "](https://x":linkText ".":S "y)":-
+DIFF js True content 'const a = 1;' 
+  base "const":hljs-keyword " a = 1;":- 
+  tip  "const":hljs-keyword " a = ":- "1":hljs-number ";":-
+DIFF js True content 'const s = "**a**"; // *b*' 
+  base "const":hljs-keyword " s = \"**a**\"; // *b*":- 
+  tip  "const":hljs-keyword " s = ":- "\"":hljs-string "**a**":- "\"":hljs-string "; // *b*":-
+DIFF js True content '**a** `b` # c' 
+  base "**a** `b` # c":- 
+  tip  "**a** ":- "`b":hljs-string "` ":hljs-string "# c":-
+DIFF js True content 'x = "🙂" + \'\\*\'' 
+  base "x = \"🙂\" + '\\*'":- 
+  tip  "x = ":- "\"":hljs-string "🙂\" + '\\*'":-
+DIFF js True content '<@1> https://x.y [l](https://x.y)' 
+  base "<@1> https://x.y [l](https://x.y)":- 
+  tip  "<@":- "1":hljs-number "> https://x.":- "y":hljs-property " [l](https://x.":- "y":hljs-property ")":-
+DIFF js True field 'const a = 1;' 
+  base "const":hljs-keyword " a = 1;":- 
+  tip  "const":hljs-keyword " a = ":- "1":hljs-number ";":-
+DIFF js True field 'const s = "**a**"; // *b*' 
+  base "const":hljs-keyword " s = \"**a**\"; // *b*":- 
+  tip  "const":hljs-keyword " s = ":- "\"":hljs-string "**a**":- "\"":hljs-string "; // *b*":-
+DIFF js True field '**a** `b` # c' 
+  base "**a** `b` # c":- 
+  tip  "**a** ":- "`b":hljs-string "` ":hljs-string "# c":-
+DIFF js True field 'x = "🙂" + \'\\*\'' 
+  base "x = \"🙂\" + '\\*'":- 
+  tip  "x = ":- "\"":hljs-string "🙂\" + '\\*'":-
+DIFF js True field '<@1> https://x.y [l](https://x.y)' 
+  base "<@1> https://x.y [l](https://x.y)":- 
+  tip  "<@":- "1":hljs-number "> https://x.":- "y":hljs-property " [l](https://x.":- "y":hljs-property ")":-
+DIFF python False content '**a** `b` # c' 
+  base "**":S "a":strongText "**":S " `b` # c":- 
+  tip  "**":S "a":strongText "**":S " `b`":- " # ":S "c":-
+DIFF python False content '# heading' 
+  base "# heading":- 
+  tip  "# ":S "heading":-
+DIFF python False content '<@1> https://x.y [l](https://x.y)' 
+  base "<":hljs-meta "@":hljs-number "1":- ">":S " https://x.":linkText "y ":S "[l](https:/":linkText "/":S "x":- ".":S "y":linkText ")":S 
+  tip  "<":hljs-meta "@":hljs-number "1":- "> https://x":linkText ".":- "y":S " ":linkText "[l":S "](https://x":linkText ".":S "y)":-
+DIFF python False field '<@1> https://x.y [l](https://x.y)' 
+  base "<":hljs-meta "@":hljs-number "1":- ">":S " https://x.":linkText "y ":S "[l](https:/":linkText "/":S "x":- ".":S "y":linkText ")":S 
+  tip  "<":hljs-meta "@":hljs-number "1":- "> https://x":linkText ".":- "y":S " ":linkText "[l":S "](https://x":linkText ".":S "y)":-
+DIFF python True content 'const a = 1;' 
+  base "const a = 1;":- 
+  tip  "const a = ":- "1":hljs-number ";":-
+DIFF python True content 'const s = "**a**"; // *b*' 
+  base "const s = \"**a**\"; // *b*":- 
+  tip  "const s = ":- "\"":hljs-string "**a**":- "\"":hljs-string "; // *b*":-
+DIFF python True content '**a** `b` # c' 
+  base "**a** `b` # c":- 
+  tip  "**a** `b` ":- "# c":hljs-comment
+DIFF python True content 'x = "🙂" + \'\\*\'' 
+  base "x = \"🙂\" + '\\*'":- 
+  tip  "x = ":- "\"":hljs-string "🙂\" + '\\*'":-
+DIFF python True content '<@1> https://x.y [l](https://x.y)' 
+  base "<@1> https://x.y [l](https://x.y)":- 
+  tip  "<":- "@":hljs-meta "1":hljs-number "> https://x.y [l](https://x.y)":-
+DIFF python True field 'const a = 1;' 
+  base "const a = 1;":- 
+  tip  "const a = ":- "1":hljs-number ";":-
+DIFF python True field 'const s = "**a**"; // *b*' 
+  base "const s = \"**a**\"; // *b*":- 
+  tip  "const s = ":- "\"":hljs-string "**a**":- "\"":hljs-string "; // *b*":-
+DIFF python True field '**a** `b` # c' 
+  base "**a** `b` # c":- 
+  tip  "**a** `b` ":- "# c":hljs-comment
+DIFF python True field 'x = "🙂" + \'\\*\'' 
+  base "x = \"🙂\" + '\\*'":- 
+  tip  "x = ":- "\"":hljs-string "🙂\" + '\\*'":-
+DIFF python True field '<@1> https://x.y [l](https://x.y)' 
+  base "<@1> https://x.y [l](https://x.y)":- 
+  tip  "<":- "@":hljs-meta "1":hljs-number "> https://x.y [l](https://x.y)":-
+DIFF notalanguage False content 'const s = "**a**"; // *b*' 
+  base "co":S "":S "nst":S "":S " ":S "s = \"**a**\"; // *b*":- 
+  tip  "co":S "nst":S " ":S "s = \"**a**\"; // *b*":-
+DIFF notalanguage False content '**a** `b` # c' 
+  base "**":S "":S "a*":S "* `b` # c":- 
+  tip  "**":S "a** `b`":S " # c":-
+DIFF notalanguage False content '# heading' 
+  base "# heading":- 
+  tip  "# he":S "ading":-
+DIFF notalanguage False content '<@1> https://x.y [l](https://x.y)' 
+  base "<":S "":S "@1":S "> https://x":linkText ".y":S "":S " [":S "l](https://":linkText "x":S ".y)":- 
+  tip  "<":S+linkText "@1":S "> https://x":linkText ".":S "y [l](https://x.y)":-
+DIFF notalanguage False field 'const s = "**a**"; // *b*' 
+  base "co":S "":S "nst":S "":S " ":S "s = \"**a**\"; // *b*":- 
+  tip  "co":S "nst":S " ":S "s = \"**a**\"; // *b*":-
+DIFF notalanguage False field '**a** `b` # c' 
+  base "**":S "":S "a*":S "* `b` # c":- 
+  tip  "**":S "a*":S "* `b` # c":-
+DIFF notalanguage False field '<@1> https://x.y [l](https://x.y)' 
+  base "<":S "":S "@1":S "> https://x":linkText ".y":S "":S " [":S "l](https://":linkText "x":S ".y)":- 
+  tip  "<":S+linkText "@1":S "> https://x":linkText ".":S "y [l](https://x.y)":-
+DIFF  False content '**a** `b` # c' 
+  base "**":S "a":strongText "**":S " ":- "`b`":inlineCodeText " # c":- 
+  tip  "**":S "a":strongText "**":S " ":- "`b`":inlineCodeText " # ":S "c":-
+DIFF  False content '# heading' 
+  base "# heading":- 
+  tip  "# ":S "heading":-
+DIFF  False content '```js' 
+  base "```":S "js":- 
+  tip  "```":S "js":codeBlockText
+DIFF  False content '<@1> https://x.y [l](https://x.y)' 
+  base "<@1":- ">":S " https://x.":linkText "y ":S "[l](https:/":linkText "/":S "x":- ".":S "y":linkText ")":S 
+  tip  "<@1> ":- "https://x.y":linkText " ":- "[":S "l":linkText "](":S "https://x.y":linkText ")":S
+DIFF  False field '```js' 
+  base "```":S "js":- 
+  tip  "```":S "js":codeBlockText
+DIFF  False field '<@1> https://x.y [l](https://x.y)' 
+  base "<@1":- ">":S " https://x.":linkText "y ":S "[l](https:/":linkText "/":S "x":- ".":S "y":linkText ")":S 
+  tip  "<@1> ":- "https://x.y":linkText " ":- "[":S "l":linkText "](":S "https://x.y":linkText ")":S
+DIFF  True content 'const a = 1;' 
+  base "const a ":codeBlockText "= 1;":- 
+  tip  "const a ":codeBlockText "= 1":codeBlockText ";":codeBlockText
+DIFF  True content 'const s = "**a**"; // *b*' 
+  base "const s ":codeBlockText "= \"**a**\"; // *b*":- 
+  tip  "const s ":codeBlockText "= ":codeBlockText "\"":codeBlockText "*":codeBlockText "*a":codeBlockText "*":codeBlockText "*":codeBlockText "\"":codeBlockText "; ":codeBlockText "/":codeBlockText "/ ":codeBlockText "*b":codeBlockText "*":codeBlockText
+DIFF  True content '**a** `b` # c' 
+  base "*":codeBlockText "*a** `b` # c":- 
+  tip  "*":codeBlockText "*a":codeBlockText "*":codeBlockText "* ":codeBlockText "`b":codeBlockText "` ":codeBlockText "# c":codeBlockText
+DIFF  True content 'x = "🙂" + \'\\*\'' 
+  base "x ":codeBlockText "= \"🙂\" + '\\*'":- 
+  tip  "x ":codeBlockText "= ":codeBlockText "\"":codeBlockText "\ud83d":codeBlockText "\ude42":codeBlockText "\"":codeBlockText " ":codeBlockText "+":codeBlockText " ":codeBlockText "'":codeBlockText "\\":codeBlockText "*":codeBlockText "'":codeBlockText
+DIFF  True content '<@1> https://x.y [l](https://x.y)' 
+  base "<":codeBlockText "@1> https://x.y [l](https://x.y)":- 
+  tip  "<":codeBlockText "@1":codeBlockText "> ":codeBlockText "h":codeBlockText "t":codeBlockText "t":codeBlockText "p":codeBlockText "s":codeBlockText ":":codeBlockText "/":codeBlockText "/x":codeBlockText ".y ":codeBlockText "[l":codeBlockText "]":codeBlockText "(":codeBlockText "h":codeBlockText "t":codeBlockText "t":codeBlockText "p":codeBlockText "s":codeBlockText ":":codeBlockText "/":codeBlockText "/x":codeBlockText ".y":codeBlockText ")":codeBlockText
+DIFF  True field 'const a = 1;' 
+  base "const a ":codeBlockText "= 1;":- 
+  tip  "const a ":codeBlockText "= 1":codeBlockText ";":codeBlockText
+DIFF  True field 'const s = "**a**"; // *b*' 
+  base "const s ":codeBlockText "= \"**a**\"; // *b*":- 
+  tip  "const s ":codeBlockText "= ":codeBlockText "\"":codeBlockText "*":codeBlockText "*a":codeBlockText "*":codeBlockText "*":codeBlockText "\"":codeBlockText "; ":codeBlockText "/":codeBlockText "/ ":codeBlockText "*b":codeBlockText "*":codeBlockText
+DIFF  True field '**a** `b` # c' 
+  base "*":codeBlockText "*a** `b` # c":- 
+  tip  "*":codeBlockText "*a":codeBlockText "*":codeBlockText "* ":codeBlockText "`b":codeBlockText "` ":codeBlockText "# c":codeBlockText
+DIFF  True field 'x = "🙂" + \'\\*\'' 
+  base "x ":codeBlockText "= \"🙂\" + '\\*'":- 
+  tip  "x ":codeBlockText "= ":codeBlockText "\"":codeBlockText "\ud83d":codeBlockText "\ude42":codeBlockText "\"":codeBlockText " ":codeBlockText "+":codeBlockText " ":codeBlockText "'":codeBlockText "\\":codeBlockText "*":codeBlockText "'":codeBlockText
+DIFF  True field '<@1> https://x.y [l](https://x.y)' 
+  base "<":codeBlockText "@1> https://x.y [l](https://x.y)":- 
+  tip  "<":codeBlockText "@1":codeBlockText "> ":codeBlockText "h":codeBlockText "t":codeBlockText "t":codeBlockText "p":codeBlockText "s":codeBlockText ":":codeBlockText "/":codeBlockText "/x":codeBlockText ".y ":codeBlockText "[l":codeBlockText "]":codeBlockText "(":codeBlockText "h":codeBlockText "t":codeBlockText "t":codeBlockText "p":codeBlockText "s":codeBlockText ":":codeBlockText "/":codeBlockText "/x":codeBlockText ".y":codeBlockText ")":codeBlockText

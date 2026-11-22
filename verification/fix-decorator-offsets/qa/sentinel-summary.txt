@@ -1,0 +1,7 @@
+population: 819 rows = every (parser in content,title,field) x (sample x wrapper) case built from SAMPLES over Object.keys(interactiveBaseRules) at each tree; keys unmapped tip [] base []
+excluded keys (no single-line sample): ['newline', 'paragraph']
+base->tip {'bad->ok': 337, 'ok->ok': 435, 'bad->bad': 47}
+bad->bad with identical result at both trees 47
+bad->ok by key {'autolink': 21, 'blockQuote': 18, 'discordChannel': 18, 'discordRole': 18, 'discordTimestamp': 36, 'discordUser': 36, 'em': 6, 'escape': 54, 'heading': 28, 'link': 45, 'strong': 15, 'url': 42}
+bad->bad by key {'codeBlock': 14, 'em': 6, 'emoji': 3, 'list': 24}
+worse (ok->bad) 0

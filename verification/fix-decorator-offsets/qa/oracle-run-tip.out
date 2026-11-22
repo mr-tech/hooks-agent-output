@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4077fbfc-421c-4a34-bbed-c6515511141f/scratchpad/tip
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  21:38:08
+   Duration  3.68s (transform 515ms, setup 0ms, import 1.27s, tests 2.20s, environment 0ms)
+
