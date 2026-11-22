@@ -157,3 +157,10 @@ test-only (no assertion on `codeLineRanges`' `normalizeRanges` call), routed to 
 22:27Z, `date -u`). From
 here every gap below HIGH, a gate's severity-floor finding excepted, is recorded as a stated limit in the gate's document without a new
 round; QAF-2, already routed, completes. Told the reviewer and QA; told him in chat.
+
+## 2026-11-22T22:30 — QAF-2 fixed test-only at febf20e; reviewer asked for a scoped confirmation; one more nested-styles row
+
+Fixer round 6 (record `c25925bb`) at `febf20e`, handed to QA directly. This thread's read: `git diff --numstat 24eda1c febf20e` (above
+in this turn's output: the test file only). The release tip moves, so the reviewer is asked for a scoped `Reviewed-At febf20e`. Row for
+`fix-decorator-nested-styles` (fixer's, `round6/nested-probe.out`): a nested highlight scope whose outer scope is a code line's first range
+loses the outer class (`f"a {b} c"` python, ruby `"a #{b} c"`, a leading `/** @param */` in js); not worse than base.
