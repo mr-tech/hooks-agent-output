@@ -1,0 +1,10 @@
+repo     /usr/local/bin/hooks/website
+ref      master
+target   8845b7e3409782e0f07ecd36a818f48f4ebcc721
+remote   origin/master 453de76187c5c368732a20d2dd8a671ed97eed4c
+local    master 453de76187c5c368732a20d2dd8a671ed97eed4c
+untracked 17 path(s) left alone
+evidence reason Code review code-review/closed/fix-cut-collapsed-caret-code-review.md Round 1 APPROVED, Reviewed-At 8845b7e3409782e0f07ecd36a818f48f4ebcc721 is the tip; no QA in this stage set
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/website/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+DRY RUN: every check passed; nothing moved

@@ -1,0 +1,1 @@
+Deleted branch chain/fix-cut-collapsed-caret (was 8845b7e).
