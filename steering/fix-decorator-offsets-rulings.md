@@ -101,3 +101,10 @@ delta; QA Phase 2 starts on the scoped approval. QA's brief carries the reviewer
 leaf; mounted editor holding `🙂 **a**`), which also answers the `TODO.md` emoji item's reachability. Sent to the fixer (cleared;
 briefed with its Resumption State, `implementation/fix-decorator-offsets-implementation.md` § "Resumption State", record `816977d9`) and
 the reviewer.
+
+## 2026-11-22T21:30 — scoped check APPROVED at 2e6127e; QA Phase 2 started
+
+Reviewer's cue by message ~21:4xZ: record `201856c0` (read: `Reviewed-At 2e6127e3170a…`, `APPROVED`); CR-4 fixture swap test-only; CR-3
+done; output identical to `e6a5766` over its corpus, oracle and 288 heading rows; suite 2594/2594 exit 0; 116 production lines. QA brief
+`steering/fix-decorator-offsets-brief-qa.md` (Phase 2; the emoji-in-text-leaf mounted check); `qa-fix-decorator-offsets` started with
+`tmux-agent spawn`.
