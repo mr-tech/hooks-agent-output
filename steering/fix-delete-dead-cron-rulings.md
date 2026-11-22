@@ -123,3 +123,12 @@ integration — not read by this thread) and an observation (he cannot find the 
 29.1.1 has no `integration` command; the record's only Railway mentions are the old local-database notes (015, 014). So no agent tool
 on this box can read the integration's state. Put to him in chat: the likely cause as a candidate, the manual copy path, and the
 public-address hazard (Railway's private addresses do not reach Vercel). Chains 6 and 7 stay held on his step.
+
+## 2026-11-22T16:46 — his correction: there is no Railway integration; this thread's candidate withdrawn
+
+His words, in this session: "there is no railway integration". This thread's 16:44 candidate (Railway's Vercel integration added the
+five and its removal deleted them) is withdrawn, the error this thread's: it rested on general knowledge, not a read. What stands
+(devops record `deployment/fix-delete-dead-cron-deployment.md`, lines 36-48, read this turn): the 18:35Z build of the same code had the
+five; at 23:53Z `vercel env ls` listed 27 project settings and none of the five; devops's two readings are (1) project settings removed
+after 18:35Z, (2) a link that the project list does not show (e.g. team-level shared settings) broke. Put to him: Vercel's activity log
+and the team's shared settings as the places that can show which, and the manual copy from Railway (public addresses) as the restore.
