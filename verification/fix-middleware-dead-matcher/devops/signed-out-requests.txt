@@ -1,0 +1,10 @@
+2026-11-22T18:46:16Z
+== A: GET /message/m/0/edit, plain
+status=200 location=
+curl exit 0
+== B: GET /message/m/1/edit, plain (comparison)
+status=200 location=
+curl exit 0
+== C: GET /message/m/1/edit with x-pathname: /message/m/0/edit
+status=200 location=
+curl exit 0

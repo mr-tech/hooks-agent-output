@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-middleware-dead-matcher
 UUID: 54d67da4
-Status: Committed
-Status-Detail: "Committed on chain/fix-middleware-dead-matcher at website 453de76, not pushed; release to website master on the owner's approval, carried by deployment/fix-middleware-dead-matcher-deployment.md."
+Status: Released
+Status-Detail: "Released 2026-11-22T18:41Z: website master = 453de76 on origin; recorded in deployment/closed/fix-middleware-dead-matcher-deployment.md."
 Handoff-At: 453de76 — repos=website
 Origin-Chain: none
 ---
@@ -137,3 +137,4 @@ For the owner, after release:
 |---|---|
 | 2026-11-22T17:31 | Created by `fixer-fix-middleware-dead-matcher`: rename, test, entry removal at website `453de76`; handed to code review. |
 | 2026-11-22T17:45 | Document closed by `devops-fix-middleware-dead-matcher` (Stage 1) | Status: Committed |
+| 2026-11-22T18:48 | `devops-fix-middleware-dead-matcher` (Phase 2D) | Status: Released; website master pushed to 453de76 at 18:41Z |
