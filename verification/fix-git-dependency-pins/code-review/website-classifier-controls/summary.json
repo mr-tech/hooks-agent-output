@@ -1,0 +1,32 @@
+{
+  "C0": {
+    "exit": 0,
+    "problems": []
+  },
+  "C1": {
+    "exit": 1,
+    "problems": [
+      "snapshots: removed but still reachable: kysely@0.26.1"
+    ]
+  },
+  "C2": {
+    "exit": 1,
+    "problems": [
+      "packages: unreachable but kept: prisma-kysely@1.7.1",
+      "snapshots: unreachable but kept: prisma-kysely@1.7.1"
+    ]
+  },
+  "C3": {
+    "exit": 1,
+    "problems": [
+      "packages: added [\"project-utils@git+https://git@github.com:hooks-gg/project-utils.git#40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165\",\"zod@3.22.5\"]",
+      "packages: removed but still reachable: zod@3.22.4",
+      "snapshots: added [\"project-utils@git+https://git@github.com:hooks-gg/project-utils.git#40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165\",\"zod@3.22.5\"]",
+      "snapshots: removed but still reachable: zod@3.22.4"
+    ]
+  },
+  "C4": {
+    "exit": 0,
+    "problems": []
+  }
+}

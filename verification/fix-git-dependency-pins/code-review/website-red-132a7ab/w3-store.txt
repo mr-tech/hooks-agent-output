@@ -1,0 +1,4 @@
+/tmp/claude-1000/-usr-local-bin-hooks/9cb421fc-ccd0-43f8-9411-d1d801a0ba23/scratchpad/web-check.t6R8Ep/node_modules/.pnpm/project-utils@git+https+++git@github.com+hooks-gg+project-utils.git+749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f/node_modules/project-utils
+@prisma+internals@5.3.1
+prisma-kysely@1.7.1
+project-utils@git+https+++git@github.com+hooks-gg+project-utils.git+749606d01b7f2ab6c8cfd920c6ddf23ef75c3a3f
