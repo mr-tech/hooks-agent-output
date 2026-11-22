@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-delete-dead-cron
 UUID: af508ebe
-Status: Active
-Status-Detail: "Reopened. Website master was pushed 0c14d5b to 132a7ab at 2026-11-21T23:18:58Z on the owner's approval, but Vercel's production deployment of that push errored (build: five required settings absent at prerender), so production still serves the previous release. Awaiting the cause and the owner's decision; see Correction."
+Status: Released
+Status-Detail: "Released: website master moved 0c14d5b to 132a7ab at 2026-11-21T23:18:58Z on the owner's approval. The first production deployment errored (five settings missing at the build); the owner's redeploy at 2026-11-22T16:55:59Z built 132a7ab and is Ready at hooks.gg. The dashboard Cron Jobs read is carried by handoff/vercel-dashboard-cron-list-after-cron-removal-2026-11-21.md, which this record does not wait on."
 ---
 
 # Deployment — fix-delete-dead-cron (website `master`)
@@ -16,6 +16,7 @@ Status-Detail: "Reopened. Website master was pushed 0c14d5b to 132a7ab at 2026-1
 | 2026-11-21T23:18 | devops | Owner's release approval received ("Agent: release it now (Recommended)", selection prompt) and recorded under User Confirmation; pre-move reads taken. |
 | 2026-11-21T23:19 | devops | Phase 2C: website `master` moved `0c14d5b` to `132a7ab`, push at 23:18:58Z, read back at origin 23:19:01Z. Phase 2D worked: fix branch deleted with `-d`; stage documents `Released`; reconciliation table written. Status Released; document closed to `deployment/closed/`. |
 | 2026-11-21T23:25 | devops | Reopened on `steering-hooks`'s report that the production deployment for the push errored, which I then read myself (see Correction). Status Active, document back in `deployment/`. |
+| 2026-11-22T17:05 | devops | Post-deploy read after the owner's redeploy (relayed by `steering-hooks-fixer`): production deployment Ready, built from `132a7ab`, no `/api/cron` route, no env error. Status Released; document closed to `deployment/closed/` with its Update note. Sent the chain-closure cue to steering. |
 
 ## Correction — 2026-11-21T23:25 (reconcile note; the sections below stand as written at their times)
 
@@ -47,6 +48,13 @@ bound (list deployments and read logs) by this one command, and is the permissio
 `DATABASE_URL`, `REDISHOST`, `REDISPORT`, `REDISUSER` and `REDISPASSWORD` have no row at all, in any environment. The rows that exist are the other names the build needs (`NEXTAUTH_SECRET`, the Discord, CDN, encryption and Pusher ones), all created 229 days ago or more.
 So the five are not project-level settings now, and nothing in this list shows when they were removed. Two readings the list cannot separate: (1) they were project settings that were removed after the 18:35Z good build; (2) they reach the build another way this command does not list (for example team-level shared settings linked to the project, or an integration) and that link broke. Both are
 read in the Vercel dashboard only. Nothing in this chain's diff touches settings, and no agent changed any (agents never change settings). Next: the owner restores the five and presses Redeploy on the errored deployment (no new push); I then read `vercel ls --prod` and the new build log.
+
+**Update 2026-11-22T17:05 — the change is live (reads by me, 16:59-17:05Z, look-only CLI, stdin closed).** Relayed by `steering-hooks-fixer` (not read by me): the owner pressed Redeploy at about 16:55Z, and his words to that session, as it quotes them, are that the five settings "were previously supplied directly from railway" through an integration that "doesn't exist on the marketplace" anymore (`steering/fix-delete-dead-cron-rulings.md`, blocks 16:44, 16:46, 16:48). How he supplied them this time was not read by me and is not recorded as established here.
+- `vercel ls --prod` at 16:59:19Z: newest production deployment `hooks-gg-website-1nodvml13-hooks-gg.vercel.app`, "Ready", 38 s. `vercel inspect https://hooks.gg`: `dpl_CnknfaUPDjpEMaaw1781YXMq34rW`, "Ready", created 2026-11-22T16:55:59Z, aliases `hooks.gg`, `www.hooks.gg`, the project and git-master aliases (`vercel-inspect-hooks-gg-2026-11-22.txt`). `git ls-remote origin master` at that read: `132a7ab6f49d8a85ead507e2221ab3c3a531fd00`.
+- Its build log (`vercel logs`, `vercel-build-log-redeploy-132a7ab.txt`): "Cloning github.com/hooks-gg/website (Branch: master, Commit: 132a7ab)", pnpm 10.28.2, "Compiled successfully", static pages 9/9, "Deployment completed". The "Invalid environment variables" error is absent (0 lines, `grep -c`), and its route list has seven `/api` routes and no `/api/cron` (0 lines, `grep -c`; the 18:35Z build of `0c14d5b` lists it). So the commit served at `hooks.gg` is the released commit, and the verified SHA (code review `Reviewed-At` `132a7ab`) is that commit: no diff owed.
+- Deployed against verified: `master` at `132a7ab`, built and Ready, equals the reviewed tip. Serving state is evidenced here by Vercel's deployment state read by CLI and the owner's redeploy, not by any probe of the site.
+
+What this changes in the record: the production deployment of the change is Ready from 16:55:59Z on 2026-11-22; the first one (23:19Z, 21 November) errored and is superseded by this one. The earlier statement "Deployment Complete at 23:19Z" is now true only of the push; the deployment completed here. The Review-Trigger of the dashboard-cron handoff has fired as of this deployment.
 
 ## Plan Reference
 

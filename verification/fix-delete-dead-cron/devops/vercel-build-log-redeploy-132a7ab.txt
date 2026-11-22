@@ -1,0 +1,78 @@
+Vercel CLI 29.1.1
+Fetching deployment "hooks-gg-website-1nodvml13-hooks-gg.vercel.app" in blacklabel
+> Fetched deployment "hooks-gg-website-1nodvml13-hooks-gg.vercel.app" in blacklabel [405ms]
+2026-11-22T16:56:00.715Z  Running build in Washington, D.C., USA (East) – iad1
+2026-11-22T16:56:00.716Z  Build machine configuration: 8 cores, 16 GB (Enhanced Build Machine)
+2026-11-22T16:56:00.756Z  Cloning github.com/hooks-gg/website (Branch: master, Commit: 132a7ab)
+2026-11-22T16:56:00.758Z  Skipping build cache, deployment was triggered without cache.
+2026-11-22T16:56:01.408Z  Cloning completed: 652.000ms
+2026-11-22T16:56:01.871Z  Running "vercel build"
+2026-11-22T16:56:01.878Z  Vercel CLI 66.2.0
+2026-11-22T16:56:02.167Z  > Detected ENABLE_EXPERIMENTAL_COREPACK=1 and "pnpm@10.28.2" in package.json
+2026-11-22T16:56:02.310Z  Running "install" command: `git config --global url."https://${GITHUB_USER}:${GITHUB_USER_ACCESS_TOKEN}@github.com/".insteadOf "git@github.com:" && pnpm install 1> /dev/null`...
+2026-11-22T16:56:02.484Z  ! Corepack is about to download https://registry.npmjs.org/pnpm/-/pnpm-10.28.2.tgz
+2026-11-22T16:56:11.016Z  Detected Next.js version: 16.4.6
+2026-11-22T16:56:11.070Z  Running "pnpm run build"
+2026-11-22T16:56:11.354Z  
+2026-11-22T16:56:11.354Z  > website@ build /vercel/path0
+2026-11-22T16:56:11.354Z  > next build
+2026-11-22T16:56:11.355Z  
+2026-11-22T16:56:11.746Z  ▲ Next.js 16.4.6 (Turbopack)
+2026-11-22T16:56:11.796Z    Applying modifyConfig from Vercel
+2026-11-22T16:56:11.801Z  ✓ Running next.config.js took 54ms
+2026-11-22T16:56:11.826Z  
+2026-11-22T16:56:11.829Z  
+2026-11-22T16:56:11.829Z    To migrate automatically, run:
+2026-11-22T16:56:11.829Z    npx @next/codemod@canary middleware-to-proxy .
+2026-11-22T16:56:11.829Z  
+2026-11-22T16:56:11.829Z    Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+2026-11-22T16:56:11.851Z    Creating an optimized production build ...
+2026-11-22T16:56:14.822Z  Browserslist: caniuse-lite is outdated. Please run:
+2026-11-22T16:56:14.822Z    npx update-browserslist-db@latest
+2026-11-22T16:56:14.822Z    Why you should do it regularly: https://github.com/browserslist/update-db#readme
+2026-11-22T16:56:19.801Z  ✓ Compiled successfully in 7.9s
+2026-11-22T16:56:19.805Z    Running TypeScript ...
+2026-11-22T16:56:30.369Z    Finished TypeScript in 10.6s ...
+2026-11-22T16:56:30.371Z    Collecting page data using 7 workers ...
+2026-11-22T16:56:30.906Z    Generating static pages using 7 workers (0/9) ...
+2026-11-22T16:56:31.002Z    Generating static pages using 7 workers (2/9) 
+2026-11-22T16:56:31.249Z    Generating static pages using 7 workers (4/9) 
+2026-11-22T16:56:31.265Z    Generating static pages using 7 workers (6/9) 
+2026-11-22T16:56:31.345Z  ✓ Generating static pages using 7 workers (9/9) in 440ms
+2026-11-22T16:56:31.351Z    Finalizing page optimization ...
+2026-11-22T16:56:31.476Z    Running onBuildComplete from Vercel
+2026-11-22T16:56:31.623Z  
+2026-11-22T16:56:31.625Z  Route (app)
+2026-11-22T16:56:31.625Z  ┌ ○ /
+2026-11-22T16:56:31.625Z  ├ ○ /_not-found
+2026-11-22T16:56:31.625Z  ├ ○ /legal/privacy
+2026-11-22T16:56:31.625Z  ├ ○ /legal/terms
+2026-11-22T16:56:31.625Z  ├ ƒ /message
+2026-11-22T16:56:31.625Z  ├ ƒ /message/f/[id]
+2026-11-22T16:56:31.625Z  ├ ƒ /message/m/[id]/edit
+2026-11-22T16:56:31.625Z  ├ ƒ /message/m/[id]/send
+2026-11-22T16:56:31.625Z  ├ ƒ /message/m/new
+2026-11-22T16:56:31.625Z  └ ○ /preview
+2026-11-22T16:56:31.625Z  
+2026-11-22T16:56:31.625Z  Route (pages)
+2026-11-22T16:56:31.625Z  ┌ ƒ /api/auth/[...nextauth]
+2026-11-22T16:56:31.625Z  ├ ƒ /api/interactions-edge
+2026-11-22T16:56:31.625Z  ├ ƒ /api/interactions-server
+2026-11-22T16:56:31.625Z  ├ ƒ /api/messages/codes/[code]
+2026-11-22T16:56:31.625Z  ├ ƒ /api/trpc/[trpc]
+2026-11-22T16:56:31.625Z  ├ ƒ /api/v1/guilds/[guildId]/messages
+2026-11-22T16:56:31.625Z  └ ƒ /api/v1/guilds/[guildId]/messages/[id]
+2026-11-22T16:56:31.625Z  
+2026-11-22T16:56:31.625Z  ƒ Proxy (Middleware)
+2026-11-22T16:56:31.625Z  
+2026-11-22T16:56:31.625Z  ○  (Static)   prerendered as static content
+2026-11-22T16:56:31.625Z  ƒ  (Dynamic)  server-rendered on demand
+2026-11-22T16:56:31.625Z  
+2026-11-22T16:56:31.797Z  Build Completed in /vercel/output [30s]
+2026-11-22T16:56:31.813Z  Deploying outputs...
+2026-11-22T16:56:38.586Z  Deployment completed
+2026-11-22T16:56:38.590Z  Creating build cache...
+2026-11-22T16:56:48.531Z  Created build cache: 10s
+2026-11-22T16:56:48.531Z  Uploading build cache [317.40 MB]
+2026-11-22T16:56:55.731Z  Build cache uploaded: 7.200s
+exit 0

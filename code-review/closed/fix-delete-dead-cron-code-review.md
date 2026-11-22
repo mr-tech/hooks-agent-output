@@ -24,6 +24,7 @@ Verdict: APPROVED
 | 2026-11-21T20:54 | devops | Stage 1: Status Committed, document moved to closed/. Stage start for devops: this verdict at `Reviewed-At` 132a7ab (no QA, no UAT in the chain's stage set). |
 | 2026-11-21T23:19 | devops | Phase 2D: Status Released at website `master` `132a7ab` (read back at origin 2026-11-21T23:19Z). Assumption Not Checked, part 1 (deploy host's pnpm major): closed in the deployment record, pnpm 10.28.2 from the production build log. Part 2 (no dashboard cron): carried by `handoff/vercel-dashboard-cron-list-after-cron-removal-2026-11-21.md`. |
 | 2026-11-21T23:25 | devops | Reconcile note: `Released` here means pushed, and the push stands. The change is not live: Vercel's production deployment of the push errored, so the dashboard-cron read above has no release to read against yet. See `deployment/fix-delete-dead-cron-deployment.md` § Correction. |
+| 2026-11-22T17:05 | devops | Reconcile note: the change is now live (Ready at `hooks.gg` from 2026-11-22T16:55:59Z, built from `132a7ab`). The Assumption Not Checked on the dashboard cron list is now due as the owner's read, carried by the handoff above. |
 
 ## Stage start and criteria
 
