@@ -1,0 +1,4 @@
+SKIP package-lock.json: not examined — extension .json is outside the examined set
+SKIP package.json: not examined — extension .json is outside the examined set
+SKIP id-token, basename: /usr/local/bin/hooks/agent-output/CLAUDE.md states an ID-token class this checker does not implement verbatim (the hooks line at cca22fd) — the checks did not run
+convention-check: 0 file(s) examined, 2 not examined, 0 test file(s); 0 FAIL, 0 CANDIDATE, 3 SKIP

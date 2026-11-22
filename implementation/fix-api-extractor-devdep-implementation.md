@@ -2,9 +2,9 @@
 ID: n/a
 Origin: fix-api-extractor-devdep
 UUID: 3c9e71a4
-Status: Blocked
-Status-Detail: "Lockfile scope ruled (rulings 07:10, option 1). Blocked on steering's ruling over the pre-commit hook's shared-tree rebuild (writes build/). Candidate applied in the tree, uncommitted; HEAD 40ba5d3."
-Handoff-At: 40ba5d3 — repos=project-utils; base, no fix commit yet
+Status: Active
+Status-Detail: "Fix committed at a47e683 on chain/fix-api-extractor-devdep; code review owed, then devops push of project-utils master."
+Handoff-At: a47e683 — repos=project-utils; base 40ba5d3
 Origin-Chain: none
 ---
 
@@ -48,7 +48,7 @@ Write set: project-utils `package.json` and `package-lock.json`; this document a
 - **Residue.** This is a build-time defect only. Consumers install `dist/` from the commit, and a
   devDependency never reaches them. There is no production state.
 
-## Change (candidate — not committed)
+## Change (committed at `a47e683`; `git diff --numstat 40ba5d3 a47e683`: package.json 1/0, package-lock.json 745/15)
 
 - `package.json`: `"@microsoft/api-extractor": "^7.49.2"` added to `devDependencies` (the only line that
   differs).
@@ -96,8 +96,12 @@ The red run is the negative control: the same driver over the tree without the d
 - Build: green run above, under npm 11.9.0 / node v24.14.0 on this box. The deploy host's npm major is
   not applicable, because this release deploys nothing (`release-move.js … --dry-run`: "workflows none").
 - Lint: `npm run lint` ran inside `rebuild` and passed (`--max-warnings=0`).
-- `convention-check.js`: not yet run, because no fix commit exists. The candidate diff touches no source
-  file.
+- `convention-check.js --since=40ba5d3` exited 0 with 0 FAIL and 0 CANDIDATE. It reported 3 SKIP: `package.json` and
+  `package-lock.json` were not examined (`.json` is outside its examined set), and the ID-token and basename checks did not run
+  (`convention-check.txt`). Nothing was checked by it, and the diff touches no source file.
+- Shared-tree commit (rulings block "2026-11-22T07:11"): `npm ci` (exit 0), then `git commit --only` with the
+  `.githooks/pre-commit` rebuild active, which passed. After it, `git diff --quiet HEAD -- dist` exited 0 and
+  `git status --porcelain` was empty (0 bytes). The hook rewrote the gitignored `build/js` and `build/types`, as ruled.
 
 ## User-visible flows
 
@@ -106,9 +110,9 @@ consumers install and run is byte-identical.
 
 ## Handoff
 
-Not yet. After steering's ruling: commit on `chain/fix-api-extractor-devdep`, then hand off to
-`code-reviewer-fix-api-extractor-devdep`. Devops pushes project-utils `master`, with no approval needed,
-because nothing deploys.
+SHA `a47e683` (project-utils, `chain/fix-api-extractor-devdep`). Reviewer: `code-reviewer-fix-api-extractor-devdep`,
+which also runs `npm run rebuild` with the global tool off `PATH`. No QA: no production lines. Merge and push:
+devops, to project-utils `master`, with no approval needed, because nothing deploys. Spawn cue sent to `steering-hooks`.
 
 ## Changelog
 
@@ -116,3 +120,4 @@ because nothing deploys.
 |---|---|
 | 2026-11-22T07:09 | Created. Diagnosis, red and green runs recorded. Blocked on the lockfile-scope ruling. |
 | 2026-11-22T07:11 | Steering ruled option 1 (rulings block "2026-11-22T07:10", agent-output `832632c`). Candidate applied to the shared tree (`git diff --numstat`: package.json 1/0, package-lock.json 745/15). The fix commit was not made: the `.githooks/pre-commit` hook (`core.hooksPath`) runs `npm run rebuild`, the shared tree has no `node_modules`, and the hook stopped at lint before build. Blocked on steering's ruling over running the hook's rebuild in the shared tree, which writes `build/`. |
+| 2026-11-22T07:12 | Steering ruled option 1 on the hook (rulings block "2026-11-22T07:11", agent-output `f439e11`). `npm ci` ran in the shared tree, and the fix was committed as project-utils `a47e683` with the hook active. dist/ is unchanged and the tree is clean. Handed off to code review. |
