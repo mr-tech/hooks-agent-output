@@ -1,0 +1,729 @@
+diff --git a/src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts b/src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts
+new file mode 100644
+index 0000000..65801a0
+--- /dev/null
++++ b/src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts
+@@ -0,0 +1,468 @@
++import { createEditor, Text } from 'slate';
++import {
++  describe, expect, it, vi,
++} from 'vitest';
++
++import decorator from '../decorator';
++
++import type { Descendant, Range } from 'slate';
++
++import markdown from '~/utils/markdown';
++
++vi.mock('~/env.mjs', () => ({ env: {} }));
++
++const PARSERS = {
++  content: [markdown.interactive.parseContent, false],
++  title: [markdown.interactive.parseEmbedTitle, true],
++  field: [markdown.interactive.parseEmbedField, true],
++} as const;
++
++const PLAIN_LINE = { type: 'div', lang: '', startCodeBlock: false };
++
++const rangesOf = (text: string, parser: keyof typeof PARSERS = 'content', line = PLAIN_LINE) => {
++  const [parse, isEmbed] = PARSERS[parser];
++  const editor = createEditor();
++  const span = { type: 'span', text } as unknown as Text;
++  editor.children = [{ ...line, children: [span] } as unknown as Descendant];
++  return { span, ranges: decorator(editor, true, isEmbed, parse)([span, [0, 0]]) };
++};
++
++const labelled = (span: Text, ranges: Range[]) => Text.decorations(span, ranges)
++  .map(({ leaf }) => {
++    const { syntax: isSyntax, classNames } = leaf as Text & {
++      syntax?: boolean, classNames?: string[],
++    };
++    const label = [isSyntax ? 'S' : '', ...[...(classNames ?? [])].sort()].filter(Boolean).join('+');
++    return `${JSON.stringify(leaf.text)}:${label || '-'}`;
++  })
++  .join(' ');
++
++const rendered = (text: string, parser: keyof typeof PARSERS, line = PLAIN_LINE) => {
++  const { span, ranges } = rangesOf(text, parser, line);
++  return labelled(span, ranges);
++};
++
++const decorate = (text: string) => rangesOf(text).ranges
++  .map((range) => ({
++    from: range.anchor.offset,
++    to: range.focus.offset,
++    syntax: range.syntax,
++    classNames: [...range.classNames].sort(),
++  }));
++
++const syntax = (from: number, to: number, classNames: string[] = []) => ({
++  from, to, syntax: true, classNames,
++});
++const styled = (from: number, to: number, classNames: string[]) => ({
++  from, to, syntax: false, classNames,
++});
++
++describe('editor markdown decorator emphasis ranges', () => {
++  it('marks the delimiters of bold text as syntax and the inside as bold', () => {
++    expect(decorate('**ab**')).toEqual([
++      syntax(0, 2),
++      styled(2, 4, ['strongText']),
++      syntax(4, 6),
++    ]);
++  });
++
++  it('marks the delimiters of italic text as syntax and the inside as italic', () => {
++    expect(decorate('*ab*')).toEqual([
++      syntax(0, 1),
++      styled(1, 3, ['emText']),
++      syntax(3, 4),
++    ]);
++  });
++
++  it('colours bold and italic runs side by side independently', () => {
++    expect(decorate('**a** *b*')).toEqual([
++      syntax(0, 2),
++      styled(2, 3, ['strongText']),
++      syntax(3, 5),
++      syntax(6, 7),
++      styled(7, 8, ['emText']),
++      syntax(8, 9),
++    ]);
++  });
++
++  it('colours italic text nested inside bold text and leaves the text after it plain', () => {
++    expect(decorate('**a *b* c** d')).toEqual([
++      syntax(0, 2),
++      styled(2, 9, ['strongText']),
++      syntax(4, 5, ['strongText']),
++      styled(5, 6, ['emText', 'strongText']),
++      syntax(6, 7),
++      syntax(9, 11),
++    ]);
++  });
++
++  it('keeps the syntax ranges of bold italic text inside its three-asterisk delimiters', () => {
++    expect(decorate('***ab***')).toEqual([
++      syntax(0, 3),
++      styled(3, 5, ['emText', 'strongText']),
++      syntax(5, 8),
++    ]);
++  });
++
++  it('leaves the text after bold italic text uncoloured', () => {
++    expect(decorate('***ab*** cd')).toEqual([
++      syntax(0, 3),
++      styled(3, 5, ['emText', 'strongText']),
++      syntax(5, 8),
++    ]);
++  });
++
++  it.each([
++    ['bold opening an italic run', '***a** b*', [
++      syntax(0, 3),
++      styled(3, 8, ['emText']),
++      styled(3, 4, ['emText', 'strongText']),
++      syntax(4, 6),
++      syntax(8, 9),
++    ]],
++    ['italic opening a bold run', '***a* b**', [
++      syntax(0, 3),
++      styled(3, 7, ['strongText']),
++      styled(3, 4, ['emText', 'strongText']),
++      syntax(4, 5),
++      syntax(7, 9),
++    ]],
++    ['bold closing an italic run', '*a **b***', [
++      syntax(0, 1),
++      styled(1, 6, ['emText']),
++      syntax(3, 5, ['emText']),
++      styled(5, 6, ['emText', 'strongText']),
++      syntax(6, 9),
++    ]],
++    ['strikethrough inside bold italic', '***~~a~~***', [
++      syntax(0, 5),
++      styled(5, 6, ['emText', 'sText', 'strongText']),
++      syntax(6, 11),
++    ]],
++    ['italic inside underline', '__*a*__', [
++      syntax(0, 3),
++      styled(3, 4, ['emText', 'uText']),
++      syntax(4, 7),
++    ]],
++    ['bold inside a spoiler', '||**a**||', [
++      syntax(0, 4),
++      styled(4, 5, ['spoilerText', 'strongText']),
++      syntax(5, 9),
++    ]],
++  ])('keeps shared delimiters inside the text for %s', (_name, text, ranges) => {
++    expect(decorate(text)).toEqual(ranges);
++  });
++
++  it.each([
++    ['as the only content of bold text', '**[a](https://x.y)**', [
++      syntax(0, 3),
++      styled(3, 18, ['strongText']),
++      styled(3, 4, ['linkText', 'strongText']),
++      syntax(4, 6),
++      styled(6, 17, ['linkText']),
++      syntax(17, 20),
++    ]],
++    ['opening bold text', '**[a](https://x.y) b**', [
++      syntax(0, 3),
++      styled(3, 20, ['strongText']),
++      styled(3, 4, ['linkText', 'strongText']),
++      syntax(4, 6),
++      styled(6, 17, ['linkText']),
++      syntax(17, 18),
++      syntax(20, 22),
++    ]],
++    ['closing bold text', '**b [a](https://x.y)**', [
++      syntax(0, 2),
++      styled(2, 20, ['strongText']),
++      syntax(4, 5, ['strongText']),
++      styled(5, 6, ['linkText', 'strongText']),
++      syntax(6, 8),
++      styled(8, 19, ['linkText']),
++      syntax(19, 22),
++    ]],
++  ])('colours a masked link %s with its target between the brackets and the bold delimiters', (_name, text, ranges) => {
++    expect(decorate(text)).toEqual(ranges);
++  });
++});
++
++describe('editor markdown decorator rendered text per markdown kind', () => {
++  it.each([
++    ['content', 'https://x.y', '"https://x.y":linkText'],
++    ['title', 'https://x.y', '"https://x.y":linkText'],
++    ['field', 'https://x.y', '"https://x.y":linkText'],
++    ['content', '**https://x.y b**', '"**":S "https://x.y":linkText+strongText " b":strongText "**":S'],
++    ['title', '**https://x.y b**', '"**":S "https://x.y":linkText+strongText " b":strongText "**":S'],
++    ['field', '**https://x.y b**', '"**":S "https://x.y":linkText+strongText " b":strongText "**":S'],
++    ['content', '**b https://x.y**', '"**":S "b ":strongText "https://x.y":linkText+strongText "**":S'],
++    ['title', '**b https://x.y**', '"**":S "b ":strongText "https://x.y":linkText+strongText "**":S'],
++    ['field', '**b https://x.y**', '"**":S "b ":strongText "https://x.y":linkText+strongText "**":S'],
++    ['content', '*b https://x.y*', '"*":S "b ":emText "https://x.y":emText+linkText "*":S'],
++    ['title', '*b https://x.y*', '"*":S "b ":emText "https://x.y":emText+linkText "*":S'],
++    ['field', '*b https://x.y*', '"*":S "b ":emText "https://x.y":emText+linkText "*":S'],
++    ['content', 'https://x.y **b**', '"https://x.y":linkText " ":- "**":S "b":strongText "**":S'],
++    ['title', 'https://x.y **b**', '"https://x.y":linkText " ":- "**":S "b":strongText "**":S'],
++    ['field', 'https://x.y **b**', '"https://x.y":linkText " ":- "**":S "b":strongText "**":S'],
++    ['content', '<https://x.y>', '"<":S "https://x.y":linkText ">":S'],
++    ['title', '<https://x.y>', '"<":S "https://x.y":linkText ">":S'],
++    ['field', '<https://x.y>', '"<":S "https://x.y":linkText ">":S'],
++    ['content', '**<https://x.y> b**', '"**<":S "https://x.y":linkText+strongText ">":S " b":strongText "**":S'],
++    ['title', '**<https://x.y> b**', '"**<":S "https://x.y":linkText+strongText ">":S " b":strongText "**":S'],
++    ['field', '**<https://x.y> b**', '"**<":S "https://x.y":linkText+strongText ">":S " b":strongText "**":S'],
++    ['content', '**b <https://x.y>**', '"**":S "b ":strongText "<":S+strongText "https://x.y":linkText+strongText ">**":S'],
++    ['title', '**b <https://x.y>**', '"**":S "b ":strongText "<":S+strongText "https://x.y":linkText+strongText ">**":S'],
++    ['field', '**b <https://x.y>**', '"**":S "b ":strongText "<":S+strongText "https://x.y":linkText+strongText ">**":S'],
++    ['content', '*b <https://x.y>*', '"*":S "b ":emText "<":S+emText "https://x.y":emText+linkText ">*":S'],
++    ['title', '*b <https://x.y>*', '"*":S "b ":emText "<":S+emText "https://x.y":emText+linkText ">*":S'],
++    ['field', '*b <https://x.y>*', '"*":S "b ":emText "<":S+emText "https://x.y":emText+linkText ">*":S'],
++    ['content', '<https://x.y> **b**', '"<":S "https://x.y":linkText ">":S " ":- "**":S "b":strongText "**":S'],
++    ['title', '<https://x.y> **b**', '"<":S "https://x.y":linkText ">":S " ":- "**":S "b":strongText "**":S'],
++    ['field', '<https://x.y> **b**', '"<":S "https://x.y":linkText ">":S " ":- "**":S "b":strongText "**":S'],
++    ['content', '[a](https://x.y)', '"[":S "a":linkText "](":S "https://x.y":linkText ")":S'],
++    ['title', '[a](https://x.y)', '"[a](":- "https://x.y":linkText ")":-'],
++    ['field', '[a](https://x.y)', '"[":S "a":linkText "](":S "https://x.y":linkText ")":S'],
++    ['content', '**[a](https://x.y) b**', '"**[":S "a":linkText+strongText "](":S "https://x.y":linkText ")":S " b":strongText "**":S'],
++    ['title', '**[a](https://x.y) b**', '"**":S "[a](":strongText "https://x.y":linkText+strongText ") b":strongText "**":S'],
++    ['field', '**[a](https://x.y) b**', '"**[":S "a":linkText+strongText "](":S "https://x.y":linkText ")":S " b":strongText "**":S'],
++    ['content', '**b [a](https://x.y)**', '"**":S "b ":strongText "[":S+strongText "a":linkText+strongText "](":S "https://x.y":linkText ")":S "**":S'],
++    ['title', '**b [a](https://x.y)**', '"**":S "b [a](":strongText "https://x.y":linkText+strongText ")":strongText "**":S'],
++    ['field', '**b [a](https://x.y)**', '"**":S "b ":strongText "[":S+strongText "a":linkText+strongText "](":S "https://x.y":linkText ")":S "**":S'],
++    ['content', '*b [a](https://x.y)*', '"*":S "b ":emText "[":S+emText "a":emText+linkText "](":S "https://x.y":linkText ")":S "*":S'],
++    ['title', '*b [a](https://x.y)*', '"*":S "b [a](":emText "https://x.y":emText+linkText ")":emText "*":S'],
++    ['field', '*b [a](https://x.y)*', '"*":S "b ":emText "[":S+emText "a":emText+linkText "](":S "https://x.y":linkText ")":S "*":S'],
++    ['content', '[a](https://x.y) **b**', '"[":S "a":linkText "](":S "https://x.y":linkText ")":S " ":- "**":S "b":strongText "**":S'],
++    ['title', '[a](https://x.y) **b**', '"[a](":- "https://x.y":linkText ") ":- "**":S "b":strongText "**":S'],
++    ['field', '[a](https://x.y) **b**', '"[":S "a":linkText "](":S "https://x.y":linkText ")":S " ":- "**":S "b":strongText "**":S'],
++    ['content', '[a](<https://x.y>)', '"[":S "a":linkText "](<":S "https://x.y":linkText ">)":S'],
++    ['title', '[a](<https://x.y>)', '"[a](":- "<":S "https://x.y":linkText ">":S ")":-'],
++    ['field', '[a](<https://x.y>)', '"[":S "a":linkText "](<":S "https://x.y":linkText ">)":S'],
++    ['content', '**[a](<https://x.y>) b**', '"**[":S "a":linkText+strongText "](<":S "https://x.y":linkText ">)":S " b":strongText "**":S'],
++    ['title', '**[a](<https://x.y>) b**', '"**":S "[a](":strongText "<":S+strongText "https://x.y":linkText+strongText ">":S ") b":strongText "**":S'],
++    ['field', '**[a](<https://x.y>) b**', '"**[":S "a":linkText+strongText "](<":S "https://x.y":linkText ">)":S " b":strongText "**":S'],
++    ['content', '**b [a](<https://x.y>)**', '"**":S "b ":strongText "[":S+strongText "a":linkText+strongText "](<":S "https://x.y":linkText ">)":S "**":S'],
++    ['title', '**b [a](<https://x.y>)**', '"**":S "b [a](":strongText "<":S+strongText "https://x.y":linkText+strongText ">":S ")":strongText "**":S'],
++    ['field', '**b [a](<https://x.y>)**', '"**":S "b ":strongText "[":S+strongText "a":linkText+strongText "](<":S "https://x.y":linkText ">)":S "**":S'],
++    ['content', '*b [a](<https://x.y>)*', '"*":S "b ":emText "[":S+emText "a":emText+linkText "](<":S "https://x.y":linkText ">)":S "*":S'],
++    ['title', '*b [a](<https://x.y>)*', '"*":S "b [a](":emText "<":S+emText "https://x.y":emText+linkText ">":S ")":emText "*":S'],
++    ['field', '*b [a](<https://x.y>)*', '"*":S "b ":emText "[":S+emText "a":emText+linkText "](<":S "https://x.y":linkText ">)":S "*":S'],
++    ['content', '[a](<https://x.y>) **b**', '"[":S "a":linkText "](<":S "https://x.y":linkText ">)":S " ":- "**":S "b":strongText "**":S'],
++    ['title', '[a](<https://x.y>) **b**', '"[a](":- "<":S "https://x.y":linkText ">":S ") ":- "**":S "b":strongText "**":S'],
++    ['field', '[a](<https://x.y>) **b**', '"[":S "a":linkText "](<":S "https://x.y":linkText ">)":S " ":- "**":S "b":strongText "**":S'],
++    ['content', '[a](https://x.y "t")', '"[":S "a":linkText "](":S "https://x.y":linkText " \\"t\\")":S'],
++    ['title', '[a](https://x.y "t")', '"[a](":- "https://x.y":linkText " \\"t\\")":-'],
++    ['field', '[a](https://x.y "t")', '"[":S "a":linkText "](":S "https://x.y":linkText " \\"t\\")":S'],
++    ['content', '**[a](https://x.y "t") b**', '"**[":S "a":linkText+strongText "](":S "https://x.y":linkText " \\"t\\")":S " b":strongText "**":S'],
++    ['title', '**[a](https://x.y "t") b**', '"**":S "[a](":strongText "https://x.y":linkText+strongText " \\"t\\") b":strongText "**":S'],
++    ['field', '**[a](https://x.y "t") b**', '"**[":S "a":linkText+strongText "](":S "https://x.y":linkText " \\"t\\")":S " b":strongText "**":S'],
++    ['content', '**b [a](https://x.y "t")**', '"**":S "b ":strongText "[":S+strongText "a":linkText+strongText "](":S "https://x.y":linkText " \\"t\\")":S "**":S'],
++    ['title', '**b [a](https://x.y "t")**', '"**":S "b [a](":strongText "https://x.y":linkText+strongText " \\"t\\")":strongText "**":S'],
++    ['field', '**b [a](https://x.y "t")**', '"**":S "b ":strongText "[":S+strongText "a":linkText+strongText "](":S "https://x.y":linkText " \\"t\\")":S "**":S'],
++    ['content', '*b [a](https://x.y "t")*', '"*":S "b ":emText "[":S+emText "a":emText+linkText "](":S "https://x.y":linkText " \\"t\\")":S "*":S'],
++    ['title', '*b [a](https://x.y "t")*', '"*":S "b [a](":emText "https://x.y":emText+linkText " \\"t\\")":emText "*":S'],
++    ['field', '*b [a](https://x.y "t")*', '"*":S "b ":emText "[":S+emText "a":emText+linkText "](":S "https://x.y":linkText " \\"t\\")":S "*":S'],
++    ['content', '[a](https://x.y "t") **b**', '"[":S "a":linkText "](":S "https://x.y":linkText " \\"t\\")":S " ":- "**":S "b":strongText "**":S'],
++    ['title', '[a](https://x.y "t") **b**', '"[a](":- "https://x.y":linkText " \\"t\\") ":- "**":S "b":strongText "**":S'],
++    ['field', '[a](https://x.y "t") **b**', '"[":S "a":linkText "](":S "https://x.y":linkText " \\"t\\")":S " ":- "**":S "b":strongText "**":S'],
++    ['content', '<@123>', '"<@123>":-'],
++    ['content', '**<@123> b**', '"**":S "<@123> b":strongText "**":S'],
++    ['content', '**b <@123>**', '"**":S "b <@123>":strongText "**":S'],
++    ['content', '*b <@123>*', '"*":S "b <@123>":emText "*":S'],
++    ['content', '<@123> **b**', '"<@123> ":- "**":S "b":strongText "**":S'],
++    ['content', '<@&123>', '"<@&123>":-'],
++    ['content', '**<@&123> b**', '"**":S "<@&123> b":strongText "**":S'],
++    ['content', '**b <@&123>**', '"**":S "b <@&123>":strongText "**":S'],
++    ['content', '*b <@&123>*', '"*":S "b <@&123>":emText "*":S'],
++    ['content', '<@&123> **b**', '"<@&123> ":- "**":S "b":strongText "**":S'],
++    ['content', '<#123>', '"<#123>":-'],
++    ['content', '**<#123> b**', '"**":S "<#123> b":strongText "**":S'],
++    ['content', '**b <#123>**', '"**":S "b <#123>":strongText "**":S'],
++    ['content', '*b <#123>*', '"*":S "b <#123>":emText "*":S'],
++    ['content', '<#123> **b**', '"<#123> ":- "**":S "b":strongText "**":S'],
++    ['content', '@everyone', '"@everyone":-'],
++    ['content', '**@everyone b**', '"**":S "@everyone b":strongText "**":S'],
++    ['content', '**b @everyone**', '"**":S "b @everyone":strongText "**":S'],
++    ['content', '*b @everyone*', '"*":S "b @everyone":emText "*":S'],
++    ['content', '@everyone **b**', '"@everyone ":- "**":S "b":strongText "**":S'],
++    ['content', '<t:1700000000:R>', '"<t:1700000000:R>":-'],
++    ['content', '**<t:1700000000:R> b**', '"**":S "<t:1700000000:R> b":strongText "**":S'],
++    ['content', '**b <t:1700000000:R>**', '"**":S "b <t:1700000000:R>":strongText "**":S'],
++    ['content', '*b <t:1700000000:R>*', '"*":S "b <t:1700000000:R>":emText "*":S'],
++    ['content', '<t:1700000000:R> **b**', '"<t:1700000000:R> ":- "**":S "b":strongText "**":S'],
++    ['content', '<:e:123>', '"<:e:123>":-'],
++    ['content', '**<:e:123> b**', '"**":S "<:e:123> b":strongText "**":S'],
++    ['content', '**b <:e:123>**', '"**":S "b <:e:123>":strongText "**":S'],
++    ['content', '*b <:e:123>*', '"*":S "b <:e:123>":emText "*":S'],
++    ['content', '<:e:123> **b**', '"<:e:123> ":- "**":S "b":strongText "**":S'],
++    ['content', ':smile:', '":smile:":-'],
++    ['content', '**:smile: b**', '"**":S ":smile: b":strongText "**":S'],
++    ['content', '**b :smile:**', '"**":S "b :smile:":strongText "**":S'],
++    ['content', '*b :smile:*', '"*":S "b :smile:":emText "*":S'],
++    ['content', ':smile: **b**', '":smile: ":- "**":S "b":strongText "**":S'],
++    ['content', '\\*', '"\\\\*":-'],
++    ['content', '**\\* b**', '"**":S "\\\\* b":strongText "**":S'],
++    ['content', '**b \\***', '"**":S "b \\\\*":strongText "**":S'],
++    ['content', '*b \\**', '"*":S "b \\\\*":emText "*":S'],
++    ['content', '\\* **b**', '"\\\\* ":- "**":S "b":strongText "**":S'],
++    ['content', '`c`', '"`c`":inlineCodeText'],
++    ['content', '**`c` b**', '"**":S "`c`":inlineCodeText+strongText " b":strongText "**":S'],
++    ['content', '**b `c`**', '"**":S "b ":strongText "`c`":inlineCodeText+strongText "**":S'],
++    ['content', '*b `c`*', '"*":S "b ":emText "`c`":emText+inlineCodeText "*":S'],
++    ['content', '`c` **b**', '"`c`":inlineCodeText " ":- "**":S "b":strongText "**":S'],
++    ['content', '*e*', '"*":S "e":emText "*":S'],
++    ['content', '***e* b**', '"***":S "e":emText+strongText "*":S " b":strongText "**":S'],
++    ['content', '**b *e***', '"**":S "b ":strongText "*":S+strongText "e":emText+strongText "***":S'],
++    ['content', '*e* **b**', '"*":S "e":emText "*":S " ":- "**":S "b":strongText "**":S'],
++    ['content', '**s**', '"**":S "s":strongText "**":S'],
++    ['content', '*b **s***', '"*":S "b ":emText "**":S+emText "s":emText+strongText "***":S'],
++    ['content', '**s** **b**', '"**":S "s":strongText "**":S " ":- "**":S "b":strongText "**":S'],
++    ['content', '__u__', '"__":S "u":uText "__":S'],
++    ['content', '**__u__ b**', '"**__":S "u":strongText+uText "__":S " b":strongText "**":S'],
++    ['content', '**b __u__**', '"**":S "b ":strongText "__":S+strongText "u":strongText+uText "__**":S'],
++    ['content', '*b __u__*', '"*":S "b ":emText "__":S+emText "u":emText+uText "__*":S'],
++    ['content', '__u__ **b**', '"__":S "u":uText "__":S " ":- "**":S "b":strongText "**":S'],
++    ['content', '~~s~~', '"~~":S "s":sText "~~":S'],
++    ['content', '**~~s~~ b**', '"**~~":S "s":sText+strongText "~~":S " b":strongText "**":S'],
++    ['content', '**b ~~s~~**', '"**":S "b ":strongText "~~":S+strongText "s":sText+strongText "~~**":S'],
++    ['content', '*b ~~s~~*', '"*":S "b ":emText "~~":S+emText "s":emText+sText "~~*":S'],
++    ['content', '~~s~~ **b**', '"~~":S "s":sText "~~":S " ":- "**":S "b":strongText "**":S'],
++    ['content', '||p||', '"||":S "p":spoilerText "||":S'],
++    ['content', '**||p|| b**', '"**||":S "p":spoilerText+strongText "||":S " b":strongText "**":S'],
++    ['content', '**b ||p||**', '"**":S "b ":strongText "||":S+strongText "p":spoilerText+strongText "||**":S'],
++    ['content', '*b ||p||*', '"*":S "b ":emText "||":S+emText "p":emText+spoilerText "||*":S'],
++    ['content', '||p|| **b**', '"||":S "p":spoilerText "||":S " ":- "**":S "b":strongText "**":S'],
++    ['content', 'w', '"w":-'],
++    ['content', '**w b**', '"**":S "w b":strongText "**":S'],
++    ['content', '**b w**', '"**":S "b w":strongText "**":S'],
++    ['content', '*b w*', '"*":S "b w":emText "*":S'],
++    ['content', 'w **b**', '"w ":- "**":S "b":strongText "**":S'],
++    ['content', '# a', '"# ":S "a":-'],
++    ['content', ' # **a**', '" # **":S "a":strongText "**":S'],
++    ['content', '## **a**', '"## **":S "a":strongText "**":S'],
++    ['content', '### a #', '"### ":S "a":- " #":S'],
++    ['content', '-# **a**', '"-":- "# **":S "a":strongText "**":S'],
++    ['content', 'a # **b**', '"a ":- "# **":S "b":strongText "**":S'],
++    ['content', '# **a** b', '"# **":S "a":strongText "**":S " b":-'],
++    ['content', '> **a**', '"> ":- "**":S "a":strongText "**":S'],
++    ['content', '>>> **a**', '">>> ":- "**":S "a":strongText "**":S'],
++    ['content', '```js', '"```":S "js":codeBlockText'],
++    ['content', '```', '"```":S'],
++    ['content', 'code', '"code":-'],
++    ['content', '_*a*_', '"_*":S "a":emText+emText "*_":S'],
++    ['content', '****a****', '"****":S "a":strongText+strongText "****":S'],
++    ['content', '# # a b', '"# # ":S "a b":-'],
++    ['content', '**a** ****b****', '"**":S "a":strongText "**":S " ":- "****":S "b":strongText+strongText "****":S'],
++    ['content', '__-# > __[b](<https://x.y>)', '"__":S "-":uText "# ":S+uText ">":uText " ":S+uText "__[":S+uText "b":linkText "](<":S "https://x.y":linkText ">)":S'],
++    ['content', '**-# a **b', '"**":S "-":strongText "# ":S+strongText "a":strongText " ":S+strongText "**":S+strongText "b":-'],
++    ['content', '**b [a](https://x.y)** c', '"**":S "b ":strongText "[":S+strongText "a":linkText+strongText "](":S "https://x.y":linkText ")":S "**":S " c":-'],
++    ['content', '**b <https://x.y>** c', '"**":S "b ":strongText "<":S+strongText "https://x.y":linkText+strongText ">**":S " c":-'],
++    ['content', '**b https://x.y** c', '"**":S "b ":strongText "https://x.y":linkText+strongText "**":S " c":-'],
++    ['content', '**b [a *c*](https://x.y)** d', '"**":S "b ":strongText "[":S+strongText "a ":linkText+strongText "*":S+linkText+strongText "c":emText+linkText+strongText "*](":S "https://x.y":linkText ")":S "**":S " d":-'],
++    ['content', '*b [**c**](https://x.y)* d', '"*":S "b ":emText "[**":S+emText "c":emText+linkText+strongText "**](":S "https://x.y":linkText ")":S "*":S " d":-'],
++    ['content', '[https://x.y](https://x.y)', '"[":S "https://x.y":linkText+linkText "](":S "https://x.y":linkText ")":S'],
++    ['content', '[a](https://x.y/\\_)', '"[":S "a":linkText "](":S "https://x.y/\\\\_":linkText ")":S'],
++    ['field', '**b [a](https://x.y/\\_)**', '"**":S "b ":strongText "[":S+strongText "a":linkText+strongText "](":S "https://x.y/\\\\_":linkText ")":S "**":S'],
++    ['content', '[a](<https://x.y/\\_> "t") **b**', '"[":S "a":linkText "](<":S "https://x.y/\\\\_":linkText "> \\"t\\")":S " ":- "**":S "b":strongText "**":S'],
++  ] as const)('with the %s parser colours %j as %s', (parser, text, leaves) => {
++    expect(rendered(text, parser)).toBe(leaves);
++  });
++});
++
++describe('editor markdown decorator rendered text for shapes whose widths cancelled or shifted before', () => {
++  it.each([
++    ['content', '**a https://x.y**', '"**":S "a ":strongText "https://x.y":linkText+strongText "**":S'],
++    ['title', '**a https://x.y**', '"**":S "a ":strongText "https://x.y":linkText+strongText "**":S'],
++    ['field', '**a https://x.y**', '"**":S "a ":strongText "https://x.y":linkText+strongText "**":S'],
++    ['content', '*a https://x.y*', '"*":S "a ":emText "https://x.y":emText+linkText "*":S'],
++    ['title', '*a https://x.y*', '"*":S "a ":emText "https://x.y":emText+linkText "*":S'],
++    ['field', '*a https://x.y*', '"*":S "a ":emText "https://x.y":emText+linkText "*":S'],
++    ['content', '__a https://x.y__', '"__":S "a ":uText "https://x.y":linkText+uText "__":S'],
++    ['title', '__a https://x.y__', '"__":S "a ":uText "https://x.y":linkText+uText "__":S'],
++    ['field', '__a https://x.y__', '"__":S "a ":uText "https://x.y":linkText+uText "__":S'],
++    ['content', '~~a https://x.y~~', '"~~":S "a ":sText "https://x.y":linkText+sText "~~":S'],
++    ['title', '~~a https://x.y~~', '"~~":S "a ":sText "https://x.y":linkText+sText "~~":S'],
++    ['field', '~~a https://x.y~~', '"~~":S "a ":sText "https://x.y":linkText+sText "~~":S'],
++    ['content', '||a https://x.y||', '"||":S "a ":spoilerText "https://x.y":linkText+spoilerText "||":S'],
++    ['title', '||a https://x.y||', '"||":S "a ":spoilerText "https://x.y":linkText+spoilerText "||":S'],
++    ['field', '||a https://x.y||', '"||":S "a ":spoilerText "https://x.y":linkText+spoilerText "||":S'],
++    ['content', '\\*ac d# **<https://x.y>***', '"\\\\*ac d":- "# **<":S "https://x.y":linkText+strongText ">":S "*":strongText "**":S'],
++    ['title', '\\*ac d# **<https://x.y>***', '"\\\\*ac d# ":- "**<":S "https://x.y":linkText+strongText ">":S "*":strongText "**":S'],
++    ['field', '\\*ac d# **<https://x.y>***', '"\\\\*ac d# ":- "**<":S "https://x.y":linkText+strongText ">":S "*":strongText "**":S'],
++    ['content', '__||c d[a](https://x.y)||\\*https://x.y', '"__":- "||":S "c d":spoilerText "[":S+spoilerText "a":linkText+spoilerText "](":S "https://x.y":linkText ")":S "||":S "\\\\*":- "https://x.y":linkText'],
++    ['title', '__||c d[a](https://x.y)\\*https://x.y||', '"__":- "||":S "c d[a](":spoilerText "https://x.y)\\\\*https://x.y":linkText+spoilerText "||":S'],
++    ['field', '__||c d[a](https://x.y)||\\*https://x.y', '"__":- "||":S "c d":spoilerText "[":S+spoilerText "a":linkText+spoilerText "](":S "https://x.y":linkText ")":S "||":S "\\\\*":- "https://x.y":linkText'],
++    ['content', '~~\\*:smile:**[a](https://x.y)***', '"~~\\\\*:smile:":- "**[":S "a":linkText+strongText "](":S "https://x.y":linkText ")":S "*":strongText "**":S'],
++    ['title', '~~\\*:smile:**[a](https://x.y)***', '"~~\\\\*:smile:":- "**":S "[a](":strongText "https://x.y)*":linkText+strongText "**":S'],
++    ['field', '~~\\*:smile:**[a](https://x.y)***', '"~~\\\\*:smile:":- "**[":S "a":linkText+strongText "](":S "https://x.y":linkText ")":S "*":strongText "**":S'],
++    ['content', '# __[a](https://x.y)***~~__\\*____', '"# __[":S "a":linkText+uText "](":S "https://x.y":linkText ")":S "***~~":uText "__":S "\\\\*":- "_":S "__":emText "_":S'],
++    ['title', '# __[a](https://x.y)***~~__\\*____', '"# ":- "__":S "[a](":uText "https://x.y)***~~":linkText+uText "__":S "\\\\*":- "_":S "__":emText "_":S'],
++    ['field', '# __[a](https://x.y)***~~__\\*____', '"# ":- "__[":S "a":linkText+uText "](":S "https://x.y":linkText ")":S "***~~":uText "__":S "\\\\*":- "_":S "__":emText "_":S'],
++    ['content', '||[a](https://x.y)\\*||', '"||[":S "a":linkText+spoilerText "](":S "https://x.y":linkText ")":S "\\\\*":spoilerText "||":S'],
++    ['title', '||[a](https://x.y)\\*||', '"||":S "[a](":spoilerText "https://x.y)\\\\*":linkText+spoilerText "||":S'],
++    ['field', '||[a](https://x.y)\\*||', '"||[":S "a":linkText+spoilerText "](":S "https://x.y":linkText ")":S "\\\\*":spoilerText "||":S'],
++    ['content', '***> \\****\\*[b](<https://x.y>)b||', '"***":S "> \\\\*":emText+strongText "***":S "\\\\*":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b||":-'],
++    ['title', '***> \\****\\*[b](<https://x.y>)b||', '"***":S "> \\\\*":emText+strongText "***":S "\\\\*[b](":- "<":S "https://x.y":linkText ">":S ")b||":-'],
++    ['field', '***> \\****\\*[b](<https://x.y>)b||', '"***":S "> \\\\*":emText+strongText "***":S "\\\\*":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b||":-'],
++    ['content', '**[a](https://x.y)***<@123>_:smile:-#  ', '"**[":S "a":linkText+strongText "](":S "https://x.y":linkText ")":S "*":strongText "**":S "<@123>_:smile:-":- "#  ":S'],
++    ['title', '**[a](https://x.y)***<@123>_:smile:-#  ', '"**":S "[a](":strongText "https://x.y)*":linkText+strongText "**":S "<@123>_:smile:-#  ":-'],
++    ['field', '**[a](https://x.y)***<@123>_:smile:-#  ', '"**[":S "a":linkText+strongText "](":S "https://x.y":linkText ")":S "*":strongText "**":S "<@123>_:smile:-#  ":-'],
++    ['content', '# ~~***<@123> ***c d[b](<https://x.y>)b', '"# ":S "~~":- "***":S "<@123> ":emText+strongText "***":S "c d":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b":-'],
++    ['title', '# ~~***<@123> ***c d[b](<https://x.y>)b', '"# ~~":- "***":S "<@123> ":emText+strongText "***":S "c d[b](":- "<":S "https://x.y":linkText ">":S ")b":-'],
++    ['field', '# ~~***<@123> ***c d[b](<https://x.y>)b', '"# ~~":- "***":S "<@123> ":emText+strongText "***":S "c d":- "[":S "b":linkText "](<":S "https://x.y":linkText ">)":S "b":-'],
++  ] as const)('with the %s parser colours %j as %s', (parser, text, leaves) => {
++    expect(rendered(text, parser)).toBe(leaves);
++  });
++});
++
++describe('editor markdown decorator rendered text for a line inside a fenced code block', () => {
++  it.each([
++    ['js', 'content', 'const s = "**a**"; // *b*', '"const":hljs-keyword " s = ":- "\\"**a**\\"":hljs-string "; ":- "// *b*":hljs-comment'],
++    ['js', 'field', 'const s = "**a**"; // *b*', '"const":hljs-keyword " s = ":- "\\"**a**\\"":hljs-string "; ":- "// *b*":hljs-comment'],
++    ['js', 'content', 'const a = 1;', '"const":hljs-keyword " a = ":- "1":hljs-number ";":-'],
++    ['js', 'field', 'const a = 1;', '"const":hljs-keyword " a = ":- "1":hljs-number ";":-'],
++    ['js', 'content', '**a** `b` # c', '"**a** ":- "`b`":hljs-string " # c":-'],
++    ['js', 'field', '**a** `b` # c', '"**a** ":- "`b`":hljs-string " # c":-'],
++    ['python', 'content', '<@1> https://x.y [l](https://x.y)', '"<@":- "1":hljs-number "> https://x.y [l](https://x.y)":-'],
++    ['python', 'field', '<@1> https://x.y [l](https://x.y)', '"<@":- "1":hljs-number "> https://x.y [l](https://x.y)":-'],
++    ['python', 'content', 'print(f"a {b}")', '"print":hljs-built_in "(":- "f\\"a ":hljs-string "{b}":hljs-string+hljs-subst "\\"":hljs-string ")":-'],
++    ['python', 'field', 'print(f"a {b}")', '"print":hljs-built_in "(":- "f\\"a ":hljs-string "{b}":hljs-string+hljs-subst "\\"":hljs-string ")":-'],
++    ['js', 'content', 'x = "\\🙂" + 1', '"x = ":- "\\"\\\\🙂\\"":hljs-string " + ":- "1":hljs-number'],
++    ['js', 'field', 'x = "\\🙂" + 1', '"x = ":- "\\"\\\\🙂\\"":hljs-string " + ":- "1":hljs-number'],
++    ['', 'content', '**a** `b` # c', '"**a** `b` # c":codeBlockText'],
++    ['', 'field', '**a** `b` # c', '"**a** `b` # c":codeBlockText'],
++    ['notalanguage', 'content', '**a** `b` # c', '"**a** `b` # c":-'],
++    ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
++  ] as const)('in a %j block with the %s parser colours %j as %s', (lang, parser, text, leaves) => {
++    expect(rendered(text, parser, { type: 'codeBlock', lang, startCodeBlock: true })).toBe(leaves);
++  });
++});
++
++const renderedSplitCodeLine = (lang: string, before: string, after: string, index: 0 | 2) => {
++  const editor = createEditor();
++  const [emoji] = markdown.interactive.parseEmoji(':smile:');
++  const children = [
++    { type: 'span', text: before },
++    {
++      type: 'emoji', lang: '', startCodeBlock: false, ast: emoji, children: [{ type: 'span', text: '' }], empty: false,
++    },
++    { type: 'span', text: after },
++  ];
++  editor.children = [{
++    type: 'codeBlock', lang, startCodeBlock: true, children,
++  } as unknown as Descendant];
++  const span = children[index] as unknown as Text;
++  const decorateLine = decorator(editor, true, false, markdown.interactive.parseContent);
++  return labelled(span, decorateLine([span, [0, index]]));
++};
++
++describe('editor markdown decorator rendered text for a code line split by an emoji', () => {
++  it.each([
++    ['js', 'const s = "a ', ' b";', 0, '"const":hljs-keyword " s = ":- "\\"a ":hljs-string'],
++    ['js', 'const s = "a ', ' b";', 2, '" b\\"":hljs-string ";":-'],
++    ['js', '// c ', ' d', 2, '" d":hljs-comment'],
++    ['js', 'const s = "a " + ', ' + 1;', 2, '" + ":- "1":hljs-number ";":-'],
++  ] as const)(
++    'in a %j block before %j and after %j the text node at %i colours as %s',
++    (lang, before, after, index, leaves) => {
++      expect(renderedSplitCodeLine(lang, before, after, index)).toBe(leaves);
++    },
++  );
++});
+diff --git a/src/components/SlateEditor/utils/decorator.tsx b/src/components/SlateEditor/utils/decorator.tsx
+index 6e90340..0cdd886 100644
+--- a/src/components/SlateEditor/utils/decorator.tsx
++++ b/src/components/SlateEditor/utils/decorator.tsx
+@@ -2,68 +2,119 @@ import hljs from 'highlight.js';
+ import { Editor, Text } from 'slate';
+ 
+ import createLeaf from './createLeaf';
++import flattenNodeText from './flattenNodeText';
+ 
+ import type { Emitter, Node } from 'highlight.js';
+ import type { InteractiveParser, MarkdownTypes, StrictSingleASTNode } from 'simple-markdown';
+-import type { Element, NodeEntry, Range } from 'slate';
++import type {
++  Element, NodeEntry, Path, Range,
++} from 'slate';
+ import type { DecoratedLeaf } from './createLeaf';
+ 
+-const OFFSETS = new Map<undefined | MarkdownTypes, number>([
++type SourcedNode = StrictSingleASTNode & { source?: string, markerWidth?: number };
++
++const DELIMITERS = new Map<undefined | MarkdownTypes, number>([
+   ['em', 1],
+   ['strong', 2],
+   ['u', 2],
+   ['s', 2],
+   ['spoiler', 2],
+-  ['link', 1],
+ ]);
+ 
+-function reduceAdjacentSyntax(acc: number, ast: StrictSingleASTNode, reverse?: boolean): number {
+-  const { content } = ast;
+-  if (!content || !Array.isArray(content)) return acc;
++function sourceOf(ast: SourcedNode): string {
++  return ast.source ?? ast.content as string;
++}
+ 
+-  const child = reverse ? content.at(-1) : content[0];
+-  if (!child) return acc;
++function unflattened(nodes: SourcedNode[]): SourcedNode[] {
++  return nodes.map((a) => (a as { node?: SourcedNode }).node ?? a);
++}
+ 
+-  const offset = OFFSETS.get(child?.type) ?? 0;
+-  acc += offset;
+-  if (!offset) return acc;
++function childrenOf(ast: SourcedNode): SourcedNode[] {
++  return Array.isArray(ast.content) ? unflattened(ast.content as SourcedNode[]) : [];
++}
+ 
+-  return reduceAdjacentSyntax(acc, child, reverse);
++function contentWidth(ast: SourcedNode): number {
++  return childrenOf(ast).reduce((width, a) => width + sourceOf(a).length, 0);
+ }
+ 
+-function walkAst(leaf: DecoratedLeaf, ast: StrictSingleASTNode, edgeChild: { first?: boolean, last?: boolean } = {}) {
+-  if ('content' in ast) {
+-    if (leaf.lang !== '' && typeof ast.content === 'string') {
+-      handleCodeBlockRange(leaf, leaf.lang, ast.content);
+-      return;
+-    }
++function isMaskedLink(ast: SourcedNode): boolean {
++  return ast.type === 'link' && sourceOf(ast).startsWith('[');
++}
+ 
+-    const offset = OFFSETS.get(ast.type);
+-    if (offset && !edgeChild.first) leaf.grow(offset + reduceAdjacentSyntax(0, ast), 'syntax');
++function openingWidth(ast: SourcedNode): number {
++  const delimiter = DELIMITERS.get(ast.type);
++  if (delimiter) return delimiter;
++  if (ast.type === 'link') return /^[[<]/.test(sourceOf(ast)) ? 1 : 0;
++  return ast.markerWidth ?? 0;
++}
+ 
+-    const branch = leaf.branch(ast);
++function closingWidth(ast: SourcedNode): number {
++  return sourceOf(ast).length - openingWidth(ast) - contentWidth(ast);
++}
+ 
+-    const astContent = ast.content;
+-    if (Array.isArray(astContent)) astContent.forEach((a) => walkAst(leaf, a, { first: a === astContent.at(-1) }));
+-    else if (typeof astContent === 'string') leaf.jump(astContent.length);
+-    branch?.final();
++function adjacentClosingWidth(ast: SourcedNode): number {
++  if (DELIMITERS.has(ast.type)) return closingWidth(ast);
++  if (ast.type === 'link' && !isMaskedLink(ast)) return closingWidth(ast);
++  return 0;
++}
+ 
+-    if (offset && !edgeChild.last) leaf.grow(offset + reduceAdjacentSyntax(0, ast, true), 'syntax');
+-    if (ast.type === 'link' && ast.target) {
+-      leaf.grow(1, 'syntax');
+-      leaf.grow(ast.target.length, 'linkText');
+-      leaf.grow(1, 'syntax');
+-    }
++function reduceAdjacentSyntax(acc: number, ast: SourcedNode, reverse?: boolean): number {
++  const children = childrenOf(ast);
++  const child = reverse ? children.at(-1) : children[0];
++  if (!child) return acc;
++
++  const width = reverse ? adjacentClosingWidth(child) : openingWidth(child);
++  acc += width;
++  if (!width) return acc;
+ 
+-    if (ast.type === 'text') return;
++  return reduceAdjacentSyntax(acc, child, reverse);
++}
++
++function growMaskedLinkClosing(leaf: DecoratedLeaf, ast: SourcedNode, closing: number) {
++  const bracket = 1 + reduceAdjacentSyntax(0, ast, true);
++  const labelEnd = openingWidth(ast) + contentWidth(ast);
++  const target = ast.targetSource as string;
++  const targetStart = sourceOf(ast).indexOf(target, labelEnd + 2) - labelEnd;
++  leaf.grow(targetStart - 1 + bracket, 'syntax');
++  leaf.grow(target.length, 'linkText');
++  leaf.grow(closing - targetStart - target.length, 'syntax');
++}
+ 
++function walkAst(
++  leaf: DecoratedLeaf,
++  ast: SourcedNode,
++  edgeChild: { first?: boolean, last?: boolean } = {},
++) {
++  if (!('content' in ast)) {
++    if (ast.type === 'codeBlock') {
++      leaf.grow(3, 'syntax');
++      leaf.grow(ast.lang.length, hljs.getLanguage(ast.lang) ? 'lang' : undefined);
++    } else {
++      leaf.jump(sourceOf(ast).length);
++    }
+     return;
+   }
+ 
+-  if (ast.type === 'codeBlock') {
+-    leaf.grow(3, 'syntax');
+-    leaf.grow(ast.lang.length, hljs.getLanguage(ast.lang) ? 'lang' : undefined);
++  const opening = openingWidth(ast) + reduceAdjacentSyntax(0, ast);
++  if (!edgeChild.first) leaf.grow(opening, 'syntax');
++
++  const branch = leaf.branch(ast);
++
++  const astContent = ast.content;
++  if (Array.isArray(astContent)) {
++    const children = childrenOf(ast);
++    children.forEach((a, i) => walkAst(leaf, a, { first: i === 0, last: i === children.length - 1 }));
++  } else if (typeof astContent === 'string') leaf.jump(sourceOf(ast).length);
++  branch?.final();
++
++  if (!Array.isArray(astContent)) return;
++  const closing = closingWidth(ast);
++  if (isMaskedLink(ast)) {
++    growMaskedLinkClosing(leaf, ast, closing);
++    return;
+   }
++  const trailing = closing + reduceAdjacentSyntax(0, ast, true);
++  if (trailing && !(edgeChild.last && adjacentClosingWidth(ast))) leaf.grow(trailing, 'syntax');
+ }
+ 
+ function handleCodeBlockRange(leaf: DecoratedLeaf, lang: string, content: string) {
+@@ -98,6 +149,7 @@ function normalizeAst(ast: StrictSingleASTNode[]): StrictSingleASTNode[] {
+     if (prevNode && 'content' in a && 'content' in prevNode) {
+       if (MERGE_NODES.has(a.type) && MERGE_NODES.has(prevNode?.type) && typeof prevNode.content === 'string' && typeof a.content === 'string') {
+         prevNode.content += a.content;
++        (prevNode as SourcedNode).source = sourceOf(prevNode) + sourceOf(a);
+       } else if (Array.isArray(a.content)) {
+         normalized.push({ ...a, content: normalizeAst(a.content) } as StrictSingleASTNode);
+       } else {
+@@ -145,15 +197,33 @@ function normalizeRanges(ranges: Range[]): Range[] {
+   return normalized;
+ }
+ 
+-export default (editor: Editor, mounted: boolean, isEmbed: boolean, parserContent: InteractiveParser) => ([node, path]: NodeEntry): Range[] => {
++function codeLineRanges(leaf: DecoratedLeaf, line: Element, path: Path): Range[] {
++  const start = line.children.slice(0, path.at(-1)).map((c) => flattenNodeText(c)).join('').length;
++  handleCodeBlockRange(leaf, line.lang, flattenNodeText(line));
++  return normalizeRanges(leaf.ranges).map((range) => ({
++    ...range,
++    anchor: { ...range.anchor, offset: range.anchor.offset - start },
++    focus: { ...range.focus, offset: range.focus.offset - start },
++  }));
++}
++
++export default (
++  editor: Editor,
++  mounted: boolean,
++  isEmbed: boolean,
++  parserContent: InteractiveParser,
++) => ([node, path]: NodeEntry): Range[] => {
+   if (!Text.isText(node)) return [];
+   const [ancestor] = Editor.above(editor, { at: path }) as NodeEntry<Element>;
+ 
+-  const ast = parserContent(node.text, { inCodeBlock: ancestor.startCodeBlock, mounted, isEmbed });
+-  const rootNode = ast[0];
+-  const normalized = Array.isArray(rootNode.content) ? normalizeAst(rootNode.content) : [rootNode];
+   const leaf = createLeaf(path, ancestor.lang);
+-  for (const a of normalized) walkAst(leaf, a);
++  if (ancestor.lang) return codeLineRanges(leaf, ancestor, path);
++
++  const ast = parserContent(node.text, { inCodeBlock: ancestor.startCodeBlock, mounted, isEmbed });
++  const normalized = normalizeAst(ast.flatMap((a) => (
++    a.type === 'paragraph' ? a.content as unknown as StrictSingleASTNode[] : [a]
++  )));
++  for (const a of unflattened(normalized)) walkAst(leaf, a);
+ 
+-  return normalizeRanges(leaf.ranges);
++  return normalizeRanges(leaf.ranges).filter((range) => range.anchor.offset < range.focus.offset);
+ };
+diff --git a/src/utils/markdown/rules.tsx b/src/utils/markdown/rules.tsx
+index 15870b8..cbf4413 100644
+--- a/src/utils/markdown/rules.tsx
++++ b/src/utils/markdown/rules.tsx
+@@ -499,6 +499,14 @@ const baseInteractiveRules: Record<MarkdownTypes, ParserRule | ReactParserRule>
+       return { lang: (capture[1] || '') };
+     },
+   },
++  heading: {
++    ...staticBaseRules.heading,
++    parse(capture, parse, state) {
++      let markerWidth = capture[0].indexOf(capture[1]) + capture[1].length;
++      while (capture[0][markerWidth] === ' ') markerWidth += 1;
++      return { ...staticBaseRules.heading.parse(capture, parse, state), markerWidth };
++    },
++  },
+   link: {
+     ...staticBaseRules.link,
+     match: SimpleMarkdown.inlineRegex(new RegExp(`^\\[(${LINK_INSIDE})\\]\\(${LINK_HREF_AND_TITLE}\\)`)),
+@@ -506,6 +514,7 @@ const baseInteractiveRules: Record<MarkdownTypes, ParserRule | ReactParserRule>
+       const link = {
+         content: parse(capture[1], state),
+         target: unescapeUrl(capture[2]),
++        targetSource: capture[2],
+         title: capture[3],
+       };
+       return link;
+@@ -524,12 +533,19 @@ const baseInteractiveRules: Record<MarkdownTypes, ParserRule | ReactParserRule>
+ export const interactiveBaseRules = Object
+   .entries(baseInteractiveRules)
+   .reduce<Record<string, ParserRule | ReactParserRule>>((rules, [key, rule]) => {
+-    const { match } = rule;
++    const { match, parse } = rule;
+     rules[key as MarkdownTypes] = {
+       ...rule,
+       match: ['text', 'codeBlock'].includes(key)
+         ? match
+         : (source, state, prevCapture) => (state.inCodeBlock ? null : match(source, state, prevCapture)),
++      parse(capture, nestedParse, state) {
++        const node = parse(capture, nestedParse, state);
++        if (Array.isArray(node)) return node;
++        const sourced: { content?: unknown, source: string } = { ...node, source: capture[0] };
++        if (Array.isArray(sourced.content)) Object.defineProperty(sourced.content, 'node', { value: sourced });
++        return sourced;
++      },
+     };
+     return rules;
+   }, {}) as Record<MarkdownTypes, ParserRule | ReactParserRule>;
