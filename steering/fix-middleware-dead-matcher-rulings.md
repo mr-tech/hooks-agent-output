@@ -72,3 +72,14 @@ Fixer's spawn cue by message ~17:4xZ: document `implementation/fix-middleware-de
 not re-run here): suite 2362/2362 exit 0; base build prints the deprecation line once, tip none; tip registers the proxy as nodejs (base
 edge). Two calls not completed at first issue and each re-issued once (fixer's report, recorded in its document). Reviewer brief
 `steering/fix-middleware-dead-matcher-brief-code-reviewer.md`; `code-reviewer-fix-middleware-dead-matcher` started with `tmux-agent spawn`.
+
+## 2026-11-22T17:40 — review approved at 453de76; CR-1 ruled; devops started
+
+Reviewer's spawn cue by message ~17:3xZ: `code-review/fix-middleware-dead-matcher-code-review.md` (record `4823fb3`, read: `Reviewed-At
+453de76187c5…`, Round 1, `APPROVED_WITH_COMMENTS`); 19 production lines re-derived; suite 2362/2362 exit 0; red at `31acb25`, green at
+`453de76`; hazards 1, 2, 4 hold. CR-1 (LOW): the `/preview` matcher entry runs the proxy where nothing reads `x-pathname` (the reader is
+imported only by the message layout) — corrects the common brief's hazard 3. Ruling (this thread's, under his block-04:50 "fix everything"):
+CR-1 does not ride this release (a re-round would move the reviewed tree, and removing it changes what runs on the page the
+preview-image-generator screenshots, unmeasured); it is its own fixer chain, queued after 9f, its determination measuring the
+screenshot path first. Devops brief `steering/fix-middleware-dead-matcher-brief-devops.md` (CR-1 correction carried in its first lines);
+`devops-fix-middleware-dead-matcher` started with `tmux-agent spawn`.
