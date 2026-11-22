@@ -204,3 +204,11 @@ these. Each waits on its own `Review-Trigger`, so nothing is due until a trigger
 - `handoff/fix-website-dependency-audit-first-run-2026-11-21.md`, owned by devops. Its reader R1 (crontab `13 7 21-28 11 *`) closes it
   `Addressed` on a PASS. A FAIL leaves it Open and routes to steering: read the R1 completion row in its changelog and route the fix.
 Start from `steering/website-deps-review-rulings.md`, block "2026-11-21T03:42Z — retire" and the blocks after it.
+
+## website editor: an emoji before formatting may shift its syntax colouring
+
+`interactiveParser` (`src/utils/markdown/utils.ts` L62-76) rewrites a Unicode emoji to its `:name:` form before parsing, so every
+source offset after it is off by the width difference; `🙂 **a**` colours nothing (same at website `8845b7e` and at the decorator fix
+`e6a5766`). Whether the editor ever hands such text to the decorator is read from code only (the normaliser moves emoji out of text
+leaves). Next: probe reachability in a mounted editor; fix if reachable (its own fixer chain, effort `fixer-queue-2026-11-21`, after 9f).
+Found by `fixer-fix-decorator-offsets`; routed by `steering-hooks-fixer`, 2026-11-22 (`steering/fix-decorator-offsets-rulings.md`).

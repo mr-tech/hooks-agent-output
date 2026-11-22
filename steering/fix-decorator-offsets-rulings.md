@@ -74,3 +74,15 @@ at root, with literal expectations. Heading markers are coloured as syntax, like
 he can veto). Write set extends to `src/utils/markdown/rules.tsx` where a node must carry its width. The queued chain
 `fix-decorator-headings` (block 20:31) folds into this one and is withdrawn. Stage set: unchanged in order; at 20 or more production lines
 QA Phase 2 is restored (`qa-fix-decorator-offsets`, started by this thread on the reviewer's approval). Sent to the fixer and the reviewer.
+
+## 2026-11-22T21:13 — round 2 handed to the reviewer at e6a5766; QA restored; the emoji pre-transform routed
+
+Fixer's cue by message ~21:2xZ: document record `c88dbcd4` ("Round 2"), `Handoff-At: e6a5766 — repos=website` (read). This thread's
+numstat `8845b7e..e6a5766`: `decorator.tsx` 102/39, `rules.tsx` 9/1, test 410/0 — production 20 or more, so QA Phase 2 is restored
+(block 20:44), started by this thread on the reviewer's approval. Fixer's figures (not re-run here): reviewer's corpus 0 clean→wrong over
+36,000 rows; 227 cases, 38/38 negative controls; suite 2593/2593 exit 0. Relayed to `code-reviewer-fix-decorator-offsets` by message.
+Found outside the write set (fixer): `interactiveParser` (`src/utils/markdown/utils.ts` L62-76) rewrites a Unicode emoji to `:name:`
+before parsing, changing source widths after it; `🙂 **a**` colours nothing at base or fix (not worse); reachability through the editor's
+normaliser read from code, not run. Disposition (this thread's, under block 04:50): same class, outside this write set — a probe of
+whether the editor ever hands such text to the decorator, then a fix if it does, as its own item queued after 9f (`TODO.md`). Fixer's
+disclosure (a negative control once in the shared tree, restored) is in its document. Fixer asked for `/checkpoint` (past threshold).
