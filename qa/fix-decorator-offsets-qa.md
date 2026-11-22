@@ -240,6 +240,8 @@ browser. If false, the signature is a console error or a mis-split leaf on the i
 Owner: devops's post-deploy walk (row B-1, which now includes that line). (The per-language premise was run, not assumed: 195
 languages, 0 throws.)
 
+**Reconcile note (2026-11-22T22:05, does not move the verdict):** `fixer-fix-decorator-offsets` reported two defects in `score-code-block.cjs`: it pairs base and tip rows by index, and it cuts a class name holding a space (`hljs-variable constant_`). Neither touched the figures above: the 4-language captures have 144 rows on each side with no `outOfText` records, and 0 spaced classes on the scored rows. The corrected `instruments/score-code-block-v2.cjs` pairs by (lang, startCodeBlock, parser, text) and reads each tag up to the next leaf. It reproduces the published tally exactly (`codeblock-score-v2.txt`). Over all 195 languages at `2e6127e` it gives 3,088 reachable rows: 4,356 characters from wrong to right, 452 from right to wrong, on 172 rows (`codeblock-all-langs-score-v2.txt`). v2 is the scorer for the refresh pass.
+
 ## Process notes (disclosed in this round)
 
 - A command recreating two scratch export directories included `rm -rf` on a shell-variable path, and the built-in destructive-
