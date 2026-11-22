@@ -10,6 +10,23 @@ Origin-Chain: none
 
 # fix-emoji-pretransform-widths — implementation
 
+## Resumption State
+
+Written at the usage-gate checkpoint 2026-11-22T23:47Z (steering-hooks-fixer: weekly_all reached 98%; the chain resumes after
+2026-11-25T09:00Z).
+
+- **Done.** Round 1 and Round 2 (CR-1) are committed on website `chain/fix-emoji-pretransform-widths`. HEAD is `0411d3b`, which is
+  `Handoff-At`. Code review: `code-review/fix-emoji-pretransform-widths-code-review.md`, Verdict `APPROVED_WITH_COMMENTS` at
+  `0411d3b` (record `83e02c84`); CR-1 resolved, CR-2 declined (outside the write set).
+- **Next.** QA Phase 2 at `0411d3b` (83 production lines), started by steering. My next act comes only if QA fails the fix: a fix
+  round, handed straight to the code reviewer. After QA comes devops's merge to website `master`.
+- **In flight:** nothing. Nothing is uncommitted or locally mutated in website. Every red run, control and probe output is
+  committed under `verification/fix-emoji-pretransform-widths/`. All scratch exports are removed. The untracked
+  `verification/fix-emoji-pretransform-widths/qa/` is QA's, not mine.
+- **Messages sent:** the round-1 spawn cue and the round-2 note to `steering-hooks-fixer`, including the candidate separate defect
+  (heading ranges past the line end, Round 2 "Found, not absorbed"). The round-2 handoff went to
+  `code-reviewer-fix-emoji-pretransform-widths`, which has answered. No question is open.
+
 ## Round 2: CR-1, an emoji next to a name the rename manufactured (review Round 1 at `c2fee5c`, REJECTED)
 
 The round-1 sections below record the work through `c2fee5c`. This section and its rows are authoritative from round 2 on: the
@@ -306,3 +323,4 @@ Unchanged on purpose: an emoji inserted into the editor is still saved and copie
 |---|---|
 | 2026-11-22T23:14 | Created at hand-off. Fix committed at `1da7727`, `8cb9265`, `c2fee5c`. Red, controls and verification captured under `verification/fix-emoji-pretransform-widths/`. `Handoff-At: c2fee5c`. |
 | 2026-11-22T23:31 | Round 2 (CR-1, review Round 1 REJECTED at `c2fee5c`): straddling emoji nodes are left unconverted, committed at `0411d3b`; red at `c2fee5c`, 17 controls KILLED, reviewer's probe 0 regressions; `Handoff-At: 0411d3b`. CR-2 not taken (outside the write set). |
+| 2026-11-22T23:47 | Resumption State written at the usage-gate checkpoint; code review APPROVED_WITH_COMMENTS at `0411d3b` (record `83e02c84`); QA Phase 2 owed. |
