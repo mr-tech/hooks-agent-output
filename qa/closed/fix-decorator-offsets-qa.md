@@ -3,8 +3,8 @@ ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
 Verified-At: "febf20e39905c977b0d42081137817cb7b704478 — repos=website; production blobs identical to 24eda1c, where C1 was measured"
-Status: QA Complete
-Status-Detail: "Phase 2 refresh at website febf20e: QA Complete. QAF-1 and QAF-2 resolved; the chain is capped (rulings 22:27), so the remaining gaps are stated limits. Open: B-1, post-deploy, owner devops."
+Status: Committed
+Status-Detail: "Committed with the chain at website febf20e on chain/fix-decorator-offsets (devops Stage 1, 2026-11-22). Phase 2 verdict QA Complete at febf20e; QAF-1 and QAF-2 resolved; stated limits under the cap (rulings 22:27). Row B-1 (post-deploy, owner devops) is carried by handoff/fix-decorator-offsets-post-deploy-browser-look-2026-11-22.md."
 Phase: 2
 ---
 
@@ -29,6 +29,7 @@ production lines (block 20:44).
 | 2026-11-22T21:51 | `steering-hooks-fixer` (brief `steering/fix-decorator-offsets-brief-qa.md`) | Phase 2 at website `2e6127e` | Phase 2: **QA Failed**. Suite 2594/2594 exit 0, typecheck exit 0. Mutation sweep 97 of 101 killed; the 4 survivors are 2 equivalent mutants and 2 that expose QAF-1. Three instruments find 0 inputs worse than base, outside code blocks. QAF-1 MEDIUM: lines inside a fenced code block with a language now render differently from base (32 characters move from wrong to right, 4 from right to wrong), and no test asserts them. The emoji assumption is answered: false for an escaped emoji. Two separate emoji defects in the editor (pre-existing, identical at base) go to steering. |
 | 2026-11-22T22:24 | `steering-hooks-fixer` (message; rounds 4–5, review record `58a83897`) | Phase 2 refresh at website `24eda1c` | Phase 2: **QA Failed**. QAF-1 resolved. QAF-2 MEDIUM: `codeLineRanges`'s `normalizeRanges` call (enclosing class on a nested highlight scope, e.g. `${y}` in a template string) has no assertion; its mutant survives. Otherwise clean: suite 2612/2612 exit 0, typecheck 0, sweep 17 of 18 over the round's diff; outside code lines byte-identical to `2e6127e`; inside code lines 0 characters regress against base or `2e6127e` (195 languages, split lines 131/131). |
 | 2026-11-22T22:33 | `code-reviewer-fix-decorator-offsets` (scoped confirmation, record `4dfe5b40`); fixer round 6 (record `c25925bb`) | QAF-2 survivor re-run at website `febf20e` | Phase 2: **QA Complete**. Test-only delta; production blobs identical to `24eda1c`. Suite 2614/2614 exit 0, typecheck 0. `qa-code-ranges-not-normalized` KILLED by the 2 new rows, whose expectation matches whole-line highlight.js. One stated limit under the cap (an outer scope that is the line's first range; CR-4's class, carried by `fix-decorator-nested-styles`). |
+| 2026-11-22T22:35 | `devops-fix-decorator-offsets` | Document closed (devops Stage 1) | Status: Committed. (Disclosed: this row was first written with a stamp of 22:36, ahead of the clock; the stamp gate caught it and the row now carries the `date -u` minute.) Carried at website `febf20e`; verdict QA Complete unchanged. B-1 and both browser-side Assumptions Not Checked are carried by `handoff/fix-decorator-offsets-post-deploy-browser-look-2026-11-22.md`; the custom-emoji assumption by `fix-emoji-pretransform-widths` (rulings block 22:19); the nested-scope limit by `fix-decorator-nested-styles` (block 22:30). |
 
 ## Criteria assessed (recorded before execution)
 

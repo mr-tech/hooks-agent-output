@@ -3,7 +3,8 @@ ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
 Reviewed-At: febf20e39905c977b0d42081137817cb7b704478 — repos=website; production files identical to 24eda1c (test-only delta)
-Status: In Review
+Status: Committed
+Status-Detail: "Committed with the chain at website febf20e on chain/fix-decorator-offsets (devops Stage 1, 2026-11-22); verdict APPROVED at febf20e unchanged; awaiting release to website master."
 Round: 1
 Verdict: APPROVED
 ---
@@ -23,6 +24,7 @@ directory root; the sub-entry at `e6a5766` is in `tip-e6a5766/`.
 
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
+| 2026-11-22T22:35 | `devops-fix-decorator-offsets` | Document closed (devops Stage 1) | Status: Committed. (Disclosed: this row was first written with a stamp of 22:36, ahead of the clock; the stamp gate caught it and the row now carries the `date -u` minute.) Carried at website `febf20e`; verdict APPROVED unchanged. Round 1's Assumption Not Checked (real-browser leaf splitting) is carried by `handoff/fix-decorator-offsets-post-deploy-browser-look-2026-11-22.md`; the emoji assumption was answered by QA; CR-4 and CR-6 are carried by the queued chain `fix-decorator-nested-styles`, the code-line emoji text loss by `fix-emoji-pretransform-widths` (rulings blocks 21:21, 22:13, 22:19). |
 | 2026-11-22T20:43 | `steering-hooks-fixer` (brief `steering/fix-decorator-offsets-brief-code-reviewer.md`) | Round 1 review of website `f57c260` | Round 1: REJECTED. CR-1 HIGH (bare URL at a run's edge, right → wrong); CR-2 MEDIUM to steering (other width faults moved). Argument in record `f6b9baa6`. |
 | 2026-11-22T20:44 | `steering-hooks-fixer` | Ruling on CR-2 and write set | Round 1 note: re-scope to every node kind's source width; `rules.tsx` joins the write set; QA at 20+ lines. Record `2dc9572d`. |
 | 2026-11-22T21:19 | `steering-hooks-fixer` (fixer hand-off, record `c88dbcd4`) | Round 1 sub-entry: re-review at website `e6a5766` | Round 1 sub-entry: APPROVED_WITH_COMMENTS. CR-1 and CR-2 resolved, measured by two instruments of different shape: 0 inputs colour worse than at base. CR-3 LOW (heading marker regex duplicated with a non-null assertion). CR-4 MEDIUM (a test row pins a pre-existing missing-outer-class defect; the defect is put to steering). 111 production lines, so QA Phase 2 is restored. Process note for the retrospective: the fixer disclosed one negative control run in the shared tree, restored before commit; the reviewed tree is the committed `e6a5766`, read from an export. |

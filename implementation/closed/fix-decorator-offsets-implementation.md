@@ -2,22 +2,15 @@
 ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
-Status: Active
-Status-Detail: "Round 6 (QA refresh at 24eda1c QA Failed on QAF-2, test-only) at website febf20e, handed to QA for the survivor re-run; production code unchanged since the approved 24eda1c; 128 production lines; merge to website master by devops on the owner's word."
+Status: Committed
+Status-Detail: "Committed at website febf20e on chain/fix-decorator-offsets (devops Stage 1, 2026-11-22); awaiting release to website master on the owner's word. Post-deploy row B-1 carried by handoff/fix-decorator-offsets-post-deploy-browser-look-2026-11-22.md."
 Handoff-At: febf20e — repos=website
 Origin-Chain: none
 ---
 
 # fix-decorator-offsets — implementation
 
-## Resumption State (2026-11-22T23:05Z, round 6 handed off)
-
-- **Done:** QAF-2's test row committed on website `chain/fix-decorator-offsets`, HEAD `febf20e` (test-only; `a94735b` a first fixture, replaced);
-  evidence under `verification/fix-decorator-offsets/round6/`; hand-off sent to `qa-fix-decorator-offsets`, copied to `steering-hooks-fixer`
-  and `code-reviewer-fix-decorator-offsets`.
-- **Next:** wait for QA's re-run of its survivor at `febf20e`. On findings: re-read Rounds 4 to 6.
-- **Approach in flight:** none. **Uncommitted / locally mutated:** none of mine; website tree clean apart from `.playwright-mcp/`; scratch
-  worktrees removed.
+Closed at devops Stage 1: the chain's work is committed on `chain/fix-decorator-offsets` at website `febf20e`; no resumption is owed.
 
 ## Round 6: QAF-2, a code line with a nested scope (QA Phase 2 refresh at `24eda1c`, test-only)
 
@@ -616,3 +609,4 @@ For the owner's own look in any editor text box (message content, embed title, e
 | 2026-11-22T22:45 | — | Round 5 (CR-5, review REJECTED `a7e1adb`): a code line is highlighted once as its whole element line and each text node gets its part, website `7708a8a`; four limbs the leaf splitter makes redundant removed, `24eda1c`. Split probe 131/131; scorer v2 0 right→wrong; corpus identical; red 2 at `a7e1adb`; controls 9 of 9; suite 2612/2612, typecheck and lint exit 0. 128 production lines. `Handoff-At` `24eda1c`; handed to code review for a scoped check. |
 | 2026-11-22T22:50 | — | Code review scoped check APPROVED at website `24eda1c` (record `58a83897`). Round 5's claim about the removed limbs corrected: the code-line path also no longer drops empty ranges, which CR-6 LOW shows highlight.js can emit; not worse than base; routed to `fix-decorator-nested-styles`. QA Phase 2 refresh owed. |
 | 2026-11-22T23:05 | — | Round 6 (QAF-2, QA refresh at `24eda1c` QA Failed): two test rows with a nested highlight scope (`print(f"a {b}")`), website `febf20e`; QA's survivor KILLED by them; suite 2614/2614, typecheck and lint exit 0; no production change. A nested scope whose outer scope is a line's first range loses the outer class (CR-4's class): recorded and routed. `Handoff-At` `febf20e`; handed to QA. |
+| 2026-11-22T22:35 | `devops-fix-decorator-offsets` | Document closed (devops Stage 1): committed state recorded at website `febf20e` on `chain/fix-decorator-offsets`, no push. Status: Committed. Resumption State replaced by a closing line. |
