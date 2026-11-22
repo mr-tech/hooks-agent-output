@@ -21,3 +21,22 @@ nothing — the mounted runs needed a scratch `isContentEditable` polyfill under
   B "Agent: don't fix". Chosen: **A**.
 
 Determination, stage set and branch cut: when the website tree is free of chain 7 (and chain 8 per the order), from that tip.
+
+## 2026-11-22T18:49 — determination and stage set
+
+Website `master` is free (chain 8 released at `453de76`, block "released and live" in its rulings). Premises re-read at `origin/master`
+`453de76`: `git diff --stat 132a7ab origin/master -- src/components/SlateEditor/` empty, so the sweep's sites stand; `onCopy.ts` read
+whole (the cut branch deletes `at: editor.selection` with no expanded check); no test under `src/components/SlateEditor/`.
+`release-move.js --dry-run` on `master` `453de76`: every check passed ("sibling serving refs (none)"), no workflows (18:49Z).
+**Determination.** Shape: defect, cause proven (sweep + refutation, block 02:09). Blast radius: every editor built on `SlateEditor`
+(the sweep's six surfaces). End step: website `master`, Vercel production. Pipeline: the `fixer` agent.
+**Scope statement** (website, from `origin/master` `453de76`): the cut branch of `src/components/SlateEditor/utils/onCopy.ts` deletes only
+an expanded selection; a collapsed caret cuts nothing. Copy is unchanged. A test proves both (collapsed: text unchanged; expanded:
+highlighted text removed). Write set: `onCopy.ts`, one new test file named per Test Conventions beside the code it covers, the fixer's
+document and `verification/fix-cut-collapsed-caret/`. Exclusions: slate-react's own `onCut` (third-party); the copy path's clipboard
+behaviour; the six surfaces' own code (they pass the handler through).
+**Stage set:** `fixer-fix-cut-collapsed-caret` → `code-reviewer-fix-cut-collapsed-caret` (under 20 production lines: the reviewer also
+runs the suite, typecheck and the red test) → devops for website `master` (his word). No plan, critic, Phase 1, QA or UAT; 20 or more
+production lines restores QA Phase 2. **Hazard:** jsdom lacks `isContentEditable` (refutation needed a scratch polyfill): the
+environment-fidelity convention binds — a test asserting a path jsdom cannot model is not written; the handler can be called directly.
+**Not covered:** a real browser's cut event.
