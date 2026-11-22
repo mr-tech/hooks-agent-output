@@ -1,0 +1,72 @@
+{
+ "sha": "329cc20714c8b956a79ed2459f67d2fb13657ada",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-cut-collapsed-caret/code-review/mutants.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 240.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-cut-collapsed-caret/code-review/mutants.json",
+   "blob": "06c7b31c2875214c82d77a7e16cd21a965d1dfd6"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-cut-collapsed-caret/code-review/probe/329cc20714c8b956a79ed2459f67d2fb13657ada-20261122T190823Z-p1699703-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-cut-collapsed-caret/code-review/probe/329cc20714c8b956a79ed2459f67d2fb13657ada-20261122T190823Z-p1699703-control-1.stderr",
+   "seconds": 3.8,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 3,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "cut-conjunct-dropped",
+   "run": "mutant-1",
+   "file": "src/components/SlateEditor/utils/onCopy.ts",
+   "tests": [],
+   "carried": {
+    "expect": "Copy (cut=false) on a highlighted range or a clicked emoji now deletes it; a case asserting Copy leaves the text unchanged is red"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 3,
+   "control_tests_run": 3,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 3.04,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-cut-collapsed-caret/code-review/probe/329cc20714c8b956a79ed2459f67d2fb13657ada-20261122T190823Z-p1699703-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-cut-collapsed-caret/code-review/probe/329cc20714c8b956a79ed2459f67d2fb13657ada-20261122T190823Z-p1699703-mutant-1.stderr"
+  }
+ ],
+ "score": "0 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob 06c7b31c2875214c82d77a7e16cd21a965d1dfd6))"
+}

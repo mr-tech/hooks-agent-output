@@ -1,0 +1,9 @@
+[
+  {
+    "id": "cut-conjunct-dropped",
+    "file": "src/components/SlateEditor/utils/onCopy.ts",
+    "old": "if (cut && (Range.isExpanded(selection)",
+    "new": "if (true && (Range.isExpanded(selection)",
+    "expect": "Copy (cut=false) on a highlighted range or a clicked emoji now deletes it; a case asserting Copy leaves the text unchanged is red"
+  }
+]
