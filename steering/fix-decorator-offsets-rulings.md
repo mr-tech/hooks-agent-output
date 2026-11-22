@@ -153,6 +153,7 @@ test-only (no assertion on `codeLineRanges`' `normalizeRanges` call), routed to 
 `fix-emoji-pretransform-widths` (custom Discord emoji through the picker in a mounted editor, read not run) is that chain's.
 **Cap (steering.md, Standing check):** this chain has taken two post-approval revisions (rounds 3-5 after approvals at `e6a5766` and
 `2e6127e`), two code-review rejections and two QA failures. Spend since its start (`cc-usage.py chain fix-decorator-offsets --since
-2026-11-22T20:15`): \$44.55 over four sessions (fixer two generations \$24.87; reviewer \$10.27; QA \$9.41), about 2 h 40 min. From
+2026-11-22T20:15`): $44.55 over four sessions (fixer two generations $24.87; reviewer $10.27; QA $9.41), 2 h 12 min (20:15Z to
+22:27Z, `date -u`). From
 here every gap below HIGH, a gate's severity-floor finding excepted, is recorded as a stated limit in the gate's document without a new
 round; QAF-2, already routed, completes. Told the reviewer and QA; told him in chat.
