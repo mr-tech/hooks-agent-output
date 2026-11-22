@@ -2,10 +2,10 @@
 ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
-Reviewed-At: e6a57665600c8897d3f71e9b69cb52119b522283 — repos=website
+Reviewed-At: 2e6127e3170a1a31524e24321fec6a90b43703a3 — repos=website
 Status: In Review
 Round: 1
-Verdict: APPROVED_WITH_COMMENTS
+Verdict: APPROVED
 ---
 
 # Code Review: fix-decorator-offsets
@@ -26,6 +26,7 @@ directory root; the sub-entry at `e6a5766` is in `tip-e6a5766/`.
 | 2026-11-22T20:43 | `steering-hooks-fixer` (brief `steering/fix-decorator-offsets-brief-code-reviewer.md`) | Round 1 review of website `f57c260` | Round 1: REJECTED. CR-1 HIGH (bare URL at a run's edge, right → wrong); CR-2 MEDIUM to steering (other width faults moved). Argument in record `f6b9baa6`. |
 | 2026-11-22T20:44 | `steering-hooks-fixer` | Ruling on CR-2 and write set | Round 1 note: re-scope to every node kind's source width; `rules.tsx` joins the write set; QA at 20+ lines. Record `2dc9572d`. |
 | 2026-11-22T21:19 | `steering-hooks-fixer` (fixer hand-off, record `c88dbcd4`) | Round 1 sub-entry: re-review at website `e6a5766` | Round 1 sub-entry: APPROVED_WITH_COMMENTS. CR-1 and CR-2 resolved, measured by two instruments of different shape: 0 inputs colour worse than at base. CR-3 LOW (heading marker regex duplicated with a non-null assertion). CR-4 MEDIUM (a test row pins a pre-existing missing-outer-class defect; the defect is put to steering). 111 production lines, so QA Phase 2 is restored. Process note for the retrospective: the fixer disclosed one negative control run in the shared tree, restored before commit; the reviewed tree is the committed `e6a5766`, read from an export. |
+| 2026-11-22T21:29 | `fixer-fix-decorator-offsets` (record `21813123`) | Round 1 fix confirmation at website `2e6127e` | Round 1 sub-entry: APPROVED. CR-3 and CR-4 resolved. Corpus, grammar oracle and heading edges identical to `e6a5766` (0 rows differ). Suite 2594/2594 exit 0, typecheck exit 0, red 151/77. 116 production lines, so QA Phase 2. |
 | 2026-11-22T21:21 | `steering-hooks-fixer` | Ruling on CR-4 | Round 1 note: CR-4's defect goes to the queued chain `fix-decorator-nested-styles`; the fixer swaps the pinning fixture and takes CR-3; a scoped check of that delta comes before QA Phase 2. |
 
 **Ruled 2026-11-22T21:21** (`steering/fix-decorator-offsets-rulings.md` block "2026-11-22T21:21"): the CR-4 defect goes to its own
@@ -123,62 +124,48 @@ None.
 
 ### Medium
 
-CR-4 MEDIUM Round 1
-- **Category**: Test Conventions (axiom D) / pre-existing defect found along the way
-- **Title**: A test row asserts a known-wrong missing spoiler class; the class-propagation defect behind it is pre-existing
-- **Location**: `src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts`, table "rendered text for shapes
-  whose widths cancelled or shifted before", rows `content` and `field` for `__||c d[a](https://x.y)\*https://x.y||`. These expect
-  `"https://x.y":linkText` for a URL inside a spoiler. Defect site: `decorator.tsx`, `normalizeRanges`, which inherits classes only
-  from the previous non-syntax range (`prevMarkup`), not from every enclosing range.
-- **Class**: A rendered leaf drops the style class of an enclosing run whenever an earlier sibling's range was the last markup seen.
-  For example, base and tip both render `||**a** __b__||` with `b` as `uText` only, without `spoilerText` (`cls-*.json.gz`).
-- **Enumeration**: the grammar oracle's mismatch set: 3,641 of 7,137 rows at the tip, every one a missing enclosing class
-  (`oracle-summary.txt`). It is present at base in those rows or worse, so it is not a regression. In the test file I read all 221
-  table rows: only the two rows above assert a leaf lacking an enclosing class. Masked-link targets rendering `linkText` alone are the
-  long-standing design and are not counted. **Not matched**: the grammar has no same-kind nesting, `_` emphasis or headings beyond the
-  marker, so the population figure is bounded to the grammar.
-- **Issue**: the row pins a known-wrong value (Test Conventions axiom D). A future fix to class propagation would turn it red and look
-  like a regression. The defect itself is a different property from the 20:44 scope (widths). It is display only and not worse than
-  base: spoilered or struck text loses that style in the editor when it follows a sibling run.
-- **Required Action**:
-  - **Defect**: put to steering (under "fix everything you find along the way") to choose between this chain, which takes QA's line
-    count higher, and its own chain or a handoff. **Preferred (structural)** for whoever takes it: each range carries the classes of
-    every enclosing range, for example an ancestor stack in the walk, so inheritance cannot depend on sibling order.
-  - **Test, if the defect is not taken here**: replace the pinned leaf with a fixture that keeps what the row is for (an escape between
-    a masked link and a bare URL) without an enclosing run around the URL, or with the URL first in its run. **Fixture property**: no
-    leaf in the expectation may sit after a sibling run inside a shared enclosing run. This is a test-only diff, the scoped check here,
-    with test adequacy QA's at Phase 2. If the defect is taken, the row's expectation gains `spoilerText` and goes red first.
+CR-4 MEDIUM Round 1 RESOLVED: the pinning fixture was replaced at `2e6127e` by `__||c d[a](https://x.y)||\*https://x.y` for the
+content and field rows (the spoiler closes after the link). No leaf in the expectation now sits after a sibling run inside a shared
+enclosing run; I read both rows against the text. The defect itself went to the queued chain `fix-decorator-nested-styles`
+(rulings block 21:21), with the grammar oracle's rows (`tip-e6a5766/oracle-tip.json.gz`) as its acceptance set. Captured check:
+`decorator.emphasis-syntax-ranges.test.ts`, those rows.
 
 ### Low/Info
 
-CR-3 LOW Round 1
-- **Category**: Maintainability (duplicated grammar knowledge)
-- **Title**: The heading marker's width is re-parsed by a second regex with a non-null assertion
-- **Location**: `decorator.tsx`, `HEADING_MARKER` and `openingWidth` (`HEADING_MARKER.exec(sourceOf(ast)) as RegExpExecArray`), against
-  `rules.tsx` `heading.match` (`/^ *(#{1,3}) +([^\n]+?)#* *(?:\n|$)(?:\n|$(?=\s))*/`).
-- **Class**: The decorator re-derives a node's geometry from source text with its own pattern instead of reading what the parsing rule
-  captured. If the two patterns drift, `exec` returns `null` and decorate throws on every render of that line.
-- **Enumeration**: `git grep -nE "HEADING_MARKER|startsWith\('\['\)|/\^\[\[<\]/" e6a5766 -- src/components/SlateEditor/utils/decorator.tsx`
-  → 4 lines, 3 sites: the `HEADING_MARKER` declaration and its use in `openingWidth`, `isMaskedLink`, and the link opening in
-  `openingWidth`. Only the heading site carries a cast that can throw. The other two fall
-  back to 0 or false. Today the patterns agree: the edge probe's space-only and trailing-`#` headings produce no throw and no negative
-  width. Not matched: geometry implied by `DELIMITERS`, which is the pre-existing table.
-- **Required Action**: **Preferred (structural)**: the heading rule's interactive parse stamps its marker width (`capture[0]` up to
-  the content), as it already stamps `source` (`rules.tsx` is in the write set), and the decorator reads it. **Minimum**: none owed
-  for release. LOW, approved without it.
+CR-3 LOW Round 1 RESOLVED: at `2e6127e` the interactive `heading` rule stamps `markerWidth` from its own captures, and `openingWidth`
+reads `ast.markerWidth ?? 0`. Sweep re-run: `git grep -cE "HEADING_MARKER|as RegExpExecArray" 2e6127e -- src` → 0 (exit 1), so no
+throwing cast is left. The other two source-text sites (`isMaskedLink`, the link opening) fall back to false or 0 and stay as
+recorded. Captured check: the added row `' # **a**'` (leading-space offset) and the heading rows of the test.
+
+### Fix confirmation — website `2e6127e` (2026-11-22T21:29)
+
+Delta `e6a5766..2e6127e` (one commit): `rules.tsx` +8, `decorator.tsx` +2/−5, test +3/−2. Production lines from base: `rules.tsx` 17 +
+`decorator.tsx` 99 = **116**, so QA Phase 2 still applies. Re-verified (`tip-2e6127e/`), in a fresh `git archive` export:
+
+| Check | Result |
+|---|---|
+| Suite | 168 files, 2594/2594 passed, exit 0 (`r3-suite.txt`) |
+| `pnpm run typecheck` | exit 0 (`r3-typecheck.txt`) |
+| Red: tip test against base | 228 cases: 151 failed, 77 passed, exit 1 (`r3-red.txt`) |
+| `convention-check --since=8845b7e` (shared tree at `2e6127e`) | 0 FAIL, 0 CANDIDATE, exit 0 (`r3-convention.txt`) |
+| Corpus probe, `e6a5766` vs `2e6127e` | **0 of 36,000** rows differ (`probe-tip3.json.gz`) |
+| Grammar oracle, `e6a5766` vs `2e6127e` | 0 of 7,137 rows differ; against base, 0 worse (`oracle-tip3.json.gz`) |
+| Edge probe + 6 heading-spacing shapes (`edge3.json`: leading spaces, `  ## **b** ##`, tab, trailing `#  `, mid-line `###`) | 0 of 288 rows differ; 0 throws (`edge3-*.json.gz`) |
+
+The fixer's `markerWidth` takes the first `#` run from `capture[1]` and then every following space. For each heading shape probed,
+including space-only content, that equals the removed greedy `HEADING_MARKER`, so behaviour is unchanged and only the source of
+the width moved.
 
 ## Verdict
 
-**Status**: APPROVED_WITH_COMMENTS (round 1 sub-entry, `e6a5766`)
-**Rationale**: every criterion of block 20:44 is met, and no input colours worse than at base, measured by two independent
-instruments. Suite, typecheck and red run are clean, and the code is coherent. CR-4 is a test row asserting a pre-existing
-class-propagation defect, routed to steering for scope. CR-3 is LOW. No finding changes the release decision.
+**Status**: APPROVED (round 1 sub-entry, fix confirmation at `2e6127e`)
+**Rationale**: every criterion of block 20:44 is met, and no input colours worse than at base by two independent instruments.
+CR-1 to CR-4 are all resolved. The CR-3 change is behaviour-identical on the corpus, the grammar oracle and the heading edge shapes.
+Suite, typecheck and red run are clean.
 
 ## Required Actions
 
-1. CR-4: steering rules whether class propagation joins this chain. If not, the fixer replaces the pinned leaf (test-only, scoped
-   check here) before release.
-2. CR-3: optional.
+None in this chain. CR-4's defect is carried by `fix-decorator-nested-styles`.
 
 ## Assumption Not Checked
 
@@ -194,7 +181,6 @@ text leaf would colour `**a**` at offsets shifted by the rewrite. Owner: QA Phas
 
 ## Next Steps
 
-- **Steering** (`steering-hooks-fixer`): CR-4 scope ruling, and start QA Phase 2 (111 production lines, block 20:44).
-- **QA** (`qa-fix-decorator-offsets`): Phase 2 at `e6a5766`, including the mutation sweep and the sub-entry's assumption above.
-- **Fixer**: CR-4's test row only if steering keeps class propagation out of this chain.
+- **Steering** (`steering-hooks-fixer`): start QA Phase 2 (116 production lines, block 20:44).
+- **QA** (`qa-fix-decorator-offsets`): Phase 2 at `2e6127e`, including the mutation sweep and the sub-entry's assumption above.
 - **Devops**: round 1's assumption, at the post-deploy walk.
