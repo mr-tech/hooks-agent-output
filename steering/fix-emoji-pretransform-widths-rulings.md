@@ -63,3 +63,12 @@ Reviewer's copy by message ~23:3xZ: `code-review/fix-emoji-pretransform-widths-c
 re-derived. CR-3 (pre-existing, decorator ranges past a line's end on some `#` lines) carried in the `TODO.md` item
 "nested formatting loses the outer style" (same function's chain). The reviewer's open assumption (real paste/IME) goes to QA's walk.
 weekly_all 97% (live read this turn).
+
+## 2026-11-22T23:34 — round-1 sub-entry APPROVED_WITH_COMMENTS at 0411d3b; QA Phase 2 started
+
+Fixer's round 2 at `0411d3b` (83 production lines). Reviewer's cue by message ~23:3xZ: record `83e02c84` (read: `Reviewed-At 0411d3ba…`,
+`APPROVED_WITH_COMMENTS`); CR-1 resolved (1,662 lines: load and typing failures 0, base 114 and 525; none newly failing); CR-2 LOW declined
+(type file outside the write set). The decorator `#` rows and the `_`-pairing cosmetic rows join the `TODO.md` nested-styles item.
+Disclosed by the reviewer: its sub-entry was written with a Python heredoc (its changelog row). QA brief
+`steering/fix-emoji-pretransform-widths-brief-qa.md`; `qa-fix-emoji-pretransform-widths` started with `tmux-agent spawn`. weekly_all 97%
+(23:34Z, live).
