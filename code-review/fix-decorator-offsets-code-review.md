@@ -26,6 +26,7 @@ directory root; the sub-entry at `e6a5766` is in `tip-e6a5766/`.
 | 2026-11-22T20:43 | `steering-hooks-fixer` (brief `steering/fix-decorator-offsets-brief-code-reviewer.md`) | Round 1 review of website `f57c260` | Round 1: REJECTED. CR-1 HIGH (bare URL at a run's edge, right → wrong); CR-2 MEDIUM to steering (other width faults moved). Argument in record `f6b9baa6`. |
 | 2026-11-22T20:44 | `steering-hooks-fixer` | Ruling on CR-2 and write set | Round 1 note: re-scope to every node kind's source width; `rules.tsx` joins the write set; QA at 20+ lines. Record `2dc9572d`. |
 | 2026-11-22T21:19 | `steering-hooks-fixer` (fixer hand-off, record `c88dbcd4`) | Round 1 sub-entry: re-review at website `e6a5766` | Round 1 sub-entry: APPROVED_WITH_COMMENTS. CR-1 and CR-2 resolved, measured by two instruments of different shape: 0 inputs colour worse than at base. CR-3 LOW (heading marker regex duplicated with a non-null assertion). CR-4 MEDIUM (a test row pins a pre-existing missing-outer-class defect; the defect is put to steering). 111 production lines, so QA Phase 2 is restored. Process note for the retrospective: the fixer disclosed one negative control run in the shared tree, restored before commit; the reviewed tree is the committed `e6a5766`, read from an export. |
+| 2026-11-22T22:14 | `steering-hooks-fixer` | Ruling on the code-line emoji escalation | Round 1 note: the text loss folds into `fix-emoji-pretransform-widths` (next chain, block 22:13); this chain's scope is unchanged; CR-5 stays with the fixer. Verdict unchanged. |
 | 2026-11-22T22:07 | `fixer-fix-decorator-offsets` (record `b7e392a0`) | Round 1 fix confirmation for QAF-1 at website `a7e1adb` | Round 1 sub-entry: REJECTED, CR-5 MEDIUM (severity floor). A code line split by an emoji element is highlighted per text node; 5 characters right at base are wrong. Lines without a language are identical to `2e6127e`; suite 2608/2608, typecheck 0. A pre-existing data loss (a Unicode emoji in a code line deletes the text after it, base and tip) is escalated to steering. |
 | 2026-11-22T21:29 | `fixer-fix-decorator-offsets` (record `21813123`) | Round 1 fix confirmation at website `2e6127e` | Round 1 sub-entry: APPROVED. CR-3 and CR-4 resolved. Corpus, grammar oracle and heading edges identical to `e6a5766` (0 rows differ). Suite 2594/2594 exit 0, typecheck exit 0, red 151/77. 116 production lines, so QA Phase 2. |
 | 2026-11-22T21:21 | `steering-hooks-fixer` | Ruling on CR-4 | Round 1 note: CR-4's defect goes to the queued chain `fix-decorator-nested-styles`; the fixer swaps the pinning fixture and takes CR-3; a scoped check of that delta comes before QA Phase 2. |
@@ -223,7 +224,9 @@ Suite, typecheck and red run are clean.
 
 1. CR-5 (fixer): highlight each code line once and project the result onto its text nodes. Add the split-line test with the stated
    fixture property, then a scoped check here and QA Phase 2's re-run of QAF-1.
-2. Steering: the pre-existing code-line emoji text loss (above), which is outside this chain's write set.
+2. The pre-existing code-line emoji text loss, ruled 2026-11-22T22:13 (`steering/fix-decorator-offsets-rulings.md` block "22:13"):
+   it folds into the fixer chain `fix-emoji-pretransform-widths`, which runs next after this one. Its evidence is this review's
+   `tip-a7e1adb/withNormalizeNode.code-emoji-probe.test.ts` and `norm-*.json`. This chain's scope is unchanged.
 
 CR-4's defect is carried by `fix-decorator-nested-styles`.
 
@@ -242,6 +245,5 @@ text leaf would colour `**a**` at offsets shifted by the rewrite. Owner: QA Phas
 ## Next Steps
 
 - **Fixer** (`fixer-fix-decorator-offsets`): CR-5.
-- **Steering** (`steering-hooks-fixer`): rule on the pre-existing code-line emoji text loss (scope, carrier, owner).
 - **QA** (`qa-fix-decorator-offsets`): after CR-5's scoped check, QAF-1 re-verified, including split code lines.
 - **Devops**: round 1's assumption, at the post-deploy walk.
