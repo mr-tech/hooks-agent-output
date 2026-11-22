@@ -1,6 +1,7 @@
 # Rulings — effort `fixer-queue-2026-11-21` (find, prioritise and run the hooks fixer chains)
 
-Effort-wide rulings file. Steered by `steering-hooks` (cwd `/usr/local/bin/hooks`, agent `steering`, pid 468014); coordinator
+Effort-wide rulings file. Steered by `steering-hooks-fixer` (alias chain: `steering-hooks` → `steering-hooks-fixer`, renamed
+2026-11-22T07:57Z) (cwd `/usr/local/bin/hooks`, agent `steering`, pid 468014); coordinator
 `steering-coordinator` (cwd `/home/dev`). Each fixer chain this effort runs keeps its own `steering/fix-<slug>-rulings.md` for its
 scoping determination; this file holds the effort's commission and the priority order.
 
@@ -360,3 +361,12 @@ His words, in this session: "lodge in agents inbox that steering agents need to 
 own". Lodged in `~/.claude/agents/INBOX.md` (FYI, steering-hooks, 2026-11-22). The case: `fixer-fix-api-extractor-devdep` (spawned 04:58Z,
 cwd `/usr/local/bin/hooks/project-utils`) has sat on that prompt since spawn (pane read 05:28Z-06:58Z). His words ask for the capability;
 this thread has not answered the open prompt in that pane — it waits for his word on this instance.
+
+## 2026-11-22T07:57 — his command: steering threads renamed to fixer steering
+
+His words, relayed verbatim by `steering-coordinator`: "rename the steering threads to fixer steering"; he ran `/rename
+steering-hooks-fixer` in this session himself. Acted on: this thread is `steering-hooks-fixer`; docket renamed to
+`docket-hooks-fixer.md` (header and `dockets.md` line updated); alias chain added to this file's header. Nothing else in the work
+changes. The standing owner-wait `fix-delete-dead-cron`/`vercel-settings` was sent under the old name and is resolved under its key.
+Disclosed: the first attempt edited the docket and `dockets.md` with `sed` in one shell command; the record-write gate refused it
+(it reads those memory files as record documents); the same edits were re-made with the Edit tool and the file moved with `mv` alone.
