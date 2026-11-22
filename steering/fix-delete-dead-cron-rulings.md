@@ -113,3 +113,13 @@ in any environment. Every push to website `master` fails to deploy until they ar
 withdrew its earlier retrospective cue (not acted on here). His step queued in `OWNER-QUEUE.md` (restore the five for Production,
 Redeploy the 23:19 deployment, check Cron Jobs empty); devops reads the result. Devops's rule finding lodged in `~/.claude/agents/INBOX.md`
 (FYI). Chain 7's website half stays off `master` until a production build passes.
+
+## 2026-11-22T16:44 — his report: the five settings came from Railway; cause and restore path unknown to him
+
+His words, in this session, on the Vercel settings step: "Those were previously supplied directly from railway, but I can't find why
+they were removed nor how to get them back". Kinds: a mechanism claim (the five came from Railway directly, likely Railway's Vercel
+integration — not read by this thread) and an observation (he cannot find the cause or a restore path). Reads this turn: Railway CLI
+`/usr/local/bin/railway` 2.1.0, `railway whoami` answers "Response not successful status=404" (not usable as installed); Vercel CLI
+29.1.1 has no `integration` command; the record's only Railway mentions are the old local-database notes (015, 014). So no agent tool
+on this box can read the integration's state. Put to him in chat: the likely cause as a candidate, the manual copy path, and the
+public-address hazard (Railway's private addresses do not reach Vercel). Chains 6 and 7 stay held on his step.
