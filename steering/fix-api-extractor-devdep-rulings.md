@@ -59,3 +59,10 @@ rewrote it; it is regenerated build output, owned by no live session. **Ruling: 
 (never `--no-verify`), then show `git diff --quiet HEAD -- dist` and `git status` clean. The brief's "leave anything in `build/` you did not
 create" was this thread's guidance for the stale prisma cache, now superseded for regenerated output. The hook is a build gate whose remedy
 is the rebuild — satisfying it, disclosed here.
+
+## 2026-11-22T07:13 — handed off at `a47e683`; review
+
+Spawn cue 07:1xZ (the fixer): record `1168acc`, `Handoff-At: a47e683 — repos=project-utils; base 40ba5d3` (read by this thread).
+`git diff --numstat 40ba5d3 a47e683`: `package.json` 1/0, `package-lock.json` 745/15; in the write set. The fixer: hook active and passing;
+`git diff --quiet HEAD -- dist` exit 0; porcelain empty. `code-reviewer-fix-api-extractor-devdep` started with `tmux-agent spawn` (cwd
+`/usr/local/bin/hooks/project-utils`, a folder Claude Code now trusts), brief `steering/fix-api-extractor-devdep-brief-code-reviewer.md`.
