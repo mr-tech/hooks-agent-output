@@ -20,3 +20,21 @@ plain, which is what unformatted text is anyway — the read showed only the spa
 mount output's last leaf against the sentence before putting it would have caught it.
 
 Determination, stage set and branch cut: when the website tree is free (after chains 7, 8 and 9a), from that tip.
+
+## 2026-11-22T20:19 — determination and stage set
+
+Website `master` is free (9a released at `8845b7e`). Premises re-read at `origin/master` `8845b7e`: `git diff --stat 132a7ab origin/master --
+decorator.tsx index.tsx` empty (sweep sites stand); the only test under `SlateEditor/` is 9a's `onCopy.cut.test.tsx`. `release-move.js
+--dry-run` on `master` `8845b7e` (20:19Z): every check passed, no workflows.
+**Determination.** Shape: defect, cause proven (sweep + refutation, block 03:03). Blast radius: syntax colouring in every editor built on
+`SlateEditor`; display only (the decorator colours ranges, it does not change text). End step: website `master`, Vercel production.
+Pipeline: the `fixer` agent.
+**Scope statement** (website, from `8845b7e`): `walkAst` in `src/components/SlateEditor/utils/decorator.tsx` gives `***text***` (nested
+strong+emphasis sharing delimiters) syntax ranges that stay inside the delimiters; the shapes that colour correctly today (`**ab**`,
+`*ab*`, `**a** *b*`, `**a *b* c** d`) stay the same. A test drives `decorator` over each shape with expected ranges written as literals.
+Write set: `decorator.tsx`, one new test file per Test Conventions beside it, the fixer's document and `verification/fix-decorator-offsets/`.
+Exclusions: the markdown parser itself (a dependency); other decorations the walk produces, unless the fix moves them (then in scope).
+**Stage set:** `fixer-fix-decorator-offsets` → `code-reviewer-fix-decorator-offsets` (under 20 production lines: the reviewer also runs
+the suite, typecheck and the red test) → devops for website `master` (his word). No plan, critic, Phase 1, QA or UAT; 20 or more
+production lines restores QA Phase 2. **Not covered:** rendering in a real browser (devops's post-deploy walk can look at the colours).
+Disclosed: the two 9b briefs were composed by a python script run from the shell (its standing section copied from 9a's common brief), not with Write/Edit as this thread's own rule asks; no gate fired. Contents read back (no 9a names left).

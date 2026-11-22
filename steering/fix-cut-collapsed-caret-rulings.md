@@ -78,3 +78,14 @@ Reviewer's spawn cue by message ~19:1xZ: `code-review/fix-cut-collapsed-caret-co
 `Handoff-At` now `8845b7e` (read). The reviewer's Assumption Not Checked (real-browser Ctrl+X) stays routed to an agent walk, not to him
 (round-1 block). Devops brief `steering/fix-cut-collapsed-caret-brief-devops.md` (post-deploy browser-walk row); `devops-fix-cut-collapsed-caret`
 started with `tmux-agent spawn`.
+
+## 2026-11-22T20:19 — released and live; real-browser walk passed; chain closed
+
+Devops by message ~20:18Z: his selection "Agent: push it live now (Recommended)" (by 20:13:13Z, its session); website `master` `453de76` →
+`8845b7e` (this thread's `git ls-remote`: `8845b7e3409782e0…`); production `dpl_3JEEF7Vs4MaWBa3Gk82TsxdbDpud` Ready, built from `8845b7e`.
+Post-deploy walk (browser-walker, real Chrome, signed out, nothing saved) passed: Ctrl+X on a plain caret left the text unchanged with the
+cut event seen to reach the page; Ctrl+X on a highlighted word removed it. Deviations (its record): run on the deployment's own alias
+origin, same deployment; clicked-emoji case not walked (unit test only). Record `deployment/closed/fix-cut-collapsed-caret-deployment.md`
+Released (`e148e697`). Stopped: `fixer-`, `code-reviewer-fix-cut-collapsed-caret`; `devops-fix-cut-collapsed-caret` refused as busy, retried
+at the next check. Source research `codebase-bug-evaluation-2026-11-08.md` H-3: the researcher's document, stays Active; H-3 discharged
+here. No architecture passage named. Cue counted toward the fixer batch. Owner-wait `release-ask` resolved.
