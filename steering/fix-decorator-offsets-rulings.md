@@ -56,3 +56,21 @@ the QA line for a defect with its own design question. No owner prompt for this 
 Fixer's spawn cue by message ~20:4xZ: document record `627ec83e`, `Handoff-At: f57c260 — repos=website` (read); ruling A applied (two
 guards dropped). This thread's reads: `git log 8845b7e..f57c260` (two commits); numstat `decorator.tsx` 18/4, test 163/0. Reviewer brief
 `steering/fix-decorator-offsets-brief-code-reviewer.md`; `code-reviewer-fix-decorator-offsets` started with `tmux-agent spawn`.
+
+## 2026-11-22T20:44 — review round 1 REJECTED; re-scope: the chain takes the class (every node's source width), headings fold in
+
+Reviewer's copy by message ~20:5xZ: `code-review/fix-decorator-offsets-code-review.md` (record `f6b9baa6`), round 1 REJECTED at `f57c260`.
+CR-1 HIGH: a bare URL at the end of bold/italic/underline/strike/spoiler text, right at base, is wrong at the fix (url/autolink nodes share
+type `link` with masked links); 5 grid shapes right → wrong. CR-2: the fix moves where other pre-existing width faults land — escapes
+(`\*`), mentions (`<@123>`), root-level bare URLs/autolinks (wrong at both trees), heading markers; 7 escape/mention corpus rows right →
+wrong. Heading inputs: 868 of 36,000 corpus rows colour differently from base, wrong → wrong by the recorded cause; `-# ***a***` loses all
+syntax colouring (not oracle-checked row by row).
+**Ruling (this thread's, under his block-04:50 "fix everything you find along the way"):** the defect is one class — the walk places a
+node's syntax ranges without knowing that node's width in the source — so the chain takes the class, not one more instance. **Scope
+statement, replacing block 20:19's:** `decorator.tsx`'s ranges account for the source width of every node kind the website's markdown
+rules produce (`src/utils/markdown/rules.tsx` enumerated: emphasis forms, links masked and bare and autolink, escapes, mentions, heading
+markers, and any other kind found there); no input colours worse than at base; a test drives every kind, alone, at a bold/italic edge and
+at root, with literal expectations. Heading markers are coloured as syntax, like every other delimiter (this thread's reading; told him,
+he can veto). Write set extends to `src/utils/markdown/rules.tsx` where a node must carry its width. The queued chain
+`fix-decorator-headings` (block 20:31) folds into this one and is withdrawn. Stage set: unchanged in order; at 20 or more production lines
+QA Phase 2 is restored (`qa-fix-decorator-offsets`, started by this thread on the reviewer's approval). Sent to the fixer and the reviewer.
