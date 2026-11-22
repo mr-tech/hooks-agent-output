@@ -1,0 +1,1 @@
+"print":hljs-built_in "(":- "f\"a ":hljs-string "{b}":hljs-string+hljs-subst "\"":hljs-string ")":-

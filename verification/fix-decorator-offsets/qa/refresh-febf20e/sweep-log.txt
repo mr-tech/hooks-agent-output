@@ -1,0 +1,2 @@
+qa-code-ranges-not-normalized KILLED 18.95
+1 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-survivor.json (blob 1ceab4295f3667b931c438a4288b5d2b9c59205e))

@@ -2,9 +2,9 @@
 ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
-Verified-At: "24eda1cdbcf980e91015582297daac0dfe4a0be1 — repos=website; refresh pass, verdict QA Failed (QAF-2)"
-Status: QA Failed
-Status-Detail: "Phase 2 refresh at website 24eda1c: QA Failed on QAF-2 MEDIUM (codeLineRanges' normalizeRanges call is unasserted; one test row closes it, test-only). QAF-1 resolved. Routed to fixer-fix-decorator-offsets; the next pass re-runs the one survivor."
+Verified-At: "febf20e39905c977b0d42081137817cb7b704478 — repos=website; production blobs identical to 24eda1c, where C1 was measured"
+Status: QA Complete
+Status-Detail: "Phase 2 refresh at website febf20e: QA Complete. QAF-1 and QAF-2 resolved; the chain is capped (rulings 22:27), so the remaining gaps are stated limits. Open: B-1, post-deploy, owner devops."
 Phase: 2
 ---
 
@@ -28,6 +28,7 @@ production lines (block 20:44).
 |------|---------------|---------|---------|
 | 2026-11-22T21:51 | `steering-hooks-fixer` (brief `steering/fix-decorator-offsets-brief-qa.md`) | Phase 2 at website `2e6127e` | Phase 2: **QA Failed**. Suite 2594/2594 exit 0, typecheck exit 0. Mutation sweep 97 of 101 killed; the 4 survivors are 2 equivalent mutants and 2 that expose QAF-1. Three instruments find 0 inputs worse than base, outside code blocks. QAF-1 MEDIUM: lines inside a fenced code block with a language now render differently from base (32 characters move from wrong to right, 4 from right to wrong), and no test asserts them. The emoji assumption is answered: false for an escaped emoji. Two separate emoji defects in the editor (pre-existing, identical at base) go to steering. |
 | 2026-11-22T22:24 | `steering-hooks-fixer` (message; rounds 4–5, review record `58a83897`) | Phase 2 refresh at website `24eda1c` | Phase 2: **QA Failed**. QAF-1 resolved. QAF-2 MEDIUM: `codeLineRanges`'s `normalizeRanges` call (enclosing class on a nested highlight scope, e.g. `${y}` in a template string) has no assertion; its mutant survives. Otherwise clean: suite 2612/2612 exit 0, typecheck 0, sweep 17 of 18 over the round's diff; outside code lines byte-identical to `2e6127e`; inside code lines 0 characters regress against base or `2e6127e` (195 languages, split lines 131/131). |
+| 2026-11-22T22:33 | `code-reviewer-fix-decorator-offsets` (scoped confirmation, record `4dfe5b40`); fixer round 6 (record `c25925bb`) | QAF-2 survivor re-run at website `febf20e` | Phase 2: **QA Complete**. Test-only delta; production blobs identical to `24eda1c`. Suite 2614/2614 exit 0, typecheck 0. `qa-code-ranges-not-normalized` KILLED by the 2 new rows, whose expectation matches whole-line highlight.js. One stated limit under the cap (an outer scope that is the line's first range; CR-4's class, carried by `fix-decorator-nested-styles`). |
 
 ## Criteria assessed (recorded before execution)
 
@@ -192,24 +193,7 @@ and does not shift the colouring.
 
 QAF-1 MEDIUM Phase 2 RESOLVED — code-block lines with a language are highlighted whole from the line's own text, and the test asserts 14 code-line rows and 4 split-line rows: 12 of them fail against `2e6127e`, and 0 characters regress against base or `2e6127e` over 195 languages. Fixer rounds 4–5 (`a7e1adb`, `24eda1c`); refresh pass below; evidence `verification/fix-decorator-offsets/qa/refresh-24eda1c/`.
 
-QAF-2 MEDIUM Phase 2
-
-**A nested highlight scope inside a code line keeps its enclosing class only through `codeLineRanges`'s `normalizeRanges` call, and
-no test asserts it.** Mutant `qa-code-ranges-not-normalized` (`decorator.tsx` `codeLineRanges`: `return normalizeRanges(leaf.ranges).map(…)`
-→ `return leaf.ranges.map(…)`) survives all 356 cases of the sweep. On the code-block instrument it changes 12 rows (6 reachable) and on the
-reviewer's split probe 1 line. In a `js` block, `` f(`t ${y}`); `` renders `${y}` as `hljs-string+hljs-subst` at `24eda1c` (matching
-whole-line highlight.js: a substitution inside a template string) and as `hljs-subst` alone without the call. The Haskell line with `'\*'`
-behaves the same way, with `hljs-char escape_` losing `hljs-string`. No row of the test file has a nested scope: the file's only `${` is
-in its `labelled` helper. Ground: a behaviour this round relies on, with no assertion that fails when it is lost, which sets a floor of
-MEDIUM and blocks the verdict (`mut-norm-diff.txt`, `mut-norm-identity.sha256`).
-
-*Failure scenario:* someone simplifies `codeLineRanges` and drops the `normalizeRanges` call. Every test still passes, and template
-substitutions and string escapes in users' code blocks lose their string colouring.
-
-*Required (fixer, test-only):* a spec-form row in the code-line table with a nested scope, for example `` f(`t ${y}`); `` in a `js`
-block, with its literal expectation read from highlight.js's HTML for the whole line. It must be seen red under
-`qa-code-ranges-not-normalized` (in `refresh-24eda1c/mutants-qa-24eda1c.json`) and green at the new tip. A round with no production
-change is re-run against that one survivor only.
+QAF-2 MEDIUM Phase 2 RESOLVED — the code-line table asserts a nested scope (`print(f"a {b}")`, python, both parsers; expected from highlight.js's whole-line output), and the survivor `qa-code-ranges-not-normalized` is KILLED by exactly those rows at `febf20e`. Fixer round 6 (record `c25925bb`); refresh below; evidence `verification/fix-decorator-offsets/qa/refresh-febf20e/`.
 
 ## Phase 2 refresh at website `24eda1c`
 
@@ -273,6 +257,43 @@ is read from `parseEmoji`'s output on four strings and from the picker's insert 
 and is not exercised through the picker in a mounted editor. If false, the signature is a code line holding an element with
 `ast.type === 'discordEmoji'`, whose later text node colours off by the difference between its flattened and rendered widths. Owner:
 `fix-emoji-pretransform-widths`, whose subject is those widths (named in the message to steering).
+
+## Phase 2 refresh at website `febf20e` (QAF-2 survivor re-run)
+
+**Stage start**: `code-review/fix-decorator-offsets-code-review.md` at record `4dfe5b40`, `Reviewed-At: febf20e39905…`, `APPROVED` (scoped
+confirmation). I held the re-run until it was committed: the fixer had handed `febf20e` to QA directly, and steering ordered the review
+first. Gate document: the implementation § "Round 6" (record `c25925bb`). Evidence: `verification/fix-decorator-offsets/qa/refresh-febf20e/`.
+Rulings block 22:27 caps the chain: after QAF-2, any gap below HIGH is a stated limit, except a severity-floor finding.
+
+**Delta**: `git diff --numstat 24eda1c febf20e` shows only the test file, +2/−0. `decorator.tsx` (`0cdd886f…`) and `rules.tsx` (`cbf4413b…`)
+have the same blobs at both commits (`git rev-parse <sha>:<path>`). So every C1 measurement of the `24eda1c` pass reads the same production
+bytes, and none was re-run (blob identity, not a reading of the diff).
+
+| Check (export of `febf20e`) | Result | Exit |
+|---|---|---|
+| Whole suite, JSON reporter | 168 files, 2614 tests, all passed. File membership is the same as at `24eda1c`; only the decorator test moves, 246 → 248 | 0 |
+| `pnpm run typecheck` | clean | 0 |
+| Survivor re-run: `qa-code-ranges-not-normalized`, verbatim (`mutants-survivor.json`, blob `1ceab429…`; runner `b26916e7…`; control 358 passed) | **KILLED**, count checked (358 = 358), by exactly the two new rows: `print(f"a {b}")` in a `python` block under the content and field parsers | 0 |
+| The new rows' expectation, against highlight.js over the whole line (`expected-hljs.txt`, independent of the decorator) | identical: `"print":hljs-built_in "(":- "f\"a ":hljs-string "{b}":hljs-string+hljs-subst "\"":hljs-string ")":-` | — |
+| ID-token class over the test file | 0 (`grep -ciE`) | — |
+
+The rows are spec-form and their expectation is a literal from an independent source. They are seen red under the mutant and green at
+`febf20e`, so the survivor is closed. Sweep total over the chain's production diff, across the passes: first pass 97 of 101 (2
+equivalent, 2 closed by round 4's rewrite), refresh 17 of 18, now 18 of 18.
+
+**Stated limit (rulings block 22:27, below HIGH, not a severity-floor case):** the fixer reports that a nested highlight scope loses its
+outer class when the outer scope is the line's first range (`f"a {b} c"` from the start of the line, Ruby `"a #{b} c"`, a leading `/**
+@param */`), because `normalizeRanges` seeds its enclosing range only from a syntax first range. It is the enclosing-class property
+(CR-4, CR-6), and the 195-language scorer shows no character worse than base. The defect is carried by `fix-decorator-nested-styles`,
+routed by the fixer to steering. This pass did not measure the case beyond the scorer's population.
+
+**Verdict: QA Complete** at `febf20e`. C1 is met (refresh at `24eda1c`, the same production bytes); C2 and C3 are met; C4 is answered
+(first pass); C5 is met (QAF-1 and QAF-2 resolved). The open blocking-condition row B-1 (post-deploy, devops) is unchanged.
+
+**Assumption Not Checked (this pass):** This pass assumes that a leaf carrying two highlight classes (`hljs-string hljs-subst`) is
+coloured by the site's stylesheet as the inner scope inside a string, the way highlight.js's nested HTML would be. It does not test that
+in a browser. If false, the signature is a `{b}` in a Python f-string, or a `${y}` in a JS template, shown in a colour that is neither
+the string's nor the substitution's. Owner: devops's post-deploy walk, row B-1, which looks at a ```` ```js ```` block.
 
 ## Irreversible Side-Effect Register
 

@@ -1,0 +1,20 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "python" block with the content parser colours "print(f\"a {b}\")" as "print":hljs-built_in "(":- "f\"a ":hljs-string "{b}":hljs-string+hljs-subst "\"":hljs-string ")":-
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "python" block with the field parser colours "print(f\"a {b}\")" as "print":hljs-built_in "(":- "f\"a ":hljs-string "{b}":hljs-string+hljs-subst "\"":hljs-string ")":-
+AssertionError: expected '"print":hljs-built_in "(":- "f\"a ":h…' to be '"print":hljs-built_in "(":- "f\"a ":h…' // Object.is equality
+
+Expected: ""print":hljs-built_in "(":- "f\"a ":hljs-string "{b}":hljs-string+hljs-subst "\"":hljs-string ")":-"
+Received: ""print":hljs-built_in "(":- "f\"a ":hljs-string "{b}":hljs-subst "\"":hljs-string ")":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:434:87
+    432|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    433|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    434|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    435|   });
+    436| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
