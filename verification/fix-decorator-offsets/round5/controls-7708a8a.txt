@@ -1,0 +1,10 @@
+line-text-is-node-text KILLED 2.59
+node-start-zero KILLED 2.67
+preceding-emoji-width-ignored KILLED 2.59
+ranges-after-node-kept SURVIVED 2.55
+ranges-before-node-kept SURVIVED 2.63
+anchor-not-clamped SURVIVED 2.5
+focus-not-clamped SURVIVED 2.54
+code-line-branch-never KILLED 2.58
+code-line-language-dropped KILLED 2.58
+5 of 9 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-7708a8a.json (blob 6eb3db2a14dc7d64b6672f371f515669807541d0))

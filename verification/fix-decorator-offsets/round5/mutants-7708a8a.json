@@ -1,0 +1,56 @@
+[
+ {
+  "id": "line-text-is-node-text",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "handleCodeBlockRange(leaf, line.lang, flattenNodeText(line));",
+  "new": "handleCodeBlockRange(leaf, line.lang, node.text);"
+ },
+ {
+  "id": "node-start-zero",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "const start = line.children.slice(0, path.at(-1)).map((c) => flattenNodeText(c)).join('').length;",
+  "new": "const start = 0;"
+ },
+ {
+  "id": "preceding-emoji-width-ignored",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": ".map((c) => flattenNodeText(c)).join('').length;",
+  "new": ".map((c) => flattenNodeText(c, false)).join('').length;"
+ },
+ {
+  "id": "ranges-after-node-kept",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": ".filter((range) => range.anchor.offset < end && start < range.focus.offset)",
+  "new": ".filter((range) => start < range.focus.offset)"
+ },
+ {
+  "id": "ranges-before-node-kept",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": ".filter((range) => range.anchor.offset < end && start < range.focus.offset)",
+  "new": ".filter((range) => range.anchor.offset < end)"
+ },
+ {
+  "id": "anchor-not-clamped",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "offset: Math.max(range.anchor.offset, start) - start",
+  "new": "offset: range.anchor.offset - start"
+ },
+ {
+  "id": "focus-not-clamped",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "offset: Math.min(range.focus.offset, end) - start",
+  "new": "offset: range.focus.offset - start"
+ },
+ {
+  "id": "code-line-branch-never",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (ancestor.lang) return codeLineRanges(leaf, ancestor, node, path);",
+  "new": "  if (false) return codeLineRanges(leaf, ancestor, node, path);"
+ },
+ {
+  "id": "code-line-language-dropped",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "handleCodeBlockRange(leaf, line.lang, flattenNodeText(line));",
+  "new": "handleCodeBlockRange(leaf, '', flattenNodeText(line));"
+ }
+]

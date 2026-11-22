@@ -3,21 +3,72 @@ ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
 Status: Active
-Status-Detail: "Round 4 (QA Phase 2 QA Failed at 2e6127e on QAF-1) fixed at website a7e1adb and handed to code review for a scoped check, then a QA refresh pass; 118 production lines; merge to website master by devops on the owner's word."
-Handoff-At: a7e1adb — repos=website
+Status-Detail: "Round 5 (review REJECTED a7e1adb on CR-5, a code line split by an emoji) fixed at website 24eda1c and handed to code review for a scoped check, then the QA refresh pass; 128 production lines; merge to website master by devops on the owner's word."
+Handoff-At: 24eda1c — repos=website
 Origin-Chain: none
 ---
 
 # fix-decorator-offsets — implementation
 
-## Resumption State (2026-11-22T22:15Z, round 4 handed off)
+## Resumption State (2026-11-22T22:45Z, round 5 handed off)
 
-- **Done:** QAF-1 fixed on website `chain/fix-decorator-offsets`, HEAD `a7e1adb`; evidence under `verification/fix-decorator-offsets/round4/`;
-  hand-off sent to `code-reviewer-fix-decorator-offsets` and `qa-fix-decorator-offsets`, copied to `steering-hooks-fixer`.
-- **Next:** wait for the reviewer's scoped check of `2e6127e..a7e1adb`, then QA's refresh pass. On findings: re-read Round 4 below and the
-  finding's document; fix on the same branch; re-run red, controls, suite and typecheck in exports, and QA's code-block scorer.
-- **Approach in flight:** none. **Uncommitted / locally mutated:** none of mine; website tree clean apart from the foreign
-  `.playwright-mcp/`; scratch worktrees removed.
+- **Done:** CR-5 fixed on website `chain/fix-decorator-offsets`, HEAD `24eda1c` (`7708a8a` the projection, `24eda1c` four limbs with no effect
+  removed); evidence under `verification/fix-decorator-offsets/round5/`; hand-off sent to `code-reviewer-fix-decorator-offsets`, copied to
+  `steering-hooks-fixer` and `qa-fix-decorator-offsets`.
+- **Next:** wait for the reviewer's scoped check of `a7e1adb..24eda1c`, then QA's refresh pass. On findings: re-read Rounds 5 and 4 and the
+  finding's document; fix on the same branch; re-run red, controls, suite and typecheck in exports, QA's scorer v2 and the reviewer's
+  split probe.
+- **Approach in flight:** none. **Uncommitted / locally mutated:** none of mine; website tree clean apart from `.playwright-mcp/`; scratch
+  worktrees removed.
+
+## Round 5: CR-5, a code line split by an emoji (review of `a7e1adb`, REJECTED)
+
+**Finding** (`code-review/fix-decorator-offsets-code-review.md`, record `e993a249`): in the editor `withNormalizeNode` lifts an emoji
+into its own element on a code line too, so one code line can hold several text nodes. `decorate` gets one text node at a time, so
+highlighting `node.text` restarted a string, template or comment that crossed the emoji. On the reviewer's 10 split lines, 5 characters
+right at base were wrong at `a7e1adb`. QA's scorer drives one node per line and could not see it. The reviewer's instrument
+(`code-review/tip-a7e1adb/decorator.code-split-probe.test.ts`) reproduces it.
+
+**Change** (the reviewer's preferred, structural form): `codeLineRanges` highlights the element's whole line once, from
+`flattenNodeText(line)`. That is the text the editor sends, with an emoji element at its source content (`:smile:`). It then shifts the
+ranges by this text node's start in that line (the flattened width of the children before it). Website `7708a8a`.
+
+**Four limbs removed at `24eda1c`**, each a survivor of its control at `7708a8a` (`round5/controls-7708a8a/`):
+- the filter dropping ranges after the node, and the one dropping ranges before it;
+- the clamps of anchor and focus to the node.
+
+The consumer makes them redundant. slate-react's `Text` component passes `decorate`'s ranges straight to `slate.Text.decorations`
+(`node_modules/slate-react/dist/index.js` L1422-1423), the function the test reads through. That function takes `Range.edges`, skips any
+range that ends before or starts after a leaf, and splits within it (`node_modules/slate/dist/index.js` L2036-2110). The rows that
+exercise them do reach negative and past-end offsets: span 2 of `const s = "a :smile: b";` gets a string range from -10.
+
+**Test** (test file +38 −11 net with round 4's helpers refactored into `labelled`): a new table, "rendered text for a code line split by an
+emoji", has 4 rows. Each builds a `codeBlock` with children `[span, emoji element, span]`. The emoji element's `ast` is the real
+`markdown.interactive.parseEmoji(':smile:')[0]`, the reader `withNormalizeNode` uses. Each row decorates one span. Expected leaves are
+literals read from highlight.js's HTML for the whole line (`const s = "a :smile: b";`, `// c :smile: d`, `const s = "a " + :smile: + 1;`).
+- **Red** at `a7e1adb` (test file against `a7e1adb`'s production code, export): `round5/red-at-a7e1adb.*`: 2 failed, 244 passed, exit 1.
+  ` b"` comes back without `hljs-string` and ` d` without `hljs-comment`: the reviewer's falsity signature.
+- **Green** at `24eda1c`: 246 cases in the file (`green-new.txt` at `7708a8a`; within the suite below).
+- **Negative controls** at `24eda1c` (`round5/mutants-24eda1c.json`, `controls-24eda1c/`, log `controls-24eda1c.txt`, exit 0): **9 of 9 KILLED**.
+  They cover: the line text, as opposed to the node's; the node start; the preceding emoji's width; the anchor shift; the focus shift;
+  both branch directions; the language; the top-level merge. The two rows that pass at `a7e1adb` (span 0, and the `+ 1` row) fail under
+  `node-start-zero`, `preceding-emoji-width-ignored` and the shift controls.
+
+**Measured at `24eda1c`:**
+- the reviewer's split probe: 10 of 10 lines render split as whole, 131 of 131 characters (base 117, `a7e1adb` 110; `round5/split-summary.txt`);
+- QA's scorer v2: 0 right → wrong, 460 of 460 (4 languages) and 44,388 of 44,390 (195 languages; the 2 are CR-4's class), the same as at
+  `a7e1adb` (`round5/score-v2-*-vs-24eda1c.txt`);
+- the reviewer's corpus probe (lines without a language): byte-identical to `2e6127e` (`round5/corpus-identity.txt`).
+
+**Verification at `24eda1c`** (clean `git worktree` export): suite 168 files, 2612 tests, all passed, exit 0, membership by path identical
+to round 4's (2608 + 4) (`round5/suite.txt`); `pnpm run typecheck` exit 0; `npx eslint` over the two files exit 0;
+`convention-check.js --since=8845b7e` exit 0, 0 FAIL, 0 CANDIDATE (`round5/convention-check.txt`). Before the commit its first runs had
+lint FAILs (indent, object-curly-newline, max-len, a shadowed name), fixed by `eslint --fix` on my two files and by hand.
+
+`git diff --numstat 8845b7e 24eda1c`: `decorator.tsx` `111 41`, `rules.tsx` `17 1`: **128 production lines added**.
+
+**Not this chain's, already escalated by the reviewer to steering:** a Unicode emoji typed into a fenced code line deletes the text
+after it on normalize (base and tip alike; the emoji pre-treatment's widths).
 
 ## Round 4: QAF-1, lines inside a fenced code block (QA Phase 2 at `2e6127e`)
 
@@ -507,8 +558,8 @@ For the owner's own look in any editor text box (message content, embed title, e
 
 ## Handoff
 
-- **SHA:** website `a7e1adb` on `chain/fix-decorator-offsets` (round 4, QAF-1: scoped check of `2e6127e..a7e1adb`, then QA's refresh pass;
-  round 3 `2e6127e`, round 2 `e6a5766`, round 1 `f57c260`).
+- **SHA:** website `24eda1c` on `chain/fix-decorator-offsets` (round 5, CR-5: scoped check of `a7e1adb..24eda1c`, then QA's refresh pass;
+  round 4 `a7e1adb`, round 3 `2e6127e`, round 2 `e6a5766`, round 1 `f57c260`).
 - **Who reviews:** `code-reviewer-fix-decorator-offsets` (round numbering is the reviewer's), spawned or resumed by `steering-hooks-fixer`
   on this document's spawn cue; round 3 sent to it directly, steering copied (block 21:21). **116 production lines: QA Phase 2 follows an approving review** (`qa-fix-decorator-offsets`, started by
   steering, rulings 20:44).
@@ -525,3 +576,4 @@ For the owner's own look in any editor text box (message content, embed title, e
 | 2026-11-22T21:33 | — | Code review scoped check APPROVED at website `2e6127e` (review record `201856c0`): CR-3, CR-4 resolved. QA Phase 2 owed (116 production lines), steering's to start. |
 | 2026-11-22T22:15 | — | Round 4 (QAF-1, QA Phase 2 QA Failed at `2e6127e`): a code-block line with a language is highlighted as one whole line from its own text; top-level text merged; website `a7e1adb`. Whole-line scorer: 0 right→wrong over 195 languages; corpus byte-identical outside code blocks; 14 rows red at the QA'd tip (10) and base (12); controls 4 of 4; suite 2608/2608, typecheck and lint exit 0. 118 production lines. `Handoff-At` `a7e1adb`; handed to code review for a scoped check, then QA. |
 | 2026-11-22T22:20 | — | Round 4 scores re-run with QA's scorer v2 (record `5374339e`): 0 right→wrong; 44,388 of 44,390 characters right over 195 languages; the 2 left are CR-4's class. v1 figures superseded. |
+| 2026-11-22T22:45 | — | Round 5 (CR-5, review REJECTED `a7e1adb`): a code line is highlighted once as its whole element line and each text node gets its part, website `7708a8a`; four limbs the leaf splitter makes redundant removed, `24eda1c`. Split probe 131/131; scorer v2 0 right→wrong; corpus identical; red 2 at `a7e1adb`; controls 9 of 9; suite 2612/2612, typecheck and lint exit 0. 128 production lines. `Handoff-At` `24eda1c`; handed to code review for a scoped check. |

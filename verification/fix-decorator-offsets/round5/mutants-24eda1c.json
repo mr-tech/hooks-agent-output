@@ -1,0 +1,56 @@
+[
+ {
+  "id": "line-text-is-node-text",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "handleCodeBlockRange(leaf, line.lang, flattenNodeText(line));",
+  "new": "handleCodeBlockRange(leaf, line.lang, line.children.map((c) => flattenNodeText(c, false)).join(''));"
+ },
+ {
+  "id": "node-start-zero",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "const start = line.children.slice(0, path.at(-1)).map((c) => flattenNodeText(c)).join('').length;",
+  "new": "const start = 0;"
+ },
+ {
+  "id": "preceding-emoji-width-ignored",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": ".map((c) => flattenNodeText(c)).join('').length;",
+  "new": ".map((c) => flattenNodeText(c, false)).join('').length;"
+ },
+ {
+  "id": "focus-not-shifted",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "focus: { ...range.focus, offset: range.focus.offset - start },",
+  "new": "focus: { ...range.focus, offset: range.focus.offset },"
+ },
+ {
+  "id": "anchor-not-shifted",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "anchor: { ...range.anchor, offset: range.anchor.offset - start },",
+  "new": "anchor: { ...range.anchor, offset: range.anchor.offset },"
+ },
+ {
+  "id": "code-line-branch-never",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (ancestor.lang) return codeLineRanges(leaf, ancestor, path);",
+  "new": "  if (false) return codeLineRanges(leaf, ancestor, path);"
+ },
+ {
+  "id": "code-line-branch-always",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (ancestor.lang) return codeLineRanges(leaf, ancestor, path);",
+  "new": "  if (true) return codeLineRanges(leaf, ancestor, path);"
+ },
+ {
+  "id": "code-line-language-dropped",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "handleCodeBlockRange(leaf, line.lang, flattenNodeText(line));",
+  "new": "handleCodeBlockRange(leaf, '', flattenNodeText(line));"
+ },
+ {
+  "id": "top-level-text-not-merged",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  const normalized = normalizeAst(ast.flatMap((a) => (\n    a.type === 'paragraph' ? a.content as unknown as StrictSingleASTNode[] : [a]\n  )));",
+  "new": "  const normalized = ast.flatMap((a) => (\n    a.type === 'paragraph' ? normalizeAst(a.content as unknown as StrictSingleASTNode[]) : [a]\n  ));"
+ }
+]
