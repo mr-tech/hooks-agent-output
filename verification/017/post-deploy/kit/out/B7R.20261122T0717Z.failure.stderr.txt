@@ -1,0 +1,1 @@
+<claude-code-hint v="1" type="plugin" value="vercel@claude-plugins-official" />
