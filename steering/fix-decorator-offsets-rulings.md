@@ -145,3 +145,14 @@ read: `Reviewed-At 24eda1cdbcf9…`, `APPROVED`): split code lines 131/131 equal
 exit 0; 128 production lines. QA refresh cued to `qa-fix-decorator-offsets` by message. CR-6 LOW (the code-line path dropped the
 empty-range filter; highlight.js emits zero-length scopes in 2 of 193 languages; not worse than base; rendering effect unmeasured):
 carried as a row of the queued chain `fix-decorator-nested-styles` (same function).
+
+## 2026-11-22T22:27 — QA refresh Failed (QAF-2, test-only, to the fixer); the chain is CAPPED
+
+QA by message ~22:5xZ: `qa/fix-decorator-offsets-qa.md` (record `11dc38ef`), refresh at `24eda1c` QA Failed; QAF-1 resolved; QAF-2 MEDIUM,
+test-only (no assertion on `codeLineRanges`' `normalizeRanges` call), routed to the fixer. QA's routed assumption for
+`fix-emoji-pretransform-widths` (custom Discord emoji through the picker in a mounted editor, read not run) is that chain's.
+**Cap (steering.md, Standing check):** this chain has taken two post-approval revisions (rounds 3-5 after approvals at `e6a5766` and
+`2e6127e`), two code-review rejections and two QA failures. Spend since its start (`cc-usage.py chain fix-decorator-offsets --since
+2026-11-22T20:15`): \$44.55 over four sessions (fixer two generations \$24.87; reviewer \$10.27; QA \$9.41), about 2 h 40 min. From
+here every gap below HIGH, a gate's severity-floor finding excepted, is recorded as a stated limit in the gate's document without a new
+round; QAF-2, already routed, completes. Told the reviewer and QA; told him in chat.
