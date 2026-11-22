@@ -1,0 +1,6 @@
+
+> website@ typecheck /usr/local/bin/hooks/website
+> tsc --noEmit && tsc --noEmit -p tsconfig.test.json
+
+.next/types/validator.ts(227,39): error TS2307: Cannot find module '../../src/pages/api/cron.js' or its corresponding type declarations.
+ ELIFECYCLE  Command failed with exit code 2.

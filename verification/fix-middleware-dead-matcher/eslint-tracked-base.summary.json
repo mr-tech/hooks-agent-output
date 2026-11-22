@@ -1,0 +1,656 @@
+{
+ "exit": "exit=123",
+ "files": 519,
+ "errors": 423,
+ "warnings": 344,
+ "perFile": {
+  "bot/edgeCommands.ts": [
+   0,
+   1
+  ],
+  "bot/scripts/app_commands/slash/index.ts": [
+   0,
+   1
+  ],
+  "bot/utils/DiscordMessage.ts": [
+   0,
+   2
+  ],
+  "eslint.config.mjs": [
+   0,
+   1
+  ],
+  "lang/build.ts": [
+   0,
+   1
+  ],
+  "lang/scripts/common.ts": [
+   0,
+   1
+  ],
+  "lang/scripts/generateType.ts": [
+   0,
+   1
+  ],
+  "lang/scripts/index.ts": [
+   0,
+   1
+  ],
+  "lang/scripts/merge.ts": [
+   0,
+   1
+  ],
+  "lang/scripts/normalizeLang.ts": [
+   0,
+   1
+  ],
+  "src/@types/global.d.ts": [
+   13,
+   1
+  ],
+  "src/@types/slate.d.ts": [
+   0,
+   1
+  ],
+  "src/app/_navigation/Redirects/Client.tsx": [
+   2,
+   0
+  ],
+  "src/app/head.tsx": [
+   1,
+   0
+  ],
+  "src/app/legal/privacy/page.tsx": [
+   0,
+   155
+  ],
+  "src/app/legal/terms/page.tsx": [
+   0,
+   66
+  ],
+  "src/app/message/__tests__/layout.navigation-guard.test.tsx": [
+   3,
+   0
+  ],
+  "src/app/message/_components/NewMessageModal.tsx": [
+   3,
+   0
+  ],
+  "src/app/message/_components/__tests__/NewMessageJsonInput.conflict-resting-state.test.tsx": [
+   5,
+   0
+  ],
+  "src/app/message/_components/__tests__/NewMessageJsonInput.settled-notice.test.tsx": [
+   4,
+   0
+  ],
+  "src/app/message/_components/__tests__/NewMessageModal.readable-mutation-error.test.tsx": [
+   7,
+   0
+  ],
+  "src/app/message/f/[id]/page.tsx": [
+   4,
+   2
+  ],
+  "src/app/message/m/[id]/_components/JsonModalBody.tsx": [
+   2,
+   0
+  ],
+  "src/app/message/m/[id]/_components/SaveAsMenu.tsx": [
+   1,
+   0
+  ],
+  "src/app/message/m/[id]/_components/__tests__/JsonModalBody.choice-rewrites-editor.test.tsx": [
+   4,
+   0
+  ],
+  "src/app/message/m/[id]/_components/__tests__/JsonModalBody.conflict-resting-state.test.tsx": [
+   3,
+   0
+  ],
+  "src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-floors-resolved-draft.test.tsx": [
+   7,
+   0
+  ],
+  "src/app/message/m/[id]/_components/__tests__/JsonModalBody.load-settled-notice.test.tsx": [
+   5,
+   0
+  ],
+  "src/app/message/m/[id]/_components/__tests__/SaveAsMenu.readable-mutation-error.test.tsx": [
+   6,
+   0
+  ],
+  "src/app/message/m/[id]/_layout/Navigation.tsx": [
+   2,
+   3
+  ],
+  "src/app/message/m/[id]/send/_components/WebhookMenu/index.tsx": [
+   1,
+   0
+  ],
+  "src/app/message/m/[id]/send/_components/WebhookMenu/useReduceCategories.tsx": [
+   0,
+   1
+  ],
+  "src/app/message/page.tsx": [
+   9,
+   0
+  ],
+  "src/assets/svg/DiscordIcon.tsx": [
+   1,
+   0
+  ],
+  "src/assets/svg/HooksLogoFull.tsx": [
+   1,
+   0
+  ],
+  "src/assets/svg/QuestionMark.tsx": [
+   1,
+   0
+  ],
+  "src/assets/svg/RadioButtonChecked.tsx": [
+   1,
+   0
+  ],
+  "src/assets/svg/RadioButtonUnchecked.tsx": [
+   1,
+   0
+  ],
+  "src/assets/svg/TextIcon.tsx": [
+   1,
+   0
+  ],
+  "src/assets/svg/VoiceIcon.tsx": [
+   1,
+   0
+  ],
+  "src/assets/svg/WebhookIcon.tsx": [
+   1,
+   0
+  ],
+  "src/components/AnchoredPopover/Child.tsx": [
+   4,
+   0
+  ],
+  "src/components/AnchoredPopover/Trigger.tsx": [
+   0,
+   1
+  ],
+  "src/components/AnchoredPopover/utils.tsx": [
+   3,
+   0
+  ],
+  "src/components/BottomPortal.tsx": [
+   4,
+   0
+  ],
+  "src/components/Calendar/CalendarGrid.tsx": [
+   1,
+   0
+  ],
+  "src/components/Calendar/index.tsx": [
+   1,
+   0
+  ],
+  "src/components/ContentEditable.tsx": [
+   2,
+   0
+  ],
+  "src/components/DiscordMessageEditor/__tests__/DiscordMessageEditor.component-limit.test.tsx": [
+   3,
+   0
+  ],
+  "src/components/DiscordMessageEditor/components/ActionsMenu.tsx": [
+   2,
+   1
+  ],
+  "src/components/DiscordMessageEditor/components/Author.tsx": [
+   1,
+   0
+  ],
+  "src/components/DiscordMessageEditor/components/ComponentEditors/ActionRowEditor.tsx": [
+   0,
+   2
+  ],
+  "src/components/DiscordMessageEditor/components/ComponentEditors/ContainerEditor.tsx": [
+   2,
+   0
+  ],
+  "src/components/DiscordMessageEditor/components/ComponentEditors/FileEditor.tsx": [
+   0,
+   1
+  ],
+  "src/components/DiscordMessageEditor/components/ComponentEditors/LinkButtonEditor.tsx": [
+   1,
+   0
+  ],
+  "src/components/DiscordMessageEditor/components/ComponentEditors/MediaGalleryEditor.tsx": [
+   0,
+   2
+  ],
+  "src/components/DiscordMessageEditor/components/ComponentEditors/SectionEditor.tsx": [
+   2,
+   2
+  ],
+  "src/components/DiscordMessageEditor/components/ComponentEditors/SeparatorEditor.tsx": [
+   0,
+   1
+  ],
+  "src/components/DiscordMessageEditor/components/ComponentEditors/ThumbnailEditor.tsx": [
+   0,
+   2
+  ],
+  "src/components/DiscordMessageEditor/components/EmbedEditor/ColorPicker/__tests__/ColorPicker.scroll-lock-release.test.tsx": [
+   1,
+   0
+  ],
+  "src/components/DiscordMessageEditor/components/EmbedEditor/EmbedImage.tsx": [
+   0,
+   1
+  ],
+  "src/components/DiscordMessageEditor/components/EmbedEditor/index.tsx": [
+   1,
+   1
+  ],
+  "src/components/DiscordMessageEditor/index.tsx": [
+   1,
+   1
+  ],
+  "src/components/Drawer/index.tsx": [
+   19,
+   2
+  ],
+  "src/components/Dropdown.tsx": [
+   1,
+   0
+  ],
+  "src/components/EmojiPicker/Picker/components/CategoryList/CustomCategoryItem.tsx": [
+   0,
+   1
+  ],
+  "src/components/EmojiPicker/Picker/components/CategoryList/index.tsx": [
+   2,
+   0
+  ],
+  "src/components/EmojiPicker/Picker/components/CategoryList/useSidebarState.ts": [
+   0,
+   2
+  ],
+  "src/components/EmojiPicker/Picker/components/EmojiList/SectionHeader.tsx": [
+   0,
+   1
+  ],
+  "src/components/EmojiPicker/Picker/components/EmojiList/index.tsx": [
+   4,
+   5
+  ],
+  "src/components/EmojiPicker/Picker/components/EmojiList/useCategoryPositions.ts": [
+   0,
+   6
+  ],
+  "src/components/EmojiPicker/Picker/components/EmojiList/useScrollCalculator.ts": [
+   0,
+   4
+  ],
+  "src/components/EmojiPicker/Picker/components/Footer.tsx": [
+   0,
+   2
+  ],
+  "src/components/EmojiPicker/Picker/components/Icons/ActivitiesEmojiIcon.tsx": [
+   1,
+   0
+  ],
+  "src/components/EmojiPicker/Picker/components/Icons/FlagsEmojiIcon.tsx": [
+   1,
+   0
+  ],
+  "src/components/EmojiPicker/Picker/components/Icons/FoodEmojiIcon.tsx": [
+   1,
+   0
+  ],
+  "src/components/EmojiPicker/Picker/components/Icons/FrequentlyUsedEmojiIcon.tsx": [
+   1,
+   0
+  ],
+  "src/components/EmojiPicker/Picker/components/Icons/NatureEmojiIcon.tsx": [
+   1,
+   0
+  ],
+  "src/components/EmojiPicker/Picker/components/Icons/ObjectsEmojiIcon.tsx": [
+   1,
+   0
+  ],
+  "src/components/EmojiPicker/Picker/components/Icons/PeopleEmojiIcon.tsx": [
+   1,
+   0
+  ],
+  "src/components/EmojiPicker/Picker/components/Icons/SymbolsEmojiIcon.tsx": [
+   1,
+   0
+  ],
+  "src/components/EmojiPicker/Picker/components/Icons/TravelEmojiIcon.tsx": [
+   1,
+   0
+  ],
+  "src/components/EmojiPicker/Picker/utils/index.ts": [
+   0,
+   5
+  ],
+  "src/components/EmojiPicker/PickerSkeleton.tsx": [
+   0,
+   3
+  ],
+  "src/components/RadioButtonGroup.tsx": [
+   0,
+   1
+  ],
+  "src/components/SlateEditor/index.tsx": [
+   9,
+   0
+  ],
+  "src/components/SlateEditor/utils/createLeaf.ts": [
+   0,
+   1
+  ],
+  "src/components/SlateEditor/utils/decorator.tsx": [
+   0,
+   2
+  ],
+  "src/components/SlateEditor/utils/getInitialValue.ts": [
+   0,
+   2
+  ],
+  "src/components/SlateEditor/utils/onChange.ts": [
+   0,
+   1
+  ],
+  "src/components/SlateEditor/utils/onKeyDown.ts": [
+   0,
+   2
+  ],
+  "src/components/SlateEditor/utils/withNormalizeNode.ts": [
+   0,
+   2
+  ],
+  "src/components/TextField.tsx": [
+   1,
+   0
+  ],
+  "src/components/Toggle.tsx": [
+   8,
+   1
+  ],
+  "src/components/Tooltip.tsx": [
+   3,
+   2
+  ],
+  "src/components/__tests__/BottomPortal.unmount-cleanup.test.tsx": [
+   1,
+   0
+  ],
+  "src/components/__tests__/ImageUploader.enter-scope.test.tsx": [
+   2,
+   0
+  ],
+  "src/components/__tests__/TransitionHeightElement.height-and-visibility.test.tsx": [
+   3,
+   3
+  ],
+  "src/components/__tests__/WarningDialog.enter-scope.test.tsx": [
+   2,
+   0
+  ],
+  "src/env.mjs": [
+   0,
+   1
+  ],
+  "src/lang/generated/types.ts": [
+   0,
+   1
+  ],
+  "src/lang/index.ts": [
+   0,
+   1
+  ],
+  "src/providers/GuildProvider.tsx": [
+   1,
+   0
+  ],
+  "src/providers/MarkdownProvider.tsx": [
+   0,
+   1
+  ],
+  "src/providers/MessageProvider/__tests__/MessageProvider.own-save-notice.test.tsx": [
+   1,
+   0
+  ],
+  "src/providers/MessageProvider/__tests__/MessageProvider.save-new-number.test.tsx": [
+   1,
+   0
+  ],
+  "src/providers/MessageProvider/__tests__/MessageProvider.save-step.test.tsx": [
+   1,
+   0
+  ],
+  "src/providers/MessageProvider/__tests__/MessageProvider.stored-draft.test.tsx": [
+   1,
+   0
+  ],
+  "src/providers/MessageProvider/__tests__/MessageProvider.transient-toast.test.tsx": [
+   4,
+   0
+  ],
+  "src/providers/MessageProvider/__tests__/helpers/mountMessageProvider.tsx": [
+   1,
+   0
+  ],
+  "src/providers/MessageProvider/__tests__/useApiMethods.json-editor-repair.test.ts": [
+   37,
+   1
+  ],
+  "src/providers/MessageProvider/__tests__/usePusher.hash-parity.test.ts": [
+   11,
+   0
+  ],
+  "src/providers/MessageProvider/index.tsx": [
+   3,
+   2
+  ],
+  "src/providers/MessagesProvider.tsx": [
+   1,
+   0
+  ],
+  "src/providers/NavigationGuardProvider.tsx": [
+   0,
+   1
+  ],
+  "src/providers/PartialMessagesProvider.tsx": [
+   4,
+   0
+  ],
+  "src/providers/WebhookProvider.tsx": [
+   2,
+   0
+  ],
+  "src/providers/__tests__/NavigationGuardProvider.link-confirmation.test.tsx": [
+   1,
+   0
+  ],
+  "src/scripts/__tests__/backfillValid.classify.test.ts": [
+   4,
+   0
+  ],
+  "src/scripts/__tests__/backfillValid.evaluation-failure-category.test.ts": [
+   3,
+   0
+  ],
+  "src/scripts/__tests__/backfillValid.report-and-target-guards.test.ts": [
+   7,
+   0
+  ],
+  "src/server/api/utils/__tests__/messageValidity.predicate.test.ts": [
+   7,
+   0
+  ],
+  "src/server/api/utils/__tests__/shapes.message-validation.test.ts": [
+   10,
+   2
+  ],
+  "src/server/api/utils/__tests__/shapes.supported-types-parity.test.ts": [
+   4,
+   0
+  ],
+  "src/server/api/utils/guild.ts": [
+   2,
+   2
+  ],
+  "src/server/api/utils/shapes.ts": [
+   0,
+   2
+  ],
+  "src/utils/__tests__/componentsV2.data-layer.test.ts": [
+   3,
+   0
+  ],
+  "src/utils/__tests__/discordResponseToMessage.rowE-persist-gate.test.ts": [
+   6,
+   0
+  ],
+  "src/utils/__tests__/editableComponents.operations.test.ts": [
+   4,
+   0
+  ],
+  "src/utils/__tests__/editableComponents.sub-component-actions.test.ts": [
+   5,
+   0
+  ],
+  "src/utils/__tests__/gateBeforePersist.thumbnail.test.ts": [
+   2,
+   0
+  ],
+  "src/utils/__tests__/helpers/discord.ts": [
+   1,
+   0
+  ],
+  "src/utils/__tests__/helpers/messageData.ts": [
+   1,
+   0
+  ],
+  "src/utils/__tests__/isValidUrl.protocol-validation.test.ts": [
+   2,
+   0
+  ],
+  "src/utils/__tests__/limits.import-validation.test.ts": [
+   2,
+   0
+  ],
+  "src/utils/__tests__/limits.send-gate-partition.test.ts": [
+   13,
+   1
+  ],
+  "src/utils/__tests__/limits.v2-send-validity.test.ts": [
+   0,
+   1
+  ],
+  "src/utils/__tests__/loadDiff.independent-oracle.test.ts": [
+   6,
+   1
+  ],
+  "src/utils/__tests__/messageMode.detection.test.ts": [
+   4,
+   2
+  ],
+  "src/utils/__tests__/messageMode.switch.test.ts": [
+   0,
+   4
+  ],
+  "src/utils/__tests__/serverCommands.get-message.test.ts": [
+   5,
+   1
+  ],
+  "src/utils/__tests__/supportedTypes.parity.test.ts": [
+   4,
+   0
+  ],
+  "src/utils/__tests__/utils.disposition-notices.test.ts": [
+   3,
+   0
+  ],
+  "src/utils/__tests__/utils.disposition-resolver.test.ts": [
+   28,
+   0
+  ],
+  "src/utils/__tests__/utils.mutual-exclusivity.test.ts": [
+   2,
+   1
+  ],
+  "src/utils/__tests__/utils.rowd-load-disposition.test.ts": [
+   12,
+   0
+  ],
+  "src/utils/__tests__/utils.save-payload-and-seed.test.ts": [
+   3,
+   0
+  ],
+  "src/utils/__tests__/utils.transport-form.test.ts": [
+   4,
+   0
+  ],
+  "src/utils/getServerSideSessionCookie.ts": [
+   1,
+   0
+  ],
+  "src/utils/hooks/__tests__/useValidateWebhook.validation-effects.test.tsx": [
+   1,
+   0
+  ],
+  "src/utils/hooks/index.ts": [
+   7,
+   1
+  ],
+  "src/utils/hooks/useWindowEventListener.ts": [
+   0,
+   1
+  ],
+  "src/utils/index.ts": [
+   2,
+   5
+  ],
+  "src/utils/maps/SumMap.ts": [
+   0,
+   1
+  ],
+  "src/utils/maps/UpsertMapMap.ts": [
+   0,
+   1
+  ],
+  "src/utils/maps/index.ts": [
+   0,
+   3
+  ],
+  "src/utils/markdown/components/MarkdownTimestamp.tsx": [
+   3,
+   1
+  ],
+  "src/utils/messageMode.ts": [
+   1,
+   0
+  ],
+  "src/utils/omit.ts": [
+   0,
+   2
+  ],
+  "src/utils/redis/__tests__/messageStore.dropped-set-report.test.ts": [
+   5,
+   0
+  ],
+  "src/utils/redis/index.ts": [
+   4,
+   0
+  ],
+  "src/utils/withLocalStorage.ts": [
+   0,
+   1
+  ]
+ }
+}

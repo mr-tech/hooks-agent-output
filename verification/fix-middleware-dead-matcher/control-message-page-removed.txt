@@ -1,0 +1,68 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/75a9849a-b972-4bbc-bbcc-275123712543/scratchpad/x/tip
+
+ ❯ |node| src/__tests__/proxy.matcher-routes.test.ts (4 tests | 2 failed) 13ms
+     × holds the message editor and an API route 6ms
+     × /message matches at least one of the site's routes 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/__tests__/proxy.matcher-routes.test.ts > the site route inventory the proxy matcher is checked against > holds the message editor and an API route
+AssertionError: expected [ '/', '/api/auth/1', …(13) ] to deeply equal ArrayContaining{…}
+
+- Expected
++ Received
+
+- ArrayContaining [
+-   "/message",
+-   "/message/m/1/edit",
++ [
++   "/",
++   "/api/auth/1",
++   "/api/interactions-edge",
++   "/api/interactions-server",
++   "/api/messages/codes/1",
++   "/api/trpc/1",
+    "/api/v1/guilds/1/messages",
++   "/api/v1/guilds/1/messages/1",
++   "/legal/privacy",
++   "/legal/terms",
++   "/message/f/1",
++   "/message/m/1/edit",
++   "/message/m/1/send",
++   "/message/m/new",
++   "/preview",
+  ]
+
+ ❯ src/__tests__/proxy.matcher-routes.test.ts:29:46
+     27|   /\.[jt]sx?$/.test(segments[segments.length - 1] ?? '')
+     28|   && !segments[segments.length - 1]?.endsWith('.d.ts')
+     29|   && !/^_(app|document|error)\./.test(segments[segments.length - 1] ??…
+       |                                              ^
+     30| )).map((segments) => {
+     31|   const last = (segments[segments.length - 1] ?? '').replace(/\.[jt]sx…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/__tests__/proxy.matcher-routes.test.ts > every proxy matcher entry > /message matches at least one of the site's routes
+AssertionError: expected [] to not deeply equal []
+
+Compared values have no visual difference.
+
+ ❯ src/__tests__/proxy.matcher-routes.test.ts:42:49
+     42|
+     43| describe('every proxy matcher entry', () => {
+     44|   it.each(config.matcher)('%s matches at least one of the site\'s rout…
+       |  ^
+     45|     const reached = siteUrls.filter((url) => doesMiddlewareMatch({ con…
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 2 passed (4)
+   Start at  17:29:47
+   Duration  369ms (transform 29ms, setup 0ms, import 232ms, tests 13ms, environment 0ms)
+
+exit=1
