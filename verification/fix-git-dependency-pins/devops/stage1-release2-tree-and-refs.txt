@@ -1,0 +1,20 @@
+2026-11-22T00:16:42Z
+website chain tip:
+3859c29d557c920a5b611b8e3a4e7b5bf7b1222e
+branch:
+chain/fix-git-dependency-pins
+porcelain:
+?? .playwright-mcp/
+origin/master:
+132a7ab6f49d8a85ead507e2221ab3c3a531fd00	refs/heads/master
+ahead of origin/master by (rev-list --count):
+1
+master tree == 132a7ab tree?
+5259fe832f408658afd0984a53b38b82c5fba888
+project-utils origin master:
+40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165	refs/heads/master
+paracord commit served:
+3f203086ae38699f26dbee90dadbb395a96be227
+package.json pins at 3859c29:
+68:    "project-utils": "github:hooks-gg/project-utils#40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165",
+125:    "paracord": "github:mr-tech/paracord#3f203086ae38699f26dbee90dadbb395a96be227",

@@ -3,7 +3,7 @@ ID: n/a
 Origin: fix-git-dependency-pins
 UUID: 84f208f7
 Status: Active
-Status-Detail: "Release 1 of 2 done: project-utils master moved to 40ba5d3 at 23:15Z (mid-chain, deploys nothing). Release 2 (website master, on the owner's word) follows a later brief; this record stays open for it."
+Status-Detail: "Release 1 of 2 done: project-utils master moved to 40ba5d3 at 23:15Z. Release 2 (website master, tip 3859c29): Stage 1 done, no release ask yet, held until a Ready production deployment of 132a7ab serves hooks.gg (steering brief)."
 ---
 
 # Deployment — fix-git-dependency-pins
@@ -17,6 +17,7 @@ written under its own brief.
 |---|---|---|
 | 2026-11-21T23:14 | devops | Document created at Stage 2 readiness for release 1 (project-utils `master`). Brief `steering/fix-git-dependency-pins-brief-devops.md` and its common part read whole; steering's brief had arrived, so no gap is recorded there. This is the first pass: no earlier session. |
 | 2026-11-21T23:15 | devops | Release 1 executed (Mode A): project-utils `master` `749606d` to `40ba5d3`, read back by `git ls-remote` at 23:15:10Z; `chain/fix-git-dependency-pins` deleted by `git branch -d`. Runbook results, Release Execution and Post-Release Status filled. Readiness committed first at record `e8f7d9d`. |
+| 2026-11-22T00:21 | devops | Release 2 brief read whole (steering `46d15db`). Stage 1 recorded for website `3859c29` on `chain/fix-git-dependency-pins`; deploy-host install read from the last successful production build log (pnpm 10.28.2; private fetch is HTTPS with a token, not SSH). Gate on the release ask not met: newest production deployment `Error`, newest Ready is the `0c14d5b` build. Two re-captures of the deployment list were not completed. |
 
 ## Plan Reference
 
@@ -145,6 +146,45 @@ Mode A, run by this session, 2026-11-21T23:15Z. Commands and results are the run
 Release 1: pushed 2026-11-21T23:15Z. Known issues: none known; the one open read is the outside-consumer assumption above, owned by `steering-hooks`, which this release does not wait on (it exercises no
 host, and changes no consumer until a re-pin). Rollback Plan: the reverse-apply dry run above (a revert commit through the same tool); no consumer has re-pinned.
 The chain stays open: the fixer's and the reviewer's documents are not closed here (brief), and release 2 follows.
+
+## Release 2 — website `master` (Stage 1 done; Stage 2 gated)
+
+Brief: `steering/fix-git-dependency-pins-brief-devops-release2.md` (agent-output `46d15db`), read whole, with the rulings blocks 23:58, 00:07 and 00:13. Steering's brief had arrived.
+
+### Stage 1 — committed state
+
+| Item | State |
+|---|---|
+| Stage start | No UAT, no QA in the stage set (3 production lines across both halves). The start is the code review `code-review/fix-git-dependency-pins-code-review.md` round 2, `Reviewed-At` `40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165,3859c29d557c920a5b611b8e3a4e7b5bf7b1222e — repos=project-utils,website`, `Verdict` APPROVED, no findings (record `41193a1`); fixer document `Handoff-At: 40ba5d3,3859c29` (record `80a5778`). Both anchors re-read from the files. |
+| Blocking-condition register | None exists in this chain. Nothing to terminate. |
+| Plan at rest (2c) | No plan, no Planner batch, no critique, no architecture findings document carrying this chain's ID (`grep -rl` over `architecture handoff critiques qa uat planning analysis security`: no hit). |
+| Chain branch and tip | website `chain/fix-git-dependency-pins` at `3859c29d557c920a5b611b8e3a4e7b5bf7b1222e`, cut from `origin/master` `132a7ab6f49d8a85ead507e2221ab3c3a531fd00`; `132a7ab` is an ancestor of the tip and `rev-list --count 132a7ab..3859c29` is 1. Not pushed; no upstream. Capture: `stage1-release2-tree-and-refs.txt` (00:16Z). project-utils half: already on project-utils `master` (release 1). |
+| Uncommitted work | Website `git status --porcelain`: only `?? .playwright-mcp/` (another session's; left alone). Record repository: nothing under `verification/fix-git-dependency-pins/`, `implementation/` or `code-review/` uncommitted (`git status --porcelain` over them: empty before this stage's own writes). |
+| Release consistency | No package carries a `version` field in either repository, so none is synthesised. Cross-repo references at the tip, re-derived: `package.json:68` `"project-utils": "github:hooks-gg/project-utils#40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165"` and `:125` `"paracord": "github:mr-tech/paracord#3f203086ae38699f26dbee90dadbb395a96be227"`. The lockfile names the same commits (`pnpm-lock.yaml` lines 4991 and 11835 for project-utils, 4761 and 11576 for paracord, `git show 3859c29:pnpm-lock.yaml`). project-utils `origin/master` is `40ba5d3…` (`git ls-remote`, 00:16Z), so the pinned commit is served and is the serving head. paracord's commit `3f20308…` is served (`gh api repos/mr-tech/paracord/commits/3f203086…` returns the SHA). Neither names a stale branch. |
+| Packaging at the tip | Deferred to Stage 2 (Phase 2A step 5), run at the tip then, because the base may move before the ask. The code review's cold-store frozen install, suite and typecheck at `3859c29` are the predecessor's and are not this stage's identity. |
+| Roadmap and release tracker | No roadmap document cited, and a `fix-` chain owes none (Phase 2D step 6). |
+| Documents closed (step 8) | Fixer implementation and code review, `Status` `Committed`, moved to `closed/` (changelog rows there). No QA, UAT or plan document exists. No post-deploy-observable rows exist, so no carrier handoff is created. |
+
+### Deploy-host install, read from the last successful production deployment (brief: the code review's Assumption Not Checked, owner devops)
+
+Instrument: the Vercel build log of the last Ready production deployment, `dpl_AsiVPq5vBJY7dqJim5PcmFVWCrn9` (`hooks-gg-website-oxeqdn0vp`, built from `0c14d5b`), captured look-only by chain 6's devops: `verification/fix-delete-dead-cron/devops/vercel-build-log-prod-0c14d5b.txt`. The errored 132a7ab build's log (`vercel-build-log-errored-132a7ab.txt`) is read for the same lines.
+
+- pnpm: "Detected ENABLE_EXPERIMENTAL_COREPACK=1 and "pnpm@10.28.2" in package.json" in both logs: the `packageManager` pin, the version the reviewer's and fixer's frozen installs used.
+- Install command: `git config --global url."https://${GITHUB_USER}:${GITHUB_USER_ACCESS_TOKEN}@github.com/".insteadOf "git@github.com:" && pnpm install 1> /dev/null`. So the private project-utils fetch is **not over SSH**: the lockfile's `git@github.com:` URL is rewritten to HTTPS with a token. That corrects the code review's wording ("over SSH") and does not change what it needs: a reachable private repo. Both `GITHUB_USER` and `GITHUB_USER_ACCESS_TOKEN` are set for Production (`vercel-env-names-2026-11-21.txt`, names only; no value read).
+- The install step succeeded for the lockfile at `0c14d5b` and again for `132a7ab` (the errored build ran the install, then `next build` failed later on missing `DATABASE_URL` and `REDIS*` settings). Both resolve project-utils `749606d` over that mechanism. The new pin is another commit of the same repository, so the mechanism that fetched `749606d` is the one that fetches `40ba5d3`.
+- The install output goes to `/dev/null`, so no git-fetch line is printed: the evidence is that the step completed, not a fetch line.
+- Not established by any read: that pnpm on the host, run in CI mode, treats the hand-edited lockfile as the reviewer's `--frozen-lockfile` run did (`ERR_PNPM_OUTDATED_LOCKFILE` would be the failure). Same pnpm version and the reviewer's cold-store frozen install exit 0 make it expected; it is **accepted as written, a named risk**, and is decided by the production build after the push, which is read per the brief's deploy-evidence rule.
+
+### Gate on Stage 2 (the release ask)
+
+Brief: no release ask to the owner until a Ready production deployment of `132a7ab` serves `hooks.gg`.
+
+- Read at 00:15Z (`vercel ls --prod`, look-only): the newest production deployment, `hooks-gg-website-dbbvp2cya` (55 minutes old, `Error`), is the `132a7ab` build whose log is captured above; the newest Ready one is `hooks-gg-website-oxeqdn0vp`, 6 hours old, built from `0c14d5b`. **The gate is not met.** Two later attempts to re-capture the list into a file were not completed (timeout); the 00:15Z read stands and is re-read before the ask.
+- No report that the five Production settings are fixed has reached this session. Nothing here has been asked of the owner.
+
+### Pending for Stage 2 (Phase 2A-2C), written when the gate opens
+
+Release identifier: website `master` at `3859c29d557c920a5b611b8e3a4e7b5bf7b1222e` (fast-forward of one commit over `132a7ab`, if `origin/master` is still there). Mode A, `release-move.js /usr/local/bin/hooks/website master 3859c29d557c920a5b611b8e3a4e7b5bf7b1222e --reason <review round 2 and its Reviewed-At>`. The release-tip verdict is the code review, round 2, as the stage set has no QA. A production move: the sanction is put to the owner by selection prompt from this session, with the fixer's User-visible flows in his form (context first, plain English, no commit IDs or tool names), saying that where the site uses paracord was not read by the fixer (the review read three uses and the resolved tarball is unchanged). Deploy evidence after the push is the production deployment's own state (`vercel ls --prod`, `vercel inspect https://hooks.gg`), not the push alone. Outside consumer: `/usr/local/bin/hooks-deprecated/cdn` names project-utils `#master`; unread; changes only if it re-pins (rulings block 23:16).
 
 ## Record notes
 
