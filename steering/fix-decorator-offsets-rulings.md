@@ -108,3 +108,16 @@ Reviewer's cue by message ~21:4xZ: record `201856c0` (read: `Reviewed-At 2e6127e
 done; output identical to `e6a5766` over its corpus, oracle and 288 heading rows; suite 2594/2594 exit 0; 116 production lines. QA brief
 `steering/fix-decorator-offsets-brief-qa.md` (Phase 2; the emoji-in-text-leaf mounted check); `qa-fix-decorator-offsets` started with
 `tmux-agent spawn`.
+
+## 2026-11-22T21:54 — QA Failed (QAF-1, to the fixer); the emoji pre-transform class: two new defects, one loses pasted text
+
+QA by message ~22:0xZ: `qa/fix-decorator-offsets-qa.md` (record `2d43966c`), QA Failed at `2e6127e`; QAF-1 MEDIUM routed to
+`fixer-fix-decorator-offsets` directly; a refresh pass at the fix round's SHA precedes devops. Outside this write set, identical at base
+`8845b7e`, measured in a mounted `SlateEditor` (evidence `verification/fix-decorator-offsets/qa/emoji-rows-*.jsonl`): (1) the `TODO.md`
+emoji item is reachable through an escaped emoji only (`\🙂 **a**` stays in one text leaf; bold not coloured); (2) **E-1**: a pasted line
+holding an emoji then text loses characters after the emoji (`x🙂 abcdefghijklmnopq` keeps `x`, the emoji, `lmnopq`: 12 lost, the width
+`:slight_smile:` minus 2) — `withNormalizeNode.ts` `handleElement` sizes its insert range from the pre-transformed content; (3) **E-2**: a
+stored `\🙂 **a**` loads as `:slight_smile: **a**`, and onChange reports the rewritten string. One class: the parser's emoji pre-transform
+changes source widths. Disposition (this thread's, under block 04:50): fixed, as one fixer chain `fix-emoji-pretransform-widths` (the
+`TODO.md` item, E-1, E-2). E-1 loses users' text, so its place in the queue (next after 9b, ahead of 9c-9f, or as ordered) is put to him;
+a refutation helper runs the paste probe through the real code path first (scratch `refute-paste/`).
