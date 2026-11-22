@@ -1,0 +1,9 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/06c4b477-9641-44b6-b03f-01fded4dfa5b/scratchpad/exp-tip
+
+
+ Test Files  2 passed (2)
+      Tests  9 passed (9)
+   Start at  17:33:51
+   Duration  386ms (transform 63ms, setup 0ms, import 492ms, tests 21ms, environment 0ms)
+

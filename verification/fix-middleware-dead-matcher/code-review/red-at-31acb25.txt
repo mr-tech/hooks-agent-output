@@ -1,0 +1,29 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/06c4b477-9641-44b6-b03f-01fded4dfa5b/scratchpad/exp-red
+
+ ❯ |node| src/__tests__/proxy.matcher-routes.test.ts (5 tests | 1 failed) 13ms
+     × /api/guilds/(.*) matches at least one of the site's routes 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/__tests__/proxy.matcher-routes.test.ts > every proxy matcher entry > /api/guilds/(.*) matches at least one of the site's routes
+AssertionError: expected [] to not deeply equal []
+
+Compared values have no visual difference.
+
+ ❯ src/__tests__/proxy.matcher-routes.test.ts:42:49
+     42|
+     43| describe('every proxy matcher entry', () => {
+     44|   it.each(config.matcher)('%s matches at least one of the site\'s rout…
+       |  ^
+     45|     const reached = siteUrls.filter((url) => doesMiddlewareMatch({ con…
+     46|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 9 passed (10)
+   Start at  17:33:50
+   Duration  399ms (transform 62ms, setup 0ms, import 500ms, tests 25ms, environment 0ms)
+

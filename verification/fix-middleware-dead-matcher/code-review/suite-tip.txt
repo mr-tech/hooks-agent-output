@@ -1,0 +1,12 @@
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+JSON report written to /tmp/claude-1000/-usr-local-bin-hooks-website/06c4b477-9641-44b6-b03f-01fded4dfa5b/scratchpad/out/suite-tip.json

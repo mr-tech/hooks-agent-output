@@ -1,0 +1,5 @@
+FAIL convention file present: /tmp/claude-1000/-usr-local-bin-hooks-website/06c4b477-9641-44b6-b03f-01fded4dfa5b/scratchpad/exp-base/src/middleware.ts
+FAIL /_middleware not registered as a function
+FAIL edge middleware registered: ['/']
+3 check(s) failed
+exit=1
