@@ -1,0 +1,39 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/acf881db-3969-474d-a04c-1dde839c08c2/scratchpad/base
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/onCopy.void-probe.test.tsx (1 test | 1 failed) 16ms
+   × probe: collapsed caret inside an emoji void 15ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/onCopy.void-probe.test.tsx > probe: collapsed caret inside an emoji void
+AssertionError: expected { wrote: true, types: [ 'span' ] } to deeply equal { Object (wrote, types) }
+
+- Expected
++ Received
+
+  {
+    "types": [
+      "span",
+-     "emoji",
+-     "span",
+    ],
+    "wrote": true,
+  }
+
+ ❯ src/components/SlateEditor/utils/__tests__/onCopy.void-probe.test.tsx:20:81
+     18|   expect([!!Editor.void(editor, { at: start.path }), Range.isCollapsed…
+     19|   onCopy(editor, true)({ preventDefault() {}, stopPropagation() {} } a…
+     20|   expect({ wrote, types: editor.children[0].children.map((c: any) => c…
+       |                                                                                 ^
+     21| });
+     22|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  18:52:23
+   Duration  967ms (transform 102ms, setup 19ms, import 234ms, tests 16ms, environment 572ms)
+

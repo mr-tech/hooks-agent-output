@@ -1,0 +1,21 @@
+import { createEditor, Node, Transforms, Editor, Range } from 'slate';
+import { withReact } from 'slate-react';
+import { expect, it, vi } from 'vitest';
+import { withEmojis } from '..';
+import onCopy from '../onCopy';
+vi.mock('copy-to-clipboard', () => ({ default: vi.fn() }));
+it('probe: collapsed caret inside an emoji void', () => {
+  const editor = withEmojis(withReact(createEditor())) as any;
+  editor.children = [{ type: 'div', children: [
+    { type: 'span', text: 'a' },
+    { type: 'emoji', ast: { type: 'emoji', content: 'X', name: 'x', src: '' }, children: [{ type: 'span', text: '' }] },
+    { type: 'span', text: 'c' },
+  ] }];
+  const start = Editor.start(editor, [0, 1]);
+  Transforms.select(editor, Editor.range(editor, start));
+  let wrote = false;
+  editor.setFragmentData = (d: DataTransfer) => { wrote = true; d.setData('application/x-slate-fragment', window.btoa(encodeURIComponent(JSON.stringify(Node.fragment(editor, editor.selection))))); };
+  expect([!!Editor.void(editor, { at: start.path }), Range.isCollapsed(editor.selection)]).toEqual([true, true]);
+  onCopy(editor, true)({ preventDefault() {}, stopPropagation() {} } as any);
+  expect({ wrote, types: editor.children[0].children.map((c: any) => c.type) }).toEqual({ wrote: true, types: ['span','emoji','span'] });
+});
