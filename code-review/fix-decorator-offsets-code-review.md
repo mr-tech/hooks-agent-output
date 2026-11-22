@@ -2,7 +2,7 @@
 ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
-Reviewed-At: 24eda1cdbcf980e91015582297daac0dfe4a0be1 — repos=website
+Reviewed-At: febf20e39905c977b0d42081137817cb7b704478 — repos=website; production files identical to 24eda1c (test-only delta)
 Status: In Review
 Round: 1
 Verdict: APPROVED
@@ -26,7 +26,7 @@ directory root; the sub-entry at `e6a5766` is in `tip-e6a5766/`.
 | 2026-11-22T20:43 | `steering-hooks-fixer` (brief `steering/fix-decorator-offsets-brief-code-reviewer.md`) | Round 1 review of website `f57c260` | Round 1: REJECTED. CR-1 HIGH (bare URL at a run's edge, right → wrong); CR-2 MEDIUM to steering (other width faults moved). Argument in record `f6b9baa6`. |
 | 2026-11-22T20:44 | `steering-hooks-fixer` | Ruling on CR-2 and write set | Round 1 note: re-scope to every node kind's source width; `rules.tsx` joins the write set; QA at 20+ lines. Record `2dc9572d`. |
 | 2026-11-22T21:19 | `steering-hooks-fixer` (fixer hand-off, record `c88dbcd4`) | Round 1 sub-entry: re-review at website `e6a5766` | Round 1 sub-entry: APPROVED_WITH_COMMENTS. CR-1 and CR-2 resolved, measured by two instruments of different shape: 0 inputs colour worse than at base. CR-3 LOW (heading marker regex duplicated with a non-null assertion). CR-4 MEDIUM (a test row pins a pre-existing missing-outer-class defect; the defect is put to steering). 111 production lines, so QA Phase 2 is restored. Process note for the retrospective: the fixer disclosed one negative control run in the shared tree, restored before commit; the reviewed tree is the committed `e6a5766`, read from an export. |
-| 2026-11-22T22:35 | `fixer-fix-decorator-offsets` (FYI, record `c25925bb`) | None (QAF-2, test-only) | Round 1 note: `git diff --numstat 24eda1c febf20e` shows only `decorator.emphasis-syntax-ranges.test.ts` (+2/−0, commits `a94735b`, `febf20e`), so production files at `febf20e` are byte-identical to the approved `24eda1c`. The production verdict carries; the test rows are QA's to judge. |
+| 2026-11-22T22:30 | `steering-hooks-fixer` (fixer round 6, record `c25925bb`) | Scoped confirmation at website `febf20e` (QAF-2, test-only) | Round 1 sub-entry: APPROVED at `febf20e`. `git diff --name-only 24eda1c febf20e` lists only `decorator.emphasis-syntax-ranges.test.ts` (+2/−0: two `print(f"a {b}")` rows, python, content and field, expecting `{b}` as `hljs-string+hljs-subst`, i.e. the outer string kept, no CR-4 value pinned). Production files are byte-identical to the approved `24eda1c`. In an export: suite 2614/2614 exit 0, typecheck exit 0, ID-token class over the test file 0 (`tip-febf20e/`). Test adequacy is QA's. Disclosed: this row was first committed (record `665344b`) with a stamp of 22:35, ahead of the clock. The stamp gate caught it after the commit, and this row corrects it to `date -u`. |
 | 2026-11-22T22:27 | `steering-hooks-fixer` | Cap ruling (rulings block 22:27) | Round 1 note: the chain is capped. From here a gap below HIGH that I find is recorded here as a stated limit, with no new round; a severity-floor finding is excepted. QAF-2 (test-only) completes as normal. Verdict unchanged. |
 | 2026-11-22T22:18 | `fixer-fix-decorator-offsets` (record `8a9082f5`) | Round 1 fix confirmation for CR-5 at website `24eda1c` | Round 1 sub-entry: APPROVED. CR-5 resolved (split lines 131/131, 0 worse than base). CR-6 LOW (empty-range filter removed; 2 zero-length highlight.js scopes found), routed. Suite 2612/2612, typecheck 0, red 2 at `a7e1adb`; 128 production lines, so QA Phase 2. |
 | 2026-11-22T22:14 | `steering-hooks-fixer` | Ruling on the code-line emoji escalation | Round 1 note: the text loss folds into `fix-emoji-pretransform-widths` (next chain, block 22:13); this chain's scope is unchanged; CR-5 stays with the fixer. Verdict unchanged. |
@@ -254,7 +254,7 @@ CR-6 LOW Round 1
 
 ## Verdict
 
-**Status (current, at `24eda1c`)**: APPROVED. CR-5 resolved, CR-6 LOW routed. QA Phase 2 re-verifies QAF-1 at `24eda1c` (128 production lines).
+**Status (current, at `febf20e`, test-only over `24eda1c`)**: APPROVED. CR-5 resolved, CR-6 LOW routed. QA Phase 2 re-verifies QAF-1 at `24eda1c` (128 production lines).
 **Earlier status (at `a7e1adb`)**: REJECTED: CR-5 (severity floor on the scope's no-worse-than-base criterion).
 **Earlier status**: APPROVED (round 1 sub-entry, fix confirmation at `2e6127e`)
 **Rationale**: every criterion of block 20:44 is met, and no input colours worse than at base by two independent instruments.
