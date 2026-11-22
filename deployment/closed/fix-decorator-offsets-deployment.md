@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
-Status: Active
-Status-Detail: "Stage 2 readiness at website febf20e (Phase 2A complete, execution mode A). Awaiting the owner's release approval; nothing pushed. Release identifier will be the SHA on website master."
+Status: Released
+Status-Detail: "Released 2026-11-22T22:44:37Z: website master febf20e39905c977b0d42081137817cb7b704478; Vercel production deployment Ready and serving hooks.gg; B-1 executed PASS. Release identifier is that SHA."
 ---
 
 # Deployment: fix-decorator-offsets (website, fixer chain)
@@ -13,6 +13,7 @@ Status-Detail: "Stage 2 readiness at website febf20e (Phase 2A complete, executi
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-22T22:36 | `steering-hooks-fixer` (brief `steering/fix-decorator-offsets-brief-devops.md`) | Stage 1, then Stage 2 readiness | Stage 1 committed (record `bb2660a`): implementation, code-review and QA documents closed `Committed`; B-1 carried by `handoff/fix-decorator-offsets-post-deploy-browser-look-2026-11-22.md`. Phase 2A complete at website `febf20e`: tip tree equals QA's `Verified-At` tree; build re-run exit 0; release-move dry-run passed; rollback form checked. Awaiting the owner's release approval. |
+| 2026-11-22T22:55 | `steering-hooks-fixer` (owner's approval 22:44:21Z) | Stage 2 execution and Phase 2D | Released: website `master` `8845b7e` -> `febf20e` at 22:44:37Z; production deployment Ready 22:45:09Z, built from `febf20e`, serving hooks.gg; B-1 executed PASS; documents set `Released`; record closed. |
 
 ## Plan Reference
 
@@ -28,7 +29,7 @@ This record is the only deployment document of the release.
 
 ## Release Date
 
-Pending.
+2026-11-22, push at 22:44:37Z (`date -u` around the move: 22:44:32Z before, 22:44:37Z after).
 
 ## Execution Mode
 
@@ -101,20 +102,69 @@ Website `master` only. `node ~/.claude/tools/release-move.js /usr/local/bin/hook
 
 ## User Confirmation
 
-Pending. The ask is put to the owner in this session as a role-internal selection prompt (or plain text where prompts are off), in plain
-language, with the fixer's user-visible flows in its own words; the way it was put, and when, is recorded here with his answer.
+Put as a selection prompt in this session (prompt gate on: `~/.claude/state/prompt-gate-off` absent), about 22:40Z; answered 22:44:21Z
+(`date -u`): **"Agent: release it now (Recommended)"**. The prompt opened with the context (finished, reviewed, QA'd, 2614 of 2614 tests,
+clean build, not yet live; the post-deploy look at four lines, nothing saved), quoted the fixer's User-visible flows list in its own words,
+named the two known gaps outside the release (nested-style colour inheritance; text lost on pasting an emoji), said nothing changes stored
+text and that a reversing change undoes it, then asked the decision; options "Agent: release it now (Recommended)" and "Agent: don't
+release". Premises cited in the ask: QA and review verdicts (documents above), the build (capture above), the deploy mechanism
+(`vercel ls --prod`, re-derived above). No helper refutation was run on them; they are document and mechanism reads, not inferences.
 
 ## Release Execution
 
-Pending.
+Mode A, run by `devops-fix-decorator-offsets` after the owner's yes (22:44:21Z). Before it: `git ls-remote origin master` =
+`8845b7e3409782e0f07ecd36a818f48f4ebcc721`; tree on `chain/fix-decorator-offsets` at `febf20e`, porcelain `?? .playwright-mcp/` only; a second
+`--dry-run` (22:44Z) passed (output above).
+
+```
+node ~/.claude/tools/release-move.js /usr/local/bin/hooks/website master febf20e39905c977b0d42081137817cb7b704478 \
+  --reason "Phase 2 QA verdict at Verified-At febf20e covers the tip: qa/closed/fix-decorator-offsets-qa.md"
+OK moved master: 8845b7e3409782e0f07ecd36a818f48f4ebcc721 -> febf20e39905c977b0d42081137817cb7b704478 on origin; tree on master   (exit 0)
+```
+
+After: `git ls-remote origin master` = `febf20e39905c977b0d42081137817cb7b704478`; the shared tree is on `master` at `febf20e`, porcelain
+`?? .playwright-mcp/` only. Fix branch: `git branch -d chain/fix-decorator-offsets` printed `ok` (rtk-filtered), exit 0; `git rev-parse --verify
+--quiet refs/heads/chain/fix-decorator-offsets` exit 1 (the branch is gone; its tip is `master`). No tag, no registry publish (a branch move
+has nothing to publish).
+
+**Deploy evidence (brief hazard 1: the production deployment itself).** `vercel inspect https://hooks.gg` (CLI 29.1.1, look-only, 22:47Z;
+three earlier calls — two `ls --prod` and one `inspect` — hit the CLI's known hang under `timeout 60` and were retried, not a control):
+deployment `dpl_7khAExbcAo1i9oupzJRKqyxxm5Xw`, `hooks-gg-website-jibbsnk91-hooks-gg.vercel.app`, status **Ready**, created 22:44:38Z, aliases
+include `https://hooks.gg` and `https://www.hooks.gg` (the previous serving deployment was `dpl_3JEEF7Vs4MaWBa3Gk82TsxdbDpud`, created 20:13Z).
+`vercel logs` of that URL: "Cloning github.com/hooks-gg/website (Branch: master, Commit: febf20e)" 22:44:39Z; "Build Completed in
+/vercel/output [21s]" 22:45:02Z; "Deployment completed" 22:45:09Z. Captures: `verification/fix-decorator-offsets/devops/vercel-inspect-hooks-gg-post-release.txt`,
+`vercel-build-log-post-release.txt` (one line of the install command omitted). Public `GET https://hooks.gg/` returned 200 after the deploy (one request; the earlier request to `/message/m/new` timed out at 30 s and was not retried by curl; the walk below loads that page).
+
+**Deployed against verified.** Deployed ref `master` at `febf20e39905c977b0d42081137817cb7b704478`, the commit the Vercel build cloned
+(`Commit: febf20e`, a seven-character abbreviation, read against the pushed SHA from local git). The verdict SHAs are the same commit:
+QA `Verified-At` and the code review's `Reviewed-At` both `febf20e39905…`. No diff owed between two different commits.
+
+No `NOT VERIFIED` marks: no artifact-side check in this release was unperformable.
 
 ## Post-Release Status
 
-Pending. Post-deploy row B-1: carried by `handoff/fix-decorator-offsets-post-deploy-browser-look-2026-11-22.md`.
+**Deployed: Complete** (deploy evidence above, 22:45:09Z). Environment: production, serving ref website `master` at `febf20e39905c977b0d42081137817cb7b704478`. Authorizer: the owner, "Agent: release it now (Recommended)", 22:44:21Z.
+
+**Post-deploy row B-1: executed PASS** (record `handoff/closed/fix-decorator-offsets-post-deploy-browser-look-2026-11-22.md`, `Addressed`; results `verification/fix-decorator-offsets/devops/walk/results.json`). A `browser-walker` helper drove headless Chromium on production, signed out, nothing saved: `***ab*** cd` markers syntax-coloured, ` cd` plain; `# **a**` marker syntax-coloured; `**a https://x.y**` link-coloured with no grey first letter; `const` keyword-coloured and `1` number-coloured in a js block with no console error; and the added template-string line's `${a}` leaf `hljs-subst hljs-string` in `#c9d1d9`, the stylesheet's `.hljs-subst` colour. Both browser-side assumptions are answered true. Console: two font-preload warnings, no errors.
+
+**Known issues:** no new ones. Limits carried elsewhere: nested-style colour inheritance (CR-4, CR-6, the first-range nested scope) by queued chain `fix-decorator-nested-styles`; the pre-transform emoji widths, the code-line emoji text loss and the custom-emoji assumption by queued chain `fix-emoji-pretransform-widths`; carriers are `steering/fix-decorator-offsets-rulings.md` blocks 21:21, 22:13, 22:19 and 22:30.
+
+**Rollback plan:** a new commit on `master` reversing `verification/fix-decorator-offsets/devops/release-diff.patch` (`git apply --check -R` exit 0 at Stage 2), pushed with `release-move.js`; or re-promote the previous production deployment `dpl_3JEEF7Vs4MaWBa3Gk82TsxdbDpud` in Vercel (the owner's console act, not run).
+
+## Phase 2D
+
+- Documents of this chain, by enumeration (no plan, no `ID`; chain `Origin: fix-decorator-offsets`, UUID `12ef2086`): implementation, code review, QA (all `Released`, in `closed/`), this deployment record, the B-1 handoff (`Addressed`, `handoff/closed/`). No UAT, plan, critique or architecture findings document carries the chain.
+- Release-tip QA record: the Phase 2 QA document served as the release-tip verdict (tip tree = its `Verified-At` tree); set `Released`.
+- Fix branch `chain/fix-decorator-offsets` merged (tip = `master`) and deleted with `git branch -d`.
+- Other `fix-` chains whose `Handoff-At` is an ancestor of `febf20e`: enumerated by `git merge-base --is-ancestor` over `implementation/closed/fix-*`; every one is `Released` except `fix-v1-guild-messages-auth` (`Committed`, `Handoff-At ddbd750c1`), which was already an ancestor of the previous production `master` `8845b7e`: it shipped in an earlier release (its deployment record is `deployment/closed/fix-v1-guild-messages-auth-deployment.md`), not in this one, and its document's token is that chain's own lag, not touched here. (`fix-uat-local-stack-id-sequence` is also `Committed`; its repository is agent-output, not website.)
+- Source handoffs the chain answered: none named by the scoping block (source `research/codebase-bug-evaluation-2026-11-08.md:171`).
+- Forward items beyond the register, found by `grep -c 'Assumption Not Checked'` over the chain's documents: code review (2) — round 1 browser premise, answered by B-1; the emoji-in-text-leaf premise, answered by QA (false for an escaped emoji only; reachable through it, carried by `fix-emoji-pretransform-widths` and `TODO.md` "website editor: an emoji before formatting…"); QA (3) — the range-past-text premise and the two-class leaf premise, both answered true by B-1; the custom-emoji premise, carried by `fix-emoji-pretransform-widths` (rulings block 22:19). The implementation and rulings carry none. The withdrawn chain `fix-decorator-headings` was folded into this one (rulings block 20:44).
+- Architecture: no passage names the decorator (common brief; reviewer; QA); steering lodges any entry at closure (brief). Roadmap: a `fix-` chain owes none (the determination names no epic or criterion).
+- Retrospective spawn cue: sent to `steering-hooks-fixer` with this closure.
 
 ## Next Actions
 
-- B-1 browser look: the handoff above (trigger: the deployment is Ready and serving hooks.gg).
+- B-1 browser look: done (PASS), see Post-Release Status; the handoff is closed `Addressed`.
 - `fix-decorator-nested-styles` (CR-4, CR-6, the nested-scope rows) and `fix-emoji-pretransform-widths` (the pre-transform widths, the
   code-line emoji text loss, the custom-emoji assumption) are queued chains of `steering-hooks-fixer`; carriers are its rulings blocks
   21:21, 22:13, 22:19 and 22:30.

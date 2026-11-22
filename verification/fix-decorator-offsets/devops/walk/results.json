@@ -1,0 +1,1029 @@
+{
+ "url": "https://hooks.gg/message/m/0/edit",
+ "steps": {
+  "C0": [
+   {
+    "text": "**",
+    "ownColor": "rgb(148, 155, 164)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "syntax",
+      "color": "rgb(148, 155, 164)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "x",
+    "ownColor": "rgb(219, 222, 225)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "strongText",
+      "color": "rgb(219, 222, 225)",
+      "fw": "700",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "**",
+    "ownColor": "rgb(148, 155, 164)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "syntax",
+      "color": "rgb(148, 155, 164)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": " y",
+    "ownColor": "rgb(219, 222, 225)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   }
+  ],
+  "L1": [
+   {
+    "text": "***",
+    "ownColor": "rgb(148, 155, 164)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "syntax",
+      "color": "rgb(148, 155, 164)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "ab",
+    "ownColor": "rgb(219, 222, 225)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "emText strongText",
+      "color": "rgb(219, 222, 225)",
+      "fw": "700",
+      "fs": "italic"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "***",
+    "ownColor": "rgb(148, 155, 164)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "syntax",
+      "color": "rgb(148, 155, 164)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": " cd",
+    "ownColor": "rgb(219, 222, 225)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   }
+  ],
+  "L2": [
+   {
+    "text": "# **",
+    "ownColor": "rgb(148, 155, 164)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "syntax",
+      "color": "rgb(148, 155, 164)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "a",
+    "ownColor": "rgb(219, 222, 225)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "strongText",
+      "color": "rgb(219, 222, 225)",
+      "fw": "700",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "**",
+    "ownColor": "rgb(148, 155, 164)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "syntax",
+      "color": "rgb(148, 155, 164)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   }
+  ],
+  "L3": [
+   {
+    "text": "**",
+    "ownColor": "rgb(148, 155, 164)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "syntax",
+      "color": "rgb(148, 155, 164)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "a ",
+    "ownColor": "rgb(219, 222, 225)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "strongText",
+      "color": "rgb(219, 222, 225)",
+      "fw": "700",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "https://x.y",
+    "ownColor": "rgb(0, 168, 252)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "linkText strongText",
+      "color": "rgb(0, 168, 252)",
+      "fw": "700",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "**",
+    "ownColor": "rgb(148, 155, 164)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "syntax",
+      "color": "rgb(148, 155, 164)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   }
+  ],
+  "L4": [
+   {
+    "text": "```",
+    "ownColor": "rgb(148, 155, 164)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "syntax",
+      "color": "rgb(148, 155, 164)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "js",
+    "ownColor": "rgb(196, 201, 206)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "codeBlockText",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "const",
+    "ownColor": "rgb(255, 123, 114)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "hljs-keyword",
+      "color": "rgb(255, 123, 114)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "codeBlock",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": " a = ",
+    "ownColor": "rgb(196, 201, 206)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "codeBlock",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "1",
+    "ownColor": "rgb(121, 192, 255)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "hljs-number",
+      "color": "rgb(121, 192, 255)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "codeBlock",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": ";",
+    "ownColor": "rgb(196, 201, 206)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "codeBlock",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "```",
+    "ownColor": "rgb(148, 155, 164)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "syntax",
+      "color": "rgb(148, 155, 164)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   }
+  ],
+  "L5": [
+   {
+    "text": "```",
+    "ownColor": "rgb(148, 155, 164)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "syntax",
+      "color": "rgb(148, 155, 164)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "js",
+    "ownColor": "rgb(196, 201, 206)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "codeBlockText",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "const",
+    "ownColor": "rgb(255, 123, 114)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "hljs-keyword",
+      "color": "rgb(255, 123, 114)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "codeBlock",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": " b = ",
+    "ownColor": "rgb(196, 201, 206)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "codeBlock",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "`x ",
+    "ownColor": "rgb(165, 214, 255)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "hljs-string",
+      "color": "rgb(165, 214, 255)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "codeBlock",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "${a}",
+    "ownColor": "rgb(201, 209, 217)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "hljs-subst hljs-string",
+      "color": "rgb(201, 209, 217)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "codeBlock",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "`",
+    "ownColor": "rgb(165, 214, 255)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "hljs-string",
+      "color": "rgb(165, 214, 255)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "codeBlock",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": ";",
+    "ownColor": "rgb(196, 201, 206)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "codeBlock",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   }
+  ],
+  "L4_enter": [
+   {
+    "text": "```",
+    "ownColor": "rgb(148, 155, 164)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "syntax",
+      "color": "rgb(148, 155, 164)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "js",
+    "ownColor": "rgb(196, 201, 206)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "codeBlockText",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "const",
+    "ownColor": "rgb(255, 123, 114)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "hljs-keyword",
+      "color": "rgb(255, 123, 114)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "codeBlock",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": " a = ",
+    "ownColor": "rgb(196, 201, 206)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "codeBlock",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "1",
+    "ownColor": "rgb(121, 192, 255)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "hljs-number",
+      "color": "rgb(121, 192, 255)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "codeBlock",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": ";",
+    "ownColor": "rgb(196, 201, 206)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "codeBlock",
+      "color": "rgb(196, 201, 206)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   },
+   {
+    "text": "```",
+    "ownColor": "rgb(148, 155, 164)",
+    "chain": [
+     {
+      "tag": "SPAN",
+      "cls": "syntax",
+      "color": "rgb(148, 155, 164)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "SPAN",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     },
+     {
+      "tag": "DIV",
+      "cls": "",
+      "color": "rgb(219, 222, 225)",
+      "fw": "400",
+      "fs": "normal"
+     }
+    ]
+   }
+  ]
+ },
+ "console": [
+  {
+   "type": "warning",
+   "text": "The resource https://hooks.gg/assets/twemoji-mozilla.ttf was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally."
+  },
+  {
+   "type": "warning",
+   "text": "The resource https://hooks.gg/assets/twemoji-mozilla.ttf was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally."
+  }
+ ],
+ "editorCount": 1
+}

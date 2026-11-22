@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
-Status: Committed
-Status-Detail: "Committed at website febf20e on chain/fix-decorator-offsets (devops Stage 1, 2026-11-22); awaiting release to website master on the owner's word. Post-deploy row B-1 carried by handoff/fix-decorator-offsets-post-deploy-browser-look-2026-11-22.md."
+Status: Released
+Status-Detail: "Released: website master moved to febf20e at 22:44:37Z on 2026-11-22 on the owner's approval; Vercel production deployment Ready and serving hooks.gg. Record: deployment/closed/fix-decorator-offsets-deployment.md."
 Handoff-At: febf20e — repos=website
 Origin-Chain: none
 ---
@@ -610,3 +610,4 @@ For the owner's own look in any editor text box (message content, embed title, e
 | 2026-11-22T22:50 | — | Code review scoped check APPROVED at website `24eda1c` (record `58a83897`). Round 5's claim about the removed limbs corrected: the code-line path also no longer drops empty ranges, which CR-6 LOW shows highlight.js can emit; not worse than base; routed to `fix-decorator-nested-styles`. QA Phase 2 refresh owed. |
 | 2026-11-22T23:05 | — | Round 6 (QAF-2, QA refresh at `24eda1c` QA Failed): two test rows with a nested highlight scope (`print(f"a {b}")`), website `febf20e`; QA's survivor KILLED by them; suite 2614/2614, typecheck and lint exit 0; no production change. A nested scope whose outer scope is a line's first range loses the outer class (CR-4's class): recorded and routed. `Handoff-At` `febf20e`; handed to QA. |
 | 2026-11-22T22:35 | `devops-fix-decorator-offsets` | Document closed (devops Stage 1): committed state recorded at website `febf20e` on `chain/fix-decorator-offsets`, no push. Status: Committed. Resumption State replaced by a closing line. |
+| 2026-11-22T22:55 | `devops-fix-decorator-offsets` | Released (devops Phase 2D): website `master` at `febf20e`, 2026-11-22T22:44:37Z; production deployment Ready and serving hooks.gg. Status: Released. |
