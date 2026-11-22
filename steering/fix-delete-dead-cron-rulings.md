@@ -143,3 +143,12 @@ Reads this turn (web): no notice of the Railway-Vercel integration's removal fou
 no removal (titles only). Whether Vercel deletes an integration's settings when the integration goes: not found in Vercel's docs.
 Restore path put to him: copy the five from Railway by hand (public addresses), then Redeploy.
 Disclosed: this heading was first typed with an estimated minute; the stamp gate refused it; restamped with the tool's `2026-11-22T16:48`.
+
+## 2026-11-22T16:59 — he redeployed; hooks.gg serves a new Ready build; both devops sessions told
+
+His words, in this session: "redeployed". This thread's read (`vercel inspect https://hooks.gg`, website dir, stdin closed, 16:59Z):
+`dpl_CnknfaUPDjpEMaaw1781YXMq34rW` (`hooks-gg-website-1nodvml13-hooks-gg.vercel.app`), Ready, created 16:55:59Z; `vercel ls --prod`
+hung both tries (`timeout 60`), not read. Not read by this thread: the commit it was built from, how he supplied the five settings.
+Sent by message: `devops-fix-delete-dead-cron` (its post-deploy read now due: build, live site, Cron Jobs handoff trigger) and
+`devops-fix-git-dependency-pins` (its release-2 gate is its own read; it asks him for the release if met). Owner-wait
+`fix-delete-dead-cron` resolved (`challenge-alert.js resolved`).

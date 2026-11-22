@@ -21,3 +21,12 @@ passes both ways (run).
 
 Determination, stage set and branch cut: written when website `master` is free of chain 7 (released or parked), from that tip.
 Record passages describing an older middleware (sweep's record hits, 12 files) are history; the architect gets one entry at closure.
+
+## 2026-11-22T16:59 — rider: the Next.js "middleware" file-convention deprecation (his report)
+
+His words, in this session: "worth noting the logs have this warning (unrelated to the effort) ⚠ The "middleware" file convention is
+deprecated. Please use "proxy" instead." Read this turn: website tracks `src/middleware.ts`; `package.json` `"next": "^16.4.6"`.
+Disposition (this thread's, under his "fix everything you find along the way", `fixer-queue-2026-11-21-rulings.md` block 04:50): the
+rename to the `proxy` convention rides this chain, which already owns `src/middleware.ts` and its test; the determination, written when
+website `master` is free of chain 7, scopes it (the new convention's file and export names read from Next's docs then, the existing
+test and the matcher test moved with it). Told him in chat; he can veto.
