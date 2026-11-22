@@ -53,3 +53,10 @@ selection") narrowed past his words and is corrected to: **Cut with a collapsed 
 nothing; Cut on an expanded selection, and on a clicked emoji, behaves as at base.** The test asserts all three (plain caret: unchanged
 text; expanded: removed; clicked emoji: removed, as at base). Inside the sweep's region (the cut handler), so no re-scope to him; told
 him in chat, he can veto. Sent to `fixer-fix-cut-collapsed-caret`.
+
+## 2026-11-22T19:06 — handed to code review at website 329cc20; reviewer started
+
+Fixer's spawn cue by message ~19:2xZ: document `implementation/fix-cut-collapsed-caret-implementation.md` (record `083260a4`; `Handoff-At:
+329cc20 — repos=website`, read). This thread's reads: `git log 453de76..329cc20` (two commits); `git diff --numstat`: `onCopy.ts` 5/4,
+`__tests__/onCopy.cut.test.tsx` 84/0. Built to block 18:53's corrected statement (fixer's report). Reviewer brief
+`steering/fix-cut-collapsed-caret-brief-code-reviewer.md`; `code-reviewer-fix-cut-collapsed-caret` started with `tmux-agent spawn`.
