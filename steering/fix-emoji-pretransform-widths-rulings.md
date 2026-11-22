@@ -46,3 +46,11 @@ changed here. QA's unrun case (a custom Discord emoji via the picker in a code l
 reviewer also runs the suite, typecheck, red test) → QA Phase 2 at 20 or more → devops for website `master` (his word). No plan, critic,
 Phase 1 or UAT. **Usage:** weekly at 95%; at 98% every session checkpoints and stops (his selection 22:56). **Not covered by the sweep:**
 real paste events, IME, Slate normalisation order, DOM mapping — devops's post-deploy browser walk pastes the E-1 line.
+
+## 2026-11-22T23:17 — handed to code review at website c2fee5c; reviewer started
+
+Fixer's cue by message ~23:1xZ: document `implementation/fix-emoji-pretransform-widths-implementation.md` (record `eaecd18d`;
+`Handoff-At: c2fee5c — repos=website`, read). This thread's numstat `febf20e..c2fee5c`: six production files (70 lines by the fixer's
+count; QA Phase 2 follows review), three test files. Owner residue named in its Diagnosis (text already lost to E-1; stored messages
+rewritten on load before the fix) — told him in chat. Reviewer brief `steering/fix-emoji-pretransform-widths-brief-code-reviewer.md`;
+`code-reviewer-fix-emoji-pretransform-widths` started with `tmux-agent spawn`. weekly_all 96% (23:17Z, live).
