@@ -1,0 +1,30 @@
+{
+  "name": "project-utils",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "lint": "eslint --fix . --max-warnings=0",
+    "build": "tsc -b && rimraf dist && cp -r build/js dist",
+    "build:types": "tsc -p ./tsconfig.json --declaration true --outDir build/types && api-extractor run",
+    "rebuild": "npm run lint && npm run build && npm run build:types"
+  },
+  "dependencies": {
+    "kysely": "^0.26.1",
+    "pg": "^8.11.1",
+    "zod": "^3.20.6"
+  },
+  "devDependencies": {
+    "@microsoft/api-extractor": "^7.49.2",
+    "@types/node": "18.11.9",
+    "@types/pg": "^8.10.2",
+    "@typescript-eslint/eslint-plugin": "^6.2.0",
+    "@typescript-eslint/parser": "^6.2.0",
+    "eslint": "^8.26.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "prisma": "^5.0.0",
+    "prisma-kysely": "^1.5.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^5.1.6"
+  }
+}
