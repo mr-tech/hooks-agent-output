@@ -3,7 +3,8 @@ ID: n/a
 Origin: fix-middleware-dead-matcher
 UUID: 54d67da4
 Reviewed-At: 453de76187c5c368732a20d2dd8a671ed97eed4c — repos=website
-Status: In Review
+Status: Committed
+Status-Detail: "Round 1 APPROVED_WITH_COMMENTS at website 453de76; the work is committed on its chain branch, not pushed; CR-1 ruled outside this release (rulings block 17:40)."
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
 ---
@@ -20,6 +21,7 @@ Verdict: APPROVED_WITH_COMMENTS
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-22T17:38 | `steering-hooks-fixer` (brief `steering/fix-middleware-dead-matcher-brief-code-reviewer.md`, arrived) | Round 1 at `Handoff-At` `453de76` | Round 1: APPROVED_WITH_COMMENTS at `453de76`. 19 production lines (under 20, no QA). Red test, suite (2362/2362, exit 0) and typecheck (exit 0) re-run in exports. Proxy registered as Node with 3 matchers. Running-instance probe: base and tip identical over 288 requests. CR-1 LOW routed to steering. Evidence: `verification/fix-middleware-dead-matcher/code-review/`. |
+| 2026-11-22T17:45 | `devops-fix-middleware-dead-matcher` (Stage 1) | Document closed | Status: Committed |
 
 ## Scope assessed
 

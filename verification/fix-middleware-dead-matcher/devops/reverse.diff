@@ -1,0 +1,134 @@
+diff --git a/src/__tests__/proxy.matcher-routes.test.ts b/src/__tests__/proxy.matcher-routes.test.ts
+new file mode 100644
+index 0000000..57a4bbb
+--- /dev/null
++++ b/src/__tests__/proxy.matcher-routes.test.ts
+@@ -0,0 +1,49 @@
++import { readdirSync } from 'node:fs';
++import { resolve } from 'node:path';
++import { unstable_doesMiddlewareMatch as doesMiddlewareMatch } from 'next/experimental/testing/server';
++import { describe, expect, it } from 'vitest';
++
++import { config } from '../proxy';
++
++function routeFiles(dir: string, isRoute: (segments: string[]) => boolean) {
++  return readdirSync(resolve(process.cwd(), dir), { recursive: true, encoding: 'utf8' })
++    .map((file) => file.split(/[\\/]/))
++    .filter((segments) => !segments.includes('__tests__') && isRoute(segments));
++}
++
++function urlOf(segments: string[]) {
++  const path = segments
++    .filter((segment) => !/^\(.*\)$/.test(segment) && !segment.startsWith('@'))
++    .map((segment) => segment.replace(/^\[{1,2}(\.\.\.)?\w+\]{1,2}$/, '1'));
++  return `/${path.join('/')}`;
++}
++
++const appPages = routeFiles('src/app', (segments) => (
++  /^(page|route)\.[jt]sx?$/.test(segments[segments.length - 1] ?? '')
++  && !segments.some((segment) => segment.startsWith('_'))
++)).map((segments) => urlOf(segments.slice(0, -1)));
++
++const pagesRoutes = routeFiles('src/pages', (segments) => (
++  /\.[jt]sx?$/.test(segments[segments.length - 1] ?? '')
++  && !segments[segments.length - 1]?.endsWith('.d.ts')
++  && !/^_(app|document|error)\./.test(segments[segments.length - 1] ?? '')
++)).map((segments) => {
++  const last = (segments[segments.length - 1] ?? '').replace(/\.[jt]sx?$/, '');
++  return urlOf(last === 'index' ? segments.slice(0, -1) : [...segments.slice(0, -1), last]);
++});
++
++const siteUrls = [...appPages, ...pagesRoutes].sort();
++
++describe('the site route inventory the proxy matcher is checked against', () => {
++  it('holds the message editor and an API route', () => {
++    expect(siteUrls).toEqual(expect.arrayContaining(['/message', '/message/m/1/edit', '/api/v1/guilds/1/messages']));
++  });
++});
++
++describe('every proxy matcher entry', () => {
++  it.each(config.matcher)('%s matches at least one of the site\'s routes', (entry) => {
++    const reached = siteUrls.filter((url) => doesMiddlewareMatch({ config: { matcher: [entry] }, url: `http://localhost${url}` }));
++
++    expect(reached).not.toEqual([]);
++  });
++});
+diff --git a/src/__tests__/middleware.request-headers.test.ts b/src/__tests__/proxy.request-headers.test.ts
+similarity index 92%
+rename from src/__tests__/middleware.request-headers.test.ts
+rename to src/__tests__/proxy.request-headers.test.ts
+index e5cb779..de26c7c 100644
+--- a/src/__tests__/middleware.request-headers.test.ts
++++ b/src/__tests__/proxy.request-headers.test.ts
+@@ -2,7 +2,7 @@ import { unstable_doesMiddlewareMatch as doesMiddlewareMatch } from 'next/experi
+ import { NextRequest } from 'next/server';
+ import { describe, expect, it } from 'vitest';
+ 
+-import middleware, { config } from '../middleware';
++import proxy, { config } from '../proxy';
+ 
+ const forwarded = 'x-middleware-request-';
+ 
+@@ -10,7 +10,7 @@ async function headersReachingPage(path: string, sent: Record<string, string>) {
+   const url = `http://localhost${path}`;
+   if (!doesMiddlewareMatch({ config, url })) return new Headers(sent);
+ 
+-  const response = middleware(new NextRequest(url, { headers: sent }));
++  const response = proxy(new NextRequest(url, { headers: sent }));
+   const overridden = response.headers.get('x-middleware-override-headers');
+   if (!overridden) return new Headers(sent);
+ 
+diff --git a/src/middleware.ts b/src/middleware.ts
+deleted file mode 100644
+index a90adeb..0000000
+--- a/src/middleware.ts
++++ /dev/null
+@@ -1,23 +0,0 @@
+-import { NextResponse } from 'next/server';
+-
+-import type { NextRequest } from 'next/server';
+-
+-export const config = {
+-  matcher: ['/message', '/message/(.*)', '/api/guilds/(.*)', '/preview'],
+-};
+-
+-export default function middleware(request: NextRequest) {
+-  // Clone the request headers
+-  // You can modify them with headers API: https://developer.mozilla.org/en-US/docs/Web/API/Headers
+-  const requestHeaders = new Headers(request.headers);
+-
+-  requestHeaders.set('x-pathname', request.nextUrl.pathname);
+-
+-  // You can also set request headers in NextResponse.rewrite
+-  return NextResponse.next({
+-    request: {
+-      // New request headers
+-      headers: requestHeaders,
+-    },
+-  });
+-}
+diff --git a/src/proxy.ts b/src/proxy.ts
+new file mode 100644
+index 0000000..a633b9a
+--- /dev/null
++++ b/src/proxy.ts
+@@ -0,0 +1,19 @@
++import { NextResponse } from 'next/server';
++
++import type { NextRequest } from 'next/server';
++
++export const config = {
++  matcher: ['/message', '/message/(.*)', '/preview'],
++};
++
++export default function proxy(request: NextRequest) {
++  const requestHeaders = new Headers(request.headers);
++
++  requestHeaders.set('x-pathname', request.nextUrl.pathname);
++
++  return NextResponse.next({
++    request: {
++      headers: requestHeaders,
++    },
++  });
++}
