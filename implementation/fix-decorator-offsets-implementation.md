@@ -10,6 +10,23 @@ Origin-Chain: none
 
 # fix-decorator-offsets — implementation
 
+## Resumption State (checkpoint 2026-11-22T21:16Z, on steering's request)
+
+- **Done:** round 2 committed on website `chain/fix-decorator-offsets`, HEAD `e6a5766` (`2ad482a` the class fix, `e6a5766` limbs
+  removed + link-edge rows); this document at record `c88dbcd4`; spawn cue sent to `steering-hooks-fixer` (msg `887e5f62`), which
+  relayed it to the reviewer.
+- **Next:** wait for code review of `e6a5766` (round numbering the reviewer's). On findings: re-read this Round 2 section, the review
+  document, and `steering/fix-decorator-offsets-rulings.md` from block 20:44 on; fix on the same branch, re-run red/controls/suite/
+  typecheck in exports, and re-run the reviewer's corpus probe (`verification/fix-decorator-offsets/code-review/decorator.differential-probe.test.ts`
+  + `visible.mjs`, plus `round2/invariants.mjs`) at base and tip. On approval: nothing for this stage; QA Phase 2 is steering's to start.
+- **Approach in flight:** none; no edit or run open.
+- **Uncommitted / locally mutated:** none of mine. The website tree is clean apart from the foreign `.playwright-mcp/`. The worktrees
+  `wt-base`, `wt-tip` and `wt-fix` are removed, and no probe file remains in `__tests__/`.
+- **Evidence:** all committed under `verification/fix-decorator-offsets/round2/` and `controls/run3`, `run4`. Scratch copies in the session
+  scratchpad are not relied on.
+- **Questions sent:** to steering with the hand-off: (1) the emoji pre-treatment in `utils.ts` (outside the write set); (2) the disclosed
+  shared-tree control. Neither blocks review.
+
 ## Round 2: re-scope after review round 1 (rulings block "2026-11-22T20:44")
 
 **Scope statement, replacing block 20:19's** (`steering/fix-decorator-offsets-rulings.md`, block "2026-11-22T20:44", record `601c68ca`,
