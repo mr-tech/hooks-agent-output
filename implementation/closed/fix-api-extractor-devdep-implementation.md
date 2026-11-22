@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-api-extractor-devdep
 UUID: 3c9e71a4
-Status: Active
-Status-Detail: "Fix committed at a47e683 on chain/fix-api-extractor-devdep; code review owed, then devops push of project-utils master."
+Status: Released
+Status-Detail: "Released: project-utils master a47e683 pushed 2026-11-22T07:22Z (deployment/fix-api-extractor-devdep-deployment.md). The Change section's lockfile sentence 'the work stops here for steering's ruling' is superseded by the 07:10 ruling (agent-output 832632c) and the two hoisted bumps are admitted; the body sentence is left as written (review CR-2)."
 Handoff-At: a47e683 — repos=project-utils; base 40ba5d3
 Origin-Chain: none
 ---
@@ -121,3 +121,4 @@ devops, to project-utils `master`, with no approval needed, because nothing depl
 | 2026-11-22T07:09 | Created. Diagnosis, red and green runs recorded. Blocked on the lockfile-scope ruling. |
 | 2026-11-22T07:11 | Steering ruled option 1 (rulings block "2026-11-22T07:10", agent-output `832632c`). Candidate applied to the shared tree (`git diff --numstat`: package.json 1/0, package-lock.json 745/15). The fix commit was not made: the `.githooks/pre-commit` hook (`core.hooksPath`) runs `npm run rebuild`, the shared tree has no `node_modules`, and the hook stopped at lint before build. Blocked on steering's ruling over running the hook's rebuild in the shared tree, which writes `build/`. |
 | 2026-11-22T07:12 | Steering ruled option 1 on the hook (rulings block "2026-11-22T07:11", agent-output `f439e11`). `npm ci` ran in the shared tree, and the fix was committed as project-utils `a47e683` with the hook active. dist/ is unchanged and the tree is clean. Handed off to code review. |
+| 2026-11-22T07:23 | Document closed (devops). Status: Released. project-utils `master` moved `40ba5d3` to `a47e683` at 07:22Z; `Status-Detail` brought into agreement with the 07:10 ruling (review CR-2). |

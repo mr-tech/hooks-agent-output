@@ -1,0 +1,10 @@
+repo     /usr/local/bin/hooks/project-utils
+ref      master
+target   a47e683b1f33288ff89052c5ed7a982237b773aa
+remote   origin/master 40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165
+local    master 40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165
+untracked 0 path(s) left alone
+evidence reason Fixer chain, no QA in stage set, no production lines: code review round 1 APPROVED_WITH_COMMENTS covers the tip; agent-output/code-review/fix-api-extractor-devdep-code-review.md Reviewed-At a47e683 (record f23a0fe); devops re-ran the rebuild at a47e683 (exit 0, dist byte-identical); readiness record f042fca9
+checks   ff-from-remote ok; sibling serving refs (none) on one line ok
+workflows none — /usr/local/bin/hooks/project-utils/.github/workflows absent: a push to master triggers no GitHub Actions workflow in this repository
+OK moved master: 40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165 -> a47e683b1f33288ff89052c5ed7a982237b773aa on origin; tree on master

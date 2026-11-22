@@ -3,7 +3,8 @@ ID: n/a
 Origin: fix-api-extractor-devdep
 UUID: 3c9e71a4
 Reviewed-At: "a47e683 — repos=project-utils; base 40ba5d3"
-Status: In Review
+Status: Released
+Status-Detail: "Released: the reviewed commit a47e683 is project-utils master (pushed 2026-11-22T07:22Z; deployment/fix-api-extractor-devdep-deployment.md). Verdict unchanged."
 Round: 1
 Verdict: APPROVED_WITH_COMMENTS
 ---
@@ -22,6 +23,7 @@ Verdict: APPROVED_WITH_COMMENTS
 |------|---------------|---------|---------|
 | 2026-11-22T07:16 | steering-hooks (brief `steering/fix-api-extractor-devdep-brief-code-reviewer.md`) | Round 1 review of project-utils `a47e683` | Round 1: APPROVED_WITH_COMMENTS at `a47e683`. Red/green rebuild was reproduced in exports with the global tool off `PATH`, and `dist/` is byte-identical. The lockfile delta is the api-extractor subtree plus the two admitted bumps. CR-1 LOW goes to steering; CR-2 and CR-3 are INFO. |
 | 2026-11-22T07:18 | self | Evidence capture correction (verdict unmoved) | Round 1 record `ab3c27e` left out `runs/*.log`, because the record's `.gitignore` has `*.log`. They are re-captured as `runs/*-log.txt`, and CR-3 is widened to the class. Disclosure: two text replacements in this document were made by an ad-hoc `python3` in-place script, not by Edit or `record-edit.js`, which is a breach of the record-writing rule. The diff of this commit shows exactly what it wrote. |
+| 2026-11-22T07:23 | devops | Document closed | Status: Released. The reviewed commit `a47e683` is on project-utils `master` (pushed 07:22Z). |
 
 ## Stage start and criteria
 

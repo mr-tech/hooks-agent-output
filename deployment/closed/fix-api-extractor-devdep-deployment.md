@@ -2,8 +2,8 @@
 ID: n/a
 Origin: fix-api-extractor-devdep
 UUID: 3c9e71a4
-Status: Active
-Status-Detail: "Stage 2 readiness written for project-utils master (push deploys nothing, no approval). Release not yet executed."
+Status: Released
+Status-Detail: "project-utils master moved 40ba5d3 to a47e683 at 2026-11-22T07:22Z (read back by git ls-remote); deploys nothing; fix branch deleted. Nothing open on this release."
 ---
 
 # Deployment — fix-api-extractor-devdep
@@ -13,6 +13,7 @@ Status-Detail: "Stage 2 readiness written for project-utils master (push deploys
 | Date (UTC) | Agent | Change |
 |---|---|---|
 | 2026-11-22T07:22 | devops | Document created at Stage 2 readiness. Brief `steering/fix-api-extractor-devdep-brief-devops.md` read whole; steering's brief had arrived, so no gap is recorded there. First pass: no earlier session. The cache-warm wake was armed (`CronList` showed none). Captures are under `verification/fix-api-extractor-devdep/devops/`. |
+| 2026-11-22T07:22 | devops | Release executed (Mode A): project-utils `master` `40ba5d3` to `a47e683`, read back by `git ls-remote origin master` at 07:22:19Z; `chain/fix-api-extractor-devdep` deleted by `git branch -d`. Readiness was committed first, at record `f042fca9`. Runbook results, Release Execution, Post-Release Status and Phase 2D filled; Status `Released`. |
 
 ## Plan Reference
 
@@ -32,7 +33,7 @@ project-utils `master` at `a47e683b1f33288ff89052c5ed7a982237b773aa` (no tag is 
 
 ## Release Date
 
-Pending: filled at execution.
+2026-11-22, pushed at about 07:22Z and read back at 07:22:19Z.
 
 ## Execution Mode
 
@@ -58,7 +59,7 @@ Chain branch tip recorded (Stage 1 step 6): `chain/fix-api-extractor-devdep` at 
 ## Serving Ref at Cutover
 
 One serving ref: `origin/master` (`release-move.js . --report`: "one serving ref at origin (master); no pair"). The remote also carries `chain/012-message-valid-field`
-(from `git branch -a`), which is not a serving ref and is not touched. Before: `40ba5d3`. After: filled at execution.
+(from `git branch -a`), which is not a serving ref and is not touched. Before: `40ba5d3`. After (read back): `a47e683`.
 
 ## Stage 1 — committed state (recorded in this same pass, per the brief)
 
@@ -102,16 +103,16 @@ Repository: project-utils.
 | Serving refs | `master` only at origin (`--report`: "one serving ref at origin (master); no pair"). `git ls-remote origin master` reads `40ba5d3`. | re-derived |
 | Dry run of the move | `release-move.js . master a47e683… --dry-run --reason <text>`: "ff-from-remote ok; sibling serving refs (none) on one line ok", "workflows none", "DRY RUN: every check passed; nothing moved", exit 0 (`release-move-dry-run-log.txt`). | re-derived |
 
-## Runbook (Mode A; results blank until run)
+## Runbook (Mode A; results as run)
 
 | # | Step | Abort if | Result |
 |---|---|---|---|
-| 1 | `git -C /usr/local/bin/hooks/project-utils ls-remote origin master` | not `40ba5d3…` (someone else moved it) | |
-| 2 | `git -C /usr/local/bin/hooks/project-utils status --porcelain` | any tracked change | |
-| 3 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/project-utils master a47e683b1f33288ff89052c5ed7a982237b773aa --reason "<review record and Reviewed-At>"` | exit not 0, or a refusal, or a classifier or permission block (reported to steering and not retried in another form) | |
-| 4 | `git -C /usr/local/bin/hooks/project-utils ls-remote origin master` | not `a47e683…` | |
-| 5 | `git -C /usr/local/bin/hooks/project-utils branch --show-current`, `status --porcelain` | not `master`, or any tracked change | |
-| 6 | `git -C /usr/local/bin/hooks/project-utils branch -d chain/fix-api-extractor-devdep`, output captured | refused (then `merge-base --is-ancestor` is read; `-D` only after that shows exit 0) | |
+| 1 | `git -C /usr/local/bin/hooks/project-utils ls-remote origin master` | not `40ba5d3…` (someone else moved it) | `40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165` at 07:22:12Z — proceed |
+| 2 | `git -C /usr/local/bin/hooks/project-utils status --porcelain` | any tracked change | 0 lines (branch `chain/fix-api-extractor-devdep`) — proceed |
+| 3 | `node ~/.claude/tools/release-move.js /usr/local/bin/hooks/project-utils master a47e683b1f33288ff89052c5ed7a982237b773aa --reason "<review record and Reviewed-At>"` | exit not 0, or a refusal, or a classifier or permission block (reported to steering and not retried in another form) | exit 0: "OK moved master: 40ba5d3… -> a47e683… on origin; tree on master" (`release-move-run-log.txt`) |
+| 4 | `git -C /usr/local/bin/hooks/project-utils ls-remote origin master` | not `a47e683…` | `a47e683b1f33288ff89052c5ed7a982237b773aa refs/heads/master` at 07:22:19Z (`post-move-readback-log.txt`) |
+| 5 | `git -C /usr/local/bin/hooks/project-utils branch --show-current`, `status --porcelain` | not `master`, or any tracked change | `master`; HEAD and `master` both `a47e683…`; porcelain 0 lines |
+| 6 | `git -C /usr/local/bin/hooks/project-utils branch -d chain/fix-api-extractor-devdep`, output captured | refused (then `merge-base --is-ancestor` is read; `-D` only after that shows exit 0) | exit 0; `branch --list` shows `master` only; `merge-base --is-ancestor a47e683 origin/master` exit 0 (`branch-delete-log.txt`; the `rtk` filter printed the git message as "ok", which this record leaves as captured) |
 
 ## Open disagreements with predecessor documents
 
@@ -130,8 +131,35 @@ Not asked: the push deploys nothing and takes no owner approval (above). The bri
 
 ## Release Execution
 
-Pending.
+Mode A, run by this session, 2026-11-22T07:22Z. Commands and results are the runbook rows above (captures under `verification/fix-api-extractor-devdep/devops/`:
+`release-move-dry-run-log.txt`, `release-move-run-log.txt`, `post-move-readback-log.txt`, `branch-delete-log.txt`). The readiness document was committed first (record `f042fca9`),
+with the tip's packaging capture, before the ref moved.
+
+- Ref moved: project-utils `origin/master`, `40ba5d3a5b54447abb0dd44a9fcc7b43a35f8165` to `a47e683b1f33288ff89052c5ed7a982237b773aa`, a fast-forward of one commit. Local `master` moved with it
+  and the tree is on `master` (porcelain 0 lines; the shared tree keeps its gitignored `node_modules/` per ruling 07:11). No tag created; nothing published (a branch move has no registry).
+- Deploy evidence: the push, ref `master`, SHA `a47e683`, 07:22Z, read back by `git ls-remote origin master`. The push deploys nothing: no workflow, no host. Serving state is not otherwise probed.
+- Reconciliation, deployed against verified: the commit at the serving ref is `a47e683b1f33288ff89052c5ed7a982237b773aa`, which is the code review's `Reviewed-At` SHA and the fixer's `Handoff-At`. They are the same commit, so no surface diff is owed.
+- Consumers resolving to the release: none do, and none change: website's `package.json` and `pnpm-lock.yaml` still pin `40ba5d3`, and the new line is a devDependency.
+- The fix branch `chain/fix-api-extractor-devdep` was merged by the fast-forward and deleted by `git branch -d` alone (captured). Its commit is on `master`.
+- Gate deviations: none. No control, classifier or permission block fired.
 
 ## Post-Release Status
 
-Pending.
+Released 2026-11-22T07:22Z. Known issues: none on this release. Rollback Plan: the reverse-apply dry run above (a revert commit released through the same tool); no consumer has re-pinned.
+The sibling defect (statbot-utils has the same undeclared `api-extractor`, review CR-1) is outside this workspace and is carried by the statbot record's inbox entry (below); it is not this release's.
+
+## Phase 2D — post-release
+
+| Step | State |
+|---|---|
+| Plans `Released` | No plan. The chain's stage documents are set `Released` and moved to `closed/`: the fixer's `implementation/fix-api-extractor-devdep-implementation.md`, the review `code-review/fix-api-extractor-devdep-code-review.md`, and this record. |
+| Release-tip QA record | None exists (no QA in the stage set); nothing to close. |
+| Deployed against verified | Same commit (above). |
+| Fix branch | Merged and deleted (runbook row 6). |
+| Architecture lines | None closed or invalidated. `architecture/system-architecture.md:143` and `:276-277` describe the `npm run rebuild`/api-extractor mechanism and the identical `build:types` in project-utils and statbot-utils; both still hold, and the change only declares the tool. The review judged the record ALIGNED. The "13 files" `dist/` count at `:277` was already stale (11) after chain 7 and is not touched by this change; it is not routed here. No architect entry is written. |
+| Documents of the chain | By `Origin: fix-api-extractor-devdep` (frontmatter): the implementation, code-review and deployment documents, each `Released` and moved to `closed/`. `steering/fix-api-extractor-devdep-rulings.md` is steering's. No QA, UAT, plan, critique, handoff, analysis or architecture document carries the chain's ID. |
+| Merged fixer chains | By `Handoff-At` ancestry of `a47e683` (`implementation/` open and `closed/`, anchors naming `project-utils`): `fix-git-dependency-pins` (`Handoff-At: 40ba5d3,3859c29`; `40ba5d3` is an ancestor of `a47e683`, `git merge-base --is-ancestor`, exit 0). Its implementation and code review are `Committed` and in `closed/`; its deployment record `deployment/fix-git-dependency-pins-deployment.md` is `Active` for its own release 2 (website `master`), held by steering's brief, and is not this stage's to close. Its project-utils half was released earlier (release 1, `40ba5d3`). No other fix chain anchors a project-utils commit. |
+| Source handoffs | None named in the scoping block. |
+| Forward items (5c) | Assumption Not Checked, found by `grep -l` over the chain's three documents (2 files with the string: the code review, this record): (1) the review's toolchain assumption: discharged here as the review defined its owner act, "records the toolchain under which the release's hooked rebuild ran" (node v24.14.0, npm 11.9.0, above); the untested remainder is a named risk with no production carrier, no event-form trigger and no host, so it has no handoff; (2) this record's own row, the same assumption. Routing phrases: review CR-1 (statbot-utils): carried by the entry in `/usr/local/bin/statbot/agent-output/INBOX.md` (line 264, an uncommitted working-tree entry in that record, steering's, read at 07:22Z); review CR-2 (a stale "stops here" sentence in the fixer's document body, INFO, optional): **uncarried as a body note** — a closed document's body is not mine to edit, so the implementation document's `Status-Detail` carries the 07:10 ruling instead and the sentence itself stays; review CR-3 (verification logs ignored by `*.log`): carried by the reviewer's uncommitted `INBOX.md` entry in this record (line 365, working tree), which this stage did not commit because that file holds 318 foreign uncommitted lines. The Risks-table falsifiers and Planner batch: none (no plan). |
+| Roadmap obligation | None: a `fix-` chain owes none (the scoping determination names no epic or criterion). |
+| Next Actions | None whose trigger is at or after this closure beyond the items above. |
