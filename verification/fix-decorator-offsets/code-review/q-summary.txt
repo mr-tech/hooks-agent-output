@@ -1,0 +1,38 @@
+"https://x.y" len 11 SAME
+  base: 0-1S "h" | 1-12[linkText] "ttps://x.y" | 12-14S "" | 14-25[linkText] "" | 25-26S ""
+"a https://x.y" len 13 SAME
+  base: 2-3S "h" | 3-14[linkText] "ttps://x.y" | 14-16S "" | 16-27[linkText] "" | 27-28S ""
+"<https://x.y>" len 13 SAME
+  base: 0-1S "<" | 1-12[linkText] "https://x.y" | 12-14S ">" | 14-25[linkText] "" | 25-26S ""
+"a <https://x.y>" len 15 SAME
+  base: 2-3S "<" | 3-14[linkText] "https://x.y" | 14-16S ">" | 16-27[linkText] "" | 27-28S ""
+"**https://x.y a**" len 17 DIFF
+  base: 0-3S "**h" | 3-31[strongText] "ttps://x.y a**" | 3-4S[strongText] "t" | 4-15[linkText,strongText] "tps://x.y a" | 15-17S "**" | 17-28[linkText] "" | 28-29S "" | 31-33S ""
+  fix:  0-3S "**h" | 3-30[strongText] "ttps://x.y a**" | 3-14[linkText,strongText] "ttps://x.y " | 14-16S "a*" | 16-27[linkText] "*" | 27-28S "" | 30-32S ""
+"**a https://x.y b**" len 19 SAME
+  base: 0-2S "**" | 2-32[strongText] "a https://x.y b**" | 4-5S[strongText] "h" | 5-16[linkText,strongText] "ttps://x.y " | 16-18S "b*" | 18-29[linkText] "*" | 29-30S "" | 32-34S ""
+"**a https://x.y**" len 17 DIFF
+  base: 0-2S "**" | 2-29[strongText] "a https://x.y**" | 4-15[linkText,strongText] "https://x.y" | 15-17S "**" | 17-28[linkText] "" | 28-32S ""
+  fix:  0-2S "**" | 2-30[strongText] "a https://x.y**" | 4-5S[strongText] "h" | 5-16[linkText,strongText] "ttps://x.y*" | 16-18S "*" | 18-29[linkText] "" | 29-32S ""
+"*a https://x.y*" len 15 DIFF
+  base: 0-1S "*" | 1-28[emText] "a https://x.y*" | 3-14[emText,linkText] "https://x.y" | 14-16S "*" | 16-27[linkText] "" | 27-30S ""
+  fix:  0-1S "*" | 1-29[emText] "a https://x.y*" | 3-4S[emText] "h" | 4-15[emText,linkText] "ttps://x.y*" | 15-17S "" | 17-28[linkText] "" | 28-30S ""
+"**a <https://x.y>**" len 19 DIFF
+  base: 0-2S "**" | 2-29[strongText] "a <https://x.y>**" | 4-15[linkText,strongText] "<https://x." | 15-17S "y>" | 17-28[linkText] "**" | 28-32S ""
+  fix:  0-2S "**" | 2-30[strongText] "a <https://x.y>**" | 4-5S[strongText] "<" | 5-16[linkText,strongText] "https://x.y" | 16-18S ">*" | 18-29[linkText] "*" | 29-32S ""
+"**<https://x.y> a**" len 19 DIFF
+  base: 0-3S "**<" | 3-31[strongText] "https://x.y> a**" | 3-4S[strongText] "h" | 4-15[linkText,strongText] "ttps://x.y>" | 15-17S " a" | 17-28[linkText] "**" | 28-29S "" | 31-33S ""
+  fix:  0-3S "**<" | 3-30[strongText] "https://x.y> a**" | 3-14[linkText,strongText] "https://x.y" | 14-16S "> " | 16-27[linkText] "a**" | 27-28S "" | 30-32S ""
+"||a https://x.y||" len 17 DIFF
+  base: 0-2S "||" | 2-29[spoilerText] "a https://x.y||" | 4-15[linkText,spoilerText] "https://x.y" | 15-17S "||" | 17-28[linkText] "" | 28-32S ""
+  fix:  0-2S "||" | 2-30[spoilerText] "a https://x.y||" | 4-5S[spoilerText] "h" | 5-16[linkText,spoilerText] "ttps://x.y|" | 16-18S "|" | 18-29[linkText] "" | 29-32S ""
+"**a [b](<https://x.y>)**" len 24 DIFF
+  base: 0-2S "**" | 2-19[strongText] "a [b](<https://x." | 4-5[linkText,strongText] "[" | 5-7S "b]" | 7-18[linkText] "(<https://x" | 18-22S ".y>)"
+  fix:  0-2S "**" | 2-20[strongText] "a [b](<https://x.y" | 4-5S[strongText] "[" | 5-6[linkText,strongText] "b" | 6-8S "](" | 8-19[linkText] "<https://x." | 19-22S "y>)"
+"**[b](<https://x.y>) a**" len 24 DIFF
+  base: 0-3S "**[" | 3-21[strongText] "b](<https://x.y>) " | 3-4S[strongText] "b" | 4-5[linkText,strongText] "]" | 5-7S "(<" | 7-18[linkText] "https://x.y" | 18-19S ">" | 21-23S "a*"
+  fix:  0-3S "**[" | 3-20[strongText] "b](<https://x.y>)" | 3-4[linkText,strongText] "b" | 4-6S "](" | 6-17[linkText] "<https://x." | 17-18S "y" | 20-22S " a"
+"**a <@123> b**" len 14 SAME
+  base: 0-2S "**" | 2-10[strongText] "a <@123>" | 10-12S " b"
+"**<@123>**" len 10 SAME
+  base: 0-2S "**" | 2-6[strongText] "<@12" | 6-8S "3>"

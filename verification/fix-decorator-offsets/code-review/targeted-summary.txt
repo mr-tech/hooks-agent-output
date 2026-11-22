@@ -1,0 +1,66 @@
+"<@123>" len 6 SAME
+  base: 
+"**<@123>**" len 10 SAME
+  base: 0-2S "**" | 2-6[strongText] "<@12" | 6-8S "3>"
+"**a <@123>**" len 12 SAME
+  base: 0-2S "**" | 2-8[strongText] "a <@12" | 8-10S "3>"
+"**<@123> a**" len 12 SAME
+  base: 0-2S "**" | 2-8[strongText] "<@123>" | 8-10S " a"
+"**<@123>[a](https://x.y)**" len 26 DIFF
+  base: 0-2S "**" | 2-21[strongText] "<@123>[a](https://x" | 6-7[linkText,strongText] "3" | 7-9S ">[" | 9-20[linkText] "a](https://" | 20-24S "x.y)"
+  fix:  0-2S "**" | 2-22[strongText] "<@123>[a](https://x." | 6-7S[strongText] "3" | 7-8[linkText,strongText] ">" | 8-10S "[a" | 10-21[linkText] "](https://x" | 21-24S ".y)"
+"**c [a](https://x.y)**" len 22 DIFF
+  base: 0-2S "**" | 2-19[strongText] "c [a](https://x.y" | 4-5[linkText,strongText] "[" | 5-7S "a]" | 7-18[linkText] "(https://x." | 18-22S "y)**"
+  fix:  0-2S "**" | 2-20[strongText] "c [a](https://x.y)" | 4-5S[strongText] "[" | 5-6[linkText,strongText] "a" | 6-8S "](" | 8-19[linkText] "https://x.y" | 19-22S ")**"
+"**:smile:[a](https://x.y)**" len 27 DIFF
+  base: 0-2S "**" | 2-24[strongText] ":smile:[a](https://x.y" | 9-10[linkText,strongText] "[" | 10-12S "a]" | 12-23[linkText] "(https://x." | 23-27S "y)**"
+  fix:  0-2S "**" | 2-25[strongText] ":smile:[a](https://x.y)" | 9-10S[strongText] "[" | 10-11[linkText,strongText] "a" | 11-13S "](" | 13-24[linkText] "https://x.y" | 24-27S ")**"
+"**\\*[a](https://x.y)**" len 22 DIFF
+  base: 0-2S "**" | 2-18[strongText] "\\*[a](https://x." | 3-4[linkText,strongText] "*" | 4-6S "[a" | 6-17[linkText] "](https://x" | 17-21S ".y)*"
+  fix:  0-2S "**" | 2-19[strongText] "\\*[a](https://x.y" | 3-4S[strongText] "*" | 4-5[linkText,strongText] "[" | 5-7S "a]" | 7-18[linkText] "(https://x." | 18-21S "y)*"
+":smile:" len 7 SAME
+  base: 
+"**:smile:**" len 11 SAME
+  base: 0-2S "**" | 2-9[strongText] ":smile:" | 9-11S "**"
+"**a :smile:**" len 13 SAME
+  base: 0-2S "**" | 2-11[strongText] "a :smile:" | 11-13S "**"
+"\\*" len 2 SAME
+  base: 
+"**\\***" len 6 SAME
+  base: 0-2S "**" | 2-3[strongText] "\\" | 3-5S "**"
+"**a \\***" len 8 SAME
+  base: 0-2S "**" | 2-5[strongText] "a \\" | 5-7S "**"
+"**<@123>a**" len 11 SAME
+  base: 0-2S "**" | 2-7[strongText] "<@123" | 7-9S ">a"
+"*<@123>*" len 8 SAME
+  base: 0-1S "*" | 1-5[emText] "<@12" | 5-6S "3"
+"***<@123>***" len 12 DIFF
+  base: 0-3S "***" | 3-9[emText] "<@123>" | 3-7[emText,strongText] "<@12" | 7-12S "3>***"
+  fix:  0-3S "***" | 3-7[emText,strongText] "<@12" | 7-10S "3>*"
+"__<@123>__" len 10 SAME
+  base: 0-2S "__" | 2-6[uText] "<@12" | 6-8S "3>"
+"**<https://x.y>**" len 17 DIFF
+  base: 0-3S "**<" | 3-28[strongText] "https://x.y>**" | 3-14[linkText,strongText] "https://x.y" | 14-16S ">*" | 16-27[linkText] "*" | 27-31S ""
+  fix:  0-3S "**<" | 3-28[strongText] "https://x.y>**" | 3-14[linkText,strongText] "https://x.y" | 14-16S ">*" | 16-27[linkText] "*" | 27-30S ""
+"**https://x.y**" len 15 DIFF
+  base: 0-3S "**h" | 3-28[strongText] "ttps://x.y**" | 3-14[linkText,strongText] "ttps://x.y*" | 14-16S "*" | 16-27[linkText] "" | 27-31S ""
+  fix:  0-3S "**h" | 3-28[strongText] "ttps://x.y**" | 3-14[linkText,strongText] "ttps://x.y*" | 14-16S "*" | 16-27[linkText] "" | 27-30S ""
+"**a https://x.y**" len 17 DIFF
+  base: 0-2S "**" | 2-29[strongText] "a https://x.y**" | 4-15[linkText,strongText] "https://x.y" | 15-17S "**" | 17-28[linkText] "" | 28-32S ""
+  fix:  0-2S "**" | 2-30[strongText] "a https://x.y**" | 4-5S[strongText] "h" | 5-16[linkText,strongText] "ttps://x.y*" | 16-18S "*" | 18-29[linkText] "" | 29-32S ""
+"**`a`**" len 7 SAME
+  base: 0-2S "**" | 2-5[inlineCodeText,strongText] "`a`" | 5-7S "**"
+"***`a`***" len 9 DIFF
+  base: 0-3S "***" | 3-8[emText] "`a`**" | 3-6[emText,inlineCodeText,strongText] "`a`" | 6-11S "***"
+  fix:  0-3S "***" | 3-6[emText,inlineCodeText,strongText] "`a`" | 6-9S "***"
+"-# c d [a](https://x.y)" len 23 DIFF
+  base: 5-6[linkText] "d" | 6-8S " [" | 8-19[linkText] "a](https://" | 19-20S "x"
+  fix:  5-6S "d" | 6-7[linkText] " " | 7-9S "[a" | 9-20[linkText] "](https://x" | 20-21S "."
+"# **a**" len 7 SAME
+  base: 0-2S "# " | 2-3[strongText] "*" | 3-5S "*a"
+"## ***a***" len 10 DIFF
+  base: 0-3S "## " | 3-6[emText] "***" | 3-4[emText,strongText] "*" | 4-9S "**a**"
+  fix:  0-3S "## " | 3-4[emText,strongText] "*" | 4-7S "**a"
+"-# ***a***" len 10 DIFF
+  base: 1-4[emText] "# *" | 1-2[strongText] "#" | 2-7S " ***a"
+  fix:  1-2[emText,strongText] "#"

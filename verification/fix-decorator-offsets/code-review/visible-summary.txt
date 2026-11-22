@@ -1,0 +1,37 @@
+{
+ "t": {
+  "rows": 36000,
+  "visibleSame": 33670,
+  "visibleDiffer": 2330,
+  "newWrong": 98,
+  "fixedToClean": 326,
+  "bothWrong": 1484,
+  "bothClean": 422
+ },
+ "byFeature": {
+  "bothClean other": 166,
+  "fixedToClean other": 94,
+  "bothClean hash": 244,
+  "newWrong hash": 28,
+  "bothWrong hash": 932,
+  "fixedToClean hash": 112,
+  "bothWrong bare-or-autolink": 392,
+  "bothWrong other": 160,
+  "fixedToClean bare-or-autolink": 120,
+  "newWrong other": 26,
+  "newWrong bare-or-autolink": 44,
+  "bothClean bare-or-autolink": 12
+ }
+}
+bothClean other ["***ab***","__*a*__","||**a**||","***~~a~~***","- ***a***","_**a**_","**_a_**","__**a**__"]
+fixedToClean other ["***ab*** cd","**b [a](https://x.y)**","***a** b*","***a* b**","*a **b***","_**||~~[a](https://x.y)||~~",":smile:__[a](https://x.y) c d:smile:___*","b~~***[a](https://x.y)~~"]
+bothClean hash ["-# **a**","-# *a* b","## ***a***","x -# ***a*** y","-# ||b***___***","***-# *_-# ___",":smile: ***b_# ***\\*","***> __~~**> -# ***"]
+newWrong hash ["-# a **b**","-# ||b***___***"," **__[a](https://x.y)||**-# *c d","-# -# ***# [a](https://x.y)`||***","c d***# `***[a](https://x.y)","[a](https://x.y)-# `> c d https://x.yhttps://x.y**","*c d-# https://x.y` https://x.y","\\*ac d# **<https://x.y>***"]
+bothWrong hash ["## ***a***","<https://x.y> \\*-# <https://x.y>~~b<https://x.y>-# ","||__https://x.y> # [b](<https://x.y>)~~","[a](https://x.y)-# [b](<https://x.y>)b:smile:<@123>__","https://x.y[a](https://x.y)<https://x.y># https://x.y[a](https://x.y)***<https://x.y>",":smile:-#   <https://x.y>__\\*c d","||# > ~~:smile:https://x.y# ","<https://x.y>*# ||<https://x.y>"]
+fixedToClean hash ["x -# ***a*** y",":smile:*[a](https://x.y)**-# ***a ","_> **[a](https://x.y)-# b**[a](https://x.y)","c d***-# ||[a](https://x.y)_-# ***<https://x.y>",":smile:~~* # <https://x.y>~~"," \\*a-# *** https://x.y***","b# ***`***https://x.y:smile:","~~a***-# ***[b](<https://x.y>)"]
+bothWrong bare-or-autolink ["_<@123>*https://x.y<https://x.y>***","__**<@123>*\\*~~https://x.y***","******> ***https://x.y*<https://x.y>","***https://x.y** ** https://x.y**:smile:","\\*<https://x.y>_***[b](<https://x.y>)*","__[a](https://x.y)__https://x.y:smile:~~",":smile:<@123> ~~https://x.y~~**b[b](<https://x.y>)"," <@123>:smile:____https://x.y<https://x.y>__c d"]
+bothWrong other [" __**b`[b](<https://x.y>)**","`\\***[a](https://x.y)*"," `***[b](<https://x.y>)~~***","__[b](<https://x.y>)_a__<@123>","||> ||***a[a](https://x.y) *****","c d*[b](<https://x.y>)__  ***","<@123>||\\*a[a](https://x.y)||","_*[b](<https://x.y>)***[a](https://x.y)*_b"]
+fixedToClean bare-or-autolink ["**<https://x.y>*****","~~<https://x.y>`~~a __*","**:smile:__<https://x.y>||~~ __ ","__*<https://x.y>__","~~||**<https://x.y>\\*bb****","__> ~~***`||<https://x.y>_","**[a](https://x.y)<https://x.y>**> _",":smile:*`<https://x.y>*"]
+newWrong other ["~~\\*:smile:**[a](https://x.y)***","*~~[a](https://x.y)||***_c dc d ","__**[a](https://x.y)b||__","__[a](https://x.y)___ a","***[a](https://x.y):smile:`***||_||"," **~~[a](https://x.y)***:smile:*****","**[a](https://x.y)b****`||","***> \\****\\*[b](<https://x.y>)b||"]
+newWrong bare-or-autolink ["***https://x.y_**~~","_***~~a:smile:https://x.y_***","[a](https://x.y)||bhttps://x.y_~~||__","||** https://x.y******<https://x.y>  ","**|| `*https://x.yb||**","`__[a](https://x.y)___<https://x.y>~~****","b~~||https://x.y_~~","**bhttps://x.y***`~~a "]
+bothClean bare-or-autolink ["***_<https://x.y> ~~:smile:*** > ","||<@123> https://x.y*https://x.y__||"]
