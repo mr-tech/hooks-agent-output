@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/8ae44730-f471-45c6-8620-ac8d3538b2b9/scratchpad/mut-work2/20261122T191326Z-p1758161/mutant-1
+
+ ❯ |dom| src/components/SlateEditor/utils/__tests__/onCopy.cut.test.tsx (4 tests | 1 failed) 21ms
+     × copies a selected range without removing it when the event is a copy 5ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  19:13:29
+   Duration  1.02s (transform 105ms, setup 22ms, import 236ms, tests 21ms, environment 606ms)
+

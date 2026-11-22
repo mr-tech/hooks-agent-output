@@ -2,10 +2,10 @@
 ID: n/a
 Origin: fix-cut-collapsed-caret
 UUID: 22b61dde
-Reviewed-At: 329cc20714c8b956a79ed2459f67d2fb13657ada — repos=website
+Reviewed-At: 8845b7e3409782e0f07ecd36a818f48f4ebcc721 — repos=website
 Status: In Review
 Round: 1
-Verdict: REJECTED
+Verdict: APPROVED
 ---
 
 # Code Review: fix-cut-collapsed-caret
@@ -21,6 +21,7 @@ Verdict: REJECTED
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-22T19:10 | steering-hooks-fixer (brief `steering/fix-cut-collapsed-caret-brief-code-reviewer.md`) | Round 1: review website `453de76..329cc20`; under 20 production lines, so also the suite, typecheck and red test | REJECTED: CR-1 MEDIUM (severity floor) — no assertion fails when Copy starts deleting; the rest holds. Back to the fixer. |
+| 2026-11-22T19:14 | fixer-fix-cut-collapsed-caret (message, test-only commit `8845b7e`) | Round 1 sub-entry 1a: re-verify CR-1 | APPROVED at `8845b7e`: CR-1 fixed, its mutant KILLED by the new Copy case; suite 2366/2366, typecheck exit 0. Two evidence paths written relative (`code-review/…`), flagged by the fixer from check-repo, written out in full. The record-write hook refused a shell edit of this document; re-issued with the Edit tool. |
 
 ## Round 1
 
@@ -40,7 +41,7 @@ code review alone, with the suite, typecheck and red test run here.
 | Item | Result | Instrument |
 |---|---|---|
 | Hazard 1 — base cut deletes at any selection shape | Holds at base: red run deletes "b" from "abc" at offset 1 | `verification/fix-cut-collapsed-caret/code-review/red-run.txt` (export at `329cc20` with `onCopy.ts` from `453de76`): exit 1, `1 failed \| 2 passed (3)`, `Expected "abc" Received "ac"` |
-| Case 1 — plain caret cuts nothing | Holds at fix | `code-review/green-run.txt`: exit 0, `3 passed (3)` |
+| Case 1 — plain caret cuts nothing | Holds at fix | `verification/fix-cut-collapsed-caret/code-review/green-run.txt`: exit 0, `3 passed (3)` |
 | Cases 2, 3 — expanded range and clicked emoji removed as at base | Hold at fix (same run); fixer's mutants `expanded-limb-false`, `emoji-limb-false`, `delete-removed` KILLED (`negative-controls/driver.txt`) | green run; fixer's table |
 | Mirror claim — "the guard is slate-react's own rule" | Holds. slate-react 0.123.0 `onCut` (`node_modules/slate-react/dist/index.js`, `onCut` callback in `useEditable`'s handlers): `Range.isExpanded(selection)` → `deleteFragment`; else `Editor.isVoid(Node.parent(anchor.path))` → `Transforms.delete`; collapsed text → nothing. The fix uses `Editor.void(editor, { at: selection.anchor })`, which also matches void ancestors above the parent; in this editor the only void is the emoji (`withEmojis`, `isVoid` for `isEmojiElement`), whose child is a text leaf, so the two predicates select the same points. | read at `329cc20` |
 | Hazard 2 — a collapsed plain caret leaves the event to the browser | Holds and is the remaining unexecuted premise (Assumption Not Checked) | slate-dom `setFragmentData` returns before writing when `Range.isCollapsed(selection) && !startVoid`, so no fragment, no `preventDefault`; slate-react's `onCut` then runs and deletes nothing |
@@ -86,7 +87,7 @@ None.
 - **Enumeration**: `git grep -c "onCopy(" 329cc20 -- src bot` → 5 calls: `SlateEditor/index.tsx` 2 (Copy, Cut wiring — no assertion), the
   test file 3, every one `onCopy(editor, true)`. Calls with `cut` false under test: 0. Probe: mutant `cut-conjunct-dropped`
   (`if (cut && (` → `if (true && (`) through `mutation-run.py` at `329cc20` against the test file → **SURVIVED** (control passed, 0 of 1
-  killed): `code-review/mutants.json`, `code-review/probe-driver.txt`, `code-review/probe/`. No other suite file imports the handler (the
+  killed): `verification/fix-cut-collapsed-caret/code-review/mutants.json`, `probe-driver.txt` and `probe/` beside it. No other suite file imports the handler (the
   import grep `onCopy['"]|/onCopy|onCopy,` finds only `utils/index.tsx`'s re-export, `SlateEditor/index.tsx` and the test), so the whole
   suite cannot kill it either. Blind spot: the grep matches the identifier `onCopy`; the default export imported under another name would
   be missed — the import grep found none.
@@ -104,6 +105,27 @@ None.
 #### Low/Info
 None.
 
+### Sub-entry 1a — CR-1 fix confirmation at `8845b7e` (2026-11-22T19:14)
+
+**Tree.** `git -C website rev-parse HEAD` = `8845b7e3409782e0f07ecd36a818f48f4ebcc721` at start and end. `git log 329cc20..8845b7e`: one
+commit; `git diff --numstat 329cc20 8845b7e`: `__tests__/onCopy.cut.test.tsx` 12/1, no production path — test-only, so a sub-entry
+(scope: the fix diff), no new round. Production lines `453de76..8845b7e` stay 5.
+
+**CR-1 disposition.** Class gone: the sweep re-run, `git grep -n "onCopy(" 8845b7e -- src bot` → 6 calls; under test, one now passes no
+`cut` (`copies a selected range without removing it when the event is a copy`, `onCopy(editor)` on a range over "b", asserting text
+`'abc'` and `copy` called with `'b'` — literals, axiom E). The fixture meets the required property: an expanded range, which the cut guard
+admits, so the mutant is live there. Captured check that fails if it returns: `verification/fix-cut-collapsed-caret/code-review/mutants.json`
+(`cut-conjunct-dropped`), re-run by me through `mutation-run.py` at `8845b7e` → **KILLED**, count checked; failing title the new case
+alone, by assertion `Expected "abc" Received "ac"`, not a timeout (`code-review/sub1/probe-driver.txt`, `sub1/probe/`). The `describe`
+title widened to "editor copy and cut handler"; basename unchanged (positive form).
+
+| Check at `8845b7e` (exports; memory-capped) | Result | Evidence (`verification/fix-cut-collapsed-caret/code-review/sub1/`) |
+|---|---|---|
+| Red: test file against `onCopy.ts` from `453de76` | exit 1, `1 failed \| 3 passed (4)`, the plain-caret case | `red-run.txt` |
+| Suite, `npx vitest run --reporter=json` | exit 0; 2366 / 2366 passed, 0 failed, 167 files | `suite.txt`, `suite-summary.txt` |
+| `npx next typegen`, `pnpm run typecheck` | exit 0, exit 0 | `typegen.txt`, `typecheck.txt` |
+| `convention-check.js --since=453de76` | exit 0; 0 FAIL, 0 CANDIDATE, 18 SKIP (as Round 1: untracked images, id-token check not run; title and basename read by hand: no ID token) | `convention-check.txt` |
+
 ## Architecture Alignment
 
 **System Architecture Reference**: `agent-output/architecture/system-architecture.md` (exists: `git -C agent-output ls-files architecture`
@@ -119,8 +141,9 @@ highlight.js `_emitter` risk row, unrelated), 0 in `architecture/website.md`. No
 
 ## Verdict
 
-**Status**: REJECTED
-**Rationale**: The fix is correct, minimal and matches slate-react's own cut rule; all three cases of the corrected statement are
+**Status**: APPROVED at `8845b7e` (sub-entry 1a). CR-1 fixed and its mutant killed; no finding open. Round 1's verdict below was
+REJECTED at `329cc20`.
+**Rationale (Round 1, at 329cc20)**: The fix is correct, minimal and matches slate-react's own cut rule; all three cases of the corrected statement are
 asserted and seen red; suite and typecheck pass. One severity-floor finding blocks: the Copy half the change claims unchanged has no
 failing assertion, and a one-token mutation of the rewritten line survives.
 
@@ -140,5 +163,7 @@ failing assertion, and a one-token mutation of the rewritten line survives.
 
 ## Next Steps
 
-- REJECTED → `fixer-fix-cut-collapsed-caret` for CR-1, copied to `steering-hooks-fixer`.
+- Round 1 REJECTED → `fixer-fix-cut-collapsed-caret` for CR-1, copied to `steering-hooks-fixer` (done).
+- Sub-entry 1a APPROVED at `8845b7e` → spawn cue to `steering-hooks-fixer`, which starts devops for website `master` (5 production lines,
+  under 20: no QA).
 - The Assumption Not Checked above → `steering-hooks-fixer`, for the owner's check after release.

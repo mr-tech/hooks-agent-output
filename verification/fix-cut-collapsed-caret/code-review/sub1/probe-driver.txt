@@ -1,0 +1,3 @@
+cut-conjunct-dropped KILLED 2.05
+1 of 1 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob 06c7b31c2875214c82d77a7e16cd21a965d1dfd6))
+exit=0
