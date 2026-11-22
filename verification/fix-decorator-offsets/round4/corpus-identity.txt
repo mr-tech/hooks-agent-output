@@ -1,0 +1,4 @@
+Reviewer corpus probe (code-review/decorator.differential-probe.test.ts) at e6a5766 (= 2e6127e, round3/corpus-identity.txt) and with a7e1adb's decorator.tsx:
+d137b1e877688b2bbb6fa39598a95fc70c4c2eab1769145369144c5f93c35598  /tmp/claude-1000/-usr-local-bin-hooks-website/f9cf51a5-acaf-4105-852b-c564aac3ee83/scratchpad/wt-old.corpus.json
+d137b1e877688b2bbb6fa39598a95fc70c4c2eab1769145369144c5f93c35598  /tmp/claude-1000/-usr-local-bin-hooks-website/f9cf51a5-acaf-4105-852b-c564aac3ee83/scratchpad/r4-new2.corpus.json
+instrument responsiveness: round3/corpus-identity.txt (marker-space control moved it)

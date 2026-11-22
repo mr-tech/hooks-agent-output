@@ -1,0 +1,5 @@
+code-line-branch-never KILLED 2.79
+code-line-branch-always KILLED 3.17
+code-line-language-dropped KILLED 2.6
+top-level-text-not-merged KILLED 2.53
+4 of 4 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-a7e1adb.json (blob 2d6de83f0fd5089fade3a5a0e84a200d2f3fc273))

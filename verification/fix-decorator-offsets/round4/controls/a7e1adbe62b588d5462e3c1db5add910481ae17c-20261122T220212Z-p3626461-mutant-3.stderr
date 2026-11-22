@@ -1,0 +1,88 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the content parser colours "const s = \"**a**\"; // *b*" as "const":hljs-keyword " s = ":- "\"**a**\"":hljs-string "; ":- "// *b*":hljs-comment
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the field parser colours "const s = \"**a**\"; // *b*" as "const":hljs-keyword " s = ":- "\"**a**\"":hljs-string "; ":- "// *b*":hljs-comment
+AssertionError: expected '"const s = \"**a**\"; // *b*":-' to be '"const":hljs-keyword " s = ":- "\"**a…' // Object.is equality
+
+Expected: ""const":hljs-keyword " s = ":- "\"**a**\"":hljs-string "; ":- "// *b*":hljs-comment"
+Received: ""const s = \"**a**\"; // *b*":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:430:87
+    428|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    429|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    430|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    431|   });
+    432| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the content parser colours "const a = 1;" as "const":hljs-keyword " a = ":- "1":hljs-number ";":-
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the field parser colours "const a = 1;" as "const":hljs-keyword " a = ":- "1":hljs-number ";":-
+AssertionError: expected '"const a = 1;":-' to be '"const":hljs-keyword " a = ":- "1":hl…' // Object.is equality
+
+Expected: ""const":hljs-keyword " a = ":- "1":hljs-number ";":-"
+Received: ""const a = 1;":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:430:87
+    428|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    429|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    430|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    431|   });
+    432| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the content parser colours "**a** `b` # c" as "**a** ":- "`b`":hljs-string " # c":-
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the field parser colours "**a** `b` # c" as "**a** ":- "`b`":hljs-string " # c":-
+AssertionError: expected '"**a** `b` # c":-' to be '"**a** ":- "`b`":hljs-string " # c":-' // Object.is equality
+
+Expected: ""**a** ":- "`b`":hljs-string " # c":-"
+Received: ""**a** `b` # c":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:430:87
+    428|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    429|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    430|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    431|   });
+    432| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "python" block with the content parser colours "<@1> https://x.y [l](https://x.y)" as "<@":- "1":hljs-number "> https://x.y [l](https://x.y)":-
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "python" block with the field parser colours "<@1> https://x.y [l](https://x.y)" as "<@":- "1":hljs-number "> https://x.y [l](https://x.y)":-
+AssertionError: expected '"<@1> https://x.y [l](https://x.y)":-' to be '"<@":- "1":hljs-number "> https://x.y…' // Object.is equality
+
+Expected: ""<@":- "1":hljs-number "> https://x.y [l](https://x.y)":-"
+Received: ""<@1> https://x.y [l](https://x.y)":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:430:87
+    428|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    429|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    430|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    431|   });
+    432| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the content parser colours "x = \"\\🙂\" + 1" as "x = ":- "\"\\🙂\"":hljs-string " + ":- "1":hljs-number
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the field parser colours "x = \"\\🙂\" + 1" as "x = ":- "\"\\🙂\"":hljs-string " + ":- "1":hljs-number
+AssertionError: expected '"x = \"\\🙂\" + 1":-' to be '"x = ":- "\"\\🙂\"":hljs-string " + "…' // Object.is equality
+
+Expected: ""x = ":- "\"\\🙂\"":hljs-string " + ":- "1":hljs-number"
+Received: ""x = \"\\🙂\" + 1":-"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:430:87
+    428|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    429|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    430|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    431|   });
+    432| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+

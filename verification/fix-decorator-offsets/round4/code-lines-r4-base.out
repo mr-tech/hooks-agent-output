@@ -1,0 +1,18 @@
+"js"            content "const s = \"**a**\"; // *b*"        "const":hljs-keyword " s = \"**a**\"; // *b*":-
+"js"            field   "const s = \"**a**\"; // *b*"        "const":hljs-keyword " s = \"**a**\"; // *b*":-
+"js"            content "const a = 1;"                       "const":hljs-keyword " a = 1;":-
+"js"            field   "const a = 1;"                       "const":hljs-keyword " a = 1;":-
+"js"            content "**a** `b` # c"                      "**a** `b` # c":-
+"js"            field   "**a** `b` # c"                      "**a** `b` # c":-
+"python"        content "<@1> https://x.y [l](https://x.y)"  "<@1> https://x.y [l](https://x.y)":-
+"python"        field   "<@1> https://x.y [l](https://x.y)"  "<@1> https://x.y [l](https://x.y)":-
+""              content "**a** `b` # c"                      "*":codeBlockText "*a** `b` # c":-
+""              field   "**a** `b` # c"                      "*":codeBlockText "*a** `b` # c":-
+""              content "const a = 1;"                       "const a ":codeBlockText "= 1;":-
+""              field   "const a = 1;"                       "const a ":codeBlockText "= 1;":-
+"notalanguage"  content "**a** `b` # c"                      "**a** `b` # c":-
+"notalanguage"  field   "**a** `b` # c"                      "**a** `b` # c":-
+"js"            content "```"                                "```":S
+"js"            field   "```"                                "```":S
+"js"            content ""                                   "":-
+"js"            field   ""                                   "":-

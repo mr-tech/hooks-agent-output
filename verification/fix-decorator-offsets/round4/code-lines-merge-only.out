@@ -1,0 +1,18 @@
+"js"            content "const s = \"**a**\"; // *b*"        "const":hljs-keyword " s = ":- "\"**a**\"":hljs-string "; ":- "// *b*":hljs-comment
+"js"            field   "const s = \"**a**\"; // *b*"        "const":hljs-keyword " s = ":- "\"**a**\"":hljs-string "; ":- "// *b*":hljs-comment
+"js"            content "const a = 1;"                       "const":hljs-keyword " a = ":- "1":hljs-number ";":-
+"js"            field   "const a = 1;"                       "const":hljs-keyword " a = ":- "1":hljs-number ";":-
+"js"            content "**a** `b` # c"                      "**a** ":- "`b`":hljs-string " # c":-
+"js"            field   "**a** `b` # c"                      "**a** ":- "`b`":hljs-string " # c":-
+"python"        content "<@1> https://x.y [l](https://x.y)"  "<@":- "1":hljs-number "> https://x.y [l](https://x.y)":-
+"python"        field   "<@1> https://x.y [l](https://x.y)"  "<@":- "1":hljs-number "> https://x.y [l](https://x.y)":-
+""              content "**a** `b` # c"                      "**a** `b` # c":codeBlockText
+""              field   "**a** `b` # c"                      "**a** `b` # c":codeBlockText
+""              content "const a = 1;"                       "const a = 1;":codeBlockText
+""              field   "const a = 1;"                       "const a = 1;":codeBlockText
+"notalanguage"  content "**a** `b` # c"                      "**a** `b` # c":-
+"notalanguage"  field   "**a** `b` # c"                      "**a** `b` # c":-
+"js"            content "```"                                "```":S
+"js"            field   "```"                                "```":S
+"js"            content ""                                   "":-
+"js"            field   ""                                   "":-

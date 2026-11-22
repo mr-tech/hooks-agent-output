@@ -1,0 +1,9 @@
+{
+ "rows": 3088,
+ "rightToWrong": 0,
+ "wrongToRight": 9162,
+ "baseRight": 35212,
+ "tipRight": 44374,
+ "chars": 44390,
+ "rowsWithRightToWrong": 0
+}

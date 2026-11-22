@@ -1,0 +1,105 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the content parser colours "const s = \"**a**\"; // *b*" as "const":hljs-keyword " s = ":- "\"**a**\"":hljs-string "; ":- "// *b*":hljs-comment
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the field parser colours "const s = \"**a**\"; // *b*" as "const":hljs-keyword " s = ":- "\"**a**\"":hljs-string "; ":- "// *b*":hljs-comment
+AssertionError: expected '"const s = \"**a**\"; // *b*":codeBlo…' to be '"const":hljs-keyword " s = ":- "\"**a…' // Object.is equality
+
+Expected: ""const":hljs-keyword " s = ":- "\"**a**\"":hljs-string "; ":- "// *b*":hljs-comment"
+Received: ""const s = \"**a**\"; // *b*":codeBlockText"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:430:87
+    428|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    429|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    430|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    431|   });
+    432| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/12]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the content parser colours "const a = 1;" as "const":hljs-keyword " a = ":- "1":hljs-number ";":-
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the field parser colours "const a = 1;" as "const":hljs-keyword " a = ":- "1":hljs-number ";":-
+AssertionError: expected '"const a = 1;":codeBlockText' to be '"const":hljs-keyword " a = ":- "1":hl…' // Object.is equality
+
+Expected: ""const":hljs-keyword " a = ":- "1":hljs-number ";":-"
+Received: ""const a = 1;":codeBlockText"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:430:87
+    428|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    429|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    430|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    431|   });
+    432| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/12]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the content parser colours "**a** `b` # c" as "**a** ":- "`b`":hljs-string " # c":-
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the field parser colours "**a** `b` # c" as "**a** ":- "`b`":hljs-string " # c":-
+AssertionError: expected '"**a** `b` # c":codeBlockText' to be '"**a** ":- "`b`":hljs-string " # c":-' // Object.is equality
+
+Expected: ""**a** ":- "`b`":hljs-string " # c":-"
+Received: ""**a** `b` # c":codeBlockText"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:430:87
+    428|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    429|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    430|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    431|   });
+    432| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/12]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "python" block with the content parser colours "<@1> https://x.y [l](https://x.y)" as "<@":- "1":hljs-number "> https://x.y [l](https://x.y)":-
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "python" block with the field parser colours "<@1> https://x.y [l](https://x.y)" as "<@":- "1":hljs-number "> https://x.y [l](https://x.y)":-
+AssertionError: expected '"<@1> https://x.y [l](https://x.y)":c…' to be '"<@":- "1":hljs-number "> https://x.y…' // Object.is equality
+
+Expected: ""<@":- "1":hljs-number "> https://x.y [l](https://x.y)":-"
+Received: ""<@1> https://x.y [l](https://x.y)":codeBlockText"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:430:87
+    428|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    429|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    430|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    431|   });
+    432| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/12]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the content parser colours "x = \"\\🙂\" + 1" as "x = ":- "\"\\🙂\"":hljs-string " + ":- "1":hljs-number
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "js" block with the field parser colours "x = \"\\🙂\" + 1" as "x = ":- "\"\\🙂\"":hljs-string " + ":- "1":hljs-number
+AssertionError: expected '"x = \"\\🙂\" + 1":codeBlockText' to be '"x = ":- "\"\\🙂\"":hljs-string " + "…' // Object.is equality
+
+Expected: ""x = ":- "\"\\🙂\"":hljs-string " + ":- "1":hljs-number"
+Received: ""x = \"\\🙂\" + 1":codeBlockText"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:430:87
+    428|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    429|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    430|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    431|   });
+    432| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/12]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "notalanguage" block with the content parser colours "**a** `b` # c" as "**a** `b` # c":-
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "notalanguage" block with the field parser colours "**a** `b` # c" as "**a** `b` # c":-
+AssertionError: expected '"**a** `b` # c":codeBlockText' to be '"**a** `b` # c":-' // Object.is equality
+
+Expected: ""**a** `b` # c":-"
+Received: ""**a** `b` # c":codeBlockText"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:430:87
+    428|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    429|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    430|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    431|   });
+    432| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/12]⎯
+

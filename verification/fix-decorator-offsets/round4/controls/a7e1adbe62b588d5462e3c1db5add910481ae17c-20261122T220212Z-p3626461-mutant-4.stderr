@@ -1,0 +1,20 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "" block with the content parser colours "**a** `b` # c" as "**a** `b` # c":codeBlockText
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator rendered text for a line inside a fenced code block > in a "" block with the field parser colours "**a** `b` # c" as "**a** `b` # c":codeBlockText
+AssertionError: expected '"*":codeBlockText "*a":codeBlockText …' to be '"**a** `b` # c":codeBlockText' // Object.is equality
+
+Expected: ""**a** `b` # c":codeBlockText"
+Received: ""*":codeBlockText "*a":codeBlockText "*":codeBlockText "* ":codeBlockText "`b":codeBlockText "` ":codeBlockText "# c":codeBlockText"
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:430:87
+    428|     ['notalanguage', 'field', '**a** `b` # c', '"**a** `b` # c":-'],
+    429|   ] as const)('in a %j block with the %s parser colours %j as %s', (la…
+    430|     expect(rendered(text, parser, { type: 'codeBlock', lang, startCode…
+       |                                                                                       ^
+    431|   });
+    432| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+

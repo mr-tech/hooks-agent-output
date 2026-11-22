@@ -1,0 +1,20 @@
+import { appendFileSync } from 'fs';
+import { createEditor, Text } from 'slate';
+import { it, vi } from 'vitest';
+import decorator from '../decorator';
+import markdown from '~/utils/markdown';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+const ROWS: [string, string][] = JSON.parse(process.env.PROBE_ROWS as string);
+it('probe', () => {
+  for (const [lang, text] of ROWS) {
+    for (const [name, parser, isEmbed] of [['content', markdown.interactive.parseContent, false], ['field', markdown.interactive.parseEmbedField, true]] as const) {
+      const editor = createEditor();
+      const span = { type: 'span', text } as unknown as Text;
+      editor.children = [{ type: 'codeBlock', lang, startCodeBlock: true, children: [span] } as any];
+      const ranges = decorator(editor, true, isEmbed, parser)([span, [0, 0]]);
+      const leaves = (Text.decorations(span, ranges as any) as any[]).map((w) => w.leaf ?? w)
+        .map((l: any) => `${JSON.stringify(l.text)}:${[l.syntax ? 'S' : '', ...[...(l.classNames ?? [])].sort()].filter(Boolean).join('+') || '-'}`);
+      appendFileSync(process.env.PROBE_OUT as string, `${JSON.stringify(lang).padEnd(15)} ${name.padEnd(7)} ${JSON.stringify(text).padEnd(36)} ${leaves.join(' ')}\n`);
+    }
+  }
+});

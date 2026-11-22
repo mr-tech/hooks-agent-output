@@ -1,0 +1,18 @@
+"js"            content "const s = \"**a**\"; // *b*"        "const":hljs-keyword " s = ":- "\"":hljs-string "**a**":- "\"":hljs-string "; // *b*":-
+"js"            field   "const s = \"**a**\"; // *b*"        "const":hljs-keyword " s = ":- "\"":hljs-string "**a**":- "\"":hljs-string "; // *b*":-
+"js"            content "const a = 1;"                       "const":hljs-keyword " a = ":- "1":hljs-number ";":-
+"js"            field   "const a = 1;"                       "const":hljs-keyword " a = ":- "1":hljs-number ";":-
+"js"            content "**a** `b` # c"                      "**a** ":- "`b":hljs-string "` ":hljs-string "# c":-
+"js"            field   "**a** `b` # c"                      "**a** ":- "`b":hljs-string "` ":hljs-string "# c":-
+"python"        content "<@1> https://x.y [l](https://x.y)"  "<":- "@":hljs-meta "1":hljs-number "> https://x.y [l](https://x.y)":-
+"python"        field   "<@1> https://x.y [l](https://x.y)"  "<":- "@":hljs-meta "1":hljs-number "> https://x.y [l](https://x.y)":-
+""              content "**a** `b` # c"                      "*":codeBlockText "*a":codeBlockText "*":codeBlockText "* ":codeBlockText "`b":codeBlockText "` ":codeBlockText "# c":codeBlockText
+""              field   "**a** `b` # c"                      "*":codeBlockText "*a":codeBlockText "*":codeBlockText "* ":codeBlockText "`b":codeBlockText "` ":codeBlockText "# c":codeBlockText
+""              content "const a = 1;"                       "const a ":codeBlockText "= 1":codeBlockText ";":codeBlockText
+""              field   "const a = 1;"                       "const a ":codeBlockText "= 1":codeBlockText ";":codeBlockText
+"notalanguage"  content "**a** `b` # c"                      "**a** `b` # c":-
+"notalanguage"  field   "**a** `b` # c"                      "**a** `b` # c":-
+"js"            content "```"                                "```":S
+"js"            field   "```"                                "```":S
+"js"            content ""                                   "":-
+"js"            field   ""                                   "":-

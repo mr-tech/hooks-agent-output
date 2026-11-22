@@ -1,0 +1,26 @@
+[
+ {
+  "id": "code-line-branch-never",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (ancestor.lang) {",
+  "new": "  if (false) {"
+ },
+ {
+  "id": "code-line-branch-always",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "  if (ancestor.lang) {",
+  "new": "  if (true) {"
+ },
+ {
+  "id": "code-line-language-dropped",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "handleCodeBlockRange(leaf, ancestor.lang, node.text);",
+  "new": "handleCodeBlockRange(leaf, '', node.text);"
+ },
+ {
+  "id": "top-level-text-not-merged",
+  "file": "src/components/SlateEditor/utils/decorator.tsx",
+  "old": "    const normalized = normalizeAst(ast.flatMap((a) => (\n      a.type === 'paragraph' ? a.content as unknown as StrictSingleASTNode[] : [a]\n    )));",
+  "new": "    const normalized = ast.flatMap((a) => (\n      a.type === 'paragraph' ? normalizeAst(a.content as unknown as StrictSingleASTNode[]) : [a]\n    ));"
+ }
+]

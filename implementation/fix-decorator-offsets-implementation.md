@@ -3,21 +3,114 @@ ID: n/a
 Origin: fix-decorator-offsets
 UUID: 12ef2086
 Status: Active
-Status-Detail: "Code review APPROVED at website 2e6127e (scoped check of round 3, review record 201856c0); 116 production lines, so QA Phase 2 is owed, started by steering; merge to website master by devops on the owner's word."
-Handoff-At: 2e6127e — repos=website
+Status-Detail: "Round 4 (QA Phase 2 QA Failed at 2e6127e on QAF-1) fixed at website a7e1adb and handed to code review for a scoped check, then a QA refresh pass; 118 production lines; merge to website master by devops on the owner's word."
+Handoff-At: a7e1adb — repos=website
 Origin-Chain: none
 ---
 
 # fix-decorator-offsets — implementation
 
-## Resumption State (2026-11-22T21:30Z, round 3 handed off)
+## Resumption State (2026-11-22T22:15Z, round 4 handed off)
 
-- **Done:** round 3 committed on website `chain/fix-decorator-offsets`, HEAD `2e6127e` (CR-4 fixture swap, CR-3); evidence under
-  `verification/fix-decorator-offsets/round3/`; hand-off sent to `code-reviewer-fix-decorator-offsets`, copied to `steering-hooks-fixer`.
-- **Next:** the scoped check came back APPROVED at `2e6127e` (`code-review/fix-decorator-offsets-code-review.md`, record `201856c0`, read).
-  Nothing for this stage until QA Phase 2 (steering starts it) returns findings; then re-read Round 3 and fix on the same branch.
-- **Approach in flight:** none. **Uncommitted / locally mutated:** none of mine; the website tree is clean apart from the foreign
-  `.playwright-mcp/`; scratch worktrees removed (`git worktree list` shows only the shared tree).
+- **Done:** QAF-1 fixed on website `chain/fix-decorator-offsets`, HEAD `a7e1adb`; evidence under `verification/fix-decorator-offsets/round4/`;
+  hand-off sent to `code-reviewer-fix-decorator-offsets` and `qa-fix-decorator-offsets`, copied to `steering-hooks-fixer`.
+- **Next:** wait for the reviewer's scoped check of `2e6127e..a7e1adb`, then QA's refresh pass. On findings: re-read Round 4 below and the
+  finding's document; fix on the same branch; re-run red, controls, suite and typecheck in exports, and QA's code-block scorer.
+- **Approach in flight:** none. **Uncommitted / locally mutated:** none of mine; website tree clean apart from the foreign
+  `.playwright-mcp/`; scratch worktrees removed.
+
+## Round 4: QAF-1, lines inside a fenced code block (QA Phase 2 at `2e6127e`)
+
+**Finding** (`qa/fix-decorator-offsets-qa.md`, record `2d43966c`, QA Failed): since round 2 the default export walks every top-level
+node, so on a code-block line, where the parser yields several `text` chunks with no paragraph around them, `handleCodeBlockRange`
+highlighted each chunk separately (base highlighted only `ast[0]`, the first chunk). No case decorated a code-block line; both
+mutants of `walkAst`'s guard `if (leaf.lang !== '' && typeof ast.content === 'string')` survived. Against highlight.js run over the whole
+line, 32 characters went wrong → right and 4 right → wrong. This is this chain's change of a behaviour, so it is in scope.
+
+**Design call (mine, as QA left it): whole-line highlighting.** Per-chunk output is not a reasonable specification: highlight.js
+tokenises a line, and a chunk boundary splits a string or template literal (`` `b` `` became `` `b `` + `` ` ``). Base's first-chunk-only
+output leaves most of every line uncoloured. Highlighting the whole line is what the code would look like anywhere else, and it is
+the reference QA scores against. No second answer was reasonable, so this did not go to steering.
+
+**Diagnosis, beyond the chunking** (instrument: probes driving the real `decorator` and parser, `round4/probe-code-lines.test.ts.txt`,
+`code-lines-{r4-base,r4-tip,merge-only}.out`, and QA's own `qa/instruments/decorator.code-block-lines.test.ts` + `score-code-block.cjs`):
+- A first attempt, merging top-level text chunks so that one text node reaches `handleCodeBlockRange`, fixed the chunking but still left
+  rows right → wrong. They were (a) the line holding `🙂`: `interactiveParser` pre-treats a Unicode emoji into `:slight_smile:` (the
+  emoji pre-treatment routed at round 2), so the highlighted text was wider than the line, and (b) fence lines (`` ```js ``) under a
+  language, where text after the fence was highlighted.
+- **Which lines carry a language** (read from code): `withNormalizeNode.ts` L24-57 and `getInitialValue.ts` L23-24, L78-80 set `lang` only
+  on a line inside a block that contains no ```` ``` ```` at all (`isFullCodeBlock` / `isCodeBlock`); fence lines get `lang: ''`. QA's
+  mounted editor confirms the shapes (`qa/emoji-rows-tip.jsonl`, "code block shapes"). So a line with a language is code from start to
+  end, with nothing for the markdown parser to find; (b) is unreachable.
+- **Fix:** a line whose element has a language is highlighted from **its own text** (`node.text`), not from the parse. That makes the
+  line whole by construction and takes it off the emoji pre-treatment's widths, which settles (a). `walkAst`'s guard (the two
+  surviving mutants' site) is gone, since no node of a language line reaches `walkAst` any more. Lines without a language (ordinary
+  lines, fence lines, a block with no language) take the markdown path as before. Its top-level text chunks are now merged like a
+  paragraph's (`normalizeAst` over the unwrapped top level), so a block with no language colours its line as one `codeBlockText` range,
+  not one per chunk (the same look, previously split).
+
+**Measured** (QA's scorer, unchanged; rows with ranges past the text dropped from both sides before scoring, since the scorer aligns
+by index; `round4/score-qa_*.txt`):
+
+| Comparison | Rows | Right → wrong | Wrong → right | Right at `a7e1adb` |
+|---|---|---|---|---|
+| QA's 4 languages, base `8845b7e` | 32 | 0 | 162 | 460 of 460 |
+| QA's 4 languages, tip `2e6127e` | 32 | 0 | 134 | 460 of 460 |
+| All 195 highlight.js languages, base | 3,088 | 0 | 13,066 | 44,374 of 44,390 |
+| All 195 languages, tip | 3,088 | 0 | 9,162 | 44,374 of 44,390 |
+
+The 16 characters still unmatched over all languages are 12 rows that are equally wrong at base and tip (none right → wrong). In 8 of
+them the class name contains a space (`hljs-variable constant_`, `hljs-meta prompt_`, `hljs-variable language_`, `hljs-char escape_`), and
+the scorer's label parse cuts it at the space. In the other 4, a nested scope's outer class is not inherited (`dts`
+`hljs-number+hljs-params`). That is CR-4's class-inheritance defect, carried by `fix-decorator-nested-styles`. Ranges past the text on
+reachable rows (a language, `startCodeBlock: true`): 0 (base 22, tip 492). The remaining 20 rows with past-end ranges are lines with no
+language, where the parser's trailing `\n\n` chunk is merged into the range; `Text.decorations` ignores the excess, as accepted in round 2.
+
+**Outside code blocks, unchanged:** the reviewer's corpus probe (36,000 rows, all `lang: ''`) is byte-identical to `2e6127e`
+(`round4/corpus-identity.txt`, same sha256 as round 3; the instrument's response to a control is `round3/corpus-identity.txt`).
+
+### Change (round 4)
+
+- `src/components/SlateEditor/utils/decorator.tsx` (+11 −10): the default export highlights a language line's own text with
+  `handleCodeBlockRange` and otherwise parses and walks as before, with top-level text merged; `walkAst`'s code-block guard removed.
+- Test file (+27 −6): the helpers take the line's element (default the plain `div` as before); a new table, "rendered text for a line
+  inside a fenced code block", has 14 rows: `js` (keyword, string with markdown inside, comment, number, template literal, an escaped
+  emoji `x = "\🙂" + 1`), `python`, no language, and an unknown language, each under the content and field parsers. Expectations are literals
+  read from highlight.js's HTML for the whole line (`hljs.highlight(...).value`), not from the decorator.
+
+Website commit `a7e1adb`. `git diff --numstat 8845b7e a7e1adb`: test `432 0`, `decorator.tsx` `101 40`, `rules.tsx` `17 1`:
+**118 production lines added**.
+
+### Test (round 4)
+
+- **Red at the QA'd tip** (the new test file against `2e6127e`'s production files, export): `round4/red-at-r4-tip.*`: 10 failed, 232
+  passed, exit 1. The 10 failures are the code-block rows except `const a = 1;` (per-chunk output happens to be right there) and the
+  unknown language. **Red at base** `8845b7e`: `red-at-r4-base.*`: 163 failed, 79 passed, exit 1. Every code-block row fails except the
+  unknown-language pair.
+- **Green** at `a7e1adb`: 242 cases passed (`green-new.txt`; within the suite below).
+- **Negative controls** (`mutation-run.py` at `a7e1adb`, `round4/mutants-a7e1adb.json`, `round4/controls/`, `controls.txt`, exit 0): **4 of 4
+  KILLED**, counts checked. The union of their failing titles covers all 14 code-block rows, including the unknown-language pair, which
+  passes at base and tip.
+
+| Control | Covers | Outcome |
+|---|---|---|
+| `code-line-branch-never` (`if (false)`) | the new branch, and QA's `if-false` survivor's intent | KILLED (12 cases, every language row) |
+| `code-line-branch-always` (`if (true)`) | the branch condition, and QA's `===` survivor's intent | KILLED (220) |
+| `code-line-language-dropped` | chosen value `ancestor.lang` | KILLED (10) |
+| `top-level-text-not-merged` | the top-level `normalizeAst` | KILLED (the no-language pair) |
+
+QA's two survivors (`decorator.tsx:95:if-false`, `:95:===`) were mutants of the guard this round removes; the two `if` controls above
+are their counterparts on the code that replaced it.
+
+### Verification (round 4)
+
+- **Suite** at `a7e1adb` (clean `git worktree` export, `node_modules` symlinked, `next-env.d.ts` copied in): 168 files, 2608 tests, all
+  passed, exit 0 (`round4/suite.txt`, `suite.json.gz`). File membership by path is identical to round 3's; 2594 + 14 = 2608.
+- **Typecheck** (`pnpm run typecheck`, both programs), same export: exit 0. **eslint** over the two files: exit 0.
+- **convention-check** `--since=8845b7e` on the shared tree before the commit: exit 0, 0 FAIL, 0 CANDIDATE (`round4/convention-check.txt`;
+  its first run had one `max-len` FAIL on my line, wrapped). SKIPs: the ID-token check (no titles added beyond the table's format
+  string, which carries no ID token) and `.playwright-mcp/` images (not mine).
+- No package-manager operation.
 
 ## Round 3: CR-4 fixture swap and CR-3 (rulings block "2026-11-22T21:21")
 
@@ -407,13 +500,15 @@ For the owner's own look in any editor text box (message content, embed title, e
 - Type `# **Heading**` or `-# **small text**`: the `#` marker is greyed like the other markers, and the bold word lines up with its stars.
 - Type `**<@123> hello**`, `**\* hello**` or a timestamp inside bold: the mention, escape or timestamp is left uncoloured and the bold
   and its closing stars land in the right place.
+- Inside a fenced code block with a language (```` ```js ````), every line is highlighted as a whole: a string containing `**` or a
+  backtick stays one string, a line holding an emoji lines up, and markdown inside the code is not coloured.
 - In an embed title (where links are not allowed), `[label](https://example.com)` shows the address as a link and the brackets plain.
 - Unchanged: list lines (`- item`) are not coloured at all, as before.
 
 ## Handoff
 
-- **SHA:** website `2e6127e` on `chain/fix-decorator-offsets` (round 3, scoped check of `e6a5766..2e6127e`; round 2 was `e6a5766`,
-  round 1 `f57c260`).
+- **SHA:** website `a7e1adb` on `chain/fix-decorator-offsets` (round 4, QAF-1: scoped check of `2e6127e..a7e1adb`, then QA's refresh pass;
+  round 3 `2e6127e`, round 2 `e6a5766`, round 1 `f57c260`).
 - **Who reviews:** `code-reviewer-fix-decorator-offsets` (round numbering is the reviewer's), spawned or resumed by `steering-hooks-fixer`
   on this document's spawn cue; round 3 sent to it directly, steering copied (block 21:21). **116 production lines: QA Phase 2 follows an approving review** (`qa-fix-decorator-offsets`, started by
   steering, rulings 20:44).
@@ -428,3 +523,4 @@ For the owner's own look in any editor text box (message content, embed title, e
 | 2026-11-22T21:12 | — | Round 2 under the 20:44 re-scope (review round 1 REJECTED, CR-1/CR-2): every node kind colours by its source width, `rules.tsx` stamps sources, website `2ad482a` and `e6a5766`; 227 cases, red 150/77 at base, controls 38 of 38, suite 2593/2593, typecheck and lint exit 0, reviewer corpus 0 clean→wrong. 111 production lines: QA Phase 2 restored. One control run in the shared tree disclosed. `Handoff-At` `e6a5766`; handed to code review. |
 | 2026-11-22T21:30 | — | Round 3 (rulings 21:21): CR-4's pinning rows' fixture swapped (test-only), CR-3 taken (heading rule stamps `markerWidth`; regex and cast gone), website `2e6127e`; corpus byte-identical to `e6a5766`; red 151/77 at base; controls 5 of 5; suite 2594/2594, typecheck and lint exit 0. 116 production lines. `Handoff-At` `2e6127e`; handed to code review for a scoped check. |
 | 2026-11-22T21:33 | — | Code review scoped check APPROVED at website `2e6127e` (review record `201856c0`): CR-3, CR-4 resolved. QA Phase 2 owed (116 production lines), steering's to start. |
+| 2026-11-22T22:15 | — | Round 4 (QAF-1, QA Phase 2 QA Failed at `2e6127e`): a code-block line with a language is highlighted as one whole line from its own text; top-level text merged; website `a7e1adb`. Whole-line scorer: 0 right→wrong over 195 languages; corpus byte-identical outside code blocks; 14 rows red at the QA'd tip (10) and base (12); controls 4 of 4; suite 2608/2608, typecheck and lint exit 0. 118 production lines. `Handoff-At` `a7e1adb`; handed to code review for a scoped check, then QA. |
