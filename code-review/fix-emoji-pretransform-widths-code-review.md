@@ -137,6 +137,15 @@ The scope is the fix diff `c2fee5c..0411d3b`: 6 production files, 3 test files. 
 
 This review assumes Slate applies `handleElement`'s insert and the browser's real paste and IME the same way `Transforms.insertText` does in jsdom, and it does not test that. Falsity signature: a pasted `x🙂 abcdefghijklmnopq` in the deployed editor loses or duplicates characters while the jsdom case passes. The owner is QA Phase 2, as a browser walk on a local build, before devops's merge.
 
+## Resumption State
+
+Checkpoint at steering's usage-gate request (weekly 98%; the chain resumes after 2026-11-25T09:00Z).
+- **Done:** Round 1 REJECTED at `c2fee5c` (record `b7f2aac4`). Round 1 sub-entry APPROVED_WITH_COMMENTS at website `0411d3b` (record `83e02c84`). The approval spawn cue went to `steering-hooks-fixer`, and the fixer was told.
+- **Next:** none owed by this stage unless QA Phase 2 or a later fix moves the tree. Any further fix diff is reviewed as a sub-entry: re-run `verification/fix-emoji-pretransform-widths/code-review/probe2.review.test.tsx.txt` in a `git archive` export of the new SHA.
+- **Tree:** website `chain/fix-emoji-pretransform-widths`, HEAD `0411d3b` at the last read. The shared tree was not moved.
+- **Uncommitted or local:** none in the record. Scratch exports sit under this session's scratchpad (`ex-febf20e`, `ex-c2fee5c`, `ex-0411d3b`). They are disposable, and the probe files copied into them are not in any repository.
+- **Questions open:** none.
+
 ## Next Steps
 
 - Sub-entry at `0411d3b`: approved, so QA Phase 2 is started from the spawn cue to `steering-hooks-fixer`. It owns the browser-walk assumption above, including a straddle line such as `wow :ok🙂 hi`.
