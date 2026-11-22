@@ -370,3 +370,9 @@ steering-hooks-fixer` in this session himself. Acted on: this thread is `steerin
 changes. The standing owner-wait `fix-delete-dead-cron`/`vercel-settings` was sent under the old name and is resolved under its key.
 Disclosed: the first attempt edited the docket and `dockets.md` with `sed` in one shell command; the record-write gate refused it
 (it reads those memory files as record documents); the same edits were re-made with the Edit tool and the file moved with `mv` alone.
+
+## 2026-11-22T23:18 — his answer via the coordinator: the 98% weekly gate stands
+
+`steering-coordinator` by message ~23:2xZ: his selection "Let the gate stand"; the earlier lift of the 98% weekly gate expired at its
+reset. Acted on: at `weekly_all` 98% (plan-usage.py, live) this thread asks every session of the running chain for `/checkpoint`, stops
+each, writes its own Checkpoint and reports; resumes after 2026-11-25T09:00Z. Already this thread's plan (standing check prompt, 23:16Z).
