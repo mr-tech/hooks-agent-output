@@ -30,3 +30,36 @@ Disposition (this thread's, under his "fix everything you find along the way", `
 rename to the `proxy` convention rides this chain, which already owns `src/middleware.ts` and its test; the determination, written when
 website `master` is free of chain 7, scopes it (the new convention's file and export names read from Next's docs then, the existing
 test and the matcher test moved with it). Told him in chat; he can veto.
+
+## 2026-11-22T17:15 — selection: the proxy rename rides this chain; determination and stage set
+
+Selection prompt put 17:1xZ, answered 17:1xZ (ledger `steering/selection-ledger/2026-11-22.md`, this thread's block of that minute);
+wording this thread's, in his 18:37Z form. Premises read before the prompt: the rider sweep `verification/fix-middleware-dead-matcher/scoping/sweep-proxy.md`
+(helper, at website `origin/master` `3859c29`; installed and locked Next 16.4.6): the renamed file is `src/proxy.ts`; a default export or a
+named `proxy` export is accepted; `config.matcher` unchanged; the proxy always runs on Node.js, the edge runtime unsupported
+(`node_modules/next/dist/docs` `version-16.md:600`, `proxy.md:257`); a project holding both files fails the build. This thread's own
+read earlier today (`vercel inspect`, 07:28Z): the live deployment lists `λ _middleware` in 19 regions. Unread: the speed effect.
+- Q: A "Agent: rename it now (Recommended)" — "The warning goes away and we follow Next.js's supported path. A few changed lines plus the
+  existing test moved with the file, reviewed and released with the unused-address fix. Possible small added delay on those pages for
+  distant visitors (unmeasured)."; B "Leave it for now" — "The fix removes only the unused address. The warning stays, and the file keeps
+  working until a future Next.js version drops the old name, at which point it has to be done anyway." Chosen: **A**.
+
+**Determination.** Shape: hygiene (a dead matcher entry; a deprecated file convention), cause proven (sweeps `scoping/sweep.md` and
+`scoping/sweep-proxy.md`). Blast radius: the request header `x-pathname`, read only by `src/app/_navigation/Redirects/Server.tsx:5`, on
+`/message`, `/message/*`, `/preview`. End step: website `master`, which Vercel deploys to production; `release-move.js --dry-run` on
+`master` `3859c29` (17:1xZ): every check passed, no workflows, one serving ref. Pipeline: the `fixer` agent.
+**Scope statement** (website, from `origin/master` `3859c29`): (1) `src/middleware.ts` becomes `src/proxy.ts`, its function named `proxy`
+as Next's guide recommends, behaviour otherwise unchanged; (2) its matcher loses `/api/guilds/(.*)`; (3)
+`src/__tests__/middleware.request-headers.test.ts` becomes `src/__tests__/proxy.request-headers.test.ts`, importing the new file; (4) a
+test checks every matcher entry against the site's real pages (his 01:49 selection A). Write set: those paths, a new test file under
+`src/__tests__/` named per Test Conventions, the fixer's document and `verification/fix-middleware-dead-matcher/`. Exclusions (sweep
+placement): tRPC `t.middleware` (`src/server/api/trpc.ts`), floating-ui `middleware` options (three component files), the
+`src/env.mjs:55` comment, lockfile package names, Next's own `unstable_doesMiddlewareMatch` and `x-middleware-*` names. Record passages on
+the older middleware: history, one architect entry at closure.
+**Stage set:** `fixer-fix-middleware-dead-matcher` → `code-reviewer-fix-middleware-dead-matcher` (under 20 production lines: the reviewer
+also runs the suite, typecheck and the red test) → devops for website `master` (his word, asked by devops in its own session). No plan,
+critic, Phase 1, QA or UAT; a production count of 20 or more restores QA Phase 2.
+**Red evidence (this thread's guidance):** the matcher test red with the dead entry, green without; a production build in an export
+printing the deprecation warning at base and not at the tip. **Not covered by the sweeps:** a real build, Vercel's handling of a Node
+proxy (regions, latency), Turbopack vs webpack on Vercel. Devops hazard: post-deploy, the build log carries no deprecation line and the
+`/message` pages still render (the header's consumer).
