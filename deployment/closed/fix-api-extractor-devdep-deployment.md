@@ -142,6 +142,7 @@ with the tip's packaging capture, before the ref moved.
 - Consumers resolving to the release: none do, and none change: website's `package.json` and `pnpm-lock.yaml` still pin `40ba5d3`, and the new line is a devDependency.
 - The fix branch `chain/fix-api-extractor-devdep` was merged by the fast-forward and deleted by `git branch -d` alone (captured). Its commit is on `master`.
 - Gate deviations: none. No control, classifier or permission block fired.
+- Set up and removed: the packaging re-run's `git archive` export and `node_modules` lived under this session's scratchpad (`.../scratchpad/tip`) and were removed (`ls` of the scratchpad: empty); the capped `systemd-run` scopes ended with their commands (`ps`: no `npm`/`systemd-run` process of this run remains). The cache-warm wake stays armed in this session.
 
 ## Post-Release Status
 
