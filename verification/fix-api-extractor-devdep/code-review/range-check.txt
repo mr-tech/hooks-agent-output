@@ -1,0 +1,18 @@
+function-bind@1.1.2 engines=null
+  node_modules/call-bind wants ^1.1.1 -> uses 1.1.2 ok=true
+  node_modules/es-abstract wants ^1.1.1 -> uses 1.1.2 ok=true
+  node_modules/get-intrinsic wants ^1.1.1 -> uses 1.1.2 ok=true
+  node_modules/has wants ^1.1.1 -> uses 1.1.2 ok=true
+  node_modules/hasown wants ^1.1.2 -> uses 1.1.2 ok=true
+is-core-module@2.18.0 engines={"node":">= 0.4"}
+  node_modules/@microsoft/tsdoc-config/node_modules/resolve wants ^2.18.0 -> uses 2.18.0 ok=true
+  node_modules/eslint-import-resolver-node wants ^2.11.0 -> uses 2.18.0 ok=true
+  node_modules/eslint-plugin-import wants ^2.11.0 -> uses 2.18.0 ok=true
+  node_modules/resolve wants ^2.9.0 -> uses 2.18.0 ok=true
+hasown@2.0.4 engines={"node":">= 0.4"}
+  node_modules/is-core-module wants ^2.0.4 -> uses 2.0.4 ok=true
+typescript@5.1.6 engines={"node":">=14.17"}
+  (root) wants ^5.1.6 -> uses 5.1.6 (nested) ok=true
+  node_modules/@microsoft/api-extractor wants 5.7.2 -> uses 5.7.2 (nested) ok=true
+  node_modules/prisma-kysely wants 4.6.2 -> uses 4.6.2 (nested) ok=true
+  node_modules/ts-api-utils wants >=4.2.0 -> uses 5.1.6 ok=true

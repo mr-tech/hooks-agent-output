@@ -1,0 +1,9 @@
+lint	eslint	local
+build	tsc	local
+build	rimraf	local
+build	cp	system:/usr/bin/cp
+build:types	tsc	local
+build:types	api-extractor	local
+rebuild	npm	npm
+rebuild	npm	npm
+rebuild	npm	npm
