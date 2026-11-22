@@ -50,3 +50,9 @@ waiver), D (stop). Ruling (this thread's): **A**. His block-04:50 words ("fix ev
 headings are fixed, as their own fixer chain `fix-decorator-headings`, queued after 9f (before CR-1); how a heading marker should be
 coloured is put to him at that chain's scoping if more than one answer is reasonable. B is not taken: it widens a reviewed-size fix past
 the QA line for a defect with its own design question. No owner prompt for this block (his ruling covers it); told him in chat.
+
+## 2026-11-22T20:34 — handed to code review at website f57c260; reviewer started
+
+Fixer's spawn cue by message ~20:4xZ: document record `627ec83e`, `Handoff-At: f57c260 — repos=website` (read); ruling A applied (two
+guards dropped). This thread's reads: `git log 8845b7e..f57c260` (two commits); numstat `decorator.tsx` 18/4, test 163/0. Reviewer brief
+`steering/fix-decorator-offsets-brief-code-reviewer.md`; `code-reviewer-fix-decorator-offsets` started with `tmux-agent spawn`.
