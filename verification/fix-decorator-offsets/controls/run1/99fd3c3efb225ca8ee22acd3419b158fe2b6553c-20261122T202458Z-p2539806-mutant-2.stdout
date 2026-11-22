@@ -1,0 +1,20 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/4c8508ed-d797-4cd5-824a-33f08e873764/scratchpad/mut-work/20261122T202458Z-p2539806/mutant-2
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (15 tests | 10 failed) 41ms
+     × marks the delimiters of italic text as syntax and the inside as italic 10ms
+     × colours bold and italic runs side by side independently 3ms
+     × colours italic text nested inside bold text and leaves the text after it plain 3ms
+     × keeps the syntax ranges of bold italic text inside its three-asterisk delimiters 2ms
+     × leaves the text after bold italic text uncoloured 2ms
+     × keeps shared delimiters inside the text for bold opening an italic run 2ms
+     × keeps shared delimiters inside the text for italic opening a bold run 1ms
+     × keeps shared delimiters inside the text for bold closing an italic run 1ms
+     × keeps shared delimiters inside the text for strikethrough inside bold italic 1ms
+     × keeps shared delimiters inside the text for italic inside underline 1ms
+
+ Test Files  1 failed (1)
+      Tests  10 failed | 5 passed (15)
+   Start at  20:25:04
+   Duration  1.42s (transform 479ms, setup 0ms, import 1.23s, tests 41ms, environment 0ms)
+

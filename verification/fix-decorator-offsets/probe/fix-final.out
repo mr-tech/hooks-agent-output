@@ -1,0 +1,20 @@
+"***ab***" 8 [{"content":[{"content":[{"content":"ab","type":"text"}],"type":"strong"}],"type":"em"},{"content":"\n\n","type":"text"}]
+    0-3 S[] "***" | 3-5[emText,strongText] "ab" | 5-8 S[] "***"
+"***a** b*" 9 [{"content":[{"content":[{"content":"a","type":"text"}],"type":"strong"},{"content":" b","type":"text"}],"type":"em"},{"content":"\n\n","type":"text"}]
+    0-3 S[] "***" | 3-8[emText] "a** b" | 3-4[strongText,emText] "a" | 4-6 S[] "**" | 8-9 S[] "*"
+"***a* b**" 9 [{"content":[{"content":[{"content":"a","type":"text"}],"type":"em"},{"content":" b","type":"text"}],"type":"strong"},{"content":"\n\n","type":"text"}]
+    0-3 S[] "***" | 3-7[strongText] "a* b" | 3-4[emText,strongText] "a" | 4-5 S[] "*" | 7-9 S[] "**"
+"*a **b***" 9 [{"content":[{"content":"a ","type":"text"},{"content":[{"content":"b","type":"text"}],"type":"strong"}],"type":"em"},{"content":"\n\n","type":"text"}]
+    0-1 S[] "*" | 1-6[emText] "a **b" | 3-5 S[emText] "**" | 5-6[strongText,emText] "b" | 6-9 S[] "***"
+"**[a](https://x.y)**" 20 [{"content":[{"content":[{"content":"a","type":"text"}],"target":"https://x.y","type":"link"}],"type":"strong"},{"content":"\n\n","type":"text"}]
+    0-3 S[] "**[" | 3-18[strongText] "a](https://x.y)" | 3-4[linkText,strongText] "a" | 4-6 S[] "](" | 6-17[linkText] "https://x.y" | 17-20 S[] ")**"
+"**[a](https://x.y) b**" 22 [{"content":[{"content":[{"content":"a","type":"text"}],"target":"https://x.y","type":"link"},{"content":" b","type":"text"}],"type":"strong"},{"content":"\n\n","type":"text"}]
+    0-3 S[] "**[" | 3-20[strongText] "a](https://x.y) b" | 3-4[linkText,strongText] "a" | 4-6 S[] "](" | 6-17[linkText] "https://x.y" | 17-18 S[] ")" | 20-22 S[] "**"
+"**b [a](https://x.y)**" 22 [{"content":[{"content":"b ","type":"text"},{"content":[{"content":"a","type":"text"}],"target":"https://x.y","type":"link"}],"type":"strong"},{"content":"\n\n","type":"text"}]
+    0-2 S[] "**" | 2-20[strongText] "b [a](https://x.y)" | 4-5 S[strongText] "[" | 5-6[linkText,strongText] "a" | 6-8 S[] "](" | 8-19[linkText] "https://x.y" | 19-22 S[] ")**"
+"***~~a~~***" 11 [{"content":[{"content":[{"content":[{"content":"a","type":"text"}],"type":"s"}],"type":"strong"}],"type":"em"},{"content":"\n\n","type":"text"}]
+    0-5 S[] "***~~" | 5-6[emText,strongText,sText] "a" | 6-11 S[] "~~***"
+"__*a*__" 7 [{"content":[{"content":[{"content":"a","type":"text"}],"type":"em"}],"type":"u"},{"content":"\n\n","type":"text"}]
+    0-3 S[] "__*" | 3-4[uText,emText] "a" | 4-7 S[] "*__"
+"||**a**||" 9 [{"content":[{"content":[{"content":"a","type":"text"}],"type":"strong"}],"type":"spoiler"},{"content":"\n\n","type":"text"}]
+    0-4 S[] "||**" | 4-5[spoilerText,strongText] "a" | 5-9 S[] "**||"

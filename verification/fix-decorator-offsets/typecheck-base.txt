@@ -1,0 +1,5 @@
+
+> website@ typecheck /tmp/claude-1000/-usr-local-bin-hooks-website/4c8508ed-d797-4cd5-824a-33f08e873764/scratchpad/wt-base
+> tsc --noEmit && tsc --noEmit -p tsconfig.test.json
+
+typecheck base exit=0 (export at 8845b7e plus the shared tree's generated next-env.d.ts)

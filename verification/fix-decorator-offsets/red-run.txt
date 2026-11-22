@@ -1,0 +1,107 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts (6 tests | 2 failed) 25ms
+     × keeps the syntax ranges of bold italic text inside its three-asterisk delimiters 8ms
+     × leaves the text after bold italic text uncoloured 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator emphasis ranges > keeps the syntax ranges of bold italic text inside its three-asterisk delimiters
+AssertionError: expected [ { from: +0, to: 3, …(2) }, …(3) ] to deeply equal [ { from: +0, to: 3, …(2) }, …(2) ]
+
+- Expected
++ Received
+
+@@ -6,18 +6,26 @@
+      "to": 3,
+    },
+    {
+      "classNames": [
+        "emText",
++     ],
++     "from": 3,
++     "syntax": false,
++     "to": 7,
++   },
++   {
++     "classNames": [
++       "emText",
+        "strongText",
+      ],
+      "from": 3,
+      "syntax": false,
+      "to": 5,
+    },
+    {
+      "classNames": [],
+      "from": 5,
+      "syntax": true,
+-     "to": 8,
++     "to": 10,
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:77:34
+     75|
+     76|   it('keeps the syntax ranges of bold italic text inside its three-ast…
+     77|     expect(decorate('***ab***')).toEqual([
+       |                                  ^
+     78|       syntax(0, 3),
+     79|       styled(3, 5, ['emText', 'strongText']),
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts > editor markdown decorator emphasis ranges > leaves the text after bold italic text uncoloured
+AssertionError: expected [ { from: +0, to: 3, …(2) }, …(3) ] to deeply equal [ { from: +0, to: 3, …(2) }, …(2) ]
+
+- Expected
++ Received
+
+@@ -6,18 +6,26 @@
+      "to": 3,
+    },
+    {
+      "classNames": [
+        "emText",
++     ],
++     "from": 3,
++     "syntax": false,
++     "to": 7,
++   },
++   {
++     "classNames": [
++       "emText",
+        "strongText",
+      ],
+      "from": 3,
+      "syntax": false,
+      "to": 5,
+    },
+    {
+      "classNames": [],
+      "from": 5,
+      "syntax": true,
+-     "to": 8,
++     "to": 10,
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/decorator.emphasis-syntax-ranges.test.ts:85:37
+     83|
+     84|   it('leaves the text after bold italic text uncoloured', () => {
+     85|     expect(decorate('***ab*** cd')).toEqual([
+       |                                     ^
+     86|       syntax(0, 3),
+     87|       styled(3, 5, ['emText', 'strongText']),
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 4 passed (6)
+   Start at  20:21:41
+   Duration  1.33s (transform 450ms, setup 0ms, import 1.16s, tests 25ms, environment 0ms)
+
+exit=1
+HEAD=8845b7e3409782e0f07ecd36a818f48f4ebcc721 decorator.tsx unmodified: yes

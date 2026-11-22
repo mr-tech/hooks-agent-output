@@ -1,0 +1,19 @@
+import { createEditor } from 'slate';
+import { it, vi } from 'vitest';
+import markdown from '~/utils/markdown';
+import decorator from '../decorator';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+const shapes = ['***ab***', '***a** b*', '***a* b**', '*a **b***', '**[a](https://x.y)**', '**[a](https://x.y) b**', '**b [a](https://x.y)**', '***~~a~~***', '__*a*__', '||**a**||'];
+import { appendFileSync } from 'fs';
+const log = (...a: unknown[]) => appendFileSync(process.env.PROBE_OUT as string, a.join(' ') + '\n');
+it('probe', () => {
+  for (const text of shapes) {
+    const editor = createEditor();
+    const span = { type: 'span', text } as any;
+    editor.children = [{ type: 'div', lang: '', startCodeBlock: false, children: [span] } as any];
+    const ast = markdown.interactive.parseContent(text, { isEmbed: false, mounted: true } as any);
+    const r = decorator(editor, true, false, markdown.interactive.parseContent)([span, [0, 0]]);
+    log(JSON.stringify(text), text.length, JSON.stringify(ast[0].content, (k, v) => (k === 'target' || k === 'type' || k === 'content' || k === '' || /^\d+$/.test(k) ? v : undefined)));
+    log('   ', r.map((x) => `${x.anchor.offset}-${x.focus.offset}${x.syntax ? ' S' : ''}[${x.classNames.join(',')}] ${JSON.stringify(text.slice(x.anchor.offset, x.focus.offset))}`).join(' | '));
+  }
+});

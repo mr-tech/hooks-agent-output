@@ -1,0 +1,9 @@
+strong-delimiter-width KILLED 2.55
+em-delimiter-width KILLED 2.54
+reverse-merge-link-guard-removed KILLED 3.49
+last-link-exclusion-removed KILLED 3.09
+first-parent-offset-guard-removed SURVIVED 2.83
+last-parent-offset-guard-removed SURVIVED 2.7
+first-index-chosen-as-last KILLED 2.73
+last-index-chosen-as-first KILLED 2.61
+6 of 8 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob 457cc1f6790f1692712bff88590256b97b48d3ac))

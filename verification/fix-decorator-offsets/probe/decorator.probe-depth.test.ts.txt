@@ -1,0 +1,24 @@
+import { appendFileSync } from 'fs';
+import { it, vi } from 'vitest';
+import markdown from '~/utils/markdown';
+vi.mock('~/env.mjs', () => ({ env: {} }));
+const OFF = new Set(['em', 'strong', 'u', 's', 'spoiler', 'link']);
+const inputs = ['> **a**', '# **a**', '-# **a**', '- **a**', '**> a**', '**# a**', '**<https://x.y>**', '**https://x.y**', '||> **a**||', '**`a`**', '**a\nb**', '>>> **a**', '[**a**](https://x.y)', '**<@123>**', '**:smile:**', '*a* **b** __c__'];
+const walk = (n: any, depth: number, parentOff: boolean, hits: string[]) => {
+  if (!n || typeof n !== 'object') return;
+  if (Array.isArray(n)) { n.forEach((c) => walk(c, depth, parentOff, hits)); return; }
+  if (Array.isArray(n.content)) {
+    const edge = [n.content[0], n.content.at(-1)].some((c: any) => c && OFF.has(c.type));
+    if (!OFF.has(n.type) && depth >= 1 && edge) hits.push(`${n.type}@${depth}`);
+    n.content.forEach((c: any) => walk(c, depth + 1, OFF.has(n.type), hits));
+  }
+};
+it('probe', () => {
+  for (const text of inputs) {
+    const ast = markdown.interactive.parseContent(text, { isEmbed: false, mounted: true } as any);
+    const root = ast[0] as any;
+    const hits: string[] = [];
+    if (Array.isArray(root.content)) root.content.forEach((c: any) => walk(c, 1, false, hits));
+    appendFileSync(process.env.PROBE_OUT as string, `${JSON.stringify(text)} root=${root.type} nonDelimitedParentsWithDelimitedEdgeChild=[${hits.join(',')}]\n`);
+  }
+});

@@ -1,0 +1,10 @@
+[
+  {"id": "strong-delimiter-width", "file": "src/components/SlateEditor/utils/decorator.tsx", "old": "  ['strong', 2],", "new": "  ['strong', 1],"},
+  {"id": "em-delimiter-width", "file": "src/components/SlateEditor/utils/decorator.tsx", "old": "  ['em', 1],", "new": "  ['em', 2],"},
+  {"id": "reverse-merge-link-guard-removed", "file": "src/components/SlateEditor/utils/decorator.tsx", "old": "  if (reverse && child.type === 'link') return acc;", "new": ""},
+  {"id": "last-link-exclusion-removed", "file": "src/components/SlateEditor/utils/decorator.tsx", "old": " && a.type !== 'link',", "new": ","},
+  {"id": "first-parent-offset-guard-removed", "file": "src/components/SlateEditor/utils/decorator.tsx", "old": "        first: Boolean(offset) && i === 0,", "new": "        first: i === 0,"},
+  {"id": "last-parent-offset-guard-removed", "file": "src/components/SlateEditor/utils/decorator.tsx", "old": "        last: Boolean(offset) && i === astContent.length - 1", "new": "        last: i === astContent.length - 1"},
+  {"id": "first-index-chosen-as-last", "file": "src/components/SlateEditor/utils/decorator.tsx", "old": "        first: Boolean(offset) && i === 0,", "new": "        first: Boolean(offset) && i === astContent.length - 1,"},
+  {"id": "last-index-chosen-as-first", "file": "src/components/SlateEditor/utils/decorator.tsx", "old": "        last: Boolean(offset) && i === astContent.length - 1", "new": "        last: Boolean(offset) && i === 0"}
+]
