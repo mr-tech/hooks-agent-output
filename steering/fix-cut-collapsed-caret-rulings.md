@@ -60,3 +60,13 @@ Fixer's spawn cue by message ~19:2xZ: document `implementation/fix-cut-collapsed
 329cc20 — repos=website`, read). This thread's reads: `git log 453de76..329cc20` (two commits); `git diff --numstat`: `onCopy.ts` 5/4,
 `__tests__/onCopy.cut.test.tsx` 84/0. Built to block 18:53's corrected statement (fixer's report). Reviewer brief
 `steering/fix-cut-collapsed-caret-brief-code-reviewer.md`; `code-reviewer-fix-cut-collapsed-caret` started with `tmux-agent spawn`.
+
+## 2026-11-22T19:10 — review round 1 REJECTED (CR-1, a missing Copy case); real-browser Ctrl+X routed to an agent
+
+Reviewer's copy by message ~19:3xZ: `code-review/fix-cut-collapsed-caret-code-review.md` (record `bc02a58b`), Round 1 REJECTED at `329cc20`,
+sent to the fixer: CR-1 MEDIUM — no test calls the handler as Copy, and a mutant making Copy delete survives; to be re-checked as a
+sub-entry. The production fix itself it reports correct (5 lines; red/green reproduced; suite 2365/2365 exit 0; typecheck exit 0).
+Assumption Not Checked (real browser: Ctrl+X with a plain caret removes nothing) — the reviewer routes it to the owner. Disposition
+(this thread's): an agent can perform it — a browser walk of the signed-out editor (signed-out visitors reach the blank editor, chain 8's
+live checks) — so it is not queued for him; it rides the devops brief as a post-deploy walk by a `browser-walker` helper, typing text,
+placing a plain caret, pressing Ctrl+X, reading the text back; no save.
