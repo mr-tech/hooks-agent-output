@@ -40,3 +40,16 @@ runs the suite, typecheck and the red test) → devops for website `master` (his
 production lines restores QA Phase 2. **Hazard:** jsdom lacks `isContentEditable` (refutation needed a scratch polyfill): the
 environment-fidelity convention binds — a test asserting a path jsdom cannot model is not written; the handler can be called directly.
 **Not covered:** a real browser's cut event.
+
+## 2026-11-22T18:53 — the fixer's block: a clicked emoji; ruled on his 02:09 words (scope statement corrected)
+
+Fixer by message ~19:0xZ (document Status Blocked): emojis are inline voids; clicking one leaves a collapsed selection inside it (read
+from slate-react's `onClick`, not run in a browser); at base `453de76` Cut on that selection copies the emoji and removes it (its probe at
+base, `verification/fix-cut-collapsed-caret/emoji-cut-probe-run.txt`, read: the emoji node removed). A guard on `Range.isExpanded` alone
+would make Cut on a clicked emoji only copy. Ruling (this thread's): his chosen option's words decide it — "Cut with nothing highlighted
+does nothing, in every text box that uses this editor; cutting highlighted text is unchanged." Those words change the plain-caret case
+only; the clicked-emoji case is not named, so it stays as today. This thread's 18:49 scope statement ("deletes only an expanded
+selection") narrowed past his words and is corrected to: **Cut with a collapsed caret that is not inside an emoji (inline void) deletes
+nothing; Cut on an expanded selection, and on a clicked emoji, behaves as at base.** The test asserts all three (plain caret: unchanged
+text; expanded: removed; clicked emoji: removed, as at base). Inside the sweep's region (the cut handler), so no re-scope to him; told
+him in chat, he can veto. Sent to `fixer-fix-cut-collapsed-caret`.
