@@ -1,0 +1,15 @@
+chain: sessions matching '*fix-middleware-dead-matcher' or '*fix-middleware-dead-matcher-<n>' from 2026-11-22T17:15 to 2026-11-22T18:50
+3 of 3 resolved from the registry cache (live entry gone): code-reviewer-fix-middleware-dead-matcher, devops-fix-middleware-dead-matcher, fixer-fix-middleware-dead-matcher
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+code-reviewer-fix-middleware- claude-opus                 38        78   3,842,715     99,498    34,079     2.25
+                                main 38 req $2.25 · cached seen 2026-11-22T17:32:34Z
+devops-fix-middleware-dead-ma claude-sonn                 57       118   8,031,210    143,178    43,965     1.82
+                                main 57 req $1.82 · cached seen 2026-11-22T17:40:34Z
+fixer-fix-middleware-dead-mat claude-opus                 65       133   6,984,980    114,974    35,757     3.03
+                                main 65 req $3.03 · cached seen 2026-11-22T17:15:52Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      160       329  18,858,905    357,650   113,801     7.09
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp

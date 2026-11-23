@@ -1,0 +1,17 @@
+chain: sessions matching '*fix-git-dependency-pins' or '*fix-git-dependency-pins-<n>' from 2026-11-21T22:58 to 2026-11-22T17:08
+3 of 3 resolved from the registry cache (live entry gone): code-reviewer-fix-git-dependency-pins, devops-fix-git-dependency-pins, fixer-fix-git-dependency-pins
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+code-reviewer-fix-git-depende claude-opus                104       248  15,200,775    138,982    45,506     5.06
+                                main 104 req $5.06 · cached seen 2026-11-21T23:07:40Z
+devops-fix-git-dependency-pin claude-sonn                180       403  31,644,839    267,441   110,188     5.29
+  own                         claude-sonn                169       381  31,392,924    235,695   101,969     5.10
+  general-purpose-sonnet      claude-sonn                 11        22     251,915     31,746     8,219     0.19
+                                main 169 req $5.10 · subagent 11 req $0.19 · cached seen 2026-11-21T23:12:16Z
+fixer-fix-git-dependency-pins claude-opus                162       371  27,840,843    193,022    87,027     8.85
+                                main 162 req $8.85 · cached seen 2026-11-21T22:59:22Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      446     1,022  74,686,457    599,445   242,721    19.21
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp

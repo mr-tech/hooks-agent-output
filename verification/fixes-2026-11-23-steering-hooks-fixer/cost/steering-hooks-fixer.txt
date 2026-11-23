@@ -1,0 +1,17 @@
+chain: sessions matching '*hooks-fixer' or '*hooks-fixer-<n>' from 2026-11-21T19:02 to 2026-11-23T08:48
+1 of 2 resolved from the registry cache (live entry gone): steering-hooks-fixer
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+steering-hooks-fix [de89c5c3] claude-haik,claude-opus    465     1,111 119,854,825    730,918   294,740    32.93
+  own                         claude-opus                409       995 117,915,945    455,034   234,162    31.91
+  general-purpose             claude-haik                  8        16     337,712     72,627    16,569     0.02
+  general-purpose-sonnet      claude-sonn                 44        92   1,591,107    171,287    40,910     1.00
+  web-fetch                   claude-haik                  4         8      10,061     31,970     3,099     0.01
+                                main 409 req $31.91 · subagent 56 req $1.02 · cached seen 2026-11-22T07:57:31Z
+steering-hooks-fix [be654015] claude-opus                 53       118   6,832,718    120,470    27,813     2.89
+                                main 53 req $2.89 · cached seen 2026-11-23T08:14:59Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      518     1,229 126,687,543    851,388   322,553    35.82
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp

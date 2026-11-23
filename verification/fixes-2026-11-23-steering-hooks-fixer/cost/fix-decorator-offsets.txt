@@ -1,0 +1,23 @@
+chain: sessions matching '*fix-decorator-offsets' or '*fix-decorator-offsets-<n>' from 2026-11-22T20:19 to 2026-11-22T22:56
+5 of 5 resolved from the registry cache (live entry gone): code-reviewer-fix-decorator-offsets, devops-fix-decorator-offsets, fixer-fix-decorator-offsets, fixer-fix-decorator-offsets, qa-fix-decorator-offsets
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+code-reviewer-fix-decorator-o claude-opus                137       296  29,459,237    299,627   138,358    11.06
+                                main 137 req $11.06 · cached seen 2026-11-22T20:34:53Z
+devops-fix-decorator-offsets  claude-sonn                 85       171  12,664,506    214,391    60,616     2.68
+  own                         claude-sonn                 79       159  12,520,556    178,355    55,952     2.53
+  browser-walker              claude-sonn                  6        12     143,950     36,036     4,664     0.15
+                                main 79 req $2.53 · subagent 6 req $0.15 · cached seen 2026-11-22T22:33:47Z
+fixer-fix-decorato [4c8508ed] claude-opus                170       352  38,612,344    359,456   182,465    14.25
+                                main 170 req $14.25 · cached seen 2026-11-22T20:19:52Z
+fixer-fix-decorato [f9cf51a5] claude-opus                162       338  32,946,556    286,352   135,215    11.59
+                                main 162 req $11.59 · cached seen 2026-11-22T21:14:19Z
+qa-fix-decorator-offsets      claude-haik,claude-opus    154       330  29,590,566    398,171   138,004    10.77
+  own                         claude-opus                129       278  29,087,905    300,717   126,291    10.75
+  general-purpose             claude-haik                 25        52     502,661     97,454    11,713     0.02
+                                main 129 req $10.75 · subagent 25 req $0.02 · cached seen 2026-11-22T21:30:55Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      708     1,487 143,273,209  1,557,997   654,658    50.34
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp

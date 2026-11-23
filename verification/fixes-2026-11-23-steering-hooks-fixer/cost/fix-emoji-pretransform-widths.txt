@@ -1,0 +1,25 @@
+chain: sessions matching '*fix-emoji-pretransform-widths' or '*fix-emoji-pretransform-widths-<n>' from 2026-11-22T22:59 to 2026-11-23T08:48
+5 of 5 resolved from the registry cache (live entry gone): code-reviewer-fix-emoji-pretransform-widths, devops-fix-emoji-pretransform-widths, fixer-fix-emoji-pretransform-widths, qa-fix-emoji-pretransform-widths, qa-fix-emoji-pretransform-widths
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+code-reviewer-fix-emoji-pretr claude-opus                 62       133   8,017,576    137,972    50,548     3.72
+                                main 62 req $3.72 · cached seen 2026-11-22T23:17:25Z
+devops-fix-emoji-pretransform claude-sonn                102       209  15,722,638    238,427    66,533     3.13
+  own                         claude-sonn                 92       189  15,415,994    197,888    60,924     2.94
+  browser-walker              claude-sonn                 10        20     306,644     40,539     5,609     0.19
+                                main 92 req $2.94 · subagent 10 req $0.19 · cached seen 2026-11-23T08:25:49Z
+fixer-fix-emoji-pretransform- claude-opus                104       218  19,323,913    236,965   104,702     7.86
+                                main 104 req $7.86 · cached seen 2026-11-22T22:59:43Z
+qa-fix-emoji-pretr [ec1d0481] claude-opus,claude-sonn    127       274  16,232,289    240,720    64,075     5.83
+  own                         claude-opus                 91       198  14,797,078    178,575    50,362     5.40
+  browser-walker              claude-sonn                 36        76   1,435,211     62,145    13,713     0.44
+                                main 91 req $5.40 · subagent 36 req $0.44 · cached seen 2026-11-22T23:34:53Z
+qa-fix-emoji-pretr [b7f91ee0] claude-opus,claude-sonn     75       155   7,272,517    184,478    45,485     3.34
+  own                         claude-opus                 60       125   6,726,395    125,274    33,454     3.02
+  browser-walker              claude-sonn                 15        30     546,122     59,204    12,031     0.32
+                                main 60 req $3.02 · subagent 15 req $0.32 · cached seen 2026-11-23T08:16:19Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      470       989  66,568,933  1,038,562   331,343    23.88
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp

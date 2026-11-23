@@ -1,0 +1,15 @@
+chain: sessions matching '*fix-api-extractor-devdep' or '*fix-api-extractor-devdep-<n>' from 2026-11-22T04:58 to 2026-11-22T07:25
+3 of 3 resolved from the registry cache (live entry gone): code-reviewer-fix-api-extractor-devdep, devops-fix-api-extractor-devdep, fixer-fix-api-extractor-devdep
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+code-reviewer-fix-api-extract claude-opus                 33        66   3,315,834     90,616    28,178     1.95
+                                main 33 req $1.95 · cached seen 2026-11-22T07:13:29Z
+devops-fix-api-extractor-devd claude-sonn                 44        87   5,184,477    114,337    32,663     1.30
+                                main 44 req $1.30 · cached seen 2026-11-22T07:19:51Z
+fixer-fix-api-extractor-devde claude-opus                 42        87   3,534,032     72,552    25,199     1.79
+                                main 42 req $1.79 · cached seen 2026-11-22T07:06:02Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      119       240  12,034,343    277,505    86,040     5.05
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp

@@ -1,0 +1,17 @@
+chain: sessions matching '*fix-cut-collapsed-caret' or '*fix-cut-collapsed-caret-<n>' from 2026-11-22T18:49 to 2026-11-22T20:19
+3 of 3 resolved from the registry cache (live entry gone): code-reviewer-fix-cut-collapsed-caret, devops-fix-cut-collapsed-caret, fixer-fix-cut-collapsed-caret
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+code-reviewer-fix-cut-collaps claude-opus                 51       106   5,205,199     96,398    30,661     2.43
+                                main 51 req $2.43 · cached seen 2026-11-22T19:06:39Z
+devops-fix-cut-collapsed-care claude-sonn                 81       169   8,579,346    194,929    48,265     2.05
+  own                         claude-sonn                 55       115   7,660,876    145,644    39,825     1.75
+  browser-walker              claude-sonn                 26        54     918,470     49,285     8,440     0.30
+                                main 55 req $1.75 · subagent 26 req $0.30 · cached seen 2026-11-22T19:15:53Z
+fixer-fix-cut-collapsed-caret claude-opus                 86       179  10,748,202    144,438    59,396     4.49
+                                main 86 req $4.49 · cached seen 2026-11-22T18:50:10Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      218       454  24,532,747    435,765   138,322     8.97
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp

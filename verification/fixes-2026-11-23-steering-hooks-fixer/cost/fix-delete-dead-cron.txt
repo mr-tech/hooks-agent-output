@@ -1,0 +1,15 @@
+chain: sessions matching '*fix-delete-dead-cron' or '*fix-delete-dead-cron-<n>' from 2026-11-21T20:26 to 2026-11-22T17:06
+3 of 3 resolved from the registry cache (live entry gone): code-reviewer-fix-delete-dead-cron, devops-fix-delete-dead-cron, fixer-fix-delete-dead-cron
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+code-reviewer-fix-delete-dead claude-opus                107       256  12,934,361    103,659    33,878     4.09
+                                main 107 req $4.09 · cached seen 2026-11-21T20:41:43Z
+devops-fix-delete-dead-cron   claude-sonn                151       349  26,700,241    304,864    83,287     4.72
+                                main 151 req $4.72 · cached seen 2026-11-21T20:48:58Z
+fixer-fix-delete-dead-cron    claude-opus                116       274  14,256,693    112,709    37,380     4.50
+                                main 116 req $4.50 · cached seen 2026-11-21T20:27:56Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                      374       879  53,891,295    521,232   154,545    13.32
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp

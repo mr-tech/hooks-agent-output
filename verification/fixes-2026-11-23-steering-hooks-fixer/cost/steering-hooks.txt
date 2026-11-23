@@ -1,0 +1,28 @@
+chain: sessions matching '*steering-hooks' or '*steering-hooks-<n>' from 2026-11-21T19:02 to 2026-11-23T08:48
+6 of 6 resolved from the registry cache (live entry gone): steering-hooks, steering-hooks, steering-hooks, steering-hooks, steering-hooks, steering-hooks
+
+session                       model(s)                  reqs     input    cache_rd   cache_wr    output        $
+----------------------------------------------------------------------------------------------------------------
+steering-hooks [7f338190]     -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-21T05:30:41Z
+steering-hooks [c9d29d3a]     -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-21T09:49:50Z
+steering-hooks [09d0a152]     -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-21T10:41:37Z
+steering-hooks [015af98a]     -                            0         0           0          0         0     0.00
+                                 · cached seen 2026-11-21T13:41:10Z
+steering-hooks [47cb8b91]     claude-haik,claude-opus    645     1,427 132,721,858  1,686,103   676,671    33.43
+  own                         claude-opus                315       765 118,720,921    356,366   222,202    31.04
+  general-purpose             claude-haik                189       378  10,052,657    986,279   382,560     0.42
+  general-purpose-sonnet      claude-sonn                141       284   3,948,280    343,458    71,909     1.97
+                                main 315 req $31.04 · subagent 330 req $2.39 · cached seen 2026-11-21T18:04:16Z
+steering-hooks [de89c5c3]     claude-haik,claude-opus    465     1,111 119,854,825    730,918   294,740    32.93
+  own                         claude-opus                409       995 117,915,945    455,034   234,162    31.91
+  general-purpose             claude-haik                  8        16     337,712     72,627    16,569     0.02
+  general-purpose-sonnet      claude-sonn                 44        92   1,591,107    171,287    40,910     1.00
+  web-fetch                   claude-haik                  4         8      10,061     31,970     3,099     0.01
+                                main 409 req $31.91 · subagent 56 req $1.02 · cached seen 2026-11-22T07:27:36Z
+----------------------------------------------------------------------------------------------------------------
+                              TOTAL                     1110     2,538 252,576,683  2,417,021   971,411    66.36
+
+subagent usage is filed under its parent session's row; where a session has any, the indented rows beneath it split it into its own requests (own) and each subagent type's (agentType from the subagent's meta file). Membership is bounded by --since/--until, never by a cached `seen` stamp alone: a long-lived session serving consecutive efforts keeps an early `seen`, and a same-named session from an earlier effort is excluded by --since <scoping time>, not by its stamp
