@@ -1,0 +1,1 @@
+{"tree": "tip", "step": 5, "method": "real-clipboard (focus, Ctrl+Home, ArrowDown, End)", "qaMessage": "\"```js\\nx = 1; // :slight_smile: abcdefghijklmnopq\\n```\"", "lines": [{"text": "```js", "imgs": 0, "alts": []}, {"text": "x = 1; // ﻿ abcdefghijklmnopq", "imgs": 1, "alts": [":slight_smile:"]}, {"text": "```", "imgs": 0, "alts": []}]}
