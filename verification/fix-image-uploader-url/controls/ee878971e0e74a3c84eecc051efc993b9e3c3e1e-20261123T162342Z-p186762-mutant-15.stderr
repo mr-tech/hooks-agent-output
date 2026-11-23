@@ -1,0 +1,19 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > drops the error of the cancelled address when the dialog reopens
+AssertionError: expected 'Enter Image URLImage URLInvalid url.C…' not to contain 'Invalid url.'
+
+Expected: "Invalid url."
+Received: "Enter Image URLImage URLInvalid url.CancelClearSave"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:260:38
+    258|     await reopen();
+    259|
+    260|     expect(dialog().textContent).not.toContain('Invalid url.');
+       |                                      ^
+    261|   });
+    262|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

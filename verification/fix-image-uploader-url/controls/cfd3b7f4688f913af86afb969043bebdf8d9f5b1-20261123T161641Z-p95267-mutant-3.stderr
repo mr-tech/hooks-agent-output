@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save for a saved address that fails to load when the dialog opens
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:177:37
+    175|
+    176|     expect(dialog().textContent).toContain('Image not found.');
+    177|     expect(button('Save').disabled).toBe(true);
+       |                                     ^
+    178|   });
+    179| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

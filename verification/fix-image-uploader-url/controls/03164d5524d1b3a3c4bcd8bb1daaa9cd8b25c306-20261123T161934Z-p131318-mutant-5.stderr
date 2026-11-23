@@ -1,0 +1,45 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > saves no image when the saved address is deleted from the box
+AssertionError: expected [] to deeply equal [ '' ]
+
+- Expected
++ Received
+
+- [
+-   "",
+- ]
++ []
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:178:19
+    176|     save();
+    177|
+    178|     expect(saved).toEqual(['']);
+       |                   ^
+    179|   });
+    180|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Clear > stays cleared when the address it cleared finishes loading afterwards
+AssertionError: expected [] to deeply equal [ '' ]
+
+- Expected
++ Received
+
+- [
+-   "",
+- ]
++ []
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:202:19
+    200|     save();
+    201|
+    202|     expect(saved).toEqual(['']);
+       |                   ^
+    203|   });
+    204| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

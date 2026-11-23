@@ -1,0 +1,53 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > puts the box and the preview back to the saved image, and reopening saves that image
+AssertionError: expected 'https://example.com/y.png' to be 'https://example.com/x.png' // Object.is equality
+
+Expected: "https://example.com/x.png"
+Received: "https://example.com/y.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:245:25
+    243|     await reopen();
+    244|
+    245|     expect(box().value).toBe(URL_X);
+       |                         ^
+    246|     expect(preview()).toBe(URL_X);
+    247|     save();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > empties the box and the preview when no image was saved
+AssertionError: expected 'https://example.com/y.png' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ https://example.com/y.png
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:259:25
+    257|     await reopen();
+    258|
+    259|     expect(box().value).toBe('');
+       |                         ^
+    260|     expect(preview()).toBeNull();
+    261|     expect(button('Save').disabled).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > keeps the saved image when the cancelled address finishes loading afterwards
+AssertionError: expected 'https://example.com/y.png' to be 'https://example.com/x.png' // Object.is equality
+
+Expected: "https://example.com/x.png"
+Received: "https://example.com/y.png"
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:283:25
+    281|     await settle(URL_Y, true);
+    282|
+    283|     expect(box().value).toBe(URL_X);
+       |                         ^
+    284|     expect(preview()).toBe(URL_X);
+    285|     save();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+

@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/eac01015-b1a8-452e-b107-756d8d3a49c0/scratchpad/mwork/20261123T161641Z-p95267/mutant-12
+
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (10 tests | 1 failed) 1209ms
+     × drops the error of the cancelled address when the dialog reopens 98ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 33 passed (34)
+   Start at  16:18:29
+   Duration  4.28s (transform 888ms, setup 94ms, import 4.64s, tests 2.98s, environment 3.14s)
+

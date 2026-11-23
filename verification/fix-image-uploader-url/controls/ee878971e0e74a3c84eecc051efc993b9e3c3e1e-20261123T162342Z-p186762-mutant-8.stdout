@@ -1,0 +1,12 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/eac01015-b1a8-452e-b107-756d8d3a49c0/scratchpad/mwork/20261123T162342Z-p186762/mutant-8
+
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (13 tests | 2 failed) 677ms
+     × saves no image when the saved address is deleted from the box 35ms
+     × stays cleared when the address it cleared finishes loading afterwards 27ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  2 failed | 35 passed (37)
+   Start at  16:24:16
+   Duration  2.60s (transform 475ms, setup 67ms, import 2.71s, tests 1.62s, environment 2.23s)
+

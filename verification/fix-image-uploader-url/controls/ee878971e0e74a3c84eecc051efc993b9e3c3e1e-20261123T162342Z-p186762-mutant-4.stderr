@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Clear > stays available for a saved address that fails to load when the dialog opens
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:206:38
+    204|     await settle(URL_X, false);
+    205|
+    206|     expect(button('Clear').disabled).toBe(false);
+       |                                      ^
+    207|   });
+    208|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

@@ -1,0 +1,92 @@
+[
+ {
+  "id": "stale-guard-removed",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "      if (!current) return;\n",
+  "new": ""
+ },
+ {
+  "id": "cleanup-removed",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "    return () => { current = false; };",
+  "new": "    return undefined;"
+ },
+ {
+  "id": "failed-address-not-recorded",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "        setFailedImage(imageInput);\n",
+  "new": ""
+ },
+ {
+  "id": "failed-load-clears-preview",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "        setFailedImage(imageInput);\n",
+  "new": "        setLocalImage('');\n"
+ },
+ {
+  "id": "failure-never-forgotten",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "        setFailedImage('');\n",
+  "new": ""
+ },
+ {
+  "id": "loaded-ignores-failure",
+  "file": "src/components/ImageUploader.tsx",
+  "old": " && failedImage !== imageInput;",
+  "new": ";"
+ },
+ {
+  "id": "loaded-allows-empty-box",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "const loaded = imageInput !== '' && ",
+  "new": "const loaded = "
+ },
+ {
+  "id": "save-disabled-ignores-empty-box",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "isDisabled={imageInput ? !loaded : !image}",
+  "new": "isDisabled={!loaded}"
+ },
+ {
+  "id": "save-enabled-with-nothing-saved",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "isDisabled={imageInput ? !loaded : !image}",
+  "new": "isDisabled={imageInput ? !loaded : false}"
+ },
+ {
+  "id": "save-commits-last-loaded",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "    setImage(imageInput);\n  }, [setImage, onClose, imageInput]);",
+  "new": "    setImage(localImage);\n  }, [setImage, onClose, localImage]);"
+ },
+ {
+  "id": "enter-ungated",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "  if (loaded) submit = onSetImage;",
+  "new": "  submit = onSetImage;"
+ },
+ {
+  "id": "preview-shows-last-loaded",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "{!loaded ? null : (",
+  "new": "{!localImage ? null : ("
+ },
+ {
+  "id": "cancel-keeps-box",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "    setImageInput(image);\n",
+  "new": ""
+ },
+ {
+  "id": "cancel-keeps-preview",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "    setLocalImage(image);\n",
+  "new": ""
+ },
+ {
+  "id": "cancel-keeps-error",
+  "file": "src/components/ImageUploader.tsx",
+  "old": "    onClose();\n    setImageError('');\n",
+  "new": "    onClose();\n"
+ }
+]

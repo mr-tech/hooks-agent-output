@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/eac01015-b1a8-452e-b107-756d8d3a49c0/scratchpad/mwork/20261123T161641Z-p95267/mutant-5
+
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (10 tests | 1 failed) 1383ms
+     × stays cleared when the address it cleared finishes loading afterwards 144ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 33 passed (34)
+   Start at  16:17:35
+   Duration  6.20s (transform 851ms, setup 55ms, import 5.33s, tests 3.60s, environment 6.91s)
+

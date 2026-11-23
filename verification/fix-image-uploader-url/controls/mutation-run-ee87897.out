@@ -1,0 +1,17 @@
+stale-guard-removed KILLED 3.93
+cleanup-removed KILLED 3.91
+failed-address-not-recorded KILLED 3.89
+failed-load-clears-preview KILLED 3.79
+failure-never-forgotten KILLED 3.63
+loaded-ignores-failure KILLED 3.5
+loaded-allows-empty-box SURVIVED 4.82
+save-disabled-ignores-empty-box KILLED 3.92
+save-enabled-with-nothing-saved KILLED 3.61
+save-commits-last-loaded KILLED 3.6
+enter-ungated KILLED 3.66
+preview-shows-last-loaded KILLED 3.69
+cancel-keeps-box KILLED 3.72
+cancel-keeps-preview KILLED 3.87
+cancel-keeps-error KILLED 5.27
+14 of 15 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants.json (blob 767ffd711167fab9937ebbc5fc8ca36d37a024c9))
+exit=0

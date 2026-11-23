@@ -1,0 +1,11 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/eac01015-b1a8-452e-b107-756d8d3a49c0/scratchpad/mwork/20261123T161641Z-p95267/mutant-3
+
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (10 tests | 1 failed) 2207ms
+     × refuses Save for a saved address that fails to load when the dialog opens 91ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 33 passed (34)
+   Start at  16:17:12
+   Duration  7.04s (transform 856ms, setup 57ms, import 6.97s, tests 5.37s, environment 5.23s)
+

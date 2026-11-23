@@ -1,0 +1,113 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.enter-scope.test.tsx > ImageUploader, the Enter key > alone, with no image loaded > with focus on its dialog element runs only what that control does
+AssertionError: expected { close: 1, setImage: 1, …(3) } to deeply equal { close: +0, setImage: +0, …(3) }
+
+- Expected
++ Received
+
+  {
+-   "close": 0,
++   "close": 1,
+    "otherClose": 0,
+    "otherSetImage": 0,
+-   "setImage": 0,
++   "setImage": 1,
+    "updateConfirm": 0,
+  }
+
+ ❯ src/components/__tests__/ImageUploader.enter-scope.test.tsx:194:24
+    192|       enter();
+    193|
+    194|       expect(counts()).toEqual({ ...NOTHING, ...expected });
+       |                        ^
+    195|     });
+    196|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > keeps Save and Enter off while the address in the box is still loading, then saves it once loaded
+AssertionError: expected [ 'https://example.com/b.png' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "https://example.com/b.png",
++ ]
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:146:19
+    144|     expect(button('Save').disabled).toBe(true);
+    145|     enterOnDialog();
+    146|     expect(saved).toEqual([]);
+       |                   ^
+    147|
+    148|     await settle(URL_B, true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an address that is not an image address typed after a loaded one
+AssertionError: expected [ 'not an image' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "not an image",
++ ]
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:169:19
+    167|     enterOnDialog();
+    168|
+    169|     expect(saved).toEqual([]);
+       |                   ^
+    170|   });
+    171|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > refuses Save and Enter for an image address that fails to load typed after a loaded one
+AssertionError: expected [ 'https://example.com/b.png' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "https://example.com/b.png",
++ ]
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:169:19
+    167|     enterOnDialog();
+    168|
+    169|     expect(saved).toEqual([]);
+       |                   ^
+    170|   });
+    171|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, the address it saves > shows no preview and saves nothing on Enter once a failed address is deleted from the box
+AssertionError: expected [ '' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "",
++ ]
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:197:19
+    195|     enterOnDialog();
+    196|
+    197|     expect(saved).toEqual([]);
+       |                   ^
+    198|   });
+    199|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+

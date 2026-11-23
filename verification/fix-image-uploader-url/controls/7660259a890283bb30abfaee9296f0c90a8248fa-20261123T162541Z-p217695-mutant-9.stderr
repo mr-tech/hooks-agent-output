@@ -1,0 +1,22 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx > ImageUploader, Cancel > empties the box and the preview when no image was saved
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/components/__tests__/ImageUploader.saved-address.test.tsx:261:37
+    259|     expect(box().value).toBe('');
+    260|     expect(preview()).toBeNull();
+    261|     expect(button('Save').disabled).toBe(true);
+       |                                     ^
+    262|   });
+    263|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

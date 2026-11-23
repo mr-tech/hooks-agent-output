@@ -1,0 +1,13 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/eac01015-b1a8-452e-b107-756d8d3a49c0/scratchpad/mwork/20261123T162541Z-p217695/mutant-13
+
+ ❯ |dom| src/components/__tests__/ImageUploader.saved-address.test.tsx (14 tests | 3 failed) 4037ms
+     × puts the box and the preview back to the saved image, and reopening saves that image 152ms
+     × empties the box and the preview when no image was saved 116ms
+     × keeps the saved image when the cancelled address finishes loading afterwards 203ms
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  3 failed | 35 passed (38)
+   Start at  16:27:27
+   Duration  10.47s (transform 2.01s, setup 159ms, import 10.14s, tests 7.69s, environment 8.64s)
+
