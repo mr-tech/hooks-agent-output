@@ -258,3 +258,16 @@ frozen probe-state legacy trees (`discordLegacyTrees.json`, kept for the one-inp
 ## Next Steps
 
 Code review of M3 at `f4060c5`, in this order of risk: the held-out sets (Outstanding 2), the lazy-chunk fetch (Outstanding 4), the `isContentEditable` shim (Findings 6). Then QA Phase 2 on the chain, the mutation sweeps owed (Outstanding 5), and the effort's M4 flows: M4 and M6 each owe the owner a flow ask before code (the brief); M4 begins by choosing, from Findings 4, which residue classes get an adjustment.
+
+## Resumption State
+
+Written 21:15Z UTC at the M3 hand-off seam (414K tokens by `cc-usage.py sessions`), for a `/clear`.
+
+- **Done.** M3 complete and handed to `code-reviewer-019` at website `f4060c5` (this document's `Handoff-At`); messages sent to `code-reviewer-019` and `steering-hooks-fixer`. Website commits this session: `ee6ecf9`, `418af30`, `68f3656`, `1f0b768`, `e7b4653`, `8d7b344`, `f4060c5`.
+- **Branch and HEAD.** `chain/019-slate-formatting-discord-engine` at `f4060c5`. The website tree holds only the foreign `?? .playwright-mcp/`. The record holds this document and the M3 captures, committed.
+- **Next.** (1) If code review of M3 returns findings, a fix round: the Class Sweep table is owed per finding, and the fix starts red. (2) M4 (the preview on the engine): read plan M4, then the Findings 4 residue grouping, which is a text-family grouping, so M4's first work is the tree predicates, one class at a time, tested against (a) engine-only, (b) structural, (c) proven. **First act of M4 is the flow ask to `steering-hooks-fixer` before any code** (brief): derive the flows from the codebase, record one line each in the M4 document, and send only those that hold a decision. M4 and M6 are capped by ruling 17:56Z (a gap below HIGH becomes a stated limit). Write a new document `implementation/019-slate-formatting-discord-engine-m4-implementation.md`.
+- **Approach in flight.** None. No uncommitted source work.
+- **Local state not restored.** None. No process of mine runs. Scratch files only under the session scratchpad (a downloaded Discord build in `scratchpad/build` and `scratchpad/lazy`, mutant exports `export`, `export2`, `export3`: disposable).
+- **Evidence run but not recorded.** None; every run is under `verification/019/impl/m3-*`.
+- **Questions sent.** None open. For QA at Phase 2: Outstanding 2 (hold-outs) and Outstanding 5 (product-source mutation sweeps owed).
+- **Cache-warm wake.** Job `c8e4a267` (armed 20:24) deleted at this checkpoint. Arm a new one on the next turn.
