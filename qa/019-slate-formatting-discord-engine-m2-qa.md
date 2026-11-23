@@ -2,13 +2,12 @@
 ID: 019
 Origin: 019
 UUID: 286c730a
-Verified-At: "78c5f74 — repos=website; M2 paths at the code review's Reviewed-At, run in a git-archive export with its own frozen install"
-Status: QA Failed
+Verified-At: "7dcedc9 — repos=website; M2 paths at the code review's Round 2 Reviewed-At, run in a git-archive export with its own frozen install; refresh over fix round 2 (78c5f74..7dcedc9)"
+Status: QA Complete
 Status-Detail: >-
-  M2 at website 78c5f74 fails on QAF-29 MEDIUM. AC-2.4's declared clause is unmet for the five modifier members of the engine's
-  Inline union (bold, italic, underline, strikethrough, spoiler), which no map holds. AC-2.1, AC-2.2, AC-2.3, AC-2.6 and AC-2.7
-  pass. AC-2.5 passes on its adapter and provider limbs only; the surface limbs belong to the M4 and M5 passes. Back to the
-  implementer.
+  M2 at website 7dcedc9 passes, milestone-scoped. QAF-29 and QAF-30 are closed by fix round 2, each seen red under a QA mutant.
+  AC-2.1 to AC-2.4, AC-2.6 and AC-2.7 pass. AC-2.5 passes on its adapter and provider limbs; its surface limbs belong to the M4
+  and M5 passes. The effort-final mutation sweep stays owed. A later production change to an M2 path expires this verdict.
 Phase: 2
 ---
 
@@ -25,6 +24,7 @@ Code review: `code-review/019-slate-formatting-discord-engine-code-review.md` (r
 | Date | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-23T19:35 | code-reviewer-019 (message: M2 APPROVED_WITH_COMMENTS, record `1b351f50`, Reviewed-At website `78c5f74`) | QA Phase 2 on M2 | Phase 2: milestone-scoped pass on M2 at `78c5f74`. Steering's Phase 2 brief has not arrived. So this pass read the plan's Decisions Register, the cap and the 18:02Z ruling, and the code review's Assumption Not Checked (AC-2.6) itself. The stage start is the review's committed verdict, re-derived at the record. The verdict is **QA Failed** on QAF-29 MEDIUM (AC-2.4). QAF-30 LOW is also raised. AC-2.6's mechanism-removed control is built and discriminates. The plan's Status is not moved (milestone-scoped). |
+| 2026-11-23T19:49 | code-reviewer-019 (message: M2 Round 2 APPROVED_WITH_COMMENTS, record `86ba88f4`, Reviewed-At website `7dcedc9`) | Refresh after QA Failed | Refresh pass over fix round 2's M2 paths (`78c5f74..7dcedc9`: `engine.ts`, `engine.kind-maps`, `engine.surface-masks`). It ran in an export of `7dcedc9`: frozen install, 3041 of 3041 offline with exit 0, build and typecheck exit 0, and the notice re-read. QM-1 and QM-2 were seen red. QAF-29 and QAF-30 are closed. Verdict: **QA Complete** for M2, milestone-scoped. |
 
 ## Scope and stage start
 
@@ -118,7 +118,43 @@ table.
 *Asked*: the case compares `BITS` with the pinned package's single-bit `Syntax` members, by name and value. The dependency's declared
 enum is the fact under test here, not the adapter. The case is then shown red by changing one `BITS` value.
 
+## Refresh at `7dcedc9` (fix round 2)
+
+The stage start is code review Round 2, APPROVED_WITH_COMMENTS at `Reviewed-At: 7dcedc9` (record `86ba88f4`), re-derived at the
+record. The scope is the M2 paths in `git diff 78c5f74 7dcedc9`:
+- `engine.ts`: `ModifierKind`, `MODIFIER_KINDS`, `modifierStyle`, and the shared `warnUnmapped`;
+- `engine.kind-maps.test.ts`;
+- `engine.surface-masks.test.ts`, with the four lines it imports from `helpers/discordOracle.ts`.
+
+The rest of `1bcab7a` is M3's. The export was `git archive 7dcedc9`, with its own frozen install, and the shared tree was not
+written. Captures are in `verification/019/qa/m2/refresh-7dcedc9/`.
+
+| Run | Result |
+|---|---|
+| `pnpm install --frozen-lockfile` | exit 0; lockfile sha256 unchanged |
+| `pnpm test`'s projects, offline (`unshare -rn`, `lo` up) | **3041 of 3041, 186 `testResults` entries, exit 0**, re-derived from the JSON. That is 15 cases and one file above `78c5f74`; the extra file is M3's. |
+| `next build`, then `pnpm run typecheck` | both exit 0 |
+| AC-2.6 re-read | The edit page's manifest still names `static/chunks/3kwhcdtzorl5m.js`, with the copyright line 1 and the permission sentence 1. The fix diff touches no notice line (`grep -c notice` over it: 0), so the mechanism-removed control at `78c5f74` still applies. |
+| **QM-1**, production: `spoiler` removed from `MODIFIER_KINDS` | **Red** on 3 cases: the declared check, the observed check over nodes and delimiter tokens, and the spoiler style case. exit 1. Restore verified by sha256. Uniqueness came from the script's single-occurrence assert; the `grep -cF` count of 2 counts the two lines of the pattern. |
+| **QM-2**, QAF-30's table: `BITS.SPOILER` changed to `0x2000000` | **Red** on the pinned-members case, exit 1. Restore verified. |
+
+The code review's 11 probes and the implementer's 6 mutants (`m2r2-*`, `m2fix2-*`) were read, not re-run. This pass's own two
+mutants carry its verdict on the two findings.
+
+- **QAF-29 closed.** The modifier map is total over `ModifierKind`'s five members. It is checked declared and observed, with literal
+  styles, and the unmapped line is prefixed `modifier.`. The four other nested payload unions the implementer's class sweep names
+  (`LinkKind`, quote `line`/`rest`, list `ordered`/`unordered`, `heading.level`) are variants read by M4's renderers. AC-2.4 does
+  not list them, so they are not M2's. The code review's Round 2 Assumption Not Checked carries them to M4.
+- **QAF-30 closed.** `BITS` is compared with the pinned package's single-bit `Syntax` members by name and value. The import goes
+  through the oracle helper, so the package is still named by two modules only (AC-2.1). The literal stays the expected value, and
+  the package is what the case measures.
+
 ## Verdict
+
+2026-11-23T19:35 reconcile: the verdict below was QA Failed at `78c5f74`, on QAF-29. Fix round 2 and the refresh above supersede
+it for M2. Current verdict: **QA Complete**, M2 at website `7dcedc9`, milestone-scoped. The plan's Status is not moved. Any later
+production change to an M2 path expires this verdict.
+
 
 **QA Failed**, M2 at website `78c5f74`, on QAF-29. It goes to the implementer. A fix round's production change expires this verdict,
 and the refresh covers that round's diff and re-runs AC-2.4's two checks with its mutants. QAF-30 may land in the same round.
