@@ -1,0 +1,28 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |discord-node| src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts (5 tests | 5 skipped) 23ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |discord-node| src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts [ src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts ]
+OracleError: discord-oracle: fetching https://discord.com/app failed: fetch failed
+ ❯ get src/utils/markdown/__tests__/helpers/discordBuild.ts:29:11
+     27|   } catch (error) {
+     28|     const cause = error instanceof Error ? error.message : 'unknown';
+     29|     throw new OracleError('fetch', `discord-oracle: fetching ${url} fa…
+       |           ^
+     30|   }
+     31|   if (!response.ok) throw new OracleError('fetch', `discord-oracle: fe…
+ ❯ fetchBuild src/utils/markdown/__tests__/helpers/discordBuild.ts:36:16
+ ❯ src/utils/markdown/__tests__/helpers/discordLive.ts:50:19
+ ❯ src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts:12:32
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 skipped (5)
+   Start at  19:24:33
+   Duration  862ms (transform 108ms, setup 0ms, import 693ms, tests 23ms, environment 0ms)
+
