@@ -4,6 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
+  Delta pass on plan 019 revision 10 (record 890d0b78, AC-4.4 / D-17): APPROVED. CF-17 (LOW: how the channel lookup reaches the
+  renderer; recommended form is parser state, fed by a non-throwing GuildProvider accessor) is a stated limit under the M4 cap.
+  It holds nothing.
   Delta pass on plan 019 revision 9 (record 47348a6d, AC-4.7 delta only): APPROVED. CF-15 is resolved. CF-16 (LOW: the vi-VN
   fixture's expected value depends on test order, since dayjs's locale is global) is at steering-hooks-fixer for decision
   under block 18:02Z.
@@ -34,6 +37,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-23T21:40 | architect-019 | Delta pass on plan 019 revision 10 (record `890d0b78`); § Delta pass, revision 10. CF-17 raised and, under the M4 cap, made a stated limit. A Problem Area is lodged for the master document | Read as `git diff 47348a6d 890d0b78` on the plan. Website `5ec0621` and the chain's `93b26fd` were read through `git show`/`git grep`; steering blocks 21:18Z to 21:38Z were read. CF-16's open item is closed (steering 18:06Z made it a stated limit, plan R-21). |
 | 2026-11-23T18:05 | architect-019 | Delta pass on plan 019 revision 9 (record `47348a6d`), AC-4.7 delta only (block 18:02Z); § Delta pass, revision 9. CF-15 resolved; CF-16 raised and routed to steering | Read as AC-4.7's hunks of `git diff 7b419f5b 47348a6d`. The locale-order probe ran read-only on the shared tree's dayjs 1.11.7; the capture is in `verification/019/architect-conformance/rev9/`. |
 | 2026-11-23T18:00 | architect-019 | Delta pass on plan 019 revision 8 (record `7b419f5b`); § Delta pass, revision 8. CF-14 resolved. CF-15 raised and, under the cap, made a stated limit. `website.md` A-10's picker sentence corrected | Read as `git diff e0eb1e87 7b419f5b` on the plan. The dayjs `ja` resolution probe ran read-only on the shared tree's dayjs 1.11.7; the capture is in `verification/019/architect-conformance/rev8/`. |
 | 2026-11-23T17:56 | architect-019 | Revision 7 verdict re-dispositioned under steering's cap (rulings block 17:56Z, record `b95a3d43`): APPROVED for M4 and M6, with CF-14 a stated limit in the Planner batch | A reconcile note in § Delta pass, revision 7, with the original verdict kept in place. Steering's message arrived after commit `27f61730`. |
@@ -48,7 +52,9 @@ Status-Detail: >-
 
 ## Open items
 
-- **CF-16** is at `steering-hooks-fixer` for decision (block 18:02Z). Its decision says whether it folds or becomes a stated limit.
+- **CF-17** is a stated limit carried by the plan's Planner batch under the M4 cap. My next pass reads only that the row exists.
+- **Problem Area** "Preview images show no guild-resolved display" (§ Delta pass, revision 10) goes into `system-architecture.md`
+  at the reconciliation below.
 - **Master document reconciliation.** Reconciling `system-architecture.md` to the chains released since 2026-11-20 is owed
   (raised with steering in my messages of 13:2xZ and 16:0xZ). It is not yet scheduled.
 
@@ -280,6 +286,65 @@ Option pair: *follow the current pattern* (one environment per project, chosen b
 quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
 
 **Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
+
+## Delta pass, revision 10 (record `890d0b78`)
+
+Read as `git diff 47348a6d 890d0b78 -- planning/019-slate-formatting-discord-engine.md`. The plan delta is AC-4.4 (D-17's table,
+its residue and its human-observable form), M4's Mirrors line, register row D-17, and G-13's carriage line. The registration rows
+R-19 to R-30 between them were read as rows. Website was read through `git show` and `git grep`:
+- `5ec0621`: `GuildProvider.tsx` (the `useGuild` accessor, `attachChannelsToWebhooks`, `useValue`), `WebhookProvider.tsx` `useValue`,
+  `NavigationGuardProvider.tsx`, `DiscordContentEditor/useCustomEmojis.ts`, `rules.tsx` (mention rules), `src/@types/simple-markdown.d.ts`
+  `State`, and `src/app/preview/page.tsx`;
+- the chain branch at `93b26fd`: `src/utils/markdown/preview.tsx` and `src/components/Markdown.tsx`.
+Steering's blocks 21:18Z, 21:31Z and 21:38Z were read for the selection and its premises.
+
+**What holds.**
+- The Mirrors line is now true: at `5ec0621` the four mention rules render their capture and resolve no id.
+- AC-4.4's table covers every `MENTION_KINDS` member.
+- The residue (5-minute client cache, 10-second server cache, forum, category and archived ids) is stated.
+- `/preview` rendering `#<id>` follows from `src/app/preview/page.tsx`, which mounts `MarkdownProvider` and no `GuildProvider`.
+  Steering's 21:38Z block records it as the planner's premise, so it is on his record.
+- Thread lookup through each channel's `threads` is a stated deviation from `attachChannelsToWebhooks`, with its reason.
+
+### CF-17 LOW — AC-4.4 states that the lookup "must not need the provider" but not how it reaches the renderer
+
+**Current patterns, read:**
+- **Renderers in `src/utils/markdown` import no provider.** `git grep "providers/"` over that directory at `5ec0621` has no hit.
+  Per-surface context reaches a renderer through the parser's state: `src/@types/simple-markdown.d.ts` `State` carries `mounted`,
+  `isEmbed` and `onChange`, and `src/components/Markdown.tsx` supplies them. `MarkdownTimestamp` reads `state.mounted`. At the
+  chain's `93b26fd`, `preview.tsx` `previewParser` builds its render context `Ctx` as `{ source }` and does not yet take the
+  parser's state argument.
+- **Guild data near the editor is read in the components layer.** `DiscordContentEditor/useCustomEmojis.ts` calls `useGuild()`.
+- **Every guild accessor throws outside its provider.** `GuildProvider.tsx` keeps its `Context` unexported, and `useGuild` throws
+  outside `<Guild />`. The repo's one non-throwing context read is `NavigationGuardProvider.tsx` `useNavigationGuard`, which
+  works through a default value (`NO_GUARD`).
+
+**Gap.** AC-4.4 says the lookup "must not need the provider", but not where it is read or how it reaches the mention renderer.
+Two forms meet the text and differ architecturally:
+- **Follow the current pattern** (recommended). The channel list, or a `channelName(id)` function, rides in the parser state
+  beside `mounted`, and from there in `preview.tsx`'s `Ctx`. A surface component supplies it from one non-throwing read of the
+  guild context. `/preview` supplies none and gets today's form. The renderer stays provider-free (`website.md` A-9), and the one
+  new form is a second accessor exported by `GuildProvider.tsx`, a `use(Context)` read that returns `null` outside the provider.
+  - That accessor is a **necessary** deviation. Changing `Context`'s default, as `NavigationGuardProvider` does, would remove the
+    throw that `useGuild`'s eight callers get today. A second export leaves them unchanged.
+- **Accept the deviation:** the mention renderer in `src/utils/markdown` reads the guild context itself. That would be the first
+  provider import under `src/utils/markdown`, and it couples the parse-and-render module to the message layout's providers.
+
+The state path the recommended form needs is the one `preview.tsx` has not threaded yet. `MarkdownTimestamp` needs `mounted` from
+it (AC-4.7), and the timestamp edit needs `onChange` (AC-4.3). So the lookup adds no new path, only one more field on that path.
+
+**Severity and carrier.** LOW: either form renders correctly, and the difference is coupling. Under steering's M4 cap (block
+17:56Z) it is a stated limit in the Planner batch, with no revision round. Its content is the recommended form above, for the M4
+implementer and code review. It does not hold M4's mention code.
+
+**Problem Area (lodged here; it goes into `system-architecture.md` at the owed reconciliation).** "Preview images show no
+guild-resolved display" (Low). The image generator screenshots `/preview` (`website.md` W-4), which has no `GuildProvider`. So any
+display the editor resolves from guild data (today, D-17's channel names) shows unresolved in the generated image, while the
+editor shows it resolved. W-3's "one component tree" holds for the tree but not for its data. Closing it would mean passing
+resolved names in `/preview`'s query, outside the region.
+
+**Verdict on revision 10:** APPROVED. CF-17 is LOW and is a stated limit under the cap; it holds nothing. Nothing needs the
+owner.
 
 ## Delta pass, revision 9 (record `47348a6d`)
 
