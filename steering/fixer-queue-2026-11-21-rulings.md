@@ -376,3 +376,13 @@ Disclosed: the first attempt edited the docket and `dockets.md` with `sed` in on
 `steering-coordinator` by message ~23:2xZ: his selection "Let the gate stand"; the earlier lift of the 98% weekly gate expired at its
 reset. Acted on: at `weekly_all` 98% (plan-usage.py, live) this thread asks every session of the running chain for `/checkpoint`, stops
 each, writes its own Checkpoint and reports; resumes after 2026-11-25T09:00Z. Already this thread's plan (standing check prompt, 23:16Z).
+
+## 2026-11-23T08:15Z — his word via the coordinator: continue from where the efforts left off (the park lifts)
+
+His words, verbatim, relayed by `steering-coordinator` in this thread's respawn brief
+(`/usr/local/bin/statbot/agent-output/steering/coordinator-briefs/resume-2026-11-23-steering-hooks-fixer.md`, read whole 08:1xZ):
+"continue the efforts from where they left off". Acted on: chain `fix-emoji-pretransform-widths` resumes at QA Phase 2 from QA's
+Resumption State; the queue follows in the docket's order. The park's condition re-read this turn: `plan-usage.py --json` (source live,
+08:15Z) `weekly_all` 0.0%, resets 2026-11-28T17:00Z (supersedes the docket's 2026-11-25T09:00Z). Website tree on
+`chain/fix-emoji-pretransform-widths` at `0411d3b` (`git rev-parse`), `origin/master` `febf20e` (`git ls-remote`); one untracked path
+`.playwright-mcp/`, not this thread's, left in place. No session of the chain live (`cc-usage.py sessions`).
