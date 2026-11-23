@@ -1,0 +1,2 @@
+22a23
+>   (globalThis as any).__upd = ((globalThis as any).__upd ?? 0) + (update ? 1 : 0);

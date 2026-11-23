@@ -2,10 +2,10 @@
 ID: n/a
 Origin: fix-normalize-fence-loop
 UUID: a0de90fd
-Reviewed-At: d3b98cf — repos=website
+Reviewed-At: 61e5dfe — repos=website
 Status: In Review
 Round: 1
-Verdict: REJECTED
+Verdict: APPROVED
 ---
 
 # Code Review: fix-normalize-fence-loop
@@ -22,6 +22,7 @@ Verdict: REJECTED
 | Date (UTC) | Agent Handoff | Request | Summary |
 |------|---------------|---------|---------|
 | 2026-11-23T09:27 | steering-hooks-fixer (brief `steering/fix-normalize-fence-loop-brief-code-reviewer.md`) | Round 1: review the fixer's hand-off at website `d3b98cf` | Round 1, REJECTED. CR-1 MEDIUM, at the severity floor: the loader and the normaliser still work out a code line's language by different rules. One form of this (``` c++ ```, ``` c# ```, ``` js```, ``` js x```) still loops when the quote guard is lost. Another (a `js` block holding a ```` a``` ```` line) is new at the fix. CR-2 LOW: a fixture stands in for the Backspace path. The suite is green and the loop and `>>>` limbs hold over a differential of 1,200 inputs. Evidence: `verification/fix-normalize-fence-loop/code-review/` |
+| 2026-11-23T09:40 | fixer-fix-normalize-fence-loop (message; record `01501c4d`) | Round 1 sub-entry 1b: confirm the CR-1/CR-2 fix at website `61e5dfe` | Round 1b, APPROVED at `61e5dfe`. CR-1 and CR-2 are fixed; sweeps re-run; re-attacked with the Round 1 differential, with and without the quote guard: 0 loops, 0 update passes on load, saved text identical to `d3b98cf`. 68 production lines, so QA Phase 2 follows. Findings collapsed to dispositions; the argument is in `85684d4d` |
 
 ## Stage start and criteria assessed
 
@@ -105,76 +106,33 @@ None.
 
 ### Medium
 
-**CR-1 MEDIUM Round 1 Correctness**: The loader and the normaliser derive a code line's language by different rules
-- **Location**: `src/components/SlateEditor/utils/withNormalizeNode.ts` `handleEditor` (the `currentLang` lines: the `/```([A-Za-z0-9-]*)$/`
-  match, its `else if (res?.[0] && inCodeBlock && currentLang) currentLang = ''` branch, and the `child.lang !== currentLang` compare)
-  against `src/components/SlateEditor/utils/getInitialValue.ts` default export (its `currentLang` lines and
-  `lang: isCodeBlock && currentLang ? currentLang : ''`), at `d3b98cf`.
-- **Class**: A code line's language is computed twice, once by the loader and once by the normaliser, under rules that disagree. Wherever
-  they disagree, `handleEditor` runs a full update pass on every editor normalise, and the loop is held shut only by the quote guard.
-- **Enumeration**: `git grep -cE 'currentLang' d3b98cf -- src ':!*__tests__*'` gives 2 files: `getInitialValue.ts` 4 and
-  `withNormalizeNode.ts` 6. These are the only two derivations. The predicate cannot see a derivation under another name. The other fence
-  readers, `git grep -nE '```' d3b98cf -- src`, are `utils/markdown/rules.tsx` (the preview renderer's own `FENCE`, a different surface
-  that does not feed editor state) and docs and comments. Measured disagreements, from `fence-lang-out-*.json`:
-  - (a) **Pre-existing, not closed.** An info string outside `[A-Za-z0-9-]*` matches neither regex: ` ```c++ `, ` ```c# `, `` ``` js ``,
-    `` ```js `` with a trailing space, `` ```js x ``. The loader stores `''` and the normaliser compares against null. At the fix this is one
-    update pass on every normalise (`updFirst` 1, `updSecond` 1). In the emoji-free corpus, all 190 inputs whose loaded value triggers an
-    update pass hold such a fence. `> a\n```c++\nfoo\n```` loops at base (378 iterations). At the fix it settles **only** because of the
-    quote guard. With the guard removed (`guard-removed-mutant.patch.txt`) it throws after 378 iterations again. The implementation
-    document's "Either limb alone ends the loop" holds only for the bare fence.
-  - (b) **New at `d3b98cf`.** With `*`, the closing-fence `else if` branch now fires on a line inside a code block that ends in ```` ``` ````
-    with an even count (```` ```a``` ````, ```` x`````` ````). It resets `currentLang` to `''`, and the loader has no such branch.
-    `` ```js\n```a```\nfoo\n``` ``: the loader gives `foo` `lang: 'js'`, and the normaliser rewrites it to `''` on the first normalise
-    (`updFirst` 1, then settled). At base both said `'js'`. The decorator reads `line.lang` (`decorator.tsx`, `handleCodeBlockRange`), so
-    that block loses its `js` highlighting on the first edit. Diagnosis states that this branch "is unchanged". That claim is refuted.
-- **Issue**: Scope limb (1) requires "the fence's language reads the same (`''` vs null) in load and normalise". That holds for ```` ``` ````
-  and fails for (a). (b) is a regression the fix introduced. No case in the suite fails when the language limb is lost for (a), so the loop's
-  prevention for those fences rests on one limb, and the cases test that limb only through bare fences. Under the severity floor (a property
-  the change claims, with no assertion that fails when it is lost), this blocks hand-off to QA. Magnitude: measured on vitest/jsdom at the
-  two exports. It costs one extra full `setNodes` pass per normalise for (a) and one `set_node` for (b). It does not loop at the fix, and the
-  saved text is unchanged.
-- **Required Action**: eliminate the second derivation.
-  - **Preferred (structural)**: one function, shared by `getInitialValue` and `handleEditor`, that takes a line's text and the running
-    fence state and returns the next state and the line's stored `lang`. The loader stores what it returns, and the normaliser compares
-    `child.lang` against the same return value. A disagreement then cannot be written. Callers in the enumeration: `getInitialValue` (its
-    output is unchanged for every form above except as the shared rule decides) and `handleEditor` (the compare and the update's `lang`).
-    Whether the shared rule keeps the `else if` reset is the fixer's choice. Whichever rule is chosen, both callers apply it.
-  - **Minimum**: in `handleEditor`, compare `child.lang` against the value the update writes (`isFullCodeBlock && currentLang ?
-    currentLang : ''`, the loader's form), which closes (a). Then remove the `else if` reset branch or mirror it in the loader, which closes
-    (b). Apply both at the two enumerated sites.
-  - **Tests**: a case asserting that the per-line `lang` after a forced normalise equals the loader's, for an input pairing a quote line
-    with a fence whose info string is outside `[A-Za-z0-9-]` (the fixture property: not bare and not alphanumeric). Its falsity signature
-    is an assertion mismatch on the `lang` list or on the text, or Slate's "Could not completely normalize" throw surfacing as a failed
-    assertion, never a runner timeout. It must be seen red under the guard mutant alone (M2's shape) at the fixed tree, so that each limb
-    alone is shown to end the loop. A second case covers a `js` block holding an even-count fence line, red at `d3b98cf`. Expected values
-    are literals.
+CR-1 MEDIUM Round 1 — fence language derived two ways by the loader and the normaliser. **Fixed** at `61e5dfe`: one rule, `utils/codeFence.ts` (`isCodeLine`, `lineLang`, `afterLine`), used by `getInitialValue` and `handleEditor`, and the `else if` reset is removed. Sweep re-run: `git grep -cE 'currentLang' 61e5dfe -- src ':!*__tests__*'` gives 0 hits. The fence regex and the fence count appear only in `codeFence.ts`: `git grep -nE` for the regex, the `split('```')` and the `includes('```')` over `src/components` gives 3 hits, all of them in `codeFence.ts`. Re-attacked: see sub-entry 1b. Check that fails if the class returns: the `it.each` "gives each line of %j the language it loads with after a forced normalise" (4 cases) in `withNormalizeNode.quote-and-fence-lines-settle.test.tsx`. It is red at `d3b98cf` (`round1b/red-d3b98cf.json`), and red with the guard removed at `d3b98cf` on Slate's throw as an assertion (`round1b/lang-cases-d3b98cf-guard-removed.json`). These are the fixer's files.
 
 ### Low/Info
 
-**CR-2 LOW Round 1 Test fidelity**: A fixture stands in for Backspace with a `setNodes` the product does not issue
-- **Location**: `withNormalizeNode.quote-and-fence-lines-settle.test.tsx`, case "makes the lines after a removed multi-line quote marker plain
-  lines" (`Transforms.setNodes(editor, { type: 'div' }, { at: [0] })`).
-- **Class**: An edit case drives a transform of its own instead of the product's handler for the edit it names.
-- **Enumeration**: `grep -n "Transforms.setNodes" ` over the two test files gives 1 hit, this one. The predicate does not see a stand-in
-  written with another transform.
-- **Issue**: The product's path is `onKeyDown` `normalizeBackspace`, which runs `Transforms.setNodes(editor, { ...element, type: 'div' })`
-  and so keeps the stale `quotePrefix` on the div. The outcome is the same today (the differential drives the real handler: 0 text
-  differences on 1,022 inputs), but the case does not exercise the path whose output it names.
-- **Required Action**: drive `onKeyDown(editor, false, undefined)` with a Backspace event at the start of line 0, as the product does.
-  Falsity signature: the same `['a\nb', ['div','div']]` mismatch under M8. In the fix round, not separately.
+CR-2 LOW Round 1 — the Backspace fixture used its own `setNodes`. **Fixed** at `61e5dfe`: the case drives `onKeyDown(editor, false, undefined)` with a Backspace event. Sweep re-run: `Transforms.setNodes` over the test file at `61e5dfe` gives 0 hits (`grep -c`). The check that fails if it returns is the same case, killed under the fixer's M8-shaped controls as before. `no test` beyond it.
+
+The Round 1 argument for both findings is in record commit `85684d4d`.
+
+## Round 1 sub-entry 1b — fix confirmation at `61e5dfe`
+
+- Stage start: `fixer-fix-normalize-fence-loop`'s message naming record `01501c4d` (implementation document, section "Round 1 fix (CR-1, CR-2) at `61e5dfe`"), `Handoff-At: 61e5dfe — repos=website`. Website HEAD read `61e5dfe46e36a16748ece7eae1d604df4ee86ffd` at the start (09:33Z) and the end. Fix diff `d3b98cf..61e5dfe`: one commit; `codeFence.ts` +20, `getInitialValue.ts` +9/−14, `withNormalizeNode.ts` +11/−18, test file +22/−2. It touches only the findings' scope, so this is a sub-entry and no new round opens.
+- Production lines, re-derived by `git diff --numstat 0411d3b 61e5dfe`: 4 + 20 + 1 + 11 + 32 = **68**. This matches the fixer. QA Phase 2 follows.
+- `codeFence.ts` is a new production file. The scope statement's write set names `withNormalizeNode.ts`, `getInitialValue.ts`, `flattenNodeText.ts`, the custom-types file and new tests. The file is CR-1's Preferred remedy, which I prescribed. Whether it sits inside the write set is steering's to record (sent with the cue). It is not held against the fix.
+- Read of `codeFence.ts` against the loader it replaces, case by case. The opening match happens only outside a block. The state toggles on an odd fence count. The language is `''` outside a block and held inside it. Single-line fields never step the state. Each case equals the `d3b98cf` loader. The regex runs on the line as typed rather than on the quote-stripped text, which is the same match because it is anchored at `$` and a stripped `> `/`>>> ` holds no backtick. The fixer's loader-identity run over 8,420 inputs (`round1b/loader-same-d3b98cf-vs-61e5dfe.txt`) is one instrument. The second, differently shaped, is below.
+- **Re-attack** (Round 1 instruments, unchanged, in `git archive` exports of `61e5dfe`, with and without the quote guard; `code-review/round1b/`). Over 1,022 emoji-free inputs and 13,360 edits, at `61e5dfe` and with the guard removed: 0 throws, 0 text changes, 0 unsettled edits, and **0 update passes on a loaded value** (190 at `d3b98cf`). The saved text of every edit is identical to `d3b98cf`'s. Fence-language probe: the loader's and the normaliser's per-line languages are equal on all 10 forms (`c++`, `c#`, `` ``` js``, trailing space, `js x`, even-count lines), with 0 update passes, guard or no guard. Each limb alone now ends the loop: guard removed, nothing loops (this run). Language limb removed, the fixer's R3 is equivalent while the guard holds, and R2 (both removed) kills 14 cases.
+- 254 edits still leave a node shape that differs from a reload of the saved text, with the text equal (264 at `d3b98cf`). This is text-neutral, as recorded in Round 1.
+- Tests: 4 new cases with literal expectations, independent of `codeFence.ts`. Each asserts the text, the loader's languages and the normalised languages. The titles carry no ID token (`grep -ciP` gives 0). `convention-check.js --since=0411d3b`: 0 FAIL, 0 CANDIDATE, 18 SKIP, the same SKIPs as Round 1 (`round1b/convention-check-61e5dfe.txt`). `codeFence.ts` has no comments. The fixer's suite capture: 2681 cases, 0 failed, 171 files, `exit=0` (`round1b/suite-61e5dfe.json`, `.log.txt`). I did not re-run it; at 68 lines that is QA's.
+- Disclosed: this round broke the chain rule that record documents are written with Write/Edit or `record-edit.js`, never a shell heredoc. The summary script `code-review/round1b/summarise.py` was written with a shell heredoc. Its content is the same as the inline run that produced `summary.txt`. This sub-entry's own text (findings collapse, sub-entry, verdict, changelog row, Next Steps) was also first applied to this document by a Python script fed through a shell heredoc. Every later edit used Edit. The diff of this commit is the full extent of that write.
 
 ## Verdict
 
-**Status**: REJECTED
-**Rationale**: CR-1 is at the severity floor. Scope limb (1) is met only for the bare fence. One fence form keeps the loop one limb from
-returning, with no assertion that sees it. The fix also introduces a language disagreement that base did not have. Limbs (2) and (3), and
-the loop limb for the stated case, hold under the differential.
+**Status**: APPROVED (Round 1, sub-entry 1b, at `61e5dfe`)
+**Rationale**: CR-1 and CR-2 are fixed as classes, and the sweeps re-run clean. The differential shows the loader and the normaliser agreeing on every fence form, with no loop, guard or no guard. Scope limbs (1) to (3) hold. No open finding.
 
 ## Required Actions
 
-1. CR-1: one derivation of a code line's language for the loader and the normaliser (or the Minimum at both sites), with the two cases
-   above, each seen red.
-2. CR-2: drive the real Backspace handler in the removed-marker case.
+None.
 
 ## Assumption Not Checked
 
@@ -185,7 +143,7 @@ the loop limb for the stated case, hold under the differential.
 
 ## Next Steps
 
-- Implementer (`fixer-fix-normalize-fence-loop`): CR-1 and CR-2. The re-review is a sub-entry of Round 1, scoped to the fix diff, with
-  `Reviewed-At` moving to the fixed SHA and CR-1's enumeration re-run.
-- QA Phase 2, after approval: the Assumption Not Checked above.
+- QA Phase 2 at website `61e5dfe` (68 production lines), started by steering from the cue: the Assumption Not Checked above, which the
+  sub-entry left unchanged since the fix does not touch the mount.
+- Steering: record whether `codeFence.ts`, a new file outside the named write set, is within the determination.
 - Not held on: the fixer's re-scope item (a quote line taken into a new code block loses `> `), carried by steering as S-29.

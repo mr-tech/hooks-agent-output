@@ -1,0 +1,24 @@
+fix2 (emoji-free) {'edits': 13360, 'inputs': 1022, 'reload shape differs': 254}
+fix2m (emoji-free) {'edits': 13360, 'inputs': 1022, 'reload shape differs': 254}
+== fence-lang fix2
+'```\nfoo\n```' None 0 0 True ['', '', '']
+'```js\nfoo\n```' None 0 0 True ['', 'js', '']
+'```c++\nfoo\n```' None 0 0 True ['', '', '']
+'```c#\nfoo\n```' None 0 0 True ['', '', '']
+'``` js\nfoo\n```' None 0 0 True ['', '', '']
+'```js \nfoo\n```' None 0 0 True ['', '', '']
+'```js\n```a```\nfoo\n```' None 0 0 True ['', '', 'js', '']
+'```js\nx``````\nfoo\n```' None 0 0 True ['', '', 'js', '']
+'> a\n```c++\nfoo\n```' None 0 0 True ['', '', '', '']
+'> a\n```js\n```a```\nfoo\n```' None 0 0 True ['', '', '', 'js', '']
+== fence-lang fix2m
+'```\nfoo\n```' None 0 0 True ['', '', '']
+'```js\nfoo\n```' None 0 0 True ['', 'js', '']
+'```c++\nfoo\n```' None 0 0 True ['', '', '']
+'```c#\nfoo\n```' None 0 0 True ['', '', '']
+'``` js\nfoo\n```' None 0 0 True ['', '', '']
+'```js \nfoo\n```' None 0 0 True ['', '', '']
+'```js\n```a```\nfoo\n```' None 0 0 True ['', '', 'js', '']
+'```js\nx``````\nfoo\n```' None 0 0 True ['', '', 'js', '']
+'> a\n```c++\nfoo\n```' None 0 0 True ['', '', '', '']
+'> a\n```js\n```a```\nfoo\n```' None 0 0 True ['', '', '', 'js', '']
