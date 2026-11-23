@@ -4,10 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  Conformance pass on plan 019 revision 1 (record 103687b4): APPROVED_WITH_CHANGES. One HIGH: M5 as written re-parses each
-  line once per Slate text node, measured at 2.15 s per decorate pass on a 2,000-character line (CF-1). Two MEDIUM: the
-  emoji lift keeps a second recogniser, which drifts from the preview (CF-2), and the two-command test form (CF-3). OQ-4 is
-  answered (CF-7). Goes to planner-019. A delta pass reads the next revision.
+  Delta pass on plan 019 revision 2 (record 8dfd4659): APPROVED_WITH_CHANGES. CF-1 to CF-7 are folded as found. One new
+  LOW defect against the Test Conventions: a single `discord` vitest project cannot keep the environment-by-extension
+  rule (CF-8). CF-2's option b is OQ-5, at steering. Goes to planner-019; the next delta pass reads CF-8's fold.
 ---
 
 # 019 — architecture conformance: Slate formatting on Discord's engine
@@ -16,6 +15,7 @@ Status-Detail: >-
 
 | Date (UTC) | Agent | Change | Notes |
 |---|---|---|---|
+| 2026-11-23T16:26 | architect-019 | Delta pass on plan 019 revision 2 (record `8dfd4659`); § Delta pass, revision 2 | Read as revision 2 at `8dfd4659`, the sections its § Finding disposition names plus M2 and M3 whole (the diff is 617 insertions, 344 deletions, so the changed sections were read in place). Read beside them: `vitest` 4.1.2 and `simple-markdown`'s `sanitizeUrl` in the shared tree's installed copies, read-only. |
 | 2026-11-23T15:58 | architect-019 | Conformance pass on plan 019 revision 1 (record `103687b4`) | Brief from `steering-hooks-fixer` by message; common brief `steering/slate-formatting-brief-common.md`. The plan was read whole. Website was read at `af3d95a` from a `git archive` export, with the shell in the record folder and exact paths only (his 15:29Z selection). highlight.js 11.12.0 was read from the shared tree's installed copy, read-only. `@discord/markdown-wasm` 0.16.0 was run under Node 24.14.0 in capped scopes. Captures are in `verification/019/architect-conformance/`. The pre-planning findings (`architecture/closed/slate-formatting-preview-architecture-findings.md`) were closed Resolved in this pass, because plan 019 carries every item they raised. |
 
 ## Design this plan builds on
@@ -196,6 +196,53 @@ editor reads highlight.js's private emitter tree" closes on landing. S-14 is the
 AC-5.4's expected value (highlight.js's HTML parsed independently) shares its source with this form. So AC-5.4 tests
 the scanner and the range mapping, not highlight.js. The independent parse must be a DOM parse (jsdom `DOMParser`),
 never the scanner itself (axiom E).
+
+## Delta pass, revision 2 (record `8dfd4659`)
+
+**Folds read.**
+- CF-1: M5's per-element cache, and AC-5.7 (counted, red without the cache on a line of at least 50 text nodes).
+- CF-2: option a is AC-6.5, and option b is OQ-5 at steering. AC-6.5's form matches CF-2(a).
+- CF-3: a `discord` project through `project()`, under `__tests__/discord/`, which `node` and `dom` exclude; the `test` and
+  `test:discord` scripts; the Test Conventions update in M7, proposed by the implementer and landed by steering.
+- CF-4: a website-local ignored path, copied by the running stage.
+- CF-5 and CF-6: carried.
+- CF-7: M5 and AC-5.4. The independent parse is jsdom's `DOMParser`, as required.
+
+All are folded as found.
+
+**New forms in the delta, against the current pattern:**
+
+| Form | Pattern at `af3d95a` | Status |
+|---|---|---|
+| Pending state kept as today (M2, F-3) | `DiscordMessageEditor` `show` gate; the `null` branches in `DiscordContentEditor/index.tsx` and `EmbedField.tsx` | Follows. It replaces revision 1's plain-text pending state, and it also settles CF-5's unguarded `markdown.static` reads, which sit behind the same gate. |
+| Rejected state renders source text, one `console.error` line (M2) | `MarkdownProvider` `useValue` `.catch(console.error)`. Today a failed import leaves the editor hidden | Deviation, **necessary** (AF-7, integration requirement 4, adopted by D-6). |
+| Unmapped kind renders source text, one `console.warn` line (M2, F-5) | The same console form | Follows. |
+| Second engine importer: a test oracle helper under `src/utils/markdown/__tests__/helpers/` (AC-2.1) | Test helpers under `src/**/__tests__/helpers/` (Test Conventions), outside the production type-check program | Follows. It keeps the expected values independent of the adapter (axiom E). |
+| Link scheme allow-list in the adapter (AC-4.6) | `simple-markdown` `defaultRules` link output calls the library's `sanitizeUrl`, a deny-list of `javascript:`, `vbscript:` and `data:` (`node_modules/simple-markdown/simple-markdown.js` `sanitizeUrl`) | Deviation, **preferable**: an allow-list fails closed on a scheme nobody listed. It has one home, the adapter. |
+
+### CF-8 LOW — One `discord` project cannot keep the environment-by-extension rule
+
+The Test Conventions bind M3: "The environment follows the file extension — no test file carries a per-file directive to
+remember, and no Node-only test is handed a `window` it should never see." `vitest.config.ts` keeps that rule by having
+two projects, `node` for `*.test.ts` and `dom` for `*.test.tsx`, each with one `environment`.
+
+The `discord` project of revision 2 holds both kinds of test:
+- AC-3.1 and AC-3.6 compare the preview's rendered DOM, which needs jsdom;
+- the drift alarm and the parser-level comparisons are Node work.
+
+A vitest project has one environment, and the installed `vitest` is 4.1.2. So one project either hands the Node files a
+`window` or leaves the DOM files without one. Either way it breaks the rule, or it pushes per-file directives into the
+suite.
+
+**Form that follows the pattern:** two projects through `project()`, `discord-node` (`__tests__/discord/**/*.test.ts`,
+`node`) and `discord-dom` (`__tests__/discord/**/*.test.tsx`, `jsdom`, the same setup file). `test:discord` runs both.
+M7's Test Conventions text names both.
+
+Option pair: *follow the current pattern* (one environment per project, chosen by extension), which is recommended; or
+*accept the deviation* (one project with per-file environment directives), which contradicts the Conventions sentence
+quoted above and would need that sentence changed, which is M7's convention update, not a design choice.
+
+**Verdict on revision 2:** APPROVED_WITH_CHANGES, on CF-8 alone. Nothing needs the owner. OQ-5 is steering's.
 
 ## Problem Areas and record entries from this pass
 
