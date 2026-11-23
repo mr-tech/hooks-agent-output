@@ -815,3 +815,22 @@ share one reveal (option a).
 helper's channel finding adds an option the plan does not have. M4's mention code waits on his answer.
 **Plan fact for the Planner batch** (the implementer's): M4's "Mirrors" line cites "guild-resolved mentions". `rules.tsx` at `5ec0621` resolves
 none.
+
+## 2026-11-23T21:31Z — selection: plan 019, how the preview shows mentions (put 21:19Z, answered 21:31Z)
+
+Ledger: `steering/selection-ledger/2026-11-23.md`, block `2026-11-23T21:31Z — steering-hooks-fixer`. The wording is this thread's. Options:
+- *Agent: channel names only (Recommended)*: "channel mentions show the real channel name from your server's list. Roles and commands stay as
+  they look today: the role id in a pill, and a command as plain text. Nothing is labelled 'unknown'. Small plan change: one plan revision and
+  one re-read by the reviewers, inside the current milestone."
+- *Agent: also look up role names*: "…the site also fetches your server's roles from Discord… a new data fetch and a new piece of work: a plan
+  revision, a review round, and more testing."
+- *Agent: Discord's unknown style*: "build it as the plan says now… No plan change. A role that exists in your server would look as if it
+  doesn't."
+- *Agent: leave mentions as today*: "one revision and one re-read."
+
+**Chosen by selection: channel names only.** This changes AC-4.4's unresolved limb. A channel mention renders the channel's name from the
+server's channel list the site already holds. A role or command mention keeps today's rendering (role: its source in the mention pill;
+command: as today). Nothing renders as "unknown". This is a planning revision, so `planner-019` is commissioned. The criterion change re-runs
+the gates on its delta. M4's cap (block 17:56Z) does not apply to his ruling.
+Premises, read this turn by the refutation helper (block 21:18Z, read from code, not run): no role or command data; a channel list in
+`GuildProvider`; no command rule in `rules.tsx`.
