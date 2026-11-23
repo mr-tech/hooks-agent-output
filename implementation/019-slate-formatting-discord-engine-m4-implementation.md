@@ -5,8 +5,8 @@ UUID: 286c730a
 Status: Active
 Status-Detail: >-
   M4 is in progress on chain/019-slate-formatting-discord-engine. Slice 1 (the preview renderer over the engine tree, the static parsers
-  switched, subtext and shared spoiler reveal) is committed and not yet handed to review. Not built yet: mentions (held on his answer to Q1),
-  emoji display helper, timestamps (AC-4.3, AC-4.7), the adjustment module and the frozen residue list (AC-3.7, AC-3.8 ii), the site-DOM limbs
+  switched, subtext and shared spoiler reveal) and slice 2a (mentions, AC-4.4 under D-17, at website `f131f06`) are committed and not yet
+  handed to review. Not built yet: emoji display helper, timestamps (AC-4.3, AC-4.7), the adjustment module and the frozen residue list (AC-3.7, AC-3.8 ii), the site-DOM limbs
   of AC-3.1 and AC-3.6, the reader sweep for AC-4.5.
 Handoff-At: not yet handed over
 ---
@@ -29,6 +29,7 @@ for M3 is owed before M4 is handed on, see Outstanding 1).
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
 | 2026-11-23T21:33 | steering-hooks-fixer (message, session `2581957`) | Start plan 019 M4; send the flows that hold a decision before code | Flow ask sent 21:18Z. Slice 1 coded and committed. |
+| 2026-11-23T22:05 | steering-hooks-fixer (message) | Continue M4 after `/clear`; Revision 10's AC-4.4 (D-17) approved by all three gates, mention code released | Slice 2a: mentions coded test-first and committed at `f131f06`. |
 
 ## Implementation Summary
 
@@ -62,7 +63,7 @@ One line per flow: surface, trigger, what happens next, rung.
 | Link outside the scheme allow-list | label as text, no anchor (AC-4.6); rung: none exists (M2 added `isAllowedLinkUrl`) |
 | Subtext `-# text` | a small, muted block, marker consumed (Q2 (a)); rung: none for subtext; nearest the heading rules in `visualizer.scss`, which the new `.discord-visualizer__subtext` rule sits beside |
 | Split spoiler | one click on any piece reveals or hides every piece of that spoiler (Q3 (a)); rung: `MarkdownSpoiler`'s click toggle, extended with a per-document shared reveal keyed by the engine's spoiler id; a spoiler with no shared provider (the editor's use) keeps its own state |
-| Mentions | **held on Q1**; interim: the engine mention is drawn as its source text; refutation read at `5ec0621` by steering says the site holds a channel list (`GuildProvider`) the preview does not read, and a command mention has no rule today: check both before relying on them |
+| Mentions | trigger: as today; a channel the guild's list holds (or an active thread under one) draws `#<name>` in today's channel pill; every other mention draws today's form (AC-4.4's table); the answer is his selection (D-17), so no further ask; rung: `rules.tsx` `discordChannel`/`discordRole`/`discordUser`/`discordEveryone` pills kept, and `WebhookProvider.useValue`'s read of `useGuild().channels` for the list |
 | Timestamp pop-over and its edit | not yet built (slice 2): trigger as today (click the timestamp), the target comes from the node's span (AC-4.3) |
 
 Where M4 touches no user-visible surface: not applicable, it touches all.
@@ -80,6 +81,15 @@ Where M4 touches no user-visible surface: not applicable, it touches all.
 | `src/app/_styles/visualizer.scss` | `.discord-visualizer__subtext` |
 | `src/utils/markdown/__tests__/rules.multi-line-code-block.test.ts` | tightened: starts the engine first (the static parsers are now engine-driven) |
 
+Slice 2a (mentions), at `f131f06`:
+
+| Path | Changes |
+|---|---|
+| `src/utils/markdown/preview.tsx` | `renderMention`, `channelName`; `Ctx` carries `channels`; `previewParser` reads `state.channels` |
+| `src/providers/GuildProvider.tsx` | `Context` exported (as `MarkdownProvider` exports its own); `useGuildChannels()` returns the list or `null` outside the provider; `Context`'s default is unchanged |
+| `src/components/Markdown.tsx` | reads `useGuildChannels()` and passes `channels` in the parser state |
+| `src/@types/simple-markdown.d.ts` | `State.channels` |
+
 ## Files Created
 
 | Path | Purpose |
@@ -87,6 +97,8 @@ Where M4 touches no user-visible surface: not applicable, it touches all.
 | `src/utils/markdown/preview.tsx` | `previewParser(surface)`, `renderLosslessTree` |
 | `src/utils/markdown/components/MarkdownCodeBlock.tsx` | the hljs code block element, as `rules.tsx` drew it |
 | `src/utils/markdown/__tests__/preview.engine-tree-render.test.ts`, `preview.engine-not-ready.test.ts`, `components/__tests__/MarkdownSpoiler.pieces-reveal-together.test.tsx` | the specs |
+
+Slice 2a: `src/utils/markdown/__tests__/preview.mention-table.test.ts`, `src/components/__tests__/Markdown.channel-names.test.tsx`, `src/app/preview/__tests__/page.channel-names.test.tsx`; records `m4-red-6.txt`, `m4-green-6.txt`, `m4-red-7.txt`, `m4-green-7.txt`, `m4-run-8.txt`, `m4-run-9.txt`, `m4-mutants-mentions-out/`.
 
 Records under `verification/019/impl/`: `m4-red-1.txt` to `m4-red-3.txt`, `m4-mutants-slice1.txt`, `m4-suite-slice1.{log.txt,exit}`.
 
@@ -113,6 +125,17 @@ TDD Gate: `preview.engine-tree-render` fails as expected: `Cannot find module '/
 | shared spoiler reveal | `MarkdownSpoiler.pieces-reveal-together.test.tsx` | Yes | Yes | `Element type is invalid` (provider absent, `m4-red-3.txt`); mutants M4-m9 (never shared, 2 red), M4-m10 (shared across ids, 1 red) | Yes |
 | link label is the normalised url | `preview.engine-tree-render.test.ts` | Yes | Yes by mutant M4-m5 | AssertionError by mutation | Yes |
 
+Slice 2a (mentions). TDD Gate: `preview.mention-table` fails as expected: 38 of 75 cases `AssertionError`, received `&lt;@111&gt;` where the table says the pill (`m4-red-6.txt`); `Markdown.channel-names` fails as expected: `TypeError: Cannot read properties of undefined (reading 'Provider')`, the context export being absent (`m4-red-7.txt`). Proceeding to implementation, each.
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|----------------|-----------|---------------------|-------------------|----------------|------------------|
+| `renderMention`, `channelName` (12 kinds by 5 list states, forum, forum post, category, surfaces, corpus) | `preview.mention-table.test.ts` | Yes | Yes | AssertionError (`m4-red-6.txt`) | Yes (78 of 78, `m4-green-6.txt`) |
+| `useGuildChannels`, the wrapper's read of it | `Markdown.channel-names.test.tsx` | Yes | Yes | TypeError, `Context` not exported (first row of the file, `m4-red-7.txt`) | Yes (5 of 5) |
+| the seven preview surfaces, with and without the provider | `page.channel-names.test.tsx` | No: written after the wiring | Yes, by mutants M4-n1, M4-n5, M4-n13 (`m4-mutants-mentions-out/`) | AssertionError by mutation | Yes (14 of 14) |
+| the negative clause (no text says unknown), 60 cells and the generator corpus | `preview.mention-table.test.ts` | Yes (green at first run for the corpus: the code never emitted it) | Yes, by mutants M4-n4 and M4-n10 (6 red each on it) | AssertionError by mutation | Yes |
+
+The `page.channel-names` row is owed the stub-tree record and is not made; the mutants stand as its red, as for the slice 1 rows. The fifteen mutants M4-n1 to M4-n14 (NM-27, NM-48 to NM-57; one per guard) each ended red (`m4-mutants-mentions-out/summary.txt`); they ran in `scratchpad/export-m4b`, driver `scratchpad/mutate.cjs`, output to files, run under `timeout -k` with `unshare -rn`. NM-57's per-surface mutants do not exist: every one of the seven surfaces draws through the one `Markdown.tsx`, so the wiring is one site (M4-n1 is red on all seven surface cases). Fixture realism: the lists carry `fetchChannels`' shape (`{ id, name, type, threads }`); the provider value is the `Context` `GuildProvider` provides, narrowed by a cast, since `GuildProvider`'s own value needs a session and trpc.
+
 The two rows marked "No" under "Test Written First?" are owed an assertion-level red against a stub-tree copy with the function bodiless, then a green at the real code. The mutants above stand as the red at the pre-change behaviour for each guard; the stub-tree record is not made. This is a TDD deviation of mine, named here. The mutants ran in an isolated export (`scratchpad/export-m4a`, a `git ls-files` copy with `node_modules` linked, driver inline, output to a file).
 
 The renderer-level scheme control uses a fixture tree that invents engine output (the engine returns no `javascript:` or `data:` link); named so, per QAF-17.
@@ -125,6 +148,8 @@ Disclosed in the round it happened: twice, Claude Code's built-in removal check 
 
 ## Test Execution Results
 
+Slice 2a: `unshare -rn` vitest over `src/utils/markdown src/components src/app/preview`, projects node and dom: 69 files, 1225 of 1225, exit 0 (`m4-run-9.txt`). `pnpm run typecheck` exit 0. ESLint over the touched files: the only hits are `GuildProvider.tsx` `react-hooks/use-memo` (the `Object.values(state)` dependency list, at line 160 of `5ec0621`, unchanged by me; the tool flags the file, and I did not edit shared code the plan does not name) and `MarkdownTimestamp.tsx` (untouched so far; slice 2c's file). `convention-check` CANDIDATE: `page.channel-names.test.tsx` `waitFor` `{ timeout: 5000 }` is a poll budget, the same form `page.invalid-data.test.tsx` uses, not a time-based assertion.
+
 | Command | Result | Capture |
 |---|---|---|
 | `unshare -rn` (lo up) `npx vitest run --project node --project dom`, tree with slice 1 (the commit this document lands in) | see `m4-suite-slice1.{log.txt,exit}`; the run before the lint and spoiler changes was exit 0, 197 files, 3205 of 3205 | `m4-suite-slice1.*` |
@@ -134,7 +159,7 @@ Disclosed in the round it happened: twice, Claude Code's built-in removal check 
 ## Outstanding Items
 
 1. **M3 fix round is owed first** (code review REJECTED M3: CR-5, CR-6 MEDIUM; CR-4's remainder, CR-7 to CR-9 LOW). M4 slice 1 is committed on the same branch at a different set of paths; the M3 fix lands as its own commits.
-2. **Q1 mentions** are with him. Until he answers, the engine mention is drawn as its source text (the interim is the plan's "no Discord observation" form).
+2. **Mentions** are built (slice 2a). Recorded limits, per AC-4.4's Residue and SL-11: the name is the list's at fetch time (5 min client, 10 s server); category, archived-thread and unlisted ids render `#<id>`. The human-observable form (UAT B-7) needs a signed-in local production build, not run here. The bigint note: the engine gives the channel id as a `bigint`, so the lookup compares `String(id)`, exact beyond 2^53.
 3. **Not built yet in M4:** the emoji display helper (CF-10) and the emoji renderer (the engine's `emoji` node draws as source text for now); timestamps (AC-4.3, AC-4.7); field name with an embed url (the preview has no embed-url flag at the field; it uses the title mask, AN-8 table, row "Field name, embed has url"); the adjustment module, the frozen residue list and AC-3.8 (ii); the site-DOM limbs of AC-3.1, AC-3.6, AC-3.7 and AC-4.1; AC-4.2's UAT form; AC-4.5's module-graph instrument over the reader sites (slice 1 removes the only caller; the instrument and `staticBaseRules`' `react` functions are not yet removed).
 4. The decision to render a paragraph's line ending as `\n` only between siblings (not after the last) is mine, taken from the text the engine gives and the `white-space` rules in `visualizer.scss`; the visible-form comparison against the legacy tree is the instrument that will confirm or correct it (slice 2).
 5. Self-diagnosis (method): I wrote the renderer, then the not-ready cases and the subtext case after it, so two rows lack a red-first. I should have written each case before the branch it covers.

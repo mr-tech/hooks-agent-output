@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (78 tests | 1 failed) 328ms
+     × keeps the typed form of a user mention that carries a bang 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > keeps the typed form of a user mention that carries a bang
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive">@!9</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive">@9</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:114:56
+    112|
+    113|   it('keeps the typed form of a user mention that carries a bang', () …
+    114|     expect(render('content', '<@!9>', LISTS.topLevel)).toBe(`${INTERAC…
+       |                                                        ^
+    115|   });
+    116|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 77 passed (78)
+   Start at  21:58:17
+   Duration  786ms (transform 106ms, setup 0ms, import 280ms, tests 328ms, environment 0ms)
+

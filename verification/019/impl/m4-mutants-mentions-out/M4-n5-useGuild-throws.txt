@@ -1,0 +1,209 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 1 failed) 49ms
+     × renders, and draws the channel in its id form 7ms
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after content , and still renders, with no guild provider
+Error: Guild components must be wrapped in <Guild />
+    at useGuild (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/providers/GuildProvider.tsx:38:11)
+    at useGuildChannels (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/providers/GuildProvider.tsx:44:39)
+    at Markdown (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/components/Markdown.tsx:19:20)
+    at Object.react_stack_bottom_frame (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20)
+    at renderWithHooks (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22)
+    at updateFunctionComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19)
+    at updateSimpleMemoComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9830:14)
+    at updateMemoComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9763:13)
+    at beginWork (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:12204:18)
+    at runWithFiberInDEV (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13) {
+  [stack]: [Getter/Setter],
+  [message]: 'Guild components must be wrapped in <Guild />'
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after title , and still renders, with no guild provider
+Error: Guild components must be wrapped in <Guild />
+    at useGuild (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/providers/GuildProvider.tsx:38:11)
+    at useGuildChannels (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/providers/GuildProvider.tsx:44:39)
+    at Markdown (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/components/Markdown.tsx:19:20)
+    at Object.react_stack_bottom_frame (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20)
+    at renderWithHooks (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22)
+    at updateFunctionComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19)
+    at updateSimpleMemoComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9830:14)
+    at updateMemoComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9763:13)
+    at beginWork (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:12204:18)
+    at runWithFiberInDEV (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13) {
+  [stack]: [Getter/Setter],
+  [message]: 'Guild components must be wrapped in <Guild />'
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after description , and still renders, with no guild provider
+Error: Guild components must be wrapped in <Guild />
+    at useGuild (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/providers/GuildProvider.tsx:38:11)
+    at useGuildChannels (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/providers/GuildProvider.tsx:44:39)
+    at Markdown (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/components/Markdown.tsx:19:20)
+    at Object.react_stack_bottom_frame (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20)
+    at renderWithHooks (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22)
+    at updateFunctionComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19)
+    at updateSimpleMemoComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9830:14)
+    at updateMemoComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9763:13)
+    at beginWork (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:12204:18)
+    at runWithFiberInDEV (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13) {
+  [stack]: [Getter/Setter],
+  [message]: 'Guild components must be wrapped in <Guild />'
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after field name , and still renders, with no guild provider
+Error: Guild components must be wrapped in <Guild />
+    at useGuild (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/providers/GuildProvider.tsx:38:11)
+    at useGuildChannels (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/providers/GuildProvider.tsx:44:39)
+    at Markdown (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/components/Markdown.tsx:19:20)
+    at Object.react_stack_bottom_frame (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20)
+    at renderWithHooks (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22)
+    at updateFunctionComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19)
+    at updateSimpleMemoComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9830:14)
+    at updateMemoComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9763:13)
+    at beginWork (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:12204:18)
+    at runWithFiberInDEV (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13) {
+  [stack]: [Getter/Setter],
+  [message]: 'Guild components must be wrapped in <Guild />'
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after field value , and still renders, with no guild provider
+Error: Guild components must be wrapped in <Guild />
+    at useGuild (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/providers/GuildProvider.tsx:38:11)
+    at useGuildChannels (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/providers/GuildProvider.tsx:44:39)
+    at Markdown (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/components/Markdown.tsx:19:20)
+    at Object.react_stack_bottom_frame (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20)
+    at renderWithHooks (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22)
+    at updateFunctionComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19)
+    at updateSimpleMemoComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9830:14)
+    at updateMemoComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9763:13)
+    at beginWork (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:12204:18)
+    at runWithFiberInDEV (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13) {
+  [stack]: [Getter/Setter],
+  [message]: 'Guild components must be wrapped in <Guild />'
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after linked title , and still renders, with no guild provider
+Error: Guild components must be wrapped in <Guild />
+    at useGuild (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/providers/GuildProvider.tsx:38:11)
+    at useGuildChannels (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/providers/GuildProvider.tsx:44:39)
+    at Markdown (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/components/Markdown.tsx:19:20)
+    at Object.react_stack_bottom_frame (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20)
+    at renderWithHooks (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22)
+    at updateFunctionComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19)
+    at updateSimpleMemoComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9830:14)
+    at updateMemoComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9763:13)
+    at beginWork (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:12204:18)
+    at runWithFiberInDEV (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13) {
+  [stack]: [Getter/Setter],
+  [message]: 'Guild components must be wrapped in <Guild />'
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+stderr | src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after text display , and still renders, with no guild provider
+Error: Guild components must be wrapped in <Guild />
+    at useGuild (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/providers/GuildProvider.tsx:38:11)
+    at useGuildChannels (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/providers/GuildProvider.tsx:44:39)
+    at Markdown (/tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b/src/components/Markdown.tsx:19:20)
+    at Object.react_stack_bottom_frame (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20)
+    at renderWithHooks (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22)
+    at updateFunctionComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19)
+    at updateSimpleMemoComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9830:14)
+    at updateMemoComponent (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9763:13)
+    at beginWork (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:12204:18)
+    at runWithFiberInDEV (/usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13) {
+  [stack]: [Getter/Setter],
+  [message]: 'Guild components must be wrapped in <Guild />'
+}
+
+The above error occurred in the <Markdown> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, y.
+
+
+ ❯ |dom| src/app/preview/__tests__/page.channel-names.test.tsx (14 tests | 7 failed) 35804ms
+     × shows the channel id after content , and still renders, with no guild provider 5007ms
+     × shows the channel id after title , and still renders, with no guild provider 5002ms
+     × shows the channel id after description , and still renders, with no guild provider 5004ms
+     × shows the channel id after field name , and still renders, with no guild provider 5003ms
+     × shows the channel id after field value , and still renders, with no guild provider 5002ms
+     × shows the channel id after linked title , and still renders, with no guild provider 5002ms
+     × shows the channel id after text display , and still renders, with no guild provider 5001ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with no guild provider above it > renders, and draws the channel in its id form
+Error: Guild components must be wrapped in <Guild />
+ ❯ useGuild src/providers/GuildProvider.tsx:38:11
+     36|
+     37|   if (context === null) {
+     38|     throw new Error('Guild components must be wrapped in <Guild />');
+       |           ^
+     39|   }
+     40|
+ ❯ useGuildChannels src/providers/GuildProvider.tsx:44:39
+ ❯ Markdown src/components/Markdown.tsx:19:20
+ ❯ Object.react_stack_bottom_frame ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ updateSimpleMemoComponent ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9830:14
+ ❯ updateMemoComponent ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:9763:13
+ ❯ beginWork ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:12204:18
+ ❯ runWithFiberInDEV ../../../../../../usr/local/bin/hooks/website/node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after content , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after title , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after description , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after field name , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after field value , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after linked title , and still renders, with no guild provider
+ FAIL  |dom| src/app/preview/__tests__/page.channel-names.test.tsx > the preview page, a channel mention on every surface > shows the channel id after text display , and still renders, with no guild provider
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/app/preview/__tests__/page.channel-names.test.tsx:66:20
+     64|   });
+     65|
+     66|   it.each(SURFACES)('shows the channel id after %s, and still renders,…
+       |                    ^
+     67|     const el = await mountPage(false);
+     68|     expect(drawnNextTo(el, lead)).toBe('#111');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  8 failed | 11 passed (19)
+   Start at  21:57:31
+   Duration  37.99s (transform 925ms, setup 47ms, import 1.80s, tests 35.85s, environment 1.29s)
+

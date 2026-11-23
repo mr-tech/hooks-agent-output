@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (78 tests | 1 failed) 301ms
+     × keeps a user mention in its form when the user id is a listed channel id 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > keeps a user mention in its form when the user id is a listed channel id
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive">@111</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive">general</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:122:57
+    120|
+    121|   it('keeps a user mention in its form when the user id is a listed ch…
+    122|     expect(render('content', '<@111>', LISTS.topLevel)).toBe(`${INTERA…
+       |                                                         ^
+    123|   });
+    124| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 77 passed (78)
+   Start at  21:58:12
+   Duration  694ms (transform 93ms, setup 0ms, import 255ms, tests 301ms, environment 0ms)
+

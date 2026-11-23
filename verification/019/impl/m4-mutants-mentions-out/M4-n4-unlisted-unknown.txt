@@ -1,0 +1,119 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (78 tests | 7 failed) 292ms
+     × renders as the table says when the list state is noProvider 19ms
+     × renders as the table says when the list state is empty 2ms
+     × renders as the table says when the list state is withoutId 1ms
+     × keeps the id form for a category, which the list leaves out 1ms
+     × draws no text that says unknown in any of the 60 cells 16ms
+     × draws no text that says unknown over the corpus, with no provider 121ms
+     × draws no text that says unknown over the corpus, with a list without the id 76ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is withoutId
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive">#111</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive">#unknown</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:75:55
+     73| describe('a channel mention in the preview', () => {
+     74|   it.each(Object.keys(LISTS) as Array<keyof Lists>)('renders as the ta…
+     75|     expect(render('content', '<#111>', LISTS[state])).toBe(CHANNEL_EXP…
+       |                                                       ^
+     76|   });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > keeps the id form for a category, which the list leaves out
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive">#666</span>"
+Received: "<span class="discord-visualizer__mention discord-visualizer__interactive">#unknown</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:88:71
+     86|
+     87|   it('keeps the id form for a category, which the list leaves out', ()…
+     88|     expect(render('content', '<#666>', [channel('222', 'rules', 0)])).…
+       |                                                                       ^
+     89|   });
+     90|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the mention table over its whole input space > draws no text that says unknown in any of the 60 cells
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "<span class=\"discord-visualizer__mention discord-visualizer__interactive\">#unknown</span>",
++   "<span class=\"discord-visualizer__mention discord-visualizer__interactive\">#unknown</span>",
++   "<span class=\"discord-visualizer__mention discord-visualizer__interactive\">#unknown</span>",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:131:63
+    129|     const drawn = sources.flatMap((source) => (Object.values(LISTS)).m…
+    130|     expect(drawn).toHaveLength(60);
+    131|     expect(drawn.filter((markup) => /unknown/i.test(markup))).toEqual(…
+       |                                                               ^
+    132|   });
+    133|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the generator corpus through the preview with mentions in it > draws no text that says unknown over the corpus, with no provider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the generator corpus through the preview with mentions in it > draws no text that says unknown over the corpus, with a list without the id
+AssertionError: expected [ '<#1558266761101447248>', …(9) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "<#1558266761101447248>",
++   "  - <#1558266761101447248> 🇬🇧",
++   "_<#1558266761101447248> [<:hooks:1558266761101447248>](https://x.y/a*b*c)_
++ **tail ** \\(x\\(",
++   "<t:1700000000:T> <t:1700000000:S>
++ - ~~<#1558266761101447248>~~",
++   "# ~~**<#1558266761101447248> [🙂](https://x.y)** [a 🙂 b](https://example.com/a_b)~~
++   - 1️⃣
++ ## _~~` lead❤️` x_y <id:guide>~~ 🙂 [a](https://x.y/a*b*c/🙂)_ [a](https://x.y/a*b*c/🙂) <a:dance:1558266761101447248>",
++   "- `**<a:dance:1558266761101447248>https://x.y/a*b*c 🙂**` <#1558266761101447248>
++   - ~~<a@b.co> [<:hooks:1558266761101447248>](https://x.y/a*b*c)~~
++ 1. **2 < 3 <t:1700000000:D>**",
++   "<:hooks:1558266761101447248>
++ 1. <#1558266761101447248>
++ 🪿https://example.com/a_b 🙂",
++   "__<#1558266761101447248>__",
++   "  - ```_<t:1700000000> <id:browse>_ [<:hooks:1558266761101447248>](https://x.y) <t:1700000000>```
++ _[dev](dev://branch/main)日本 <#1558266761101447248>[🙂](https://x.y)",
++   "- ~~https://example.com
++ # `**`<t:1700000000:F> <#1558266761101447248>** [a 🙂 b](https://x.y)<#1558266761101447248>`
++ \\<x\\<",
++ ]
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:154:46
+    152|         .filter((input) => !/unknown/i.test(input.text))
+    153|         .filter((input) => /unknown/i.test(render('content', input.tex…
+    154|       expect(bad.map((input) => input.text)).toEqual([]);
+       |                                              ^
+    155|     },
+    156|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  7 failed | 71 passed (78)
+   Start at  21:57:30
+   Duration  679ms (transform 88ms, setup 0ms, import 237ms, tests 292ms, environment 0ms)
+

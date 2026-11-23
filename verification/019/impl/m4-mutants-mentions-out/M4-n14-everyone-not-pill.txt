@@ -1,0 +1,63 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (78 tests | 10 failed) 324ms
+     × renders everyone as today's form when the list state is noProvider 6ms
+     × renders everyone as today's form when the list state is empty 1ms
+     × renders everyone as today's form when the list state is withoutId 1ms
+     × renders everyone as today's form when the list state is topLevel 1ms
+     × renders everyone as today's form when the list state is threadOnly 1ms
+     × renders here as today's form when the list state is noProvider 1ms
+     × renders here as today's form when the list state is empty 1ms
+     × renders here as today's form when the list state is withoutId 1ms
+     × renders here as today's form when the list state is topLevel 1ms
+     × renders here as today's form when the list state is threadOnly 1ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is threadOnly
+AssertionError: expected '@everyone' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention">@everyone</span>"
+Received: "@everyone"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:110:53
+    108|   it.each(cells)('renders %s as today\'s form when the list state is %…
+    109|     const { source, expected } = NON_CHANNEL_KINDS[kind];
+    110|     expect(render('content', source, LISTS[state])).toBe(expected);
+       |                                                     ^
+    111|   });
+    112|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is threadOnly
+AssertionError: expected '@here' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention">@here</span>"
+Received: "@here"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:110:53
+    108|   it.each(cells)('renders %s as today\'s form when the list state is %…
+    109|     const { source, expected } = NON_CHANNEL_KINDS[kind];
+    110|     expect(render('content', source, LISTS[state])).toBe(expected);
+       |                                                     ^
+    111|   });
+    112|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  10 failed | 68 passed (78)
+   Start at  21:58:29
+   Duration  712ms (transform 92ms, setup 0ms, import 252ms, tests 324ms, environment 0ms)
+

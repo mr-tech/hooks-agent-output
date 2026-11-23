@@ -1,0 +1,39 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (78 tests | 4 failed) 361ms
+     × renders as the table says when the list state is noProvider 14ms
+     × draws no text that says unknown in any of the 60 cells 17ms
+     × draws every one of the 60 cells as something visible 14ms
+     × draws no text that says unknown over the corpus, with no provider 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the mention table over its whole input space > draws no text that says unknown in any of the 60 cells
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the mention table over its whole input space > draws every one of the 60 cells as something visible
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > the generator corpus through the preview with mentions in it > draws no text that says unknown over the corpus, with no provider
+TypeError: Cannot read properties of null (reading 'find')
+ ❯ channelName src/utils/markdown/preview.tsx:29:24
+     27|
+     28| function channelName(channels: Ctx['channels'], id: string) {
+     29|   const top = channels.find((channel) => channel.id === id);
+       |                        ^
+     30|   if (top) return top.name;
+     31|   return channels.flatMap((channel) => channel.threads ?? []).find((th…
+ ❯ renderMention src/utils/markdown/preview.tsx:42:20
+ ❯ renderNode src/utils/markdown/preview.tsx:121:14
+ ❯ src/utils/markdown/preview.tsx:54:52
+ ❯ renderInline src/utils/markdown/preview.tsx:54:16
+ ❯ renderNode src/utils/markdown/preview.tsx:83:14
+ ❯ src/utils/markdown/preview.tsx:60:8
+ ❯ renderBlocks src/utils/markdown/preview.tsx:58:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 74 passed (78)
+   Start at  21:58:23
+   Duration  1.05s (transform 240ms, setup 0ms, import 539ms, tests 361ms, environment 0ms)
+

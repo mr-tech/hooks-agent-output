@@ -1,0 +1,315 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (75 tests | 38 failed) 106ms
+     × renders as the table says when the list state is noProvider 19ms
+     × renders as the table says when the list state is empty 5ms
+     × renders as the table says when the list state is withoutId 1ms
+     × renders as the table says when the list state is topLevel 1ms
+     × renders as the table says when the list state is threadOnly 1ms
+     × is given a listed forum channel its name 1ms
+     × is given an active post under a listed forum channel its name 1ms
+     × keeps the id form for a category, which the list leaves out 1ms
+     × names the second of two listed channels when the mention names the second 1ms
+     × is named on the content surface when the list holds it 1ms
+     × is named on the embedDescription surface when the list holds it 1ms
+     × is named on the embedTitle surface when the list holds it 1ms
+     × is named on the embedTitleWithUrl surface when the list holds it 1ms
+     × is named on the fieldValue surface when the list holds it 0ms
+     × is named on the v2Text surface when the list holds it 1ms
+     × renders user as today's form when the list state is noProvider 1ms
+     × renders user as today's form when the list state is empty 1ms
+     × renders user as today's form when the list state is withoutId 1ms
+     × renders user as today's form when the list state is topLevel 0ms
+     × renders user as today's form when the list state is threadOnly 1ms
+     × renders role as today's form when the list state is noProvider 1ms
+     × renders role as today's form when the list state is empty 1ms
+     × renders role as today's form when the list state is withoutId 1ms
+     × renders role as today's form when the list state is topLevel 1ms
+     × renders role as today's form when the list state is threadOnly 1ms
+     × renders everyone as today's form when the list state is noProvider 1ms
+     × renders everyone as today's form when the list state is empty 0ms
+     × renders everyone as today's form when the list state is withoutId 0ms
+     × renders everyone as today's form when the list state is topLevel 0ms
+     × renders everyone as today's form when the list state is threadOnly 0ms
+     × renders here as today's form when the list state is noProvider 0ms
+     × renders here as today's form when the list state is empty 1ms
+     × renders here as today's form when the list state is withoutId 1ms
+     × renders here as today's form when the list state is topLevel 0ms
+     × renders here as today's form when the list state is threadOnly 0ms
+     × keeps the typed form of a user mention that carries a bang 1ms
+     × keeps a role mention in its form when the role id is a listed channel id 1ms
+     × keeps a user mention in its form when the user id is a listed channel id 1ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 38 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is withoutId
+AssertionError: expected '&lt;#111&gt;' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive">#111</span>"
+Received: "&lt;#111&gt;"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:67:55
+     65| describe('a channel mention in the preview', () => {
+     66|   it.each(Object.keys(LISTS) as Array<keyof Lists>)('renders as the ta…
+     67|     expect(render('content', '<#111>', LISTS[state])).toBe(CHANNEL_EXP…
+       |                                                       ^
+     68|   });
+     69|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/38]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is topLevel
+AssertionError: expected '&lt;#111&gt;' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive">#general</span>"
+Received: "&lt;#111&gt;"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:67:55
+     65| describe('a channel mention in the preview', () => {
+     66|   it.each(Object.keys(LISTS) as Array<keyof Lists>)('renders as the ta…
+     67|     expect(render('content', '<#111>', LISTS[state])).toBe(CHANNEL_EXP…
+       |                                                       ^
+     68|   });
+     69|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/38]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > renders as the table says when the list state is threadOnly
+AssertionError: expected '&lt;#111&gt;' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive">#a-thread</span>"
+Received: "&lt;#111&gt;"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:67:55
+     65| describe('a channel mention in the preview', () => {
+     66|   it.each(Object.keys(LISTS) as Array<keyof Lists>)('renders as the ta…
+     67|     expect(render('content', '<#111>', LISTS[state])).toBe(CHANNEL_EXP…
+       |                                                       ^
+     68|   });
+     69|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/38]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is given a listed forum channel its name
+AssertionError: expected '&lt;#444&gt;' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive">#help-forum</span>"
+Received: "&lt;#444&gt;"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:71:77
+     69|
+     70|   it('is given a listed forum channel its name', () => {
+     71|     expect(render('content', '<#444>', [channel('444', 'help-forum', 1…
+       |                                                                             ^
+     72|   });
+     73|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/38]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is given an active post under a listed forum channel its name
+AssertionError: expected '&lt;#555&gt;' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive">#my-question</span>"
+Received: "&lt;#555&gt;"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:76:47
+     74|   it('is given an active post under a listed forum channel its name', …
+     75|     const list = [channel('444', 'help-forum', 15, [{ id: '555', name:…
+     76|     expect(render('content', '<#555>', list)).toBe(`${INTERACTIVE}#my-…
+       |                                               ^
+     77|   });
+     78|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/38]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > keeps the id form for a category, which the list leaves out
+AssertionError: expected '&lt;#666&gt;' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive">#666</span>"
+Received: "&lt;#666&gt;"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:80:71
+     78|
+     79|   it('keeps the id form for a category, which the list leaves out', ()…
+     80|     expect(render('content', '<#666>', [channel('222', 'rules', 0)])).…
+       |                                                                       ^
+     81|   });
+     82|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/38]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > names the second of two listed channels when the mention names the second
+AssertionError: expected '&lt;#111&gt;' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive">#general</span>"
+Received: "&lt;#111&gt;"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:85:47
+     83|   it('names the second of two listed channels when the mention names t…
+     84|     const list = [channel('222', 'rules', 0), channel('111', 'general'…
+     85|     expect(render('content', '<#111>', list)).toBe(`${INTERACTIVE}#gen…
+       |                                               ^
+     86|     expect(render('content', '<#222>', list)).toBe(`${INTERACTIVE}#rul…
+     87|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/38]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the content surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedDescription surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedTitle surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the embedTitleWithUrl surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the fieldValue surface when the list holds it
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > a channel mention in the preview > is named on the v2Text surface when the list holds it
+AssertionError: expected '&lt;#111&gt;' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive">#general</span>"
+Received: "&lt;#111&gt;"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:92:55
+     90|     ['content'], ['embedDescription'], ['embedTitle'], ['embedTitleWit…
+     91|   ] as Array<[Surface]>)('is named on the %s surface when the list hol…
+     92|     expect(render(surface, '<#111>', LISTS.topLevel)).toBe(`${INTERACT…
+       |                                                       ^
+     93|   });
+     94| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/38]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders user as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders user as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders user as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders user as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders user as today's form when the list state is threadOnly
+AssertionError: expected '&lt;@9&gt;' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive">@9</span>"
+Received: "&lt;@9&gt;"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:102:53
+    100|   it.each(cells)('renders %s as today\'s form when the list state is %…
+    101|     const { source, expected } = NON_CHANNEL_KINDS[kind];
+    102|     expect(render('content', source, LISTS[state])).toBe(expected);
+       |                                                     ^
+    103|   });
+    104|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/38]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders role as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders role as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders role as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders role as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders role as today's form when the list state is threadOnly
+AssertionError: expected '&lt;@&amp;7&gt;' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention">@&amp;7</span>"
+Received: "&lt;@&amp;7&gt;"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:102:53
+    100|   it.each(cells)('renders %s as today\'s form when the list state is %…
+    101|     const { source, expected } = NON_CHANNEL_KINDS[kind];
+    102|     expect(render('content', source, LISTS[state])).toBe(expected);
+       |                                                     ^
+    103|   });
+    104|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/38]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders everyone as today's form when the list state is threadOnly
+AssertionError: expected '@everyone' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention">@everyone</span>"
+Received: "@everyone"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:102:53
+    100|   it.each(cells)('renders %s as today\'s form when the list state is %…
+    101|     const { source, expected } = NON_CHANNEL_KINDS[kind];
+    102|     expect(render('content', source, LISTS[state])).toBe(expected);
+       |                                                     ^
+    103|   });
+    104|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/38]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is noProvider
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is empty
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is withoutId
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is topLevel
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > renders here as today's form when the list state is threadOnly
+AssertionError: expected '@here' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention">@here</span>"
+Received: "@here"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:102:53
+    100|   it.each(cells)('renders %s as today\'s form when the list state is %…
+    101|     const { source, expected } = NON_CHANNEL_KINDS[kind];
+    102|     expect(render('content', source, LISTS[state])).toBe(expected);
+       |                                                     ^
+    103|   });
+    104|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/38]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > keeps the typed form of a user mention that carries a bang
+AssertionError: expected '&lt;@!9&gt;' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive">@!9</span>"
+Received: "&lt;@!9&gt;"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:106:56
+    104|
+    105|   it('keeps the typed form of a user mention that carries a bang', () …
+    106|     expect(render('content', '<@!9>', LISTS.topLevel)).toBe(`${INTERAC…
+       |                                                        ^
+    107|   });
+    108|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/38]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > keeps a role mention in its form when the role id is a listed channel id
+AssertionError: expected '&lt;@&amp;111&gt;' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention">@&amp;111</span>"
+Received: "&lt;@&amp;111&gt;"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:110:58
+    108|
+    109|   it('keeps a role mention in its form when the role id is a listed ch…
+    110|     expect(render('content', '<@&111>', LISTS.topLevel)).toBe(`${PILL}…
+       |                                                          ^
+    111|   });
+    112|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/38]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > keeps a user mention in its form when the user id is a listed channel id
+AssertionError: expected '&lt;@111&gt;' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention discord-visualizer__interactive">@111</span>"
+Received: "&lt;@111&gt;"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:114:57
+    112|
+    113|   it('keeps a user mention in its form when the user id is a listed ch…
+    114|     expect(render('content', '<@111>', LISTS.topLevel)).toBe(`${INTERA…
+       |                                                         ^
+    115|   });
+    116| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/38]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  38 failed | 37 passed (75)
+   Start at  21:51:40
+   Duration  570ms (transform 76ms, setup 0ms, import 232ms, tests 106ms, environment 0ms)
+
+exit 1

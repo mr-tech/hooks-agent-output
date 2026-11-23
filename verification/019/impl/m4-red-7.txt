@@ -1,0 +1,75 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |dom| src/components/__tests__/Markdown.channel-names.test.tsx (5 tests | 4 failed) 42ms
+     × names a listed channel 3ms
+     × names a thread under a listed channel 1ms
+     × keeps the id form when the list is empty 0ms
+     × shows the new name when the list changes under a mounted preview 15ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > names a listed channel
+TypeError: Cannot read properties of undefined (reading 'Provider')
+ ❯ src/components/__tests__/Markdown.channel-names.test.tsx:33:34
+     31| describe('the preview wrapper, with the guild\'s channel list in reach…
+     32|   it('names a listed channel', () => {
+     33|     const el = mountDom(<Context.Provider value={guild([channel('111',…
+       |                                  ^
+     34|     expect(pills(el)).toEqual(['#general']);
+     35|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > names a thread under a listed channel
+TypeError: Cannot read properties of undefined (reading 'Provider')
+ ❯ src/components/__tests__/Markdown.channel-names.test.tsx:39:34
+     37|   it('names a thread under a listed channel', () => {
+     38|     const list = [channel('222', 'rules', 0, [{ id: '111', name: 'a-th…
+     39|     const el = mountDom(<Context.Provider value={guild(list)}>{drawn('…
+       |                                  ^
+     40|     expect(pills(el)).toEqual(['#a-thread']);
+     41|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > keeps the id form when the list is empty
+TypeError: Cannot read properties of undefined (reading 'Provider')
+ ❯ src/components/__tests__/Markdown.channel-names.test.tsx:44:34
+     42|
+     43|   it('keeps the id form when the list is empty', () => {
+     44|     const el = mountDom(<Context.Provider value={guild([])}>{drawn('<#…
+       |                                  ^
+     45|     expect(pills(el)).toEqual(['#111']);
+     46|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |dom| src/components/__tests__/Markdown.channel-names.test.tsx > the preview wrapper, with the guild's channel list in reach > shows the new name when the list changes under a mounted preview
+TypeError: Cannot read properties of undefined (reading 'Provider')
+ ❯ Harness src/components/__tests__/Markdown.channel-names.test.tsx:53:23
+     51|       const [list, set] = useState([channel('111', 'general')]);
+     52|       setList = set;
+     53|       return <Context.Provider value={guild(list)}>{drawn('<#111>')}</…
+       |                       ^
+     54|     }
+     55|     const el = mountDom(<Harness />);
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+ ❯ renderWithHooks node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:7662:22
+ ❯ updateFunctionComponent node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:10166:19
+ ❯ beginWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:11778:18
+ ❯ runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ performUnitOfWork node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17641:22
+ ❯ workLoopSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17469:41
+ ❯ renderRootSync node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:17450:11
+ ❯ performWorkOnRoot node_modules/.pnpm/react-dom@19.2.4_react@19.2.4/node_modules/react-dom/cjs/react-dom-client.development.js:16583:35
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 1 passed (5)
+   Start at  21:52:28
+   Duration  1.36s (transform 135ms, setup 20ms, import 430ms, tests 42ms, environment 684ms)
+
+exit 1

@@ -1,0 +1,15 @@
+M4-n1-wiring-dropped	exit=1	10 ⎯⎯⎯⎯⎯⎯⎯	NM-57 (every surface shares Markdown.tsx)
+M4-n2-threads-ignored	exit=1	2 ⎯⎯⎯⎯⎯⎯⎯	NM-48
+M4-n3-first-channel	exit=1	12 ⎯⎯⎯⎯⎯⎯⎯	NM-49
+M4-n4-unlisted-unknown	exit=1	7 ⎯⎯⎯⎯⎯⎯⎯	NM-50
+M4-n5-useGuild-throws	exit=1	8 ⎯⎯⎯⎯⎯⎯⎯	NM-51
+M4-n6-role-by-id	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	NM-52 role
+M4-n6b-user-by-id	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	NM-52 user
+M4-n7-no-hash	exit=1	11 ⎯⎯⎯⎯⎯⎯⎯	NM-53
+M4-n8-pill-not-interactive	exit=1	15 ⎯⎯⎯⎯⎯⎯⎯	NM-54
+M4-n9-user-bang-lost	exit=1	1 ⎯⎯⎯⎯⎯⎯⎯	NM-55
+M4-n10-role-unknown	exit=1	9 ⎯⎯⎯⎯⎯⎯⎯	NM-56
+M4-n11-mention-empty	exit=1	74 ⎯⎯⎯⎯⎯⎯⎯	NM-27
+M4-n12-null-list-unguarded	exit=1	4 ⎯⎯⎯⎯⎯⎯⎯	guard: no list in reach
+M4-n13-list-never-read	exit=1	10 ⎯⎯⎯⎯⎯⎯⎯	guard: list in reach
+M4-n14-everyone-not-pill	exit=1	10 ⎯⎯⎯⎯⎯⎯⎯	everyone/here row

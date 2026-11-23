@@ -1,0 +1,30 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/13713b6c-cb1f-40b5-a75f-7eebc471af71/scratchpad/export-m4b
+
+ ❯ |node| src/utils/markdown/__tests__/preview.mention-table.test.ts (78 tests | 1 failed) 307ms
+     × keeps a role mention in its form when the role id is a listed channel id 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/preview.mention-table.test.ts > every other mention kind in the preview > keeps a role mention in its form when the role id is a listed channel id
+AssertionError: expected '<span class="discord-visualizer__ment…' to be '<span class="discord-visualizer__ment…' // Object.is equality
+
+Expected: "<span class="discord-visualizer__mention">@&amp;111</span>"
+Received: "<span class="discord-visualizer__mention">general</span>"
+
+ ❯ src/utils/markdown/__tests__/preview.mention-table.test.ts:118:58
+    116|
+    117|   it('keeps a role mention in its form when the role id is a listed ch…
+    118|     expect(render('content', '<@&111>', LISTS.topLevel)).toBe(`${PILL}…
+       |                                                          ^
+    119|   });
+    120|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 77 passed (78)
+   Start at  21:58:10
+   Duration  758ms (transform 104ms, setup 0ms, import 283ms, tests 307ms, environment 0ms)
+
