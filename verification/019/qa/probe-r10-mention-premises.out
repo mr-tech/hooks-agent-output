@@ -1,0 +1,94 @@
+# Revision 10 re-key premises (QA, 2026-11-23T21:41:37Z); website reads by git show, no tree moved
+## 1 MENTION_KINDS, STATIC_MENTION_KINDS @7dcedc9 src/utils/markdown/engine.ts
+export const MENTION_KINDS = {
+  user: 'user',
+  channel: 'channel',
+  role: 'role',
+  game: 'game',
+  command: 'command',
+  everyone: 'everyone',
+  here: 'here',
+  static: 'static',
+} as const satisfies Record<MentionKind, string>;
+
+export const STATIC_MENTION_KINDS = {
+  home: 'home',
+  browse: 'browse',
+  customize: 'customize',
+  guide: 'guide',
+  linked_roles: 'linkedRoles',
+} as const satisfies Record<StaticMentionKind, string>;
+## 2 mention rules @5ec0621 src/utils/markdown/rules.tsx (match + react className)
+172:      return <span key={state.key} className='discord-visualizer__mention discord-visualizer__interactive'>{_node.content}</span>;
+181:      return <span key={state.key} className='discord-visualizer__mention'>{_node.content}</span>;
+190:      return <span key={state.key} className='discord-visualizer__mention'>{_node.content}</span>;
+219:      return <span key={state.key} className='discord-visualizer__mention discord-visualizer__interactive'>{_node.content}</span>;
+## 3 GuildProvider @5ec0621
+38:    throw new Error('Guild components must be wrapped in <Guild />');
+50:      wh.channel = channels?.find((c) => c.id === wh.channel_id);
+91:    staleTime: 5 * 60 * 1000,
+92:    refetchOnWindowFocus: false,
+105:    staleTime: 5 * 60 * 1000,
+106:    refetchOnWindowFocus: false,
+115:    () => channelsAndHooks ?? { channels: [], webhooks: [] },
+## 4 fetchChannels @5ec0621 src/utils/redis/index.ts
+async function fetchChannels(guildId: string) {
+  return getFromCache(
+    ['guild', guildId, 'channels'],
+    { expireSeconds: 10 },
+    async () => {
+      const [{ data: channels }, { data: { threads } }] = await Promise.all([
+        getApi().request<Channel[]>('GET', `/guilds/${guildId}/channels`),
+        getApi().request<{ threads: Array<Channel & { parent_id: string }> }>('GET', `/guilds/${guildId}/threads/active`),
+      ]);
+
+      const threadMap = new UpsertArrayMap<string, DiscordThread>();
+      for (const t of threads) {
+        if (t.name) {
+          threadMap.upsert(t.parent_id, { id: t.id, name: t.name });
+        }
+      }
+
+      const trimmedChannels: DiscordChannel[] = [];
+      for (const channel of channels) {
+        if (
+          channel.name
+          && (
+            TEXT_CHANNEL_TYPES.includes(channel.type)
+            || VOICE_CHANNEL_TYPES.includes(channel.type)
+          )
+        ) {
+          trimmedChannels.push({
+            id: channel.id,
+            name: channel.name,
+            type: channel.type,
+            threads: threadMap.get(channel.id) ?? [],
+          });
+        }
+      }
+
+      return trimmedChannels;
+## 5 Providers mount sites @5ec0621
+5ec0621:src/app/message/layout.tsx:3:import Providers from '../_components/Providers';
+5ec0621:src/app/message/layout.tsx:13:    <Providers>
+5ec0621:src/app/message/layout.tsx:20:    </Providers>
+## 6 preview renderer @93b26fd (M4 slice 1): mention case
+96:    case 'mention':
+101:      return sourceOf(node, ctx);
+119:    default: return sourceOf(node, ctx);
+123:export const renderLosslessTree = (tree: LosslessNode, source: string): ReactNode => (
+## 7 AN-3 capture: id count, name count
+4
+9
+## 8 .env.local REDISHOST locality (host class only, no value)
+remote
+## 9 hold-out baseline (CR-7 / R-30)
+f4060c5:src/components/SlateEditor/__tests__/helpers/blockLayerEdits.ts:1
+f4060c5:src/components/SlateEditor/__tests__/helpers/roundTripInputs.ts:4
+f4060c5:src/components/SlateEditor/__tests__/roundTripInputs.classes.test.ts:3
+f4060c5:src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:2
+f4060c5:src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:4
+exit=0
+## 10 listed channel types @5ec0621 src/constants/index.ts (0 text, 5 announcement, 15 forum; 2 voice, 13 stage; 4 category absent)
+27:export const TEXT_CHANNEL_TYPES: readonly ChannelType[] = [0, 5, 15] as const;
+28:export const VOICE_CHANNEL_TYPES: readonly ChannelType[] = [2, 13] as const;

@@ -5,8 +5,9 @@ UUID: 286c730a
 Verified-At: "af3d95a — repos=website; Phase 1 baseline only: the offline suite run at the chain base, no implementation exists yet"
 Status: Awaiting Implementation
 Status-Detail: >-
-  Phase 1 re-keyed on plan 019 Revision 9 (record 47348a6d), AC-4.7's delta only (effort rulings block 18:02Z). QAF-28 is
-  folded and closed. Nothing is open for QA in Phase 1. Implementation is not approved.
+  Phase 1 re-keyed on plan 019 Revision 10 (record 890d0b78), AC-4.4's delta (D-17). QAF-31 LOW is open for the planner;
+  nothing blocks M4's mention code from QA. Register row B-7 minted. Implementation of M2 to M6 started 18:49Z; Phase 2 on M2
+  is in its own document.
 Phase: 1
 ---
 
@@ -17,7 +18,7 @@ Phase: 1
 Written 2026-11-23T19:55 at a checkpoint steering asked for (350K, past the 325K threshold).
 
 - **Done.**
-  - Phase 1 on revisions 1 to 9, each re-key committed. Nothing is open in Phase 1.
+  - Phase 1 on revisions 1 to 10, each re-key committed. Revision 10 (§ Re-key on Revision 10) leaves QAF-31 LOW open.
   - Phase 2 on M2, in its own document, `qa/019-slate-formatting-discord-engine-m2-qa.md`. It was QA Failed at website `78c5f74`
     on QAF-29, record `0b00154b`. The refresh is QA Complete at `7dcedc9`, record `c699c85`. Plan rows R-26 and R-28.
 - **Next.**
@@ -38,8 +39,8 @@ Written 2026-11-23T19:55 at a checkpoint steering asked for (350K, past the 325K
 - **Evidence not recorded.** None.
 - **Questions out.** None.
 
-**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 9 (record
-`47348a6d`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
+**Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 10 (record
+`890d0b78`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
 § Re-key section says what moved.
 
 ## Changelog
@@ -55,6 +56,7 @@ Written 2026-11-23T19:55 at a checkpoint steering asked for (350K, past the 325K
 | 2026-11-23T17:56 | planner-019 (message: revision 7 at record `e0eb1e87`) | Re-key Phase 1 on revision 7 | Phase 1 re-key, read as the word diff from `946d4e54`. It confirmed the folds of QAF-24 and QAF-25 (closed), F-32, CF-13 option (a) and the heading-bit read, which agrees with P-Q14. It read the sibling `MarkdownTimestamp.tsx`, `Markdown.tsx` and `LoadLocale.tsx` at `af3d95a`, and ran the two CF-13 branches' literals and the dayjs locale resolution (P-Q18). It raises QAF-26 MEDIUM and QAF-27 LOW, and swept the register with no change. |
 | 2026-11-23T18:01 | planner-019 (message: revision 8 at record `7b419f5b`) | Re-key Phase 1 on revision 8 (AC-4.7 only) | Phase 1 re-key, read as the word diff from `e0eb1e87`. It confirmed QAF-26's folds (i) and (ii), (iii)'s resolved-locale reading, QAF-27 as a Planner batch limit, and D-16. A check of `src/utils/loadLocales.ts` at `af3d95a` found the site loads 29 dayjs locales, `ja` among them. So this document's P-Q18 premise that `ja-JP` is unloaded was wrong, and AC-4.7's `ja-JP` fixture took it. The corrected probe (P-Q19) gives `ja-JP` the same string under both readings. P-Q18 carries a dated reconcile, and QAF-28 MEDIUM (a severity floor, excepted from the cap) asks for `vi-VN` with `11/14/23, 10:13 PM`. |
 | 2026-11-23T18:05 | planner-019 (message: revision 9 at record `47348a6d`) | Re-key Phase 1 on revision 9 (AC-4.7's delta only, block 18:02Z) | Phase 1 re-key on AC-4.7's delta. It confirmed QAF-28's fold against P-Q19: the `vi-VN` tag, `11/14/23, 10:13 PM`, the tag mutant's `22:13 14/11/23`, the site's locale files loaded, and the tag supplied through react-aria. `cs-CZ` and `da-DK` are valid alternates (P-Q19). QAF-28 is closed, and there is no new finding. The register is swept, with no change. |
+| 2026-11-23T21:43 | planner-019 (message: revision 10 at record `890d0b78`) | Re-key Phase 1 on revision 10 (AC-4.4, D-17) | Phase 1 re-key, read as the delta from `47348a6d`. It ran the premises at the cited commits (P-Q20, `verification/019/qa/probe-r10-mention-premises.out`): `MENTION_KINDS`, the four mention rules' text and classes, `useGuild`'s throw, the list's caching and shape, and the mount sites. It re-keyed AC-4.4 as an oracle over 12 kinds × 5 list states, with coupling fixtures, NM-48 to NM-57 and NM-27 re-read. It minted B-7 for the human-observable form. The listed types include forums (15), against the Residue: QAF-31 LOW. Register swept; B-1 to B-6 cleared. |
 
 ## Reading
 
@@ -144,7 +146,7 @@ fetch the legacy one has no expected values, and it exits non-zero (AC-3.5).
 | AC-3.5 | the offline namespace (P-Q1c's form) | DNS failure, HTTP 5xx, a 200 with a changed page (a predicate matching 0 modules), two modules matching, a wasm hash mismatch (drift). Each is a distinct exit, and each names its cause. |
 | AC-4.2 | the link forms × emoji placements | Every form: bare, `<…>`, `<email>`, masked, masked with `<url>`, masked with a title. Every emoji placement: before, inside the target, inside the label, after. Punycoded hosts (P-1: `https://x.xn--y-bz3s/`). The href scheme guard (QAF-5). |
 | AC-4.3 | messages with k ≥ 1 timestamps. At the base, no preview timestamp test exists: the only test file holding `<t:` is `decorator.emphasis-syntax-ranges.test.ts` (`git grep -l "<t:" af3d95a -- 'src/**/__tests__/*'`). | **Two identical `<t:…>` strings** (QAF-7); `\<t:…>` escaped; an invalid style letter, which stays text (V-21); timestamps in a spoiler or a link label; read-only branches of the embed surfaces. |
-| AC-4.4 | 13 kinds (8 plus 5 static, AC-2.4's list) | An unknown id per kind (V-18 forms); `@silent` (legacy only, V-21). |
+| AC-4.4 | 13 kinds (8 plus 5 static, AC-2.4's list) | An unknown id per kind (V-18 forms); `@silent` (legacy only, V-21). 2026-11-23T21:43 reconcile (revision 10, D-17): superseded by § Re-key on Revision 10, 12 leaf kinds × 5 list states; the V-18 forms are now forbidden outputs. `@silent` stays as text. |
 | AC-4.5 | the module graph, as for AC-2.1 | A call through `interactiveParser` reached from a preview branch. |
 | AC-5.2 | every line × every split by an inline object | A split **inside** a delimiter run (`*🙂*`, `**🙂**`, `~~<@1>~~`); an emoji the engine recognises and the Slate lift does not, or the reverse (architect CF-2, read as a class only). |
 | AC-5.3 | 193 languages (P-Q6) plus the generator and the corpus | The 2 languages with zero-length scopes (S-03 record); ranges on `#` lines (S-04). |
@@ -240,7 +242,7 @@ Each line gives the behaviour, the wrong change, and the criterion it tests.
 - NM-24 Href: the scheme allow-list is removed. QAF-5.
 - NM-25 Oracle: fetched Discord assets are cached under the website tree. ISER E-6.
 - NM-26 Preview: `staticParserFor`'s pre-transform is still called on one preview path. AC-4.5.
-- NM-27 Mention: an unresolved kind renders empty. AC-4.4.
+- NM-27 Mention: an unresolved kind renders empty. AC-4.4. 2026-11-23T21:43 reconcile (revision 10): read as "a mention in any list state renders empty"; NM-48 to NM-57 added (§ Re-key on Revision 10).
 - NM-28 Oracle membership: the agree set is computed with the adapter's token map or masks. QAF-1, QAF-2. It is mutated by
   planting a wrong map entry: the case must stay in the asserted set and turn red.
 
@@ -873,6 +875,109 @@ Revision 9 (record `47348a6d`) was read as AC-4.7's delta from `fb162ef1` only, 
 No new finding. Register sweep: predicate, rows citing AC-4.7 or a timestamp. Members: none, so B-1 to B-6 are cleared. Rows
 inherited and not discharged: B-1 to B-6, all open.
 
+## Re-key on Revision 10
+
+Revision 10 (record `890d0b78`) was read as its delta from `47348a6d` (`git show 890d0b78`): AC-4.4, D-17, M4's Mirrors line,
+G-13's carriage line, the Owed re-verdicts row and the Planner batch row for block 21:18Z. Nothing else moved. The trigger is
+the M4 production round that opens on AC-4.4's moved criterion (M4's mention code is held for this pass). Premises were read by
+`git show` at the commits the plan cites, captured in `verification/019/qa/probe-r10-mention-premises.out` (P-Q20 below).
+
+### Premises of revision 10, run (P-Q20)
+
+| Plan claim | Read | Result |
+|---|---|---|
+| `MENTION_KINDS` is `user`, `channel`, `role`, `game`, `command`, `everyone`, `here`, `static`, with five `STATIC_MENTION_KINDS` (`website@7dcedc9 src/utils/markdown/engine.ts`) | § 1 | Holds: 8 keys, `static` carrying `home`, `browse`, `customize`, `guide`, `linked_roles`. So the table's input space is 12 leaf kinds. |
+| Today's form: `discordChannel`, `discordRole`, `discordUser`, `discordEveryone` render their capture in a `discord-visualizer__mention` span; no command rule (`website@5ec0621 rules.tsx`) | § 2 | Holds. Channel and user carry `discord-visualizer__mention discord-visualizer__interactive`; role and `@everyone`/`@here` carry `discord-visualizer__mention` alone. The user regex is `^<(@!?([0-9]+))>`, so `@!<id>` is today's form for `<@!id>`. |
+| `useGuild` throws outside the provider; the list is held 5 min, no refetch on focus; the server caches it 10 s | § 3, § 4 | Holds: `throw new Error('Guild components must be wrapped in <Guild />')`; `staleTime: 5 * 60 * 1000`, `refetchOnWindowFocus: false`; `expireSeconds: 10`. While loading or failed, `channels` is `[]` (`channelsAndHooks ?? { channels: [], webhooks: [] }`). |
+| The list is text and voice channels with names, each with its active threads | § 4, § 10 | Holds, with a correction the residue needs: `TEXT_CHANNEL_TYPES` is `[0, 5, 15]`, so **forum channels (15) and announcement channels (5) are on the list**, and an active forum post is attached to its forum's `threads`. Category (4) is absent. Each thread entry holds `{ id, name }` only. See QAF-31. |
+| `Providers` mounts only in `src/app/message/layout.tsx`; `/preview` is outside it | § 5 | Holds. |
+| The M4 preview renders mentions through no rule yet | § 6 | At `93b26fd` (M4 slice 1), `renderLosslessTree` sends `mention` to `sourceOf`, the source text, and takes no context. The lookup is still to be written, which matches the hold. |
+| `<#1574358729577599086>` is `slate-oracle-walk` | § 7 | AN-3's `an3-dom2.json` holds the id 4 times and the name beside Discord's rendered pill. That is Discord's capture, not this site's list. Whether a local build's list holds it is this pass's assumption (below). |
+
+### AC-4.4 re-keyed: the decision table, verified as an oracle over its whole input space
+
+This replaces the AC-4.4 rows of § Per-criterion population ("13 kinds … an unknown id per kind (V-18 forms)") and NM-27's
+"unresolved" reading. The V-18 forms (`@unknown-role`, `/ping`) are now outputs the criterion forbids, no longer expected values.
+
+**The input space.** The 12 leaf kinds × the list states the code can be in: (a) no provider in reach (`/preview`, or a surface
+mounted bare); (b) provider, empty list (loading, failed, signed out, no guild chosen: all reach the code as `[]`); (c) provider,
+list without the id; (d) provider, the id is a top-level channel; (e) provider, the id is only a thread under a listed channel.
+That is 60 cells. The channel row varies by state; the other 11 kinds are invariant across all five. Each cell's expected value
+is a literal written in the test (axiom E), never derived from `rules.tsx` or the lookup. The oracle iterates `MENTION_KINDS` and
+`STATIC_MENTION_KINDS` with a `satisfies Record<…>` expectation map, so a kind added to the engine fails to type-check until its
+row is written.
+
+**Each conjunct carries the decision alone in at least one fixture.**
+
+- *Kind is `channel`.* A role `<@&C>` and a user `<@C>` whose id `C` is a listed channel's id, in state (d): both keep today's
+  form. This is the coupling fixture: a lookup keyed on the id alone renders the channel's name there (NM-52).
+- *The id is on the list.* Two listed channels, the mention naming the second: the second's name (NM-49). State (c) with a
+  non-empty list: `#<id>` (NM-49, NM-50).
+- *Top-level or thread.* State (e), the id only in a channel's `threads`: the thread's name (NM-48). An active forum post under a
+  listed forum (type 15): its name (QAF-31's member).
+- *A list is in reach.* The same content in state (a) and state (d): `#<id>` and the name. State (a) is a real mount of
+  `/preview`'s page (the existing `src/app/preview/__tests__/page.invalid-data.test.tsx` harness is the pattern to extend) and
+  asserts the page rendered, not merely that no name appeared (NM-51).
+
+**Both directions per named sub-class.** For each row of the table: a member that resolves (a listed channel, a listed thread, a
+listed forum) and a member that does not (unlisted, empty list, no provider), at the granularity the code consumes, the rendered
+text and the pill's class list. A category id (type 4, absent from the list) is the unlisted member that looks most like a listed
+one.
+
+**The negative clause is a class, enumerated.** "No mention renders `unknown`, `@unknown-role` or `@unknown-user`": the oracle
+asserts over all 60 cells, and over the M3 generator's corpus rendered through the preview in states (a) and (c), that no
+rendered text node contains `unknown` (case-insensitive). Its positive control is NM-50 and NM-56, each seen red on it.
+
+**On every surface.** One state-(d) and one state-(a) fixture per preview surface (`Markdown.tsx`, `ContentBody`,
+`TextDisplayEditor`, `Embed`, `EmbedTitle`, `EmbedField`, the `DiscordContentEditor` read-only branch, `/preview`), so a surface
+the lookup is not wired into is red (NM-57, one mutant per surface).
+
+**Fixture realism (Iron Law 5).** The list a fixture supplies has `fetchChannels`' output shape at `website@5ec0621`:
+`{ id, name, type, threads: [{ id, name }] }`, with no field the list does not hold (threads carry no `parent_id` or `type`). It
+reaches the code through the same context `GuildProvider` provides, or the value type it holds; the implementer's document names
+which. A fixture that hands the renderer a resolved name directly measures the arithmetic, not the wiring, and does not count.
+
+**Residue, recorded, not blocking.** The name's staleness window (5 min client, 10 s server) has no test by design. Archived
+threads and categories render today's form. A thread under an unlisted parent renders today's form. These go to the
+known-differences list.
+
+**Human-observable form.** Minted as register row B-7.
+
+### Named mutants added (each seen red before its test counts; seeded at M4's Phase 2 sweep)
+
+- NM-48 Mention lookup: top-level channels only, threads ignored. AC-4.4 state (e).
+- NM-49 Mention lookup: returns the first listed channel whatever the id. AC-4.4 two-channel and state (c) fixtures.
+- NM-50 Mention lookup: an unlisted id renders `#unknown` (or `#deleted-channel`). AC-4.4 state (c) and the negative clause.
+- NM-51 Mention lookup: reads `useGuild()`, which throws outside the provider. AC-4.4 state (a) on `/preview`.
+- NM-52 Mention lookup: keyed on the id without the kind (coupling). AC-4.4's role and user fixtures with a listed channel's id.
+- NM-53 Resolved channel: name rendered without `#` (Discord's icon form). AC-4.4 state (d) text.
+- NM-54 Resolved channel: the pill loses `discord-visualizer__interactive`. AC-4.4 state (d) class list.
+- NM-55 User mention: `<@!id>` renders `@<id>`. AC-4.4's user row.
+- NM-56 Role mention: renders `@unknown-role` (the retired V-18 branch). AC-4.4's role row and the negative clause.
+- NM-57 Surface wiring: one surface gets no lookup (six to eight mutants, one per surface). AC-4.4 per-surface fixtures.
+- NM-27 is re-keyed: a mention in any state renders empty. AC-4.4, every cell.
+
+### New finding
+
+QAF-31 LOW Phase 1
+AC-4.4's Residue says "Forum, category and archived thread ids are not on the list and render today's form". At
+`website@5ec0621`, `fetchChannels` keeps channels whose type is in `TEXT_CHANNEL_TYPES` `[0, 5, 15]` or `VOICE_CHANNEL_TYPES`
+`[2, 13]` (`src/constants/index.ts`; P-Q20 § 10), so a forum channel (15) is on the list, and an active forum post is attached to
+its `threads`. By the table's first row, both render their name. The property: the Residue names only ids the list leaves out, so
+an implementer and QA read one expected value for a forum mention. If the implementer follows the Residue, either the lookup
+filters forums (a deviation from the table no criterion asks for) or a forum fixture asserts the id form and encodes a wrong
+expectation. Ask: strike "Forum" from the Residue (categories and archived threads stay). Until folded, Phase 2 reads the table's
+first row as authoritative: a listed forum and an active forum post render their names. Under the M4 cap (block 17:56Z) this is a
+stated-limit candidate for the Planner batch.
+
+### Register sweep (D-17 moved AC-4.4's premise)
+
+Predicate: rows citing AC-4.4, a mention, G-13 or `GuildProvider`. Members: none of B-1 to B-6 (B-4 cites the emoji picker, AC-6.3,
+whose usable-emoji limb D-17 left unchanged; checked and cleared). B-7 is minted for AC-4.4's human-observable form. Rows inherited
+and not discharged: B-1 to B-7, all open.
+
+Phase 1 is keyed to revision 10. Open for the planner: QAF-31 LOW. Nothing else blocks M4's mention code from QA's side.
+
 ## Blocking-condition register (the chain's one register)
 
 The register records state at the time of writing. Later stage documents (the UAT document, then the deployment record and its
@@ -888,6 +993,7 @@ Stage 1 handoff) are authoritative on each row's execution state.
 | B-4 | observable pre-release | AC-6.3: a guild emoji picked into content, code and quote lines keeps every character | Picker click on a local build signed in as a test account with access to the guild's emoji | UAT / owner | The analyst's provision read (AC-6.3, alongside AN-7) shows a local build can complete Discord sign-in. 2026-11-23T17:18 reconcile (revision 3): that read is AN-8's sign-in limb, before M4's approval, and the emoji element now has D-13's shape; otherwise a stated limit quoting that attempt, carried by handoff 5b19c3e4 item 1. 2026-11-23T17:51 reconcile (revision 6, AN-8 limb 3): the build first provisions a throwaway local Postgres, pushes the schema, and runs `ALTER SEQUENCE "Messages_id_seq" RESTART WITH 900000000000001` before any save. A database already holding low-numbered messages is recreated, not reused. The walk browses `http://127.0.0.1:3000`, never `localhost`. The UAT document records the id range the walk wrote, and that the database was stopped and removed on every exit path (`ps`). Limb dependency: the sign-in's code exchange is the only read of whether `.env.local`'s client secret is current. If the exchange fails, the row closes as the stated limit, quoting that attempt (handoff 5b19c3e4 item 1) | All characters kept; the emoji's text form inserted. Sign-in: the callback at `127.0.0.1:3000/api/auth/callback/discord` returns to the editor signed in as the test account, and the picker lists the test guild's emoji | If the picker path deletes text, users lose content on insert | uat | UAT document for 019 | open. 2026-11-23T16:32 re-key: earliest-decidable condition set to the provision read (revision 2). 2026-11-23T17:51 re-key: provision step and host set (revision 6). |
 | B-5 | post-deploy-observable | AC-4.2 in production (the plan's post-deploy observable; his report, D-2) | Stage browser on `hooks.gg/message/m/0/edit`: type `https://x.y🙂 [a](https://x.y/🙂)`, blur, read `main a[href]` (minted run, P-Q13) | devops at Stage 1, or QA / owner | Production serves a commit containing the release tip (the running-commit precondition: Vercel deployment commit contains the tip) | **Unfixed (measured at production, 16:00Z):** `https://x.y:slight_smile` and `https://x.y/:slight_smile:`. **Fixed:** no `:slight_smile` in either; hrefs equal the engine's `url` as in B-2. One observation refutes by construction. | If production still shows `:slight_smile`, the deploy did not carry the fix, or carried it to a commit not serving | devops creates the carrier; its reader is the carrier's Owning-Stage, never the Stage 1 session (F-15) | the Stage 1 handoff devops creates, `handoff/<name>.md` | open. 2026-11-23T16:32 re-key: the fixed form now also requires two anchors to exist (AC-4.2, revision 2), which B-5's read already returns. |
 | B-6 | observable pre-release | D-12: `pnpm test:discord` exits 0 at the release tip, and `pnpm test` exits 0 offline | The two commands; `pnpm test` under P-Q1's namespace | QA Phase 3 | the release tip assembled | Both exit 0; the drift alarm's hashes equal. 2026-11-23T17:18 reconcile (revision 3): `test:discord` now also holds AC-3.7 and AC-3.8. A C2 drift is reported, not failed, under the outcome table, and the row reads its outcome cause (C1 to C6) beside the exit code. QAF-18 bears on C2's reading. 2026-11-23T17:27 reconcile (revision 4): under C2, the native-box limbs run on the pinned wasm, or report "not comparable under drift" with both hashes and hold nothing. The row records which. | If either is skipped, the release ships unchecked against Discord, or with a suite that needs the network | qa (Phase 3) | the release-tip QA record | open |
+| B-7 | observable pre-release | AC-4.4 (D-17): a listed channel mention previews as its name; a role keeps its id; `/preview` keeps the id | Stage browser on a local production build of M4 with the mention code, signed in as the test account, guild `1566742402180456559` chosen. Type `<#1574358729577599086> <@&1>` into content; read the preview pill texts and class lists. Then the same content on `/preview`. | UAT through the stage browser / the owner | M4's mention code built locally; the local build completes Discord sign-in (B-4's provision read, AN-8's sign-in limb); the page's webhook channel picker lists the guild's channels (it reads the same `useGuild().channels`), read first | Signed in: `#slate-oracle-walk` in `discord-visualizer__mention discord-visualizer__interactive`, and `@&1` in `discord-visualizer__mention`. `/preview`: `#1574358729577599086`, page rendered. No text `unknown` anywhere. One observation refutes by construction. | If the signed-in preview still shows `#1574358729577599086`, the lookup is not wired to the list the page already holds, and his selection buys him nothing; if `/preview` errors, the lookup needs the provider (NM-51 escaped the suite) | uat | UAT document for 019 | open. Hazard, read this pass: the build's `fetchChannels` writes a 10 s cache entry to the `.env.local` Redis, a remote host whose identity is not established on this box (host class read only, P-Q20 § 8). The walk saves nothing; a build that also saves runs the workspace's local-build sequence first (as B-4). Not run at minting: no local build with the mention code exists. |
 
 Candidate held, not minted: a production preview image of a formatted message shows formatted text (E-4, RK-2). Its instrument is
 not established until AN-2 reports. It is minted at the re-key after AN-2 lands, or declined there with the reason.
@@ -900,6 +1006,8 @@ Rows inherited and not discharged: B-1 to B-6, all open (no implementation exist
 This pass assumes production `hooks.gg` serves website `af3d95a` (the release record's claim), and it does not test that. If the
 Vercel production deployment's commit is not `af3d95a`, B-5's "unfixed" reading is of another tree. **Owner: devops**, who reads
 the deployment's commit at Stage 1 before reading B-5.
+
+Revision 10 re-key: this pass assumes that the bot whose token a local build reads from `.env.local` is a member of the test guild `1566742402180456559`, so `fetchChannels` returns that guild's channels there, and that channel `1574358729577599086` is still on it as `slate-oracle-walk`; it does not test that, because using the token reads a credential this stage does not read. If false, the signed-in local preview shows `#<id>` for every channel and the webhook channel picker is empty, and B-7 reads a wiring failure that is really a provisioning one. **Owner: uat**, at B-7, which reads the channel picker before the mention.
 
 Re-key pass: this pass assumes EC-4's model-level drive costs about the same as a drive that reaches `onChange` (QAF-16), and it does
 not test that. If the drive the implementer names costs materially more per character than 1.12 ms, the projected 55 s understates
