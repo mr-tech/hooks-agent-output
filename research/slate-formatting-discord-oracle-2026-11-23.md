@@ -27,6 +27,7 @@ Status-Detail: >-
 | 2026-11-23T10:33 | researcher-slate-formatting-oracle | Resumed from the Resumption State (record commit `ef9c9dd4`) in a fresh session with the test-account browser; check (c) recorded as V-15 to V-17; H-1 and H-2 closed | Brief `steering/slate-formatting-oracle-brief-researcher-resume.md`. Nothing written before the resume was re-verified except what V-15 to V-17 test (H-1, H-2, and the build number of V-1, read again from the signed-in page). Check (c) ran 09:39Z to 09:40Z and was sent to `steering-hooks-fixer` before 09:45Z (message id `1f0a6563-4bbf-4bd8-977c-7dc0f9b8d99f`); this session then made no tool call from 09:45Z to 10:33Z (its turn had ended; the cache-warm wake restarted it), so this row and the findings were written 52 minutes after the result. The walk added channel `slate-oracle-walk` to the test server; `test-estate.json` updated in the same turn. |
 | 2026-11-23T10:54 | researcher-slate-formatting-oracle | Walk against real Discord recorded: V-18 to V-23 added; OQ-2, G-1, G-4, G-5 closed; G-11 to G-13 opened; § 3 rewritten as run; § 4 and Recommendations 1 and 2 revised; Resumption State rewritten; Short answer items 6 and 7 added | Of the pre-resume claims, the walk re-tested V-8's two probe artefacts and V-11's legacy text-box table (both borne out, V-18 and V-21) and V-2's "same switch for message and text box" for one account; no other earlier finding was re-run. One capture was redone: the first text-box pass carried a quote element from one case into the next, found when `>>>a` showed as a quote, and the quote cases were typed again with a check for an empty, class-less line (V-21). The first three text-box inputs went into the server search box, not the message box, and were removed without being submitted. A webhook was created and deleted in the walk channel; old scratch directories holding Discord's code and the website export were deleted. |
 | 2026-11-23T13:11 | researcher-slate-formatting-oracle | OQ-1 closed on the owner's selection; OQ-4 routed to the architect; G-11 recorded as a gap for the plan; § 4 and Recommendations brought into line | Effort rulings block "2026-11-23T13:09Z" (record commit `ab4dbaea`), read whole at this write, at `steering-hooks-fixer`'s message. G-11 was offered to this session if it could reach test account 2's profile; its browser holds test account 1's only, so the read was not made. Not closed: the Close Procedure wants a carrier outside this document for the items owed to the effort, and no plan exists yet (Status-Detail). Citation corrected in the body: the ruling that Discord's code may run as a test oracle is rulings block "2026-11-23T09:17Z", which § Context and the § 1 table had cited as "09:18Z" (the scoping block after it); `grep -n "09:18Z"` gave three body hits before, and after it gives one, the range "09:07Z to 09:18Z" in § Context, which is right as a range. The 09:32 row above keeps its wording. |
+| 2026-11-23T15:25 | researcher-slate-formatting-oracle | OQ-4 closed on the owner's selection; § 4 gains what it changes for the oracle | Effort rulings block "2026-11-23T15:23Z" (record commit `5d7fbf5e`), read whole at this write, at `steering-hooks-fixer`'s message. The architect's findings document is named from that block and was not read here. Still Active on the plan's first commit (Status-Detail). |
 
 ## Resumption State
 
@@ -40,7 +41,8 @@ rendered DOM, and the text box.
 
 **Next acts.** One, on a cue: close this document as Answered once the effort's plan is committed
 and carries or declines the items owed to it (OQ-3 with G-3, G-8, G-9, G-11, G-13). OQ-1 is
-answered; OQ-4 is with `architect-slate-formatting-preview`.
+answered and so is OQ-4 (Open questions). `planner-slate-formatting` is spawned and its brief names
+the five items; `steering-hooks-fixer` cues this session when the plan is first committed.
 
 **Approach in flight.** None.
 
@@ -605,6 +607,19 @@ stores (V-18). Both parsers are therefore needed in every run that asserts again
 legacy one fetched at test time as his 09:17Z ruling allows, and a run that cannot fetch it has no
 expected values to assert. The disagreeing cases (Appendix A) become the known-differences list.
 
+**What his second answer changes** (OQ-4, 2026-11-23T15:23Z: the site uses the published parser).
+Once the site's preview and editor are built on `@discord/markdown-wasm`, that package stops being
+an independent oracle for the tree: a test that compares the site's parse with the same package's
+parse computes its expected value with the code under test (the workspace's test axiom E). What
+stays independent of the site is the legacy parser fetched at test time and the rendered-DOM walk
+of § 3. What the site adds on top of the package is what a fuzzer can still get wrong, and none of
+it is covered by anything run here: the step from the tree to rendered elements, the mapping from
+`parseLossless` tokens to editor colouring, which syntax mask each surface passes, and the round
+trip between Slate nodes and stored text. The 32 stored cases on which the published parser differs
+from what the test account sees (V-18) become, on the site, visible differences from that
+account's Discord. This paragraph states consequences for the oracle only; how the plan answers
+them is the planner's.
+
 - **Primary: `@discord/markdown-wasm`, exact version pinned, as a development dependency.** `parse`
   for the preview's tree; `parseLossless` for the editor's marker and style ranges. Runs in the
   existing vitest Node project with no browser. No licence question (MIT).
@@ -670,7 +685,7 @@ Known gaps of this arrangement:
 | OQ-1 | ANSWERED — the owner chose "match only where both agree"; the disagreeing cases are listed as known differences. Effort rulings `steering/fixer-queue-2026-11-21-rulings.md`, block "2026-11-23T13:09Z". § 4 states what it changes. | | |
 | OQ-2 | ANSWERED — the test account is served the legacy parser, and rendered Discord equals the legacy parser's tree on the whole corpus, for the message and in the text box's styling. V-15, V-18, V-21. The native parser has not been seen rendered (G-11). | | |
 | OQ-3 | Which parser and which syntax set does Discord use for embed description, embed title, field name, field value, footer and Components V2 text? | Analyst or the effort's first stage | Fetch the lazy chunks, read the embed renderer; or read the DOM of posted embeds in the walk. |
-| OQ-4 | Should the product adopt Discord's published parser for its preview instead of testing its own rules against it? The licence allows it; `@discord/markdown-react` exists for the rendering step. | Architect, then the owner | ROUTED on the owner's selection "architect looks first" (same rulings block): `architect-slate-formatting-preview`, brief `steering/slate-formatting-preview-brief-architect.md`. Its recommendation goes to him before the planner sizes the work. |
+| OQ-4 | ANSWERED — the owner chose "use Discord's formatter": the published parser drives the site's preview and the editor's colouring, and the old one stays in tests only. Effort rulings `steering/fixer-queue-2026-11-21-rulings.md`, block "2026-11-23T15:23Z", on the architect's findings `architecture/slate-formatting-preview-architecture-findings.md`. § 4 states what it changes for the oracle. | | |
 | OQ-5 | Which constructs does each independent third-party client implement, and does any format in its text box? | Retired 2026-11-23 | The owner's selection "Agent: leave them not done" (effort rulings block "2026-11-23T09:32Z"): the per-client checks stay not done and third-party clients are a footnote. |
 
 ## Remaining gaps
@@ -721,7 +736,7 @@ corpus and carry no account data beyond resolved names.
 1. Done: OQ-1 was put to the owner and answered (Open questions).
 2. The § 3 walk has been run once (V-15 to V-23). What it could not reach is in G-11 and G-13; the
    cheapest next read is three discriminating cases from `slate-oracle-walk` as test account 2.
-3. Done: OQ-4 is with the architect on the owner's selection (Open questions).
+3. Done: OQ-4 went to the architect and the owner answered it (Open questions).
 4. Next: the planner, after the architect's recommendation has been to the owner (it mints the
    effort's ID and cites this document by name). The plan should carry or decline, by name, the
    items this document leaves to the effort: OQ-3 with G-3 (embed and Components V2 rule sets), G-8
