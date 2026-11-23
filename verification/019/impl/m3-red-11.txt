@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |discord-node| src/utils/markdown/__tests__/discord/discordBoxes.oracle-controls.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |discord-node| src/utils/markdown/__tests__/discord/discordBoxes.oracle-controls.test.ts [ src/utils/markdown/__tests__/discord/discordBoxes.oracle-controls.test.ts ]
+Error: Cannot find module '../helpers/discordBoxes' imported from /usr/local/bin/hooks/website/src/utils/markdown/__tests__/discord/discordBoxes.oracle-controls.test.ts
+ ❯ src/utils/markdown/__tests__/discord/discordBoxes.oracle-controls.test.ts:7:1
+      5| import { TYPED_CASES } from '../helpers/discordInputs';
+      6| import { openLive, type Live } from '../helpers/discordLive';
+      7| import {
+       | ^
+      8|   legacyBox, nativeBox, openBoxes, type BoxEntry,
+      9| } from '../helpers/discordBoxes';
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  20:03:28
+   Duration  871ms (transform 117ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+

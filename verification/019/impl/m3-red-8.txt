@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/visibleForm.controls.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/visibleForm.controls.test.ts [ src/utils/markdown/__tests__/visibleForm.controls.test.ts ]
+Error: Cannot find module './helpers/visibleForm' imported from /usr/local/bin/hooks/website/src/utils/markdown/__tests__/visibleForm.controls.test.ts
+ ❯ src/utils/markdown/__tests__/visibleForm.controls.test.ts:4:1
+      2|
+      3| import { nativeParse } from './helpers/discordOracle';
+      4| import { visibleDifferences, visibleFromLegacy, visibleFromNative } fr…
+       | ^
+      5|
+      6| const n = (text: string) => visibleFromNative(nativeParse(text));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  19:56:34
+   Duration  220ms (transform 42ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+

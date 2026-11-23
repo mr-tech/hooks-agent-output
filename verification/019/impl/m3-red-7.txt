@@ -1,0 +1,26 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/discordInputs.lifted-data.test.ts (4 tests | 1 failed) 8ms
+     × holds a frozen legacy tree under the webhook state for every corpus input and every link input 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordInputs.lifted-data.test.ts > the inputs lifted from the research and the analysis > holds a frozen legacy tree under the webhook state for every corpus input and every link input
+TypeError: Cannot read properties of undefined (reading 'corpus')
+ ❯ src/utils/markdown/__tests__/discordInputs.lifted-data.test.ts:32:33
+     30|
+     31|   it('holds a frozen legacy tree under the webhook state for every cor…
+     32|     expect(LEGACY_TREES_WEBHOOK.corpus.map((t) => t.id)).toEqual(CORPU…
+       |                                 ^
+     33|     expect(LEGACY_TREES_WEBHOOK.links.map((t) => t.text)).toEqual([...…
+     34|     const withEmojiLabel = (nodes: unknown): boolean => Array.isArray(…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  19:55:06
+   Duration  217ms (transform 51ms, setup 0ms, import 70ms, tests 8ms, environment 0ms)
+

@@ -1,0 +1,80 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |discord-node| src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts (7 tests | 2 failed) 3014ms
+     × re-derives every frozen webhook-state tree, corpus and link inputs, naming both values where one departs 102ms
+     × differs from the probe state on the inputs whose link label holds an emoji, and on no other corpus or link input 84ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |discord-node| src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts > the webhook parse state > re-derives every frozen webhook-state tree, corpus and link inputs, naming both values where one departs
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "frozen": [
++       {
++         "content": [
++           {
++             "name": ":slight_smile:",
++             "src": "/assets/0424e06a82d250e2.svg",
++             "surrogate": "🙂",
++             "type": "emoji",
++           },
++         ],
++         "target": "https://x.y/",
++         "title": "",
++         "type": "link",
++       },
++     ],
++     "input": "[🙂](https://x.y)",
++     "live": [
++       {
++         "content": "[🙂](https://x.y)",
++         "type": "text",
++       },
++     ],
++   },
++ ]
+
+ ❯ src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts:58:22
+     56|       }),
+     57|     ];
+     58|     expect(departed).toEqual([]);
+       |                      ^
+     59|   });
+     60|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |discord-node| src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts > the webhook parse state > differs from the probe state on the inputs whose link label holds an emoji, and on no other corpus or link input
+AssertionError: expected [] to deeply equal [ '[🙂](https://x.y)' ]
+
+- Expected
++ Received
+
+- [
+-   "[🙂](https://x.y)",
+- ]
++ []
+
+ ❯ src/utils/markdown/__tests__/discord/discordLive.oracle-controls.test.ts:66:23
+     64|       JSON.stringify(legacyParse(live, text, LEGACY_STATE_PROBE)) !== …
+     65|     ));
+     66|     expect(differing).toEqual(['[🙂](https://x.y)']);
+       |                       ^
+     67|   });
+     68| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 5 passed (7)
+   Start at  19:55:37
+   Duration  4.00s (transform 149ms, setup 0ms, import 829ms, tests 3.01s, environment 0ms)
+

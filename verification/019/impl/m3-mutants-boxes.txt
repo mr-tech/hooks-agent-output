@@ -1,0 +1,19 @@
+== native box mask is bold-less
+     × gives one block per line, each entry naming the text at its start in that line 279ms
+     × marks the delimiters of bold as syntax and the text between as bold 4ms
+     × styles a run across a line break: the second line of an open italic is italic 3ms
+     × styles the label of a masked link as a link and its destination as syntax 1ms
+     × run through both boxes without an error, every entry naming the text at its start in its line 123ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  5 failed | 4 passed (9)
+== native box takes one element for the whole text
+     × gives one block per line, each entry naming the text at its start in that line 218ms
+     × styles a run across a line break: the second line of an open italic is italic 2ms
+     × run through both boxes without an error, every entry naming the text at its start in its line 109ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  3 failed | 6 passed (9)
+== legacy box takes the whole text as one line
+     × styles each line alone: the second line of an open italic is not italic 7ms
+     × run through both boxes without an error, every entry naming the text at its start in its line 120ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  2 failed | 7 passed (9)

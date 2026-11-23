@@ -1,0 +1,28 @@
+== field value allows heading
+     × draws a heading in an embed description and in a V2 text display, and as text in a field value and a title 897ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  1 failed | 6 passed (7)
+== title with no url calls the url variant
+     × draws a masked link in a title with no embed url, and as text where the embed has a url 3ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  1 failed | 6 passed (7)
+== v2 text display draws like a field value
+     × draws a heading in an embed description and in a V2 text display, and as text in a field value and a title 618ms
+     × draws the same tree for a description and for a V2 text display as for content, over the 272 corpus 136ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  2 failed | 5 passed (7)
+== no list in the rich state
+     × draws a list in a description and a field value, and as text in a title 3ms
+     × draws the same tree for a description and for a V2 text display as for content, over the 272 corpus 119ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  2 failed | 5 passed (7)
+== equivalent edit (control for the driver)
+      Tests  7 passed (7)
+== combine id reads the rules var
+     × reads the rich-text rule set's two modules from the facade module's own source 5ms
+     × draws a heading in an embed description and in a V2 text display, and as text in a field value and a title 591ms
+     × draws a list in a description and a field value, and as text in a title 1ms
+     × draws a masked link in a title with no embed url, and as text where the embed has a url 1ms
+     × draws the same tree for a description and for a V2 text display as for content, over the 272 corpus 2ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  5 failed | 2 passed (7)

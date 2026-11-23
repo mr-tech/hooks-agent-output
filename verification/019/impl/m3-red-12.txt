@@ -1,0 +1,39 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/discordInputs.lifted-data.test.ts (6 tests | 2 failed) 11ms
+     × holds the native text box's frozen output for every corpus input and every typed case, each entry placed in its line 3ms
+     × holds, for bold text, the delimiter as syntax and the text as strong 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordInputs.lifted-data.test.ts > the inputs lifted from the research and the analysis > holds the native text box's frozen output for every corpus input and every typed case, each entry placed in its line
+TypeError: Cannot read properties of undefined (reading 'map')
+ ❯ src/utils/markdown/__tests__/discordInputs.lifted-data.test.ts:43:36
+     41|
+     42|   it('holds the native text box\'s frozen output for every corpus inpu…
+     43|     const keys = NATIVE_BOX_FROZEN.map((f) => f.key);
+       |                                    ^
+     44|     const wanted = [...CORPUS.map((c) => c.id), ...TYPED_CASES.map((t)…
+     45|     expect([...keys].sort()).toEqual([...wanted].sort());
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordInputs.lifted-data.test.ts > the inputs lifted from the research and the analysis > holds, for bold text, the delimiter as syntax and the text as strong
+TypeError: Cannot read properties of undefined (reading 'find')
+ ❯ src/utils/markdown/__tests__/discordInputs.lifted-data.test.ts:54:36
+     52|
+     53|   it('holds, for bold text, the delimiter as syntax and the text as st…
+     54|     const bold = NATIVE_BOX_FROZEN.find((f) => f.text === '**bold**');
+       |                                    ^
+     55|     expect(bold?.blocks[0]).toEqual([
+     56|       { text: '**', start: 0, attributes: ['syntaxBefore', 'before_str…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 4 passed (6)
+   Start at  20:05:34
+   Duration  273ms (transform 88ms, setup 0ms, import 113ms, tests 11ms, environment 0ms)
+

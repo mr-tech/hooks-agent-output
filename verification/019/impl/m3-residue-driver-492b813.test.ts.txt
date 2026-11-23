@@ -1,0 +1,51 @@
+import { writeFileSync } from 'node:fs';
+import { it } from 'vitest';
+
+import { CORPUS, LINK_INPUTS } from '../helpers/discordInputs';
+import { openLive } from '../helpers/discordLive';
+import { nativeSurfaceParse } from '../helpers/discordOracle';
+import { LEGACY_SURFACES, legacySurfaceParse, type LegacySurface } from '../helpers/discordSurfaces';
+import { generateInputs } from '../helpers/markdownGenerator';
+import { visibleDifferences } from '../helpers/visibleForm';
+
+it('residue', async () => {
+  const live = await openLive();
+  const inputs = [
+    ...CORPUS.map((c) => ({ src: `corpus:${c.id}`, text: c.text })),
+    ...LINK_INPUTS.map((t, i) => ({ src: `link:${i}`, text: t })),
+    ...generateInputs(20261123, 2000).map((g, i) => ({ src: `gen:${i}`, text: g.text })),
+  ];
+  const differs = (surface: LegacySurface, text: string) => {
+    try {
+      return visibleDifferences(nativeSurfaceParse(surface, text), 'native', legacySurfaceParse(live, surface, text), 'legacy').length > 0;
+    } catch { return false; }
+  };
+  const shrink = (surface: LegacySurface, text: string) => {
+    let cur = [...text];
+    let n = 2;
+    while (cur.length >= 2) {
+      const size = Math.ceil(cur.length / n);
+      let reduced = false;
+      for (let i = 0; i < cur.length; i += size) {
+        const cand = [...cur.slice(0, i), ...cur.slice(i + size)];
+        if (cand.length > 0 && differs(surface, cand.join(''))) { cur = cand; n = Math.max(n - 1, 2); reduced = true; break; }
+      }
+      if (!reduced) { if (n >= cur.length) break; n = Math.min(n * 2, cur.length); }
+    }
+    return cur.join('');
+  };
+  const out: Record<string, { n: number; count: number; classes: Record<string, string[]> }> = {};
+  for (const surface of LEGACY_SURFACES) {
+    const classes: Record<string, string[]> = {};
+    let count = 0;
+    for (const input of inputs) {
+      if (differs(surface, input.text)) {
+        count += 1;
+        const min = shrink(surface, input.text);
+        (classes[min] ??= []).push(input.src);
+      }
+    }
+    out[surface] = { n: inputs.length, count, classes };
+  }
+  writeFileSync(process.env.DRIVER_OUT!, JSON.stringify(out));
+}, 1_200_000);
