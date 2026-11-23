@@ -551,3 +551,19 @@ is in this thread's docket (`~/.claude/projects/-usr-local-bin-hooks/memory/dock
 `code-reviewer-fix-normalize-fence-loop` (review of `d3b98cf`), `fixer-fix-normalize-fence-loop` (idle, waiting on review) and
 `researcher-slate-formatting-oracle`. No cache-warm wake was armed in this session (`CronList`). This thread started no process to stop
 (`pstree`).
+
+## 2026-11-23T09:26Z — two Slate research questions put to him (plain message; the fence-loop review can still move)
+
+`researcher-slate-formatting-oracle` by message (09:2xZ) sent two items it marked as needing him. The research continues on both.
+- **Third-party client sweep:** the per-client checks were not completed for 25 of the 26 cloned clients. Options: *Agent: leave it
+  not done, third-party clients kept as a footnote* (recommended) / *You: tell the researcher to finish it, and how*.
+- **Real-Discord check** (the extracted parsers against Discord's rendered messages on the test server, the text box while typing,
+  which parser the test account is served). The researcher's session has no browser. Options: *Agent: record it as not done in the
+  research and make it a test-strategy item for the planned chain's QA, whose sessions carry the browser* (recommended) / *You: start
+  the researcher again with the browser turned on* / *Agent: drop the check*.
+Premises, read this turn: the researcher's launch command line (`/proc/3190755/cmdline`) carries no browser or MCP config; the
+test-account browser grant exists (`~/.claude/state/discord-test-browser.granted`, 2026-11-08); the discord-test-browser skill says
+the browser loads only in sessions launched with `--browser` and in qa/uat; `launch` is not on this shell's PATH (`command -v launch`,
+empty). The researcher's claim that Discord serves two parsers, chosen by experiment, is unread (its document is not yet committed). No
+refutation helper was run: neither question rests on a defect or a probe result.
+Disclosure: this block's first write went through the shell and the record-write gate refused it; re-issued with the Edit tool.
