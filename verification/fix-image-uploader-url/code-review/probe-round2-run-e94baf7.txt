@@ -1,0 +1,62 @@
+
+ RUN  v4.1.2 /tmp/claude-1000/-usr-local-bin-hooks-website/d6fa4596-1476-4c4b-88f5-2ac9bc277a63/scratchpad/ex-e94baf7
+
+ ❯ |dom| src/components/__tests__/ImageUploader.review-probe2.test.tsx (5 tests | 3 failed) 318ms
+     × P5 a saved image replaced while the dialog is open replaces the typed box and drops its pending check 111ms
+     × P6 a replaced saved image equal to an address that failed here shows the error and refuses Save 63ms
+     × P7 a replaced saved image that fails its check on reopen shows the error and refuses Save 44ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.review-probe2.test.tsx > review probe round 2 > P5 a saved image replaced while the dialog is open replaces the typed box and drops its pending check
+AssertionError: expected 'https://example.com/y.png' to be 'https://example.com/z.png' // Object.is equality
+
+Expected: "https://example.com/z.png"
+Received: "https://example.com/y.png"
+
+ ❯ src/components/__tests__/ImageUploader.review-probe2.test.tsx:137:25
+    135|     replace();
+    136|     await act(async () => {});
+    137|     expect(box().value).toBe(URL_Z);
+       |                         ^
+    138|     await settle(URL_Y, true);
+    139|     expect(box().value).toBe(URL_Z);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.review-probe2.test.tsx > review probe round 2 > P6 a replaced saved image equal to an address that failed here shows the error and refuses Save
+AssertionError: expected 'https://example.com/x.png' to be 'https://example.com/z.png' // Object.is equality
+
+Expected: "https://example.com/z.png"
+Received: "https://example.com/x.png"
+
+ ❯ src/components/__tests__/ImageUploader.review-probe2.test.tsx:151:25
+    149|     replace();
+    150|     await reopen();
+    151|     expect(box().value).toBe(URL_Z);
+       |                         ^
+    152|     expect(dialog().textContent).toContain('Image not found.');
+    153|     expect(button('Save').disabled).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  |dom| src/components/__tests__/ImageUploader.review-probe2.test.tsx > review probe round 2 > P7 a replaced saved image that fails its check on reopen shows the error and refuses Save
+AssertionError: no pending load of https://example.com/z.png: expected 0 to be greater than 0
+ ❯ settle src/components/__tests__/ImageUploader.review-probe2.test.tsx:40:56
+     38| async function settle(url: string, loads: boolean) {
+     39|   const matching = pending.filter((i) => i.url === url);
+     40|   expect(matching.length, `no pending load of ${url}`).toBeGreaterThan…
+       |                                                        ^
+     41|   matching.forEach((i) => pending.splice(pending.indexOf(i), 1));
+     42|   await act(async () => {
+ ❯ src/components/__tests__/ImageUploader.review-probe2.test.tsx:162:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 2 passed (5)
+   Start at  17:32:17
+   Duration  1.95s (transform 233ms, setup 23ms, import 825ms, tests 318ms, environment 658ms)
+
+exit 1
