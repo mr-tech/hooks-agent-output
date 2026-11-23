@@ -771,3 +771,13 @@ Resumption State is in this thread's docket (`~/.claude/projects/-usr-local-bin-
 - 9e at `5ec0621`: `qa-fix-image-uploader-url` is on the Phase 2 re-run, with devops next on a PASS.
 - Plan 019 Rev 9 (`47348a6d`) is APPROVED by all three gates. Its implementation waits on the website tree after 9e's release.
 - Plan 019's planner and critic are cleared; devops-019 and the researcher are stopped.
+
+## 2026-11-23T18:30Z — resumed after the clear; standing-rulings file written
+
+Resumed from the docket at the coordinator's message. `devops-fix-image-uploader-url` was live and busy on Stage 1 (pane read 18:27Z),
+so nothing was spawned. Standing check `26bc9fe2` (18:46Z) was in CronList.
+This log is past 40 KB (`wc -c`: 74,692) and had no declarative companion, which steering.md (Continuity) requires.
+`steering/fixer-queue-2026-11-21-standing.md` (`ac77be3`) was drafted by a `general-purpose-sonnet` helper from the whole log. This thread
+checked that all 36 cited headings are present (`grep -qxF` per heading), corrected the commission's `/clear` limb to "in force", and left
+the 07:06 folder-trust request unsettled. **This thread's error:** it placed that file with `cp`, a shell copy, instead of Write, against
+the record-write rule in its docket. The content is the reviewed draft, unchanged.
