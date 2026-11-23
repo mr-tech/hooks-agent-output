@@ -28,26 +28,52 @@ Status-Detail: >-
 | 2026-11-23T10:54 | researcher-slate-formatting-oracle | Walk against real Discord recorded: V-18 to V-23 added; OQ-2, G-1, G-4, G-5 closed; G-11 to G-13 opened; § 3 rewritten as run; § 4 and Recommendations 1 and 2 revised; Resumption State rewritten; Short answer items 6 and 7 added | Of the pre-resume claims, the walk re-tested V-8's two probe artefacts and V-11's legacy text-box table (both borne out, V-18 and V-21) and V-2's "same switch for message and text box" for one account; no other earlier finding was re-run. One capture was redone: the first text-box pass carried a quote element from one case into the next, found when `>>>a` showed as a quote, and the quote cases were typed again with a check for an empty, class-less line (V-21). The first three text-box inputs went into the server search box, not the message box, and were removed without being submitted. A webhook was created and deleted in the walk channel; old scratch directories holding Discord's code and the website export were deleted. |
 | 2026-11-23T13:11 | researcher-slate-formatting-oracle | OQ-1 closed on the owner's selection; OQ-4 routed to the architect; G-11 recorded as a gap for the plan; § 4 and Recommendations brought into line | Effort rulings block "2026-11-23T13:09Z" (record commit `ab4dbaea`), read whole at this write, at `steering-hooks-fixer`'s message. G-11 was offered to this session if it could reach test account 2's profile; its browser holds test account 1's only, so the read was not made. Not closed: the Close Procedure wants a carrier outside this document for the items owed to the effort, and no plan exists yet (Status-Detail). Citation corrected in the body: the ruling that Discord's code may run as a test oracle is rulings block "2026-11-23T09:17Z", which § Context and the § 1 table had cited as "09:18Z" (the scoping block after it); `grep -n "09:18Z"` gave three body hits before, and after it gives one, the range "09:07Z to 09:18Z" in § Context, which is right as a range. The 09:32 row above keeps its wording. |
 | 2026-11-23T15:25 | researcher-slate-formatting-oracle | OQ-4 closed on the owner's selection; § 4 gains what it changes for the oracle | Effort rulings block "2026-11-23T15:23Z" (record commit `5d7fbf5e`), read whole at this write, at `steering-hooks-fixer`'s message. The architect's findings document is named from that block and was not read here. Still Active on the plan's first commit (Status-Detail). |
+| 2026-11-23T15:26 | researcher-slate-formatting-oracle | Checkpoint at steering's ask; Resumption State rewritten | The one next act is the close, on steering's cue. Cache-warm wake deleted at this checkpoint. |
 
 ## Resumption State
 
-Rewritten 2026-11-23 at the end of the resumed run. The next acts the 09:35Z checkpoint listed (the
-three test-server checks) are done and recorded as V-15 to V-23; the checkpoint's own text is in
-record commit `ef9c9dd4`.
+Written 2026-11-23T15:26Z at `steering-hooks-fixer`'s `/checkpoint`. The session is cleared after
+this commit; its next turn comes on steering's cue. The 09:35Z checkpoint's text is in record commit
+`ef9c9dd4`.
 
-**Done.** Everything in § Findings through § Appendix B, and the walk against real Discord: which
-parser the test account is served, the whole corpus as bot posts and as webhook posts against the
-rendered DOM, and the text box.
+**Done.** Everything in § Findings through § Appendix B; the walk against real Discord (V-15 to
+V-23); OQ-1 and OQ-4 closed from the owner's selections; OQ-2, G-1, G-4, G-5 closed. The document
+was delivered to `steering-hooks-fixer` (message id `97108655-88a6-431f-b7c5-56b539f04a75`)
+and `planner-slate-formatting` was told at 15:25Z that § 4 and Recommendations item 4 moved after
+its spawn.
 
-**Next acts.** One, on a cue: close this document as Answered once the effort's plan is committed
-and carries or declines the items owed to it (OQ-3 with G-3, G-8, G-9, G-11, G-13). OQ-1 is
-answered and so is OQ-4 (Open questions). `planner-slate-formatting` is spawned and its brief names
-the five items; `steering-hooks-fixer` cues this session when the plan is first committed.
+**Next act, one, on steering's cue that the Slate effort's plan is first committed.** Close this
+document:
+1. Read the plan under `planning/` (no Slate plan existed at this checkpoint: `ls planning` had no
+   such file) and find, for each of the five items this document leaves to the effort, the row that
+   carries or declines it: OQ-3 with G-3 (embed and Components V2 rule sets), G-8 (module-id
+   stability), G-9 (the editor and embed rule sets against the oracle), G-11 (the published parser
+   seen rendered, by test account 2), G-13 (real role, command and usable-emoji ids).
+2. An item the plan neither carries nor declines blocks the close: send it to `steering-hooks-fixer`
+   and hold. Otherwise name each item's carrier by path in the Open questions and Remaining gaps
+   rows.
+3. Close per `document-lifecycle/references/documents.md` § Close Procedure: `Status: Answered`,
+   `Status-Detail` reconciled, this Resumption State replaced by one closing line, the changelog row
+   `Document closed`, then move the file to `research/closed/`, commit by pathspec, and run
+   `node tools/check-repo.js` from the record root.
 
-**Approach in flight.** None.
+**Approach in flight.** None. Nothing is mid-edit and no run is in progress.
 
-**Refs.** Record repository `master`. Website read at `origin/master` `0411d3b`; the shared website
-tree was not touched.
+**Refs.** Record repository `agent-output`, branch `master`, HEAD `b668ea1d` before this
+checkpoint's commit; this document's last commit before it is the same. Website read at
+`origin/master` `0411d3b`; the shared website tree was not touched.
+
+**Uncommitted or locally mutated.** One entry of this session's in `agent-output/INBOX.md` (headed
+"2026-11-23 — researcher-slate-formatting-oracle — FYI"), left for the record's owning session to
+commit, as the inbox's rule has it. Outside any repository:
+`~/.claude/skills/discord-test-browser/test-estate.json` carries the `slate-oracle-walk` channel
+entry this session added. Nothing else.
+
+**Evidence run but not recorded.** None; every figure in this document has its output under the
+two scratch directories named in § Scratch instruments.
+
+**Processes.** None of this session's work is running; the browser was closed at 10:55Z and its
+profile's cache directories emptied.
 
 **Left on the test server.** Channel `slate-oracle-walk` (id `1574358729577599086`) in guild
 `1566742402180456559`, holding the corpus as 278 bot messages and 272 webhook messages, kept so a
@@ -57,9 +83,11 @@ channel.
 
 **Scratch.** § Scratch instruments lists what was kept and what was deleted.
 
-**Questions sent, and to whom.** To `steering-hooks-fixer`: OQ-1 and OQ-4 (before the checkpoint),
-the check (c) result (between 09:40Z and 09:45Z, for OQ-1), and this document's path at delivery. Nothing was put to
-the owner directly.
+**Questions sent, and to whom.** To `steering-hooks-fixer`: OQ-1 and OQ-4 (both since answered by
+the owner through it), the check (c) result, this document's path at delivery, and the ask to be
+cued when the plan is first committed (message id `8aa7050f-dc74-4ac0-a92e-e1d5b0ddb390`), which it
+accepted in its message carrying rulings block "2026-11-23T15:23Z". None is awaiting an answer.
+Nothing was put to the owner directly.
 
 **Standing bounds.** Test server only; nothing to any other server, DM or person. Discord's code is
 fetched from public assets, never committed, never shipped. The search over the cloned clients is not
