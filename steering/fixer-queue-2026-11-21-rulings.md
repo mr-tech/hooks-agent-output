@@ -481,3 +481,13 @@ formatting behaviour, and the effort expects many defects, so a hand-picked case
 determination: the fuzzer needs an oracle for "what Discord does". Candidates are Discord's rendering read on the agents' own test server
 (guild `1566742402180456559`, his "Outbound messages" grant) through the test-account browser, and a reference parser checked against those
 readings. Choosing between them is the plan's question, raised at the determination.
+
+## 2026-11-23T09:13Z — his words: look for third-party Discord clients' markdown logic as an oracle; researcher started
+
+His words, in this session: "In addition to using the browser, you could probably try and find some kind of third-party Discord client, and
+I'm sure some, if not all of them, use the same markdown logic to format in the text box. I would imagine that'd be the case." Classed as a
+requirement (search third-party clients for a formatting oracle) plus a mechanism claim to establish, not assume (that they share Discord's
+markdown logic). Website already depends on `simple-markdown` `^0.7.3` (`package.json:85`, `grep -n`). Acted on: a researcher session
+`researcher-slate-formatting-oracle`, brief `steering/slate-formatting-oracle-brief-researcher.md`, upstream of the effort's plan. It reports
+which clients and parsers exist, how faithful each is to Discord's current rendering, and how to verify that against Discord on the test
+server.
