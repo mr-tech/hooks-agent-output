@@ -753,3 +753,13 @@ gate round on a single literal. Conditions:
 - Revision 9 batches QAF-28 with the critic's and architect's Revision 8 verdicts, so there is one fold.
 - The gates read only AC-4.7's delta.
 - After Revision 9, a further AC-4.7 gap of any severity is decided here before any fold, against a stated limit.
+
+## 2026-11-23T18:06Z — plan 019 AC-4.7 CF-16: a stated limit, not a fold (this thread, under block 18:02Z)
+
+`architect-019`'s delta pass on Revision 9 (`47348a6d`) is APPROVED, with CF-15 resolved (record `559253f1`). It raises CF-16 LOW: the
+vi-VN fixture's expected value depends on test order, because dayjs's locale is process-global. Run after AC-4.7's en-GB case, correct
+code reads en-gb. The capture is `verification/019/architect-conformance/rev9/locale-order.out`, dayjs 1.11.7. Per the architect, it
+fails red against correct code and never passes falsely, and it is not a product defect.
+**Decision: stated limit.** It goes to the plan's Planner batch as a limit for M4's implementer: the vi-VN case resets dayjs to `en`
+first, or runs in its own test module. Weighed: a fold would cost a fourth consecutive AC-4.7 revision and a gate round. The limit
+fails loudly at implementation, where the implementer meets it in the first run, and the remedy is stated.
