@@ -1,0 +1,3 @@
+78c5f74:src/utils/markdown/engine.ts:9:type LosslessChild = LosslessNode['children'][number];
+78c5f74:src/utils/markdown/engine.ts:148:  return state === 'resolved' ? parseWasm(text, SURFACE_MASKS[surface]) : undefined;
+78c5f74:src/utils/markdown/engine.ts:152:  if (Object.hasOwn(NODE_RENDERERS, kind)) return NODE_RENDERERS[kind as NodeKind];

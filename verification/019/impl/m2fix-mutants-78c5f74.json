@@ -1,0 +1,20 @@
+[
+  {"id": "CR-probe-route-constant", "file": "src/utils/markdown/engine.ts",
+   "old": "parseWasm(text, SURFACE_MASKS[surface])", "new": "parseWasm(text, SURFACE_MASKS.embedTitleWithUrl)",
+   "finding": "every surface parses under one fixed mask"},
+  {"id": "CR-probe-route-content", "file": "src/utils/markdown/engine.ts",
+   "old": "parseWasm(text, SURFACE_MASKS[surface])",
+   "new": "parseWasm(text, surface === 'embedTitleWithUrl' ? SURFACE_MASKS.embedTitleWithUrl : SURFACE_MASKS.content)",
+   "finding": "every surface but the one the old case asked for parses under the content mask"},
+  {"id": "CR-probe-renderer-constant", "file": "src/utils/markdown/engine.ts",
+   "old": "return NODE_RENDERERS[kind as NodeKind];", "new": "return NODE_RENDERERS.link;",
+   "finding": "every mapped kind gets one renderer"},
+  {"id": "CR2-parse-without-state-check", "file": "src/utils/markdown/engine.ts",
+   "old": "return state === 'resolved' ? parseWasm(text, SURFACE_MASKS[surface]) : undefined;",
+   "new": "return parseWasm(text, SURFACE_MASKS[surface]);",
+   "finding": "parseLossless parses whatever the state"},
+  {"id": "CR2-parse-refused-when-resolved-only-after-reject", "file": "src/utils/markdown/engine.ts",
+   "old": "return state === 'resolved' ? parseWasm(text, SURFACE_MASKS[surface]) : undefined;",
+   "new": "return state !== 'rejected' ? parseWasm(text, SURFACE_MASKS[surface]) : undefined;",
+   "finding": "pending parses"}
+]

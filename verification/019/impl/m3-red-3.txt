@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/markdownGenerator.seeded-inputs.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/markdownGenerator.seeded-inputs.test.ts [ src/utils/markdown/__tests__/markdownGenerator.seeded-inputs.test.ts ]
+Error: Cannot find module './helpers/markdownGenerator' imported from /usr/local/bin/hooks/website/src/utils/markdown/__tests__/markdownGenerator.seeded-inputs.test.ts
+ ❯ src/utils/markdown/__tests__/markdownGenerator.seeded-inputs.test.ts:3:1
+      1| import { describe, expect, it } from 'vitest';
+      2|
+      3| import { generateInputs, mulberry32, SYNTAX_BITS, type SyntaxBit } fro…
+       | ^
+      4|
+      5| const NEEDLES: Record<SyntaxBit, RegExp> = {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  19:10:55
+   Duration  187ms (transform 34ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+

@@ -1,0 +1,25 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/utils/markdown/__tests__/discordInputs.lifted-data.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/discordInputs.lifted-data.test.ts [ src/utils/markdown/__tests__/discordInputs.lifted-data.test.ts ]
+Error: Cannot find module './helpers/discordInputs' imported from /usr/local/bin/hooks/website/src/utils/markdown/__tests__/discordInputs.lifted-data.test.ts
+ ❯ src/utils/markdown/__tests__/discordInputs.lifted-data.test.ts:3:1
+      1| import { describe, expect, it } from 'vitest';
+      2|
+      3| import { CORPUS, LINK_INPUTS, TYPED_CASES } from './helpers/discordInp…
+       | ^
+      4|
+      5| describe('the inputs lifted from the research and the analysis', () =>…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  19:09:55
+   Duration  168ms (transform 22ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+

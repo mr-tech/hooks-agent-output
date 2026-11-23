@@ -1,0 +1,51 @@
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > parses the fieldValue surface under that surface's own mask
+AssertionError: expected [ [ 'x', 1073741823 ] ] to deeply equal [ [ 'x', 1040187391 ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "x",
+-     1040187391,
++     1073741823,
+    ],
+  ]
+
+ ❯ src/utils/markdown/__tests__/engine.init-states.test.ts:110:43
+    108|     await engine.startEngine();
+    109|     engine.parseLossless(surface, 'x');
+    110|     expect(wasm.parseLossless.mock.calls).toEqual([['x', mask]]);
+       |                                           ^
+    111|   });
+    112| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |node| src/utils/markdown/__tests__/engine.init-states.test.ts > the engine init states > parses the embedTitle surface under that surface's own mask
+AssertionError: expected [ [ 'x', 1073741823 ] ] to deeply equal [ [ 'x', 436128127 ] ]
+
+- Expected
++ Received
+
+  [
+    [
+      "x",
+-     436128127,
++     1073741823,
+    ],
+  ]
+
+ ❯ src/utils/markdown/__tests__/engine.init-states.test.ts:110:43
+    108|     await engine.startEngine();
+    109|     engine.parseLossless(surface, 'x');
+    110|     expect(wasm.parseLossless.mock.calls).toEqual([['x', mask]]);
+       |                                           ^
+    111|   });
+    112| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

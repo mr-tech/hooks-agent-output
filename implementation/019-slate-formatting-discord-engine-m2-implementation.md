@@ -4,9 +4,9 @@ Origin: 019
 UUID: 286c730a
 Status: Active
 Status-Detail: >-
-  M2 coded and committed on chain/019-slate-formatting-discord-engine; handed to code review at 22f3e58. M3 to M6 not started:
-  this session ended at a checkpoint (Resumption State below).
-Handoff-At: 22f3e58 — repos=website
+  M2 coded and committed on chain/019-slate-formatting-discord-engine; code review round 1 REJECTED 22f3e58 (CR-1, CR-2); fix round 1
+  committed at 78c5f74 and handed back. M3 in progress (own document when handed off).
+Handoff-At: 78c5f74 — repos=website — fix round 1 over 22f3e58 (the M3 commits 805fff6 and 548b16b sit between them and touch no M2 file but add one test helper that names the engine, AC-2.1's second member; review by path over src/utils/markdown/engine.ts and its engine.* tests)
 ---
 
 # Implementation 019 — M2: the engine and its adapter
@@ -27,6 +27,7 @@ QA Phase 1: `qa/019-slate-formatting-discord-engine-qa.md` (record `26f3a3c`). C
 | Date | Handoff | Request | Summary |
 |------|---------|---------|---------|
 | 2026-11-23T18:48 | steering-hooks-fixer (brief `steering/019-brief-implementer.md`) | Implement M2 to M6 | Plan Status set to In Progress (R-23, record `123448ca`). Baseline at `5ec0621`, the pinned install and build, then M2: commits `1005eec` and `22f3e58`. |
+| 2026-11-23T19:24 | code-reviewer-019 (message; review record `a8588f39`) | Fix round 1: CR-1, CR-2 | Fix commit `78c5f74`. Section "Fix Round 1" below. CR-3 carried to M5. CR-4 deferred to M3's oracle round (stated below). |
 | 2026-11-23T19:06 | implementer-019 | Checkpoint | Session prefix at 289,182 tokens (`cc-usage.py sessions`), past the 225K seam threshold, after M2. Resumption State written. M3 to M6 are not started. |
 
 ## Implementation Summary
@@ -251,6 +252,51 @@ From `git diff 5ec0621 -- pnpm-lock.yaml` (`m2-add.log` and the diff in this doc
 
 Code review of `22f3e58` (the normal route). M3 (the fuzzer and oracle) is next in the plan's order. Its entry conditions
 include the plan's AN-4 locator and the lifted corpus (`research/closed/…` Appendix C, `verification/019/qa/link-inputs.json`).
+
+## Fix Round 1 (code review `a8588f39`, over `22f3e58`)
+
+Fix commit `78c5f74`. Both findings took the reviewer's **Preferred (structural)** form.
+
+- **CR-2.** `parseLossless` returns `LosslessNode | undefined`, and `undefined` unless the adapter's state is `resolved`. The
+  not-ready outcome is therefore one value in every runtime, and the browser's throw is unreachable. M4 and M5 must handle
+  `undefined` (the consumer renders source text). `engine.kind-maps.test.ts` and `engine.link-schemes.test.ts` now `await startEngine()`
+  in a `beforeAll`.
+- **CR-1.** The routing case is `it.each` over all six surfaces with the six literals written in the test (not read from the adapter),
+  and the renderer case is `it.each` over all 16 node kinds with a literal table.
+
+| Function/Class | Test File | Test Written First? | Failure Verified? | Failure Reason | Pass After Impl? |
+|---|---|---|---|---|---|
+| `parseLossless` before ready (pending, in flight, rejected) on the real engine | `engine.not-ready.test.ts` | Yes | Yes | assertion: `expected { kind: { type: 'document' }, … } to be undefined` ×3 (`verification/019/impl/m2fix-red-1.txt`) | Yes |
+| `parseLossless` once resolved returns the document | same | Yes | Yes (mutants CR2-parse-without-state-check and CR2-…-after-reject keep it; the case is the control's positive limb) | n/a: passes before and after, it pins the resolved limb | Yes |
+| `parseLossless` routing, six surfaces | `engine.init-states.test.ts` | Yes | Yes | assertion, CR-probe-route-constant (4 of 6 cases fail), CR-probe-route-content (embedTitle, fieldValue fail) | Yes |
+| `nodeRenderer` per kind, 16 kinds | `engine.kind-maps.test.ts` | Yes | Yes | assertion, CR-probe-renderer-constant (every kind but `link` fails) | Yes |
+
+Mutation re-run (`mutation-run.py`, each mutant in its own `git archive` export of `78c5f74`, suite `npx vitest run --project node
+src/utils/markdown`): 5 of 5 KILLED, each on the routing or not-ready case itself, by an assertion and not a timeout
+(`m2fix-mutants-78c5f74.json`, `m2fix-mutants-78c5f74.runner.txt`, `m2fix-mutants-78c5f74-out/`). The reviewer's anchors named
+`return parseWasm(text, SURFACE_MASKS[surface]);`, which CR-2 changed, so the three CR probes are re-anchored to the same one-token change
+on the new line, and two mutants for the new guard are added (the state check removed; the check weakened to `!== 'rejected'`).
+
+### Class sweep
+
+| Finding | Enumeration command | Full output (hit count + lines) | Disposition of every hit |
+|---|---|---|---|
+| CR-1 | the reviewer's: `git grep -nE "\[[A-Za-z]+( as [A-Za-z]+)?\]" 78c5f74 -- src/utils/markdown/engine.ts` | 3 hits (`m2fix-class-sweep-78c5f74.txt`): `:9` the `LosslessChild` type index; `:148` `SURFACE_MASKS[surface]`; `:152` `NODE_RENDERERS[kind as NodeKind]` | `:9` not applicable (a type). `:148` and `:152` are covered by the table-driven cases over every key, killed by the three routing mutants. Residual after the fix: the same 3 hits, none covered by a single-key case |
+| CR-2 | the reviewer's: `git grep -n "parseWasm(" 78c5f74 -- src` | 1 call site (`engine.ts`), the guarded one | Fixed. No second entry point exists |
+
+CR-1's class also reaches the adapter's other keyed values: `isAllowedLinkUrl` is membership in a set tested with 25 cases over every
+listed scheme, `TOKEN_LEAF_ROLES` is keys-only by AC-2.4 and is CR-3 (carried to M5, where the leaf role becomes one function of token
+and context with AN-6's table as its literal test).
+
+### Results
+
+`unshare -rn` (lo up) `npx vitest run --project node --project dom --reporter=json`, tree at `78c5f74`: 3026 of 3026 passed, 185
+`testResults` entries, exit 0 (`m2fix-suite-78c5f74-offline.{json,log.txt,exit}`). The 64 cases above the M2 hand-off's 2962 are M3's
+first three parts (project form, lifted inputs, generator, normaliser) and this round. `pnpm run typecheck` exit 0.
+`convention-check.js website --since=548b16b`: 0 FAIL, 0 CANDIDATE.
+
+CR-4 (optional): not done this round. The AST walk for non-literal `import(...)` and `require(...)` lands with M3's oracle helper, which
+becomes AC-2.1's second member (the real-tree confinement case already admits it: `helpers/discordOracle.ts`).
 
 ## Resumption State
 

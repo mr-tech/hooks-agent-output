@@ -1,0 +1,87 @@
+
+ RUN  v4.1.2 /usr/local/bin/hooks/website
+
+ ❯ |node| src/__tests__/vitest.config.discord-projects.test.ts (5 tests | 4 failed) 14ms
+     × declares the two offline projects and the two Discord projects 8ms
+     × keeps the environment-by-extension rule in the Discord projects 1ms
+     × keeps every Discord comparison out of the offline projects, and keeps node_modules out of every project 1ms
+     × runs the offline projects under pnpm test and the Discord projects under pnpm test:discord 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |node| src/__tests__/vitest.config.discord-projects.test.ts > the vitest projects that separate the Discord comparisons from the offline suite > declares the two offline projects and the two Discord projects
+AssertionError: expected [ 'dom', 'node' ] to deeply equal [ 'discord-dom', 'discord-node', …(2) ]
+
+- Expected
++ Received
+
+  [
+-   "discord-dom",
+-   "discord-node",
+    "dom",
+    "node",
+  ]
+
+ ❯ src/__tests__/vitest.config.discord-projects.test.ts:17:53
+     15| describe('the vitest projects that separate the Discord comparisons fr…
+     16|   it('declares the two offline projects and the two Discord projects',…
+     17|     expect(projects.map((p) => p.test.name).sort()).toEqual(['discord-…
+       |                                                     ^
+     18|   });
+     19|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |node| src/__tests__/vitest.config.discord-projects.test.ts > the vitest projects that separate the Discord comparisons from the offline suite > keeps the environment-by-extension rule in the Discord projects
+AssertionError: expected undefined to be 'node' // Object.is equality
+
+- Expected:
+"node"
+
++ Received:
+undefined
+
+ ❯ src/__tests__/vitest.config.discord-projects.test.ts:21:54
+     19|
+     20|   it('keeps the environment-by-extension rule in the Discord projects'…
+     21|     expect(byName('discord-node')?.test.environment).toBe('node');
+       |                                                      ^
+     22|     expect(byName('discord-node')?.test.include).toEqual(['src/**/__te…
+     23|     expect(byName('discord-dom')?.test.environment).toBe('jsdom');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |node| src/__tests__/vitest.config.discord-projects.test.ts > the vitest projects that separate the Discord comparisons from the offline suite > keeps every Discord comparison out of the offline projects, and keeps node_modules out of every project
+AssertionError: the given combination of arguments (undefined and string) is invalid for this assertion. You can use an array, a map, an object, a set, a string, or a weakset instead of a string
+ ❯ src/__tests__/vitest.config.discord-projects.test.ts:30:42
+     28|   it('keeps every Discord comparison out of the offline projects, and …
+     29|     for (const name of ['node', 'dom']) {
+     30|       expect(byName(name)?.test.exclude).toContain('**/__tests__/disco…
+       |                                          ^
+     31|     }
+     32|     for (const p of projects) {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |node| src/__tests__/vitest.config.discord-projects.test.ts > the vitest projects that separate the Discord comparisons from the offline suite > runs the offline projects under pnpm test and the Discord projects under pnpm test:discord
+AssertionError: expected 'vitest run' to be 'vitest run --project node --project d…' // Object.is equality
+
+Expected: "vitest run --project node --project dom"
+Received: "vitest run"
+
+ ❯ src/__tests__/vitest.config.discord-projects.test.ts:46:26
+     44|     const scripts = (JSON.parse(readFileSync(resolve(process.cwd(), 'p…
+     45|       .scripts;
+     46|     expect(scripts.test).toBe('vitest run --project node --project dom…
+       |                          ^
+     47|     expect(scripts['test:discord']).toBe('vitest run --project discord…
+     48|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 1 passed (5)
+   Start at  19:09:24
+   Duration  298ms (transform 27ms, setup 0ms, import 144ms, tests 14ms, environment 0ms)
+
