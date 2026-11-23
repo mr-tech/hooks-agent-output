@@ -48,3 +48,12 @@ behaviour on a real remount, and real image load times.
 **Stage set:** `fixer-fix-image-uploader-url` → `code-reviewer-fix-image-uploader-url` (under 20 production lines: the reviewer also runs
 the suite, typecheck, red test) → QA Phase 2 at 20 or more → devops for website `master` (his word). No plan, critic, Phase 1 or UAT.
 Coordinator's go for the tree: received 15:5xZ (item 10), naming base `af3d95a`. Usage: weekly_all 14% (live, 15:26Z).
+
+## 2026-11-23T17:05Z — CR-3 (limb 1's reach), this thread's ruling; QA Phase 2 started
+
+The code review (`code-review/fix-image-uploader-url-code-review.md`, record `c559d303`) is APPROVED at `e94baf7` after Round 1's
+rejection (`abdbd832`: CR-1 MEDIUM, CR-2 LOW, both fixed at `e94baf7`, implementation record `9a33daa2`). `git diff --numstat af3d95a
+e94baf7` gives 27 production lines added, so Phase 2 is owed. CR-3 INFO: with an image saved and the box emptied by hand, Save removes
+the image but Enter does nothing. Ruling: inside limb 1, no change. His words (block 04:44) bind Save ("Save always saves exactly what
+the box shows"). Enter doing nothing commits no wrong value. The Enter half of limb 1 is this thread's scope wording, and it narrows
+nothing he said.
