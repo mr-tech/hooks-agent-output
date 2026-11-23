@@ -5,11 +5,11 @@ Status-Detail: >-
   The oracle question has a determination: Discord publishes its own message parser on npm under an
   MIT licence (`@discord/markdown-wasm`), byte-identical to what the web client serves, and it runs
   under plain Node. Discord's older parser runs from the logged-out public page. Both were run over a
-  272-case corpus here. Stays Active on two things: the check against rendered Discord on the test
-  server is the next act (Resumption State; the session is being restarted with the test-account
-  browser on the owner's word), and the owner has not said which of Discord's two parsers is the
-  standard where they disagree (37 of 272 cases). The per-client checks of third-party clients stay
-  not done by his selection of 2026-11-23T09:31Z.
+  272-case corpus here. The test account is served the older parser for rendered messages (V-15).
+  Stays Active on two things: the corpus comparison against rendered Discord and the text-box read
+  on the test server are in progress (Resumption State, next acts 3 and 4), and the owner has not
+  said which of Discord's two parsers is the standard where they disagree (37 of 272 cases). The
+  per-client checks of third-party clients stay not done by his selection of 2026-11-23T09:31Z.
 ---
 
 # Which oracle can tell the Slate formatting effort "what Discord does"?
@@ -20,6 +20,7 @@ Status-Detail: >-
 |---|---|---|---|
 | 2026-11-23T09:32 | researcher-slate-formatting-oracle | Document created | Brief `steering/slate-formatting-oracle-brief-researcher.md`; two addenda from `steering-hooks-fixer` (effort rulings blocks "2026-11-23T09:15Z" and "09:18Z") |
 | 2026-11-23T09:35 | researcher-slate-formatting-oracle | Checkpoint at steering's ask; Resumption State written | Owner's selections recorded from effort rulings block "2026-11-23T09:32Z": client checks stay not done; the session restarts with the test-account browser. OQ-5 and G-6 retired on that selection. |
+| 2026-11-23T10:33 | researcher-slate-formatting-oracle | Resumed from the Resumption State (record commit `ef9c9dd4`) in a fresh session with the test-account browser; check (c) recorded as V-15 to V-17; H-1 and H-2 closed | Brief `steering/slate-formatting-oracle-brief-researcher-resume.md`. Nothing written before the resume was re-verified except what V-15 to V-17 test (H-1, H-2, and the build number of V-1, read again from the signed-in page). Check (c) ran 09:39Z to 09:40Z and was sent to `steering-hooks-fixer` before 09:45Z (message id `1f0a6563-4bbf-4bd8-977c-7dc0f9b8d99f`); this session then made no tool call from 09:45Z to 10:33Z (its turn had ended; the cache-warm wake restarted it), so this row and the findings were written 52 minutes after the result. The walk added channel `slate-oracle-walk` to the test server; `test-estate.json` updated in the same turn. |
 
 ## Resumption State
 
@@ -296,6 +297,35 @@ Source maps are not served (`.js.map` returns 404).
 `src/webpack/common/utils.ts`: `waitFor("parseTopic", m => Parser = m)` (helper's quote from its
 clone, read before its sweep stopped). That is the same facade as V-1's module 46054.
 
+**V-15. Test account 1 is served the legacy parser for rendered messages.** Read 2026-11-23T09:40Z
+in the test-account browser, signed in as test account 1, stable web build 679055 (`GLOBAL_ENV` of
+the signed-in page; the build of V-1). The test bot posted six cases to a new channel
+`slate-oracle-walk` (id `1574358729577599086`) in guild `1566742402180456559`; the `innerHTML` of each
+message's content element was read. Five cases are ones on which the two parsers disagree
+(Appendix A), and all five rendered as the legacy parser parses them:
+
+| Input | Rendered DOM (tags only) | Matches |
+|---|---|---|
+| `***bi***` | `em` > `strong` > "bi" | legacy i(b()); native is b(i()) |
+| `*a\nb*` | one `em` holding "a\nb" | legacy; native is two runs |
+| `# # nested` | plain text "# # nested" | legacy; native is a heading |
+| `**# not head**` | `strong` > `h1` > "not head" | legacy b(h1()); native is h1(b()) |
+| `\|\|a\nb\|\|` | one spoiler element holding "a\nb" | legacy; native is two spoilers |
+
+Scope: one account, one build, bot-posted messages, the rendered message only. It says nothing about
+what share of Discord's users see which parser (G-2).
+
+**V-16. A rendered message's content element has the id `message-content-<message id>`.** Six
+elements matched `[id^="message-content-"]` in that channel, and their id suffixes were the six
+message ids the API returned on posting.
+
+**V-17. Discord's API strips leading whitespace from a message before storing it.** The case
+` # leading space` was returned by the create-message call with content `# leading space`, and it
+rendered as a heading. So a case that differs only by leading whitespace of the whole message cannot be checked
+by posting it, and any posted comparison must run the parser over the stored content the API
+returns, not over the corpus text. Of Appendix A, rows 6 and 152 open with a space; whether trailing
+whitespace and leading tabs (rows 157, 158, 272) are stripped the same way was not read in this check.
+
 ### High-confidence inference
 
 **I-1. Client mods and wrappers run Discord's own markdown code; independent clients each have their
@@ -317,15 +347,9 @@ rewrite of Discord's markdown; the page did not resolve when fetched, so it is n
 
 ### Hypotheses
 
-**H-1. The test account is served one specific parser, and the 37 disagreement cases identify which.**
-Confidence: high that it is identifiable, unknown which. Fastest disconfirming test: post three
-discriminating cases to the test server (`***bi***`, `*a` newline `b*`, ` # leading space`) and read
-the DOM. Missing telemetry: the account's experiment assignment, which the page holds after sign-in.
+H-1 CONFIRMED — the test account is served the legacy parser for rendered messages. V-15.
 
-**H-2. A rendered message's content element carries an id of the form `message-content-<message id>`.**
-Confidence: medium (my recollection; the string is not in the 364 preloaded chunks). Disconfirming
-test: the first DOM read of the walk in § Verification method. If wrong, the walk selects by the list
-item for the posted message id instead.
+H-2 CONFIRMED — the content element's id is `message-content-<message id>`. V-16.
 
 **H-3. Embed text is still parsed by the legacy rule sets even where the native parser is on.**
 Confidence: low to medium. The native renderer's only importers in the preloaded chunks are the two
