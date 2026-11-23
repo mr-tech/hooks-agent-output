@@ -67,6 +67,7 @@ Lane: full
 | 2026-11-23T21:43 | R-32 | planner-019 | Recorded the critic's cycle 4 pass 1 on revision 10 (APPROVED, critique closed; `critiques/closed/019-slate-formatting-discord-engine-critique.md`, record `71b981ad`) in the owed re-verdicts table. Registered Planner batch rows F-34 with SL-11, including RK-8's record line, and F-35 MEDIUM. |
 | 2026-11-23T21:43 | R-33 | planner-019 | Recorded QA's Phase 1 re-key on revision 10 (nothing blocking; `qa/019-slate-formatting-discord-engine-qa.md` § Re-key on Revision 10, record `f79d7f77`) in the owed re-verdicts table. QAF-31 LOW is added to the F-34 row as the same member. QA's register row B-7 is recorded on the F-35 row. |
 | 2026-11-23T21:44 | R-34 | planner-019 | Recorded on the F-35 row QA's re-specification of B-7 into two limbs (`qa/019-slate-formatting-discord-engine-qa.md`, record `ca6d0f21`). |
+| 2026-11-23T22:02 | R-35 | code-reviewer-019 | Code review Round 3 sub-entry, milestone-scoped (M3's fix commit at website `1698c80`): CR-5 and CR-6 RESOLVED; REJECTED on CR-10 MEDIUM (severity floor: the live control's empty `oracle.attempts` has no assertion that fails when `loadBuild`'s wiring is cut or a refused XHR is touched before `open`). `code-review/019-slate-formatting-discord-engine-code-review.md`. Plan Status not moved. |
 
 ## Resumption State
 
