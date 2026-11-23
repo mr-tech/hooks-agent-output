@@ -7,7 +7,7 @@ closed. A document's path changes when it closes; its name does not.
 
 **Scope: committed documents only** (generated with `--tracked`). Uncommitted and owner-held drafts are omitted by design — this index is safe to commit and correct in a fresh clone.
 
-745 documents · 19 numbered chains · 540 unnumbered.
+750 documents · 19 numbered chains · 545 unnumbered.
 
 ---
 
@@ -187,7 +187,7 @@ closed. A document's path changes when it closes; its name does not.
 | architecture | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` | Active — Delta pass on plan 019 revision 9 (record 47348a6d, AC-4.7 delta only): APPROVED. CF-15 is resolved. CF-16 (LOW: the vi-VN fixture's expected value depends on test order, since dayjs's locale is global) is at steering-hooks-fixer for decision under block 18:02Z. Delta pass on plan 019 revision 8 (record 7b419f5b): APPROVED. CF-14 is resolved. CF-15 (LOW: AC-4.7's ja-JP fixture names a locale the site loads, so use a tag with no file, e.g. vi-VN) is a stated limit in the Planner batch under the cap. It holds nothing. Delta pass on plan 019 revision 7 (record e0eb1e87): APPROVED under steering's M4/M6 cap (rulings block 17:56Z, b95a3d43). CF-13 is resolved as option (a). CF-14 (LOW: Intl should take dayjs's effective locale, and the America/New_York case should state the mounted state) goes to the Planner batch as a stated limit on AC-4.7, with no revision round. It holds nothing. Delta pass on plan 019 revision 6 (record 946d4e54): APPROVED_WITH_CHANGES. CF-12 is resolved, and the field value's one differing bit, HEADING, was run and changes no emoji span. CF-13 (LOW): AC-4.7's s and S must take the timestamp component's locale and pre-mount UTC rule. It is a Planner batch row, folded before M4's code. It holds nothing else. Delta pass on plan 019 revision 5 (record d2912590): APPROVED. CF-11 is folded as recommended. CF-12 (LOW, non-blocking) asks which mask module 818948 runs under on the non-content surfaces. Delta pass on plan 019 revision 4 (record e53c7cdb): APPROVED. CF-9 and CF-10 are folded as found. CF-11 (LOW, a recommendation the planner may fold or decline with its reason) is on AC-6.5's expected spans. Delta pass on plan 019 revision 3 (record 9ac9ba62): APPROVED_WITH_CHANGES on two LOW findings (CF-9 the emoji lift on edit, CF-10 the emoji element's derived fields). A′/B3, CF-8, the run unit and D-13's removal are carried as designed. § Legacy-only surfaces holds the binding design for his 17:04Z selection (A′ with B3). Delta pass on plan 019 revision 2 (record 8dfd4659): APPROVED_WITH_CHANGES. CF-1 to CF-7 are folded as found. One new LOW defect against the Test Conventions: a single `discord` vitest project cannot keep the environment-by-extension rule (CF-8). CF-2's option b is OQ-5, at steering. Goes to planner-019; the next delta pass reads CF-8's fold. |
 | critique | `critiques/closed/019-slate-formatting-discord-engine-critique.md` | Resolved — Cycle 3 pass 2 on plan revision 9: APPROVED, and closed at that pass. F-1 to F-33 are RESOLVED, each verified landed. By steering's decision (effort rulings block 18:02Z), any further AC-4.7 gap goes to steering before a fold. A later revision that changes a criterion's text opens cycle 4. |
 | deployment | `deployment/019-slate-formatting-discord-engine-deployment.md` | Active — AN-1's Vercel limb read and recorded (below). Stage 1 for plan 019 has not started; its brief comes later. The spike branch is deleted (17:04Z) after the analysis cited these numbers. |
-| plan | `planning/019-slate-formatting-discord-engine.md` | Active — Revision 9, for the critic (cycle 3 pass 2), the architect and QA, each on AC-4.7's delta only (steering, block 18:02Z). M2, M3, M5 and M6 stand ready for implementation, on his approval: every gate passed their criteria. M4 waits on revision 9's verdicts. After revision 9, any further AC-4.7 gap goes to steering before a fold. M2's start also waits on the website tree. |
+| plan | `planning/019-slate-formatting-discord-engine.md` | In Progress — Revision 9 is approved by all three pre-code gates (critic c1e40234, architect 559253f1, QA 26f3a3c). Implementation of M2 to M6 started 2026-11-23T18:49Z by implementer-019 on chain/019-slate-formatting-discord-engine (steering's recorded start, effort rulings block 18:48Z); M7 is devops's. Steering bounds later changes: M4 and M6 are capped below HIGH (block 17:56Z), and any AC-4.7 gap goes to steering before a fold (block 18:02Z). |
 | QA | `qa/019-slate-formatting-discord-engine-qa.md` | Awaiting Implementation — Phase 1 re-keyed on plan 019 Revision 9 (record 47348a6d), AC-4.7's delta only (effort rulings block 18:02Z). QAF-28 is folded and closed. Nothing is open for QA in Phase 1. Implementation is not approved. |
 
 ### 1 — 0 open, 8 closed
@@ -340,6 +340,7 @@ they are the ID-less artifacts that root new efforts.
 | code review | `code-review/closed/fix-get-one-absent-not-found-code-review.md` | Committed — Round 1 APPROVED at website b663b35; QA Phase 2 PASS at b663b35; committed at devops Stage 1, release is devops's on the owner's approval. Assumption Not Checked carried by handoff/fix-get-one-absent-not-found-post-deploy-2026-11-21.md. |
 | code review | `code-review/closed/fix-git-dependency-pins-code-review.md` | Released — Rounds 1 and 2 APPROVED, no findings. Project-utils released at 40ba5d3 (2026-11-21T23:15Z) and website at 3859c29 (2026-11-22T17:04Z, production Ready); deployment/closed/fix-git-dependency-pins-deployment.md. The two Assumptions Not Checked are carried or closed there. |
 | code review | `code-review/closed/fix-hooks-record-shared-engine-code-review.md` | Released — Released with the chain: verdict APPROVED_WITH_COMMENTS at fdab24b stands as recorded; on origin master at 1611473. |
+| code review | `code-review/closed/fix-image-uploader-url-code-review.md` | Committed — Committed with the chain on website chain/fix-image-uploader-url at 5ec0621 (Stage 1, 2026-11-23T18:33Z); Round 3 APPROVED stands. |
 | code review | `code-review/closed/fix-import-save-conflict-code-review.md` | Committed — Round 1 APPROVED through sub-entry 2 at website b829314; the chain is released (website master b829314, 2026-11-21T08:53:57Z, deployment/fix-import-save-conflict-deployment.md). |
 | code review | `code-review/closed/fix-message-not-found-code-review.md` | Committed |
 | code review | `code-review/closed/fix-message-page-header-decode-code-review.md` | Released — Round 1 APPROVED at 7923a1d; released: website master 7923a1d at 2026-11-20T02:34:40Z. CR-1 carrier: steering/website-deps-review-rulings.md block 2026-11-20T02:18Z. Assumption Not Checked carrier: handoff/message-page-header-decode-post-deploy-2026-11-20.md row P-1. |
@@ -352,7 +353,6 @@ they are the ID-less artifacts that root new efforts.
 | code review | `code-review/closed/fix-v1-guild-messages-auth-code-review.md` | Committed |
 | code review | `code-review/closed/fix-website-dependency-audit-code-review.md` | Released — Closed by devops at the chain's release (crontab line installed 2026-11-21T01:11Z, no push; deployment/closed/fix-website-dependency-audit-deployment.md). The Assumption Not Checked below travels to handoff/fix-website-dependency-audit-first-run-2026-11-21.md, row B-1, read by scheduled reader R1. |
 | code review | `code-review/closed/fix-website-save-gate-embeds-code-review.md` | Committed — Committed with the chain at website 0e3d903 (devops Stage 1, 2026-11-11T10:12Z); verdict APPROVED_WITH_COMMENTS unchanged. |
-| code review | `code-review/fix-image-uploader-url-code-review.md` | In Review |
 | deployment | `deployment/closed/2026-04-07-plan-005.md` | Released |
 | deployment | `deployment/closed/2026-04-07-plan-006.md` | Released |
 | deployment | `deployment/closed/2026-04-07-plans-001-003-004.md` | Released |
@@ -367,6 +367,7 @@ they are the ID-less artifacts that root new efforts.
 | deployment | `deployment/closed/fix-emoji-pretransform-widths-deployment.md` | Released — Released 2026-11-23T08:38Z: website master febf20e -> 0411d3b on origin (release-move.js exit 0; ls-remote read back). Chain branch merged and deleted. B-1 executed PASS on hooks.gg production. The guild-emoji picker and mobile IME limbs ride handoff/fix-emoji-pretransform-widths-picker-guild-emoji-ime-2026-11-23.md; they do not hold this record open. |
 | deployment | `deployment/closed/fix-get-one-absent-not-found-deployment.md` | Released — Released 2026-11-21T10:11:09Z: website master b829314 -> b663b35 on origin (release-move.js exit 0; ls-remote read back), on the owner's release approval. Chain branch merged and deleted. B-1 (hooks.gg test-account read) is carried by handoff b5c69a32, not yet read. |
 | deployment | `deployment/closed/fix-git-dependency-pins-deployment.md` | Released — Both releases done: project-utils master 749606d to 40ba5d3 (2026-11-21T23:15Z) and website master 132a7ab to 3859c29 (2026-11-22T17:04Z, on the owner's approval). Production deployment dpl_8oenan2E9c2YzyeB3kVrZvtD43XC is Ready, built from 3859c29 and serving hooks.gg. Forward items carried by two handoffs; architecture notice is steering's. |
+| deployment | `deployment/closed/fix-image-uploader-url-deployment.md` | Released — Released 2026-11-23T18:36Z: website master af3d95a -> 5ec0621 on origin (release-move.js exit 0; ls-remote read back). Vercel built master at 5ec0621; the deployment is Ready and aliased to hooks.gg; the post-release walk passed on production. Chain branch merged and deleted. F-7 (handoff 017) and the architecture notice ride the carriers named under Next Actions; they do not hold this record open. |
 | deployment | `deployment/closed/fix-import-save-conflict-deployment.md` | Released — Released 2026-11-21T08:53:57Z: website master f4baebb -> b829314 on origin (release-move.js exit 0; ls-remote read back), on the owner's release approval. Chain branch merged and deleted. Row PD-1 is open in handoff/fix-import-save-conflict-post-deploy-2026-11-21.md (qa). |
 | deployment | `deployment/closed/fix-message-not-found-deployment.md` | Released — Released 2026-11-21T07:51:38Z: website master 6f76c6d -> f4baebb on origin (release-move.js exit 0; ls-remote read back), on the owner's release approval. Chain branch merged and deleted. Row B-1 is open in handoff/fix-message-not-found-post-deploy-2026-11-21.md (qa). |
 | deployment | `deployment/closed/fix-message-page-header-decode-deployment.md` | Released — Released: website master moved 983681c to 7923a1d at 2026-11-20T02:34:40Z on the owner's release approval, read back at origin. Post-deploy row P-1 is carried by handoff/message-page-header-decode-post-deploy-2026-11-20.md (reader P1R); this record does not wait on it. |
@@ -467,6 +468,7 @@ they are the ID-less artifacts that root new efforts.
 | implementation | `implementation/closed/fix-get-one-absent-not-found-implementation.md` | Released — Released 2026-11-21T10:11:09Z: website master b829314 -> b663b35 on origin, on the owner's release approval. |
 | implementation | `implementation/closed/fix-git-dependency-pins-implementation.md` | Released — Released in two pushes on the owner's approval where one was needed: project-utils master 749606d to 40ba5d3 (2026-11-21T23:15Z) and website master 132a7ab to 3859c29 (2026-11-22T17:04Z; production deployment Ready, serving hooks.gg). Record: deployment/closed/fix-git-dependency-pins-deployment.md. Both fix branches merged and deleted. |
 | implementation | `implementation/closed/fix-hooks-record-shared-engine-implementation.md` | Released — Released: on origin master at 1611473. Code review approved at fdab24b, QA Phase 2 PASS at 0f09e6c (refresh over the REVIEW flip 05a4a05). The record check exits 0 with 256 baselined. |
+| implementation | `implementation/closed/fix-image-uploader-url-implementation.md` | Released — Released: website master af3d95a -> 5ec0621 pushed 2026-11-23T18:36:07Z on the owner's release approval; Vercel built master at 5ec0621 and the deployment is Ready (deployment/closed/fix-image-uploader-url-deployment.md). |
 | implementation | `implementation/closed/fix-import-save-conflict-implementation.md` | Released — Released 2026-11-21T08:53:57Z: website master f4baebb -> b829314 on origin (release-move.js exit 0; ls-remote read back), on the owner's release approval. Chain branch merged and deleted. Post-deploy row PD-1 is open in handoff/fix-import-save-conflict-post-deploy-2026-11-21.md (qa). |
 | implementation | `implementation/closed/fix-message-link-import-empty-implementation.md` | Abandoned — Closed on the owner's ruling (steering/fix-message-link-import-empty-rulings.md, block 2026-11-21T10:38Z, record 2cd06470): no code; the empty link import is a known limit for now, carried by handoff/message-link-import-loads-only-mentioning-messages-2026-11-21.md; link-preview embeds stay dropped. |
 | implementation | `implementation/closed/fix-message-not-found-implementation.md` | Released — Released 2026-11-21T07:51:38Z: website master 6f76c6d -> f4baebb on origin (production change 6b539e5, QA test cases f4baebb). Record: deployment/closed/fix-message-not-found-deployment.md. |
@@ -480,7 +482,6 @@ they are the ID-less artifacts that root new efforts.
 | implementation | `implementation/closed/fix-v1-guild-messages-auth-implementation.md` | Committed — Committed for release on website fix/v1-guild-messages-auth at ddbd750 (devops Stage 1, 2026-10-10). The owner's key check returned 'match'. Release (merge to master, push) awaits the owner's approval. |
 | implementation | `implementation/closed/fix-website-dependency-audit-implementation.md` | Released — Code review APPROVED at c5508c7 (bf39906); QA Complete at ead3ea1 (8762f1b); review markers reviewed at 67f0285. Crontab line installed 2026-11-21T01:11Z, no push. The first scheduled run (06:43Z) is read by reader R1 on handoff/fix-website-dependency-audit-first-run-2026-11-21.md. |
 | implementation | `implementation/closed/fix-website-save-gate-embeds-implementation.md` | Released — Released 2026-11-11T10:13Z: website master 6d78b19 -> 0e3d903ce98e108c7ca848b992ad89ac538f4b44 on origin; fix branch merged and deleted. Deployment record deployment/fix-website-save-gate-embeds-deployment.md. |
-| implementation | `implementation/fix-image-uploader-url-implementation.md` | Active — Limb 5 (Enter in the box, his 17:40Z selection) with the QA fix round handed off at website 48c5e87 to code review (code-reviewer-fix-image-uploader-url), then QA Phase 2's re-run; 41 production lines added; merge is devops's at release, under the owner's release approval. |
 | process improvement | `process-improvement/closed/012-013-batch7-agent-instruction-updates.md` | Applied — Mirror ledger. The analysis and the full ledger live in the statbot record: /usr/local/bin/statbot/agent-output/process-improvement/closed/023-012-013-batch7-*.md. First pi run over this repository; 012 and 013 retrospectives Processed and moved to closed/. |
 | process improvement | `process-improvement/closed/014-batch10-agent-instruction-updates.md` | Applied — Mirror ledger. The analysis and the full ledger live in the statbot record: /usr/local/bin/statbot/agent-output/process-improvement/closed/014-batch10-*.md. Retrospective 014 Processed and moved to closed/. Definitions ~/.claude/agents 96a3980; skill ~/.claude/agent-skills c6dd817. |
 | QA | `qa/closed/fix-api-secret-compare-qa.md` | Released — Phase 2 PASS at website 0c14d5b, released to origin/master 2026-11-21T18:35Z (the release-tip verdict: the tip's tree is this record's Verified-At tree); register B-1 (post-deploy, devops) carried by handoff/fix-api-secret-compare-post-deploy-2026-11-21.md. |
@@ -489,6 +490,7 @@ they are the ID-less artifacts that root new efforts.
 | QA | `qa/closed/fix-emoji-pretransform-widths-qa.md` | Committed — Phase 2 PASS at website 0411d3b, committed with the chain (devops Stage 1). Post-deploy row B-1 is carried by handoff/fix-emoji-pretransform-widths-post-deploy-2026-11-23.md. |
 | QA | `qa/closed/fix-get-one-absent-not-found-qa.md` | Committed — Phase 2 PASS at website b663b35, 0 findings; committed at devops Stage 1. Post-deploy row B-1 (this register) is carried by handoff/fix-get-one-absent-not-found-post-deploy-2026-11-21.md; it does not gate the release act. |
 | QA | `qa/closed/fix-hooks-record-shared-engine-qa.md` | Released — Released with the chain: Phase 2 PASS at c444457, refreshed at 0f09e6c over the REVIEW flip; on origin master at 1611473. |
+| QA | `qa/closed/fix-image-uploader-url-qa.md` | Committed — Phase 2 PASS at website 5ec0621 (limbs 1 to 5) carried to the commit: chain committed on chain/fix-image-uploader-url at 5ec0621 (Stage 1, 2026-11-23T18:33Z). No open finding, no register rows. Its last Assumption Not Checked (the production build) is carried by deployment/fix-image-uploader-url-deployment.md, the post-release walk. |
 | QA | `qa/closed/fix-import-save-conflict-qa.md` | Committed — Phase 2 refresh PASS at website b829314; the chain is released (website master b829314, 2026-11-21T08:53:57Z, deployment/fix-import-save-conflict-deployment.md). Post-deploy row PD-1 is carried by handoff/fix-import-save-conflict-post-deploy-2026-11-21.md. |
 | QA | `qa/closed/fix-message-link-import-empty-production-read.md` | Committed — Closed on the owner ruling 2026-11-21T10:37Z (steering/fix-message-link-import-empty-rulings.md, commit 2cd06470): the empty link import is a known limit for now; no code, no release, no further read owed. |
 | QA | `qa/closed/fix-message-not-found-qa.md` | Committed — Phase 2 PASS at website f4baebb (chain/fix-message-not-found), released with master at f4baebb on 2026-11-21T07:51:38Z. Post-deploy row B-1 is open, carried by handoff/fix-message-not-found-post-deploy-2026-11-21.md (Owning-Stage qa). |
@@ -515,7 +517,6 @@ they are the ID-less artifacts that root new efforts.
 | QA | `qa/closed/website-b68f94c-release-tip-qa.md` | Released — Released 2026-11-21T11:33Z: website master moved b663b35 -> b68f94c on origin. Release-tip verdict for website master b663b35 -> b68f94c. Steps 1b and 2 ran. Of 30 open handoffs, 2 name this website release: the lockfile pin check ran and holds, and this chain's post-deploy carrier fires after the push. There is no gated time-based set. |
 | QA | `qa/closed/website-b829314-release-tip-qa.md` | Released — Released 2026-11-21T08:53:57Z: website master f4baebb -> b829314 on origin (release-move.js exit 0 on this record). Release-tip verdict for website master f4baebb -> b829314. Steps 1b and 2 ran. Of 28 open handoffs, 1 names a website release (the lockfile pin check); it ran and holds. There is no gated time-based set. |
 | QA | `qa/closed/website-f4baebb-release-tip-qa.md` | Released — Released 2026-11-21T07:51:38Z: website master 6f76c6d -> f4baebb. Release-tip verdict for that push. Steps 1b and 2 ran. Of 29 open handoffs, 1 names a website release (the lockfile pin check), which ran and holds; 1 fires on every QA run and leaves nothing for QA. There is no gated time-based set. |
-| QA | `qa/fix-image-uploader-url-qa.md` | QA Failed — Phase 2 re-run at website 48c5e87: QA Failed on QAF-4 MEDIUM (a test gap: no assertion holds the box following a saved image that changes while the dialog is open, as Reload on 'Message Update Detected' can do). The fix is test-only and goes to fixer-fix-image-uploader-url. QAF-1 to QAF-3 are resolved, and the shipped code is correct on every criterion run here. |
 | research | `research/closed/components-v2-description-text-limit-2026-11-11.md` | Answered — Answered by measurement: Thumbnail and MediaGallery item descriptions do not count toward Discord's 4000-character Components V2 displayable-text total (F-1 to F-4). The adjacent finding F-6 (Discord bounds each description at 1024 characters and the website bounds neither) is carried by steering/queue-hooks-rulings.md, block "2026-11-11T08:48Z — selection 11", and TODO.md, section "Website fix: bound V2 description fields at 1024 characters". |
 | research | `research/closed/components-v2-editing-flows-2026-08-23.md` | Answered — Determination reached and executable: the load-edit-save-send-preview loop is Components V2 capable; every secondary surface that re-serialises message data (Save As, JSON view/copy/Load, import from Discord URL / webhook URL / bot code, cross-tab change hash) is V2-blind through two 2023 helpers the V2 chain never touched. One seam, five sites, three of them silent. Ready for a planner to cite; incidence in production and one UI-level confirmation remain open (Gaps table). |
 | research | `research/closed/components-v2-send-validity-2026-11-11.md` | Answered — Measured on the agents' test server: 76 Components V2 shapes, 52 refused by Discord. The website's send check blocks 6 of the 52 and lets 46 through; it has no test for emptiness inside a component. Whether and how the send check should change is the owner's question (OQ-1), carried by handoff/components-v2-emptiness-not-caught-by-the-send-gate-2026-08-26.md. |
@@ -560,6 +561,7 @@ they are the ID-less artifacts that root new efforts.
 | steering | `steering/019-brief-analyst.md` | — |
 | steering | `steering/019-brief-critic.md` | — |
 | steering | `steering/019-brief-devops.md` | — |
+| steering | `steering/019-brief-implementer.md` | — |
 | steering | `steering/019-brief-qa.md` | — |
 | steering | `steering/backlog-2026-11-18-briefs/analyst-hooks-017.md` | — |
 | steering | `steering/backlog-2026-11-18-briefs/architect-hooks-017-closing.md` | — |
@@ -650,6 +652,7 @@ they are the ID-less artifacts that root new efforts.
 | steering | `steering/fix-git-dependency-pins-rulings.md` | — |
 | steering | `steering/fix-image-uploader-url-brief-code-reviewer.md` | — |
 | steering | `steering/fix-image-uploader-url-brief-common.md` | — |
+| steering | `steering/fix-image-uploader-url-brief-devops.md` | — |
 | steering | `steering/fix-image-uploader-url-brief-fixer.md` | — |
 | steering | `steering/fix-image-uploader-url-brief-qa.md` | — |
 | steering | `steering/fix-image-uploader-url-rulings.md` | — |
@@ -714,6 +717,7 @@ they are the ID-less artifacts that root new efforts.
 | steering | `steering/fix-website-dependency-audit-brief-qa.md` | — |
 | steering | `steering/fix-website-dependency-audit-rulings.md` | — |
 | steering | `steering/fixer-queue-2026-11-21-rulings.md` | — |
+| steering | `steering/fixer-queue-2026-11-21-standing.md` | — |
 | steering | `steering/queue-hooks-briefs/architect-016-brief.md` | — |
 | steering | `steering/queue-hooks-briefs/architect-016-respawn-brief.md` | — |
 | steering | `steering/queue-hooks-briefs/code-reviewer-016-brief.md` | — |
@@ -825,6 +829,7 @@ they are the ID-less artifacts that root new efforts.
 | verification | `verification/fix-git-dependency-pins/scoping/sweep.md` | — |
 | verification | `verification/fix-image-uploader-url/controls/table-2217a92.md` | — |
 | verification | `verification/fix-image-uploader-url/controls/table-48c5e87.md` | — |
+| verification | `verification/fix-image-uploader-url/controls/table-5ec0621.md` | — |
 | verification | `verification/fix-image-uploader-url/controls/table-7660259.md` | — |
 | verification | `verification/fix-image-uploader-url/controls/table-7f0229c.md` | — |
 | verification | `verification/fix-image-uploader-url/controls/table-96fb1f8.md` | — |
@@ -1088,6 +1093,7 @@ they are the ID-less artifacts that root new efforts.
 | `019-brief-analyst.md` | `steering/019-brief-analyst.md` |
 | `019-brief-critic.md` | `steering/019-brief-critic.md` |
 | `019-brief-devops.md` | `steering/019-brief-devops.md` |
+| `019-brief-implementer.md` | `steering/019-brief-implementer.md` |
 | `019-brief-qa.md` | `steering/019-brief-qa.md` |
 | `019-slate-formatting-discord-engine-analysis.md` | `analysis/019-slate-formatting-discord-engine-analysis.md` |
 | `019-slate-formatting-discord-engine-architecture-findings.md` | `architecture/019-slate-formatting-discord-engine-architecture-findings.md` |
@@ -1279,11 +1285,13 @@ they are the ID-less artifacts that root new efforts.
 | `fix-hooks-record-shared-engine-retrospective.md` | `retrospectives/closed/fix-hooks-record-shared-engine-retrospective.md` |
 | `fix-image-uploader-url-brief-code-reviewer.md` | `steering/fix-image-uploader-url-brief-code-reviewer.md` |
 | `fix-image-uploader-url-brief-common.md` | `steering/fix-image-uploader-url-brief-common.md` |
+| `fix-image-uploader-url-brief-devops.md` | `steering/fix-image-uploader-url-brief-devops.md` |
 | `fix-image-uploader-url-brief-fixer.md` | `steering/fix-image-uploader-url-brief-fixer.md` |
 | `fix-image-uploader-url-brief-qa.md` | `steering/fix-image-uploader-url-brief-qa.md` |
-| `fix-image-uploader-url-code-review.md` | `code-review/fix-image-uploader-url-code-review.md` |
-| `fix-image-uploader-url-implementation.md` | `implementation/fix-image-uploader-url-implementation.md` |
-| `fix-image-uploader-url-qa.md` | `qa/fix-image-uploader-url-qa.md` |
+| `fix-image-uploader-url-code-review.md` | `code-review/closed/fix-image-uploader-url-code-review.md` |
+| `fix-image-uploader-url-deployment.md` | `deployment/closed/fix-image-uploader-url-deployment.md` |
+| `fix-image-uploader-url-implementation.md` | `implementation/closed/fix-image-uploader-url-implementation.md` |
+| `fix-image-uploader-url-qa.md` | `qa/closed/fix-image-uploader-url-qa.md` |
 | `fix-image-uploader-url-rulings.md` | `steering/fix-image-uploader-url-rulings.md` |
 | `fix-import-save-conflict-brief-code-reviewer.md` | `steering/fix-import-save-conflict-brief-code-reviewer.md` |
 | `fix-import-save-conflict-brief-common.md` | `steering/fix-import-save-conflict-brief-common.md` |
@@ -1407,6 +1415,7 @@ they are the ID-less artifacts that root new efforts.
 | `fixer-batch-2026-11-21-retrospective.md` | `retrospectives/fixer-batch-2026-11-21-retrospective.md` |
 | `fixer-fix-dialog-closes-on-first-portal-load.md` | `steering/backlog-2026-11-18-briefs/fixer-fix-dialog-closes-on-first-portal-load.md` |
 | `fixer-queue-2026-11-21-rulings.md` | `steering/fixer-queue-2026-11-21-rulings.md` |
+| `fixer-queue-2026-11-21-standing.md` | `steering/fixer-queue-2026-11-21-standing.md` |
 | `fixer-save-gate-embeds-brief.md` | `steering/queue-hooks-briefs/fixer-save-gate-embeds-brief.md` |
 | `fixer-uat-local-stack-brief.md` | `steering/queue-hooks-briefs/fixer-uat-local-stack-brief.md` |
 | `fixes-2026-11-21-steering-hooks-3-retrospective.md` | `retrospectives/fixes-2026-11-21-steering-hooks-3-retrospective.md` |
@@ -1548,6 +1557,7 @@ they are the ID-less artifacts that root new efforts.
 | `table-2217a92.md` | `verification/fix-image-uploader-url/controls/table-2217a92.md` |
 | `table-48c5e87.md` | `verification/fix-image-uploader-url/controls/table-48c5e87.md` |
 | `table-48c5e87.md` | `verification/fix-image-uploader-url/qa/rerun-48c5e87/sweep/table-48c5e87.md` |
+| `table-5ec0621.md` | `verification/fix-image-uploader-url/controls/table-5ec0621.md` |
 | `table-7660259.md` | `verification/fix-image-uploader-url/controls/table-7660259.md` |
 | `table-7f0229c.md` | `verification/fix-image-uploader-url/controls/table-7f0229c.md` |
 | `table-96fb1f8.md` | `verification/fix-image-uploader-url/controls/table-96fb1f8.md` |
