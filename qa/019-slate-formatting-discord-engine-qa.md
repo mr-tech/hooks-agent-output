@@ -15,29 +15,43 @@ Phase: 1
 
 ## Resumption State
 
-Written 2026-11-23T19:55 at a checkpoint steering asked for (350K, past the 325K threshold).
+Written 2026-11-23T23:36 at a checkpoint steering asked for (about 325K, idle at a seam).
 
 - **Done.**
-  - Phase 1 on revisions 1 to 12, each re-key committed. Revision 12 closes QAF-34 and QAF-35; nothing is open in Phase 1.
-  - Phase 2 on M2, in its own document, `qa/019-slate-formatting-discord-engine-m2-qa.md`. It was QA Failed at website `78c5f74`
-    on QAF-29, record `0b00154b`. The refresh is QA Complete at `7dcedc9`, record `c699c85`. Plan rows R-26 and R-28.
+  - Phase 1 on revisions 1 to 12, each re-key committed (last `e645035`, with SL-12 and SL-13 read in at `cb5a601`). Nothing is
+    open in Phase 1. QAF-31 is carried as SL-11.
+  - Phase 2 on M2: QA Complete at `7dcedc9` (`qa/019-slate-formatting-discord-engine-m2-qa.md`, plan R-26, R-28).
+  - Phase 2 on M3: **QA Failed** at `2c1590f` on QAF-32 and QAF-33, both MEDIUM severity floors excepted from the M3 cap
+    (block 22:35Z). `qa/019-slate-formatting-discord-engine-m3-qa.md`, record `98801f5c`, plan R-43 at `fc254c75`. Sent to
+    `implementer-019` (msg `e5c6a8b1`). Register row B-8 appended. Captures in `verification/019/qa/m3/`.
 - **Next.**
-  - Phase 2 on each later milestone (M3 to M6), each in its own `qa/019-…-m<n>-qa.md`. Each starts at that milestone's committed
-    code review verdict at its `Reviewed-At`, never at a hand-off message.
-  - Carried into those passes:
-    - AC-2.5's surface limbs, at M4 and M5;
-    - AC-2.1's oracle-helper mask clause (`Syntax.ALL & ~Syntax.DEV_LINKS`), at M3, the code review's item first;
-    - QAF-27's `<t:…:s> <t:…:f>` member, at the AC-4.3 audit;
-    - the effort-final mutation sweep over `git diff 5ec0621..<final tip>` production paths, with mutant-gen.
-  - Any further AC-4.7 gap goes to `steering-hooks-fixer` before any fold (block 18:02Z). M4 and M6 are capped below HIGH, except
-    a severity floor (block 17:56Z).
-- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `7dcedc9`. It is not mine to
+  - M3 refresh, when code review's committed re-verdict of the fix round arrives (stage start at its `Reviewed-At`, never at the
+    message). Scope: that round's diff. Re-run in a fresh export: the offline suite with exit code; the whole `pnpm test:discord`
+    in `unshare -rn` with lo up (QAF-32: no `\d+ passed`); the live command, reading both hashes in its output (QAF-33); each
+    fix's red run, read. A round with no production change re-runs only what it closes.
+  - Phase 2 on M4, M5 and M6, each in its own `qa/019-…-m<n>-qa.md`, each from that milestone's committed code review verdict.
+  - Carried:
+    - M4: its own frozen install (the M3 pass's Assumption Not Checked); AC-4.4's decision-table oracle and NM-48 to NM-57;
+      AC-3.7 with NM-58 to NM-67 and SL-12's per-field atom fixtures; RK-9: a residue count above M4's on any surface or mask
+      routes to steering (D-14 kept, block 23:33Z); AC-2.6's chunk re-read after M4's renderer changes; the convention-check
+      FAIL and three CANDIDATEs seen in M4 files at `2c1590f`.
+    - M4 and M5: AC-2.5's surface limbs. M5: survivors G5 and W12 (partial-mode element type) and W9 (the smart-quote repair,
+      untested anywhere).
+    - M6: W8 killed once the hold-outs go; the CR-7 exit check, `git -C website grep -c "BASE_RED\|holdsEmoji" <M6 tip> -- src`,
+      which must print nothing (14 lines over 5 files at `f4060c5`).
+    - AC-2.1's oracle-helper mask clause (`Syntax.ALL & ~Syntax.DEV_LINKS`): not read in the M3 pass, so it is read at the M3
+      refresh. QAF-27's `<t:…:s> <t:…:f>` member is read at the AC-4.3 audit.
+    - The effort-final mutation sweep over `git diff 5ec0621..<final tip>` production paths, with mutant-gen.
+  - Rulings in force: M3, M4 and M6 are capped below HIGH, except a severity floor (blocks 17:56Z, 22:35Z). Any AC-4.7 gap goes to
+    steering before any fold (18:02Z). Any question for the owner goes to `steering-hooks-fixer` by SendMessage as a selection
+    prompt, never as prose in a document (relayed 23:3xZ).
+- **Branch and HEAD.** The website shared tree is on `chain/019-slate-formatting-discord-engine` at `268b9fb`. It is not mine to
   switch.
 - **Approach in flight.** None.
-- **Uncommitted or local.** Nothing in the record. The exports were deleted. The scratchpad `pkg/` holds `npm pack` of the
-  markdown-wasm 0.16.0 and types 0.14.0 packages, which the probes run from; it is perishable and can be re-packed.
+- **Uncommitted or local.** Nothing in the record. The M3 exports (`m3x`, `f40x`) were deleted. The scratchpad holds only
+  drafts and edit files, all perishable.
 - **Evidence not recorded.** None.
-- **Questions out.** None.
+- **Questions out.** None. Waiting on `implementer-019`'s fix round and code review's re-verdict.
 
 **Plan Reference**: `agent-output/planning/019-slate-formatting-discord-engine.md`. This document is keyed to Revision 12 (record
 `b0af4dc3`). Revision 1 (record `103687b4`) was read whole by the first pass. Each later revision was read as its delta, and its
