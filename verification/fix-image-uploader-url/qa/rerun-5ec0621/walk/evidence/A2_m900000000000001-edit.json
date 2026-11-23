@@ -1,0 +1,10 @@
+{
+  "url": "http://127.0.0.1:3000/message/m/900000000000001/edit",
+  "open": true,
+  "box": "http://127.0.0.1:8765/gone.png",
+  "preview": null,
+  "saveDisabled": true,
+  "clearDisabled": false,
+  "errorText": true,
+  "text": "Enter Image URL\nImage URL\nImage not found.\nCancel\nClear\nSave"
+}

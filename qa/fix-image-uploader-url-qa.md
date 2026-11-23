@@ -2,9 +2,9 @@
 ID: n/a
 Origin: fix-image-uploader-url
 UUID: 5d9aefc4
-Verified-At: 48c5e87 — repos=website
-Status: QA Failed
-Status-Detail: "Phase 2 re-run at website 48c5e87: QA Failed on QAF-4 MEDIUM (a test gap: no assertion holds the box following a saved image that changes while the dialog is open, as Reload on 'Message Update Detected' can do). The fix is test-only and goes to fixer-fix-image-uploader-url. QAF-1 to QAF-3 are resolved, and the shipped code is correct on every criterion run here."
+Verified-At: 5ec0621 — repos=website
+Status: QA Complete
+Status-Detail: "Phase 2 PASS at website 5ec0621 (limbs 1 to 5). QAF-1 to QAF-4 resolved, no open finding, no register rows. A change to production code expires it; a plan-level verdict does not authorise a release (devops's step, under the owner's release approval)."
 Phase: 2
 ---
 
@@ -22,6 +22,7 @@ block "2026-11-23T17:05Z" (CR-3 ruled inside limb 1). Brief: `steering/fix-image
 |------|---------------|---------|---------|
 | 2026-11-23T17:19 | steering-hooks-fixer (brief 17:05Z) | Phase 2 at website `e94baf7` | Phase 2. QA Failed. Red re-run at `af3d95a`: 14 of 16 cases failed. Green at the tip: 40 of 40. Suite: 2712 of 2712, exit 0 (second run). Typecheck exit 0. Sweep: 36 of 38 killed. QAF-1 MEDIUM: a Cancel mutant survives the suite and is killed by a QA probe. Browser walk of flows 1, 3 and 8 on a local build: flows 3 and 8 hold. Flow 1's Enter step fails (QAF-2 LOW, the behaviour was already so at base). QAF-3 INFO is pre-existing residue. |
 | 2026-11-23T18:12 | steering-hooks-fixer (message of 18:0xZ) | Phase 2 re-run at website `48c5e87` (limbs 1 to 4 plus limb 5) | Phase 2. QA Failed on QAF-4 MEDIUM, a test gap on a saved image that changes while the dialog is open. QAF-1, QAF-2 and QAF-3 are resolved. Red at `e94baf7` with the tip's tests: 3 of 60 failed. Green: 60 of 60. Suite: 2717 of 2717, exit 0. Typecheck exit 0. Sweep of this round: 10 of 13 killed; two survivors are equivalent and one is QAF-4. The shared-hook differential is unchanged for the other two dialogs. Walk of flows 1 and 9: every step passes. See "Phase 2 re-run at `48c5e87`". |
+| 2026-11-23T18:24 | steering-hooks-fixer (message of 18:2xZ) | Phase 2 re-run at website `5ec0621` (QAF-4, test-only) | Phase 2. **QA Complete (PASS).** Production is byte-identical to `48c5e87`. The new case kills `qa-sync-only-when-closed` and is the only case it reddens. Green: 61 of 61. Suite: 2718 of 2718, exit 0. Typecheck exit 0. The owed walk passes: a JSON load to a 404 address, and Reload while the dialog is open. See "Phase 2 re-run at `5ec0621`". |
 
 ## Scope of this pass
 
@@ -384,3 +385,81 @@ walk. The failure is a missing assertion on a behaviour the change claims. The r
 alone: the new case seen red under `qa-sync-only-when-closed` and green at the new tip, that survivor re-run, the suite, and the next
 pass's Assumption Not Checked walk (above).
 Recommended next: the fixer (`fixer-fix-image-uploader-url`) for QAF-4.
+
+## Phase 2 re-run at `5ec0621`
+
+**Start.** Steering's message (18:2xZ) names the gate anchors. I re-derived them at the record:
+- the implementation document's `Handoff-At: 5ec0621` (record `a9614a7f`);
+- the code review's header `Reviewed-At: 5ec0621`, `Round: 3`, `Verdict: APPROVED` (record `2240623c`).
+
+The shared tree's `git rev-parse HEAD` printed `5ec06212d730…`. Criteria assessed: limbs 1 to 5, as in the pass above, and QAF-4's
+required case.
+
+**Round diff.** `48c5e87..5ec0621` is one commit, `5ec0621`. `git diff --numstat` gives only
+`src/components/__tests__/ImageUploader.saved-address.test.tsx`, 16 added and 0 removed.
+`git diff --quiet 48c5e87 5ec0621 -- . ':!src/**/__tests__/**'` exits 0, so production is byte-identical to `48c5e87`: `ImageUploader.tsx`
+blob `709efa13` in the export, and `useDialogEnter.ts` unchanged. The round has no production change, so per qa.md the sweep re-runs only
+the survivor the round closes. The differential and the `48c5e87` sweep stand on that identity.
+
+**The new case** is "follows that image in the box and the preview, and saves it", under the describe "…while the dialog is open". With
+the dialog open on X, it types A, presses the host's `data-replace` (Z), and asserts that the box and the preview show Z and that Save
+commits `[Z]`. The expectations are literals, and the dialog is left open with an edit in progress, which is the property QAF-4 named. The
+title carries no ID token.
+
+Runs, in a `git archive` export of `5ec0621` (test-file blob `a138fda8`, checked against `git rev-parse`), network-isolated. Captures are
+under `verification/fix-image-uploader-url/qa/rerun-5ec0621/`.
+
+| Run | Result | Capture |
+|---|---|---|
+| Green: the three `ImageUploader` files and `WarningDialog.enter-scope` | 61 passed (61), exit 0 | `green-run-5ec0621.txt` |
+| The survivor `qa-sync-only-when-closed` applied in the export (exact-once replacement; restored, blob `709efa13` re-checked), same files | **1 failed, 60 passed (61), exit 1**. The only failing case is the new one: `expected 'https://example.com/a.png' to be 'https://example.com/z.png'` | `red-run-sync-only-when-closed.txt` |
+| Full suite (loopback up) | **2718 of 2718 passed, 173 files, exit 0** | `suite-5ec0621.json`/`.txt` |
+| Typecheck (both programs) | exit 0 | `typecheck-5ec0621.txt` |
+
+So the survivor is killed by the committed case alone, which closes QAF-4. I applied this mutant by hand in the export and did not use
+`mutation-run.py`. The mutant is the same exact-once replacement as `rerun-48c5e87/sweep/mutants-qa.json`'s `qa-sync-only-when-closed`.
+
+**Walk** (the `48c5e87` pass's Assumption Not Checked, plus QAF-4's path in a real browser).
+- **Build.** A `git archive` export of `5ec0621`, `pnpm install --frozen-lockfile --offline` (exit 0, `walk/install.txt`), and
+  `next dev -H 127.0.0.1 -p 3000`.
+- **Database.** `tools/uat-local-stack.sh up` reported next id 900000000000001 (`walk/local-stack-up.txt`). The walk wrote only message
+  **900000000000001**, in two tabs.
+- **Images.** A `no-store` image server on 127.0.0.1:8765.
+- **Who walked it.** A `browser-walker` helper, as the test account. Evidence: `walk/evidence/*.json`, 10 files.
+
+Flows 1 and 9 were walked at `48c5e87` on production byte-identical to this tip (above). That walk stands on that stated basis and was not
+repeated.
+
+| Step | Observed | Result |
+|---|---|---|
+| A1, A2 | JSON load sets `avatar_url` to a 404 address (`gone.png`). The dialog opens on `gone.png`, and after 3 s: "Image not found.", no preview, Save disabled, Clear enabled | PASS |
+| A3 | Clear, then `blue.png`, then Save: the avatar is `blue.png` | PASS |
+| B2 to B4 | Tab A's avatar dialog is open with `red.png` typed. Tab B saves `pusher.png`. Tab A shows "Message Update Detected" **over the still-open image dialog**, then Reload | PASS |
+| B5 | The image dialog is still open, and its box and preview are `pusher.png` with Save enabled. Save gives the avatar `pusher.png` | PASS |
+
+**Set up and removed.**
+- `next dev` (process group 2022785) and the image server (process group 2022786) were stopped. `ps` shows none of their pids, and 3000
+  and 8765 are not listening.
+- The container `hooks-postgres-local` was removed (`walk/local-stack-down.txt`, exit 0).
+- The exports and the image folder were deleted after a `/proc` cwd check.
+- The helper closed the browser and emptied its caches.
+
+**Findings.** QAF-4 MEDIUM Phase 2 RESOLVED: the case "follows that image in the box and the preview, and saves it" kills
+`qa-sync-only-when-closed` at `5ec0621` (`rerun-5ec0621/red-run-sync-only-when-closed.txt`). There is no new finding and no open finding.
+
+**Blocking-condition register.** No rows (as above). Later stage documents are authoritative.
+
+**Assumption Not Checked.** This pass assumes that the production build Vercel makes of `master` runs this client component as
+`next dev` does, and it does not test that: every walk ran on `next dev` against a local stack. Signature of falsity: on the deployed site,
+Enter with the cursor in the image box does nothing, or the avatar dialog reopens on the old address after a JSON load. Owner: devops at
+release, through the deploy record's post-release look, or `steering-hooks-fixer` if devops's stage set has none.
+
+**Verdict.** **QA Complete (PASS)** at website `5ec0621` (`Verified-At`). Limbs 1 to 5 hold on every instrument run:
+- the suite, 2718 of 2718, exit 0;
+- this chain's mutation sweeps, with every survivor dispositioned as equivalent or killed;
+- the probes and the shared-hook differential;
+- real-browser walks of flows 1, 3, 8 and 9, the 404 JSON load, and Reload while the dialog is open.
+
+A later change to production code expires this verdict. It does not authorise the release, which is devops's step to website `master` under
+the owner's release approval.
+Recommended next: devops (release, via `steering-hooks-fixer`).

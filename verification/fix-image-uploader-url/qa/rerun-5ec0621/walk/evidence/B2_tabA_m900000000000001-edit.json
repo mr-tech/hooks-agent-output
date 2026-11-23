@@ -1,0 +1,9 @@
+{
+  "tab": "A",
+  "open": true,
+  "box": "http://127.0.0.1:8765/red.png",
+  "preview": "http://127.0.0.1:8765/red.png",
+  "saveDisabled": false,
+  "clearDisabled": false,
+  "errorText": false
+}

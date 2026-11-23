@@ -1,0 +1,104 @@
+{
+  "dialogs": [
+    {
+      "modal": "true",
+      "text": "Enter Image URL\nImage URL\nCancel\nClear\nSave",
+      "buttons": [
+        "",
+        "Cancel",
+        "Clear",
+        "Save"
+      ]
+    },
+    {
+      "modal": null,
+      "text": "Enter Image URLImage URLCancelClearSave",
+      "buttons": [
+        "",
+        "Cancel",
+        "Clear",
+        "Save"
+      ]
+    },
+    {
+      "modal": null,
+      "text": "Enter Image URLImage URLCancelClearSave",
+      "buttons": [
+        "",
+        "Cancel",
+        "Clear",
+        "Save"
+      ]
+    },
+    {
+      "modal": null,
+      "text": "Enter Image URLImage URLCancelClearSave",
+      "buttons": [
+        "",
+        "Cancel",
+        "Clear",
+        "Save"
+      ]
+    },
+    {
+      "modal": null,
+      "text": "Enter Image URLImage URLCancelClearSave",
+      "buttons": [
+        "",
+        "Cancel",
+        "Clear",
+        "Save"
+      ]
+    },
+    {
+      "modal": null,
+      "text": "Enter Image URLImage URLCancelClearSave",
+      "buttons": [
+        "",
+        "Cancel",
+        "Clear",
+        "Save"
+      ]
+    },
+    {
+      "modal": null,
+      "text": "Enter Image URLImage URLCancelClearSave",
+      "buttons": [
+        "",
+        "Cancel",
+        "Clear",
+        "Save"
+      ]
+    },
+    {
+      "modal": null,
+      "text": "Enter Image URLImage URLCancelClearSave",
+      "buttons": [
+        "",
+        "Cancel",
+        "Clear",
+        "Save"
+      ]
+    },
+    {
+      "modal": null,
+      "text": "Enter Image URLImage URLCancelClearSave",
+      "buttons": [
+        "",
+        "Cancel",
+        "Clear",
+        "Save"
+      ]
+    },
+    {
+      "modal": "true",
+      "text": "Message Update Detected\n\nThe message you are viewing has been updated. Would you like to reload it?\n\nCancel\nReload",
+      "buttons": [
+        "",
+        "Cancel",
+        "Reload"
+      ]
+    }
+  ],
+  "imageDialogOpen": true
+}
