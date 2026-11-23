@@ -567,3 +567,9 @@ the browser loads only in sessions launched with `--browser` and in qa/uat; `lau
 empty). The researcher's claim that Discord serves two parsers, chosen by experiment, is unread (its document is not yet committed). No
 refutation helper was run: neither question rests on a defect or a probe result.
 Disclosure: this block's first write went through the shell and the record-write gate refused it; re-issued with the Edit tool.
+
+## 2026-11-23T09:30Z — he overrides the plain-message rule: prompt him
+
+Asked why the two Slate questions came as a plain message (steering.md, Prompting the owner: plain text while another chain can still
+move), he said: *"That rule is overridden. You are meant to prompt me."* This thread now puts every question to him as a selection
+prompt, whether or not another chain can move. The two Slate questions (block 09:26Z) are re-put as a selection prompt at once.
