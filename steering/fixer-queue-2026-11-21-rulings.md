@@ -834,3 +834,17 @@ command: as today). Nothing renders as "unknown". This is a planning revision, s
 the gates on its delta. M4's cap (block 17:56Z) does not apply to his ruling.
 Premises, read this turn by the refutation helper (block 21:18Z, read from code, not run): no role or command data; a channel list in
 `GuildProvider`; no command rule in `rules.tsx`.
+
+## 2026-11-23T21:38Z — plan 019 Revision 10 (D-17, AC-4.4): not re-put to him
+
+`planner-019` committed Revision 10 (`890d0b78`). It folds his 21:31Z selection into AC-4.4 as a decision table over every mention kind, and
+corrects M4's Mirrors line. The planner sent the delta reads to critic-019, architect-019 and qa-019 itself. Its scope delta is "AC-4.4's limbs
+only, inside M4", the first revision since Revision 9's approval. **Not put to him as a scope-delta prompt.** The delta is the execution of the
+selection he made seven minutes earlier. His option text said "Roles and commands stay as they look today… Nothing is labelled 'unknown'", and
+re-asking it would ask what he has just answered (escalation.md, first bullet).
+The planner marks three limbs as its own readings: (1) unlisted channels, users and everyone/here keep today's form; (2) the "#" prefix; (3)
+thread ids are looked up too. Each is a design choice inside his option's words (Standing Default), and he may veto any from this record.
+Added premise, the planner's (read at `5ec0621`): `/preview`, the route the image generator screenshots, has no channel list, so it shows
+"#<id>" (today's form).
+Critic effort: `tmux-agent effort-level critic-019 medium` was refused because the critic was busy on the planner's send. It is retried at the
+critic's next idle.
