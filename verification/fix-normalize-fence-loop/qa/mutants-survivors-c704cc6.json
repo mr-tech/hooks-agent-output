@@ -1,0 +1,88 @@
+[
+ {
+  "id": "withNormalizeNode.ts:15:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "\n  if (chi",
+  "new": "\n  if (false && chi",
+  "op": "if-false",
+  "line": 15,
+  "text": "if (child.type === 'blockQuote') return child.quotePrefix ?? '> ';"
+ },
+ {
+  "id": "withNormalizeNode.ts:40:||",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "     || (isF",
+  "new": "     && (isF",
+  "op": "||",
+  "line": 40,
+  "text": "|| (isFullCodeBlock && child.lang !== lang)"
+ },
+ {
+  "id": "withNormalizeNode.ts:40:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "deBlock && child.l",
+  "new": "deBlock || child.l",
+  "op": "&&",
+  "line": 40,
+  "text": "|| (isFullCodeBlock && child.lang !== lang)"
+ },
+ {
+  "id": "withNormalizeNode.ts:40:!==",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "g !== l",
+  "new": "g === l",
+  "op": "!==",
+  "line": 40,
+  "text": "|| (isFullCodeBlock && child.lang !== lang)"
+ },
+ {
+  "id": "withNormalizeNode.ts:42:||",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "   || (c",
+  "new": "   && (c",
+  "op": "||",
+  "line": 42,
+  "text": "|| (child.startCodeBlock !== fence.inCodeBlock)"
+ },
+ {
+  "id": "withNormalizeNode.ts:42:!==",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "k !== f",
+  "new": "k === f",
+  "op": "!==",
+  "line": 42,
+  "text": "|| (child.startCodeBlock !== fence.inCodeBlock)"
+ },
+ {
+  "id": "withNormalizeNode.ts:44:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "isBlockQuote && child.type =",
+  "new": "isBlockQuote || child.type =",
+  "op": "&&",
+  "line": 44,
+  "text": "|| (!isBlockQuote && child.type === 'blockQuote')"
+ },
+ {
+  "id": "withNormalizeNode.ts:44:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " child.type === 'blockQuote",
+  "new": " child.type !== 'blockQuote",
+  "op": "===",
+  "line": 44,
+  "text": "|| (!isBlockQuote && child.type === 'blockQuote')"
+ },
+ {
+  "id": "QM2-leading-space-marker-trimmed",
+  "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+  "old": "quotePrefix: line.slice(0, line.length - text.length)",
+  "new": "quotePrefix: line.slice(0, line.length - text.length).trimStart()",
+  "why": "a marker typed with leading spaces is stored without them"
+ },
+ {
+  "id": "QM5-typed-multiline-marker-unread",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "childText.replace(/^ *>>> /, '').replace(/^ *> /, '')",
+  "new": "childText.replace(/^ *> /, '')",
+  "why": "a typed >>> marker is read as > plus text"
+ }
+]

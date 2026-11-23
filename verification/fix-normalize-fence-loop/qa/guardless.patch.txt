@@ -1,0 +1,4 @@
+54c54
+<           if (child.type !== 'blockQuote' && quotePrefix) {
+---
+>           if (quotePrefix) {

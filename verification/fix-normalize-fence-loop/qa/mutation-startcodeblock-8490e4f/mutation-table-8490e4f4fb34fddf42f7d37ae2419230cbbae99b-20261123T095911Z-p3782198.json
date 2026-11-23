@@ -1,0 +1,107 @@
+{
+ "sha": "8490e4f4fb34fddf42f7d37ae2419230cbbae99b",
+ "repo": "/usr/local/bin/hooks/website",
+ "mutantsFile": "/usr/local/bin/hooks/agent-output/verification/fix-normalize-fence-loop/qa/mutants-startcodeblock.json",
+ "command": [
+  "npx",
+  "vitest",
+  "run",
+  "--no-cache",
+  "--configLoader",
+  "runner",
+  "--config",
+  "/usr/local/bin/hooks/agent-output/verification/fix-normalize-fence-loop/vitest.mutation.config.ts",
+  "src/components/SlateEditor",
+  "--reporter=verbose"
+ ],
+ "env": {},
+ "deps": [
+  "node_modules"
+ ],
+ "protect": [],
+ "readonlyRoots": [],
+ "timeout": 300.0,
+ "instruments": [
+  {
+   "kind": "runner",
+   "path": "/home/dev/.claude/tools/mutation-run.py",
+   "blob": "b26916e7c0bf74ee49a69bb99eff2a627f6d9947"
+  },
+  {
+   "kind": "mutants",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-normalize-fence-loop/qa/mutants-startcodeblock.json",
+   "blob": "1e96c7f7e1177f51f1aec4401f6bd2d97ef38ac2"
+  },
+  {
+   "kind": "dep",
+   "path": "node_modules",
+   "blob": null,
+   "note": "directory, not hashed"
+  },
+  {
+   "kind": "argument",
+   "path": "/usr/local/bin/hooks/agent-output/verification/fix-normalize-fence-loop/vitest.mutation.config.ts",
+   "blob": "a09ec7375093bb7809c4e487df0ebf0ee212da28"
+  }
+ ],
+ "controls": {
+  "[]": {
+   "id": "control-1",
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-normalize-fence-loop/qa/mutation-startcodeblock-8490e4f/8490e4f4fb34fddf42f7d37ae2419230cbbae99b-20261123T095911Z-p3782198-control-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-normalize-fence-loop/qa/mutation-startcodeblock-8490e4f/8490e4f4fb34fddf42f7d37ae2419230cbbae99b-20261123T095911Z-p3782198-control-1.stderr",
+   "seconds": 3.41,
+   "exit": 0,
+   "timedOut": false,
+   "tests_run": 334,
+   "tests": [],
+   "passed": true
+  }
+ },
+ "mutants": [
+  {
+   "id": "withNormalizeNode.ts:42:||",
+   "run": "mutant-1",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "||",
+    "line": 42,
+    "text": "|| (child.startCodeBlock !== fence.inCodeBlock)"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 334,
+   "control_tests_run": 334,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 3.41,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-normalize-fence-loop/qa/mutation-startcodeblock-8490e4f/8490e4f4fb34fddf42f7d37ae2419230cbbae99b-20261123T095911Z-p3782198-mutant-1.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-normalize-fence-loop/qa/mutation-startcodeblock-8490e4f/8490e4f4fb34fddf42f7d37ae2419230cbbae99b-20261123T095911Z-p3782198-mutant-1.stderr"
+  },
+  {
+   "id": "withNormalizeNode.ts:42:!==",
+   "run": "mutant-2",
+   "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+   "tests": [],
+   "carried": {
+    "op": "!==",
+    "line": 42,
+    "text": "|| (child.startCodeBlock !== fence.inCodeBlock)"
+   },
+   "controlPassed": true,
+   "killed": false,
+   "applied": true,
+   "tests_run": 334,
+   "control_tests_run": 334,
+   "outcome": "SURVIVED",
+   "exit": 0,
+   "timedOut": false,
+   "seconds": 3.48,
+   "stdout": "/usr/local/bin/hooks/agent-output/verification/fix-normalize-fence-loop/qa/mutation-startcodeblock-8490e4f/8490e4f4fb34fddf42f7d37ae2419230cbbae99b-20261123T095911Z-p3782198-mutant-2.stdout",
+   "stderr": "/usr/local/bin/hooks/agent-output/verification/fix-normalize-fence-loop/qa/mutation-startcodeblock-8490e4f/8490e4f4fb34fddf42f7d37ae2419230cbbae99b-20261123T095911Z-p3782198-mutant-2.stderr"
+  }
+ ],
+ "score": "0 of 2 mutants killed (denominator: mutants whose suite started under a passing control, stillborn and aborted excluded; stillborn 0, not-applied 0, aborted 0, control-failed 0; mutants-startcodeblock.json (blob 1e96c7f7e1177f51f1aec4401f6bd2d97ef38ac2))"
+}

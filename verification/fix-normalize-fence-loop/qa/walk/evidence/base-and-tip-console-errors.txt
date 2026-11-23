@@ -1,0 +1,153 @@
+Total messages: 26 (Errors: 4, Warnings: 0)
+Returning 4 messages for level "error"
+
+[ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/message/m..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
++                         className="dark bg-document text-default inter_5972bc34-module__OU16Qa__className"
+-                         className="bg-document text-default inter_5972bc34-module__OU16Qa__className"
+                        >
+                  ...
+ @ http://127.0.0.1:3000/_next/static/chunks/1iyu_next_dist_017ea8b-3pu79._.js:1036
+[ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/message/m..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
++                         className="dark bg-document text-default inter_5972bc34-module__OU16Qa__className"
+-                         className="bg-document text-default inter_5972bc34-module__OU16Qa__className"
+                        >
+                  ...
+ @ http://127.0.0.1:3001/_next/static/chunks/1iyu_next_dist_017ea8b-3pu79._.js:1036
+[ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/message/m..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
++                         className="dark bg-document text-default inter_5972bc34-module__OU16Qa__className"
+-                         className="bg-document text-default inter_5972bc34-module__OU16Qa__className"
+                        >
+                  ...
+ @ http://127.0.0.1:3001/_next/static/chunks/1iyu_next_dist_017ea8b-3pu79._.js:1036
+Error: Could not completely normalize the editor after 126 iterations! This is usually due to incorrect normalization logic that leaves a node in an invalid state.
+    at shouldNormalize (http://127.0.0.1:3001/_next/static/chunks/1_p1_slate_dist_index_es_09x66-p9_3snu.js:2938:15)
+    at Object.shouldNormalize$1 [as shouldNormalize] (http://127.0.0.1:3001/_next/static/chunks/1_p1_slate_dist_index_es_09x66-p9_3snu.js:5615:20)
+    at http://127.0.0.1:3001/_next/static/chunks/1_p1_slate_dist_index_es_09x66-p9_3snu.js:3627:25
+    at withoutNormalizing (http://127.0.0.1:3001/_next/static/chunks/1_p1_slate_dist_index_es_09x66-p9_3snu.js:4157:9)
+    at Object.withoutNormalizing$1 [as withoutNormalizing] (http://127.0.0.1:3001/_next/static/chunks/1_p1_slate_dist_index_es_09x66-p9_3snu.js:5976:20)
+    at Object.withoutNormalizing (http://127.0.0.1:3001/_next/static/chunks/1_p1_slate_dist_index_es_09x66-p9_3snu.js:1819:16)
+    at normalize (http://127.0.0.1:3001/_next/static/chunks/1_p1_slate_dist_index_es_09x66-p9_3snu.js:3602:12)
+    at Object.normalize$1 [as normalize] (http://127.0.0.1:3001/_next/static/chunks/1_p1_slate_dist_index_es_09x66-p9_3snu.js:5820:20)
+    at Object.normalize (http://127.0.0.1:3001/_next/static/chunks/1_p1_slate_dist_index_es_09x66-p9_3snu.js:1762:16)
+    at withoutNormalizing (http://127.0.0.1:3001/_next/static/chunks/1_p1_slate_dist_index_es_09x66-p9_3snu.js:4161:12)
+    at Object.withoutNormalizing$1 [as withoutNormalizing] (http://127.0.0.1:3001/_next/static/chunks/1_p1_slate_dist_index_es_09x66-p9_3snu.js:5976:20)
+    at Object.withoutNormalizing (http://127.0.0.1:3001/_next/static/chunks/1_p1_slate_dist_index_es_09x66-p9_3snu.js:1819:16)
+    at Object.insertText (http://127.0.0.1:3001/_next/static/chunks/1_p1_slate_dist_index_es_09x66-p9_3snu.js:2567:16)
+    at insertText (http://127.0.0.1:3001/_next/static/chunks/1_p1_slate_dist_index_es_09x66-p9_3snu.js:3278:24)
+    at Object.insertText$1 [as insertText] (http://127.0.0.1:3001/_next/static/chunks/1_p1_slate_dist_index_es_09x66-p9_3snu.js:5591:20)
+    at Object.insertText (http://127.0.0.1:3001/_next/static/chunks/1_p1_slate_dist_index_es_09x66-p9_3snu.js:1707:16)
+    at Editable.useCallback[onDOMBeforeInput] (http://127.0.0.1:3001/_next/static/chunks/1oo6_slate-react_dist_index_es_0pp8o7ulfvte4.js:3208:293)
+    at Editable.useCallback (http://127.0.0.1:3001/_next/static/chunks/1oo6_slate-react_dist_index_es_0pp8o7ulfvte4.js:3465:21)
+    at executeDispatch (http://127.0.0.1:3001/_next/static/chunks/1iyu_next_dist_compiled_react-dom_cjs_react-dom-client_development_0ss1k-fy_vmdb.js:10214:13)
+    at runWithFiberInDEV (http://127.0.0.1:3001/_next/static/chunks/1iyu_next_dist_compiled_react-dom_cjs_react-dom-client_development_0ss1k-fy_vmdb.js:777:74)
+    at processDispatchQueue (http://127.0.0.1:3001/_next/static/chunks/1iyu_next_dist_compiled_react-dom_cjs_react-dom-client_development_0ss1k-fy_vmdb.js:10240:41)
+    at http://127.0.0.1:3001/_next/static/chunks/1iyu_next_dist_compiled_react-dom_cjs_react-dom-client_development_0ss1k-fy_vmdb.js:10518:13
+    at batchedUpdates$1 (http://127.0.0.1:3001/_next/static/chunks/1iyu_next_dist_compiled_react-dom_cjs_react-dom-client_development_0ss1k-fy_vmdb.js:2066:44)
+    at dispatchEventForPluginEventSystem (http://127.0.0.1:3001/_next/static/chunks/1iyu_next_dist_compiled_react-dom_cjs_react-dom-client_development_0ss1k-fy_vmdb.js:10316:9)
+    at dispatchEvent (http://127.0.0.1:3001/_next/static/chunks/1iyu_next_dist_compiled_react-dom_cjs_react-dom-client_development_0ss1k-fy_vmdb.js:12975:37)
+    at dispatchDiscreteEvent (http://127.0.0.1:3001/_next/static/chunks/1iyu_next_dist_compiled_react-dom_cjs_react-dom-client_development_0ss1k-fy_vmdb.js:12957:64)

@@ -1,0 +1,209 @@
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 21 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character after the emoji in a plain line
+TypeError: Cannot destructure property 'quotePrefix' of '(intermediate value)(intermediate value)(intermediate value)' as it is null.
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:219:13
+    217|
+    218|   editor.apply = (op) => {
+    219|     const { quotePrefix } = op.type !== 'split_node' ? op.properties a…
+       |             ^
+    220|     if (op.type === 'split_node' && quotePrefix) {
+    221|       apply({ ...op, properties: { ...op.properties, quotePrefix: quot…
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/select.ts:24:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:171:31
+ ❯ select node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:67:11
+ ❯ typedInto src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:28:14
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:36:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/21]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped asterisk before the emoji and every character after it
+TypeError: Cannot destructure property 'quotePrefix' of '(intermediate value)(intermediate value)(intermediate value)' as it is null.
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:219:13
+    217|
+    218|   editor.apply = (op) => {
+    219|     const { quotePrefix } = op.type !== 'split_node' ? op.properties a…
+       |             ^
+    220|     if (op.type === 'split_node' && quotePrefix) {
+    221|       apply({ ...op, properties: { ...op.properties, quotePrefix: quot…
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/select.ts:24:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:171:31
+ ❯ select node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:67:11
+ ❯ typedInto src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:28:14
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:41:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/21]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps an escaped emoji as text and turns the emoji after it into an element
+TypeError: Cannot destructure property 'quotePrefix' of '(intermediate value)(intermediate value)(intermediate value)' as it is null.
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:219:13
+    217|
+    218|   editor.apply = (op) => {
+    219|     const { quotePrefix } = op.type !== 'split_node' ? op.properties a…
+       |             ^
+    220|     if (op.type === 'split_node' && quotePrefix) {
+    221|       apply({ ...op, properties: { ...op.properties, quotePrefix: quot…
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/select.ts:24:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:171:31
+ ❯ select node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:67:11
+ ❯ typedInto src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:28:14
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:46:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/21]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps "a :ok🙂 🙂 b" as typed where a name would run into the emoji, and turns the next emoji into an element
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps "a \\🙂ok: 🙂 b" as typed where a name would run into the emoji, and turns the next emoji into an element
+TypeError: Cannot destructure property 'quotePrefix' of '(intermediate value)(intermediate value)(intermediate value)' as it is null.
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:219:13
+    217|
+    218|   editor.apply = (op) => {
+    219|     const { quotePrefix } = op.type !== 'split_node' ? op.properties a…
+       |             ^
+    220|     if (op.type === 'split_node' && quotePrefix) {
+    221|       apply({ ...op, properties: { ...op.properties, quotePrefix: quot…
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/select.ts:24:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:171:31
+ ❯ select node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:67:11
+ ❯ typedInto src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:28:14
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:54:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/21]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx > editor normalizer turning an emoji in a typed or pasted line into an emoji element > keeps every character after the emoji in a fenced code line
+TypeError: Cannot destructure property 'quotePrefix' of '(intermediate value)(intermediate value)(intermediate value)' as it is null.
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:219:13
+    217|
+    218|   editor.apply = (op) => {
+    219|     const { quotePrefix } = op.type !== 'split_node' ? op.properties a…
+       |             ^
+    220|     if (op.type === 'split_node' && quotePrefix) {
+    221|       apply({ ...op, properties: { ...op.properties, quotePrefix: quot…
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/select.ts:24:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:171:31
+ ❯ select node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:67:11
+ ❯ typedInto src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:28:14
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.emoji-keeps-line-text.test.tsx:63:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/21]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 0 at its start
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 0 at its end
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 1 at its start
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 1 at its end
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 2 at its start
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 2 at its end
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 3 at its start
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 3 at its end
+TypeError: Cannot destructure property 'quotePrefix' of '(intermediate value)(intermediate value)(intermediate value)' as it is null.
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:219:13
+    217|
+    218|   editor.apply = (op) => {
+    219|     const { quotePrefix } = op.type !== 'split_node' ? op.properties a…
+       |             ^
+    220|     if (op.type === 'split_node' && quotePrefix) {
+    221|       apply({ ...op, properties: { ...op.properties, quotePrefix: quot…
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/select.ts:24:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:171:31
+ ❯ select node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:67:11
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:67:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/21]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed after a multi-line quote marker followed by a bare fence
+TypeError: Cannot destructure property 'quotePrefix' of '(intermediate value)(intermediate value)(intermediate value)' as it is null.
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:219:13
+    217|
+    218|   editor.apply = (op) => {
+    219|     const { quotePrefix } = op.type !== 'split_node' ? op.properties a…
+       |             ^
+    220|     if (op.type === 'split_node' && quotePrefix) {
+    221|       apply({ ...op, properties: { ...op.properties, quotePrefix: quot…
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/select.ts:24:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:171:31
+ ❯ select node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:67:11
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:74:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/21]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > turns ">>> x" typed into a plain line into a quote line that keeps its marker
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > turns "> x" typed into a plain line into a quote line that keeps its marker
+TypeError: Cannot destructure property 'quotePrefix' of '(intermediate value)(intermediate value)(intermediate value)' as it is null.
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:219:13
+    217|
+    218|   editor.apply = (op) => {
+    219|     const { quotePrefix } = op.type !== 'split_node' ? op.properties a…
+       |             ^
+    220|     if (op.type === 'split_node' && quotePrefix) {
+    221|       apply({ ...op, properties: { ...op.properties, quotePrefix: quot…
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/select.ts:24:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:171:31
+ ❯ select node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:67:11
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:102:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/21]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > writes no text to the lines a typed multi-line quote marker takes in
+TypeError: Cannot destructure property 'quotePrefix' of '(intermediate value)(intermediate value)(intermediate value)' as it is null.
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:219:13
+    217|
+    218|   editor.apply = (op) => {
+    219|     const { quotePrefix } = op.type !== 'split_node' ? op.properties a…
+       |             ^
+    220|     if (op.type === 'split_node' && quotePrefix) {
+    221|       apply({ ...op, properties: { ...op.properties, quotePrefix: quot…
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/select.ts:24:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:171:31
+ ❯ select node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:67:11
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:109:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/21]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > starts a quoted line with no marker when a line of a multi-line quote is split
+TypeError: Cannot destructure property 'quotePrefix' of '(intermediate value)(intermediate value)(intermediate value)' as it is null.
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:219:13
+    217|
+    218|   editor.apply = (op) => {
+    219|     const { quotePrefix } = op.type !== 'split_node' ? op.properties a…
+       |             ^
+    220|     if (op.type === 'split_node' && quotePrefix) {
+    221|       apply({ ...op, properties: { ...op.properties, quotePrefix: quot…
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/select.ts:24:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:171:31
+ ❯ select node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:67:11
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:118:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/21]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps a later multi-line quote marker when a multi-line quote is opened above it
+TypeError: Cannot destructure property 'quotePrefix' of '(intermediate value)(intermediate value)(intermediate value)' as it is null.
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:219:13
+    217|
+    218|   editor.apply = (op) => {
+    219|     const { quotePrefix } = op.type !== 'split_node' ? op.properties a…
+       |             ^
+    220|     if (op.type === 'split_node' && quotePrefix) {
+    221|       apply({ ...op, properties: { ...op.properties, quotePrefix: quot…
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/select.ts:24:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:171:31
+ ❯ select node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:67:11
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:131:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/21]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > makes the lines after a removed multi-line quote marker plain lines
+TypeError: Cannot destructure property 'quotePrefix' of '(intermediate value)(intermediate value)(intermediate value)' as it is null.
+ ❯ Object.editor.apply src/components/SlateEditor/utils/withNormalizeNode.ts:219:13
+    217|
+    218|   editor.apply = (op) => {
+    219|     const { quotePrefix } = op.type !== 'split_node' ? op.properties a…
+       |             ^
+    220|     if (op.type === 'split_node' && quotePrefix) {
+    221|       apply({ ...op, properties: { ...op.properties, quotePrefix: quot…
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/transforms-selection/select.ts:24:9
+ ❯ apply node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/create-editor.ts:171:31
+ ❯ select node_modules/.pnpm/slate@0.123.0/node_modules/slate/src/interfaces/transforms/selection.ts:67:11
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:138:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/21]⎯
+

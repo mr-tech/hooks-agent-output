@@ -1,0 +1,431 @@
+[
+ {
+  "id": "codeFence.ts:6:false",
+  "file": "src/components/SlateEditor/utils/codeFence.ts",
+  "old": "false",
+  "new": "true",
+  "op": "false",
+  "line": 6,
+  "text": "export const NO_FENCE: FenceState = { inCodeBlock: false, lang: '' };"
+ },
+ {
+  "id": "codeFence.ts:9:&&",
+  "file": "src/components/SlateEditor/utils/codeFence.ts",
+  "old": "&&",
+  "new": "||",
+  "op": "&&",
+  "line": 9,
+  "text": "return fence.inCodeBlock && !line.includes('```');"
+ },
+ {
+  "id": "codeFence.ts:9:not",
+  "file": "src/components/SlateEditor/utils/codeFence.ts",
+  "old": " !l",
+  "new": " l",
+  "op": "not",
+  "line": 9,
+  "text": "return fence.inCodeBlock && !line.includes('```');"
+ },
+ {
+  "id": "codeFence.ts:18:num",
+  "file": "src/components/SlateEditor/utils/codeFence.ts",
+  "old": "2",
+  "new": "3",
+  "op": "num",
+  "line": 18,
+  "text": "const inCodeBlock = line.split('```').length % 2 === 0 ? !fence.inCodeBlock : fence.inCodeBlock;"
+ },
+ {
+  "id": "codeFence.ts:18:===",
+  "file": "src/components/SlateEditor/utils/codeFence.ts",
+  "old": "===",
+  "new": "!==",
+  "op": "===",
+  "line": 18,
+  "text": "const inCodeBlock = line.split('```').length % 2 === 0 ? !fence.inCodeBlock : fence.inCodeBlock;"
+ },
+ {
+  "id": "codeFence.ts:18:num:2",
+  "file": "src/components/SlateEditor/utils/codeFence.ts",
+  "old": " 0 ",
+  "new": " 1 ",
+  "op": "num",
+  "line": 18,
+  "text": "const inCodeBlock = line.split('```').length % 2 === 0 ? !fence.inCodeBlock : fence.inCodeBlock;"
+ },
+ {
+  "id": "codeFence.ts:18:not",
+  "file": "src/components/SlateEditor/utils/codeFence.ts",
+  "old": " !f",
+  "new": " f",
+  "op": "not",
+  "line": 18,
+  "text": "const inCodeBlock = line.split('```').length % 2 === 0 ? !fence.inCodeBlock : fence.inCodeBlock;"
+ },
+ {
+  "id": "codeFence.ts:19:num",
+  "file": "src/components/SlateEditor/utils/codeFence.ts",
+  "old": "1",
+  "new": "2",
+  "op": "num",
+  "line": 19,
+  "text": "return { inCodeBlock, lang: inCodeBlock ? opening?.[1] ?? fence.lang : '' };"
+ },
+ {
+  "id": "flattenNodeText.ts:13:if-false",
+  "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+  "old": " if (n",
+  "new": " if (false && n",
+  "op": "if-false",
+  "line": 13,
+  "text": "if (node.type === 'blockQuote') return `${node.quotePrefix ?? '> '}${text}`;"
+ },
+ {
+  "id": "flattenNodeText.ts:13:===",
+  "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+  "old": "===",
+  "new": "!==",
+  "op": "===",
+  "line": 13,
+  "text": "if (node.type === 'blockQuote') return `${node.quotePrefix ?? '> '}${text}`;"
+ },
+ {
+  "id": "getInitialValue.ts:33:not",
+  "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+  "old": "n = !part",
+  "new": "n = part",
+  "op": "not",
+  "line": 33,
+  "text": "const multilineStart: boolean = !partialMarkdown && !isCodeBlock && !inMultilineBlockQuote && /^ *>>> /.test(text);"
+ },
+ {
+  "id": "getInitialValue.ts:33:&&",
+  "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+  "old": " !partialMarkdown && !isCodeBlock && !",
+  "new": " !partialMarkdown || !isCodeBlock && !",
+  "op": "&&",
+  "line": 33,
+  "text": "const multilineStart: boolean = !partialMarkdown && !isCodeBlock && !inMultilineBlockQuote && /^ *>>> /.test(text);"
+ },
+ {
+  "id": "getInitialValue.ts:33:not:2",
+  "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+  "old": "tialMarkdown && !isCodeBlock && !",
+  "new": "tialMarkdown && isCodeBlock && !",
+  "op": "not",
+  "line": 33,
+  "text": "const multilineStart: boolean = !partialMarkdown && !isCodeBlock && !inMultilineBlockQuote && /^ *>>> /.test(text);"
+ },
+ {
+  "id": "getInitialValue.ts:33:&&:2",
+  "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+  "old": "k && !",
+  "new": "k || !",
+  "op": "&&",
+  "line": 33,
+  "text": "const multilineStart: boolean = !partialMarkdown && !isCodeBlock && !inMultilineBlockQuote && /^ *>>> /.test(text);"
+ },
+ {
+  "id": "getInitialValue.ts:33:not:3",
+  "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+  "old": "& !in",
+  "new": "& in",
+  "op": "not",
+  "line": 33,
+  "text": "const multilineStart: boolean = !partialMarkdown && !isCodeBlock && !inMultilineBlockQuote && /^ *>>> /.test(text);"
+ },
+ {
+  "id": "getInitialValue.ts:33:&&:3",
+  "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+  "old": "e && /",
+  "new": "e || /",
+  "op": "&&",
+  "line": 33,
+  "text": "const multilineStart: boolean = !partialMarkdown && !isCodeBlock && !inMultilineBlockQuote && /^ *>>> /.test(text);"
+ },
+ {
+  "id": "getInitialValue.ts:94:===",
+  "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+  "old": "e === '",
+  "new": "e !== '",
+  "op": "===",
+  "line": 94,
+  "text": "...(type === 'blockQuote' && { quotePrefix: line.slice(0, line.length - text.length) }),"
+ },
+ {
+  "id": "getInitialValue.ts:94:&&",
+  "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+  "old": "' && {",
+  "new": "' || {",
+  "op": "&&",
+  "line": 94,
+  "text": "...(type === 'blockQuote' && { quotePrefix: line.slice(0, line.length - text.length) }),"
+ },
+ {
+  "id": "getInitialValue.ts:94:num",
+  "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+  "old": "(0,",
+  "new": "(1,",
+  "op": "num",
+  "line": 94,
+  "text": "...(type === 'blockQuote' && { quotePrefix: line.slice(0, line.length - text.length) }),"
+ },
+ {
+  "id": "getInitialValue.ts:97:if-false",
+  "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+  "old": " if (!",
+  "new": " if (false && !",
+  "op": "if-false",
+  "line": 97,
+  "text": "if (!partialMarkdown) fence = afterLine(fence, line);"
+ },
+ {
+  "id": "getInitialValue.ts:97:not",
+  "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+  "old": "(!p",
+  "new": "(p",
+  "op": "not",
+  "line": 97,
+  "text": "if (!partialMarkdown) fence = afterLine(fence, line);"
+ },
+ {
+  "id": "withNormalizeNode.ts:15:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "\n  if (chi",
+  "new": "\n  if (false && chi",
+  "op": "if-false",
+  "line": 15,
+  "text": "if (child.type === 'blockQuote') return child.quotePrefix ?? '> ';"
+ },
+ {
+  "id": "withNormalizeNode.ts:15:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "(child.type === 'blockQuote",
+  "new": "(child.type !== 'blockQuote",
+  "op": "===",
+  "line": 15,
+  "text": "if (child.type === 'blockQuote') return child.quotePrefix ?? '> ';"
+ },
+ {
+  "id": "withNormalizeNode.ts:17:num",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "ce(0, c",
+  "new": "ce(1, c",
+  "op": "num",
+  "line": 17,
+  "text": "return childText.slice(0, childText.length - content.length);"
+ },
+ {
+  "id": "withNormalizeNode.ts:33:||",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "e || (",
+  "new": "e && (",
+  "op": "||",
+  "line": 33,
+  "text": "inMultilineBlockQuote = inMultilineBlockQuote || (!isFullCodeBlock && /^ *>>> /.test(childText));"
+ },
+ {
+  "id": "withNormalizeNode.ts:33:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "e || (!isFull",
+  "new": "e || (isFull",
+  "op": "not",
+  "line": 33,
+  "text": "inMultilineBlockQuote = inMultilineBlockQuote || (!isFullCodeBlock && /^ *>>> /.test(childText));"
+ },
+ {
+  "id": "withNormalizeNode.ts:33:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "k && /",
+  "new": "k || /",
+  "op": "&&",
+  "line": 33,
+  "text": "inMultilineBlockQuote = inMultilineBlockQuote || (!isFullCodeBlock && /^ *>>> /.test(childText));"
+ },
+ {
+  "id": "withNormalizeNode.ts:40:||",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "     || (isF",
+  "new": "     && (isF",
+  "op": "||",
+  "line": 40,
+  "text": "|| (isFullCodeBlock && child.lang !== lang)"
+ },
+ {
+  "id": "withNormalizeNode.ts:40:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "deBlock && child.l",
+  "new": "deBlock || child.l",
+  "op": "&&",
+  "line": 40,
+  "text": "|| (isFullCodeBlock && child.lang !== lang)"
+ },
+ {
+  "id": "withNormalizeNode.ts:40:!==",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "g !== l",
+  "new": "g === l",
+  "op": "!==",
+  "line": 40,
+  "text": "|| (isFullCodeBlock && child.lang !== lang)"
+ },
+ {
+  "id": "withNormalizeNode.ts:42:||",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "   || (c",
+  "new": "   && (c",
+  "op": "||",
+  "line": 42,
+  "text": "|| (child.startCodeBlock !== fence.inCodeBlock)"
+ },
+ {
+  "id": "withNormalizeNode.ts:42:!==",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "k !== f",
+  "new": "k === f",
+  "op": "!==",
+  "line": 42,
+  "text": "|| (child.startCodeBlock !== fence.inCodeBlock)"
+ },
+ {
+  "id": "withNormalizeNode.ts:44:||",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "      || (!isB",
+  "new": "      && (!isB",
+  "op": "||",
+  "line": 44,
+  "text": "|| (!isBlockQuote && child.type === 'blockQuote')"
+ },
+ {
+  "id": "withNormalizeNode.ts:44:not",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "| (!isB",
+  "new": "| (isB",
+  "op": "not",
+  "line": 44,
+  "text": "|| (!isBlockQuote && child.type === 'blockQuote')"
+ },
+ {
+  "id": "withNormalizeNode.ts:44:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "isBlockQuote && child.type =",
+  "new": "isBlockQuote || child.type =",
+  "op": "&&",
+  "line": 44,
+  "text": "|| (!isBlockQuote && child.type === 'blockQuote')"
+ },
+ {
+  "id": "withNormalizeNode.ts:44:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " child.type === 'blockQuote",
+  "new": " child.type !== 'blockQuote",
+  "op": "===",
+  "line": 44,
+  "text": "|| (!isBlockQuote && child.type === 'blockQuote')"
+ },
+ {
+  "id": "withNormalizeNode.ts:54:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "     if (child",
+  "new": "     if (false && child",
+  "op": "if-false",
+  "line": 54,
+  "text": "if (child.type !== 'blockQuote' && quotePrefix) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:54:!==",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "(child.type !== 'blockQuote",
+  "new": "(child.type === 'blockQuote",
+  "op": "!==",
+  "line": 54,
+  "text": "if (child.type !== 'blockQuote' && quotePrefix) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:54:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "te' && quo",
+  "new": "te' || quo",
+  "op": "&&",
+  "line": 54,
+  "text": "if (child.type !== 'blockQuote' && quotePrefix) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:219:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " op.type === 'split_n",
+  "new": " op.type !== 'split_n",
+  "op": "===",
+  "line": 219,
+  "text": "const { quotePrefix } = op.type === 'split_node' ? op.properties as Partial<Element> : {};"
+ },
+ {
+  "id": "withNormalizeNode.ts:220:if-false",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": " if (o",
+  "new": " if (false && o",
+  "op": "if-false",
+  "line": 220,
+  "text": "if (op.type === 'split_node' && quotePrefix) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:220:===",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "(op.type === 'split_n",
+  "new": "(op.type !== 'split_n",
+  "op": "===",
+  "line": 220,
+  "text": "if (op.type === 'split_node' && quotePrefix) {"
+ },
+ {
+  "id": "withNormalizeNode.ts:220:&&",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "de' && quo",
+  "new": "de' || quo",
+  "op": "&&",
+  "line": 220,
+  "text": "if (op.type === 'split_node' && quotePrefix) {"
+ },
+ {
+  "id": "QM1-save-fixed-marker",
+  "file": "src/components/SlateEditor/utils/flattenNodeText.ts",
+  "old": "`${node.quotePrefix ?? '> '}${text}`",
+  "new": "`> ${text}`",
+  "why": "save writes the base form"
+ },
+ {
+  "id": "QM2-leading-space-marker-trimmed",
+  "file": "src/components/SlateEditor/utils/getInitialValue.ts",
+  "old": "quotePrefix: line.slice(0, line.length - text.length)",
+  "new": "quotePrefix: line.slice(0, line.length - text.length).trimStart()",
+  "why": "a marker typed with leading spaces is stored without them"
+ },
+ {
+  "id": "QM3-split-keeps-multiline-marker",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "quotePrefix: quotePrefix.replace(/^ *>>> /, '')",
+  "new": "quotePrefix",
+  "why": "a split line of a >>> quote keeps the marker"
+ },
+ {
+  "id": "QM4-fence-toggle-on-any-fence",
+  "file": "src/components/SlateEditor/utils/codeFence.ts",
+  "old": "line.split('```').length % 2 === 0",
+  "new": "line.includes('```')",
+  "why": "an even fence count toggles the block"
+ },
+ {
+  "id": "QM5-typed-multiline-marker-unread",
+  "file": "src/components/SlateEditor/utils/withNormalizeNode.ts",
+  "old": "childText.replace(/^ *>>> /, '').replace(/^ *> /, '')",
+  "new": "childText.replace(/^ *> /, '')",
+  "why": "a typed >>> marker is read as > plus text"
+ },
+ {
+  "id": "QM6-open-writes-twice",
+  "file": "src/components/SlateEditor/index.tsx",
+  "old": "useEffect(() => { onChange(string); }, [string]);",
+  "new": "useEffect(() => { onChange(string); onChange(string); }, [string]);",
+  "why": "instrument check for the mount test (index.tsx is outside the chain diff; not scored in the sweep)"
+ }
+]

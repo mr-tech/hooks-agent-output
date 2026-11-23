@@ -1,0 +1,1099 @@
+{
+ "replayed": 346,
+ "sameAsTip": 225,
+ "differs": 121,
+ "baseThrows": 107,
+ "baseMarkerDroppedToo": 8,
+ "baseCorrect": 0,
+ "differsExamples": [
+  {
+   "t": "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 2,
+   "expected": "```c++_\n>>> *\n _\n> `x``\\\n```c++ba\n``` b",
+   "saved": "```c++_\n>>> *\n _\n`x``\\\n```c++ba\n``` b",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 2,
+   "expected": "```c++_\n>>> *\n _\n> ``x`\\\n```c++ba\n``` b",
+   "saved": "```c++_\n>>> *\n _\n``x`\\\n```c++ba\n``` b",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```jsa|| \n > \n>> ||\n>>>  ```\n``` ```",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 4,
+   "expected": "```jsa|| \n > \n>> ||\n>>>  `x``\n``` ```",
+   "saved": "```jsa|| \n > \n>> ||\n `x``\n``` ```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```jsa|| \n > \n>> ||\n>>>  ```\n``` ```",
+   "li": 3,
+   "k": 3,
+   "prefixLen": 4,
+   "expected": "```jsa|| \n > \n>> ||\n>>>  ``x`\n``` ```",
+   "saved": "```jsa|| \n > \n>> ||\n ``x`\n``` ```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": ">>> `\n\n> js#\n``` `||js\n> >>> ```",
+   "li": 4,
+   "k": 5,
+   "prefixLen": 2,
+   "expected": ">>> `\n\n> js#\n``` `||js\n> >>> `x``",
+   "saved": ">>> `\n\n> js#\n``` `||js\n>>> `x``",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": ">>> `\n\n> js#\n``` `||js\n> >>> ```",
+   "li": 4,
+   "k": 6,
+   "prefixLen": 2,
+   "expected": ">>> `\n\n> js#\n``` `||js\n> >>> ``x`",
+   "saved": ">>> `\n\n> js#\n``` `||js\n>>> ``x`",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "saved": "`x``js> \n```jsb```js\n```  ||\njs b\n```js*js",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "saved": "``x`js> \n```jsb```js\n```  ||\njs b\n```js*js",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```js> \n`x``jsb```js\n```  ||\n>>> js b\n```js*js",
+   "saved": "```js> \n`x``jsb```js\n```  ||\njs b\n```js*js",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```js> \n``x`jsb```js\n```  ||\n>>> js b\n```js*js",
+   "saved": "```js> \n``x`jsb```js\n```  ||\njs b\n```js*js",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "li": 1,
+   "k": 7,
+   "prefixLen": 0,
+   "expected": "```js> \n```jsb`x``js\n```  ||\n>>> js b\n```js*js",
+   "saved": "```js> \n```jsb`x``js\n```  ||\njs b\n```js*js",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "li": 1,
+   "k": 8,
+   "prefixLen": 0,
+   "expected": "```js> \n```jsb``x`js\n```  ||\n>>> js b\n```js*js",
+   "saved": "```js> \n```jsb``x`js\n```  ||\njs b\n```js*js",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```js> \n```jsb```js\n`x``  ||\n>>> js b\n```js*js",
+   "saved": "```js> \n```jsb```js\n`x``  ||\njs b\n```js*js",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```js> \n```jsb```js\n``x`  ||\n>>> js b\n```js*js",
+   "saved": "```js> \n```jsb```js\n``x`  ||\njs b\n```js*js",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": ">~~\n>> \n```# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">~~\n>> \n`x``# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "saved": ">~~\n>> \n`x``# > \n>>> ajs\n```c++>>> ~~\n",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": ">~~\n>> \n```# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">~~\n>> \n``x`# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "saved": ">~~\n>> \n``x`# > \n>>> ajs\n```c++>>> ~~\n",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": ">~~\n>> \n```# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "li": 4,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">~~\n>> \n```# > \n>>> ajs\n`x``c++>>> ~~\n > ",
+   "saved": ">~~\n>> \n```# > \n>>> ajs\n`x``c++>>> ~~\n",
+   "base": ">~~\n>> \n```# > \najs\n`x``c++>>> ~~\n"
+  },
+  {
+   "t": ">~~\n>> \n```# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "li": 4,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">~~\n>> \n```# > \n>>> ajs\n``x`c++>>> ~~\n > ",
+   "saved": ">~~\n>> \n```# > \n>>> ajs\n``x`c++>>> ~~\n",
+   "base": ">~~\n>> \n```# > \najs\n``x`c++>>> ~~\n"
+  },
+  {
+   "t": "> > \n```js`_js\n> ```\n\n```",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 2,
+   "expected": "> > \n```js`_js\n> `x``\n\n```",
+   "saved": "> > \n```js`_js\n`x``\n\n```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> > \n```js`_js\n> ```\n\n```",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 2,
+   "expected": "> > \n```js`_js\n> ``x`\n\n```",
+   "saved": "> > \n```js`_js\n``x`\n\n```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "saved": "`x``jsa> \n```js#||\n>> ||\n*#\n```# \\\n> js> ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "saved": "``x`jsa> \n```js#||\n>> ||\n*#\n```# \\\n> js> ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```jsa> \n`x``js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "saved": "```jsa> \n`x``js#||\n>> ||\n*#\n```# \\\n> js> ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```jsa> \n``x`js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "saved": "```jsa> \n``x`js#||\n>> ||\n*#\n```# \\\n> js> ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "saved": "`x``jsa||a\n> \n>>> \n>> _```\n*||\n\\ ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "saved": "``x`jsa||a\n> \n>>> \n>> _```\n*||\n\\ ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "li": 3,
+   "k": 5,
+   "prefixLen": 0,
+   "expected": "```jsa||a\n> \n>>> \n>> _`x``\n*||\n > \\ ",
+   "saved": "```jsa||a\n> \n>>> \n>> _`x``\n*||\n\\ ",
+   "base": "```jsa||a\n> \n\n>> _`x``\n*||\n\\ "
+  },
+  {
+   "t": "```jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "li": 3,
+   "k": 6,
+   "prefixLen": 0,
+   "expected": "```jsa||a\n> \n>>> \n>> _``x`\n*||\n > \\ ",
+   "saved": "```jsa||a\n> \n>>> \n>> _``x`\n*||\n\\ ",
+   "base": "```jsa||a\n> \n\n>> _``x`\n*||\n\\ "
+  },
+  {
+   "t": "``` js_*\n`b||\n```\n>>> \n``` ##",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x`` js_*\n`b||\n```\n>>> \n``` ##",
+   "saved": "`x`` js_*\n`b||\n```\n\n``` ##",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "``` js_*\n`b||\n```\n>>> \n``` ##",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x` js_*\n`b||\n```\n>>> \n``` ##",
+   "saved": "``x` js_*\n`b||\n```\n\n``` ##",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "``` js_*\n`b||\n```\n>>> \n``` ##",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "``` js_*\n`b||\n`x``\n>>> \n``` ##",
+   "saved": "``` js_*\n`b||\n`x``\n\n``` ##",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "``` js_*\n`b||\n```\n>>> \n``` ##",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``` js_*\n`b||\n``x`\n>>> \n``` ##",
+   "saved": "``` js_*\n`b||\n``x`\n\n``` ##",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```js~~\n>>> \\||```\n```~~js\n~~\n``` ",
+   "li": 1,
+   "k": 4,
+   "prefixLen": 4,
+   "expected": "```js~~\n>>> \\||`x``\n```~~js\n~~\n``` ",
+   "saved": "```js~~\n\\||`x``\n```~~js\n~~\n``` ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```js~~\n>>> \\||```\n```~~js\n~~\n``` ",
+   "li": 1,
+   "k": 5,
+   "prefixLen": 4,
+   "expected": "```js~~\n>>> \\||``x`\n```~~js\n~~\n``` ",
+   "saved": "```js~~\n\\||``x`\n```~~js\n~~\n``` ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> _ #\n```c++> ||js\n> > ```\n \n>>> ~~`",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "> _ #\n`x``c++> ||js\n> > ```\n \n>>> ~~`",
+   "saved": "> _ #\n`x``c++> ||js\n> > ```\n \n~~`",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> _ #\n```c++> ||js\n> > ```\n \n>>> ~~`",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "> _ #\n``x`c++> ||js\n> > ```\n \n>>> ~~`",
+   "saved": "> _ #\n``x`c++> ||js\n> > ```\n \n~~`",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> _ #\n```c++> ||js\n> > ```\n \n>>> ~~`",
+   "li": 2,
+   "k": 3,
+   "prefixLen": 2,
+   "expected": "> _ #\n```c++> ||js\n> > `x``\n \n>>> ~~`",
+   "saved": "> _ #\n```c++> ||js\n> `x``\n \n~~`",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> _ #\n```c++> ||js\n> > ```\n \n>>> ~~`",
+   "li": 2,
+   "k": 4,
+   "prefixLen": 2,
+   "expected": "> _ #\n```c++> ||js\n> > ``x`\n \n>>> ~~`",
+   "saved": "> _ #\n```c++> ||js\n> ``x`\n \n~~`",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "``` \n> ||a \n````* \n>\\a\n> \\",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x`` \n> ||a \n````* \n>\\a\n> \\",
+   "saved": "`x`` \n> ||a \n````* \n>\\a\n\\",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "``` \n> ||a \n````* \n>\\a\n> \\",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x` \n> ||a \n````* \n>\\a\n> \\",
+   "saved": "``x` \n> ||a \n````* \n>\\a\n\\",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "saved": "`x``c++>>> \\\n```c++*> `\n\n```c++b*\n```\\```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "saved": "``x`c++>>> \\\n```c++*> `\n\n```c++b*\n```\\```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```c++>>> \\\n`x``c++*> `\n>>> \n```c++b*\n```\\```",
+   "saved": "```c++>>> \\\n`x``c++*> `\n\n```c++b*\n```\\```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```c++>>> \\\n``x`c++*> `\n>>> \n```c++b*\n```\\```",
+   "saved": "```c++>>> \\\n``x`c++*> `\n\n```c++b*\n```\\```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": " > _\n>a\\\n``` b>>> \n```c++>>> \n > \n```",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": " > _\n>a\\\n`x`` b>>> \n```c++>>> \n > \n```",
+   "saved": " > _\n>a\\\n`x`` b>>> \n```c++>>> \n\n```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": " > _\n>a\\\n``` b>>> \n```c++>>> \n > \n```",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": " > _\n>a\\\n``x` b>>> \n```c++>>> \n > \n```",
+   "saved": " > _\n>a\\\n``x` b>>> \n```c++>>> \n\n```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": " > _\n>a\\\n``` b>>> \n```c++>>> \n > \n```",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": " > _\n>a\\\n``` b>>> \n`x``c++>>> \n > \n```",
+   "saved": " > _\n>a\\\n``` b>>> \n`x``c++>>> \n\n```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": " > _\n>a\\\n``` b>>> \n```c++>>> \n > \n```",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": " > _\n>a\\\n``` b>>> \n``x`c++>>> \n > \n```",
+   "saved": " > _\n>a\\\n``` b>>> \n``x`c++>>> \n\n```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "saved": "`x``c++\n> _*```\n\n```#```\n||`\\",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "saved": "``x`c++\n> _*```\n\n```#```\n||`\\",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```c++\n> _*```\n\n`x``#```\n>>> ||`\\",
+   "saved": "```c++\n> _*```\n\n`x``#```\n||`\\",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```c++\n> _*```\n\n``x`#```\n>>> ||`\\",
+   "saved": "```c++\n> _*```\n\n``x`#```\n||`\\",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "li": 3,
+   "k": 5,
+   "prefixLen": 0,
+   "expected": "```c++\n> _*```\n\n```#`x``\n>>> ||`\\",
+   "saved": "```c++\n> _*```\n\n```#`x``\n||`\\",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "li": 3,
+   "k": 6,
+   "prefixLen": 0,
+   "expected": "```c++\n> _*```\n\n```#``x`\n>>> ||`\\",
+   "saved": "```c++\n> _*```\n\n```#``x`\n||`\\",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "saved": "`x``jsa\n>>> >>> \nb\\\n```\n\n```||>>> ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "saved": "``x`jsa\n>>> >>> \nb\\\n```\n\n```||>>> ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```jsa\n>>> >>> \nb\\\n`x``\n>>> \n```||>>> ",
+   "saved": "```jsa\n>>> >>> \nb\\\n`x``\n\n```||>>> ",
+   "base": "```jsa\n>>> \nb\\\n`x``\n>>> \n> ```||>>> "
+  },
+  {
+   "t": "```jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```jsa\n>>> >>> \nb\\\n``x`\n>>> \n```||>>> ",
+   "saved": "```jsa\n>>> >>> \nb\\\n``x`\n\n```||>>> ",
+   "base": "```jsa\n>>> \nb\\\n``x`\n>>> \n> ```||>>> "
+  },
+  {
+   "t": " > ` >>> \n```jsa#\n```js*``\n>>> \n>*```",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": " > ` >>> \n`x``jsa#\n```js*``\n>>> \n>*```",
+   "saved": " > ` >>> \n`x``jsa#\n```js*``\n\n>*```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": " > ` >>> \n```jsa#\n```js*``\n>>> \n>*```",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": " > ` >>> \n``x`jsa#\n```js*``\n>>> \n>*```",
+   "saved": " > ` >>> \n``x`jsa#\n```js*``\n\n>*```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": " > ` >>> \n```jsa#\n```js*``\n>>> \n>*```",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": " > ` >>> \n```jsa#\n`x``js*``\n>>> \n>*```",
+   "saved": " > ` >>> \n```jsa#\n`x``js*``\n\n>*```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": " > ` >>> \n```jsa#\n```js*``\n>>> \n>*```",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": " > ` >>> \n```jsa#\n``x`js*``\n>>> \n>*```",
+   "saved": " > ` >>> \n```jsa#\n``x`js*``\n\n>*```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```> \n > ```>>> js\n>>> b```\n```#\n``` > ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 3,
+   "expected": "```> \n > `x``>>> js\n>>> b```\n```#\n``` > ",
+   "saved": "```> \n`x``>>> js\n>>> b```\n```#\n``` > ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```> \n > ```>>> js\n>>> b```\n```#\n``` > ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 3,
+   "expected": "```> \n > ``x`>>> js\n>>> b```\n```#\n``` > ",
+   "saved": "```> \n``x`>>> js\n>>> b```\n```#\n``` > ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> #\n> \n>\n```||```\n>>> b",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "> #\n> \n>\n`x``||```\n>>> b",
+   "saved": "> #\n> \n>\n`x``||```\nb",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> #\n> \n>\n```||```\n>>> b",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "> #\n> \n>\n``x`||```\n>>> b",
+   "saved": "> #\n> \n>\n``x`||```\nb",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> #\n> \n>\n```||```\n>>> b",
+   "li": 3,
+   "k": 6,
+   "prefixLen": 0,
+   "expected": "> #\n> \n>\n```||`x``\n>>> b",
+   "saved": "> #\n> \n>\n```||`x``\nb",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> #\n> \n>\n```||```\n>>> b",
+   "li": 3,
+   "k": 7,
+   "prefixLen": 0,
+   "expected": "> #\n> \n>\n```||``x`\n>>> b",
+   "saved": "> #\n> \n>\n```||``x`\nb",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> ````>>> \na*\n```js\n > \n>> \nb>>> `",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "> ````>>> \na*\n`x``js\n > \n>> \nb>>> `",
+   "saved": "> ````>>> \na*\n`x``js\n\n>> \nb>>> `",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> ````>>> \na*\n```js\n > \n>> \nb>>> `",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "> ````>>> \na*\n``x`js\n > \n>> \nb>>> `",
+   "saved": "> ````>>> \na*\n``x`js\n\n>> \nb>>> `",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n>>> \\```",
+   "li": 5,
+   "k": 2,
+   "prefixLen": 4,
+   "expected": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n>>> \\`x``",
+   "saved": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n\\`x``",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n>>> \\```",
+   "li": 5,
+   "k": 3,
+   "prefixLen": 4,
+   "expected": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n>>> \\``x`",
+   "saved": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n\\``x`",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> ``````#\n>> *\n> ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 2,
+   "expected": "> `x`````#\n>> *\n> ",
+   "saved": "> `x`````#\n>> *\n",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> ``````#\n>> *\n> ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 2,
+   "expected": "> ``x````#\n>> *\n> ",
+   "saved": "> ``x````#\n>> *\n",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> ``````#\n>> *\n> ",
+   "li": 0,
+   "k": 4,
+   "prefixLen": 2,
+   "expected": "> ````x``#\n>> *\n> ",
+   "saved": "> ````x``#\n>> *\n",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> ``````#\n>> *\n> ",
+   "li": 0,
+   "k": 5,
+   "prefixLen": 2,
+   "expected": "> `````x`#\n>> *\n> ",
+   "saved": "> `````x`#\n>> *\n",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": " > >>> \n>```> \n>> \n> \n>>> ```>>> ",
+   "li": 4,
+   "k": 1,
+   "prefixLen": 4,
+   "expected": " > >>> \n>```> \n>> \n> \n>>> `x``>>> ",
+   "saved": " > >>> \n>```> \n>> \n> \n`x``>>> ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": " > >>> \n>```> \n>> \n> \n>>> ```>>> ",
+   "li": 4,
+   "k": 2,
+   "prefixLen": 4,
+   "expected": " > >>> \n>```> \n>> \n> \n>>> ``x`>>> ",
+   "saved": " > >>> \n>```> \n>> \n> \n``x`>>> ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "``` `\n>>> a>>> ```\n```c++```\\\n```js> `\n>>> \n#",
+   "li": 1,
+   "k": 6,
+   "prefixLen": 4,
+   "expected": "``` `\n>>> a>>> `x``\n```c++```\\\n```js> `\n>>> \n#",
+   "saved": "``` `\na>>> `x``\n```c++```\\\n```js> `\n>>> \n#",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "``` `\n>>> a>>> ```\n```c++```\\\n```js> `\n>>> \n#",
+   "li": 1,
+   "k": 7,
+   "prefixLen": 4,
+   "expected": "``` `\n>>> a>>> ``x`\n```c++```\\\n```js> `\n>>> \n#",
+   "saved": "``` `\na>>> ``x`\n```c++```\\\n```js> `\n>>> \n#",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": " > a~~\n```a\n> `\\```\n>> ",
+   "li": 2,
+   "k": 3,
+   "prefixLen": 2,
+   "expected": " > a~~\n```a\n> `\\`x``\n>> ",
+   "saved": " > a~~\n```a\n`\\`x``\n>> ",
+   "base": "> a~~\n```a\n`\\`x``\n>> "
+  },
+  {
+   "t": " > a~~\n```a\n> `\\```\n>> ",
+   "li": 2,
+   "k": 4,
+   "prefixLen": 2,
+   "expected": " > a~~\n```a\n> `\\``x`\n>> ",
+   "saved": " > a~~\n```a\n`\\``x`\n>> ",
+   "base": "> a~~\n```a\n`\\``x`\n>> "
+  },
+  {
+   "t": " > a> \\\n``` \n> #>>> *\n```js\n > `*\n#",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": " > a> \\\n`x`` \n> #>>> *\n```js\n > `*\n#",
+   "saved": " > a> \\\n`x`` \n> #>>> *\n```js\n`*\n#",
+   "base": "> a> \\\n`x`` \n> #>>> *\n```js\n`*\n#"
+  },
+  {
+   "t": " > a> \\\n``` \n> #>>> *\n```js\n > `*\n#",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": " > a> \\\n``x` \n> #>>> *\n```js\n > `*\n#",
+   "saved": " > a> \\\n``x` \n> #>>> *\n```js\n`*\n#",
+   "base": "> a> \\\n``x` \n> #>>> *\n```js\n`*\n#"
+  },
+  {
+   "t": " > a> \\\n``` \n> #>>> *\n```js\n > `*\n#",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": " > a> \\\n``` \n> #>>> *\n`x``js\n > `*\n#",
+   "saved": " > a> \\\n``` \n> #>>> *\n`x``js\n`*\n#",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": " > a> \\\n``` \n> #>>> *\n```js\n > `*\n#",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": " > a> \\\n``` \n> #>>> *\n``x`js\n > `*\n#",
+   "saved": " > a> \\\n``` \n> #>>> *\n``x`js\n`*\n#",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": " > ~~\n```*\n```||a\n> *\n>>> bab\n```js> > ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": " > ~~\n`x``*\n```||a\n> *\n>>> bab\n```js> > ",
+   "saved": " > ~~\n`x``*\n```||a\n*\nbab\n```js> > ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": " > ~~\n```*\n```||a\n> *\n>>> bab\n```js> > ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": " > ~~\n``x`*\n```||a\n> *\n>>> bab\n```js> > ",
+   "saved": " > ~~\n``x`*\n```||a\n*\nbab\n```js> > ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": " > ~~\n```*\n```||a\n> *\n>>> bab\n```js> > ",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": " > ~~\n```*\n`x``||a\n> *\n>>> bab\n```js> > ",
+   "saved": " > ~~\n```*\n`x``||a\n*\nbab\n```js> > ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": " > ~~\n```*\n```||a\n> *\n>>> bab\n```js> > ",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": " > ~~\n```*\n``x`||a\n> *\n>>> bab\n```js> > ",
+   "saved": " > ~~\n```*\n``x`||a\n*\nbab\n```js> > ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "\n> ~~```a\n``` _\n\\_~~\n>>> *> \n>  \\",
+   "li": 1,
+   "k": 3,
+   "prefixLen": 2,
+   "expected": "\n> ~~`x``a\n``` _\n\\_~~\n>>> *> \n>  \\",
+   "saved": "\n> ~~`x``a\n``` _\n\\_~~\n*> \n \\",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "\n> ~~```a\n``` _\n\\_~~\n>>> *> \n>  \\",
+   "li": 1,
+   "k": 4,
+   "prefixLen": 2,
+   "expected": "\n> ~~``x`a\n``` _\n\\_~~\n>>> *> \n>  \\",
+   "saved": "\n> ~~``x`a\n``` _\n\\_~~\n*> \n \\",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": ">> > ||\n```c++ ~~a\n> ```\n > # ```",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 2,
+   "expected": ">> > ||\n```c++ ~~a\n> `x``\n > # ```",
+   "saved": ">> > ||\n```c++ ~~a\n`x``\n > # ```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": ">> > ||\n```c++ ~~a\n> ```\n > # ```",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 2,
+   "expected": ">> > ||\n```c++ ~~a\n> ``x`\n > # ```",
+   "saved": ">> > ||\n```c++ ~~a\n``x`\n > # ```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```js\n > \n > _>>> \n```js \\js\n > >  \n``` >>> \\`",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``js\n > \n > _>>> \n```js \\js\n > >  \n``` >>> \\`",
+   "saved": "`x``js\n > \n > _>>> \n```js \\js\n>  \n``` >>> \\`",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```js\n > \n > _>>> \n```js \\js\n > >  \n``` >>> \\`",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`js\n > \n > _>>> \n```js \\js\n > >  \n``` >>> \\`",
+   "saved": "``x`js\n > \n > _>>> \n```js \\js\n>  \n``` >>> \\`",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "saved": "`x``js__a\n``` > >>> ||\n#*> \n\njs\n> > ```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "saved": "``x`js__a\n``` > >>> ||\n#*> \n\njs\n> > ```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```js__a\n`x`` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "saved": "```js__a\n`x`` > >>> ||\n#*> \n\njs\n> > ```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "```js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```js__a\n``x` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "saved": "```js__a\n``x` > >>> ||\n#*> \n\njs\n> > ```",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": ">````~~\n>>> \n>>> \n> \n```c++ #js\n>>>  js",
+   "li": 0,
+   "k": 3,
+   "prefixLen": 0,
+   "expected": ">``x``~~\n>>> \n>>> \n> \n```c++ #js\n>>>  js",
+   "saved": ">``x``~~\n>>> \n>>> \n> \n```c++ #js\n js",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": ">````~~\n>>> \n>>> \n> \n```c++ #js\n>>>  js",
+   "li": 4,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">````~~\n>>> \n>>> \n> \n`x``c++ #js\n>>>  js",
+   "saved": ">````~~\n>>> \n>>> \n> \n`x``c++ #js\n js",
+   "base": ">````~~\n\n>>> \n> \n`x``c++ #js\n>>>  js"
+  },
+  {
+   "t": ">````~~\n>>> \n>>> \n> \n```c++ #js\n>>>  js",
+   "li": 4,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">````~~\n>>> \n>>> \n> \n``x`c++ #js\n>>>  js",
+   "saved": ">````~~\n>>> \n>>> \n> \n``x`c++ #js\n js",
+   "base": ">````~~\n\n>>> \n> \n``x`c++ #js\n>>>  js"
+  },
+  {
+   "t": ">>> > \n```c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">>> > \n`x``c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "saved": ">>> > \n`x``c++>>> \n>>> `||*\n > \n```> \n\\>>> ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": ">>> > \n```c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">>> > \n``x`c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "saved": ">>> > \n``x`c++>>> \n>>> `||*\n > \n```> \n\\>>> ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": ">>> > \n```c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "li": 4,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">>> > \n```c++>>> \n>>> `||*\n > \n`x``> \n> \\>>> ",
+   "saved": ">>> > \n```c++>>> \n>>> `||*\n > \n`x``> \n\\>>> ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": ">>> > \n```c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "li": 4,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">>> > \n```c++>>> \n>>> `||*\n > \n``x`> \n> \\>>> ",
+   "saved": ">>> > \n```c++>>> \n>>> `||*\n > \n``x`> \n\\>>> ",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": ">\njs\n>#```||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "li": 2,
+   "k": 3,
+   "prefixLen": 0,
+   "expected": ">\njs\n>#`x``||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "saved": ">\njs\n>#`x``||\n>>> ajsa\n``` #`a\n>>>  b",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": ">\njs\n>#```||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "li": 2,
+   "k": 4,
+   "prefixLen": 0,
+   "expected": ">\njs\n>#``x`||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "saved": ">\njs\n>#``x`||\n>>> ajsa\n``` #`a\n>>>  b",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": ">\njs\n>#```||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "li": 4,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">\njs\n>#```||\n>>> ajsa\n`x`` #`a\n>>> >>>  b",
+   "saved": ">\njs\n>#```||\n>>> ajsa\n`x`` #`a\n>>>  b",
+   "base": ">\njs\n>#```||\najsa\n`x`` #`a\n>>> >>>  b"
+  },
+  {
+   "t": ">\njs\n>#```||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "li": 4,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">\njs\n>#```||\n>>> ajsa\n``x` #`a\n>>> >>>  b",
+   "saved": ">\njs\n>#```||\n>>> ajsa\n``x` #`a\n>>>  b",
+   "base": ">\njs\n>#```||\najsa\n``x` #`a\n>>> >>>  b"
+  },
+  {
+   "t": "``` ` \n```\n>>> \n```js\n > _\\\\",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x`` ` \n```\n>>> \n```js\n > _\\\\",
+   "saved": "`x`` ` \n```\n\n```js\n > _\\\\",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "``` ` \n```\n>>> \n```js\n > _\\\\",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x` ` \n```\n>>> \n```js\n > _\\\\",
+   "saved": "``x` ` \n```\n\n```js\n > _\\\\",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "``` ` \n```\n>>> \n```js\n > _\\\\",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "``` ` \n`x``\n>>> \n```js\n > _\\\\",
+   "saved": "``` ` \n`x``\n\n```js\n > _\\\\",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "``` ` \n```\n>>> \n```js\n > _\\\\",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``` ` \n``x`\n>>> \n```js\n > _\\\\",
+   "saved": "``` ` \n``x`\n\n```js\n > _\\\\",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "``` \n>>> #```\n>\n```c++```||~~\n```c++#a~~",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 4,
+   "expected": "``` \n>>> #`x``\n>\n```c++```||~~\n```c++#a~~",
+   "saved": "``` \n#`x``\n>\n```c++```||~~\n```c++#a~~",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "``` \n>>> #```\n>\n```c++```||~~\n```c++#a~~",
+   "li": 1,
+   "k": 3,
+   "prefixLen": 4,
+   "expected": "``` \n>>> #``x`\n>\n```c++```||~~\n```c++#a~~",
+   "saved": "``` \n#``x`\n>\n```c++```||~~\n```c++#a~~",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> ba\n>> *\n```bb||\n```c++js||\n\n> ",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "> ba\n>> *\n`x``bb||\n```c++js||\n\n> ",
+   "saved": "> ba\n>> *\n`x``bb||\n```c++js||\n\n",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> ba\n>> *\n```bb||\n```c++js||\n\n> ",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "> ba\n>> *\n``x`bb||\n```c++js||\n\n> ",
+   "saved": "> ba\n>> *\n``x`bb||\n```c++js||\n\n",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> ba\n>> *\n```bb||\n```c++js||\n\n> ",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "> ba\n>> *\n```bb||\n`x``c++js||\n\n> ",
+   "saved": "> ba\n>> *\n```bb||\n`x``c++js||\n\n",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  },
+  {
+   "t": "> ba\n>> *\n```bb||\n```c++js||\n\n> ",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "> ba\n>> *\n```bb||\n``x`c++js||\n\n> ",
+   "saved": "> ba\n>> *\n```bb||\n``x`c++js||\n\n",
+   "base": "THROW Error: Could not completely normalize the editor after 126 i"
+  }
+ ]
+}

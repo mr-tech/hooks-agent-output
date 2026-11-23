@@ -1,0 +1,116 @@
+// QA probe (fix-normalize-fence-loop, Phase 2). Copied into a `git archive` export as
+// src/components/SlateEditor/utils/__tests__/probe.wrong-edit-replay.test.tsx.
+// Mode "collect" (PROBE_MODE=collect): regenerates probe.random-differential's corpus (same seed, same generator) and writes every
+// typed edit whose saved text differs from the source string with 'x' spliced in. Mode "replay": reads that list (PROBE_IN) and
+// performs the same edit, by the same line and source offset, in this tree. Output: PROBE_OUT.
+// Classifier (string facts only): an edit is "marker-dropped" when the saved text equals the expected text after deleting a leading
+// `> ` or `>>> ` (with leading spaces) from one or more lines, and from nothing else.
+import { createEditor, Editor, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { it, vi } from 'vitest';
+
+import {
+  flattenNodeText, getInitialValue, withEmojis, withNormalizeNode,
+} from '..';
+
+import type { Element } from 'slate';
+
+import markdown from '~/utils/markdown';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+
+const parse = markdown.interactive.parseEmoji;
+
+function mulberry32(a: number) {
+  return () => {
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+const rnd = mulberry32(Number(process.env.PROBE_SEED ?? 20261123));
+const pick = <T,>(xs: readonly T[]) => xs[Math.floor(rnd() * xs.length)];
+const LEAD = ['', '', '', '> ', '>>> ', ' > ', '>', '>> ', '```', '```js', '```c++', '``` '] as const;
+const BODY = ['a', 'b', ' ', '`', '```', '*', '_', '||', '~~', '\\', 'js', '> ', '>>> ', '#'] as const;
+function line() {
+  let s: string = pick(LEAD);
+  const n = Math.floor(rnd() * 4);
+  for (let i = 0; i < n; i++) s += pick(BODY);
+  return s;
+}
+function text() {
+  const n = 1 + Math.floor(rnd() * 6);
+  return Array.from({ length: n }, line).join('\n');
+}
+
+const editorFor = (t: string) => {
+  const e = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, parse);
+  e.children = getInitialValue(t, parse, false);
+  return e;
+};
+
+interface Edit { t: string; li: number; k: number; prefixLen: number; expected: string; saved: string }
+
+function typeAt(t: string, li: number, k: number): string {
+  const ed = editorFor(t);
+  const point = Editor.start(ed, [li]);
+  const target = k === 0 ? point : Editor.after(ed, point, { distance: k, unit: 'character' }) ?? Editor.end(ed, [li]);
+  Transforms.select(ed, target);
+  Transforms.insertText(ed, 'x');
+  return flattenNodeText(ed.children);
+}
+
+function markerDropped(expected: string, saved: string): boolean {
+  const e = expected.split('\n');
+  const s = saved.split('\n');
+  if (e.length !== s.length || expected === saved) return false;
+  return e.every((ln, i) => ln === s[i] || ln.replace(/^ *>>> /, '') === s[i] || ln.replace(/^ *> /, '') === s[i]);
+}
+
+it('probe', () => {
+  if (process.env.PROBE_MODE === 'collect') {
+    const corpus = Array.from({ length: Number(process.env.PROBE_N ?? 3000) }, text).slice(0, Number(process.env.PROBE_N_TYPED ?? 800));
+    const wrong: Edit[] = [];
+    let edits = 0;
+    corpus.forEach((t) => {
+      let start = 0;
+      t.split('\n').forEach((ln, li) => {
+        const loaded = getInitialValue(t, parse, false)[li] as Element;
+        const prefixLen = loaded.type === 'blockQuote' ? (loaded.quotePrefix ?? '> ').length : 0;
+        if (flattenNodeText([loaded]) === ln) {
+          for (let k = 0; k <= ln.length - prefixLen; k++) {
+            edits++;
+            const expected = t.slice(0, start + prefixLen + k) + 'x' + t.slice(start + prefixLen + k);
+            const saved = typeAt(t, li, k);
+            if (saved !== expected) wrong.push({ t, li, k, prefixLen, expected, saved });
+          }
+        }
+        start += ln.length + 1;
+      });
+    });
+    const dropped = wrong.filter((w) => markerDropped(w.expected, w.saved));
+    writeFileSync(process.env.PROBE_OUT!, JSON.stringify({
+      edits, wrong: wrong.length, markerDropped: dropped.length,
+      other: wrong.filter((w) => !markerDropped(w.expected, w.saved)), list: wrong,
+    }, null, 1));
+  } else {
+    const { list } = JSON.parse(readFileSync(process.env.PROBE_IN!, 'utf8')) as { list: Edit[] };
+    let same = 0;
+    const differs: (Edit & { base: string })[] = [];
+    list.forEach((w) => {
+      let base: string;
+      try { base = typeAt(w.t, w.li, w.k); } catch (err) { base = `THROW ${String(err).slice(0, 60)}`; }
+      if (base === w.saved) same++; else differs.push({ ...w, base });
+    });
+    writeFileSync(process.env.PROBE_OUT!, JSON.stringify({
+      replayed: list.length, sameAsTip: same, differs: differs.length,
+      baseThrows: differs.filter((d) => d.base.startsWith('THROW')).length,
+      baseMarkerDroppedToo: differs.filter((d) => !d.base.startsWith('THROW') && markerDropped(d.expected, d.base)).length,
+      baseCorrect: differs.filter((d) => d.base === d.expected).length,
+      differsExamples: differs,
+    }, null, 1));
+  }
+}, 1_200_000);

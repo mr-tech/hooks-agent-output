@@ -1,0 +1,2793 @@
+{
+ "edits": 15480,
+ "wrong": 346,
+ "markerDropped": 344,
+ "other": [
+  {
+   "t": "```c++_> > \n> \\_\n~~\n>>> > ```\\",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 6,
+   "expected": "```c++_> > \n> \\_\n~~\n>>> > `x``\\",
+   "saved": "```c++_> > \n> \\_\n~~\n`x``\\"
+  },
+  {
+   "t": "```c++_> > \n> \\_\n~~\n>>> > ```\\",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 6,
+   "expected": "```c++_> > \n> \\_\n~~\n>>> > ``x`\\",
+   "saved": "```c++_> > \n> \\_\n~~\n``x`\\"
+  }
+ ],
+ "list": [
+  {
+   "t": "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 2,
+   "expected": "```c++_\n>>> *\n _\n> `x``\\\n```c++ba\n``` b",
+   "saved": "```c++_\n>>> *\n _\n`x``\\\n```c++ba\n``` b"
+  },
+  {
+   "t": "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 2,
+   "expected": "```c++_\n>>> *\n _\n> ``x`\\\n```c++ba\n``` b",
+   "saved": "```c++_\n>>> *\n _\n``x`\\\n```c++ba\n``` b"
+  },
+  {
+   "t": "```js\n```c++*js||\n> _\n> `",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``js\n```c++*js||\n> _\n> `",
+   "saved": "`x``js\n```c++*js||\n_\n`"
+  },
+  {
+   "t": "```js\n```c++*js||\n> _\n> `",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`js\n```c++*js||\n> _\n> `",
+   "saved": "``x`js\n```c++*js||\n_\n`"
+  },
+  {
+   "t": "```js\n```c++*js||\n> _\n> `",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```js\n`x``c++*js||\n> _\n> `",
+   "saved": "```js\n`x``c++*js||\n_\n`"
+  },
+  {
+   "t": "```js\n```c++*js||\n> _\n> `",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```js\n``x`c++*js||\n> _\n> `",
+   "saved": "```js\n``x`c++*js||\n_\n`"
+  },
+  {
+   "t": ">\n```c++```>>> >>> \n> *>>> `\n>> ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">\n`x``c++```>>> >>> \n> *>>> `\n>> ",
+   "saved": ">\n`x``c++```>>> >>> \n*>>> `\n>> "
+  },
+  {
+   "t": ">\n```c++```>>> >>> \n> *>>> `\n>> ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">\n``x`c++```>>> >>> \n> *>>> `\n>> ",
+   "saved": ">\n``x`c++```>>> >>> \n*>>> `\n>> "
+  },
+  {
+   "t": ">\n```c++```>>> >>> \n> *>>> `\n>> ",
+   "li": 1,
+   "k": 7,
+   "prefixLen": 0,
+   "expected": ">\n```c++`x``>>> >>> \n> *>>> `\n>> ",
+   "saved": ">\n```c++`x``>>> >>> \n*>>> `\n>> "
+  },
+  {
+   "t": ">\n```c++```>>> >>> \n> *>>> `\n>> ",
+   "li": 1,
+   "k": 8,
+   "prefixLen": 0,
+   "expected": ">\n```c++``x`>>> >>> \n> *>>> `\n>> ",
+   "saved": ">\n```c++``x`>>> >>> \n*>>> `\n>> "
+  },
+  {
+   "t": "```jsa|| \n > \n>> ||\n>>>  ```\n``` ```",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 4,
+   "expected": "```jsa|| \n > \n>> ||\n>>>  `x``\n``` ```",
+   "saved": "```jsa|| \n > \n>> ||\n `x``\n``` ```"
+  },
+  {
+   "t": "```jsa|| \n > \n>> ||\n>>>  ```\n``` ```",
+   "li": 3,
+   "k": 3,
+   "prefixLen": 4,
+   "expected": "```jsa|| \n > \n>> ||\n>>>  ``x`\n``` ```",
+   "saved": "```jsa|| \n > \n>> ||\n ``x`\n``` ```"
+  },
+  {
+   "t": "```c++> _~~\n>>> js~~```\n`> a",
+   "li": 1,
+   "k": 5,
+   "prefixLen": 4,
+   "expected": "```c++> _~~\n>>> js~~`x``\n`> a",
+   "saved": "```c++> _~~\njs~~`x``\n`> a"
+  },
+  {
+   "t": "```c++> _~~\n>>> js~~```\n`> a",
+   "li": 1,
+   "k": 6,
+   "prefixLen": 4,
+   "expected": "```c++> _~~\n>>> js~~``x`\n`> a",
+   "saved": "```c++> _~~\njs~~``x`\n`> a"
+  },
+  {
+   "t": "```js\\`\n```c++js\n > a#\n>||_\n>>> ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``js\\`\n```c++js\n > a#\n>||_\n>>> ",
+   "saved": "`x``js\\`\n```c++js\na#\n>||_\n"
+  },
+  {
+   "t": "```js\\`\n```c++js\n > a#\n>||_\n>>> ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`js\\`\n```c++js\n > a#\n>||_\n>>> ",
+   "saved": "``x`js\\`\n```c++js\na#\n>||_\n"
+  },
+  {
+   "t": "```js\\`\n```c++js\n > a#\n>||_\n>>> ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```js\\`\n`x``c++js\n > a#\n>||_\n>>> ",
+   "saved": "```js\\`\n`x``c++js\na#\n>||_\n"
+  },
+  {
+   "t": "```js\\`\n```c++js\n > a#\n>||_\n>>> ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```js\\`\n``x`c++js\n > a#\n>||_\n>>> ",
+   "saved": "```js\\`\n``x`c++js\na#\n>||_\n"
+  },
+  {
+   "t": ">\n``` #_\n> b``` ",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 2,
+   "expected": ">\n``` #_\n> b`x`` ",
+   "saved": ">\n``` #_\nb`x`` "
+  },
+  {
+   "t": ">\n``` #_\n> b``` ",
+   "li": 2,
+   "k": 3,
+   "prefixLen": 2,
+   "expected": ">\n``` #_\n> b``x` ",
+   "saved": ">\n``` #_\nb``x` "
+  },
+  {
+   "t": ">>> `\n\n> js#\n``` `||js\n> >>> ```",
+   "li": 4,
+   "k": 5,
+   "prefixLen": 2,
+   "expected": ">>> `\n\n> js#\n``` `||js\n> >>> `x``",
+   "saved": ">>> `\n\n> js#\n``` `||js\n>>> `x``"
+  },
+  {
+   "t": ">>> `\n\n> js#\n``` `||js\n> >>> ```",
+   "li": 4,
+   "k": 6,
+   "prefixLen": 2,
+   "expected": ">>> `\n\n> js#\n``` `||js\n> >>> ``x`",
+   "saved": ">>> `\n\n> js#\n``` `||js\n>>> ``x`"
+  },
+  {
+   "t": ">`>>> \n``` b \n``` **b\n>>> jsb",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">`>>> \n`x`` b \n``` **b\n>>> jsb",
+   "saved": ">`>>> \n`x`` b \n``` **b\njsb"
+  },
+  {
+   "t": ">`>>> \n``` b \n``` **b\n>>> jsb",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">`>>> \n``x` b \n``` **b\n>>> jsb",
+   "saved": ">`>>> \n``x` b \n``` **b\njsb"
+  },
+  {
+   "t": ">`>>> \n``` b \n``` **b\n>>> jsb",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">`>>> \n``` b \n`x`` **b\n>>> jsb",
+   "saved": ">`>>> \n``` b \n`x`` **b\njsb"
+  },
+  {
+   "t": ">`>>> \n``` b \n``` **b\n>>> jsb",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">`>>> \n``` b \n``x` **b\n>>> jsb",
+   "saved": ">`>>> \n``` b \n``x` **b\njsb"
+  },
+  {
+   "t": "``````\n```c++>>> a\\\n > ```",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 3,
+   "expected": "``````\n```c++>>> a\\\n > `x``",
+   "saved": "``````\n```c++>>> a\\\n`x``"
+  },
+  {
+   "t": "``````\n```c++>>> a\\\n > ```",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 3,
+   "expected": "``````\n```c++>>> a\\\n > ``x`",
+   "saved": "``````\n```c++>>> a\\\n``x`"
+  },
+  {
+   "t": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "saved": "`x``js> \n```jsb```js\n```  ||\njs b\n```js*js"
+  },
+  {
+   "t": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "saved": "``x`js> \n```jsb```js\n```  ||\njs b\n```js*js"
+  },
+  {
+   "t": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```js> \n`x``jsb```js\n```  ||\n>>> js b\n```js*js",
+   "saved": "```js> \n`x``jsb```js\n```  ||\njs b\n```js*js"
+  },
+  {
+   "t": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```js> \n``x`jsb```js\n```  ||\n>>> js b\n```js*js",
+   "saved": "```js> \n``x`jsb```js\n```  ||\njs b\n```js*js"
+  },
+  {
+   "t": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "li": 1,
+   "k": 7,
+   "prefixLen": 0,
+   "expected": "```js> \n```jsb`x``js\n```  ||\n>>> js b\n```js*js",
+   "saved": "```js> \n```jsb`x``js\n```  ||\njs b\n```js*js"
+  },
+  {
+   "t": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "li": 1,
+   "k": 8,
+   "prefixLen": 0,
+   "expected": "```js> \n```jsb``x`js\n```  ||\n>>> js b\n```js*js",
+   "saved": "```js> \n```jsb``x`js\n```  ||\njs b\n```js*js"
+  },
+  {
+   "t": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```js> \n```jsb```js\n`x``  ||\n>>> js b\n```js*js",
+   "saved": "```js> \n```jsb```js\n`x``  ||\njs b\n```js*js"
+  },
+  {
+   "t": "```js> \n```jsb```js\n```  ||\n>>> js b\n```js*js",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```js> \n```jsb```js\n``x`  ||\n>>> js b\n```js*js",
+   "saved": "```js> \n```jsb```js\n``x`  ||\njs b\n```js*js"
+  },
+  {
+   "t": ">~~\n>> \n```# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">~~\n>> \n`x``# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "saved": ">~~\n>> \n`x``# > \n>>> ajs\n```c++>>> ~~\n"
+  },
+  {
+   "t": ">~~\n>> \n```# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">~~\n>> \n``x`# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "saved": ">~~\n>> \n``x`# > \n>>> ajs\n```c++>>> ~~\n"
+  },
+  {
+   "t": ">~~\n>> \n```# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "li": 4,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">~~\n>> \n```# > \n>>> ajs\n`x``c++>>> ~~\n > ",
+   "saved": ">~~\n>> \n```# > \n>>> ajs\n`x``c++>>> ~~\n"
+  },
+  {
+   "t": ">~~\n>> \n```# > \n>>> ajs\n```c++>>> ~~\n > ",
+   "li": 4,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">~~\n>> \n```# > \n>>> ajs\n``x`c++>>> ~~\n > ",
+   "saved": ">~~\n>> \n```# > \n>>> ajs\n``x`c++>>> ~~\n"
+  },
+  {
+   "t": "> > \n```js`_js\n> ```\n\n```",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 2,
+   "expected": "> > \n```js`_js\n> `x``\n\n```",
+   "saved": "> > \n```js`_js\n`x``\n\n```"
+  },
+  {
+   "t": "> > \n```js`_js\n> ```\n\n```",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 2,
+   "expected": "> > \n```js`_js\n> ``x`\n\n```",
+   "saved": "> > \n```js`_js\n``x`\n\n```"
+  },
+  {
+   "t": "```jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "saved": "`x``jsa> \n```js#||\n>> ||\n*#\n```# \\\n> js> "
+  },
+  {
+   "t": "```jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "saved": "``x`jsa> \n```js#||\n>> ||\n*#\n```# \\\n> js> "
+  },
+  {
+   "t": "```jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```jsa> \n`x``js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "saved": "```jsa> \n`x``js#||\n>> ||\n*#\n```# \\\n> js> "
+  },
+  {
+   "t": "```jsa> \n```js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```jsa> \n``x`js#||\n>> ||\n > *#\n```# \\\n> js> ",
+   "saved": "```jsa> \n``x`js#||\n>> ||\n*#\n```# \\\n> js> "
+  },
+  {
+   "t": "``` ` \n```\n > ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x`` ` \n```\n > ",
+   "saved": "`x`` ` \n```\n"
+  },
+  {
+   "t": "``` ` \n```\n > ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x` ` \n```\n > ",
+   "saved": "``x` ` \n```\n"
+  },
+  {
+   "t": "``` ` \n```\n > ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "``` ` \n`x``\n > ",
+   "saved": "``` ` \n`x``\n"
+  },
+  {
+   "t": "``` ` \n```\n > ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``` ` \n``x`\n > ",
+   "saved": "``` ` \n``x`\n"
+  },
+  {
+   "t": "```jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "saved": "`x``jsa||a\n> \n>>> \n>> _```\n*||\n\\ "
+  },
+  {
+   "t": "```jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "saved": "``x`jsa||a\n> \n>>> \n>> _```\n*||\n\\ "
+  },
+  {
+   "t": "```jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "li": 3,
+   "k": 5,
+   "prefixLen": 0,
+   "expected": "```jsa||a\n> \n>>> \n>> _`x``\n*||\n > \\ ",
+   "saved": "```jsa||a\n> \n>>> \n>> _`x``\n*||\n\\ "
+  },
+  {
+   "t": "```jsa||a\n> \n>>> \n>> _```\n*||\n > \\ ",
+   "li": 3,
+   "k": 6,
+   "prefixLen": 0,
+   "expected": "```jsa||a\n> \n>>> \n>> _``x`\n*||\n > \\ ",
+   "saved": "```jsa||a\n> \n>>> \n>> _``x`\n*||\n\\ "
+  },
+  {
+   "t": "```*```\n>>> b>>> js\n>\njs`\n> _\n~~",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``*```\n>>> b>>> js\n>\njs`\n> _\n~~",
+   "saved": "`x``*```\nb>>> js\n>\njs`\n_\n~~"
+  },
+  {
+   "t": "```*```\n>>> b>>> js\n>\njs`\n> _\n~~",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`*```\n>>> b>>> js\n>\njs`\n> _\n~~",
+   "saved": "``x`*```\nb>>> js\n>\njs`\n_\n~~"
+  },
+  {
+   "t": "```*```\n>>> b>>> js\n>\njs`\n> _\n~~",
+   "li": 0,
+   "k": 5,
+   "prefixLen": 0,
+   "expected": "```*`x``\n>>> b>>> js\n>\njs`\n> _\n~~",
+   "saved": "```*`x``\nb>>> js\n>\njs`\n_\n~~"
+  },
+  {
+   "t": "```*```\n>>> b>>> js\n>\njs`\n> _\n~~",
+   "li": 0,
+   "k": 6,
+   "prefixLen": 0,
+   "expected": "```*``x`\n>>> b>>> js\n>\njs`\n> _\n~~",
+   "saved": "```*``x`\nb>>> js\n>\njs`\n_\n~~"
+  },
+  {
+   "t": "``` js_*\n`b||\n```\n>>> \n``` ##",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x`` js_*\n`b||\n```\n>>> \n``` ##",
+   "saved": "`x`` js_*\n`b||\n```\n\n``` ##"
+  },
+  {
+   "t": "``` js_*\n`b||\n```\n>>> \n``` ##",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x` js_*\n`b||\n```\n>>> \n``` ##",
+   "saved": "``x` js_*\n`b||\n```\n\n``` ##"
+  },
+  {
+   "t": "``` js_*\n`b||\n```\n>>> \n``` ##",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "``` js_*\n`b||\n`x``\n>>> \n``` ##",
+   "saved": "``` js_*\n`b||\n`x``\n\n``` ##"
+  },
+  {
+   "t": "``` js_*\n`b||\n```\n>>> \n``` ##",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``` js_*\n`b||\n``x`\n>>> \n``` ##",
+   "saved": "``` js_*\n`b||\n``x`\n\n``` ##"
+  },
+  {
+   "t": "```c++aa`\n``` #\n> #",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``c++aa`\n``` #\n> #",
+   "saved": "`x``c++aa`\n``` #\n#"
+  },
+  {
+   "t": "```c++aa`\n``` #\n> #",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`c++aa`\n``` #\n> #",
+   "saved": "``x`c++aa`\n``` #\n#"
+  },
+  {
+   "t": "```c++aa`\n``` #\n> #",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```c++aa`\n`x`` #\n> #",
+   "saved": "```c++aa`\n`x`` #\n#"
+  },
+  {
+   "t": "```c++aa`\n``` #\n> #",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```c++aa`\n``x` #\n> #",
+   "saved": "```c++aa`\n``x` #\n#"
+  },
+  {
+   "t": "``` \n\n>js\n > *js```\n```\\b",
+   "li": 3,
+   "k": 4,
+   "prefixLen": 3,
+   "expected": "``` \n\n>js\n > *js`x``\n```\\b",
+   "saved": "``` \n\n>js\n*js`x``\n```\\b"
+  },
+  {
+   "t": "``` \n\n>js\n > *js```\n```\\b",
+   "li": 3,
+   "k": 5,
+   "prefixLen": 3,
+   "expected": "``` \n\n>js\n > *js``x`\n```\\b",
+   "saved": "``` \n\n>js\n*js``x`\n```\\b"
+  },
+  {
+   "t": "```js```a*\n > > > _\n```js",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``js```a*\n > > > _\n```js",
+   "saved": "`x``js```a*\n> > _\n```js"
+  },
+  {
+   "t": "```js```a*\n > > > _\n```js",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`js```a*\n > > > _\n```js",
+   "saved": "``x`js```a*\n> > _\n```js"
+  },
+  {
+   "t": "```js```a*\n > > > _\n```js",
+   "li": 0,
+   "k": 6,
+   "prefixLen": 0,
+   "expected": "```js`x``a*\n > > > _\n```js",
+   "saved": "```js`x``a*\n> > _\n```js"
+  },
+  {
+   "t": "```js```a*\n > > > _\n```js",
+   "li": 0,
+   "k": 7,
+   "prefixLen": 0,
+   "expected": "```js``x`a*\n > > > _\n```js",
+   "saved": "```js``x`a*\n> > _\n```js"
+  },
+  {
+   "t": "``` *`\n```\n> \n```a",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x`` *`\n```\n> \n```a",
+   "saved": "`x`` *`\n```\n\n```a"
+  },
+  {
+   "t": "``` *`\n```\n> \n```a",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x` *`\n```\n> \n```a",
+   "saved": "``x` *`\n```\n\n```a"
+  },
+  {
+   "t": "``` *`\n```\n> \n```a",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "``` *`\n`x``\n> \n```a",
+   "saved": "``` *`\n`x``\n\n```a"
+  },
+  {
+   "t": "``` *`\n```\n> \n```a",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``` *`\n``x`\n> \n```a",
+   "saved": "``` *`\n``x`\n\n```a"
+  },
+  {
+   "t": "\n``` \n```js*\n > ||\n>> **js\n*",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "\n`x`` \n```js*\n > ||\n>> **js\n*",
+   "saved": "\n`x`` \n```js*\n||\n>> **js\n*"
+  },
+  {
+   "t": "\n``` \n```js*\n > ||\n>> **js\n*",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "\n``x` \n```js*\n > ||\n>> **js\n*",
+   "saved": "\n``x` \n```js*\n||\n>> **js\n*"
+  },
+  {
+   "t": "\n``` \n```js*\n > ||\n>> **js\n*",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "\n``` \n`x``js*\n > ||\n>> **js\n*",
+   "saved": "\n``` \n`x``js*\n||\n>> **js\n*"
+  },
+  {
+   "t": "\n``` \n```js*\n > ||\n>> **js\n*",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "\n``` \n``x`js*\n > ||\n>> **js\n*",
+   "saved": "\n``` \n``x`js*\n||\n>> **js\n*"
+  },
+  {
+   "t": "```js~~\n>>> \\||```\n```~~js\n~~\n``` ",
+   "li": 1,
+   "k": 4,
+   "prefixLen": 4,
+   "expected": "```js~~\n>>> \\||`x``\n```~~js\n~~\n``` ",
+   "saved": "```js~~\n\\||`x``\n```~~js\n~~\n``` "
+  },
+  {
+   "t": "```js~~\n>>> \\||```\n```~~js\n~~\n``` ",
+   "li": 1,
+   "k": 5,
+   "prefixLen": 4,
+   "expected": "```js~~\n>>> \\||``x`\n```~~js\n~~\n``` ",
+   "saved": "```js~~\n\\||``x`\n```~~js\n~~\n``` "
+  },
+  {
+   "t": "> _ #\n```c++> ||js\n> > ```\n \n>>> ~~`",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "> _ #\n`x``c++> ||js\n> > ```\n \n>>> ~~`",
+   "saved": "> _ #\n`x``c++> ||js\n> > ```\n \n~~`"
+  },
+  {
+   "t": "> _ #\n```c++> ||js\n> > ```\n \n>>> ~~`",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "> _ #\n``x`c++> ||js\n> > ```\n \n>>> ~~`",
+   "saved": "> _ #\n``x`c++> ||js\n> > ```\n \n~~`"
+  },
+  {
+   "t": "> _ #\n```c++> ||js\n> > ```\n \n>>> ~~`",
+   "li": 2,
+   "k": 3,
+   "prefixLen": 2,
+   "expected": "> _ #\n```c++> ||js\n> > `x``\n \n>>> ~~`",
+   "saved": "> _ #\n```c++> ||js\n> `x``\n \n~~`"
+  },
+  {
+   "t": "> _ #\n```c++> ||js\n> > ```\n \n>>> ~~`",
+   "li": 2,
+   "k": 4,
+   "prefixLen": 2,
+   "expected": "> _ #\n```c++> ||js\n> > ``x`\n \n>>> ~~`",
+   "saved": "> _ #\n```c++> ||js\n> ``x`\n \n~~`"
+  },
+  {
+   "t": "```_\n>> _\n```  `*\n>>> \n> \\",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``_\n>> _\n```  `*\n>>> \n> \\",
+   "saved": "`x``_\n>> _\n```  `*\n\n\\"
+  },
+  {
+   "t": "```_\n>> _\n```  `*\n>>> \n> \\",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`_\n>> _\n```  `*\n>>> \n> \\",
+   "saved": "``x`_\n>> _\n```  `*\n\n\\"
+  },
+  {
+   "t": "```_\n>> _\n```  `*\n>>> \n> \\",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```_\n>> _\n`x``  `*\n>>> \n> \\",
+   "saved": "```_\n>> _\n`x``  `*\n\n\\"
+  },
+  {
+   "t": "```_\n>> _\n```  `*\n>>> \n> \\",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```_\n>> _\n``x`  `*\n>>> \n> \\",
+   "saved": "```_\n>> _\n``x`  `*\n\n\\"
+  },
+  {
+   "t": "```js_\\\n```c++\n> \\_\n```js~~ \n```js> ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``js_\\\n```c++\n> \\_\n```js~~ \n```js> ",
+   "saved": "`x``js_\\\n```c++\n\\_\n```js~~ \n```js> "
+  },
+  {
+   "t": "```js_\\\n```c++\n> \\_\n```js~~ \n```js> ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`js_\\\n```c++\n> \\_\n```js~~ \n```js> ",
+   "saved": "``x`js_\\\n```c++\n\\_\n```js~~ \n```js> "
+  },
+  {
+   "t": "```js_\\\n```c++\n> \\_\n```js~~ \n```js> ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```js_\\\n`x``c++\n> \\_\n```js~~ \n```js> ",
+   "saved": "```js_\\\n`x``c++\n\\_\n```js~~ \n```js> "
+  },
+  {
+   "t": "```js_\\\n```c++\n> \\_\n```js~~ \n```js> ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```js_\\\n``x`c++\n> \\_\n```js~~ \n```js> ",
+   "saved": "```js_\\\n``x`c++\n\\_\n```js~~ \n```js> "
+  },
+  {
+   "t": "``` \n> ||a \n````* \n>\\a\n> \\",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x`` \n> ||a \n````* \n>\\a\n> \\",
+   "saved": "`x`` \n> ||a \n````* \n>\\a\n\\"
+  },
+  {
+   "t": "``` \n> ||a \n````* \n>\\a\n> \\",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x` \n> ||a \n````* \n>\\a\n> \\",
+   "saved": "``x` \n> ||a \n````* \n>\\a\n\\"
+  },
+  {
+   "t": "``` \n> ||a \n````* \n>\\a\n> \\",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``` \n> ||a \n``x``* \n>\\a\n> \\",
+   "saved": "``` \n> ||a \n``x``* \n>\\a\n\\"
+  },
+  {
+   "t": "```c++_> > \n> \\_\n~~\n>>> > ```\\",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 6,
+   "expected": "```c++_> > \n> \\_\n~~\n>>> > `x``\\",
+   "saved": "```c++_> > \n> \\_\n~~\n`x``\\"
+  },
+  {
+   "t": "```c++_> > \n> \\_\n~~\n>>> > ```\\",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 6,
+   "expected": "```c++_> > \n> \\_\n~~\n>>> > ``x`\\",
+   "saved": "```c++_> > \n> \\_\n~~\n``x`\\"
+  },
+  {
+   "t": "``` _`\n```c++||\n>>> b",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x`` _`\n```c++||\n>>> b",
+   "saved": "`x`` _`\n```c++||\nb"
+  },
+  {
+   "t": "``` _`\n```c++||\n>>> b",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x` _`\n```c++||\n>>> b",
+   "saved": "``x` _`\n```c++||\nb"
+  },
+  {
+   "t": "``` _`\n```c++||\n>>> b",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "``` _`\n`x``c++||\n>>> b",
+   "saved": "``` _`\n`x``c++||\nb"
+  },
+  {
+   "t": "``` _`\n```c++||\n>>> b",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``` _`\n``x`c++||\n>>> b",
+   "saved": "``` _`\n``x`c++||\nb"
+  },
+  {
+   "t": "``` ` `\n*>>> b\n```||a\n||\n>a\n >  ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x`` ` `\n*>>> b\n```||a\n||\n>a\n >  ",
+   "saved": "`x`` ` `\n*>>> b\n```||a\n||\n>a\n "
+  },
+  {
+   "t": "``` ` `\n*>>> b\n```||a\n||\n>a\n >  ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x` ` `\n*>>> b\n```||a\n||\n>a\n >  ",
+   "saved": "``x` ` `\n*>>> b\n```||a\n||\n>a\n "
+  },
+  {
+   "t": "``` ` `\n*>>> b\n```||a\n||\n>a\n >  ",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "``` ` `\n*>>> b\n`x``||a\n||\n>a\n >  ",
+   "saved": "``` ` `\n*>>> b\n`x``||a\n||\n>a\n "
+  },
+  {
+   "t": "``` ` `\n*>>> b\n```||a\n||\n>a\n >  ",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``` ` `\n*>>> b\n``x`||a\n||\n>a\n >  ",
+   "saved": "``` ` `\n*>>> b\n``x`||a\n||\n>a\n "
+  },
+  {
+   "t": "a#a\n```js_\n```js`\n```\n```\n> ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "a#a\n`x``js_\n```js`\n```\n```\n> ",
+   "saved": "a#a\n`x``js_\n```js`\n```\n```\n"
+  },
+  {
+   "t": "a#a\n```js_\n```js`\n```\n```\n> ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "a#a\n``x`js_\n```js`\n```\n```\n> ",
+   "saved": "a#a\n``x`js_\n```js`\n```\n```\n"
+  },
+  {
+   "t": "a#a\n```js_\n```js`\n```\n```\n> ",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "a#a\n```js_\n`x``js`\n```\n```\n> ",
+   "saved": "a#a\n```js_\n`x``js`\n```\n```\n"
+  },
+  {
+   "t": "a#a\n```js_\n```js`\n```\n```\n> ",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "a#a\n```js_\n``x`js`\n```\n```\n> ",
+   "saved": "a#a\n```js_\n``x`js`\n```\n```\n"
+  },
+  {
+   "t": "a#a\n```js_\n```js`\n```\n```\n> ",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "a#a\n```js_\n```js`\n`x``\n```\n> ",
+   "saved": "a#a\n```js_\n```js`\n`x``\n```\n"
+  },
+  {
+   "t": "a#a\n```js_\n```js`\n```\n```\n> ",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "a#a\n```js_\n```js`\n``x`\n```\n> ",
+   "saved": "a#a\n```js_\n```js`\n``x`\n```\n"
+  },
+  {
+   "t": "a#a\n```js_\n```js`\n```\n```\n> ",
+   "li": 4,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "a#a\n```js_\n```js`\n```\n`x``\n> ",
+   "saved": "a#a\n```js_\n```js`\n```\n`x``\n"
+  },
+  {
+   "t": "a#a\n```js_\n```js`\n```\n```\n> ",
+   "li": 4,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "a#a\n```js_\n```js`\n```\n``x`\n> ",
+   "saved": "a#a\n```js_\n```js`\n```\n``x`\n"
+  },
+  {
+   "t": "```c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "saved": "`x``c++>>> \\\n```c++*> `\n\n```c++b*\n```\\```"
+  },
+  {
+   "t": "```c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "saved": "``x`c++>>> \\\n```c++*> `\n\n```c++b*\n```\\```"
+  },
+  {
+   "t": "```c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```c++>>> \\\n`x``c++*> `\n>>> \n```c++b*\n```\\```",
+   "saved": "```c++>>> \\\n`x``c++*> `\n\n```c++b*\n```\\```"
+  },
+  {
+   "t": "```c++>>> \\\n```c++*> `\n>>> \n```c++b*\n```\\```",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```c++>>> \\\n``x`c++*> `\n>>> \n```c++b*\n```\\```",
+   "saved": "```c++>>> \\\n``x`c++*> `\n\n```c++b*\n```\\```"
+  },
+  {
+   "t": "```>>> *#\n > ```",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 3,
+   "expected": "```>>> *#\n > `x``",
+   "saved": "```>>> *#\n`x``"
+  },
+  {
+   "t": "```>>> *#\n > ```",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 3,
+   "expected": "```>>> *#\n > ``x`",
+   "saved": "```>>> *#\n``x`"
+  },
+  {
+   "t": "```  #\n_\n\n```~~ >>> \n> \\> ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``  #\n_\n\n```~~ >>> \n> \\> ",
+   "saved": "`x``  #\n_\n\n```~~ >>> \n\\> "
+  },
+  {
+   "t": "```  #\n_\n\n```~~ >>> \n> \\> ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`  #\n_\n\n```~~ >>> \n> \\> ",
+   "saved": "``x`  #\n_\n\n```~~ >>> \n\\> "
+  },
+  {
+   "t": "```  #\n_\n\n```~~ >>> \n> \\> ",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```  #\n_\n\n`x``~~ >>> \n> \\> ",
+   "saved": "```  #\n_\n\n`x``~~ >>> \n\\> "
+  },
+  {
+   "t": "```  #\n_\n\n```~~ >>> \n> \\> ",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```  #\n_\n\n``x`~~ >>> \n> \\> ",
+   "saved": "```  #\n_\n\n``x`~~ >>> \n\\> "
+  },
+  {
+   "t": "```js```*\n >  > ||\na\n>>> ||*||",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``js```*\n >  > ||\na\n>>> ||*||",
+   "saved": "`x``js```*\n > ||\na\n||*||"
+  },
+  {
+   "t": "```js```*\n >  > ||\na\n>>> ||*||",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`js```*\n >  > ||\na\n>>> ||*||",
+   "saved": "``x`js```*\n > ||\na\n||*||"
+  },
+  {
+   "t": "```js```*\n >  > ||\na\n>>> ||*||",
+   "li": 0,
+   "k": 6,
+   "prefixLen": 0,
+   "expected": "```js`x``*\n >  > ||\na\n>>> ||*||",
+   "saved": "```js`x``*\n > ||\na\n||*||"
+  },
+  {
+   "t": "```js```*\n >  > ||\na\n>>> ||*||",
+   "li": 0,
+   "k": 7,
+   "prefixLen": 0,
+   "expected": "```js``x`*\n >  > ||\na\n>>> ||*||",
+   "saved": "```js``x`*\n > ||\na\n||*||"
+  },
+  {
+   "t": " > _\n>a\\\n``` b>>> \n```c++>>> \n > \n```",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": " > _\n>a\\\n`x`` b>>> \n```c++>>> \n > \n```",
+   "saved": " > _\n>a\\\n`x`` b>>> \n```c++>>> \n\n```"
+  },
+  {
+   "t": " > _\n>a\\\n``` b>>> \n```c++>>> \n > \n```",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": " > _\n>a\\\n``x` b>>> \n```c++>>> \n > \n```",
+   "saved": " > _\n>a\\\n``x` b>>> \n```c++>>> \n\n```"
+  },
+  {
+   "t": " > _\n>a\\\n``` b>>> \n```c++>>> \n > \n```",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": " > _\n>a\\\n``` b>>> \n`x``c++>>> \n > \n```",
+   "saved": " > _\n>a\\\n``` b>>> \n`x``c++>>> \n\n```"
+  },
+  {
+   "t": " > _\n>a\\\n``` b>>> \n```c++>>> \n > \n```",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": " > _\n>a\\\n``` b>>> \n``x`c++>>> \n > \n```",
+   "saved": " > _\n>a\\\n``` b>>> \n``x`c++>>> \n\n```"
+  },
+  {
+   "t": "```c++jsa_\n``` ||\n>|| ||\n> \n>>>> ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``c++jsa_\n``` ||\n>|| ||\n> \n>>>> ",
+   "saved": "`x``c++jsa_\n``` ||\n>|| ||\n\n>>>> "
+  },
+  {
+   "t": "```c++jsa_\n``` ||\n>|| ||\n> \n>>>> ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`c++jsa_\n``` ||\n>|| ||\n> \n>>>> ",
+   "saved": "``x`c++jsa_\n``` ||\n>|| ||\n\n>>>> "
+  },
+  {
+   "t": "```c++jsa_\n``` ||\n>|| ||\n> \n>>>> ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```c++jsa_\n`x`` ||\n>|| ||\n> \n>>>> ",
+   "saved": "```c++jsa_\n`x`` ||\n>|| ||\n\n>>>> "
+  },
+  {
+   "t": "```c++jsa_\n``` ||\n>|| ||\n> \n>>>> ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```c++jsa_\n``x` ||\n>|| ||\n> \n>>>> ",
+   "saved": "```c++jsa_\n``x` ||\n>|| ||\n\n>>>> "
+  },
+  {
+   "t": "```jsb#_\n\n>> ```>>> \n\n> ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``jsb#_\n\n>> ```>>> \n\n> ",
+   "saved": "`x``jsb#_\n\n>> ```>>> \n\n"
+  },
+  {
+   "t": "```jsb#_\n\n>> ```>>> \n\n> ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`jsb#_\n\n>> ```>>> \n\n> ",
+   "saved": "``x`jsb#_\n\n>> ```>>> \n\n"
+  },
+  {
+   "t": "```jsb#_\n\n>> ```>>> \n\n> ",
+   "li": 2,
+   "k": 4,
+   "prefixLen": 0,
+   "expected": "```jsb#_\n\n>> `x``>>> \n\n> ",
+   "saved": "```jsb#_\n\n>> `x``>>> \n\n"
+  },
+  {
+   "t": "```jsb#_\n\n>> ```>>> \n\n> ",
+   "li": 2,
+   "k": 5,
+   "prefixLen": 0,
+   "expected": "```jsb#_\n\n>> ``x`>>> \n\n> ",
+   "saved": "```jsb#_\n\n>> ``x`>>> \n\n"
+  },
+  {
+   "t": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "saved": "`x``c++\n> _*```\n\n```#```\n||`\\"
+  },
+  {
+   "t": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "saved": "``x`c++\n> _*```\n\n```#```\n||`\\"
+  },
+  {
+   "t": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "li": 1,
+   "k": 3,
+   "prefixLen": 2,
+   "expected": "```c++\n> _*`x``\n\n```#```\n>>> ||`\\",
+   "saved": "```c++\n_*`x``\n\n```#```\n||`\\"
+  },
+  {
+   "t": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "li": 1,
+   "k": 4,
+   "prefixLen": 2,
+   "expected": "```c++\n> _*``x`\n\n```#```\n>>> ||`\\",
+   "saved": "```c++\n_*``x`\n\n```#```\n||`\\"
+  },
+  {
+   "t": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```c++\n> _*```\n\n`x``#```\n>>> ||`\\",
+   "saved": "```c++\n> _*```\n\n`x``#```\n||`\\"
+  },
+  {
+   "t": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```c++\n> _*```\n\n``x`#```\n>>> ||`\\",
+   "saved": "```c++\n> _*```\n\n``x`#```\n||`\\"
+  },
+  {
+   "t": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "li": 3,
+   "k": 5,
+   "prefixLen": 0,
+   "expected": "```c++\n> _*```\n\n```#`x``\n>>> ||`\\",
+   "saved": "```c++\n> _*```\n\n```#`x``\n||`\\"
+  },
+  {
+   "t": "```c++\n> _*```\n\n```#```\n>>> ||`\\",
+   "li": 3,
+   "k": 6,
+   "prefixLen": 0,
+   "expected": "```c++\n> _*```\n\n```#``x`\n>>> ||`\\",
+   "saved": "```c++\n> _*```\n\n```#``x`\n||`\\"
+  },
+  {
+   "t": "```c++js*```\n > \njs`\n>>> ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``c++js*```\n > \njs`\n>>> ",
+   "saved": "`x``c++js*```\n\njs`\n"
+  },
+  {
+   "t": "```c++js*```\n > \njs`\n>>> ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`c++js*```\n > \njs`\n>>> ",
+   "saved": "``x`c++js*```\n\njs`\n"
+  },
+  {
+   "t": "```c++js*```\n > \njs`\n>>> ",
+   "li": 0,
+   "k": 10,
+   "prefixLen": 0,
+   "expected": "```c++js*`x``\n > \njs`\n>>> ",
+   "saved": "```c++js*`x``\n\njs`\n"
+  },
+  {
+   "t": "```c++js*```\n > \njs`\n>>> ",
+   "li": 0,
+   "k": 11,
+   "prefixLen": 0,
+   "expected": "```c++js*``x`\n > \njs`\n>>> ",
+   "saved": "```c++js*``x`\n\njs`\n"
+  },
+  {
+   "t": "```jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "saved": "`x``jsa\n>>> >>> \nb\\\n```\n\n```||>>> "
+  },
+  {
+   "t": "```jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "saved": "``x`jsa\n>>> >>> \nb\\\n```\n\n```||>>> "
+  },
+  {
+   "t": "```jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```jsa\n>>> >>> \nb\\\n`x``\n>>> \n```||>>> ",
+   "saved": "```jsa\n>>> >>> \nb\\\n`x``\n\n```||>>> "
+  },
+  {
+   "t": "```jsa\n>>> >>> \nb\\\n```\n>>> \n```||>>> ",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```jsa\n>>> >>> \nb\\\n``x`\n>>> \n```||>>> ",
+   "saved": "```jsa\n>>> >>> \nb\\\n``x`\n\n```||>>> "
+  },
+  {
+   "t": "```>>> \n>> *a\n``` >>> ~~>>> \n > \n```\n>",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``>>> \n>> *a\n``` >>> ~~>>> \n > \n```\n>",
+   "saved": "`x``>>> \n>> *a\n``` >>> ~~>>> \n\n```\n>"
+  },
+  {
+   "t": "```>>> \n>> *a\n``` >>> ~~>>> \n > \n```\n>",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`>>> \n>> *a\n``` >>> ~~>>> \n > \n```\n>",
+   "saved": "``x`>>> \n>> *a\n``` >>> ~~>>> \n\n```\n>"
+  },
+  {
+   "t": "```>>> \n>> *a\n``` >>> ~~>>> \n > \n```\n>",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```>>> \n>> *a\n`x`` >>> ~~>>> \n > \n```\n>",
+   "saved": "```>>> \n>> *a\n`x`` >>> ~~>>> \n\n```\n>"
+  },
+  {
+   "t": "```>>> \n>> *a\n``` >>> ~~>>> \n > \n```\n>",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```>>> \n>> *a\n``x` >>> ~~>>> \n > \n```\n>",
+   "saved": "```>>> \n>> *a\n``x` >>> ~~>>> \n\n```\n>"
+  },
+  {
+   "t": "```\n > js```",
+   "li": 1,
+   "k": 3,
+   "prefixLen": 3,
+   "expected": "```\n > js`x``",
+   "saved": "```\njs`x``"
+  },
+  {
+   "t": "```\n > js```",
+   "li": 1,
+   "k": 4,
+   "prefixLen": 3,
+   "expected": "```\n > js``x`",
+   "saved": "```\njs``x`"
+  },
+  {
+   "t": " > ` >>> \n```jsa#\n```js*``\n>>> \n>*```",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": " > ` >>> \n`x``jsa#\n```js*``\n>>> \n>*```",
+   "saved": " > ` >>> \n`x``jsa#\n```js*``\n\n>*```"
+  },
+  {
+   "t": " > ` >>> \n```jsa#\n```js*``\n>>> \n>*```",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": " > ` >>> \n``x`jsa#\n```js*``\n>>> \n>*```",
+   "saved": " > ` >>> \n``x`jsa#\n```js*``\n\n>*```"
+  },
+  {
+   "t": " > ` >>> \n```jsa#\n```js*``\n>>> \n>*```",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": " > ` >>> \n```jsa#\n`x``js*``\n>>> \n>*```",
+   "saved": " > ` >>> \n```jsa#\n`x``js*``\n\n>*```"
+  },
+  {
+   "t": " > ` >>> \n```jsa#\n```js*``\n>>> \n>*```",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": " > ` >>> \n```jsa#\n``x`js*``\n>>> \n>*```",
+   "saved": " > ` >>> \n```jsa#\n``x`js*``\n\n>*```"
+  },
+  {
+   "t": "```c++\n >  \n> ```\n>`\\\n```c++```\\`\n",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 2,
+   "expected": "```c++\n >  \n> `x``\n>`\\\n```c++```\\`\n",
+   "saved": "```c++\n >  \n`x``\n>`\\\n```c++```\\`\n"
+  },
+  {
+   "t": "```c++\n >  \n> ```\n>`\\\n```c++```\\`\n",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 2,
+   "expected": "```c++\n >  \n> ``x`\n>`\\\n```c++```\\`\n",
+   "saved": "```c++\n >  \n``x`\n>`\\\n```c++```\\`\n"
+  },
+  {
+   "t": "*\n```js_>>> \n```c++\n>>> a*> ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "*\n`x``js_>>> \n```c++\n>>> a*> ",
+   "saved": "*\n`x``js_>>> \n```c++\na*> "
+  },
+  {
+   "t": "*\n```js_>>> \n```c++\n>>> a*> ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "*\n``x`js_>>> \n```c++\n>>> a*> ",
+   "saved": "*\n``x`js_>>> \n```c++\na*> "
+  },
+  {
+   "t": "*\n```js_>>> \n```c++\n>>> a*> ",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "*\n```js_>>> \n`x``c++\n>>> a*> ",
+   "saved": "*\n```js_>>> \n`x``c++\na*> "
+  },
+  {
+   "t": "*\n```js_>>> \n```c++\n>>> a*> ",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "*\n```js_>>> \n``x`c++\n>>> a*> ",
+   "saved": "*\n```js_>>> \n``x`c++\na*> "
+  },
+  {
+   "t": "``` \n>> __ \n \n```c++~~\n>>> \n > ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x`` \n>> __ \n \n```c++~~\n>>> \n > ",
+   "saved": "`x`` \n>> __ \n \n```c++~~\n\n"
+  },
+  {
+   "t": "``` \n>> __ \n \n```c++~~\n>>> \n > ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x` \n>> __ \n \n```c++~~\n>>> \n > ",
+   "saved": "``x` \n>> __ \n \n```c++~~\n\n"
+  },
+  {
+   "t": "``` \n>> __ \n \n```c++~~\n>>> \n > ",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "``` \n>> __ \n \n`x``c++~~\n>>> \n > ",
+   "saved": "``` \n>> __ \n \n`x``c++~~\n\n"
+  },
+  {
+   "t": "``` \n>> __ \n \n```c++~~\n>>> \n > ",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``` \n>> __ \n \n``x`c++~~\n>>> \n > ",
+   "saved": "``` \n>> __ \n \n``x`c++~~\n\n"
+  },
+  {
+   "t": "```> \n > ```>>> js\n>>> b```\n```#\n``` > ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 3,
+   "expected": "```> \n > `x``>>> js\n>>> b```\n```#\n``` > ",
+   "saved": "```> \n`x``>>> js\n>>> b```\n```#\n``` > "
+  },
+  {
+   "t": "```> \n > ```>>> js\n>>> b```\n```#\n``` > ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 3,
+   "expected": "```> \n > ``x`>>> js\n>>> b```\n```#\n``` > ",
+   "saved": "```> \n``x`>>> js\n>>> b```\n```#\n``` > "
+  },
+  {
+   "t": "> #\n> \n>\n```||```\n>>> b",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "> #\n> \n>\n`x``||```\n>>> b",
+   "saved": "> #\n> \n>\n`x``||```\nb"
+  },
+  {
+   "t": "> #\n> \n>\n```||```\n>>> b",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "> #\n> \n>\n``x`||```\n>>> b",
+   "saved": "> #\n> \n>\n``x`||```\nb"
+  },
+  {
+   "t": "> #\n> \n>\n```||```\n>>> b",
+   "li": 3,
+   "k": 6,
+   "prefixLen": 0,
+   "expected": "> #\n> \n>\n```||`x``\n>>> b",
+   "saved": "> #\n> \n>\n```||`x``\nb"
+  },
+  {
+   "t": "> #\n> \n>\n```||```\n>>> b",
+   "li": 3,
+   "k": 7,
+   "prefixLen": 0,
+   "expected": "> #\n> \n>\n```||``x`\n>>> b",
+   "saved": "> #\n> \n>\n```||``x`\nb"
+  },
+  {
+   "t": "> ````>>> \na*\n```js\n > \n>> \nb>>> `",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 2,
+   "expected": "> ``x``>>> \na*\n```js\n > \n>> \nb>>> `",
+   "saved": "> ``x``>>> \na*\n```js\n\n>> \nb>>> `"
+  },
+  {
+   "t": "> ````>>> \na*\n```js\n > \n>> \nb>>> `",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "> ````>>> \na*\n`x``js\n > \n>> \nb>>> `",
+   "saved": "> ````>>> \na*\n`x``js\n\n>> \nb>>> `"
+  },
+  {
+   "t": "> ````>>> \na*\n```js\n > \n>> \nb>>> `",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "> ````>>> \na*\n``x`js\n > \n>> \nb>>> `",
+   "saved": "> ````>>> \na*\n``x`js\n\n>> \nb>>> `"
+  },
+  {
+   "t": "```#*a\n>>  *\n```js*#a\n>>>  ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``#*a\n>>  *\n```js*#a\n>>>  ",
+   "saved": "`x``#*a\n>>  *\n```js*#a\n "
+  },
+  {
+   "t": "```#*a\n>>  *\n```js*#a\n>>>  ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`#*a\n>>  *\n```js*#a\n>>>  ",
+   "saved": "``x`#*a\n>>  *\n```js*#a\n "
+  },
+  {
+   "t": "```#*a\n>>  *\n```js*#a\n>>>  ",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```#*a\n>>  *\n`x``js*#a\n>>>  ",
+   "saved": "```#*a\n>>  *\n`x``js*#a\n "
+  },
+  {
+   "t": "```#*a\n>>  *\n```js*#a\n>>>  ",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```#*a\n>>  *\n``x`js*#a\n>>>  ",
+   "saved": "```#*a\n>>  *\n``x`js*#a\n "
+  },
+  {
+   "t": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n>>> \\```",
+   "li": 5,
+   "k": 2,
+   "prefixLen": 4,
+   "expected": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n>>> \\`x``",
+   "saved": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n\\`x``"
+  },
+  {
+   "t": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n>>> \\```",
+   "li": 5,
+   "k": 3,
+   "prefixLen": 4,
+   "expected": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n>>> \\``x`",
+   "saved": "```c++js \n```> \\\n > _js```\n>b```\n```js_||\n\\``x`"
+  },
+  {
+   "t": "``````\n>>>  `b",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x`````\n>>>  `b",
+   "saved": "`x`````\n `b"
+  },
+  {
+   "t": "``````\n>>>  `b",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x````\n>>>  `b",
+   "saved": "``x````\n `b"
+  },
+  {
+   "t": "``````\n>>>  `b",
+   "li": 0,
+   "k": 4,
+   "prefixLen": 0,
+   "expected": "````x``\n>>>  `b",
+   "saved": "````x``\n `b"
+  },
+  {
+   "t": "``````\n>>>  `b",
+   "li": 0,
+   "k": 5,
+   "prefixLen": 0,
+   "expected": "`````x`\n>>>  `b",
+   "saved": "`````x`\n `b"
+  },
+  {
+   "t": "```js`b\n~~\n\n``` >>> \n> _> ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``js`b\n~~\n\n``` >>> \n> _> ",
+   "saved": "`x``js`b\n~~\n\n``` >>> \n_> "
+  },
+  {
+   "t": "```js`b\n~~\n\n``` >>> \n> _> ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`js`b\n~~\n\n``` >>> \n> _> ",
+   "saved": "``x`js`b\n~~\n\n``` >>> \n_> "
+  },
+  {
+   "t": "```js`b\n~~\n\n``` >>> \n> _> ",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```js`b\n~~\n\n`x`` >>> \n> _> ",
+   "saved": "```js`b\n~~\n\n`x`` >>> \n_> "
+  },
+  {
+   "t": "```js`b\n~~\n\n``` >>> \n> _> ",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```js`b\n~~\n\n``x` >>> \n> _> ",
+   "saved": "```js`b\n~~\n\n``x` >>> \n_> "
+  },
+  {
+   "t": "> ``````#\n>> *\n> ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 2,
+   "expected": "> `x`````#\n>> *\n> ",
+   "saved": "> `x`````#\n>> *\n"
+  },
+  {
+   "t": "> ``````#\n>> *\n> ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 2,
+   "expected": "> ``x````#\n>> *\n> ",
+   "saved": "> ``x````#\n>> *\n"
+  },
+  {
+   "t": "> ``````#\n>> *\n> ",
+   "li": 0,
+   "k": 4,
+   "prefixLen": 2,
+   "expected": "> ````x``#\n>> *\n> ",
+   "saved": "> ````x``#\n>> *\n"
+  },
+  {
+   "t": "> ``````#\n>> *\n> ",
+   "li": 0,
+   "k": 5,
+   "prefixLen": 2,
+   "expected": "> `````x`#\n>> *\n> ",
+   "saved": "> `````x`#\n>> *\n"
+  },
+  {
+   "t": "```\n``` ||b\n> ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``\n``` ||b\n> ",
+   "saved": "`x``\n``` ||b\n"
+  },
+  {
+   "t": "```\n``` ||b\n> ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`\n``` ||b\n> ",
+   "saved": "``x`\n``` ||b\n"
+  },
+  {
+   "t": "```\n``` ||b\n> ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```\n`x`` ||b\n> ",
+   "saved": "```\n`x`` ||b\n"
+  },
+  {
+   "t": "```\n``` ||b\n> ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```\n``x` ||b\n> ",
+   "saved": "```\n``x` ||b\n"
+  },
+  {
+   "t": " > >>> \n>```> \n>> \n> \n>>> ```>>> ",
+   "li": 4,
+   "k": 1,
+   "prefixLen": 4,
+   "expected": " > >>> \n>```> \n>> \n> \n>>> `x``>>> ",
+   "saved": " > >>> \n>```> \n>> \n> \n`x``>>> "
+  },
+  {
+   "t": " > >>> \n>```> \n>> \n> \n>>> ```>>> ",
+   "li": 4,
+   "k": 2,
+   "prefixLen": 4,
+   "expected": " > >>> \n>```> \n>> \n> \n>>> ``x`>>> ",
+   "saved": " > >>> \n>```> \n>> \n> \n``x`>>> "
+  },
+  {
+   "t": "```jsjs\n```c++>>> ##\n>>> \\bjs",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``jsjs\n```c++>>> ##\n>>> \\bjs",
+   "saved": "`x``jsjs\n```c++>>> ##\n\\bjs"
+  },
+  {
+   "t": "```jsjs\n```c++>>> ##\n>>> \\bjs",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`jsjs\n```c++>>> ##\n>>> \\bjs",
+   "saved": "``x`jsjs\n```c++>>> ##\n\\bjs"
+  },
+  {
+   "t": "```jsjs\n```c++>>> ##\n>>> \\bjs",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```jsjs\n`x``c++>>> ##\n>>> \\bjs",
+   "saved": "```jsjs\n`x``c++>>> ##\n\\bjs"
+  },
+  {
+   "t": "```jsjs\n```c++>>> ##\n>>> \\bjs",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```jsjs\n``x`c++>>> ##\n>>> \\bjs",
+   "saved": "```jsjs\n``x`c++>>> ##\n\\bjs"
+  },
+  {
+   "t": "a```\n```~~>>> \n > \n>\n```js``` `",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "a`x``\n```~~>>> \n > \n>\n```js``` `",
+   "saved": "a`x``\n```~~>>> \n\n>\n```js``` `"
+  },
+  {
+   "t": "a```\n```~~>>> \n > \n>\n```js``` `",
+   "li": 0,
+   "k": 3,
+   "prefixLen": 0,
+   "expected": "a``x`\n```~~>>> \n > \n>\n```js``` `",
+   "saved": "a``x`\n```~~>>> \n\n>\n```js``` `"
+  },
+  {
+   "t": "a```\n```~~>>> \n > \n>\n```js``` `",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "a```\n`x``~~>>> \n > \n>\n```js``` `",
+   "saved": "a```\n`x``~~>>> \n\n>\n```js``` `"
+  },
+  {
+   "t": "a```\n```~~>>> \n > \n>\n```js``` `",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "a```\n``x`~~>>> \n > \n>\n```js``` `",
+   "saved": "a```\n``x`~~>>> \n\n>\n```js``` `"
+  },
+  {
+   "t": "```\n```c++#~~\n>>>>  \n > \n``` || ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``\n```c++#~~\n>>>>  \n > \n``` || ",
+   "saved": "`x``\n```c++#~~\n>>>>  \n\n``` || "
+  },
+  {
+   "t": "```\n```c++#~~\n>>>>  \n > \n``` || ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`\n```c++#~~\n>>>>  \n > \n``` || ",
+   "saved": "``x`\n```c++#~~\n>>>>  \n\n``` || "
+  },
+  {
+   "t": "```\n```c++#~~\n>>>>  \n > \n``` || ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```\n`x``c++#~~\n>>>>  \n > \n``` || ",
+   "saved": "```\n`x``c++#~~\n>>>>  \n\n``` || "
+  },
+  {
+   "t": "```\n```c++#~~\n>>>>  \n > \n``` || ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```\n``x`c++#~~\n>>>>  \n > \n``` || ",
+   "saved": "```\n``x`c++#~~\n>>>>  \n\n``` || "
+  },
+  {
+   "t": ">> `\n``````> \n> #>>> \n> `*\n>`\n```* >>> ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">> `\n`x`````> \n> #>>> \n> `*\n>`\n```* >>> ",
+   "saved": ">> `\n`x`````> \n#>>> \n`*\n>`\n```* >>> "
+  },
+  {
+   "t": ">> `\n``````> \n> #>>> \n> `*\n>`\n```* >>> ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">> `\n``x````> \n> #>>> \n> `*\n>`\n```* >>> ",
+   "saved": ">> `\n``x````> \n#>>> \n`*\n>`\n```* >>> "
+  },
+  {
+   "t": ">> `\n``````> \n> #>>> \n> `*\n>`\n```* >>> ",
+   "li": 1,
+   "k": 4,
+   "prefixLen": 0,
+   "expected": ">> `\n````x``> \n> #>>> \n> `*\n>`\n```* >>> ",
+   "saved": ">> `\n````x``> \n#>>> \n`*\n>`\n```* >>> "
+  },
+  {
+   "t": ">> `\n``````> \n> #>>> \n> `*\n>`\n```* >>> ",
+   "li": 1,
+   "k": 5,
+   "prefixLen": 0,
+   "expected": ">> `\n`````x`> \n> #>>> \n> `*\n>`\n```* >>> ",
+   "saved": ">> `\n`````x`> \n#>>> \n`*\n>`\n```* >>> "
+  },
+  {
+   "t": "\\||`\n```||\n```js\n > \n#\\*\n``` # ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "\\||`\n`x``||\n```js\n > \n#\\*\n``` # ",
+   "saved": "\\||`\n`x``||\n```js\n\n#\\*\n``` # "
+  },
+  {
+   "t": "\\||`\n```||\n```js\n > \n#\\*\n``` # ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "\\||`\n``x`||\n```js\n > \n#\\*\n``` # ",
+   "saved": "\\||`\n``x`||\n```js\n\n#\\*\n``` # "
+  },
+  {
+   "t": "\\||`\n```||\n```js\n > \n#\\*\n``` # ",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "\\||`\n```||\n`x``js\n > \n#\\*\n``` # ",
+   "saved": "\\||`\n```||\n`x``js\n\n#\\*\n``` # "
+  },
+  {
+   "t": "\\||`\n```||\n```js\n > \n#\\*\n``` # ",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "\\||`\n```||\n``x`js\n > \n#\\*\n``` # ",
+   "saved": "\\||`\n```||\n``x`js\n\n#\\*\n``` # "
+  },
+  {
+   "t": "```js\n>js\n``` `||`\nb> `\n`\n>>> ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``js\n>js\n``` `||`\nb> `\n`\n>>> ",
+   "saved": "`x``js\n>js\n``` `||`\nb> `\n`\n"
+  },
+  {
+   "t": "```js\n>js\n``` `||`\nb> `\n`\n>>> ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`js\n>js\n``` `||`\nb> `\n`\n>>> ",
+   "saved": "``x`js\n>js\n``` `||`\nb> `\n`\n"
+  },
+  {
+   "t": "```js\n>js\n``` `||`\nb> `\n`\n>>> ",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```js\n>js\n`x`` `||`\nb> `\n`\n>>> ",
+   "saved": "```js\n>js\n`x`` `||`\nb> `\n`\n"
+  },
+  {
+   "t": "```js\n>js\n``` `||`\nb> `\n`\n>>> ",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```js\n>js\n``x` `||`\nb> `\n`\n>>> ",
+   "saved": "```js\n>js\n``x` `||`\nb> `\n`\n"
+  },
+  {
+   "t": "``` `\n>>> a>>> ```\n```c++```\\\n```js> `\n>>> \n#",
+   "li": 1,
+   "k": 6,
+   "prefixLen": 4,
+   "expected": "``` `\n>>> a>>> `x``\n```c++```\\\n```js> `\n>>> \n#",
+   "saved": "``` `\na>>> `x``\n```c++```\\\n```js> `\n>>> \n#"
+  },
+  {
+   "t": "``` `\n>>> a>>> ```\n```c++```\\\n```js> `\n>>> \n#",
+   "li": 1,
+   "k": 7,
+   "prefixLen": 4,
+   "expected": "``` `\n>>> a>>> ``x`\n```c++```\\\n```js> `\n>>> \n#",
+   "saved": "``` `\na>>> ``x`\n```c++```\\\n```js> `\n>>> \n#"
+  },
+  {
+   "t": " > a~~\n```a\n> `\\```\n>> ",
+   "li": 2,
+   "k": 3,
+   "prefixLen": 2,
+   "expected": " > a~~\n```a\n> `\\`x``\n>> ",
+   "saved": " > a~~\n```a\n`\\`x``\n>> "
+  },
+  {
+   "t": " > a~~\n```a\n> `\\```\n>> ",
+   "li": 2,
+   "k": 4,
+   "prefixLen": 2,
+   "expected": " > a~~\n```a\n> `\\``x`\n>> ",
+   "saved": " > a~~\n```a\n`\\``x`\n>> "
+  },
+  {
+   "t": "```js#\n```\n> js*\n",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``js#\n```\n> js*\n",
+   "saved": "`x``js#\n```\njs*\n"
+  },
+  {
+   "t": "```js#\n```\n> js*\n",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`js#\n```\n> js*\n",
+   "saved": "``x`js#\n```\njs*\n"
+  },
+  {
+   "t": "```js#\n```\n> js*\n",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```js#\n`x``\n> js*\n",
+   "saved": "```js#\n`x``\njs*\n"
+  },
+  {
+   "t": "```js#\n```\n> js*\n",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```js#\n``x`\n> js*\n",
+   "saved": "```js#\n``x`\njs*\n"
+  },
+  {
+   "t": "#\n```>>> ~~a\n>>>> \n```c++#```\n> ||```",
+   "li": 4,
+   "k": 3,
+   "prefixLen": 2,
+   "expected": "#\n```>>> ~~a\n>>>> \n```c++#```\n> ||`x``",
+   "saved": "#\n```>>> ~~a\n>>>> \n```c++#```\n||`x``"
+  },
+  {
+   "t": "#\n```>>> ~~a\n>>>> \n```c++#```\n> ||```",
+   "li": 4,
+   "k": 4,
+   "prefixLen": 2,
+   "expected": "#\n```>>> ~~a\n>>>> \n```c++#```\n> ||``x`",
+   "saved": "#\n```>>> ~~a\n>>>> \n```c++#```\n||``x`"
+  },
+  {
+   "t": "```#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "saved": "`x``#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n >>> "
+  },
+  {
+   "t": "```#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "saved": "``x`#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n >>> "
+  },
+  {
+   "t": "```#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "li": 0,
+   "k": 7,
+   "prefixLen": 0,
+   "expected": "```#js`x``\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "saved": "```#js`x``\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n >>> "
+  },
+  {
+   "t": "```#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "li": 0,
+   "k": 8,
+   "prefixLen": 0,
+   "expected": "```#js``x`\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "saved": "```#js``x`\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n >>> "
+  },
+  {
+   "t": "```#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```#js```\n>`\\\n`x``> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "saved": "```#js```\n>`\\\n`x``> a\\\n>> \\\n```jsjs#_\n >>> "
+  },
+  {
+   "t": "```#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```#js```\n>`\\\n``x`> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "saved": "```#js```\n>`\\\n``x`> a\\\n>> \\\n```jsjs#_\n >>> "
+  },
+  {
+   "t": "```#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "li": 4,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```#js```\n>`\\\n```> a\\\n>> \\\n`x``jsjs#_\n>  >>> ",
+   "saved": "```#js```\n>`\\\n```> a\\\n>> \\\n`x``jsjs#_\n >>> "
+  },
+  {
+   "t": "```#js```\n>`\\\n```> a\\\n>> \\\n```jsjs#_\n>  >>> ",
+   "li": 4,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```#js```\n>`\\\n```> a\\\n>> \\\n``x`jsjs#_\n>  >>> ",
+   "saved": "```#js```\n>`\\\n```> a\\\n>> \\\n``x`jsjs#_\n >>> "
+  },
+  {
+   "t": ">```\n```js*\n>>> *> > ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">`x``\n```js*\n>>> *> > ",
+   "saved": ">`x``\n```js*\n*> > "
+  },
+  {
+   "t": ">```\n```js*\n>>> *> > ",
+   "li": 0,
+   "k": 3,
+   "prefixLen": 0,
+   "expected": ">``x`\n```js*\n>>> *> > ",
+   "saved": ">``x`\n```js*\n*> > "
+  },
+  {
+   "t": ">```\n```js*\n>>> *> > ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">```\n`x``js*\n>>> *> > ",
+   "saved": ">```\n`x``js*\n*> > "
+  },
+  {
+   "t": ">```\n```js*\n>>> *> > ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">```\n``x`js*\n>>> *> > ",
+   "saved": ">```\n``x`js*\n*> > "
+  },
+  {
+   "t": " > a> \\\n``` \n> #>>> *\n```js\n > `*\n#",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": " > a> \\\n`x`` \n> #>>> *\n```js\n > `*\n#",
+   "saved": " > a> \\\n`x`` \n> #>>> *\n```js\n`*\n#"
+  },
+  {
+   "t": " > a> \\\n``` \n> #>>> *\n```js\n > `*\n#",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": " > a> \\\n``x` \n> #>>> *\n```js\n > `*\n#",
+   "saved": " > a> \\\n``x` \n> #>>> *\n```js\n`*\n#"
+  },
+  {
+   "t": " > a> \\\n``` \n> #>>> *\n```js\n > `*\n#",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": " > a> \\\n``` \n> #>>> *\n`x``js\n > `*\n#",
+   "saved": " > a> \\\n``` \n> #>>> *\n`x``js\n`*\n#"
+  },
+  {
+   "t": " > a> \\\n``` \n> #>>> *\n```js\n > `*\n#",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": " > a> \\\n``` \n> #>>> *\n``x`js\n > `*\n#",
+   "saved": " > a> \\\n``` \n> #>>> *\n``x`js\n`*\n#"
+  },
+  {
+   "t": "``` ||\n``` > > \n>>> ~~b||",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x`` ||\n``` > > \n>>> ~~b||",
+   "saved": "`x`` ||\n``` > > \n~~b||"
+  },
+  {
+   "t": "``` ||\n``` > > \n>>> ~~b||",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x` ||\n``` > > \n>>> ~~b||",
+   "saved": "``x` ||\n``` > > \n~~b||"
+  },
+  {
+   "t": "``` ||\n``` > > \n>>> ~~b||",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "``` ||\n`x`` > > \n>>> ~~b||",
+   "saved": "``` ||\n`x`` > > \n~~b||"
+  },
+  {
+   "t": "``` ||\n``` > > \n>>> ~~b||",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``` ||\n``x` > > \n>>> ~~b||",
+   "saved": "``` ||\n``x` > > \n~~b||"
+  },
+  {
+   "t": ">> **\n```js~~b\n > #js```\n\n",
+   "li": 2,
+   "k": 4,
+   "prefixLen": 3,
+   "expected": ">> **\n```js~~b\n > #js`x``\n\n",
+   "saved": ">> **\n```js~~b\n#js`x``\n\n"
+  },
+  {
+   "t": ">> **\n```js~~b\n > #js```\n\n",
+   "li": 2,
+   "k": 5,
+   "prefixLen": 3,
+   "expected": ">> **\n```js~~b\n > #js``x`\n\n",
+   "saved": ">> **\n```js~~b\n#js``x`\n\n"
+  },
+  {
+   "t": " > ~~\n```*\n```||a\n> *\n>>> bab\n```js> > ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": " > ~~\n`x``*\n```||a\n> *\n>>> bab\n```js> > ",
+   "saved": " > ~~\n`x``*\n```||a\n*\nbab\n```js> > "
+  },
+  {
+   "t": " > ~~\n```*\n```||a\n> *\n>>> bab\n```js> > ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": " > ~~\n``x`*\n```||a\n> *\n>>> bab\n```js> > ",
+   "saved": " > ~~\n``x`*\n```||a\n*\nbab\n```js> > "
+  },
+  {
+   "t": " > ~~\n```*\n```||a\n> *\n>>> bab\n```js> > ",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": " > ~~\n```*\n`x``||a\n> *\n>>> bab\n```js> > ",
+   "saved": " > ~~\n```*\n`x``||a\n*\nbab\n```js> > "
+  },
+  {
+   "t": " > ~~\n```*\n```||a\n> *\n>>> bab\n```js> > ",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": " > ~~\n```*\n``x`||a\n> *\n>>> bab\n```js> > ",
+   "saved": " > ~~\n```*\n``x`||a\n*\nbab\n```js> > "
+  },
+  {
+   "t": "```js||\n```js_\n\n > #||\n```js\\",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``js||\n```js_\n\n > #||\n```js\\",
+   "saved": "`x``js||\n```js_\n\n#||\n```js\\"
+  },
+  {
+   "t": "```js||\n```js_\n\n > #||\n```js\\",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`js||\n```js_\n\n > #||\n```js\\",
+   "saved": "``x`js||\n```js_\n\n#||\n```js\\"
+  },
+  {
+   "t": "```js||\n```js_\n\n > #||\n```js\\",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```js||\n`x``js_\n\n > #||\n```js\\",
+   "saved": "```js||\n`x``js_\n\n#||\n```js\\"
+  },
+  {
+   "t": "```js||\n```js_\n\n > #||\n```js\\",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```js||\n``x`js_\n\n > #||\n```js\\",
+   "saved": "```js||\n``x`js_\n\n#||\n```js\\"
+  },
+  {
+   "t": "\n> ~~```a\n``` _\n\\_~~\n>>> *> \n>  \\",
+   "li": 1,
+   "k": 3,
+   "prefixLen": 2,
+   "expected": "\n> ~~`x``a\n``` _\n\\_~~\n>>> *> \n>  \\",
+   "saved": "\n> ~~`x``a\n``` _\n\\_~~\n*> \n \\"
+  },
+  {
+   "t": "\n> ~~```a\n``` _\n\\_~~\n>>> *> \n>  \\",
+   "li": 1,
+   "k": 4,
+   "prefixLen": 2,
+   "expected": "\n> ~~``x`a\n``` _\n\\_~~\n>>> *> \n>  \\",
+   "saved": "\n> ~~``x`a\n``` _\n\\_~~\n*> \n \\"
+  },
+  {
+   "t": "\n> ~~```a\n``` _\n\\_~~\n>>> *> \n>  \\",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "\n> ~~```a\n`x`` _\n\\_~~\n>>> *> \n>  \\",
+   "saved": "\n> ~~```a\n`x`` _\n\\_~~\n*> \n \\"
+  },
+  {
+   "t": "\n> ~~```a\n``` _\n\\_~~\n>>> *> \n>  \\",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "\n> ~~```a\n``x` _\n\\_~~\n>>> *> \n>  \\",
+   "saved": "\n> ~~```a\n``x` _\n\\_~~\n*> \n \\"
+  },
+  {
+   "t": ">> > ||\n```c++ ~~a\n> ```\n > # ```",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 2,
+   "expected": ">> > ||\n```c++ ~~a\n> `x``\n > # ```",
+   "saved": ">> > ||\n```c++ ~~a\n`x``\n > # ```"
+  },
+  {
+   "t": ">> > ||\n```c++ ~~a\n> ```\n > # ```",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 2,
+   "expected": ">> > ||\n```c++ ~~a\n> ``x`\n > # ```",
+   "saved": ">> > ||\n```c++ ~~a\n``x`\n > # ```"
+  },
+  {
+   "t": "```c++||||\n```b~~ \n>>> js> a\n > ~~a",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``c++||||\n```b~~ \n>>> js> a\n > ~~a",
+   "saved": "`x``c++||||\n```b~~ \njs> a\n~~a"
+  },
+  {
+   "t": "```c++||||\n```b~~ \n>>> js> a\n > ~~a",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`c++||||\n```b~~ \n>>> js> a\n > ~~a",
+   "saved": "``x`c++||||\n```b~~ \njs> a\n~~a"
+  },
+  {
+   "t": "```c++||||\n```b~~ \n>>> js> a\n > ~~a",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```c++||||\n`x``b~~ \n>>> js> a\n > ~~a",
+   "saved": "```c++||||\n`x``b~~ \njs> a\n~~a"
+  },
+  {
+   "t": "```c++||||\n```b~~ \n>>> js> a\n > ~~a",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```c++||||\n``x`b~~ \n>>> js> a\n > ~~a",
+   "saved": "```c++||||\n``x`b~~ \njs> a\n~~a"
+  },
+  {
+   "t": "```js\n > \n > _>>> \n```js \\js\n > >  \n``` >>> \\`",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``js\n > \n > _>>> \n```js \\js\n > >  \n``` >>> \\`",
+   "saved": "`x``js\n > \n > _>>> \n```js \\js\n>  \n``` >>> \\`"
+  },
+  {
+   "t": "```js\n > \n > _>>> \n```js \\js\n > >  \n``` >>> \\`",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`js\n > \n > _>>> \n```js \\js\n > >  \n``` >>> \\`",
+   "saved": "``x`js\n > \n > _>>> \n```js \\js\n>  \n``` >>> \\`"
+  },
+  {
+   "t": "```js\n > \n > _>>> \n```js \\js\n > >  \n``` >>> \\`",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```js\n > \n > _>>> \n`x``js \\js\n > >  \n``` >>> \\`",
+   "saved": "```js\n > \n > _>>> \n`x``js \\js\n>  \n``` >>> \\`"
+  },
+  {
+   "t": "```js\n > \n > _>>> \n```js \\js\n > >  \n``` >>> \\`",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```js\n > \n > _>>> \n``x`js \\js\n > >  \n``` >>> \\`",
+   "saved": "```js\n > \n > _>>> \n``x`js \\js\n>  \n``` >>> \\`"
+  },
+  {
+   "t": "```js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "saved": "`x``js__a\n``` > >>> ||\n#*> \n\njs\n> > ```"
+  },
+  {
+   "t": "```js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "saved": "``x`js__a\n``` > >>> ||\n#*> \n\njs\n> > ```"
+  },
+  {
+   "t": "```js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```js__a\n`x`` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "saved": "```js__a\n`x`` > >>> ||\n#*> \n\njs\n> > ```"
+  },
+  {
+   "t": "```js__a\n``` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```js__a\n``x` > >>> ||\n#*> \n>>> \njs\n> > ```",
+   "saved": "```js__a\n``x` > >>> ||\n#*> \n\njs\n> > ```"
+  },
+  {
+   "t": "```b#\n```js> *\n > \n>||",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``b#\n```js> *\n > \n>||",
+   "saved": "`x``b#\n```js> *\n\n>||"
+  },
+  {
+   "t": "```b#\n```js> *\n > \n>||",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`b#\n```js> *\n > \n>||",
+   "saved": "``x`b#\n```js> *\n\n>||"
+  },
+  {
+   "t": "```b#\n```js> *\n > \n>||",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```b#\n`x``js> *\n > \n>||",
+   "saved": "```b#\n`x``js> *\n\n>||"
+  },
+  {
+   "t": "```b#\n```js> *\n > \n>||",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```b#\n``x`js> *\n > \n>||",
+   "saved": "```b#\n``x`js> *\n\n>||"
+  },
+  {
+   "t": "~~bb\n```>>> `\n> *~~```",
+   "li": 2,
+   "k": 4,
+   "prefixLen": 2,
+   "expected": "~~bb\n```>>> `\n> *~~`x``",
+   "saved": "~~bb\n```>>> `\n*~~`x``"
+  },
+  {
+   "t": "~~bb\n```>>> `\n> *~~```",
+   "li": 2,
+   "k": 5,
+   "prefixLen": 2,
+   "expected": "~~bb\n```>>> `\n> *~~``x`",
+   "saved": "~~bb\n```>>> `\n*~~``x`"
+  },
+  {
+   "t": ">> \\||\n``` \n\n``` a*\n\n> ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">> \\||\n`x`` \n\n``` a*\n\n> ",
+   "saved": ">> \\||\n`x`` \n\n``` a*\n\n"
+  },
+  {
+   "t": ">> \\||\n``` \n\n``` a*\n\n> ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">> \\||\n``x` \n\n``` a*\n\n> ",
+   "saved": ">> \\||\n``x` \n\n``` a*\n\n"
+  },
+  {
+   "t": ">> \\||\n``` \n\n``` a*\n\n> ",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">> \\||\n``` \n\n`x`` a*\n\n> ",
+   "saved": ">> \\||\n``` \n\n`x`` a*\n\n"
+  },
+  {
+   "t": ">> \\||\n``` \n\n``` a*\n\n> ",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">> \\||\n``` \n\n``x` a*\n\n> ",
+   "saved": ">> \\||\n``` \n\n``x` a*\n\n"
+  },
+  {
+   "t": ">````~~\n>>> \n>>> \n> \n```c++ #js\n>>>  js",
+   "li": 0,
+   "k": 3,
+   "prefixLen": 0,
+   "expected": ">``x``~~\n>>> \n>>> \n> \n```c++ #js\n>>>  js",
+   "saved": ">``x``~~\n>>> \n>>> \n> \n```c++ #js\n js"
+  },
+  {
+   "t": ">````~~\n>>> \n>>> \n> \n```c++ #js\n>>>  js",
+   "li": 4,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">````~~\n>>> \n>>> \n> \n`x``c++ #js\n>>>  js",
+   "saved": ">````~~\n>>> \n>>> \n> \n`x``c++ #js\n js"
+  },
+  {
+   "t": ">````~~\n>>> \n>>> \n> \n```c++ #js\n>>>  js",
+   "li": 4,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">````~~\n>>> \n>>> \n> \n``x`c++ #js\n>>>  js",
+   "saved": ">````~~\n>>> \n>>> \n> \n``x`c++ #js\n js"
+  },
+  {
+   "t": "```||\n``` a#\n > _*\n``` ```",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``||\n``` a#\n > _*\n``` ```",
+   "saved": "`x``||\n``` a#\n_*\n``` ```"
+  },
+  {
+   "t": "```||\n``` a#\n > _*\n``` ```",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`||\n``` a#\n > _*\n``` ```",
+   "saved": "``x`||\n``` a#\n_*\n``` ```"
+  },
+  {
+   "t": "```||\n``` a#\n > _*\n``` ```",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```||\n`x`` a#\n > _*\n``` ```",
+   "saved": "```||\n`x`` a#\n_*\n``` ```"
+  },
+  {
+   "t": "```||\n``` a#\n > _*\n``` ```",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```||\n``x` a#\n > _*\n``` ```",
+   "saved": "```||\n``x` a#\n_*\n``` ```"
+  },
+  {
+   "t": "```  a\n```a\n>>> #",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``  a\n```a\n>>> #",
+   "saved": "`x``  a\n```a\n#"
+  },
+  {
+   "t": "```  a\n```a\n>>> #",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`  a\n```a\n>>> #",
+   "saved": "``x`  a\n```a\n#"
+  },
+  {
+   "t": "```  a\n```a\n>>> #",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```  a\n`x``a\n>>> #",
+   "saved": "```  a\n`x``a\n#"
+  },
+  {
+   "t": "```  a\n```a\n>>> #",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```  a\n``x`a\n>>> #",
+   "saved": "```  a\n``x`a\n#"
+  },
+  {
+   "t": ">>> > \n```c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">>> > \n`x``c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "saved": ">>> > \n`x``c++>>> \n>>> `||*\n > \n```> \n\\>>> "
+  },
+  {
+   "t": ">>> > \n```c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">>> > \n``x`c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "saved": ">>> > \n``x`c++>>> \n>>> `||*\n > \n```> \n\\>>> "
+  },
+  {
+   "t": ">>> > \n```c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "li": 4,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">>> > \n```c++>>> \n>>> `||*\n > \n`x``> \n> \\>>> ",
+   "saved": ">>> > \n```c++>>> \n>>> `||*\n > \n`x``> \n\\>>> "
+  },
+  {
+   "t": ">>> > \n```c++>>> \n>>> `||*\n > \n```> \n> \\>>> ",
+   "li": 4,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">>> > \n```c++>>> \n>>> `||*\n > \n``x`> \n> \\>>> ",
+   "saved": ">>> > \n```c++>>> \n>>> `||*\n > \n``x`> \n\\>>> "
+  },
+  {
+   "t": ">\njs\n>#```||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "li": 2,
+   "k": 3,
+   "prefixLen": 0,
+   "expected": ">\njs\n>#`x``||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "saved": ">\njs\n>#`x``||\n>>> ajsa\n``` #`a\n>>>  b"
+  },
+  {
+   "t": ">\njs\n>#```||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "li": 2,
+   "k": 4,
+   "prefixLen": 0,
+   "expected": ">\njs\n>#``x`||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "saved": ">\njs\n>#``x`||\n>>> ajsa\n``` #`a\n>>>  b"
+  },
+  {
+   "t": ">\njs\n>#```||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "li": 4,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">\njs\n>#```||\n>>> ajsa\n`x`` #`a\n>>> >>>  b",
+   "saved": ">\njs\n>#```||\n>>> ajsa\n`x`` #`a\n>>>  b"
+  },
+  {
+   "t": ">\njs\n>#```||\n>>> ajsa\n``` #`a\n>>> >>>  b",
+   "li": 4,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">\njs\n>#```||\n>>> ajsa\n``x` #`a\n>>> >>>  b",
+   "saved": ">\njs\n>#```||\n>>> ajsa\n``x` #`a\n>>>  b"
+  },
+  {
+   "t": "``` ` \n```\n>>> \n```js\n > _\\\\",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x`` ` \n```\n>>> \n```js\n > _\\\\",
+   "saved": "`x`` ` \n```\n\n```js\n > _\\\\"
+  },
+  {
+   "t": "``` ` \n```\n>>> \n```js\n > _\\\\",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x` ` \n```\n>>> \n```js\n > _\\\\",
+   "saved": "``x` ` \n```\n\n```js\n > _\\\\"
+  },
+  {
+   "t": "``` ` \n```\n>>> \n```js\n > _\\\\",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "``` ` \n`x``\n>>> \n```js\n > _\\\\",
+   "saved": "``` ` \n`x``\n\n```js\n > _\\\\"
+  },
+  {
+   "t": "``` ` \n```\n>>> \n```js\n > _\\\\",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``` ` \n``x`\n>>> \n```js\n > _\\\\",
+   "saved": "``` ` \n``x`\n\n```js\n > _\\\\"
+  },
+  {
+   "t": ">> ```*```\n> ~~\n>>> ",
+   "li": 0,
+   "k": 4,
+   "prefixLen": 0,
+   "expected": ">> `x``*```\n> ~~\n>>> ",
+   "saved": ">> `x``*```\n~~\n"
+  },
+  {
+   "t": ">> ```*```\n> ~~\n>>> ",
+   "li": 0,
+   "k": 5,
+   "prefixLen": 0,
+   "expected": ">> ``x`*```\n> ~~\n>>> ",
+   "saved": ">> ``x`*```\n~~\n"
+  },
+  {
+   "t": ">> ```*```\n> ~~\n>>> ",
+   "li": 0,
+   "k": 8,
+   "prefixLen": 0,
+   "expected": ">> ```*`x``\n> ~~\n>>> ",
+   "saved": ">> ```*`x``\n~~\n"
+  },
+  {
+   "t": ">> ```*```\n> ~~\n>>> ",
+   "li": 0,
+   "k": 9,
+   "prefixLen": 0,
+   "expected": ">> ```*``x`\n> ~~\n>>> ",
+   "saved": ">> ```*``x`\n~~\n"
+  },
+  {
+   "t": "``` \n>>> #```\n>\n```c++```||~~\n```c++#a~~",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 4,
+   "expected": "``` \n>>> #`x``\n>\n```c++```||~~\n```c++#a~~",
+   "saved": "``` \n#`x``\n>\n```c++```||~~\n```c++#a~~"
+  },
+  {
+   "t": "``` \n>>> #```\n>\n```c++```||~~\n```c++#a~~",
+   "li": 1,
+   "k": 3,
+   "prefixLen": 4,
+   "expected": "``` \n>>> #``x`\n>\n```c++```||~~\n```c++#a~~",
+   "saved": "``` \n#``x`\n>\n```c++```||~~\n```c++#a~~"
+  },
+  {
+   "t": ">\\````\n```b\n > ",
+   "li": 0,
+   "k": 4,
+   "prefixLen": 0,
+   "expected": ">\\``x``\n```b\n > ",
+   "saved": ">\\``x``\n```b\n"
+  },
+  {
+   "t": ">\\````\n```b\n > ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">\\````\n`x``b\n > ",
+   "saved": ">\\````\n`x``b\n"
+  },
+  {
+   "t": ">\\````\n```b\n > ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">\\````\n``x`b\n > ",
+   "saved": ">\\````\n``x`b\n"
+  },
+  {
+   "t": "```\n``` \\js\n>>> ",
+   "li": 0,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "`x``\n``` \\js\n>>> ",
+   "saved": "`x``\n``` \\js\n"
+  },
+  {
+   "t": "```\n``` \\js\n>>> ",
+   "li": 0,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "``x`\n``` \\js\n>>> ",
+   "saved": "``x`\n``` \\js\n"
+  },
+  {
+   "t": "```\n``` \\js\n>>> ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "```\n`x`` \\js\n>>> ",
+   "saved": "```\n`x`` \\js\n"
+  },
+  {
+   "t": "```\n``` \\js\n>>> ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "```\n``x` \\js\n>>> ",
+   "saved": "```\n``x` \\js\n"
+  },
+  {
+   "t": "> ba\n>> *\n```bb||\n```c++js||\n\n> ",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "> ba\n>> *\n`x``bb||\n```c++js||\n\n> ",
+   "saved": "> ba\n>> *\n`x``bb||\n```c++js||\n\n"
+  },
+  {
+   "t": "> ba\n>> *\n```bb||\n```c++js||\n\n> ",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "> ba\n>> *\n``x`bb||\n```c++js||\n\n> ",
+   "saved": "> ba\n>> *\n``x`bb||\n```c++js||\n\n"
+  },
+  {
+   "t": "> ba\n>> *\n```bb||\n```c++js||\n\n> ",
+   "li": 3,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": "> ba\n>> *\n```bb||\n`x``c++js||\n\n> ",
+   "saved": "> ba\n>> *\n```bb||\n`x``c++js||\n\n"
+  },
+  {
+   "t": "> ba\n>> *\n```bb||\n```c++js||\n\n> ",
+   "li": 3,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": "> ba\n>> *\n```bb||\n``x`c++js||\n\n> ",
+   "saved": "> ba\n>> *\n```bb||\n``x`c++js||\n\n"
+  },
+  {
+   "t": ">>>> _ \n```js>>> \n```c++a\n ~~\n> ",
+   "li": 1,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">>>> _ \n`x``js>>> \n```c++a\n ~~\n> ",
+   "saved": ">>>> _ \n`x``js>>> \n```c++a\n ~~\n"
+  },
+  {
+   "t": ">>>> _ \n```js>>> \n```c++a\n ~~\n> ",
+   "li": 1,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">>>> _ \n``x`js>>> \n```c++a\n ~~\n> ",
+   "saved": ">>>> _ \n``x`js>>> \n```c++a\n ~~\n"
+  },
+  {
+   "t": ">>>> _ \n```js>>> \n```c++a\n ~~\n> ",
+   "li": 2,
+   "k": 1,
+   "prefixLen": 0,
+   "expected": ">>>> _ \n```js>>> \n`x``c++a\n ~~\n> ",
+   "saved": ">>>> _ \n```js>>> \n`x``c++a\n ~~\n"
+  },
+  {
+   "t": ">>>> _ \n```js>>> \n```c++a\n ~~\n> ",
+   "li": 2,
+   "k": 2,
+   "prefixLen": 0,
+   "expected": ">>>> _ \n```js>>> \n``x`c++a\n ~~\n> ",
+   "saved": ">>>> _ \n```js>>> \n``x`c++a\n ~~\n"
+  }
+ ]
+}

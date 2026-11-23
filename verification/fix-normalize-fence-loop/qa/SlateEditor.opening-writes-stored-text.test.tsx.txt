@@ -1,0 +1,69 @@
+import { act } from 'react';
+import {
+  afterEach, beforeEach, describe, expect, it, vi,
+} from 'vitest';
+
+import SlateEditor from '..';
+
+import { mountDom, unmountDom } from '~/components/__tests__/helpers/dom';
+import { EmojiPickerContext } from '~/components/EmojiPicker/utils';
+import markdown from '~/utils/markdown';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+vi.mock('~/providers/MarkdownProvider', async () => {
+  const { default: loaded } = await import('~/utils/markdown');
+  return { useMarkdown: () => loaded };
+});
+
+beforeEach(() => { vi.useFakeTimers(); });
+
+afterEach(() => {
+  unmountDom();
+  vi.useRealTimers();
+});
+
+const closedPicker = {
+  setOnInsert: () => {}, setShowPicker: () => {}, showPicker: false, insertEmoji: () => {},
+};
+
+const open = (text: string, partialMarkdown: boolean) => {
+  const writes: string[] = [];
+  const { parseContent, parseEmbedTitle } = markdown.interactive;
+  mountDom(
+    <EmojiPickerContext value={closedPicker}>
+      <SlateEditor
+        initialValue={text}
+        onChange={(value) => { writes.push(value); }}
+        emojiParser={markdown.interactive.parseEmoji}
+        contentParser={partialMarkdown ? parseEmbedTitle : parseContent}
+        partialMarkdown={partialMarkdown}
+        aria-label='message content'
+      />
+    </EmojiPickerContext>,
+  );
+  act(() => { vi.runOnlyPendingTimers(); });
+  return writes;
+};
+
+describe('SlateEditor opened on a stored message', () => {
+  it.each([
+    '>>> a\nb',
+    '>>> a',
+    '>>> a\n\nb',
+    '> a\n```\nfoo\n```',
+    '>>> a\n```\nfoo\n```',
+    '> a\n> b',
+    'x\n>>> a\nb',
+    'plain',
+  ])('writes %j back to the message unchanged, once, in a full-markdown box', (text) => {
+    expect(open(text, false)).toEqual([text]);
+  });
+
+  it.each([
+    '>>> a',
+    '> a',
+    '>>> a\nb',
+  ])('writes %j back to the message unchanged, once, in a single-line box', (text) => {
+    expect(open(text, true)).toEqual([text]);
+  });
+});

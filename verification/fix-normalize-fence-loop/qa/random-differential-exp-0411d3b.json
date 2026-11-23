@@ -1,0 +1,69 @@
+{
+ "seed": 20261123,
+ "n": 3000,
+ "nTyped": 800,
+ "loadFull": 1303,
+ "loadPartial": 876,
+ "normThrow": 421,
+ "normTextChange": 949,
+ "normWrites": 1,
+ "edits": 12261,
+ "skippedLines": 636,
+ "editThrow": 1844,
+ "editTextWrong": 2855,
+ "editReloadDiffers": 159,
+ "examples": {
+  "loadFull": [
+   "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b",
+   ">>> ```\n>>> ",
+   "> ||#\n_`||\n > \\",
+   "```js\\\n>>> bbjs\n \n```c++",
+   ">>> "
+  ],
+  "loadPartial": [
+   "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b",
+   ">>> ```\n>>> ",
+   "```js\\\n>>> bbjs\n \n```c++",
+   ">>> ",
+   "```js~~*||\n > >>> \n>\n```c++ ```\n>>> "
+  ],
+  "normThrow": [
+   "```c++_\n>>> *\n _\n> ```\\\n```c++ba\n``` b",
+   ">>> ```\n>>> ",
+   "```js\\\n>>> bbjs\n \n```c++",
+   "```jsa|| \n > \n>> ||\n>>>  ```\n``` ```",
+   ">>> >>> #\n``` > \n > `"
+  ],
+  "editThrow": [
+   "\"```c++_\\n>>> *\\n _\\n> ```\\\\\\n```c++ba\\n``` b\" @0:0 Error: Could not completely normalize the editor after 126 iterations! This is u",
+   "\"```c++_\\n>>> *\\n _\\n> ```\\\\\\n```c++ba\\n``` b\" @0:3 Error: Could not completely normalize the editor after 126 iterations! This is u",
+   "\"```c++_\\n>>> *\\n _\\n> ```\\\\\\n```c++ba\\n``` b\" @0:4 Error: Could not completely normalize the editor after 126 iterations! This is u",
+   "\"```c++_\\n>>> *\\n _\\n> ```\\\\\\n```c++ba\\n``` b\" @0:5 Error: Could not completely normalize the editor after 126 iterations! This is u",
+   "\"```c++_\\n>>> *\\n _\\n> ```\\\\\\n```c++ba\\n``` b\" @0:6 Error: Could not completely normalize the editor after 126 iterations! This is u"
+  ],
+  "editTextWrong": [
+   "\"```c++_\\n>>> *\\n _\\n> ```\\\\\\n```c++ba\\n``` b\" @0:1 -> \"`x``c++_\\n*\\n _\\n> ```\\\\\\n> ```c++ba\\n> ``` b\"",
+   "\"```c++_\\n>>> *\\n _\\n> ```\\\\\\n```c++ba\\n``` b\" @0:2 -> \"``x`c++_\\n*\\n _\\n> ```\\\\\\n> ```c++ba\\n> ``` b\"",
+   "\"> ||#\\n_`||\\n > \\\\\" @0:0 -> \"> x||#\\n_`||\\n> \\\\\"",
+   "\"> ||#\\n_`||\\n > \\\\\" @0:1 -> \"> |x|#\\n_`||\\n> \\\\\"",
+   "\"> ||#\\n_`||\\n > \\\\\" @0:2 -> \"> ||x#\\n_`||\\n> \\\\\""
+  ],
+  "normTextChange": [
+   "> ||#\n_`||\n > \\",
+   ">>> ",
+   ">> >>> ||\n> ~~\n>\n a\n>> \n > ",
+   "```js~~*||\n > >>> \n>\n```c++ ```\n>>> ",
+   "```#\n``` _\n _~~\n```js\n>>> a~~\n```c++"
+  ],
+  "editReloadDiffers": [
+   "x``` > \na\n>> #\n>>> ",
+   "```x > \na\n>> #\n>>> ",
+   "``` x> \na\n>> #\n>>> ",
+   "``` >x \na\n>> #\n>>> ",
+   "``` > x\na\n>> #\n>>> "
+  ],
+  "normWrites": [
+   "_\njs```js\n``` ```b\n>||#\n > ```\n```js`*||"
+  ]
+ }
+}

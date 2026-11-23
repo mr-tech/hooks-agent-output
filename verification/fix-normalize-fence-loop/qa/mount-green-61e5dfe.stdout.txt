@@ -1,0 +1,1 @@
+JSON report written to /usr/local/bin/hooks/agent-output/verification/fix-normalize-fence-loop/qa/mount-green-61e5dfe.json

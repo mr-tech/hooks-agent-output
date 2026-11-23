@@ -1,0 +1,24 @@
+{
+ "seed": 20261123,
+ "n": 3000,
+ "nTyped": 800,
+ "loadFull": 0,
+ "loadPartial": 0,
+ "normThrow": 0,
+ "normTextChange": 0,
+ "normWrites": 0,
+ "edits": 15480,
+ "skippedLines": 0,
+ "editThrow": 0,
+ "editTextWrong": 346,
+ "editReloadDiffers": 0,
+ "examples": {
+  "editTextWrong": [
+   "\"```c++_\\n>>> *\\n _\\n> ```\\\\\\n```c++ba\\n``` b\" @3:1 -> \"```c++_\\n>>> *\\n _\\n`x``\\\\\\n```c++ba\\n``` b\"",
+   "\"```c++_\\n>>> *\\n _\\n> ```\\\\\\n```c++ba\\n``` b\" @3:2 -> \"```c++_\\n>>> *\\n _\\n``x`\\\\\\n```c++ba\\n``` b\"",
+   "\"```js\\n```c++*js||\\n> _\\n> `\" @0:1 -> \"`x``js\\n```c++*js||\\n_\\n`\"",
+   "\"```js\\n```c++*js||\\n> _\\n> `\" @0:2 -> \"``x`js\\n```c++*js||\\n_\\n`\"",
+   "\"```js\\n```c++*js||\\n> _\\n> `\" @1:1 -> \"```js\\n`x``c++*js||\\n_\\n`\""
+  ]
+ }
+}

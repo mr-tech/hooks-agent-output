@@ -1,0 +1,107 @@
+// QA probe (fix-normalize-fence-loop, Phase 2). Copied into a `git archive` export as
+// src/components/SlateEditor/utils/__tests__/probe.random-differential.test.tsx and run with vitest there.
+// Writes PROBE_OUT (env) as JSON. Seeded random corpus of token-built lines; the oracles are string facts
+// (text equality; the source string with one 'x' spliced in), never computed by the code under test.
+import { createEditor, Editor, Transforms } from 'slate';
+import { withHistory } from 'slate-history';
+import { withReact } from 'slate-react';
+import { writeFileSync } from 'node:fs';
+import { it, vi } from 'vitest';
+
+import {
+  flattenNodeText, getInitialValue, withEmojis, withNormalizeNode,
+} from '..';
+
+import type { Element } from 'slate';
+
+import markdown from '~/utils/markdown';
+
+vi.mock('~/env.mjs', () => ({ env: {} }));
+
+const parse = markdown.interactive.parseEmoji;
+const SEED = Number(process.env.PROBE_SEED ?? 20261123);
+const N = Number(process.env.PROBE_N ?? 3000);
+const N_TYPED = Number(process.env.PROBE_N_TYPED ?? 800);
+
+function mulberry32(a: number) {
+  return () => {
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+const rnd = mulberry32(SEED);
+const pick = <T,>(xs: readonly T[]) => xs[Math.floor(rnd() * xs.length)];
+const LEAD = ['', '', '', '> ', '>>> ', ' > ', '>', '>> ', '```', '```js', '```c++', '``` '] as const;
+const BODY = ['a', 'b', ' ', '`', '```', '*', '_', '||', '~~', '\\', 'js', '> ', '>>> ', '#'] as const;
+
+function line() {
+  let s: string = pick(LEAD);
+  const n = Math.floor(rnd() * 4);
+  for (let i = 0; i < n; i++) s += pick(BODY);
+  return s;
+}
+function text() {
+  const n = 1 + Math.floor(rnd() * 6);
+  return Array.from({ length: n }, line).join('\n');
+}
+
+const editorFor = (t: string) => {
+  const e = withNormalizeNode(withEmojis(withHistory(withReact(createEditor()))), false, parse);
+  e.children = getInitialValue(t, parse, false);
+  return e;
+};
+
+it('probe', () => {
+  const out = {
+    seed: SEED, n: N, nTyped: N_TYPED,
+    loadFull: 0, loadPartial: 0, normThrow: 0, normTextChange: 0, normWrites: 0,
+    edits: 0, skippedLines: 0, editThrow: 0, editTextWrong: 0, editReloadDiffers: 0,
+    examples: {} as Record<string, string[]>,
+  };
+  const ex = (k: string, v: string) => {
+    out.examples[k] ??= [];
+    if (out.examples[k].length < 5) out.examples[k].push(v);
+  };
+  const corpus = Array.from({ length: N }, text);
+  corpus.forEach((t, idx) => {
+    if (flattenNodeText(getInitialValue(t, parse, false)) !== t) { out.loadFull++; ex('loadFull', t); }
+    if (flattenNodeText(getInitialValue(t, parse, true)) !== t) { out.loadPartial++; ex('loadPartial', t); }
+    const e = editorFor(t);
+    try {
+      Editor.normalize(e, { force: true });
+      if (flattenNodeText(e.children) !== t) { out.normTextChange++; ex('normTextChange', t); }
+      if (e.operations.length) { out.normWrites++; ex('normWrites', t); }
+    } catch { out.normThrow++; ex('normThrow', t); }
+    if (idx >= N_TYPED) return;
+    const lines = t.split('\n');
+    let start = 0;
+    lines.forEach((ln, li) => {
+      const loaded = getInitialValue(t, parse, false)[li] as Element;
+      const nodeText = flattenNodeText([loaded]);
+      // offset of the node's own text within the source line: the stored marker, when there is one
+      const prefixLen = loaded.type === 'blockQuote' ? (loaded.quotePrefix ?? '> ').length : 0;
+      // a line the loader does not round-trip has no source offset for its caret: counted, not typed into
+      if (nodeText !== ln) { out.skippedLines++; start += ln.length + 1; return; }
+      const contentLen = ln.length - prefixLen;
+      for (let k = 0; k <= contentLen; k++) {
+        out.edits++;
+        const ed = editorFor(t);
+        const expected = t.slice(0, start + prefixLen + k) + 'x' + t.slice(start + prefixLen + k);
+        try {
+          const point = Editor.start(ed, [li]);
+          // walk k characters forward over the line's own text
+          const target = k === 0 ? point : Editor.after(ed, point, { distance: k, unit: 'character' }) ?? Editor.end(ed, [li]);
+          Transforms.select(ed, target);
+          Transforms.insertText(ed, 'x');
+          const saved = flattenNodeText(ed.children);
+          if (saved !== expected) { out.editTextWrong++; ex('editTextWrong', `${JSON.stringify(t)} @${li}:${k} -> ${JSON.stringify(saved)}`); }
+          if (flattenNodeText(getInitialValue(saved, parse, false)) !== saved) { out.editReloadDiffers++; ex('editReloadDiffers', saved); }
+        } catch (err) { out.editThrow++; ex('editThrow', `${JSON.stringify(t)} @${li}:${k} ${String(err).slice(0, 80)}`); }
+      }
+      start += ln.length + 1;
+    });
+  });
+  writeFileSync(process.env.PROBE_OUT ?? 'probe-out.json', JSON.stringify(out, null, 1));
+}, 1_200_000);

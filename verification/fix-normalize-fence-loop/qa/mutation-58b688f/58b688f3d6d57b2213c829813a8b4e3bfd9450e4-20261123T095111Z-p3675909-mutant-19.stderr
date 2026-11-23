@@ -1,0 +1,931 @@
+stderr | src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a\nb" back to the message unchanged, once, in a full-markdown box
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a" back to the message unchanged, once, in a full-markdown box
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a\n\nb" back to the message unchanged, once, in a full-markdown box
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes "> a\n```\nfoo\n```" back to the message unchanged, once, in a full-markdown box
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a\n```\nfoo\n```" back to the message unchanged, once, in a full-markdown box
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes "> a\n> b" back to the message unchanged, once, in a full-markdown box
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes "x\n>>> a\nb" back to the message unchanged, once, in a full-markdown box
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes "plain" back to the message unchanged, once, in a full-markdown box
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a" back to the message unchanged, once, in a single-line box
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes "> a" back to the message unchanged, once, in a single-line box
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+stderr | src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a\nb" back to the message unchanged, once, in a single-line box
+An update to ForwardRef inside a test was not wrapped in act(...).
+
+When testing, code that causes React state updates should be wrapped into act(...):
+
+act(() => {
+  /* fire events that update state */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 36 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a\nb" back to the message unchanged, once, in a full-markdown box
+AssertionError: expected [ '>> a\nb' ] to deeply equal [ '>>> a\nb' ]
+
+- Expected
++ Received
+
+  [
+-   ">>> a
++   ">> a
+  b",
+  ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx:60:31
+     58|     'plain',
+     59|   ])('writes %j back to the message unchanged, once, in a full-markdow…
+     60|     expect(open(text, false)).toEqual([text]);
+       |                               ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a" back to the message unchanged, once, in a full-markdown box
+AssertionError: expected [ '>> a' ] to deeply equal [ '>>> a' ]
+
+- Expected
++ Received
+
+  [
+-   ">>> a",
++   ">> a",
+  ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx:60:31
+     58|     'plain',
+     59|   ])('writes %j back to the message unchanged, once, in a full-markdow…
+     60|     expect(open(text, false)).toEqual([text]);
+       |                               ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a\n\nb" back to the message unchanged, once, in a full-markdown box
+AssertionError: expected [ '>> a\n\nb' ] to deeply equal [ '>>> a\n\nb' ]
+
+- Expected
++ Received
+
+  [
+-   ">>> a
++   ">> a
+
+  b",
+  ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx:60:31
+     58|     'plain',
+     59|   ])('writes %j back to the message unchanged, once, in a full-markdow…
+     60|     expect(open(text, false)).toEqual([text]);
+       |                               ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes "> a\n```\nfoo\n```" back to the message unchanged, once, in a full-markdown box
+AssertionError: expected [ ' a\n```\nfoo\n```' ] to deeply equal [ '> a\n```\nfoo\n```' ]
+
+- Expected
++ Received
+
+  [
+-   "> a
++   " a
+  ```
+  foo
+  ```",
+  ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx:60:31
+     58|     'plain',
+     59|   ])('writes %j back to the message unchanged, once, in a full-markdow…
+     60|     expect(open(text, false)).toEqual([text]);
+       |                               ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes ">>> a\n```\nfoo\n```" back to the message unchanged, once, in a full-markdown box
+AssertionError: expected [ '>> a\n```\nfoo\n```' ] to deeply equal [ '>>> a\n```\nfoo\n```' ]
+
+- Expected
++ Received
+
+  [
+-   ">>> a
++   ">> a
+  ```
+  foo
+  ```",
+  ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx:60:31
+     58|     'plain',
+     59|   ])('writes %j back to the message unchanged, once, in a full-markdow…
+     60|     expect(open(text, false)).toEqual([text]);
+       |                               ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes "> a\n> b" back to the message unchanged, once, in a full-markdown box
+AssertionError: expected [ ' a\n b' ] to deeply equal [ '> a\n> b' ]
+
+- Expected
++ Received
+
+  [
+-   "> a
+- > b",
++   " a
++  b",
+  ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx:60:31
+     58|     'plain',
+     59|   ])('writes %j back to the message unchanged, once, in a full-markdow…
+     60|     expect(open(text, false)).toEqual([text]);
+       |                               ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx > SlateEditor opened on a stored message > writes "x\n>>> a\nb" back to the message unchanged, once, in a full-markdown box
+AssertionError: expected [ 'x\n>> a\nb' ] to deeply equal [ 'x\n>>> a\nb' ]
+
+- Expected
++ Received
+
+  [
+    "x
+- >>> a
++ >> a
+  b",
+  ]
+
+ ❯ src/components/SlateEditor/__tests__/SlateEditor.opening-writes-stored-text.test.tsx:60:31
+     58|     'plain',
+     59|   ])('writes %j back to the message unchanged, once, in a full-markdow…
+     60|     expect(open(text, false)).toEqual([text]);
+       |                               ^
+     61|   });
+     62|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of "> a\n```\nfoo\n```" with its text unchanged
+AssertionError: expected 'a\n```\nfoo\n```' to be '> a\n```\nfoo\n```' // Object.is equality
+
+- Expected
++ Received
+
+- > a
++ a
+  ```
+  foo
+  ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:53:28
+     51|     const editor = loadedEditor(text);
+     52|     Editor.normalize(editor, { force: true });
+     53|     expect(textOf(editor)).toBe(text);
+       |                            ^
+     54|   });
+     55|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of "> a\nb\n```\nfoo\n```" with its text unchanged
+AssertionError: expected 'a\nb\n```\nfoo\n```' to be '> a\nb\n```\nfoo\n```' // Object.is equality
+
+- Expected
++ Received
+
+- > a
++ a
+  b
+  ```
+  foo
+  ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:53:28
+     51|     const editor = loadedEditor(text);
+     52|     Editor.normalize(editor, { force: true });
+     53|     expect(textOf(editor)).toBe(text);
+       |                            ^
+     54|   });
+     55|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a\n```\nfoo\n```" with its text unchanged
+AssertionError: expected 'a\n```\nfoo\n```' to be '>>> a\n```\nfoo\n```' // Object.is equality
+
+- Expected
++ Received
+
+- >>> a
++ a
+  ```
+  foo
+  ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:53:28
+     51|     const editor = loadedEditor(text);
+     52|     Editor.normalize(editor, { force: true });
+     53|     expect(textOf(editor)).toBe(text);
+       |                            ^
+     54|   });
+     55|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a\nb" with its text unchanged
+AssertionError: expected 'a\nb' to be '>>> a\nb' // Object.is equality
+
+- Expected
++ Received
+
+- >>> a
++ a
+  b
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:53:28
+     51|     const editor = loadedEditor(text);
+     52|     Editor.normalize(editor, { force: true });
+     53|     expect(textOf(editor)).toBe(text);
+       |                            ^
+     54|   });
+     55|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a" with its text unchanged
+AssertionError: expected 'a' to be '>>> a' // Object.is equality
+
+Expected: ">>> a"
+Received: "a"
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:53:28
+     51|     const editor = loadedEditor(text);
+     52|     Editor.normalize(editor, { force: true });
+     53|     expect(textOf(editor)).toBe(text);
+       |                            ^
+     54|   });
+     55|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a\n\nb" with its text unchanged
+AssertionError: expected 'a\n\nb' to be '>>> a\n\nb' // Object.is equality
+
+- Expected
++ Received
+
+- >>> a
++ a
+
+  b
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:53:28
+     51|     const editor = loadedEditor(text);
+     52|     Editor.normalize(editor, { force: true });
+     53|     expect(textOf(editor)).toBe(text);
+       |                            ^
+     54|   });
+     55|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of ">>> a\n> b" with its text unchanged
+AssertionError: expected 'a\nb' to be '>>> a\n> b' // Object.is equality
+
+- Expected
++ Received
+
+- >>> a
+- > b
++ a
++ b
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:53:28
+     51|     const editor = loadedEditor(text);
+     52|     Editor.normalize(editor, { force: true });
+     53|     expect(textOf(editor)).toBe(text);
+       |                            ^
+     54|   });
+     55|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > settles on a forced normalise of "> a\n```js\nfoo\n```" with its text unchanged
+AssertionError: expected 'a\n```js\nfoo\n```' to be '> a\n```js\nfoo\n```' // Object.is equality
+
+- Expected
++ Received
+
+- > a
++ a
+  ```js
+  foo
+  ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:53:28
+     51|     const editor = loadedEditor(text);
+     52|     Editor.normalize(editor, { force: true });
+     53|     expect(textOf(editor)).toBe(text);
+       |                            ^
+     54|   });
+     55|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 0 at its start
+AssertionError: expected 'xa\n```\nfoo\n```' to be '> xa\n```\nfoo\n```' // Object.is equality
+
+- Expected
++ Received
+
+- > xa
++ xa
+  ```
+  foo
+  ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:69:28
+     67|     Transforms.select(editor, edge === 'start' ? Editor.start(editor, …
+     68|     Transforms.insertText(editor, 'x');
+     69|     expect(textOf(editor)).toBe(expected);
+       |                            ^
+     70|   });
+     71|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 0 at its end
+AssertionError: expected 'ax\n```\nfoo\n```' to be '> ax\n```\nfoo\n```' // Object.is equality
+
+- Expected
++ Received
+
+- > ax
++ ax
+  ```
+  foo
+  ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:69:28
+     67|     Transforms.select(editor, edge === 'start' ? Editor.start(editor, …
+     68|     Transforms.insertText(editor, 'x');
+     69|     expect(textOf(editor)).toBe(expected);
+       |                            ^
+     70|   });
+     71|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 1 at its start
+AssertionError: expected 'a\nx```\nfoo\n```' to be '> a\nx```\nfoo\n```' // Object.is equality
+
+- Expected
++ Received
+
+- > a
++ a
+  x```
+  foo
+  ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:69:28
+     67|     Transforms.select(editor, edge === 'start' ? Editor.start(editor, …
+     68|     Transforms.insertText(editor, 'x');
+     69|     expect(textOf(editor)).toBe(expected);
+       |                            ^
+     70|   });
+     71|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 1 at its end
+AssertionError: expected 'a\n```x\nfoo\n```' to be '> a\n```x\nfoo\n```' // Object.is equality
+
+- Expected
++ Received
+
+- > a
++ a
+  ```x
+  foo
+  ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:69:28
+     67|     Transforms.select(editor, edge === 'start' ? Editor.start(editor, …
+     68|     Transforms.insertText(editor, 'x');
+     69|     expect(textOf(editor)).toBe(expected);
+       |                            ^
+     70|   });
+     71|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 2 at its start
+AssertionError: expected 'a\n```\nxfoo\n```' to be '> a\n```\nxfoo\n```' // Object.is equality
+
+- Expected
++ Received
+
+- > a
++ a
+  ```
+  xfoo
+  ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:69:28
+     67|     Transforms.select(editor, edge === 'start' ? Editor.start(editor, …
+     68|     Transforms.insertText(editor, 'x');
+     69|     expect(textOf(editor)).toBe(expected);
+       |                            ^
+     70|   });
+     71|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 2 at its end
+AssertionError: expected 'a\n```\nfoox\n```' to be '> a\n```\nfoox\n```' // Object.is equality
+
+- Expected
++ Received
+
+- > a
++ a
+  ```
+  foox
+  ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:69:28
+     67|     Transforms.select(editor, edge === 'start' ? Editor.start(editor, …
+     68|     Transforms.insertText(editor, 'x');
+     69|     expect(textOf(editor)).toBe(expected);
+       |                            ^
+     70|   });
+     71|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 3 at its start
+AssertionError: expected 'a\n```\nfoo\nx```' to be '> a\n```\nfoo\nx```' // Object.is equality
+
+- Expected
++ Received
+
+- > a
++ a
+  ```
+  foo
+  x```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:69:28
+     67|     Transforms.select(editor, edge === 'start' ? Editor.start(editor, …
+     68|     Transforms.insertText(editor, 'x');
+     69|     expect(textOf(editor)).toBe(expected);
+       |                            ^
+     70|   });
+     71|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed into a quote plus a bare fence on line 3 at its end
+AssertionError: expected 'a\n```\nfoo\n```x' to be '> a\n```\nfoo\n```x' // Object.is equality
+
+- Expected
++ Received
+
+- > a
++ a
+  ```
+  foo
+  ```x
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:69:28
+     67|     Transforms.select(editor, edge === 'start' ? Editor.start(editor, …
+     68|     Transforms.insertText(editor, 'x');
+     69|     expect(textOf(editor)).toBe(expected);
+       |                            ^
+     70|   });
+     71|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > accepts a character typed after a multi-line quote marker followed by a bare fence
+AssertionError: expected 'a\n```\nfoox\n```' to be '>>> a\n```\nfoox\n```' // Object.is equality
+
+- Expected
++ Received
+
+- >>> a
++ a
+  ```
+  foox
+  ```
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:76:28
+     74|     Transforms.select(editor, Editor.end(editor, [2]));
+     75|     Transforms.insertText(editor, 'x');
+     76|     expect(textOf(editor)).toBe('>>> a\n```\nfoox\n```');
+       |                            ^
+     77|   });
+     78|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives each line of "> a\n```c++\nfoo\n```" the language it loads with after a forced normalise
+AssertionError: expected [ 'a\n```c++\nfoo\n```', …(2) ] to deeply equal [ '> a\n```c++\nfoo\n```', …(2) ]
+
+- Expected
++ Received
+
+@@ -1,7 +1,7 @@
+  [
+-   "> a
++   "a
+  ```c++
+  foo
+  ```",
+    [
+      "",
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:88:55
+     86|     const loaded = langsOf(editor);
+     87|     Editor.normalize(editor, { force: true });
+     88|     expect([textOf(editor), loaded, langsOf(editor)]).toEqual([text, l…
+       |                                                       ^
+     89|   });
+     90|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > gives each line of "> a\n``` js\nfoo\n```" the language it loads with after a forced normalise
+AssertionError: expected [ 'a\n``` js\nfoo\n```', …(2) ] to deeply equal [ '> a\n``` js\nfoo\n```', …(2) ]
+
+- Expected
++ Received
+
+@@ -1,7 +1,7 @@
+  [
+-   "> a
++   "a
+  ``` js
+  foo
+  ```",
+    [
+      "",
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:88:55
+     86|     const loaded = langsOf(editor);
+     87|     Editor.normalize(editor, { force: true });
+     88|     expect([textOf(editor), loaded, langsOf(editor)]).toEqual([text, l…
+       |                                                       ^
+     89|   });
+     90|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps every line after a multi-line quote marker as a quote line
+AssertionError: expected [ 'div', 'div', 'div' ] to deeply equal [ 'blockQuote', 'blockQuote', …(1) ]
+
+- Expected
++ Received
+
+  [
+-   "blockQuote",
+-   "blockQuote",
+-   "blockQuote",
++   "div",
++   "div",
++   "div",
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:94:29
+     92|     const editor = loadedEditor('>>> a\nb\nc');
+     93|     Editor.normalize(editor, { force: true });
+     94|     expect(typesOf(editor)).toEqual(['blockQuote', 'blockQuote', 'bloc…
+       |                             ^
+     95|   });
+     96|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[27/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > writes no text to the lines a typed multi-line quote marker takes in
+AssertionError: expected [ '>>> a\n b\nc', Set{ +0 } ] to deeply equal [ '>>> a\n> b\nc', Set{ +0 } ]
+
+- Expected
++ Received
+
+  [
+    ">>> a
+- > b
++  b
+  c",
+    Set {
+      0,
+    },
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:113:8
+    111|     const textWrites = editor.operations.filter((op) => op.type !== 's…
+    112|     expect([textOf(editor), new Set(textWrites.map((op) => (op as { pa…
+    113|       .toEqual(['>>> a\n> b\nc', new Set([0])]);
+       |        ^
+    114|   });
+    115|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[28/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > starts a quoted line with no marker when a line of a multi-line quote is split
+AssertionError: expected [ 'a\nb', [ 'div', 'div' ] ] to deeply equal [ '>>> a\nb', …(1) ]
+
+- Expected
++ Received
+
+  [
+-   ">>> a
++   "a
+  b",
+    [
+-     "blockQuote",
+-     "blockQuote",
++     "div",
++     "div",
+    ],
+  ]
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:120:47
+    118|     Transforms.select(editor, { path: [0, 0], offset: 1 });
+    119|     editor.insertBreak();
+    120|     expect([textOf(editor), typesOf(editor)]).toEqual(['>>> a\nb', ['b…
+       |                                               ^
+    121|   });
+    122|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[29/36]⎯
+
+ FAIL  |dom| src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx > full-markdown editor holding quote lines and code fences > keeps a later multi-line quote marker when a multi-line quote is opened above it
+AssertionError: expected '>>> a\n>> c' to be '>>> a\n>>> c' // Object.is equality
+
+- Expected
++ Received
+
+  >>> a
+- >>> c
++ >> c
+
+ ❯ src/components/SlateEditor/utils/__tests__/withNormalizeNode.quote-and-fence-lines-settle.test.tsx:133:28
+    131|     Transforms.select(editor, Editor.start(editor, [0]));
+    132|     Transforms.insertText(editor, '>>> ');
+    133|     expect(textOf(editor)).toBe('>>> a\n>>> c');
+       |                            ^
+    134|   });
+    135|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[30/36]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads ">>> a\nb" with its text unchanged
+AssertionError: expected '>> a\nb' to be '>>> a\nb' // Object.is equality
+
+- Expected
++ Received
+
+- >>> a
++ >> a
+  b
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:32:43
+     30|     '```\n>>> a\n```',
+     31|   ])('loads %j with its text unchanged', (text) => {
+     32|     expect(flattenNodeText(loaded(text))).toBe(text);
+       |                                           ^
+     33|   });
+     34|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[31/36]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads ">>> a" with its text unchanged
+AssertionError: expected '>> a' to be '>>> a' // Object.is equality
+
+Expected: ">>> a"
+Received: ">> a"
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:32:43
+     30|     '```\n>>> a\n```',
+     31|   ])('loads %j with its text unchanged', (text) => {
+     32|     expect(flattenNodeText(loaded(text))).toBe(text);
+       |                                           ^
+     33|   });
+     34|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[32/36]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads ">>> a\n\nb" with its text unchanged
+AssertionError: expected '>> a\n\nb' to be '>>> a\n\nb' // Object.is equality
+
+- Expected
++ Received
+
+- >>> a
++ >> a
+
+  b
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:32:43
+     30|     '```\n>>> a\n```',
+     31|   ])('loads %j with its text unchanged', (text) => {
+     32|     expect(flattenNodeText(loaded(text))).toBe(text);
+       |                                           ^
+     33|   });
+     34|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[33/36]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads ">>> a\n> b" with its text unchanged
+AssertionError: expected '>> a\n b' to be '>>> a\n> b' // Object.is equality
+
+- Expected
++ Received
+
+- >>> a
++ >> a
+- > b
++  b
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:32:43
+     30|     '```\n>>> a\n```',
+     31|   ])('loads %j with its text unchanged', (text) => {
+     32|     expect(flattenNodeText(loaded(text))).toBe(text);
+       |                                           ^
+     33|   });
+     34|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[34/36]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "x\n>>> a\nb" with its text unchanged
+AssertionError: expected 'x\n>> a\nb' to be 'x\n>>> a\nb' // Object.is equality
+
+- Expected
++ Received
+
+  x
+- >>> a
++ >> a
+  b
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:32:43
+     30|     '```\n>>> a\n```',
+     31|   ])('loads %j with its text unchanged', (text) => {
+     32|     expect(flattenNodeText(loaded(text))).toBe(text);
+       |                                           ^
+     33|   });
+     34|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[35/36]⎯
+
+ FAIL  |node| src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts > editor initial value built from a stored message > loads "> a\n> b" with its text unchanged
+AssertionError: expected ' a\n b' to be '> a\n> b' // Object.is equality
+
+- Expected
++ Received
+
+- > a
++  a
+- > b
++  b
+
+ ❯ src/components/SlateEditor/utils/__tests__/getInitialValue.stored-text-loads-unchanged.test.ts:32:43
+     30|     '```\n>>> a\n```',
+     31|   ])('loads %j with its text unchanged', (text) => {
+     32|     expect(flattenNodeText(loaded(text))).toBe(text);
+       |                                           ^
+     33|   });
+     34|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[36/36]⎯
+
